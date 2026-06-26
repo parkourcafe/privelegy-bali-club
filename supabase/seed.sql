@@ -6,6 +6,7 @@ insert into districts (slug, name, is_deep) values
 on conflict (slug) do nothing;
 
 insert into venues (id, slug, name, category, district, address, gmaps_url, tier, is_sponsored) values
+  ('v_home','home-cafe','Home Cafe','cafe','canggu','Canggu (see map)','https://maps.app.goo.gl/v5HGaAzKoXdvQh6i9','editorial_seed',false),
   ('v_amber','amber-cafe','Amber Specialty Coffee','cafe','canggu','Jl. Pantai Berawa, Canggu','https://maps.google.com/?q=Canggu+coffee','editorial_seed',false),
   ('v_loka','loka-brunch','Loka Brunch House','restaurant','canggu','Jl. Batu Bolong, Canggu','https://maps.google.com/?q=Canggu+brunch','editorial_seed',false),
   ('v_tide','tide-surf','Tide Surf Co.','surf','canggu','Echo Beach, Canggu','https://maps.google.com/?q=Echo+Beach+surf','launch',false),
@@ -17,6 +18,7 @@ insert into venues (id, slug, name, category, district, address, gmaps_url, tier
 on conflict (id) do nothing;
 
 insert into perks (id, venue_slug, title, terms) values
+  ('p_home','home-cafe','Free dessert with any main','One per guest. Dine-in only.'),
   ('p_amber','amber-cafe','Free filter coffee with any breakfast','One per guest. Dine-in only.'),
   ('p_loka','loka-brunch','15% off the full bill before 11:00','One per guest, per day.'),
   ('p_tide','tide-surf','Free board upgrade on a 2h rental','Subject to availability.'),
@@ -28,6 +30,7 @@ insert into perks (id, venue_slug, title, terms) values
 on conflict (id) do nothing;
 
 insert into plan_entries (district, venue_slug, slot, rank, blurb) values
+  ('canggu','home-cafe','morning',5,'Cozy local cafe — order a main, dessert is on the house.'),
   ('canggu','amber-cafe','morning',10,'Start slow. Best filter in Berawa, opens 7:00.'),
   ('canggu','loka-brunch','morning',20,'Long brunch if you skipped the early coffee.'),
   ('canggu','tide-surf','day',10,'Beginner-friendly break, boards on the sand.'),
