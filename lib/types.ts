@@ -75,3 +75,23 @@ export interface PartnerReport {
   externallyAttributed: number; // brought by us (had an external source before the visit)
   inVenue: number; // redeemed but no external source — engagement, not acquisition
 }
+
+// Phase 0 operator dashboard (§22 go/no-go).
+export interface Phase0VenueStat {
+  slug: string;
+  name: string;
+  perkOpens: number;
+  redemptions: number;
+  externallyAttributed: number;
+  inVenue: number;
+}
+export interface Phase0Overview {
+  funnel: {
+    sourceScan: number;
+    landingOpen: number;
+    venueCardOpen: number;
+    perkOpen: number;
+    redemption: number;
+  };
+  venues: Phase0VenueStat[];
+}

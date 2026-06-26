@@ -1,6 +1,14 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES } from "./seed";
-import type { Venue, Perk, PlanEntry, Slot, RedemptionResult, PartnerReport } from "./types";
+import type {
+  Venue,
+  Perk,
+  PlanEntry,
+  Slot,
+  RedemptionResult,
+  PartnerReport,
+  Phase0Overview,
+} from "./types";
 import { SLOTS } from "./types";
 
 export interface VenueWithPerk extends Venue {
@@ -196,5 +204,48 @@ export async function getPartnerReport(venueSlug: string): Promise<PartnerReport
     redemptions: Number(r.redemptions ?? 0),
     externallyAttributed: Number(r.externally_attributed ?? 0),
     inVenue: Number(r.in_venue ?? 0),
+  };
+}
+
+// Flat list of active Canggu venues with their perk — for the admin Field Kit.
+export async function getVenuesList(): Promise<VenueWithPerk[]> {
+  const plan = await getCangguPlan();
+  const seen = new Set<string>();
+  const out: VenueWithPerk[] = [];
+  for (const block of plan) {
+    for (const v of block.venues) {
+      if (seen.has(v.slug)) continue;
+      seen.add(v.slug);
+      out.push(v);
+    }
+  }
+  return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// Phase 0 operator dashboard data (§22). Returns null if unavailable.
+export async function getPhase0Overview(): Promise<Phase0Overview | null> {
+  const sb = anonClient();
+  if (!sb) return null;
+  const { data, error } = await sb.rpc("phase0_overview");
+  if (error || !data) return null;
+  const d = data as Record<string, unknown>;
+  const f = (d.funnel ?? {}) as Record<string, unknown>;
+  const venues = (d.venues ?? []) as Record<string, unknown>[];
+  return {
+    funnel: {
+      sourceScan: Number(f.source_scan ?? 0),
+      landingOpen: Number(f.landing_open ?? 0),
+      venueCardOpen: Number(f.venue_card_open ?? 0),
+      perkOpen: Number(f.perk_open ?? 0),
+      redemption: Number(f.redemption ?? 0),
+    },
+    venues: venues.map((v) => ({
+      slug: String(v.slug),
+      name: String(v.name),
+      perkOpens: Number(v.perk_opens ?? 0),
+      redemptions: Number(v.redemptions ?? 0),
+      externallyAttributed: Number(v.externally_attributed ?? 0),
+      inVenue: Number(v.in_venue ?? 0),
+    })),
   };
 }
