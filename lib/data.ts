@@ -1,11 +1,7 @@
-import { anonClient, serviceClient, isSupabaseConfigured } from "./supabase/server";
+import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES } from "./seed";
 import type { Venue, Perk, PlanEntry, Slot, RedemptionResult } from "./types";
 import { SLOTS } from "./types";
-import { customAlphabet } from "nanoid";
-
-// 6-digit numeric confirm code shown to staff at the counter.
-const confirmCode = customAlphabet("0123456789", 6);
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -107,8 +103,9 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
 }
 
 // ---- Write layer (redemption, G1) ----
-// Requires the service role. Without it we cannot prove a redemption, so we
-// fail loudly rather than pretend.
+// Goes through the record_redemption SECURITY DEFINER RPC (migration 0002) so
+// no service_role secret is needed. Without a DB we fail loudly rather than
+// fake a proof.
 
 export async function recordRedemption(input: {
   guestRef: string;
@@ -116,73 +113,35 @@ export async function recordRedemption(input: {
   consentGranted: boolean;
   userAgent: string;
 }): Promise<RedemptionResult> {
-  const venue = await getVenueWithPerk(input.venueSlug);
-  if (!venue) return { ok: false, error: "venue_not_found" };
+  const sb = anonClient();
+  if (!sb) return { ok: false, error: "redemption_storage_unconfigured" };
 
-  const code = confirmCode();
-  const ts = new Date().toISOString();
-
-  const sb = serviceClient();
-  if (!sb) {
-    // No DB configured: cannot record proof. Return a clear, non-faked error.
-    return { ok: false, error: "redemption_storage_unconfigured" };
-  }
-
-  // 1) Resolve or create the anonymous guest identity.
-  const { data: existing } = await sb
-    .from("guest_refs")
-    .select("id")
-    .eq("ref", input.guestRef)
-    .maybeSingle();
-
-  let guestRefId = existing?.id as string | undefined;
-  if (!guestRefId) {
-    const { data: created, error: gErr } = await sb
-      .from("guest_refs")
-      .insert({ ref: input.guestRef, first_district: "canggu" })
-      .select("id")
-      .single();
-    if (gErr) return { ok: false, error: "guest_ref_failed" };
-    guestRefId = created.id as string;
-
-    // 2) Append the consent record (privacy: explicit, append-only).
-    await sb.from("consent_log").insert({
-      guest_ref_id: guestRefId,
-      consent_type: "redemption_tracking_v1",
-      granted: input.consentGranted,
-      user_agent: input.userAgent.slice(0, 300),
-    });
-  }
-
-  if (!input.consentGranted) return { ok: false, error: "consent_required" };
-
-  // 3) Write the redemption event — the core proof artifact.
-  const { error: rErr } = await sb.from("redemption_events").insert({
-    guest_ref_id: guestRefId,
-    venue_slug: input.venueSlug,
-    perk_id: venue.perk?.id ?? null,
-    confirm_code: code,
-    source: "venue_qr",
-    ts,
+  const { data, error } = await sb.rpc("record_redemption", {
+    p_guest_ref: input.guestRef,
+    p_venue_slug: input.venueSlug,
+    p_consent_granted: input.consentGranted,
+    p_user_agent: input.userAgent,
   });
-  if (rErr) return { ok: false, error: "redemption_write_failed" };
+
+  if (error) return { ok: false, error: "redemption_write_failed" };
+
+  const r = (data ?? {}) as Record<string, unknown>;
+  if (!r.ok) return { ok: false, error: (r.error as string) ?? "redemption_write_failed" };
 
   return {
     ok: true,
-    confirmCode: code,
-    venueName: venue.name,
-    perkTitle: venue.perk?.title ?? "Perk",
-    ts,
+    confirmCode: r.confirm_code as string,
+    venueName: r.venue_name as string,
+    perkTitle: r.perk_title as string,
+    ts: r.ts as string,
   };
 }
 
 // Aggregate-by-default partner view (privacy). Returns a count only.
 export async function getVenueRedemptionCount(venueSlug: string): Promise<number | null> {
-  const sb = serviceClient();
+  const sb = anonClient();
   if (!sb) return null;
-  const { count } = await sb
-    .from("redemption_events")
-    .select("*", { count: "exact", head: true })
-    .eq("venue_slug", venueSlug);
-  return count ?? 0;
+  const { data, error } = await sb.rpc("venue_redemption_count", { p_venue_slug: venueSlug });
+  if (error) return null;
+  return (data as number) ?? 0;
 }
