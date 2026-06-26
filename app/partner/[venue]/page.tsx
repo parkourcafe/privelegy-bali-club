@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { getVenueWithPerk, getVenueRedemptionCount } from "@/lib/data";
+import { getVenueWithPerk, getPartnerReport, getVenueRedemptionCount } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-// NOTE: No partner auth yet — this is intentionally deferred (auth/roles are a
-// later gate, master-doc §19). For G1 this view exists to show a real partner
-// their real redemption count: aggregate by default (privacy). Do not expose
-// per-guest detail here.
+// NOTE: No partner auth yet — intentionally deferred (auth/roles are a later
+// gate, master-doc §19). This view shows a partner their real numbers as a
+// causal chain (Reach → Intent → Proof, §11): aggregate by default (privacy),
+// and crucially it separates redemptions we ATTRIBUTED to an external source
+// (we brought them) from in-venue redemptions (engagement only).
 
 export default async function PartnerPage({
   params,
@@ -23,33 +24,61 @@ export default async function PartnerPage({
     );
   }
 
-  const count = await getVenueRedemptionCount(slug);
+  const report = await getPartnerReport(slug);
+  // Fallback when the attribution migration isn't applied yet.
+  const fallbackCount = report ? null : await getVenueRedemptionCount(slug);
 
   return (
     <main className="mx-auto w-full max-w-md px-4 py-10">
       <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-        Partner view
+        Partner report
       </p>
       <h1 className="mt-1 text-2xl font-bold">{venue.name}</h1>
       <p className="text-xs text-stone-500">{venue.address}</p>
 
-      <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-6 text-center shadow-sm">
-        <p className="text-xs uppercase tracking-widest text-stone-500">
-          Guests who redeemed here
-        </p>
-        {count === null ? (
-          <p className="mt-2 text-sm text-stone-400">
-            Backend not configured — no live count yet.
+      {report ? (
+        <>
+          <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">
+            <p className="text-xs uppercase tracking-widest text-emerald-700">
+              Guests we brought you
+            </p>
+            <p className="mt-1 text-6xl font-bold tabular-nums text-emerald-700">
+              {report.externallyAttributed}
+            </p>
+            <p className="mt-2 text-xs text-emerald-700/80">
+              Redeemed here after arriving from a villa / coliving / Reels link —
+              not walk-ins who were already inside.
+            </p>
+          </div>
+
+          <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+            <Stat label="Card opens" value={report.venueCardOpens} sub="Reach" />
+            <Stat label="Perk opens" value={report.perkOpens} sub="Intent" />
+            <Stat label="Redemptions" value={report.redemptions} sub="Proof" />
+          </div>
+
+          <p className="mt-4 text-xs text-stone-500">
+            Of {report.redemptions} total redemptions, {report.externallyAttributed}{" "}
+            were attributed to us and {report.inVenue} were in-venue (counted as
+            engagement, not acquisition).
           </p>
-        ) : (
-          <p className="mt-1 text-6xl font-bold tabular-nums text-stone-900">
-            {count}
+        </>
+      ) : (
+        <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-6 text-center shadow-sm">
+          <p className="text-xs uppercase tracking-widest text-stone-500">
+            Guests who redeemed here
           </p>
-        )}
-        <p className="mt-2 text-xs text-stone-500">
-          Each is a real guest who showed up because of Bali Privilege.
-        </p>
-      </div>
+          {fallbackCount === null ? (
+            <p className="mt-2 text-sm text-stone-400">
+              Backend not configured — no live count yet.
+            </p>
+          ) : (
+            <p className="mt-1 text-6xl font-bold tabular-nums text-stone-900">
+              {fallbackCount}
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="mt-6 rounded-xl bg-stone-100 p-4 text-sm text-stone-600">
         You pay nothing until these are real and you can see them. Aggregate only
@@ -71,5 +100,15 @@ export default async function PartnerPage({
         </Link>
       </div>
     </main>
+  );
+}
+
+function Stat({ label, value, sub }: { label: string; value: number; sub: string }) {
+  return (
+    <div className="rounded-xl border border-stone-200 bg-white p-3">
+      <p className="text-[10px] uppercase tracking-widest text-stone-400">{sub}</p>
+      <p className="mt-1 text-2xl font-bold tabular-nums">{value}</p>
+      <p className="text-[11px] text-stone-500">{label}</p>
+    </div>
   );
 }

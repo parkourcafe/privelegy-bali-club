@@ -1,13 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
+import SourceCapture from "./SourceCapture";
 
+// Field-test label (§6.5): neutral, district-scoped, NO "Privilege/Club/Card".
+// Using the brand name on stickers would dirty the test — we'd measure reaction
+// to a "club card", not willingness to redeem a perk.
 export const metadata: Metadata = {
-  title: "Bali Privilege — Canggu",
+  title: "Canggu Perks Map",
   description:
-    "Plan your Bali trip, then go deep in Canggu: a curated day with real perks at hand-picked spots.",
+    "A curated Canggu day with real perks at hand-picked local spots. Free to use.",
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "Bali Privilege", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Canggu Perks", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
@@ -23,6 +27,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-stone-50 text-stone-900">
         {children}
+        <SourceCapture />
         <ServiceWorkerRegister />
       </body>
     </html>

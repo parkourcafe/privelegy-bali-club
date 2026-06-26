@@ -14,6 +14,17 @@ export const CANGGU_DISTRICT = {
 
 export const VENUES: Venue[] = [
   {
+    id: "v_home",
+    slug: "home-cafe",
+    name: "Home Cafe",
+    category: "cafe",
+    district: "canggu",
+    address: "Canggu (see map)",
+    gmapsUrl: "https://maps.app.goo.gl/v5HGaAzKoXdvQh6i9",
+    tier: "editorial_seed",
+    isSponsored: false,
+  },
+  {
     id: "v_amber",
     slug: "amber-cafe",
     name: "Amber Specialty Coffee",
@@ -104,6 +115,7 @@ export const VENUES: Venue[] = [
 ];
 
 export const PERKS: Perk[] = [
+  { id: "p_home", venueSlug: "home-cafe", title: "Free dessert with any main", terms: "One per guest. Dine-in only." },
   { id: "p_amber", venueSlug: "amber-cafe", title: "Free filter coffee with any breakfast", terms: "One per guest. Dine-in only." },
   { id: "p_loka", venueSlug: "loka-brunch", title: "15% off the full bill before 11:00", terms: "One per guest, per day." },
   { id: "p_tide", venueSlug: "tide-surf", title: "Free board upgrade on a 2h rental", terms: "Subject to availability." },
@@ -115,6 +127,7 @@ export const PERKS: Perk[] = [
 ];
 
 export const PLAN_ENTRIES: PlanEntry[] = [
+  { venueSlug: "home-cafe", slot: "morning", rank: 5, blurb: "Cozy local cafe — order a main, dessert is on the house." },
   { venueSlug: "amber-cafe", slot: "morning", rank: 10, blurb: "Start slow. Best filter in Berawa, opens 7:00." },
   { venueSlug: "loka-brunch", slot: "morning", rank: 20, blurb: "Long brunch if you skipped the early coffee." },
   { venueSlug: "tide-surf", slot: "day", rank: 10, blurb: "Beginner-friendly break, boards on the sand." },

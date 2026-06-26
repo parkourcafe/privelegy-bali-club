@@ -63,5 +63,15 @@ export interface RedemptionResult {
   venueName?: string;
   perkTitle?: string;
   ts?: string;
+  externallyAttributed?: boolean;
   error?: string;
+}
+
+// Reach / Intent / Proof — the partner report shape (§11). Aggregate only.
+export interface PartnerReport {
+  venueCardOpens: number;
+  perkOpens: number;
+  redemptions: number;
+  externallyAttributed: number; // brought by us (had an external source before the visit)
+  inVenue: number; // redeemed but no external source — engagement, not acquisition
 }

@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 // Web-first, but installable: tourists add it to the home screen on the island.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Bali Privilege — Canggu",
-    short_name: "Bali Privilege",
+    name: "Canggu Perks Map",
+    short_name: "Canggu Perks",
     description: "A curated Canggu day with real perks.",
     start_url: "/",
     display: "standalone",

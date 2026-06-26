@@ -20,7 +20,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-8">
       <header className="mb-8">
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-          Bali-wide planning · Canggu-deep
+          Canggu · free perks map
         </p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">Your Canggu day</h1>
         <p className="mt-2 text-stone-600">

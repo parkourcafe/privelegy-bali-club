@@ -1,6 +1,6 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES } from "./seed";
-import type { Venue, Perk, PlanEntry, Slot, RedemptionResult } from "./types";
+import type { Venue, Perk, PlanEntry, Slot, RedemptionResult, PartnerReport } from "./types";
 import { SLOTS } from "./types";
 
 export interface VenueWithPerk extends Venue {
@@ -134,6 +134,7 @@ export async function recordRedemption(input: {
     venueName: r.venue_name as string,
     perkTitle: r.perk_title as string,
     ts: r.ts as string,
+    externallyAttributed: Boolean(r.externally_attributed),
   };
 }
 
@@ -144,4 +145,56 @@ export async function getVenueRedemptionCount(venueSlug: string): Promise<number
   const { data, error } = await sb.rpc("venue_redemption_count", { p_venue_slug: venueSlug });
   if (error) return null;
   return (data as number) ?? 0;
+}
+
+// ---- Source attribution + funnel (§22 / §18) — all best-effort ----
+// These never throw to the caller: attribution is valuable but must never block
+// or break the redemption ring. If the RPCs don't exist yet (migration not
+// applied), they fail silently and the ring keeps working.
+
+export async function setGuestSource(guestRef: string, source: string): Promise<void> {
+  const sb = anonClient();
+  if (!sb || !guestRef || !source) return;
+  await sb.rpc("set_guest_source", { p_guest_ref: guestRef, p_source: source }).then(
+    () => {},
+    () => {}
+  );
+}
+
+export async function logEvent(input: {
+  type: string;
+  guestRef?: string;
+  venueSlug?: string;
+  source?: string;
+}): Promise<void> {
+  const sb = anonClient();
+  if (!sb || !input.type) return;
+  await sb
+    .rpc("log_event", {
+      p_type: input.type,
+      p_guest_ref: input.guestRef ?? null,
+      p_venue_slug: input.venueSlug ?? null,
+      p_source: input.source ?? null,
+    })
+    .then(
+      () => {},
+      () => {}
+    );
+}
+
+// Partner Reach/Intent/Proof report. Returns null if unavailable (e.g. migration
+// not applied yet) so callers can fall back to a plain count.
+export async function getPartnerReport(venueSlug: string): Promise<PartnerReport | null> {
+  const sb = anonClient();
+  if (!sb) return null;
+  const { data, error } = await sb.rpc("partner_report", { p_venue_slug: venueSlug });
+  if (error || !data) return null;
+  const r = data as Record<string, unknown>;
+  return {
+    venueCardOpens: Number(r.venue_card_opens ?? 0),
+    perkOpens: Number(r.perk_opens ?? 0),
+    redemptions: Number(r.redemptions ?? 0),
+    externallyAttributed: Number(r.externally_attributed ?? 0),
+    inVenue: Number(r.in_venue ?? 0),
+  };
 }

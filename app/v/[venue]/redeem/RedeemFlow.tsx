@@ -1,8 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import { getOrCreateGuestRef } from "@/lib/guest";
+import { useEffect, useState } from "react";
+import { getOrCreateGuestRef, getStoredSource } from "@/lib/guest";
 import type { RedemptionResult } from "@/lib/types";
+
+function postEvent(type: string, venueSlug: string) {
+  fetch("/api/event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      type,
+      guestRef: getOrCreateGuestRef(),
+      venueSlug,
+      source: getStoredSource() ?? undefined,
+    }),
+    keepalive: true,
+  }).catch(() => {});
+}
 
 type Phase = "idle" | "consent" | "submitting" | "done" | "error";
 
@@ -27,6 +41,16 @@ export default function RedeemFlow({
   const [phase, setPhase] = useState<Phase>("idle");
   const [result, setResult] = useState<RedemptionResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
+
+  // Funnel: opening this page is a venue_card_open (§18).
+  useEffect(() => {
+    postEvent("venue_card_open", venueSlug);
+  }, [venueSlug]);
+
+  function startRedeem() {
+    postEvent("perk_open", venueSlug);
+    setPhase("consent");
+  }
 
   async function submit(consentGranted: boolean) {
     setPhase("submitting");
@@ -71,7 +95,7 @@ export default function RedeemFlow({
             {result.ts ? new Date(result.ts).toLocaleTimeString() : ""}
           </p>
         </div>
-        <p className="mt-3 text-xs opacity-80">Bali Privilege · +1 for {venueName}</p>
+        <p className="mt-3 text-xs opacity-80">Canggu Perks · +1 for {venueName}</p>
       </div>
     );
   }
@@ -118,7 +142,7 @@ export default function RedeemFlow({
 
   return (
     <button
-      onClick={() => setPhase("consent")}
+      onClick={startRedeem}
       disabled={phase === "submitting"}
       className="mt-5 w-full rounded-xl bg-cyan-700 py-4 text-lg font-semibold text-white hover:bg-cyan-800 disabled:opacity-60"
     >
