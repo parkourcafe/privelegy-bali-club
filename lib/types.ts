@@ -63,6 +63,19 @@ export interface PlanEntry {
   blurb: string; // opinionated one-liner — this is the "deep" curation
 }
 
+// Curated routes (§8): an ordered sequence of venues through a day/theme.
+export interface RouteStopDef {
+  venueSlug: string;
+  note?: string;
+}
+export interface RouteDef {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  rank: number;
+  stops: RouteStopDef[];
+}
+
 export interface RedemptionResult {
   ok: boolean;
   confirmCode?: string;

@@ -1,4 +1,4 @@
-import type { Venue, Perk, PlanEntry } from "./types";
+import type { Venue, Perk, PlanEntry, RouteDef } from "./types";
 
 // Canggu seed — the single active deep district for G0→G1.
 // Venue/perk details are PLACEHOLDER curation: real venues + real perks come
@@ -136,4 +136,41 @@ export const PLAN_ENTRIES: PlanEntry[] = [
   { venueSlug: "dusk-beach-club", slot: "sunset", rank: 10, blurb: "The golden-hour anchor. Get there by 17:00." },
   { venueSlug: "ember-dinner", slot: "evening", rank: 10, blurb: "Woodfire, no-fuss, walk-in friendly." },
   { venueSlug: "neon-bar", slot: "evening", rank: 20, blurb: "Last stop. Records, low lights, real cocktails." },
+];
+
+export const ROUTES: RouteDef[] = [
+  {
+    slug: "first-day",
+    title: "First day in Canggu",
+    subtitle: "Land, settle, eat well",
+    rank: 10,
+    stops: [
+      { venueSlug: "amber-cafe", note: "Coffee to shake off the flight." },
+      { venueSlug: "tide-surf", note: "Easy first surf, boards on the sand." },
+      { venueSlug: "dusk-beach-club", note: "Sunset — you earned it." },
+      { venueSlug: "ember-dinner", note: "Woodfire dinner, walk-in friendly." },
+    ],
+  },
+  {
+    slug: "cafe-work",
+    title: "Café & work day",
+    subtitle: "Good wifi, good coffee",
+    rank: 20,
+    stops: [
+      { venueSlug: "home-cafe", note: "Quiet start, dessert on the house." },
+      { venueSlug: "amber-cafe", note: "Switch desks, best filter in Berawa." },
+      { venueSlug: "root-warung", note: "Cheap fast lunch between calls." },
+    ],
+  },
+  {
+    slug: "sunset-run",
+    title: "Sunset run",
+    subtitle: "Golden hour to nightcap",
+    rank: 30,
+    stops: [
+      { venueSlug: "dusk-beach-club", note: "Get there by 17:00." },
+      { venueSlug: "ember-dinner", note: "Dinner as the light goes." },
+      { venueSlug: "neon-bar", note: "Records and cocktails to close." },
+    ],
+  },
 ];

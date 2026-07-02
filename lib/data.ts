@@ -1,5 +1,5 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
-import { VENUES, PERKS, PLAN_ENTRIES } from "./seed";
+import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import type {
   Venue,
   Perk,
@@ -8,6 +8,7 @@ import type {
   RedemptionResult,
   PartnerReport,
   Phase0Overview,
+  RouteDef,
 } from "./types";
 import { SLOTS } from "./types";
 
@@ -226,6 +227,72 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
     }
   }
   return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// ---- Routes (§8) ----
+export interface RouteSummary {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  stopCount: number;
+}
+export interface RouteDetail {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  stops: VenueWithPerk[];
+}
+
+// Route definitions from DB (if present) else seed.
+async function getRouteDefs(): Promise<RouteDef[]> {
+  if (isSupabaseConfigured()) {
+    const sb = anonClient()!;
+    const { data: routes } = await sb
+      .from("routes")
+      .select("*")
+      .eq("district", "canggu")
+      .order("rank");
+    if (routes?.length) {
+      const { data: stops } = await sb.from("route_stops").select("*").order("rank");
+      const rows = (stops ?? []) as Row[];
+      return (routes as Row[]).map((r) => ({
+        slug: r.slug as string,
+        title: r.title as string,
+        subtitle: (r.subtitle as string) ?? undefined,
+        rank: (r.rank as number) ?? 100,
+        stops: rows
+          .filter((s) => s.route_slug === r.slug)
+          .map((s) => ({ venueSlug: s.venue_slug as string, note: (s.note as string) ?? undefined })),
+      }));
+    }
+  }
+  return [...ROUTES].sort((a, b) => a.rank - b.rank);
+}
+
+export async function getRoutes(): Promise<RouteSummary[]> {
+  const defs = await getRouteDefs();
+  return defs.map((d) => ({
+    slug: d.slug,
+    title: d.title,
+    subtitle: d.subtitle,
+    stopCount: d.stops.length,
+  }));
+}
+
+export async function getRoute(slug: string): Promise<RouteDetail | null> {
+  const defs = await getRouteDefs();
+  const d = defs.find((x) => x.slug === slug);
+  if (!d) return null;
+  const all = await getVenuesList();
+  const bySlug = new Map(all.map((v) => [v.slug, v]));
+  const stops = d.stops
+    .map((s) => {
+      const v = bySlug.get(s.venueSlug);
+      if (!v) return null;
+      return { ...v, blurb: s.note ?? v.blurb };
+    })
+    .filter((x): x is VenueWithPerk => x !== null);
+  return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
 }
 
 // Phase 0 operator dashboard data (§22). Returns null if unavailable.
