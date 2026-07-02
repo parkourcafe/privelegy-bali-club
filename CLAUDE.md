@@ -88,5 +88,6 @@ Venue · VenueProductEnrollment · District · ContentPage · RouteStop · Offer
 
 - [x] Phase 0 gate passed (2026-07) → `BUILD: UNLOCKED`, Phase 1A spec in Status above.
 - [x] #10 httpOnly cookie (code shipped, localStorage removed).
-- [~] #8 creator bucket + [~] #4 coverage flags — code shipped; apply migration 0006 to the DB.
-- [ ] Then Phase 1A density readiness (§22) + partner report Notes + vibe filter.
+- [x] #8 creator bucket + [x] #4 coverage flags — migration 0006 applied.
+- [x] Execution surface: vibe + category filters, routes (§7/§8/§10), partner §11 Notes — code shipped (migrations 0007 routes, 0008 notes; routes fall back to seed).
+- [ ] Density readiness (§22) content: ≥30 places · ≥15 perks — field work (real venues/perks), not code.
