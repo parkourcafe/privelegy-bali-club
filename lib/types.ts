@@ -80,6 +80,7 @@ export interface PartnerReport {
   redemptions: number;
   externallyAttributed: number; // brought by us (had an external source before the visit)
   inVenue: number; // redeemed but no external source — engagement, not acquisition
+  creator: number; // creator-perk redemptions — excluded from partner-proof (§21a#1)
 }
 
 // Phase 0 operator dashboard (§22 go/no-go).

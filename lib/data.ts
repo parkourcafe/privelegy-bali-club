@@ -209,6 +209,7 @@ export async function getPartnerReport(venueSlug: string): Promise<PartnerReport
     redemptions: Number(r.redemptions ?? 0),
     externallyAttributed: Number(r.externally_attributed ?? 0),
     inVenue: Number(r.in_venue ?? 0),
+    creator: Number(r.creator ?? 0),
   };
 }
 

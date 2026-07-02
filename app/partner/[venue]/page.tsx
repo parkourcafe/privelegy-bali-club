@@ -59,8 +59,9 @@ export default async function PartnerPage({
 
           <p className="mt-4 text-xs text-stone-500">
             Of {report.redemptions} total redemptions, {report.externallyAttributed}{" "}
-            were attributed to us and {report.inVenue} were in-venue (counted as
-            engagement, not acquisition).
+            were attributed to us and {report.inVenue} were in-venue (engagement,
+            not acquisition)
+            {report.creator > 0 && `, and ${report.creator} were creator perks (not counted as proof)`}.
           </p>
         </>
       ) : (

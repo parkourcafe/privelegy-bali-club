@@ -8,18 +8,23 @@
 
 ## Status
 
-**BUILD: FROZEN.**
+**BUILD: UNLOCKED — Phase 1A (Canggu Redemption MVP).** Phase 0 gate passed
+(2026-07). Order of work is fixed:
 
-A Phase 0 *accelerator* build already exists and is deployed (Vercel + Supabase):
-curated Canggu cards, QR redemption with source-attribution, event funnel,
-operator gate dashboard. It is LIVE and has recorded a real redemption. FROZEN
-means: **the deployed app stays as-is and may be used to run the Phase 0 field
-test, but NO new features are added until the gate passes.** Treat "no build"
-from the master doc as "no *further* build" — the accelerator is grandfathered,
-not extended.
+1. **First, close the three reconciliation gaps** (see section below): #8 creator
+   bucket, #4 coverage flags, #10 httpOnly cookie. These are integrity, not
+   features — they land before any new surface.
+2. **Then Phase 1A build (density + hardening), gate-driven, still no calendar:**
+   - Density readiness (master §22): ≥30 places · ≥15 perks · ≥3 routes ·
+     3–4 categories (≥10 in the strongest) · ≥3–5 places wired into routes.
+   - Partner report §11 "Notes": per-source breakdown (villa / coliving / reels /
+     in-venue / creator); repeat redemptions.
+   - Vibe filter on the execution surface (verified tags only, master §10).
+3. **Still OUT of scope until their own gates:** booking engine (guardrail #3),
+   AI (#2), paid tiers / billing (Phase 1.5), SEO planning pages (Phase 1B),
+   second district (Phase 3), TablePilot. Do not pull these forward.
 
-Do not add features, entities, districts, or surfaces beyond what is deployed.
-On gate pass, set `BUILD: UNLOCKED` and add the Phase 1A spec below the unlock log.
+Every change still respects the HARD GUARDRAILS. Scope creep = stop and flag (#11).
 
 ## What this project is (2 paragraphs)
 
@@ -50,29 +55,22 @@ Solo founder + AI build. Speed over completeness. The single source of truth for
 10. **No localStorage/sessionStorage** in artifacts/PWA state hacks; use proper state/DB.
 11. **Scope discipline:** no new entities, districts, categories, or features beyond master doc. If a request conflicts with master — stop and flag, don't improvise.
 
-## Guardrail reconciliations (shipped frozen build — read before touching)
+## Guardrail reconciliations (Phase 1A — status)
 
-The accelerator was built before this file existed. Two guardrails have known,
-documented gaps in the deployed code. They are latent (no harm at current
-zero-data state) and are the FIRST items to fix when `BUILD: UNLOCKED`.
-
-- **#10 localStorage — narrow exception (allowed).** The anonymous `GuestRef`
-  token and the first-touch `source` tag persist in `localStorage`
-  (`lib/guest.ts`). This is device-local identity, not a state-store hack, and
-  it is the only sanctioned localStorage use. Proper fix (server-set httpOnly
-  cookie) is deferred to Phase 1A. Do NOT add any other localStorage usage.
-- **#8 attribution — third bucket not yet enforced in the DB.** Deployed
-  `record_redemption` splits external vs in-venue but does NOT yet separate the
-  `creator` bucket; a `creator_*` source would currently miscount as external.
-  Safe today (no creator sources exist). Fix (source_class column + creator
-  bucket) is prepared in the master doc §21a#1 and must land before any creator
-  perk is issued.
-- **#4 coverage flags — present intent, enforcement pending.** `District` needs
-  `status` / `monetization_enabled` / `qr_enabled` to make non-active districts
-  technically un-monetizable. Not yet in the deployed schema. Enforce at Phase 1A.
-- **Executive-rule note:** PWA shell, partner report, and an operator dashboard
-  exist in the frozen build even though the master doc listed them as
-  pre-Phase-0-forbidden. Grandfathered, frozen, not extended.
+- **#10 localStorage → httpOnly cookie. FIXED (code).** localStorage is gone;
+  the anonymous `GuestRef` is a server-set httpOnly cookie (`middleware.ts` +
+  `lib/guest-server.ts`). The client no longer holds any identity. Do NOT
+  reintroduce localStorage/sessionStorage.
+- **#8 attribution — creator bucket. FIXED (code); DB migration pending apply.**
+  `_source_class()` splits external / in_venue / **creator**; `partner_report`
+  reports creator separately and it is excluded from partner-proof. Ships in
+  migration `0006_source_class_and_coverage.sql` — apply it to the DB.
+- **#4 coverage flags. FIXED (code); DB migration pending apply.** `districts`
+  gains `status` / `monetization_enabled` / `qr_enabled`; `record_redemption`
+  refuses redemption when the district's `qr_enabled` is false. Same migration
+  0006 (Canggu=active_deep enabled; Ubud=next_deep disabled).
+- **Executive-rule note:** PWA shell, partner report, operator dashboard exist
+  from the accelerator; grandfathered, not a template for pulling forward more.
 
 ## Data model (canonical names — use exactly these)
 
@@ -88,5 +86,7 @@ Venue · VenueProductEnrollment · District · ContentPage · RouteStop · Offer
 
 ## Unlock log
 
-- [ ] Phase 0 gate passed (redemption rate ≥15–30%, ≥3/5 venues, ≥2 willing to pay) → set `BUILD: UNLOCKED`, add Phase 1A build spec below this line.
-- [ ] On unlock, first fix the three reconciliation gaps above (#10 cookie, #8 creator bucket, #4 coverage flags).
+- [x] Phase 0 gate passed (2026-07) → `BUILD: UNLOCKED`, Phase 1A spec in Status above.
+- [x] #10 httpOnly cookie (code shipped, localStorage removed).
+- [~] #8 creator bucket + [~] #4 coverage flags — code shipped; apply migration 0006 to the DB.
+- [ ] Then Phase 1A density readiness (§22) + partner report Notes + vibe filter.

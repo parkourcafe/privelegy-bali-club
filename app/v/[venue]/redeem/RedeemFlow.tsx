@@ -1,19 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getOrCreateGuestRef, getStoredSource } from "@/lib/guest";
 import type { RedemptionResult } from "@/lib/types";
 
 function postEvent(type: string, venueSlug: string) {
   fetch("/api/event", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      type,
-      guestRef: getOrCreateGuestRef(),
-      venueSlug,
-      source: getStoredSource() ?? undefined,
-    }),
+    body: JSON.stringify({ type, venueSlug }),
     keepalive: true,
   }).catch(() => {});
 }
@@ -58,11 +52,7 @@ export default function RedeemFlow({
       const res = await fetch("/api/redeem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          guestRef: getOrCreateGuestRef(),
-          venueSlug,
-          consentGranted,
-        }),
+        body: JSON.stringify({ venueSlug, consentGranted }),
       });
       const data: RedemptionResult = await res.json();
       if (data.ok) {
