@@ -36,6 +36,11 @@ const mapVenue = (r: Row): Venue => ({
   gmapsUrl: r.gmaps_url as string,
   tier: r.tier as Venue["tier"],
   isSponsored: Boolean(r.is_sponsored),
+  vibeTags: (r.vibe_tags as string[]) ?? undefined,
+  priceAnchor: (r.price_anchor as string) ?? undefined,
+  whatToOrder: (r.what_to_order as string) ?? undefined,
+  photoUrl: (r.photo_url as string) ?? undefined,
+  whatsapp: (r.whatsapp as string) ?? undefined,
 });
 const mapPerk = (r: Row): Perk => ({
   id: r.id as string,

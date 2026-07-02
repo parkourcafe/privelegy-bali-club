@@ -41,6 +41,12 @@ export interface Venue {
   gmapsUrl: string;
   tier: VenueTier;
   isSponsored: boolean; // organic (false) vs sponsored (true)
+  // Field Kit §2/§3 card content — all optional, filled from venue visits.
+  vibeTags?: string[];
+  priceAnchor?: string; // e.g. "Americano 35k · Bintang 40k"
+  whatToOrder?: string; // consensus-checked bestseller(s)
+  photoUrl?: string;
+  whatsapp?: string; // digits only, intl format
 }
 
 export interface Perk {
