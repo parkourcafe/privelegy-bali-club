@@ -7,6 +7,7 @@ import type {
   Slot,
   RedemptionResult,
   PartnerReport,
+  PartnerNotes,
   Phase0Overview,
   RouteDef,
 } from "./types";
@@ -227,6 +228,19 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
     }
   }
   return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// Partner §11 Notes: source-type breakdown + repeat. Null if unavailable.
+export async function getPartnerNotes(venueSlug: string): Promise<PartnerNotes | null> {
+  const sb = anonClient();
+  if (!sb) return null;
+  const { data, error } = await sb.rpc("partner_notes", { p_venue_slug: venueSlug });
+  if (error || !data) return null;
+  const r = data as Record<string, unknown>;
+  return {
+    bySource: (r.by_source as Record<string, number>) ?? {},
+    repeat: Number(r.repeat ?? 0),
+  };
 }
 
 // ---- Routes (§8) ----

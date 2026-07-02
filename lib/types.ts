@@ -96,6 +96,12 @@ export interface PartnerReport {
   creator: number; // creator-perk redemptions — excluded from partner-proof (§21a#1)
 }
 
+// Partner report §11 "Notes": source-type breakdown + repeat visits.
+export interface PartnerNotes {
+  bySource: Record<string, number>; // villa / coliving / reels / direct / in_venue / creator
+  repeat: number; // guests who redeemed here more than once
+}
+
 // Phase 0 operator dashboard (§22 go/no-go).
 export interface Phase0VenueStat {
   slug: string;

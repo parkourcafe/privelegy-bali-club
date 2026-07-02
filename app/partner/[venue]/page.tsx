@@ -1,5 +1,19 @@
 import Link from "next/link";
-import { getVenueWithPerk, getPartnerReport, getVenueRedemptionCount } from "@/lib/data";
+import {
+  getVenueWithPerk,
+  getPartnerReport,
+  getPartnerNotes,
+  getVenueRedemptionCount,
+} from "@/lib/data";
+
+const SOURCE_LABEL: Record<string, string> = {
+  villa: "Villas",
+  coliving: "Coliving",
+  reels: "Reels",
+  direct: "Direct",
+  in_venue: "In-venue",
+  creator: "Creator",
+};
 
 export const dynamic = "force-dynamic";
 
@@ -24,9 +38,12 @@ export default async function PartnerPage({
     );
   }
 
-  const report = await getPartnerReport(slug);
+  const [report, notes] = await Promise.all([getPartnerReport(slug), getPartnerNotes(slug)]);
   // Fallback when the attribution migration isn't applied yet.
   const fallbackCount = report ? null : await getVenueRedemptionCount(slug);
+  const noteEntries = notes
+    ? Object.entries(notes.bySource).sort((a, b) => b[1] - a[1])
+    : [];
 
   return (
     <main className="mx-auto w-full max-w-md px-4 py-10">
@@ -63,6 +80,29 @@ export default async function PartnerPage({
             not acquisition)
             {report.creator > 0 && `, and ${report.creator} were creator perks (not counted as proof)`}.
           </p>
+
+          {(noteEntries.length > 0 || (notes && notes.repeat > 0)) && (
+            <div className="mt-4 rounded-xl border border-stone-200 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+                Notes
+              </p>
+              {noteEntries.length > 0 && (
+                <ul className="mt-2 space-y-1 text-sm text-stone-600">
+                  {noteEntries.map(([src, n]) => (
+                    <li key={src} className="flex justify-between">
+                      <span>{SOURCE_LABEL[src] ?? src}</span>
+                      <span className="font-medium tabular-nums">{n}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {notes && notes.repeat > 0 && (
+                <p className="mt-2 text-sm text-stone-600">
+                  <span className="font-medium">{notes.repeat}</span> came back more than once.
+                </p>
+              )}
+            </div>
+          )}
         </>
       ) : (
         <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-6 text-center shadow-sm">
