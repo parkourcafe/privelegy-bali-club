@@ -35,6 +35,18 @@ export default function RedeemFlow({
   const [phase, setPhase] = useState<Phase>("idle");
   const [result, setResult] = useState<RedemptionResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [fbSent, setFbSent] = useState(false);
+  const [dish, setDish] = useState("");
+
+  function sendFeedback(verdict: "worth_it" | "meh") {
+    setFbSent(true);
+    fetch("/api/dish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ venueSlug, dish, verdict }),
+      keepalive: true,
+    }).catch(() => {});
+  }
 
   // Funnel: opening this page is a venue_card_open (§18).
   useEffect(() => {
@@ -70,23 +82,65 @@ export default function RedeemFlow({
 
   if (phase === "done" && result) {
     return (
-      <div className="mt-5 rounded-2xl bg-emerald-600 p-6 text-center text-white">
-        <div className="text-5xl">✓</div>
-        <p className="mt-2 text-lg font-semibold">Redeemed</p>
-        <p className="text-sm opacity-90">
-          {perkTitle} · {venueName}
-        </p>
-        <div className="mt-4 rounded-xl bg-white/15 py-3">
-          <p className="text-xs uppercase tracking-widest opacity-80">Show staff</p>
-          <p className="font-mono text-3xl font-bold tracking-[0.3em]">
-            {result.confirmCode}
+      <>
+        <div className="mt-5 rounded-2xl bg-emerald-600 p-6 text-center text-white">
+          <div className="text-5xl">✓</div>
+          <p className="mt-2 text-lg font-semibold">Redeemed</p>
+          <p className="text-sm opacity-90">
+            {perkTitle} · {venueName}
           </p>
-          <p className="mt-1 text-xs opacity-80">
-            {result.ts ? new Date(result.ts).toLocaleTimeString() : ""}
-          </p>
+          <div className="mt-4 rounded-xl bg-white/15 py-3">
+            <p className="text-xs uppercase tracking-widest opacity-80">Show staff</p>
+            <p className="font-mono text-3xl font-bold tracking-[0.3em]">
+              {result.confirmCode}
+            </p>
+            <p className="mt-1 text-xs opacity-80">
+              {result.ts ? new Date(result.ts).toLocaleTimeString() : ""}
+            </p>
+          </div>
+          <p className="mt-3 text-xs opacity-80">Canggu Perks · +1 for {venueName}</p>
         </div>
-        <p className="mt-3 text-xs opacity-80">Canggu Perks · +1 for {venueName}</p>
-      </div>
+
+        {!fbSent ? (
+          <div className="mt-4 rounded-2xl border border-stone-200 p-4">
+            <p className="text-sm font-medium text-stone-700">Help other travellers</p>
+            <p className="text-xs text-stone-500">What did you order? Was it worth it?</p>
+            <input
+              value={dish}
+              onChange={(e) => setDish(e.target.value)}
+              placeholder="e.g. big breakfast"
+              className="mt-3 w-full rounded-lg border border-stone-200 px-3 py-2 text-sm"
+            />
+            <div className="mt-3 flex gap-2">
+              <button
+                onClick={() => sendFeedback("worth_it")}
+                className="flex-1 rounded-lg bg-cyan-700 py-2 text-sm font-semibold text-white"
+              >
+                👍 Worth it
+              </button>
+              <button
+                onClick={() => sendFeedback("meh")}
+                className="flex-1 rounded-lg border border-stone-200 py-2 text-sm font-medium text-stone-600"
+              >
+                👎 Meh
+              </button>
+            </div>
+            <button
+              onClick={() => setFbSent(true)}
+              className="mt-2 w-full py-1 text-xs text-stone-400"
+            >
+              Skip
+            </button>
+          </div>
+        ) : (
+          <p className="mt-4 text-center text-sm text-stone-500">
+            Thanks! ·{" "}
+            <a href="/me" className="text-cyan-700 underline">
+              See my perks
+            </a>
+          </p>
+        )}
+      </>
     );
   }
 

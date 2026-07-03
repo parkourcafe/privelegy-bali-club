@@ -102,6 +102,15 @@ export interface PartnerNotes {
   repeat: number; // guests who redeemed here more than once
 }
 
+// A guest's own redeemed perk (for "My perks").
+export interface MyRedemption {
+  venueName: string;
+  venueSlug: string;
+  perkTitle: string;
+  confirmCode: string;
+  ts: string;
+}
+
 // Phase 0 operator dashboard (§22 go/no-go).
 export interface Phase0VenueStat {
   slug: string;

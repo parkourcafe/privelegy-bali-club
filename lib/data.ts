@@ -8,6 +8,7 @@ import type {
   RedemptionResult,
   PartnerReport,
   PartnerNotes,
+  MyRedemption,
   Phase0Overview,
   RouteDef,
 } from "./types";
@@ -228,6 +229,43 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
     }
   }
   return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// A guest's own redemptions (for "My perks"). Guest ref comes from the cookie.
+export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]> {
+  const sb = anonClient();
+  if (!sb || !guestRef) return [];
+  const { data, error } = await sb.rpc("my_redemptions", { p_guest_ref: guestRef });
+  if (error || !data) return [];
+  return (data as Record<string, unknown>[]).map((r) => ({
+    venueName: String(r.venue_name ?? "Venue"),
+    venueSlug: String(r.venue_slug ?? ""),
+    perkTitle: String(r.perk_title ?? "Perk"),
+    confirmCode: String(r.confirm_code ?? ""),
+    ts: String(r.ts ?? ""),
+  }));
+}
+
+// Dish feedback (§18) — best-effort, never blocks.
+export async function logDishFeedback(input: {
+  guestRef: string;
+  venueSlug: string;
+  dish: string;
+  verdict: string;
+}): Promise<void> {
+  const sb = anonClient();
+  if (!sb || !input.venueSlug) return;
+  await sb
+    .rpc("log_dish_feedback", {
+      p_guest_ref: input.guestRef,
+      p_venue_slug: input.venueSlug,
+      p_dish: input.dish,
+      p_verdict: input.verdict,
+    })
+    .then(
+      () => {},
+      () => {}
+    );
 }
 
 // Partner §11 Notes: source-type breakdown + repeat. Null if unavailable.
