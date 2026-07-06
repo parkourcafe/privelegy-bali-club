@@ -269,6 +269,69 @@ export async function logDishFeedback(input: {
     );
 }
 
+// ---- Partner onboarding (tokenized invite links) ----
+
+export interface OnboardInfo {
+  venue: VenueWithPerk | null;
+  confirmed: boolean;
+}
+
+export async function getOnboardInfo(token: string): Promise<OnboardInfo | null> {
+  const sb = anonClient();
+  if (!sb || !token) return null;
+  const { data, error } = await sb.rpc("onboard_info", { p_token: token });
+  if (error || !data) return null;
+  const r = data as Record<string, unknown>;
+  if (!r.venue) return { venue: null, confirmed: false };
+  const venue = mapVenue(r.venue as Row);
+  const perkRaw = r.perk as Record<string, unknown> | null;
+  return {
+    venue: {
+      ...venue,
+      perk: perkRaw
+        ? { id: "", venueSlug: venue.slug, title: String(perkRaw.title ?? ""), terms: String(perkRaw.terms ?? "") }
+        : null,
+      blurb: "",
+    },
+    confirmed: Boolean(r.confirmed),
+  };
+}
+
+export async function confirmOnboarding(input: {
+  token: string;
+  name: string;
+  agreed: boolean;
+  userAgent: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  const sb = anonClient();
+  if (!sb) return { ok: false, error: "unconfigured" };
+  const { data, error } = await sb.rpc("confirm_onboarding", {
+    p_token: input.token,
+    p_name: input.name,
+    p_agreed: input.agreed,
+    p_user_agent: input.userAgent,
+  });
+  if (error) return { ok: false, error: "write_failed" };
+  const r = (data ?? {}) as Record<string, unknown>;
+  return { ok: Boolean(r.ok), error: r.error as string | undefined };
+}
+
+export async function setVenuePhoto(token: string, url: string): Promise<boolean> {
+  const sb = anonClient();
+  if (!sb) return false;
+  const { data, error } = await sb.rpc("set_venue_photo", { p_token: token, p_url: url });
+  if (error) return false;
+  return Boolean((data as Record<string, unknown>)?.ok);
+}
+
+export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {
+  const sb = anonClient();
+  if (!sb) return null;
+  const { data, error } = await sb.rpc("get_or_create_onboard_token", { p_venue_slug: venueSlug });
+  if (error || !data) return null;
+  return data as string;
+}
+
 // Partner §11 Notes: source-type breakdown + repeat. Null if unavailable.
 export async function getPartnerNotes(venueSlug: string): Promise<PartnerNotes | null> {
   const sb = anonClient();

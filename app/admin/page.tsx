@@ -41,6 +41,9 @@ export default async function AdminIndex() {
               </p>
             </div>
             <div className="flex shrink-0 gap-1 text-xs">
+              <Link href={`/admin/invite/${v.slug}`} className="rounded-lg bg-emerald-600 px-2 py-1.5 font-medium text-white">
+                Invite
+              </Link>
               <Link href={`/admin/qr/${v.slug}`} className="rounded-lg bg-cyan-700 px-2 py-1.5 font-medium text-white">
                 QR
               </Link>
