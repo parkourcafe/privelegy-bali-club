@@ -9,9 +9,13 @@
 
 **Audience:** a Claude Code session opened in `parkourcafe/tablepilot-id`.
 **Branch:** `claude/continuation-6l3iqw` (create from `main` if absent, push there).
-**Status:** BP side is DONE (commit `784ed44` in `privelegy-bali-club`). This doc is
-the TablePilot side. Canonical business decision: `docs/money-model.md` in the BP repo
-(money model v0.3, 2026-07-06).
+**Status:** EXECUTED 2026-07-06 — both sides shipped. BP side: commit `784ed44`
+(this repo). TablePilot side: commit `41a5270` on `claude/continuation-6l3iqw` in
+`tablepilot-id` — all acceptance criteria below verified (vitest + tsc/vite build,
+curl chain incl. 503/401/PII/date-filter cases, real Chromium booking through
+`/book/:slug?source=bali_privilege`). Remaining manual step: set `BP_PARTNER_TOKEN`
+in the TablePilot Vercel project and hand the same value to BP. Canonical business
+decision: `docs/money-model.md` (money model v0.3, 2026-07-06).
 
 ---
 
