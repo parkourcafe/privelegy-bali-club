@@ -1,4 +1,5 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
+import { rankSimilar } from "./similar";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import type {
   Venue,
@@ -17,6 +18,7 @@ import { SLOTS } from "./types";
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
   blurb: string;
+  similar?: VenueWithPerk[]; // top same-district matches (backlog #4 fallback)
 }
 
 export interface PlanBySlot {
@@ -82,17 +84,36 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
 
   const venueBySlug = new Map(venues.map((x) => [x.slug, x]));
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
+  const blurbByVenue = new Map(entries.map((en) => [en.venueSlug, en.blurb] as const));
+
+  // A flat "similar places" set per venue: same-district matches by category /
+  // vibe tags. Rendered as the reservation fallback (backlog #4). Computed once
+  // here; the suggestion cards carry a perk + reserve path but no nested similar.
+  const toCard = (v: Venue): VenueWithPerk => ({
+    ...v,
+    perk: perkByVenue.get(v.slug) ?? null,
+    blurb: blurbByVenue.get(v.slug) ?? "",
+  });
+  const similarByVenue = new Map(
+    venues.map((v) => [v.slug, rankSimilar(v, venues).map(toCard)] as const)
+  );
 
   return SLOTS.map(({ key, label, hint }) => {
     const venuesForSlot: VenueWithPerk[] = entries
       .filter((en) => en.slot === key)
       .sort((a, b) => a.rank - b.rank)
-      .map((en) => {
+      .flatMap((en) => {
         const venue = venueBySlug.get(en.venueSlug);
-        if (!venue) return null;
-        return { ...venue, perk: perkByVenue.get(en.venueSlug) ?? null, blurb: en.blurb };
-      })
-      .filter((x): x is VenueWithPerk => x !== null);
+        if (!venue) return [];
+        return [
+          {
+            ...venue,
+            perk: perkByVenue.get(en.venueSlug) ?? null,
+            blurb: en.blurb,
+            similar: similarByVenue.get(en.venueSlug) ?? [],
+          },
+        ];
+      });
     return { slot: key, label, hint, venues: venuesForSlot };
   });
 }

@@ -29,9 +29,27 @@ loss, the #1 field risk.
 and scans."* Operational, not code.
 
 ### 3. "Aggregators take 28–32%" — B2B pitch lever (GTM)
-**Use:** against delivery-aggregator commissions, our flat Tier A reads as cheap
-and predictable. Add to the partner pitch / message templates. Reinforces the
-fixed model (§5.1a); does not change it.
+**Use:** against delivery-aggregator commissions, our pricing reads as cheap and
+predictable. Add to the partner pitch / message templates. *(Updated for money
+model v0.3: the lever is now "a fixed fee per seated guest you can verify, vs
+28–32% of every order" — even sharper than the original flat-tier framing.)*
+
+## Founder ideas — accepted, gated
+
+### 4. "No slots / closed → similar places" fallback (BP side, Phase 1B gate)
+**Idea (Selena, 2026-07-06):** when a bookable venue has no availability or is
+closed (e.g. Mondays at the pilot venue), BP suggests similar venues — same
+category/vibe tags, same or nearby area — each with its own Reserve button, so
+the reservation (and attribution) stays inside BP instead of dying on a dead
+booking page.
+**Why BP, not TablePilot:** `/book/:slug` is the venue's own page; routing its
+guests to competitors there is a product conflict for TablePilot's B2B side.
+Recommendation is the guide's job.
+**Mechanics already available:** TablePilot public availability API
+(`GET /api/public/:slug/availability`) + BP category/vibe/district data. No AI
+needed (guardrail #2 safe) — tag/category matching only.
+**Gate:** needs density (§22, ≥30 places) and >1 bookable venue wired; until
+then there is nothing meaningful to recommend. Do not build before the gate.
 
 ## Rejected (do not implement without a master-doc change)
 

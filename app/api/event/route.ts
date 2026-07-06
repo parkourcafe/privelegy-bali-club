@@ -5,7 +5,13 @@ import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-s
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const ALLOWED = new Set(["landing_open", "venue_card_open", "perk_open", "reservation_click"]);
+const ALLOWED = new Set([
+  "landing_open",
+  "venue_card_open",
+  "perk_open",
+  "reservation_click",
+  "similar_open",
+]);
 
 // Funnel logging from the client (§18). Guest id comes from the cookie; only
 // the safe non-proof event types are accepted here.
