@@ -44,6 +44,7 @@ const mapVenue = (r: Row): Venue => ({
   whatToOrder: (r.what_to_order as string) ?? undefined,
   photoUrl: (r.photo_url as string) ?? undefined,
   whatsapp: (r.whatsapp as string) ?? undefined,
+  tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
 });
 const mapPerk = (r: Row): Perk => ({
   id: r.id as string,

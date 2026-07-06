@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
+import ReserveButton from "@/components/ReserveButton";
 
 // Presentational venue card — shared by the planning grid and route pages.
-// No client state (only links), so it renders in server or client trees alike.
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -13,11 +13,6 @@ const categoryLabel: Record<string, string> = {
   bar: "Bar",
   surf: "Surf",
 };
-
-function waLink(whatsapp: string, perkTitle: string | undefined): string {
-  const text = `Hi! Booking via Canggu Perks Map.${perkTitle ? ` Perk: ${perkTitle}.` : ""} Table for … at …`;
-  return `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
-}
 
 export default function VenueCard({ v }: { v: VenueWithPerk }) {
   return (
@@ -74,16 +69,12 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
           >
             Directions
           </a>
-          {v.whatsapp && (
-            <a
-              href={waLink(v.whatsapp, v.perk?.title)}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-lg border border-emerald-200 px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-emerald-50"
-            >
-              Reserve on WhatsApp
-            </a>
-          )}
+          <ReserveButton
+            venueSlug={v.slug}
+            tablepilotSlug={v.tablepilotSlug}
+            whatsapp={v.whatsapp}
+            perkTitle={v.perk?.title}
+          />
           <Link
             href={`/v/${v.slug}/redeem`}
             className="rounded-lg bg-cyan-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-cyan-800"

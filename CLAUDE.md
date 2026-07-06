@@ -45,9 +45,9 @@ Solo founder + AI build. Speed over completeness. The single source of truth for
 
 1. **No scraping or republishing Google Maps reviews.** Consensus-check is a manual, internal field process. Never build a review parser/pipeline.
 2. **No AI assistant / chatbot** in tourist product. Personalization = verified vibe tags + filters + routes. (AI layer is post-proof, explicit unlock required.)
-3. **No booking engine.** Reservation = `mode: none | whatsapp | request_form` only. `tablepilot` mode is reserved, NOT implemented. Only `reservation_click` event exists in MVP.
+3. **BP builds no booking engine internally.** Reservations are handled by the external, already-deployed **TablePilot** product (`tablepilot-id.vercel.app`), integrated via a handoff link + seated-reservation report-back (`tablepilot` enrollment on the shared `Venue`). BP does not re-implement a booking engine. (Superseded 2026-07-06 — was "tablepilot mode reserved, NOT implemented"; see `docs/money-model.md`.)
 4. **No monetization outside active_deep district.** Enforce via `District.monetization_enabled` / `qr_enabled` at DB level. Outside active_deep: RouteStop allowed; Venue placement, QR, paid listing — blocked by constraints, not by convention.
-5. **No tourist-side payments of any kind.** Two venue tariffs only (A: flat monthly; B: light monthly + fixed per-proven-booking fee — Tariff B gated on a real booking layer, not MVP).
+5. **No tourist-side payments of any kind.** Money comes ONLY from venues, ONLY as a **fixed fee per confirmed seated reservation** made through our reservation system. No listing/featured/route/category/subscription products; no % of cheque; no deposit. The perk/QR is a tourist incentive + arrival proof, NOT the billed event. (Superseded 2026-07-06 — was "two tariffs A/B"; canonical text in `docs/money-model.md`.)
 6. **No paid ranking in Organic.** Sponsored is always labeled. "Best of" is editorial only.
 7. **No anti-lists** ("don't order X"). Bad options are excluded by absence.
 8. **Attribution rule is sacred:** partner-proof counts ONLY externally-attributed redemptions (source QR ≠ in-venue QR ≠ creator perks — three separate buckets).

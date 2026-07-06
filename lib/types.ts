@@ -47,6 +47,7 @@ export interface Venue {
   whatToOrder?: string; // consensus-checked bestseller(s)
   photoUrl?: string;
   whatsapp?: string; // digits only, intl format
+  tablepilotSlug?: string; // if set, venue is bookable via TablePilot (money model v0.3)
 }
 
 export interface Perk {
