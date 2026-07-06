@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import ReserveButton from "@/components/ReserveButton";
+import SimilarPlaces from "@/components/SimilarPlaces";
 
 // Presentational venue card — shared by the planning grid and route pages.
 
@@ -82,6 +83,8 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
             Show perk
           </Link>
         </div>
+
+        <SimilarPlaces venue={v} />
       </div>
     </article>
   );
