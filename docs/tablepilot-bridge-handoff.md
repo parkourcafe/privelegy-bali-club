@@ -9,13 +9,46 @@
 
 **Audience:** a Claude Code session opened in `parkourcafe/tablepilot-id`.
 **Branch:** `claude/continuation-6l3iqw` (create from `main` if absent, push there).
-**Status:** EXECUTED 2026-07-06 — both sides shipped. BP side: commit `784ed44`
-(this repo). TablePilot side: commit `41a5270` on `claude/continuation-6l3iqw` in
-`tablepilot-id` — all acceptance criteria below verified (vitest + tsc/vite build,
-curl chain incl. 503/401/PII/date-filter cases, real Chromium booking through
-`/book/:slug?source=bali_privilege`). Remaining manual step: set `BP_PARTNER_TOKEN`
-in the TablePilot Vercel project and hand the same value to BP. Canonical business
-decision: `docs/money-model.md` (money model v0.3, 2026-07-06).
+**Status:** LIVE ON PRODUCTION — verified end-to-end 2026-07-06. BP side: commit
+`784ed44`. TablePilot side: commit `41a5270`, merged to `main` (PR #1) and
+deployed to `tablepilot-id.vercel.app`. Canonical business decision:
+`docs/money-model.md` (money model v0.3, 2026-07-06).
+
+### Production proof run (2026-07-06)
+
+The full money chain was walked against live prod, not just locally:
+
+- **Reserve:** bookings created via `/book/sari-nusantara-ubud?source=bali_privilege`
+  persisted with `source: "bali_privilege"` (8 rows; the pilot venue closes
+  Mondays, so slots only appear from Tue — a data property, not a bug).
+- **Report:** `GET /api/partner/bali-privilege/report` (token in Vercel env
+  `BP_PARTNER_TOKEN`) returned all 8 with correct `confirmedNotSeated` count and
+  zero guest PII.
+- **Seated → billable:** marking one reservation `arrived` flipped the report to
+  `summary.billable: 1`. First proven billable event under money model v0.3.
+
+**Prod wiring done:** BP venue `ember-dinner` carries
+`tablepilot_slug='sari-nusantara-ubud'`; BP live DB migrations 0005/0007/0010
+applied; TablePilot Vercel project connected to GitHub (auto-deploy from `main`)
+with `BP_PARTNER_TOKEN` set.
+
+### Follow-up hardening (found during the live run — not blockers)
+
+Small TablePilot-side issues surfaced while walking prod; log them, don't
+hotfix mid-verification:
+
+1. **Public booking page has no double-submit guard** — a single confirm created
+   duplicate reservations on repeat clicks (5 dupes in the run). Add a submitting
+   lock + clearer success state.
+2. **"Closed day" is indistinguishable from "fully booked"** — both render as
+   "No available slots". Show an explicit closed-on-this-day message.
+3. **Admin can only mark arrived/no-show for *today's* reservations** — the
+   Today/Floor screens filter to the current date, so a future booking can't be
+   seated from the UI (had to PATCH via API). Consider a date picker or an
+   "arrivals" view that isn't pinned to today.
+
+(BP-side idea captured separately in `docs/backlog.md` #4: suggest similar
+venues when a bookable one is closed/full — gated to Phase 1B density.)
 
 ---
 
