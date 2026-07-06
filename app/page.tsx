@@ -50,8 +50,8 @@ export default async function Home() {
       <PlanView plan={plan} />
 
       <footer className="mt-12 border-t border-stone-200 pt-6 text-xs text-stone-400">
-        Free to use. We earn from venues only when a guest actually redeems —
-        never from you.
+        Free to use. We earn from venues only when a reservation made through us
+        becomes a real seated visit — never from you.
       </footer>
     </main>
   );

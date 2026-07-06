@@ -12,15 +12,11 @@ export const SLOTS: { key: Slot; label: string; hint: string }[] = [
   { key: "evening", label: "Evening", hint: "Dinner, drinks, live music" },
 ];
 
-// Partner tiers — Editorial Seed / Launch / Founding come first (unpaid,
-// proof-building), paid tiers only after redemption proof. Organic vs
-// Sponsored is a separate axis, never conflated with tier.
-export type VenueTier =
-  | "editorial_seed"
-  | "launch"
-  | "founding"
-  | "basic"
-  | "featured";
+// Partner tiers — relationship stage only (all unpaid). Money model v0.3
+// (docs/money-model.md): tiers are NOT paid products and never will be —
+// revenue is a fixed fee per confirmed seated reservation via TablePilot.
+// Organic vs Sponsored is a separate axis, never conflated with tier.
+export type VenueTier = "editorial_seed" | "launch" | "founding";
 
 export type VenueCategory =
   | "cafe"
@@ -40,7 +36,7 @@ export interface Venue {
   address: string;
   gmapsUrl: string;
   tier: VenueTier;
-  isSponsored: boolean; // organic (false) vs sponsored (true)
+  isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3
   // Field Kit §2/§3 card content — all optional, filled from venue visits.
   vibeTags?: string[];
   priceAnchor?: string; // e.g. "Americano 35k · Bintang 40k"

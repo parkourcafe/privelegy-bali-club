@@ -1,11 +1,14 @@
 # Bali Privilege — Canggu (thin G0→G1 MVP)
 
 Web-first, tourist-first planning + perk-redemption for one deep district (Canggu).
-Built to prove **one** thing: that a tourist redeems a perk on the ground and the
-venue sees an attributable visit. Everything else is deliberately out of scope.
+Built to prove **one** chain: a tourist finds a venue here, reserves a table
+through TablePilot, shows up and is seated — and the venue can see that visit is
+ours. Perk redemption stays as the on-the-ground arrival proof and tourist
+incentive. Everything else is deliberately out of scope.
 
 > Positioning: **Bali-wide planning, Canggu-deep execution.** Free for tourists;
-> venues pay only after redemption proof.
+> venues pay a fixed fee per confirmed seated reservation made through us —
+> nothing else is a paid product (`docs/money-model.md`).
 
 ## What's here
 
@@ -44,8 +47,11 @@ are service-role-only (default deny), written exclusively through server routes.
 
 ## Scope discipline (NOT built — later gates)
 
-Partner auth/roles, paid tiers, multi-district, booking, reviews, AI, second
-district. See the master architecture doc for the gate sequence.
+Partner auth/roles, multi-district, reviews, AI, second district. Paid tiers are
+dead permanently (money model v0.3), not gated. Reservations are never built
+internally — BP hands off to the external TablePilot product
+(`docs/tablepilot-bridge-handoff.md`). See the master architecture doc for the
+gate sequence.
 
 ## Seed data is placeholder
 
