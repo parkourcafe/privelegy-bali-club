@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getVenuesList } from "@/lib/data";
+import { getVenuesList, getOnboardStatus } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +8,8 @@ export const dynamic = "force-dynamic";
 const SOURCE_PRESETS = ["villa_01", "villa_02", "coliving_01", "reels_001", "flyer_01"];
 
 export default async function AdminIndex() {
-  const venues = await getVenuesList();
+  const [venues, status] = await Promise.all([getVenuesList(), getOnboardStatus()]);
+  const confirmed = venues.filter((v) => status[v.slug]?.confirmed).length;
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 py-10">
@@ -26,16 +27,31 @@ export default async function AdminIndex() {
       </Link>
 
       <h2 className="mt-8 text-sm font-semibold uppercase tracking-wide text-stone-500">
-        Venues ({venues.length}) — counter QR
+        Venues ({venues.length}) · {confirmed} confirmed
       </h2>
       <ul className="mt-3 space-y-2">
-        {venues.map((v) => (
+        {venues.map((v) => {
+          const s = status[v.slug];
+          return (
           <li
             key={v.slug}
             className="flex items-center justify-between rounded-xl border border-stone-200 bg-white p-3"
           >
             <div className="min-w-0">
-              <p className="truncate font-medium">{v.name}</p>
+              <div className="flex items-center gap-1.5">
+                <p className="truncate font-medium">{v.name}</p>
+                {s?.confirmed && (
+                  <span title="Confirmed listing" className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
+                    ✓ confirmed
+                  </span>
+                )}
+                {s?.hasPhoto && <span title="Photo uploaded">📷</span>}
+                {s && !s.confirmed && s.invited && (
+                  <span title="Invited, not confirmed" className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700">
+                    invited
+                  </span>
+                )}
+              </div>
               <p className="truncate text-xs text-stone-500">
                 {v.perk ? v.perk.title : "no perk"}
               </p>
@@ -52,7 +68,8 @@ export default async function AdminIndex() {
               </Link>
             </div>
           </li>
-        ))}
+          );
+        })}
       </ul>
 
       <h2 className="mt-8 text-sm font-semibold uppercase tracking-wide text-stone-500">

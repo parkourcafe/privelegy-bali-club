@@ -290,6 +290,32 @@ export async function logDishFeedback(input: {
     );
 }
 
+// ---- Onboarding status (operator dashboard) ----
+export interface OnboardStatus {
+  slug: string;
+  invited: boolean;
+  confirmed: boolean;
+  hasPhoto: boolean;
+}
+
+export async function getOnboardStatus(): Promise<Record<string, OnboardStatus>> {
+  const sb = anonClient();
+  if (!sb) return {};
+  const { data, error } = await sb.rpc("onboard_status");
+  if (error || !data) return {};
+  const out: Record<string, OnboardStatus> = {};
+  for (const r of data as Record<string, unknown>[]) {
+    const slug = String(r.slug);
+    out[slug] = {
+      slug,
+      invited: Boolean(r.invited),
+      confirmed: Boolean(r.confirmed),
+      hasPhoto: Boolean(r.has_photo),
+    };
+  }
+  return out;
+}
+
 // ---- Partner onboarding (tokenized invite links) ----
 
 export interface OnboardInfo {
