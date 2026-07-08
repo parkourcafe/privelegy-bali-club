@@ -1,7 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
+
+// Real type, not Arial. Fraunces (editorial serif) for headings carries the
+// "hand-picked / curated" idea; Geist for UI/body stays clean and neutral.
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
 
 // Field-test label (§6.5): neutral, district-scoped, NO "Privilege/Club/Card".
 // Using the brand name on stickers would dirty the test — we'd measure reaction
@@ -24,7 +30,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`h-full antialiased ${geist.variable} ${fraunces.variable}`}>
       <body className="min-h-full flex flex-col bg-stone-50 text-stone-900">
         {children}
         <SourceCapture />

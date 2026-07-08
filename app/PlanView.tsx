@@ -67,7 +67,7 @@ export default function PlanView({ plan }: { plan: PlanBySlot[] }) {
           {filtered.map((block) => (
             <section key={block.slot}>
               <div className="mb-3 flex items-baseline justify-between">
-                <h2 className="text-lg font-semibold">{block.label}</h2>
+                <h2 className="font-display text-xl font-semibold">{block.label}</h2>
                 <span className="text-xs text-stone-500">{block.hint}</span>
               </div>
               <ul className="space-y-3">

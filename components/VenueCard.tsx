@@ -26,7 +26,8 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
         <div className="flex items-center gap-2">
           <h3 className="font-semibold">{v.name}</h3>
           {v.isSponsored && (
-            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+            <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
+              <span className="h-1 w-1 rounded-full bg-stone-400" />
               Sponsored
             </span>
           )}

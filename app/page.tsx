@@ -18,7 +18,7 @@ export default async function Home() {
             My perks →
           </Link>
         </div>
-        <h1 className="mt-1 text-3xl font-bold tracking-tight">Your Canggu day</h1>
+        <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Your Canggu day</h1>
         <p className="mt-2 text-stone-600">
           Hand-picked spots, morning to night — each with a real perk.
         </p>
@@ -30,7 +30,7 @@ export default async function Home() {
 
       {routes.length > 0 && (
         <section className="mb-10">
-          <h2 className="mb-3 text-lg font-semibold">Ready-made routes</h2>
+          <h2 className="mb-3 font-display text-xl font-semibold">Ready-made routes</h2>
           <div className="flex gap-3 overflow-x-auto pb-2">
             {routes.map((r) => (
               <Link
