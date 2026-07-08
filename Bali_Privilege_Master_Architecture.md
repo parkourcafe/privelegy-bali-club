@@ -245,6 +245,14 @@ These concepts are not settled BP canon until Selena approves a concrete schema/
 - Whether `Placement` remains only a non-paid content/labeling concept or is removed
   from MVP surfaces. Money model v0.3 kills paid placement as a product.
 
+### TODO — reconcile after app-branch merge
+
+After the app branch containing `lib/tablepilot.ts`, `0013_phase0_money_gate.sql`, and
+updated `/admin/phase0` money-loop dashboard lands in this repo, rerun a code audit and
+update this master: move those TablePilot report-back / seated-billable items from
+`[planned / pending verification]` to `[implemented]` only where the merged code proves
+it. Do not leave the master understating repo reality after the app work is present.
+
 **Sources:** `CLAUDE.md` data model section + guardrails #3–#5/#8–#11;
 `docs/money-model.md`; `docs/tablepilot-integration.md`; `docs/tablepilot-bridge-handoff.md`;
 BP migrations `0006`, `0008`, `0009`, `0010`; BP code `components/ReserveButton.tsx`,
