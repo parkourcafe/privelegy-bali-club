@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getVenueWithPerk } from "@/lib/data";
+import VenueVisual from "@/components/VenueVisual";
 import RedeemFlow from "./RedeemFlow";
 
 export const dynamic = "force-dynamic";
@@ -14,9 +15,9 @@ export default async function RedeemPage({
 
   if (!venue) {
     return (
-      <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
+      <main className="redeem-shell text-center">
         <h1 className="text-xl font-semibold">Venue not found</h1>
-        <Link href="/" className="mt-4 inline-block text-cyan-700 underline">
+        <Link href="/" className="quiet-link mt-4 inline-block">
           Back to your Canggu day
         </Link>
       </main>
@@ -24,32 +25,35 @@ export default async function RedeemPage({
   }
 
   return (
-    <main className="mx-auto w-full max-w-md px-4 py-8">
-      <Link href="/" className="text-sm text-stone-500 hover:underline">
+    <main className="redeem-shell">
+      <Link href="/" className="quiet-link">
         ← Your Canggu day
       </Link>
 
-      <div className="mt-4 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-        <h1 className="text-2xl font-bold">{venue.name}</h1>
-        <p className="text-xs text-stone-500">{venue.address}</p>
+      <div className="redeem-card mt-5">
+        <VenueVisual name={venue.name} category={venue.category} photoUrl={venue.photoUrl} />
+        <div className="redeem-card-body">
+          <h1 className="venue-name">{venue.name}</h1>
+          <p className="venue-meta">{venue.address}</p>
 
-        {venue.perk ? (
-          <div className="mt-4 rounded-xl bg-cyan-50 p-4">
-            <p className="font-medium text-cyan-900">🎟️ {venue.perk.title}</p>
-            <p className="mt-1 text-xs text-cyan-700/80">{venue.perk.terms}</p>
-          </div>
-        ) : (
-          <p className="mt-4 text-sm text-stone-500">No active perk here right now.</p>
-        )}
+          {venue.perk ? (
+            <div className="perk-strip">
+              <p className="perk-title">{venue.perk.title}</p>
+              <p className="perk-terms">{venue.perk.terms}</p>
+            </div>
+          ) : (
+            <p className="mt-4 text-sm text-[var(--muted)]">No active perk here right now.</p>
+          )}
 
-        <RedeemFlow
-          venueSlug={venue.slug}
-          venueName={venue.name}
-          perkTitle={venue.perk?.title ?? "Perk"}
-        />
+          <RedeemFlow
+            venueSlug={venue.slug}
+            venueName={venue.name}
+            perkTitle={venue.perk?.title ?? "Perk"}
+          />
+        </div>
       </div>
 
-      <p className="mt-4 text-center text-xs text-stone-400">
+      <p className="redeem-note">
         Redeem only when you are at the venue. Staff will glance at the
         confirmation — that is the whole check-in.
       </p>

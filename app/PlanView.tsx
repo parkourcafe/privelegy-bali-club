@@ -42,7 +42,7 @@ export default function PlanView({ plan }: { plan: PlanBySlot[] }) {
 
   return (
     <>
-      <div className="mb-6 space-y-2">
+      <div className="filter-panel">
         <Chips
           label="Vibe"
           options={VIBES as readonly string[]}
@@ -59,18 +59,18 @@ export default function PlanView({ plan }: { plan: PlanBySlot[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="py-10 text-center text-sm text-stone-500">
+        <p className="py-10 text-center text-sm text-[var(--muted)]">
           Nothing matches that combo. Clear a filter.
         </p>
       ) : (
-        <div className="space-y-10">
+        <div>
           {filtered.map((block) => (
-            <section key={block.slot}>
-              <div className="mb-3 flex items-baseline justify-between">
-                <h2 className="font-display text-xl font-semibold">{block.label}</h2>
-                <span className="text-xs text-stone-500">{block.hint}</span>
+            <section key={block.slot} className="slot-section">
+              <div className="slot-heading">
+                <h2>{block.label}</h2>
+                <p>{block.hint}</p>
               </div>
-              <ul className="space-y-3">
+              <ul className="venue-list">
                 {block.venues.map((v) => (
                   <li key={v.slug}>
                     <VenueCard v={v} />
@@ -100,21 +100,15 @@ function Chips({
 }) {
   if (options.length === 0) return null;
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <span className="mr-1 text-[11px] font-semibold uppercase tracking-wide text-stone-400">
-        {label}
-      </span>
+    <div className="chip-row">
+      <span className="chip-label">{label}</span>
       {options.map((o) => {
         const on = selected === o;
         return (
           <button
             key={o}
             onClick={() => onSelect(on ? null : o)}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition ${
-              on
-                ? "bg-cyan-700 text-white"
-                : "border border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
-            }`}
+            className={`chip ${on ? "chip-active" : ""}`}
           >
             {render ? render(o) : o}
           </button>
