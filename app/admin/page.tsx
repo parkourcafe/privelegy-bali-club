@@ -22,8 +22,8 @@ export default async function AdminIndex() {
         href="/admin/phase0"
         className="mt-4 flex items-center justify-between rounded-2xl bg-cyan-700 p-4 text-white"
       >
-        <span className="font-semibold">→ Gate dashboard (go / no-go)</span>
-        <span className="text-cyan-100">§22</span>
+        <span className="font-semibold">→ Money gate dashboard</span>
+        <span className="text-cyan-100">v0.3</span>
       </Link>
 
       <h2 className="mt-8 text-sm font-semibold uppercase tracking-wide text-stone-500">

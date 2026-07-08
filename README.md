@@ -43,7 +43,8 @@ fully browsable. Redemption writes need a DB and will return
 
 Apply `supabase/migrations/0001_init.sql` then `supabase/seed.sql` to a Supabase
 project. RLS: planning tables are public-read; identity/consent/redemption tables
-are service-role-only (default deny), written exclusively through server routes.
+are default-deny and written exclusively through SECURITY DEFINER RPCs with the
+anon key. Do not add a service-role key to the app or Vercel.
 
 ## Scope discipline (NOT built — later gates)
 
