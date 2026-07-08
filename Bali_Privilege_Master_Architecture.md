@@ -1,3 +1,306 @@
+# Bali Privilege — Master Architecture
+
+**Status:** v0.4-current · sync rewrite for repository source-of-truth · 2026-07.
+
+**Purpose.** This is the canonical product/data-model source of truth referenced by
+`CLAUDE.md`. It is a sync of decisions already made in `CLAUDE.md`,
+`docs/money-model.md`, `docs/tablepilot-bridge-handoff.md`,
+`docs/tablepilot-integration.md`, and the current code. It intentionally does not
+invent new product concepts.
+
+**How to read this file.** Current canon is above the history appendix. The original
+v0.2 Phase-0 architecture is preserved verbatim in **Appendix Z — History** for audit
+trail and context, but it is superseded where this v0.4 section says so.
+
+**Legend.** `[implemented]` = present in the repo/code or verified handoff docs.
+`[planned]` = decided direction, not implemented in BP code yet. `OPEN — needs
+Selena's decision` = not canonical; do not build without Selena's explicit decision.
+
+---
+
+## 0. Sources and authority
+
+1. `CLAUDE.md` — hard guardrails for coding agents and current project status.
+2. This file — product/data-model architecture source of truth.
+3. `docs/money-model.md` — detailed canonical money decision v0.3.
+4. `docs/tablepilot-bridge-handoff.md` and `docs/tablepilot-integration.md` —
+   reservation bridge implementation notes and proof/handoff status.
+5. Actual code/migrations in this repo — implementation truth for BP.
+6. TablePilot repo/code — implementation truth for TablePilot.
+
+If this file and `CLAUDE.md` diverge on a guardrail, stop and reconcile before coding.
+If this file and current code diverge on implementation status, mark the feature as
+`[planned]` until code proves otherwise.
+
+---
+
+## 1. Current product thesis
+
+Bali Privilege is the internal architecture name for a free trip-planning and
+on-island decision guide for Bali tourists. The public surface may be branded
+separately; this document does not change public naming unless `CLAUDE.md` or a
+separate brand spec explicitly does so.
+
+Core strategy remains:
+
+- **Bali-wide planning:** broad, free planning content and route/context pages.
+- **Canggu-deep execution:** one active deep district at a time, starting with
+  Canggu, where curated venues, perks, QR redemption, reservation handoff, and
+  partner reporting live.
+
+**Source:** v0.2 master thesis in Appendix Z; `CLAUDE.md` “What this project is”.
+
+---
+
+## 2. Executive rule — current
+
+**No expansion beyond Canggu-deep proof.** Phase 1A is unlocked, but scope remains
+constrained: harden the existing Canggu redemption/reservation surface and prove the
+business loop before expanding product ambition.
+
+### Allowed now
+
+- Existing app/PWA hardening already unlocked by `CLAUDE.md` Phase 1A.
+- Density readiness work: real Canggu venues/perks/routes, verified tags, price
+  anchors, and route wiring.
+- Source attribution and QR/redemption integrity work.
+- TablePilot handoff and reconciliation work that does **not** build a booking engine
+  inside BP.
+- Aggregate partner reporting.
+
+### Still forbidden without a new explicit gate
+
+- BP-internal booking engine.
+- Tourist-side payments of any kind.
+- Paid ranking in organic results.
+- Google Maps review scraping or republishing.
+- AI assistant/chatbot in the tourist product.
+- Monetization, QR, paid listing, or partner placement outside `active_deep`.
+- New entities/features beyond this master without Selena's explicit decision.
+
+**Sources:** `CLAUDE.md` Status, guardrails #1–#11, guardrail reconciliation note;
+`docs/money-model.md`; BP code `components/ReserveButton.tsx` and
+`supabase/migrations/0010_tablepilot_bridge.sql`.
+
+---
+
+## 3. Money model (§5 current canon)
+
+Bali Privilege earns money only from venues and only from a proven reservation result.
+The tourist never pays.
+
+**Billable rule:** BP earns a **fixed fee per confirmed seated reservation** made by a
+tourist through the BP → TablePilot reservation path.
+
+We earn only when all are true:
+
+1. the tourist found the venue through BP;
+2. the tourist made a table reservation through TablePilot;
+3. the venue confirmed the reservation;
+4. the guest arrived / was seated, or counted as seated per the venue's rules;
+5. the event is provable in the system.
+
+### Explicitly not the money model
+
+- No flat monthly subscription as the canonical model.
+- No “Tariff A / Tariff B”.
+- No paid listing / Featured / Route Placement / Category Sponsorship / Seasonal
+  Campaign as standalone paid products.
+- No percentage of cheque.
+- No deposit.
+- No fee for “being in the catalogue”.
+
+The perk/QR flow remains valuable, but as a **tourist incentive and independent
+arrival/perk proof**, not the billed event.
+
+**Sources:** `docs/money-model.md` (“The rule”, “What is explicitly killed”, “The
+chain”); `CLAUDE.md` guardrail #5.
+
+---
+
+## 4. TablePilot and reservation bridge
+
+BP does not build a booking engine internally. Reservations are handled by the
+external TablePilot product.
+
+### Current implemented pieces
+
+| Piece | Status | Evidence |
+|---|---:|---|
+| BP venue can carry a TablePilot slug | `[implemented]` | `supabase/migrations/0010_tablepilot_bridge.sql`; `lib/data.ts` maps `tablepilot_slug` → `tablepilotSlug` |
+| BP “Reserve a table” handoff to TablePilot | `[implemented]` | `components/ReserveButton.tsx` opens `/book/<tablepilotSlug>?source=bali_privilege` |
+| BP logs demand before handoff | `[implemented]` | `components/ReserveButton.tsx` logs `reservation_click`; `app/api/event/route.ts` allows it |
+| TablePilot accepts/persists `source=bali_privilege` | `[implemented]` | `docs/tablepilot-bridge-handoff.md` says TablePilot commit `41a5270` was merged/deployed; local TablePilot checkout shows `BookingSource` includes `bali_privilege` and `sourceFromSearchParams()` |
+| TablePilot partner report for BP | `[implemented]` per handoff/prod proof | `docs/tablepilot-bridge-handoff.md` reports live `GET /api/partner/bali-privilege/report` returning no guest PII |
+| BP-side storage/aggregation of TablePilot seated report | `[planned]` | `docs/tablepilot-integration.md` Step 2 says BP can pull/push report; no BP-side reconciliation table/code verified in this repo |
+
+### Seated semantics
+
+TablePilot does **not** add a new `seated` status. Its existing reservation statuses
+include `arrived` and `completed`; the bridge handoff defines billable/seated as:
+
+```text
+source === "bali_privilege" AND status ∈ {arrived, completed}
+```
+
+**Sources:** `CLAUDE.md` guardrail #3; `docs/money-model.md` “Reservation engine =
+TablePilot”; `docs/tablepilot-bridge-handoff.md` lines describing LIVE prod proof,
+seated semantics, and no-PII report; BP code paths above; local TablePilot code paths
+`src/lib/types.ts`, `src/App.tsx`, `src/lib/domain.ts`.
+
+---
+
+## 5. Current data model
+
+Canonical names remain:
+
+```text
+Venue · VenueProductEnrollment · District · ContentPage · RouteStop · Offer/Perk ·
+Placement · Redemption · Event · User/Role · GuestRef · ConsentLog ·
+VenueReservationConfig
+```
+
+Do not add booleans such as `is_partner`, `is_bp_partner`, or
+`is_tablepilot_tenant`. Use enrollment/config concepts.
+
+### Implemented BP fields / flows
+
+| Concept | Status | Evidence |
+|---|---:|---|
+| `venues.tablepilot_slug` | `[implemented]` | `supabase/migrations/0010_tablepilot_bridge.sql` |
+| District status / monetization / QR flags | `[implemented]` | `supabase/migrations/0006_source_class_and_coverage.sql` |
+| QR write blocked outside QR-enabled district | `[implemented]` | `record_redemption()` in migration `0006_source_class_and_coverage.sql` |
+| Creator / external / in-venue redemption buckets | `[implemented]` | `_source_class()` and `partner_report()` in migration `0006_source_class_and_coverage.sql` |
+| Partner Notes source breakdown + repeat | `[implemented]` | `partner_notes()` in migration `0008_partner_notes.sql`; `CLAUDE.md` unlock log |
+| Guest identity via httpOnly cookie | `[implemented]` | `CLAUDE.md` reconciliation #10; code paths `middleware.ts`, `lib/guest-server.ts` |
+| My Perks | `[implemented]` | `my_redemptions()` in migration `0009_my_perks_and_feedback.sql` |
+| Dish feedback | `[implemented]` | `log_dish_feedback()` in migration `0009_my_perks_and_feedback.sql`; `app/api/dish/route.ts` |
+
+### Event / loop status
+
+Only describe event names as canonical if they exist in docs/code below.
+
+| Event / loop | Status | Evidence / notes |
+|---|---:|---|
+| `landing_open` | `[implemented]` | allowed by `app/api/event/route.ts`; counted by `phase0_overview()` |
+| `venue_card_open` | `[implemented]` | allowed by `app/api/event/route.ts`; counted by reports |
+| `perk_open` | `[implemented]` | allowed by `app/api/event/route.ts`; counted by reports |
+| `reservation_click` | `[implemented]` | allowed by `app/api/event/route.ts`; logged by `ReserveButton` |
+| `similar_open` | `[implemented]` | allowed by `app/api/event/route.ts` |
+| `redemption` | `[implemented]` | inserted by `record_redemption()` |
+| `dish_feedback` | `[implemented]` | inserted by `log_dish_feedback()` |
+| TablePilot `source=bali_privilege` reservation creation | `[implemented]` | `docs/tablepilot-bridge-handoff.md` prod proof; TablePilot code checkout |
+| TablePilot billable report (`arrived`/`completed`) | `[implemented]` per TablePilot handoff | `docs/tablepilot-bridge-handoff.md` prod proof |
+| BP-side seated reconciliation / fee accounting | `[planned]` | direction in `docs/money-model.md` and `docs/tablepilot-integration.md`; no BP code verified |
+
+### OPEN — needs Selena's decision
+
+These names/concepts are **not** canon yet. Do not implement them just because they
+sound useful:
+
+- New BP tables for reservation lifecycle or billing, including names like
+  `ReservationAttribution`, `ReservationProofEvent`, `BillingEvent`, or `fee_event`.
+- Exact BP-side reconciliation storage model for TablePilot reports.
+- Exact fee amount, invoice cadence, dispute/waiver rules, or whether a confirmed
+  but not arrived booking can ever be billable.
+- Whether `Placement` remains only a non-paid content/labeling concept or is removed
+  from MVP surfaces. Money model v0.3 kills paid placement as a product.
+
+**Sources:** `CLAUDE.md` data model section and guardrails #3–#5/#8–#11;
+`docs/money-model.md`; `docs/tablepilot-integration.md`; migrations `0006`, `0008`,
+`0009`, `0010`; BP code `components/ReserveButton.tsx`, `app/api/event/route.ts`.
+
+---
+
+## 6. Product surface and content rules
+
+Public UI is English-only. Russian is allowed only for admin/founder-facing surfaces.
+The tourist product remains mobile-first.
+
+Current differentiator: BP is not a generic catalogue. It must answer “where should I
+go and why?” using curated venue cards, verified vibe tags, price anchors, routes,
+perks, and reservation handoff for bookable venues.
+
+### Current implemented card fields
+
+`Venue` currently includes: `vibeTags`, `priceAnchor`, `whatToOrder`, `photoUrl`,
+`whatsapp`, and `tablepilotSlug` as optional fields in `lib/types.ts`.
+
+### OPEN — needs Selena's decision
+
+The following “moment / JTBD” content fields are discussed in product work but are
+not present in current BP code and are not canon until Selena approves the schema:
+
+- `whyItsHere`
+- `bestFor`
+- `notFor`
+- `practicalTags`
+- `jobsToBeDone`
+- Any new “Moment” table/entity
+
+If introduced, prefer additive optional fields or static/config content first; do not
+create new entities without explicit approval.
+
+**Sources:** `CLAUDE.md` stack/language/guardrails; `lib/types.ts`; no matching code
+found for the JTBD field names in current BP repo.
+
+---
+
+## 7. Roadmap / gates — current
+
+`CLAUDE.md` is current for build status:
+
+- `[implemented]` Phase 0 gate passed; `BUILD: UNLOCKED — Phase 1A`.
+- `[implemented]` localStorage removed in favor of httpOnly guest cookie.
+- `[implemented]` creator bucket + coverage flags.
+- `[implemented]` execution surface: vibe/category filters, routes, partner Notes.
+- `[planned / field work]` density readiness: ≥30 places · ≥15 perks.
+
+Money-model gate shifted from QR redemption alone to the reservation chain described
+in `docs/money-model.md`: do tourists reserve through BP/TablePilot, do reservations
+convert to arrived/seated guests, and will venues pay a fixed fee for those proven
+seated guests?
+
+QR/perk redemption remains useful for arrival/perk proof and partner trust, but it is
+not the billed event.
+
+**Sources:** `CLAUDE.md` Status and Unlock log; `docs/money-model.md` “Phase 0 gate —
+shifted”; BP migrations/code cited above.
+
+---
+
+## 8. Still-valid strategic constraints from v0.2
+
+The following v0.2 strategic constraints remain current unless superseded above:
+
+- Tourist never pays.
+- Canggu is the first active deep district.
+- Outside active_deep: planning content/RouteStops may exist; monetization, QR, and
+  paid/partner placement are blocked.
+- Google Maps is a navigation substrate, not a competitor to replace.
+- No Google review scraping/republishing; manual consensus-check only.
+- No AI assistant/chatbot in the tourist product.
+- Organic editorial picks are separate from sponsored/partner labeling.
+- Bad choices are excluded by absence; no anti-lists.
+
+---
+
+## 9. Version notes
+
+- **v0.2 Phase-0 architecture** — original strategy, preserved in Appendix Z.
+- **v0.3 money model** — fixed fee per BP-sourced confirmed seated reservation;
+  detailed in `docs/money-model.md`.
+- **v0.4-current** — this rewrite: reconciles the master with current `CLAUDE.md`,
+  money model v0.3, TablePilot bridge handoff/proof notes, and BP implementation
+  status without inventing new canon.
+
+
+---
+
+# Appendix Z — History (v0.2 Phase-0 architecture)
+
+> Preserved verbatim for audit trail. Current canon is the v0.4-current section above.
+
 # Bali Privilege — Полная архитектура
 
 **Master-документ.** Единый источник правды: стратегия, продукт, техника, роадмап.
