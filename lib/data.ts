@@ -473,15 +473,21 @@ export async function getPhase0Overview(): Promise<Phase0Overview | null> {
       landingOpen: Number(f.landing_open ?? 0),
       venueCardOpen: Number(f.venue_card_open ?? 0),
       perkOpen: Number(f.perk_open ?? 0),
+      directionClick: Number(f.direction_click ?? 0),
+      reservationClick: Number(f.reservation_click ?? 0),
+      similarOpen: Number(f.similar_open ?? 0),
       redemption: Number(f.redemption ?? 0),
     },
     venues: venues.map((v) => ({
       slug: String(v.slug),
       name: String(v.name),
+      directionClicks: Number(v.direction_clicks ?? 0),
+      reservationClicks: Number(v.reservation_clicks ?? 0),
       perkOpens: Number(v.perk_opens ?? 0),
       redemptions: Number(v.redemptions ?? 0),
       externallyAttributed: Number(v.externally_attributed ?? 0),
       inVenue: Number(v.in_venue ?? 0),
+      creator: Number(v.creator ?? 0),
     })),
   };
 }

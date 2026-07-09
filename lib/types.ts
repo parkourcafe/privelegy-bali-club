@@ -112,10 +112,13 @@ export interface MyRedemption {
 export interface Phase0VenueStat {
   slug: string;
   name: string;
+  directionClicks: number;
+  reservationClicks: number;
   perkOpens: number;
   redemptions: number;
   externallyAttributed: number;
   inVenue: number;
+  creator: number;
 }
 export interface Phase0Overview {
   funnel: {
@@ -123,6 +126,9 @@ export interface Phase0Overview {
     landingOpen: number;
     venueCardOpen: number;
     perkOpen: number;
+    directionClick: number;
+    reservationClick: number;
+    similarOpen: number;
     redemption: number;
   };
   venues: Phase0VenueStat[];

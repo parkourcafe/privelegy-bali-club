@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import ReserveButton from "@/components/ReserveButton";
 import SimilarPlaces from "@/components/SimilarPlaces";
+import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
 
 // Presentational venue card — shared by the planning grid and route pages.
 
@@ -63,14 +64,13 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
         )}
 
         <div className="mt-3 flex flex-wrap gap-2">
-          <a
+          <TrackedDirectionsLink
             href={v.gmapsUrl}
-            target="_blank"
-            rel="noreferrer"
+            venueSlug={v.slug}
             className="rounded-lg border border-stone-200 px-3 py-1.5 text-sm font-medium text-stone-700 hover:bg-stone-50"
           >
             Directions
-          </a>
+          </TrackedDirectionsLink>
           <ReserveButton
             venueSlug={v.slug}
             tablepilotSlug={v.tablepilotSlug}
