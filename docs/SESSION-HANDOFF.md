@@ -1,4 +1,4 @@
-# Session handoff — Bali Privilege (2026-07-06)
+# Session handoff — Bali Privilege / Other Bali (2026-07-09)
 
 Everything a fresh session needs to continue without this chat's context.
 Read this first, then `docs/money-model.md`, `docs/tablepilot-integration.md`,
@@ -35,7 +35,8 @@ Chain: **Find → Perk → Reserve → Arrive → Redeem → Report → Fee.**
 - **DB:** Supabase project `bali-privilege`, id `egkdapqwkfprtyqvvnso`
   (org `kora bali` / `huqbxcmbidfqverftqrk`, region ap-southeast-1). Anon
   publishable key only; NO service_role anywhere. Writes go through SECURITY
-  DEFINER RPCs. Migrations 0001–0012 in `supabase/migrations/`.
+  DEFINER RPCs. Migrations 0001–0013 in `supabase/migrations/`; production DB
+  application of 0013 still needs explicit verification/apply.
 - **TablePilot (reservations, separate product):**
   `parkourcafe/tablepilot-id`, deployed `https://tablepilot-id.vercel.app`,
   public booking page `/book/:venueSlug`. Vite/React, state in Supabase JSONB
@@ -57,6 +58,12 @@ Chain: **Find → Perk → Reserve → Arrive → Redeem → Report → Fee.**
   TablePilot with source, `reservation_click` event. TablePilot side (add
   `bali_privilege` source) shipped by a prior session per
   `docs/tablepilot-bridge-handoff.md`.
+- **Phase 0 money-loop dashboard (repo side)**: `lib/tablepilot.ts`,
+  `/admin/phase0`, `direction_click`, and `0013_phase0_money_gate.sql` landed in
+  PR #7. It reads aggregate-only TablePilot data; QR proof remains separate from
+  billing.
+- **PWA/visual upgrade (repo side)**: PNG manifest/icons and upgraded visual system
+  landed in PR #8. Public copy/name still need the separate Other Bali launch pass.
 - **Partner self-onboarding**: `/onboard/[token]` (venue sees card preview,
   agrees to policy, uploads own photos), `/admin/invite/[venue]` (invite link +
   WhatsApp message), `/admin` shows onboarding status badges.
@@ -74,11 +81,12 @@ Chain: **Find → Perk → Reserve → Arrive → Redeem → Report → Fee.**
   upload photos; print QR posters (`/admin/qr/<slug>`) for confirmed ones.
 - **Density (§22):** 20 Canggu active, gate wants ≥30 — load next Canggu batch
   (same CSV template; Ubud rows go to pipeline).
-- **TablePilot money loop:** wire one real bookable venue's `tablepilot_slug`;
-  build the seated→BP report-back so fee can be billed. See
-  `docs/tablepilot-integration.md`.
-- **Phase 0 redefinition:** the passed gate measured perk redemption; money model
-  v0.3 needs the gate re-cut around intent→reservation→seated. Not yet rewritten.
+- **Production DB:** apply/verify `supabase/migrations/0013_phase0_money_gate.sql`
+  in production Supabase. Without it, live `/admin/phase0` may not match repo code.
+- **TablePilot money proof:** one real BP-sourced TablePilot booking must become
+  `arrived` or `completed` so `/admin/phase0` shows seated/billable proof.
+- **Other Bali launch pass:** public UI/manifest/canonical still use the field-test
+  Canggu Perks label. Rebrand/copy/legal/JTBD surfaces are the next launch batch.
 - **KORA site:** separate session with that repo + the audit file.
 - **Backlog:** `docs/backlog.md` (QR-photo anti-fraud gate; poster-degradation
   revisit check; similar-places fallback — gated on density; rejected per-cheque
@@ -102,12 +110,16 @@ Chain: **Find → Perk → Reserve → Arrive → Redeem → Report → Fee.**
   next_deep (monetization/qr disabled at DB level). Don't surface Ubud to
   tourists without an explicit founder decision to change coverage.
 
-## 6. Migrations (DB) — 0001–0012
+## 6. Migrations (DB) — 0001–0013
 
 init · redemption_rpc · attribution_events · phase0_overview · venue_card_fields ·
 source_class_and_coverage · routes · partner_notes · my_perks_and_feedback ·
-tablepilot_bridge · partner_onboarding (+ token_fix) · onboard_status.
-All applied to the live DB as of this handoff.
+tablepilot_bridge · partner_onboarding (+ token_fix) · onboard_status ·
+phase0_money_gate.
+
+Live DB status: 0001–0012 were applied before this handoff. 0013 is in repo and must
+be applied/verified in production Supabase before treating live money-gate analytics
+as final.
 
 ## 7. Key routes
 
