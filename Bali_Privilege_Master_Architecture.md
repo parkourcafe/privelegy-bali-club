@@ -1,6 +1,6 @@
 # Bali Privilege / Other Bali — Master Architecture
 
-**Status:** v0.4-current · repository source-of-truth rewrite · 2026-07-08.
+**Status:** v0.4-current · post app-merge reconciliation · 2026-07-09.
 
 **Lineage.** v0.2 was the Phase-0 architecture. v0.3 was the money-model pivot
 (fixed venue fee per proven seated reservation). v0.4 reconciles repo reality,
@@ -64,8 +64,9 @@ The core strategy remains:
   live only in the active deep district. Canggu first; Ubud next only when unlocked.
 
 **Current public rebrand status:** Other Bali is decided in `CLAUDE.md`, but public UI
-and manifest may still say Bali Privilege / Canggu Perks until the rebrand task lands.
-Treat that as P0 launch work, not a new strategy decision.
+and manifest still say Canggu Perks until the rebrand task lands. The PWA installability
+fix is implemented; the public name/copy/canonical pass is still P0 launch work, not a
+new strategy decision.
 
 **Sources:** `CLAUDE.md` “What this project is” + “Public brand”; v0.2 thesis in
 Appendix Z.
@@ -102,7 +103,8 @@ prepare launch, and prove the money loop once.
 **Sources:** `CLAUDE.md` Status + hard guardrails #1–#11; `docs/money-model.md`;
 BP code `components/ReserveButton.tsx`, `app/api/event/route.ts`,
 `supabase/migrations/0006_source_class_and_coverage.sql`,
-`supabase/migrations/0010_tablepilot_bridge.sql`.
+`supabase/migrations/0010_tablepilot_bridge.sql`,
+`supabase/migrations/0013_phase0_money_gate.sql`.
 
 ---
 
@@ -168,9 +170,10 @@ handoff field.
 | TablePilot accepts/persists `source=bali_privilege` | `[implemented]` per TablePilot proof docs | `docs/tablepilot-bridge-handoff.md`; local TablePilot checkout previously showed `BookingSource` includes `bali_privilege` |
 | TablePilot billable semantics | `[implemented]` per TablePilot proof docs | billable = `source === "bali_privilege" && status ∈ {arrived, completed}` in `docs/tablepilot-bridge-handoff.md` |
 | TablePilot aggregate partner report | `[implemented]` per handoff docs | `docs/tablepilot-bridge-handoff.md` reports live no-PII endpoint |
-| BP pulling TablePilot aggregate report via `lib/tablepilot.ts` | `[planned / pending verification]` | `CLAUDE.md` guardrail #3 names this path, but current BP code audit did **not** find `lib/tablepilot.ts` |
-| BP `/admin/phase0` showing seated/billable money-loop stats | `[planned / pending verification]` | current `app/admin/phase0/page.tsx` still reads old `phase0_overview()` redemption metrics |
-| Live migration `0013_phase0_money_gate.sql` | `[planned / pending verification]` | current repo migrations stop at `0012_onboard_status.sql` |
+| BP pulling TablePilot aggregate report via `lib/tablepilot.ts` | `[implemented]` | PR #7; `lib/tablepilot.ts`; `/admin/phase0` calls `getTablePilotReport()` |
+| BP `/admin/phase0` showing seated/billable money-loop stats | `[implemented]` | PR #7; `app/admin/phase0/page.tsx` shows intent → TablePilot bookings → seated/billable |
+| BP migration file `0013_phase0_money_gate.sql` | `[implemented in repo]` | PR #7; additive `phase0_overview()` replacement includes reserve/direction/QR proof buckets |
+| Production Supabase application of migration `0013` | `[planned / external apply pending]` | must be applied deliberately outside the repo merge; do not assume live DB has it until verified |
 
 ### Seated semantics
 
@@ -180,7 +183,8 @@ Do not invent a new BP `seated` status. TablePilot's existing statuses `arrived`
 **Sources:** `CLAUDE.md` guardrail #3; `docs/money-model.md` “Reservation engine =
 TablePilot”; `docs/tablepilot-integration.md`; `docs/tablepilot-bridge-handoff.md`;
 BP code paths `components/ReserveButton.tsx`, `app/api/event/route.ts`, `lib/data.ts`,
-`app/admin/phase0/page.tsx`, `supabase/migrations/0010_tablepilot_bridge.sql`.
+`app/admin/phase0/page.tsx`, `lib/tablepilot.ts`, `supabase/migrations/0010_tablepilot_bridge.sql`,
+`supabase/migrations/0013_phase0_money_gate.sql`.
 
 ---
 
@@ -211,6 +215,7 @@ reconciled before schema changes.
 | Guest identity via httpOnly cookie | `[implemented]` | `CLAUDE.md` guardrail #10; `middleware.ts`; `lib/guest-server.ts` |
 | My Perks | `[implemented]` | `my_redemptions()` in migration `0009_my_perks_and_feedback.sql` |
 | Dish feedback event | `[implemented]` but not a quality-warning surface | `log_dish_feedback()` in migration `0009_my_perks_and_feedback.sql`; `app/api/dish/route.ts` |
+| Phase 0 money-gate RPC shape | `[implemented in repo]` | `supabase/migrations/0013_phase0_money_gate.sql`; production apply still pending until verified |
 
 ### Reservation / event lifecycle status
 
@@ -221,6 +226,7 @@ Only the following are canon as implemented if code/docs prove them:
 | `landing_open` | `[implemented]` | `app/api/event/route.ts`; counted by `phase0_overview()` |
 | `venue_card_open` | `[implemented]` | `app/api/event/route.ts`; reports |
 | `perk_open` | `[implemented]` | `app/api/event/route.ts`; reports |
+| `direction_click` | `[implemented]` | `components/TrackedDirectionsLink.tsx`; `app/api/event/route.ts`; `0013_phase0_money_gate.sql` |
 | `reservation_click` | `[implemented]` | `components/ReserveButton.tsx`; `app/api/event/route.ts` |
 | `similar_open` | `[implemented]` | `app/api/event/route.ts` |
 | `redemption` | `[implemented]` | `record_redemption()` inserts event |
@@ -228,7 +234,8 @@ Only the following are canon as implemented if code/docs prove them:
 | TablePilot reservation created with `source=bali_privilege` | `[implemented]` per TablePilot docs | `docs/tablepilot-bridge-handoff.md` |
 | TablePilot confirmed reservation | `[implemented]` in TablePilot, not BP | TablePilot status model in handoff/docs; BP does not own this state |
 | TablePilot arrived/completed = seated/billable | `[implemented]` per TablePilot docs | `docs/tablepilot-bridge-handoff.md` |
-| BP-side reservation report pull / storage | `[planned / pending verification]` | `CLAUDE.md` names `lib/tablepilot.ts`, but current BP code audit did not find it |
+| BP-side aggregate reservation report pull | `[implemented]` | `lib/tablepilot.ts`; `app/admin/phase0/page.tsx`; aggregate-only, no PII |
+| BP-side reservation report storage | `[planned]` | no BP storage table/flow verified; current implementation reads aggregate report live |
 | BP billing/fee accounting | `[planned]` | no BP code/table verified |
 
 ### OPEN — needs Selena's decision
@@ -245,18 +252,19 @@ These concepts are not settled BP canon until Selena approves a concrete schema/
 - Whether `Placement` remains only a non-paid content/labeling concept or is removed
   from MVP surfaces. Money model v0.3 kills paid placement as a product.
 
-### TODO — reconcile after app-branch merge
+### Operational follow-up
 
-After the app branch containing `lib/tablepilot.ts`, `0013_phase0_money_gate.sql`, and
-updated `/admin/phase0` money-loop dashboard lands in this repo, rerun a code audit and
-update this master: move those TablePilot report-back / seated-billable items from
-`[planned / pending verification]` to `[implemented]` only where the merged code proves
-it. Do not leave the master understating repo reality after the app work is present.
+`lib/tablepilot.ts`, `0013_phase0_money_gate.sql`, and the updated `/admin/phase0`
+money-loop dashboard are merged into this repo. The remaining external gate is to apply
+`0013` to production Supabase, verify the live TablePilot aggregate report in
+`/admin/phase0`, and prove one real BP-sourced reservation that becomes arrived or
+completed.
 
 **Sources:** `CLAUDE.md` data model section + guardrails #3–#5/#8–#11;
 `docs/money-model.md`; `docs/tablepilot-integration.md`; `docs/tablepilot-bridge-handoff.md`;
-BP migrations `0006`, `0008`, `0009`, `0010`; BP code `components/ReserveButton.tsx`,
-`app/api/event/route.ts`, `app/admin/phase0/page.tsx`.
+BP migrations `0006`, `0008`, `0009`, `0010`, `0013`; BP code
+`components/ReserveButton.tsx`, `components/TrackedDirectionsLink.tsx`,
+`app/api/event/route.ts`, `app/admin/phase0/page.tsx`, `lib/tablepilot.ts`.
 
 ---
 
@@ -297,9 +305,7 @@ content, but current BP code does not yet contain these fields. Add them only vi
 additive nullable migration and TypeScript changes; no new Moment/Scenario/Curator DB
 entities without a master amendment.
 
-**Sources:** `CLAUDE.md` public brand + guardrails #2, #7, #11; current `lib/types.ts`;
-Other Bali engineering spec v2 as execution instruction, bounded by this file's
-OPEN decisions.
+**Sources:** `CLAUDE.md` public brand + guardrails #2, #7, #11; current `lib/types.ts`.
 
 ---
 
@@ -337,14 +343,15 @@ QR redemption remains an independent proof stream:
 - `[implemented]` Phase 0 gate passed per `CLAUDE.md`.
 - `[implemented]` BP emits `reservation_click`.
 - `[implemented]` TablePilot source handoff exists per code/docs.
-- `[planned / pending verification]` live BP dashboard showing TablePilot seated /
-  billable counts. Current `/admin/phase0` code still shows redemption gate metrics.
-- `[planned / pending verification]` migration `0013_phase0_money_gate.sql` and
-  `TABLEPILOT_PARTNER_TOKEN` wiring; not present/verifiable in current repo checkout.
+- `[implemented]` BP dashboard code showing TablePilot seated / billable counts via
+  `lib/tablepilot.ts` in `/admin/phase0`.
+- `[implemented in repo]` migration file `0013_phase0_money_gate.sql`.
+- `[planned / external apply pending]` production Supabase application of migration
+  `0013` and one real seated/billable TablePilot proof.
 
 **Sources:** `CLAUDE.md` Status + guardrails #3/#5; `docs/money-model.md` “Phase 0
-gate — shifted”; `components/ReserveButton.tsx`; `app/admin/phase0/page.tsx`; current
-migrations directory.
+gate — shifted”; `components/ReserveButton.tsx`; `app/admin/phase0/page.tsx`;
+`lib/tablepilot.ts`; current migrations directory.
 
 ---
 

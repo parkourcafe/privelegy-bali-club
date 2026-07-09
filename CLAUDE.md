@@ -10,7 +10,7 @@
 
 ## Status
 
-**v1 — build unlocked.** Phase 0 field test passed — recorded 2026-07-08. Current stage: **Phase 1A (Canggu Beta)** — visually upgraded, money-loop dashboard ready locally, pending live migration 0013 + TablePilot env + one real seated-reservation proof. Market-test target 2026-07-20.
+**v1 — build unlocked.** Phase 0 field test passed — recorded 2026-07-08. Current stage: **Phase 1A (Canggu Beta)** — visual/PWA upgrade and money-loop dashboard are merged into repo truth; pending production Supabase migration 0013 apply + one real seated-reservation proof. Market-test target 2026-07-20.
 
 `BUILD: UNLOCKED`
 
@@ -64,5 +64,7 @@ Definitions live in master §15–16. Do not rename, do not add booleans like `i
 - [x] Phase 0 gate passed (2026-07-08) → `BUILD: UNLOCKED`. Current stage: Phase 1A (Canggu Beta).
 - [x] Money model reconciled to v0.3 (fee per seated reservation via TablePilot) — 2026-07-08.
 - [x] TablePilot handoff is built (guardrail #3 updated from "reserved/not implemented" to the current handoff architecture) — 2026-07-08.
+- [x] Master architecture doc rewrite landed as v0.4-current — PR #6, merge `1d6ba6b`, 2026-07-08.
+- [x] Phase 0 money-loop dashboard + BP TablePilot aggregate reader landed — PR #7, merge `8a7ff78`, 2026-07-09.
+- [x] PWA PNG manifest/icons + visual-system upgrade landed — PR #8, merge `a796aaf`, 2026-07-09.
 - [ ] New entities proposed by the Other Bali vision (`Curator`, `CuratorList`, `Scenario`, `DishRecommendation`, `UserPreference`, `Credits`) are NOT yet adopted — each requires a master-doc amendment before build (guardrail #11).
-- [ ] Master architecture doc rewrite to v0.4-current in progress (reconciles repo reality + TablePilot + Other Bali) — see the master rewrite instruction.
