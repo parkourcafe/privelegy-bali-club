@@ -9,6 +9,7 @@ const ALLOWED = new Set([
   "landing_open",
   "venue_card_open",
   "perk_open",
+  "direction_click",
   "reservation_click",
   "similar_open",
 ]);

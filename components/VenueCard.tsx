@@ -3,6 +3,7 @@ import type { VenueWithPerk } from "@/lib/data";
 import ReserveButton from "@/components/ReserveButton";
 import SimilarPlaces from "@/components/SimilarPlaces";
 import VenueVisual from "@/components/VenueVisual";
+import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
 
 // Presentational venue card — shared by the planning grid and route pages.
 
@@ -60,14 +61,13 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
         )}
 
         <div className="action-row">
-          <a
+          <TrackedDirectionsLink
             href={v.gmapsUrl}
-            target="_blank"
-            rel="noreferrer"
+            venueSlug={v.slug}
             className="button-secondary"
           >
             Directions
-          </a>
+          </TrackedDirectionsLink>
           <ReserveButton
             venueSlug={v.slug}
             tablepilotSlug={v.tablepilotSlug}
