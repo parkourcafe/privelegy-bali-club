@@ -83,15 +83,15 @@ export default function RedeemFlow({
   if (phase === "done" && result) {
     return (
       <>
-        <div className="mt-5 rounded-2xl bg-emerald-600 p-6 text-center text-white">
-          <div className="text-5xl">✓</div>
-          <p className="mt-2 text-lg font-semibold">Redeemed</p>
+        <div className="success-card reveal">
+          <div className="success-mark">✓</div>
+          <p className="mt-3 text-xl font-bold">Redeemed</p>
           <p className="text-sm opacity-90">
             {perkTitle} · {venueName}
           </p>
-          <div className="mt-4 rounded-xl bg-white/15 py-3">
-            <p className="text-xs uppercase tracking-widest opacity-80">Show staff</p>
-            <p className="font-mono text-3xl font-bold tracking-[0.3em]">
+          <div className="code-box">
+            <p className="text-xs font-bold opacity-80">Show staff</p>
+            <p className="font-mono text-3xl font-bold">
               {result.confirmCode}
             </p>
             <p className="mt-1 text-xs opacity-80">
@@ -102,40 +102,40 @@ export default function RedeemFlow({
         </div>
 
         {!fbSent ? (
-          <div className="mt-4 rounded-2xl border border-stone-200 p-4">
-            <p className="text-sm font-medium text-stone-700">Help other travellers</p>
-            <p className="text-xs text-stone-500">What did you order? Was it worth it?</p>
+          <div className="mt-4 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.7)] p-4">
+            <p className="text-sm font-bold text-[var(--ink)]">Help other travellers</p>
+            <p className="text-xs text-[var(--muted)]">What did you order? Was it worth it?</p>
             <input
               value={dish}
               onChange={(e) => setDish(e.target.value)}
               placeholder="e.g. big breakfast"
-              className="mt-3 w-full rounded-lg border border-stone-200 px-3 py-2 text-sm"
+              className="mt-3 w-full rounded-lg border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 text-sm outline-none focus:border-[var(--lagoon)]"
             />
             <div className="mt-3 flex gap-2">
               <button
                 onClick={() => sendFeedback("worth_it")}
-                className="flex-1 rounded-lg bg-cyan-700 py-2 text-sm font-semibold text-white"
+                className="button-primary flex-1"
               >
-                👍 Worth it
+                Worth it
               </button>
               <button
                 onClick={() => sendFeedback("meh")}
-                className="flex-1 rounded-lg border border-stone-200 py-2 text-sm font-medium text-stone-600"
+                className="button-secondary flex-1"
               >
-                👎 Meh
+                Meh
               </button>
             </div>
             <button
               onClick={() => setFbSent(true)}
-              className="mt-2 w-full py-1 text-xs text-stone-400"
+              className="mt-2 w-full py-1 text-xs text-[var(--muted)]"
             >
               Skip
             </button>
           </div>
         ) : (
-          <p className="mt-4 text-center text-sm text-stone-500">
+          <p className="mt-4 text-center text-sm text-[var(--muted)]">
             Thanks! ·{" "}
-            <a href="/me" className="text-cyan-700 underline">
+            <a href="/me" className="quiet-link">
               See my perks
             </a>
           </p>
@@ -147,10 +147,10 @@ export default function RedeemFlow({
   if (phase === "error") {
     return (
       <div className="mt-5">
-        <div className="rounded-xl bg-rose-50 p-4 text-sm text-rose-700">{errorMsg}</div>
+        <div className="rounded-lg bg-rose-50 p-4 text-sm text-rose-700">{errorMsg}</div>
         <button
           onClick={() => setPhase("idle")}
-          className="mt-3 w-full rounded-xl border border-stone-200 py-3 font-medium"
+          className="button-secondary mt-3 w-full"
         >
           Try again
         </button>
@@ -160,8 +160,8 @@ export default function RedeemFlow({
 
   if (phase === "consent") {
     return (
-      <div className="mt-5 rounded-xl border border-stone-200 p-4">
-        <p className="text-sm text-stone-700">
+      <div className="mt-5 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.7)] p-4">
+        <p className="text-sm leading-6 text-[var(--muted)]">
           We record that this perk was redeemed here, so the venue can see real
           visits. We store an anonymous device token only — no name, email, or
           location.
@@ -169,13 +169,13 @@ export default function RedeemFlow({
         <div className="mt-4 flex gap-2">
           <button
             onClick={() => submit(true)}
-            className="flex-1 rounded-xl bg-cyan-700 py-3 font-semibold text-white hover:bg-cyan-800"
+            className="button-primary flex-1"
           >
             Agree & redeem
           </button>
           <button
             onClick={() => setPhase("idle")}
-            className="rounded-xl border border-stone-200 px-4 py-3 text-stone-600"
+            className="button-secondary"
           >
             Cancel
           </button>
@@ -188,7 +188,7 @@ export default function RedeemFlow({
     <button
       onClick={startRedeem}
       disabled={phase === "submitting"}
-      className="mt-5 w-full rounded-xl bg-cyan-700 py-4 text-lg font-semibold text-white hover:bg-cyan-800 disabled:opacity-60"
+      className="button-primary button-large mt-5 w-full disabled:opacity-60"
     >
       {phase === "submitting" ? "Redeeming…" : "Redeem now — I'm at the venue"}
     </button>

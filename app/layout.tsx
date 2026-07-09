@@ -1,13 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
-
-// Real type, not Arial. Fraunces (editorial serif) for headings carries the
-// "hand-picked / curated" idea; Geist for UI/body stays clean and neutral.
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
 
 // Field-test label (§6.5): neutral, district-scoped, NO "Privilege/Club/Card".
 // Using the brand name on stickers would dirty the test — we'd measure reaction
@@ -16,12 +10,12 @@ export const metadata: Metadata = {
   title: "Canggu Perks Map",
   description:
     "A curated Canggu day with real perks at hand-picked local spots. Free to use.",
-  manifest: "/manifest.webmanifest",
+  manifest: "/manifest.webmanifest?v=3",
   appleWebApp: { capable: true, title: "Canggu Perks", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e7490",
+  themeColor: "#005962",
   width: "device-width",
   initialScale: 1,
 };
@@ -30,8 +24,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${geist.variable} ${fraunces.variable}`}>
-      <body className="min-h-full flex flex-col bg-stone-50 text-stone-900">
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full flex flex-col">
         {children}
         <SourceCapture />
         <ServiceWorkerRegister />

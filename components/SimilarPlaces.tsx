@@ -47,31 +47,31 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
   }
 
   return (
-    <details className="mt-3 rounded-xl border border-stone-200">
+    <details className="mt-4 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.62)]">
       <summary
         onClick={onSummaryClick}
-        className="cursor-pointer list-none px-3 py-2 text-sm font-medium text-stone-600 hover:text-stone-900"
+        className="cursor-pointer list-none px-3 py-2 text-sm font-bold text-[var(--muted)] hover:text-[var(--ink)]"
       >
         {summary}
       </summary>
       <ul className="space-y-2 px-3 pb-3">
         {similar.map((s) => (
-          <li key={s.slug} className="rounded-lg bg-stone-50 p-2.5">
+          <li key={s.slug} className="rounded-lg bg-[var(--paper-soft)] p-3">
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium">{s.name}</span>
               {s.isSponsored && (
-                <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-amber-700">
+                <span className="rounded-full bg-[rgba(184,138,66,0.16)] px-1.5 py-0.5 text-[9px] font-bold text-[var(--clay)]">
                   Sponsored
                 </span>
               )}
             </div>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[var(--muted)]">
               {categoryLabel[s.category] ?? s.category} · {s.address}
             </p>
             {s.vibeTags && s.vibeTags.length > 0 && (
               <div className="mt-1.5 flex flex-wrap gap-1">
                 {s.vibeTags.map((t) => (
-                  <span key={t} className="rounded-full bg-white px-2 py-0.5 text-[10px] text-stone-500">
+                  <span key={t} className="rounded-full bg-[rgba(98,118,87,0.13)] px-2 py-0.5 text-[10px] text-[var(--moss)]">
                     {t}
                   </span>
                 ))}
@@ -82,7 +82,7 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
                 href={s.gmapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg border border-stone-200 px-2.5 py-1 text-xs font-medium text-stone-700 hover:bg-white"
+                className="button-secondary min-h-8 px-2.5 py-1 text-xs"
               >
                 Directions
               </a>

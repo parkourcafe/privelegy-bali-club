@@ -14,9 +14,9 @@ export default async function RoutePage({
 
   if (!route) {
     return (
-      <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
+      <main className="site-shell-narrow text-center">
         <h1 className="text-xl font-semibold">Route not found</h1>
-        <Link href="/" className="mt-4 inline-block text-cyan-700 underline">
+        <Link href="/" className="quiet-link mt-4 inline-block">
           Back to your Canggu day
         </Link>
       </main>
@@ -24,23 +24,28 @@ export default async function RoutePage({
   }
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-8">
-      <Link href="/" className="text-sm text-stone-500 hover:underline">
+    <main className="site-shell-narrow">
+      <Link href="/" className="quiet-link">
         ← Your Canggu day
       </Link>
-      <header className="mt-3 mb-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">Route</p>
-        <h1 className="mt-1 text-3xl font-bold tracking-tight">{route.title}</h1>
-        {route.subtitle && <p className="mt-2 text-stone-600">{route.subtitle}</p>}
-        <p className="mt-1 text-xs text-stone-400">{route.stops.length} stops</p>
+      <header className="route-hero">
+        <div>
+          <p className="topline">Route</p>
+          <h1 className="route-title mt-3">{route.title}</h1>
+          {route.subtitle && <p className="hero-copy">{route.subtitle}</p>}
+        </div>
+        <div className="route-summary">
+          <p className="text-sm font-bold text-[var(--ink)]">{route.stops.length} stops</p>
+          <p className="mt-2 text-sm">
+            A clean line from first coffee to the last table.
+          </p>
+        </div>
       </header>
 
-      <ol className="space-y-4">
+      <ol className="timeline-list">
         {route.stops.map((v, i) => (
-          <li key={v.slug} className="relative pl-8">
-            <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-700 text-xs font-bold text-white">
-              {i + 1}
-            </span>
+          <li key={v.slug} className="timeline-item">
+            <span className="timeline-marker">{i + 1}</span>
             <VenueCard v={v} />
           </li>
         ))}

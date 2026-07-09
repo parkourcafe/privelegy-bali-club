@@ -1,8 +1,14 @@
 // Minimal offline shell for the planning layer. Deliberately tiny — no
 // aggressive caching of redemption routes (those must always hit the network
 // so proof is recorded server-side).
-const CACHE = "bp-shell-v1";
-const SHELL = ["/", "/manifest.webmanifest", "/icon.svg"];
+const CACHE = "bp-shell-v3";
+const SHELL = [
+  "/",
+  "/manifest.webmanifest?v=3",
+  "/icon-192.png",
+  "/icon-512.png",
+  "/icon-maskable-512.png",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).catch(() => {}));
