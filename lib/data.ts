@@ -90,7 +90,7 @@ function uniqueBy<T>(items: T[], keyOf: (item: T) => string): T[] {
   return out;
 }
 
-function normalizePerks(perks: Perk[]): Perk[] {
+function normalizePublicPerks(perks: Perk[]): Perk[] {
   return uniqueBy(
     perks.filter((p) => !isDraftPerk(p.title, p.terms)),
     (p) => p.venueSlug
@@ -126,7 +126,9 @@ const mapVenue = (r: Row): Venue => ({
   whatsapp: (r.whatsapp as string) ?? undefined,
   tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
 });
-const mapPerk = (r: Row): Perk | null => {
+// Public tourist mapping: proposed / partner-negotiation offers are treated as
+// absent until confirmed, so draft operational language never appears on cards.
+const mapPublicPerk = (r: Row): Perk | null => {
   if (isDraftPerk(r.title, r.terms)) return null;
   const title = textValue(r.title);
   if (!title) return null;
@@ -137,8 +139,8 @@ const mapPerk = (r: Row): Perk | null => {
     terms: textValue(r.terms),
   };
 };
-const mapPerks = (rows: Row[]): Perk[] =>
-  rows.map(mapPerk).filter((p): p is Perk => p !== null);
+const mapPublicPerks = (rows: Row[]): Perk[] =>
+  rows.map(mapPublicPerk).filter((p): p is Perk => p !== null);
 const mapPlan = (r: Row): PlanEntry => ({
   venueSlug: r.venue_slug as string,
   slot: r.slot as Slot,
@@ -159,7 +161,10 @@ function stripDraftPerkMarker(value: unknown): string {
     .trim();
 }
 
-function mapOnboardPerk(r: Row, venueSlug: string): Perk | null {
+// Internal / partner-onboarding mapping: proposed offers must stay visible so
+// venues can approve or reject them, but the card copy should read as an
+// approval item rather than a public tourist promise.
+function mapInternalPerk(r: Row): Perk | null {
   const rawTitle = textValue(r.title);
   const rawTerms = textValue(r.terms);
   if (!rawTitle && !rawTerms) return null;
@@ -170,7 +175,7 @@ function mapOnboardPerk(r: Row, venueSlug: string): Perk | null {
 
   return {
     id: textValue(r.id),
-    venueSlug,
+    venueSlug: textValue(r.venue_slug),
     title,
     terms: stripDraftPerkMarker(rawTerms) || "Final terms to confirm with your team.",
   };
@@ -193,12 +198,12 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
       sb.from("plan_entries").select("*").eq("district", "canggu"),
     ]);
     if (v) venues = (v as Row[]).map(mapVenue);
-    if (p) perks = mapPerks(p as Row[]);
+    if (p) perks = mapPublicPerks(p as Row[]);
     if (e) entries = (e as Row[]).map(mapPlan);
   }
 
   venues = uniqueBy(venues, (v) => v.slug);
-  perks = normalizePerks(perks);
+  perks = normalizePublicPerks(perks);
   entries = normalizePlanEntries(entries);
 
   const venueBySlug = new Map(venues.map((x) => [x.slug, x]));
@@ -254,7 +259,7 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
       .eq("active", true)
       .limit(1)
       .maybeSingle();
-    if (p) perk = mapPerk(p as Row) ?? undefined;
+    if (p) perk = mapPublicPerk(p as Row) ?? undefined;
   }
 
   if (!venue) return null;
@@ -467,7 +472,12 @@ export async function getOnboardInfo(token: string): Promise<OnboardInfo | null>
   const venue = mapVenue(r.venue as Row);
   const perkRaw = r.perk as Record<string, unknown> | null;
   const perk = perkRaw
-    ? mapOnboardPerk({ id: "", title: perkRaw.title, terms: perkRaw.terms }, venue.slug)
+    ? mapInternalPerk({
+        id: "",
+        venue_slug: venue.slug,
+        title: perkRaw.title,
+        terms: perkRaw.terms,
+      })
     : null;
   return {
     venue: {
