@@ -14,8 +14,10 @@
   --brass: #b88a42;
   --shadow-soft: 0 16px 42px rgba(42, 35, 25, 0.1);
   --shadow-lift: 0 22px 60px rgba(42, 35, 25, 0.16);
-  --font-body: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  /* Real loaded fonts (next/font in layout.tsx) with editorial fallbacks —
+     one typographic voice across the cinematic landing and the tool. */
+  --font-body: var(--font-geist), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -24,7 +26,26 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
+  --font-display: var(--font-display);
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+/* ── Other Bali cinematic palette (restrained, warm, golden-hour) ──
+   Dark espresso base · warm sand light · brass metal accent · one ocean
+   accent for actions · muted stone. No rainbow. Used via arbitrary-value
+   classes (bg-[var(--ob-espresso)]) so no Tailwind theme wiring needed. */
+:root {
+  --ob-espresso: #16100c;
+  --ob-espresso-2: #201811;
+  --ob-espresso-3: #2b2018;
+  --ob-sand: #f4ece0;
+  --ob-sand-dim: #cdbfa9;
+  --ob-brass: #c69a5c;
+  --ob-brass-2: #e2ba79;
+  --ob-accent: #0e7490;
+  --ob-accent-2: #2fc4d6;
+  --ob-stone: #8c8175;
+  --ob-line: rgba(244, 236, 224, 0.1);
 }
 
 body {
@@ -697,5 +718,103 @@ html {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+}
+
+/* Editorial micro-labels */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Golden-hour glow field */
+.ob-glow {
+  background:
+    radial-gradient(120% 90% at 15% 0%, rgba(226, 186, 121, 0.16), transparent 55%),
+    radial-gradient(90% 80% at 100% 20%, rgba(14, 116, 144, 0.14), transparent 60%),
+    radial-gradient(140% 120% at 50% 120%, rgba(198, 154, 92, 0.1), transparent 60%);
+}
+
+/* Film grain overlay — sits above scenes, below content */
+.ob-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* Hairline top border used on section dividers */
+.ob-hair {
+  border-top: 1px solid var(--ob-line);
+}
+
+/* ── Motion ── */
+@keyframes ob-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ob-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes ob-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(0, -3%, 0) scale(1.12);
+  }
+}
+
+/* Scroll-reveal: hidden until [data-shown], then rises in */
+.ob-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.ob-reveal[data-shown="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ob-float {
+  animation: ob-float 6s ease-in-out infinite;
+}
+
+/* On-load entrance for above-the-fold (hero) content — paints immediately and
+   animates once, no scroll/JS dependency. Base state is visible, so it degrades
+   safely with reduced-motion or no JS. */
+.ob-in {
+  animation: ob-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* reduced-motion: everything resolves to its final, still state (guardrail:
+   reduced-motion is mandatory) */
+@media (prefers-reduced-motion: reduce) {
+  .ob-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .ob-float,
+  [class*="ob-"] {
+    animation: none !important;
   }
 }
