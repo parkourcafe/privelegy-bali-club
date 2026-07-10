@@ -99,7 +99,7 @@ export default function RedeemFlow({
               {result.ts ? new Date(result.ts).toLocaleTimeString() : ""}
             </p>
           </div>
-          <p className="mt-3 text-xs opacity-80">Canggu Perks · +1 for {venueName}</p>
+          <p className="mt-3 text-xs opacity-80">Other Bali · +1 for {venueName}</p>
         </div>
 
         {!fbSent ? (

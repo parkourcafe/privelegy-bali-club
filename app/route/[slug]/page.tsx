@@ -26,7 +26,7 @@ export default async function RoutePage({
   return (
     <main className="site-shell-narrow">
       <Link href="/" className="quiet-link">
-        ← Your Canggu day
+        ← Other Bali · the guide
       </Link>
       <header className="route-hero">
         <div>
