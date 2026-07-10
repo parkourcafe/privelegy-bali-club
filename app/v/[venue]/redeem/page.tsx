@@ -37,19 +37,23 @@ export default async function RedeemPage({
           <p className="venue-meta">{venue.address}</p>
 
           {venue.perk ? (
-            <div className="perk-strip">
-              <p className="perk-title">{venue.perk.title}</p>
-              <p className="perk-terms">{venue.perk.terms}</p>
-            </div>
-          ) : (
-            <p className="mt-4 text-sm text-[var(--muted)]">No active perk here right now.</p>
-          )}
+            <>
+              <div className="perk-strip">
+                <p className="perk-title">{venue.perk.title}</p>
+                <p className="perk-terms">{venue.perk.terms}</p>
+              </div>
 
-          <RedeemFlow
-            venueSlug={venue.slug}
-            venueName={venue.name}
-            perkTitle={venue.perk?.title ?? "Perk"}
-          />
+              <RedeemFlow
+                venueSlug={venue.slug}
+                venueName={venue.name}
+                perkTitle={venue.perk.title}
+              />
+            </>
+          ) : (
+            <p className="mt-4 text-sm text-[var(--muted)]">
+              No confirmed venue offer here right now.
+            </p>
+          )}
         </div>
       </div>
 

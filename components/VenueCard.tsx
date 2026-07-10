@@ -74,12 +74,14 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
             whatsapp={v.whatsapp}
             perkTitle={v.perk?.title}
           />
-          <Link
-            href={`/v/${v.slug}/redeem`}
-            className="button-primary"
-          >
-            Show perk
-          </Link>
+          {v.perk && (
+            <Link
+              href={`/v/${v.slug}/redeem`}
+              className="button-primary"
+            >
+              Show offer
+            </Link>
+          )}
         </div>
 
         <SimilarPlaces venue={v} />

@@ -33,7 +33,7 @@ export default async function SourceQrPage({
         </p>
         <h1 className="mt-1 text-2xl font-bold">Your free Canggu day</h1>
         <p className="mt-2 text-sm text-stone-600">
-          Hand-picked spots, real perks. Scan, plan, enjoy.
+          Hand-picked spots for the kind of day you want.
         </p>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
