@@ -152,6 +152,30 @@ function publicStoredPerkTitle(value: unknown): string {
   return title;
 }
 
+function stripDraftPerkMarker(value: unknown): string {
+  return textValue(value)
+    .replace(/^proposed\s+perk\s*[:;.-]?\s*/i, "")
+    .replace(/^terms\s+require\s+partner\s+negotiation\s*[:;.-]?\s*/i, "")
+    .trim();
+}
+
+function mapOnboardPerk(r: Row, venueSlug: string): Perk | null {
+  const rawTitle = textValue(r.title);
+  const rawTerms = textValue(r.terms);
+  if (!rawTitle && !rawTerms) return null;
+
+  const title = hasDraftPerkLanguage(rawTitle)
+    ? "Proposed guest offer"
+    : rawTitle;
+
+  return {
+    id: textValue(r.id),
+    venueSlug,
+    title,
+    terms: stripDraftPerkMarker(rawTerms) || "Final terms to confirm with your team.",
+  };
+}
+
 // ---- Read layer (planning form, G0) ----
 // Falls back to seed data when Supabase is not configured, so the app builds
 // and demos without a live DB. Reads are public either way.
@@ -430,6 +454,7 @@ export async function getOnboardStatus(): Promise<Record<string, OnboardStatus>>
 export interface OnboardInfo {
   venue: VenueWithPerk | null;
   confirmed: boolean;
+  offerNeedsApproval: boolean;
 }
 
 export async function getOnboardInfo(token: string): Promise<OnboardInfo | null> {
@@ -438,11 +463,11 @@ export async function getOnboardInfo(token: string): Promise<OnboardInfo | null>
   const { data, error } = await sb.rpc("onboard_info", { p_token: token });
   if (error || !data) return null;
   const r = data as Record<string, unknown>;
-  if (!r.venue) return { venue: null, confirmed: false };
+  if (!r.venue) return { venue: null, confirmed: false, offerNeedsApproval: false };
   const venue = mapVenue(r.venue as Row);
   const perkRaw = r.perk as Record<string, unknown> | null;
   const perk = perkRaw
-    ? mapPerk({ id: "", venue_slug: venue.slug, title: perkRaw.title, terms: perkRaw.terms })
+    ? mapOnboardPerk({ id: "", title: perkRaw.title, terms: perkRaw.terms }, venue.slug)
     : null;
   return {
     venue: {
@@ -451,6 +476,7 @@ export async function getOnboardInfo(token: string): Promise<OnboardInfo | null>
       blurb: "",
     },
     confirmed: Boolean(r.confirmed),
+    offerNeedsApproval: perkRaw ? isDraftPerk(perkRaw.title, perkRaw.terms) : false,
   };
 }
 

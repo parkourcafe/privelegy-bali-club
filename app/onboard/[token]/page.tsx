@@ -44,7 +44,7 @@ export default async function OnboardPage({
         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">
           Your card preview
         </p>
-        <VenueCard v={v} />
+        <VenueCard v={v} showActions={false} showSimilar={false} />
       </div>
 
       <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-4">
@@ -55,9 +55,15 @@ export default async function OnboardPage({
           <li>• Free listing during the pilot — no fees now.</li>
           {v.perk && (
             <li>
-              • You honor the listed perk (<b>{v.perk.title}</b>) for guests who
-              show the redeem screen.
+              • {info.confirmed ? "You have approved" : "By confirming, you approve"} the listed
+              guest offer (<b>{v.perk.title}</b>) for guests who show the redeem screen.
             </li>
+          )}
+          {!v.perk && (
+            <li>• No guest offer is attached yet; we will confirm any offer with you before publishing one.</li>
+          )}
+          {v.perk && info.offerNeedsApproval && !info.confirmed && (
+            <li>• This offer is pending your approval and is not shown here as a tourist redeem action.</li>
           )}
           <li>• We share aggregate visit numbers with you — never guests&apos; personal data.</li>
           <li>• Photos you upload are yours; you allow us to show them on the guide.</li>
