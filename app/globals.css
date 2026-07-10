@@ -965,3 +965,96 @@ html {
 .page-dark .redeem-note {
   color: var(--ob-stone);
 }
+
+/* ── Moment picker (static day scenarios, master §6) ── */
+.moment-strip {
+  display: flex;
+  gap: 10px;
+  margin: 22px -16px 0 0;
+  overflow-x: auto;
+  padding: 2px 16px 10px 2px;
+  scroll-snap-type: x proximity;
+}
+
+.moment-card {
+  display: flex;
+  min-width: 168px;
+  scroll-snap-align: start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.72);
+  padding: 12px 14px;
+  text-align: left;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.moment-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(184, 138, 66, 0.55);
+}
+
+.moment-card-active {
+  border-color: var(--lagoon);
+  background: var(--lagoon);
+}
+
+.moment-label {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.moment-tagline {
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.moment-card-active .moment-label,
+.moment-card-active .moment-tagline {
+  color: #fffaf1;
+}
+
+.page-dark .moment-card {
+  background: rgba(32, 24, 17, 0.85);
+}
+
+.page-dark .moment-card-active {
+  background: var(--ob-sand);
+  border-color: var(--ob-sand);
+}
+
+.page-dark .moment-card-active .moment-label,
+.page-dark .moment-card-active .moment-tagline {
+  color: var(--ob-espresso);
+}
+
+/* ── JTBD fit context on venue cards (guardrail #7: fit, not warnings) ── */
+.fit-context {
+  margin-top: 12px;
+  display: grid;
+  gap: 3px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.fit-context .fit-best {
+  color: var(--moss);
+}
+
+.fit-context .fit-not {
+  color: var(--muted);
+}
+
+.why-here {
+  margin-top: 12px;
+  border-left: 2px solid var(--brass);
+  padding-left: 10px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}

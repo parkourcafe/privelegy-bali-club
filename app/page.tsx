@@ -297,6 +297,7 @@ function Moments() {
   const scenes: {
     variant: "surf" | "ridge" | "sunset" | "night";
     scene: string;
+    moment: string; // slug in lib/moments.ts — deep-links into /plan?m=…
     tag: string;
     pain: string;
     move: string;
@@ -305,6 +306,7 @@ function Moments() {
     {
       variant: "ridge",
       scene: "moment-morning",
+      moment: "slow-morning",
       tag: "Slow morning",
       pain: "You want good coffee and a table you can actually work at.",
       move: "Filter work-friendly · quiet — verified for wifi and sockets.",
@@ -313,6 +315,7 @@ function Moments() {
     {
       variant: "surf",
       scene: "moment-warung",
+      moment: "midday-reset",
       tag: "Midday reset",
       pain: "Hot, hungry, and every warung looks the same from the road.",
       move: "See what to order and the honest price before you sit down.",
@@ -321,6 +324,7 @@ function Moments() {
     {
       variant: "sunset",
       scene: "moment-goldenhour",
+      moment: "golden-hour",
       tag: "Golden hour",
       pain: "You want the view — without the influencer queue.",
       move: "A curated sunset spot with the offer ready and a table held.",
@@ -329,6 +333,7 @@ function Moments() {
     {
       variant: "night",
       scene: "moment-dinner",
+      moment: "late-dinner",
       tag: "Late dinner",
       pain: "It's 9pm, the good places are full, plans are falling apart.",
       move: "Bookable venues hand you straight to a reservation.",
@@ -346,7 +351,10 @@ function Moments() {
       <div className="mt-10 space-y-6">
         {scenes.map((s, i) => (
           <Reveal key={s.tag} delay={i * 40}>
-            <article className="grid overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] md:grid-cols-2">
+            <Link
+              href={`/plan?m=${s.moment}`}
+              className="group grid overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] transition-colors hover:border-[rgba(198,154,92,0.45)] md:grid-cols-2"
+            >
               <div className="ob-grain relative min-h-[13rem] overflow-hidden">
                 <SceneImage scene={s.scene} variant={s.variant} />
                 <span className="absolute left-5 top-5 rounded-full bg-black/35 px-3 py-1 text-xs font-medium backdrop-blur-sm">
@@ -359,8 +367,11 @@ function Moments() {
                   <span className="text-[var(--ob-accent-2)]">→</span> {s.move}
                 </p>
                 <p className="mt-3 font-display text-lg text-[var(--ob-sand)]">{s.result}</p>
+                <p className="mt-4 text-sm font-semibold text-[var(--ob-brass-2)] opacity-80 transition-opacity group-hover:opacity-100">
+                  Plan this moment →
+                </p>
               </div>
-            </article>
+            </Link>
           </Reveal>
         ))}
       </div>

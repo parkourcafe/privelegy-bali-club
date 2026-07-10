@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { PlanBySlot } from "@/lib/data";
 import { VIBES } from "@/lib/vibes";
+import { MOMENTS, getMoment, venueFitsMoment } from "@/lib/moments";
 import VenueCard from "@/components/VenueCard";
 
 const categoryLabel: Record<string, string> = {
@@ -15,9 +16,21 @@ const categoryLabel: Record<string, string> = {
   surf: "Surf",
 };
 
-export default function PlanView({ plan }: { plan: PlanBySlot[] }) {
+export default function PlanView({
+  plan,
+  initialMoment,
+}: {
+  plan: PlanBySlot[];
+  initialMoment?: string;
+}) {
+  const [momentSlug, setMomentSlug] = useState<string | null>(
+    getMoment(initialMoment)?.slug ?? null
+  );
+  const [area, setArea] = useState<string | null>(null);
   const [vibe, setVibe] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
+
+  const moment = getMoment(momentSlug);
 
   const categories = useMemo(() => {
     const set = new Set<string>();
@@ -25,24 +38,53 @@ export default function PlanView({ plan }: { plan: PlanBySlot[] }) {
     return [...set];
   }, [plan]);
 
+  const areas = useMemo(() => {
+    const set = new Set<string>();
+    plan.forEach((b) => b.venues.forEach((v) => v.area && set.add(v.area)));
+    return [...set].sort();
+  }, [plan]);
+
   const filtered = useMemo(
     () =>
       plan
+        .filter((b) => !moment?.slots || moment.slots.includes(b.slot))
         .map((b) => ({
           ...b,
           venues: b.venues.filter(
             (v) =>
+              (!moment || venueFitsMoment(v, moment)) &&
+              (!area || v.area === area) &&
               (!vibe || (v.vibeTags ?? []).includes(vibe)) &&
               (!category || v.category === category)
           ),
         }))
         .filter((b) => b.venues.length > 0),
-    [plan, vibe, category]
+    [plan, moment, area, vibe, category]
   );
 
   return (
     <>
+      {/* Moment picker — static scenarios (buttons → predefined filters, §6) */}
+      <div className="moment-strip">
+        {MOMENTS.map((m) => {
+          const on = momentSlug === m.slug;
+          return (
+            <button
+              key={m.slug}
+              onClick={() => setMomentSlug(on ? null : m.slug)}
+              className={`moment-card ${on ? "moment-card-active" : ""}`}
+            >
+              <span className="moment-label">{m.label}</span>
+              <span className="moment-tagline">{m.tagline}</span>
+            </button>
+          );
+        })}
+      </div>
+
       <div className="filter-panel">
+        {areas.length > 1 && (
+          <Chips label="Area" options={areas} selected={area} onSelect={setArea} />
+        )}
         <Chips
           label="Vibe"
           options={VIBES as readonly string[]}

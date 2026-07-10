@@ -125,6 +125,12 @@ const mapVenue = (r: Row): Venue => ({
   photoUrl: (r.photo_url as string) ?? undefined,
   whatsapp: (r.whatsapp as string) ?? undefined,
   tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
+  area: (r.area as string) ?? undefined,
+  whyItsHere: (r.why_its_here as string) ?? undefined,
+  bestFor: (r.best_for as string) ?? undefined,
+  notFor: (r.not_for as string) ?? undefined,
+  practicalTags: (r.practical_tags as string[]) ?? undefined,
+  jobs: (r.jobs as string[]) ?? undefined,
 });
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.

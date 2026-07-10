@@ -44,6 +44,16 @@ export interface Venue {
   photoUrl?: string;
   whatsapp?: string; // digits only, intl format
   tablepilotSlug?: string; // if set, venue is bookable via TablePilot (money model v0.3)
+  // Sub-area inside the district (Berawa / Batu Bolong / Echo Beach / …).
+  // Display + filter only — coverage/monetization still keys off `district`.
+  area?: string;
+  // JTBD content layer (master §6): fit context = WHO/WHEN a place suits.
+  // `notFor` is fit language only, never a quality warning (guardrail #7).
+  whyItsHere?: string;
+  bestFor?: string;
+  notFor?: string;
+  practicalTags?: string[]; // e.g. "fast wifi", "sockets", "kids ok"
+  jobs?: string[]; // JTBD tags driving static moments (work, date, family, …)
 }
 
 export interface Perk {

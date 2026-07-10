@@ -6,10 +6,19 @@ export const dynamic = "force-dynamic";
 
 export const metadata = { title: "Plan my Canggu day" };
 
-// The working tourist tool (editorial light surface). The cinematic landing at
-// / funnels here; this page stays fast and one-handed.
-export default async function Plan() {
-  const [plan, routes] = await Promise.all([getCangguPlan(), getRoutes()]);
+// The working tourist tool. The cinematic landing at / funnels here; this page
+// stays fast and one-handed. ?m=<moment> preselects a day scenario (static
+// config, lib/moments.ts) so landing cards can deep-link into a filtered day.
+export default async function Plan({
+  searchParams,
+}: {
+  searchParams: Promise<{ m?: string }>;
+}) {
+  const [{ m }, plan, routes] = await Promise.all([
+    searchParams,
+    getCangguPlan(),
+    getRoutes(),
+  ]);
 
   return (
     <div className="page-dark">
@@ -66,7 +75,7 @@ export default async function Plan() {
       )}
 
       <section id="guide" className="scroll-mt-8">
-        <PlanView plan={plan} />
+        <PlanView plan={plan} initialMoment={m} />
       </section>
 
       <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
