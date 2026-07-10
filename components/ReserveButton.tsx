@@ -37,7 +37,7 @@ export default function ReserveButton({
         target="_blank"
         rel="noreferrer"
         onClick={() => logClick(venueSlug)}
-        className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-emerald-700"
+        className="button-primary button-reserve"
       >
         Reserve a table
       </a>
@@ -54,7 +54,7 @@ export default function ReserveButton({
         target="_blank"
         rel="noreferrer"
         onClick={() => logClick(venueSlug)}
-        className="rounded-lg border border-emerald-200 px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-emerald-50"
+        className="button-secondary"
       >
         Reserve on WhatsApp
       </a>

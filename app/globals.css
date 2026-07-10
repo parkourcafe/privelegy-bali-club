@@ -818,3 +818,150 @@ html {
     animation: none !important;
   }
 }
+
+/* ── .page-dark — cinematic dark scope for tourist pages ──
+   Same espresso/brass/one-cyan system as the landing. Implemented as a token
+   remap + a few overrides for hardcoded light values, so partner/admin/QR
+   surfaces (print needs white) keep the light editorial theme untouched. */
+.page-dark {
+  min-height: 100svh;
+  background:
+    radial-gradient(120% 70% at 85% -10%, rgba(198, 154, 92, 0.12), transparent 55%),
+    radial-gradient(90% 60% at 0% 0%, rgba(14, 116, 144, 0.08), transparent 60%),
+    var(--ob-espresso);
+  color: var(--ob-sand);
+  --ink: var(--ob-sand);
+  --muted: var(--ob-sand-dim);
+  --line: var(--ob-line);
+  --paper: var(--ob-espresso);
+  --paper-soft: var(--ob-espresso-2);
+  --paper-warm: var(--ob-espresso-3);
+  --lagoon: var(--ob-accent);
+  --lagoon-strong: var(--ob-brass-2);
+  --moss: #a9bd9e;
+  --clay: var(--ob-brass-2);
+  --brass: var(--ob-brass);
+  --shadow-soft: 0 16px 42px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 22px 60px rgba(0, 0, 0, 0.6);
+}
+
+.page-dark .route-card,
+.page-dark .venue-card,
+.page-dark .redeem-card {
+  background: rgba(32, 24, 17, 0.88);
+}
+
+.page-dark .route-card:hover,
+.page-dark .venue-card:hover {
+  border-color: rgba(198, 154, 92, 0.45);
+}
+
+.page-dark .filter-panel,
+.page-dark .route-summary {
+  background: rgba(32, 24, 17, 0.6);
+}
+
+.page-dark .chip {
+  background: rgba(244, 236, 224, 0.05);
+  color: var(--ob-sand-dim);
+}
+
+.page-dark .chip:hover {
+  color: var(--ob-sand);
+  border-color: rgba(198, 154, 92, 0.5);
+}
+
+.page-dark .chip-active {
+  background: var(--ob-sand);
+  border-color: var(--ob-sand);
+  color: var(--ob-espresso);
+}
+
+.page-dark .button-primary {
+  background: var(--ob-sand);
+  border-color: var(--ob-sand);
+  color: var(--ob-espresso);
+}
+
+.page-dark .button-primary:hover {
+  background: #fffaf1;
+}
+
+.page-dark .button-secondary {
+  background: transparent;
+  color: var(--ob-sand);
+}
+
+.page-dark .button-secondary:hover {
+  color: var(--ob-brass-2);
+  border-color: rgba(198, 154, 92, 0.5);
+}
+
+/* Reserve: the money action keeps the single cyan accent in both scopes */
+.button-reserve {
+  border-color: var(--lagoon);
+  background: var(--lagoon);
+  color: #fffaf1;
+}
+
+.button-reserve:hover {
+  background: var(--lagoon-strong);
+}
+
+.page-dark .button-reserve {
+  background: var(--ob-accent);
+  border-color: var(--ob-accent);
+  color: #fffaf1;
+}
+
+.page-dark .button-reserve:hover {
+  background: #0a5c73;
+}
+
+.page-dark .topline {
+  color: var(--ob-brass);
+}
+
+.page-dark .quiet-link {
+  color: var(--ob-brass-2);
+}
+
+.page-dark .quiet-link:hover {
+  color: var(--ob-sand);
+}
+
+.page-dark .venue-copy {
+  color: var(--ob-sand-dim);
+}
+
+.page-dark .perk-strip {
+  background: rgba(14, 116, 144, 0.16);
+}
+
+.page-dark .perk-title {
+  color: var(--ob-accent-2);
+}
+
+.page-dark .perk-terms {
+  color: var(--ob-sand-dim);
+}
+
+/* Collage tiles + venue photos get the same muted warm film grade */
+.page-dark .venue-visual,
+.page-dark .editorial-signal {
+  border-color: var(--ob-line);
+  filter: saturate(0.75) brightness(0.87);
+}
+
+.page-dark .venue-visual::before {
+  border-color: rgba(244, 236, 224, 0.35);
+}
+
+.page-dark .timeline-marker {
+  border-color: rgba(22, 16, 12, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.page-dark .redeem-note {
+  color: var(--ob-stone);
+}

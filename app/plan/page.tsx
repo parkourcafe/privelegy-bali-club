@@ -12,6 +12,7 @@ export default async function Plan() {
   const [plan, routes] = await Promise.all([getCangguPlan(), getRoutes()]);
 
   return (
+    <div className="page-dark">
     <main className="site-shell">
       <header className="hero-grid">
         <div>
@@ -73,5 +74,6 @@ export default async function Plan() {
         through us becomes a real seated visit.
       </footer>
     </main>
+    </div>
   );
 }

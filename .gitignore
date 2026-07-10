@@ -42,4 +42,4 @@ next-env.d.ts
 
 # generated cinematic scenes — fetched at build by scripts/fetch-scenes.mjs
 public/scenes/
-shots2/
+shots*/

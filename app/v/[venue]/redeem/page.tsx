@@ -15,18 +15,21 @@ export default async function RedeemPage({
 
   if (!venue) {
     return (
-      <main className="redeem-shell text-center">
-        <h1 className="text-xl font-semibold">Venue not found</h1>
-        <Link href="/" className="quiet-link mt-4 inline-block">
-          Back to Other Bali
-        </Link>
-      </main>
+      <div className="page-dark">
+        <main className="redeem-shell text-center">
+          <h1 className="text-xl font-semibold">Venue not found</h1>
+          <Link href="/plan" className="quiet-link mt-4 inline-block">
+            Back to Other Bali
+          </Link>
+        </main>
+      </div>
     );
   }
 
   return (
+    <div className="page-dark">
     <main className="redeem-shell">
-      <Link href="/" className="quiet-link">
+      <Link href="/plan" className="quiet-link">
         ← Other Bali
       </Link>
 
@@ -62,5 +65,6 @@ export default async function RedeemPage({
         confirmation — that is the whole check-in.
       </p>
     </main>
+    </div>
   );
 }
