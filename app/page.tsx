@@ -1,19 +1,19 @@
 import Link from "next/link";
 import Reveal from "@/components/landing/Reveal";
 import HeroGlow from "@/components/landing/HeroGlow";
-import SceneArt from "@/components/landing/SceneArt";
+import SceneImage from "@/components/landing/SceneImage";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-plan tool lives at /plan; every CTA here funnels into it. landing_open
 // is already emitted globally by <SourceCapture/> in the root layout, so the
 // event funnel (source_scan → landing_open → …) stays intact on this route.
-// Copy is honest: no invented numbers, testimonials, logos, or perk claims.
+// Copy is honest: no invented numbers, testimonials, logos, or offer claims.
 
 export const metadata = {
   title: "Other Bali — the right place for the moment you're in",
   description:
-    "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a real perk, and hand off to a booked table. Travellers never pay.",
+    "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, and hand off to a booked table. Travellers never pay.",
 };
 
 export default function Landing() {
@@ -43,9 +43,10 @@ export default function Landing() {
 function Hero() {
   return (
     <section className="ob-grain relative flex min-h-[100svh] items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <SceneArt variant="sunset" className="h-full w-full" />
-      </div>
+      <SceneImage scene="hero-sunset" variant="sunset" imgClassName="opacity-90" />
+      {/* legibility scrim over the photo, warm-graded */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--ob-espresso)]/80 via-[var(--ob-espresso)]/35 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--ob-espresso)] to-transparent" />
       <div className="ob-glow absolute inset-0" />
       <HeroGlow />
 
@@ -64,7 +65,7 @@ function Hero() {
           >
             A free, curated guide to Canggu. Tell us the moment &mdash; slow
             morning, work session, sunset, late dinner &mdash; and Other Bali
-            picks the place, hands you a real perk, and passes you to a booked
+            picks the place, hands you a confirmed offer, and passes you to a booked
             table.
           </p>
           <div
@@ -108,7 +109,7 @@ function Hero() {
             </div>
             <div className="mt-4 rounded-2xl bg-[var(--ob-accent)]/15 p-3 text-sm">
               <span className="font-medium text-[var(--ob-accent-2)]">
-                🎟️ Perk ready
+                🎟️ Offer ready
               </span>
               <p className="mt-0.5 text-xs text-[var(--ob-sand-dim)]">
                 Show the screen on arrival.
@@ -166,11 +167,11 @@ function ChaosToOrder() {
             </h3>
             <p className="mt-3 text-[var(--ob-sand-dim)]">
               We do the narrowing. Curated places, verified vibe tags, honest
-              price anchors, what to order, and a real perk &mdash; ordered from
+              price anchors, what to order, and a confirmed offer &mdash; ordered from
               morning to night. You choose, you go.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-sm">
-              {["Curated, not ranked", "Verified in person", "Real perks", "Table ready"].map(
+              {["Curated, not ranked", "Verified in person", "Real offers", "Table ready"].map(
                 (t) => (
                   <span
                     key={t}
@@ -203,8 +204,8 @@ function Mechanism() {
     },
     {
       k: "Arrive",
-      t: "Show the perk on the spot",
-      d: "Your perk is a screen you show on arrival — the on-premise proof that you actually came, kept separate from anything billed.",
+      t: "Show the offer on the spot",
+      d: "Your offer is a screen you show on arrival — the on-premise proof that you actually came, kept separate from anything billed.",
     },
     {
       k: "Seated",
@@ -253,7 +254,7 @@ function HowItWorks() {
   const steps = [
     { t: "Open the guide", d: "No signup. Canggu, ordered morning to night." },
     { t: "Pick your moment", d: "Filter by vibe and type — quiet, view, work-friendly, dinner." },
-    { t: "Grab the perk", d: "A real perk you show on arrival. No card, no code to buy." },
+    { t: "Grab the offer", d: "A real offer you show on arrival. No card, no code to buy." },
     { t: "Reserve & go", d: "Hand off to a booked table, or get directions. Then enjoy it." },
   ];
   return (
@@ -295,6 +296,7 @@ function HowItWorks() {
 function Moments() {
   const scenes: {
     variant: "surf" | "ridge" | "sunset" | "night";
+    scene: string;
     tag: string;
     pain: string;
     move: string;
@@ -302,6 +304,7 @@ function Moments() {
   }[] = [
     {
       variant: "ridge",
+      scene: "moment-morning",
       tag: "Slow morning",
       pain: "You want good coffee and a table you can actually work at.",
       move: "Filter work-friendly · quiet — verified for wifi and sockets.",
@@ -309,6 +312,7 @@ function Moments() {
     },
     {
       variant: "surf",
+      scene: "moment-warung",
       tag: "Midday reset",
       pain: "Hot, hungry, and every warung looks the same from the road.",
       move: "See what to order and the honest price before you sit down.",
@@ -316,13 +320,15 @@ function Moments() {
     },
     {
       variant: "sunset",
+      scene: "moment-goldenhour",
       tag: "Golden hour",
       pain: "You want the view — without the influencer queue.",
-      move: "A curated sunset spot with the perk ready and a table held.",
+      move: "A curated sunset spot with the offer ready and a table held.",
       result: "You arrive, you show the screen, you sit down.",
     },
     {
       variant: "night",
+      scene: "moment-dinner",
       tag: "Late dinner",
       pain: "It's 9pm, the good places are full, plans are falling apart.",
       move: "Bookable venues hand you straight to a reservation.",
@@ -342,7 +348,7 @@ function Moments() {
           <Reveal key={s.tag} delay={i * 40}>
             <article className="grid overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] md:grid-cols-2">
               <div className="ob-grain relative min-h-[13rem] overflow-hidden">
-                <SceneArt variant={s.variant} className="absolute inset-0 h-full w-full" />
+                <SceneImage scene={s.scene} variant={s.variant} />
                 <span className="absolute left-5 top-5 rounded-full bg-black/35 px-3 py-1 text-xs font-medium backdrop-blur-sm">
                   {s.tag}
                 </span>
@@ -410,7 +416,7 @@ function ProofChain() {
 /* ── 7 · Trust / why free ───────────────────────────────────────── */
 function TrustCards() {
   const cards = [
-    { t: "You never pay", d: "No tourist fees, ever. Not for the guide, not for a perk, not for a table." },
+    { t: "You never pay", d: "No tourist fees, ever. Not for the guide, not for an offer, not for a table." },
     { t: "Venues pay for arrivals", d: "A fixed fee per confirmed seated guest — not a cut of your bill, not a deposit." },
     { t: "No paid rankings", d: "Order is editorial. Anything sponsored is always labelled as such." },
     { t: "Your data stays yours", d: "Partners see aggregates. Nothing identifying leaves you without your say-so." },
@@ -445,7 +451,7 @@ function WhatsInside() {
     { t: "Verified vibe tags", d: "Quiet, lively, view, work-friendly — checked in person." },
     { t: "Honest price anchors", d: "Roughly what you'll pay, before you sit down." },
     { t: "What to order", d: "The dish worth getting, per place." },
-    { t: "Real perks", d: "A genuine perk you show on arrival." },
+    { t: "Real offers", d: "A genuine offer you show on arrival — confirmed by the venue." },
   ];
   return (
     <Section id="inside" className="bg-[var(--ob-espresso-2)]">
@@ -475,7 +481,7 @@ function Comparison() {
   const rows = [
     ["Curated for your moment", true, false, false],
     ["Verified in person", true, false, false],
-    ["Real perk on arrival", true, false, false],
+    ["Real offer on arrival", true, false, false],
     ["Hands you to a booked table", true, false, false],
     ["Free, and you're not the product", true, true, false],
     ["No paid rankings", true, false, true],
@@ -534,10 +540,8 @@ function Comparison() {
 function HumanMoment() {
   return (
     <section className="ob-grain relative overflow-hidden">
-      <div className="absolute inset-0">
-        <SceneArt variant="sunset" className="h-full w-full" />
-      </div>
-      <div className="absolute inset-0 bg-[var(--ob-espresso)]/55" />
+      <SceneImage scene="human-dusk" variant="sunset" />
+      <div className="absolute inset-0 bg-[var(--ob-espresso)]/60" />
       <div className="relative mx-auto max-w-3xl px-5 py-28 text-center">
         <Reveal>
           <p className="eyebrow text-[var(--ob-brass-2)]">Made on the island</p>
@@ -554,12 +558,12 @@ function HumanMoment() {
 /* ── FAQ (structured by fears) ──────────────────────────────────── */
 function Faq() {
   const qa = [
-    { q: "Is it really free?", a: "Yes. Travellers never pay — no fee for the guide, the perk, or a table. Venues pay only when a booking through us becomes a real seated guest." },
-    { q: "Do I need an account or a card?", a: "No. Open it, pick a place, show the perk on arrival. Nothing to sign up for, nothing to buy." },
-    { q: "What's the catch with the perks?", a: "There isn't one. A perk is a real incentive you show on arrival. It's separate from anything a venue pays — it just proves you actually came." },
+    { q: "Is it really free?", a: "Yes. Travellers never pay — no fee for the guide, the offer, or a table. Venues pay only when a booking through us becomes a real seated guest." },
+    { q: "Do I need an account or a card?", a: "No. Open it, pick a place, show the offer on arrival. Nothing to sign up for, nothing to buy." },
+    { q: "What's the catch with the offers?", a: "There isn't one. An offer is a real incentive you show on arrival, confirmed by the venue. It's separate from anything a venue pays — it just proves you actually came." },
     { q: "Do you take a cut of my bill?", a: "Never. No percentage of your cheque, no deposit, no markup. The venue pays a fixed fee for a seated guest — that's the entire model." },
     { q: "How do you choose places?", a: "Editorially, and in person. We verify vibe, price, and what's worth ordering on-site. Order is never paid for; anything sponsored is labelled." },
-    { q: "Where does it work?", a: "Canggu first, in Beta. Island-wide planning content is growing; perks and reservations live in Canggu for now, Ubud next." },
+    { q: "Where does it work?", a: "Canggu first, in Beta. Island-wide planning content is growing; offers and reservations live in Canggu for now, Ubud next." },
   ];
   return (
     <Section id="faq" className="bg-[var(--ob-espresso-2)]">
