@@ -34,7 +34,7 @@ export default async function InvitePage({
   const link = token ? `${base}/onboard/${token}` : null;
 
   const waText = link
-    ? `Hi! This is Canggu Perks Map — the free curated guide we talked about. Here's your listing preview: ${link}\nPlease check your card, upload 1-3 photos and tap Confirm. Takes 2 minutes. Free during the pilot.`
+    ? `Hi! This is Other Bali — the curated Bali guide we talked about. Here's your listing preview: ${link}\nPlease check your card, upload 1-3 photos and tap Confirm. Takes 2 minutes. No setup fee during the pilot.`
     : "";
 
   return (

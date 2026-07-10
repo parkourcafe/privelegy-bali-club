@@ -38,7 +38,7 @@ export default async function QrPosterPage({
     <main className="mx-auto w-full max-w-md px-6 py-10 print:py-0">
       <div className="rounded-3xl border border-stone-200 bg-white p-8 text-center shadow-sm print:border-0 print:shadow-none">
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-          Canggu Perks Map
+          Other Bali
         </p>
         <h1 className="mt-1 text-2xl font-bold">{venue.name}</h1>
         {venue.perk && (

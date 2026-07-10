@@ -46,7 +46,7 @@ export default function ReserveButton({
 
   // Fallback: WhatsApp reservation (no fee loop — just a pre-filled message).
   if (whatsapp) {
-    const text = `Hi! Booking via Canggu Perks Map.${perkTitle ? ` Perk: ${perkTitle}.` : ""} Table for … at …`;
+    const text = `Hi! Booking via Other Bali.${perkTitle ? ` Offer: ${perkTitle}.` : ""} Table for … at …`;
     const href = `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
     return (
       <a

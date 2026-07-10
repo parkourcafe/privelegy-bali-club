@@ -1,7 +1,7 @@
 {
-  "name": "Canggu Perks Map",
-  "short_name": "Canggu Perks",
-  "description": "A curated Canggu day with real perks at hand-picked local spots.",
+  "name": "Other Bali",
+  "short_name": "Other Bali",
+  "description": "The right place for the moment you're in. Curated Canggu places, routes, and confirmed venue offers where available.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

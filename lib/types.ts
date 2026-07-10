@@ -99,7 +99,7 @@ export interface PartnerNotes {
   repeat: number; // guests who redeemed here more than once
 }
 
-// A guest's own redeemed perk (for "My perks").
+// A guest's own redeemed offer (for "My offers").
 export interface MyRedemption {
   venueName: string;
   venueSlug: string;

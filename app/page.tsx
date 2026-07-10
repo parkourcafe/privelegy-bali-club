@@ -13,25 +13,25 @@ export default async function Home() {
         <div>
           <div className="flex items-start justify-between">
             <p className="topline">
-              Canggu · perks map
+              Other Bali · Canggu beta
             </p>
             <Link href="/me" className="quiet-link">
-              My perks →
+              My offers →
             </Link>
           </div>
-          <h1 className="hero-title mt-3">Your Canggu day</h1>
+          <h1 className="hero-title mt-3">Other Bali</h1>
           <p className="hero-copy">
-            Hand-picked spots, morning to night, with clear reasons to go and
-            venue offers only where confirmed.
+            The right place for the moment you&apos;re in. A Canggu beta of
+            hand-picked places, routes, and confirmed venue offers.
           </p>
           <div className="hero-actions">
             <Link href="#routes" className="button-primary button-large">
               Pick a route
             </Link>
             <Link href="#guide" className="button-secondary button-large">
-              Browse spots
+              Browse places
             </Link>
-            <p className="hero-note">No signup. Just show the screen at the venue.</p>
+            <p className="hero-note">No signup. Offers appear only where venues confirm them.</p>
           </div>
         </div>
         <div className="editorial-signal" aria-label="Canggu route collage">
@@ -65,8 +65,8 @@ export default async function Home() {
       </section>
 
       <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-        Free to use. We earn from venues only when a reservation made through us
-        becomes a real seated visit — never from you.
+        You do not pay us. Venues pay Other Bali only when a reservation made
+        through us becomes a real seated visit.
       </footer>
     </main>
   );

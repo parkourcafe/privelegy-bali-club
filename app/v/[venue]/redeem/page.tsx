@@ -18,7 +18,7 @@ export default async function RedeemPage({
       <main className="redeem-shell text-center">
         <h1 className="text-xl font-semibold">Venue not found</h1>
         <Link href="/" className="quiet-link mt-4 inline-block">
-          Back to your Canggu day
+          Back to Other Bali
         </Link>
       </main>
     );
@@ -27,7 +27,7 @@ export default async function RedeemPage({
   return (
     <main className="redeem-shell">
       <Link href="/" className="quiet-link">
-        ← Your Canggu day
+        ← Other Bali
       </Link>
 
       <div className="redeem-card mt-5">

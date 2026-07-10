@@ -99,7 +99,7 @@ export default function RedeemFlow({
               {result.ts ? new Date(result.ts).toLocaleTimeString() : ""}
             </p>
           </div>
-          <p className="mt-3 text-xs opacity-80">Canggu Perks · +1 for {venueName}</p>
+          <p className="mt-3 text-xs opacity-80">Other Bali · +1 for {venueName}</p>
         </div>
 
         {!fbSent ? (
@@ -137,7 +137,7 @@ export default function RedeemFlow({
           <p className="mt-4 text-center text-sm text-[var(--muted)]">
             Thanks! ·{" "}
             <a href="/me" className="quiet-link">
-              See my perks
+              See my offers
             </a>
           </p>
         )}
@@ -163,7 +163,7 @@ export default function RedeemFlow({
     return (
       <div className="mt-5 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.7)] p-4">
         <p className="text-sm leading-6 text-[var(--muted)]">
-          We record that this perk was redeemed here, so the venue can see real
+          We record that this offer was redeemed here, so the venue can see real
           visits. We store an anonymous device token only — no name, email, or
           location.
         </p>
