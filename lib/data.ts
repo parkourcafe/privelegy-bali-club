@@ -31,6 +31,84 @@ export interface PlanBySlot {
 // Postgres columns are snake_case; the domain types are camelCase. Map at the
 // boundary so the rest of the app never sees DB naming.
 type Row = Record<string, unknown>;
+
+const DRAFT_PERK_PATTERNS = [
+  /proposed\s+perk/i,
+  /partner\s+negotiation/i,
+  /terms\s+require/i,
+];
+
+function textValue(value: unknown): string {
+  return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
+}
+
+function hasDraftPerkLanguage(value: unknown): boolean {
+  const text = textValue(value);
+  return DRAFT_PERK_PATTERNS.some((pattern) => pattern.test(text));
+}
+
+function isDraftPerk(title: unknown, terms: unknown): boolean {
+  return hasDraftPerkLanguage(title) || hasDraftPerkLanguage(terms);
+}
+
+function isGoogleMapsUrl(value: unknown): boolean {
+  const raw = textValue(value);
+  if (!raw) return false;
+
+  try {
+    const url = new URL(raw);
+    const host = url.hostname.toLowerCase();
+    const path = url.pathname.toLowerCase();
+
+    if (host === "maps.app.goo.gl") return true;
+    if (host === "goo.gl" && path.startsWith("/maps")) return true;
+    if (host.startsWith("maps.google.")) return true;
+    return host.includes("google.") && path.includes("/maps");
+  } catch {
+    return false;
+  }
+}
+
+function mapsSearchUrl(name: unknown, address: unknown): string {
+  const query = [textValue(name), textValue(address), "Bali"].filter(Boolean).join(" ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function publicDirectionsUrl(r: Row): string {
+  return isGoogleMapsUrl(r.gmaps_url) ? textValue(r.gmaps_url) : mapsSearchUrl(r.name, r.address);
+}
+
+function uniqueBy<T>(items: T[], keyOf: (item: T) => string): T[] {
+  const seen = new Set<string>();
+  const out: T[] = [];
+  for (const item of items) {
+    const key = keyOf(item);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(item);
+  }
+  return out;
+}
+
+function normalizePublicPerks(perks: Perk[]): Perk[] {
+  return uniqueBy(
+    perks.filter((p) => !isDraftPerk(p.title, p.terms)),
+    (p) => p.venueSlug
+  );
+}
+
+function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
+  const seen = new Set<string>();
+  return [...entries]
+    .sort((a, b) => a.rank - b.rank)
+    .filter((entry) => {
+      const key = `${entry.slot}:${entry.venueSlug}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 const mapVenue = (r: Row): Venue => ({
   id: r.id as string,
   slug: r.slug as string,
@@ -38,7 +116,7 @@ const mapVenue = (r: Row): Venue => ({
   category: r.category as Venue["category"],
   district: r.district as string,
   address: r.address as string,
-  gmapsUrl: r.gmaps_url as string,
+  gmapsUrl: publicDirectionsUrl(r),
   tier: r.tier as Venue["tier"],
   isSponsored: Boolean(r.is_sponsored),
   vibeTags: (r.vibe_tags as string[]) ?? undefined,
@@ -48,18 +126,60 @@ const mapVenue = (r: Row): Venue => ({
   whatsapp: (r.whatsapp as string) ?? undefined,
   tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
 });
-const mapPerk = (r: Row): Perk => ({
-  id: r.id as string,
-  venueSlug: r.venue_slug as string,
-  title: r.title as string,
-  terms: r.terms as string,
-});
+// Public tourist mapping: proposed / partner-negotiation offers are treated as
+// absent until confirmed, so draft operational language never appears on cards.
+const mapPublicPerk = (r: Row): Perk | null => {
+  if (isDraftPerk(r.title, r.terms)) return null;
+  const title = textValue(r.title);
+  if (!title) return null;
+  return {
+    id: textValue(r.id),
+    venueSlug: textValue(r.venue_slug),
+    title,
+    terms: textValue(r.terms),
+  };
+};
+const mapPublicPerks = (rows: Row[]): Perk[] =>
+  rows.map(mapPublicPerk).filter((p): p is Perk => p !== null);
 const mapPlan = (r: Row): PlanEntry => ({
   venueSlug: r.venue_slug as string,
   slot: r.slot as Slot,
   rank: r.rank as number,
   blurb: r.blurb as string,
 });
+
+function publicStoredPerkTitle(value: unknown): string {
+  const title = textValue(value);
+  if (!title || hasDraftPerkLanguage(title)) return "Venue visit";
+  return title;
+}
+
+function stripDraftPerkMarker(value: unknown): string {
+  return textValue(value)
+    .replace(/^proposed\s+perk\s*[:;.-]?\s*/i, "")
+    .replace(/^terms\s+require\s+partner\s+negotiation\s*[:;.-]?\s*/i, "")
+    .trim();
+}
+
+// Internal / partner-onboarding mapping: proposed offers must stay visible so
+// venues can approve or reject them, but the card copy should read as an
+// approval item rather than a public tourist promise.
+function mapInternalPerk(r: Row): Perk | null {
+  const rawTitle = textValue(r.title);
+  const rawTerms = textValue(r.terms);
+  if (!rawTitle && !rawTerms) return null;
+
+  const title = hasDraftPerkLanguage(rawTitle)
+    ? "Proposed guest offer"
+    : rawTitle;
+
+  return {
+    id: textValue(r.id),
+    venueSlug: textValue(r.venue_slug),
+    title,
+    terms: stripDraftPerkMarker(rawTerms) || "Final terms to confirm with your team.",
+  };
+}
 
 // ---- Read layer (planning form, G0) ----
 // Falls back to seed data when Supabase is not configured, so the app builds
@@ -77,10 +197,14 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
       sb.from("perks").select("*").eq("active", true),
       sb.from("plan_entries").select("*").eq("district", "canggu"),
     ]);
-    if (v?.length) venues = (v as Row[]).map(mapVenue);
-    if (p?.length) perks = (p as Row[]).map(mapPerk);
-    if (e?.length) entries = (e as Row[]).map(mapPlan);
+    if (v) venues = (v as Row[]).map(mapVenue);
+    if (p) perks = mapPublicPerks(p as Row[]);
+    if (e) entries = (e as Row[]).map(mapPlan);
   }
+
+  venues = uniqueBy(venues, (v) => v.slug);
+  perks = normalizePublicPerks(perks);
+  entries = normalizePlanEntries(entries);
 
   const venueBySlug = new Map(venues.map((x) => [x.slug, x]));
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
@@ -123,6 +247,8 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
   let perk: Perk | undefined = PERKS.find((p) => p.venueSlug === slug);
 
   if (isSupabaseConfigured()) {
+    venue = undefined;
+    perk = undefined;
     const sb = anonClient()!;
     const { data: v } = await sb.from("venues").select("*").eq("slug", slug).maybeSingle();
     if (v) venue = mapVenue(v as Row);
@@ -131,8 +257,9 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
       .select("*")
       .eq("venue_slug", slug)
       .eq("active", true)
+      .limit(1)
       .maybeSingle();
-    if (p) perk = mapPerk(p as Row);
+    if (p) perk = mapPublicPerk(p as Row) ?? undefined;
   }
 
   if (!venue) return null;
@@ -154,6 +281,17 @@ export async function recordRedemption(input: {
   const sb = anonClient();
   if (!sb) return { ok: false, error: "redemption_storage_unconfigured" };
 
+  const { data: activePerk } = await sb
+    .from("perks")
+    .select("title,terms")
+    .eq("venue_slug", input.venueSlug)
+    .eq("active", true)
+    .limit(1)
+    .maybeSingle();
+  if (!activePerk || isDraftPerk((activePerk as Row).title, (activePerk as Row).terms)) {
+    return { ok: false, error: "no_active_perk" };
+  }
+
   const { data, error } = await sb.rpc("record_redemption", {
     p_guest_ref: input.guestRef,
     p_venue_slug: input.venueSlug,
@@ -170,7 +308,7 @@ export async function recordRedemption(input: {
     ok: true,
     confirmCode: r.confirm_code as string,
     venueName: r.venue_name as string,
-    perkTitle: r.perk_title as string,
+    perkTitle: publicStoredPerkTitle(r.perk_title),
     ts: r.ts as string,
     externallyAttributed: Boolean(r.externally_attributed),
   };
@@ -262,7 +400,7 @@ export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]
   return (data as Record<string, unknown>[]).map((r) => ({
     venueName: String(r.venue_name ?? "Venue"),
     venueSlug: String(r.venue_slug ?? ""),
-    perkTitle: String(r.perk_title ?? "Perk"),
+    perkTitle: publicStoredPerkTitle(r.perk_title),
     confirmCode: String(r.confirm_code ?? ""),
     ts: String(r.ts ?? ""),
   }));
@@ -321,6 +459,7 @@ export async function getOnboardStatus(): Promise<Record<string, OnboardStatus>>
 export interface OnboardInfo {
   venue: VenueWithPerk | null;
   confirmed: boolean;
+  offerNeedsApproval: boolean;
 }
 
 export async function getOnboardInfo(token: string): Promise<OnboardInfo | null> {
@@ -329,18 +468,25 @@ export async function getOnboardInfo(token: string): Promise<OnboardInfo | null>
   const { data, error } = await sb.rpc("onboard_info", { p_token: token });
   if (error || !data) return null;
   const r = data as Record<string, unknown>;
-  if (!r.venue) return { venue: null, confirmed: false };
+  if (!r.venue) return { venue: null, confirmed: false, offerNeedsApproval: false };
   const venue = mapVenue(r.venue as Row);
   const perkRaw = r.perk as Record<string, unknown> | null;
+  const perk = perkRaw
+    ? mapInternalPerk({
+        id: "",
+        venue_slug: venue.slug,
+        title: perkRaw.title,
+        terms: perkRaw.terms,
+      })
+    : null;
   return {
     venue: {
       ...venue,
-      perk: perkRaw
-        ? { id: "", venueSlug: venue.slug, title: String(perkRaw.title ?? ""), terms: String(perkRaw.terms ?? "") }
-        : null,
+      perk,
       blurb: "",
     },
     confirmed: Boolean(r.confirmed),
+    offerNeedsApproval: perkRaw ? isDraftPerk(perkRaw.title, perkRaw.terms) : false,
   };
 }
 

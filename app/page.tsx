@@ -21,8 +21,8 @@ export default async function Home() {
           </div>
           <h1 className="hero-title mt-3">Your Canggu day</h1>
           <p className="hero-copy">
-            Hand-picked spots, morning to night, each with a real perk and a
-            clear reason to go.
+            Hand-picked spots, morning to night, with clear reasons to go and
+            venue offers only where confirmed.
           </p>
           <div className="hero-actions">
             <Link href="#routes" className="button-primary button-large">

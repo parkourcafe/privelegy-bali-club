@@ -17,7 +17,15 @@ const categoryLabel: Record<string, string> = {
   surf: "Surf",
 };
 
-export default function VenueCard({ v }: { v: VenueWithPerk }) {
+export default function VenueCard({
+  v,
+  showActions = true,
+  showSimilar = true,
+}: {
+  v: VenueWithPerk;
+  showActions?: boolean;
+  showSimilar?: boolean;
+}) {
   return (
     <article className="venue-card">
       <VenueVisual name={v.name} category={v.category} photoUrl={v.photoUrl} />
@@ -60,29 +68,33 @@ export default function VenueCard({ v }: { v: VenueWithPerk }) {
           </div>
         )}
 
-        <div className="action-row">
-          <TrackedDirectionsLink
-            href={v.gmapsUrl}
-            venueSlug={v.slug}
-            className="button-secondary"
-          >
-            Directions
-          </TrackedDirectionsLink>
-          <ReserveButton
-            venueSlug={v.slug}
-            tablepilotSlug={v.tablepilotSlug}
-            whatsapp={v.whatsapp}
-            perkTitle={v.perk?.title}
-          />
-          <Link
-            href={`/v/${v.slug}/redeem`}
-            className="button-primary"
-          >
-            Show perk
-          </Link>
-        </div>
+        {showActions && (
+          <div className="action-row">
+            <TrackedDirectionsLink
+              href={v.gmapsUrl}
+              venueSlug={v.slug}
+              className="button-secondary"
+            >
+              Directions
+            </TrackedDirectionsLink>
+            <ReserveButton
+              venueSlug={v.slug}
+              tablepilotSlug={v.tablepilotSlug}
+              whatsapp={v.whatsapp}
+              perkTitle={v.perk?.title}
+            />
+            {v.perk && (
+              <Link
+                href={`/v/${v.slug}/redeem`}
+                className="button-primary"
+              >
+                Show offer
+              </Link>
+            )}
+          </div>
+        )}
 
-        <SimilarPlaces venue={v} />
+        {showSimilar && <SimilarPlaces venue={v} />}
       </div>
     </article>
   );

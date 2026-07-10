@@ -19,6 +19,7 @@ const ERRORS: Record<string, string> = {
   redemption_storage_unconfigured:
     "Redemption isn't switched on yet for this deployment. (Backend not configured.)",
   venue_not_found: "This venue link looks wrong.",
+  no_active_perk: "This venue does not have a confirmed offer right now.",
   guest_ref_failed: "Couldn't start your session. Try again.",
   redemption_write_failed: "Couldn't record the redemption. Try again.",
 };

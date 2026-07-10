@@ -9,7 +9,7 @@ import SourceCapture from "./SourceCapture";
 export const metadata: Metadata = {
   title: "Canggu Perks Map",
   description:
-    "A curated Canggu day with real perks at hand-picked local spots. Free to use.",
+    "A curated Canggu day with hand-picked local spots and confirmed venue offers where available.",
   manifest: "/manifest.webmanifest?v=3",
   appleWebApp: { capable: true, title: "Canggu Perks", statusBarStyle: "default" },
 };

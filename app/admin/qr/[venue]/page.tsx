@@ -38,7 +38,7 @@ export default async function QrPosterPage({
     <main className="mx-auto w-full max-w-md px-6 py-10 print:py-0">
       <div className="rounded-3xl border border-stone-200 bg-white p-8 text-center shadow-sm print:border-0 print:shadow-none">
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-          Bali Privilege
+          Canggu Perks Map
         </p>
         <h1 className="mt-1 text-2xl font-bold">{venue.name}</h1>
         {venue.perk && (
@@ -46,12 +46,27 @@ export default async function QrPosterPage({
         )}
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={qr} alt="Scan to redeem" className="mx-auto mt-6 w-64" />
+        <img
+          src={qr}
+          alt={venue.perk ? "Scan to redeem" : "Scan to open venue"}
+          className="mx-auto mt-6 w-64"
+        />
 
-        <p className="mt-6 text-lg font-semibold">Scan to claim your perk</p>
-        <p className="mt-1 text-sm text-stone-500">
-          Point your camera here, tap Redeem, show staff the green screen.
-        </p>
+        {venue.perk ? (
+          <>
+            <p className="mt-6 text-lg font-semibold">Scan to claim your offer</p>
+            <p className="mt-1 text-sm text-stone-500">
+              Point your camera here, tap Redeem, show staff the green screen.
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="mt-6 text-lg font-semibold">Scan to open this place</p>
+            <p className="mt-1 text-sm text-stone-500">
+              Point your camera here to open the venue page.
+            </p>
+          </>
+        )}
         <p className="mt-6 break-all text-[10px] text-stone-300">{url}</p>
       </div>
 
