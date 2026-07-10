@@ -29,15 +29,15 @@ export default async function SourceQrPage({
     <main className="mx-auto w-full max-w-md px-6 py-10 print:py-0">
       <div className="rounded-3xl border border-stone-200 bg-white p-8 text-center shadow-sm print:border-0 print:shadow-none">
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-          Canggu Perks Map
+          Other Bali
         </p>
-        <h1 className="mt-1 text-2xl font-bold">Your free Canggu day</h1>
+        <h1 className="mt-1 text-2xl font-bold">Find your Canggu day</h1>
         <p className="mt-2 text-sm text-stone-600">
           Hand-picked spots for the kind of day you want.
         </p>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={qr} alt="Scan for your Canggu perks" className="mx-auto mt-6 w-64" />
+        <img src={qr} alt="Scan to open Other Bali" className="mx-auto mt-6 w-64" />
 
         <p className="mt-6 text-lg font-semibold">Scan to open the map</p>
         <p className="mt-1 text-xs text-stone-400">source: {source}</p>

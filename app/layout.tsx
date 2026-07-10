@@ -3,15 +3,14 @@ import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 
-// Field-test label (§6.5): neutral, district-scoped, NO "Privilege/Club/Card".
-// Using the brand name on stickers would dirty the test — we'd measure reaction
-// to a "club card", not willingness to redeem a perk.
+// Public launch label: Other Bali is the tourist-facing brand. "Bali Privilege"
+// remains internal/technical only.
 export const metadata: Metadata = {
-  title: "Canggu Perks Map",
+  title: "Other Bali",
   description:
-    "A curated Canggu day with hand-picked local spots and confirmed venue offers where available.",
-  manifest: "/manifest.webmanifest?v=3",
-  appleWebApp: { capable: true, title: "Canggu Perks", statusBarStyle: "default" },
+    "The right place for the moment you're in. Curated Canggu places, routes, and confirmed venue offers where available.",
+  manifest: "/manifest.webmanifest?v=4",
+  appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {

@@ -391,7 +391,7 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// A guest's own redemptions (for "My perks"). Guest ref comes from the cookie.
+// A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
 export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]> {
   const sb = anonClient();
   if (!sb || !guestRef) return [];
