@@ -76,6 +76,10 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  // Booking paths must be visible in the public catalogue too — both are
+  // already public on /plan (TablePilot handoff URL, wa.me link).
+  "whatsapp",
+  "tablepilot_slug",
   "area",
   "why_its_here",
   "best_for",
@@ -460,21 +464,31 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
 // monetized surfaces, this catalogue is intentionally inclusive so research,
 // archived, and cleanup-pending rows can still be reviewed publicly.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
-  let venues: Venue[] = [];
+  // Seed fallback keeps the catalogue browsable (and demos honest) without a
+  // configured DB, same as the /plan loaders.
+  let venues: Venue[] = VENUES;
+  let perks: Perk[] = PERKS;
 
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
-    const { data } = await sb
-      .from("venues")
-      .select(PUBLIC_PLACES_VENUE_COLUMNS)
-      .order("district", { ascending: true })
-      .order("name", { ascending: true });
-    if (data) venues = (data as unknown as Row[]).map(mapVenue);
+    const [{ data: v }, { data: p }] = await Promise.all([
+      sb
+        .from("venues")
+        .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .order("district", { ascending: true })
+        .order("name", { ascending: true }),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+    ]);
+    venues = v ? (v as unknown as Row[]).map(mapVenue) : [];
+    perks = p ? mapPublicPerks(p as Row[]) : [];
   }
+
+  perks = normalizePublicPerks(perks);
+  const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
 
   return uniqueBy(venues, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
-    .map((v) => ({ ...v, perk: null, blurb: "" }));
+    .map((v) => ({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" }));
 }
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
