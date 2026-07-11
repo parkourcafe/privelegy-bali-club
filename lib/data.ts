@@ -617,6 +617,25 @@ export async function setVenuePhoto(token: string, url: string): Promise<boolean
   return Boolean((data as Record<string, unknown>)?.ok);
 }
 
+// Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /
+// practical_tags and caps free text; why_its_here stays editorial (not here).
+export async function setVenueJtbd(
+  token: string,
+  input: { bestFor: string; notFor: string; jobs: string[]; practicalTags: string[] }
+): Promise<boolean> {
+  const sb = anonClient();
+  if (!sb) return false;
+  const { data, error } = await sb.rpc("set_venue_jtbd", {
+    p_token: token,
+    p_best_for: input.bestFor,
+    p_not_for: input.notFor,
+    p_jobs: input.jobs,
+    p_practical_tags: input.practicalTags,
+  });
+  if (error) return false;
+  return Boolean((data as Record<string, unknown>)?.ok);
+}
+
 export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {
   const sb = anonClient();
   if (!sb) return null;

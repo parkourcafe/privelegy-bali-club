@@ -72,7 +72,16 @@ export default async function OnboardPage({
         </ul>
       </div>
 
-      <OnboardActions token={token} alreadyConfirmed={info.confirmed} />
+      <OnboardActions
+        token={token}
+        alreadyConfirmed={info.confirmed}
+        initialJtbd={{
+          bestFor: v.bestFor ?? "",
+          notFor: v.notFor ?? "",
+          jobs: v.jobs ?? [],
+          practicalTags: v.practicalTags ?? [],
+        }}
+      />
     </main>
   );
 }
