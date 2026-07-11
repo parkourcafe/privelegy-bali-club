@@ -18,7 +18,18 @@ const districtLabel: Record<string, string> = {
   canggu: "Canggu",
   ubud: "Ubud",
   seminyak: "Seminyak",
+  "kuta-legian": "Kuta & Legian",
+  jimbaran: "Jimbaran",
   "uluwatu-bukit": "Uluwatu & the Bukit",
+  "nusa-dua": "Nusa Dua",
+  sanur: "Sanur",
+  sidemen: "Sidemen",
+  amed: "Amed & the east coast",
+  munduk: "Munduk & the highlands",
+  lovina: "Lovina",
+  "nusa-islands": "Nusa Penida & the islands",
+  "gili-islands": "Gili Islands",
+  lombok: "Lombok",
 };
 
 export default function PlacesView({ venues }: { venues: VenueWithPerk[] }) {

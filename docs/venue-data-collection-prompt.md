@@ -166,4 +166,5 @@ For missing fields, write `unknown`, not a guess.
 2. First publish candidates with good factual enrichment.
 3. Ubud and Seminyak high-confidence restaurants/cafes.
 4. Uluwatu/Bukit high-confidence sunset and beach-club candidates.
-5. Low-confidence or review-pressure candidates only after field check.
+5. Sanur, Jimbaran, and Nusa Dua longlist venues that need basic factual QA.
+6. Low-confidence or review-pressure candidates only after field check.

@@ -24,9 +24,8 @@ export default async function PlacesPage() {
             </div>
             <h1 className="hero-title mt-3">Places across Bali</h1>
             <p className="hero-copy">
-              A working editorial map of places we are tracking now: Canggu,
-              Ubud, Seminyak, and Uluwatu. Offers appear only when venues
-              confirm them.
+              A working editorial map of places we are tracking now across
+              Bali. Offers appear only when venues confirm them.
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
