@@ -8,6 +8,10 @@ import type { Slot, VenueCategory, Venue } from "./types";
 // Matching is forgiving by design: `jobs` narrows only when the venue has
 // jobs data; venues without JTBD content still match via category, so the
 // guide works before the field pass fills the new columns.
+//
+// `evidence` tracks whether the moment is confirmed by research/field or is
+// still a working hypothesis (docs/research/jtbd-venue-decisions-2026-07.md).
+// Display-neutral — for our own prioritisation, not shown to tourists.
 
 export type Moment = {
   slug: string;
@@ -16,6 +20,7 @@ export type Moment = {
   slots?: Slot[];
   categories?: VenueCategory[];
   jobs?: string[];
+  evidence: "verified" | "hypothesis";
 };
 
 export const MOMENTS: Moment[] = [
@@ -26,14 +31,19 @@ export const MOMENTS: Moment[] = [
     slots: ["morning"],
     categories: ["cafe", "warung"],
     jobs: ["slow", "breakfast"],
+    evidence: "hypothesis",
   },
   {
+    // Verified job (JTBD research §3): criteria = coffee/noise/wifi/seating/
+    // plugs/free-to-sit; failure mode = time-of-day crowding ("too distracting
+    // from 9am"). Tagline carries the verified time cue.
     slug: "work-session",
     label: "Work session",
-    tagline: "Wifi, sockets, long sits welcome.",
+    tagline: "Fast wifi, sockets, quiet before 9am.",
     slots: ["morning", "day"],
     categories: ["cafe"],
     jobs: ["work"],
+    evidence: "verified",
   },
   {
     slug: "midday-reset",
@@ -42,6 +52,7 @@ export const MOMENTS: Moment[] = [
     slots: ["day"],
     categories: ["warung", "restaurant", "surf", "spa"],
     jobs: ["lunch", "reset"],
+    evidence: "hypothesis",
   },
   {
     slug: "golden-hour",
@@ -50,14 +61,29 @@ export const MOMENTS: Moment[] = [
     slots: ["sunset"],
     categories: ["beach_club", "bar"],
     jobs: ["sunset"],
+    evidence: "hypothesis",
   },
   {
+    // Split from the old "late-dinner": casual after-dark table.
     slug: "late-dinner",
     label: "Late dinner",
     tagline: "A real table after dark.",
     slots: ["evening"],
     categories: ["restaurant", "bar"],
-    jobs: ["date", "dinner"],
+    jobs: ["dinner"],
+    evidence: "hypothesis",
+  },
+  {
+    // Verified job (JTBD research §3): couples plan a special-occasion dinner
+    // in advance, framed in romance markers, with a price anchor considered
+    // before booking. Distinct from casual late dinner.
+    slug: "special-occasion",
+    label: "Special occasion",
+    tagline: "Book ahead. A dinner worth dressing up for.",
+    slots: ["evening"],
+    categories: ["restaurant"],
+    jobs: ["date", "special"],
+    evidence: "verified",
   },
   {
     slug: "family-day",
@@ -66,6 +92,7 @@ export const MOMENTS: Moment[] = [
     slots: ["morning", "day"],
     categories: ["cafe", "restaurant", "beach_club"],
     jobs: ["family"],
+    evidence: "hypothesis",
   },
 ];
 
