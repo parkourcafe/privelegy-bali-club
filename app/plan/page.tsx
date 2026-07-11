@@ -79,8 +79,18 @@ export default async function Plan({
       </section>
 
       <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-        You do not pay us. Venues pay Other Bali only when a reservation made
-        through us becomes a real seated visit.
+        <p>
+          You do not pay us. Venues pay Other Bali only when a reservation made
+          through us becomes a real seated visit.
+        </p>
+        <div className="mt-3 flex gap-4">
+          <Link href="/privacy" className="quiet-link">
+            Privacy
+          </Link>
+          <Link href="/terms" className="quiet-link">
+            Terms
+          </Link>
+        </div>
       </footer>
     </main>
     </div>
