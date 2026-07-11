@@ -275,10 +275,10 @@ export default async function Home() {
                 </h2>
                 <p className="section-lede">
                   We plan island-wide but go deep one district at a time —
-                  right now that&apos;s Canggu. For the rest of Bali: who each
-                  area suits and when to go, so you can place it in your trip.
-                  Offers and routes arrive as each area gets the full
-                  treatment.
+                  right now that&apos;s Canggu. For the rest of Bali, and the
+                  classic fast-boat side-trips beyond it: who each area suits
+                  and when to go, so you can place it in your trip. Offers and
+                  routes arrive as each area gets the full treatment.
                 </p>
               </Reveal>
               <Reveal>

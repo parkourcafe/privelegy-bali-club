@@ -139,4 +139,24 @@ export const DISTRICT_GUIDE: DistrictGuideEntry[] = [
     bestFor: ["day trips", "divers", "viewpoint chasers"],
     mapsUrl: "https://maps.google.com/?q=Nusa+Penida",
   },
+  // Beyond Bali proper — the classic fast-boat side-trips east. Labeled by
+  // region so the "Bali guide" framing stays honest.
+  {
+    slug: "gili-islands",
+    name: "Gili Islands",
+    status: "planning_only",
+    region: "Beyond Bali · fast boat",
+    moment: "Car-free island days, snorkelling with turtles, barefoot evenings.",
+    bestFor: ["snorkellers", "car-free islands", "multi-day side trips"],
+    mapsUrl: "https://maps.google.com/?q=Gili+Trawangan",
+  },
+  {
+    slug: "lombok",
+    name: "Lombok",
+    status: "planning_only",
+    region: "Beyond Bali · fast boat",
+    moment: "South-coast surf, empty beaches, Rinjani treks.",
+    bestFor: ["surfers", "trekkers", "quieter beaches"],
+    mapsUrl: "https://maps.google.com/?q=Kuta,+Lombok",
+  },
 ];

@@ -19,7 +19,9 @@ insert into districts (slug, name, is_deep) values
   ('amed',          'Amed & the east coast',      false),
   ('munduk',        'Munduk & the highlands',     false),
   ('lovina',        'Lovina',                     false),
-  ('nusa-islands',  'Nusa Penida & the islands',  false)
+  ('nusa-islands',  'Nusa Penida & the islands',  false),
+  ('gili-islands',  'Gili Islands',               false),
+  ('lombok',        'Lombok',                     false)
 on conflict (slug) do nothing;
 
 insert into venues (id, slug, name, category, district, address, gmaps_url, tier, is_sponsored) values
