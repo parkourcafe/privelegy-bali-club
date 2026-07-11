@@ -128,3 +128,43 @@ tasks — the web can't close them.
 
 Sources are inline above; full machine report retained in task output
 `w2o3coz9q` (not committed — contains raw fetched text).
+
+---
+
+## 7. Russian-speaking segment — directional only (2026-07-11)
+
+> **⚠️ Honest limitation first.** The automated pass **failed its main mandate**:
+> the priority primary voices — Telegram chats/channels, VK groups, YouTube
+> vlogs — were **not reachable** (behind login / not web-indexed; tgstat &
+> aggregators graded "unreliable"). All surviving claims rest on just **two RU
+> blogs** (baliforum.ru, aviasales.ru) — exactly the SEO/travel-blog type we
+> asked to de-prioritise. So this section is **directional, not evidence-grade**.
+> Real RU-segment insight needs **manual Telegram/VK reading** (a field task,
+> only doable from inside those communities) — the web route is exhausted.
+
+Directional signals (treat as hypotheses to confirm in the field):
+
+- **RU reviews sell venues by atmosphere/space + popularity signal, not food or
+  price.** Vocabulary: *«вайб»*, *«уют»*, *«почти всегда полная посадка»*,
+  interior (light, greenery, wood, terrace). → For RU-facing copy/tags, lead
+  with **vibe + space + why-it's-here**, not what-to-order. (medium)
+- **Oversaturation / churn is the constant backdrop** — *«кафе появляются с
+  такой скоростью, что угнаться практически невозможно»*. → **Strongest RU
+  validation of curation itself** (high).
+- **Failure mode = "стильно, но невкусно" + weak price/quality** — the RU
+  equivalent of "overrated insta place" + price shock (medium).
+- **"Не туристично" is a named value** — irritation that everything is built for
+  tourists. → A "local / not-touristy" fit descriptor is fair (guardrail #7:
+  WHO/WHEN fit, not an anti-list) (medium).
+- **Canggu traffic + area pain is real** — residential areas not built for the
+  volume. → Directly boosts the value of our **area filter + walkable framing**
+  (high).
+
+**Boundary decision (explicit):** RU communities crave *warning* content — food
+poisoning, "don't go here", bad-value call-outs. We deliberately do **NOT** build
+this (guardrail #7: no DishWarning / no "don't go here"). We serve the same need
+by **exclusion-by-absence + positive fit context**, never a warnings feed.
+
+Open (field only): actual moment frequency for RU segment; real channel order
+(which Telegram/VK chats, villa-host/driver word-of-mouth); RU-specific
+vocabulary for tags. → manual Telegram/VK pass.
