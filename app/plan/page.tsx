@@ -45,6 +45,9 @@ export default async function Plan({
             <Link href="#guide" className="button-secondary button-large">
               Browse places
             </Link>
+            <Link href="/places" className="button-secondary button-large">
+              All Bali places
+            </Link>
             <p className="hero-note">No signup. Offers appear only where venues confirm them.</p>
           </div>
         </div>

@@ -397,6 +397,28 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Public planning catalogue: all active venue rows across planning districts.
+// This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
+// behavior. Canggu monetization still lives in the deep `/plan` surface.
+export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
+  let venues: Venue[] = [];
+
+  if (isSupabaseConfigured()) {
+    const sb = anonClient()!;
+    const { data } = await sb
+      .from("venues")
+      .select("*")
+      .eq("status", "active")
+      .order("district", { ascending: true })
+      .order("name", { ascending: true });
+    if (data) venues = (data as Row[]).map(mapVenue);
+  }
+
+  return uniqueBy(venues, (v) => v.slug)
+    .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
+    .map((v) => ({ ...v, perk: null, blurb: "" }));
+}
+
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
 export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]> {
   const sb = anonClient();
