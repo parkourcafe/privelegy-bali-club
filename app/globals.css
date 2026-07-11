@@ -83,12 +83,21 @@ html {
 }
 
 .topline {
+  display: inline-flex;
+  min-height: 40px;
+  min-width: 40px;
+  align-items: center;
   color: var(--lagoon-strong);
   font-size: 12px;
   font-weight: 800;
+  text-decoration: none;
 }
 
 .quiet-link {
+  display: inline-flex;
+  min-height: 40px;
+  min-width: 40px;
+  align-items: center;
   color: var(--lagoon-strong);
   font-size: 13px;
   font-weight: 700;
@@ -245,11 +254,11 @@ html {
 }
 
 .chip {
-  min-height: 32px;
+  min-height: 40px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 250, 241, 0.78);
-  padding: 6px 12px;
+  padding: 8px 13px;
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;

@@ -21,11 +21,15 @@ export default function VenueCard({
   v,
   showActions = true,
   showSimilar = true,
+  actionMode,
 }: {
   v: VenueWithPerk;
   showActions?: boolean;
   showSimilar?: boolean;
+  actionMode?: "full" | "directions" | "none";
 }) {
+  const resolvedActionMode = showActions ? actionMode ?? "full" : "none";
+
   return (
     <article className="venue-card">
       <VenueVisual name={v.name} category={v.category} photoUrl={v.photoUrl} />
@@ -101,7 +105,7 @@ export default function VenueCard({
           </div>
         )}
 
-        {showActions && (
+        {resolvedActionMode !== "none" && (
           <div className="action-row">
             <TrackedDirectionsLink
               href={v.gmapsUrl}
@@ -110,19 +114,23 @@ export default function VenueCard({
             >
               Directions
             </TrackedDirectionsLink>
-            <ReserveButton
-              venueSlug={v.slug}
-              tablepilotSlug={v.tablepilotSlug}
-              whatsapp={v.whatsapp}
-              perkTitle={v.perk?.title}
-            />
-            {v.perk && (
-              <Link
-                href={`/v/${v.slug}/redeem`}
-                className={v.tablepilotSlug ? "button-secondary" : "button-primary"}
-              >
-                Show offer
-              </Link>
+            {resolvedActionMode === "full" && (
+              <>
+                <ReserveButton
+                  venueSlug={v.slug}
+                  tablepilotSlug={v.tablepilotSlug}
+                  whatsapp={v.whatsapp}
+                  perkTitle={v.perk?.title}
+                />
+                {v.perk && (
+                  <Link
+                    href={`/v/${v.slug}/redeem`}
+                    className={v.tablepilotSlug ? "button-secondary" : "button-primary"}
+                  >
+                    Show offer
+                  </Link>
+                )}
+              </>
             )}
           </div>
         )}

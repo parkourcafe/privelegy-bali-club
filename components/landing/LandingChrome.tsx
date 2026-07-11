@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV = [
+  { href: "#day-builder", label: "Build a day" },
   { href: "#how", label: "How it works" },
   { href: "#moments", label: "Moments" },
-  { href: "#inside", label: "What's inside" },
   { href: "#bali", label: "Around Bali" },
-  { href: "#trust", label: "Why free" },
+  { href: "/places", label: "Places" },
 ];
 
 // Top nav: transparent over the hero, frosts once you scroll past it.
@@ -33,12 +33,12 @@ export function LandingNav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="flex items-baseline gap-2">
+        <Link href="/" className="inline-flex min-h-10 items-center gap-2">
           <span className="font-display text-lg font-semibold text-[var(--ob-sand)]">
             Other Bali
           </span>
           <span className="hidden text-[10px] uppercase tracking-[0.2em] text-[var(--ob-brass)] sm:inline">
-            Canggu Beta
+            Bali guide
           </span>
         </Link>
 
@@ -53,16 +53,16 @@ export function LandingNav() {
             </a>
           ))}
           <Link
-            href="/plan"
+            href="#day-builder"
             className="rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
           >
-            Plan my day
+            Build my day
           </Link>
         </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -84,10 +84,10 @@ export function LandingNav() {
               </a>
             ))}
             <Link
-              href="/plan"
+              href="#day-builder"
               className="mt-2 rounded-full bg-[var(--ob-sand)] px-4 py-3 text-center font-semibold text-[var(--ob-espresso)]"
             >
-              Plan my Canggu day
+              Build my day
             </Link>
           </div>
         </div>
@@ -112,10 +112,10 @@ export function MobileStickyCTA() {
       }`}
     >
       <Link
-        href="/plan"
+        href="#day-builder"
         className="flex items-center justify-center gap-2 rounded-full bg-[var(--ob-accent)] px-6 py-3.5 font-semibold text-white shadow-[0_10px_40px_-8px_rgba(14,116,144,0.7)]"
       >
-        Plan my Canggu day →
+        Build my day →
       </Link>
     </div>
   );

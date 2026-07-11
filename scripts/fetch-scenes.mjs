@@ -8,7 +8,6 @@
 // real venue.
 import { existsSync, mkdirSync } from "fs";
 import path from "path";
-import sharp from "sharp";
 
 const BASE = "https://d8j0ntlcm91z4.cloudfront.net/user_3EKntK4EDjG8nay4H1dy1TK30mB";
 const OUT = path.join(process.cwd(), "public", "scenes");
@@ -24,6 +23,14 @@ const SCENES = {
 };
 
 mkdirSync(OUT, { recursive: true });
+
+let sharp;
+try {
+  sharp = (await import("sharp")).default;
+} catch {
+  console.warn("scenes: sharp is not installed; SVG fallback will render");
+  process.exit(0);
+}
 
 let ok = 0;
 let skipped = 0;

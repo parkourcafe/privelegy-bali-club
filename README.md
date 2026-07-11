@@ -39,6 +39,10 @@ Without Supabase env vars the app serves **seed data** (`lib/seed.ts`) so G0 is
 fully browsable. Redemption writes need a DB and will return
 `redemption_storage_unconfigured` until configured.
 
+In production, `/admin/*` is protected by `ADMIN_ACCESS_TOKEN`. The browser
+username can be anything; the password must match the token. If the token is
+unset in production, `/admin/*` returns 404.
+
 ## Database
 
 Apply `supabase/migrations/` in order, then `supabase/seed.sql` for local seed data.

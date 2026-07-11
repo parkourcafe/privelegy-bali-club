@@ -45,6 +45,9 @@ export default async function Plan({
             <Link href="#guide" className="button-secondary button-large">
               Browse places
             </Link>
+            <Link href="/places" className="button-secondary button-large">
+              All Bali places
+            </Link>
             <p className="hero-note">No signup. Offers appear only where venues confirm them.</p>
           </div>
         </div>
@@ -79,8 +82,18 @@ export default async function Plan({
       </section>
 
       <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-        You do not pay us. Venues pay Other Bali only when a reservation made
-        through us becomes a real seated visit.
+        <p>
+          You do not pay us. Venues pay Other Bali only when a reservation made
+          through us becomes a real seated visit.
+        </p>
+        <div className="mt-3 flex gap-4">
+          <Link href="/privacy" className="quiet-link">
+            Privacy
+          </Link>
+          <Link href="/terms" className="quiet-link">
+            Terms
+          </Link>
+        </div>
       </footer>
     </main>
     </div>

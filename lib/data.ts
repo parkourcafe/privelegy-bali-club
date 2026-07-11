@@ -1,5 +1,4 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
-import { rankSimilar } from "./similar";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import type {
@@ -19,7 +18,7 @@ import { SLOTS } from "./types";
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
   blurb: string;
-  similar?: VenueWithPerk[]; // top same-district matches (backlog #4 fallback)
+  similar?: VenueWithPerk[]; // optional fallback, omitted from primary plan payload
 }
 
 export interface PlanBySlot {
@@ -38,6 +37,55 @@ const DRAFT_PERK_PATTERNS = [
   /partner\s+negotiation/i,
   /terms\s+require/i,
 ];
+
+const PLAN_VENUE_COLUMNS = [
+  "id",
+  "slug",
+  "name",
+  "category",
+  "district",
+  "address",
+  "gmaps_url",
+  "tier",
+  "is_sponsored",
+  "vibe_tags",
+  "price_anchor",
+  "what_to_order",
+  "photo_url",
+  "whatsapp",
+  "tablepilot_slug",
+  "area",
+  "why_its_here",
+  "best_for",
+  "not_for",
+  "practical_tags",
+  "jobs",
+].join(",");
+
+const PUBLIC_PLACES_VENUE_COLUMNS = [
+  "id",
+  "slug",
+  "name",
+  "category",
+  "district",
+  "address",
+  "gmaps_url",
+  "tier",
+  "is_sponsored",
+  "vibe_tags",
+  "price_anchor",
+  "what_to_order",
+  "photo_url",
+  "area",
+  "why_its_here",
+  "best_for",
+  "not_for",
+  "practical_tags",
+  "jobs",
+].join(",");
+
+const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
+const PLAN_ENTRY_COLUMNS = "venue_slug,slot,rank,blurb";
 
 function textValue(value: unknown): string {
   return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
@@ -200,13 +248,13 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
     const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
-      sb.from("venues").select("*").eq("district", "canggu").eq("status", "active"),
-      sb.from("perks").select("*").eq("active", true),
-      sb.from("plan_entries").select("*").eq("district", "canggu"),
+      sb.from("venues").select(PLAN_VENUE_COLUMNS).eq("district", "canggu").eq("status", "active"),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+      sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
     ]);
-    if (v) venues = (v as Row[]).map(mapVenue);
-    if (p) perks = mapPublicPerks(p as Row[]);
-    if (e) entries = (e as Row[]).map(mapPlan);
+    if (v) venues = (v as unknown as Row[]).map(mapVenue);
+    if (p) perks = mapPublicPerks(p as unknown as Row[]);
+    if (e) entries = (e as unknown as Row[]).map(mapPlan);
   }
 
   venues = uniqueBy(venues, (v) => v.slug);
@@ -215,19 +263,6 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
 
   const venueBySlug = new Map(venues.map((x) => [x.slug, x]));
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
-  const blurbByVenue = new Map(entries.map((en) => [en.venueSlug, en.blurb] as const));
-
-  // A flat "similar places" set per venue: same-district matches by category /
-  // vibe tags. Rendered as the reservation fallback (backlog #4). Computed once
-  // here; the suggestion cards carry a perk + reserve path but no nested similar.
-  const toCard = (v: Venue): VenueWithPerk => ({
-    ...v,
-    perk: perkByVenue.get(v.slug) ?? null,
-    blurb: blurbByVenue.get(v.slug) ?? "",
-  });
-  const similarByVenue = new Map(
-    venues.map((v) => [v.slug, rankSimilar(v, venues).map(toCard)] as const)
-  );
 
   return SLOTS.map(({ key, label, hint }) => {
     const venuesForSlot: VenueWithPerk[] = entries
@@ -241,7 +276,6 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
             ...venue,
             perk: perkByVenue.get(en.venueSlug) ?? null,
             blurb: en.blurb,
-            similar: similarByVenue.get(en.venueSlug) ?? [],
           },
         ];
       });
@@ -420,6 +454,29 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Public planning catalogue: all venue rows across planning districts.
+// This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
+// behavior. Canggu monetization still lives in the deep `/plan` surface. Unlike
+// monetized surfaces, this catalogue is intentionally inclusive so research,
+// archived, and cleanup-pending rows can still be reviewed publicly.
+export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
+  let venues: Venue[] = [];
+
+  if (isSupabaseConfigured()) {
+    const sb = anonClient()!;
+    const { data } = await sb
+      .from("venues")
+      .select(PUBLIC_PLACES_VENUE_COLUMNS)
+      .order("district", { ascending: true })
+      .order("name", { ascending: true });
+    if (data) venues = (data as unknown as Row[]).map(mapVenue);
+  }
+
+  return uniqueBy(venues, (v) => v.slug)
+    .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
+    .map((v) => ({ ...v, perk: null, blurb: "" }));
+}
+
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
 export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]> {
   const sb = anonClient();
@@ -581,6 +638,101 @@ export interface RouteDetail {
   stops: VenueWithPerk[];
 }
 
+type RouteFallbackStage = {
+  note: string;
+  categories?: Venue["category"][];
+  terms?: string[];
+};
+
+const ROUTE_FALLBACK_STAGES: Record<string, RouteFallbackStage[]> = {
+  "first-day": [
+    { note: "Coffee to shake off the flight.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
+    { note: "Easy first daytime stop.", categories: ["surf", "beach_club"], terms: ["surf", "beach", "day"] },
+    { note: "Sunset anchor.", categories: ["beach_club", "bar"], terms: ["sunset", "view"] },
+    { note: "Dinner to close the day.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
+  ],
+  "cafe-work": [
+    { note: "Quiet start with coffee.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
+    { note: "Laptop-friendly second stop.", categories: ["cafe"], terms: ["work", "wifi", "laptop", "sockets"] },
+    { note: "Easy lunch between calls.", categories: ["warung", "restaurant"], terms: ["lunch", "quick"] },
+  ],
+  "sunset-run": [
+    { note: "Get there before golden hour.", categories: ["beach_club"], terms: ["sunset", "beach", "view"] },
+    { note: "Dinner as the light goes.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
+    { note: "Close with a drink nearby.", categories: ["bar", "beach_club"], terms: ["cocktail", "night", "drinks"] },
+  ],
+};
+
+function routeFallbackCount(slug: string): number {
+  return ROUTE_FALLBACK_STAGES[slug]?.length ?? 0;
+}
+
+function routeText(v: VenueWithPerk): string {
+  return [
+    v.name,
+    v.category,
+    v.area,
+    v.blurb,
+    v.whyItsHere,
+    v.bestFor,
+    v.notFor,
+    v.whatToOrder,
+    ...(v.jobs ?? []),
+    ...(v.vibeTags ?? []),
+    ...(v.practicalTags ?? []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function findRouteVenue(
+  venues: VenueWithPerk[],
+  used: Set<string>,
+  stage: RouteFallbackStage
+): VenueWithPerk | null {
+  const byCategory = venues.find(
+    (v) => !used.has(v.slug) && stage.categories?.includes(v.category)
+  );
+  if (byCategory) return byCategory;
+
+  return (
+    venues.find((v) => {
+      if (used.has(v.slug)) return false;
+      const text = routeText(v);
+      return stage.terms?.some((term) => text.includes(term)) ?? false;
+    }) ?? null
+  );
+}
+
+function fallbackRouteStops(slug: string, venues: VenueWithPerk[]): VenueWithPerk[] {
+  const stages = ROUTE_FALLBACK_STAGES[slug] ?? [];
+  const used = new Set<string>();
+  const out: VenueWithPerk[] = [];
+
+  for (const stage of stages) {
+    const match = findRouteVenue(venues, used, stage) ?? venues.find((v) => !used.has(v.slug));
+    if (!match) continue;
+    used.add(match.slug);
+    out.push({ ...match, blurb: stage.note || match.blurb });
+  }
+
+  return out;
+}
+
+function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[] {
+  const bySlug = new Map(venues.map((v) => [v.slug, v]));
+  const explicit = d.stops
+    .map((s) => {
+      const v = bySlug.get(s.venueSlug);
+      if (!v) return null;
+      return { ...v, blurb: s.note ?? v.blurb };
+    })
+    .filter((x): x is VenueWithPerk => x !== null);
+
+  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, venues);
+}
+
 // Route definitions from DB (if present) else seed.
 async function getRouteDefs(): Promise<RouteDef[]> {
   if (isSupabaseConfigured()) {
@@ -609,12 +761,14 @@ async function getRouteDefs(): Promise<RouteDef[]> {
 
 export async function getRoutes(): Promise<RouteSummary[]> {
   const defs = await getRouteDefs();
-  return defs.map((d) => ({
-    slug: d.slug,
-    title: d.title,
-    subtitle: d.subtitle,
-    stopCount: d.stops.length,
-  }));
+  return defs
+    .map((d) => ({
+      slug: d.slug,
+      title: d.title,
+      subtitle: d.subtitle,
+      stopCount: d.stops.length || routeFallbackCount(d.slug),
+    }))
+    .filter((d) => d.stopCount > 0);
 }
 
 export async function getRoute(slug: string): Promise<RouteDetail | null> {
@@ -622,14 +776,8 @@ export async function getRoute(slug: string): Promise<RouteDetail | null> {
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
   const all = await getVenuesList();
-  const bySlug = new Map(all.map((v) => [v.slug, v]));
-  const stops = d.stops
-    .map((s) => {
-      const v = bySlug.get(s.venueSlug);
-      if (!v) return null;
-      return { ...v, blurb: s.note ?? v.blurb };
-    })
-    .filter((x): x is VenueWithPerk => x !== null);
+  const stops = resolveRouteStops(d, all);
+  if (stops.length === 0) return null;
   return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
 }
 
