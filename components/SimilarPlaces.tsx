@@ -47,7 +47,7 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
   }
 
   return (
-    <details className="mt-4 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.62)]">
+    <details className="mt-4 rounded-lg border border-[var(--line)] bg-[var(--paper-soft)]">
       <summary
         onClick={onSummaryClick}
         className="cursor-pointer list-none px-3 py-2 text-sm font-bold text-[var(--muted)] hover:text-[var(--ink)]"

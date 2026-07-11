@@ -14,19 +14,22 @@ export default async function RoutePage({
 
   if (!route) {
     return (
-      <main className="site-shell-narrow text-center">
-        <h1 className="text-xl font-semibold">Route not found</h1>
-        <Link href="/" className="quiet-link mt-4 inline-block">
-          Back to your Canggu day
-        </Link>
-      </main>
+      <div className="page-dark">
+        <main className="site-shell-narrow text-center">
+          <h1 className="text-xl font-semibold">Route not found</h1>
+          <Link href="/plan" className="quiet-link mt-4 inline-block">
+            Back to your Canggu day
+          </Link>
+        </main>
+      </div>
     );
   }
 
   return (
+    <div className="page-dark">
     <main className="site-shell-narrow">
-      <Link href="/" className="quiet-link">
-        ← Other Bali · the guide
+      <Link href="/plan" className="quiet-link">
+        ← Your Canggu day
       </Link>
       <header className="route-hero">
         <div>
@@ -51,5 +54,6 @@ export default async function RoutePage({
         ))}
       </ol>
     </main>
+    </div>
   );
 }

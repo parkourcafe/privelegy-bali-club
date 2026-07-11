@@ -20,8 +20,8 @@ export default async function OnboardPage({
       <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
         <h1 className="text-xl font-semibold">Link not valid</h1>
         <p className="mt-2 text-sm text-stone-500">
-          This invitation link doesn&apos;t work. Please ask your Canggu Perks Map
-          contact for a new one.
+          This invitation link doesn&apos;t work. Please ask your Other Bali contact
+          for a new one.
         </p>
       </main>
     );
@@ -32,12 +32,13 @@ export default async function OnboardPage({
   return (
     <main className="mx-auto w-full max-w-md px-4 py-8">
       <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-        Canggu Perks Map · partner invitation
+        Other Bali · partner invitation
       </p>
       <h1 className="mt-1 text-2xl font-bold">Hello, {v.name}!</h1>
       <p className="mt-2 text-sm text-stone-600">
-        We&apos;re a free curated Canggu guide for tourists. Below is how your
-        place will appear. Review it, upload your photos, and confirm.
+        We&apos;re building a curated Bali guide for travellers, starting with
+        Canggu. Below is how your place will appear. Review it, upload your
+        photos, and confirm.
       </p>
 
       <div className="mt-5">
@@ -52,7 +53,7 @@ export default async function OnboardPage({
           Listing policy — what you agree to
         </p>
         <ul className="mt-2 space-y-2 text-sm text-stone-700">
-          <li>• Free listing during the pilot — no fees now.</li>
+          <li>• No setup fee during the pilot.</li>
           {v.perk && (
             <li>
               • {info.confirmed ? "You have approved" : "By confirming, you approve"} the listed
@@ -67,7 +68,7 @@ export default async function OnboardPage({
           )}
           <li>• We share aggregate visit numbers with you — never guests&apos; personal data.</li>
           <li>• Photos you upload are yours; you allow us to show them on the guide.</li>
-          <li>• You can change the perk or pause the listing anytime via WhatsApp.</li>
+          <li>• You can change the offer or pause the listing anytime via WhatsApp.</li>
         </ul>
       </div>
 

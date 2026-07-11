@@ -39,7 +39,8 @@ export default function VenueCard({
           )}
         </div>
         <p className="venue-meta">
-          {categoryLabel[v.category] ?? v.category} · {v.address}
+          {categoryLabel[v.category] ?? v.category}
+          {v.area ? ` · ${v.area}` : ""} · {v.address}
         </p>
 
         {v.vibeTags && v.vibeTags.length > 0 && (
@@ -53,6 +54,38 @@ export default function VenueCard({
         )}
 
         {v.blurb && <p className="venue-copy">{v.blurb}</p>}
+
+        {v.whyItsHere && <p className="why-here">{v.whyItsHere}</p>}
+
+        {/* Fit context (master §6): WHO/WHEN a place suits — never quality
+            warnings (guardrail #7). */}
+        {(v.bestFor || v.notFor) && (
+          <div className="fit-context">
+            {v.bestFor && (
+              <p className="fit-best">
+                <span className="font-semibold">Best for:</span> {v.bestFor}
+              </p>
+            )}
+            {v.notFor && (
+              <p className="fit-not">
+                <span className="font-semibold">Not for:</span> {v.notFor}
+              </p>
+            )}
+          </div>
+        )}
+
+        {v.practicalTags && v.practicalTags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {v.practicalTags.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-[var(--line)] px-2 py-0.5 text-[11px] font-semibold text-[var(--muted)]"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        )}
 
         {v.whatToOrder && (
           <p className="mt-2 text-sm text-[var(--muted)]">

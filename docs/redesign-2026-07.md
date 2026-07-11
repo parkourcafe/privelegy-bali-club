@@ -1,73 +1,54 @@
-# Cinematic premium redesign + Other Bali public rebrand — 2026-07-10
+# Other Bali — redesign + Bali-wide planning layer (2026-07)
 
-Implementation record for the homepage redesign executed from the
-"Universal Premium Redesign" prompt, scoped to: **homepage + shared design
-system + tourist-surface rebrand**. Subpages inherit the system; their
-structure is unchanged.
+Record for the `claude/privelegy-bali-club-mjlzwq` branch after reconciling
+with the mainline (`claude/bali-tourism-platform-fhd0l9`), which independently
+landed its own Other Bali cinematic landing + JTBD/moments content layer.
 
-## Strategy line
+## Reconciliation decision
 
-Other Bali gives Bali tourists one right answer per moment of the day —
-human-curated Canggu places with verified vibes, honest prices and
-venue-confirmed perks — and earns a fixed fee from venues only when a table
-reserved through the TablePilot handoff is actually seated.
+The base branch is the mainline and owns the design system and architecture:
+- Cinematic landing at `/` (dark espresso + brass, Fraunces/Geist, `--ob-*`
+  tokens, `components/landing/*`), the working tool moved to `/plan`.
+- `.page-dark` scope for tourist sub-pages; `.moment-*` day scenarios;
+  `.fit-context` / `.why-here` JTBD fields; venue `area` sub-areas.
+- Migration `0014_venue_areas_jtbd.sql`.
 
-Headline chosen for the hero: **"The right place for the moment you're in."**
-(the decided public tagline; commercial and emotional variants considered:
-"Canggu, planned by the hour — with perks at the counter." / "Stop scrolling
-reviews. Start having the day.")
+On merge, **base wins wholesale on design/architecture/rebrand.** This
+branch's distinct, surviving contribution is the **Bali-wide planning layer**;
+the branch's earlier standalone landing/design-system is superseded by base's
+and was dropped during the merge (recoverable from history at `9c08704`).
 
-## What shipped
+## What this branch adds on top of base
 
-- **Design system** (`app/globals.css`): restrained palette (ink
-  `#101512`/`#1c221e`, paper `#f5efe2`, lagoon `#0b6d72`, brass `#b3874a`,
-  clay `#a76043`), Fraunces (display serif) + Instrument Sans (body) via
-  `next/font` (self-hosted, no CLS), cinematic dark/paper section rhythm,
-  reduced-motion honored everywhere.
-- **Homepage** (`app/page.tsx`): full-viewport CSS-scene hero with floating
-  route card → chaos-vs-order → sticky mechanism (4 steps + demo reservation
-  card, labeled "Demo") → route scenario cards → planning guide (existing
-  PlanView, untouched logic) → 6 trust cards → honest comparison table →
-  FAQ (native `<details>`) → final CTA. New components: `SiteHeader`,
-  `SiteFooter`, `Reveal` (progressive-enhancement scroll reveal),
-  `MobileStickyCTA`.
-- **Rebrand (tourist surfaces only)**: layout metadata + OG, PWA manifest
-  (`?v=4`), redeem confirmation, `/me`, route back-links now say
-  **Other Bali**. NOT rebranded on purpose: admin QR sticker pages and the
-  partner invite message — venues have seen/printed those; re-print is a
-  founder decision.
-- **CTA hierarchy fix (money model v0.3)**: on bookable venues
-  "Reserve a table" is now the primary button, "Show offer" secondary;
-  event logging (`reservation_click` etc.) unchanged.
-- **SEO**: `app/sitemap.ts`, `app/robots.ts` (admin/partner/onboard/api/me/v
-  disallowed), `metadataBase` → `https://otherbali.com`.
+- **`lib/districts.ts`** — 15 areas as an editorial planning layer with fit
+  context (region · moment · Best for). Canggu = `active_deep`, Ubud =
+  `next_deep`, the rest `planning_only`; Gili Islands & Lombok labelled
+  "Beyond Bali · fast boat" (they are a different province — the framing
+  stays honest).
+- **`AroundBali` section** on the landing (`app/page.tsx`), authored in base's
+  dark idiom (`Section`/`Reveal`/`--ob-*`), inserted after Comparison. Canggu
+  card links to `/plan`; others link to Google Maps via `DistrictMapLink`.
+- **`getDistrictsGuide()`** (`lib/data.ts`) — overrides a district's coverage
+  status from the `districts` table when Supabase is configured, so flipping
+  a status in the DB reflects without a deploy. (The landing itself uses the
+  static list to stay static; this accessor is for `/plan` surfaces.)
+- **`district_open`** growth event (`/api/event`) — growth-only, never
+  partner-proof.
+- **Migrations** `0015_planning_districts.sql` (11 areas) + `0016_gili_lombok.sql`
+  — renumbered after base's `0014` so ordering is clean. `planning_only`,
+  monetization/QR off (guardrail #4 holds at the DB level). **DB apply is the
+  founder's** to run, in order, after the pending `0013`.
+- **SEO** — `sitemap.ts` (adds `/`, `/plan`, `/route/*`), `robots.ts`
+  (admin/partner/onboard/api/me/v disallowed), `metadataBase` + OpenGraph on
+  the root layout.
+- Nav gains an "Around Bali" anchor.
 
-## Preserved routes & wiring (verified)
+## Guardrails / notes
 
-`/`, `/route/[slug]`, `/me`, `/v/[venue]/redeem`, `/partner/[venue]`,
-`/admin/*`, `/onboard/[token]`, all `/api/*`. Funnel events, guest cookie,
-TablePilot handoff (`source=bali_privilege`), WhatsApp fallback — untouched.
-
-## Test checklist (run 2026-07-10, all pass)
-
-- `npm run build` clean (fonts self-hosted at build); `npm run lint` clean.
-- Playwright (prod server, seed data): 0 console errors; all 14 internal
-  homepage links < 400; vibe/type filters respond; mobile sticky CTA shows
-  after hero and hides over the guide; screenshots desktop 1440 / mobile 390.
-
-## Assumptions
-
-- Seed venues/perks remain placeholder — copy avoids claiming any specific
-  venue count or testimonials (none exist yet; none invented).
-- With seed data, vibe filters return "nothing matches" because seed venues
-  have no `vibeTags` (pre-existing; fill via Field Kit).
-- Hero/scenario visuals are art-directed CSS scenes, not stock. Swap-in of
-  real Canggu photography is the single highest-leverage visual upgrade.
-
-## Hidden backlog / no-go
-
-- Real photography for hero + scenario cards (photoUrl pipeline exists).
-- OG image (`opengraph-image`) matching the new hero.
-- Re-print QR stickers / partner materials under Other Bali (founder call).
-- NOT built (guardrails): chatbot, review scraping, internal booking,
-  tourist payments, paid ranking, anti-lists, new entities.
+- Coverage discipline: no perks/QR/booking outside `active_deep`. District
+  cards carry only a map link + a growth event.
+- Master doc names Canggu/Ubud/Seminyak/Sanur/Uluwatu explicitly; the other
+  planning_only areas (incl. Gili/Lombok) extend the documented Bali-wide
+  planning layer per founder request (2026-07-11). Worth one line in the
+  master doc for full guardrail-#11 cleanliness.
+- No new entities, no chatbot, no invented numbers/testimonials/offers.

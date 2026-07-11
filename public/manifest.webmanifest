@@ -1,12 +1,12 @@
 {
   "name": "Other Bali",
   "short_name": "Other Bali",
-  "description": "The right place for the moment you're in — a free, human-curated Canggu guide with venue offers.",
+  "description": "The right place for the moment you're in. Curated Canggu places, routes, and confirmed venue offers where available.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f5efe2",
-  "theme_color": "#12211f",
+  "background_color": "#f4efe5",
+  "theme_color": "#005962",
   "icons": [
     {
       "src": "/icon-192.png",
