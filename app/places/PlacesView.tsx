@@ -32,10 +32,28 @@ const districtLabel: Record<string, string> = {
   lombok: "Lombok",
 };
 
-export default function PlacesView({ venues }: { venues: VenueWithPerk[] }) {
-  const [query, setQuery] = useState("");
-  const [district, setDistrict] = useState<string | null>(null);
-  const [category, setCategory] = useState<string | null>(null);
+type InitialFilters = {
+  query?: string;
+  district?: string;
+  category?: string;
+  intentMode?: boolean;
+};
+
+export default function PlacesView({
+  venues,
+  initialFilters,
+}: {
+  venues: VenueWithPerk[];
+  initialFilters?: InitialFilters;
+}) {
+  const [query, setQuery] = useState(initialFilters?.query ?? "");
+  const [district, setDistrict] = useState<string | null>(
+    initialFilters?.district || null
+  );
+  const [category, setCategory] = useState<string | null>(
+    initialFilters?.category || null
+  );
+  const intentMode = initialFilters?.intentMode ?? false;
 
   const districts = useMemo(
     () => [...new Set(venues.map((v) => v.district))].sort(),
@@ -47,7 +65,11 @@ export default function PlacesView({ venues }: { venues: VenueWithPerk[] }) {
   );
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const tokens = query
+      .trim()
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean);
     return venues.filter((v) => {
       const haystack = [
         v.name,
@@ -67,10 +89,13 @@ export default function PlacesView({ venues }: { venues: VenueWithPerk[] }) {
       return (
         (!district || v.district === district) &&
         (!category || v.category === category) &&
-        (!q || haystack.includes(q))
+        (tokens.length === 0 ||
+          (intentMode
+            ? tokens.some((token) => haystack.includes(token))
+            : tokens.every((token) => haystack.includes(token))))
       );
     });
-  }, [venues, query, district, category]);
+  }, [venues, query, district, category, intentMode]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, VenueWithPerk[]>();

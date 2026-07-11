@@ -6,8 +6,22 @@ export const dynamic = "force-dynamic";
 
 export const metadata = { title: "Places" };
 
-export default async function PlacesPage() {
-  const venues = await getPublishedVenues();
+function firstParam(value: string | string[] | undefined) {
+  if (Array.isArray(value)) return value[0] ?? "";
+  return value ?? "";
+}
+
+export default async function PlacesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    q?: string | string[];
+    district?: string | string[];
+    category?: string | string[];
+    intent?: string | string[];
+  }>;
+}) {
+  const [venues, params] = await Promise.all([getPublishedVenues(), searchParams]);
 
   return (
     <div className="page-dark">
@@ -35,7 +49,15 @@ export default async function PlacesPage() {
           </div>
         </header>
 
-        <PlacesView venues={venues} />
+        <PlacesView
+          venues={venues}
+          initialFilters={{
+            query: firstParam(params.q),
+            district: firstParam(params.district),
+            category: firstParam(params.category),
+            intentMode: firstParam(params.intent) === "1",
+          }}
+        />
 
         <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
           <p>
