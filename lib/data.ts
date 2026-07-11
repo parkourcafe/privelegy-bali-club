@@ -397,9 +397,11 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Public planning catalogue: all active venue rows across planning districts.
+// Public planning catalogue: all venue rows across planning districts.
 // This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
-// behavior. Canggu monetization still lives in the deep `/plan` surface.
+// behavior. Canggu monetization still lives in the deep `/plan` surface. Unlike
+// monetized surfaces, this catalogue is intentionally inclusive so research,
+// archived, and cleanup-pending rows can still be reviewed publicly.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   let venues: Venue[] = [];
 
@@ -408,7 +410,6 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     const { data } = await sb
       .from("venues")
       .select("*")
-      .eq("status", "active")
       .order("district", { ascending: true })
       .order("name", { ascending: true });
     if (data) venues = (data as Row[]).map(mapVenue);
