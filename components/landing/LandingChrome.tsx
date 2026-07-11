@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV = [
+  { href: "#day-builder", label: "Build a day" },
   { href: "#how", label: "How it works" },
   { href: "#moments", label: "Moments" },
   { href: "/places", label: "Places" },
-  { href: "#inside", label: "What's inside" },
-  { href: "#trust", label: "Why free" },
 ];
 
 // Top nav: transparent over the hero, frosts once you scroll past it.
@@ -38,7 +37,7 @@ export function LandingNav() {
             Other Bali
           </span>
           <span className="hidden text-[10px] uppercase tracking-[0.2em] text-[var(--ob-brass)] sm:inline">
-            Canggu Beta
+            Bali guide
           </span>
         </Link>
 
@@ -53,10 +52,10 @@ export function LandingNav() {
             </a>
           ))}
           <Link
-            href="/plan"
+            href="#day-builder"
             className="rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
           >
-            Plan my day
+            Build my day
           </Link>
         </div>
 
@@ -84,10 +83,10 @@ export function LandingNav() {
               </a>
             ))}
             <Link
-              href="/plan"
+              href="#day-builder"
               className="mt-2 rounded-full bg-[var(--ob-sand)] px-4 py-3 text-center font-semibold text-[var(--ob-espresso)]"
             >
-              Plan my Canggu day
+              Build my day
             </Link>
           </div>
         </div>
@@ -112,10 +111,10 @@ export function MobileStickyCTA() {
       }`}
     >
       <Link
-        href="/plan"
+        href="#day-builder"
         className="flex items-center justify-center gap-2 rounded-full bg-[var(--ob-accent)] px-6 py-3.5 font-semibold text-white shadow-[0_10px_40px_-8px_rgba(14,116,144,0.7)]"
       >
-        Plan my Canggu day →
+        Build my day →
       </Link>
     </div>
   );

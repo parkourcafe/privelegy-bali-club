@@ -3,17 +3,17 @@ import Reveal from "@/components/landing/Reveal";
 import HeroGlow from "@/components/landing/HeroGlow";
 import SceneImage from "@/components/landing/SceneImage";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
+import DayIntentBuilder from "@/components/landing/DayIntentBuilder";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
-// day-plan tool lives at /plan; every CTA here funnels into it. landing_open
-// is already emitted globally by <SourceCapture/> in the root layout, so the
-// event funnel (source_scan → landing_open → …) stays intact on this route.
-// Copy is honest: no invented numbers, testimonials, logos, or offer claims.
+// day-intent tool now lives in the hero and deep-links into /places. The Canggu
+// /plan surface remains the deeper monetized beta where confirmed venue offers
+// can appear. landing_open is emitted globally by <SourceCapture/> in layout.
 
 export const metadata = {
   title: "Other Bali — the right place for the moment you're in",
   description:
-    "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, and hand off to a booked table. Travellers never pay.",
+    "A curated Bali guide that turns how you want to spend the day into a working map of places across the island.",
 };
 
 export default function Landing() {
@@ -52,7 +52,9 @@ function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:pt-24">
         <div>
-          <p className="ob-in eyebrow text-[var(--ob-brass-2)]">Canggu Beta · Bali</p>
+          <p className="ob-in eyebrow text-[var(--ob-brass-2)]">
+            Bali planning · Canggu offers beta
+          </p>
           <h1
             className="ob-in mt-4 font-display text-[2.05rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl"
             style={{ animationDelay: "80ms" }}
@@ -63,70 +65,44 @@ function Hero() {
             className="ob-in mt-5 max-w-xl text-lg leading-relaxed text-[var(--ob-sand-dim)]"
             style={{ animationDelay: "160ms" }}
           >
-            A free, curated guide to Canggu. Tell us the moment &mdash; slow
-            morning, work session, sunset, late dinner &mdash; and Other Bali
-            picks the place, hands you a confirmed offer, and passes you to a booked
-            table.
+            Tell us how you want today to feel: slow morning, beach day, date
+            night, family lunch. Other Bali turns that into a curated map of
+            places across Bali. Offers appear only where venues confirm them.
           </p>
           <div
             className="ob-in mt-8 flex flex-wrap items-center gap-3"
             style={{ animationDelay: "240ms" }}
           >
             <Link
-              href="/plan"
+              href="#day-builder"
               className="rounded-full bg-[var(--ob-sand)] px-6 py-3.5 font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
             >
-              Plan my Canggu day
+              Build my Bali day
             </Link>
-            <a
-              href="#how"
+            <Link
+              href="/places"
               className="rounded-full border border-[var(--ob-line)] px-6 py-3.5 font-medium text-[var(--ob-sand)] transition-colors hover:bg-white/5"
             >
-              See how it works
-            </a>
+              Browse all places
+            </Link>
           </div>
           <p
             className="ob-in mt-6 text-sm text-[var(--ob-stone)]"
             style={{ animationDelay: "320ms" }}
           >
-            Free for travellers. No account, no card. Venues pay only for guests
-            who actually show up.
+            Free to use. No account, no card. Venues pay only when a referred
+            guest actually shows up.
           </p>
         </div>
 
-        {/* floating action card — illustrative UI, generic (no specific venue) */}
         <div
           className="ob-in justify-self-center md:justify-self-end"
-          style={{ animationDelay: "200ms" }}
+          style={{
+            animationDelay: "200ms",
+            width: "min(25rem, calc(100vw - 2.5rem))",
+          }}
         >
-          <div className="ob-float w-[19rem] rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/80 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] backdrop-blur-md">
-            <p className="eyebrow text-[var(--ob-brass)]">Right now · 6:10 pm</p>
-            <p className="mt-2 font-display text-2xl font-semibold">Sunset, beachfront</p>
-            <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] text-[var(--ob-sand-dim)]">
-              <span className="rounded-full bg-white/5 px-2 py-0.5">view</span>
-              <span className="rounded-full bg-white/5 px-2 py-0.5">lively</span>
-              <span className="rounded-full bg-white/5 px-2 py-0.5">beach club</span>
-            </div>
-            <div className="mt-4 rounded-2xl bg-[var(--ob-accent)]/15 p-3 text-sm">
-              <span className="font-medium text-[var(--ob-accent-2)]">
-                🎟️ Offer ready
-              </span>
-              <p className="mt-0.5 text-xs text-[var(--ob-sand-dim)]">
-                Show the screen on arrival.
-              </p>
-            </div>
-            <div className="mt-3 flex gap-2">
-              <span className="flex-1 rounded-xl bg-[var(--ob-sand)] px-3 py-2 text-center text-sm font-semibold text-[var(--ob-espresso)]">
-                Reserve
-              </span>
-              <span className="rounded-xl border border-[var(--ob-line)] px-3 py-2 text-sm">
-                Directions
-              </span>
-            </div>
-            <p className="mt-3 text-center text-[10px] uppercase tracking-widest text-[var(--ob-stone)]">
-              Illustrative
-            </p>
-          </div>
+          <DayIntentBuilder />
         </div>
       </div>
     </section>
@@ -167,11 +143,11 @@ function ChaosToOrder() {
             </h3>
             <p className="mt-3 text-[var(--ob-sand-dim)]">
               We do the narrowing. Curated places, verified vibe tags, honest
-              price anchors, what to order, and a confirmed offer &mdash; ordered from
-              morning to night. You choose, you go.
+              price anchors, what to order, and offers only where they are
+              confirmed. You choose, you go.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-sm">
-              {["Curated, not ranked", "Verified in person", "Real offers", "Table ready"].map(
+              {["Curated map", "By mood", "By area", "Offers where confirmed"].map(
                 (t) => (
                   <span
                     key={t}
@@ -195,22 +171,22 @@ function Mechanism() {
     {
       k: "Find",
       t: "You pick the moment",
-      d: "Choose by context — coffee & laptop, sunset drinks, date-night dinner. We surface the few right places, not a directory.",
+      d: "Choose by context: coffee and laptop, sunset drinks, date-night dinner, family lunch. We surface the few right places, not a directory.",
     },
     {
-      k: "Reserve",
-      t: "Hand off to a booked table",
-      d: "For bookable venues, Other Bali passes you straight to a reservation. We don't run the booking — we hand you to it, cleanly.",
+      k: "Map",
+      t: "Get a working shortlist",
+      d: "The public map opens with your area, mood, group, and type already applied. You can widen it any time.",
     },
     {
-      k: "Arrive",
-      t: "Show the offer on the spot",
-      d: "Your offer is a screen you show on arrival — the on-premise proof that you actually came, kept separate from anything billed.",
+      k: "Go",
+      t: "Pick the place and move",
+      d: "Use directions, check what to order, and keep the day moving without another round of tabs.",
     },
     {
       k: "Seated",
-      t: "The venue earns you as a guest",
-      d: "When a booking through us becomes a real seated visit, the venue pays a fixed fee. That's the only money in the loop — and never from you.",
+      t: "Venues pay only for real guests",
+      d: "Where reservation tracking is active, a venue pays only when a referred guest becomes a real seated visit. You never pay Other Bali.",
     },
   ];
   return (
@@ -252,10 +228,10 @@ function Mechanism() {
 /* ── 4 · How it works (steps) ───────────────────────────────────── */
 function HowItWorks() {
   const steps = [
-    { t: "Open the guide", d: "No signup. Canggu, ordered morning to night." },
-    { t: "Pick your moment", d: "Filter by vibe and type — quiet, view, work-friendly, dinner." },
-    { t: "Grab the offer", d: "A real offer you show on arrival. No card, no code to buy." },
-    { t: "Reserve & go", d: "Hand off to a booked table, or get directions. Then enjoy it." },
+    { t: "Open the guide", d: "No signup. Start with how you want the day to feel." },
+    { t: "Pick your context", d: "Choose mood, area, group, and the way the day should end." },
+    { t: "Get the map", d: "The Bali places layer opens already filtered for that brief." },
+    { t: "Go wider or deeper", d: "Browse all places, or use Canggu beta where confirmed offers exist." },
   ];
   return (
     <Section id="how" className="bg-[var(--ob-espresso-2)]">
@@ -281,10 +257,10 @@ function HowItWorks() {
       <Reveal delay={120}>
         <div className="mt-8">
           <Link
-            href="/plan"
+            href="#day-builder"
             className="inline-flex rounded-full bg-[var(--ob-accent)] px-6 py-3.5 font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
-            Plan my Canggu day →
+            Build my Bali day →
           </Link>
         </div>
       </Reveal>
@@ -297,7 +273,7 @@ function Moments() {
   const scenes: {
     variant: "surf" | "ridge" | "sunset" | "night";
     scene: string;
-    moment: string; // slug in lib/moments.ts — deep-links into /plan?m=…
+    href: string;
     tag: string;
     pain: string;
     move: string;
@@ -306,7 +282,7 @@ function Moments() {
     {
       variant: "ridge",
       scene: "moment-morning",
-      moment: "slow-morning",
+      href: "/places?intent=1&q=cafe%20quiet&category=cafe",
       tag: "Slow morning",
       pain: "You want good coffee and a table you can actually work at.",
       move: "Filter work-friendly · quiet — verified for wifi and sockets.",
@@ -315,7 +291,7 @@ function Moments() {
     {
       variant: "surf",
       scene: "moment-warung",
-      moment: "midday-reset",
+      href: "/places?intent=1&q=lunch%20reset",
       tag: "Midday reset",
       pain: "Hot, hungry, and every warung looks the same from the road.",
       move: "See what to order and the honest price before you sit down.",
@@ -324,7 +300,7 @@ function Moments() {
     {
       variant: "sunset",
       scene: "moment-goldenhour",
-      moment: "golden-hour",
+      href: "/places?intent=1&q=sunset%20view&category=beach_club",
       tag: "Golden hour",
       pain: "You want the view — without the influencer queue.",
       move: "A curated sunset spot with the offer ready and a table held.",
@@ -333,7 +309,7 @@ function Moments() {
     {
       variant: "night",
       scene: "moment-dinner",
-      moment: "late-dinner",
+      href: "/places?intent=1&q=dinner%20restaurant&category=restaurant",
       tag: "Late dinner",
       pain: "It's 9pm, the good places are full, plans are falling apart.",
       move: "Bookable venues hand you straight to a reservation.",
@@ -352,7 +328,7 @@ function Moments() {
         {scenes.map((s, i) => (
           <Reveal key={s.tag} delay={i * 40}>
             <Link
-              href={`/plan?m=${s.moment}`}
+              href={s.href}
               className="group grid overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] transition-colors hover:border-[rgba(198,154,92,0.45)] md:grid-cols-2"
             >
               <div className="ob-grain relative min-h-[13rem] overflow-hidden">
@@ -368,7 +344,7 @@ function Moments() {
                 </p>
                 <p className="mt-3 font-display text-lg text-[var(--ob-sand)]">{s.result}</p>
                 <p className="mt-4 text-sm font-semibold text-[var(--ob-brass-2)] opacity-80 transition-opacity group-hover:opacity-100">
-                  Plan this moment →
+                  Open this map →
                 </p>
               </div>
             </Link>
@@ -557,8 +533,8 @@ function HumanMoment() {
         <Reveal>
           <p className="eyebrow text-[var(--ob-brass-2)]">Made on the island</p>
           <p className="mt-5 font-display text-2xl font-medium leading-snug sm:text-3xl">
-            Built by people who live in Canggu, walk into every place before it
-            goes in the guide, and would rather leave a spot out than pad a list.
+            Built by people who live in Bali, walk into places before they go in
+            the guide, and would rather leave a spot out than pad a list.
           </p>
         </Reveal>
       </div>
@@ -574,7 +550,7 @@ function Faq() {
     { q: "What's the catch with the offers?", a: "There isn't one. An offer is a real incentive you show on arrival, confirmed by the venue. It's separate from anything a venue pays — it just proves you actually came." },
     { q: "Do you take a cut of my bill?", a: "Never. No percentage of your cheque, no deposit, no markup. The venue pays a fixed fee for a seated guest — that's the entire model." },
     { q: "How do you choose places?", a: "Editorially, and in person. We verify vibe, price, and what's worth ordering on-site. Order is never paid for; anything sponsored is labelled." },
-    { q: "Where does it work?", a: "Canggu first, in Beta. Island-wide planning content is growing; offers and reservations live in Canggu for now, Ubud next." },
+    { q: "Where does it work?", a: "The public planning layer covers Bali districts. Confirmed offers and reservation tracking are Canggu beta first, then expand as partner proof is ready." },
   ];
   return (
     <Section id="faq" className="bg-[var(--ob-espresso-2)]">
@@ -609,22 +585,22 @@ function FinalCta() {
       <div className="relative mx-auto max-w-3xl px-5 py-28 text-center">
         <Reveal>
           <h2 className="font-display text-3xl font-semibold leading-[1.08] sm:text-5xl">
-            Your next place in Canggu is already picked.
+            Your next Bali day starts with the right map.
           </h2>
         </Reveal>
         <Reveal delay={100}>
           <p className="mx-auto mt-5 max-w-xl text-lg text-[var(--ob-sand-dim)]">
-            Open the guide, tell us the moment you&rsquo;re in, and go. Free,
-            no account, table ready.
+            Tell us the mood, the area, and who you are with. Open the filtered
+            places layer, then decide where to go.
           </p>
         </Reveal>
         <Reveal delay={180}>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
-              href="/plan"
+              href="#day-builder"
               className="rounded-full bg-[var(--ob-sand)] px-7 py-4 font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
             >
-              Plan my Canggu day
+              Build my Bali day
             </Link>
             <a
               href="#how"
@@ -646,12 +622,15 @@ function SiteFooter() {
         <div>
           <p className="font-display text-xl font-semibold">Other Bali</p>
           <p className="mt-1 text-sm text-[var(--ob-stone)]">
-            The right place for the moment you&rsquo;re in. · Canggu Beta
+            The right place for the moment you&rsquo;re in. · Bali guide
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--ob-sand-dim)]">
+          <a href="#day-builder" className="hover:text-[var(--ob-sand)]">
+            Build my day
+          </a>
           <Link href="/plan" className="hover:text-[var(--ob-sand)]">
-            Plan my day
+            Canggu beta
           </Link>
           <a href="#how" className="hover:text-[var(--ob-sand)]">
             How it works
