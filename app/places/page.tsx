@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { getPublishedVenues } from "@/lib/data";
+import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
 import PlacesView from "./PlacesView";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Places" };
+export const metadata = {
+  title: "Places",
+  alternates: { canonical: "/places" },
+};
 
 function firstParam(value: string | string[] | undefined) {
   if (Array.isArray(value)) return value[0] ?? "";
@@ -19,9 +22,16 @@ export default async function PlacesPage({
     district?: string | string[];
     category?: string | string[];
     intent?: string | string[];
+    all?: string | string[];
   }>;
 }) {
-  const [venues, params] = await Promise.all([getPublishedVenues(), searchParams]);
+  const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
+
+  // Public default: only decision-ready places. `?all=1` is the internal review
+  // view that surfaces every tracked row (including sparse research rows).
+  const showAll = firstParam(params.all) === "1";
+  const ready = tracked.filter(isPublicReadyVenue);
+  const venues = showAll ? tracked : ready;
 
   return (
     <div className="page-dark">
@@ -38,13 +48,16 @@ export default async function PlacesPage({
             </div>
             <h1 className="hero-title mt-3">Places across Bali</h1>
             <p className="hero-copy">
-              A working editorial map of places we are tracking now across
-              Bali. Offers appear only when venues confirm them.
+              A curated map of Bali by district. A place appears here once we have
+              enough to help you decide — why it&apos;s worth it, who it suits, and
+              what to expect. Offers appear only when venues confirm them.
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
             <p className="editorial-signal-label">
-              {venues.length} places in the planning layer.
+              {showAll
+                ? `Internal view · ${tracked.length} places tracked`
+                : `${ready.length} places ready · ${tracked.length} tracked`}
             </p>
           </div>
         </header>
