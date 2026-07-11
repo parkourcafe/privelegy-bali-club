@@ -24,11 +24,14 @@ export default function DistrictMapLink({
   className?: string;
   children: ReactNode;
 }) {
+  // External map links open a new tab; in-site links (/places?district=…)
+  // navigate normally so the traveller stays in the product.
+  const external = href.startsWith("http");
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noreferrer"
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
       onClick={() => logDistrictOpen(districtSlug)}
       className={className}
     >

@@ -19,9 +19,25 @@ export interface DistrictGuideEntry {
   moment: string; // the day-moment this area is best at
   bestFor: string[]; // fit context — who/when, not quality grades
   mapsUrl: string;
+  // true once the public catalogue (0015 import) actually has venues for the
+  // district — those cards lead into /places?district=… (on-site, where
+  // booking lives) instead of dumping the traveller to Google Maps.
+  catalogued?: boolean;
 }
 
-export const DISTRICT_GUIDE: DistrictGuideEntry[] = [
+// Districts with venues in the published catalogue (0015 import counts):
+// canggu · seminyak · ubud · uluwatu-bukit · sanur · jimbaran · nusa-dua.
+const CATALOGUED = new Set([
+  "canggu",
+  "ubud",
+  "seminyak",
+  "uluwatu-bukit",
+  "sanur",
+  "jimbaran",
+  "nusa-dua",
+]);
+
+const GUIDE: DistrictGuideEntry[] = [
   {
     slug: "canggu",
     name: "Canggu",
@@ -160,3 +176,8 @@ export const DISTRICT_GUIDE: DistrictGuideEntry[] = [
     mapsUrl: "https://maps.google.com/?q=Kuta,+Lombok",
   },
 ];
+
+export const DISTRICT_GUIDE: DistrictGuideEntry[] = GUIDE.map((d) => ({
+  ...d,
+  catalogued: CATALOGUED.has(d.slug),
+}));

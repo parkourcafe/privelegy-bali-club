@@ -614,7 +614,7 @@ function AroundBali() {
                   <span className="text-[var(--ob-brass-2)]">Best for</span>{" "}
                   {d.bestFor.join(" · ")}
                 </p>
-                <div className="mt-auto pt-5">
+                <div className="mt-auto flex items-baseline gap-4 pt-5">
                   {deep ? (
                     <Link
                       href="/plan"
@@ -622,6 +622,27 @@ function AroundBali() {
                     >
                       Open the Canggu guide →
                     </Link>
+                  ) : d.catalogued ? (
+                    /* Areas with catalogue venues stay on-site — the places
+                       layer is where reserve/offer actions live. The outside
+                       map drops to a quiet secondary link. */
+                    <>
+                      <DistrictMapLink
+                        href={`/places?district=${d.slug}`}
+                        districtSlug={d.slug}
+                        className="inline-flex min-h-11 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
+                      >
+                        Browse places →
+                      </DistrictMapLink>
+                      <a
+                        href={d.mapsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex min-h-11 min-w-12 items-center rounded-full px-3 text-xs font-semibold text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
+                      >
+                        Map
+                      </a>
+                    </>
                   ) : (
                     <DistrictMapLink
                       href={d.mapsUrl}
