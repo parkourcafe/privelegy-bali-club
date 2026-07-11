@@ -763,9 +763,11 @@ html {
 }
 
 /* ── Motion ── */
+/* Entrance starts at 30% opacity, not 0: the text is contentful paint from
+   the first frame (LCP-safe) while the rise still reads as a fade-up. */
 @keyframes ob-rise {
   from {
-    opacity: 0;
+    opacity: 0.3;
     transform: translateY(22px);
   }
   to {
@@ -814,6 +816,242 @@ html {
   animation: ob-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* ── Cinematic layer (2026-07 premium pass) ──────────────────────────
+   Warm, unhurried motion + one shared photographic grade. Visual only:
+   copy, links, and the day-builder logic are untouched by this layer. */
+
+/* One film grade for every generated scene so the site reads as one shoot:
+   slight desaturation, warm sepia lift, teal-leaning shadows via scrims. */
+.ob-grade {
+  filter: saturate(0.9) contrast(1.04) sepia(0.1) brightness(0.96);
+}
+
+/* Ken Burns — the hero's always-on fallback when the loop isn't playing.
+   Slow enough to feel like light moving, not an effect. */
+@keyframes ob-kenburns {
+  from {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.15) translate3d(-1.8%, -1.2%, 0);
+  }
+}
+.ob-kenburns {
+  animation: ob-kenburns 38s ease-in-out infinite alternate;
+  transform-origin: 62% 38%;
+  will-change: transform;
+}
+
+/* Slow parallax for moment scenes — driven by ParallaxScene (one rAF
+   listener), amplitude set via --ob-py in px. */
+.ob-parallax {
+  transform: translate3d(0, calc(var(--ob-py, 0) * 1px), 0) scale(1.12);
+  will-change: transform;
+}
+
+/* Moment cards: full-bleed editorial panels. Image breathes on hover;
+   on phones the strip becomes swipeable full-width snap panels. */
+.ob-moment-img {
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ob-moment-card:hover .ob-moment-img {
+  transform: scale(1.045);
+}
+.ob-moment-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 767px) {
+  .ob-moment-strip {
+    display: flex;
+    gap: 14px;
+    margin-inline: -20px;
+    overflow-x: auto;
+    padding-inline: 20px;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .ob-moment-strip::-webkit-scrollbar {
+    display: none;
+  }
+  .ob-moment-strip > * {
+    min-width: 86vw;
+    scroll-snap-align: center;
+  }
+}
+
+/* Day-builder: selection responds with a soft brass glow; each choice
+   group carries a faint graded wash so the tool reads as part of the film. */
+.ob-choice {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 240ms ease, box-shadow 340ms ease, transform 240ms ease,
+    background-color 240ms ease;
+}
+.ob-choice::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 340ms ease;
+  background: var(--ob-choice-wash, none);
+}
+.ob-choice[data-active="true"] {
+  box-shadow:
+    0 0 0 1px rgba(226, 186, 121, 0.55),
+    0 6px 28px -6px rgba(198, 154, 92, 0.4);
+  transform: translateY(-1px);
+}
+.ob-choice[data-active="true"]::before {
+  opacity: 1;
+}
+.ob-choice > * {
+  position: relative;
+}
+/* graded washes per question — dawn, mood, island, company, nightfall */
+.ob-wash-dawn {
+  --ob-choice-wash: linear-gradient(140deg, rgba(226, 186, 121, 0.16), rgba(14, 116, 144, 0.08));
+}
+.ob-wash-feel {
+  --ob-choice-wash: linear-gradient(140deg, rgba(47, 196, 214, 0.1), rgba(226, 186, 121, 0.1));
+}
+.ob-wash-island {
+  --ob-choice-wash: linear-gradient(140deg, rgba(120, 160, 90, 0.12), rgba(226, 186, 121, 0.1));
+}
+.ob-wash-group {
+  --ob-choice-wash: linear-gradient(140deg, rgba(226, 186, 121, 0.14), rgba(167, 96, 67, 0.1));
+}
+.ob-wash-finish {
+  --ob-choice-wash: linear-gradient(140deg, rgba(14, 116, 144, 0.14), rgba(43, 32, 24, 0.2));
+}
+/* live map brief pulses softly when it changes */
+@keyframes ob-brief-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 186, 121, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(226, 186, 121, 0);
+  }
+}
+.ob-brief-pulse {
+  animation: ob-brief-pulse 700ms ease-out;
+}
+/* Build-my-map CTA: quiet shimmer on hover */
+.ob-cta-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.ob-cta-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 250, 241, 0.5), transparent);
+  transition: transform 700ms ease;
+}
+.ob-cta-shimmer:hover::after {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+/* Proof chain: steps light up one by one once the row is revealed, with a
+   brass thread drawing between them. Pure CSS off the Reveal data-shown. */
+.ob-chain {
+  position: relative;
+}
+.ob-chain-thread {
+  position: absolute;
+  top: 34px;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(198, 154, 92, 0.7), rgba(198, 154, 92, 0.25));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+}
+[data-shown="true"] .ob-chain-thread {
+  transform: scaleX(1);
+}
+.ob-chain-step {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-shown="true"] .ob-chain-step {
+  opacity: 1;
+  transform: none;
+}
+[data-shown="true"] .ob-chain-step:nth-child(1) { transition-delay: 100ms; }
+[data-shown="true"] .ob-chain-step:nth-child(2) { transition-delay: 320ms; }
+[data-shown="true"] .ob-chain-step:nth-child(3) { transition-delay: 540ms; }
+[data-shown="true"] .ob-chain-step:nth-child(4) { transition-delay: 760ms; }
+[data-shown="true"] .ob-chain-step:nth-child(5) { transition-delay: 980ms; }
+.ob-chain-step .ob-chain-dot {
+  display: inline-flex;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  background: var(--ob-brass);
+  box-shadow: 0 0 0 4px rgba(198, 154, 92, 0.16);
+}
+
+/* Comparison as an editorial graphic: hairlines, serif row labels,
+   brass marks instead of raw checks. */
+.ob-compare th,
+.ob-compare td {
+  border-top: 1px solid var(--ob-line);
+}
+.ob-compare tbody th {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+.ob-compare .ob-yes {
+  display: inline-flex;
+  height: 22px;
+  width: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(226, 186, 121, 0.5);
+  color: var(--ob-brass-2);
+  font-size: 12px;
+}
+.ob-compare .ob-no {
+  color: rgba(140, 129, 117, 0.7);
+}
+.ob-compare tbody tr {
+  transition: background-color 240ms ease;
+}
+.ob-compare tbody tr:hover {
+  background: rgba(244, 236, 224, 0.03);
+}
+
+/* Editorial signature block (Made on the island) */
+.ob-signature-rule {
+  width: 56px;
+  height: 1px;
+  margin-inline: auto;
+  background: linear-gradient(90deg, transparent, var(--ob-brass-2), transparent);
+}
+
+/* Hero loop video: sits above the poster scene, fades in when playable */
+.ob-hero-video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.ob-hero-video[data-ready="true"] {
+  opacity: 0.9;
+}
+
 /* reduced-motion: everything resolves to its final, still state (guardrail:
    reduced-motion is mandatory) */
 @media (prefers-reduced-motion: reduce) {
@@ -825,6 +1063,23 @@ html {
   .ob-float,
   [class*="ob-"] {
     animation: none !important;
+  }
+  .ob-parallax {
+    transform: none !important;
+  }
+  .ob-chain-step {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .ob-chain-thread {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+  .ob-moment-img,
+  .ob-choice,
+  .ob-cta-shimmer::after {
+    transition: none !important;
   }
 }
 

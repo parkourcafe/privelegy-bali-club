@@ -4,6 +4,10 @@ import HeroGlow from "@/components/landing/HeroGlow";
 import SceneImage from "@/components/landing/SceneImage";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
 import DayIntentBuilder from "@/components/landing/DayIntentBuilder";
+import HeroLoop from "@/components/landing/HeroLoop";
+import ParallaxScene from "@/components/landing/ParallaxScene";
+import DistrictMapLink from "@/components/DistrictMapLink";
+import { DISTRICT_GUIDE } from "@/lib/districts";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-intent tool now lives in the hero and deep-links into /places. The Canggu
@@ -31,6 +35,7 @@ export default function Landing() {
       <TrustCards />
       <WhatsInside />
       <Comparison />
+      <AroundBali />
       <HumanMoment />
       <Faq />
       <FinalCta />
@@ -43,7 +48,14 @@ export default function Landing() {
 function Hero() {
   return (
     <section className="ob-grain relative flex min-h-[100svh] items-center overflow-hidden">
-      <SceneImage scene="hero-sunset" variant="sunset" imgClassName="opacity-90" />
+      <SceneImage
+        scene="hero-sunset"
+        variant="sunset"
+        imgClassName="ob-grade ob-kenburns opacity-90"
+      />
+      {/* one muted loop, desktop only, loaded after window load; the Ken
+          Burns poster above is the permanent fallback */}
+      <HeroLoop src="/scenes/hero-loop.mp4" />
       {/* legibility scrim over the photo, warm-graded */}
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--ob-espresso)]/80 via-[var(--ob-espresso)]/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--ob-espresso)] to-transparent" />
@@ -324,16 +336,23 @@ function Moments() {
           Built around the moment you&rsquo;re actually in.
         </h2>
       </Reveal>
-      <div className="mt-10 space-y-6">
+      <div className="ob-moment-strip mt-10 md:space-y-6">
         {scenes.map((s, i) => (
           <Reveal key={s.tag} delay={i * 40}>
             <Link
               href={s.href}
-              className="group grid overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] transition-colors hover:border-[rgba(198,154,92,0.45)] md:grid-cols-2"
+              className="ob-moment-card group grid h-full overflow-hidden rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] transition-colors hover:border-[rgba(198,154,92,0.45)] md:grid-cols-2"
             >
-              <div className="ob-grain relative min-h-[13rem] overflow-hidden">
-                <SceneImage scene={s.scene} variant={s.variant} />
-                <span className="absolute left-5 top-5 rounded-full bg-black/35 px-3 py-1 text-xs font-medium backdrop-blur-sm">
+              <div className="ob-grain relative min-h-[15rem] overflow-hidden md:min-h-[17rem]">
+                <ParallaxScene className="absolute inset-0">
+                  <SceneImage
+                    scene={s.scene}
+                    variant={s.variant}
+                    imgClassName="ob-grade ob-moment-img"
+                  />
+                </ParallaxScene>
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--ob-espresso)]/55 via-transparent to-[var(--ob-espresso)]/15" />
+                <span className="ob-moment-tag absolute left-5 top-5 rounded-full bg-black/35 px-3.5 py-1 text-sm backdrop-blur-sm">
                   {s.tag}
                 </span>
               </div>
@@ -377,19 +396,26 @@ function ProofChain() {
           be real for it to count.
         </p>
       </Reveal>
-      <div className="mt-9 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {chain.map((c, i) => (
-          <Reveal key={c.t} delay={i * 60}>
-            <div className="flex h-full flex-col rounded-2xl border border-[var(--ob-line)] bg-[var(--ob-espresso)] p-5">
-              <span className="font-display text-2xl font-semibold text-[var(--ob-brass)]">
-                {i + 1}
+      <Reveal className="ob-chain relative mt-9">
+        <div className="ob-chain-thread hidden lg:block" aria-hidden="true" />
+        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {chain.map((c, i) => (
+            <div
+              key={c.t}
+              className="ob-chain-step flex h-full flex-col rounded-2xl border border-[var(--ob-line)] bg-[var(--ob-espresso)] p-5"
+            >
+              <span className="flex items-center gap-2">
+                <span className="ob-chain-dot" aria-hidden="true" />
+                <span className="font-display text-2xl font-semibold text-[var(--ob-brass)]">
+                  {i + 1}
+                </span>
               </span>
               <span className="mt-2 font-semibold">{c.t}</span>
               <span className="mt-1 text-sm text-[var(--ob-sand-dim)]">{c.d}</span>
             </div>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
       <Reveal delay={80}>
         <p className="mt-6 text-sm text-[var(--ob-stone)]">
           Canggu Beta is live in 2026. We publish real numbers to partners as
@@ -483,16 +509,18 @@ function Comparison() {
         </h2>
       </Reveal>
       <Reveal delay={100}>
-        <div className="mt-9 overflow-x-auto rounded-3xl border border-[var(--ob-line)]">
-          <table className="w-full min-w-[34rem] border-collapse text-left">
+        <div className="mt-9 overflow-x-auto rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/40">
+          <table className="ob-compare w-full min-w-[34rem] border-collapse text-left">
             <thead>
               <tr className="bg-[var(--ob-espresso-2)]">
                 <th className="p-4 text-sm font-medium text-[var(--ob-stone)]">&nbsp;</th>
                 {cols.map((c, i) => (
                   <th
                     key={c}
-                    className={`p-4 text-sm font-semibold ${
-                      i === 0 ? "text-[var(--ob-brass-2)]" : "text-[var(--ob-sand-dim)]"
+                    className={`p-4 text-sm ${
+                      i === 0
+                        ? "font-display text-base font-semibold text-[var(--ob-brass-2)]"
+                        : "font-semibold text-[var(--ob-sand-dim)]"
                     }`}
                   >
                     {c}
@@ -502,14 +530,16 @@ function Comparison() {
             </thead>
             <tbody>
               {rows.map((r) => (
-                <tr key={r[0] as string} className="border-t border-[var(--ob-line)]">
-                  <td className="p-4 text-sm text-[var(--ob-sand)]">{r[0]}</td>
+                <tr key={r[0] as string}>
+                  <th scope="row" className="p-4 text-sm text-[var(--ob-sand)]">
+                    {r[0]}
+                  </th>
                   {(r.slice(1) as boolean[]).map((v, i) => (
                     <td key={i} className="p-4">
                       {v ? (
-                        <span className="text-[var(--ob-accent-2)]">✓</span>
+                        <span className="ob-yes">✓</span>
                       ) : (
-                        <span className="text-[var(--ob-stone)]">—</span>
+                        <span className="ob-no">—</span>
                       )}
                     </td>
                   ))}
@@ -523,19 +553,111 @@ function Comparison() {
   );
 }
 
+/* ── 9b · Around the island (Bali-wide planning layer) ──────────────
+   Honest coverage map: deep in Canggu, planning notes island-wide, plus the
+   fast-boat side-trips (Gili, Lombok) — clearly labelled "beyond Bali". No
+   perks/QR/booking outside the active deep district (guardrail #4); these
+   cards carry a map link and a growth-only district_open event, nothing
+   money-shaped. Static editorial content from lib/districts.ts. */
+function AroundBali() {
+  const STATUS_LABEL: Record<(typeof DISTRICT_GUIDE)[number]["status"], string> = {
+    active_deep: "Full guide",
+    next_deep: "In depth next",
+    planning_only: "Planning notes",
+  };
+  return (
+    <Section id="bali" className="bg-[var(--ob-espresso-2)]">
+      <Reveal>
+        <p className="eyebrow text-[var(--ob-brass)]">Around the island</p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
+          All of Bali, honestly mapped.
+        </h2>
+        <p className="mt-4 max-w-2xl text-[var(--ob-sand-dim)]">
+          We plan island-wide but go deep one district at a time &mdash; right
+          now that&rsquo;s Canggu. For the rest of Bali, and the classic
+          fast-boat side-trips beyond it: who each area suits and when to go, so
+          you can place it in your trip. Offers and routes arrive as each area
+          gets the full treatment.
+        </p>
+      </Reveal>
+      <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {DISTRICT_GUIDE.map((d, i) => {
+          const deep = d.status === "active_deep";
+          return (
+            <Reveal key={d.slug} delay={(i % 3) * 60}>
+              <div
+                className={`flex h-full flex-col rounded-3xl border p-6 transition-colors ${
+                  deep
+                    ? "border-[rgba(198,154,92,0.5)] bg-[var(--ob-espresso-3)]"
+                    : "border-[var(--ob-line)] bg-[var(--ob-espresso)] hover:border-[rgba(198,154,92,0.4)]"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="eyebrow text-[var(--ob-sand-dim)]">{d.region}</span>
+                  <span
+                    className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
+                      deep
+                        ? "bg-[var(--ob-sand)] text-[var(--ob-espresso)]"
+                        : d.status === "next_deep"
+                          ? "border border-[rgba(198,154,92,0.5)] text-[var(--ob-brass-2)]"
+                          : "border border-[var(--ob-line)] text-[var(--ob-stone)]"
+                    }`}
+                  >
+                    {STATUS_LABEL[d.status]}
+                  </span>
+                </div>
+                <h3 className="mt-3 font-display text-xl font-semibold text-[var(--ob-sand)]">
+                  {d.name}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--ob-sand-dim)]">{d.moment}</p>
+                <p className="mt-3 text-xs leading-relaxed text-[var(--ob-sand-dim)]">
+                  <span className="text-[var(--ob-brass-2)]">Best for</span>{" "}
+                  {d.bestFor.join(" · ")}
+                </p>
+                <div className="mt-auto pt-5">
+                  {deep ? (
+                    <Link
+                      href="/plan"
+                      className="text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:text-[var(--ob-sand)]"
+                    >
+                      Open the Canggu guide →
+                    </Link>
+                  ) : (
+                    <DistrictMapLink
+                      href={d.mapsUrl}
+                      districtSlug={d.slug}
+                      className="text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:text-[var(--ob-sand)]"
+                    >
+                      Map →
+                    </DistrictMapLink>
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
+
 /* ── 10 · Human moment ──────────────────────────────────────────── */
 function HumanMoment() {
   return (
     <section className="ob-grain relative overflow-hidden">
-      <SceneImage scene="human-dusk" variant="sunset" />
+      <ParallaxScene className="absolute inset-0" amplitude={22}>
+        <SceneImage scene="human-dusk" variant="sunset" imgClassName="ob-grade" />
+      </ParallaxScene>
       <div className="absolute inset-0 bg-[var(--ob-espresso)]/60" />
-      <div className="relative mx-auto max-w-3xl px-5 py-28 text-center">
+      <div className="relative mx-auto max-w-3xl px-5 py-32 text-center">
         <Reveal>
           <p className="eyebrow text-[var(--ob-brass-2)]">Made on the island</p>
-          <p className="mt-5 font-display text-2xl font-medium leading-snug sm:text-3xl">
+          <div className="ob-signature-rule mt-5" aria-hidden="true" />
+          <p className="mt-6 font-display text-2xl font-medium leading-snug sm:text-3xl">
             Built by people who live in Bali, walk into places before they go in
             the guide, and would rather leave a spot out than pad a list.
           </p>
+          <div className="ob-signature-rule mt-6" aria-hidden="true" />
         </Reveal>
       </div>
     </section>

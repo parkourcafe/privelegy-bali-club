@@ -12,6 +12,10 @@ const ALLOWED = new Set([
   "direction_click",
   "reservation_click",
   "similar_open",
+  // Bali-wide planning layer: map-open on a planning_only area card. The slug
+  // carried in venueSlug is a district slug (events.venue_slug has no FK and
+  // Phase 0 stats join venues by slug, so these stay growth-only signals).
+  "district_open",
 ]);
 
 // Funnel logging from the client (§18). Guest id comes from the cookie; only

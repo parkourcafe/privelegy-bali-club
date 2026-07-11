@@ -67,4 +67,5 @@ Definitions live in master §15–16. Do not rename, do not add booleans like `i
 - [x] Master architecture doc rewrite landed as v0.4-current — PR #6, merge `1d6ba6b`, 2026-07-08.
 - [x] Phase 0 money-loop dashboard + BP TablePilot aggregate reader landed — PR #7, merge `8a7ff78`, 2026-07-09.
 - [x] PWA PNG manifest/icons + visual-system upgrade landed — PR #8, merge `a796aaf`, 2026-07-09.
+- [x] Other Bali public rebrand + cinematic homepage redesign shipped (tourist surfaces: metadata, manifest, homepage, /me, redeem; admin QR stickers & partner invite deliberately still on the neutral label until re-printed) — 2026-07-10, `docs/redesign-2026-07.md`.
 - [ ] New entities proposed by the Other Bali vision (`Curator`, `CuratorList`, `Scenario`, `DishRecommendation`, `UserPreference`, `Credits`) are NOT yet adopted — each requires a master-doc amendment before build (guardrail #11).

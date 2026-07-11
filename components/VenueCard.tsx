@@ -125,7 +125,7 @@ export default function VenueCard({
                 {v.perk && (
                   <Link
                     href={`/v/${v.slug}/redeem`}
-                    className="button-primary"
+                    className={v.tablepilotSlug ? "button-secondary" : "button-primary"}
                   >
                     Show offer
                   </Link>
