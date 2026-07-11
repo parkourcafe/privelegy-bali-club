@@ -615,6 +615,101 @@ export interface RouteDetail {
   stops: VenueWithPerk[];
 }
 
+type RouteFallbackStage = {
+  note: string;
+  categories?: Venue["category"][];
+  terms?: string[];
+};
+
+const ROUTE_FALLBACK_STAGES: Record<string, RouteFallbackStage[]> = {
+  "first-day": [
+    { note: "Coffee to shake off the flight.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
+    { note: "Easy first daytime stop.", categories: ["surf", "beach_club"], terms: ["surf", "beach", "day"] },
+    { note: "Sunset anchor.", categories: ["beach_club", "bar"], terms: ["sunset", "view"] },
+    { note: "Dinner to close the day.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
+  ],
+  "cafe-work": [
+    { note: "Quiet start with coffee.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
+    { note: "Laptop-friendly second stop.", categories: ["cafe"], terms: ["work", "wifi", "laptop", "sockets"] },
+    { note: "Easy lunch between calls.", categories: ["warung", "restaurant"], terms: ["lunch", "quick"] },
+  ],
+  "sunset-run": [
+    { note: "Get there before golden hour.", categories: ["beach_club"], terms: ["sunset", "beach", "view"] },
+    { note: "Dinner as the light goes.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
+    { note: "Close with a drink nearby.", categories: ["bar", "beach_club"], terms: ["cocktail", "night", "drinks"] },
+  ],
+};
+
+function routeFallbackCount(slug: string): number {
+  return ROUTE_FALLBACK_STAGES[slug]?.length ?? 0;
+}
+
+function routeText(v: VenueWithPerk): string {
+  return [
+    v.name,
+    v.category,
+    v.area,
+    v.blurb,
+    v.whyItsHere,
+    v.bestFor,
+    v.notFor,
+    v.whatToOrder,
+    ...(v.jobs ?? []),
+    ...(v.vibeTags ?? []),
+    ...(v.practicalTags ?? []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function findRouteVenue(
+  venues: VenueWithPerk[],
+  used: Set<string>,
+  stage: RouteFallbackStage
+): VenueWithPerk | null {
+  const byCategory = venues.find(
+    (v) => !used.has(v.slug) && stage.categories?.includes(v.category)
+  );
+  if (byCategory) return byCategory;
+
+  return (
+    venues.find((v) => {
+      if (used.has(v.slug)) return false;
+      const text = routeText(v);
+      return stage.terms?.some((term) => text.includes(term)) ?? false;
+    }) ?? null
+  );
+}
+
+function fallbackRouteStops(slug: string, venues: VenueWithPerk[]): VenueWithPerk[] {
+  const stages = ROUTE_FALLBACK_STAGES[slug] ?? [];
+  const used = new Set<string>();
+  const out: VenueWithPerk[] = [];
+
+  for (const stage of stages) {
+    const match = findRouteVenue(venues, used, stage) ?? venues.find((v) => !used.has(v.slug));
+    if (!match) continue;
+    used.add(match.slug);
+    out.push({ ...match, blurb: stage.note || match.blurb });
+  }
+
+  return out;
+}
+
+function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[] {
+  const bySlug = new Map(venues.map((v) => [v.slug, v]));
+  const explicit = d.stops
+    .map((s) => {
+      const v = bySlug.get(s.venueSlug);
+      if (!v) return null;
+      return { ...v, blurb: s.note ?? v.blurb };
+    })
+    .filter((x): x is VenueWithPerk => x !== null);
+
+  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, venues);
+}
+
 // Route definitions from DB (if present) else seed.
 async function getRouteDefs(): Promise<RouteDef[]> {
   if (isSupabaseConfigured()) {
@@ -643,12 +738,14 @@ async function getRouteDefs(): Promise<RouteDef[]> {
 
 export async function getRoutes(): Promise<RouteSummary[]> {
   const defs = await getRouteDefs();
-  return defs.map((d) => ({
-    slug: d.slug,
-    title: d.title,
-    subtitle: d.subtitle,
-    stopCount: d.stops.length,
-  }));
+  return defs
+    .map((d) => ({
+      slug: d.slug,
+      title: d.title,
+      subtitle: d.subtitle,
+      stopCount: d.stops.length || routeFallbackCount(d.slug),
+    }))
+    .filter((d) => d.stopCount > 0);
 }
 
 export async function getRoute(slug: string): Promise<RouteDetail | null> {
@@ -656,14 +753,8 @@ export async function getRoute(slug: string): Promise<RouteDetail | null> {
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
   const all = await getVenuesList();
-  const bySlug = new Map(all.map((v) => [v.slug, v]));
-  const stops = d.stops
-    .map((s) => {
-      const v = bySlug.get(s.venueSlug);
-      if (!v) return null;
-      return { ...v, blurb: s.note ?? v.blurb };
-    })
-    .filter((x): x is VenueWithPerk => x !== null);
+  const stops = resolveRouteStops(d, all);
+  if (stops.length === 0) return null;
   return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
 }
 
