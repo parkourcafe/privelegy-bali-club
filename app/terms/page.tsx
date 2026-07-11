@@ -72,6 +72,31 @@ export default function TermsPage() {
               medical, legal, or safety advice.
             </p>
           </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+              Support
+            </h2>
+            <p className="mt-3">
+              For help with Other Bali, contact{" "}
+              <a
+                className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+                href="mailto:support@otherbali.com"
+              >
+                support@otherbali.com
+              </a>
+              .
+            </p>
+          </section>
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-4 text-sm">
+          <Link href="/privacy" className="quiet-link">
+            Privacy
+          </Link>
+          <Link href="/support" className="quiet-link">
+            Support
+          </Link>
         </div>
       </main>
     </div>

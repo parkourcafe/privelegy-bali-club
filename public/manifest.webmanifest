@@ -1,7 +1,7 @@
 {
   "name": "Other Bali",
   "short_name": "Other Bali",
-  "description": "The right place for the moment you're in. Curated Canggu places, routes, and confirmed venue offers where available.",
+  "description": "The right place for the moment you're in. Curated Bali places, routes, and confirmed venue offers where available.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -471,7 +471,7 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
 
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
-    const [{ data: v }, { data: p }] = await Promise.all([
+    const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
       sb
         .from("venues")
         .select(PUBLIC_PLACES_VENUE_COLUMNS)
@@ -479,8 +479,10 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
         .order("name", { ascending: true }),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
     ]);
-    venues = v ? (v as unknown as Row[]).map(mapVenue) : [];
-    perks = p ? mapPublicPerks(p as Row[]) : [];
+    if (!venueError && v && v.length > 0) {
+      venues = (v as unknown as Row[]).map(mapVenue);
+      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+    }
   }
 
   perks = normalizePublicPerks(perks);

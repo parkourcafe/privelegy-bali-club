@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s · Other Bali",
   },
   description:
-    "The right place for the moment you're in. Curated Canggu places, routes, and confirmed venue offers where available.",
+    "The right place for the moment you're in. Curated Bali places, routes, and confirmed venue offers where available.",
   manifest: "/manifest.webmanifest?v=4",
   appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
   openGraph: {

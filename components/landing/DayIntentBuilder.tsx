@@ -54,7 +54,7 @@ const feelOptions: Choice[] = [
 
 const districtOptions: Choice[] = [
   { value: "all", label: "All Bali", hint: "Let the map stay wide", query: [] },
-  { value: "canggu", label: "Canggu", hint: "Beta area, deepest layer", query: [], district: "canggu" },
+  { value: "canggu", label: "Canggu", hint: "Deepest local layer", query: [], district: "canggu" },
   { value: "ubud", label: "Ubud", hint: "Culture, jungle, slower days", query: [], district: "ubud" },
   { value: "seminyak", label: "Seminyak", hint: "Dinner, shopping, polished nights", query: [], district: "seminyak" },
   { value: "uluwatu", label: "Uluwatu", hint: "Cliffs, beaches, sunset", query: [], district: "uluwatu-bukit" },

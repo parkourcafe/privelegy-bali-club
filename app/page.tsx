@@ -11,7 +11,7 @@ import { DISTRICT_GUIDE } from "@/lib/districts";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-intent tool now lives in the hero and deep-links into /places. The Canggu
-// /plan surface remains the deeper monetized beta where confirmed venue offers
+// /plan surface remains the deeper monetized Canggu layer where confirmed venue offers
 // can appear. landing_open is emitted globally by <SourceCapture/> in layout.
 
 export const metadata = {
@@ -65,7 +65,7 @@ function Hero() {
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:pt-24">
         <div>
           <p className="ob-in eyebrow text-[var(--ob-brass-2)]">
-            Bali planning · Canggu offers beta
+            Bali planning · Canggu confirmed offers
           </p>
           <h1
             className="ob-in mt-4 font-display text-[2.05rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl"
@@ -243,7 +243,7 @@ function HowItWorks() {
     { t: "Open the guide", d: "No signup. Start with how you want the day to feel." },
     { t: "Pick your context", d: "Choose mood, area, group, and the way the day should end." },
     { t: "Get the map", d: "The Bali places layer opens already filtered for that brief." },
-    { t: "Go wider or deeper", d: "Browse all places, or use Canggu beta where confirmed offers exist." },
+    { t: "Go wider or deeper", d: "Browse all places, or use the Canggu guide where confirmed offers exist." },
   ];
   return (
     <Section id="how" className="bg-[var(--ob-espresso-2)]">
@@ -418,7 +418,7 @@ function ProofChain() {
       </Reveal>
       <Reveal delay={80}>
         <p className="mt-6 text-sm text-[var(--ob-stone)]">
-          Canggu Beta is live in 2026. We publish real numbers to partners as
+          Canggu is the first deep district in 2026. We publish real numbers to partners as
           they happen &mdash; never invented ones here.
         </p>
       </Reveal>
@@ -618,7 +618,7 @@ function AroundBali() {
                   {deep ? (
                     <Link
                       href="/plan"
-                      className="text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:text-[var(--ob-sand)]"
+                      className="inline-flex min-h-11 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
                     >
                       Open the Canggu guide →
                     </Link>
@@ -630,7 +630,7 @@ function AroundBali() {
                       <DistrictMapLink
                         href={`/places?district=${d.slug}`}
                         districtSlug={d.slug}
-                        className="text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:text-[var(--ob-sand)]"
+                        className="inline-flex min-h-11 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
                       >
                         Browse places →
                       </DistrictMapLink>
@@ -638,7 +638,7 @@ function AroundBali() {
                         href={d.mapsUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
+                        className="inline-flex min-h-11 min-w-12 items-center rounded-full px-3 text-xs font-semibold text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
                       >
                         Map
                       </a>
@@ -647,7 +647,7 @@ function AroundBali() {
                     <DistrictMapLink
                       href={d.mapsUrl}
                       districtSlug={d.slug}
-                      className="text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:text-[var(--ob-sand)]"
+                      className="inline-flex min-h-11 min-w-16 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
                     >
                       Map →
                     </DistrictMapLink>
@@ -693,7 +693,7 @@ function Faq() {
     { q: "What's the catch with the offers?", a: "There isn't one. An offer is a real incentive you show on arrival, confirmed by the venue. It's separate from anything a venue pays — it just proves you actually came." },
     { q: "Do you take a cut of my bill?", a: "Never. No percentage of your cheque, no deposit, no markup. The venue pays a fixed fee for a seated guest — that's the entire model." },
     { q: "How do you choose places?", a: "Editorially, and in person. We verify vibe, price, and what's worth ordering on-site. Order is never paid for; anything sponsored is labelled." },
-    { q: "Where does it work?", a: "The public planning layer covers Bali districts. Confirmed offers and reservation tracking are Canggu beta first, then expand as partner proof is ready." },
+    { q: "Where does it work?", a: "The public planning layer covers Bali districts. Confirmed offers and reservation tracking start in Canggu, then expand as partner proof is ready." },
   ];
   return (
     <Section id="faq" className="bg-[var(--ob-espresso-2)]">
@@ -775,13 +775,16 @@ function SiteFooter() {
             Build my day
           </a>
           <Link href="/plan" className={footerLink}>
-            Canggu beta
+            Canggu guide
           </Link>
           <a href="#how" className={footerLink}>
             How it works
           </a>
           <Link href="/places" className={footerLink}>
             Places
+          </Link>
+          <Link href="/support" className={footerLink}>
+            Support
           </Link>
           <a href="#trust" className={footerLink}>
             Why free

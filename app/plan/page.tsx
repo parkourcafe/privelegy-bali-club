@@ -27,7 +27,7 @@ export default async function Plan({
         <div>
           <div className="flex items-start justify-between">
             <Link href="/" className="topline">
-              ← Other Bali · Canggu beta
+              ← Other Bali · Canggu guide
             </Link>
             <Link href="/me" className="quiet-link">
               My offers →
@@ -92,6 +92,9 @@ export default async function Plan({
           </Link>
           <Link href="/terms" className="quiet-link">
             Terms
+          </Link>
+          <Link href="/support" className="quiet-link">
+            Support
           </Link>
         </div>
       </footer>
