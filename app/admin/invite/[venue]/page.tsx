@@ -5,7 +5,7 @@ import { getVenueWithPerk, getOrCreateOnboardToken } from "@/lib/data";
 export const dynamic = "force-dynamic";
 
 // Operator: mint/show the onboarding invite for a venue, with a ready-to-send
-// WhatsApp message. (No admin auth yet — deferred §19, same posture as /admin.)
+// WhatsApp message. Protected in production by ADMIN_ACCESS_TOKEN in proxy.ts.
 
 async function baseUrl(): Promise<string> {
   const h = await headers();

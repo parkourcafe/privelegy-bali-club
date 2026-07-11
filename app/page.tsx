@@ -662,6 +662,12 @@ function SiteFooter() {
           <a href="#faq" className="hover:text-[var(--ob-sand)]">
             FAQ
           </a>
+          <Link href="/privacy" className="hover:text-[var(--ob-sand)]">
+            Privacy
+          </Link>
+          <Link href="/terms" className="hover:text-[var(--ob-sand)]">
+            Terms
+          </Link>
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-6xl text-xs text-[var(--ob-stone)]">

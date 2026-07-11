@@ -3,8 +3,8 @@ import { getVenuesList, getOnboardStatus } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-// Operator Field Kit index. No auth yet (deferred, §19) — aggregate/operational
-// only, no guest PII. Print posters from here, watch the gate at /admin/phase0.
+// Operator Field Kit index. Protected in production by ADMIN_ACCESS_TOKEN in
+// proxy.ts. Aggregate/operational only, no guest PII.
 const SOURCE_PRESETS = ["villa_01", "villa_02", "coliving_01", "reels_001", "flyer_01"];
 
 export default async function AdminIndex() {
