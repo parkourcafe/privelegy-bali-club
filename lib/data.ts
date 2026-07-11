@@ -1,5 +1,4 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
-import { rankSimilar } from "./similar";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import type {
   Venue,
@@ -18,7 +17,7 @@ import { SLOTS } from "./types";
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
   blurb: string;
-  similar?: VenueWithPerk[]; // top same-district matches (backlog #4 fallback)
+  similar?: VenueWithPerk[]; // optional fallback, omitted from primary plan payload
 }
 
 export interface PlanBySlot {
@@ -37,6 +36,55 @@ const DRAFT_PERK_PATTERNS = [
   /partner\s+negotiation/i,
   /terms\s+require/i,
 ];
+
+const PLAN_VENUE_COLUMNS = [
+  "id",
+  "slug",
+  "name",
+  "category",
+  "district",
+  "address",
+  "gmaps_url",
+  "tier",
+  "is_sponsored",
+  "vibe_tags",
+  "price_anchor",
+  "what_to_order",
+  "photo_url",
+  "whatsapp",
+  "tablepilot_slug",
+  "area",
+  "why_its_here",
+  "best_for",
+  "not_for",
+  "practical_tags",
+  "jobs",
+].join(",");
+
+const PUBLIC_PLACES_VENUE_COLUMNS = [
+  "id",
+  "slug",
+  "name",
+  "category",
+  "district",
+  "address",
+  "gmaps_url",
+  "tier",
+  "is_sponsored",
+  "vibe_tags",
+  "price_anchor",
+  "what_to_order",
+  "photo_url",
+  "area",
+  "why_its_here",
+  "best_for",
+  "not_for",
+  "practical_tags",
+  "jobs",
+].join(",");
+
+const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
+const PLAN_ENTRY_COLUMNS = "venue_slug,slot,rank,blurb";
 
 function textValue(value: unknown): string {
   return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
@@ -199,13 +247,13 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
     const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
-      sb.from("venues").select("*").eq("district", "canggu").eq("status", "active"),
-      sb.from("perks").select("*").eq("active", true),
-      sb.from("plan_entries").select("*").eq("district", "canggu"),
+      sb.from("venues").select(PLAN_VENUE_COLUMNS).eq("district", "canggu").eq("status", "active"),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+      sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
     ]);
-    if (v) venues = (v as Row[]).map(mapVenue);
-    if (p) perks = mapPublicPerks(p as Row[]);
-    if (e) entries = (e as Row[]).map(mapPlan);
+    if (v) venues = (v as unknown as Row[]).map(mapVenue);
+    if (p) perks = mapPublicPerks(p as unknown as Row[]);
+    if (e) entries = (e as unknown as Row[]).map(mapPlan);
   }
 
   venues = uniqueBy(venues, (v) => v.slug);
@@ -214,19 +262,6 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
 
   const venueBySlug = new Map(venues.map((x) => [x.slug, x]));
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
-  const blurbByVenue = new Map(entries.map((en) => [en.venueSlug, en.blurb] as const));
-
-  // A flat "similar places" set per venue: same-district matches by category /
-  // vibe tags. Rendered as the reservation fallback (backlog #4). Computed once
-  // here; the suggestion cards carry a perk + reserve path but no nested similar.
-  const toCard = (v: Venue): VenueWithPerk => ({
-    ...v,
-    perk: perkByVenue.get(v.slug) ?? null,
-    blurb: blurbByVenue.get(v.slug) ?? "",
-  });
-  const similarByVenue = new Map(
-    venues.map((v) => [v.slug, rankSimilar(v, venues).map(toCard)] as const)
-  );
 
   return SLOTS.map(({ key, label, hint }) => {
     const venuesForSlot: VenueWithPerk[] = entries
@@ -240,7 +275,6 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
             ...venue,
             perk: perkByVenue.get(en.venueSlug) ?? null,
             blurb: en.blurb,
-            similar: similarByVenue.get(en.venueSlug) ?? [],
           },
         ];
       });
@@ -409,10 +443,10 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     const sb = anonClient()!;
     const { data } = await sb
       .from("venues")
-      .select("*")
+      .select(PUBLIC_PLACES_VENUE_COLUMNS)
       .order("district", { ascending: true })
       .order("name", { ascending: true });
-    if (data) venues = (data as Row[]).map(mapVenue);
+    if (data) venues = (data as unknown as Row[]).map(mapVenue);
   }
 
   return uniqueBy(venues, (v) => v.slug)

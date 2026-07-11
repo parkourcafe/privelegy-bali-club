@@ -87,7 +87,7 @@ function Hero() {
             </Link>
           </div>
           <p
-            className="ob-in mt-6 text-sm text-[var(--ob-stone)]"
+            className="ob-in mt-6 max-w-xl rounded-full border border-white/10 bg-[var(--ob-espresso)]/42 px-4 py-3 text-sm font-medium leading-relaxed text-[var(--ob-sand)] shadow-[0_16px_50px_-32px_rgba(0,0,0,0.9)] backdrop-blur-sm"
             style={{ animationDelay: "320ms" }}
           >
             Free to use. No account, no card. Venues pay only when a referred
@@ -562,8 +562,8 @@ function Faq() {
       </Reveal>
       <div className="mt-8 divide-y divide-[var(--ob-line)] rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso)]">
         {qa.map((item) => (
-          <details key={item.q} className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+          <details key={item.q} className="group px-6 py-4 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4">
               <span className="font-medium">{item.q}</span>
               <span className="text-[var(--ob-brass)] transition-transform group-open:rotate-45">
                 +
@@ -616,6 +616,8 @@ function FinalCta() {
 }
 
 function SiteFooter() {
+  const footerLink = "inline-flex min-h-10 min-w-10 items-center hover:text-[var(--ob-sand)]";
+
   return (
     <footer className="border-t border-[var(--ob-line)] bg-[var(--ob-espresso)] px-5 py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -626,28 +628,28 @@ function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--ob-sand-dim)]">
-          <a href="#day-builder" className="hover:text-[var(--ob-sand)]">
+          <a href="#day-builder" className={footerLink}>
             Build my day
           </a>
-          <Link href="/plan" className="hover:text-[var(--ob-sand)]">
+          <Link href="/plan" className={footerLink}>
             Canggu beta
           </Link>
-          <a href="#how" className="hover:text-[var(--ob-sand)]">
+          <a href="#how" className={footerLink}>
             How it works
           </a>
-          <Link href="/places" className="hover:text-[var(--ob-sand)]">
+          <Link href="/places" className={footerLink}>
             Places
           </Link>
-          <a href="#trust" className="hover:text-[var(--ob-sand)]">
+          <a href="#trust" className={footerLink}>
             Why free
           </a>
-          <a href="#faq" className="hover:text-[var(--ob-sand)]">
+          <a href="#faq" className={footerLink}>
             FAQ
           </a>
-          <Link href="/privacy" className="hover:text-[var(--ob-sand)]">
+          <Link href="/privacy" className={footerLink}>
             Privacy
           </Link>
-          <Link href="/terms" className="hover:text-[var(--ob-sand)]">
+          <Link href="/terms" className={footerLink}>
             Terms
           </Link>
         </div>
