@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { getCangguPlan, getRoutes } from "@/lib/data";
+import { getCangguPlan, getDistrictsGuide, getRoutes } from "@/lib/data";
 import PlanView from "./PlanView";
+import BaliDistricts from "@/components/BaliDistricts";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
@@ -11,7 +12,11 @@ export const dynamic = "force-dynamic";
 const SCENES = ["scene-a", "scene-b", "scene-c"];
 
 export default async function Home() {
-  const [plan, routes] = await Promise.all([getCangguPlan(), getRoutes()]);
+  const [plan, routes, districts] = await Promise.all([
+    getCangguPlan(),
+    getRoutes(),
+    getDistrictsGuide(),
+  ]);
   const heroRoute = routes[0];
 
   return (
@@ -258,6 +263,30 @@ export default async function Home() {
             <PlanView plan={plan} />
           </div>
         </section>
+
+        {/* ============ BALI, BY AREA (planning layer) ============ */}
+        {districts.length > 0 && (
+          <section className="section" id="bali" style={{ paddingTop: 0 }}>
+            <div className="site-shell">
+              <Reveal className="section-head">
+                <p className="topline">Around the island</p>
+                <h2 className="section-title display-2">
+                  All of Bali, honestly mapped.
+                </h2>
+                <p className="section-lede">
+                  We plan island-wide but go deep one district at a time —
+                  right now that&apos;s Canggu. For the rest of Bali: who each
+                  area suits and when to go, so you can place it in your trip.
+                  Offers and routes arrive as each area gets the full
+                  treatment.
+                </p>
+              </Reveal>
+              <Reveal>
+                <BaliDistricts districts={districts} />
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         {/* ============ TRUST ============ */}
         <section className="section section-dark on-dark" id="trust">

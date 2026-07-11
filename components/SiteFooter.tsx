@@ -10,6 +10,7 @@ export default function SiteFooter() {
         <nav className="ob-footer-links" aria-label="Footer">
           <a href="#routes">Routes</a>
           <a href="#guide">The guide</a>
+          <a href="#bali">Around Bali</a>
           <a href="#how">How it works</a>
           <a href="#faq">FAQ</a>
           <Link href="/me">My perks</Link>

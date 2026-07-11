@@ -12,6 +12,7 @@ export default function SiteHeader() {
         <nav className="ob-nav" aria-label="Main">
           <a href="#routes">Routes</a>
           <a href="#how">How it works</a>
+          <a href="#bali">Around Bali</a>
           <a href="#trust">Why trust this</a>
           <Link href="/me">My perks</Link>
           <a href="#guide" className="ob-nav-cta">

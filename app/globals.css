@@ -1066,6 +1066,119 @@ html {
 }
 
 /* ============================================================
+   Bali-wide planning — district cards
+   ============================================================ */
+
+.district-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 44px;
+}
+
+.district-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(253, 248, 236, 0.82);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.district-card:hover {
+  border-color: rgba(11, 109, 114, 0.4);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+.district-card-deep {
+  border-color: rgba(8, 79, 84, 0.45);
+  background: linear-gradient(170deg, rgba(11, 109, 114, 0.1), rgba(253, 248, 236, 0.9));
+}
+
+.district-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.district-region {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.district-status {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.district-status-deep {
+  border-color: var(--lagoon-strong);
+  background: var(--lagoon-strong);
+  color: var(--paper-soft);
+}
+
+.district-name {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 560;
+  line-height: 1.06;
+}
+
+.district-moment {
+  margin-top: 8px;
+  color: #42463c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.district-fit {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.district-fit span {
+  color: var(--brass);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.district-actions {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+@media (min-width: 640px) {
+  .district-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .district-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
    Trust cards
    ============================================================ */
 

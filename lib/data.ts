@@ -1,6 +1,7 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { rankSimilar } from "./similar";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
+import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import type {
   Venue,
   Perk,
@@ -239,6 +240,28 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
         ];
       });
     return { slot: key, label, hint, venues: venuesForSlot };
+  });
+}
+
+// Bali-wide planning layer: the editorial area guide, with coverage status
+// (planning_only / next_deep / active_deep) overridden from the districts
+// table when a DB is configured — so flipping a district's status in the DB
+// is reflected on the site without a deploy. Copy stays in code (ContentPage
+// territory is deliberately not entered here).
+export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
+  if (!isSupabaseConfigured()) return DISTRICT_GUIDE;
+  const sb = anonClient()!;
+  const { data } = await sb.from("districts").select("slug, status");
+  if (!data) return DISTRICT_GUIDE;
+  const statusBySlug = new Map(
+    (data as Row[]).map((r) => [String(r.slug), String(r.status)] as const)
+  );
+  const valid = new Set<DistrictStatus>(["planning_only", "active_deep", "next_deep"]);
+  return DISTRICT_GUIDE.map((d) => {
+    const s = statusBySlug.get(d.slug);
+    return s && valid.has(s as DistrictStatus)
+      ? { ...d, status: s as DistrictStatus }
+      : d;
   });
 }
 

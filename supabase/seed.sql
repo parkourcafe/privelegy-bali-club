@@ -5,6 +5,23 @@ insert into districts (slug, name, is_deep) values
   ('canggu', 'Canggu', true)
 on conflict (slug) do nothing;
 
+-- Bali-wide planning layer (mirrors lib/districts.ts; coverage flags stay at
+-- their planning_only/false defaults — no money surface outside active_deep).
+insert into districts (slug, name, is_deep) values
+  ('ubud',          'Ubud',                       false),
+  ('seminyak',      'Seminyak',                   false),
+  ('kuta-legian',   'Kuta & Legian',              false),
+  ('jimbaran',      'Jimbaran',                   false),
+  ('uluwatu-bukit', 'Uluwatu & the Bukit',        false),
+  ('nusa-dua',      'Nusa Dua',                   false),
+  ('sanur',         'Sanur',                      false),
+  ('sidemen',       'Sidemen',                    false),
+  ('amed',          'Amed & the east coast',      false),
+  ('munduk',        'Munduk & the highlands',     false),
+  ('lovina',        'Lovina',                     false),
+  ('nusa-islands',  'Nusa Penida & the islands',  false)
+on conflict (slug) do nothing;
+
 insert into venues (id, slug, name, category, district, address, gmaps_url, tier, is_sponsored) values
   ('v_home','home-cafe','Home Cafe','cafe','canggu','Canggu (see map)','https://maps.app.goo.gl/v5HGaAzKoXdvQh6i9','editorial_seed',false),
   ('v_amber','amber-cafe','Amber Specialty Coffee','cafe','canggu','Jl. Pantai Berawa, Canggu','https://maps.google.com/?q=Canggu+coffee','editorial_seed',false),
