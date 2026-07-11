@@ -656,6 +656,9 @@ function SiteFooter() {
           <a href="#how" className="hover:text-[var(--ob-sand)]">
             How it works
           </a>
+          <Link href="/places" className="hover:text-[var(--ob-sand)]">
+            Places
+          </Link>
           <a href="#trust" className="hover:text-[var(--ob-sand)]">
             Why free
           </a>

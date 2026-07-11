@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const NAV = [
   { href: "#how", label: "How it works" },
   { href: "#moments", label: "Moments" },
+  { href: "/places", label: "Places" },
   { href: "#inside", label: "What's inside" },
   { href: "#trust", label: "Why free" },
 ];
