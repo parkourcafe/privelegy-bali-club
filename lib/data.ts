@@ -460,16 +460,16 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
 // monetized surfaces, this catalogue is intentionally inclusive so research,
 // archived, and cleanup-pending rows can still be reviewed publicly.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
-  let venues: Venue[] = [];
+  let venues: Venue[] = VENUES;
 
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
-    const { data } = await sb
+    const { data, error } = await sb
       .from("venues")
       .select(PUBLIC_PLACES_VENUE_COLUMNS)
       .order("district", { ascending: true })
       .order("name", { ascending: true });
-    if (data) venues = (data as unknown as Row[]).map(mapVenue);
+    if (!error && data && data.length > 0) venues = (data as unknown as Row[]).map(mapVenue);
   }
 
   return uniqueBy(venues, (v) => v.slug)
