@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Choice = {
   value: string;
@@ -116,6 +116,18 @@ export default function DayIntentBuilder() {
   const href = useMemo(() => buildHref(selected), [selected]);
   const summary = `${selected[0].label.toLowerCase()}, ${selected[1].label.toLowerCase()}, ${selected[3].label.toLowerCase()}`;
 
+  // Visual only: re-key the brief box when the summary changes so it pulses
+  // softly (ob-brief-pulse). Selection logic and the built URL are untouched.
+  const [pulseKey, setPulseKey] = useState(0);
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    setPulseKey((k) => k + 1);
+  }, [summary, href]);
+
   return (
     <section
       id="day-builder"
@@ -140,44 +152,53 @@ export default function DayIntentBuilder() {
           options={spendOptions}
           selected={spend}
           onSelect={setSpend}
+          wash="ob-wash-dawn"
         />
         <ChoiceGroup
           label="What do you want to feel?"
           options={feelOptions}
           selected={feel}
           onSelect={setFeel}
+          wash="ob-wash-feel"
         />
         <ChoiceGroup
           label="Where are you today?"
           options={districtOptions}
           selected={district}
           onSelect={setDistrict}
+          wash="ob-wash-island"
         />
         <ChoiceGroup
           label="Who are you with?"
           options={groupOptions}
           selected={group}
           onSelect={setGroup}
+          wash="ob-wash-group"
         />
         <ChoiceGroup
           label="How should it end?"
           options={finishOptions}
           selected={finish}
           onSelect={setFinish}
+          wash="ob-wash-finish"
         />
       </div>
 
-      <div className="mt-5 rounded-2xl bg-black/18 p-3">
+      <div
+        key={pulseKey}
+        className={`mt-5 rounded-2xl bg-black/18 p-3 ${pulseKey > 0 ? "ob-brief-pulse" : ""}`}
+        aria-live="polite"
+      >
         <p className="text-xs font-semibold uppercase text-[var(--ob-brass-2)]">
           Your map brief
         </p>
-        <p className="mt-1 text-sm text-[var(--ob-sand-dim)]">{summary}</p>
+        <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">{summary}</p>
       </div>
 
       <div className="mt-4 grid gap-2 sm:grid-cols-[1fr_auto]">
         <Link
           href={href}
-          className="rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+          className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
           Build my map
         </Link>
@@ -197,11 +218,13 @@ function ChoiceGroup({
   options,
   selected,
   onSelect,
+  wash,
 }: {
   label: string;
   options: Choice[];
   selected: string;
   onSelect: (value: string) => void;
+  wash?: string;
 }) {
   return (
     <fieldset>
@@ -214,7 +237,8 @@ function ChoiceGroup({
               key={option.value}
               type="button"
               onClick={() => onSelect(option.value)}
-              className={`min-w-[8.5rem] snap-start rounded-2xl border px-3 py-2 text-left transition ${
+              data-active={active ? "true" : "false"}
+              className={`ob-choice ${wash ?? ""} min-w-[8.5rem] snap-start rounded-2xl border px-3 py-2 text-left ${
                 active
                   ? "border-[var(--ob-brass)] bg-[var(--ob-brass)]/18 text-[var(--ob-sand)]"
                   : "border-[var(--ob-line)] bg-white/[0.03] text-[var(--ob-sand-dim)] hover:border-[var(--ob-brass)]/55"

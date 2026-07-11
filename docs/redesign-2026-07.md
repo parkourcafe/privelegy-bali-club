@@ -52,3 +52,49 @@ and was dropped during the merge (recoverable from history at `9c08704`).
   planning layer per founder request (2026-07-11). Worth one line in the
   master doc for full guardrail-#11 cleanliness.
 - No new entities, no chatbot, no invented numbers/testimonials/offers.
+
+---
+
+# Premium cinematic pass (2026-07-11, Higgsfield imagery)
+
+Visual/motion-only upgrade of the landing per the premium-website brief.
+Copy, section structure, FAQ, anchors, and every functional link — including
+the day-builder's `/places?q=…&district=…&category=…&intent=1` URLs — are
+byte-identical to the source (verified by Playwright assertions).
+
+## Imagery & video (Higgsfield, 2026-07-11 set)
+- 6 stills regenerated in ONE warm film grade (Kinfolk-editorial, golden
+  hour, teal shadows / sand highlights, no people, no text): hero-sunset,
+  moment-morning (café light), moment-warung (rain on banana leaves),
+  moment-goldenhour (cliffside), moment-dinner (candlelit warung),
+  human-dusk. Model: nano_banana_pro; filenames in scripts/fetch-scenes.mjs.
+- ONE muted hero loop (seedance_2_0, 5s 720p, silent, generated FROM the
+  hero still for grade continuity). Shipped via fetch-scenes with a hard
+  3MB gate — over budget ⇒ not shipped, Ken Burns poster stays.
+- The founder's Higgsfield CDN is unreachable from this sandbox (egress
+  allowlist), so pixels could not be reviewed here; the fetch-scenes prebuild
+  + SVG-art fallback keeps every failure mode graceful. Review on the Vercel
+  preview.
+
+## Motion (all gated by prefers-reduced-motion)
+- Hero: Ken Burns on the still; lazy muted loop (desktop-only, post-load,
+  Save-Data respected, fades in on canplaythrough, poster on any error).
+- Moments: slow scroll parallax (one rAF listener), image breathe on hover,
+  serif italic tags; on phones the four cards are swipeable full-width snap
+  panels.
+- Day-builder: brass selection glow + per-question graded washes, live
+  "Your map brief" pulse (aria-live polite), shimmer on Build-my-map.
+  Selection logic and built URLs untouched.
+- Proof chain: steps light up sequentially with a brass thread drawing
+  across (pure CSS off the existing Reveal).
+- Comparison: editorial table restyle (serif row labels, ringed brass ticks).
+- Human moment: parallax dusk scene + signature rules.
+
+## Verified (Playwright + Lighthouse, local prod build)
+- Anchors #day-builder/#how/#moments/#trust/#faq (+ all others) exist.
+- Day-builder default URL exact; reacts to selection; moment hrefs exact.
+- Zero broken internal links; zero console errors; reduced-motion clean;
+  video never mounts on mobile; CLS 0.
+- Lighthouse mobile (SVG-fallback worst case): Performance 96,
+  Accessibility 100, Best Practices 96, TBT 30ms. With real scene images on
+  prod the LCP element becomes the fetchpriority-high hero webp.

@@ -31,6 +31,8 @@ export default function SceneImage({
           src={`/scenes/${scene}.webp`}
           alt={alt}
           loading={scene === "hero-sunset" ? "eager" : "lazy"}
+          fetchPriority={scene === "hero-sunset" ? "high" : "auto"}
+          decoding="async"
           onError={() => setFailed(true)}
           className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`}
         />
