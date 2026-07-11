@@ -7,9 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "node scripts/fetch-scenes.mjs || true"
+    "prebuild": "node scripts/fetch-scenes.mjs || true",
+    "mobile:sync": "cap sync ios",
+    "mobile:open:ios": "cap open ios",
+    "mobile:run:ios": "cap run ios"
   },
   "dependencies": {
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.108.2",
     "nanoid": "^5.1.16",
@@ -19,6 +24,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.4.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.6",
