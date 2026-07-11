@@ -1,19 +1,19 @@
 # Other Bali - App Store Release Readiness
 
 Date: 2026-07-12
-Status: Web/PWA ready for wrapper work; App Store submission is blocked until a native iOS target exists.
+Status: Web/PWA ready; Capacitor iOS wrapper scaffolded; App Store submission is blocked on Apple signing, App Store Connect setup, screenshots, and device QA.
 
 ## Current Target
 
-Other Bali is currently a Next.js/Vercel web app and installable PWA. The repo does not yet contain:
+Other Bali is a Next.js/Vercel web app, installable PWA, and now has a Capacitor iOS wrapper scaffold:
 
-- `ios/`
-- `*.xcodeproj` or `*.xcworkspace`
-- `capacitor.config.*`
-- Expo/EAS app config
-- native signing, bundle id, build number, launch screen, or App Store archive config
+- `capacitor.config.ts`
+- `ios/App/App.xcodeproj`
+- `ios-web/`
+- bundle id `com.otherbali.app`
+- native display name `Other Bali`
 
-Because of that, there is no binary that can be uploaded to App Store Connect yet.
+There is still no signed archive uploaded to App Store Connect yet.
 
 ## Recommended Native Path
 
@@ -21,9 +21,9 @@ Use a thin Capacitor iOS shell only if the app keeps enough app-like utility to 
 
 - native display name: `Other Bali`
 - bundle id: `com.otherbali.app`
-- app opens `https://otherbali.com`
-- App Store Support URL: `https://otherbali.com/support`
-- Privacy Policy URL: `https://otherbali.com/privacy`
+- app opens `https://www.otherbali.com`
+- App Store Support URL: `https://www.otherbali.com/support`
+- Privacy Policy URL: `https://www.otherbali.com/privacy`
 - no tourist payments
 - no account requirement
 - no AI/chatbot
@@ -54,10 +54,10 @@ Age rating:
 `4+` if no unrestricted web browsing, alcohol-focused content, user-generated content, or mature venue content is added. Reassess before submission.
 
 Support URL:
-`https://otherbali.com/support`
+`https://www.otherbali.com/support`
 
 Privacy Policy URL:
-`https://otherbali.com/privacy`
+`https://www.otherbali.com/privacy`
 
 ## Privacy Label Draft
 
@@ -107,7 +107,13 @@ Local production verification on 2026-07-12:
 
 ## Release Blockers
 
-P0 - No native iOS target or archive exists.
+P0 - Apple Developer signing team is not configured in Xcode.
+
+P0 - App Store Connect app record for `com.otherbali.app` is not created yet.
+
+P0 - No signed archive has been uploaded to App Store Connect yet.
+
+P0 - Real iPhone and TestFlight QA are still required.
 
 P1 - `support@otherbali.com` must be a real monitored mailbox before submission.
 
@@ -116,5 +122,7 @@ P1 - App Store screenshots are not prepared yet.
 P1 - Apple Developer account, bundle id, signing team, and App Store Connect app record are not configured in repo.
 
 P1 - Final privacy label must be confirmed against the actual native wrapper SDKs. Capacitor, analytics, crash reporting, or push notification SDKs can change the privacy answers.
+
+P1 - The current Capacitor wrapper loads `https://www.otherbali.com`; this is practical for the current Next/Supabase architecture, but remains an App Review risk if Apple treats it as a repackaged website.
 
 P2 - `/places` intentionally renders all venues. It is usable on mobile, but native release should consider district-first/lazy rendering before paid acquisition.
