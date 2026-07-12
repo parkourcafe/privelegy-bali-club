@@ -1,23 +1,15 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Script from "next/script";
 
-// Google Analytics 4 (gtag.js). Loaded only on real deployed hosts — local dev
-// (localhost / next dev) never reports, so the founder's analytics stay clean.
-// GA4 enhanced measurement tracks SPA route changes via history events, so no
-// manual page_view wiring is needed for client-side navigation.
+// Google Analytics 4 (gtag.js). Rendered server-side into the initial HTML so
+// Google's "verify installation" / tag detector can see it (a client-only,
+// post-hydration injection is invisible to that check). Loaded in production
+// builds only — local `next dev` is NODE_ENV=development, so dev never reports.
+// Preview deploys also report; filter those in GA if needed (data filter by
+// hostname) rather than hiding the tag, which would break detection.
 const GA_ID = "G-F3TEVWTWX4";
-const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "0.0.0.0", ""]);
 
 export default function Analytics() {
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    if (!LOCAL_HOSTS.has(window.location.hostname)) setEnabled(true);
-  }, []);
-
-  if (!enabled) return null;
+  if (process.env.NODE_ENV !== "production") return null;
 
   return (
     <>
