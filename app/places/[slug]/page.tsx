@@ -38,6 +38,15 @@ const categoryGuide: Record<string, { href: string; label: string }> = {
   bar: { href: "/uluwatu/beach-clubs-sunset", label: "Beach clubs & sunset" },
 };
 
+// Which Canggu guide a category belongs to (breadcrumb + related links).
+const cangguCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/canggu/best-restaurants", label: "Restaurants" },
+  cafe: { href: "/canggu/work-friendly-cafes", label: "Cafés" },
+  spa: { href: "/canggu/best-spas", label: "Spas & wellness" },
+  beach_club: { href: "/canggu/beach-clubs-sunset", label: "Beach clubs & sunset" },
+  bar: { href: "/canggu/beach-clubs-sunset", label: "Beach clubs & sunset" },
+};
+
 const districtLabel: Record<string, string> = {
   canggu: "Canggu",
   ubud: "Ubud",
@@ -122,11 +131,16 @@ export default async function VenuePage({
   const saved = savedSlugs.includes(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
+  const isCanggu = venue.district === "canggu";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
   const catLabel = categoryLabel[venue.category] ?? venue.category;
-  const guide = isUluwatu ? categoryGuide[venue.category] : undefined;
+  const guide = isUluwatu
+    ? categoryGuide[venue.category]
+    : isCanggu
+    ? cangguCategoryGuide[venue.category]
+    : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
   // status is never a ranking factor (rankSimilar scores category + tags).
@@ -140,6 +154,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Uluwatu", href: ULUWATU_PUBLIC_BASE },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isCanggu
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Canggu", href: "/canggu" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]

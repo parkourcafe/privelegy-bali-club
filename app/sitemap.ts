@@ -26,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // Canggu district product: pillar + editorial children (active_deep).
+    { url: `${BASE}/canggu`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/canggu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/canggu/work-friendly-cafes`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/canggu/best-spas`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/canggu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
     // Uluwatu district product: pillar + editorial children.
     { url: `${BASE}/uluwatu`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/uluwatu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
