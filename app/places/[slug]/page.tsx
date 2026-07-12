@@ -47,6 +47,12 @@ const cangguCategoryGuide: Record<string, { href: string; label: string }> = {
   bar: { href: "/canggu/beach-clubs-sunset", label: "Beach clubs & sunset" },
 };
 
+// Which Ubud guide a category belongs to (breadcrumb + related links).
+const ubudCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/ubud/best-restaurants", label: "Restaurants" },
+  cafe: { href: "/ubud/best-cafes-coffee", label: "Cafés & coffee" },
+};
+
 const districtLabel: Record<string, string> = {
   canggu: "Canggu",
   ubud: "Ubud",
@@ -132,6 +138,7 @@ export default async function VenuePage({
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
   const isCanggu = venue.district === "canggu";
+  const isUbud = venue.district === "ubud";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
@@ -140,6 +147,8 @@ export default async function VenuePage({
     ? categoryGuide[venue.category]
     : isCanggu
     ? cangguCategoryGuide[venue.category]
+    : isUbud
+    ? ubudCategoryGuide[venue.category]
     : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
@@ -161,6 +170,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Canggu", href: "/canggu" },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isUbud
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Ubud", href: "/ubud" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]
