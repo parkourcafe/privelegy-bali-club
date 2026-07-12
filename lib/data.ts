@@ -1,6 +1,7 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
+import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { getPublicationStatus } from "./publication";
 import { ULUWATU_VENUES, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
@@ -530,6 +531,128 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
       perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
       blurb: "",
     }));
+}
+
+// ---- SEO hub surface (/bali/[district]) ----
+
+export interface DistrictHub {
+  slug: string;
+  name: string;
+  venues: VenueWithPerk[];
+}
+
+// A district hub only publishes when it has enough real depth — below this a
+// page is thin and drags topical authority (docs/seo-strategy.md §1 gate).
+export const HUB_MIN_VENUES = 8;
+
+// Districts with a hand-crafted pillar (base's /uluwatu product) are NOT served
+// by the programmatic /bali/[district] hub — that would create two pages
+// competing for the same queries. The pillar owns those districts.
+const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit"]);
+
+// Active venues grouped by district, gated to publishable districts. Unlike the
+// deliberately-inclusive /places catalogue (getPublishedVenues), a ranking page
+// must show only canonical, live rows — so this filters status='active', which
+// also excludes the archived/duplicate twins that 0018 removes. Known districts
+// only (must exist in DISTRICT_GUIDE) so a stray district string can't mint a
+// page with no editorial identity.
+export async function getDistrictHubs(): Promise<DistrictHub[]> {
+  let venues: Venue[] = VENUES;
+  let perks: Perk[] = PERKS;
+
+  if (isSupabaseConfigured()) {
+    const sb = anonClient()!;
+    const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
+      sb
+        .from("venues")
+        .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .eq("status", "active")
+        .order("district", { ascending: true })
+        .order("name", { ascending: true }),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+    ]);
+    if (!venueError && v && v.length > 0) {
+      venues = (v as unknown as Row[]).map(mapVenue);
+      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+    }
+  }
+
+  perks = normalizePublicPerks(perks);
+  const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
+  const nameBySlug = new Map(DISTRICT_GUIDE.map((d) => [d.slug, d.name] as const));
+
+  const byDistrict = new Map<string, VenueWithPerk[]>();
+  for (const v of uniqueBy(venues, (x) => x.slug)) {
+    if (!nameBySlug.has(v.district)) continue;
+    if (HUB_EXCLUDE_DISTRICTS.has(v.district)) continue;
+    const list = byDistrict.get(v.district) ?? [];
+    list.push({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" });
+    byDistrict.set(v.district, list);
+  }
+
+  const hubs: DistrictHub[] = [];
+  for (const [slug, list] of byDistrict) {
+    if (list.length < HUB_MIN_VENUES) continue;
+    list.sort((a, b) => a.name.localeCompare(b.name));
+    hubs.push({ slug, name: nameBySlug.get(slug)!, venues: list });
+  }
+  // Densest districts first — used for lateral "more districts" linking order.
+  hubs.sort((a, b) => b.venues.length - a.venues.length || a.name.localeCompare(b.name));
+  return hubs;
+}
+
+export async function getDistrictHub(slug: string): Promise<DistrictHub | null> {
+  const hubs = await getDistrictHubs();
+  return hubs.find((h) => h.slug === slug) ?? null;
+}
+
+// ---- SEO intent spokes (/bali/[district]/[intent]) ----
+
+export interface IntentSpoke {
+  district: string;
+  districtName: string;
+  intent: IntentDef;
+  venues: VenueWithPerk[];
+}
+
+// A spoke below this venue count is thin — hold it back (seo-strategy §1 gate).
+export const SPOKE_MIN_VENUES = 4;
+
+// Feature the most editorially-complete venues first (a real "ranked list"):
+// why-it's-here + what-to-order + price are what make a pick page useful.
+function spokeRichness(v: VenueWithPerk): number {
+  return (
+    (v.whyItsHere ? 2 : 0) +
+    (v.whatToOrder ? 1 : 0) +
+    (v.bestFor ? 1 : 0) +
+    (v.priceAnchor ? 1 : 0)
+  );
+}
+
+export async function getIntentSpokes(): Promise<IntentSpoke[]> {
+  const hubs = await getDistrictHubs();
+  const spokes: IntentSpoke[] = [];
+  for (const hub of hubs) {
+    for (const intent of INTENTS) {
+      const venues = hub.venues
+        .filter((v) => normalizeJobs(v.jobs).includes(intent.jobSlug))
+        .sort((a, b) => spokeRichness(b) - spokeRichness(a) || a.name.localeCompare(b.name));
+      if (venues.length >= SPOKE_MIN_VENUES) {
+        spokes.push({ district: hub.slug, districtName: hub.name, intent, venues });
+      }
+    }
+  }
+  return spokes;
+}
+
+export async function getIntentSpoke(
+  district: string,
+  intentUrlSlug: string
+): Promise<IntentSpoke | null> {
+  const spokes = await getIntentSpokes();
+  return (
+    spokes.find((s) => s.district === district && s.intent.urlSlug === intentUrlSlug) ?? null
+  );
 }
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.

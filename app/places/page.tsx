@@ -1,5 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { getPublishedVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
+import { getPublishedVenues, getDistrictHubs, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import { getTripMission, getTripDuration } from "@/lib/trip-missions";
 import {
   getUluwatuContent,
@@ -10,10 +11,24 @@ import PlacesView, { type CataloguePlace } from "./PlacesView";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title: "Places",
-  alternates: { canonical: "/places" },
-};
+// Canonicalize the district-filtered tool view onto its hub page so the
+// query-param surface doesn't compete with /bali/[district] for ranking
+// (docs/seo-strategy.md §2). Self-canonical otherwise (incl. Uluwatu, which
+// ranks via its own /uluwatu pillar, not a programmatic hub).
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ district?: string | string[] }>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const district = firstParam(params.district);
+  const hubs = district ? await getDistrictHubs() : [];
+  const hub = hubs.find((h) => h.slug === district);
+  return {
+    title: "Places",
+    alternates: { canonical: hub ? `/bali/${hub.slug}` : "/places" },
+  };
+}
 
 function firstParam(value: string | string[] | undefined) {
   if (Array.isArray(value)) return value[0] ?? "";
