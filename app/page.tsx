@@ -18,6 +18,7 @@ export const metadata = {
   title: "Other Bali — the right place for the moment you're in",
   description:
     "A curated Bali guide that turns how you want to spend the day into a working map of places across the island.",
+  alternates: { canonical: "/" },
 };
 
 export default function Landing() {

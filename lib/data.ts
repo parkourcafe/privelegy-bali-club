@@ -458,11 +458,31 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Public planning catalogue: all venue rows across planning districts.
-// This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
-// behavior. Canggu monetization still lives in the deep `/plan` surface. Unlike
-// monetized surfaces, this catalogue is intentionally inclusive so research,
-// archived, and cleanup-pending rows can still be reviewed publicly.
+// Public "decision-ready" gate (master §15 ContentPage.quality_status/
+// publish_status thinking, applied at the venue-display layer). A tracked row
+// is only shown to tourists once it carries enough to actually decide on:
+// the editorial reason it's here, WHO it suits, and a price/order anchor.
+// This is a DISPLAY filter over existing fields only — it adds no entity,
+// column, or migration (guardrail #11). Sparse research rows stay tracked and
+// remain reachable for internal review via /places?all=1.
+function hasText(value: unknown): boolean {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+export function isPublicReadyVenue(v: Venue): boolean {
+  return (
+    hasText(v.whyItsHere) &&
+    hasText(v.bestFor) &&
+    (hasText(v.priceAnchor) || hasText(v.whatToOrder))
+  );
+}
+
+// Public planning catalogue: all tracked venue rows across planning districts.
+// Perks/booking attach ONLY inside the active_deep district (guardrail #4,
+// enforced below); planning_only rows never surface an offer. The list stays
+// inclusive at the data layer (research, archived, cleanup-pending rows all
+// returned) so internal review sees everything; the public /places surface
+// applies `isPublicReadyVenue` before display.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // Seed fallback keeps the catalogue browsable (and demos honest) without a
   // configured DB, same as the /plan loaders.
