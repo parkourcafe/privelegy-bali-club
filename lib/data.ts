@@ -60,6 +60,7 @@ const PLAN_VENUE_COLUMNS = [
   "not_for",
   "practical_tags",
   "jobs",
+  "owner_note",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -86,6 +87,7 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "not_for",
   "practical_tags",
   "jobs",
+  "owner_note",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -184,6 +186,7 @@ const mapVenue = (r: Row): Venue => ({
   notFor: (r.not_for as string) ?? undefined,
   practicalTags: (r.practical_tags as string[]) ?? undefined,
   jobs: (r.jobs as string[]) ?? undefined,
+  ownerNote: (r.owner_note as string) ?? undefined,
 });
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.
@@ -651,9 +654,17 @@ export async function setVenuePhoto(token: string, url: string): Promise<boolean
 
 // Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /
 // practical_tags and caps free text; why_its_here stays editorial (not here).
+// owner_note is the venue's own words (UGC) — shown attributed on the card,
+// never merged into the editorial voice.
 export async function setVenueJtbd(
   token: string,
-  input: { bestFor: string; notFor: string; jobs: string[]; practicalTags: string[] }
+  input: {
+    bestFor: string;
+    notFor: string;
+    jobs: string[];
+    practicalTags: string[];
+    ownerNote: string;
+  }
 ): Promise<boolean> {
   const sb = anonClient();
   if (!sb) return false;
@@ -663,6 +674,7 @@ export async function setVenueJtbd(
     p_not_for: input.notFor,
     p_jobs: input.jobs,
     p_practical_tags: input.practicalTags,
+    p_owner_note: input.ownerNote,
   });
   if (error) return false;
   return Boolean((data as Record<string, unknown>)?.ok);

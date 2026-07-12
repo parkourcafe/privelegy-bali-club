@@ -78,6 +78,20 @@ export default function VenueCard({
           </div>
         )}
 
+        {/* Owner's own words (UGC) — always attributed, kept visually apart
+            from the editorial voice (why_its_here). Clamped on cards; full
+            text stays in the DOM. */}
+        {v.ownerNote && (
+          <figure className="mt-2 border-l-2 border-[var(--line)] pl-3">
+            <blockquote className="line-clamp-4 text-sm italic text-[var(--muted)]">
+              {v.ownerNote}
+            </blockquote>
+            <figcaption className="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-[var(--muted)]">
+              From the owner
+            </figcaption>
+          </figure>
+        )}
+
         {v.practicalTags && v.practicalTags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
             {v.practicalTags.map((t) => (
