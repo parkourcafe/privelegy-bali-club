@@ -2,6 +2,8 @@ import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
+import { getPublicationStatus } from "./publication";
+import { ULUWATU_VENUES, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
   Perk,
@@ -61,6 +63,7 @@ const PLAN_VENUE_COLUMNS = [
   "not_for",
   "practical_tags",
   "jobs",
+  "owner_note",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -87,6 +90,7 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "not_for",
   "practical_tags",
   "jobs",
+  "owner_note",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -185,6 +189,7 @@ const mapVenue = (r: Row): Venue => ({
   notFor: (r.not_for as string) ?? undefined,
   practicalTags: (r.practical_tags as string[]) ?? undefined,
   jobs: (r.jobs as string[]) ?? undefined,
+  ownerNote: (r.owner_note as string) ?? undefined,
 });
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.
@@ -330,7 +335,16 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
     if (p) perk = mapPublicPerk(p as Row) ?? undefined;
   }
 
+  // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
+  // the DB row is missing (seed mode / prod migration lag).
+  if (!venue) {
+    const content = getUluwatuContent(slug);
+    if (content) venue = uluwatuAsVenue(content) as Venue;
+  }
+
   if (!venue) return null;
+  // Guardrail #4: offers attach only inside the active_deep district.
+  if (venue.district !== "canggu") perk = undefined;
   const entry = PLAN_ENTRIES.find((e) => e.venueSlug === slug);
   return { ...venue, perk: perk ?? null, blurb: entry?.blurb ?? "" };
 }
@@ -459,11 +473,21 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Public planning catalogue: all venue rows across planning districts.
-// This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
-// behavior. Canggu monetization still lives in the deep `/plan` surface. Unlike
-// monetized surfaces, this catalogue is intentionally inclusive so research,
-// archived, and cleanup-pending rows can still be reviewed publicly.
+// Public readiness gate. Since the Uluwatu launch this delegates to the
+// explicit publication policy in lib/publication.ts: evidence-backed registry
+// gate for Uluwatu, the legacy decision-ready predicate for districts without
+// an evidence layer yet. Sparse/held rows stay tracked and remain reachable
+// for internal review via /places?all=1.
+export function isPublicReadyVenue(v: Venue): boolean {
+  return getPublicationStatus(v) === "published";
+}
+
+// Public planning catalogue: all tracked venue rows across planning districts.
+// Perks/booking attach ONLY inside the active_deep district (guardrail #4,
+// enforced below); planning_only rows never surface an offer. The list stays
+// inclusive at the data layer (research, archived, cleanup-pending rows all
+// returned) so internal review sees everything; the public /places surface
+// applies `isPublicReadyVenue` before display.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // Seed fallback keeps the catalogue browsable (and demos honest) without a
   // configured DB, same as the /plan loaders.
@@ -489,9 +513,24 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   perks = normalizePublicPerks(perks);
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
 
-  return uniqueBy(venues, (v) => v.slug)
+  // Guardrail #4 — no offers/perks outside the active_deep district, enforced
+  // here as a constraint (not convention): the island catalogue attaches a perk
+  // only for Canggu. A stray perk row in a planning_only district (e.g. from a
+  // bulk import) can never surface as a tourist offer on /places.
+  const isActiveDeep = (district: string) => district === "canggu";
+
+  // Uluwatu registry venues ride along as a resilience layer: when the DB is
+  // unreachable (seed mode) or a prod migration lags the repo, the district
+  // product still renders. uniqueBy keeps the DB row when both exist.
+  const uluwatuFallback = ULUWATU_VENUES.map(uluwatuAsVenue) as Venue[];
+
+  return uniqueBy([...venues, ...uluwatuFallback], (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
-    .map((v) => ({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" }));
+    .map((v) => ({
+      ...v,
+      perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
+      blurb: "",
+    }));
 }
 
 // ---- SEO hub surface (/bali/[district]) ----
@@ -505,6 +544,11 @@ export interface DistrictHub {
 // A district hub only publishes when it has enough real depth — below this a
 // page is thin and drags topical authority (docs/seo-strategy.md §1 gate).
 export const HUB_MIN_VENUES = 8;
+
+// Districts with a hand-crafted pillar (base's /uluwatu product) are NOT served
+// by the programmatic /bali/[district] hub — that would create two pages
+// competing for the same queries. The pillar owns those districts.
+const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit"]);
 
 // Active venues grouped by district, gated to publishable districts. Unlike the
 // deliberately-inclusive /places catalogue (getPublishedVenues), a ranking page
@@ -540,6 +584,7 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
   const byDistrict = new Map<string, VenueWithPerk[]>();
   for (const v of uniqueBy(venues, (x) => x.slug)) {
     if (!nameBySlug.has(v.district)) continue;
+    if (HUB_EXCLUDE_DISTRICTS.has(v.district)) continue;
     const list = byDistrict.get(v.district) ?? [];
     list.push({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" });
     byDistrict.set(v.district, list);
@@ -738,9 +783,17 @@ export async function setVenuePhoto(token: string, url: string): Promise<boolean
 
 // Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /
 // practical_tags and caps free text; why_its_here stays editorial (not here).
+// owner_note is the venue's own words (UGC) — shown attributed on the card,
+// never merged into the editorial voice.
 export async function setVenueJtbd(
   token: string,
-  input: { bestFor: string; notFor: string; jobs: string[]; practicalTags: string[] }
+  input: {
+    bestFor: string;
+    notFor: string;
+    jobs: string[];
+    practicalTags: string[];
+    ownerNote: string;
+  }
 ): Promise<boolean> {
   const sb = anonClient();
   if (!sb) return false;
@@ -750,9 +803,40 @@ export async function setVenueJtbd(
     p_not_for: input.notFor,
     p_jobs: input.jobs,
     p_practical_tags: input.practicalTags,
+    p_owner_note: input.ownerNote,
   });
   if (error) return false;
   return Boolean((data as Record<string, unknown>)?.ok);
+}
+
+export interface InviteRosterRow {
+  slug: string;
+  name: string;
+  district: string;
+  status: string;
+  whatsapp: string;
+  token: string;
+  confirmed: boolean;
+  hasPhoto: boolean;
+}
+
+// Island-wide invite roster for /admin/invites — one RPC ensures every venue
+// has an onboarding token and returns the list (operator-only surface).
+export async function getInviteRoster(): Promise<InviteRosterRow[]> {
+  const sb = anonClient();
+  if (!sb) return [];
+  const { data, error } = await sb.rpc("invite_roster");
+  if (error || !Array.isArray(data)) return [];
+  return (data as Record<string, unknown>[]).map((r) => ({
+    slug: String(r.slug ?? ""),
+    name: String(r.name ?? ""),
+    district: String(r.district ?? ""),
+    status: String(r.status ?? ""),
+    whatsapp: String(r.whatsapp ?? ""),
+    token: String(r.token ?? ""),
+    confirmed: Boolean(r.confirmed),
+    hasPhoto: Boolean(r.has_photo),
+  }));
 }
 
 export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getPublishedVenues, getDistrictHubs } from "@/lib/data";
-import PlacesView from "./PlacesView";
+import { getPublishedVenues, getDistrictHubs, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
+import { getTripMission, getTripDuration } from "@/lib/trip-missions";
+import {
+  getUluwatuContent,
+  normalizeDistrictParam,
+  ULUWATU_DB_SLUG,
+} from "@/lib/uluwatu/venues";
+import PlacesView, { type CataloguePlace } from "./PlacesView";
 
 export const dynamic = "force-dynamic";
 
 // Canonicalize the district-filtered tool view onto its hub page so the
 // query-param surface doesn't compete with /bali/[district] for ranking
-// (docs/seo-strategy.md §2). Self-canonical otherwise.
+// (docs/seo-strategy.md §2). Self-canonical otherwise (incl. Uluwatu, which
+// ranks via its own /uluwatu pillar, not a programmatic hub).
 export async function generateMetadata({
   searchParams,
 }: {
@@ -28,6 +35,24 @@ function firstParam(value: string | string[] | undefined) {
   return value ?? "";
 }
 
+// Card-level price band: prefer the explicit "Price band: $$" research format;
+// free-form price anchors (e.g. "Americano 35k") stay off the card.
+function parsePriceBand(anchor?: string): string | undefined {
+  const m = anchor?.match(/^Price band:\s*(\${1,4})$/);
+  return m?.[1];
+}
+
+function enrichForCards(v: VenueWithPerk): CataloguePlace {
+  const uluwatu = v.district === ULUWATU_DB_SLUG ? getUluwatuContent(v.slug) : null;
+  return {
+    ...v,
+    cardLine: uluwatu?.verdict ?? v.whyItsHere,
+    cardArea: uluwatu?.microArea ?? v.area,
+    cardBestFor: uluwatu?.bestFor ?? v.bestFor,
+    cardPrice: uluwatu?.priceBand ?? parsePriceBand(v.priceAnchor),
+  };
+}
+
 export default async function PlacesPage({
   searchParams,
 }: {
@@ -36,9 +61,18 @@ export default async function PlacesPage({
     district?: string | string[];
     category?: string | string[];
     intent?: string | string[];
+    all?: string | string[];
+    m?: string | string[];
+    dur?: string | string[];
   }>;
 }) {
-  const [venues, params] = await Promise.all([getPublishedVenues(), searchParams]);
+  const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
+
+  // Public default: only publication-gated places. `?all=1` is the internal
+  // review view that surfaces every tracked row (including held/sparse rows).
+  const showAll = firstParam(params.all) === "1";
+  const ready = tracked.filter(isPublicReadyVenue);
+  const venues = (showAll ? tracked : ready).map(enrichForCards);
 
   return (
     <div className="page-dark">
@@ -55,13 +89,16 @@ export default async function PlacesPage({
             </div>
             <h1 className="hero-title mt-3">Places across Bali</h1>
             <p className="hero-copy">
-              A working editorial map of places we are tracking now across
-              Bali. Offers appear only when venues confirm them.
+              A curated map of Bali by district. A place appears here once we have
+              enough to help you decide — why it&apos;s worth it, who it suits, and
+              what to expect. Offers appear only when venues confirm them.
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
             <p className="editorial-signal-label">
-              {venues.length} places in the planning layer.
+              {showAll
+                ? `Internal view · ${tracked.length} places tracked`
+                : `${ready.length} places ready · ${tracked.length} tracked`}
             </p>
           </div>
         </header>
@@ -70,9 +107,13 @@ export default async function PlacesPage({
           venues={venues}
           initialFilters={{
             query: firstParam(params.q),
-            district: firstParam(params.district),
+            // Public URLs may say ?district=uluwatu; data keys off the
+            // internal slug (brief §5 mapping — no duplicated rows).
+            district: normalizeDistrictParam(firstParam(params.district)),
             category: firstParam(params.category),
             intentMode: firstParam(params.intent) === "1",
+            missionLabel: getTripMission(firstParam(params.m))?.label,
+            durationLabel: getTripDuration(firstParam(params.dur))?.label,
           }}
         />
 

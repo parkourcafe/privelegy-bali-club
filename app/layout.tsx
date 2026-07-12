@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
-import Analytics from "./Analytics";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
+import Analytics from "@/components/Analytics";
 
 // Real loaded type (not system stacks): Fraunces (editorial serif) for display,
 // Geist for body/UI. Exposed as CSS vars and consumed by --font-display /
@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "The right place for the moment you're in. Curated Bali places, routes, and confirmed venue offers where available.",
   manifest: "/manifest.webmanifest?v=4",
   appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
+  icons: {
+    apple: "/icon-192.png",
+  },
   openGraph: {
     title: "Other Bali — the right place for the moment you're in",
     description:
@@ -32,6 +35,12 @@ export const metadata: Metadata = {
     siteName: "Other Bali",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Other Bali — the right place for the moment you're in",
+    description:
+      "A free, curated guide to Bali. Tell us the day; get the places that actually fit — not another list to scroll. Travellers never pay.",
   },
 };
 

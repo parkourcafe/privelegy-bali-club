@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getRoutes, getDistrictHubs, getIntentSpokes } from "@/lib/data";
+import { indexableVenueSlugs } from "@/lib/publication";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
     { url: `${BASE}/plan`, changeFrequency: "daily", priority: 0.9 },
-    // SEO hub index + per-district hubs — the island-wide ranking surface.
+    // Bali-wide curated places catalogue.
+    { url: `${BASE}/places`, changeFrequency: "daily", priority: 0.8 },
+    // SEO hub index + per-district hubs — the programmatic ranking surface for
+    // districts without a hand-crafted pillar (Uluwatu is excluded — it has its
+    // own /uluwatu pillar below).
     { url: `${BASE}/bali`, changeFrequency: "weekly", priority: 0.9 },
     ...hubs.map((h) => ({
       url: `${BASE}/bali/${h.slug}`,
@@ -28,18 +33,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    // Venue pages — one per active venue in a published district.
-    ...hubs.flatMap((h) =>
-      h.venues.map((v) => ({
-        url: `${BASE}/place/${v.slug}`,
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }))
-    ),
     ...routes.map((r) => ({
       url: `${BASE}/route/${r.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    // Uluwatu district product: pillar + editorial children.
+    { url: `${BASE}/uluwatu`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/uluwatu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/best-brunch`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/date-night-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/48-hours`, changeFrequency: "weekly", priority: 0.8 },
+    // Venue detail pages — ONLY those that passed the evidence-backed
+    // publication gate (review/incomplete venues stay noindex + unlisted).
+    ...indexableVenueSlugs().map((slug) => ({
+      url: `${BASE}/places/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
   ];
 }

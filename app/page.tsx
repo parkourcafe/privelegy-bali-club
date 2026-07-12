@@ -18,6 +18,7 @@ export const metadata = {
   title: "Other Bali — the right place for the moment you're in",
   description:
     "A curated Bali guide that turns how you want to spend the day into a working map of places across the island.",
+  alternates: { canonical: "/" },
 };
 
 export default function Landing() {
@@ -622,6 +623,24 @@ function AroundBali() {
                     >
                       Open the Canggu guide →
                     </Link>
+                  ) : d.guidePath ? (
+                    /* Districts with a published editorial guide lead there
+                       first; the catalogue stays one tap away. */
+                    <>
+                      <Link
+                        href={d.guidePath}
+                        className="inline-flex min-h-11 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
+                      >
+                        Open the {d.name.split(" ")[0]} guide →
+                      </Link>
+                      <DistrictMapLink
+                        href={`/places?district=${d.slug}`}
+                        districtSlug={d.slug}
+                        className="inline-flex min-h-11 min-w-12 items-center rounded-full px-3 text-xs font-semibold text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
+                      >
+                        Places
+                      </DistrictMapLink>
+                    </>
                   ) : d.catalogued ? (
                     /* Areas with catalogue venues stay on-site — the places
                        layer is where reserve/offer actions live. The outside

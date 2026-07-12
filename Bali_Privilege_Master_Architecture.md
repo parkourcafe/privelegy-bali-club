@@ -300,12 +300,154 @@ The desired JTBD fields are:
 whyItsHere? · bestFor? · notFor? · practicalTags? · jobsToBeDone?
 ```
 
-Status: `[planned / pending schema migration]`. They are approved as the direction of
-content, but current BP code does not yet contain these fields. Add them only via an
-additive nullable migration and TypeScript changes; no new Moment/Scenario/Curator DB
-entities without a master amendment.
+Status: `whyItsHere? · bestFor? · notFor? · practicalTags? · jobs?` are now
+`[implemented]` in `lib/types.ts` and the read layer (`lib/data.ts`), filled from field
+visits. The trip-fit extensions to this set (crowd/noise/rain/logistics) are adopted in
+§6a and stay `[planned / pending schema migration]`. Add any new column only via an
+additive nullable migration and TypeScript changes. New Moment/Scenario/Curator **DB
+entities** still require an amendment — §6a adopts Trip Missions and scenario surfaces as
+**static config + existing `ContentPage`**, deliberately NOT as new DB entities.
 
 **Sources:** `CLAUDE.md` public brand + guardrails #2, #7, #11; current `lib/types.ts`.
+
+---
+
+## 6a. Trip Missions, duration, scenario surfaces & public quality gate — amendment (2026-07-12)
+
+**Status of this section:** `[adopted — product canon]`. Origin: founder product
+review of the live site (Selena, 2026-07-12), approved for adoption into the master
+doc. This section unlocks the *concepts* for build. It does NOT itself ship code beyond
+what §6a.5 marks `[shipped]`; individual pieces still land as normal PRs.
+
+**The one-line reframe this adopts:** Other Bali is not a "map of places". It is a
+**Bali decision layer** — the right next move for *this* traveller given their
+**situation, trip duration, district, and constraints**. Everything below serves that
+sentence. It does not change the money model (§3), the two-layer thesis (§1), or any
+hard guardrail. If any item here appears to conflict with `CLAUDE.md`, `CLAUDE.md` wins
+(§0) — stop and reconcile.
+
+### 6a.1 Content hierarchy (how this fits the existing model)
+
+Three layers, from broad intent to a single card. Only the **Trip Mission** row is new;
+the rest already exist.
+
+```text
+Trip Mission   (NEW)  — trip-level intent: "First time", "Workation month", "Retreat",
+                        "Romantic", "Slow living", "Family easy", "Night out",
+                        "Rainy-day backup". Static config, NOT a DB entity.
+Moment         (exist)— intra-day slot scenario: "Slow morning", "Golden hour",
+                        "Work session". Already static config in `lib/moments.ts`.
+Venue card     (exist)— a single place with fit context (§6). The atomic decision unit.
+```
+
+A Trip Mission is a **saved bundle**: `{ duration fit, districts, moments/filters,
+scenario ContentPage }`. It is the same mechanism as a Moment, one level up. This keeps
+guardrail #2 intact: buttons → predefined content, **no chatbot, no freeform AI
+itinerary generator**. A Trip Mission never "writes a plan with AI" — it selects a
+pre-authored scenario and a filtered set of already-curated places.
+
+### 6a.2 Trip duration — first-class filter axis
+
+Adopt trip **duration** as an explicit dimension in the day/trip builder (today it only
+models "today"):
+
+```text
+Today · A weekend · First 3 days · A 7-day plan · A month · Living/working here a while
+```
+
+Duration is **static config + a filter/label axis**, not a DB entity and not an
+itinerary engine. For durations beyond a day, the surface is an editorial **rhythm**
+(e.g. "Week 1 settle → Week 2 routine → Week 3 explore → Week 4 favourites"), authored
+as a scenario ContentPage — not an auto-generated multi-day schedule.
+
+### 6a.3 Scenario & district surfaces = `ContentPage`, not a new entity
+
+Landing surfaces use the **existing `ContentPage`** entity (§5), which already carries
+`type`, `district_scope`, `quality_status`, `publish_status`. Adopt two new `type`
+values:
+
+- `type: scenario` — e.g. `/first-time-in-bali`, `/bali-for-a-month`,
+  `/bali-retreat-reset`, `/romantic-bali`, `/work-from-bali`, `/family-bali`.
+- `type: district_guide` — e.g. `/canggu`, `/ubud`, `/uluwatu`, answering "who it's
+  for / who should avoid it / best first day / best for work / romance / family /
+  sunset / rainy backup".
+
+Each scenario/district page is **editorial** (guardrail #6: editorial, never paid
+ranking) and **funnels into a filtered `/places` or `/plan`**, not a dead-end article.
+`publish_status` / `quality_status` gate whether a page is public — same discipline as
+the venue quality gate (§6a.5). Copy is English-only public (DoD). These pages honour
+coverage policy: outside `active_deep` they are planning/editorial only — no perks, QR,
+or reservation surfaces (guardrail #4).
+
+### 6a.4 Additive venue trip-fit fields — `[planned / pending schema migration]`
+
+To make cards answer "should I go here **now**", extend the venue content set. All
+**additive nullable** columns (guardrail #11 permits additive fields; it forbids new
+entities). Reconcile with existing `practicalTags` — do not duplicate: wifi / sockets /
+AC / kids-ok stay expressible as `practicalTags`; the fields below are the structured
+signals worth querying/filtering on:
+
+```text
+goodWhen?        text   — when this place is the right call ("date night", "first dinner")
+crowdLevel?      enum   — quiet | moderate | busy   (logistics, NOT a quality warning)
+noiseLevel?      enum   — calm | lively | loud
+rainSafe?        bool   — has a real indoor/covered fallback
+bookAhead?       text   — "yes after 7pm" / "walk-in ok"
+transportNote?   text   — "long drive from Canggu" / "scooter-only lane"
+dressCode?       text
+expectedSpend?   enum   — $ | $$ | $$$   (anchor; not a per-cheque billing signal)
+```
+
+Guardrail #7 stays sacred: these are **fit / logistics** only. `crowdLevel`/`noiseLevel`
+describe suitability ("busy = not for a quiet work morning"), never "don't go here".
+
+**Deferred, NOT adopted here:** numeric fit scores (`work_score`, `romantic_score`,
+`retreat_score`, `group_score`, `quality_score`). They imply false precision and a
+ranking model we have not validated. Missions/filters key off the enums + `jobs` tags
+above. Revisit scores only with their own amendment and real data behind them.
+
+### 6a.5 Public quality gate — `[shipped 2026-07-12]`
+
+Adopted and already live (branch `claude/other-bali-positioning-n60hpl`): the public
+`/places` catalogue shows only **decision-ready** rows — `isPublicReadyVenue()` in
+`lib/data.ts` requires `whyItsHere` + `bestFor` + a price/order anchor. This is a
+**display predicate over existing fields**, aligned with `ContentPage.quality_status /
+publish_status` thinking — it adds no entity. The full inclusive catalogue (research /
+archived / sparse rows) stays reachable for internal review at `/places?all=1`. A future
+additive `venues.publish_status` column may replace the derived predicate; until then
+the predicate is canon. Copy on the public surface reads "N ready · N tracked", never
+"planning layer".
+
+### 6a.6 Still forbidden / still NOT adopted
+
+- Guardrails #1–#11 unchanged. Specifically: no AI chatbot / freeform itinerary AI
+  (#2); no scraping (#1); no quality warnings (#7); no monetization or perks outside
+  `active_deep` (#4); no tourist-side payment (#5); Sponsored always labeled, editorial
+  never paid-ranked (#6).
+- **Not adopted** by this amendment (still require their own master amendment before
+  build, per `CLAUDE.md` unlock log): `Curator` / `CuratorList`, `Credits`,
+  `DishRecommendation`, `UserPreference`. Trip Missions do NOT introduce curators or
+  user-generated lists.
+- Founder review also proposed DB tables `trip_missions` / `day_templates` /
+  `venue_fit_scores`. Adopted **config-first**: Trip Missions and duration ship as static
+  config (like `lib/moments.ts`); a DB table is considered only if scale demands it, via
+  a later amendment. `venue_fit_scores` is the deferred score model above.
+
+### 6a.7 Build sequencing (non-binding guide)
+
+1. `[shipped]` Public quality gate on `/places` + SEO essentials (OG/Twitter/canonical/
+   sitemap).
+2. Additive nullable migration for §6a.4 fields + `lib/types.ts` reconcile.
+3. Trip Mission + duration static config; day builder gains duration + returns a
+   **Top-3 shortlist first**, then "widen to all matches", with a per-card
+   "matched because…" reason.
+4. Scenario `ContentPage`s (start: `/first-time-in-bali`, `/bali-for-a-month`), each
+   funnelling into a filtered `/places`.
+5. District_guide `ContentPage`s.
+
+**Sources:** founder product review 2026-07-12; `CLAUDE.md` guardrails #2, #4, #6, #7,
+#11 + unlock log; this file §1, §5, §6; shipped code `lib/data.ts`
+(`isPublicReadyVenue`), `app/places/page.tsx`, `app/opengraph-image.tsx`.
 
 ---
 

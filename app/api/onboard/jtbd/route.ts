@@ -5,7 +5,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Partner fills its own fit context (Best for / Not for / jobs / practical
-// tags). The RPC whitelists tags and caps text; we just shape the payload.
+// tags) plus an own-words note (UGC). The RPC whitelists tags and caps text;
+// we just shape the payload.
 export async function POST(req: Request) {
   let body: {
     token?: string;
@@ -13,6 +14,7 @@ export async function POST(req: Request) {
     notFor?: string;
     jobs?: unknown;
     practicalTags?: unknown;
+    ownerNote?: string;
   };
   try {
     body = await req.json();
@@ -31,6 +33,7 @@ export async function POST(req: Request) {
     notFor: (body.notFor ?? "").slice(0, 200),
     jobs: asStrings(body.jobs),
     practicalTags: asStrings(body.practicalTags),
+    ownerNote: (typeof body.ownerNote === "string" ? body.ownerNote : "").slice(0, 4000),
   });
 
   return NextResponse.json({ ok }, { status: ok ? 200 : 422 });

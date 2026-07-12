@@ -16,6 +16,25 @@ const ALLOWED = new Set([
   // carried in venueSlug is a district slug (events.venue_slug has no FK and
   // Phase 0 stats join venues by slug, so these stay growth-only signals).
   "district_open",
+  // Uluwatu district-product launch (2026-07): editorial/growth events only —
+  // none of these ever enter partner-proof or the Phase 0 money gate.
+  // District/editorial page views carry a page slug in venueSlug.
+  "district_page_view",
+  "editorial_page_view",
+  "venue_detail_view",
+  "venue_card_click",
+  // Outbound commercial clicks on verified official links (no fee loop —
+  // booking_click is an official-site/booking-page handoff, NOT TablePilot).
+  "booking_click",
+  "official_website_click",
+  "instagram_click",
+  "menu_click",
+  "partner_offer_click",
+  // 48-hours guide lead magnet funnel.
+  "guide_form_started",
+  "guide_form_submitted",
+  "whatsapp_guide_click",
+  "internal_guide_click",
 ]);
 
 // Funnel logging from the client (§18). Guest id comes from the cookie; only

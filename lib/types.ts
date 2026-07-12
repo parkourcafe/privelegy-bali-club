@@ -54,6 +54,9 @@ export interface Venue {
   notFor?: string;
   practicalTags?: string[]; // e.g. "fast wifi", "sockets", "kids ok"
   jobs?: string[]; // JTBD tags driving static moments (work, date, family, …)
+  // Owner's own words (UGC, self-service onboarding). Always shown attributed
+  // ("From the owner") — never blended into the editorial voice.
+  ownerNote?: string;
 }
 
 export interface Perk {

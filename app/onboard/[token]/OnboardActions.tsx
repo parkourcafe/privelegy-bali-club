@@ -43,6 +43,8 @@ type Jtbd = {
   notFor: string;
   jobs: string[];
   practicalTags: string[];
+  // The venue's own words (UGC) — shown on the card attributed to the owner.
+  ownerNote: string;
 };
 
 export default function OnboardActions({
@@ -212,6 +214,24 @@ export default function OnboardActions({
           />
           <span className="mt-1 block text-xs text-stone-400">
             Honest fit only — this is never shown as a complaint, just who it suits.
+          </span>
+        </label>
+
+        <label className="mt-4 block text-sm">
+          <span className="text-stone-600">In your own words</span>
+          <textarea
+            value={jtbd.ownerNote}
+            onChange={(e) => {
+              setJtbd((s) => ({ ...s, ownerNote: e.target.value }));
+              setJtbdState("idle");
+            }}
+            maxLength={2000}
+            rows={5}
+            placeholder="Tell travellers about your place — your story, what you cook, what to try, what makes it yours. Write as much as you like."
+            className="mt-1 w-full rounded-lg border border-stone-200 px-3 py-2"
+          />
+          <span className="mt-1 block text-xs text-stone-400">
+            Shown on your card as “From the owner” — your voice, your words.
           </span>
         </label>
 

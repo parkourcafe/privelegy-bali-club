@@ -28,9 +28,8 @@ export default function VenueCard({
   showActions?: boolean;
   showSimilar?: boolean;
   actionMode?: "full" | "directions" | "none";
-  // Wrap the name in a link to /place/[slug]. Only pass this where the venue is
-  // guaranteed to have a page (hub/spoke grids); /places and /plan may include
-  // non-published rows whose /place URL would 404.
+  // Wrap the name in a link to the /places/[slug] venue page. Only passed from
+  // hub/spoke grids; /places and /plan render their own cards without it.
   linkToPage?: boolean;
 }) {
   const resolvedActionMode = showActions ? actionMode ?? "full" : "none";
@@ -42,7 +41,7 @@ export default function VenueCard({
         <div className="flex items-center gap-2">
           <h3 className="venue-name">
             {linkToPage ? (
-              <Link href={`/place/${v.slug}`} className="hover:underline">
+              <Link href={`/places/${v.slug}`} className="hover:underline">
                 {v.name}
               </Link>
             ) : (
@@ -89,6 +88,20 @@ export default function VenueCard({
               </p>
             )}
           </div>
+        )}
+
+        {/* Owner's own words (UGC) — always attributed, kept visually apart
+            from the editorial voice (why_its_here). Clamped on cards; full
+            text stays in the DOM. */}
+        {v.ownerNote && (
+          <figure className="mt-2 border-l-2 border-[var(--line)] pl-3">
+            <blockquote className="line-clamp-4 text-sm italic text-[var(--muted)]">
+              {v.ownerNote}
+            </blockquote>
+            <figcaption className="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-[var(--muted)]">
+              From the owner
+            </figcaption>
+          </figure>
         )}
 
         {v.practicalTags && v.practicalTags.length > 0 && (

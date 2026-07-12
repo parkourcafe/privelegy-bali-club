@@ -80,6 +80,7 @@ export default async function OnboardPage({
           notFor: v.notFor ?? "",
           jobs: v.jobs ?? [],
           practicalTags: v.practicalTags ?? [],
+          ownerNote: v.ownerNote ?? "",
         }}
       />
     </main>
