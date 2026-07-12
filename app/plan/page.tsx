@@ -4,7 +4,12 @@ import PlanView from "../PlanView";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Plan my Canggu day" };
+export const metadata = {
+  title: "Plan my Canggu day",
+  description:
+    "Build a Canggu day by the moment you're in — breakfast, work-friendly cafés, sunset, dinner. Curated picks with directions and confirmed offers. Free; travellers never pay.",
+  alternates: { canonical: "/plan" },
+};
 
 // The working tourist tool. The cinematic landing at / funnels here; this page
 // stays fast and one-handed. ?m=<moment> preselects a day scenario (static
