@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getRoutes } from "@/lib/data";
 import { indexableVenueSlugs } from "@/lib/publication";
+import { SCENARIOS } from "@/lib/scenarios";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/plan`, changeFrequency: "daily", priority: 0.9 },
     // Bali-wide curated places catalogue.
     { url: `${BASE}/places`, changeFrequency: "daily", priority: 0.8 },
+    // Trip-mission scenario landing pages (§6a.3).
+    ...SCENARIOS.map((s) => ({
+      url: `${BASE}/${s.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
     ...routes.map((r) => ({
       url: `${BASE}/route/${r.slug}`,
       changeFrequency: "weekly" as const,

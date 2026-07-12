@@ -927,3 +927,67 @@ export async function getPhase0Overview(): Promise<Phase0Overview | null> {
     })),
   };
 }
+
+// ---- Traveller saves & sharing (master §6c) ----
+// Anonymous by default: guest ref = httpOnly cookie. All best-effort — if the
+// migrations (0019/0020) aren't applied yet they fail silently and the UI stays
+// usable. Rung 3 (saveGuestContact) is the only PII path, opt-in + consent.
+
+export async function getSavedSlugs(guestRef: string | null): Promise<string[]> {
+  const sb = anonClient();
+  if (!sb || !guestRef) return [];
+  const { data, error } = await sb.rpc("saved_places_for", { p_guest_ref: guestRef });
+  if (error || !Array.isArray(data)) return [];
+  return data as string[];
+}
+
+export async function toggleSavedPlace(
+  guestRef: string,
+  venueSlug: string
+): Promise<{ ok: boolean; saved: boolean }> {
+  const sb = anonClient();
+  if (!sb) return { ok: false, saved: false };
+  const { data, error } = await sb.rpc("toggle_saved_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+  });
+  if (error || !data) return { ok: false, saved: false };
+  const r = data as Record<string, unknown>;
+  return { ok: Boolean(r.ok), saved: Boolean(r.saved) };
+}
+
+export async function getVenuesBySlugs(slugs: string[]): Promise<VenueWithPerk[]> {
+  if (slugs.length === 0) return [];
+  const all = await getPublishedVenues();
+  const bySlug = new Map(all.map((v) => [v.slug, v]));
+  return slugs
+    .map((s) => bySlug.get(s))
+    .filter((v): v is VenueWithPerk => Boolean(v));
+}
+
+export async function getSavedVenues(guestRef: string | null): Promise<VenueWithPerk[]> {
+  return getVenuesBySlugs(await getSavedSlugs(guestRef));
+}
+
+export async function createSharedList(
+  guestRef: string | null,
+  slugs: string[]
+): Promise<string | null> {
+  const sb = anonClient();
+  if (!sb || slugs.length === 0) return null;
+  const { data, error } = await sb.rpc("create_shared_list", {
+    p_guest_ref: guestRef,
+    p_slugs: slugs,
+  });
+  if (error || !data) return null;
+  return data as string;
+}
+
+export async function getSharedListSlugs(id: string): Promise<string[]> {
+  const sb = anonClient();
+  if (!sb || !id) return [];
+  const { data, error } = await sb.rpc("shared_list_slugs", { p_id: id });
+  if (error || !Array.isArray(data)) return [];
+  return data as string[];
+}
+// (Rung 3 opt-in contact lives in #26's guide_leads / GuideLeadForm — not duplicated here.)
