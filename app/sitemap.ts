@@ -51,6 +51,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/canggu/work-friendly-cafes`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/canggu/best-spas`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/canggu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
+    // Ubud district product: pillar + editorial children (planning / next_deep).
+    { url: `${BASE}/ubud`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/ubud/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/ubud/best-cafes-coffee`, changeFrequency: "weekly", priority: 0.8 },
     // Uluwatu district product: pillar + editorial children.
     { url: `${BASE}/uluwatu`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/uluwatu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
