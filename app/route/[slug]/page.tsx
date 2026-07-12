@@ -1,8 +1,35 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getRoute } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
 
 export const dynamic = "force-dynamic";
+
+const SITE = "https://otherbali.com";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const route = await getRoute(slug);
+  if (!route) return { title: "Route not found", robots: { index: false, follow: false } };
+  const description =
+    route.subtitle ||
+    `A ${route.stops.length}-stop Canggu route — a clean line from first coffee to the last table.`;
+  return {
+    title: route.title,
+    description: description.slice(0, 158),
+    alternates: { canonical: `/route/${slug}` },
+    openGraph: {
+      title: `${route.title} · Other Bali`,
+      description: description.slice(0, 200),
+      url: `${SITE}/route/${slug}`,
+      type: "article",
+    },
+  };
+}
 
 export default async function RoutePage({
   params,
@@ -54,6 +81,39 @@ export default async function RoutePage({
         ))}
       </ol>
     </main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+                { "@type": "ListItem", position: 2, name: "Canggu day", item: `${SITE}/plan` },
+                { "@type": "ListItem", position: 3, name: route.title, item: `${SITE}/route/${slug}` },
+              ],
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              name: route.title,
+              numberOfItems: route.stops.length,
+              itemListElement: route.stops.map((v, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "Restaurant",
+                  name: v.name,
+                  ...(v.address ? { address: v.address } : {}),
+                  ...(v.gmapsUrl ? { hasMap: v.gmapsUrl } : {}),
+                },
+              })),
+            },
+          ]),
+        }}
+      />
     </div>
   );
 }

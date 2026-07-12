@@ -1,12 +1,15 @@
 import { getDistrictHubs, getIntentSpokes } from "@/lib/data";
+import { PILLARS } from "@/lib/pillars";
+import { SCENARIOS } from "@/lib/scenarios";
 
 export const revalidate = 3600;
 
 const BASE = "https://otherbali.com";
 
 // llms.txt — a plain-text map of the site's canonical, machine-extractable
-// content for AI answer engines (AEO, docs/seo-strategy.md §4). Points at the
-// hub index and every published hub/spoke; it is a signpost, not a data dump.
+// content for AI answer engines (AEO, docs/seo-strategy.md §4). Signpost, not a
+// data dump: the deep district pillars first (the flagship content), then the
+// programmatic hubs/spokes, trip scenarios, and tools.
 export async function GET() {
   const [hubs, spokes] = await Promise.all([getDistrictHubs(), getIntentSpokes()]);
 
@@ -18,7 +21,13 @@ export async function GET() {
     "> with what to order, price anchors and directions. Travellers never pay.",
     "> Facts are verified; there are no paid rankings.",
     "",
-    "## District guides",
+    "## District guides (deep)",
+    ...PILLARS.flatMap((p) => [
+      `- [${p.name} guide](${BASE}/${p.slug}): ${p.tagline}`,
+      ...p.children.map((c) => `  - [${c.title}](${BASE}${c.path})`),
+    ]),
+    "",
+    "## District hubs (quick)",
     `- [Where to eat & go in Bali](${BASE}/bali): index of district guides`,
     ...hubs.map((h) => `- [${h.name}](${BASE}/bali/${h.slug}): ${h.venues.length} curated places`),
     "",
@@ -26,6 +35,9 @@ export async function GET() {
     ...spokes.map(
       (s) => `- [Best ${s.intent.label} in ${s.districtName}](${BASE}/bali/${s.district}/${s.intent.urlSlug}): ${s.venues.length} picks`
     ),
+    "",
+    "## Trip scenarios",
+    ...SCENARIOS.map((s) => `- [${s.eyebrow}](${BASE}/${s.slug}): ${s.promise}`),
     "",
     "## Tools",
     `- [Plan a Canggu day](${BASE}/plan)`,

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getDistrictHubs } from "@/lib/data";
 import { SITE_ORIGIN, categoryPhrase, topAreas } from "@/lib/hub";
+import { PILLARS } from "@/lib/pillars";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Where to Eat & Go in Bali — by District",
   description:
-    "Curated Bali guides by district — Canggu, Seminyak, Ubud, Uluwatu, Sanur, Jimbaran and Nusa Dua. Real places, prices and routes. Free to use; travellers never pay.",
+    "Curated Bali district guides — deep, hand-crafted guides for Canggu, Uluwatu, Ubud and Sanur, plus quick hubs for Seminyak, Jimbaran and Nusa Dua. Free; travellers never pay.",
   alternates: { canonical: "/bali" },
   openGraph: {
     title: "Where to Eat & Go in Bali — by District · Other Bali",
@@ -66,12 +67,35 @@ export default async function BaliIndexPage() {
           </div>
           <div className="editorial-signal" aria-label="Bali districts signal">
             <p className="editorial-signal-label">
-              {hubs.length} districts live.
+              {PILLARS.length + hubs.length} district guides.
             </p>
           </div>
         </header>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mt-10">
+          <h2 className="section-title">Deep district guides</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Hand-crafted, resident-curated guides for our deepest districts.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {PILLARS.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/${p.slug}`}
+                className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
+              >
+                <h3 className="venue-name">{p.name}</h3>
+                <p className="mt-1 text-sm text-[var(--muted)]">{p.tagline}</p>
+                <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
+                  The {p.name} guide →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <h2 className="section-title mt-12">More districts</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {hubs.map((h) => {
             const areas = topAreas(h.venues, 3);
             return (
