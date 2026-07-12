@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDistrictHubs } from "@/lib/data";
+import { getDistrictHubs, getIntentSpokes } from "@/lib/data";
 import {
   SITE_ORIGIN,
   groupByCategory,
@@ -54,6 +54,7 @@ export default async function DistrictHubPage({
   const groups = groupByCategory(hub.venues);
   const faqs = hubFaqs(hub);
   const others = hubs.filter((h) => h.slug !== hub.slug);
+  const spokes = (await getIntentSpokes()).filter((s) => s.district === hub.slug);
   // Money surfaces (reserve/offer) only in the active deep district; every other
   // hub is planning-only → directions/map actions only (guardrail #4).
   const actionMode = hub.slug === "canggu" ? "full" : "directions";
@@ -91,6 +92,23 @@ export default async function DistrictHubPage({
             </p>
           </div>
         </header>
+
+        {spokes.length > 0 && (
+          <nav aria-label={`${hub.name} by the moment`} className="mt-8">
+            <h2 className="section-title">By the moment</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {spokes.map((s) => (
+                <Link
+                  key={s.intent.urlSlug}
+                  href={`/bali/${hub.slug}/${s.intent.urlSlug}`}
+                  className="rounded-full border border-[rgba(198,154,92,0.35)] px-3 py-1 text-sm font-semibold text-[var(--lagoon-strong)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ink)]"
+                >
+                  Best {s.intent.short.toLowerCase()} ({s.venues.length})
+                </Link>
+              ))}
+            </div>
+          </nav>
+        )}
 
         {groups.map((g) => (
           <section key={g.key} className="mt-10">

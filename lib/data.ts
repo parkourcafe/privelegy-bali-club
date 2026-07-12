@@ -1,6 +1,7 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
+import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import type {
   Venue,
   Perk,
@@ -558,6 +559,55 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
 export async function getDistrictHub(slug: string): Promise<DistrictHub | null> {
   const hubs = await getDistrictHubs();
   return hubs.find((h) => h.slug === slug) ?? null;
+}
+
+// ---- SEO intent spokes (/bali/[district]/[intent]) ----
+
+export interface IntentSpoke {
+  district: string;
+  districtName: string;
+  intent: IntentDef;
+  venues: VenueWithPerk[];
+}
+
+// A spoke below this venue count is thin — hold it back (seo-strategy §1 gate).
+export const SPOKE_MIN_VENUES = 4;
+
+// Feature the most editorially-complete venues first (a real "ranked list"):
+// why-it's-here + what-to-order + price are what make a pick page useful.
+function spokeRichness(v: VenueWithPerk): number {
+  return (
+    (v.whyItsHere ? 2 : 0) +
+    (v.whatToOrder ? 1 : 0) +
+    (v.bestFor ? 1 : 0) +
+    (v.priceAnchor ? 1 : 0)
+  );
+}
+
+export async function getIntentSpokes(): Promise<IntentSpoke[]> {
+  const hubs = await getDistrictHubs();
+  const spokes: IntentSpoke[] = [];
+  for (const hub of hubs) {
+    for (const intent of INTENTS) {
+      const venues = hub.venues
+        .filter((v) => normalizeJobs(v.jobs).includes(intent.jobSlug))
+        .sort((a, b) => spokeRichness(b) - spokeRichness(a) || a.name.localeCompare(b.name));
+      if (venues.length >= SPOKE_MIN_VENUES) {
+        spokes.push({ district: hub.slug, districtName: hub.name, intent, venues });
+      }
+    }
+  }
+  return spokes;
+}
+
+export async function getIntentSpoke(
+  district: string,
+  intentUrlSlug: string
+): Promise<IntentSpoke | null> {
+  const spokes = await getIntentSpokes();
+  return (
+    spokes.find((s) => s.district === district && s.intent.urlSlug === intentUrlSlug) ?? null
+  );
 }
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.

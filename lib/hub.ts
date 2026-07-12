@@ -4,7 +4,7 @@
 // hype, no lorem (guardrail: "no invented content", "no lorem in tourist UI").
 // Answer-first and machine-extractable for AEO (docs/seo-strategy.md §4).
 
-import type { DistrictHub } from "./data";
+import type { DistrictHub, IntentSpoke } from "./data";
 import type { VenueWithPerk } from "./data";
 import { DISTRICT_GUIDE } from "./districts";
 
@@ -149,6 +149,95 @@ export function hubFaqs(hub: DistrictHub): Faq[] {
     a: `No. Other Bali is a free planning guide — browse places, routes and any offers at no cost.`,
   });
   return faqs;
+}
+
+// ---- Intent spoke (/bali/[district]/[intent]) helpers ----
+
+export function spokeTitle(spoke: IntentSpoke): string {
+  return `Best ${spoke.intent.label} in ${spoke.districtName}`;
+}
+
+// Answer-first, quotable first sentence — real count + areas, no hype.
+export function spokeIntro(spoke: IntentSpoke): string {
+  const areas = topAreas(spoke.venues, 3);
+  const lead = `Other Bali tracks ${spoke.venues.length} ${spoke.intent.noun} in ${spoke.districtName}${
+    areas.length ? `, clustered around ${listJoin(areas)}` : ""
+  } — for ${spoke.intent.blurb}.`;
+  return `${lead} Each pick below lists what to order and the price anchor.`;
+}
+
+export function spokeMetaDescription(spoke: IntentSpoke): string {
+  const base = `Best ${spoke.intent.label.toLowerCase()} in ${spoke.districtName}, Bali — ${spoke.venues.length} ${spoke.intent.noun} with what to order and prices. Free to use; travellers never pay.`;
+  return base.length <= 158 ? base : base.slice(0, 155).trimEnd() + "…";
+}
+
+export function spokeFaqs(spoke: IntentSpoke): Faq[] {
+  const top = spoke.venues.slice(0, 3).map((v) => v.name);
+  const faqs: Faq[] = [
+    {
+      q: `How many ${spoke.intent.noun} does Other Bali list in ${spoke.districtName}?`,
+      a: `${spoke.venues.length}${
+        spoke.venues.length ? `, starting with ${listJoin(top)}.` : "."
+      }`,
+    },
+    {
+      q: `Do travellers pay to use Other Bali?`,
+      a: `No. Other Bali is free — browse ${spoke.intent.noun}, prices and directions at no cost.`,
+    },
+  ];
+  return faqs;
+}
+
+function spokeSchemaType(category: string): string {
+  return schemaTypeFor(category);
+}
+
+export function spokeJsonLd(spoke: IntentSpoke): object[] {
+  const url = `${SITE_ORIGIN}/bali/${spoke.district}/${spoke.intent.urlSlug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+        { "@type": "ListItem", position: 2, name: "Bali", item: `${SITE_ORIGIN}/bali` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: spoke.districtName,
+          item: `${SITE_ORIGIN}/bali/${spoke.district}`,
+        },
+        { "@type": "ListItem", position: 4, name: spoke.intent.label, item: url },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: spokeTitle(spoke),
+      numberOfItems: spoke.venues.length,
+      itemListElement: spoke.venues.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": spokeSchemaType(v.category),
+          name: v.name,
+          ...(v.address ? { address: v.address } : {}),
+          ...(v.area ? { areaServed: v.area } : {}),
+          ...(v.priceAnchor ? { priceRange: v.priceAnchor } : {}),
+          ...(v.gmapsUrl ? { hasMap: v.gmapsUrl } : {}),
+        },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: spokeFaqs(spoke).map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
 }
 
 // Oxford-comma-free "a, b and c".
