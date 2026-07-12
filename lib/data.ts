@@ -1,6 +1,8 @@
 import { anonClient, isSupabaseConfigured } from "./supabase/server";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
+import { getPublicationStatus } from "./publication";
+import { ULUWATU_VENUES, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
   Perk,
@@ -332,7 +334,16 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
     if (p) perk = mapPublicPerk(p as Row) ?? undefined;
   }
 
+  // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
+  // the DB row is missing (seed mode / prod migration lag).
+  if (!venue) {
+    const content = getUluwatuContent(slug);
+    if (content) venue = uluwatuAsVenue(content) as Venue;
+  }
+
   if (!venue) return null;
+  // Guardrail #4: offers attach only inside the active_deep district.
+  if (venue.district !== "canggu") perk = undefined;
   const entry = PLAN_ENTRIES.find((e) => e.venueSlug === slug);
   return { ...venue, perk: perk ?? null, blurb: entry?.blurb ?? "" };
 }
@@ -461,23 +472,13 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Public "decision-ready" gate (master §15 ContentPage.quality_status/
-// publish_status thinking, applied at the venue-display layer). A tracked row
-// is only shown to tourists once it carries enough to actually decide on:
-// the editorial reason it's here, WHO it suits, and a price/order anchor.
-// This is a DISPLAY filter over existing fields only — it adds no entity,
-// column, or migration (guardrail #11). Sparse research rows stay tracked and
-// remain reachable for internal review via /places?all=1.
-function hasText(value: unknown): boolean {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
+// Public readiness gate. Since the Uluwatu launch this delegates to the
+// explicit publication policy in lib/publication.ts: evidence-backed registry
+// gate for Uluwatu, the legacy decision-ready predicate for districts without
+// an evidence layer yet. Sparse/held rows stay tracked and remain reachable
+// for internal review via /places?all=1.
 export function isPublicReadyVenue(v: Venue): boolean {
-  return (
-    hasText(v.whyItsHere) &&
-    hasText(v.bestFor) &&
-    (hasText(v.priceAnchor) || hasText(v.whatToOrder))
-  );
+  return getPublicationStatus(v) === "published";
 }
 
 // Public planning catalogue: all tracked venue rows across planning districts.
@@ -517,7 +518,12 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // bulk import) can never surface as a tourist offer on /places.
   const isActiveDeep = (district: string) => district === "canggu";
 
-  return uniqueBy(venues, (v) => v.slug)
+  // Uluwatu registry venues ride along as a resilience layer: when the DB is
+  // unreachable (seed mode) or a prod migration lags the repo, the district
+  // product still renders. uniqueBy keeps the DB row when both exist.
+  const uluwatuFallback = ULUWATU_VENUES.map(uluwatuAsVenue) as Venue[];
+
+  return uniqueBy([...venues, ...uluwatuFallback], (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,

@@ -23,6 +23,9 @@ export interface DistrictGuideEntry {
   // district — those cards lead into /places?district=… (on-site, where
   // booking lives) instead of dumping the traveller to Google Maps.
   catalogued?: boolean;
+  // Published district_guide ContentPage (master §6a.3) — when set, the
+  // landing card's primary CTA leads to the editorial guide.
+  guidePath?: string;
 }
 
 // Districts with venues in the published catalogue (0015 import counts):
@@ -91,6 +94,7 @@ const GUIDE: DistrictGuideEntry[] = [
     moment: "Cliff surf, temple at golden hour, dramatic sunsets.",
     bestFor: ["experienced surfers", "sunset views", "cliff beaches"],
     mapsUrl: "https://maps.google.com/?q=Uluwatu,+Bali",
+    guidePath: "/uluwatu",
   },
   {
     slug: "nusa-dua",

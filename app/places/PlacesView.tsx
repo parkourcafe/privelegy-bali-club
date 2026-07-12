@@ -1,8 +1,36 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
-import VenueCard from "@/components/VenueCard";
+import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
+import { track } from "@/lib/analytics";
+
+// Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
+// parsed price bands) so the card layer stays lean.
+export type CataloguePlace = VenueWithPerk & {
+  cardLine?: string;
+  cardArea?: string;
+  cardBestFor?: string;
+  cardPrice?: string;
+};
+
+function toCard(v: CataloguePlace): PlaceCardData {
+  return {
+    slug: v.slug,
+    name: v.name,
+    category: v.category,
+    microArea: v.cardArea ?? v.area,
+    editorialLine: v.cardLine ?? v.whyItsHere,
+    bestFor: v.cardBestFor ?? v.bestFor,
+    priceBand: v.cardPrice,
+    photoUrl: v.photoUrl,
+    isSponsored: v.isSponsored,
+    gmapsUrl: v.gmapsUrl,
+    tablepilotSlug: v.tablepilotSlug,
+    hasOffer: Boolean(v.perk),
+  };
+}
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -111,7 +139,7 @@ export default function PlacesView({
   venues,
   initialFilters,
 }: {
-  venues: VenueWithPerk[];
+  venues: CataloguePlace[];
   initialFilters?: InitialFilters;
 }) {
   const [query, setQuery] = useState(initialFilters?.query ?? "");
@@ -214,15 +242,30 @@ export default function PlacesView({
         />
       </div>
 
+      {district === "uluwatu-bukit" && (
+        <div className="mb-6 rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-4 py-3 text-sm">
+          <Link
+            href="/uluwatu"
+            className="font-bold text-[var(--lagoon-strong)] hover:text-[var(--clay)]"
+            onClick={() => track("internal_guide_click", { pageSlug: "places-to-uluwatu" })}
+          >
+            New: the full Uluwatu guide →
+          </Link>{" "}
+          <span className="text-[var(--muted)]">
+            best restaurants, brunch, sunset clubs and a 48-hour plan.
+          </span>
+        </div>
+      )}
+
       {topPicks.length > 0 && (
         <section className="slot-section">
           <div className="slot-heading">
             <h2>Top picks for your brief</h2>
             <p>{briefLabel || "Best fit first — widen below for the rest."}</p>
           </div>
-          <ul className="venue-list">
+          <div className="pick-grid">
             {topPicks.map((pick, i) => (
-              <li key={pick.venue.slug}>
+              <div key={pick.venue.slug}>
                 <div className="mb-2 flex items-center gap-2">
                   <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--lagoon)] text-xs font-bold text-white">
                     {i + 1}
@@ -234,10 +277,10 @@ export default function PlacesView({
                     </p>
                   )}
                 </div>
-                <VenueCard v={pick.venue} showSimilar={false} actionMode="full" />
-              </li>
+                <PlaceCard place={toCard(pick.venue)} />
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
       )}
 
@@ -253,19 +296,16 @@ export default function PlacesView({
             <h2>{districtLabel[slug] ?? slug}</h2>
             <p>{items.length} places</p>
           </div>
-          <ul className="venue-list">
+          {/* Editorial cards: the decision essentials only. The TablePilot
+              Reserve handoff (guardrail #3) stays on the card as a secondary
+              CTA wherever a venue is bookable; the full profile — offer
+              terms, practical info, booking options — lives on the venue
+              page behind View place. */}
+          <div className="pick-grid">
             {items.map((v) => (
-              <li key={v.slug}>
-                {/* Full action row: booking must be visible wherever it
-                    exists. Reserve renders only for venues with a TablePilot
-                    slug (handoff, guardrail #3) or a WhatsApp number
-                    (fallback, not the fee loop); Show offer only where the
-                    venue confirmed a perk. Venues with neither keep
-                    Directions — there is nothing to book with yet. */}
-                <VenueCard v={v} showSimilar={false} actionMode="full" />
-              </li>
+              <PlaceCard key={v.slug} place={toCard(v)} />
             ))}
-          </ul>
+          </div>
         </section>
       ))}
 
