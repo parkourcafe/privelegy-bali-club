@@ -488,9 +488,19 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   perks = normalizePublicPerks(perks);
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
 
+  // Guardrail #4 — no offers/perks outside the active_deep district, enforced
+  // here as a constraint (not convention): the island catalogue attaches a perk
+  // only for Canggu. A stray perk row in a planning_only district (e.g. from a
+  // bulk import) can never surface as a tourist offer on /places.
+  const isActiveDeep = (district: string) => district === "canggu";
+
   return uniqueBy(venues, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
-    .map((v) => ({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" }));
+    .map((v) => ({
+      ...v,
+      perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
+      blurb: "",
+    }));
 }
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
