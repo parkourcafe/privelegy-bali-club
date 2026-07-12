@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
+import Analytics from "./Analytics";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
         {children}
         <SourceCapture />
         <ServiceWorkerRegister />
+        <Analytics />
       </body>
     </html>
   );
