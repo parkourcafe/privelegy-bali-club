@@ -648,6 +648,36 @@ export async function setVenueJtbd(
   return Boolean((data as Record<string, unknown>)?.ok);
 }
 
+export interface InviteRosterRow {
+  slug: string;
+  name: string;
+  district: string;
+  status: string;
+  whatsapp: string;
+  token: string;
+  confirmed: boolean;
+  hasPhoto: boolean;
+}
+
+// Island-wide invite roster for /admin/invites — one RPC ensures every venue
+// has an onboarding token and returns the list (operator-only surface).
+export async function getInviteRoster(): Promise<InviteRosterRow[]> {
+  const sb = anonClient();
+  if (!sb) return [];
+  const { data, error } = await sb.rpc("invite_roster");
+  if (error || !Array.isArray(data)) return [];
+  return (data as Record<string, unknown>[]).map((r) => ({
+    slug: String(r.slug ?? ""),
+    name: String(r.name ?? ""),
+    district: String(r.district ?? ""),
+    status: String(r.status ?? ""),
+    whatsapp: String(r.whatsapp ?? ""),
+    token: String(r.token ?? ""),
+    confirmed: Boolean(r.confirmed),
+    hasPhoto: Boolean(r.has_photo),
+  }));
+}
+
 export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {
   const sb = anonClient();
   if (!sb) return null;
