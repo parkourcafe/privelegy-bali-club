@@ -628,7 +628,7 @@ function AroundBali() {
                        map drops to a quiet secondary link. */
                     <>
                       <DistrictMapLink
-                        href={`/places?district=${d.slug}`}
+                        href={`/bali/${d.slug}`}
                         districtSlug={d.slug}
                         className="inline-flex min-h-11 items-center rounded-full border border-[rgba(198,154,92,0.35)] px-4 text-sm font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.65)] hover:text-[var(--ob-sand)]"
                       >
