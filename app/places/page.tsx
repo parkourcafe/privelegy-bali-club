@@ -1,7 +1,12 @@
 import Link from "next/link";
-import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
+import { getPublishedVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import { getTripMission, getTripDuration } from "@/lib/trip-missions";
-import PlacesView from "./PlacesView";
+import {
+  getUluwatuContent,
+  normalizeDistrictParam,
+  ULUWATU_DB_SLUG,
+} from "@/lib/uluwatu/venues";
+import PlacesView, { type CataloguePlace } from "./PlacesView";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +18,24 @@ export const metadata = {
 function firstParam(value: string | string[] | undefined) {
   if (Array.isArray(value)) return value[0] ?? "";
   return value ?? "";
+}
+
+// Card-level price band: prefer the explicit "Price band: $$" research format;
+// free-form price anchors (e.g. "Americano 35k") stay off the card.
+function parsePriceBand(anchor?: string): string | undefined {
+  const m = anchor?.match(/^Price band:\s*(\${1,4})$/);
+  return m?.[1];
+}
+
+function enrichForCards(v: VenueWithPerk): CataloguePlace {
+  const uluwatu = v.district === ULUWATU_DB_SLUG ? getUluwatuContent(v.slug) : null;
+  return {
+    ...v,
+    cardLine: uluwatu?.verdict ?? v.whyItsHere,
+    cardArea: uluwatu?.microArea ?? v.area,
+    cardBestFor: uluwatu?.bestFor ?? v.bestFor,
+    cardPrice: uluwatu?.priceBand ?? parsePriceBand(v.priceAnchor),
+  };
 }
 
 export default async function PlacesPage({
@@ -30,11 +53,11 @@ export default async function PlacesPage({
 }) {
   const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
 
-  // Public default: only decision-ready places. `?all=1` is the internal review
-  // view that surfaces every tracked row (including sparse research rows).
+  // Public default: only publication-gated places. `?all=1` is the internal
+  // review view that surfaces every tracked row (including held/sparse rows).
   const showAll = firstParam(params.all) === "1";
   const ready = tracked.filter(isPublicReadyVenue);
-  const venues = showAll ? tracked : ready;
+  const venues = (showAll ? tracked : ready).map(enrichForCards);
 
   return (
     <div className="page-dark">
@@ -69,7 +92,9 @@ export default async function PlacesPage({
           venues={venues}
           initialFilters={{
             query: firstParam(params.q),
-            district: firstParam(params.district),
+            // Public URLs may say ?district=uluwatu; data keys off the
+            // internal slug (brief §5 mapping — no duplicated rows).
+            district: normalizeDistrictParam(firstParam(params.district)),
             category: firstParam(params.category),
             intentMode: firstParam(params.intent) === "1",
             missionLabel: getTripMission(firstParam(params.m))?.label,

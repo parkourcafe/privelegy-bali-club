@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getRoutes } from "@/lib/data";
+import { indexableVenueSlugs } from "@/lib/publication";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE}/route/${r.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    // Uluwatu district product: pillar + editorial children.
+    { url: `${BASE}/uluwatu`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/uluwatu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/best-brunch`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/date-night-restaurants`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/uluwatu/48-hours`, changeFrequency: "weekly", priority: 0.8 },
+    // Venue detail pages — ONLY those that passed the evidence-backed
+    // publication gate (review/incomplete venues stay noindex + unlisted).
+    ...indexableVenueSlugs().map((slug) => ({
+      url: `${BASE}/places/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
   ];
 }

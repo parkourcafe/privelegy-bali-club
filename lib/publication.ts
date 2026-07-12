@@ -1,0 +1,65 @@
+// Explicit publication policy (brief §8) — replaces the old 3-field
+// "decision-ready" predicate as the gate for public, indexable surfaces.
+//
+// Two tiers:
+//
+// 1. PUBLISHED — may appear on indexed pages. Requirements differ by layer:
+//    - Uluwatu (`uluwatu-bukit`): the venue must have a registry entry in
+//      lib/uluwatu/venues.ts with publication === "published". A registry
+//      entry only reaches that state when identity, district boundary,
+//      operating status and Google-Maps findability were verified with
+//      recorded evidence, an editorial summary + Best for + at least one
+//      practical decision detail exist, and a verification date is set.
+//      No approved venue photos exist yet, so published venues render the
+//      explicitly typographic editorial cover (never a fake image).
+//    - Other districts (Canggu active_deep flow etc.): the legacy
+//      display predicate (editorial reason + fit + price/order anchor)
+//      keeps the catalogue behaviour unchanged, but their detail pages are
+//      NOT indexable in this release (no evidence layer yet) — see
+//      isIndexableVenueSlug().
+//
+// 2. REVIEW — internal only. Reachable via /places?all=1 and direct URL,
+//    always noindex,nofollow. Archived/uncertain/unverified rows stay here.
+
+import type { Venue } from "./types";
+import {
+  getUluwatuContent,
+  publishedUluwatuVenues,
+  ULUWATU_DB_SLUG,
+} from "./uluwatu/venues";
+
+export type PublicationStatus = "published" | "review";
+
+function hasText(value: unknown): boolean {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+// Legacy decision-ready predicate (master §6a.5) — retained as the display
+// bar for districts that do not yet have an evidence layer.
+function legacyDecisionReady(v: Venue): boolean {
+  return (
+    hasText(v.whyItsHere) &&
+    hasText(v.bestFor) &&
+    (hasText(v.priceAnchor) || hasText(v.whatToOrder))
+  );
+}
+
+export function getPublicationStatus(v: Venue): PublicationStatus {
+  if (v.district === ULUWATU_DB_SLUG) {
+    const content = getUluwatuContent(v.slug);
+    return content?.publication === "published" ? "published" : "review";
+  }
+  return legacyDecisionReady(v) ? "published" : "review";
+}
+
+// Indexability is stricter than visibility: a venue detail page may carry
+// index,follow ONLY when the venue passed the evidence-backed gate. In this
+// release that is the published Uluwatu set; everything else is
+// noindex,nofollow until its district gets the same treatment.
+export function isIndexableVenueSlug(slug: string): boolean {
+  return getUluwatuContent(slug)?.publication === "published";
+}
+
+export function indexableVenueSlugs(): string[] {
+  return publishedUluwatuVenues().map((v) => v.slug);
+}
