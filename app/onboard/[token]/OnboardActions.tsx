@@ -9,14 +9,78 @@ import { browserClient } from "@/lib/supabase/client";
 
 const MAX_MB = 8;
 
+// Friendly label → job tag (must match the whitelist in migration 0015 and the
+// moment jobs in lib/moments.ts).
+const JOB_OPTIONS: { tag: string; label: string }[] = [
+  { tag: "work", label: "Working / laptop" },
+  { tag: "slow", label: "Slow morning" },
+  { tag: "breakfast", label: "Breakfast" },
+  { tag: "lunch", label: "Lunch" },
+  { tag: "sunset", label: "Sunset / drinks" },
+  { tag: "dinner", label: "Dinner" },
+  { tag: "date", label: "Date night" },
+  { tag: "special", label: "Special occasion" },
+  { tag: "family", label: "Family with kids" },
+  { tag: "reset", label: "Quick reset" },
+];
+
+const TAG_OPTIONS = [
+  "fast wifi",
+  "power plugs",
+  "free to sit",
+  "quiet before 9am",
+  "good coffee",
+  "kids ok",
+  "scooter parking",
+  "cash ok",
+  "opens early",
+  "air-con",
+  "vegetarian",
+];
+
+type Jtbd = {
+  bestFor: string;
+  notFor: string;
+  jobs: string[];
+  practicalTags: string[];
+};
+
 export default function OnboardActions({
   token,
   alreadyConfirmed,
+  initialJtbd,
 }: {
   token: string;
   alreadyConfirmed: boolean;
+  initialJtbd: Jtbd;
 }) {
   const [name, setName] = useState("");
+  const [jtbd, setJtbd] = useState<Jtbd>(initialJtbd);
+  const [jtbdState, setJtbdState] = useState<"idle" | "busy" | "done" | "error">("idle");
+
+  function toggle(key: "jobs" | "practicalTags", value: string) {
+    setJtbd((s) => {
+      const has = s[key].includes(value);
+      return { ...s, [key]: has ? s[key].filter((x) => x !== value) : [...s[key], value] };
+    });
+    setJtbdState("idle");
+  }
+
+  async function saveJtbd() {
+    setJtbdState("busy");
+    try {
+      const res = await fetch("/api/onboard/jtbd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, ...jtbd }),
+      });
+      const data = await res.json();
+      setJtbdState(data.ok ? "done" : "error");
+    } catch {
+      setJtbdState("error");
+    }
+  }
+
   const [agreed, setAgreed] = useState(false);
   const [confirmState, setConfirmState] = useState<"idle" | "busy" | "done" | "error">(
     alreadyConfirmed ? "done" : "idle"
@@ -109,6 +173,100 @@ export default function OnboardActions({
             className={`mt-2 text-sm ${photoState === "error" ? "text-rose-600" : "text-emerald-700"}`}
           >
             {photoMsg}
+          </p>
+        )}
+      </div>
+
+      {/* Fit context — the venue describes who/when it suits */}
+      <div className="rounded-2xl border border-stone-200 bg-white p-4">
+        <p className="font-medium">Who is your place for?</p>
+        <p className="mt-1 text-sm text-stone-500">
+          This helps us send you the right guests. Short and honest is best.
+        </p>
+
+        <label className="mt-3 block text-sm">
+          <span className="text-stone-600">Best for</span>
+          <input
+            value={jtbd.bestFor}
+            onChange={(e) => {
+              setJtbd((s) => ({ ...s, bestFor: e.target.value }));
+              setJtbdState("idle");
+            }}
+            maxLength={140}
+            placeholder="e.g. slow mornings, laptop work, sunset drinks"
+            className="mt-1 w-full rounded-lg border border-stone-200 px-3 py-2"
+          />
+        </label>
+
+        <label className="mt-3 block text-sm">
+          <span className="text-stone-600">Not the best for</span>
+          <input
+            value={jtbd.notFor}
+            onChange={(e) => {
+              setJtbd((s) => ({ ...s, notFor: e.target.value }));
+              setJtbdState("idle");
+            }}
+            maxLength={140}
+            placeholder="e.g. big groups, late-night parties"
+            className="mt-1 w-full rounded-lg border border-stone-200 px-3 py-2"
+          />
+          <span className="mt-1 block text-xs text-stone-400">
+            Honest fit only — this is never shown as a complaint, just who it suits.
+          </span>
+        </label>
+
+        <p className="mt-4 text-sm text-stone-600">Good moments for your place</p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {JOB_OPTIONS.map((j) => {
+            const on = jtbd.jobs.includes(j.tag);
+            return (
+              <button
+                key={j.tag}
+                type="button"
+                onClick={() => toggle("jobs", j.tag)}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                  on
+                    ? "border-cyan-700 bg-cyan-700 text-white"
+                    : "border-stone-200 text-stone-600"
+                }`}
+              >
+                {j.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <p className="mt-4 text-sm text-stone-600">Practical facts</p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {TAG_OPTIONS.map((t) => {
+            const on = jtbd.practicalTags.includes(t);
+            return (
+              <button
+                key={t}
+                type="button"
+                onClick={() => toggle("practicalTags", t)}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                  on
+                    ? "border-emerald-600 bg-emerald-600 text-white"
+                    : "border-stone-200 text-stone-600"
+                }`}
+              >
+                {t}
+              </button>
+            );
+          })}
+        </div>
+
+        <button
+          onClick={saveJtbd}
+          disabled={jtbdState === "busy"}
+          className="mt-4 w-full rounded-xl border border-cyan-700 py-2.5 text-sm font-semibold text-cyan-700 disabled:opacity-50"
+        >
+          {jtbdState === "busy" ? "Saving…" : jtbdState === "done" ? "Saved ✓" : "Save fit details"}
+        </button>
+        {jtbdState === "error" && (
+          <p role="alert" className="mt-2 text-sm text-rose-600">
+            Couldn&apos;t save. Try again or message us on WhatsApp.
           </p>
         )}
       </div>

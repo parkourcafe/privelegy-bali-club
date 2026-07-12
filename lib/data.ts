@@ -76,6 +76,10 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  // Booking paths must be visible in the public catalogue too — both are
+  // already public on /plan (TablePilot handoff URL, wa.me link).
+  "whatsapp",
+  "tablepilot_slug",
   "area",
   "why_its_here",
   "best_for",
@@ -474,30 +478,49 @@ export function isPublicReadyVenue(v: Venue): boolean {
 }
 
 // Public planning catalogue: all tracked venue rows across planning districts.
-// This deliberately does NOT attach perks, reserve buttons, QR, or TablePilot
-// behavior. Canggu monetization still lives in the deep `/plan` surface. The
-// list stays intentionally inclusive at the data layer (research, archived, and
-// cleanup-pending rows are all returned) so internal review can see everything;
-// the public /places surface applies `isPublicReadyVenue` before display.
+// Perks/booking attach ONLY inside the active_deep district (guardrail #4,
+// enforced below); planning_only rows never surface an offer. The list stays
+// inclusive at the data layer (research, archived, cleanup-pending rows all
+// returned) so internal review sees everything; the public /places surface
+// applies `isPublicReadyVenue` before display.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
-  // Falls back to seed venues when Supabase is not configured, so /places (and
-  // the day-builder shortlist) demo without a live DB — consistent with
-  // getCangguPlan(). Production always has a DB, so the fallback never runs there.
+  // Seed fallback keeps the catalogue browsable (and demos honest) without a
+  // configured DB, same as the /plan loaders.
   let venues: Venue[] = VENUES;
+  let perks: Perk[] = PERKS;
 
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;
-    const { data } = await sb
-      .from("venues")
-      .select(PUBLIC_PLACES_VENUE_COLUMNS)
-      .order("district", { ascending: true })
-      .order("name", { ascending: true });
-    if (data) venues = (data as unknown as Row[]).map(mapVenue);
+    const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
+      sb
+        .from("venues")
+        .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .order("district", { ascending: true })
+        .order("name", { ascending: true }),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+    ]);
+    if (!venueError && v && v.length > 0) {
+      venues = (v as unknown as Row[]).map(mapVenue);
+      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+    }
   }
+
+  perks = normalizePublicPerks(perks);
+  const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
+
+  // Guardrail #4 — no offers/perks outside the active_deep district, enforced
+  // here as a constraint (not convention): the island catalogue attaches a perk
+  // only for Canggu. A stray perk row in a planning_only district (e.g. from a
+  // bulk import) can never surface as a tourist offer on /places.
+  const isActiveDeep = (district: string) => district === "canggu";
 
   return uniqueBy(venues, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
-    .map((v) => ({ ...v, perk: null, blurb: "" }));
+    .map((v) => ({
+      ...v,
+      perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
+      blurb: "",
+    }));
 }
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
@@ -624,6 +647,55 @@ export async function setVenuePhoto(token: string, url: string): Promise<boolean
   const { data, error } = await sb.rpc("set_venue_photo", { p_token: token, p_url: url });
   if (error) return false;
   return Boolean((data as Record<string, unknown>)?.ok);
+}
+
+// Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /
+// practical_tags and caps free text; why_its_here stays editorial (not here).
+export async function setVenueJtbd(
+  token: string,
+  input: { bestFor: string; notFor: string; jobs: string[]; practicalTags: string[] }
+): Promise<boolean> {
+  const sb = anonClient();
+  if (!sb) return false;
+  const { data, error } = await sb.rpc("set_venue_jtbd", {
+    p_token: token,
+    p_best_for: input.bestFor,
+    p_not_for: input.notFor,
+    p_jobs: input.jobs,
+    p_practical_tags: input.practicalTags,
+  });
+  if (error) return false;
+  return Boolean((data as Record<string, unknown>)?.ok);
+}
+
+export interface InviteRosterRow {
+  slug: string;
+  name: string;
+  district: string;
+  status: string;
+  whatsapp: string;
+  token: string;
+  confirmed: boolean;
+  hasPhoto: boolean;
+}
+
+// Island-wide invite roster for /admin/invites — one RPC ensures every venue
+// has an onboarding token and returns the list (operator-only surface).
+export async function getInviteRoster(): Promise<InviteRosterRow[]> {
+  const sb = anonClient();
+  if (!sb) return [];
+  const { data, error } = await sb.rpc("invite_roster");
+  if (error || !Array.isArray(data)) return [];
+  return (data as Record<string, unknown>[]).map((r) => ({
+    slug: String(r.slug ?? ""),
+    name: String(r.name ?? ""),
+    district: String(r.district ?? ""),
+    status: String(r.status ?? ""),
+    whatsapp: String(r.whatsapp ?? ""),
+    token: String(r.token ?? ""),
+    confirmed: Boolean(r.confirmed),
+    hasPhoto: Boolean(r.has_photo),
+  }));
 }
 
 export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {

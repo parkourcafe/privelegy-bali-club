@@ -234,7 +234,7 @@ export default function PlacesView({
                     </p>
                   )}
                 </div>
-                <VenueCard v={pick.venue} showSimilar={false} actionMode="directions" />
+                <VenueCard v={pick.venue} showSimilar={false} actionMode="full" />
               </li>
             ))}
           </ul>
@@ -256,7 +256,13 @@ export default function PlacesView({
           <ul className="venue-list">
             {items.map((v) => (
               <li key={v.slug}>
-                <VenueCard v={v} showSimilar={false} actionMode="directions" />
+                {/* Full action row: booking must be visible wherever it
+                    exists. Reserve renders only for venues with a TablePilot
+                    slug (handoff, guardrail #3) or a WhatsApp number
+                    (fallback, not the fee loop); Show offer only where the
+                    venue confirmed a perk. Venues with neither keep
+                    Directions — there is nothing to book with yet. */}
+                <VenueCard v={v} showSimilar={false} actionMode="full" />
               </li>
             ))}
           </ul>

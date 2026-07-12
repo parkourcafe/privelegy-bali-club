@@ -1,10 +1,10 @@
 // Minimal offline shell for the planning layer. Deliberately tiny — no
 // aggressive caching of redemption routes (those must always hit the network
 // so proof is recorded server-side).
-const CACHE = "bp-shell-v3";
+const CACHE = "ob-shell-v4";
 const SHELL = [
   "/",
-  "/manifest.webmanifest?v=3",
+  "/manifest.webmanifest?v=4",
   "/icon-192.png",
   "/icon-512.png",
   "/icon-maskable-512.png",

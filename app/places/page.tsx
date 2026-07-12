@@ -89,6 +89,9 @@ export default async function PlacesPage({
             <Link href="/terms" className="quiet-link">
               Terms
             </Link>
+            <Link href="/support" className="quiet-link">
+              Support
+            </Link>
           </div>
         </footer>
       </main>
