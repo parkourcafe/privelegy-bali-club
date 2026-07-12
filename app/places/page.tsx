@@ -89,16 +89,19 @@ export default async function PlacesPage({
             </div>
             <h1 className="hero-title mt-3">Places across Bali</h1>
             <p className="hero-copy">
-              A curated map of Bali by district. A place appears here once we have
-              enough to help you decide — why it&apos;s worth it, who it suits, and
-              what to expect. Offers appear only when venues confirm them.
+              A curated map of Bali by district. Every place here is one we can
+              stand behind — why it&apos;s worth it, who it suits, and what to
+              expect. Offers appear only when venues confirm them.
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
+            {/* Public view shows only the count of curated places actually on
+                the page. The internal research total ("tracked") stays behind
+                ?all=1 so travellers never see an unexplained bigger number. */}
             <p className="editorial-signal-label">
               {showAll
                 ? `Internal view · ${tracked.length} places tracked`
-                : `${ready.length} places ready · ${tracked.length} tracked`}
+                : `${ready.length} curated places`}
             </p>
           </div>
         </header>
