@@ -548,7 +548,7 @@ export const HUB_MIN_VENUES = 8;
 // Districts with a hand-crafted pillar (base's /uluwatu product) are NOT served
 // by the programmatic /bali/[district] hub — that would create two pages
 // competing for the same queries. The pillar owns those districts.
-const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit"]);
+const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur"]);
 
 // Active venues grouped by district, gated to publishable districts. Unlike the
 // deliberately-inclusive /places catalogue (getPublishedVenues), a ranking page
