@@ -480,7 +480,10 @@ export function isPublicReadyVenue(v: Venue): boolean {
 // cleanup-pending rows are all returned) so internal review can see everything;
 // the public /places surface applies `isPublicReadyVenue` before display.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
-  let venues: Venue[] = [];
+  // Falls back to seed venues when Supabase is not configured, so /places (and
+  // the day-builder shortlist) demo without a live DB — consistent with
+  // getCangguPlan(). Production always has a DB, so the fallback never runs there.
+  let venues: Venue[] = VENUES;
 
   if (isSupabaseConfigured()) {
     const sb = anonClient()!;

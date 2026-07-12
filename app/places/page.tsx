@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
+import { getTripMission, getTripDuration } from "@/lib/trip-missions";
 import PlacesView from "./PlacesView";
 
 export const dynamic = "force-dynamic";
@@ -23,6 +24,8 @@ export default async function PlacesPage({
     category?: string | string[];
     intent?: string | string[];
     all?: string | string[];
+    m?: string | string[];
+    dur?: string | string[];
   }>;
 }) {
   const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
@@ -69,6 +72,8 @@ export default async function PlacesPage({
             district: firstParam(params.district),
             category: firstParam(params.category),
             intentMode: firstParam(params.intent) === "1",
+            missionLabel: getTripMission(firstParam(params.m))?.label,
+            durationLabel: getTripDuration(firstParam(params.dur))?.label,
           }}
         />
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { TRIP_MISSIONS, TRIP_DURATIONS } from "@/lib/trip-missions";
 
 type Choice = {
   value: string;
@@ -11,6 +12,24 @@ type Choice = {
   district?: string;
   category?: string;
 };
+
+// Trip Missions + duration (master §6a) as the two top questions. Reuse the
+// shared static config so scenario pages and the builder stay in sync.
+const missionOptions: Choice[] = TRIP_MISSIONS.map((m) => ({
+  value: m.slug,
+  label: m.label,
+  hint: m.hint,
+  query: m.query,
+  category: m.category,
+  district: m.district,
+}));
+
+const durationOptions: Choice[] = TRIP_DURATIONS.map((d) => ({
+  value: d.slug,
+  label: d.label,
+  hint: d.hint,
+  query: d.query ?? [],
+}));
 
 const spendOptions: Choice[] = [
   {
@@ -80,15 +99,18 @@ function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
 
-function buildHref(parts: Choice[]) {
+function buildHref(parts: Choice[], missionSlug: string, durationSlug: string) {
   const params = new URLSearchParams();
-  const query = unique(parts.flatMap((part) => part.query)).slice(0, 5);
+  // Mission tags lead the brief (primary intent), so keep a slightly wider cap.
+  const query = unique(parts.flatMap((part) => part.query)).slice(0, 8);
   const district = parts.find((part) => part.district)?.district;
   const category = [...parts].reverse().find((part) => part.category)?.category;
 
   if (query.length > 0) params.set("q", query.join(" "));
   if (district) params.set("district", district);
   if (category) params.set("category", category);
+  if (missionSlug) params.set("m", missionSlug);
+  if (durationSlug) params.set("dur", durationSlug);
   params.set("intent", "1");
 
   const qs = params.toString();
@@ -96,25 +118,33 @@ function buildHref(parts: Choice[]) {
 }
 
 export default function DayIntentBuilder() {
+  const [mission, setMission] = useState(missionOptions[0].value);
+  const [duration, setDuration] = useState(durationOptions[0].value);
   const [spend, setSpend] = useState(spendOptions[2].value);
   const [feel, setFeel] = useState(feelOptions[2].value);
   const [district, setDistrict] = useState(districtOptions[0].value);
   const [group, setGroup] = useState(groupOptions[1].value);
   const [finish, setFinish] = useState(finishOptions[0].value);
 
+  // Mission + duration lead the brief; the explicit district/spend/finish
+  // choices still win on category/district via buildHref precedence.
   const selected = useMemo(
     () => [
+      missionOptions.find((option) => option.value === mission)!,
+      durationOptions.find((option) => option.value === duration)!,
       spendOptions.find((option) => option.value === spend)!,
       feelOptions.find((option) => option.value === feel)!,
       districtOptions.find((option) => option.value === district)!,
       groupOptions.find((option) => option.value === group)!,
       finishOptions.find((option) => option.value === finish)!,
     ],
-    [spend, feel, district, group, finish]
+    [mission, duration, spend, feel, district, group, finish]
   );
 
-  const href = useMemo(() => buildHref(selected), [selected]);
-  const summary = `${selected[0].label.toLowerCase()}, ${selected[1].label.toLowerCase()}, ${selected[3].label.toLowerCase()}`;
+  const href = useMemo(() => buildHref(selected, mission, duration), [selected, mission, duration]);
+  const missionChoice = selected[0];
+  const durationChoice = selected[1];
+  const summary = `${missionChoice.label.toLowerCase()} · ${durationChoice.label.toLowerCase()} · ${selected[3].label.toLowerCase()}`;
 
   // Visual only: re-key the brief box when the summary changes so it pulses
   // softly (ob-brief-pulse). Selection logic and the built URL are untouched.
@@ -136,9 +166,9 @@ export default function DayIntentBuilder() {
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="eyebrow text-[var(--ob-brass)]">Build today</p>
+          <p className="eyebrow text-[var(--ob-brass)]">Build your Bali</p>
           <h2 className="mt-2 font-display text-2xl font-semibold leading-tight">
-            Tell us the day. Get the map.
+            Tell us the trip. Get the shortlist.
           </h2>
         </div>
         <span className="rounded-full border border-[var(--ob-line)] px-3 py-1 text-xs text-[var(--ob-sand-dim)]">
@@ -147,6 +177,20 @@ export default function DayIntentBuilder() {
       </div>
 
       <div className="mt-5 space-y-4">
+        <ChoiceGroup
+          label="What kind of Bali are you here for?"
+          options={missionOptions}
+          selected={mission}
+          onSelect={setMission}
+          wash="ob-wash-dawn"
+        />
+        <ChoiceGroup
+          label="How long are you here?"
+          options={durationOptions}
+          selected={duration}
+          onSelect={setDuration}
+          wash="ob-wash-island"
+        />
         <ChoiceGroup
           label="How do you want to spend it?"
           options={spendOptions}
@@ -200,7 +244,7 @@ export default function DayIntentBuilder() {
           href={href}
           className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
-          Build my map
+          Show my top 3
         </Link>
         <Link
           href="/places"
