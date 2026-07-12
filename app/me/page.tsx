@@ -1,24 +1,71 @@
 import Link from "next/link";
 import { readGuestRef } from "@/lib/guest-server";
-import { getMyRedemptions } from "@/lib/data";
+import { getMyRedemptions, getSavedVenues } from "@/lib/data";
+import ShareButton from "@/components/ShareButton";
+
+const categoryLabel: Record<string, string> = {
+  cafe: "Café",
+  warung: "Warung",
+  restaurant: "Restaurant",
+  beach_club: "Beach club",
+  spa: "Wellness",
+  bar: "Bar",
+  surf: "Surf",
+};
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "My offers" };
+export const metadata = { title: "My list & offers" };
 
-// "My offers" — a guest's own redeemed offers. Identity is the httpOnly cookie;
-// no login, no localStorage. Empty until the guest redeems something.
+// A guest's saved places (§6c) + redeemed offers. Identity is the httpOnly
+// cookie; no login, no localStorage (guardrail #10).
 export default async function MyPerksPage() {
   const ref = await readGuestRef();
-  const perks = ref ? await getMyRedemptions(ref) : [];
+  const [perks, saved] = ref
+    ? await Promise.all([getMyRedemptions(ref), getSavedVenues(ref)])
+    : [[], []];
 
   return (
     <div className="page-dark">
       <main className="mx-auto w-full max-w-md px-4 py-10">
-        <Link href="/plan" className="quiet-link">
-          ← Your Canggu day
+        <Link href="/" className="quiet-link">
+          ← Other Bali
         </Link>
-        <h1 className="mt-3 font-display text-3xl font-bold">My offers</h1>
+
+        <h1 className="mt-3 font-display text-3xl font-bold">My list</h1>
+        <p className="mt-1 text-xs text-[var(--muted)]">
+          Places you saved on this device. No account — clear cookies and it resets.
+        </p>
+
+        {saved.length === 0 ? (
+          <div className="mt-6 rounded-xl border border-dashed border-[var(--line)] p-6 text-center text-sm text-[var(--muted)]">
+            Nothing saved yet. Tap ♡ on any place to build your list.
+            <div className="mt-3">
+              <Link href="/uluwatu" className="quiet-link">Explore Uluwatu →</Link>
+            </div>
+          </div>
+        ) : (
+          <>
+            <ul className="mt-6 space-y-2">
+              {saved.map((v) => (
+                <li key={v.slug} className="rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] p-3">
+                  <Link href={`/places/${v.slug}`} className="flex items-center justify-between gap-3">
+                    <span className="font-semibold text-[var(--ink)]">{v.name}</span>
+                    <span className="text-xs text-[var(--muted)]">
+                      {categoryLabel[v.category] ?? v.category}
+                      {v.area ? ` · ${v.area}` : ""}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4">
+              <ShareButton />
+            </div>
+          </>
+        )}
+
+        <h2 className="mt-10 font-display text-2xl font-bold">My offers</h2>
         <p className="mt-1 text-xs text-[var(--muted)]">
           Venue offers you have redeemed on this device.
         </p>

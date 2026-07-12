@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
+import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
+import { readGuestRef } from "@/lib/guest-server";
+import SaveButton from "@/components/SaveButton";
 import { getUluwatuContent, ULUWATU_DB_SLUG, ULUWATU_PUBLIC_BASE } from "@/lib/uluwatu/venues";
 import { isIndexableVenueSlug } from "@/lib/publication";
 import { rankSimilar } from "@/lib/similar";
@@ -110,9 +112,14 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all] = await Promise.all([getVenueWithPerk(slug), getPublishedVenues()]);
+  const [venue, all, savedSlugs] = await Promise.all([
+    getVenueWithPerk(slug),
+    getPublishedVenues(),
+    getSavedSlugs(await readGuestRef()),
+  ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
+  const saved = savedSlugs.includes(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
   const published = isPublicReadyVenue(venue);
@@ -213,6 +220,9 @@ export default async function VenuePage({
           {(content?.verdict ?? venue.whyItsHere) && (
             <p className="venue-verdict">{content?.verdict ?? venue.whyItsHere}</p>
           )}
+          <div style={{ marginTop: 12 }}>
+            <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
+          </div>
         </header>
 
         <div className="venue-detail-grid">

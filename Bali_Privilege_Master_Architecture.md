@@ -451,6 +451,43 @@ the predicate is canon. Copy on the public surface reads "N ready · N tracked",
 
 ---
 
+## 6b. Verified-visit guest contribution — PROPOSED (draft, 2026-07-12)
+
+**Status:** `[proposed — pending founder approval]`. Build stays LOCKED until Selena flips
+this to `[adopted]` (guardrail #11). Founder direction: "reviews only from people who
+booked and actually came." Verification reuses the existing proof loop (QR redemption in
+v1; TablePilot seated later). **Hard line (guardrail #7):** public output is positive /
+fit only — never a public "worst dish" / anti-list / warning / star rating; a negative is
+a private internal signal (like `dish_feedback`) that can quietly drop a venue (absence),
+never a public label. New `GuestContribution` entity + consent (#9) pending. Not built.
+
+---
+
+## 6c. Traveller saves & sharing — amendment (2026-07-12)
+
+**Status:** `[adopted — direction approved]`, shipped as saves + share (rungs 1–2). No
+mandatory account. Identity is a 3-rung ladder; only the top rung touches PII.
+
+```text
+Rung 1 — Anonymous saved list: ♥ on a venue → saved_places keyed by the GuestRef
+         httpOnly cookie (guardrail #10, no localStorage). Shown on /me "My list".
+Rung 2 — Share by link: shared_lists → /list/<id>, read-only, no login for the viewer.
+Rung 3 — Optional email/WhatsApp: opt-in + consent (#9). SATISFIED by the existing
+         48-hours lead form (`GuideLeadForm` / `guide_leads`, migration 0018) — NOT
+         re-implemented here to avoid duplication.
+```
+
+Migrations `0019_saved_places_and_sharing.sql` (saved_places, shared_lists + SECURITY
+DEFINER RPCs, RLS-denied) authored for review; prod apply is the founder's manual step.
+No login (keeps "no tourist account"); PII only on Rung 3 with ConsentLog; partners see
+aggregates only (#9).
+
+**Sources:** founder decision 2026-07-12; guardrails #9, #10, #11; existing `GuestRef`
+cookie + `/me`; shipped `components/SaveButton.tsx`, `/api/save`, `/api/list`,
+`app/list/[slug]`, migration `0019`.
+
+---
+
 ## 7. Phase gates and KPIs — current
 
 The old v0.2 redemption-only gate is superseded as the money gate. QR redemption still
