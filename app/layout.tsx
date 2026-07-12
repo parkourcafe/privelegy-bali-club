@@ -3,6 +3,7 @@ import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
+import Analytics from "@/components/Analytics";
 
 // Real loaded type (not system stacks): Fraunces (editorial serif) for display,
 // Geist for body/UI. Exposed as CSS vars and consumed by --font-display /
@@ -58,6 +59,7 @@ export default function RootLayout({
         {children}
         <SourceCapture />
         <ServiceWorkerRegister />
+        <Analytics />
       </body>
     </html>
   );
