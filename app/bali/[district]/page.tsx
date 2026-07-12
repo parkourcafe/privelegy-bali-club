@@ -125,6 +125,7 @@ export default async function DistrictHubPage({
                   v={v}
                   actionMode={actionMode}
                   showSimilar={false}
+                  linkToPage
                 />
               ))}
             </div>

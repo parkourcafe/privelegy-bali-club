@@ -22,11 +22,16 @@ export default function VenueCard({
   showActions = true,
   showSimilar = true,
   actionMode,
+  linkToPage = false,
 }: {
   v: VenueWithPerk;
   showActions?: boolean;
   showSimilar?: boolean;
   actionMode?: "full" | "directions" | "none";
+  // Wrap the name in a link to /place/[slug]. Only pass this where the venue is
+  // guaranteed to have a page (hub/spoke grids); /places and /plan may include
+  // non-published rows whose /place URL would 404.
+  linkToPage?: boolean;
 }) {
   const resolvedActionMode = showActions ? actionMode ?? "full" : "none";
 
@@ -35,7 +40,15 @@ export default function VenueCard({
       <VenueVisual name={v.name} category={v.category} photoUrl={v.photoUrl} />
       <div className="venue-card-body">
         <div className="flex items-center gap-2">
-          <h3 className="venue-name">{v.name}</h3>
+          <h3 className="venue-name">
+            {linkToPage ? (
+              <Link href={`/place/${v.slug}`} className="hover:underline">
+                {v.name}
+              </Link>
+            ) : (
+              v.name
+            )}
+          </h3>
           {v.isSponsored && (
             <span className="rounded-full bg-[rgba(184,138,66,0.16)] px-2 py-0.5 text-[10px] font-bold text-[var(--clay)]">
               Sponsored

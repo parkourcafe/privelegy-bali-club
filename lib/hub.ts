@@ -240,6 +240,44 @@ export function spokeJsonLd(spoke: IntentSpoke): object[] {
   ];
 }
 
+// ---- Venue page (/place/[slug]) ----
+
+// Restaurant/LocalBusiness + BreadcrumbList JSON-LD for a single venue.
+export function venueJsonLd(
+  v: VenueWithPerk,
+  districtName: string,
+  districtSlug: string
+): object[] {
+  const url = `${SITE_ORIGIN}/place/${v.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": schemaTypeFor(v.category),
+      name: v.name,
+      url,
+      ...(v.address ? { address: v.address } : {}),
+      ...(v.area ? { areaServed: v.area } : {}),
+      ...(v.priceAnchor ? { priceRange: v.priceAnchor } : {}),
+      ...(v.gmapsUrl ? { hasMap: v.gmapsUrl, sameAs: v.gmapsUrl } : {}),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+        { "@type": "ListItem", position: 2, name: "Bali", item: `${SITE_ORIGIN}/bali` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: districtName,
+          item: `${SITE_ORIGIN}/bali/${districtSlug}`,
+        },
+        { "@type": "ListItem", position: 4, name: v.name, item: url },
+      ],
+    },
+  ];
+}
+
 // Oxford-comma-free "a, b and c".
 function listJoin(items: string[]): string {
   if (items.length <= 1) return items[0] ?? "";

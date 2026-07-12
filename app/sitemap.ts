@@ -28,6 +28,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // Venue pages — one per active venue in a published district.
+    ...hubs.flatMap((h) =>
+      h.venues.map((v) => ({
+        url: `${BASE}/place/${v.slug}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      }))
+    ),
     ...routes.map((r) => ({
       url: `${BASE}/route/${r.slug}`,
       changeFrequency: "weekly" as const,

@@ -86,7 +86,7 @@ export default async function IntentSpokePage({
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {spoke.venues.map((v) => (
-            <VenueCard key={v.slug} v={v} actionMode={actionMode} showSimilar={false} />
+            <VenueCard key={v.slug} v={v} actionMode={actionMode} showSimilar={false} linkToPage />
           ))}
         </div>
 
