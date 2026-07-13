@@ -49,12 +49,36 @@ slugs (`date_night_special`) while `canggu-guides.ts` authors hyphen slugs
 `normalizeJobs` (same as the intent spokes). Latent until now because Canggu had almost no
 jobs data.
 
+## Tranche 2 — 2026-07-12 (migration `0022_canggu_editorial_pass_t2.sql`)
+
+Extended the same verified pass to the rest of the active catalogue: **50 more
+venues** (Batu Bolong / Berawa / Pererenan / Seseh / Cemagi restaurants, remaining
+cafés, one wine bar, and the wellness/spa/beauty/fitness set), all verified against
+first-party sources, all clearing the publication gate. Same guardrails as tranche 1.
+
+Two catalogue rows were deliberately left untouched for founder review:
+- **`dandelion`** — the venue rebranded to **"Casa Tua"** (same owner/site). Publishing
+  it as Dandelion would be stale branding — it needs a rename, not a fill.
+- **`dicarik-warung`** — no confident first-party Canggu match (the exact name resolves
+  to an Ubud warung; a similarly-named "Waroeng D'Carik" sits in Kerobokan). Ambiguous —
+  needs disambiguation before publish.
+
+Category note surfaced by the research: `jungle-padel-canggu-shortcut` (padel courts),
+`wrong-gym-pererenan` (gym) and `finns-recreation-club-...` are keyed `category = spa`
+but are really sport/fitness — they'll currently surface under the "spas & wellness"
+guide. Recategorisation (to a `fitness` category) is a separate, optional cleanup.
+
+After tranche 1 + 2, essentially the entire **active** Canggu catalogue carries
+editorial. Remaining empties are inactive/archived rows and a few duplicates.
+
 ## What still remains
 
 - **Photos: none, any district.** Venue detail pages stay `noindex` until a
   rights-cleared image pass. Only the curated `/canggu` guide surfaces publish — no thin
   venue pages get indexed.
-- **~70 remaining Canggu stubs** (Pererenan/Seseh/Umalas long tail, beauty/fitness,
-  warungs) are still name+area only — a second research tranche can extend coverage.
-- These DB updates are live on the production database; the `/canggu` page code ships when
-  the branch's PR merges and deploys.
+- **`dandelion` rename → Casa Tua** and **`dicarik-warung` disambiguation** (above).
+- Optional: recategorise the 3 sport/fitness rows out of `spa`.
+- **Apply status:** tranche 1 (`0021`) is applied to the production DB. Tranche 2
+  (`0022`) is committed but its **prod apply is a founder step (pending)** — run the
+  migration's SQL against prod to take the extra 50 live. The `/canggu` page code ships
+  when the branch's PR merges and deploys.
