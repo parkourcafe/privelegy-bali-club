@@ -3,6 +3,66 @@
   "schemaVersion": 1,
   "sources": [
     {
+      "capturedAt": "2026-07-13T15:12:25Z",
+      "id": "src-baked-locations",
+      "label": "BAKED Locations — Pererenan",
+      "notes": "Confirms branch and broad food categories, but publishes no itemized Pererenan restaurant menu.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_action_page",
+      "url": "https://baked.co.id/pages/locations",
+      "venueSlug": "baked-pererenan",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:12:25Z",
+      "id": "src-baked-site",
+      "label": "BAKED official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://baked.co.id/",
+      "venueSlug": "baked-pererenan",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:08:28Z",
+      "id": "src-hippie-linktree",
+      "label": "Hippie Fish Pererenan Beach official Linktree",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://linktr.ee/hippiefish.pererenanbeach",
+      "venueSlug": "hippie-fish-pererenan-beach",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:08:38Z",
+      "id": "src-hippie-menu",
+      "label": "Hippie Fish Lunch & Dinner Menu (12:00 PM–10:00 PM)",
+      "notes": "Google Drive menu linked by the official venue Linktree; no version date or currency is stated.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1s3_Cqckevq6nz7w91VxfsicE01IrMBbQ/view?usp=sharing",
+      "venueSlug": "hippie-fish-pererenan-beach",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:12:24Z",
+      "id": "src-hippie-site",
+      "label": "Hippie Fish official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://hippie-fish.com/",
+      "venueSlug": "hippie-fish-pererenan-beach",
+      "verifiedAt": null
+    },
+    {
       "capturedAt": "2026-07-13T15:09:20Z",
       "id": "src-ji-contact",
       "label": "Ji Restaurant Bali Contact",
@@ -204,6 +264,42 @@
       "sourceType": "official_menu_pdf",
       "url": "https://cdn.shopify.com/s/files/1/0662/6603/8529/files/CG_MENU_WEB_36da8575-2666-4043-86da-688c30adfe69.pdf?v=1776741400",
       "venueSlug": "revolver-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:40Z",
+      "id": "src-rize-brunch",
+      "label": "RiZE brunch (bfast 8am-4pm)(lunch 12am).pdf",
+      "notes": "Official site routes through its official Linktree to the Pererenan menu folder.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1R-94sitU1URc4tZKvq55_rZ37ql4eLEk/view",
+      "venueSlug": "rize-cafe",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:40Z",
+      "id": "src-rize-dinner",
+      "label": "RiZE dinner .pdf",
+      "notes": "Footer names Indonesian Rupiah, but displayed food-price scale is not explicit.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1gEi1agC-zWKWMCQweD9LIkeCMZjgWan0/view",
+      "venueSlug": "rize-cafe",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:11:53Z",
+      "id": "src-rize-site",
+      "label": "RiZE Pererenan official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://rize-bali.com/",
+      "venueSlug": "rize-cafe",
       "verifiedAt": null
     },
     {

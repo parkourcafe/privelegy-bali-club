@@ -60,6 +60,11 @@ or publishable.
   Revolver prices are normalized only where its PDF explicitly states `000
   IDR`; Ulekan uses an accessible official fallback because the branch PDF is
   blocked, and placeholder menu descriptions were excluded.
+- Canggu loop 5 completed: `hippie-fish-pererenan-beach`,
+  `baked-pererenan`, `rize-cafe`. Hippie Fish and RiZE have partial official
+  menus; BAKED has branch-matched official actions but no itemized restaurant
+  menu, so it is classified `only_action_links_found` rather than padded with
+  retail products or inferred items.
 
 ## Validation
 
@@ -78,6 +83,10 @@ or publishable.
 - Loop 4: cumulative checks passed for 10 venues. Recheck at
   `2026-07-13T15:22:04Z`–`15:22:06Z`: Revolver's official Canggu page and
   Ulekan's official fallback menu both returned HTTP 200.
+- Loop 5: cumulative checks passed for 13 venues, including the no-menu BAKED
+  classification and unique IDs across RiZE's two menu records. Recheck at
+  `2026-07-13T15:23:30Z`: Hippie Fish and BAKED's official branch/location
+  pages both returned HTTP 200.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

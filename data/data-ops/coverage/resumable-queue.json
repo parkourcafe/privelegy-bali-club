@@ -12,17 +12,17 @@
         "luma",
         "santanera",
         "revolver-canggu",
-        "ulekan-berawa"
+        "ulekan-berawa",
+        "hippie-fish-pererenan-beach",
+        "baked-pererenan",
+        "rize-cafe"
       ],
       "district": "canggu",
       "remainingVenueSlugs": [
-        "hippie-fish-pererenan-beach",
-        "baked-pererenan",
-        "rize-cafe",
         "sensorium-bali",
         "shelter-restaurant"
       ],
-      "resumeFromSlug": "hippie-fish-pererenan-beach",
+      "resumeFromSlug": "sensorium-bali",
       "status": "in_progress",
       "venueSlugs": [
         "baked-pererenan",
