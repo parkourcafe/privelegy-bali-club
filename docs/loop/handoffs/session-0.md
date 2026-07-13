@@ -94,6 +94,10 @@ or publishable.
   transcriptions and two social-only blockers (MIEL and Milu). Stale-looking
   filenames and duplicated live menu blocks are retained as review warnings.
   Ledger state is 40 complete, 9 blocked, and 158 queued.
+- Canggu batch 04 is fully processed after checkpoint 04b: Pizza Fabbrica has a
+  partial official menu, while four social-only venues and Samadi have exact
+  access/menu blockers. Ledger state is 41 complete, 14 blocked, and 152
+  queued.
 
 ## Validation
 
@@ -139,6 +143,10 @@ or publishable.
   provenance, unique identifiers, draft/null verification, denominator metrics
   and queue completion passed. Ambiguous `k`/numeric values were not assigned a
   currency merely from Bali context.
+- Canggu 04b: all six official identities/surfaces were rechecked. JSON,
+  provenance, unique IDs, draft/null verification, denominator metrics and the
+  now-complete Canggu-04 queue passed. Pizza Fabbrica's SSL and Samadi's removed
+  PDF are retained as explicit retry conditions.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
