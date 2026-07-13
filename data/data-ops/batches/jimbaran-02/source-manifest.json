@@ -1,0 +1,103 @@
+{
+  "batchId": "jimbaran-02",
+  "generatedAt": "2026-07-13T16:15:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-radja-seafood-cafe-social",
+      "label": "Radja official-looking Instagram",
+      "notes": "Official-looking Instagram identity was unavailable. Aggregator menus, ratings and user photos were rejected.",
+      "officialControl": "venue",
+      "outcome": "unavailable",
+      "sourceType": "official_social_candidate",
+      "url": "https://www.instagram.com/radja_bytebacafe/",
+      "venueSlug": "radja-seafood-cafe",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-sundara-home",
+      "label": "Four Seasons Sundara page",
+      "notes": "Live venue-controlled all-day menu. Dollar-like glyph is the site display convention; footer explicitly defines values as 000s of IDR plus 10% service and 11% tax.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.fourseasons.com/jimbaranbay/dining/restaurants/sundara/",
+      "venueSlug": "sundara",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-sundara-menu",
+      "label": "Live Sundara all-day menu",
+      "notes": "Live venue-controlled all-day menu. Dollar-like glyph is the site display convention; footer explicitly defines values as 000s of IDR plus 10% service and 11% tax.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_page",
+      "url": "https://www.sundarabali.com/menu/",
+      "venueSlug": "sundara",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-sunset-beach-bar-an-home",
+      "label": "IHG official dining page",
+      "notes": "Current IHG dining page links a two-page official PDF and TableCheck. PDF is fetchable but did not expose safe item text in this capture, so no cached older prices were transcribed.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.ihg.com/intercontinental/hotels/us/en/bali/dpsha/hoteldetail/dining",
+      "venueSlug": "sunset-beach-bar-and-grill",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-sunset-beach-bar-an-menu",
+      "label": "Current official Sunset menu PDF",
+      "notes": "Current IHG dining page links a two-page official PDF and TableCheck. PDF is fetchable but did not expose safe item text in this capture, so no cached older prices were transcribed.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "usable",
+      "sourceType": "official_menu_pdf",
+      "url": "https://digital.ihg.com/is/content/ihg/intercontinental-bali-11117562217-original?fmt=pdf",
+      "venueSlug": "sunset-beach-bar-and-grill",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-unique-rooftop-bar--home",
+      "label": "AYANA UNIQUE branch page",
+      "notes": "Current AYANA page links the seven-page official PDF and branch-specific TableCheck. PDF footer states 000 rupiah plus 10% service and 11% tax; no item subset was normalized because extraction was incomplete.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.ayana.com/bali/dining/unique/",
+      "venueSlug": "unique-rooftop-bar-and-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-unique-rooftop-bar--menu",
+      "label": "Current official UNIQUE PDF",
+      "notes": "Current AYANA page links the seven-page official PDF and branch-specific TableCheck. PDF footer states 000 rupiah plus 10% service and 11% tax; no item subset was normalized because extraction was incomplete.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "usable",
+      "sourceType": "official_menu_pdf",
+      "url": "https://files-r2.ayana.com/r/UNIQUE_IkvSTQ.pdf",
+      "venueSlug": "unique-rooftop-bar-and-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:15:00Z",
+      "id": "src-warung-ramayana-ika-social",
+      "label": "Warung Ramayana official-looking Facebook",
+      "notes": "The official-looking Facebook page could not be fetched. Third-party menu, ratings and pricing were rejected.",
+      "officialControl": "venue",
+      "outcome": "unavailable",
+      "sourceType": "official_social_candidate",
+      "url": "https://www.facebook.com/warungramayana",
+      "venueSlug": "warung-ramayana-ikan-bakar",
+      "verifiedAt": null
+    }
+  ]
+}

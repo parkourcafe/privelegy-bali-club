@@ -1,0 +1,127 @@
+{
+  "batchId": "uluwatu-bukit-03",
+  "generatedAt": "2026-07-13T16:03:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-ulu-garden-menu",
+      "label": "Ulu Garden official menu folder",
+      "notes": "Officially linked Drive folder; item-level contents not safely extracted.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_folder",
+      "url": "https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link",
+      "venueSlug": "ulu-garden",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-ulu-garden-page",
+      "label": "Ulu Tribe Ulu Garden page",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://ulutribe.com/ulu-garden/",
+      "venueSlug": "ulu-garden",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-waatu-menu",
+      "label": "Waatu April 2026 dinner menu",
+      "notes": "Prices in thousands Indonesian rupiah; +21% government tax/service.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/05/Waatu_Dinner_Menu_-_April_2026_1-1.pdf",
+      "venueSlug": "waatu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-waatu-page",
+      "label": "Waatu official site",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://waatu.com/",
+      "venueSlug": "waatu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-white-menu",
+      "label": "White Rock food menu images",
+      "notes": "Official image menu; exact item-price text not safely extracted.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_images",
+      "url": "https://whiterockbali.com/foodmenu/",
+      "venueSlug": "white-rock-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-white-page",
+      "label": "White Rock official menu hub",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website_menu",
+      "url": "https://whiterockbali.com/menus/",
+      "venueSlug": "white-rock-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-yuki-menu",
+      "label": "YUKI official April 2026 menu images",
+      "notes": "Shared official menu; branch page links it as Uluwatu daily menu.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_images",
+      "url": "https://www.yuki-bali.com/menu",
+      "venueSlug": "yuki-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-yuki-page",
+      "label": "YUKI Uluwatu branch page",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.yuki-bali.com/uluwatu",
+      "venueSlug": "yuki-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-zali-menu",
+      "label": "Zali Bali official menu images",
+      "notes": "Bali menu shared across Pererenan and Uluwatu; branch availability needs review.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_images",
+      "url": "https://www.zalirestaurant.com/menu/bali",
+      "venueSlug": "zali-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:03:00Z",
+      "id": "src-zali-page",
+      "label": "Zali Uluwatu branch listing",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.zalirestaurant.com/branches",
+      "venueSlug": "zali-uluwatu",
+      "verifiedAt": null
+    }
+  ]
+}

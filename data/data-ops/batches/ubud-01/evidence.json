@@ -1,0 +1,987 @@
+{
+  "batchId": "ubud-01",
+  "capturedAt": "2026-07-13T15:43:58Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "ubud",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-alchemy-site",
+          "kind": "website",
+          "label": "Official Ubud menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-alchemy-ubud-menu",
+          "status": "draft",
+          "url": "https://www.alchemybali.com/alchemymenu",
+          "venueSlug": "alchemy",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-alchemy-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-alchemy-ubud-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/Up8Yt6KLsgNqWuXK7",
+          "venueSlug": "alchemy",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-alchemy-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-alchemy-ubud-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282146908910",
+          "venueSlug": "alchemy",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Penestanan Kelod No.75, Ubud.",
+      "collectionNotes": [
+        "Six items only; full live menu not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-alchemy-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sourdough, avocado, pesto, tomato, coconut feta, sambal and chilli.",
+                  "id": "alchemy-01",
+                  "name": "AVOCADO TOAST",
+                  "priceMinor": 89000,
+                  "sourceDisplayPrice": "IDR 89,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Açai, banana, berries, granola and cacao nibs.",
+                  "id": "alchemy-02",
+                  "name": "AÇAI BOWL",
+                  "priceMinor": 139000,
+                  "sourceDisplayPrice": "IDR 139,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Gluten-free pancakes, coconut whip, berries and caramel.",
+                  "id": "alchemy-03",
+                  "name": "BANANA TARO PANCAKES",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "IDR 85,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tofu scramble, spinach, beans, avocado and tofu cheese.",
+                  "id": "alchemy-04",
+                  "name": "BREAKFAST BURRITO",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tofu salad, toast, tempeh, greens, mushrooms, avocado and beans.",
+                  "id": "alchemy-05",
+                  "name": "CHAMPION BREAKFAST PLATE",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Brown rice spaghetti, mushroom sauce, spinach, tomatoes and rawmesan.",
+                  "id": "alchemy-06",
+                  "name": "CREAMY MUSHROOM PASTA",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-alchemy-ubud-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Alchemy Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "alchemy",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-anomali-locator",
+          "kind": "website",
+          "label": "Official store locator",
+          "provider": "official_website",
+          "sourceManifestId": "src-anomali-locator",
+          "status": "draft",
+          "url": "https://anomalicoffee.com/store-locator",
+          "venueSlug": "anomali-coffee-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-anomali-map",
+          "kind": "directions",
+          "label": "Map coordinates",
+          "provider": "google_maps",
+          "sourceManifestId": "src-anomali-locator",
+          "status": "draft",
+          "url": "https://www.google.com/maps?q=-8.5082382,115.2652257",
+          "venueSlug": "anomali-coffee-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Raya Ubud No.88; official locator coordinates.",
+      "collectionNotes": [
+        "Retail catalogue is not treated as cafe menu."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Anomali Coffee Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "anomali-coffee-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bohemia-site",
+          "kind": "website",
+          "label": "Official restaurant page",
+          "provider": "official_website",
+          "sourceManifestId": "src-bali-bohemia-menu",
+          "status": "draft",
+          "url": "https://balibohemia.com/restaurant",
+          "venueSlug": "bali-bohemia",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bohemia-book",
+          "kind": "reserve",
+          "label": "Book now",
+          "provider": "official_booking",
+          "sourceManifestId": "src-bali-bohemia-menu",
+          "status": "draft",
+          "url": "https://balibohemia.com/book-now",
+          "venueSlug": "bali-bohemia",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Differs from displayed restaurant phone.",
+          "id": "action-bohemia-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp widget",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bali-bohemia-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282194954224",
+          "venueSlug": "bali-bohemia",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Nyuh Bojog, Nyuh Kuning, Ubud.",
+      "collectionNotes": [
+        "2024-labelled menu and phone mismatch require review; currency raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-bali-bohemia-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Pita, falafel, vegetables, pickles, tahini, salad and hummus.",
+                  "id": "bohemia-01",
+                  "name": "Falafel Sandwich",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "56"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Chicken, Saj bread, pickles, zucchini, garlic sauce, salad and fries.",
+                  "id": "bohemia-02",
+                  "name": "Chicken Shawerma",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "72"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Chicken, guacamole, baguette, salad, aioli and fries.",
+                  "id": "bohemia-03",
+                  "name": "Chicken Avocado",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "68"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Dory fish, Saj bread, onion, sumac, tahini, salad and fries.",
+                  "id": "bohemia-04",
+                  "name": "Fish Shawerma",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "68"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Beef/lamb kebab, vegetables, pickles, bread, tahini, salad and fries.",
+                  "id": "bohemia-05",
+                  "name": "Kebab Sandwich",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "82"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Halloumi, oregano, bread, salad and olives.",
+                  "id": "bohemia-06",
+                  "name": "Halloumi Steak",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "82"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bali-bohemia-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bali Bohemia",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bali-bohemia",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bbub-site",
+          "kind": "website",
+          "label": "Official locations",
+          "provider": "official_website",
+          "sourceManifestId": "src-bali-buda-ubud-locations",
+          "status": "draft",
+          "url": "https://balibuda.com/our-locations/",
+          "venueSlug": "bali-buda-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bbub-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-bali-buda-ubud-locations",
+          "status": "draft",
+          "url": "https://g.page/bali-buda-shop?share",
+          "venueSlug": "bali-buda-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bbub-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bali-buda-ubud-locations",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=+6281138311877",
+          "venueSlug": "bali-buda-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Raya Ubud, Ubud.",
+      "collectionNotes": [
+        "Network menu; branch availability needs review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-bali-buda-ubud-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Oats, coconut milk, dates, kenari and palm syrup.",
+                  "id": "bbub-01",
+                  "name": "DELICIOUS HOT OATMEAL",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Banana bread, peanut butter, fruit, seeds, jam and yogurt.",
+                  "id": "bbub-02",
+                  "name": "BANANA PASSION FRUIT STACK",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Banana, cassava, eggs, palm syrup, pineapple and lime.",
+                  "id": "bbub-03",
+                  "name": "CASSAVA PANCAKES",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fruit, yogurt, almonds and granola.",
+                  "id": "bbub-04",
+                  "name": "BREAKFAST BOWL",
+                  "priceMinor": 68000,
+                  "sourceDisplayPrice": "68"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bread, avocado, peas, feta, sprouts, seeds, eggs and sambal.",
+                  "id": "bbub-05",
+                  "name": "AVOCADO SMASH",
+                  "priceMinor": 78000,
+                  "sourceDisplayPrice": "78"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Chicken, pesto, sprouts, salad and red-rice wrap.",
+                  "id": "bbub-06",
+                  "name": "PESTO PROBIOTIC CHICKEN WRAP",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bali-buda-ubud-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bali Buda Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bali-buda-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-wayan-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-cafe-wayan-site",
+          "status": "draft",
+          "url": "https://cafewayan.com/",
+          "venueSlug": "cafe-wayan-and-bakery",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Monkey Forest Road, Ubud.",
+      "collectionNotes": [
+        "Cooking-class menu is not the restaurant menu; printed phone/WhatsApp not converted to an unlinked action."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Cafe Wayan & Bakery",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "cafe-wayan-and-bakery",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cl-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-casa-luna-site",
+          "status": "draft",
+          "url": "https://casalunabali.com/",
+          "venueSlug": "casa-luna",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-cl-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-casa-luna-site",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?app_absent=0&phone=6281338239921&type=phone_number",
+          "venueSlug": "casa-luna",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cl-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-casa-luna-site",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/7zWFe2cwqrDdzdUH6",
+          "venueSlug": "casa-luna",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Raya Ubud, Ubud.",
+      "collectionNotes": [
+        "Current 2026 PDF; currency is not explicitly named."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-casa-luna-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Sourdough, butter and homemade jam.",
+                  "id": "cl-01",
+                  "name": "THICK CUT TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "40"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Eggs, pulled pork, rucola, hollandaise and muffin.",
+                  "id": "cl-02",
+                  "name": "PULLED PORK BENNIE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Feta, tomato, basil, sourdough and cucumber.",
+                  "id": "cl-03",
+                  "name": "AVOCADO TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Dragonfruit, banana, mango, honey, chia, muesli and granola.",
+                  "id": "cl-04",
+                  "name": "NAGA-BOWL",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Sweet and sour sauce.",
+                  "id": "cl-05",
+                  "name": "LUNA SPRING ROLLS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Balinese chicken, curry, fritter, beans, pepes, sambal, peanuts, acar and rice.",
+                  "id": "cl-06",
+                  "name": "CASA LUNA NASI CAMPUR",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "105"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-casa-luna-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Casa Luna",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "casa-luna",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cascades-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-cascades-menu",
+          "status": "draft",
+          "url": "https://www.cascadesbali.com/menu/",
+          "venueSlug": "cascades",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-cascades-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "resdiary",
+          "sourceManifestId": "src-cascades-menu",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/CascadesBali/434",
+          "venueSlug": "cascades",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-cascades-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-cascades-menu",
+          "status": "draft",
+          "url": "https://wa.me/62361972111",
+          "venueSlug": "cascades",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Viceroy Bali, Jalan Lanyahan, Banjar Nagi, Ubud.",
+      "collectionNotes": [
+        "Six dinner items only; not fully parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-cascades-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Beef, egg yolk, mustard and sourdough crackers.",
+                  "id": "cascades-01",
+                  "name": "Beef Tartare",
+                  "priceMinor": 300000,
+                  "sourceDisplayPrice": "300"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Mango, fennel, orange, capers and vinaigrette.",
+                  "id": "cascades-02",
+                  "name": "Tuna Carpaccio",
+                  "priceMinor": 300000,
+                  "sourceDisplayPrice": "300"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Miso, tomato, olive, lemon, orange and herbs.",
+                  "id": "cascades-03",
+                  "name": "Grilled Octopus",
+                  "priceMinor": 290000,
+                  "sourceDisplayPrice": "290"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Mushroom, leek, potato, bacon, onions and chimichurri.",
+                  "id": "cascades-04",
+                  "name": "Red Wine Braised Beef Cheek",
+                  "priceMinor": 360000,
+                  "sourceDisplayPrice": "360"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Pumpkin, mushroom, parmesan and sage.",
+                  "id": "cascades-05",
+                  "name": "Gnocchi",
+                  "priceMinor": 240000,
+                  "sourceDisplayPrice": "240"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Potato, apple, fennel, parsnip and dill.",
+                  "id": "cascades-06",
+                  "name": "Pan Seared Barramundi",
+                  "priceMinor": 360000,
+                  "sourceDisplayPrice": "360"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-cascades-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "CasCades",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "cascades",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-dicarik-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-dicarik-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/dicarikwarung/",
+          "venueSlug": "dicarik-warung",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Juwuk Manis ricefield, Ubud; old Canggu association rejected.",
+      "collectionNotes": [
+        "No structured official menu; blocked without aggregator substitution."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Dicarik Warung",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "dicarik-warung",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-donna-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-donna-site",
+          "status": "draft",
+          "url": "https://donnaubud.com/",
+          "venueSlug": "donna-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-donna-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-donna-site",
+          "status": "draft",
+          "url": "http://wa.me/+6281337509840",
+          "venueSlug": "donna-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-donna-chope",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-donna-site",
+          "status": "draft",
+          "url": "https://book.chope.co/booking?rid=donna2301bal&source=rest_donnaubud.com",
+          "venueSlug": "donna-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Monkey Forest No.67, Ubud.",
+      "collectionNotes": [
+        "May 2026 menu; duplicate-review flag remains active at denominator level."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "id": "menu-donna-ubud-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Feta, mint, seeds, rocket and balsamic.",
+                  "id": "donna-01",
+                  "name": "Watermelon & Feta",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Lettuce, avocado, tomatoes and citrus dressing.",
+                  "id": "donna-02",
+                  "name": "Grilled Prawn & Mango",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tomatoes, pinenuts, pesto, basil and arugula.",
+                  "id": "donna-03",
+                  "name": "Burrata",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Romaine, bacon, parmesan, crouton and anchovy dressing.",
+                  "id": "donna-04",
+                  "name": "Chicken Caesar",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Chicken, fennel, pine nuts, parmesan, herbs and aioli.",
+                  "id": "donna-05",
+                  "name": "Chicken Milanese",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Potato, gremolata, fennel, beurre blanc and aioli.",
+                  "id": "donna-06",
+                  "name": "Pan Seared Barramundi",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-donna-lunch",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Donna Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "donna-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-fair-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-fair-warung-site",
+          "status": "draft",
+          "url": "https://fairwarungbale.shop/",
+          "venueSlug": "fair-warung-bale",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:43:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-fair-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-fair-warung-site",
+          "status": "draft",
+          "url": "https://www.instagram.com/fairwarungbaleubud/",
+          "venueSlug": "fair-warung-bale",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Sri Wedari No.6, Taman Kaja, Ubud.",
+      "collectionNotes": [
+        "Official menu route lacks verified item-price data; action-only record."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Fair Warung Balé",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "fair-warung-bale",
+      "verifiedAt": null
+    }
+  ]
+}

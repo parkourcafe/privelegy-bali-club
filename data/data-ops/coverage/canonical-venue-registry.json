@@ -1,0 +1,4148 @@
+{
+  "baselineSha": "10a82aa0aff8dc894d642d36acb14a4c9ed69175",
+  "capturedAt": "2026-07-13T15:07:27Z",
+  "driftChecks": [
+    {
+      "id": "db-only-kynd-community",
+      "liveExpectedValue": "active Seminyak cafe",
+      "repoValue": "absent from reproducible imports",
+      "requiredResolution": "Live SQL snapshot for slug, status, category, district, and publication fields.",
+      "status": "warning"
+    },
+    {
+      "id": "cafe-del-mar-district",
+      "liveExpectedValue": "canggu",
+      "repoValue": "seminyak",
+      "requiredResolution": "Live SQL location check before menu attribution or denominator-by-district adjustment.",
+      "slug": "cafe-del-mar-bali",
+      "status": "warning"
+    },
+    {
+      "additionalReviewSlugs": [
+        "donna",
+        "onion-collective-the-onion-co-halal"
+      ],
+      "explicitLoserSlugs": 31,
+      "id": "dedupe-pair-count",
+      "migrationClaimedPairs": 32,
+      "requiredResolution": "Live duplicate audit; do not auto-delete or count either row as canonical F&B.",
+      "status": "warning"
+    }
+  ],
+  "eligibilityRule": {
+    "includedCategories": [
+      "bar",
+      "beach_club",
+      "cafe",
+      "restaurant",
+      "warung"
+    ],
+    "note": "Repository category is the denominator rule. Cross-category food components remain excluded and explicitly reviewable; Bambou Cafe & Lagree is flagged for human classification review."
+  },
+  "excludedRecords": [
+    {
+      "eligible": false,
+      "name": "Bambou Café & Lagree Cemagi",
+      "reason": "category_spa_food_component_needs_human_review",
+      "recordState": "active_non_food",
+      "slug": "bambou-cafe-and-lagree-cemagi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 98,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "BK Wellness Studio Umalas by Blue Karma Secrets",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "bk-wellness-studio-umalas-by-blue-karma-secrets",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 99,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "CutiePai Nails",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "cutiepai-nails",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 82,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Estetica Belle",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "estetica-belle",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 83,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Face Therapy Spa Pererenan",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "face-therapy-spa-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 84,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "FINNS Recreation Club / FINNS Lifestyle Village",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "finns-recreation-club-finns-lifestyle-village",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 104,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Jungle Padel Canggu Shortcut",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "jungle-padel-canggu-shortcut",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 108,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Mission Flow Studio",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "mission-flow-studio",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 86,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Nail Lesss Canggu",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "nail-lesss-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 87,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Only Nails Pererenan",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "only-nails-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 88,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Revive + Pilates Umalas",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "revive-pilates-umalas",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 115,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Rite Bali",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "rite-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 89,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "SAIA Wellness / SAIA Pilates Umalas",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "saia-wellness-saia-pilates-umalas",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 121,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Swarna Spa and Wellness",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "swarna-spa-and-wellness",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 91,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Therapy Day Spa Pererenan",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "therapy-day-spa-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 92,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Think Pink Salon & Nails Bali",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "think-pink-salon-and-nails-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 124,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Udara Bali Yoga Detox & Spa / Organic Ocean",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "udara-bali-yoga-detox-and-spa-organic-ocean",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 127,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Wrong Gym Pererenan",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "wrong-gym-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 128,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": "You Spa Umalas",
+      "reason": "non_food_category",
+      "recordState": "active_non_food",
+      "slug": "you-spa-umalas",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 129,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "12-kitchen-wine",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 51
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "akua-mediterranean-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 54
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "alchemy-bali",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 62
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "bambu-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 60
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "bar-vera-bistro-wine-bar",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 52
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "bawang-merah-beachfront-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 54
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "cafe-vida-healthy-organic-restaurant-can",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 52
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "casa-luna-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 62
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "cascades-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 62
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "dava-steak-seafood",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 54
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "el-kabron",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 65
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "ibu-rai-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 63
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "jalapeo",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 58
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "ko-japanese-teppanyaki-sushi",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 55
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "la-brisa",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 19
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "laka-leke-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 63
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "ling-ling-s-bali",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 60
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "luigi-s-hot-pizza",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 51
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "luma-bali",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 51
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "mama-san",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 60
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "nelayan-restaurant-puri-bar",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 55
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "nyoman-caf",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 55
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "sa-mesa-canggu",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 52
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "sangsaka-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 60
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "segara-the-seaside-bar-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 58
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "single-fin-bali",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 65
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "sunset-beach-bar-grill",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 56
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "the-elephant-restaurant-and-bar",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 62
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "the-seeds-of-life-cafe",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 63
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "unique-rooftop-bar-restaurant",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 56
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Explicit inactive duplicate loser deleted by guarded dedupe migration.",
+      "recordState": "deleted_duplicate",
+      "slug": "warung-dandelion",
+      "source": {
+        "file": "supabase/migrations/0018_dedupe_venue_twins.sql",
+        "line": 51
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Inactive/archived duplicate noted in Ubud editorial handoff.",
+      "recordState": "inactive_duplicate",
+      "slug": "donna",
+      "source": {
+        "file": "docs/ubud-editorial-pass.md",
+        "line": 89
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Inactive/archived duplicate noted in Ubud editorial handoff.",
+      "recordState": "inactive_duplicate",
+      "slug": "onion-collective-the-onion-co-halal",
+      "source": {
+        "file": "docs/ubud-editorial-pass.md",
+        "line": 89
+      }
+    },
+    {
+      "eligible": false,
+      "name": null,
+      "reason": "Inactive duplicate of pison-petitenget deleted by migration.",
+      "recordState": "inactive_duplicate",
+      "slug": "pison-seminyak",
+      "source": {
+        "file": "supabase/migrations/0020_seminyak_brunch_enrich.sql",
+        "line": 9
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Amber Specialty Coffee",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "amber-cafe",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 35
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Dusk Beach Club",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "dusk-beach-club",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 95
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Ember Woodfire",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "ember-dinner",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 106
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Home Cafe",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "home-cafe",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 18
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Loka Brunch House",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "loka-brunch",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 51
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Lull Spa & Sauna",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "lull-spa",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 84
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Neon Listening Bar",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "neon-bar",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 117
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Root Warung",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "root-warung",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 73
+      }
+    },
+    {
+      "eligible": false,
+      "name": "Tide Surf Co.",
+      "reason": "lib/seed.ts explicitly marks the local fallback list as placeholder curation.",
+      "recordState": "placeholder",
+      "slug": "tide-surf",
+      "source": {
+        "file": "lib/seed.ts",
+        "line": 62
+      }
+    }
+  ],
+  "liveDatabaseCandidates": [
+    {
+      "category": "cafe",
+      "denominatorImpactIfConfirmed": 1,
+      "district": "seminyak",
+      "eligibilityState": "needs_live_sql_confirmation",
+      "name": "KYND Community",
+      "repositoryEvidence": {
+        "file": "supabase/migrations/0020_seminyak_brunch_enrich.sql",
+        "line": 36,
+        "note": "Migration updates a pre-existing DB row but no reproducible repository import creates it."
+      },
+      "slug": "kynd-community"
+    }
+  ],
+  "metrics": {
+    "byCategory": {
+      "bar": 14,
+      "beach_club": 12,
+      "cafe": 42,
+      "restaurant": 131,
+      "warung": 8
+    },
+    "byDistrict": {
+      "canggu": 70,
+      "jimbaran": 16,
+      "nusa-dua": 13,
+      "sanur": 20,
+      "seminyak": 31,
+      "ubud": 32,
+      "uluwatu-bukit": 25
+    },
+    "closedConfirmed": 0,
+    "excludedRecords": 62,
+    "liveDatabaseCandidate": 208,
+    "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
+    "liveExpectationStatus": "needs_live_sql_confirmation",
+    "liveExpectedActiveAll": 250,
+    "liveExpectedActiveFnb": 208,
+    "liveExpectedPublishedFnb": 174,
+    "publicationState": {
+      "published": 171,
+      "review": 36
+    },
+    "repoCanonicalActiveFnb": 207,
+    "totalEligible": 207
+  },
+  "schemaVersion": 1,
+  "scope": "All repository-backed active venue records in food/drink categories across every represented district.",
+  "sourceAuthority": [
+    "supabase/migrations/0015_publish_collected_venues.sql",
+    "supabase/migrations/0018_dedupe_venue_twins.sql",
+    "supabase/migrations/0019_ubud_brunch_venues.sql",
+    "supabase/migrations/0020_seminyak_brunch_enrich.sql",
+    "supabase/migrations/0021_canggu_editorial_pass.sql",
+    "supabase/migrations/0022_canggu_editorial_pass_t2.sql",
+    "supabase/migrations/0023_dandelion_casatua_dicarik_fix.sql",
+    "supabase/migrations/0024_ubud_editorial_pass.sql",
+    "docs/canggu-editorial-pass.md",
+    "docs/ubud-editorial-pass.md",
+    "lib/uluwatu/venues.ts"
+  ],
+  "surfaceVisibility": {
+    "baliHubActiveStatusPool": {
+      "note": "Some /bali hub surfaces may use status=active without the /places publication-ready predicate; this is a candidate pool, not a single rendered-page count.",
+      "repoCanonicalActiveFnb": 207
+    },
+    "deepDistrictGuides": {
+      "cangguPublicationReadyFnb": 70,
+      "note": "Guide implementations and category filters vary; counts are eligible publication-ready F&B pools, not proof every record renders on every guide page.",
+      "ubudPublicationReadyFnb": 32,
+      "uluwatuPublicationReadyFnb": 24
+    },
+    "places": {
+      "publicationReady": 171,
+      "review": 36,
+      "rule": "lib/publication.ts publication-ready gate"
+    }
+  },
+  "venues": [
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "12 Kitchen and Wine",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "12-kitchen-and-wine",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 63,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Atlas Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "atlas-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 96,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "BAKED Pererenan",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "baked-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 81,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "BAKED. Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "baked-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 97,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bali Buda Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bali-buda-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 133,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bar Vera Bistro & Wine Bar",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bar-vera-bistro-and-wine-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 64,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Beach Boy Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "beach-boy-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 65,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Boheme Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "boheme-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 100,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bokashi Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bokashi-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 101,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bottega Italiana",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bottega-italiana",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 44,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Brunch Club Pererenan",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "brunch-club-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 75,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "CAFE VIDA Healthy Organic Restaurant Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "cafe-vida-healthy-organic-restaurant-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 76,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "COMO Beach Club Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "como-beach-club-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 66,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Copenhagen CAFE Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "copenhagen-cafe-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 103,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Crate Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "crate-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 45,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Dandelion",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "dandelion",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 46,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Deus Ex Machina",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "deus-ex-machina",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 47,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "FINNS Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "finns-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 48,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Hippie Fish Pererenan Beach",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "hippie-fish-pererenan-beach",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 105,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Honey Kitchen",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "honey-kitchen",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 85,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "ISLA by Earth Island",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "isla-by-earth-island",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 107,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ji Restaurant Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ji-restaurant-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 67,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "La Brisa Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "la-brisa-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 49,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Luigi’s Hot Pizza",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "luigis-hot-pizza",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 50,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Lulu Bistrot",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "lulu-bistrot",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 68,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Luma",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "luma",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 69,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Lyma Beach",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "lyma-beach",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 110,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mason",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "mason",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 51,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "MIEL Specialty Coffee Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "miel-specialty-coffee-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 70,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Milk & Madu Beach Road",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "milk-and-madu-beach-road",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 77,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Milk & Madu Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "milk-and-madu-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 78,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Milu by Nook",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "milu-by-nook",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 52,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Moana Fish Eatery",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "moana-fish-eatery",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 53,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mosto Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "mosto-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 79,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Motion Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "motion-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 148,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Neighbourhood Food Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "neighbourhood-food-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 111,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Neighbourhood Food Seseh",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "neighbourhood-food-seseh",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 112,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "NÜDE Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "nude-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 54,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Oma Jamu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "oma-jamu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 150,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Pizza Fabbrica",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "pizza-fabbrica",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 55,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Revolver Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "revolver-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 116,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Rise and Shine Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "rise-and-shine-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 152,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Riviera Bistro Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "riviera-bistro-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 117,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Riviera Cafe Cemagi",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "riviera-cafe-cemagi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 118,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Riviera Trattoria Pererenan",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "riviera-trattoria-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 119,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Rize Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "rize-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 90,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Roots Pererenan",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "roots-pererenan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 120,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ruko Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ruko-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 154,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Samadi Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "samadi-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 155,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Santanera",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "santanera",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 71,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Satu-Satu Coffee Company",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "satu-satu-coffee-company",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 156,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sa’Mesa Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "samesa-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 56,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sensorium Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sensorium-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 122,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Seseh General Store",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "seseh-general-store",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 123,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Shelter Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "shelter-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 57,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "SKOOL Kitchen",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "skool-kitchen",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 58,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Avocado Factory",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-avocado-factory",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 160,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Lawn Canggu Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-lawn-canggu-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 72,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Shady Shack",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-shady-shack",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 162,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Slow",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-slow",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 59,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Touché Cafe & Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "touche-cafe-and-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 125,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Tropical Nomad",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "tropical-nomad",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 126,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "TWO FACE Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "two-face-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 73,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Udara Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "udara-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 93,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ulekan Berawa",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ulekan-berawa",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 60,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Bu Mi",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-bu-mi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 61,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Nonii",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-nonii",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 62,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Woods Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "woods-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 94,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "YUKI Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "yuki-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 74,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "canggu",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "ZIN Cafe Canggu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "zin-cafe-canggu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 80,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "AKUA Mediterranean",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "akua-mediterranean",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 195,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Balique Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "balique-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 196,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bawang Merah Beachfront",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bawang-merah-beachfront",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 197,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bella Cucina",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bella-cucina",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 198,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Cuca Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "cuca-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 199,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "DAVA Steak & Seafood",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "dava-steak-and-seafood",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 200,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Kayumanis Resto Jimbaran",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "kayumanis-resto-jimbaran",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 201,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "KO Japanese Teppanyaki & Sushi",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ko-japanese-teppanyaki-and-sushi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 202,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Nelayan Restaurant & Puri Bar",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "nelayan-restaurant-and-puri-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 203,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Nyoman Café",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "nyoman-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 204,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Radja Seafood Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "radja-seafood-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 205,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sundara",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sundara",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 206,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sunset Beach Bar & Grill",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sunset-beach-bar-and-grill",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 207,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "UNIQUE Rooftop Bar & Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "unique-rooftop-bar-and-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 208,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Mami ikan bakar",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-mami-ikan-bakar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 209,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "jimbaran",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Ramayana Ikan Bakar",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-ramayana-ikan-bakar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 210,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Arwana",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "arwana",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 211,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bejana (Ritz-Carlton)",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bejana-ritz-carlton",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 212,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bumbu Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bumbu-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 213,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Izakaya by OKU",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "izakaya-by-oku",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 214,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Kayuputi",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "kayuputi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 215,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Koral",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "koral",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 216,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Manarai Beach House",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "manarai-beach-house",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 217,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Nusa Dua Beach Grill",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "nusa-dua-beach-grill",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 218,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Piasan",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "piasan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 219,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Soleil at Mulia",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "soleil-at-mulia",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 220,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Tetaring",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "tetaring",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 221,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Beach Grill (Ritz-Carlton)",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-beach-grill-ritz-carlton",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 222,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "White Orchid Nusa Dua",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "white-orchid-nusa-dua",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 223,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bella Italia Sanur",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "bella-italia-sanur",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 224,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Genius Cafe",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "genius-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 225,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Gong Restaurant",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "gong-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 226,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Jalapeño",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "jalapeno",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 227,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Kuu Izakaya Dining",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "kuu-izakaya-dining",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 228,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Lilla Pantai",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "lilla-pantai",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 229,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Linga Longa Bar",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "linga-longa-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 230,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Massimo — Italian Restaurant",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "massimo-italian-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 231,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mona Lisa Cafe",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "mona-lisa-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 232,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Oranje Bar",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "oranje-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 233,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Pizzaria (Hyatt)",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "pizzaria-hyatt",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 234,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Red Manna",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "red-manna",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 235,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Retro Kitchen and Bar",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "retro-kitchen-and-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 236,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sala Bistro",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "sala-bistro",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 237,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Segara the Seaside",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "segara-the-seaside",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 238,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Soul on the Beach",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "soul-on-the-beach",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 239,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Coconut Tree",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "warung-coconut-tree",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 240,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Little Bird",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "warung-little-bird",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 241,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Makan Little Mars",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "warung-makan-little-mars",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 242,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "sanur",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "White Orchid (Sanur)",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "white-orchid-sanur",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 243,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "7AM Bakers Umalas",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "7am-bakers-umalas",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 95,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bambu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bambu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 244,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Biku",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "biku",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 245,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Boy'N'Cow",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "boyncow",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 187,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "districtAmbiguity": {
+        "evidence": [
+          "0015 imports the slug in Seminyak",
+          "0021 only updates the slug when district='canggu'"
+        ],
+        "menuUseBlockedUntilLocationConfirmed": true,
+        "productionOrientedDistrict": "canggu",
+        "repoReplayDistrict": "seminyak",
+        "status": "needs_live_sql_confirmation"
+      },
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Café del Mar Bali",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "cafe-del-mar-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 102,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Corner House Bali",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "corner-house-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 185,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ginger Moon Canteen",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "ginger-moon-canteen",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 246,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Hog Wild with Chef Bruno",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "hog-wild-with-chef-bruno",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 106,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Kilo Kitchen Bali - Seminyak",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "kilo-kitchen-bali-seminyak",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 188,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "KU DE TA",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "ku-de-ta",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 194,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "La Casetta Bali",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "la-casetta-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 109,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ling-Ling's Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ling-lings-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 182,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mamasan Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "mamasan-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 186,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mauri Restaurant",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "mauri-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 247,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Merah Putih | Indonesian Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "merah-putih-indonesian-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 180,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "MOONLITE KITCHEN & BAR",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "moonlite-kitchen-and-bar",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 189,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Natys Restaurant Seminyak",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "natys-restaurant-seminyak",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 193,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Naughty Nuri's Warung Seminyak",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "naughty-nuris-warung-seminyak",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 184,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Nook Umalas",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "nook-umalas",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 113,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Pison, Petitenget",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "pison-petitenget",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 248,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Potato Head Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "potato-head-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 191,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Poule de Luxe Bali",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "poule-de-luxe-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 114,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Revolver Seminyak",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "revolver-seminyak",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 192,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sangsaka",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sangsaka",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 249,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sardine",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sardine",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 250,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sea Circus",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sea-circus",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 251,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Seasalt",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "seasalt",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 190,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sisterfields",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sisterfields",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 181,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Waroeng Bernadette",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "waroeng-bernadette",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 252,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "warung",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Nia Balinese Food & Pork Ribs",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-nia-balinese-food-and-pork-ribs",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 183,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Watercress Seminyak",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "watercress-seminyak",
+      "source": {
+        "file": "supabase/migrations/0020_seminyak_brunch_enrich.sql",
+        "line": 45,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Alchemy",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "alchemy",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 130,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Anomali Coffee Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "anomali-coffee-ubud",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 131,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bali Bohemia",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bali-bohemia",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 132,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Bali Buda Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bali-buda-ubud",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 134,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Cafe Wayan & Bakery",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "cafe-wayan-and-bakery",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 135,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Casa Luna",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "casa-luna",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 136,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "CasCades",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "cascades",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 137,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Dicarik Warung",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "dicarik-warung",
+      "source": {
+        "file": "supabase/migrations/0023_dandelion_casatua_dicarik_fix.sql",
+        "line": 45,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Donna Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "donna-ubud",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 139,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Fair Warung Balé",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "fair-warung-bale",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 140,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Gelato Secrets Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "gelato-secrets-ubud",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 141,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Hujan Locale",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "hujan-locale",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 142,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ibu Rai",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ibu-rai",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 143,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Karsa Cafe",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "karsa-cafe",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 144,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Laka Leke",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "laka-leke",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 145,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Locavore NXT",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "locavore-nxt",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 146,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Manga Madu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "manga-madu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 147,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Milk & Madu Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "milk-and-madu-ubud",
+      "source": {
+        "file": "supabase/migrations/0019_ubud_brunch_venues.sql",
+        "line": 58,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mozaic",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "mozaic",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 149,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Onion Collective",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "onion-collective",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 151,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Room4Dessert",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "room4dessert",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 153,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sawobali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sawobali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 157,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Seeds of Life",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "seeds-of-life",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 158,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Seniman Coffee Studio",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "seniman-coffee-studio",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 159,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Suka Espresso Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "suka-espresso-ubud",
+      "source": {
+        "file": "supabase/migrations/0019_ubud_brunch_venues.sql",
+        "line": 34,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Elephant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-elephant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 161,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Mendez",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-mendez",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 163,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Warung Siam",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "warung-siam",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 164,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Watercress Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "watercress-ubud",
+      "source": {
+        "file": "supabase/migrations/0019_ubud_brunch_venues.sql",
+        "line": 46,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Who's Who",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "whos-who",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 165,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Wulan Vegetarian Warung",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "wulan-vegetarian-warung",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 166,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "ubud",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Zest Ubud",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "zest-ubud",
+      "source": {
+        "file": "supabase/migrations/0019_ubud_brunch_venues.sql",
+        "line": 70,
+        "note": "Later migration adds, activates, or relocates this canonical row."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Alchemy Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "alchemy-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 253,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Artisan - Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "artisan-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 173,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "BGS Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "bgs-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 254,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "El Kabron Bali",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "el-kabron-bali",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 176,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Gooseberry French Restaurant | Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 170,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "KALA Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "kala-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 255,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Laggas Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "laggas-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 256,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Mana Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "mana-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 172,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "MASONRY Restaurant",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "masonry-restaurant",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 257,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "oneeighty",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "oneeighty",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 178,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Papi Sapi",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "papi-sapi",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 258,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Seed Bingin",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "seed-bingin",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 259,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "bar",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Single Fin",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "single-fin",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 167,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Son of A Baker",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "son-of-a-baker",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 260,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Suka Espresso",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "suka-espresso",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 171,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Sundays Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "sundays-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 168,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "The Warung at Alila Villas Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 179,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Tropical Temptation - Adult Only Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 177,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "ULU ARTISAN — Ungasan",
+      "publicationState": "review",
+      "repositoryState": "active",
+      "slug": "ulu-artisan-ungasan",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 261,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ulu Fishmarket",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ulu-fishmarket",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 262,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "Ulu Garden",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "ulu-garden",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 263,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "WAATU",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "waatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 264,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "beach_club",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "White Rock Beach Club",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "white-rock-beach-club",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 169,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "YUKI Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "yuki-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 174,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "restaurant",
+      "district": "uluwatu-bukit",
+      "eligibilityState": "repo_canonical_active_fnb",
+      "eligible": true,
+      "name": "ZALI Uluwatu",
+      "publicationState": "published",
+      "repositoryState": "active",
+      "slug": "zali-uluwatu",
+      "source": {
+        "file": "supabase/migrations/0015_publish_collected_venues.sql",
+        "line": 175,
+        "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    }
+  ]
+}

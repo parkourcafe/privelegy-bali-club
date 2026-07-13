@@ -1,0 +1,1008 @@
+{
+  "batchId": "seminyak-03",
+  "capturedAt": "2026-07-13T16:03:37Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "seminyak",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-potato-head-beach--1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "official_booking",
+          "sourceManifestId": "src-potato-head-beach--home",
+          "status": "draft",
+          "url": "https://bali-bc-rsv.potatohead.co/",
+          "venueSlug": "potato-head-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Ground Level, Desa Potato Head, Jl. Petitenget 51B, Seminyak.",
+      "collectionNotes": [
+        "Live official beach-club menu; prices in thousands of rupiah exclude 10% service and 10% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-potato-head-beach-club-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--01",
+                  "name": "Seafood Feast",
+                  "priceMinor": 1850000,
+                  "sourceDisplayPrice": "1,850"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--02",
+                  "name": "Butcher's Pick",
+                  "priceMinor": 750000,
+                  "sourceDisplayPrice": "750"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--03",
+                  "name": "Smoke & Fire Platter",
+                  "priceMinor": 1000000,
+                  "sourceDisplayPrice": "1,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--04",
+                  "name": "Plant Powered",
+                  "priceMinor": 600000,
+                  "sourceDisplayPrice": "600"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--05",
+                  "name": "Prawn Cocktail",
+                  "priceMinor": 300000,
+                  "sourceDisplayPrice": "300"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "potato-head-beach--06",
+                  "name": "Mackerel Ceviche",
+                  "priceMinor": 145000,
+                  "sourceDisplayPrice": "145"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-potato-head-beach--menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Potato Head Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "potato-head-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-poule-de-luxe-bali-1",
+          "kind": "order",
+          "label": "Order online",
+          "provider": "official_order",
+          "sourceManifestId": "src-poule-de-luxe-bali-home",
+          "status": "draft",
+          "url": "https://www.pouledeluxe.fr/order-online",
+          "venueSlug": "poule-de-luxe-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "16D Jalan Batubelig, Seminyak.",
+      "collectionNotes": [
+        "Live first-party order menu; displayed prices are rupiah. A visible WhatsApp number without a link was not converted into an action."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-poule-de-luxe-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-01",
+                  "name": "Cream Puff",
+                  "priceMinor": 25000,
+                  "sourceDisplayPrice": "Rp 25.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-02",
+                  "name": "Macaron",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "Rp 35.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-03",
+                  "name": "Apple Crumble",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "Rp 45.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-04",
+                  "name": "Gluten-Free Chocolate Fondant",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "Rp 45.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-05",
+                  "name": "Croissant",
+                  "priceMinor": 30000,
+                  "sourceDisplayPrice": "Rp 30.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "poule-de-luxe-bali-06",
+                  "name": "Almond Croissant",
+                  "priceMinor": 40000,
+                  "sourceDisplayPrice": "Rp 40.000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-poule-de-luxe-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Poule de Luxe Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "poule-de-luxe-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Revolver Seminyak; official branch page.",
+      "collectionNotes": [
+        "Official branch PDF; values are in thousands of IDR and exclude 10% tax and 7% service. No reservation URL was inferred."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-revolver-seminyak-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-01",
+                  "name": "Seasonal Fruit Salad",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-02",
+                  "name": "Acai Smoothie Bowl",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-03",
+                  "name": "Overnight Oats",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-04",
+                  "name": "Chopped Chicken Salad",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-05",
+                  "name": "Tuna Sashimi & Crispy Rice Salad",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "revolver-seminyak-06",
+                  "name": "Burrito Bowl",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-revolver-seminyak-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Revolver Seminyak",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "revolver-seminyak",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sangsaka-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "now_book_it",
+          "sourceManifestId": "src-sangsaka-home",
+          "status": "draft",
+          "url": "https://bookings.nowbookit.com/?accountid=79aa53dc-431a-4591-8682-0b6f56292e92&venueid=84",
+          "venueSlug": "sangsaka",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Sangsaka, Seminyak; exact venue-controlled site and booking widget.",
+      "collectionNotes": [
+        "Live first-party menu; prices are in thousands of rupiah and exclude 10% tax and 7% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-sangsaka-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-01",
+                  "name": "PIE TEE KERANG",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70/pc"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-02",
+                  "name": "KEPITING",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65/pc"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-03",
+                  "name": "BAK PAO BUNTUT",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45/pc"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-04",
+                  "name": "RUJAK TONGKOL",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-05",
+                  "name": "UDANG PANGGANG",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sangsaka-06",
+                  "name": "PIPI SAPI KALIO",
+                  "priceMinor": 280000,
+                  "sourceDisplayPrice": "280"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sangsaka-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sangsaka",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sangsaka",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sardine-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-sardine-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/kclubgroup-sardine/reserve/landing",
+          "venueSlug": "sardine",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Sardine Seminyak; current venue-controlled site.",
+      "collectionNotes": [
+        "Official-linked lunch Drive menu; prices in thousands of rupiah exclude 8% service and 10% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-sardine-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-01",
+                  "name": "Trio Tartare",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-02",
+                  "name": "Burrata & Tomato",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-03",
+                  "name": "Peruvian Ceviche",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-04",
+                  "name": "Coconut Vongole",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-05",
+                  "name": "Calamari Fritters",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sardine-06",
+                  "name": "Pan-Seared Fish of the Day",
+                  "priceMinor": 290000,
+                  "sourceDisplayPrice": "290"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sardine-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sardine",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sardine",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sea-circus-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-sea-circus-home",
+          "status": "draft",
+          "url": "https://bookv5.chope.co/booking?rid=seacircus1702bal&source=rest_seacircus-bali.com",
+          "venueSlug": "sea-circus",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "22 Jalan Kayu Aya, Seminyak, Bali.",
+      "collectionNotes": [
+        "Official breakfast PDF served 07:30–12:00; 2024/11 asset path. Prices in thousands of rupiah exclude 6% service and 10% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-sea-circus-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-01",
+                  "name": "Fairy Floss Pancakes",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-02",
+                  "name": "Dirty Waffles",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-03",
+                  "name": "Corn Fritters",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-04",
+                  "name": "Quinoa, Feta & Avo Salad",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-05",
+                  "name": "Bacon & Egg Burger",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sea-circus-06",
+                  "name": "Sea Circus Bomb Scrambled Eggs",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sea-circus-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sea Circus",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sea-circus",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-seasalt-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-seasalt-home",
+          "status": "draft",
+          "url": "https://wa.me/628113867544",
+          "venueSlug": "seasalt",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Ground floor, Alila Seminyak, Jalan Taman Ganesha No.9, Petitenget.",
+      "collectionNotes": [
+        "Official Hyatt dinner PDF has no effective date; prices in thousands of rupiah exclude 21% tax and service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-seasalt-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-01",
+                  "name": "Hamachi Crudo",
+                  "priceMinor": 230000,
+                  "sourceDisplayPrice": "230"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-02",
+                  "name": "Miso-Marinated Beef Tataki",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-03",
+                  "name": "Sesame-Crusted Tuna Tataki",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-04",
+                  "name": "Seasalt Seasonal Salad",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-05",
+                  "name": "Swiss Chard Salad",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seasalt-06",
+                  "name": "Salt-Crusted Barramundi",
+                  "priceMinor": 350000,
+                  "sourceDisplayPrice": "350"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-seasalt-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Seasalt",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "seasalt",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sisterfields-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-sisterfields-home",
+          "status": "draft",
+          "url": "https://wa.me/628113860507",
+          "venueSlug": "sisterfields",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sisterfields-2",
+          "kind": "order",
+          "label": "Order on GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-sisterfields-home",
+          "status": "draft",
+          "url": "https://gofood.co.id/en/bali/restaurant/sisterfields-cafe-seminyak-2a5fb1e9-cc6d-427f-9139-054642694520",
+          "venueSlug": "sisterfields",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Kayu Cendana No.7, Seminyak, Bali 80361.",
+      "collectionNotes": [
+        "Live official menu exposes item names/descriptions but omits prices, currency and tax; delivery-platform prices were not imported."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-sisterfields-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-01",
+                  "name": "Chicken Schnitzel Caesar",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-02",
+                  "name": "Tempura Fish",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-03",
+                  "name": "Vietnamese Chicken Salad",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-04",
+                  "name": "Lamb Shawarma Salad",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-05",
+                  "name": "Original Dirty Burger",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sisterfields-06",
+                  "name": "Short Ribs Rigatoni",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sisterfields-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sisterfields",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sisterfields",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-waroeng-bernadette-1",
+          "kind": "reserve",
+          "label": "Seminyak reservation",
+          "provider": "umai",
+          "sourceManifestId": "src-waroeng-bernadette-home",
+          "status": "draft",
+          "url": "https://reservation.umai.io/en/partner/waroeng-bernadette",
+          "venueSlug": "waroeng-bernadette",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-waroeng-bernadette-2",
+          "kind": "order",
+          "label": "Order on GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-waroeng-bernadette-home",
+          "status": "draft",
+          "url": "https://gofood.link/a/EooWZqm",
+          "venueSlug": "waroeng-bernadette",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Kayu Aya No.17, Kayu Aya Square, Seminyak.",
+      "collectionNotes": [
+        "Official Instagram to Linktree to 2025 menu chain; prices exclude 5.5% service and 10% tax. No menu imagery is retained or licensed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "id": "menu-waroeng-bernadette-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-01",
+                  "name": "Tempe & Tahu",
+                  "priceMinor": 25000,
+                  "sourceDisplayPrice": "IDR 25K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-02",
+                  "name": "Lumpia Goreng",
+                  "priceMinor": 39000,
+                  "sourceDisplayPrice": "IDR 39K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-03",
+                  "name": "Perkedel Jagung",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "IDR 35K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-04",
+                  "name": "Vegan Rendang",
+                  "priceMinor": 119000,
+                  "sourceDisplayPrice": "IDR 119K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-05",
+                  "name": "Tuna Kari",
+                  "priceMinor": 87000,
+                  "sourceDisplayPrice": "IDR 87K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waroeng-bernadette-06",
+                  "name": "Opor Ayam",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "IDR 85K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-waroeng-bernadette-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Waroeng Bernadette",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "waroeng-bernadette",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:37Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-warung-nia-balines-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp booking",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-warung-nia-balines-home",
+          "status": "draft",
+          "url": "https://wa.me/6285777012377",
+          "venueSlug": "warung-nia-balinese-food-and-pork-ribs",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Kayu Aya Square inside Flea Market Seminyak, Jl. Kayu Aya.",
+      "collectionNotes": [
+        "First-party 2026 menu URLs returned the venue 404 page at capture time. Indexed/cached prices were not normalized into evidence; retry the binary source."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "Warung Nia Balinese Food & Pork Ribs",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-nia-balinese-food-and-pork-ribs",
+      "verifiedAt": null
+    }
+  ]
+}

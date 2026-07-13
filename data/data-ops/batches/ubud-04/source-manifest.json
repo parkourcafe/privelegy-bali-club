@@ -1,0 +1,43 @@
+{
+  "batchId": "ubud-04",
+  "generatedAt": "2026-07-13T15:42:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T15:42:00Z",
+      "id": "src-wulan-instagram",
+      "label": "Wulan Vegetarian Warung official Instagram",
+      "notes": "Repo-linked official profile is inaccessible; no menu/action content accepted.",
+      "officialControl": "venue",
+      "outcome": "blocked_access",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/wulanveg/",
+      "venueSlug": "wulan-vegetarian-warung",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:42:00Z",
+      "id": "src-zest-site-menu",
+      "label": "Zest Ubud official live menu",
+      "notes": "Live item catalogue with raw K prices; currency is not explicitly named.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://www.zestubud.com/",
+      "venueSlug": "zest-ubud",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:42:00Z",
+      "id": "src-zest-reservations",
+      "label": "Zest Ubud official reservation page",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_booking_page",
+      "url": "https://www.zestubud.com/reservations",
+      "venueSlug": "zest-ubud",
+      "verifiedAt": null
+    }
+  ]
+}

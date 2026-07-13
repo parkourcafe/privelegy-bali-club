@@ -1,0 +1,115 @@
+{
+  "batchId": "canggu-04b",
+  "generatedAt": "2026-07-13T15:36:15Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-oma-jamu-instagram",
+      "label": "Oma Jamu Vegan official Instagram",
+      "notes": "Confirms brand metadata; no accessible address/menu/action content.",
+      "officialControl": "venue",
+      "outcome": "blocked_access",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/omajamuvegan/",
+      "venueSlug": "oma-jamu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-pizza-fabbrica-menu",
+      "label": "Pizza Fabbrica official menu",
+      "notes": "Prices are thousands of rupiah; plus 10% tax and 6% service.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://pizzafabbricabali.com/menu/",
+      "venueSlug": "pizza-fabbrica",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-pizza-fabbrica-site",
+      "label": "Pizza Fabbrica official site",
+      "notes": "Exact Canggu branch; SSL certificate is expired and normal fetch returns gateway error.",
+      "officialControl": "venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_branch_page",
+      "url": "https://pizzafabbricabali.com/",
+      "venueSlug": "pizza-fabbrica",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-rise-shine-instagram",
+      "label": "Rise and Shine Cafe official Instagram",
+      "notes": "Brand metadata only; branch/menu/action content unavailable.",
+      "officialControl": "venue",
+      "outcome": "blocked_access",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/riseandshine_bali/",
+      "venueSlug": "rise-and-shine-cafe",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-roots-instagram",
+      "label": "Roots in Bali official Instagram",
+      "notes": "Brand metadata only; third-party menu PDF explicitly excluded.",
+      "officialControl": "venue",
+      "outcome": "blocked_access",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/rootsinbali/",
+      "venueSlug": "roots-pererenan",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-ruko-instagram",
+      "label": "Ruko Cafe official Instagram",
+      "notes": "Brand metadata only; no accessible official menu/link hub.",
+      "officialControl": "venue",
+      "outcome": "blocked_access",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/rukocafe/",
+      "venueSlug": "ruko-cafe",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-samadi-old-menu",
+      "label": "Samadi historical restaurant menu URL",
+      "notes": "Historical official URL now returns HTML/404; no items accepted.",
+      "officialControl": "venue",
+      "outcome": "unavailable_404",
+      "sourceType": "official_menu_pdf",
+      "url": "https://www.samadibali.com/wp-content/uploads/2024/08/Samadi-Bali-Resto-Menu.pdf",
+      "venueSlug": "samadi-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-samadi-restaurant",
+      "label": "Samadi Restaurant official page",
+      "notes": "Current page describes menu categories but provides no working item-level menu link.",
+      "officialControl": "venue",
+      "outcome": "blocked_menu",
+      "sourceType": "official_branch_page",
+      "url": "https://samadibali.com/restaurant-2/",
+      "venueSlug": "samadi-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:36:15Z",
+      "id": "src-samadi-site",
+      "label": "Samadi Canggu official site",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://samadibali.com/",
+      "venueSlug": "samadi-bali",
+      "verifiedAt": null
+    }
+  ]
+}

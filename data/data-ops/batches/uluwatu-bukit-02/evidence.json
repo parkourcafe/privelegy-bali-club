@@ -1,0 +1,1219 @@
+{
+  "batchId": "uluwatu-bukit-02",
+  "capturedAt": "2026-07-13T15:51:46Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "uluwatu-bukit",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-papi-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-papi-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/reservations/papisapibali",
+          "venueSlug": "papi-sapi",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-papi-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-papi-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282342173719",
+          "venueSlug": "papi-sapi",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-papi-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-papi-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/kbamNkgPuz11gbRWA",
+          "venueSlug": "papi-sapi",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait, Pecatu.",
+      "collectionNotes": [
+        "Currency/scale not printed alongside values; kept raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-papi-sapi-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Flame-grilled yellowfin tuna patty.",
+                  "id": "papi-01",
+                  "name": "YELLOWFIN burger",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Two smashed Australian beef patties.",
+                  "id": "papi-02",
+                  "name": "SAPI PENYET",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Grilled sweet-soy-and-chilli chicken thigh.",
+                  "id": "papi-03",
+                  "name": "CHOOK UP",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "papi-04",
+                  "name": "Mango & Passionfruit Pavlova",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "papi-05",
+                  "name": "Lemon Meringue Tart",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "papi-06",
+                  "name": "burnt basque cheesecake",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-papi-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Papi Sapi",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "papi-sapi",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-seed-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-seed-menu",
+          "status": "draft",
+          "url": "https://cho.pe/seedbingin.web?",
+          "venueSlug": "seed-bingin",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-seed-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-seed-menu",
+          "status": "draft",
+          "url": "https://www.google.com/maps/search/?api=1&query=Seed+Bingin+Bali",
+          "venueSlug": "seed-bingin",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Bingin, Pecatu, South Kuta.",
+      "collectionNotes": [
+        "Cooking-class WhatsApp was excluded from standard reservation actions."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-seed-bingin-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seed-01",
+                  "name": "Soft Shell Crab",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seed-02",
+                  "name": "Tuna Crudo",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seed-03",
+                  "name": "Smoked Octopus Tempura",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seed-04",
+                  "name": "Black Garlic Eggplant",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "5 pieces.",
+                  "id": "seed-05",
+                  "name": "Gyozas",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "5pcs 90k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "seed-06",
+                  "name": "Amberjack Ceviche",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-seed-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Seed Bingin",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "seed-bingin",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-single-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-single-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/reservations/singlefinuluwatu",
+          "venueSlug": "single-fin",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-single-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-single-menu",
+          "status": "draft",
+          "url": "https://wa.me/6285958951520",
+          "venueSlug": "single-fin",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Pantai Suluban, Jl. Labuan Sait, Pecatu, Uluwatu.",
+      "collectionNotes": [
+        "K values kept currency-null; source says tax/service included."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-single-fin-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-01",
+                  "name": "SPICY EDAMAME BEANS (HOT)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "70K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-02",
+                  "name": "GOLDEN FRIES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "75K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-03",
+                  "name": "BREAD & DIP",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-04",
+                  "name": "THAI SWEET CHILI CHICKEN WINGS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "100K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-05",
+                  "name": "FRIED CALAMARI",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "100K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "single-06",
+                  "name": "AHI TUNA TARTARE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "115K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-single-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Single Fin",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "single-fin",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-son-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-son-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/sonofabaker.bali/",
+          "venueSlug": "son-of-a-baker",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Uluwatu/Pecatu; owned social profile only.",
+      "collectionNotes": [
+        "No official menu/action provider; third-party address and menu claims excluded."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Son of a Baker",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "son-of-a-baker",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-suka-page",
+          "kind": "website",
+          "label": "Official Uluwatu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-suka-page",
+          "status": "draft",
+          "url": "https://www.bysuka.com/suka-uluwatu",
+          "venueSlug": "suka-espresso",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-suka-book",
+          "kind": "reserve",
+          "label": "Booking form",
+          "provider": "whatsform",
+          "sourceManifestId": "src-suka-page",
+          "status": "draft",
+          "url": "https://whatsform.com/lfNujS",
+          "venueSlug": "suka-espresso",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-suka-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-suka-page",
+          "status": "draft",
+          "url": "https://wa.me/6281246527605/",
+          "venueSlug": "suka-espresso",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait, Uluwatu.",
+      "collectionNotes": [
+        "Morning menu subset; afternoon and dinner PDFs also recorded by source audit but not transcribed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-suka-espresso-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-01",
+                  "name": "SMASHED AVO",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-02",
+                  "name": "BACON EGG BURGER",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-03",
+                  "name": "SALMON SCRAMBLE",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-04",
+                  "name": "MORNING FUEL BOWL",
+                  "priceMinor": 89000,
+                  "sourceDisplayPrice": "89"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-05",
+                  "name": "SMOKED HAM & CHEESE OMELETTE",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "suka-06",
+                  "name": "TRUFFLE SCRAMBLE",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-suka-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "SUKA Espresso Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "suka-espresso",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sund-vip",
+          "kind": "reserve",
+          "label": "VIP experiences",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-sundays-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/experiences/sundaysbeachclub",
+          "venueSlug": "sundays-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sund-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-sundays-menu",
+          "status": "draft",
+          "url": "https://wa.me/message/MDKBUPCBZSPMG1",
+          "venueSlug": "sundays-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan.",
+      "collectionNotes": [
+        "Daily beach pass is walk-in only; reservation action is VIP-specific."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-sundays-beach-club-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Coriander and crispy rice.",
+                  "id": "sund-01",
+                  "name": "beef rendang bao",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Ranch, hot sauce and pickles.",
+                  "id": "sund-02",
+                  "name": "tennessee chicken wings",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Island vegetables and nuoc nam.",
+                  "id": "sund-03",
+                  "name": "rice paper roll",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sour ume sauce and sesame.",
+                  "id": "sund-04",
+                  "name": "prawn toast",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Baked corn chips and coriander.",
+                  "id": "sund-05",
+                  "name": "guacamole",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Taramasalata.",
+                  "id": "sund-06",
+                  "name": "potato scallop",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sundays-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sundays Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sundays-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-alila-page",
+          "kind": "website",
+          "label": "Official dining page",
+          "provider": "official_website",
+          "sourceManifestId": "src-alila-page",
+          "status": "draft",
+          "url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsav-alila-villas-uluwatu/dining/the-warung",
+          "venueSlug": "the-warung-at-alila-villas-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-alila-map",
+          "kind": "directions",
+          "label": "Official property map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-alila-page",
+          "status": "draft",
+          "url": "https://maps.google.com/?cid=11700727751578758465",
+          "venueSlug": "the-warung-at-alila-villas-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Alila Villas Uluwatu, Jalan Belimbing Sari, Uluwatu.",
+      "collectionNotes": [
+        "Rendered official page mentions reservations/WhatsApp but exposes no direct href; none invented."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-the-warung-at-alila-villas-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-01",
+                  "name": "PERKEDEL JAGUNG",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-02",
+                  "name": "PECEL MADIUN",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-03",
+                  "name": "BATAGOR CAMPUR",
+                  "priceMinor": 170000,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-04",
+                  "name": "TONGKOL GOHU",
+                  "priceMinor": 170000,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-05",
+                  "name": "LOENPIA SEMARANG",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alila-06",
+                  "name": "PEPES IKAN KUNING",
+                  "priceMinor": 210000,
+                  "sourceDisplayPrice": "210"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-alila-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Warung at Alila Villas Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-tt-page",
+          "kind": "website",
+          "label": "Official dining page",
+          "provider": "official_website",
+          "sourceManifestId": "src-tt-page",
+          "status": "draft",
+          "url": "https://ttbeach.club/eat-and-drink",
+          "venueSlug": "tropical-temptation-adult-only-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-tt-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "official_booking",
+          "sourceManifestId": "src-tt-page",
+          "status": "draft",
+          "url": "https://reserve.ttbeach.club/",
+          "venueSlug": "tropical-temptation-adult-only-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-tt-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-tt-page",
+          "status": "draft",
+          "url": "https://wa.me/6281222201688",
+          "venueSlug": "tropical-temptation-adult-only-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Adult-only beach club, Jl. Melasti Beach 88, Ungasan.",
+      "collectionNotes": [
+        "Official map shortlink resolves to old Cattamaran identity and was excluded as stale alias."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-tropical-temptation-adult-only-beach-club-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-01",
+                  "name": "LOADED FRIES",
+                  "priceMinor": 138000,
+                  "sourceDisplayPrice": "138"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-02",
+                  "name": "TT TACOS",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-03",
+                  "name": "RIPPER BEEF NACHOS",
+                  "priceMinor": 195000,
+                  "sourceDisplayPrice": "195"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-04",
+                  "name": "FRIES WRAP",
+                  "priceMinor": 165000,
+                  "sourceDisplayPrice": "165"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-05",
+                  "name": "CHEESE QUESADILLAS",
+                  "priceMinor": 167000,
+                  "sourceDisplayPrice": "167"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "tt-06",
+                  "name": "OYSTER (6 PCS)",
+                  "priceMinor": 185000,
+                  "sourceDisplayPrice": "185"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-tt-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Tropical Temptation Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-art-page",
+          "kind": "website",
+          "label": "Official group site",
+          "provider": "official_website",
+          "sourceManifestId": "src-artisan-page",
+          "status": "draft",
+          "url": "https://artisangroup.id/",
+          "venueSlug": "ulu-artisan-ungasan",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-art-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-artisan-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/reservations/artisanungasan",
+          "venueSlug": "ulu-artisan-ungasan",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-art-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-artisan-page",
+          "status": "draft",
+          "url": "https://wa.me/6281239819800",
+          "venueSlug": "ulu-artisan-ungasan",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-art-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-artisan-page",
+          "status": "draft",
+          "url": "https://goo.gl/maps/7j53J3E3TqBXQD6VA",
+          "venueSlug": "ulu-artisan-ungasan",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Current official identity: Artisan Ungasan, Jl. Raya Uluwatu, Ungasan.",
+      "collectionNotes": [
+        "Repo review-state row needs canonical name reconciliation; menu values kept currency-null."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-ulu-artisan-ungasan-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-01",
+                  "name": "THE SIMPLE LIFE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-02",
+                  "name": "GREEN EGGS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-03",
+                  "name": "CROISSANT & EGGS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-04",
+                  "name": "TAMAGO GO",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-05",
+                  "name": "THE BESTEST SCRAMBLE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "art-06",
+                  "name": "RICE UP",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-artisan-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "ULU Artisan — Ungasan",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ulu-artisan-ungasan",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-ulu-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-ulu-site",
+          "status": "draft",
+          "url": "https://ulufishmarket.com/",
+          "venueSlug": "ulu-fishmarket",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ulu-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-ulu-site",
+          "status": "draft",
+          "url": "https://cho.pe/ulufishmarket.ig",
+          "venueSlug": "ulu-fishmarket",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ulu-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-ulu-site",
+          "status": "draft",
+          "url": "https://wa.me/%2B6282266469790",
+          "venueSlug": "ulu-fishmarket",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-ulu-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-ulu-site",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/HZtVS5xpwS3ozVkh8",
+          "venueSlug": "ulu-fishmarket",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait 10, Pecatu.",
+      "collectionNotes": [
+        "Officially linked Dropbox menu; K values kept currency-null."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:46Z",
+          "id": "menu-ulu-fishmarket-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-01",
+                  "name": "SHRIMP SAUTÉED IN BUTTER",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-02",
+                  "name": "SHRIMP POPCORN",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "130K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-03",
+                  "name": "FRIED CALAMARI",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "85K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-04",
+                  "name": "TRUFFLED SHIITAKE CROQUETTE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "85K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-05",
+                  "name": "CHEESE QUESADILLA",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "60K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "ulu-06",
+                  "name": "BLACKENED TUNA SASHIMI",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ulu-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "ULU Fishmarket",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ulu-fishmarket",
+      "verifiedAt": null
+    }
+  ]
+}

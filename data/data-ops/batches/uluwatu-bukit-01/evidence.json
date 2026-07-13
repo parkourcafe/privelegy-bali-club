@@ -1,0 +1,1107 @@
+{
+  "batchId": "uluwatu-bukit-01",
+  "capturedAt": "2026-07-13T15:51:50Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "uluwatu-bukit",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-alch-page",
+          "kind": "website",
+          "label": "Official branch page",
+          "provider": "official_website",
+          "sourceManifestId": "src-alch-page",
+          "status": "draft",
+          "url": "https://www.alchemybali.com/uluwatu",
+          "venueSlug": "alchemy-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-alch-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-alch-page",
+          "status": "draft",
+          "url": "https://wa.me/628113888143",
+          "venueSlug": "alchemy-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-alch-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-alch-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/VJywLyNdL3XZM5jE8",
+          "venueSlug": "alchemy-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Bingin No.8, Pecatu, Uluwatu.",
+      "collectionNotes": [
+        "No separate booking provider; WhatsApp is the official contact action."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-alchemy-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-01",
+                  "name": "BURRATA MEDITERRANEA",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "IDR 110,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-02",
+                  "name": "FOREST SOUP",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "IDR 85,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-03",
+                  "name": "BREAKFAST BOWL",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-04",
+                  "name": "OMELETTE GARDEN PLATE",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-05",
+                  "name": "AVOCADO TOAST",
+                  "priceMinor": 89000,
+                  "sourceDisplayPrice": "IDR 89,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "alch-06",
+                  "name": "BANANA TARO PANCAKES",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "IDR 85,000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-alch-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Alchemy Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "alchemy-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-art-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-art-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/artisan.bali/",
+          "venueSlug": "artisan-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official profile is multi-branch and does not resolve the exact canonical Uluwatu row.",
+      "collectionNotes": [
+        "Link-in-bio booking target is not exposed; repo Chope URL not promoted without endorsement."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Artisan Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "artisan-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-bgs-page",
+          "kind": "website",
+          "label": "Official store page",
+          "provider": "official_website",
+          "sourceManifestId": "src-bgs-page",
+          "status": "draft",
+          "url": "https://bgsbali.com/store/bgs-uluwatu/",
+          "venueSlug": "bgs-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-bgs-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-bgs-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/FXZZRc7kGUPgsiU9A",
+          "venueSlug": "bgs-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait, Pecatu.",
+      "collectionNotes": [
+        "K values kept currency-null because the menu uses mixed price notation without a scale legend."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-bgs-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-01",
+                  "name": "KRAKATOA smoothie bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-02",
+                  "name": "BIKINI BOTTOM smoothie bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-03",
+                  "name": "SUNSET STRIP smoothie bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-04",
+                  "name": "ESPRESSO",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "25K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-05",
+                  "name": "CAPPUCINO",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "30K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "bgs-06",
+                  "name": "ICE LATTE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "40K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bgs-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "BGS Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bgs-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-elk-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-elk-menu",
+          "status": "draft",
+          "url": "https://elkabron.com/menu/food",
+          "venueSlug": "el-kabron-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-elk-book",
+          "kind": "reserve",
+          "label": "Book now",
+          "provider": "official_booking",
+          "sourceManifestId": "src-elk-menu",
+          "status": "draft",
+          "url": "https://elkabron.com/book-now",
+          "venueSlug": "el-kabron-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-elk-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-elk-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281337235750",
+          "venueSlug": "el-kabron-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Cemongkak, Pecatu.",
+      "collectionNotes": [],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-el-kabron-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-01",
+                  "name": "PATATAS BRAVAS",
+                  "priceMinor": 185000,
+                  "sourceDisplayPrice": "185"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-02",
+                  "name": "CRISPY CALAMARI",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-03",
+                  "name": "OCTOPUS CARPACCIO",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-04",
+                  "name": "TUNA TARTARE",
+                  "priceMinor": 285000,
+                  "sourceDisplayPrice": "285"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-05",
+                  "name": "GRILLED AVOCADO",
+                  "priceMinor": 265000,
+                  "sourceDisplayPrice": "265"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "elk-06",
+                  "name": "SEAFOOD TAGLIATELLE",
+                  "priceMinor": 295000,
+                  "sourceDisplayPrice": "295"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-elk-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "El Kabron Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "el-kabron-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-goose-menu",
+          "kind": "website",
+          "label": "Official menus",
+          "provider": "official_website",
+          "sourceManifestId": "src-goose-menu",
+          "status": "draft",
+          "url": "https://www.gooseberry-restaurant.com/menus/",
+          "venueSlug": "gooseberry-french-restaurant-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-goose-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-goose-menu",
+          "status": "draft",
+          "url": "https://wa.me/+6282144823166",
+          "venueSlug": "gooseberry-french-restaurant-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-goose-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-goose-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/PZLU53eQUEqKAc8X6",
+          "venueSlug": "gooseberry-french-restaurant-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Gang Pirta, Pecatu.",
+      "collectionNotes": [
+        "Raw numeric values kept currency-null."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-gooseberry-french-restaurant-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-01",
+                  "name": "La Terrine de Foie Gras",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "375"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-02",
+                  "name": "Tartare de Bœuf Wagyu, Préparé à la Minute",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-03",
+                  "name": "La Tartiflette Savoyarde",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "195"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-04",
+                  "name": "Bavette à l’échalote, Frites Maison",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "395"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-05",
+                  "name": "Poitrine de Porc Croustillante",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "375"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "goose-06",
+                  "name": "Gnocchis Maison au Parmesan & Huile de Truffe",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "165"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-goose-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Gooseberry French Restaurant Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-kala-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-kala-menu",
+          "status": "draft",
+          "url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+          "venueSlug": "kala-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kala-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-kala-menu",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+          "venueSlug": "kala-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kala-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-kala-menu",
+          "status": "draft",
+          "url": "https://wa.me/6285337702422",
+          "venueSlug": "kala-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait No.99, Pecatu.",
+      "collectionNotes": [
+        "Official PDF URL is undated; freshness needs operator review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-kala-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-01",
+                  "name": "feta tempura",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-02",
+                  "name": "wood-fired broccoli",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-03",
+                  "name": "greek salad",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-04",
+                  "name": "bali heritage pork chop",
+                  "priceMinor": 350000,
+                  "sourceDisplayPrice": "350"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-05",
+                  "name": "lamb shoulder",
+                  "priceMinor": 290000,
+                  "sourceDisplayPrice": "290"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kala-06",
+                  "name": "grilled octopus",
+                  "priceMinor": 220000,
+                  "sourceDisplayPrice": "220"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-kala-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "KALA Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "kala-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-laggas-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-laggas-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/laggasbali/",
+          "venueSlug": "laggas-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official Laggas Bali social identity; exact canonical address unavailable.",
+      "collectionNotes": [
+        "No menu URL, item prices, phone, WhatsApp or booking target exposed."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Laggas Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "laggas-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-mana-page",
+          "kind": "website",
+          "label": "Official restaurant page",
+          "provider": "official_website",
+          "sourceManifestId": "src-mana-page",
+          "status": "draft",
+          "url": "https://uluwatusurfvillas.com/restaurant/",
+          "venueSlug": "mana-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mana-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-mana-page",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/uluwatu-surf-villas-mana/reserve/message?utm_source=website",
+          "venueSlug": "mana-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mana-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-mana-page",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=62817555365",
+          "venueSlug": "mana-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Mana Restaurant & Pool, Uluwatu Surf Villas, Jl. Pantai Suluban.",
+      "collectionNotes": [
+        "TableCheck declares IDR, but menu image scale is not explicit; values remain raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-mana-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-01",
+                  "name": "Freshly Baked Croissant",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-02",
+                  "name": "Buttermilk Pancakes",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-03",
+                  "name": "Acai Smoothie Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-04",
+                  "name": "Burrata",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-05",
+                  "name": "Miso Prawn Ramen",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "mana-06",
+                  "name": "Beef Short Rib Rendang",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "215"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-mana-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Mana Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mana-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-mas-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-masonry-menu",
+          "status": "draft",
+          "url": "https://masonrybali.com/uluwatu/menu",
+          "venueSlug": "masonry-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mas-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-masonry-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/experiences/masonryuluwatu",
+          "venueSlug": "masonry-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Current official identity M. MASON Bar | Grill, Jl. Labuansait No.10, Pecatu.",
+      "collectionNotes": [
+        "Canonical/current brand-name drift requires operator dedupe/rebrand review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-masonry-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-01",
+                  "name": "BURRATA",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-02",
+                  "name": "PRAWN SPAGHETTI",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-03",
+                  "name": "YELLOW FIN TUNA",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-04",
+                  "name": "OCTOPUS CARPACCIO",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-05",
+                  "name": "WOOD FIRED BARRAMUNDI FILLET",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mas-06",
+                  "name": "48HR SLOW COOKED BEEF CHEEK",
+                  "priceMinor": 360000,
+                  "sourceDisplayPrice": "360"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-masonry-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "MASONRY Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "masonry-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-one-page",
+          "kind": "website",
+          "label": "Official menu landing",
+          "provider": "official_website",
+          "sourceManifestId": "src-one-page",
+          "status": "draft",
+          "url": "https://oneeightybali.com/menu",
+          "venueSlug": "oneeighty",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-one-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-one-page",
+          "status": "draft",
+          "url": "https://cho.pe/oneeighty.web",
+          "venueSlug": "oneeighty",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "The Edge, Jl. Pura Goa Lempeh, Pecatu.",
+      "collectionNotes": [
+        "Official venue and parent property show different contact numbers; conflict retained for review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:51:50Z",
+          "id": "menu-oneeighty-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-01",
+                  "name": "indonesian tuna ceviche",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-02",
+                  "name": "pata taco (2)",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-03",
+                  "name": "chili salt calamari",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-04",
+                  "name": "the cliff burger",
+                  "priceMinor": 260000,
+                  "sourceDisplayPrice": "260"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-05",
+                  "name": "steak frites",
+                  "priceMinor": 480000,
+                  "sourceDisplayPrice": "480"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "one-06",
+                  "name": "bamboo lobster",
+                  "priceMinor": 595000,
+                  "sourceDisplayPrice": "595"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-one-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "oneeighty",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "oneeighty",
+      "verifiedAt": null
+    }
+  ]
+}

@@ -1,0 +1,1135 @@
+{
+  "batchId": "canggu-03",
+  "capturedAt": "2026-07-13T15:32:08Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-lulu-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-lulu-menu",
+          "status": "draft",
+          "url": "https://www.lulubistrot.com/menu",
+          "venueSlug": "lulu-bistrot",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lulu-book",
+          "kind": "reserve",
+          "label": "Book a table",
+          "provider": "official_booking",
+          "sourceManifestId": "src-lulu-booking",
+          "status": "draft",
+          "url": "https://www.lulubistrot.com/booking",
+          "venueSlug": "lulu-bistrot",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lulu-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-lulu-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281337920869",
+          "venueSlug": "lulu-bistrot",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Bolong No.72, Canggu.",
+      "collectionNotes": [
+        "IDR is stated on the venue site; five items only, not full parsing."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-lulu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "sourdough or baguette, whipped butter",
+                  "id": "lulu-01",
+                  "name": "BREAD AND BUTTER (V)",
+                  "priceMinor": 50000,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "garlic aioli, jamón serrano",
+                  "id": "lulu-02",
+                  "name": "ONDE-ONDE CROQUETTES",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "pickled shallots, tamarin",
+                  "id": "lulu-03",
+                  "name": "CHICKEN LIVER PÂTÉ",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "caramelized onions, goat’s cheese, soft herbs",
+                  "id": "lulu-04",
+                  "name": "ONION TARTE TATIN (V)",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "tiger prawn, calamari, confit garlic butter",
+                  "id": "lulu-05",
+                  "name": "SEAFOOD PASTA",
+                  "priceMinor": 220000,
+                  "sourceDisplayPrice": "220"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-lulu-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Lulu Bistrot",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "lulu-bistrot",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-lyma-site",
+          "kind": "website",
+          "label": "Official menus",
+          "provider": "official_website",
+          "sourceManifestId": "src-lyma-menu-hub",
+          "status": "draft",
+          "url": "https://lymabeach.com/our-menus/",
+          "venueSlug": "lyma-beach",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lyma-reserve",
+          "kind": "reserve",
+          "label": "Reservation",
+          "provider": "chope",
+          "sourceManifestId": "src-lyma-menu-hub",
+          "status": "draft",
+          "url": "https://cho.pe/lymabeach.linktree",
+          "venueSlug": "lyma-beach",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lyma-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-lyma-menu-hub",
+          "status": "draft",
+          "url": "https://wa.me/6289504821993",
+          "venueSlug": "lyma-beach",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Babadan No.225, Pererenan.",
+      "collectionNotes": [
+        "Current official link points to a 2025-named PDF; currency remains raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-lyma-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Boiled salted edamame",
+                  "id": "lyma-01",
+                  "name": "Edamame",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "40k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Potato fries | truffle oil | cheese | sriracha mayo",
+                  "id": "lyma-02",
+                  "name": "Truffle Cheesy Fries",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Chicken wings | bbq sauce | sesame | raw vegetables | herb aioli",
+                  "id": "lyma-03",
+                  "name": "Smokey Wings",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "60k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Baby romaine | avocado | buttered shrimps | sriracha sauce",
+                  "id": "lyma-04",
+                  "name": "Dynamite Shrimps",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "85k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Tuna | avocado | herbs | teriyaki ponzu",
+                  "id": "lyma-05",
+                  "name": "Avo Tuna Tataki",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "98k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-lyma-menu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Lyma Beach",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "lyma-beach",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-miel-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-miel-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/miel.bali/",
+          "venueSlug": "miel-specialty-coffee-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official brand profile found; exact Canggu branch not independently confirmed.",
+      "collectionNotes": [
+        "No official menu/action URL; no directory or aggregator substitution."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "MIEL Specialty Coffee Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "miel-specialty-coffee-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-beach-site",
+          "kind": "website",
+          "label": "Official menu hub",
+          "provider": "official_website",
+          "sourceManifestId": "src-milk-beach-menu-hub",
+          "status": "draft",
+          "url": "https://milkandmadu.com/menu/",
+          "venueSlug": "milk-and-madu-beach-road",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-milk-beach-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-milk-beach-menu-hub",
+          "status": "draft",
+          "url": "https://wa.me/6281353896153",
+          "venueSlug": "milk-and-madu-beach-road",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-beach-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-milk-beach-menu-hub",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/meBFhZxCPeFSduT3A",
+          "venueSlug": "milk-and-madu-beach-road",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-milk-beach-gofood",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-milk-beach-menu-hub",
+          "status": "draft",
+          "url": "https://gofood.co.id/english/bali/restaurant/milk-and-madu-beach-road-batu-bolong-9304522a-28f3-457e-92c8-479018bd4018",
+          "venueSlug": "milk-and-madu-beach-road",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Official site separately identifies Beach Road, Canggu.",
+      "collectionNotes": [
+        "Official href confirms phone despite duplicated page text typo; currency remains raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-milk-beach-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "espresso whipped mascarpone",
+                  "id": "milk-beach-01",
+                  "name": "TOASTED BANANA & WALNUT BREAD",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "cream cheese, chocolate almond crumb, apple, cinnamon gel, cream",
+                  "id": "milk-beach-02",
+                  "name": "CINNAMON BUN FRENCH TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "syrniki, strawberry gel, peach and sour cream",
+                  "id": "milk-beach-03",
+                  "name": "RICOTTA CAKES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "poached eggs, avocado, bacon, rocket, onion jam, hollandaise, sourdough",
+                  "id": "milk-beach-04",
+                  "name": "THE MADU",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "eggs, bacon, avocado, beans, jalapeños, corn salsa, sour cream, cheese",
+                  "id": "milk-beach-05",
+                  "name": "BREAKFAST BURRITO",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                }
+              ],
+              "name": "Breakfast review subset"
+            }
+          ],
+          "sourceManifestId": "src-milk-beach-breakfast",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Milk & Madu Beach Road",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "milk-and-madu-beach-road",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milu-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-milu-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/milubynook/",
+          "venueSlug": "milu-by-nook",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official identity confirmed; Berawa not shown in accessible bio.",
+      "collectionNotes": [
+        "Profile prints a reservation phone but exposes no stable outbound action; URL not guessed."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Milu By Nook",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "milu-by-nook",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-moana-hub",
+          "kind": "website",
+          "label": "Official Linktree",
+          "provider": "linktree",
+          "sourceManifestId": "src-moana-linktree",
+          "status": "draft",
+          "url": "https://linktr.ee/moanabali",
+          "venueSlug": "moana-fish-eatery",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-moana-reserve",
+          "kind": "whatsapp",
+          "label": "Reservation WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-moana-linktree",
+          "status": "draft",
+          "url": "https://wa.me/6281238158373",
+          "venueSlug": "moana-fish-eatery",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-moana-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-moana-linktree",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/ZgKeetdPYWy7WxrU9",
+          "venueSlug": "moana-fish-eatery",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-moana-gofood",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-moana-linktree",
+          "status": "draft",
+          "url": "https://gofood.co.id/bali/restaurant/moana-fish-eatery-canggu-611f3c6c-7072-4d94-a7cb-6b1f7c5ba5d9",
+          "venueSlug": "moana-fish-eatery",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Bolong No.28, Canggu.",
+      "collectionNotes": [
+        "Official menu updated June 2026; currency remains raw."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-moana-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Frozen fruit, mango, dragon fruit, banana, cranberry, granola and coconut.",
+                  "id": "moana-01",
+                  "name": "MOANA BOWL",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "85K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Poached eggs, spiced tomato, tuna, coconut milk and bread.",
+                  "id": "moana-02",
+                  "name": "SHAKSHUKA TUNA À LA MOANA",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Smoked salmon, poached eggs, avocado, toast and salad.",
+                  "id": "moana-03",
+                  "name": "SALMON TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Creamy tuna pate with garlic breads.",
+                  "id": "moana-04",
+                  "name": "FISH PATE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "85K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Ahi tuna, vegetables, lime juice and coconut milk.",
+                  "id": "moana-05",
+                  "name": "BORA BORA POISSON CRU",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "130K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-moana-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Moana Fish Eatery",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "moana-fish-eatery",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-mosto-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-mosto-menu",
+          "status": "draft",
+          "url": "https://mostobali.com/menu/",
+          "venueSlug": "mosto-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-mosto-reserve",
+          "kind": "reserve",
+          "label": "Reservation",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-mosto-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/mosto/reservations/create/search?tracking=website&venues=mosto%2Cdamaria%2Cluigishotpizza",
+          "venueSlug": "mosto-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-mosto-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-mosto-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281356152611",
+          "venueSlug": "mosto-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Berawa No.8.",
+      "collectionNotes": [
+        "Duplicate old/new page blocks require operator comparison before import."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-mosto-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "charcoal oil, peanuts dukka, housemade focaccia",
+                  "id": "mosto-01",
+                  "name": "muhammara",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mignonette",
+                  "id": "mosto-02",
+                  "name": "sakoshi bay oysters",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65 ea"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "corn cacio e pepe",
+                  "id": "mosto-03",
+                  "name": "mac and cheese frittatina",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55 ea"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "napa cabbage, wasabi vinaigrette, demi-glace",
+                  "id": "mosto-04",
+                  "name": "hamachi crudo",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "sambal arrabbiata, coriander",
+                  "id": "mosto-05",
+                  "name": "tagliolini",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                }
+              ],
+              "name": "First displayed official menu block"
+            }
+          ],
+          "sourceManifestId": "src-mosto-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Mosto Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mosto-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-motion-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-motion-menu",
+          "status": "draft",
+          "url": "https://www.motionfitnessbali.com/motionmenu/",
+          "venueSlug": "motion-cafe",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-motion-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-motion-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/cyVUJzzikQNpW3Rs6",
+          "venueSlug": "motion-cafe",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-motion-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-motion-menu",
+          "status": "draft",
+          "url": "https://wa.me/628113999411",
+          "venueSlug": "motion-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Bolong 69b.",
+      "collectionNotes": [
+        "Currency remains raw; official GoJek/Grab mentions lack branch deep links."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-motion-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Scrambled eggs, avocado, tomatoes, feta and toast.",
+                  "id": "motion-01",
+                  "name": "Avocado & Eggs I (GFO)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Poached eggs, avocado, tomatoes, feta, seeds and toast.",
+                  "id": "motion-02",
+                  "name": "Avocado & Eggs II (GFO)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Avocado, tomatoes, mushrooms, pesto and toast.",
+                  "id": "motion-03",
+                  "name": "Avocado Pesto Bread (V, GFO)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Eggs, olives, cheeses, vegetables, hummus, jam, butter and toast.",
+                  "id": "motion-04",
+                  "name": "Turkish Breakfast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "115k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Eggs, salmon, dill, asparagus, cucumber, protein bread and ricotta.",
+                  "id": "motion-05",
+                  "name": "Protein Breakfast Plate",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-motion-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "MOTION CAFÉ CANGGU",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "motion-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nbb-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-neighbourhood-berawa-menu",
+          "status": "draft",
+          "url": "https://www.neighbourhoodfood.co/menu",
+          "venueSlug": "neighbourhood-food-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-nbb-book",
+          "kind": "reserve",
+          "label": "Booking",
+          "provider": "official_booking",
+          "sourceManifestId": "src-neighbourhood-berawa-menu",
+          "status": "draft",
+          "url": "https://www.neighbourhoodfood.co/bookings",
+          "venueSlug": "neighbourhood-food-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-nbb-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-neighbourhood-berawa-menu",
+          "status": "draft",
+          "url": "https://wa.me/message/VQIK742I3EMDF1",
+          "venueSlug": "neighbourhood-food-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nbb-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-neighbourhood-berawa-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/E4gtpbFjZhLzBZ416",
+          "venueSlug": "neighbourhood-food-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Berawa No.99 BB.",
+      "collectionNotes": [
+        "Current official image filenames say 2024; recheck freshness before import."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-nbb-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fruit, coconut chia oat bircher and honey.",
+                  "id": "nbb-01",
+                  "name": "TROPICAL FRUIT (VG,GF,VO)",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Cinnamon, chia, apricot, yoghurt, almonds, sesame and olive oil.",
+                  "id": "nbb-02",
+                  "name": "QUINOA OAT PORRIDGE (GF, VG)",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Brioche, banana, peanut crème, dulce de leche, oat crumble.",
+                  "id": "nbb-03",
+                  "name": "FRENCH TOAST (VG, N)",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tortilla, beans, salsa, avocado, eggs, feta and chilli sauce.",
+                  "id": "nbb-04",
+                  "name": "RANCHEROS EGGS",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Barramundi, cauliflower puree, tomato compote and herbs.",
+                  "id": "nbb-05",
+                  "name": "BARRAMUNDI (GF)",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-neighbourhood-berawa-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Neighbourhood Food Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "neighbourhood-food-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nbs-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-neighbourhood-seseh-menu",
+          "status": "draft",
+          "url": "https://www.neighbourhoodfood.co/menu-1",
+          "venueSlug": "neighbourhood-food-seseh",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-nbs-book",
+          "kind": "reserve",
+          "label": "Booking",
+          "provider": "official_booking",
+          "sourceManifestId": "src-neighbourhood-seseh-menu",
+          "status": "draft",
+          "url": "https://www.neighbourhoodfood.co/bookings-1",
+          "venueSlug": "neighbourhood-food-seseh",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-nbs-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-neighbourhood-seseh-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282247515021",
+          "venueSlug": "neighbourhood-food-seseh",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nbs-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-neighbourhood-seseh-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/X34by5F1v9b2WgXu7",
+          "venueSlug": "neighbourhood-food-seseh",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Seseh 888, Cemagi.",
+      "collectionNotes": [
+        "Current official image filenames say 2024; Seseh and Berawa service rates differ."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:32:08Z",
+          "id": "menu-nbs-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fruit, coconut chia oat bircher and honey.",
+                  "id": "nbs-01",
+                  "name": "TROPICAL FRUIT (VG,GF,VO)",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Cottage cheese pancakes, sour cream and fruit compote.",
+                  "id": "nbs-02",
+                  "name": "SYRNIKI (3pcs)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fruit, spirulina, moringa, granola, goji and coconut.",
+                  "id": "nbs-03",
+                  "name": "JUNGLE SMOOTHIE BOWL (V,GF,N)",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Barramundi, cauliflower puree, tomato compote and herbs.",
+                  "id": "nbs-04",
+                  "name": "BARRAMUNDI (GF)",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Prawn cutlet, slaw, kewpie, tonkatsu sauce and milk bread.",
+                  "id": "nbs-05",
+                  "name": "PRAWN KATSU SANDO",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-neighbourhood-seseh-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Neighbourhood Food Seseh",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "neighbourhood-food-seseh",
+      "verifiedAt": null
+    }
+  ]
+}
