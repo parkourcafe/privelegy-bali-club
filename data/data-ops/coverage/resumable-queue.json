@@ -332,9 +332,22 @@
     },
     {
       "batchId": "uluwatu-bukit-02",
+      "completedVenueSlugs": [
+        "papi-sapi",
+        "seed-bingin",
+        "single-fin",
+        "son-of-a-baker",
+        "suka-espresso",
+        "sundays-beach-club",
+        "the-warung-at-alila-villas-uluwatu",
+        "tropical-temptation-adult-only-beach-club",
+        "ulu-artisan-ungasan",
+        "ulu-fishmarket"
+      ],
       "district": "uluwatu-bukit",
-      "resumeFromSlug": "papi-sapi",
-      "status": "queued",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "papi-sapi",
         "seed-bingin",
@@ -523,8 +536,8 @@
     }
   ],
   "currentBatchId": "ubud-03",
-  "generatedAt": "2026-07-13T15:44:45Z",
+  "generatedAt": "2026-07-13T15:51:46Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T15:44:45Z"
+  "updatedAt": "2026-07-13T15:51:46Z"
 }

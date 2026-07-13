@@ -118,6 +118,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   blockers. Three-way Gelato branch ambiguity, Karsa's compromised domain,
   wrong-venue Manga collateral, and Onion's rebrand/duplicate review remain
   explicit. Ledger state is 69 complete, 23 blocked, and 115 queued.
+- Uluwatu–Bukit batch 02 is processed: nine partial official menus and one
+  social-only blocker. Artisan name drift, Tropical Temptation's stale map
+  alias, and provider-specific booking constraints remain explicit. Ledger
+  state is 78 complete, 24 blocked, and 105 queued.
 
 ## Validation
 
@@ -187,6 +191,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   social/compromised cases retain exact retry evidence. JSON, provenance,
   unique slugs, source mapping, draft/null gates, denominator metrics and queue
   advancement to `ubud-03` passed.
+- Uluwatu–Bukit 02: Papi Sapi, Sundays, Hyatt/Alila, Tropical Temptation,
+  Artisan and ULU Fishmarket sources were independently reopened during
+  acceptance. JSON, provenance, unique IDs, draft/null gates, denominator
+  metrics and completed batch state passed; `currentBatchId` remains the first
+  queued batch, `ubud-03`.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
