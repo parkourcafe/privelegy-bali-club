@@ -1,18 +1,22 @@
 import type { MetadataRoute } from "next";
-import { getRoutes, getDistrictHubs, getIntentSpokes } from "@/lib/data";
-import { indexableVenueSlugs } from "@/lib/publication";
+import { getRoutes, getDistrictHubs, getIntentSpokes, getPublishedVenues } from "@/lib/data";
+import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
+import { PILLARS } from "@/lib/pillars";
 
 export const dynamic = "force-dynamic";
 
 const BASE = "https://otherbali.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [routes, hubs, spokes] = await Promise.all([
+  const [routes, hubs, spokes, catalogue] = await Promise.all([
     getRoutes(),
     getDistrictHubs(),
     getIntentSpokes(),
+    getPublishedVenues(),
   ]);
+  // Every venue whose detail page is indexable (publication bar), all districts.
+  const indexableVenueSlugs = catalogue.filter(isVenueIndexable).map((v) => v.slug);
   return [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
@@ -45,27 +49,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    // Canggu district product: pillar + editorial children (active_deep).
-    { url: `${BASE}/canggu`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/canggu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/canggu/work-friendly-cafes`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/canggu/best-spas`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/canggu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
-    // Ubud district product: pillar + editorial children (planning / next_deep).
-    { url: `${BASE}/ubud`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/ubud/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/ubud/best-cafes-coffee`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/ubud/best-yoga-wellness`, changeFrequency: "weekly", priority: 0.8 },
-    // Uluwatu district product: pillar + editorial children.
-    { url: `${BASE}/uluwatu`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/uluwatu/best-restaurants`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/uluwatu/best-brunch`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/uluwatu/beach-clubs-sunset`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/uluwatu/date-night-restaurants`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/uluwatu/48-hours`, changeFrequency: "weekly", priority: 0.8 },
+    // District pillars + their editorial children (driven by lib/pillars.ts so
+    // the sitemap can't drift from the actual pages). The Ubud wellness guide is
+    // registered there too.
+    ...PILLARS.flatMap((p) => [
+      { url: `${BASE}/${p.slug}`, changeFrequency: "weekly" as const, priority: 0.9 },
+      ...p.children.map((c) => ({
+        url: `${BASE}${c.path}`,
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      })),
+    ]),
     // Venue detail pages — ONLY those that passed the evidence-backed
     // publication gate (review/incomplete venues stay noindex + unlisted).
-    ...indexableVenueSlugs().map((slug) => ({
+    ...indexableVenueSlugs.map((slug) => ({
       url: `${BASE}/places/${slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.7,

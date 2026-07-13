@@ -272,8 +272,11 @@ function ChoiceGroup({
 }) {
   return (
     <fieldset>
-      <legend className="text-xs font-semibold text-[var(--ob-stone)]">{label}</legend>
-      <div className="mt-2 flex max-w-full snap-x gap-2 overflow-x-auto pb-1">
+      <legend className="text-xs font-semibold text-[var(--ob-sand-dim)]">{label}</legend>
+      {/* Two-column grid: every option is visible at once (no horizontal
+          scroll, nothing sliced off the right edge). Selection logic and the
+          built URLs are untouched — layout only. */}
+      <div className="mt-2 grid grid-cols-2 gap-2">
         {options.map((option) => {
           const active = selected === option.value;
           return (
@@ -282,14 +285,14 @@ function ChoiceGroup({
               type="button"
               onClick={() => onSelect(option.value)}
               data-active={active ? "true" : "false"}
-              className={`ob-choice ${wash ?? ""} min-w-[8.5rem] snap-start rounded-2xl border px-3 py-2 text-left ${
+              className={`ob-choice ${wash ?? ""} rounded-2xl border px-3 py-2 text-left ${
                 active
                   ? "border-[var(--ob-brass)] bg-[var(--ob-brass)]/18 text-[var(--ob-sand)]"
-                  : "border-[var(--ob-line)] bg-white/[0.03] text-[var(--ob-sand-dim)] hover:border-[var(--ob-brass)]/55"
+                  : "border-[var(--ob-line)] bg-white/[0.04] text-[var(--ob-sand)] hover:border-[var(--ob-brass)]/55"
               }`}
             >
               <span className="block text-sm font-semibold">{option.label}</span>
-              <span className="mt-0.5 block text-[11px] leading-snug text-[var(--ob-stone)]">
+              <span className="mt-0.5 block text-[11px] leading-snug text-[var(--ob-sand-dim)]">
                 {option.hint}
               </span>
             </button>

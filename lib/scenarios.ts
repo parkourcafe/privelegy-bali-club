@@ -9,6 +9,7 @@
 // frames the situation and the live picks live on /places, so copy never goes
 // stale against the data.
 
+import type { Metadata } from "next";
 import { getTripMission } from "./trip-missions";
 
 export type ScenarioSection = { heading: string; body: string };
@@ -166,6 +167,21 @@ export const SCENARIOS: Scenario[] = [
       "A calmer Bali week: yoga, spa, clean food, and quiet cafés in the areas that actually stay calm — without the performance wellness. Curated picks. Travellers never pay.",
   },
 ];
+
+// Page metadata for a scenario (title/description/canonical + article OG).
+export function scenarioMetadata(s: Scenario): Metadata {
+  return {
+    title: s.metaTitle,
+    description: s.metaDescription,
+    alternates: { canonical: `/${s.slug}` },
+    openGraph: {
+      title: `${s.metaTitle} · Other Bali`,
+      description: s.metaDescription,
+      url: `https://otherbali.com/${s.slug}`,
+      type: "article",
+    },
+  };
+}
 
 export function getScenario(slug: string | null | undefined): Scenario | null {
   if (!slug) return null;

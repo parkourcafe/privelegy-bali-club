@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
+
+const SITE = "https://otherbali.com";
 
 // Presentational scenario page (master §6a.3). Uses the shared inner-page dark
 // system (page-dark / site-shell / hero-*) so it reads as one product with
@@ -7,6 +10,18 @@ import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
 export default function ScenarioView({ scenario }: { scenario: Scenario }) {
   const briefHref = scenarioBriefHref(scenario.missionSlug);
   const others = SCENARIOS.filter((s) => s.slug !== scenario.slug);
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: scenario.title,
+      description: scenario.metaDescription,
+      url: `${SITE}/${scenario.slug}`,
+      about: scenario.eyebrow,
+      isPartOf: { "@type": "WebSite", name: "Other Bali", url: SITE },
+    },
+  ];
 
   return (
     <div className="page-dark">
@@ -21,6 +36,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
                 All places →
               </Link>
             </div>
+            <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: scenario.eyebrow }]} />
             <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-[var(--clay)]">
               {scenario.eyebrow}
             </p>
@@ -111,6 +127,11 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
           </div>
         </footer>
       </main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }
