@@ -49,6 +49,7 @@ export function getPublicationStatus(v: Venue): PublicationStatus {
     const content = getUluwatuContent(v.slug);
     return content?.publication === "published" ? "published" : "review";
   }
+  if (v.publicationStatus === "published") return "published";
   return legacyDecisionReady(v) ? "published" : "review";
 }
 

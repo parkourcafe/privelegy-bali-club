@@ -29,6 +29,8 @@ function toCard(v: CataloguePlace): PlaceCardData {
     gmapsUrl: v.gmapsUrl,
     tablepilotSlug: v.tablepilotSlug,
     hasOffer: Boolean(v.perk),
+    googleRating: v.googleRating,
+    googleReviews: v.googleReviews,
   };
 }
 
@@ -38,6 +40,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Wellness",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
 };
@@ -76,6 +81,7 @@ function haystack(v: VenueWithPerk): string {
     v.name,
     v.area,
     v.category,
+    ...(v.wellnessCategories ?? []),
     v.district,
     v.whyItsHere,
     v.bestFor,
@@ -102,7 +108,9 @@ function scoreVenue(
   const reasons: string[] = [];
   let score = 0;
 
-  const categoryMatched = Boolean(category && v.category === category);
+  const categoryMatched = Boolean(
+    category && (v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"]))
+  );
   if (categoryMatched) {
     score += 3;
     reasons.push(categoryLabel[category!] ?? category!);
@@ -156,7 +164,7 @@ export default function PlacesView({
     [venues]
   );
   const categories = useMemo(
-    () => [...new Set(venues.map((v) => v.category))].sort(),
+    () => [...new Set(venues.flatMap((v) => v.wellnessCategories?.length ? v.wellnessCategories : [v.category]))].sort(),
     [venues]
   );
 
@@ -170,7 +178,7 @@ export default function PlacesView({
       const hay = haystack(v) + " " + v.address.toLowerCase();
       return (
         (!district || v.district === district) &&
-        (!category || v.category === category) &&
+        (!category || v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"])) &&
         (tokens.length === 0 ||
           (intentMode
             ? tokens.some((token) => hay.includes(token))

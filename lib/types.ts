@@ -23,10 +23,10 @@ export type VenueCategory =
   | "warung"
   | "restaurant"
   | "beach_club"
-  | "spa"
-  | "beauty"
   | "fitness"
   | "yoga"
+  | "spa"
+  | "beauty"
   | "bar"
   | "surf";
 
@@ -60,6 +60,14 @@ export interface Venue {
   // Owner's own words (UGC, self-service onboarding). Always shown attributed
   // ("From the owner") — never blended into the editorial voice.
   ownerNote?: string;
+  publicationStatus?: "published" | "review";
+  googleRating?: number;
+  googleReviews?: number;
+  ratingSource?: "google_pin" | "proxy";
+  priceText?: string;
+  phone?: string;
+  email?: string;
+  wellnessCategories?: VenueCategory[];
 }
 
 export interface Perk {

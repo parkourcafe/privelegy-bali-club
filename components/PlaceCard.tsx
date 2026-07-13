@@ -20,6 +20,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Wellness",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
 };
@@ -40,6 +43,8 @@ export interface PlaceCardData {
   tablepilotSlug?: string;
   // Confirmed offer exists — shown as a hint only; terms live on the page.
   hasOffer?: boolean;
+  googleRating?: number;
+  googleReviews?: number;
 }
 
 const TABLEPILOT_URL =
@@ -100,6 +105,13 @@ export default function PlaceCard({
             {place.name}
           </Link>
         </h3>
+
+        {place.googleRating ? (
+          <p className="text-xs font-semibold text-[var(--muted)]">
+            ★ {place.googleRating.toFixed(1)}
+            {place.googleReviews ? ` · ${place.googleReviews.toLocaleString("en-US")} Google reviews` : ""}
+          </p>
+        ) : null}
 
         {place.editorialLine && (
           <p className="place-card-line">{place.editorialLine}</p>

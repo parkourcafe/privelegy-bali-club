@@ -124,7 +124,7 @@ const schemaType: Record<string, string> = {
   spa: "HealthAndBeautyBusiness",
   beauty: "HealthAndBeautyBusiness",
   fitness: "ExerciseGym",
-  yoga: "HealthAndBeautyBusiness",
+  yoga: "SportsActivityLocation",
   surf: "SportsActivityLocation",
 };
 

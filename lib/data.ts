@@ -64,6 +64,14 @@ const PLAN_VENUE_COLUMNS = [
   "practical_tags",
   "jobs",
   "owner_note",
+  "publication_status",
+  "google_rating",
+  "google_reviews",
+  "rating_source",
+  "price_text",
+  "phone",
+  "email",
+  "wellness_categories",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -91,6 +99,14 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "practical_tags",
   "jobs",
   "owner_note",
+  "publication_status",
+  "google_rating",
+  "google_reviews",
+  "rating_source",
+  "price_text",
+  "phone",
+  "email",
+  "wellness_categories",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -190,6 +206,14 @@ const mapVenue = (r: Row): Venue => ({
   practicalTags: (r.practical_tags as string[]) ?? undefined,
   jobs: (r.jobs as string[]) ?? undefined,
   ownerNote: (r.owner_note as string) ?? undefined,
+  publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
+  googleRating: r.google_rating == null ? undefined : Number(r.google_rating),
+  googleReviews: r.google_reviews == null ? undefined : Number(r.google_reviews),
+  ratingSource: (r.rating_source as Venue["ratingSource"]) ?? undefined,
+  priceText: (r.price_text as string) ?? undefined,
+  phone: (r.phone as string) ?? undefined,
+  email: (r.email as string) ?? undefined,
+  wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
 });
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.

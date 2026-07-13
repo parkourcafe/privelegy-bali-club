@@ -950,6 +950,9 @@ html {
 .type-cover-bar { background: linear-gradient(150deg, #3a2c1c, #16100c); }
 .type-cover-warung { background: linear-gradient(150deg, #4e5a3a, #232a1a 75%, #16100c); }
 .type-cover-spa { background: linear-gradient(150deg, #5a6b52, #2b3527 75%, #16100c); }
+.type-cover-fitness { background: linear-gradient(150deg, #8a4f35, #3d2820 75%, #16100c); }
+.type-cover-yoga { background: linear-gradient(150deg, #65745b, #30392c 75%, #16100c); }
+.type-cover-beauty { background: linear-gradient(150deg, #80576d, #3c2934 75%, #16100c); }
 .type-cover-surf { background: linear-gradient(150deg, #12666e, #1a3a40 70%, #16100c); }
 
 /* Editorial micro-labels */
