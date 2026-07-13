@@ -72,4 +72,13 @@ export const PILLARS: Pillar[] = [
       { path: "/seminyak/spas-salons-wellness", title: "Best spas, salons & wellness in Seminyak" },
     ],
   },
+  {
+    slug: "nusa-dua",
+    name: "Nusa Dua",
+    tagline: "The calm, gated resort enclave: swimmable beaches, fine dining and big resort spas.",
+    children: [
+      { path: "/nusa-dua/best-restaurants", title: "Best restaurants in Nusa Dua" },
+      { path: "/nusa-dua/spas-wellness", title: "Best spas & wellness in Nusa Dua" },
+    ],
+  },
 ];

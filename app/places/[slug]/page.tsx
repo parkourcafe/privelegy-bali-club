@@ -56,6 +56,16 @@ const ubudCategoryGuide: Record<string, { href: string; label: string }> = {
   spa: { href: "/ubud/best-yoga-wellness", label: "Yoga & wellness" },
 };
 
+// Which Nusa Dua guide a category belongs to (breadcrumb + related links).
+const nusaDuaCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/nusa-dua/best-restaurants", label: "Restaurants" },
+  warung: { href: "/nusa-dua/best-restaurants", label: "Restaurants" },
+  beach_club: { href: "/nusa-dua/best-restaurants", label: "Restaurants" },
+  spa: { href: "/nusa-dua/spas-wellness", label: "Spas & wellness" },
+  fitness: { href: "/nusa-dua/spas-wellness", label: "Spas & wellness" },
+  yoga: { href: "/nusa-dua/spas-wellness", label: "Spas & wellness" },
+};
+
 // Which Sanur guide a category belongs to (breadcrumb + related links).
 const sanurCategoryGuide: Record<string, { href: string; label: string }> = {
   restaurant: { href: "/sanur/best-restaurants", label: "Restaurants" },
@@ -174,6 +184,7 @@ export default async function VenuePage({
   const isUbud = venue.district === "ubud";
   const isSeminyak = venue.district === "seminyak";
   const isSanur = venue.district === "sanur";
+  const isNusaDua = venue.district === "nusa-dua";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
@@ -188,6 +199,8 @@ export default async function VenuePage({
     ? seminyakCategoryGuide[venue.category]
     : isSanur
     ? sanurCategoryGuide[venue.category]
+    : isNusaDua
+    ? nusaDuaCategoryGuide[venue.category]
     : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
@@ -230,6 +243,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Sanur", href: "/sanur" },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isNusaDua
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Nusa Dua", href: "/nusa-dua" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]
