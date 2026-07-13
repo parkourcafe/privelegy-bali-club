@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 106 records are complete, 32 are blocked with concrete retry conditions,
-and 69 remain queued. No venue is marked human-verified or publishable.
+active; 115 records are complete, 33 are blocked with concrete retry conditions,
+and 59 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -143,6 +143,11 @@ and 69 remain queued. No venue is marked human-verified or publishable.
   two exact access/source blockers. Natys' removed Drive menu and Nook's
   inaccessible first-party candidates remain empty rather than inferred.
   Ledger state is 106 complete, 32 blocked, and 69 queued.
+- Seminyak batch 03 is processed: nine partial first-party menus and one exact
+  binary-source blocker. Sisterfields prices remain null because its official
+  page omits them; Warung Nia cached/indexed values were rejected after the
+  first-party 2026 PDFs returned 404. Ledger state is 115 complete, 33 blocked,
+  and 59 queued.
 
 ## Validation
 
@@ -242,6 +247,10 @@ and 69 remain queued. No venue is marked human-verified or publishable.
   provenance, unique IDs, draft/null gates, denominator metrics and queue state
   passed. Natys and Nook retain concrete retry blockers and no inferred menu
   data.
+- Seminyak 03: Potato Head, Revolver, Sea Circus, Sisterfields and other
+  first-party branch/menu surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and queue state
+  passed. Warung Nia remains empty pending a fetchable first-party PDF.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
