@@ -109,6 +109,10 @@ or publishable.
 - Ubud batch 04 is processed: Zest has partial official evidence with an address
   mismatch warning; Wulan is blocked on inaccessible social-only evidence.
   Ledger state is 54 complete, 18 blocked, and 135 queued.
+- Ubud batch 01 is processed: six partial official menus, three valid
+  action-only records, and one social-only blocker (`dicarik-warung`). Branch,
+  currency and duplicate-review caveats remain explicit. Ledger state is 63
+  complete, 19 blocked, and 125 queued.
 
 ## Validation
 
@@ -169,6 +173,10 @@ or publishable.
 - Ubud 04: Zest and Wulan sources were both reopened. JSON, source mapping,
   unique IDs, draft/null gates, denominator metrics and completed queue state
   passed.
+- Ubud 01: all ten venue-controlled identity/menu surfaces were independently
+  reopened during acceptance. JSON, provenance, unique slugs, draft/null
+  verification, publication gates, denominator metrics and completed queue
+  state passed; no menu is represented as fully parsed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
