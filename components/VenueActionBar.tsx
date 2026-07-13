@@ -1,59 +1,65 @@
 "use client";
 
-import { track } from "@/lib/analytics";
+import VenueActionPanel from "@/components/actions/VenueActionPanel";
+import { resolveVenueActions } from "@/lib/actions/resolve-actions";
+import type { VenueActionBarProps } from "@/lib/contracts/menu-action";
+import { trackVenueAction } from "@/lib/analytics";
 
-// Sticky mobile action bar for venue pages (brief §10.3): View map +
-// Book/Reserve + WhatsApp when verified. 46px targets, safe-area padded,
-// hidden on desktop (CSS). Action is available without scrolling the article.
-//
-// Event contract: direction_click + booking_click are growth events (internal
-// + GA4 via track()); the TablePilot handoff logs reservation_click to the
-// internal store ONLY — it is a partner-proof demand signal (money model
-// v0.3) and never goes to GA4.
-function logReservationClick(venueSlug: string) {
-  fetch("/api/event", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "reservation_click", venueSlug }),
-    keepalive: true,
-  }).catch(() => {});
-}
-
-export default function VenueActionBar({
-  slug,
-  gmapsUrl,
-  bookHref,
-  bookLabel,
-  whatsapp,
-  isTablepilot,
-}: {
+// The public place page on the frozen baseline still passes this shape. Keep the
+// adapter until Session 4 wires Session 2's frozen VenueActionBarProps slot; the
+// capability-driven path below is the new integration contract.
+type LegacyVenueActionBarProps = {
   slug: string;
   gmapsUrl: string;
   bookHref: string | null;
   bookLabel: string;
   whatsapp?: string;
   isTablepilot: boolean;
-}) {
+};
+
+function isLegacyProps(
+  props: VenueActionBarProps | LegacyVenueActionBarProps
+): props is LegacyVenueActionBarProps {
+  return "slug" in props;
+}
+
+function LegacyVenueActionBar({
+  slug,
+  gmapsUrl,
+  bookHref,
+  bookLabel,
+  whatsapp,
+  isTablepilot,
+}: LegacyVenueActionBarProps) {
   return (
-    <div className="venue-action-bar" role="navigation" aria-label="Quick actions">
+    <nav className="venue-action-bar max-w-[100vw] overflow-hidden" aria-label="Quick actions">
       <a
         href={gmapsUrl}
         target="_blank"
         rel="noreferrer"
-        onClick={() => track("direction_click", { venueSlug: slug })}
+        className="min-w-0 truncate"
+        onClick={() =>
+          trackVenueAction({
+            action: "maps",
+            provider: "google_maps",
+            venueSlug: slug,
+          })
+        }
       >
-        View map
+        Google Maps
       </a>
       {bookHref ? (
         <a
           href={bookHref}
           target="_blank"
           rel="noreferrer"
-          className="is-primary"
+          className="is-primary min-w-0 truncate"
           onClick={() =>
-            isTablepilot
-              ? logReservationClick(slug)
-              : track("booking_click", { venueSlug: slug })
+            trackVenueAction({
+              action: "reserve",
+              provider: isTablepilot ? "tablepilot" : "official",
+              venueSlug: slug,
+            })
           }
         >
           {bookLabel}
@@ -63,12 +69,40 @@ export default function VenueActionBar({
           href={`https://wa.me/${whatsapp}`}
           target="_blank"
           rel="noreferrer"
-          className="is-primary"
-          onClick={() => track("booking_click", { venueSlug: slug, label: "whatsapp" })}
+          className="is-primary min-w-0 truncate"
+          onClick={() =>
+            trackVenueAction({
+              action: "whatsapp",
+              provider: "whatsapp",
+              venueSlug: slug,
+            })
+          }
         >
           WhatsApp
         </a>
       ) : null}
-    </div>
+    </nav>
   );
 }
+
+function VenueActionBar(props: VenueActionBarProps): React.ReactNode;
+function VenueActionBar(props: LegacyVenueActionBarProps): React.ReactNode;
+function VenueActionBar(
+  props: VenueActionBarProps | LegacyVenueActionBarProps
+): React.ReactNode {
+  if (isLegacyProps(props)) return <LegacyVenueActionBar {...props} />;
+
+  const resolution = resolveVenueActions(props, {
+    tablepilotBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+  });
+
+  return (
+    <VenueActionPanel
+      venueName={props.venueName}
+      resolution={resolution}
+      className={props.className}
+    />
+  );
+}
+
+export default VenueActionBar;

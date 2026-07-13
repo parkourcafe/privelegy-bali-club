@@ -11,9 +11,11 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
-import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
-import ReserveButton from "@/components/ReserveButton";
 import VenueActionBar from "@/components/VenueActionBar";
+import StructuredMenu from "@/components/menu/StructuredMenu";
+import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
+import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
+import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
 
 export const dynamic = "force-dynamic";
 
@@ -170,10 +172,11 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs] = await Promise.all([
+  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
     getVenueWithPerk(slug),
     getPublishedVenues(),
     getSavedSlugs(await readGuestRef()),
+    getPublicVenueDetailExtension(slug),
   ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
@@ -277,6 +280,27 @@ export default async function VenuePage({
 
   const bookHref = content?.bookingUrl ?? null;
   const bookLabel = content?.bookingLabel ?? "Book direct";
+  // Development fixtures override the repository only in local preview.
+  const fixtureMode = process.env.NODE_ENV === "development" ? process.env.MENU_FIXTURE : undefined;
+  const menu: MenuRecord | null = fixtureMode === "fresh"
+    ? { ...menuActionFixtures.freshMenu, venueSlug: slug }
+    : fixtureMode === "stale"
+    ? { ...menuActionFixtures.staleMenu, venueSlug: slug }
+    : detailExtension.menu;
+  const actionSlotProps: VenueActionBarProps = {
+    venueSlug: venue.slug,
+    venueName: name,
+    district: venue.district,
+    coverageMode: isCanggu ? "active_deep" : isUbud ? "next_deep" : "planning_only",
+    capabilities: published ? detailExtension.actionCapabilities : [],
+    fallbacks: published ? {
+      tablepilotSlug: venue.tablepilotSlug,
+      whatsapp: venue.whatsapp,
+      officialMenuUrl: content?.menuUrl,
+      websiteUrl: content?.officialUrl,
+      googleMapsUrl: venue.gmapsUrl,
+    } : {},
+  };
 
   return (
     <div className="venue-page-pad">
@@ -380,6 +404,16 @@ export default async function VenuePage({
                 </div>
               </section>
             )}
+
+            <section className="guide-section" aria-labelledby="menu-heading">
+              <h2 id="menu-heading">Menu</h2>
+              <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+              <div className="mt-4">
+                <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={content?.menuUrl} />
+              </div>
+            </section>
+
+            <VenueActionBar {...actionSlotProps} />
 
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (
@@ -508,34 +542,18 @@ export default async function VenuePage({
                 )}
               </dl>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {venue.tablepilotSlug ? (
-                  <ReserveButton
+              {bookHref && !venue.tablepilotSlug && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <TrackedOutboundLink
+                    href={bookHref}
+                    event="booking_click"
                     venueSlug={venue.slug}
-                    tablepilotSlug={venue.tablepilotSlug}
-                    whatsapp={venue.whatsapp}
-                    perkTitle={venue.perk?.title}
-                  />
-                ) : (
-                  bookHref && (
-                    <TrackedOutboundLink
-                      href={bookHref}
-                      event="booking_click"
-                      venueSlug={venue.slug}
-                      className="button-primary"
-                    >
-                      {bookLabel}
-                    </TrackedOutboundLink>
-                  )
-                )}
-                <TrackedDirectionsLink
-                  href={venue.gmapsUrl}
-                  venueSlug={venue.slug}
-                  className="button-secondary"
-                >
-                  Directions
-                </TrackedDirectionsLink>
-              </div>
+                    className="button-primary"
+                  >
+                    {bookLabel}
+                  </TrackedOutboundLink>
+                </div>
+              )}
             </div>
 
             <div className="quick-block mt-4">
@@ -601,48 +619,12 @@ export default async function VenuePage({
                     </dd>
                   </div>
                 )}
-                {venue.whatsapp && (
-                  <div>
-                    <dt>WhatsApp</dt>
-                    <dd>
-                      <TrackedOutboundLink
-                        href={`https://wa.me/${venue.whatsapp}`}
-                        event="booking_click"
-                        venueSlug={venue.slug}
-                        label="whatsapp"
-                      >
-                        Message venue
-                      </TrackedOutboundLink>
-                    </dd>
-                  </div>
-                )}
-                <div>
-                  <dt>Map</dt>
-                  <dd>
-                    <TrackedDirectionsLink href={venue.gmapsUrl} venueSlug={venue.slug}>
-                      Open in Google Maps
-                    </TrackedDirectionsLink>
-                  </dd>
-                </div>
               </dl>
             </div>
           </aside>
         </div>
       </main>
 
-      {/* Mobile sticky action bar — 46px targets, safe-area padded */}
-      <VenueActionBar
-        slug={venue.slug}
-        gmapsUrl={venue.gmapsUrl}
-        bookHref={
-          venue.tablepilotSlug
-            ? `${process.env.NEXT_PUBLIC_TABLEPILOT_URL ?? "https://tablepilot-id.vercel.app"}/book/${encodeURIComponent(venue.tablepilotSlug)}?source=bali_privilege`
-            : bookHref
-        }
-        bookLabel={venue.tablepilotSlug ? "Reserve a table" : bookLabel}
-        whatsapp={venue.whatsapp}
-        isTablepilot={Boolean(venue.tablepilotSlug)}
-      />
     </div>
   );
 }

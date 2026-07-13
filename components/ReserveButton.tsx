@@ -1,42 +1,43 @@
 "use client";
 
-// Reserve CTA for bookable venues (money model v0.3). Logs a reservation_click
-// (the demand signal for the shifted Phase 0), then hands off to TablePilot's
-// public booking page with source=bali_privilege so the reservation is
-// attributed to us for the seated-reservation fee.
+import { trackVenueAction } from "@/lib/analytics";
+import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import { buildWhatsAppHandoff } from "@/lib/integrations/whatsapp";
 
-const TABLEPILOT_URL =
-  process.env.NEXT_PUBLIC_TABLEPILOT_URL ?? "https://tablepilot-id.vercel.app";
-
-function logClick(venueSlug: string) {
-  fetch("/api/event", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "reservation_click", venueSlug }),
-    keepalive: true,
-  }).catch(() => {});
-}
-
+// Backward-compatible CTA for existing cards and the current venue-page aside.
+// New place-page integration uses VenueActionBarProps + the capability resolver;
+// this wrapper keeps the TablePilot bridge and legacy WhatsApp fallback safe
+// until Session 4 removes the duplicated legacy paths.
 export default function ReserveButton({
   venueSlug,
   tablepilotSlug,
   whatsapp,
   perkTitle,
+  venueName = "",
 }: {
   venueSlug: string;
   tablepilotSlug?: string;
   whatsapp?: string;
   perkTitle?: string;
+  venueName?: string;
 }) {
-  // Bookable venue → TablePilot handoff.
-  if (tablepilotSlug) {
-    const href = `${TABLEPILOT_URL}/book/${encodeURIComponent(tablepilotSlug)}?source=bali_privilege`;
+  const tablepilotHref = tablepilotSlug
+    ? buildTablePilotReservationUrl(tablepilotSlug, process.env.NEXT_PUBLIC_TABLEPILOT_URL)
+    : null;
+
+  if (tablepilotHref) {
     return (
       <a
-        href={href}
+        href={tablepilotHref}
         target="_blank"
         rel="noreferrer"
-        onClick={() => logClick(venueSlug)}
+        onClick={() =>
+          trackVenueAction({
+            action: "reserve",
+            provider: "tablepilot",
+            venueSlug,
+          })
+        }
         className="button-primary button-reserve"
       >
         Reserve a table
@@ -44,16 +45,28 @@ export default function ReserveButton({
     );
   }
 
-  // Fallback: WhatsApp reservation (no fee loop — just a pre-filled message).
-  if (whatsapp) {
-    const text = `Hi! Booking via Other Bali.${perkTitle ? ` Offer: ${perkTitle}.` : ""} Table for … at …`;
-    const href = `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
+  const whatsappHref = whatsapp
+    ? buildWhatsAppHandoff({
+        phone: whatsapp,
+        venueName,
+        kind: "reserve",
+        perkTitle,
+      })
+    : null;
+
+  if (whatsappHref) {
     return (
       <a
-        href={href}
+        href={whatsappHref}
         target="_blank"
         rel="noreferrer"
-        onClick={() => logClick(venueSlug)}
+        onClick={() =>
+          trackVenueAction({
+            action: "reserve",
+            provider: "whatsapp",
+            venueSlug,
+          })
+        }
         className="button-secondary"
       >
         Reserve on WhatsApp

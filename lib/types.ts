@@ -157,3 +157,14 @@ export interface Phase0Overview {
   };
   venues: Phase0VenueStat[];
 }
+
+// Additive public data-contract aliases. The canonical definitions live in
+// lib/contracts/menu-action.ts so all four loop sessions share one boundary.
+export type {
+  MenuRecord,
+  MenuSectionRecord,
+  MenuItemRecord,
+  VenueActionCapabilityRecord,
+  PublicVenueDetailExtension,
+  SafeActionEventPayload,
+} from "./contracts/menu-action";

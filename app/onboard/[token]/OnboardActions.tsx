@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { browserClient } from "@/lib/supabase/client";
+import PartnerMaintenanceDrafts from "./PartnerMaintenanceDrafts";
 
 // Confirmation + photo upload for the partner onboarding page. Photos go
 // straight from the venue's phone to storage (folder = their token, enforced by
@@ -290,6 +291,8 @@ export default function OnboardActions({
           </p>
         )}
       </div>
+
+      <PartnerMaintenanceDrafts token={token} />
 
       {/* Confirmation */}
       {confirmState === "done" ? (

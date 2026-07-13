@@ -19,6 +19,14 @@ export default async function AdminIndex() {
       <h1 className="mt-1 text-2xl font-bold">Phase 0 control</h1>
 
       <Link
+        href="/admin/freshness"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-amber-700 p-4 text-white"
+      >
+        <span className="font-semibold">→ Freshness & publication queue</span>
+        <span className="text-amber-100">review</span>
+      </Link>
+
+      <Link
         href="/admin/phase0"
         className="mt-4 flex items-center justify-between rounded-2xl bg-cyan-700 p-4 text-white"
       >
