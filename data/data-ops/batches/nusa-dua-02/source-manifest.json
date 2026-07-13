@@ -1,0 +1,43 @@
+{
+  "batchId": "nusa-dua-02",
+  "generatedAt": "2026-07-13T16:20:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T16:20:00Z",
+      "id": "src-tetaring-home",
+      "label": "Kayumanis Tetaring official page",
+      "notes": "Current first-party page confirms authentic Indonesian menu and signature dishes but exposes no prices/currency/tax. Only named dishes are retained with null prices.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_branch_page",
+      "url": "https://www.kayumanisnusadua.com/restaurant/tetaring-restaurant",
+      "venueSlug": "tetaring",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:20:00Z",
+      "id": "src-the-beach-grill-ritz--home",
+      "label": "The Beach Grill official menu page",
+      "notes": "Current Ritz-Carlton controlled menu page confirms the branch and dishes but exposes no prices in fetchable text; items remain price-null and menu is subject to seasonality.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_branch_page",
+      "url": "https://www.thebeachgrillbali.com/our-menus",
+      "venueSlug": "the-beach-grill-ritz-carlton",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:20:00Z",
+      "id": "src-the-beach-grill-ritz--hotel",
+      "label": "Ritz-Carlton Bali dining page",
+      "notes": "Current Ritz-Carlton controlled menu page confirms the branch and dishes but exposes no prices in fetchable text; items remain price-null and menu is subject to seasonality.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_hotel_page",
+      "url": "https://www.ritzcarlton.com/en/hotels/dpssw-the-ritz-carlton-bali/dining/",
+      "venueSlug": "the-beach-grill-ritz-carlton",
+      "verifiedAt": null
+    }
+  ]
+}

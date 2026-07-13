@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 125 records are complete, 39 are blocked with concrete retry conditions,
-and 43 remain queued. No venue is marked human-verified or publishable.
+active; 127 records are complete, 40 are blocked with concrete retry conditions,
+and 40 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -159,6 +159,10 @@ and 43 remain queued. No venue is marked human-verified or publishable.
   district denominator but no menu is attributed while its official site says
   Canggu. Ledger state is 125 complete, 39 blocked, and 43 queued; the pointer
   advances to `jimbaran-01`.
+- Nusa Dua batch 02 is processed out of order: Tetaring and The Beach Grill
+  retain price-null named dishes from first-party pages; White Orchid is
+  blocked without a confirmed first-party source. Ledger state is 127 complete,
+  40 blocked, and 40 queued; the pointer remains `jimbaran-01`.
 
 ## Validation
 
@@ -272,6 +276,10 @@ and 43 remain queued. No venue is marked human-verified or publishable.
   source mapping, unique IDs, draft/null gates, complete Seminyak coverage,
   denominator metrics and pointer advancement passed. Undeclared price scales
   remain currency-null.
+- Nusa Dua 02: Kayumanis Tetaring and Ritz-Carlton/The Beach Grill sources were
+  reopened; White Orchid searches produced no acceptable first-party source.
+  JSON, source mapping, unique IDs, draft/null gates, metrics and out-of-order
+  queue consistency passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

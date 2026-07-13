@@ -1,0 +1,179 @@
+{
+  "batchId": "nusa-dua-02",
+  "capturedAt": "2026-07-13T16:20:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "nusa-dua",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Tetaring Restaurant at Kayumanis Nusa Dua.",
+      "collectionNotes": [
+        "Current first-party page confirms authentic Indonesian menu and signature dishes but exposes no prices/currency/tax. Only named dishes are retained with null prices."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:20:00Z",
+          "id": "menu-tetaring-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "tetaring-01",
+                  "name": "Balinese Chicken Salad",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "tetaring-02",
+                  "name": "Oxtail Soup",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Official named dishes"
+            }
+          ],
+          "sourceManifestId": "src-tetaring-home",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Tetaring",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "tetaring",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "The Beach Grill, The Ritz-Carlton Bali, Jalan Raya Nusa Dua Selatan Lot III, Sawangan.",
+      "collectionNotes": [
+        "Current Ritz-Carlton controlled menu page confirms the branch and dishes but exposes no prices in fetchable text; items remain price-null and menu is subject to seasonality."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:20:00Z",
+          "id": "menu-the-beach-grill-ritz-carlton-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--01",
+                  "name": "Scallops",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--02",
+                  "name": "Lobster Linguine",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--03",
+                  "name": "Snapper",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--04",
+                  "name": "Sea Bream",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--05",
+                  "name": "Angus Steak",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "the-beach-grill-ritz--06",
+                  "name": "Mushroom Risotto",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Official named dishes"
+            }
+          ],
+          "sourceManifestId": "src-the-beach-grill-ritz--home",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Beach Grill (Ritz-Carlton)",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "the-beach-grill-ritz-carlton",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo canonical White Orchid Nusa Dua; exact first-party identity not found.",
+      "collectionNotes": [
+        "Search returned only claimed aggregator/review pages and an unrelated White Orchid social identity. No first-party website, menu or action was accepted; exact branch remains a retry blocker."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "White Orchid Nusa Dua",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "white-orchid-nusa-dua",
+      "verifiedAt": null
+    }
+  ]
+}
