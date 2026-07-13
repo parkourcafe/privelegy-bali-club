@@ -250,9 +250,22 @@
     },
     {
       "batchId": "ubud-02",
+      "completedVenueSlugs": [
+        "gelato-secrets-ubud",
+        "hujan-locale",
+        "ibu-rai",
+        "karsa-cafe",
+        "laka-leke",
+        "locavore-nxt",
+        "manga-madu",
+        "milk-and-madu-ubud",
+        "mozaic",
+        "onion-collective"
+      ],
       "district": "ubud",
-      "resumeFromSlug": "gelato-secrets-ubud",
-      "status": "queued",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "gelato-secrets-ubud",
         "hujan-locale",
@@ -509,9 +522,9 @@
       ]
     }
   ],
-  "currentBatchId": "ubud-02",
-  "generatedAt": "2026-07-13T15:43:58Z",
+  "currentBatchId": "ubud-03",
+  "generatedAt": "2026-07-13T15:44:45Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T15:15:00Z"
+  "updatedAt": "2026-07-13T15:44:45Z"
 }

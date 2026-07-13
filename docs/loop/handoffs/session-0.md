@@ -114,6 +114,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   action-only records, and one social-only blocker (`dicarik-warung`). Branch,
   currency and duplicate-review caveats remain explicit. Ledger state is 63
   complete, 19 blocked, and 125 queued.
+- Ubud batch 02 is processed: six partial official menus and four exact
+  blockers. Three-way Gelato branch ambiguity, Karsa's compromised domain,
+  wrong-venue Manga collateral, and Onion's rebrand/duplicate review remain
+  explicit. Ledger state is 69 complete, 23 blocked, and 115 queued.
 
 ## Validation
 
@@ -178,6 +182,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   reopened during acceptance. JSON, provenance, unique slugs, draft/null
   verification, publication gates, denominator metrics and completed queue
   state passed; no menu is represented as fully parsed.
+- Ubud 02: Gelato Secrets, Hujan Locale, Locavore NXT, Milk & Madu, Mozaic and
+  The Onion Co official surfaces were reopened during acceptance; blocked
+  social/compromised cases retain exact retry evidence. JSON, provenance,
+  unique slugs, source mapping, draft/null gates, denominator metrics and queue
+  advancement to `ubud-03` passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
