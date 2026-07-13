@@ -90,6 +90,10 @@ or publishable.
   caveats are retained for Bali Buda, Brunch Club and Bottega; a Legian booking
   target was rejected for the Pererenan record. Ledger state is now 32
   complete, 7 blocked, and 168 queued.
+- Canggu batch 03 is processed across all 10 slugs: eight partial official-menu
+  transcriptions and two social-only blockers (MIEL and Milu). Stale-looking
+  filenames and duplicated live menu blocks are retained as review warnings.
+  Ledger state is 40 complete, 9 blocked, and 158 queued.
 
 ## Validation
 
@@ -131,6 +135,10 @@ or publishable.
   acceptance. Deterministic JSON, unique slugs/items, source mapping, action
   draft/null verification, denominator metrics, and completed queue state all
   passed validation. No network-wide menu is represented as branch-verified.
+- Canggu 03: all 10 primary pages were reopened during acceptance. JSON,
+  provenance, unique identifiers, draft/null verification, denominator metrics
+  and queue completion passed. Ambiguous `k`/numeric values were not assigned a
+  currency merely from Bali context.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
