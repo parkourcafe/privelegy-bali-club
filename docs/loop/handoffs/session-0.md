@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 115 records are complete, 33 are blocked with concrete retry conditions,
-and 59 remain queued. No venue is marked human-verified or publishable.
+active; 118 records are complete, 36 are blocked with concrete retry conditions,
+and 53 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -148,6 +148,11 @@ and 59 remain queued. No venue is marked human-verified or publishable.
   page omits them; Warung Nia cached/indexed values were rejected after the
   first-party 2026 PDFs returned 404. Ledger state is 115 complete, 33 blocked,
   and 59 queued.
+- Jimbaran batch 02 is processed out of order without moving the pointer past
+  Seminyak 01: Sundara has partial menu evidence, Sunset and UNIQUE have
+  fetchable official menus not yet parsed, and three local venues retain exact
+  first-party-source blockers. Ledger state is 118 complete, 36 blocked, and
+  53 queued.
 
 ## Validation
 
@@ -251,6 +256,11 @@ and 59 remain queued. No venue is marked human-verified or publishable.
   first-party branch/menu surfaces were independently reopened. JSON,
   provenance, unique IDs, draft/null gates, denominator metrics and queue state
   passed. Warung Nia remains empty pending a fetchable first-party PDF.
+- Jimbaran 02: Sundara, InterContinental Sunset and AYANA UNIQUE official
+  branch/menu/booking surfaces were independently reopened; Radja and Ramayana
+  social candidates were retried and remained inaccessible. JSON, provenance,
+  unique IDs, draft/null gates, metrics and out-of-order queue consistency
+  passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
