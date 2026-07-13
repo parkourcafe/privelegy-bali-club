@@ -1,0 +1,512 @@
+{
+  "batchId": "canggu-06",
+  "capturedAt": "2026-07-13T15:39:03Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-warung-bumi-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-warung-bumi-menu",
+          "status": "draft",
+          "url": "https://warungbumi.shop/menu",
+          "venueSlug": "warung-bu-mi",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-warung-bumi-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-warung-bumi-menu",
+          "status": "draft",
+          "url": "https://www.instagram.com/warungbumicanggu/",
+          "venueSlug": "warung-bu-mi",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Bolong No.52, Canggu.",
+      "collectionNotes": [
+        "Buffet is plate-dependent; 20k is a starting meal price, not an item price."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "id": "menu-warung-bumi-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Buffet menu evidence"
+            }
+          ],
+          "sourceManifestId": "src-warung-bumi-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Warung Bu Mi",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-bu-mi",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo-only Waroeng/Warung Nonii, Jl. Pantai Batu Bolong.",
+      "collectionNotes": [
+        "No official first-party site/profile/menu/action located; third-party results excluded."
+      ],
+      "coverageOutcome": "no_official_source",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Warung Nonii",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-nonii",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-woods-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-woods-menu",
+          "status": "draft",
+          "url": "https://woodsbali.com/menu/",
+          "venueSlug": "woods-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-woods-reserve",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "resdiary",
+          "sourceManifestId": "src-woods-menu",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/WoodsPererenan/1633",
+          "venueSlug": "woods-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-woods-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-woods-menu",
+          "status": "draft",
+          "url": "https://goo.gl/maps/uDhS9ktvS4XcB2Zy7",
+          "venueSlug": "woods-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Dalem Lingsir No.8, Pererenan.",
+      "collectionNotes": [
+        "Dedicated menu page overrides conflicting homepage showcase prices."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "id": "menu-woods-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Passion fruit, banana, honey purée, orange, coconut milk and granola.",
+                  "id": "woods-01",
+                  "name": "Mango Morning",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "Rp. 95.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Dragon fruit, strawberry, banana, kiwi, acai, seeds and coconut milk.",
+                  "id": "woods-02",
+                  "name": "Woods Berries",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "Rp. 95.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Hummus, labneh, herb salad, poached eggs and sourdough.",
+                  "id": "woods-03",
+                  "name": "Turkish Breakfast",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "Rp. 95.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "woods-04",
+                  "name": "Chia Seed and Coconut Pudding",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "Rp. 95.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "woods-05",
+                  "name": "Bamboo Benny",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "Rp. 95.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "woods-06",
+                  "name": "Salmon Croissant",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "Rp. 135.000"
+                }
+              ],
+              "name": "Breakfast review subset"
+            }
+          ],
+          "sourceManifestId": "src-woods-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Woods Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "woods-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-yuki-site",
+          "kind": "website",
+          "label": "Official Canggu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-yuki-canggu",
+          "status": "draft",
+          "url": "https://www.yuki-bali.com/canggu",
+          "venueSlug": "yuki-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-yuki-reserve",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-yuki-canggu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/yukicanggu/reservations/create/search/?venues=yukicanggu%2Cmeimei",
+          "venueSlug": "yuki-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-yuki-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-yuki-canggu",
+          "status": "draft",
+          "url": "https://wa.me/6281139608556",
+          "venueSlug": "yuki-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-yuki-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-yuki-canggu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/VJjbkT1JaT7hVgAt6",
+          "venueSlug": "yuki-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pura Dalem, Canggu; Batu Bolong Beach.",
+      "collectionNotes": [
+        "Six items only; full image menu not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "id": "menu-yuki-canggu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-01",
+                  "name": "MISO SOUP",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-02",
+                  "name": "EDAMAME",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-03",
+                  "name": "NORI AHI TACO",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-04",
+                  "name": "GRILLED CALAMARI",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-05",
+                  "name": "POPCORN CHICKEN",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "yuki-06",
+                  "name": "WAGYU BEEF SANDO",
+                  "priceMinor": 340000,
+                  "sourceDisplayPrice": "340"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-yuki-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "YUKI Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "yuki-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-zin-site",
+          "kind": "website",
+          "label": "Official venue page",
+          "provider": "official_website",
+          "sourceManifestId": "src-zin-cafe",
+          "status": "draft",
+          "url": "https://zin.world/zin-cafe/",
+          "venueSlug": "zin-cafe-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official footer phone differs by final digit.",
+          "id": "action-zin-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-zin-cafe",
+          "status": "draft",
+          "url": "https://wa.me/6281131116647",
+          "venueSlug": "zin-cafe-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-zin-gofood",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-zin-cafe",
+          "status": "draft",
+          "url": "https://gofood.link/a/DxjvHf9",
+          "venueSlug": "zin-cafe-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Nelayan No.78, Canggu.",
+      "collectionNotes": [
+        "Raw k values are not normalized to currency; official phone/WhatsApp mismatch requires review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:39:03Z",
+          "id": "menu-zin-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-01",
+                  "name": "Eggs Any Style",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "72k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-02",
+                  "name": "Coconut Granola Fruit Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "89k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-03",
+                  "name": "Avocado On Toast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-04",
+                  "name": "Fruit Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "78k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-05",
+                  "name": "PB & J Toast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "zin-06",
+                  "name": "Mascarpone Peach Toast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "98k"
+                }
+              ],
+              "name": "Live official image subset"
+            }
+          ],
+          "sourceManifestId": "src-zin-menu-image",
+          "verifiedAt": null
+        }
+      ],
+      "name": "ZIN Cafe Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "zin-cafe-canggu",
+      "verifiedAt": null
+    }
+  ]
+}

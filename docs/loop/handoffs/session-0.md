@@ -102,6 +102,10 @@ or publishable.
   action-only records, and two exact blockers. Cross-branch Touché actions,
   compromised The Slow collateral, and non-restaurant booking links were
   excluded. Ledger state is 49 complete, 16 blocked, and 142 queued.
+- Canggu batch 06 completes the full 70-record Canggu denominator. Three venues
+  have item-level partial menus, Warung Bu Mi has buffet-level official menu
+  evidence, and Warung Nonii has a specific no-first-party-source blocker.
+  Overall ledger state is 53 complete, 17 blocked, and 137 queued.
 
 ## Validation
 
@@ -155,6 +159,10 @@ or publishable.
   provenance, unique IDs, draft/null verification, denominator metrics and
   queue completion passed. Action-only and classification-blocked states remain
   distinct.
+- Canggu 06: official pages for Warung Bu Mi, Woods, YUKI and ZIN were reopened;
+  Warung Nonii produced only rejected third-party results. JSON, source mapping,
+  unique IDs, draft/null gates, metric reconciliation and all seven completed
+  Canggu queue checkpoints passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
