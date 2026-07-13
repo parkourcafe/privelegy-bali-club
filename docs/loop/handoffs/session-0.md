@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: in progress — Canggu complete; Ubud active
+Status: in progress — Canggu, Ubud and Uluwatu–Bukit complete; Seminyak active
 
 ## Discovery
 
@@ -34,9 +34,9 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 
 ## Progress
 
-Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
-63 records are complete, 19 are blocked with concrete retry conditions, and
-125 remain queued. No venue is marked human-verified or publishable.
+Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
+active; 106 records are complete, 32 are blocked with concrete retry conditions,
+and 69 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -139,6 +139,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
 - Seminyak batch 04 is processed: Watercress Seminyak is branch-matched to its
   official location and WhatsApp, with six currency-null items from the shared
   March 2026 menu. Ledger state is 98 complete, 30 blocked, and 79 queued.
+- Seminyak batch 02 is processed: eight item-level partial official menus and
+  two exact access/source blockers. Natys' removed Drive menu and Nook's
+  inaccessible first-party candidates remain empty rather than inferred.
+  Ledger state is 106 complete, 32 blocked, and 69 queued.
 
 ## Validation
 
@@ -233,6 +237,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
 - Seminyak 04: Watercress's official location, menu and Seminyak contact were
   independently reopened. JSON, source mapping, unique IDs, draft/null gates,
   denominator metrics and completed one-record batch state passed.
+- Seminyak 02: La Casetta, Mama San, Merah Putih, Pison and the remaining
+  first-party menu/action surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and queue state
+  passed. Natys and Nook retain concrete retry blockers and no inferred menu
+  data.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
