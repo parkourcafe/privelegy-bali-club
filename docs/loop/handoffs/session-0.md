@@ -48,6 +48,10 @@ or publishable.
 - Canggu loop 1 completed: `mason`, `samesa-canggu`,
   `luigis-hot-pizza`. Each has a draft menu record, official action evidence,
   manifest linkage, `verifiedAt: null`, and `publicationAllowed: false`.
+- Canggu loop 2 completed: `the-shady-shack`,
+  `milk-and-madu-berawa`. Both have branch-matched official menu sources and
+  official action evidence; currency is normalized only where the source names
+  IDR and its scale.
 
 ## Validation
 
@@ -56,6 +60,10 @@ or publishable.
   record keeps `verifiedAt: null`; no media is publishable.
 - Two-source recheck passed at `2026-07-13T15:18:21Z`–`15:18:23Z`:
   MASONRY Canggu menu and Luigi's menu both returned HTTP 200.
+- Loop 2: JSON parse/provenance/duplicate-ID checks passed for 5 cumulative
+  venues. Recheck at `2026-07-13T15:19:49Z`: Shady Shack's official PDF link
+  returned the expected Squarespace asset redirect (HTTP 302), and Milk &
+  Madu's official contact page returned HTTP 200.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

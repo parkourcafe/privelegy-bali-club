@@ -5,12 +5,25 @@
       "completedVenueSlugs": [
         "mason",
         "samesa-canggu",
-        "luigis-hot-pizza"
+        "luigis-hot-pizza",
+        "the-shady-shack",
+        "milk-and-madu-berawa"
       ],
       "district": "canggu",
-      "remainingVenueSlugs": [],
-      "resumeFromSlug": null,
-      "status": "complete",
+      "remainingVenueSlugs": [
+        "ji-restaurant-bali",
+        "luma",
+        "santanera",
+        "revolver-canggu",
+        "ulekan-berawa",
+        "hippie-fish-pererenan-beach",
+        "baked-pererenan",
+        "rize-cafe",
+        "sensorium-bali",
+        "shelter-restaurant"
+      ],
+      "resumeFromSlug": "ji-restaurant-bali",
+      "status": "in_progress",
       "venueSlugs": [
         "baked-pererenan",
         "hippie-fish-pererenan-beach",

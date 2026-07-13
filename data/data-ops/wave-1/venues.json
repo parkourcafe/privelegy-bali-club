@@ -607,6 +607,509 @@
       "venueName": "Luigi’s Hot Pizza",
       "venueSlug": "luigis-hot-pizza",
       "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-the-shady-shack-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "The Shady Shack official website",
+          "sourceManifestId": "src-shady-site",
+          "sourceUrl": "https://www.theshadyshackbali.com/",
+          "status": "draft",
+          "url": "https://www.theshadyshackbali.com/",
+          "venueSlug": "the-shady-shack",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official reservation link resolves through the UMAI widget.",
+          "expiresAt": null,
+          "id": "action-the-shady-shack-reserve-02",
+          "kind": "reserve",
+          "label": "Reserve",
+          "priority": 20,
+          "provider": "umai",
+          "sourceLabel": "The Shady Shack Contact and FAQ",
+          "sourceManifestId": "src-shady-contact",
+          "sourceUrl": "https://www.theshadyshackbali.com/contact",
+          "status": "draft",
+          "url": "https://reservation.umai.io/en/widget/shady-shack",
+          "venueSlug": "the-shady-shack",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Official site confirms Jl. Tanah Barak No.57, Canggu.",
+        "Delivery is described as available through Gojek/Grab, but no venue-specific deep link is published.",
+        "Visible phone number is not labelled as WhatsApp and was not converted to a WhatsApp action."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:07Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "collectionNotes": [
+            "Partial transcription for review.",
+            "PDF explicitly states prices are in thousands of IDR and excludes 10% tax and 5% service.",
+            "PDF has no version/date marker."
+          ],
+          "expiresAt": null,
+          "id": "menu-the-shady-shack-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "the-shady-shack-v1-smoothie-bowls",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Dragonfruit, pineapple, banana, passionfruit, watermelon, papaya, muesli, chia, coconut",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-smoothie-bowls-01",
+                  "name": "LOST PARADISE",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Soursop, pineapple, ginger, coconut milk, seasonal fruit, chia, goji berries & muesli",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-smoothie-bowls-02",
+                  "name": "HEAVEN ON EARTH",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "SMOOTHIE BOWLS",
+              "position": 0
+            },
+            {
+              "description": null,
+              "id": "the-shady-shack-v1-all-day-breakfast",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Grilled haloumi, herb rolled soft boiled eggs, sauteed kale, avocado, pickled cabbage & sourdough toast",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-all-day-breakfast-01",
+                  "name": "HALOUMI BREAKFAST",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sauteed mushrooms & tomatoes, wilted spinach, citrus asparagus spears, crispy sweet potato & caramelized onion served with sourdough toast & tomato mustard chutney; choice of eggs or vegan scrambled tofu",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-all-day-breakfast-02",
+                  "name": "BIG BREAKFAST",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "ALL DAY BREAKFAST",
+              "position": 1
+            },
+            {
+              "description": null,
+              "id": "the-shady-shack-v1-bowls",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Snowpeas, edamame, sauteed shitake mushrooms, crispy tofu sticks, Japanese fried rice, fresh greens, cucumber, wakame, pickled ginger, spring onion, vege nori rolls, tamari seed mix & miso dressing",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-bowls-01",
+                  "name": "NORI BOWL",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Grilled haloumi, pickled beetroot, quinoa, rocket, cucumber, avocado, tomato, roasted peppers, olives with baba ganoush, creamy tahini dressing, crispy chickpeas & za’atar",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-bowls-02",
+                  "name": "HALOUMI BOWL",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "BOWLS",
+              "position": 2
+            },
+            {
+              "description": null,
+              "id": "the-shady-shack-v1-plates",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Vegan pasta layered with grilled eggplant, zucchini, spinach, tomato Napoli, bechamel, cashew cheese, served with a green leafy salad",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-plates-01",
+                  "name": "SHADY LASAGNA",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tri coloured tortilla chips with chilli con veg, melted cheese, guacamole, sour cream, red cabbage, fresh radish, coriander & jalapenos; punchy chilli sauce on the side",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "the-shady-shack-v1-plates-02",
+                  "name": "BEES KNEES NACHOS",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "PLATES",
+              "position": 3
+            }
+          ],
+          "sourceLabel": "The Shady Shack Breakfast & Lunch PDF",
+          "sourceManifestId": "src-shady-menu-pdf",
+          "sourceUrl": "https://www.theshadyshackbali.com/s/SHADY-SHACK-BREAKFAST_LUNCH-1.pdf",
+          "status": "draft",
+          "title": "Breakfast & Lunch",
+          "venueSlug": "the-shady-shack",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Obtain a dated/current menu version and venue-specific delivery or Maps link if the operator needs those actions.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-shady-site",
+        "src-shady-menu-index",
+        "src-shady-menu-pdf",
+        "src-shady-contact"
+      ],
+      "venueName": "The Shady Shack",
+      "venueSlug": "the-shady-shack",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-milk-and-madu-berawa-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "Milk & Madu official website",
+          "sourceManifestId": "src-milk-site",
+          "sourceUrl": "https://milkandmadu.com/",
+          "status": "draft",
+          "url": "https://milkandmadu.com/",
+          "venueSlug": "milk-and-madu-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Branch-specific Berawa booking contact.",
+          "expiresAt": null,
+          "id": "action-milk-and-madu-berawa-whatsapp-02",
+          "kind": "whatsapp",
+          "label": "Book by WhatsApp",
+          "priority": 20,
+          "provider": "whatsapp",
+          "sourceLabel": "Milk & Madu Berawa contact/location block",
+          "sourceManifestId": "src-milk-contact",
+          "sourceUrl": "https://milkandmadu.com/contact-us/",
+          "status": "draft",
+          "url": "https://wa.me/6285102781872",
+          "venueSlug": "milk-and-madu-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": "Branch-specific official location link.",
+          "expiresAt": null,
+          "id": "action-milk-and-madu-berawa-maps-03",
+          "kind": "maps",
+          "label": "Check on map",
+          "priority": 30,
+          "provider": "google_maps",
+          "sourceLabel": "Milk & Madu Berawa contact/location block",
+          "sourceManifestId": "src-milk-contact",
+          "sourceUrl": "https://milkandmadu.com/contact-us/",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/6CZNVmn3fjT8GJ1X9",
+          "venueSlug": "milk-and-madu-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official contact block links the Berawa order destination.",
+          "expiresAt": null,
+          "id": "action-milk-and-madu-berawa-delivery-04",
+          "kind": "delivery",
+          "label": "Order online",
+          "priority": 40,
+          "provider": "gofood",
+          "sourceLabel": "Milk & Madu Berawa contact/location block",
+          "sourceManifestId": "src-milk-contact",
+          "sourceUrl": "https://milkandmadu.com/contact-us/",
+          "status": "draft",
+          "url": "https://gofood.co.id/english/bali/restaurant/milk-madu-pantai-berawa-297dd96a-2b2a-41ad-b16f-639109b25e99",
+          "venueSlug": "milk-and-madu-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Official contact block confirms the Berawa branch and Jalan Pantai Berawa No.52.",
+        "Currency/scale remains unresolved despite a branch-specific dated PDF."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:07Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "collectionNotes": [
+            "Partial transcription for review.",
+            "PDF identifies November 2025 but does not explicitly name currency or scale; raw price strings are preserved and priceMinor remains null.",
+            "PDF states 10% tax and 6% service are excluded."
+          ],
+          "expiresAt": null,
+          "id": "menu-milk-and-madu-berawa-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "milk-and-madu-berawa-v1-breakfast-specials",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "poached eggs / avo / bacon / rocket / onion jam / hollandaise / sourdough",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-breakfast-specials-01",
+                  "name": "THE MADU",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "salmon gravlax / scrambled eggs / dill / crispy capers / pickled shallots / sour cream",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-breakfast-specials-02",
+                  "name": "ATLANTIC",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "125",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "scrambled eggs / bacon / avo / beans / jalapeños / corn salsa / sour cream / mixed cheese",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-breakfast-specials-03",
+                  "name": "BREAKFAST BURRITO",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "BREAKFAST SPECIALS",
+              "position": 0
+            },
+            {
+              "description": null,
+              "id": "milk-and-madu-berawa-v1-sweet-start",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "russian style syrniki / strawberry gel / grilled peach / sour cream",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-sweet-start-01",
+                  "name": "RICOTTA CAKES",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "two fluffy pancakes / fresh strawberry / cream / meringue shards / crumbed honeycomb / maple syrup",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-sweet-start-02",
+                  "name": "MADU PANCAKES",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "A SWEET START",
+              "position": 1
+            },
+            {
+              "description": null,
+              "id": "milk-and-madu-berawa-v1-dinner-specials",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "golden battered grouper / green salad / chunky tartar / house fries",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-dinner-specials-01",
+                  "name": "FISH & CHIPS",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "buttery mashed potatoes / chimichurri",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-dinner-specials-02",
+                  "name": "PERI PERI CHICKEN",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "160",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "sticky glaze / house slaw / cuban grilled corn",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "milk-and-madu-berawa-v1-dinner-specials-03",
+                  "name": "BBQ PORK RIBS",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "180",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "DINNER SPECIALS",
+              "position": 2
+            }
+          ],
+          "sourceLabel": "Milk & Madu Berawa MENU NOV 2025 PDF",
+          "sourceManifestId": "src-milk-berawa-pdf",
+          "sourceUrl": "https://uploads.strikinglycdn.com/files/67a7f9f1-a575-4416-9ff5-b335129ff8a4/Milk%20%26%20Madu%20Berawa%20MENU%20NOV%202025.pdf?id=4338320&t=1763360367",
+          "status": "draft",
+          "title": "Milk & Madu Berawa Menu — November 2025",
+          "venueSlug": "milk-and-madu-berawa",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Confirm the PDF price currency/scale and whether November 2025 remains the current branch menu.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-milk-site",
+        "src-milk-menu-index",
+        "src-milk-berawa-pdf",
+        "src-milk-contact"
+      ],
+      "venueName": "Milk & Madu Berawa",
+      "venueSlug": "milk-and-madu-berawa",
+      "verifiedAt": null
     }
   ],
   "wave": "wave-1"
