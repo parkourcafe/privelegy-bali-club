@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: in progress — Canggu, Ubud and Uluwatu–Bukit complete; Seminyak active
+Status: in progress — Canggu, Ubud, Uluwatu–Bukit and Seminyak complete; Jimbaran active
 
 ## Discovery
 
@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 118 records are complete, 36 are blocked with concrete retry conditions,
-and 53 remain queued. No venue is marked human-verified or publishable.
+active; 125 records are complete, 39 are blocked with concrete retry conditions,
+and 43 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -153,6 +153,12 @@ and 53 remain queued. No venue is marked human-verified or publishable.
   fetchable official menus not yet parsed, and three local venues retain exact
   first-party-source blockers. Ledger state is 118 complete, 36 blocked, and
   53 queued.
+- Seminyak batch 01 completes all 31 repo-canonical Seminyak records: six
+  partial item menus, one action/group-menu-only record, and three exact
+  freshness/identity/location blockers. Café del Mar is retained in the repo
+  district denominator but no menu is attributed while its official site says
+  Canggu. Ledger state is 125 complete, 39 blocked, and 43 queued; the pointer
+  advances to `jimbaran-01`.
 
 ## Validation
 
@@ -261,6 +267,11 @@ and 53 remain queued. No venue is marked human-verified or publishable.
   social candidates were retried and remained inaccessible. JSON, provenance,
   unique IDs, draft/null gates, metrics and out-of-order queue consistency
   passed.
+- Seminyak 01: Corner House, Boy'N'Cow, KU DE TA, Café del Mar and the other
+  venue-controlled identity/menu surfaces were independently reopened. JSON,
+  source mapping, unique IDs, draft/null gates, complete Seminyak coverage,
+  denominator metrics and pointer advancement passed. Undeclared price scales
+  remain currency-null.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
