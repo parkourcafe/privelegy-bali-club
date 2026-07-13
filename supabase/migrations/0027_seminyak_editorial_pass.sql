@@ -1,4 +1,4 @@
--- Seminyak editorial evidence pass (0026) -- same verified-source bar and guardrails
+-- Seminyak editorial evidence pass (0027) -- same verified-source bar and guardrails
 -- as the Canggu/Ubud passes: 33 established, currently-open Seminyak-area venues
 -- (restaurants, cafes, a bar, a beach club, a warung, spas, beauty salons, fitness
 -- studios and yoga) enriched from a fresh web-research pass grounded in official

@@ -1,7 +1,7 @@
 # Seminyak editorial evidence pass — 2026-07-13
 
 Same verified-source cycle as the Canggu/Ubud passes, applied to Seminyak.
-Migration: `0026_seminyak_editorial_pass.sql`, applied to prod.
+Migration: `0027_seminyak_editorial_pass.sql`, applied to prod.
 
 ## Before → after
 
