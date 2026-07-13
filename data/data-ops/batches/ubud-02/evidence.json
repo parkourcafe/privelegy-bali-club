@@ -191,7 +191,7 @@
           "provider": "instagram",
           "sourceManifestId": "src-ibu-rai-social",
           "status": "draft",
-          "url": "https://www.instagram.com/iburaibali/",
+          "url": "https://www.instagram.com/iburairestaurant/",
           "venueSlug": "ibu-rai",
           "verifiedAt": null
         }
@@ -199,7 +199,7 @@
       "blocked": true,
       "branchIdentity": "Ubud identity represented only by official social profile.",
       "collectionNotes": [
-        "SEO/restaurant directory domains were rejected; no aggregator substitution."
+        "SEO/review-scraper domains were rejected; no aggregator substitution."
       ],
       "coverageOutcome": "blocked",
       "district": "ubud",
@@ -228,7 +228,7 @@
           "provider": "instagram",
           "sourceManifestId": "src-karsa-social",
           "status": "draft",
-          "url": "https://www.instagram.com/karsacafeubud/",
+          "url": "https://www.instagram.com/karsakafe/",
           "venueSlug": "karsa-cafe",
           "verifiedAt": null
         }
@@ -329,7 +329,21 @@
           "provider": "revasi",
           "sourceManifestId": "src-locavore-menu",
           "status": "draft",
-          "url": "https://revasi.net/",
+          "url": "https://revasi.net/restaurants/locavorenxt/availability?utm_campaign=nxt-booking-website&utm_medium=referral&utm_source=website",
+          "venueSlug": "locavore-nxt",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-loc-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-locavore-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282144956226",
           "venueSlug": "locavore-nxt",
           "verifiedAt": null
         }
@@ -425,7 +439,7 @@
           "provider": "instagram",
           "sourceManifestId": "src-manga-social",
           "status": "draft",
-          "url": "https://www.instagram.com/mangamaduubud/",
+          "url": "https://www.instagram.com/warungmanggamadu/",
           "venueSlug": "manga-madu",
           "verifiedAt": null
         }
@@ -433,7 +447,7 @@
       "blocked": true,
       "branchIdentity": "Ubud identity represented by official social profile; similarly named menu candidate rejected.",
       "collectionNotes": [
-        "Candidate menu that names BAKMIE NAU is wrong-venue collateral and is not mapped."
+        "warungmanggamadu.shop shows a menu branded BAKMIE NAU; all of its copy, media and actions are rejected."
       ],
       "coverageOutcome": "blocked",
       "district": "ubud",
@@ -462,7 +476,7 @@
           "provider": "official_website",
           "sourceManifestId": "src-milk-ubud",
           "status": "draft",
-          "url": "https://www.milkandmadu.com/location/",
+          "url": "https://milkandmadu.com/location/",
           "venueSlug": "milk-and-madu-ubud",
           "verifiedAt": null
         },
@@ -472,11 +486,11 @@
           "evidenceNote": null,
           "id": "action-milk-menu",
           "kind": "website",
-          "label": "Official network menu",
+          "label": "Official April 2026 breakfast menu",
           "provider": "official_website",
           "sourceManifestId": "src-milk-menu",
           "status": "draft",
-          "url": "https://www.milkandmadu.com/milk-and-madu-menu",
+          "url": "https://milkandmadu.com/wp-content/uploads/2026/04/milk-madu-breakfast-pages-2.pdf",
           "venueSlug": "milk-and-madu-ubud",
           "verifiedAt": null
         },
@@ -493,12 +507,26 @@
           "url": "https://wa.me/6281329756708",
           "venueSlug": "milk-and-madu-ubud",
           "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-milk-ubud",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/UmVZZDgFxPPTT8Mn7",
+          "venueSlug": "milk-and-madu-ubud",
+          "verifiedAt": null
         }
       ],
       "blocked": false,
       "branchIdentity": "Jalan Suweta No.3, Ubud, opposite Ubud Palace.",
       "collectionNotes": [
-        "Official network menu names Ubud; exact item/value transcription awaits source-detail reconciliation."
+        "Raw values kept currency-null; PDF modified 2026-04-02."
       ],
       "coverageOutcome": "official_menu_partial",
       "district": "ubud",
@@ -510,7 +538,62 @@
           "id": "menu-milk-and-madu-ubud-v1",
           "sections": [
             {
-              "items": [],
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-01",
+                  "name": "TOASTED BANANA & WALNUT BREAD",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-02",
+                  "name": "CINNAMON BUN FRENCH TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-03",
+                  "name": "RICOTTA CAKES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-04",
+                  "name": "MADU PANCAKES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-05",
+                  "name": "THE MADU",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-06",
+                  "name": "ATLANTIC",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "125"
+                }
+              ],
               "name": "Review subset"
             }
           ],

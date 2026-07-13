@@ -205,6 +205,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   social/compromised cases retain exact retry evidence. JSON, provenance,
   unique slugs, source mapping, draft/null gates, denominator metrics and queue
   advancement to `ubud-03` passed.
+- Ubud 02 provenance replay: exact Ibu Rai, Karsa and Warung Mangga Madu social
+  handles, the April 2026 Milk & Madu PDF, branch map, exact Locavore booking,
+  and current Onion menu route were reconciled without changing coverage
+  metrics. JSON/source mapping and gates passed again.
 - Uluwatu–Bukit 02: Papi Sapi, Sundays, Hyatt/Alila, Tropical Temptation,
   Artisan and ULU Fishmarket sources were independently reopened during
   acceptance. JSON, provenance, unique IDs, draft/null gates, denominator

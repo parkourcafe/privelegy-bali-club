@@ -11,3 +11,8 @@ Milk & Madu uses a network menu explicitly naming Ubud. Onion Collective now
 presents as The Onion Co and retains both rebrand and duplicate-review flags.
 Laka Leke's menu gallery is broken. All records remain unverified, media-free,
 draft-only and publication-blocked.
+
+Provenance replay corrected the exact Ibu Rai, Karsa and Warung Mangga Madu
+social handles, replaced the Milk & Madu hub with its April 2026 breakfast PDF,
+and mapped the current Onion halal-kopitiam route. Six Milk & Madu raw-price
+items remain currency-null.
