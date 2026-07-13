@@ -167,9 +167,22 @@
     },
     {
       "batchId": "canggu-05",
+      "completedVenueSlugs": [
+        "satu-satu-coffee-company",
+        "seseh-general-store",
+        "skool-kitchen",
+        "the-avocado-factory",
+        "the-lawn-canggu-beach-club",
+        "the-slow",
+        "touche-cafe-and-restaurant",
+        "tropical-nomad",
+        "two-face-canggu",
+        "udara-bali"
+      ],
       "district": "canggu",
-      "resumeFromSlug": "satu-satu-coffee-company",
-      "status": "queued",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "satu-satu-coffee-company",
         "seseh-general-store",
@@ -471,7 +484,7 @@
     }
   ],
   "currentBatchId": "canggu-wave-1",
-  "generatedAt": "2026-07-13T15:36:15Z",
+  "generatedAt": "2026-07-13T15:37:58Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
   "updatedAt": "2026-07-13T15:15:00Z"

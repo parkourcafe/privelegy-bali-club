@@ -98,6 +98,10 @@ or publishable.
   partial official menu, while four social-only venues and Samadi have exact
   access/menu blockers. Ledger state is 41 complete, 14 blocked, and 152
   queued.
+- Canggu batch 05 is processed: six partial official menus, two valid
+  action-only records, and two exact blockers. Cross-branch Touché actions,
+  compromised The Slow collateral, and non-restaurant booking links were
+  excluded. Ledger state is 49 complete, 16 blocked, and 142 queued.
 
 ## Validation
 
@@ -147,6 +151,10 @@ or publishable.
   provenance, unique IDs, draft/null verification, denominator metrics and the
   now-complete Canggu-04 queue passed. Pizza Fabbrica's SSL and Samadi's removed
   PDF are retained as explicit retry conditions.
+- Canggu 05: all 10 official surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null verification, denominator metrics and
+  queue completion passed. Action-only and classification-blocked states remain
+  distinct.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
