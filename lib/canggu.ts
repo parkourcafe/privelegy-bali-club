@@ -10,6 +10,7 @@
 
 import type { VenueWithPerk } from "@/lib/data";
 import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
+import { normalizeJobs } from "@/lib/intents";
 import type { PlaceCardData } from "@/components/PlaceCard";
 
 export const CANGGU_SLUG = "canggu";
@@ -42,9 +43,14 @@ export function toCangguPlaceCard(v: VenueWithPerk): PlaceCardData {
   };
 }
 
+// Match against the DB's canonical job slugs. The database stores underscore
+// slugs (date_night_special); the guides above are authored with hyphen slugs
+// (date-night-special). normalizeJobs collapses both to the underscore form so a
+// guide group actually slots its venues (the rest of the app normalises on read
+// the same way — see lib/data.ts intent spokes).
 export function venueHasJob(v: VenueWithPerk, jobs: string[]): boolean {
-  const own = v.jobs ?? [];
-  return jobs.some((j) => own.includes(j));
+  const own = normalizeJobs(v.jobs);
+  return normalizeJobs(jobs).some((j) => own.includes(j));
 }
 
 export function hasTag(v: VenueWithPerk, tag: string, kind: "vibe" | "practical"): boolean {

@@ -65,6 +65,7 @@ export default async function UbudPillarPage() {
   const venues = await getUbudVenues();
   const restaurants = venues.filter((v) => v.category === "restaurant");
   const cafes = venues.filter((v) => v.category === "cafe");
+  const wellness = venues.filter((v) => v.category === "spa");
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Ubud" }];
 
@@ -93,8 +94,8 @@ export default async function UbudPillarPage() {
           <p className="hero-copy">
             Rice terraces, jungle mornings, yoga and long healthy dinners — Ubud is
             the island&apos;s cultural, inland base, not a beach one. This guide covers
-            where to eat and where to drink coffee, curated from places we actually
-            rate, with more of Ubud on the way.
+            where to eat, where to drink coffee, and where to practise yoga, be
+            worked on and reset — curated from places we actually rate.
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link href="/places?district=ubud" className="button-secondary button-large">Browse all Ubud places</Link>
@@ -111,15 +112,7 @@ export default async function UbudPillarPage() {
 
         <TopPicks title="Best restaurants" note="Long slow dinners and healthy plates." venues={restaurants} href="/ubud/best-restaurants" />
         <TopPicks title="Cafés & coffee" note="Serious coffee and calm mornings." venues={cafes} href="/ubud/best-cafes-coffee" />
-
-        <section className="guide-section">
-          <h2>More of Ubud is on the way</h2>
-          <p className="text-sm text-[var(--muted)]">
-            This first release covers food and coffee — the places we can stand
-            behind today. Ubud&apos;s signature yoga, wellness and retreat guides are
-            next, once that data is verified to the same bar.
-          </p>
-        </section>
+        <TopPicks title="Yoga & wellness" note="Studios, spas, sound and retreats — Ubud's signature." venues={wellness} href="/ubud/best-yoga-wellness" />
 
         <FaqBlock items={FAQ} />
         <RelatedGuides

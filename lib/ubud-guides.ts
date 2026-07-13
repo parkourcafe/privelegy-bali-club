@@ -47,6 +47,22 @@ export const UBUD_GUIDES: UbudGuide[] = [
       { q: "Which Ubud cafés are good for working?", a: "Ubud has a strong café-work culture, but rooms vary — look for the ones we note as calm with room to sit; some jungle cafés are for the view, not a laptop." },
     ],
   },
+  {
+    slug: "best-yoga-wellness",
+    h1: "Best yoga & wellness in Ubud",
+    metaTitle: "Best yoga & wellness in Ubud — studios, spas, sound & retreats",
+    metaDescription:
+      "Ubud's yoga, spa and wellness scene, curated: where to drop into a class, book a massage, sit in a sound bath or commit to a retreat. Resident-curated, honest about what each is for.",
+    lede: "Ubud is Bali's wellness capital — this is where to practise, reset and be worked on, from big drop-in studios to quiet Ayurvedic spas and sound healing.",
+    base: (v) => v.category === "spa",
+    sectionHeading: "Yoga, spa & wellness",
+    sectionNote: "Studios, spas, sound and retreats — honest about which is a drop-in class, a treatment or a multi-day commitment.",
+    faq: [
+      { q: "Where should a first-timer do yoga in Ubud?", a: "The big drop-in studios — the kind with a full daily timetable across styles — are the easiest starting point; smaller shalas suit you once you know what you want to practise." },
+      { q: "Do I need to book Ubud yoga classes and spa treatments ahead?", a: "Popular classes and the well-known spas fill in high season — reserve a day ahead where you can. Some hillside studios and village spas are quieter and easier to walk into." },
+      { q: "What's the difference between a class, a treatment and a retreat here?", a: "We note it on each: a drop-in class is an hour or two, a spa or Ayurvedic treatment is a single booking, and a retreat is a multi-day, often doctor- or teacher-led programme." },
+    ],
+  },
 ];
 
 export function getUbudGuide(slug: string | null | undefined): UbudGuide | null {

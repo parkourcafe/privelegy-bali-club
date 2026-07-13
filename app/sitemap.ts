@@ -50,7 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     })),
     // District pillars + their editorial children (driven by lib/pillars.ts so
-    // the sitemap can't drift from the actual pages).
+    // the sitemap can't drift from the actual pages). The Ubud wellness guide is
+    // registered there too.
     ...PILLARS.flatMap((p) => [
       { url: `${BASE}/${p.slug}`, changeFrequency: "weekly" as const, priority: 0.9 },
       ...p.children.map((c) => ({
