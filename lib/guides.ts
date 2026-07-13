@@ -270,6 +270,271 @@ export const GUIDES: Guide[] = [
     ],
     related: PILLAR_LINKS,
   },
+
+  {
+    slug: "best-area-to-stay-in-bali-for-couples",
+    eyebrow: "Bali for couples",
+    title: "The best area to stay in Bali for couples",
+    description:
+      "For couples, Uluwatu brings clifftop sunsets and romance, Ubud brings jungle calm, and Seminyak brings polished dining. Here's how to choose.",
+    lede: "For a couples' trip, three Bali areas do romance best: Uluwatu for clifftop sunsets and drama, Ubud for jungle calm and spa mornings, and Seminyak for polished dinners and easy beach-club evenings. Which one depends on whether you want views, greenery, or effortless comfort — and many couples pair two.",
+    sections: [
+      {
+        heading: "Uluwatu — sunsets and drama",
+        paras: [
+          "The southern Bukit is Bali at its most cinematic: limestone cliffs, turquoise coves and clifftop bars where the sunset is the whole evening. It's spread out and you'll drive between spots, which trades convenience for views and quiet.",
+          "Best for couples who want the wow — big scenery, long sunset dinners, and a sense of escape.",
+        ],
+      },
+      {
+        heading: "Ubud — jungle calm and slow mornings",
+        paras: [
+          "Inland in the hills, Ubud is green, cool and unhurried: rice-terrace walks, couples' spa treatments, yoga and long slow dinners. There's no beach, so it suits couples who want nature and stillness over sand.",
+          "Pair it with a coastal area for the best of both — a few nights inland, a few by the sea.",
+        ],
+      },
+      {
+        heading: "Seminyak — polished and easy",
+        paras: [
+          "If you'd rather everything be close and effortless, Seminyak delivers: a spa in the afternoon, a west-facing sunset, and a considered dinner, all walkable. It's the low-effort romantic base.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Where is the most romantic place to stay in Bali?", a: "Uluwatu for clifftop sunsets and drama, or Ubud for jungle calm and spa mornings. Seminyak is the easy, polished option if you want everything close." },
+      { q: "Is Ubud or the beach better for couples?", a: "Both — many couples split the trip, a few nights inland in Ubud for calm and nature, then a few by the sea in Uluwatu or Seminyak for sunsets and dining." },
+      { q: "Where's the best sunset for a couple?", a: "The west and south coasts — Uluwatu, Seminyak and Canggu all face the sunset. Uluwatu's clifftop bars are the most dramatic." },
+    ],
+    related: [
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
+      { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
+      { href: "/romantic-bali", title: "Romantic Bali", blurb: "Plan a couples' trip around the right moments." },
+    ],
+  },
+
+  {
+    slug: "best-area-to-stay-in-bali-for-families",
+    eyebrow: "Bali for families",
+    title: "The best area to stay in Bali for families",
+    description:
+      "For families, Sanur and Nusa Dua offer calm, swimmable beaches and easy days; Ubud adds nature and space. How to choose a family base in Bali.",
+    lede: "For a family trip, the calmest, easiest Bali bases are Sanur and Nusa Dua — both have gentle, swimmable water, flat walkable fronts and short, simple days. Ubud adds nature and space for older kids. The livelier surf towns work too, but with more traffic and stronger currents to manage.",
+    sections: [
+      {
+        heading: "Sanur — calm, walkable, low-key",
+        paras: [
+          "A quiet east-coast town with a long, flat paved beach path (great for strollers and bikes), calm swimmable water and easy fast boats to the Nusa islands. It faces east, so mornings are bright and gentle.",
+          "Best for families who want an unflashy, walkable base with short travel times.",
+        ],
+      },
+      {
+        heading: "Nusa Dua — resort-easy and safe",
+        paras: [
+          "A gated enclave of big resorts with calm, reef-protected beaches and lots of on-site facilities. It's the most hands-off, resort-holiday option — safe and easy, if less local in feel.",
+        ],
+      },
+      {
+        heading: "Ubud — nature and space",
+        paras: [
+          "Inland Ubud suits families with older kids who want rice-terrace walks, monkey forest, waterfalls and cooler air. There's no beach, so it pairs well with a few nights in Sanur.",
+        ],
+      },
+      {
+        heading: "A note on the surf towns",
+        paras: [
+          "Canggu, Seminyak and Uluwatu are fun but busier, with real traffic and beaches where currents and shore-break need watching with small children. They work for active families who don't mind the pace.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Where should families with young kids stay in Bali?", a: "Sanur or Nusa Dua — both have calm, swimmable water, flat walkable fronts and easy short days. Sanur feels more like a town; Nusa Dua is resort-style." },
+      { q: "Is Bali good for a family holiday?", a: "Yes, with the right base. Choose a calm-water area like Sanur or Nusa Dua, keep travel times short, and build in rest through the midday heat." },
+      { q: "Is Ubud good for families?", a: "For families with older kids, yes — nature, space and cooler air. There's no beach, so pair it with a calm coastal area like Sanur." },
+    ],
+    related: [
+      { href: "/sanur", title: "The Sanur guide", blurb: "A calm, walkable, sunrise base with easy island connections." },
+      { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "Calm resort beaches, fine dining and big resort spas." },
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
+    ],
+  },
+
+  {
+    slug: "canggu-vs-uluwatu",
+    eyebrow: "Canggu vs Uluwatu",
+    title: "Canggu vs Uluwatu: which should you choose?",
+    description:
+      "Canggu for cafés, nightlife and a walkable-ish hub; Uluwatu for clifftop sunsets, cleaner beaches and world-class surf. How to pick between them.",
+    lede: "Choose Canggu for energy — cafés, co-working, beach clubs and a big dinner-and-nightlife scene in one busy hub. Choose Uluwatu for scenery — clifftop sunsets, turquoise coves and world-class surf, spread out across the southern Bukit. Canggu is more convenient; Uluwatu is more beautiful and more of an escape.",
+    sections: [
+      {
+        heading: "Choose Canggu if…",
+        paras: [
+          "You want everything close and social: laptop cafés, surf lessons for beginners, beach clubs, and a dense dinner scene within a short ride. It's the island's busiest traveller hub, walkable-ish in patches, with real traffic between areas.",
+          "Trade-off: it's built-up and busy, and the beaches are grey-sand and functional rather than postcard-pretty.",
+        ],
+      },
+      {
+        heading: "Choose Uluwatu if…",
+        paras: [
+          "You want dramatic scenery and calm: limestone cliffs, white-sand coves, clifftop sunset bars, and some of the best surf in the world. It suits couples, confident surfers and anyone chasing views over convenience.",
+          "Trade-off: it's spread out and quieter, you'll drive between spots, and it's a longer haul from the airport and the rest of the island.",
+        ],
+      },
+      {
+        heading: "Can you do both?",
+        paras: [
+          "Easily — they're both in the south. A few nights of Canggu energy followed by a few of Uluwatu scenery is a popular first-trip combination, with roughly an hour's drive between them.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Canggu or Uluwatu better for a first trip?", a: "Canggu if you want cafés, nightlife and everything close; Uluwatu if you want clifftop sunsets, cleaner beaches and surf. Many first-timers do a few nights of each." },
+      { q: "Which has better beaches, Canggu or Uluwatu?", a: "Uluwatu — white-sand coves and turquoise water below the cliffs. Canggu's beaches are grey-sand and more about surf and beach clubs than swimming." },
+      { q: "Which is better for surfing?", a: "Both are strong, but Uluwatu's reef breaks are world-class and better for experienced surfers; Canggu has more beginner-friendly beach breaks and surf schools." },
+    ],
+    related: [
+      { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
+    ],
+  },
+
+  {
+    slug: "seminyak-vs-canggu",
+    eyebrow: "Seminyak vs Canggu",
+    title: "Seminyak vs Canggu: which should you choose?",
+    description:
+      "Seminyak for polished dining, walkable streets and comfort; Canggu for surf, cafés and a younger, laid-back crowd. How to pick between the two.",
+    lede: "Choose Seminyak for the polished, comfortable side of Bali — good restaurants, sunset beach clubs, spas and walkable streets. Choose Canggu for the younger, more laid-back version — surf, laptop cafés, and a scruffier, more energetic vibe. They're neighbours, about 20–40 minutes apart, and share a coastline.",
+    sections: [
+      {
+        heading: "Choose Seminyak if…",
+        paras: [
+          "You want everything easy and refined: an all-day café, a spa, a west-facing sunset and a considered dinner, all within walking distance. It's Bali's original style strip and the most low-effort comfortable base.",
+          "Trade-off: it's denser and pricier than Canggu, with less of a surf-and-outdoors feel.",
+        ],
+      },
+      {
+        heading: "Choose Canggu if…",
+        paras: [
+          "You want surf, co-working cafés, beach clubs and a younger crowd, and you don't mind a rougher, busier, more spread-out town. It's the hub for long-stay travellers and digital nomads.",
+          "Trade-off: more traffic, more construction, and beaches built for surfing and sunset drinks rather than swimming.",
+        ],
+      },
+      {
+        heading: "Which for how long?",
+        paras: [
+          "Short, comfortable trip: Seminyak. Longer, active, café-and-surf stay: Canggu. Because they're so close, you can also base in one and visit the other for a day or a dinner.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Seminyak or Canggu better?", a: "Seminyak for polished dining and walkable comfort; Canggu for surf, cafés and a younger, more laid-back crowd. They're neighbours, so you can easily sample both." },
+      { q: "Is Canggu cheaper than Seminyak?", a: "Generally Canggu offers more budget-friendly warungs and stays, while Seminyak leans more upscale — though both have options across the range." },
+      { q: "Which is better for nightlife?", a: "Both have it. Seminyak has the polished beach clubs and bars; Canggu has a younger, more casual scene. Neither is far from the other." },
+    ],
+    related: [
+      { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
+      { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
+    ],
+  },
+
+  {
+    slug: "bali-on-a-budget",
+    eyebrow: "Bali on a budget",
+    title: "Bali on a budget: how to keep costs low",
+    description:
+      "Bali can be very affordable: eat at warungs, rent a scooter, stay in guesthouses, and skip the beach-club minimums. How to travel Bali cheaply.",
+    lede: "Bali is one of the better-value destinations in the world if you lean local: eat at warungs, get around by scooter or ride-hailing app, stay in guesthouses or homestays, and treat beach clubs and fine dining as occasional splurges rather than daily habits. The gap between a shoestring day and a luxury day here is enormous — you choose where you sit on it.",
+    sections: [
+      {
+        heading: "Eat where locals eat",
+        paras: [
+          "Warungs — small family-run local eateries — serve honest Indonesian food for a fraction of the price of Western cafés. A plate of nasi campur costs a little; the same money at a beach club buys a single coffee.",
+          "You don't have to give up nice meals — just make the Western brunch spots and beach clubs the exception, not the rule.",
+        ],
+      },
+      {
+        heading: "Get around cheaply",
+        paras: [
+          "A rented scooter is the cheapest way to move around if you're a confident rider (and carry the required International Driving Permit). Otherwise the Grab and Gojek apps give fair, metered fares without haggling.",
+          "Base yourself somewhere walkable so you're not paying for a ride every time you want a coffee.",
+        ],
+      },
+      {
+        heading: "Stay smart",
+        paras: [
+          "Guesthouses, homestays and simple villas are plentiful and cheap, especially away from the beachfront and outside July–August. Staying a street or two back from the sand cuts the price sharply.",
+          "Longer stays get big discounts — if you're around for weeks, negotiate a monthly rate.",
+        ],
+      },
+      {
+        heading: "Where budget stretches furthest",
+        paras: [
+          "Ubud and Canggu have the deepest cheap-eats and guesthouse scenes. Uluwatu and Nusa Dua skew pricier and more resort-driven. Sanur sits in the middle — calm and good value.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Bali cheap to travel?", a: "It can be very affordable if you eat at warungs, use a scooter or ride-hailing apps, and stay in guesthouses. It can also be expensive — beach clubs and fine dining add up fast. You control the range." },
+      { q: "How much does a day in Bali cost?", a: "It varies hugely with your style, from a shoestring day of warung meals and a guesthouse to a luxury day of villas and beach clubs. Eating local and staying off the beachfront is the biggest saving." },
+      { q: "What's the cheapest area of Bali?", a: "Ubud and Canggu have the deepest budget scenes for food and stays. Uluwatu and Nusa Dua are pricier and more resort-focused." },
+    ],
+    related: PILLAR_LINKS,
+  },
+
+  {
+    slug: "bali-for-digital-nomads",
+    eyebrow: "Bali for digital nomads",
+    title: "Bali for digital nomads: where to live, work and eat",
+    description:
+      "Canggu is Bali's digital-nomad capital — co-working, café work and a big community. Ubud and Uluwatu are the calmer alternatives. Where to base yourself.",
+    lede: "Canggu is Bali's digital-nomad capital: dense co-working spaces, laptop-friendly cafés, fast-ish internet and a big, easy-to-plug-into community. Ubud is the calmer, wellness-leaning alternative, and Uluwatu suits surfers who work around the swell. Where you base depends on whether you want community and convenience, calm and nature, or waves at the door.",
+    sections: [
+      {
+        heading: "Canggu — the nomad hub",
+        paras: [
+          "This is where most remote workers land: co-working spaces, cafés built for laptops (power, wifi, all-day seating), and the easiest community to join, from surf sessions to networking. Everything you need is close, if busy.",
+          "Trade-off: it's crowded and traffic-heavy, and it can feel more expat than Balinese.",
+        ],
+      },
+      {
+        heading: "Ubud — calm and wellness-led",
+        paras: [
+          "Ubud draws nomads who want green, quiet and a yoga-and-wellness rhythm over beach and nightlife. Co-working and café-work options exist, at a slower pace, in cooler air.",
+          "Trade-off: no beach, more rain, and a smaller (though friendly) scene.",
+        ],
+      },
+      {
+        heading: "Uluwatu — for surfers who work",
+        paras: [
+          "The Bukit suits remote workers whose day bends around the surf: work in the mornings or between sessions, with clifftop cafés and world-class breaks. It's quieter and more spread out, so you'll rely on a scooter.",
+        ],
+      },
+      {
+        heading: "Practical basics",
+        paras: [
+          "Internet is generally good in cafés and co-working spaces in the main areas; back it up with a local SIM and a mobile hotspot for call-heavy days. Get a scooter (with the required International Driving Permit) for freedom, and consider a monthly rental for a big discount.",
+          "Check current visa options before you plan a long stay — rules change, so confirm what fits your length and situation with an official source.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Where do digital nomads stay in Bali?", a: "Mostly Canggu — the hub for co-working, café work and community. Ubud is the calmer, wellness-focused alternative, and Uluwatu suits surfers who work around the waves." },
+      { q: "Is the wifi good in Bali?", a: "Generally good in cafés and co-working spaces in the main areas. For call-heavy work, back it up with a local SIM and a mobile hotspot." },
+      { q: "Is Canggu good for remote work?", a: "Yes — it's Bali's densest cluster of co-working spaces and laptop-friendly cafés, with the easiest community to join. The trade-off is crowds and traffic." },
+      { q: "What about a visa for a long stay?", a: "Visa rules change, so confirm current options with an official source before planning a long stay. Don't rely on out-of-date advice." },
+    ],
+    related: [
+      { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
+      { href: "/canggu/work-friendly-cafes", title: "Work-friendly cafés in Canggu", blurb: "Wifi, sockets and a seat that lasts." },
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
+      { href: "/bali-for-a-month", title: "Bali for a month", blurb: "Settle in and live like a local for a while." },
+    ],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
