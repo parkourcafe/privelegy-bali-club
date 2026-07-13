@@ -1,0 +1,1175 @@
+{
+  "batchId": "canggu-01",
+  "capturedAt": "2026-07-13T15:31:51Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-12-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-12-site",
+          "status": "draft",
+          "url": "https://12kitchenwine.com/",
+          "venueSlug": "12-kitchen-and-wine",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official page labels this phone as WhatsApp.",
+          "id": "action-12-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-12-site",
+          "status": "draft",
+          "url": "https://wa.me/6281130533312",
+          "venueSlug": "12-kitchen-and-wine",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-12-maps",
+          "kind": "directions",
+          "label": "Directions",
+          "provider": "google_maps",
+          "sourceManifestId": "src-12-site",
+          "status": "draft",
+          "url": "https://www.google.com/maps/search/?api=1&query=Jl.%20Pantai%20Berawa%20No.51%2C%20Canggu",
+          "venueSlug": "12-kitchen-and-wine",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl. Pantai Berawa No.51, Canggu.",
+      "collectionNotes": [
+        "Three official menu links exist but item content was not reliably fetched."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [
+        {
+          "sections": [],
+          "sourceManifestId": "src-12-menu-links"
+        }
+      ],
+      "name": "12 Kitchen & Wine",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "12-kitchen-and-wine",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-atlas-menu",
+          "kind": "website",
+          "label": "Official menu hub",
+          "provider": "official_website",
+          "sourceManifestId": "src-atlas-menu-hub",
+          "status": "draft",
+          "url": "https://menu.atlasbeachfest.com/",
+          "venueSlug": "atlas-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-atlas-reserve",
+          "kind": "reserve",
+          "label": "Reservation",
+          "provider": "official_booking",
+          "sourceManifestId": "src-atlas-menu-hub",
+          "status": "draft",
+          "url": "https://atlasbeachfest.com/beach-club/reservation",
+          "venueSlug": "atlas-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-atlas-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-atlas-menu-hub",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6281119082168",
+          "venueSlug": "atlas-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-atlas-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-atlas-menu-hub",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/yadZxkdVaeQgTcMy7",
+          "venueSlug": "atlas-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Berawa No.88, Tibubeneng.",
+      "collectionNotes": [
+        "Official article is not a full live menu and has no current prices."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-atlas-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Oysters, prawns, mussels, premium seafood, house-made dips and citrus-infused sauces.",
+                  "id": "atlas-01",
+                  "name": "SEAFOOD TOWER",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Spicy tomato sauce, chili flakes, garlic, olive oil, fresh basil and parmesan.",
+                  "id": "atlas-02",
+                  "name": "Arrabbiata Pasta",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Leafy greens, carrots, peppers, tomatoes, nuts/seeds and citrus vinaigrette.",
+                  "id": "atlas-03",
+                  "name": "Rainbow Power Salad",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Slow-cooked short ribs, coconut curry, lemongrass, cinnamon, cloves and rice.",
+                  "id": "atlas-04",
+                  "name": "Tongseng Short Ribs",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Steak with grilled prawns or lobster, vegetables and house sauce.",
+                  "id": "atlas-05",
+                  "name": "Ultimate Surf & Turf",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Nigiri, sashimi and rolls with soy, wasabi and pickled ginger.",
+                  "id": "atlas-06",
+                  "name": "HAMA SUSHI BOAT",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Official 2025 named dishes"
+            }
+          ],
+          "sourceManifestId": "src-atlas-menu-editorial",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Atlas Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "atlas-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-baked-berawa-site",
+          "kind": "website",
+          "label": "Official location page",
+          "provider": "official_website",
+          "sourceManifestId": "src-baked-berawa-locations",
+          "status": "draft",
+          "url": "https://baked.co.id/pages/locations",
+          "venueSlug": "baked-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-baked-berawa-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-baked-berawa-locations",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/ei3BhbB72W1hfS5d9",
+          "venueSlug": "baked-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-baked-berawa-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-baked-berawa-locations",
+          "status": "draft",
+          "url": "https://wa.me/6287787627769",
+          "venueSlug": "baked-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-baked-berawa-gofood",
+          "kind": "order",
+          "label": "Order on GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-baked-berawa-locations",
+          "status": "draft",
+          "url": "https://gofood.link/a/LUsSbKA",
+          "venueSlug": "baked-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl. Raya Semat Gg. Kupu-kupu No.1, Tibubeneng.",
+      "collectionNotes": [
+        "Official menu/order system blocks location selection; no item content accepted."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [
+        {
+          "sections": [],
+          "sourceManifestId": "src-baked-berawa-menu"
+        }
+      ],
+      "name": "BAKED. Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "baked-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bali-buda-site",
+          "kind": "website",
+          "label": "Official locations",
+          "provider": "official_website",
+          "sourceManifestId": "src-bali-buda-locations",
+          "status": "draft",
+          "url": "https://balibuda.com/our-locations/",
+          "venueSlug": "bali-buda-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bali-buda-whatsapp",
+          "kind": "whatsapp",
+          "label": "Home delivery WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bali-buda-locations",
+          "status": "draft",
+          "url": "https://wa.me/6281138312177",
+          "venueSlug": "bali-buda-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bali-buda-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-bali-buda-locations",
+          "status": "draft",
+          "url": "https://g.page/balibudacanggu?share",
+          "venueSlug": "bali-buda-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Canggu, North Kuta; official location listing.",
+      "collectionNotes": [
+        "Shared network menu; Canggu availability requires operator confirmation."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-bali-buda-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Rolled oats, coconut milk, date and kenari topping, palm syrup.",
+                  "id": "bb-01",
+                  "name": "DELICIOUS HOT OATMEAL",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Banana bread, peanut butter, fruit, seeds, passion fruit jam, yogurt.",
+                  "id": "bb-02",
+                  "name": "BANANA PASSION FRUIT STACK",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bananas, cassava flour, eggs, palm syrup, pineapple and lime.",
+                  "id": "bb-03",
+                  "name": "CASSAVA PANCAKES",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Seasonal fruit, local yogurt, activated almonds and granola.",
+                  "id": "bb-04",
+                  "name": "BREAKFAST BOWL",
+                  "priceMinor": 68000,
+                  "sourceDisplayPrice": "68"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bread, avocado, peas, feta, sprouts, seeds, poached eggs and sambal.",
+                  "id": "bb-05",
+                  "name": "AVOCADO SMASH",
+                  "priceMinor": 78000,
+                  "sourceDisplayPrice": "78"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Chicken, pesto, sprouts, salad and red-rice wrap.",
+                  "id": "bb-06",
+                  "name": "PESTO PROBIOTIC CHICKEN WRAP",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bali-buda-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bali Buda Canggu Shop & Café",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bali-buda-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bar-vera-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-bar-vera-menu-index",
+          "status": "draft",
+          "url": "https://barverabali.com/menu/",
+          "venueSlug": "bar-vera-bistro-and-wine-bar",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bar-vera-reserve",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-bar-vera-menu-index",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/barverabistrowinebar/reservations/create/search",
+          "venueSlug": "bar-vera-bistro-and-wine-bar",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bar-vera-whatsapp",
+          "kind": "whatsapp",
+          "label": "Groups 8+ WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bar-vera-menu-index",
+          "status": "draft",
+          "url": "https://wa.me/6282342713110",
+          "venueSlug": "bar-vera-bistro-and-wine-bar",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Pererenan No.84.",
+      "collectionNotes": [
+        "Six items transcribed; full PDF not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-bar-vera-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-01",
+                  "name": "sakhosi bay oyster",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-02",
+                  "name": "shiitake mushroom tartlet, tarragon",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "35"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-03",
+                  "name": "hamachi tartlett, salpicon, radish, crispy leek",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-04",
+                  "name": "corn taco, crab, apple, almond",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-05",
+                  "name": "cappelletti pasta, comte cheese, truffle, garden thyme",
+                  "priceMinor": 140000,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bv-06",
+                  "name": "barramundi, champagne veloute, basil, spinach",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bar-vera-menu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bar Vera Bistro & Wine Bar",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bar-vera-bistro-and-wine-bar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-beachboy-site",
+          "kind": "website",
+          "label": "Official menu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-beach-boy-menu-page",
+          "status": "draft",
+          "url": "https://www.beachboycanggu.com/menu",
+          "venueSlug": "beach-boy-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Munduk Catu No.8, Canggu.",
+      "collectionNotes": [
+        "Currency/scale is not stated, so prices remain raw display strings."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-beachboy-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Dutch style croquette filled with beef ragout and vegetables.",
+                  "id": "beachboy-01",
+                  "name": "BITTERBALLEN",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Crispy breading and marinara sauce.",
+                  "id": "beachboy-02",
+                  "name": "ITALIAN MOZZARELLA STICKS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "69"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Battered shrimp with spicy mayo.",
+                  "id": "beachboy-03",
+                  "name": "SHRIMP TEMPURA",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "79"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Prawn, squid, fish, tomatoes, garlic, parsley, mustard-tomato sauce and spaghetti.",
+                  "id": "beachboy-04",
+                  "name": "SEAFOOD PASTA",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Pumpkin puree, turnip, potato confit, carrots and duck jus.",
+                  "id": "beachboy-05",
+                  "name": "PAN SEARED DUCK BREAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "179"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Beef patty, lettuce, tomato, onion, cheese spread, sauce and fries.",
+                  "id": "beachboy-06",
+                  "name": "BEACH BOY BURGER",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "115"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-beach-boy-menu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Beach Boy Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "beach-boy-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-boheme-site",
+          "kind": "website",
+          "label": "Official digital menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-boheme-menu",
+          "status": "draft",
+          "url": "https://boheme.bitri.cloud/",
+          "venueSlug": "boheme-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-boheme-whatsapp",
+          "kind": "reserve",
+          "label": "Reserve via WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-boheme-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282144433852",
+          "venueSlug": "boheme-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-boheme-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-boheme-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/aiAF1Aw79rh3N8T39",
+          "venueSlug": "boheme-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Pererenan No.159; associated with Shore Amora.",
+      "collectionNotes": [
+        "K prices are not normalized because currency is unnamed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-boheme-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Muhammara on whole wheat sourdough, onion, avocado, molasses and seeds.",
+                  "id": "boheme-01",
+                  "name": "Muhammara",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Tomatoes, multigrain sourdough, aioli, feta and shallot.",
+                  "id": "boheme-02",
+                  "name": "Fermented Tomatoes",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Sourdough, avocado, eggs, bacon, chilli and tomato salsa.",
+                  "id": "boheme-03",
+                  "name": "Spicy Eggs",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boheme-04",
+                  "name": "tuna tar-tar, crispy rice pepper, capers, sambal matah",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boheme-05",
+                  "name": "crispy skin Barramundi, beurre blanc, fettuccini pesto, burn chili salsa",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "165K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boheme-06",
+                  "name": "potato gnocchi, creamy tomato sauce, basil, parmesan, and mozzarella",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "105K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-boheme-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Boheme Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "boheme-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bokashi-site",
+          "kind": "website",
+          "label": "Official Berawa menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-bokashi-menu",
+          "status": "draft",
+          "url": "https://bokashibali.com/berawa-menu/",
+          "venueSlug": "bokashi-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bokashi-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bokashi-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281803556677",
+          "venueSlug": "bokashi-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Berawa, Subak Sari No.2.",
+      "collectionNotes": [
+        "Official pages disagree on opening hours; operator review required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-bokashi-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sourdough, crispy chili paste, furikake, mint, dill.",
+                  "id": "bokashi-01",
+                  "name": "Red Pesto & Avocado On Toast",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Vanilla brioche, hojicha pastry cream, strawberries.",
+                  "id": "bokashi-02",
+                  "name": "Hojicha French Toast",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Chicken karaage, nanban sauce, cucumber, tamagoyaki, tartar sauce and rice.",
+                  "id": "bokashi-03",
+                  "name": "Chicken Nanban Bento",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Ponzu, radish, wasabi and pickled ginger.",
+                  "id": "bokashi-04",
+                  "name": "Tuna Sashimi",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Buckwheat noodles, ponzu dip, nori, daikon, wasabi and chives.",
+                  "id": "bokashi-05",
+                  "name": "Chilled Soba Noodles",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Pork loin, milk toast, cabbage, gochujang mayo and sauce.",
+                  "id": "bokashi-06",
+                  "name": "Pork Katsu Sando",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bokashi-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bokashi Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bokashi-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-bottega-site",
+          "kind": "website",
+          "label": "Official locations",
+          "provider": "official_website",
+          "sourceManifestId": "src-bottega-visit",
+          "status": "draft",
+          "url": "https://www.bottegaitalianabali.com/visit",
+          "venueSlug": "bottega-italiana",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-bottega-whatsapp",
+          "kind": "whatsapp",
+          "label": "Berawa WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bottega-visit",
+          "status": "draft",
+          "url": "https://wa.me/6281337907436",
+          "venueSlug": "bottega-italiana",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Probable Berawa match; official branch sub-brand is origano.",
+      "collectionNotes": [
+        "Generic canonical name versus origano Berawa needs operator confirmation; currency is unnamed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-bottega-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "ladyfingers / mascarpone / coffee / cacao",
+                  "id": "bottega-01",
+                  "name": "tiramisu",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "chocolate mousse",
+                  "id": "bottega-02",
+                  "name": "mousse al cioccolato",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "homemade lemon sorbet",
+                  "id": "bottega-03",
+                  "name": "sorbetto al limone",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "poached eggs / bread / spinach / broccoli / hollandaise",
+                  "id": "bottega-04",
+                  "name": "benedetto",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "poached eggs / serrano ham / stracciatella / tomatoes / pesto / bread",
+                  "id": "bottega-05",
+                  "name": "campagnolo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "poached eggs / asparagus / smoked salmon / tomato confit / bread",
+                  "id": "bottega-06",
+                  "name": "marinaro",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90"
+                }
+              ],
+              "name": "Explicitly priced items"
+            }
+          ],
+          "sourceManifestId": "src-bottega-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bottega Italiana",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bottega-italiana",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-brunch-site",
+          "kind": "website",
+          "label": "Official menu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-brunch-club-page",
+          "status": "draft",
+          "url": "https://brunchclubbali.com/brunch/",
+          "venueSlug": "brunch-club-pererenan",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-brunch-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-brunch-club-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/3VKiHQJRgohi4vdh8",
+          "venueSlug": "brunch-club-pererenan",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Pererenan No.110.",
+      "collectionNotes": [
+        "Shared network menu; booking widget points to Legian and is rejected for Pererenan."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:31:51Z",
+          "id": "menu-brunch-club-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Fresh seasonal Bali fruits.",
+                  "id": "brunch-01",
+                  "name": "TROPICAL BALI FRUIT PLATE",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Coconut, fruit, yogurt and caramelised cashews.",
+                  "id": "brunch-02",
+                  "name": "BERRY CHIA SEED PUDDING",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Yogurt, berries, tropical fruits and fruit purée.",
+                  "id": "brunch-03",
+                  "name": "HOUSE MADE GRANOLA",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Multigrain, feta, tomatoes, shallot, hummus, watercress and sesame.",
+                  "id": "brunch-04",
+                  "name": "MILE-HIGH SMASHED AVOCADO STACK",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Eggs, sausage, bacon, tomato, beans, mushrooms, hash browns and multigrain.",
+                  "id": "brunch-05",
+                  "name": "BIG BRUNCH BREAKFAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Shredded lobster, hollandaise and brioche.",
+                  "id": "brunch-06",
+                  "name": "LOBSTER BENEDICT",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "245"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-brunch-club-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Brunch Club Pererenan",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "brunch-club-pererenan",
+      "verifiedAt": null
+    }
+  ]
+}

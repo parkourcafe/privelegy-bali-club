@@ -85,6 +85,11 @@ or publishable.
   Deus PDF was rejected as Australian wrong-branch collateral; Cafe Vida and
   Honey were not backfilled from aggregators. Current ledger state is 24
   complete, 5 blocked, and 178 queued out of 207.
+- Canggu batch 01 is processed across all 10 slugs: eight partial official-menu
+  transcriptions and two concrete menu-access blockers. Shared menu/branch
+  caveats are retained for Bali Buda, Brunch Club and Bottega; a Legian booking
+  target was rejected for the Pererenan record. Ledger state is now 32
+  complete, 7 blocked, and 168 queued.
 
 ## Validation
 
@@ -122,6 +127,10 @@ or publishable.
   verification, denominator and queue reconciliation checks passed. The batch
   has 5 complete and 5 blocked research states; blocked records have an exact
   retry reason and remain removed from the active queue.
+- Canggu 01: venue-controlled pages for all 10 records were reopened during
+  acceptance. Deterministic JSON, unique slugs/items, source mapping, action
+  draft/null verification, denominator metrics, and completed queue state all
+  passed validation. No network-wide menu is represented as branch-verified.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
