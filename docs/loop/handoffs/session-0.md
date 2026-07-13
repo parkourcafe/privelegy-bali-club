@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 127 records are complete, 40 are blocked with concrete retry conditions,
-and 40 remain queued. No venue is marked human-verified or publishable.
+active; 133 records are complete, 44 are blocked with concrete retry conditions,
+and 30 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -163,6 +163,10 @@ and 40 remain queued. No venue is marked human-verified or publishable.
   retain price-null named dishes from first-party pages; White Orchid is
   blocked without a confirmed first-party source. Ledger state is 127 complete,
   40 blocked, and 40 queued; the pointer remains `jimbaran-01`.
+- Sanur batch 01 is processed out of order: six partial official menus and four
+  exact identity/location/source blockers. Raw currency-ambiguous values and
+  Massimo's stale asset date remain explicit. Ledger state is 133 complete, 44
+  blocked, and 30 queued; the pointer remains `jimbaran-01`.
 
 ## Validation
 
@@ -280,6 +284,11 @@ and 40 remain queued. No venue is marked human-verified or publishable.
   reopened; White Orchid searches produced no acceptable first-party source.
   JSON, source mapping, unique IDs, draft/null gates, metrics and out-of-order
   queue consistency passed.
+- Sanur 01: Genius, Gong, Jalapeño, Kuu, Linga Longa and Massimo first-party
+  sources were independently reopened; unavailable social-only cases were
+  retried. JSON, source mapping, unique IDs, draft/null gates, metrics and
+  out-of-order queue consistency passed. Agent rechecks reproduced identical
+  Genius PDF and Linga image hashes.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
