@@ -15,15 +15,14 @@
         "ulekan-berawa",
         "hippie-fish-pererenan-beach",
         "baked-pererenan",
-        "rize-cafe"
-      ],
-      "district": "canggu",
-      "remainingVenueSlugs": [
+        "rize-cafe",
         "sensorium-bali",
         "shelter-restaurant"
       ],
-      "resumeFromSlug": "sensorium-bali",
-      "status": "in_progress",
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "baked-pererenan",
         "hippie-fish-pererenan-beach",

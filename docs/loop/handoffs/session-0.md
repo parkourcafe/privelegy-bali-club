@@ -65,6 +65,13 @@ or publishable.
   menus; BAKED has branch-matched official actions but no itemized restaurant
   menu, so it is classified `only_action_links_found` rather than padded with
   retail products or inferred items.
+- Canggu loop 6 completed: `sensorium-bali`, `shelter-restaurant`.
+  SENSORIUM is flagged stale/address-conflicting after its PDF returned
+  `Last-Modified: 2021-11-02`; Shelter uses the unambiguous official 2026 lunch
+  asset and rejects the older placeholder flipbook.
+- Wave 1 checkpoint is complete: 15/15 researched; 14 have partial official
+  menu evidence and 1 (`baked-pererenan`) has official actions only. Zero menus
+  are claimed fully parsed or human-verified.
 
 ## Validation
 
@@ -87,6 +94,11 @@ or publishable.
   classification and unique IDs across RiZE's two menu records. Recheck at
   `2026-07-13T15:23:30Z`: Hippie Fish and BAKED's official branch/location
   pages both returned HTTP 200.
+- Loop 6 / Wave 1: cumulative JSON, provenance, duplicate slug/item/menu ID,
+  draft status, null verification, and publication-block checks passed for 15
+  venues. Recheck at `2026-07-13T15:24:36Z`–`15:24:37Z`: SENSORIUM's official
+  PDF and Shelter's official lunch page returned HTTP 200; SENSORIUM's stale
+  `Last-Modified` value is recorded as a blocker for import readiness.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

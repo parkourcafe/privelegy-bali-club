@@ -363,6 +363,30 @@
       "verifiedAt": null
     },
     {
+      "capturedAt": "2026-07-13T15:12:25Z",
+      "id": "src-sensorium-menu",
+      "label": "SENSORIUM Official Food menu PDF",
+      "notes": "No visible version date; HTTP Last-Modified is 2021-11-02 and older PDFs remain on the same official domain.",
+      "officialControl": "venue",
+      "outcome": "stale_recheck_required",
+      "sourceType": "official_menu_pdf",
+      "url": "https://sensoriumbali.co.id/assets/images/menu/new_Food_menu_merged1.pdf",
+      "venueSlug": "sensorium-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:10:05Z",
+      "id": "src-sensorium-site",
+      "label": "SENSORIUM official website",
+      "notes": "Official footer/address conflicts with the current food PDF address.",
+      "officialControl": "venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_website",
+      "url": "https://sensoriumbali.co.id/",
+      "venueSlug": "sensorium-bali",
+      "verifiedAt": null
+    },
+    {
       "capturedAt": "2026-07-13T15:09:07Z",
       "id": "src-shady-contact",
       "label": "The Shady Shack Contact and FAQ",
@@ -408,6 +432,54 @@
       "sourceType": "official_website",
       "url": "https://www.theshadyshackbali.com/",
       "venueSlug": "the-shady-shack",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:12:25Z",
+      "id": "src-shelter-lunch-2026",
+      "label": "SHELTER LUNCH 2026 official asset",
+      "notes": "Current 2026 lunch image linked by the official menu page.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_asset",
+      "url": "https://cdn.prod.website-files.com/6466d69b791ef7758358b1bc/6973324f21333877328310ab_SHELTER%20LUNCH%202026.png",
+      "venueSlug": "shelter-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:12:25Z",
+      "id": "src-shelter-lunch-page",
+      "label": "Shelter Lunch Menu",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website_menu",
+      "url": "https://www.shelterbali.com/lunch-menu",
+      "venueSlug": "shelter-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:11:41Z",
+      "id": "src-shelter-reservations",
+      "label": "Shelter Reservations",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://www.shelterbali.com/reservations",
+      "venueSlug": "shelter-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:11:41Z",
+      "id": "src-shelter-site",
+      "label": "Shelter Pererenan official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://www.shelterbali.com/",
+      "venueSlug": "shelter-restaurant",
       "verifiedAt": null
     },
     {
