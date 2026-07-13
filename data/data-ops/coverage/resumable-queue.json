@@ -7,13 +7,13 @@
         "samesa-canggu",
         "luigis-hot-pizza",
         "the-shady-shack",
-        "milk-and-madu-berawa"
+        "milk-and-madu-berawa",
+        "ji-restaurant-bali",
+        "luma",
+        "santanera"
       ],
       "district": "canggu",
       "remainingVenueSlugs": [
-        "ji-restaurant-bali",
-        "luma",
-        "santanera",
         "revolver-canggu",
         "ulekan-berawa",
         "hippie-fish-pererenan-beach",
@@ -22,7 +22,7 @@
         "sensorium-bali",
         "shelter-restaurant"
       ],
-      "resumeFromSlug": "ji-restaurant-bali",
+      "resumeFromSlug": "revolver-canggu",
       "status": "in_progress",
       "venueSlugs": [
         "baked-pererenan",

@@ -3,6 +3,42 @@
   "schemaVersion": 1,
   "sources": [
     {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ji-contact",
+      "label": "Ji Restaurant Bali Contact",
+      "notes": "Official booking CTA currently redirects/fails toward a generic Chope Singapore destination.",
+      "officialControl": "venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_action_page",
+      "url": "https://jirestaurantbali.com/contact-us/",
+      "venueSlug": "ji-restaurant-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ji-menu",
+      "label": "Ji Restaurant Bali Dining Menu",
+      "notes": "Prices use K notation but no ISO currency is stated.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://jirestaurantbali.com/menu/",
+      "venueSlug": "ji-restaurant-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ji-site",
+      "label": "Ji Restaurant Bali official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://jirestaurantbali.com/",
+      "venueSlug": "ji-restaurant-bali",
+      "verifiedAt": null
+    },
+    {
       "capturedAt": "2026-07-13T15:09:07Z",
       "id": "src-luigi-menu",
       "label": "Luigi’s Hot Pizza Menu",
@@ -24,6 +60,42 @@
       "sourceType": "official_website",
       "url": "https://luigishotpizza.com/",
       "venueSlug": "luigis-hot-pizza",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-luma-contact",
+      "label": "Luma Contact and Reservations",
+      "notes": "Reservation/location iframes do not expose stable destination URLs in fetched HTML.",
+      "officialControl": "venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_action_page",
+      "url": "https://www.lumabali.com/contact-us/",
+      "venueSlug": "luma",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-luma-menu",
+      "label": "Luma Food Menu",
+      "notes": "Raw numeric prices are shown without stated currency or unit.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://www.lumabali.com/menu/",
+      "venueSlug": "luma",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-luma-site",
+      "label": "Luma official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://www.lumabali.com/",
+      "venueSlug": "luma",
       "verifiedAt": null
     },
     {
@@ -132,6 +204,42 @@
       "sourceType": "official_website_menu",
       "url": "https://samesabali.com/",
       "venueSlug": "samesa-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-santanera-book",
+      "label": "Santanera Book",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://www.santanerabali.com/book",
+      "venueSlug": "santanera",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-santanera-menu",
+      "label": "Santanera OUR MENU / FOOD MENU",
+      "notes": "Prices render with a $ symbol but the site does not state IDR or USD.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://www.santanerabali.com/menu",
+      "venueSlug": "santanera",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-santanera-site",
+      "label": "Santanera official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://www.santanerabali.com/",
+      "venueSlug": "santanera",
       "verifiedAt": null
     },
     {

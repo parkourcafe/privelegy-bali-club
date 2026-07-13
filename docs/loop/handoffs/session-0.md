@@ -52,6 +52,10 @@ or publishable.
   `milk-and-madu-berawa`. Both have branch-matched official menu sources and
   official action evidence; currency is normalized only where the source names
   IDR and its scale.
+- Canggu loop 3 completed: `ji-restaurant-bali`, `luma`, `santanera`.
+  Currency/scale ambiguity is preserved as raw source display text rather than
+  converted; Ji's currently unreliable Chope redirect remains a draft action
+  with an explicit warning.
 
 ## Validation
 
@@ -64,6 +68,9 @@ or publishable.
   venues. Recheck at `2026-07-13T15:19:49Z`: Shady Shack's official PDF link
   returned the expected Squarespace asset redirect (HTTP 302), and Milk &
   Madu's official contact page returned HTTP 200.
+- Loop 3: cumulative checks passed for 8 venues. Recheck at
+  `2026-07-13T15:20:59Z`: Ji's official menu and Santanera's official booking
+  page both returned HTTP 200.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
