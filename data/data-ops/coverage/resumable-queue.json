@@ -260,10 +260,9 @@
     {
       "batchId": "seminyak-02",
       "district": "seminyak",
-      "resumeFromSlug": "kynd-community",
+      "resumeFromSlug": "la-casetta-bali",
       "status": "queued",
       "venueSlugs": [
-        "kynd-community",
         "la-casetta-bali",
         "ling-lings-bali",
         "mamasan-bali",
@@ -272,16 +271,16 @@
         "moonlite-kitchen-and-bar",
         "natys-restaurant-seminyak",
         "naughty-nuris-warung-seminyak",
-        "nook-umalas"
+        "nook-umalas",
+        "pison-petitenget"
       ]
     },
     {
       "batchId": "seminyak-03",
       "district": "seminyak",
-      "resumeFromSlug": "pison-petitenget",
+      "resumeFromSlug": "potato-head-beach-club",
       "status": "queued",
       "venueSlugs": [
-        "pison-petitenget",
         "potato-head-beach-club",
         "poule-de-luxe-bali",
         "revolver-seminyak",
@@ -290,16 +289,16 @@
         "sea-circus",
         "seasalt",
         "sisterfields",
-        "waroeng-bernadette"
+        "waroeng-bernadette",
+        "warung-nia-balinese-food-and-pork-ribs"
       ]
     },
     {
       "batchId": "seminyak-04",
       "district": "seminyak",
-      "resumeFromSlug": "warung-nia-balinese-food-and-pork-ribs",
+      "resumeFromSlug": "watercress-seminyak",
       "status": "queued",
       "venueSlugs": [
-        "warung-nia-balinese-food-and-pork-ribs",
         "watercress-seminyak"
       ]
     },
