@@ -34,12 +34,29 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 
 ## Progress
 
-Wave 1 official-source collection started; no venue is marked human-verified or
-publishable.
+Wave 1 official-source collection is running; no venue is marked human-verified
+or publishable.
+
+- Canonical coverage baseline: `207` reproducible repo-canonical active F&B
+  rows. Production-oriented expectations (`208` active F&B, `250` active all,
+  approximately `174` publication-ready F&B) remain drift checks pending a
+  live SQL snapshot. `kynd-community` is the DB-only candidate that explains
+  the first difference.
+- Coverage drift is explicit for `cafe-del-mar-bali` (repo replay Seminyak;
+  production-oriented Canggu), the dedupe migration's 32-pair claim versus its
+  31 explicit loser slugs, and the two remaining Ubud duplicate-review slugs.
+- Canggu loop 1 completed: `mason`, `samesa-canggu`,
+  `luigis-hot-pizza`. Each has a draft menu record, official action evidence,
+  manifest linkage, `verifiedAt: null`, and `publicationAllowed: false`.
 
 ## Validation
 
-Not run yet.
+- Loop 1: JSON parse passed; 3 unique venue slugs; menu item IDs unique within
+  each menu; every menu/action maps to a manifest source; every unverified
+  record keeps `verifiedAt: null`; no media is publishable.
+- Two-source recheck passed at `2026-07-13T15:18:21Z`–`15:18:23Z`:
+  MASONRY Canggu menu and Luigi's menu both returned HTTP 200.
+- Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
 

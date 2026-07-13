@@ -1,0 +1,613 @@
+{
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "generatedAt": "2026-07-13T15:15:00Z",
+  "notes": [
+    "verifiedAt remains null until human/operator or owner verification.",
+    "No media is included or licensed for publication.",
+    "sourceDisplayPrice preserves official wording when the frozen contract cannot safely represent currency/scale."
+  ],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-mason-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "MASONRY Canggu official website",
+          "sourceManifestId": "src-mason-site",
+          "sourceUrl": "https://masonrybali.com/canggu",
+          "status": "draft",
+          "url": "https://masonrybali.com/canggu",
+          "venueSlug": "mason",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Embedded/linked by the official booking page.",
+          "expiresAt": null,
+          "id": "action-mason-reserve-02",
+          "kind": "reserve",
+          "label": "Reserve",
+          "priority": 20,
+          "provider": "sevenrooms",
+          "sourceLabel": "MASONRY Canggu Bookings",
+          "sourceManifestId": "src-mason-bookings",
+          "sourceUrl": "https://masonrybali.com/canggu/bookings",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/reservations/masonryrestaurantcanggu",
+          "venueSlug": "mason",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official page limits this contact path to groups of 11+ and private dining.",
+          "expiresAt": null,
+          "id": "action-mason-whatsapp-03",
+          "kind": "whatsapp",
+          "label": "WhatsApp for groups 11+",
+          "priority": 30,
+          "provider": "whatsapp",
+          "sourceLabel": "MASONRY Canggu Bookings",
+          "sourceManifestId": "src-mason-bookings",
+          "sourceUrl": "https://masonrybali.com/canggu/bookings",
+          "status": "draft",
+          "url": "https://wa.me/6285792505028",
+          "venueSlug": "mason",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Dedicated Canggu page and Batu Bolong address confirm branch identity.",
+        "No official direct Maps or order link was exposed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:07Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "collectionNotes": [
+            "Partial transcription for review, not a full menu import.",
+            "Prices explicitly use 000 rupiah; 10% government tax and 7% service charge are stated by the source."
+          ],
+          "expiresAt": null,
+          "id": "menu-mason-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "mason-v1-dinner",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "DUKKAH, OLIVE OIL",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-01",
+                  "name": "WOOD FIRED FLAT BREAD",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "SMOKED EGGPLANT, TAHINI, CRISPY ONIONS",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-02",
+                  "name": "BABA GANOUSH",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "FERMENTED CHILLI, DILL",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-03",
+                  "name": "WAGYU DOLMA",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70 | 2pc",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "PINE NUTS, POMEGRANATE, YOGHURT",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-04",
+                  "name": "SPICED CAULIFLOWER",
+                  "partnerRecommended": false,
+                  "position": 3,
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "SMOKED CHERRY TOMATO, CARDAMON, CUCUMBER",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-05",
+                  "name": "WOOD FIRED BARRAMUNDI FILLET",
+                  "partnerRecommended": false,
+                  "position": 4,
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "CUMIN RUB, HOUSE YOGURT, SALSA VERDE",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-06",
+                  "name": "\"WOOD ROASTED\" LAMB SHOULDER",
+                  "partnerRecommended": false,
+                  "position": 5,
+                  "priceMinor": 400000,
+                  "sourceDisplayPrice": "400",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-07",
+                  "name": "48HR SLOW COOKED BEEF SHORT RIB",
+                  "partnerRecommended": false,
+                  "position": 6,
+                  "priceMinor": 450000,
+                  "sourceDisplayPrice": "450",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "ALMONDS, PEARL BARLEY, MINT",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "mason-v1-dinner-08",
+                  "name": "CHOPPED BROCCOLI SALAD",
+                  "partnerRecommended": false,
+                  "position": 7,
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "DINNER",
+              "position": 0
+            }
+          ],
+          "sourceLabel": "MASONRY Canggu Menu",
+          "sourceManifestId": "src-mason-menu",
+          "sourceUrl": "https://masonrybali.com/canggu/menu",
+          "status": "draft",
+          "title": "MASONRY Canggu Dinner Menu",
+          "venueSlug": "mason",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Operator should confirm current menu completeness and branch-specific Maps URL.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-mason-menu",
+        "src-mason-site",
+        "src-mason-bookings"
+      ],
+      "venueName": "Mason",
+      "venueSlug": "mason",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-samesa-canggu-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+          "sourceManifestId": "src-samesa-site",
+          "sourceUrl": "https://samesabali.com/",
+          "status": "draft",
+          "url": "https://samesabali.com/",
+          "venueSlug": "samesa-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Destination is directly linked by the official site but uses a preview-style hostname.",
+          "expiresAt": null,
+          "id": "action-samesa-canggu-reserve-02",
+          "kind": "reserve",
+          "label": "Book now",
+          "priority": 20,
+          "provider": "hostinger_booking",
+          "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+          "sourceManifestId": "src-samesa-site",
+          "sourceUrl": "https://samesabali.com/",
+          "status": "draft",
+          "url": "https://lightcyan-anteater-465015.hostingersite.com/booking/",
+          "venueSlug": "samesa-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-samesa-canggu-whatsapp-03",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "priority": 30,
+          "provider": "whatsapp",
+          "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+          "sourceManifestId": "src-samesa-site",
+          "sourceUrl": "https://samesabali.com/",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6281353035411&text=",
+          "venueSlug": "samesa-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-samesa-canggu-maps-04",
+          "kind": "maps",
+          "label": "Show route",
+          "priority": 40,
+          "provider": "google_maps",
+          "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+          "sourceManifestId": "src-samesa-site",
+          "sourceUrl": "https://samesabali.com/",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/M27QwhAj5RzmDmmq6",
+          "venueSlug": "samesa-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Official page confirms Canggu address at Jalan Tanah Barak no. 1e.",
+        "Booking hostname requires operator recheck before import."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:07Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "collectionNotes": [
+            "Currency is not named by the source and remains null.",
+            "No stable individual course names are published."
+          ],
+          "expiresAt": null,
+          "id": "menu-samesa-canggu-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "samesa-canggu-v1-experience",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "14–18 curated / handcrafted Italian dishes served over several courses, plus signature house-made limoncello",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "samesa-canggu-v1-experience-01",
+                  "name": "Experience Dinner",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "599k++ per guest",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "EXPERIENCE DINNER",
+              "position": 0
+            }
+          ],
+          "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+          "sourceManifestId": "src-samesa-site",
+          "sourceUrl": "https://samesabali.com/",
+          "status": "draft",
+          "title": "Experience Dinner",
+          "venueSlug": "samesa-canggu",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Confirm booking-domain ownership and whether an itemized/current course list can be obtained.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-samesa-site",
+        "src-samesa-booking"
+      ],
+      "venueName": "Sa’Mesa Canggu",
+      "venueSlug": "samesa-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-luigis-hot-pizza-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "Luigi’s Hot Pizza official website",
+          "sourceManifestId": "src-luigi-site",
+          "sourceUrl": "https://luigishotpizza.com/",
+          "status": "draft",
+          "url": "https://luigishotpizza.com/",
+          "venueSlug": "luigis-hot-pizza",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Both official BOOK NOW buttons link to this destination.",
+          "expiresAt": null,
+          "id": "action-luigis-hot-pizza-reserve-02",
+          "kind": "reserve",
+          "label": "Book now",
+          "priority": 20,
+          "provider": "sevenrooms",
+          "sourceLabel": "Luigi’s Hot Pizza official website",
+          "sourceManifestId": "src-luigi-site",
+          "sourceUrl": "https://luigishotpizza.com/",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/luigishotpizza/reservations/create/search/?venues=luigishotpizza%2Cdamaria%2Cmosto",
+          "venueSlug": "luigis-hot-pizza",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Official site identifies the Canggu/Batu Mejan venue.",
+        "No official venue-controlled order, WhatsApp, or Maps action was found."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:07Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:07Z",
+          "collectionNotes": [
+            "Partial transcription for review.",
+            "Currency/unit is not stated; priceMinor and currency remain null and raw display values are preserved."
+          ],
+          "expiresAt": null,
+          "id": "menu-luigis-hot-pizza-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "luigis-hot-pizza-v1-starters",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "HERBS, CITRUS PEELS",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-starters-01",
+                  "name": "WOOD FIRED MARINATED OLIVES",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "75",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "ROSEMARY, BLACK PEPPER",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-starters-02",
+                  "name": "GARLIC BUTTER FOCACCIA",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "90",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "DEEP FRIED MOZZA, BLACK TRUFFLE DIP",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-starters-03",
+                  "name": "MOZZA IN CARROZZA",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "50ea",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "STARTERS",
+              "position": 0
+            },
+            {
+              "description": null,
+              "id": "luigis-hot-pizza-v1-pasta",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "VODKA SAUCE, STRACCIATELLA, CALABRIAN CRISP, GREMOLATA",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-pasta-01",
+                  "name": "MAFALDE ALLA VODKA",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "160",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "GORGO, PARM, PROVOLONE, MOZZA, PECORINO, BLACK PEPPER",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-pasta-02",
+                  "name": "MAC AND CHEESE GNOCCHI",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "150",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "PASTA",
+              "position": 1
+            },
+            {
+              "description": null,
+              "id": "luigis-hot-pizza-v1-pizza",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "MOZZA, OG TOMATO SAUCE, BASIL, PARM",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-pizza-01",
+                  "name": "QUEEN MARG",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "MOZZA, MIXED SHROOMS, TRUFFLE OIL, EGG, PARM, GARLIC",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-pizza-02",
+                  "name": "FUNGY",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "MOZZA, OG TOMATO SAUCE, JONO’S PEPPERONI, FERMENTED CHILLI",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "luigis-hot-pizza-v1-pizza-03",
+                  "name": "PEPPERONI",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "160",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "PIZZA",
+              "position": 2
+            }
+          ],
+          "sourceLabel": "Luigi’s Hot Pizza Menu",
+          "sourceManifestId": "src-luigi-menu",
+          "sourceUrl": "https://luigishotpizza.com/menu/",
+          "status": "draft",
+          "title": "Luigi’s Hot Pizza Menu",
+          "venueSlug": "luigis-hot-pizza",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Confirm the price currency/unit and capture a branch-specific official Maps action if available.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-luigi-menu",
+        "src-luigi-site"
+      ],
+      "venueName": "Luigi’s Hot Pizza",
+      "venueSlug": "luigis-hot-pizza",
+      "verifiedAt": null
+    }
+  ],
+  "wave": "wave-1"
+}

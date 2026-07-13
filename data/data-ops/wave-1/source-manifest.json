@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-07-13T15:15:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-luigi-menu",
+      "label": "Luigi’s Hot Pizza Menu",
+      "notes": "Numeric prices are shown without an explicit currency/unit.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://luigishotpizza.com/menu/",
+      "venueSlug": "luigis-hot-pizza",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-luigi-site",
+      "label": "Luigi’s Hot Pizza official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://luigishotpizza.com/",
+      "venueSlug": "luigis-hot-pizza",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-mason-bookings",
+      "label": "MASONRY Canggu Bookings",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_booking_page",
+      "url": "https://masonrybali.com/canggu/bookings",
+      "venueSlug": "mason",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-mason-menu",
+      "label": "MASONRY Canggu Menu",
+      "notes": "Image menu; footer states prices are in 000 rupiah.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website_menu",
+      "url": "https://masonrybali.com/canggu/menu",
+      "venueSlug": "mason",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-mason-site",
+      "label": "MASONRY Canggu official website",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_website",
+      "url": "https://masonrybali.com/canggu",
+      "venueSlug": "mason",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-samesa-booking",
+      "label": "Sa’Mesa booking destination linked by official site",
+      "notes": "Hostinger preview-style domain; directly linked by samesabali.com and returned HTTP 200.",
+      "officialControl": "official_provider_linked_by_venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_provider_destination",
+      "url": "https://lightcyan-anteater-465015.hostingersite.com/booking/",
+      "venueSlug": "samesa-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:07Z",
+      "id": "src-samesa-site",
+      "label": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+      "notes": "Publishes the experience format and price, but no individual course names.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://samesabali.com/",
+      "venueSlug": "samesa-canggu",
+      "verifiedAt": null
+    }
+  ],
+  "wave": "wave-1"
+}
