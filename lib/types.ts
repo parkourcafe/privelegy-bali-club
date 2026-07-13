@@ -24,6 +24,9 @@ export type VenueCategory =
   | "restaurant"
   | "beach_club"
   | "spa"
+  | "beauty"
+  | "fitness"
+  | "yoga"
   | "bar"
   | "surf";
 

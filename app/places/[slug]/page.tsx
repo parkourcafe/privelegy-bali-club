@@ -25,6 +25,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Wellness",
+  beauty: "Beauty & salon",
+  fitness: "Fitness",
+  yoga: "Yoga",
   bar: "Bar",
   surf: "Surf",
 };
@@ -51,6 +54,19 @@ const ubudCategoryGuide: Record<string, { href: string; label: string }> = {
   restaurant: { href: "/ubud/best-restaurants", label: "Restaurants" },
   cafe: { href: "/ubud/best-cafes-coffee", label: "Cafés & coffee" },
   spa: { href: "/ubud/best-yoga-wellness", label: "Yoga & wellness" },
+};
+
+// Which Seminyak guide a category belongs to (breadcrumb + related links).
+const seminyakCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/seminyak/best-restaurants", label: "Restaurants" },
+  warung: { href: "/seminyak/best-restaurants", label: "Restaurants" },
+  beach_club: { href: "/seminyak/beach-clubs-sunset", label: "Beach clubs & sunset" },
+  bar: { href: "/seminyak/beach-clubs-sunset", label: "Beach clubs & sunset" },
+  cafe: { href: "/seminyak/cafes-coffee", label: "Cafés & coffee" },
+  spa: { href: "/seminyak/spas-salons-wellness", label: "Spas, salons & wellness" },
+  beauty: { href: "/seminyak/spas-salons-wellness", label: "Spas, salons & wellness" },
+  fitness: { href: "/seminyak/spas-salons-wellness", label: "Spas, salons & wellness" },
+  yoga: { href: "/seminyak/spas-salons-wellness", label: "Spas, salons & wellness" },
 };
 
 const districtLabel: Record<string, string> = {
@@ -85,6 +101,9 @@ const schemaType: Record<string, string> = {
   beach_club: "LocalBusiness",
   warung: "Restaurant",
   spa: "HealthAndBeautyBusiness",
+  beauty: "HealthAndBeautyBusiness",
+  fitness: "ExerciseGym",
+  yoga: "HealthAndBeautyBusiness",
   surf: "SportsActivityLocation",
 };
 
@@ -142,6 +161,7 @@ export default async function VenuePage({
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
   const isCanggu = venue.district === "canggu";
   const isUbud = venue.district === "ubud";
+  const isSeminyak = venue.district === "seminyak";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
@@ -152,6 +172,8 @@ export default async function VenuePage({
     ? cangguCategoryGuide[venue.category]
     : isUbud
     ? ubudCategoryGuide[venue.category]
+    : isSeminyak
+    ? seminyakCategoryGuide[venue.category]
     : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
@@ -180,6 +202,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Ubud", href: "/ubud" },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isSeminyak
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Seminyak", href: "/seminyak" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]
