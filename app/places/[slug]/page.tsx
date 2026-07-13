@@ -499,6 +499,20 @@ export default async function VenuePage({
                     </dd>
                   </div>
                 )}
+                {content?.menuUrl && (
+                  <div>
+                    <dt>Menu</dt>
+                    <dd>
+                      <TrackedOutboundLink
+                        href={content.menuUrl}
+                        event="menu_click"
+                        venueSlug={venue.slug}
+                      >
+                        View the menu
+                      </TrackedOutboundLink>
+                    </dd>
+                  </div>
+                )}
                 {content?.instagramUrl && (
                   <div>
                     <dt>Instagram</dt>

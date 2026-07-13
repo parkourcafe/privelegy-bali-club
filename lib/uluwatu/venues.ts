@@ -80,6 +80,9 @@ export interface UluwatuVenueContent {
   instagramUrl?: string | null;
   bookingUrl?: string | null;
   bookingLabel?: string;
+  // Official menu page — shown as "View menu" ONLY where the venue publishes
+  // its own menu (never a scraped/republished menu; guardrail #1).
+  menuUrl?: string | null;
   gmapsUrl: string;
   attributes?: string[]; // verified comparison attributes
   lastVerifiedAt: string;
@@ -535,6 +538,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
     instagramUrl: "https://www.instagram.com/yukibali_/",
     bookingUrl: "https://www.yuki-bali.com/ulu-reservations",
     bookingLabel: "Book direct",
+    menuUrl: "https://www.yuki-bali.com/menu",
     gmapsUrl: maps("YUKI Uluwatu Pecatu Bali"),
     attributes: ["sharing plates", "second outlet after Canggu", "clifftop road location"],
     lastVerifiedAt: CHECKED,
@@ -544,6 +548,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
       ev("official_url", "official_website", "https://www.yuki-bali.com/uluwatu", "VERIFIED"),
       ev("instagram_url", "official_instagram", "https://www.instagram.com/yukibali_/", "VERIFIED", "Brand account covers Canggu + Uluwatu."),
       ev("booking_url", "official_booking_page", "https://www.yuki-bali.com/ulu-reservations", "VERIFIED"),
+      ev("menu_url", "official_website", "https://www.yuki-bali.com/menu", "VERIFIED", "Official menu page on the venue's own domain."),
       ev("opening_hours", "official_website", "https://www.yuki-bali.com/uluwatu", "VERIFIED", "'Open 11AM until late, 7 days a week' from official site via domain-restricted search."),
       researchEv("what_to_order"),
       researchEv("price_band"),
@@ -573,6 +578,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
     officialUrl: "https://www.zalirestaurant.com/",
     instagramUrl: "https://www.instagram.com/zali.inbali/",
     bookingUrl: null,
+    menuUrl: "https://www.zalirestaurant.com/menu/bali",
     gmapsUrl: maps("ZALI Uluwatu Pecatu Bali"),
     attributes: ["Lebanese kitchen", "sharing format", "kid friendly"],
     lastVerifiedAt: CHECKED,
@@ -582,6 +588,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
       ev("official_url", "official_website", "https://www.zalirestaurant.com/", "VERIFIED"),
       ev("instagram_url", "official_instagram", "https://www.instagram.com/zali.inbali/", "VERIFIED", "Covers the Bali operation (Uluwatu + Pererenan)."),
       ev("booking_url", "reservation_platform", null, "CONFLICTING SOURCES", "Chope listing exists but not confirmed as venue-endorsed; official site says contact the restaurant — CTA limited to official site."),
+      ev("menu_url", "official_website", "https://www.zalirestaurant.com/menu/bali", "VERIFIED", "Official Bali menu page on the venue's own domain."),
       ev("opening_hours", "third_party_guide", null, "STALE — RECHECK REQUIRED", "8:00–24:00 per aggregators; off-page."),
       ev("price_band", "internal_research_dashboard", null, "MISSING", "No price band in the research import for this row.", RESEARCH),
       researchEv("what_to_order"),
@@ -652,6 +659,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
     instagramUrl: "https://www.instagram.com/papisapi_/",
     bookingUrl: "https://papisapi.com/book-a-table/",
     bookingLabel: "Book direct",
+    menuUrl: "https://papisapi.com/menu/",
     gmapsUrl: maps("Papi Sapi Pecatu Bali"),
     attributes: ["dinner-only", "grill/steak focus", "own online booking"],
     lastVerifiedAt: CHECKED,
@@ -661,6 +669,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
       ev("official_url", "official_website", "https://papisapi.com/", "VERIFIED"),
       ev("instagram_url", "official_instagram", "https://www.instagram.com/papisapi_/", "VERIFIED", "Covers Bali + Lombok branches."),
       ev("booking_url", "official_booking_page", "https://papisapi.com/book-a-table/", "VERIFIED"),
+      ev("menu_url", "official_website", "https://papisapi.com/menu/", "VERIFIED", "Official menu page (May 2026 menu PDF linked from it)."),
       ev("opening_hours", "official_website", "https://papisapi.com/contact/", "VERIFIED", "'Everyday 04:00 pm – 11:30 pm' from official contact page via domain-restricted search."),
       researchEv("what_to_order"),
       researchEv("price_band"),
@@ -691,6 +700,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
     instagramUrl: "https://www.instagram.com/masonry.bali/",
     bookingUrl: "https://masonrybali.com/uluwatu/bookings",
     bookingLabel: "Book direct",
+    menuUrl: "https://masonrybali.com/uluwatu/menu",
     gmapsUrl: maps("MASONRY Restaurant Uluwatu Pecatu Bali"),
     attributes: ["wood-fired grill", "sister venue to MASONRY Canggu"],
     lastVerifiedAt: CHECKED,
@@ -701,6 +711,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
       ev("official_url", "official_website", "https://masonrybali.com/uluwatu", "VERIFIED"),
       ev("instagram_url", "official_instagram", "https://www.instagram.com/masonry.bali/", "VERIFIED", "Shared brand account with Canggu."),
       ev("booking_url", "official_booking_page", "https://masonrybali.com/uluwatu/bookings", "VERIFIED"),
+      ev("menu_url", "official_website", "https://masonrybali.com/uluwatu/menu", "VERIFIED", "Official Uluwatu menu page (also the source for what_to_order)."),
       ev("address", "web_search_verification", null, "CONFLICTING SOURCES", "Listed №10 is character-identical to Ulu Fishmarket's — same plot/strip or aggregator copy; verify house number on field visit."),
       ev("opening_hours", "third_party_guide", null, "STALE — RECHECK REQUIRED", "12:00–24:00 per aggregator; off-page."),
       ev("what_to_order", "official_website", "https://masonrybali.com/uluwatu/menu", "VERIFIED", "Signatures from the official Uluwatu menu page."),
