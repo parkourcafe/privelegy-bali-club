@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 133 records are complete, 44 are blocked with concrete retry conditions,
-and 30 remain queued. No venue is marked human-verified or publishable.
+active; 137 records are complete, 50 are blocked with concrete retry conditions,
+and 20 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -167,6 +167,10 @@ and 30 remain queued. No venue is marked human-verified or publishable.
   exact identity/location/source blockers. Raw currency-ambiguous values and
   Massimo's stale asset date remain explicit. Ledger state is 133 complete, 44
   blocked, and 30 queued; the pointer remains `jimbaran-01`.
+- Sanur batch 02 completes all 20 repo-canonical Sanur records: three partial
+  menus, one official action-only record, and six exact menu/identity/source
+  blockers. Ledger state is 137 complete, 50 blocked, and 20 queued; the
+  pointer remains `jimbaran-01`.
 
 ## Validation
 
@@ -289,6 +293,10 @@ and 30 remain queued. No venue is marked human-verified or publishable.
   retried. JSON, source mapping, unique IDs, draft/null gates, metrics and
   out-of-order queue consistency passed. Agent rechecks reproduced identical
   Genius PDF and Linga image hashes.
+- Sanur 02: Pizzaria, Retro and Soul branch/menu/action chains were independently
+  reopened; social-only and no-source cases were retried. JSON, source mapping,
+  unique IDs, draft/null gates, complete Sanur coverage, metrics and queue state
+  passed. Retro freshness and Soul hours conflicts remain explicit.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

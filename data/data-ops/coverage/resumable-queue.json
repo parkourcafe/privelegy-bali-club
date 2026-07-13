@@ -624,8 +624,8 @@
     {
       "batchId": "sanur-02",
       "district": "sanur",
-      "resumeFromSlug": "pizzaria-hyatt",
-      "status": "queued",
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "pizzaria-hyatt",
         "red-manna",
@@ -637,12 +637,25 @@
         "warung-little-bird",
         "warung-makan-little-mars",
         "white-orchid-sanur"
-      ]
+      ],
+      "completedVenueSlugs": [
+        "pizzaria-hyatt",
+        "red-manna",
+        "retro-kitchen-and-bar",
+        "sala-bistro",
+        "segara-the-seaside",
+        "soul-on-the-beach",
+        "warung-coconut-tree",
+        "warung-little-bird",
+        "warung-makan-little-mars",
+        "white-orchid-sanur"
+      ],
+      "remainingVenueSlugs": []
     }
   ],
   "currentBatchId": "jimbaran-01",
-  "generatedAt": "2026-07-13T16:11:00Z",
+  "generatedAt": "2026-07-13T16:14:29Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T16:11:00Z"
+  "updatedAt": "2026-07-13T16:14:29Z"
 }
