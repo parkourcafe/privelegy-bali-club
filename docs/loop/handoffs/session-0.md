@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: in progress — all districts complete except Nusa Dua batch 01
+Status: research complete — 207/207 repo-canonical F&B records dispositioned
 
 ## Discovery
 
@@ -34,9 +34,10 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 
 ## Progress
 
-Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 145 records are complete, 52 are blocked with concrete retry conditions,
-and 10 remain queued. No venue is marked human-verified or publishable.
+Research is complete across Canggu, Ubud, Seminyak, Uluwatu–Bukit, Sanur,
+Jimbaran, and Nusa Dua. Of the 207 repo-canonical records, 152 are ready for
+operator review and 55 are blocked with concrete retry conditions. Zero remain
+queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -175,6 +176,10 @@ and 10 remain queued. No venue is marked human-verified or publishable.
   item-level partial menus, one found-but-unparsed official menu, and two exact
   identity/menu blockers. Ledger state is 145 complete, 52 blocked, and 10
   queued; the pointer advances to `nusa-dua-01`.
+- Nusa Dua batch 01 completes the full 207-record repo denominator: nine
+  item/package-level partial menus and three exact branch/freshness/priced-menu
+  blockers; two blockers overlap the partial-menu set. Final ledger state is
+  152 complete, 55 blocked, and 0 queued; `currentBatchId` is `null`.
 
 ## Validation
 
@@ -305,7 +310,29 @@ and 10 remain queued. No venue is marked human-verified or publishable.
   were independently reopened; AKUA and Nyoman identity/menu blockers were
   repeated. JSON, source mapping, unique IDs, draft/null gates, complete
   Jimbaran coverage, metrics and pointer advancement passed.
+- Nusa Dua 01: Arwana, Bejana, Bumbu Bali, Kempinski, St. Regis, ISMAYA,
+  Nusa Dua Beach Grill, Piasan and Mulia sources were independently reopened.
+  JSON, source mapping, unique IDs, draft/null gates, complete 207-record
+  coverage, final metrics and `currentBatchId: null` passed. Bumbu branch,
+  Kayuputi current/stale and Soleil priced-menu blockers remain explicit.
+- Global closeout passed across 53 JSON files and 24 completed queue batches:
+  207 unique package slugs, 391 actions, 148 menus, and 819 items. Provenance,
+  duplicate, source mapping, denominator/metrics, null-verification,
+  draft-action, publication prohibition, and Wave 1 plus batch coverage checks
+  all passed; `currentBatchId` and the remaining queue are both empty.
 - Diff check passed; only Session 0-owned paths changed.
+
+## Readiness and gates
+
+- **Data ready for operator review:** yes for the 152 `complete` records; the 55
+  `blocked` records are not ready and retain exact retry conditions.
+- **Ready for import dry-run:** no. Session 1 schema support and the later
+  publish gates are not available; all research data remains draft/review-only.
+- **Blocked:** 55 venue records, plus live SQL confirmation for the DB-only
+  `kynd-community` candidate and production drift denominators.
+- **Forbidden to publish:** yes, for all 207 records. Human/owner verification
+  remains null, no media rights are asserted, and no import or publication was
+  performed.
 
 ## Contract requests and risks
 

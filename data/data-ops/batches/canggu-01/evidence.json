@@ -66,7 +66,8 @@
       "menus": [
         {
           "sections": [],
-          "sourceManifestId": "src-12-menu-links"
+          "sourceManifestId": "src-12-menu-links",
+          "verifiedAt": null
         }
       ],
       "name": "12 Kitchen & Wine",
@@ -297,7 +298,8 @@
       "menus": [
         {
           "sections": [],
-          "sourceManifestId": "src-baked-berawa-menu"
+          "sourceManifestId": "src-baked-berawa-menu",
+          "verifiedAt": null
         }
       ],
       "name": "BAKED. Berawa",

@@ -1,0 +1,887 @@
+{
+  "batchId": "nusa-dua-01",
+  "capturedAt": "2026-07-13T16:22:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "nusa-dua",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Arwana, Kawasan Pariwisata Nusa Dua Lot N2, Benoa 80363.",
+      "collectionNotes": [
+        "Official 2025 menu remains current-linked as of capture; values are 000 IDR plus 11% tax and 10% service. Freshness recheck required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-arwana-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-01",
+                  "name": "Yellow Fin Tuna Crudo",
+                  "priceMinor": 188000,
+                  "sourceDisplayPrice": "188"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-02",
+                  "name": "Prawn Tempura Roll",
+                  "priceMinor": 188000,
+                  "sourceDisplayPrice": "188"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-03",
+                  "name": "Pickled Beet Hummus",
+                  "priceMinor": 230000,
+                  "sourceDisplayPrice": "230"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-04",
+                  "name": "Vegan Rojak Salad",
+                  "priceMinor": 138000,
+                  "sourceDisplayPrice": "138"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-05",
+                  "name": "Burrata Cheese",
+                  "priceMinor": 238000,
+                  "sourceDisplayPrice": "238"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "arwana-06",
+                  "name": "Pacific Scallops",
+                  "priceMinor": 292000,
+                  "sourceDisplayPrice": "292"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-arwana-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Arwana",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "arwana",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Bejana, The Ritz-Carlton Bali, Jalan Raya Nusa Dua Selatan Lot III, Sawangan 80361.",
+      "collectionNotes": [
+        "Current official menu has no artifact date and is subject to seasonality; IDR prices exclude 11% tax and 10% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-bejana-ritz-carlton-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-01",
+                  "name": "Ote-Ote Labu Kuning",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-02",
+                  "name": "Tahu Petis Goreng",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-03",
+                  "name": "Tum Jamur Tiram",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-04",
+                  "name": "Ikan Tuna Gohu Kacang Kenari",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-05",
+                  "name": "Lawar Klungah Babi",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bejana-ritz-carlton-06",
+                  "name": "Jukut Cantok Bumbu Kacang",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bejana-ritz-carlton-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bejana (Ritz-Carlton)",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bejana-ritz-carlton",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Bumbu Bali network, Tanjung Benoa / Nusa Dua; exact One-versus-Two branch unresolved.",
+      "collectionNotes": [
+        "Official site exposes two branches but generic repo slug cannot be safely resolved. Shared menu evidence is retained; IDR prices exclude 10% service and 11% tax."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-bumbu-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-01",
+                  "name": "Sambel Be Tongkol",
+                  "priceMinor": 97500,
+                  "sourceDisplayPrice": "97.500"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-02",
+                  "name": "Ayam Pelalah",
+                  "priceMinor": 97500,
+                  "sourceDisplayPrice": "97.500"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-03",
+                  "name": "Jejeruk Ayam",
+                  "priceMinor": 97500,
+                  "sourceDisplayPrice": "97.500"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-04",
+                  "name": "Ayam Sambel Matah",
+                  "priceMinor": 97500,
+                  "sourceDisplayPrice": "97.500"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-05",
+                  "name": "Lawar Udang",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bumbu-bali-06",
+                  "name": "Lawar Kuwir",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110.000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bumbu-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bumbu Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bumbu-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-izakaya-by-oku-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-izakaya-by-oku-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/izakaya-by-oku/reserve/experiences",
+          "venueSlug": "izakaya-by-oku",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Izakaya by OKU at The Apurva Kempinski Bali, Sawangan 80361.",
+      "collectionNotes": [
+        "Current official-linked lunch PDF created 2025-08-07; values are 000 IDR plus 10% service and 11% tax. Freshness recheck required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-izakaya-by-oku-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-01",
+                  "name": "Truffle Edamame",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-02",
+                  "name": "Chawan Mushi",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-03",
+                  "name": "Ikura Chawanmushi",
+                  "priceMinor": 170000,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-04",
+                  "name": "Karasumi Ikura",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-05",
+                  "name": "Sakura Ebi",
+                  "priceMinor": 385000,
+                  "sourceDisplayPrice": "385"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "izakaya-by-oku-06",
+                  "name": "Izakaya Salad",
+                  "priceMinor": 220000,
+                  "sourceDisplayPrice": "220"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-izakaya-by-oku-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Izakaya by OKU",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "izakaya-by-oku",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Kayuputi, The St. Regis Bali, Nusa Dua Lot S6.",
+      "collectionNotes": [
+        "Current hub points to a 2026 flipbook, while extractable prices come from official 2025 PDF. Stale/current mismatch blocks import until the 2026 artifact is parsed. Prices in 2025 PDF include 21% tax/service."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-kayuputi-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-01",
+                  "name": "Organic Garden",
+                  "priceMinor": 260000,
+                  "sourceDisplayPrice": "260"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-02",
+                  "name": "Bedugul Beetroot",
+                  "priceMinor": 260000,
+                  "sourceDisplayPrice": "260"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-03",
+                  "name": "Kintamani Butternut Squash",
+                  "priceMinor": 260000,
+                  "sourceDisplayPrice": "260"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-04",
+                  "name": "Mushrooms",
+                  "priceMinor": 290000,
+                  "sourceDisplayPrice": "290"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-05",
+                  "name": "Jerusalem Artichoke Soup",
+                  "priceMinor": 290000,
+                  "sourceDisplayPrice": "290"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayuputi-06",
+                  "name": "Buduk Tofu",
+                  "priceMinor": 350000,
+                  "sourceDisplayPrice": "350"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-kayuputi-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Kayuputi",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "kayuputi",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Koral Restaurant at The Apurva Kempinski Bali, Sawangan 80361.",
+      "collectionNotes": [
+        "Current official-linked Signature PDF created 2026-04-30; package prices are quoted in 000 IDR plus 10% service and 11% tax. Courses are not misrepresented as separately priced items."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-koral-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "koral-01",
+                  "name": "Signature 8-course",
+                  "priceMinor": 2700000,
+                  "sourceDisplayPrice": "2,700"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "koral-02",
+                  "name": "Signature 8-course with wine pairing",
+                  "priceMinor": 3700000,
+                  "sourceDisplayPrice": "3,700"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "koral-03",
+                  "name": "Signature 7-course",
+                  "priceMinor": 2350000,
+                  "sourceDisplayPrice": "2,350"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "koral-04",
+                  "name": "Signature 7-course with wine pairing",
+                  "priceMinor": 3250000,
+                  "sourceDisplayPrice": "3,250"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-koral-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Koral",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "koral",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-manarai-beach-house-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-manarai-beach-house-home",
+          "status": "draft",
+          "url": "https://wa.me/628111392727",
+          "venueSlug": "manarai-beach-house",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Manarai Beach House, beachfront at Sofitel Nusa Dua, ITDC Lot N5.",
+      "collectionNotes": [
+        "Official 2025 PDF remains linked as of capture; prices are thousand IDR and exclude combined 21% tax/service. Freshness recheck required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-manarai-beach-house-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-01",
+                  "name": "Chicken Wings",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-02",
+                  "name": "Cheese Fries",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-03",
+                  "name": "Nachos Loco",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-04",
+                  "name": "Caesar Salad",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-05",
+                  "name": "Avocado Grilled Chicken",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "manarai-beach-house-06",
+                  "name": "Poke Bowl",
+                  "priceMinor": 175000,
+                  "sourceDisplayPrice": "175"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-manarai-beach-house-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Manarai Beach House",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "manarai-beach-house",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Nusa Dua Beach Grill, Jalan Pura Geger, Sawangan, Nusa Dua.",
+      "collectionNotes": [
+        "Live official menu has no authored date; values are IDR 000 and exclude 18% tax/service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-nusa-dua-beach-grill-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-01",
+                  "name": "Breakfast Sandwich",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-02",
+                  "name": "Breakfast Burrito",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-03",
+                  "name": "Big Set",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-04",
+                  "name": "3 Egg Omelette",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-05",
+                  "name": "Golden Oats",
+                  "priceMinor": 50000,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nusa-dua-beach-grill-06",
+                  "name": "Pancakes",
+                  "priceMinor": 40000,
+                  "sourceDisplayPrice": "40"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-nusa-dua-beach-grill-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Nusa Dua Beach Grill",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "nusa-dua-beach-grill",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-piasan-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "umai",
+          "sourceManifestId": "src-piasan-home",
+          "status": "draft",
+          "url": "https://reservation.umai.io/en/widget/piasan",
+          "venueSlug": "piasan",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Piasan Restaurant at Kayumanis Nusa Dua inside the ITDC complex.",
+      "collectionNotes": [
+        "Live official à la carte page exposes numeric prices but does not separately declare their currency/multiplier or tax basis; raw values remain currency-null."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "id": "menu-piasan-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-01",
+                  "name": "In Salata Di Salmone Affumicato E Avocado",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "175"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-02",
+                  "name": "Lobster Linguine All Aragosta",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "650"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-03",
+                  "name": "Penne alla vodka",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "195"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-04",
+                  "name": "Bistecca Diangus Nero Alla Griglia",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "455"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-05",
+                  "name": "Torta Al Cioccolato Senza Farina",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "piasan-06",
+                  "name": "Tiramisu Bianco",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-piasan-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Piasan",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "piasan",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:22:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-soleil-at-mulia-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "eat_app",
+          "sourceManifestId": "src-soleil-at-mulia-home",
+          "status": "draft",
+          "url": "https://eatapp.co/reserve/soleil-0fe0c0",
+          "venueSlug": "soleil-at-mulia",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Soleil at The Mulia, Jl. Raya Nusa Dua Selatan, Sawangan 80362.",
+      "collectionNotes": [
+        "Current official page and sales kit confirm daily à la carte dining but expose no current item-level priced menu. Aggregator prices were rejected; booking deposit is not a menu price."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "nusa-dua",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "Soleil at Mulia",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "soleil-at-mulia",
+      "verifiedAt": null
+    }
+  ]
+}

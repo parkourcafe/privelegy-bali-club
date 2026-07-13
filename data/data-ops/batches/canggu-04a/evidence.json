@@ -63,7 +63,8 @@
       "menus": [
         {
           "sections": [],
-          "sourceManifestId": "src-nude-berawa-drive"
+          "sourceManifestId": "src-nude-berawa-drive",
+          "verifiedAt": null
         }
       ],
       "name": "Nüde Berawa",
