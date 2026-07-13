@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-07-13T16:03:00Z",
+  "capturedAt": "2026-07-13T16:06:00Z",
   "denominatorSource": "data/data-ops/coverage/canonical-venue-registry.json",
   "driftWarnings": [
     {
@@ -41,20 +41,20 @@
   ],
   "metrics": {
     "blocked": 30,
-    "completed": 97,
+    "completed": 98,
     "inProgress": 0,
     "liveDatabaseCandidate": 208,
     "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
     "liveExpectedActiveAll": 250,
     "liveExpectedActiveFnb": 208,
     "liveExpectedPublishedFnb": 174,
-    "needsHumanReview": 128,
+    "needsHumanReview": 129,
     "noOfficialSource": 1,
-    "officialMenuFound": 94,
+    "officialMenuFound": 95,
     "officialMenuFullyParsed": 0,
-    "officialMenuPartial": 89,
+    "officialMenuPartial": 90,
     "onlyActionLinksFound": 32,
-    "queued": 80,
+    "queued": 79,
     "repoCanonicalActiveFnb": 207,
     "totalEligible": 207
   },
@@ -3697,26 +3697,29 @@
       "verifiedAt": null
     },
     {
-      "actionCoverage": "not_checked",
+      "actionCoverage": "found",
       "blocked": false,
       "category": "cafe",
-      "coverageOutcome": "queued",
+      "coverageOutcome": "official_menu_partial",
       "district": "seminyak",
-      "lastCheckedAt": null,
-      "menuCoverage": "not_checked",
+      "lastCheckedAt": "2026-07-13T16:06:00Z",
+      "menuCoverage": "partial",
       "name": "Watercress Seminyak",
-      "needsHumanReview": false,
-      "nextAction": "Complete official-source menu and action-link check.",
+      "needsHumanReview": true,
+      "nextAction": "Operator review; full parsing and shared-menu caveat remain.",
       "noOfficialSource": false,
-      "officialMenuFound": false,
+      "officialMenuFound": true,
       "officialMenuFullyParsed": false,
-      "officialMenuPartial": false,
+      "officialMenuPartial": true,
       "onlyActionLinksFound": false,
       "publicationAllowed": false,
       "publicationState": "published",
-      "researchStatus": "queued",
+      "researchStatus": "complete",
       "slug": "watercress-seminyak",
-      "sourceManifestIds": [],
+      "sourceManifestIds": [
+        "src-wcs-menu",
+        "src-wcs-page"
+      ],
       "verifiedAt": null
     },
     {

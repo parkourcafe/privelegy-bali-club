@@ -136,6 +136,9 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   source safely exposes them. This completes the full 25-record Uluwatu–Bukit
   denominator. Ledger state is 97 complete, 30 blocked, and 80 queued; the
   pointer advances to `seminyak-01`.
+- Seminyak batch 04 is processed: Watercress Seminyak is branch-matched to its
+  official location and WhatsApp, with six currency-null items from the shared
+  March 2026 menu. Ledger state is 98 complete, 30 blocked, and 79 queued.
 
 ## Validation
 
@@ -227,6 +230,9 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   and branch surfaces were independently opened. JSON, source mapping, unique
   IDs, draft/null gates, denominator metrics, complete 25-record district
   coverage and queue advancement passed.
+- Seminyak 04: Watercress's official location, menu and Seminyak contact were
+  independently reopened. JSON, source mapping, unique IDs, draft/null gates,
+  denominator metrics and completed one-record batch state passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
