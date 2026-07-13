@@ -509,7 +509,7 @@
       ]
     }
   ],
-  "currentBatchId": "canggu-wave-1",
+  "currentBatchId": "ubud-02",
   "generatedAt": "2026-07-13T15:43:58Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,

@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: in progress
+Status: in progress — Canggu complete; Ubud active
 
 ## Discovery
 
@@ -34,8 +34,9 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 
 ## Progress
 
-Wave 1 official-source collection is running; no venue is marked human-verified
-or publishable.
+Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
+63 records are complete, 19 are blocked with concrete retry conditions, and
+125 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
