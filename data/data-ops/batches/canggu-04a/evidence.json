@@ -1,0 +1,418 @@
+{
+  "batchId": "canggu-04a",
+  "capturedAt": "2026-07-13T15:30:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": false,
+          "id": "action-nude-berawa-site",
+          "kind": "website",
+          "label": "Official branch page",
+          "provider": "official_website",
+          "sourceManifestId": "src-nude-berawa-page",
+          "status": "draft",
+          "url": "https://nude-bali.com/locations/berawa/",
+          "venueSlug": "nude-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-nude-berawa-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-nude-berawa-page",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6285238214003",
+          "venueSlug": "nude-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-nude-berawa-reserve",
+          "kind": "reserve",
+          "label": "Reserve a table",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-nude-berawa-menu",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/nudeberawa/reservations/create/search/",
+          "venueSlug": "nude-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "branchIdentity": "Berawa; Jl. Pantai Berawa No.86",
+      "collectionNotes": [
+        "Branch-specific menu folder is official but not safely parseable in this run.",
+        "No item names or prices were inferred from menu imagery."
+      ],
+      "coverageOutcome": "official_menu_found",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [
+        {
+          "sections": [],
+          "sourceManifestId": "src-nude-berawa-drive"
+        }
+      ],
+      "name": "Nüde Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "publicationAllowed": false,
+      "slug": "nude-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": false,
+          "id": "action-riviera-bistro-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-riviera-bistro-page",
+          "status": "draft",
+          "url": "https://rivieragroupbali.com/riviera-bistro/",
+          "venueSlug": "riviera-bistro-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-riviera-bistro-reserve",
+          "kind": "reserve",
+          "label": "Reserve a table",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-riviera-bistro-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/rivierabistro/reservations/create/search/",
+          "venueSlug": "riviera-bistro-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-riviera-bistro-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-riviera-bistro-page",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?app_absent=0&phone=6281774134586&type=phone_number",
+          "venueSlug": "riviera-bistro-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "branchIdentity": "Bistro; Jl. Pemelisan Agung, Berawa",
+      "collectionNotes": [
+        "Eight current lunch items transcribed; dinner and remaining lunch sections are not fully parsed.",
+        "Prices are normalized only because the PDF explicitly states thousands of IDR."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "id": "menu-riviera-bistro-lunch-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-01",
+                  "name": "Marinated Italian Olives",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-02",
+                  "name": "Potato and Rosemary Focaccia",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-03",
+                  "name": "Crispy Sourdough Baguette, Fermented Butter",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-04",
+                  "name": "Eggplant Babaganoush, Macadamia Dukkah",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-05",
+                  "name": "Chickpeas Hummus, Burnt Butter, Vegetable Crudites",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-small-06",
+                  "name": "Sakoshi Bay Oyster, Shallot Mignonette",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85ea"
+                }
+              ],
+              "name": "SMALL PLATES"
+            },
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-pasta-01",
+                  "name": "Rigatoni, Spicy Vodka Sauce, Stracciatella Di Burrata",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "rvb-pasta-02",
+                  "name": "Tagliatelle, Wagyu Beef And Pork Ragú And Broccolini",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                }
+              ],
+              "name": "HOMEMADE PASTA E RISO"
+            }
+          ],
+          "sourceManifestId": "src-riviera-bistro-lunch",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Riviera Bistro Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "publicationAllowed": false,
+      "slug": "riviera-bistro-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": false,
+          "id": "action-riviera-cafe-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-riviera-cafe-page",
+          "status": "draft",
+          "url": "https://rivieragroupbali.com/riviera-cafe/",
+          "venueSlug": "riviera-cafe-cemagi",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-riviera-cafe-whatsapp",
+          "kind": "whatsapp",
+          "label": "Reserve / WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-riviera-cafe-page",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?app_absent=0&phone=6282340670942&type=phone_number",
+          "venueSlug": "riviera-cafe-cemagi",
+          "verifiedAt": null
+        }
+      ],
+      "branchIdentity": "Cafe; Jl. Pratu Rai Madra, Cemagi",
+      "collectionNotes": [
+        "Official brunch and dinner PDFs are linked but were not parseable in this run.",
+        "Only exact dish names/descriptions visible on the venue-controlled page are included; no prices inferred."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "id": "menu-riviera-cafe-page-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Grilled chicken served with cherry tomatoes, avocado, sweet corn, organic leaves, Parmigiano Reggiano, and Caesar dressing.",
+                  "id": "rvc-page-01",
+                  "name": "Pollo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Scrambled eggs, bacon, caramelized onions, hashbrown, spicy aioli, in a soft brioche bun.",
+                  "id": "rvc-page-02",
+                  "name": "Morning Bun",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Official page named items"
+            }
+          ],
+          "sourceManifestId": "src-riviera-cafe-page",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Riviera Cafe Cemagi",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "publicationAllowed": false,
+      "slug": "riviera-cafe-cemagi",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": false,
+          "id": "action-riviera-trattoria-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-riviera-trattoria-page",
+          "status": "draft",
+          "url": "https://rivieragroupbali.com/riviera-trattoria/",
+          "venueSlug": "riviera-trattoria-pererenan",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "confirmationRequired": true,
+          "id": "action-riviera-trattoria-reserve",
+          "kind": "reserve",
+          "label": "Reserve a table",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-riviera-trattoria-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/rivieratrattoria/reservations/create/search/",
+          "venueSlug": "riviera-trattoria-pererenan",
+          "verifiedAt": null
+        }
+      ],
+      "branchIdentity": "Trattoria; Jl. Pantai Pererenan",
+      "collectionNotes": [
+        "Official current dinner PDF is linked but was not fetchable in this run.",
+        "Only exact signature/named food text on the venue-controlled page is included; no prices inferred."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:30:00Z",
+          "id": "menu-riviera-trattoria-page-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "rvt-page-01",
+                  "name": "Wood-fired prawns",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "rvt-page-02",
+                  "name": "Spinach & ricotta ravioli",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "rvt-page-03",
+                  "name": "Tiramisu",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Made to pair with antipasti or alongside every dish.",
+                  "id": "rvt-page-04",
+                  "name": "Woodfired pane",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Prosciutto Crudo di Parma, Italian capocollo, bologna mortadella, and grissini.",
+                  "id": "rvt-page-05",
+                  "name": "Cured meats selection",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Official page signature dishes"
+            }
+          ],
+          "sourceManifestId": "src-riviera-trattoria-page",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Riviera Trattoria Pererenan",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "publicationAllowed": false,
+      "slug": "riviera-trattoria-pererenan",
+      "verifiedAt": null
+    }
+  ]
+}

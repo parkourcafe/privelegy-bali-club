@@ -72,6 +72,14 @@ or publishable.
 - Wave 1 checkpoint is complete: 15/15 researched; 14 have partial official
   menu evidence and 1 (`baked-pererenan`) has official actions only. Zero menus
   are claimed fully parsed or human-verified.
+- Post-Wave checkpoint `canggu-04a` completed four additional branch-matched
+  records: Nüde Berawa plus Riviera Bistro Berawa, Riviera Cafe Cemagi, and
+  Riviera Trattoria Pererenan. Nüde has an official menu folder that was not
+  safely parseable; the three Riviera records have partial official menu
+  evidence and strictly separated branch actions.
+- Current repo-denominator progress is 19/207 complete: 18 official menus
+  found, 17 partial transcriptions, 1 official menu found but not parsed, and 1
+  action-only venue. The remaining deterministic queue contains 188 records.
 
 ## Validation
 
@@ -99,6 +107,11 @@ or publishable.
   venues. Recheck at `2026-07-13T15:24:36Z`–`15:24:37Z`: SENSORIUM's official
   PDF and Shelter's official lunch page returned HTTP 200; SENSORIUM's stale
   `Last-Modified` value is recorded as a blocker for import readiness.
+- Canggu 04a: JSON and source mapping checks passed for four unique venue
+  slugs. The Nüde Berawa page/menu and Riviera Bistro branch/menu were reopened
+  from official sources during acceptance; branch identity and action links
+  remained consistent. All batch records retain null verification, draft-only
+  actions, no media, and publication prohibition.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

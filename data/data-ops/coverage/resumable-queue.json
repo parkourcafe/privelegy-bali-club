@@ -97,9 +97,23 @@
     },
     {
       "batchId": "canggu-04",
+      "completedVenueSlugs": [
+        "nude-berawa",
+        "riviera-bistro-berawa",
+        "riviera-cafe-cemagi",
+        "riviera-trattoria-pererenan"
+      ],
       "district": "canggu",
-      "resumeFromSlug": "nude-berawa",
-      "status": "queued",
+      "remainingVenueSlugs": [
+        "oma-jamu",
+        "pizza-fabbrica",
+        "rise-and-shine-cafe",
+        "roots-pererenan",
+        "ruko-cafe",
+        "samadi-bali"
+      ],
+      "resumeFromSlug": "oma-jamu",
+      "status": "in_progress",
       "venueSlugs": [
         "nude-berawa",
         "oma-jamu",
@@ -419,6 +433,7 @@
     }
   ],
   "currentBatchId": "canggu-wave-1",
+  "generatedAt": "2026-07-13T15:30:00Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
   "updatedAt": "2026-07-13T15:15:00Z"
