@@ -52,10 +52,19 @@ export function getPublicationStatus(v: Venue): PublicationStatus {
   return legacyDecisionReady(v) ? "published" : "review";
 }
 
-// Indexability is stricter than visibility: a venue detail page may carry
-// index,follow ONLY when the venue passed the evidence-backed gate. In this
-// release that is the published Uluwatu set; everything else is
-// noindex,nofollow until its district gets the same treatment.
+// A venue detail page carries index,follow when the venue is "published" —
+// i.e. it passes getPublicationStatus: the evidence-backed registry for Uluwatu,
+// or the decision-ready editorial bar (why-it's-here + best-for + price/order)
+// for every other district. Empty/review rows stay noindex,nofollow so we never
+// ship thin pages to the index. Prefer this (it works for all districts) over
+// isIndexableVenueSlug, which is Uluwatu-registry-only and kept for callers that
+// only have a slug.
+export function isVenueIndexable(v: Venue): boolean {
+  return getPublicationStatus(v) === "published";
+}
+
+// Slug-only Uluwatu check (registry). Retained for compatibility; page/sitemap
+// code with the full Venue should use isVenueIndexable instead.
 export function isIndexableVenueSlug(slug: string): boolean {
   return getUluwatuContent(slug)?.publication === "published";
 }
