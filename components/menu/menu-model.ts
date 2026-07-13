@@ -9,7 +9,13 @@ export function getMenuFreshness(menu: MenuRecord, now = new Date()): MenuFreshn
   return "fresh";
 }
 
-export function formatMenuPrice(priceMinor: number | null, currency: string | null): string | null {
+export function formatMenuPrice(
+  priceMinor: number | null,
+  currency: string | null,
+  priceText: string | null = null
+): string | null {
+  const sourcePrice = priceText?.trim();
+  if (sourcePrice) return sourcePrice;
   if (priceMinor == null || !currency) return null;
   try {
     const formatter = new Intl.NumberFormat("en", {

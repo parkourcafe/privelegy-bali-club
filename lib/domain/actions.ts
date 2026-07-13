@@ -4,6 +4,7 @@ import type {
   VenueActionCapabilityRecord,
 } from "../contracts/menu-action";
 import { isFresh, type DataRow } from "./menu";
+import { validatePublicEvidenceUrl } from "../integrations/external-ordering";
 
 const ACTION_KINDS = new Set<ActionKind>([
   "reserve", "delivery", "takeaway", "preorder", "website", "whatsapp", "maps",
@@ -13,7 +14,14 @@ const text = (value: unknown): string => (typeof value === "string" ? value.trim
 export function isSafePublicUrl(value: string): boolean {
   try {
     const url = new URL(value);
-    return url.protocol === "https:";
+    const hostname = url.hostname.toLowerCase();
+    return (
+      url.protocol === "https:" &&
+      !url.username &&
+      !url.password &&
+      hostname !== "example.com" &&
+      !hostname.endsWith(".example.com")
+    );
   } catch {
     return false;
   }
@@ -27,12 +35,14 @@ export function mapPublishedActionCapability(
   const url = text(row.url);
   const verifiedAt = text(row.verified_at);
   const expiresAt = text(row.expires_at) || null;
+  const sourceUrl = validatePublicEvidenceUrl(row.source_url);
   if (
     text(row.status) !== "confirmed" ||
     !ACTION_KINDS.has(kind) ||
     !verifiedAt ||
     !isFresh(expiresAt, now) ||
-    !isSafePublicUrl(url)
+    !isSafePublicUrl(url) ||
+    !sourceUrl
   ) return null;
 
   return {
@@ -45,7 +55,7 @@ export function mapPublishedActionCapability(
     status: "confirmed",
     priority: Number(row.priority) || 0,
     confirmationRequired: Boolean(row.confirmation_required),
-    sourceUrl: text(row.source_url),
+    sourceUrl,
     sourceLabel: text(row.source_label),
     capturedAt: text(row.captured_at),
     verifiedAt,

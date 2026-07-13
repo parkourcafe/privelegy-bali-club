@@ -2,22 +2,35 @@ import Link from "next/link";
 import { getVenueWithPerk } from "@/lib/data";
 import VenueVisual from "@/components/VenueVisual";
 import RedeemFlow from "./RedeemFlow";
+import { currentSiteOrigin } from "@/lib/site-origin";
 
 export const dynamic = "force-dynamic";
 
 export default async function RedeemPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ venue: string }>;
+  searchParams: Promise<{ t?: string | string[] }>;
 }) {
   const { venue: slug } = await params;
+  const query = await searchParams;
+  const qrToken = typeof query.t === "string" ? query.t : "";
   const venue = await getVenueWithPerk(slug);
+  const audience = await currentSiteOrigin();
+  const { verifyRedemptionToken } = await import("@/lib/redemption-token");
+  const validQr = verifyRedemptionToken(
+    slug,
+    qrToken,
+    process.env.REDEMPTION_SIGNING_SECRET,
+    audience ?? "",
+  );
 
-  if (!venue) {
+  if (!venue || venue.district !== "canggu" || !venue.perk || !validQr) {
     return (
       <div className="page-dark">
         <main className="redeem-shell text-center">
-          <h1 className="text-xl font-semibold">Venue not found</h1>
+          <h1 className="text-xl font-semibold">Redemption link unavailable</h1>
           <Link href="/plan" className="quiet-link mt-4 inline-block">
             Back to Other Bali
           </Link>
@@ -50,6 +63,7 @@ export default async function RedeemPage({
                 venueSlug={venue.slug}
                 venueName={venue.name}
                 perkTitle={venue.perk.title}
+                qrToken={qrToken}
               />
             </>
           ) : (

@@ -129,7 +129,8 @@ price/order anchor. Consequences:
 
 Replaced in this launch by an explicit publication policy
 (`lib/publication.ts` + `publication_status` column + per-fact evidence
-registry) with an internal review mode preserved (`/places?all=1`).
+registry). The former public `?all=1` review mode has been removed; review now
+stays inside authenticated operator queues.
 
 ## 6. Existing SEO surfaces
 

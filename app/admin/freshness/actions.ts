@@ -1,17 +1,19 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@supabase/supabase-js";
-import { evaluateActions, evaluateVenues, isPublishableHttpsUrl, type AdminActionRow, type AdminVenueRow } from "../../../components/admin/freshness-model";
+import { isPublishableActionTarget, isPublishableHttpsUrl } from "../../../components/admin/freshness-model";
+import { requireAdminRequest } from "@/lib/admin-request-auth";
+import { hasExplicitReviewConfirmation } from "@/lib/admin-review";
+import { serviceClient } from "@/lib/supabase/service";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const REVIEW_TTL_MS = 60 * 24 * 60 * 60 * 1000;
 
-function operatorClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const adminToken = process.env.ADMIN_ACCESS_TOKEN?.trim();
-  if (!url || !key || !adminToken) throw new Error("Operator mutations are not configured.");
-  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+async function operatorClient() {
+  await requireAdminRequest();
+  const client = serviceClient();
+  if (!client) throw new Error("Operator mutations are not configured for this environment.");
+  return client;
 }
 
 function recordId(formData: FormData): string {
@@ -21,14 +23,17 @@ function recordId(formData: FormData): string {
 }
 
 export async function publishMenu(formData: FormData) {
-  const client = operatorClient();
+  const client = await operatorClient();
   const { data, error } = await client.rpc("publish_menu_version", { p_menu_id: recordId(formData) });
   if (error || !data || data.ok !== true) throw new Error(error?.message ?? data?.error ?? "Menu failed publication checks.");
   revalidatePath("/admin/freshness");
 }
 
 export async function reviewMenu(formData: FormData) {
-  const client = operatorClient();
+  const client = await operatorClient();
+  if (!hasExplicitReviewConfirmation(formData.get("verification"))) {
+    throw new Error("Open the official source and explicitly confirm the menu comparison before verification.");
+  }
   const id = recordId(formData);
   const { data: menu, error } = await client.from("menus").select("id,status,source_url,source_label,captured_at").eq("id", id).single();
   if (error || !menu) throw new Error(error?.message ?? "Menu not found.");
@@ -38,36 +43,64 @@ export async function reviewMenu(formData: FormData) {
   const { count: sectionCount } = await client.from("menu_sections").select("id", { count: "exact", head: true }).eq("menu_id", id);
   const { count: itemCount } = await client.from("menu_items").select("id", { count: "exact", head: true }).eq("menu_id", id);
   if (!sectionCount || !itemCount) throw new Error("Menu needs at least one section and item.");
-  const { error: updateError } = await client.from("menus").update({ status: "review", verified_at: new Date().toISOString() }).eq("id", id).eq("status", "draft");
-  if (updateError) throw new Error(updateError.message);
+  const verifiedAt = new Date();
+  const { data: reviewed, error: updateError } = await client
+    .from("menus")
+    .update({
+      status: "review",
+      verified_at: verifiedAt.toISOString(),
+      expires_at: new Date(verifiedAt.getTime() + REVIEW_TTL_MS).toISOString(),
+    })
+    .eq("id", id)
+    .eq("status", "draft")
+    .select("id")
+    .maybeSingle();
+  if (updateError || !reviewed) throw new Error(updateError?.message ?? "Menu is no longer an unreviewed draft.");
   revalidatePath("/admin/freshness");
 }
 
 export async function archiveMenu(formData: FormData) {
-  const client = operatorClient();
+  const client = await operatorClient();
   const { error } = await client.from("menus").update({ status: "archived" }).eq("id", recordId(formData)).in("status", ["draft", "review", "published"]);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/freshness");
 }
 
 export async function confirmAction(formData: FormData) {
-  const client = operatorClient();
+  const client = await operatorClient();
+  if (!hasExplicitReviewConfirmation(formData.get("verification"))) {
+    throw new Error("Open the official source and explicitly confirm the action before verification.");
+  }
   const id = recordId(formData);
-  const { data: action, error } = await client.from("venue_action_capabilities").select("id,venue_slug,kind,status,url,source_url,source_label,captured_at,verified_at,expires_at").eq("id", id).single();
-  if (error || !action) throw new Error(error?.message ?? "Action not found.");
-  const { data: venue, error: venueError } = await client.from("venues").select("slug,status,publication_status,gmaps_url,last_verified_at").eq("slug", action.venue_slug).single();
-  if (venueError || !venue) throw new Error(venueError?.message ?? "Parent venue not found.");
-  const verifiedAt = new Date().toISOString();
-  const actionBlockers = evaluateActions([{ ...action, status: "confirmed", verified_at: verifiedAt } as AdminActionRow]).filter((issue) => issue.severity === "blocker");
-  const venueBlockers = evaluateVenues([venue as AdminVenueRow]).filter((issue) => issue.code === "venue_publication_blocker");
-  if (actionBlockers.length || venueBlockers.length) throw new Error("Action failed URL, evidence, freshness or parent-publication checks.");
-  const { error: updateError } = await client.from("venue_action_capabilities").update({ status: "confirmed", verified_at: verifiedAt, updated_at: verifiedAt }).eq("id", id).in("status", ["draft", "review"]);
-  if (updateError) throw new Error(updateError.message);
+  const { data: candidate, error: candidateError } = await client
+    .from("venue_action_capabilities")
+    .select("id,kind,provider,url,source_url,status")
+    .eq("id", id)
+    .single();
+  if (
+    candidateError ||
+    !candidate ||
+    !["draft", "review"].includes(String(candidate.status)) ||
+    !isPublishableActionTarget({
+      kind: String(candidate.kind),
+      provider: candidate.provider ? String(candidate.provider) : null,
+      url: candidate.url ? String(candidate.url) : null,
+      source_url: candidate.source_url ? String(candidate.source_url) : null,
+    })
+  ) {
+    throw new Error(candidateError?.message ?? "Action destination or provider is not publishable.");
+  }
+  const { data, error } = await client.rpc("publish_action_capability", {
+    p_capability_id: id,
+  });
+  if (error || !data || data.ok !== true) {
+    throw new Error(error?.message ?? data?.error ?? "Action failed publication checks.");
+  }
   revalidatePath("/admin/freshness");
 }
 
 export async function archiveAction(formData: FormData) {
-  const client = operatorClient();
+  const client = await operatorClient();
   const { error } = await client.from("venue_action_capabilities").update({ status: "archived", updated_at: new Date().toISOString() }).eq("id", recordId(formData)).in("status", ["draft", "review", "confirmed", "disabled"]);
   if (error) throw new Error(error.message);
   revalidatePath("/admin/freshness");

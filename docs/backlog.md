@@ -1,6 +1,6 @@
 # Backlog & field notes
 
-Not a source of truth. Strategy lives in `Bali_Privilege_Master_Architecture.md`;
+Not a source of truth. Strategy lives in `Other_Bali_Master_Architecture.md`;
 rules live in `CLAUDE.md`. This file only tracks accepted follow-ups so they
 don't get lost. Nothing here is pulled forward past its gate.
 

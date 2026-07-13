@@ -22,6 +22,7 @@ export type MenuItemRecord = {
   description: string | null;
   priceMinor: number | null;
   currency: string | null;
+  priceText: string | null;
   dietaryTags: string[];
   verifiedAllergenTags: string[];
   partnerRecommended: boolean;
@@ -78,6 +79,7 @@ export type VenueActionBarProps = {
   capabilities: VenueActionCapabilityRecord[];
   fallbacks: VenueActionFallbacks;
   acquisitionSource?: string;
+  tablepilotBaseUrl?: string | null;
   className?: string;
 };
 
@@ -92,4 +94,3 @@ export type PublicVenueDetailExtension = {
   menu: MenuRecord | null;
   actionCapabilities: VenueActionCapabilityRecord[];
 };
-

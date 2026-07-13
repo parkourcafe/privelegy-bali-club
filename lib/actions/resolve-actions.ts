@@ -100,11 +100,10 @@ function capabilityEligibility(
   if (capturedAt > now || verifiedAt > now) return "future_evidence";
   if (verifiedAt < capturedAt) return "verification_before_capture";
 
-  if (record.expiresAt !== null) {
-    const expiresAt = timestamp(record.expiresAt);
-    if (expiresAt === null) return "invalid_expiry";
-    if (expiresAt <= now) return "expired";
-  }
+  if (record.expiresAt === null) return "missing_expiry";
+  const expiresAt = timestamp(record.expiresAt);
+  if (expiresAt === null) return "invalid_expiry";
+  if (expiresAt <= now) return "expired";
   return null;
 }
 

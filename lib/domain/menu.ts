@@ -1,4 +1,5 @@
 import type { MenuItemRecord, MenuRecord, MenuSectionRecord } from "../contracts/menu-action";
+import { validatePublicEvidenceUrl } from "../integrations/external-ordering";
 
 export type DataRow = Record<string, unknown>;
 
@@ -10,7 +11,7 @@ const number = (value: unknown, fallback = 0): number =>
   Number.isFinite(Number(value)) ? Number(value) : fallback;
 
 export function isFresh(expiresAt: string | null, now = new Date()): boolean {
-  if (!expiresAt) return true;
+  if (!expiresAt) return false;
   const expiry = Date.parse(expiresAt);
   return Number.isFinite(expiry) && expiry > now.getTime();
 }
@@ -22,6 +23,7 @@ export function mapMenuItem(row: DataRow): MenuItemRecord {
     description: nullableText(row.description),
     priceMinor: row.price_minor == null ? null : number(row.price_minor),
     currency: nullableText(row.currency),
+    priceText: nullableText(row.price_text),
     dietaryTags: stringArray(row.dietary_tags),
     verifiedAllergenTags: stringArray(row.verified_allergen_tags),
     partnerRecommended: Boolean(row.partner_recommended),
@@ -53,7 +55,13 @@ export function mapPublishedMenu(
 ): MenuRecord | null {
   const verifiedAt = nullableText(row.verified_at);
   const expiresAt = nullableText(row.expires_at);
-  if (text(row.status) !== "published" || !verifiedAt || !isFresh(expiresAt, now)) return null;
+  const sourceUrl = validatePublicEvidenceUrl(row.source_url);
+  if (
+    text(row.status) !== "published" ||
+    !verifiedAt ||
+    !isFresh(expiresAt, now) ||
+    !sourceUrl
+  ) return null;
 
   return {
     id: text(row.id),
@@ -61,7 +69,7 @@ export function mapPublishedMenu(
     title: text(row.title),
     version: number(row.version, 1),
     status: "published",
-    sourceUrl: text(row.source_url),
+    sourceUrl,
     sourceLabel: text(row.source_label),
     capturedAt: text(row.captured_at),
     verifiedAt,

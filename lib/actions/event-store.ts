@@ -3,14 +3,14 @@ import type {
   LegacyLogEventArgs,
   LogEventV2Args,
 } from "./event-compat";
-import type { SafeActionEventPayload } from "../contracts/menu-action";
 import type { AllowedEventType } from "./event-safety";
+import type { SafeEventPayload } from "./event-payload";
 
 export type EventStoreInput = {
   type: AllowedEventType;
   guestRef: string;
   venueSlug: string | null;
-  payload: SafeActionEventPayload | null;
+  payload: SafeEventPayload | null;
 };
 
 export type EventStoreResult = {

@@ -1,0 +1,1880 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": 1,
+  "inputDigest": "dbe5ea0b22de50c266e6b0213f8faf0d1c92258c586e1af800021cd0b4ee97bf",
+  "expectedInputFiles": 53,
+  "inputFiles": 53,
+  "asOf": "2026-07-13T16:22:00.000Z",
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "denominator": {
+    "packageVenues": 207,
+    "coverageLedgerVenues": 207,
+    "canonicalRegistryVenues": 207,
+    "ledgerTotalEligible": 207,
+    "registryTotalEligible": 207,
+    "liveDatabaseCandidate": 208,
+    "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
+    "unresolvedLiveCandidateSlugs": [
+      "kynd-community"
+    ],
+    "repositoryCountsAligned": true,
+    "liveCandidateMatchesRepository": false,
+    "liveCandidateConfirmed": false,
+    "fullyReconciled": false,
+    "complete": 152,
+    "blocked": 55
+  },
+  "integrity": {
+    "globallyUniqueIds": true,
+    "candidateIds": 423,
+    "nestedMenuIds": 904,
+    "sourceIds": 358,
+    "rejectionIds": 115,
+    "provenanceInputRefs": 424,
+    "linkedValidSourceRefs": 424,
+    "rejectedInputRefsExcluded": true,
+    "initialVersionOneOnly": true
+  },
+  "releaseGates": {
+    "queueClosed": true,
+    "expectedInputFileSetComplete": true,
+    "repositoryDenominatorInternallyAligned": true,
+    "liveCandidateSourcesAgree": true,
+    "liveCandidateStatusConfirmed": false,
+    "liveCandidateMatchesRepository": false,
+    "denominatorReconciled": false,
+    "candidateIntegrityPassed": true,
+    "readyForOperatorReview": true,
+    "readyForImportDryRun": false,
+    "readyForStagingApply": false,
+    "readyForPublish": false
+  },
+  "packageDigest": "682f63f1981383f39a6d98e78694af04295da96fd9becbcd327e2bb1d09e51a2",
+  "targetField": "venues.gmaps_url",
+  "venueMapsCandidates": [
+    {
+      "id": "venue-map-24edef8475c9ffd5761c082b",
+      "venueSlug": "7am-bakers-umalas",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/AyvyKmGZwPrxoxCm8",
+      "label": "Umalas map",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://linktr.ee/7ambakers",
+      "sourceLabel": "Official branch Linktree",
+      "capturedAt": "2026-07-13T16:07:45.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "seminyak-01"
+        ],
+        "inputIds": [
+          "a-7am-bakers-umalas-2"
+        ],
+        "sourceIds": [
+          "source-f606987b223ef35afb092cda"
+        ],
+        "originalSourceIds": [
+          "src-7am-bakers-umalas-home"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-f6a049f758ee32a9e1d48b1e",
+      "venueSlug": "alchemy-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/VJywLyNdL3XZM5jE8",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.alchemybali.com/uluwatu",
+      "sourceLabel": "Alchemy Uluwatu branch page",
+      "capturedAt": "2026-07-13T15:51:50.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-01"
+        ],
+        "inputIds": [
+          "a-alch-map"
+        ],
+        "sourceIds": [
+          "source-31203c08be599b6b3dbc30a0"
+        ],
+        "originalSourceIds": [
+          "src-alch-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-9a596ba4795df8ddecfafa36",
+      "venueSlug": "alchemy",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/Up8Yt6KLsgNqWuXK7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.alchemybali.com/alchemymenu",
+      "sourceLabel": "Alchemy Ubud official menu",
+      "capturedAt": "2026-07-13T15:43:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-01"
+        ],
+        "inputIds": [
+          "action-alchemy-maps"
+        ],
+        "sourceIds": [
+          "source-fd6b427b63270c8818dcf27e"
+        ],
+        "originalSourceIds": [
+          "src-alchemy-ubud-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-baee727393bdbd5085377205",
+      "venueSlug": "anomali-coffee-ubud",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://www.google.com/maps?q=-8.5082382,115.2652257",
+      "label": "Map coordinates",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://anomalicoffee.com/store-locator",
+      "sourceLabel": "Anomali Coffee official store locator",
+      "capturedAt": "2026-07-13T15:43:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-01"
+        ],
+        "inputIds": [
+          "action-anomali-map"
+        ],
+        "sourceIds": [
+          "source-37d630440a5520e42d058f5a"
+        ],
+        "originalSourceIds": [
+          "src-anomali-locator"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-0d1861107b89ad8a6d08594c",
+      "venueSlug": "atlas-beach-club",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/yadZxkdVaeQgTcMy7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://menu.atlasbeachfest.com/",
+      "sourceLabel": "Atlas Beach Club official menu hub",
+      "capturedAt": "2026-07-13T15:31:51.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-01"
+        ],
+        "inputIds": [
+          "action-atlas-maps"
+        ],
+        "sourceIds": [
+          "source-8a0828d662256f6cfc988d26"
+        ],
+        "originalSourceIds": [
+          "src-atlas-menu-hub"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-53eec63844e789bff5f915bc",
+      "venueSlug": "baked-pererenan",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/DHyuaqtcoF338b2v9",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 30,
+      "confirmationRequired": false,
+      "sourceUrl": "https://baked.co.id/pages/locations",
+      "sourceLabel": "BAKED Locations — Pererenan",
+      "capturedAt": "2026-07-13T15:12:25.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-baked-pererenan-maps-03"
+        ],
+        "sourceIds": [
+          "source-64fd6c5668a65b92ce6e29ca"
+        ],
+        "originalSourceIds": [
+          "src-baked-locations"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": [
+          "Branch-specific official Maps link."
+        ]
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-58209e17f9f99c0800eedf99",
+      "venueSlug": "bgs-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/FXZZRc7kGUPgsiU9A",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://bgsbali.com/store/bgs-uluwatu/",
+      "sourceLabel": "BGS Uluwatu store page",
+      "capturedAt": "2026-07-13T15:51:50.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-01"
+        ],
+        "inputIds": [
+          "a-bgs-map"
+        ],
+        "sourceIds": [
+          "source-b3556270f68ac0abe5bc9ecf"
+        ],
+        "originalSourceIds": [
+          "src-bgs-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-22f6bacf89968708374d5754",
+      "venueSlug": "boheme-canggu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/aiAF1Aw79rh3N8T39",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://boheme.bitri.cloud/",
+      "sourceLabel": "Boheme official digital menu",
+      "capturedAt": "2026-07-13T15:31:51.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-01"
+        ],
+        "inputIds": [
+          "action-boheme-maps"
+        ],
+        "sourceIds": [
+          "source-39b0a000fc8d4909eafa4e87"
+        ],
+        "originalSourceIds": [
+          "src-boheme-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-22f4f042320ceee542779c5b",
+      "venueSlug": "brunch-club-pererenan",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/3VKiHQJRgohi4vdh8",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://brunchclubbali.com/brunch/",
+      "sourceLabel": "Brunch Club official menu page",
+      "capturedAt": "2026-07-13T15:31:51.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-01"
+        ],
+        "inputIds": [
+          "action-brunch-maps"
+        ],
+        "sourceIds": [
+          "source-2d3a3d87bb46138daa321acb"
+        ],
+        "originalSourceIds": [
+          "src-brunch-club-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-9c7e4aea3507c5f61d5c3cee",
+      "venueSlug": "casa-luna",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/7zWFe2cwqrDdzdUH6",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://casalunabali.com/",
+      "sourceLabel": "Casa Luna official site",
+      "capturedAt": "2026-07-13T15:43:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-01"
+        ],
+        "inputIds": [
+          "action-cl-map"
+        ],
+        "sourceIds": [
+          "source-b1dc98cdf74a3fdffb01517d"
+        ],
+        "originalSourceIds": [
+          "src-casa-luna-site"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-c74f402b28510a3bcb5aa72a",
+      "venueSlug": "copenhagen-cafe-berawa",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://www.google.com/maps/place/Copenhagen%2BBerawa/%40-8.6597001%2C115.1317603%2C16.5z/data%3D%214m10%211m2%212m1%211scopenhagen%2Bcafe%213m6%211s0x2dd2474e93e803ed%3A0x53cc824630314d84%218m2%213d-8.6589493%214d115.1381321%2115sCg9jb3BlbmhhZ2VuIGNhZmVaESIPY29wZW5oYWdlbiBjYWZlkgEKcmVzdGF1cmFudOABAA%2116s%2Fg%2F11t75tr_hn",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://cphbali.com/cafe/",
+      "sourceLabel": "cøpenhagen Cafe official locations page",
+      "capturedAt": "2026-07-13T15:28:59.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-02"
+        ],
+        "inputIds": [
+          "action-cph-maps"
+        ],
+        "sourceIds": [
+          "source-4f3f445de90cf26e64e58cee"
+        ],
+        "originalSourceIds": [
+          "src-cph-berawa-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-74cced145cb14095c2814170",
+      "venueSlug": "corner-house-bali",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/VXt3Ynno5uq6UrpE6",
+      "label": "Map",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://cornerhousebali.com/all-day-dining/",
+      "sourceLabel": "Live official menu and branch page",
+      "capturedAt": "2026-07-13T16:07:45.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "seminyak-01"
+        ],
+        "inputIds": [
+          "a-corner-house-bali-2"
+        ],
+        "sourceIds": [
+          "source-4328582ef56f3b454babeb8a"
+        ],
+        "originalSourceIds": [
+          "src-corner-house-bali-home"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-93f7641dc7b0aad05492f98d",
+      "venueSlug": "gong-restaurant",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/1XZ6GJNuTTgyZqve9",
+      "label": "Get direction",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://gong-restaurant.com/menus/",
+      "sourceLabel": "Gong official menu and branch page",
+      "capturedAt": "2026-07-13T16:11:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "sanur-01"
+        ],
+        "inputIds": [
+          "a-gong-restaurant-1"
+        ],
+        "sourceIds": [
+          "source-6127033638f00360c7301479"
+        ],
+        "originalSourceIds": [
+          "src-gong-restaurant-home"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-6650df1fa749a76b9fe11a1c",
+      "venueSlug": "gooseberry-french-restaurant-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/PZLU53eQUEqKAc8X6",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.gooseberry-restaurant.com/menus/",
+      "sourceLabel": "Gooseberry menus",
+      "capturedAt": "2026-07-13T15:51:50.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-01"
+        ],
+        "inputIds": [
+          "a-goose-map"
+        ],
+        "sourceIds": [
+          "source-09ecff2ae8c3ecaeca16918f"
+        ],
+        "originalSourceIds": [
+          "src-goose-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-6ebc4a0ba82e5d3876ddb89c",
+      "venueSlug": "hippie-fish-pererenan-beach",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/a4kZUJDcX6grYce96?g_st=iw",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 40,
+      "confirmationRequired": false,
+      "sourceUrl": "https://linktr.ee/hippiefish.pererenanbeach",
+      "sourceLabel": "Hippie Fish Pererenan Beach official Linktree",
+      "capturedAt": "2026-07-13T15:08:28.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-hippie-fish-pererenan-beach-maps-04"
+        ],
+        "sourceIds": [
+          "source-e79dc043e612504e9c63013e"
+        ],
+        "originalSourceIds": [
+          "src-hippie-linktree"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-38c8c323e8d9f756ed78adeb",
+      "venueSlug": "isla-by-earth-island",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/yQY19DNbKQmwKHkw7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://earth-island.com/pages/earth-island-bali",
+      "sourceLabel": "ISLA by Earth Island official Canggu page",
+      "capturedAt": "2026-07-13T15:28:59.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-02"
+        ],
+        "inputIds": [
+          "action-isla-maps"
+        ],
+        "sourceIds": [
+          "source-c5e3e2693669d00b18dd3b01"
+        ],
+        "originalSourceIds": [
+          "src-isla-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-24985023c28cacc7e8e04037",
+      "venueSlug": "la-brisa-bali",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/nWV1nkuvvL98YDpo9",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://labrisa-bali.com/",
+      "sourceLabel": "La Brisa Bali official page",
+      "capturedAt": "2026-07-13T15:28:59.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-02"
+        ],
+        "inputIds": [
+          "action-labrisa-maps"
+        ],
+        "sourceIds": [
+          "source-5028ddc03dec911eb8c9d5db"
+        ],
+        "originalSourceIds": [
+          "src-la-brisa-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-d18daf438583d55ddd2b8afc",
+      "venueSlug": "la-casetta-bali",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://www.google.com/maps/place/La%2BCasetta/@-8.6611773,115.1504419,17z",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.lacasettabali.com/",
+      "sourceLabel": "La Casetta official website",
+      "capturedAt": "2026-07-13T16:03:26.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "seminyak-02"
+        ],
+        "inputIds": [
+          "a-la-casetta-bali-2"
+        ],
+        "sourceIds": [
+          "source-1e6cfe998cf6d2562ff520b7"
+        ],
+        "originalSourceIds": [
+          "src-la-casetta-bali-home"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-40abdd10deabe87adb724d35",
+      "venueSlug": "milk-and-madu-beach-road",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/meBFhZxCPeFSduT3A",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://milkandmadu.com/menu/",
+      "sourceLabel": "Milk & Madu official menu hub",
+      "capturedAt": "2026-07-13T15:32:08.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-03"
+        ],
+        "inputIds": [
+          "action-milk-beach-maps"
+        ],
+        "sourceIds": [
+          "source-2696b5508053cec9f370f85b"
+        ],
+        "originalSourceIds": [
+          "src-milk-beach-menu-hub"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-e25cee5887991073c932deb2",
+      "venueSlug": "milk-and-madu-berawa",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/6CZNVmn3fjT8GJ1X9",
+      "label": "Check on map",
+      "status": "draft",
+      "priority": 30,
+      "confirmationRequired": false,
+      "sourceUrl": "https://milkandmadu.com/contact-us/",
+      "sourceLabel": "Milk & Madu Berawa contact/location block",
+      "capturedAt": "2026-07-13T15:09:07.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-milk-and-madu-berawa-maps-03"
+        ],
+        "sourceIds": [
+          "source-35f7ef433a4124deb2614d51"
+        ],
+        "originalSourceIds": [
+          "src-milk-contact"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": [
+          "Branch-specific official location link."
+        ]
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-86b974f6014cfd8dfefac632",
+      "venueSlug": "milk-and-madu-ubud",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/UmVZZDgFxPPTT8Mn7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.milkandmadu.com/location/",
+      "sourceLabel": "Milk & Madu official Ubud location",
+      "capturedAt": "2026-07-13T15:44:45.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-02"
+        ],
+        "inputIds": [
+          "action-milk-map"
+        ],
+        "sourceIds": [
+          "source-c587c6a455c578c4ec77320e"
+        ],
+        "originalSourceIds": [
+          "src-milk-ubud"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-9c850f378c2d17a42e6072af",
+      "venueSlug": "moana-fish-eatery",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/ZgKeetdPYWy7WxrU9",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://linktr.ee/moanabali",
+      "sourceLabel": "Moana Fish Eatery official Linktree",
+      "capturedAt": "2026-07-13T15:32:08.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-03"
+        ],
+        "inputIds": [
+          "action-moana-maps"
+        ],
+        "sourceIds": [
+          "source-c34af2cdbf50f75f29beaa52"
+        ],
+        "originalSourceIds": [
+          "src-moana-linktree"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-ab8927befd4d4a6ddc54cd40",
+      "venueSlug": "motion-cafe",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/cyVUJzzikQNpW3Rs6",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.motionfitnessbali.com/motionmenu/",
+      "sourceLabel": "MOTION Cafe Canggu official July 2026 menu",
+      "capturedAt": "2026-07-13T15:32:08.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-03"
+        ],
+        "inputIds": [
+          "action-motion-maps"
+        ],
+        "sourceIds": [
+          "source-bf5fa9bb3259c299d85a4769"
+        ],
+        "originalSourceIds": [
+          "src-motion-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-2040f2bed51e6808ce62344d",
+      "venueSlug": "neighbourhood-food-berawa",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/E4gtpbFjZhLzBZ416",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.neighbourhoodfood.co/menu",
+      "sourceLabel": "Neighbourhood Food Berawa official menu",
+      "capturedAt": "2026-07-13T15:32:08.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-03"
+        ],
+        "inputIds": [
+          "action-nbb-maps"
+        ],
+        "sourceIds": [
+          "source-f0a6b4247647f78a70b254bf"
+        ],
+        "originalSourceIds": [
+          "src-neighbourhood-berawa-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-c32828deb93a03bbee1bb7ab",
+      "venueSlug": "neighbourhood-food-seseh",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/X34by5F1v9b2WgXu7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.neighbourhoodfood.co/menu-1",
+      "sourceLabel": "Neighbourhood Food Seseh official menu",
+      "capturedAt": "2026-07-13T15:32:08.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-03"
+        ],
+        "inputIds": [
+          "action-nbs-maps"
+        ],
+        "sourceIds": [
+          "source-f60e496469f45367490b8a5a"
+        ],
+        "originalSourceIds": [
+          "src-neighbourhood-seseh-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-1690f56ffabb188140a82b82",
+      "venueSlug": "papi-sapi",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/kbamNkgPuz11gbRWA",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://papisapi.com/wp-content/uploads/2026/05/PAPI-SAPI-BALI-MENU-MAY-2026-.pdf",
+      "sourceLabel": "Papi Sapi Bali May 2026 menu",
+      "capturedAt": "2026-07-13T15:51:46.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-02"
+        ],
+        "inputIds": [
+          "a-papi-map"
+        ],
+        "sourceIds": [
+          "source-0c6af301c607076724fab827"
+        ],
+        "originalSourceIds": [
+          "src-papi-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-f40f041616c9d357b1fe3dc0",
+      "venueSlug": "revolver-canggu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://www.google.com/maps/place/Revolver%2BCanggu/%40-8.6531518%2C115.1329761%2C17z/data%3D%213m1%214b1%214m6%213m5%211s0x2dd239acbd9e8f9d%3A0x2c0fa91ee947fb0f%218m2%213d-8.6531518%214d115.135551%2116s%2Fg%2F11lfl5nvjn?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D",
+      "label": "Get direction",
+      "status": "draft",
+      "priority": 20,
+      "confirmationRequired": false,
+      "sourceUrl": "https://revolverbali.com/pages/canggu",
+      "sourceLabel": "Revolver Canggu official location page",
+      "capturedAt": "2026-07-13T15:09:20.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-revolver-canggu-maps-02"
+        ],
+        "sourceIds": [
+          "source-af96f5db50f593efa1610e92"
+        ],
+        "originalSourceIds": [
+          "src-revolver-canggu"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": [
+          "Branch-specific official direction link."
+        ]
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-15c29ac906c95c937c6dd05a",
+      "venueSlug": "rize-cafe",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/zff45NQwJHxg8CTB8",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 30,
+      "confirmationRequired": false,
+      "sourceUrl": "https://rize-bali.com/",
+      "sourceLabel": "RiZE Pererenan official website",
+      "capturedAt": "2026-07-13T15:11:53.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-rize-cafe-maps-03"
+        ],
+        "sourceIds": [
+          "source-fafbffdf6b9339371fd2a9dc"
+        ],
+        "originalSourceIds": [
+          "src-rize-site"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-52c78fd38b5ee74aeb960163",
+      "venueSlug": "samesa-canggu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/M27QwhAj5RzmDmmq6",
+      "label": "Show route",
+      "status": "draft",
+      "priority": 40,
+      "confirmationRequired": false,
+      "sourceUrl": "https://samesabali.com/",
+      "sourceLabel": "Sa’Mesa Canggu official site and Experience Dinner FAQ",
+      "capturedAt": "2026-07-13T15:09:07.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-samesa-canggu-maps-04"
+        ],
+        "sourceIds": [
+          "source-0fcf7bb23e9724dbbdb1f21d"
+        ],
+        "originalSourceIds": [
+          "src-samesa-site"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-12ee5ea62f1af5f0f44e55b3",
+      "venueSlug": "santanera",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/LMRuVFnc3xo2JFfi9",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 40,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.santanerabali.com/book",
+      "sourceLabel": "Santanera Book",
+      "capturedAt": "2026-07-13T15:09:20.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-santanera-maps-04"
+        ],
+        "sourceIds": [
+          "source-4e2dcf34d186b570d1bf3684"
+        ],
+        "originalSourceIds": [
+          "src-santanera-book"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": [
+          "Official short link resolves to Santanera at -8.6518446,115.1310906."
+        ]
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-5d5761b23357b958238f237b",
+      "venueSlug": "seed-bingin",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://www.google.com/maps/search/?api=1&query=Seed+Bingin+Bali",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://seedbingin.com/food-menu",
+      "sourceLabel": "Seed Bingin official food menu",
+      "capturedAt": "2026-07-13T15:51:46.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-02"
+        ],
+        "inputIds": [
+          "a-seed-map"
+        ],
+        "sourceIds": [
+          "source-4546741a75a4faec5d34b3d0"
+        ],
+        "originalSourceIds": [
+          "src-seed-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-ad1994710c72a48600da362b",
+      "venueSlug": "seniman-coffee-studio",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/TyQT3rqL8VbPVHUi8",
+      "label": "Official map",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://drive.google.com/file/d/1cNS3Vo9sSjcdzOlA_MEBpaK_TUkMPlDi/view?usp=drivesdk",
+      "sourceLabel": "Seniman Ubud official menu PDF",
+      "capturedAt": "2026-07-13T15:54:47.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-03"
+        ],
+        "inputIds": [
+          "a-sen-map"
+        ],
+        "sourceIds": [
+          "source-7955d4cb99072e72c206ec62"
+        ],
+        "originalSourceIds": [
+          "src-seniman-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-49b94ef708e39404c1a294de",
+      "venueSlug": "seseh-general-store",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/mWDXxp44kTDPFSpo8",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.sesehgeneralstore.com/",
+      "sourceLabel": "Seseh General Store official site",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-seseh-store-maps"
+        ],
+        "sourceIds": [
+          "source-6a739bbf11c2826f524ed0c8"
+        ],
+        "originalSourceIds": [
+          "src-seseh-store-site"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-f3375886bc226c511ae2e327",
+      "venueSlug": "shelter-restaurant",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/hZLoJfrHWPwoTzdA9",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 30,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.shelterbali.com/",
+      "sourceLabel": "Shelter Pererenan official website",
+      "capturedAt": "2026-07-13T15:11:41.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-shelter-restaurant-maps-03"
+        ],
+        "sourceIds": [
+          "source-83b8bbd1a797dc8b17665458"
+        ],
+        "originalSourceIds": [
+          "src-shelter-site"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-ab1f062845914d3002765f85",
+      "venueSlug": "skool-kitchen",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/HiqdzhtCbuZe92SGA",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.projectblack.co/skoolkitchen",
+      "sourceLabel": "SKOOL Kitchen official Project Black page",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-skool-maps"
+        ],
+        "sourceIds": [
+          "source-1511621e80e5b97080d904a4"
+        ],
+        "originalSourceIds": [
+          "src-skool-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-8d6b53d3a9891175ea3a1f87",
+      "venueSlug": "the-avocado-factory",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.google.com/?q=The+Avocado+Factory+Canggu+Bali",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://theavocadofactory.com/menu/",
+      "sourceLabel": "The Avocado Factory official menu",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-avocado-maps"
+        ],
+        "sourceIds": [
+          "source-146209f6450ad64ed36525a5"
+        ],
+        "originalSourceIds": [
+          "src-avocado-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-851d6b238e2b1b283ae3bbf2",
+      "venueSlug": "the-warung-at-alila-villas-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.google.com/?cid=11700727751578758465",
+      "label": "Official property map",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsav-alila-villas-uluwatu/dining/the-warung",
+      "sourceLabel": "Hyatt page for The Warung",
+      "capturedAt": "2026-07-13T15:51:46.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-02"
+        ],
+        "inputIds": [
+          "a-alila-map"
+        ],
+        "sourceIds": [
+          "source-833837cdfb5118c33e3c0f34"
+        ],
+        "originalSourceIds": [
+          "src-alila-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-c5f2ff9a6c705c0124ab9f16",
+      "venueSlug": "touche-cafe-and-restaurant",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/3rm5EdsYDw9jkDxK9",
+      "label": "Pererenan Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://linktr.ee/touche.bali",
+      "sourceLabel": "Touché Bali official Linktree",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-touche-maps"
+        ],
+        "sourceIds": [
+          "source-67d3b890715c24471cfb8754"
+        ],
+        "originalSourceIds": [
+          "src-touche-linktree"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-91d0150efe1ebc8d92fed2a4",
+      "venueSlug": "two-face-canggu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/eowu8RhR4RAcipYy9",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.twofacebali.com/menu",
+      "sourceLabel": "Two Face official menu page",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-twoface-maps"
+        ],
+        "sourceIds": [
+          "source-e8d4068cee13b4eeccf71dba"
+        ],
+        "originalSourceIds": [
+          "src-twoface-menu-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-9723becbc089699408344d5b",
+      "venueSlug": "udara-bali",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/NaJntBzADYq",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.udara-bali.com/food-beverage/",
+      "sourceLabel": "Udara Bali Organic Ocean dining page",
+      "capturedAt": "2026-07-13T15:37:58.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-05"
+        ],
+        "inputIds": [
+          "action-udara-maps"
+        ],
+        "sourceIds": [
+          "source-e6ddd6b7d73ae1489a4f9875"
+        ],
+        "originalSourceIds": [
+          "src-udara-dining"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-58ed413e755840cba5ca6cd3",
+      "venueSlug": "ulekan-berawa",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/Cfnxa7huAV82bmGu8",
+      "label": "Open in Google Maps",
+      "status": "draft",
+      "priority": 40,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.ulekanbali.com/",
+      "sourceLabel": "Ulekan official website — Berawa block",
+      "capturedAt": "2026-07-13T15:09:20.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-wave-1"
+        ],
+        "inputIds": [
+          "action-ulekan-berawa-maps-04"
+        ],
+        "sourceIds": [
+          "source-31ca1a82c91400a3b89c18f3"
+        ],
+        "originalSourceIds": [
+          "src-ulekan-site"
+        ],
+        "classifications": [
+          "unchanged"
+        ],
+        "evidenceNotes": [
+          "Resolves to Ulekan at -8.660204,115.142973."
+        ]
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-4108574eb222596a571cfae1",
+      "venueSlug": "ulu-fishmarket",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/HZtVS5xpwS3ozVkh8",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://ulufishmarket.com/",
+      "sourceLabel": "ULU Fishmarket official site",
+      "capturedAt": "2026-07-13T15:51:46.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-02"
+        ],
+        "inputIds": [
+          "a-ulu-map"
+        ],
+        "sourceIds": [
+          "source-efa81cbbb573df419d2204e5"
+        ],
+        "originalSourceIds": [
+          "src-ulu-site"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-e2d3951d32b554958eef883b",
+      "venueSlug": "ulu-garden",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/XVPZGC9e1rhpYodG9",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://ulutribe.com/ulu-garden/",
+      "sourceLabel": "Ulu Tribe Ulu Garden page",
+      "capturedAt": "2026-07-13T16:03:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-03"
+        ],
+        "inputIds": [
+          "a-ulug-map"
+        ],
+        "sourceIds": [
+          "source-24261b7b57691f5f71e2df15"
+        ],
+        "originalSourceIds": [
+          "src-ulu-garden-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-747c68cc9b38d7189c765c72",
+      "venueSlug": "waatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/Qncha4ogaVhVkgUD8",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://waatu.com/",
+      "sourceLabel": "Waatu official site",
+      "capturedAt": "2026-07-13T16:03:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-03"
+        ],
+        "inputIds": [
+          "a-waatu-map"
+        ],
+        "sourceIds": [
+          "source-897da077d4be7f25d69cf3e0"
+        ],
+        "originalSourceIds": [
+          "src-waatu-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-9531ef4f2b6dc69ef5b94ac5",
+      "venueSlug": "woods-bali",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/uDhS9ktvS4XcB2Zy7",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://woodsbali.com/menu/",
+      "sourceLabel": "Woods Bali official menu",
+      "capturedAt": "2026-07-13T15:39:03.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-06"
+        ],
+        "inputIds": [
+          "action-woods-maps"
+        ],
+        "sourceIds": [
+          "source-57c04693d3cc5e6849c85beb"
+        ],
+        "originalSourceIds": [
+          "src-woods-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-8c17e2db3ffd3a91f782ae64",
+      "venueSlug": "yuki-canggu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/VJjbkT1JaT7hVgAt6",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.yuki-bali.com/canggu",
+      "sourceLabel": "YUKI Canggu official branch page",
+      "capturedAt": "2026-07-13T15:39:03.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "canggu-06"
+        ],
+        "inputIds": [
+          "action-yuki-maps"
+        ],
+        "sourceIds": [
+          "source-dc6226f67ed79a6cd4da773a"
+        ],
+        "originalSourceIds": [
+          "src-yuki-canggu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-6a4cc5060429eb3dc650d845",
+      "venueSlug": "yuki-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/qr3wZrGTXh7HGyie6",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.yuki-bali.com/uluwatu",
+      "sourceLabel": "YUKI Uluwatu branch page",
+      "capturedAt": "2026-07-13T16:03:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-03"
+        ],
+        "inputIds": [
+          "a-yuki-map"
+        ],
+        "sourceIds": [
+          "source-fb86f2b26b1c080ffbff0d19"
+        ],
+        "originalSourceIds": [
+          "src-yuki-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-b532d9f3747ceff3ab2e775c",
+      "venueSlug": "zali-uluwatu",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/DQXCAaZn2Xc7MiRP8?g_st=iw",
+      "label": "Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.zalirestaurant.com/branches",
+      "sourceLabel": "Zali Uluwatu branch listing",
+      "capturedAt": "2026-07-13T16:03:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "uluwatu-bukit-03"
+        ],
+        "inputIds": [
+          "a-zali-map"
+        ],
+        "sourceIds": [
+          "source-61041b1208f4f43627f23cae"
+        ],
+        "originalSourceIds": [
+          "src-zali-page"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-4b14761dfe6a30e0c5b620fa",
+      "venueSlug": "zest-ubud",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://goo.gl/maps/6EWyKfQ4z6VbFzch7",
+      "label": "Official map",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://www.zestubud.com/",
+      "sourceLabel": "Zest Ubud official live menu",
+      "capturedAt": "2026-07-13T15:42:00.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "ubud-04"
+        ],
+        "inputIds": [
+          "action-zest-maps"
+        ],
+        "sourceIds": [
+          "source-6d3774d99b62c5c8b7f91566"
+        ],
+        "originalSourceIds": [
+          "src-zest-site-menu"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    }
+  ]
+}

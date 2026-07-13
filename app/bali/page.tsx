@@ -72,23 +72,6 @@ export default async function BaliIndexPage() {
           </div>
         </header>
 
-        <Link
-          href="/bali/where-to-stay"
-          className="mt-8 block rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5 transition-transform hover:-translate-y-0.5"
-        >
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--clay)]">Start here</p>
-          <h2 className="section-title mt-2">Which Bali area fits your trip?</h2>
-          <p className="mt-2 text-sm text-[var(--muted)]">Compare daily rhythm, realistic stay length and the trade-off each area asks you to accept.</p>
-          <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">Choose your area →</span>
-        </Link>
-
-        <Link href="/bali/reddit-recommendations" className="mt-4 block rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5 transition-transform hover:-translate-y-0.5">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--clay)]">Traveller signal</p>
-          <h2 className="section-title mt-2">Recommendations collected from Reddit</h2>
-          <p className="mt-2 text-sm text-[var(--muted)]">Restaurants, hotels, activities, wellness, islands and the places travellers disagree about.</p>
-          <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">Browse the Reddit research →</span>
-        </Link>
-
         <section className="mt-10">
           <h2 className="section-title">Deep district guides</h2>
           <p className="mt-1 text-sm text-[var(--muted)]">

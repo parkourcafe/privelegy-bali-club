@@ -1,4 +1,4 @@
-import type { SafeActionEventPayload } from "../contracts/menu-action";
+import type { SafeEventPayload } from "./event-payload";
 
 export type EventRpcError = {
   code?: string | null;
@@ -13,7 +13,7 @@ export type LogEventV2Args = {
   p_guest_ref: string;
   p_venue_slug: string | null;
   p_source: null;
-  p_payload: SafeActionEventPayload | null;
+  p_payload: SafeEventPayload | null;
 };
 
 export type LegacyLogEventArgs = {

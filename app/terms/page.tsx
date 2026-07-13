@@ -13,7 +13,7 @@ export default function TermsPage() {
           Terms
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Terms of Use</h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 11, 2026</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
 
         <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
           <section>
@@ -56,9 +56,11 @@ export default function TermsPage() {
               Venue content
             </h2>
             <p className="mt-3">
-              If a venue uploads photos or confirms listing content, it confirms
-              it has the right to provide that material and allows Other Bali to
-              show it in the guide while the listing is active.
+              A venue representative must confirm the rights for each submitted
+              photo. By doing so, they grant Other Bali a non-exclusive licence
+              to display that image on otherbali.com while the listing is active.
+              A submitted image stays private and is not published unless an
+              Other Bali operator approves the image and its linked consent record.
             </p>
           </section>
 

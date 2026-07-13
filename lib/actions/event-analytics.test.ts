@@ -1,16 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import type { SafeActionEventPayload } from "../contracts/menu-action";
+import type { SafeEventPayload } from "./event-payload";
 
 const analytics = (await import(
   new URL("../analytics.ts", import.meta.url).href
 )) as typeof import("../analytics");
-const { trackVenueAction } = analytics;
+const { trackMenuItemOpen, trackMenuOpen, trackVenueAction } = analytics;
 
 type PostedEvent = {
   type: string;
   venueSlug?: string;
-  payload?: SafeActionEventPayload;
+  payload?: SafeEventPayload;
 };
 type GaEvent = [command: string, type: string, params: Record<string, unknown>];
 type TrackingSinks = { posts: PostedEvent[]; gaEvents: GaEvent[] };
@@ -81,6 +82,59 @@ test("emits a generic handoff and keeps TablePilot reservation clicks internal",
     assert.deepEqual(
       gaEvents.map((entry) => entry[1]),
       ["action_handoff"]
+    );
+  });
+});
+
+test("menu interactions emit only bounded entity identifiers", async () => {
+  await withTrackingSinks(({ posts, gaEvents }) => {
+    trackMenuOpen({ venueSlug: "fixture-venue", menuId: "menu-123" });
+    trackMenuItemOpen({ venueSlug: "fixture-venue", menuId: "menu-123", menuItemId: "item-456" });
+
+    assert.deepEqual(posts, [
+      {
+        type: "menu_open",
+        venueSlug: "fixture-venue",
+        payload: { venueSlug: "fixture-venue", menuId: "menu-123" },
+      },
+      {
+        type: "menu_item_open",
+        venueSlug: "fixture-venue",
+        payload: { venueSlug: "fixture-venue", menuId: "menu-123", menuItemId: "item-456" },
+      },
+    ]);
+    assert.deepEqual(
+      gaEvents.map(([command, type, params]) => ({ command, type, params })),
+      [
+        {
+          command: "event",
+          type: "menu_open",
+          params: {
+            venue_slug: "fixture-venue",
+            page_slug: undefined,
+            link_label: undefined,
+            action: undefined,
+            provider: undefined,
+            capability_id: undefined,
+            menu_id: "menu-123",
+            menu_item_id: undefined,
+          },
+        },
+        {
+          command: "event",
+          type: "menu_item_open",
+          params: {
+            venue_slug: "fixture-venue",
+            page_slug: undefined,
+            link_label: undefined,
+            action: undefined,
+            provider: undefined,
+            capability_id: undefined,
+            menu_id: "menu-123",
+            menu_item_id: "item-456",
+          },
+        },
+      ]
     );
   });
 });

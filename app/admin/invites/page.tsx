@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { headers } from "next/headers";
-import { getInviteRoster } from "@/lib/data";
+import { getInviteRoster } from "@/lib/admin-invites";
+import { currentSiteOrigin } from "@/lib/site-origin";
 import InvitesTable, { type InviteRow } from "./InvitesTable";
 
 export const dynamic = "force-dynamic";
@@ -9,13 +9,6 @@ export const dynamic = "force-dynamic";
 // link + a ready no-offer WhatsApp message (EN/RU) for every venue, or export
 // the whole roster as CSV to send in bulk. Money stays out of this — launch is
 // listing + owner confirmation only. Protected by ADMIN_ACCESS_TOKEN (proxy.ts).
-
-async function baseUrl(): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return process.env.NEXT_PUBLIC_SITE_URL ?? `${proto}://${host}`;
-}
 
 // No-offer launch templates (matches the launch dashboard WhatsApp copy).
 function messageEN(venue: string, link: string): string {
@@ -26,9 +19,9 @@ function messageRU(venue: string, link: string): string {
 }
 
 export default async function InvitesPage() {
-  const [roster, base] = await Promise.all([getInviteRoster(), baseUrl()]);
+  const [roster, base] = await Promise.all([getInviteRoster(), currentSiteOrigin()]);
 
-  const rows: InviteRow[] = roster.map((r) => {
+  const rows: InviteRow[] = base ? roster.map((r) => {
     const link = `${base}/onboard/${r.token}`;
     return {
       slug: r.slug,
@@ -42,7 +35,7 @@ export default async function InvitesPage() {
       waEN: messageEN(r.name, link),
       waRU: messageRU(r.name, link),
     };
-  });
+  }) : [];
 
   const confirmed = rows.filter((r) => r.confirmed).length;
   const withWa = rows.filter((r) => r.whatsapp).length;
@@ -59,7 +52,7 @@ export default async function InvitesPage() {
       <p className="mt-2 text-sm text-stone-600">
         {rows.length} venues · {confirmed} confirmed · {withWa} with a WhatsApp
         number. Send owners their onboarding link so they confirm the listing
-        and add photos. No offer is proposed — money stays off until a district
+        and submit licensed photos for review. No offer is proposed — money stays off until a district
         is unlocked.
       </p>
 

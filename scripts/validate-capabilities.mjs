@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-import { printReport, readCandidate, validateCapability } from "./validation-core.mjs";
+import { parseValidationCliArgs, printReport, readCandidate, validateCapability } from "./validation-core.mjs";
 
 try {
-  const candidate = await readCandidate(process.argv[2]);
+  const { mode, path } = parseValidationCliArgs(process.argv.slice(2));
+  const candidate = await readCandidate(path);
   const rows = Array.isArray(candidate) ? candidate : candidate.capabilities;
   if (!Array.isArray(rows)) throw new Error("Expected a JSON array or an object with a capabilities array.");
-  process.exitCode = printReport(rows.map(validateCapability));
+  process.exitCode = printReport(rows.map((row, index) => validateCapability(row, index, { mode })), { mode });
 } catch (error) {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 2;
 }
-

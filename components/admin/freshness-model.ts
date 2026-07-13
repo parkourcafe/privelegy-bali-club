@@ -26,6 +26,8 @@ export type AdminActionRow = {
   id: string;
   venue_slug: string;
   kind: string;
+  provider?: string | null;
+  label?: string | null;
   status: string;
   url: string | null;
   source_url: string | null;
@@ -37,6 +39,7 @@ export type AdminActionRow = {
 
 export type AdminVenueRow = {
   slug: string;
+  name?: string | null;
   status: string | null;
   publication_status: string | null;
   gmaps_url: string | null;
@@ -45,6 +48,41 @@ export type AdminVenueRow = {
 
 const DAY = 86_400_000;
 const EXAMPLE_HOSTS = new Set(["example.com", "www.example.com", "tablepilot.example"]);
+const PROVIDER_HOSTS: Record<string, readonly string[]> = {
+  tablepilot: ["tablepilot-id.vercel.app"],
+  whatsapp: ["wa.me", "whatsapp.com"],
+  grabfood: ["grab.com", "grab.onelink.me"],
+  gofood: ["gofood.co.id", "gofood.link", "gojek.com", "gojek.page.link"],
+  shopeefood: ["shopee.co.id", "shopeefood.co.id"],
+  sevenrooms: ["sevenrooms.com"],
+  tablecheck: ["tablecheck.com"],
+  chope: ["chope.co", "chope.co.id"],
+  resdiary: ["resdiary.com"],
+  dishcult: ["dishcult.com"],
+};
+
+function safeHttpsUrl(value: string | null): URL | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    if (
+      url.protocol !== "https:" ||
+      !url.hostname ||
+      url.username ||
+      url.password ||
+      EXAMPLE_HOSTS.has(url.hostname.toLowerCase())
+    ) return null;
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+function hostMatches(hostname: string, allowedHost: string): boolean {
+  const host = hostname.toLowerCase().replace(/\.$/, "");
+  const allowed = allowedHost.toLowerCase().replace(/\.$/, "");
+  return host === allowed || host.endsWith(`.${allowed}`);
+}
 
 function timestamp(value: string | null): number | null {
   if (!value) return null;
@@ -53,24 +91,42 @@ function timestamp(value: string | null): number | null {
 }
 
 export function isPublishableHttpsUrl(value: string | null): boolean {
-  if (!value) return false;
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" && !EXAMPLE_HOSTS.has(url.hostname.toLowerCase());
-  } catch {
-    return false;
+  return safeHttpsUrl(value) !== null;
+}
+
+export function isPublishableActionTarget(row: Pick<AdminActionRow, "kind" | "provider" | "url" | "source_url">): boolean {
+  const target = safeHttpsUrl(row.url);
+  const source = safeHttpsUrl(row.source_url);
+  const provider = row.provider?.trim().toLowerCase() ?? "";
+  if (!target || !source) return false;
+
+  const kindAllowed =
+    (provider === "tablepilot" && row.kind === "reserve") ||
+    (provider === "whatsapp" && row.kind === "whatsapp") ||
+    (["grabfood", "gofood", "shopeefood"].includes(provider) && ["delivery", "takeaway"].includes(row.kind)) ||
+    (["sevenrooms", "tablecheck", "chope", "resdiary", "dishcult"].includes(provider) && row.kind === "reserve") ||
+    (provider === "official" && ["reserve", "delivery", "takeaway", "preorder", "website"].includes(row.kind));
+  if (!kindAllowed) return false;
+
+  if (provider === "official") {
+    return hostMatches(target.hostname, source.hostname) || hostMatches(source.hostname, target.hostname);
   }
+  return (PROVIDER_HOSTS[provider] ?? []).some((host) => hostMatches(target.hostname, host));
 }
 
 function evidenceIssues(
   row: { source_url: string | null; source_label: string | null; captured_at: string | null; verified_at: string | null },
   entity: "menu" | "action",
   entityId: string,
-  venueSlug: string
+  venueSlug: string,
+  requiresVerification: boolean,
 ): FreshnessIssue[] {
   const issues: FreshnessIssue[] = [];
-  if (!isPublishableHttpsUrl(row.source_url) || !row.source_label?.trim() || !timestamp(row.captured_at) || !timestamp(row.verified_at)) {
-    issues.push({ code: "missing_evidence", severity: "blocker", entity, entityId, venueSlug, message: "Source, capture and verification evidence is incomplete or non-publishable." });
+  if (!isPublishableHttpsUrl(row.source_url) || !row.source_label?.trim() || !timestamp(row.captured_at)) {
+    issues.push({ code: "missing_evidence", severity: "blocker", entity, entityId, venueSlug, message: "Source and capture evidence is incomplete or non-publishable." });
+  }
+  if (requiresVerification && !timestamp(row.verified_at)) {
+    issues.push({ code: "missing_verification", severity: "blocker", entity, entityId, venueSlug, message: "This reviewed/public record has no real operator verification timestamp." });
   }
   return issues;
 }
@@ -78,9 +134,11 @@ function evidenceIssues(
 export function evaluateMenus(rows: AdminMenuRow[], now = new Date()): FreshnessIssue[] {
   const nowMs = now.getTime();
   return rows.flatMap((row) => {
-    const issues = evidenceIssues(row, "menu", row.id, row.venue_slug);
+    const issues = evidenceIssues(row, "menu", row.id, row.venue_slug, row.status !== "draft");
     const expiry = timestamp(row.expires_at);
-    if (row.status === "published" && expiry !== null && expiry <= nowMs) {
+    if (["review", "published"].includes(row.status) && expiry === null) {
+      issues.push({ code: "missing_expiry", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Reviewed/public menu has no mandatory freshness expiry." });
+    } else if (row.status === "published" && expiry !== null && expiry <= nowMs) {
       issues.push({ code: "stale_menu", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Published menu is expired and must be suppressed or archived." });
     } else if (expiry !== null && expiry <= nowMs + 14 * DAY) {
       issues.push({ code: "menu_expiring", severity: "warning", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Menu expires within 14 days." });
@@ -98,12 +156,14 @@ export function evaluateMenus(rows: AdminMenuRow[], now = new Date()): Freshness
 export function evaluateActions(rows: AdminActionRow[], now = new Date()): FreshnessIssue[] {
   const nowMs = now.getTime();
   return rows.flatMap((row) => {
-    const issues = evidenceIssues(row, "action", row.id, row.venue_slug);
-    if (!isPublishableHttpsUrl(row.url)) {
+    const issues = evidenceIssues(row, "action", row.id, row.venue_slug, row.status === "confirmed");
+    if (!isPublishableActionTarget(row)) {
       issues.push({ code: "invalid_provider_url", severity: "blocker", entity: "action", entityId: row.id, venueSlug: row.venue_slug, message: "Provider handoff URL is invalid, non-HTTPS or an example domain." });
     }
     const expiry = timestamp(row.expires_at);
-    if (row.status === "confirmed" && expiry !== null && expiry <= nowMs) {
+    if (row.status === "confirmed" && expiry === null) {
+      issues.push({ code: "missing_expiry", severity: "blocker", entity: "action", entityId: row.id, venueSlug: row.venue_slug, message: "Confirmed action has no mandatory freshness expiry." });
+    } else if (row.status === "confirmed" && expiry !== null && expiry <= nowMs) {
       issues.push({ code: "stale_action", severity: "blocker", entity: "action", entityId: row.id, venueSlug: row.venue_slug, message: "Confirmed action is expired and must be suppressed or archived." });
     } else if (expiry !== null && expiry <= nowMs + 14 * DAY) {
       issues.push({ code: "action_expiring", severity: "warning", entity: "action", entityId: row.id, venueSlug: row.venue_slug, message: "Action expires within 14 days." });
@@ -132,4 +192,3 @@ export function sortFreshnessIssues(issues: FreshnessIssue[]): FreshnessIssue[] 
   const rank: Record<QueueSeverity, number> = { blocker: 0, warning: 1, info: 2 };
   return [...issues].sort((a, b) => rank[a.severity] - rank[b.severity] || a.venueSlug.localeCompare(b.venueSlug) || a.code.localeCompare(b.code));
 }
-

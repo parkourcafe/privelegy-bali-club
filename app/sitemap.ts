@@ -4,6 +4,7 @@ import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
+import { publishedUluwatuVenues, ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +19,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenueSlugs = catalogue.filter(isVenueIndexable).map((v) => v.slug);
+  const publishedUluwatuSlugs = new Set(
+    catalogue.filter((venue) => venue.district === ULUWATU_DB_SLUG).map((venue) => venue.slug),
+  );
+  const uluwatuComplete = publishedUluwatuVenues().every((venue) =>
+    publishedUluwatuSlugs.has(venue.slug),
+  );
   return [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
@@ -59,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // District pillars + their editorial children (driven by lib/pillars.ts so
     // the sitemap can't drift from the actual pages). The Ubud wellness guide is
     // registered there too.
-    ...PILLARS.flatMap((p) => [
+    ...PILLARS.filter((p) => p.slug !== "uluwatu" || uluwatuComplete).flatMap((p) => [
       { url: `${BASE}/${p.slug}`, changeFrequency: "weekly" as const, priority: 0.9 },
       ...p.children.map((c) => ({
         url: `${BASE}${c.path}`,

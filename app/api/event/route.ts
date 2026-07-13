@@ -3,7 +3,7 @@ import { parseEventRequest } from "@/lib/actions/event-safety";
 import { asEventRpcClient } from "@/lib/actions/event-compat";
 import { storeEvent } from "@/lib/actions/event-store";
 import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
-import { anonClient } from "@/lib/supabase/server";
+import { serviceClient } from "@/lib/supabase/service";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   }
 
   const { ref, created } = await resolveGuestRef();
-  const sb = anonClient();
+  const sb = serviceClient();
   if (sb) {
     await storeEvent(asEventRpcClient(sb), {
       type: parsed.event.type,

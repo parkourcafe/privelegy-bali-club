@@ -43,5 +43,5 @@ export interface VenueActionResolution {
 
 export interface ResolveVenueActionsOptions {
   now?: Date | string | number;
-  tablepilotBaseUrl?: string;
+  tablepilotBaseUrl?: string | null;
 }

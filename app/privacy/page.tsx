@@ -13,7 +13,7 @@ export default function PrivacyPage() {
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy Policy</h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 11, 2026</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
 
         <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
           <section>
@@ -29,8 +29,10 @@ export default function PrivacyPage() {
             </p>
             <p className="mt-3">
               We do not ask travellers for an account, payment card, or profile.
-              If a venue uses partner onboarding, the venue may submit a contact
-              name, confirmation, and photos it chooses to upload.
+              If a venue uses partner onboarding, its representative may submit
+              a name, optional contact, confirmation, photo-rights consent, and
+              photos for private operator review. We also retain limited consent
+              evidence such as time, terms version, IP address, and user agent.
             </p>
           </section>
 

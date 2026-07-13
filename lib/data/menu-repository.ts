@@ -18,7 +18,7 @@ export async function getPublishedMenu(venueSlug: string): Promise<MenuRecord | 
     const menu = menus[0] as DataRow;
     const [{ data: sections, error: sectionError }, { data: items, error: itemError }] = await Promise.all([
       client.from("menu_sections").select("id,menu_id,name,description,position").eq("menu_id", menu.id).order("position"),
-      client.from("menu_items").select("id,section_id,name,description,price_minor,currency,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position").eq("menu_id", menu.id).order("position"),
+      client.from("menu_items").select("id,section_id,name,description,price_minor,currency,price_text,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position").eq("menu_id", menu.id).order("position"),
     ]);
     if (sectionError || itemError) return null;
     return mapPublishedMenu(menu, (sections ?? []) as DataRow[], (items ?? []) as DataRow[]);

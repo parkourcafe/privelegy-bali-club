@@ -1,7 +1,7 @@
 // Minimal offline shell for the planning layer. Deliberately tiny — no
 // aggressive caching of redemption routes (those must always hit the network
 // so proof is recorded server-side).
-const CACHE = "ob-shell-v4";
+const CACHE = "ob-shell-v5";
 const SHELL = [
   "/",
   "/manifest.webmanifest?v=4",
@@ -28,16 +28,24 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
   const url = new URL(request.url);
-  // Never serve redemption/consent or API from cache.
-  if (url.pathname.startsWith("/api/") || url.pathname.includes("/redeem")) return;
+  if (url.origin !== self.location.origin || request.headers.has("authorization")) return;
+
+  // Operational, token-bearing and personalized HTML is network-only. The
+  // cache is an explicit static shell, never a general page cache.
+  const staticShell = SHELL.includes(`${url.pathname}${url.search}`) || SHELL.includes(url.pathname);
+  const nextStatic = url.pathname.startsWith("/_next/static/");
+  if (!staticShell && !nextStatic) return;
 
   event.respondWith(
     fetch(request)
       .then((res) => {
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
+        const cacheControl = res.headers.get("cache-control") ?? "";
+        if (res.ok && !/\b(?:private|no-store)\b/i.test(cacheControl)) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
+        }
         return res;
       })
-      .catch(() => caches.match(request).then((r) => r || caches.match("/")))
+      .catch(() => caches.match(request).then((r) => r || (request.mode === "navigate" ? caches.match("/") : undefined)))
   );
 });

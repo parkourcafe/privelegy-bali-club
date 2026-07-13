@@ -1,10 +1,8 @@
 import Link from "next/link";
-import {
-  getVenueWithPerk,
-  getPartnerReport,
-  getPartnerNotes,
-  getVenueRedemptionCount,
-} from "@/lib/data";
+import { notFound } from "next/navigation";
+import { getVenueWithPerk } from "@/lib/data";
+import { isCurrentAdminRequestAuthorized } from "@/lib/admin-request-auth";
+import { getOperatorPartnerReport } from "@/lib/admin-partner-report";
 
 const SOURCE_LABEL: Record<string, string> = {
   villa: "Villas",
@@ -17,17 +15,15 @@ const SOURCE_LABEL: Record<string, string> = {
 
 export const dynamic = "force-dynamic";
 
-// NOTE: No partner auth yet — intentionally deferred (auth/roles are a later
-// gate, master-doc §19). This view shows a partner their real numbers as a
-// causal chain (Reach → Intent → Proof, §11): aggregate by default (privacy),
-// and crucially it separates redemptions we ATTRIBUTED to an external source
-// (we brought them) from in-venue redemptions (engagement only).
+// Pilot safety: partner-scoped auth is not implemented yet, so commercial
+// metrics are operator-only behind the existing admin guard.
 
 export default async function PartnerPage({
   params,
 }: {
   params: Promise<{ venue: string }>;
 }) {
+  if (!(await isCurrentAdminRequestAuthorized())) notFound();
   const { venue: slug } = await params;
   const venue = await getVenueWithPerk(slug);
   if (!venue) {
@@ -38,9 +34,7 @@ export default async function PartnerPage({
     );
   }
 
-  const [report, notes] = await Promise.all([getPartnerReport(slug), getPartnerNotes(slug)]);
-  // Fallback when the attribution migration isn't applied yet.
-  const fallbackCount = report ? null : await getVenueRedemptionCount(slug);
+  const { report, notes, fallbackCount } = await getOperatorPartnerReport(slug);
   const noteEntries = notes
     ? Object.entries(notes.bySource).sort((a, b) => b[1] - a[1])
     : [];
@@ -126,19 +120,16 @@ export default async function PartnerPage({
         — we never share who your guests are.
       </div>
 
-      <div className="mt-6 flex gap-2 text-sm">
+      <div className="mt-6 text-sm">
         <Link
           href={`/admin/qr/${slug}`}
           className="rounded-lg bg-cyan-700 px-3 py-2 font-medium text-white"
         >
           Counter QR poster
         </Link>
-        <Link
-          href={`/v/${slug}/redeem`}
-          className="rounded-lg border border-stone-200 px-3 py-2 font-medium text-stone-700"
-        >
-          Guest redeem view
-        </Link>
+        <p className="mt-3 text-xs text-stone-500">
+          Guest redemption is available only through the signed link encoded in this counter QR.
+        </p>
       </div>
     </main>
   );

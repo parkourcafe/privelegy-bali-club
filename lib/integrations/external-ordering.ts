@@ -65,6 +65,22 @@ export function parseSafeHttpsUrl(value: unknown): URL | null {
   }
 }
 
+export function validatePublicEvidenceUrl(value: unknown): string | null {
+  const url = parseSafeHttpsUrl(value);
+  if (!url) return null;
+  const host = url.hostname.toLowerCase().replace(/\.$/, "");
+  if (
+    !host.includes(".") ||
+    host === "localhost" ||
+    /^\d+(?:\.\d+){3}$/.test(host) ||
+    host === "example.com" ||
+    host.endsWith(".example.com") ||
+    host.endsWith(".invalid") ||
+    host.endsWith(".test")
+  ) return null;
+  return url.toString();
+}
+
 export function hostMatches(hostname: string, allowedHost: string): boolean {
   const host = hostname.toLowerCase().replace(/\.$/, "");
   const allowed = allowedHost.toLowerCase().replace(/\.$/, "");

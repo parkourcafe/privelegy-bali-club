@@ -4,8 +4,8 @@ export const DEFAULT_TABLEPILOT_URL = "https://tablepilot-id.vercel.app";
 
 const TABLEPILOT_SLUG = /^[A-Za-z0-9][A-Za-z0-9_-]{0,119}$/;
 
-function tablePilotBase(value?: string): URL | null {
-  return parseSafeHttpsUrl(value === undefined ? DEFAULT_TABLEPILOT_URL : value);
+function tablePilotBase(value?: string | null): URL | null {
+  return value ? parseSafeHttpsUrl(value) : null;
 }
 
 export function isValidTablePilotSlug(value: unknown): value is string {
@@ -14,7 +14,7 @@ export function isValidTablePilotSlug(value: unknown): value is string {
 
 export function buildTablePilotReservationUrl(
   slug: string,
-  baseUrl?: string
+  baseUrl?: string | null
 ): string | null {
   if (!isValidTablePilotSlug(slug)) return null;
   const base = tablePilotBase(baseUrl);
@@ -25,7 +25,7 @@ export function buildTablePilotReservationUrl(
   return url.toString();
 }
 
-export function tablePilotSlugFromUrl(value: unknown, baseUrl?: string): string | null {
+export function tablePilotSlugFromUrl(value: unknown, baseUrl?: string | null): string | null {
   const url = parseSafeHttpsUrl(value);
   const base = tablePilotBase(baseUrl);
   if (!url || !base || url.origin !== base.origin) return null;

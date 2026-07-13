@@ -1,4 +1,6 @@
-import type { SafeActionEventPayload } from "@/lib/contracts/menu-action";
+import type { SafeActionEventPayload } from "./contracts/menu-action";
+import type { SafeEventPayload, SafeMenuEventPayload } from "./actions/event-payload";
+import { isSafeActionEventPayload } from "./actions/event-payload";
 
 // Client-side event tracking for the editorial/district surfaces.
 //
@@ -51,12 +53,12 @@ type TrackParams = { venueSlug?: string; pageSlug?: string; label?: string };
 function postInternal(
   type: InternalEvent,
   venueSlug?: string,
-  payload?: SafeActionEventPayload
+  payload?: SafeEventPayload
 ): void {
   const body: {
     type: InternalEvent;
     venueSlug?: string;
-    payload?: SafeActionEventPayload;
+    payload?: SafeEventPayload;
   } = { type };
   if (venueSlug !== undefined) body.venueSlug = venueSlug;
   if (payload !== undefined) body.payload = payload;
@@ -76,18 +78,23 @@ function postInternal(
 function emitGrowthEvent(
   type: GrowthEvent,
   params?: TrackParams,
-  payload?: SafeActionEventPayload
+  payload?: SafeEventPayload
 ): void {
   postInternal(type, params?.venueSlug ?? params?.pageSlug, payload);
+
+  const actionPayload = payload && isSafeActionEventPayload(payload) ? payload : undefined;
+  const menuPayload = payload && !isSafeActionEventPayload(payload) ? payload : undefined;
 
   try {
     window.gtag?.("event", type, {
       venue_slug: params?.venueSlug,
       page_slug: params?.pageSlug,
       link_label: params?.label,
-      action: payload?.action,
-      provider: payload?.provider,
-      capability_id: payload?.capabilityId,
+      action: actionPayload?.action,
+      provider: actionPayload?.provider,
+      capability_id: actionPayload?.capabilityId,
+      menu_id: menuPayload?.menuId,
+      menu_item_id: menuPayload?.menuItemId,
     });
   } catch {
     /* gtag absent in dev — fine */
@@ -99,6 +106,23 @@ export function track(
   params?: TrackParams
 ): void {
   emitGrowthEvent(type, params);
+}
+
+export function trackMenuOpen(payload: Omit<SafeMenuEventPayload, "menuItemId">): void {
+  const safePayload: SafeMenuEventPayload = {
+    venueSlug: payload.venueSlug,
+    menuId: payload.menuId,
+  };
+  emitGrowthEvent("menu_open", { venueSlug: safePayload.venueSlug }, safePayload);
+}
+
+export function trackMenuItemOpen(payload: Required<SafeMenuEventPayload>): void {
+  const safePayload: SafeMenuEventPayload = {
+    venueSlug: payload.venueSlug,
+    menuId: payload.menuId,
+    menuItemId: payload.menuItemId,
+  };
+  emitGrowthEvent("menu_item_open", { venueSlug: safePayload.venueSlug }, safePayload);
 }
 
 export function trackVenueAction(payload: SafeActionEventPayload): void {

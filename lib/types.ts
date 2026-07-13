@@ -39,6 +39,7 @@ export interface Venue {
   address: string;
   gmapsUrl: string;
   tier: VenueTier;
+  status?: string;
   isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3
   // Field Kit §2/§3 card content — all optional, filled from venue visits.
   vibeTags?: string[];
@@ -61,12 +62,6 @@ export interface Venue {
   // ("From the owner") — never blended into the editorial voice.
   ownerNote?: string;
   publicationStatus?: "published" | "review";
-  googleRating?: number;
-  googleReviews?: number;
-  ratingSource?: "google_pin" | "proxy";
-  priceText?: string;
-  phone?: string;
-  email?: string;
   wellnessCategories?: VenueCategory[];
 }
 

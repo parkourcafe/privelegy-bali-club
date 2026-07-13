@@ -27,10 +27,9 @@ function toCard(v: CataloguePlace): PlaceCardData {
     photoUrl: v.photoUrl,
     isSponsored: v.isSponsored,
     gmapsUrl: v.gmapsUrl,
-    tablepilotSlug: v.tablepilotSlug,
+    tablepilotSlug: undefined,
+    coverageMode: "planning_only",
     hasOffer: Boolean(v.perk),
-    googleRating: v.googleRating,
-    googleReviews: v.googleReviews,
   };
 }
 

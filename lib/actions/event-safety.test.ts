@@ -98,6 +98,72 @@ test("reconstructs only safe action payload keys", () => {
   });
 });
 
+test("reconstructs only bounded menu identifiers", () => {
+  assert.deepEqual(
+    parseEventRequest({
+      type: "menu_open",
+      venueSlug: "fixture-venue",
+      payload: {
+        venueSlug: "fixture-venue",
+        menuId: "menu-123",
+        url: "https://example.com/?token=secret",
+      },
+    }),
+    {
+      ok: true,
+      event: {
+        type: "menu_open",
+        venueSlug: "fixture-venue",
+        payload: { venueSlug: "fixture-venue", menuId: "menu-123" },
+      },
+    }
+  );
+
+  assert.deepEqual(
+    parseEventRequest({
+      type: "menu_item_open",
+      venueSlug: "fixture-venue",
+      payload: {
+        venueSlug: "fixture-venue",
+        menuId: "menu-123",
+        menuItemId: "item-456",
+        itemName: "must not be stored",
+      },
+    }),
+    {
+      ok: true,
+      event: {
+        type: "menu_item_open",
+        venueSlug: "fixture-venue",
+        payload: { venueSlug: "fixture-venue", menuId: "menu-123", menuItemId: "item-456" },
+      },
+    }
+  );
+});
+
+test("requires matching menu identifiers for menu interactions", () => {
+  const invalid = [
+    { type: "menu_open", venueSlug: "fixture-venue" },
+    {
+      type: "menu_open",
+      venueSlug: "fixture-venue",
+      payload: { venueSlug: "other-venue", menuId: "menu-123" },
+    },
+    {
+      type: "menu_open",
+      venueSlug: "fixture-venue",
+      payload: { venueSlug: "fixture-venue", menuId: "menu-123", menuItemId: "item-456" },
+    },
+    {
+      type: "menu_item_open",
+      venueSlug: "fixture-venue",
+      payload: { venueSlug: "fixture-venue", menuId: "menu-123" },
+    },
+  ];
+
+  for (const body of invalid) assert.equal(parseEventRequest(body).ok, false);
+});
+
 test("requires action metadata and matching venue slugs for action handoffs", () => {
   assert.equal(
     parseEventRequest({ type: "action_handoff", venueSlug: "fixture-venue" }).ok,

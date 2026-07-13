@@ -61,18 +61,14 @@ export default async function PlacesPage({
     district?: string | string[];
     category?: string | string[];
     intent?: string | string[];
-    all?: string | string[];
     m?: string | string[];
     dur?: string | string[];
   }>;
 }) {
   const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
 
-  // Public default: only publication-gated places. `?all=1` is the internal
-  // review view that surfaces every tracked row (including held/sparse rows).
-  const showAll = firstParam(params.all) === "1";
   const ready = tracked.filter(isPublicReadyVenue);
-  const venues = (showAll ? tracked : ready).map(enrichForCards);
+  const venues = ready.map(enrichForCards);
 
   return (
     <div className="page-dark">
@@ -95,13 +91,9 @@ export default async function PlacesPage({
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
-            {/* Public view shows only the count of curated places actually on
-                the page. The internal research total ("tracked") stays behind
-                ?all=1 so travellers never see an unexplained bigger number. */}
+            {/* Show only the publication-gated count rendered on this page. */}
             <p className="editorial-signal-label">
-              {showAll
-                ? `Internal view · ${tracked.length} places tracked`
-                : `${ready.length} curated places`}
+              {`${ready.length} curated places`}
             </p>
           </div>
         </header>

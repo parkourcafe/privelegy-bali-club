@@ -7,6 +7,7 @@ import {
   sortActionCapabilities,
 } from "../lib/domain/actions.ts";
 import { menuActionFixtures } from "../lib/contracts/menu-action.fixtures.ts";
+import { formatMenuPrice } from "../components/menu/menu-model.ts";
 
 function menuRow(menu: typeof menuActionFixtures.freshMenu) {
   return {
@@ -20,13 +21,29 @@ test("published menu mapping suppresses expired fixtures", () => {
   assert.equal(mapPublishedMenu(menuRow(menuActionFixtures.staleMenu), [], []), null);
 });
 
+test("published menu mapping suppresses unsafe evidence URLs", () => {
+  const unsafe = {
+    ...menuActionFixtures.freshMenu,
+    sourceUrl: "https://official.example@evil.test/menu",
+  };
+  assert.equal(mapPublishedMenu(menuRow(unsafe), [], []), null);
+});
+
 test("menu mapping is deterministic and preserves snake/camel boundary", () => {
   const fixture = menuActionFixtures.freshMenu;
   const sections = [{ id: "b", menu_id: fixture.id, name: "Second", position: 2 }, { id: "a", menu_id: fixture.id, name: "First", position: 1 }];
-  const items = [{ id: "item", menu_id: fixture.id, section_id: "a", name: "Bowl", price_minor: 8500000, currency: "IDR", position: 0 }];
+  const items = [{ id: "item", menu_id: fixture.id, section_id: "a", name: "Bowl", price_minor: 85000, currency: "IDR", price_text: "Rp 85,000", position: 0 }];
   const mapped = mapPublishedMenu(menuRow(fixture), sections, items);
   assert.deepEqual(mapped?.sections.map((section) => section.id), ["a", "b"]);
-  assert.equal(mapped?.sections[0]?.items[0]?.priceMinor, 8500000);
+  assert.equal(mapped?.sections[0]?.items[0]?.priceMinor, 85000);
+  assert.equal(mapped?.sections[0]?.items[0]?.priceText, "Rp 85,000");
+});
+
+test("menu prices preserve source text and do not scale zero-decimal IDR", () => {
+  assert.equal(formatMenuPrice(85000, "IDR", "Rp 85k++"), "Rp 85k++");
+  const formatted = formatMenuPrice(85000, "IDR");
+  assert.match(formatted ?? "", /85[,.]000/);
+  assert.doesNotMatch(formatted ?? "", /8[,.]500[,.]000/);
 });
 
 test("action mapping rejects invalid and expired URLs, then sorts priority", () => {

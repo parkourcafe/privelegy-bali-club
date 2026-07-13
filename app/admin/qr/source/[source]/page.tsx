@@ -1,5 +1,7 @@
-import { headers } from "next/headers";
 import QRCode from "qrcode";
+import { isSourceId } from "@/lib/source-attribution";
+import { currentSiteOrigin } from "@/lib/site-origin";
+import { isIssuedAttributionSource } from "@/lib/admin-attribution";
 
 export const dynamic = "force-dynamic";
 
@@ -8,12 +10,14 @@ export const dynamic = "force-dynamic";
 // later redemption can be attributed to us. Use stable tags: villa_01,
 // coliving_02, reels_001, flyer_03 …
 
-async function sourceUrl(source: string): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? `${proto}://${host}`;
-  return `${base}/?s=${encodeURIComponent(source)}`;
+async function sourceUrl(source: string): Promise<string | null> {
+  if (!isSourceId(source)) return null;
+  if (!(await isIssuedAttributionSource(source))) return null;
+  const base = await currentSiteOrigin();
+  if (!base) return null;
+  const url = new URL("/", base);
+  url.searchParams.set("s", source);
+  return url.toString();
 }
 
 export default async function SourceQrPage({
@@ -23,6 +27,14 @@ export default async function SourceQrPage({
 }) {
   const { source } = await params;
   const url = await sourceUrl(source);
+  if (!url) {
+    return (
+      <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
+        <h1 className="text-xl font-semibold">Source QR unavailable</h1>
+        <p className="mt-2 text-sm text-stone-500">Use a valid source ID in an environment with a trusted origin.</p>
+      </main>
+    );
+  }
   const qr = await QRCode.toDataURL(url, { width: 720, margin: 1, errorCorrectionLevel: "M" });
 
   return (

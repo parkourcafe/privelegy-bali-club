@@ -1,7 +1,7 @@
 import type { MenuRecord, VenueActionCapabilityRecord } from "./menu-action";
 
 const evidence = {
-  sourceUrl: "https://example.com/official-menu",
+  sourceUrl: "https://fixturevenue.com/official-menu",
   sourceLabel: "Official venue source (fixture)",
   capturedAt: "2026-07-13T00:00:00.000Z",
   verifiedAt: "2026-07-13T00:00:00.000Z",
@@ -31,8 +31,9 @@ export const menuActionFixtures: {
             id: "fixture-item",
             name: "Fixture bowl",
             description: "Development-only contract fixture",
-            priceMinor: 8500000,
+            priceMinor: 85000,
             currency: "IDR",
+            priceText: "Rp 85,000",
             dietaryTags: ["vegetarian"],
             verifiedAllergenTags: [],
             partnerRecommended: true,
@@ -80,8 +81,7 @@ export const menuActionFixtures: {
       status: "confirmed",
       priority: 100,
       confirmationRequired: false,
-      expiresAt: null,
+      expiresAt: "2099-01-01T00:00:00.000Z",
     },
   ],
 };
-
