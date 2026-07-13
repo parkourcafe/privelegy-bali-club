@@ -106,6 +106,9 @@ or publishable.
   have item-level partial menus, Warung Bu Mi has buffet-level official menu
   evidence, and Warung Nonii has a specific no-first-party-source blocker.
   Overall ledger state is 53 complete, 17 blocked, and 137 queued.
+- Ubud batch 04 is processed: Zest has partial official evidence with an address
+  mismatch warning; Wulan is blocked on inaccessible social-only evidence.
+  Ledger state is 54 complete, 18 blocked, and 135 queued.
 
 ## Validation
 
@@ -163,6 +166,9 @@ or publishable.
   Warung Nonii produced only rejected third-party results. JSON, source mapping,
   unique IDs, draft/null gates, metric reconciliation and all seven completed
   Canggu queue checkpoints passed.
+- Ubud 04: Zest and Wulan sources were both reopened. JSON, source mapping,
+  unique IDs, draft/null gates, denominator metrics and completed queue state
+  passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
