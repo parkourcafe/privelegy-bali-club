@@ -52,14 +52,34 @@ reservation-as-feature language.
   quote/paraphrase the same first-party pages rather than a direct page fetch. Still
   first-party-grounded, just via search-result excerpts rather than raw HTML.
 
-## What still remains
+## Wellness discovery pass — 2026-07-13 (migration `0025_ubud_wellness_discovery.sql`)
 
-- **Zero yoga/spa/wellness/retreat venues exist in the Ubud catalogue at all** —
-  despite that being Ubud's signature category (KORA food hall aside). This is a
-  **discovery** gap (new venue rows), not an enrichment gap like the above — a
-  separate, larger piece of work. The 2026-07-12 launch audit noted the founder had
-  found some yoga data destined for a separate chat; unclear if that has landed
-  anywhere yet.
+Ubud's signature category was entirely missing from the catalogue (0 rows). This
+was a **discovery** task (new venue rows), not enrichment. Two parallel research
+passes (yoga/movement/retreat + spa/massage/wellness) found and verified, against
+first-party sources, **23 established, currently-operating Ubud wellness venues**:
+big drop-in studios (The Yoga Barn, Radiantly Alive, Ubud Yoga Centre), scenic
+shalas (Intuitive Flow, Ubud Yoga House), sound healing (Pyramids of Chi), day
+spas (Karsa Spa, Sang Spa, Jaens, Svaha, Cantika Zest…), Ayurveda (KUSH, Oneworld
+Ayurveda, Bali Botanica) and retreats (The Shala Bali).
+
+- All use the existing `category = 'spa'` umbrella (no new category, #11).
+- Guardrails as always: no review text/ratings (#1), WHO/WHEN-only `best_for`/
+  `not_for` (#7), prices as bands, Ubud stays planning/next_deep (no money loop, #4).
+- Geography honesty: venues that market as "Ubud" but sit elsewhere were **dropped**
+  during research — Fivelements (Mambal), Yoga Searcher (Uluwatu), The Practice
+  (Canggu), House of Om (Bona), Nirarta (Sidemen).
+- One in-research dedup: "Taksu Spa" and "Taksu Yoga" are the same venue/site/
+  address — merged into a single `taksu-yoga-ubud` entry (24 verified → 23 rows).
+
+**Surfaced in the same branch commit:** a new `best-yoga-wellness` guide
+(`lib/ubud-guides.ts` + `app/ubud/best-yoga-wellness/page.tsx`), a "Yoga & wellness"
+section on the `/ubud` pillar, a `spa → /ubud/best-yoga-wellness` breadcrumb on
+`/places/[slug]`, and the sitemap entry. Venue detail pages stay noindex (no photos).
+
+Prod apply of `0025` is a founder step (NOT EXISTS-guarded, idempotent).
+
+## What still remains
 - **Photos: none.** Venue detail pages stay noindex until a rights-cleared image
   pass (same as every other district).
 - Decision-style guides (date-night, work-café, etc.) could now be built for Ubud

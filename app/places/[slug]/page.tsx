@@ -51,6 +51,7 @@ const cangguCategoryGuide: Record<string, { href: string; label: string }> = {
 const ubudCategoryGuide: Record<string, { href: string; label: string }> = {
   restaurant: { href: "/ubud/best-restaurants", label: "Restaurants" },
   cafe: { href: "/ubud/best-cafes-coffee", label: "Cafés & coffee" },
+  spa: { href: "/ubud/best-yoga-wellness", label: "Yoga & wellness" },
 };
 
 const districtLabel: Record<string, string> = {
