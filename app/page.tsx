@@ -63,7 +63,10 @@ function Hero() {
       <div className="ob-glow absolute inset-0" />
       <HeroGlow />
 
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:pt-24">
+      {/* items-start on desktop: the day-builder is a tall 2-col grid now, so
+          top-align the headline with it instead of centering (which pushed
+          the title far down the page). */}
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:items-start md:pt-28">
         <div>
           <p className="ob-in eyebrow text-[var(--ob-brass-2)]">
             Bali planning · Canggu confirmed offers

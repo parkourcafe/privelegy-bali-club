@@ -8,7 +8,6 @@ import { getUluwatuContent, ULUWATU_DB_SLUG, ULUWATU_PUBLIC_BASE } from "@/lib/u
 import { isIndexableVenueSlug } from "@/lib/publication";
 import { rankSimilar } from "@/lib/similar";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
-import PlaceCover from "@/components/PlaceCover";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
@@ -225,42 +224,49 @@ export default async function VenuePage({
           </p>
         )}
 
-        {/* Editorial hero */}
-        <header>
-          <div className="venue-hero-media">
-            {venue.photoUrl ? (
-              // Venue-approved photo (owner-uploaded during onboarding) —
-              // fixed aspect box, no CLS, natural grade (never darkened to
-              // the point food loses its appeal).
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={venue.photoUrl} alt={`${name} — ${catLabel}`} fetchPriority="high" />
-            ) : (
-              <PlaceCover
-                name={name}
-                category={venue.category}
-                microArea={microArea}
-                variant="hero"
-              />
-            )}
-          </div>
+        {/* Editorial hero. With an approved photo → photo masthead; without →
+            a designed typographic masthead (kicker + name + verdict laid over
+            a category-graded field with film grain), never an empty box. */}
+        {(() => {
+          const kicker = [
+            catLabel,
+            microArea,
+            districtLabel[venue.district] ?? venue.district,
+            content?.priceBand ?? undefined,
+          ]
+            .filter(Boolean)
+            .join(" · ");
+          const verdict = content?.verdict ?? venue.whyItsHere;
+          return (
+            <header
+              className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
+            >
+              {venue.photoUrl && (
+                // Venue-approved photo (owner-uploaded during onboarding).
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  className="venue-masthead-photo"
+                  src={venue.photoUrl}
+                  alt={`${name} — ${catLabel}`}
+                  fetchPriority="high"
+                />
+              )}
+              <div className="venue-masthead-inner">
+                <p className="venue-masthead-kicker">
+                  {kicker}
+                  {venue.isSponsored && <span className="sponsored-label ml-2">Sponsored</span>}
+                </p>
+                <h1 className="venue-masthead-title">{name}</h1>
+                {verdict && <p className="venue-masthead-verdict">{verdict}</p>}
+              </div>
+            </header>
+          );
+        })()}
 
-          <div className="venue-hero-head">
-            <h1 className="venue-hero-title">{name}</h1>
-            {venue.isSponsored && <span className="sponsored-label">Sponsored</span>}
-          </div>
-          <p className="guide-meta-line">
-            {catLabel}
-            {microArea ? ` · ${microArea}` : ""}
-            {` · ${districtLabel[venue.district] ?? venue.district}`}
-            {content?.priceBand ? ` · ${content.priceBand}` : ""}
-          </p>
-          {(content?.verdict ?? venue.whyItsHere) && (
-            <p className="venue-verdict">{content?.verdict ?? venue.whyItsHere}</p>
-          )}
-          <div style={{ marginTop: 12 }}>
-            <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
-          </div>
-        </header>
+        {/* Save control (kept from mainline) sits just under the masthead. */}
+        <div style={{ marginTop: 14 }}>
+          <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
+        </div>
 
         <div className="venue-detail-grid">
           {/* ── Main column ── */}
@@ -489,6 +495,20 @@ export default async function VenuePage({
                         venueSlug={venue.slug}
                       >
                         Visit official website
+                      </TrackedOutboundLink>
+                    </dd>
+                  </div>
+                )}
+                {content?.menuUrl && (
+                  <div>
+                    <dt>Menu</dt>
+                    <dd>
+                      <TrackedOutboundLink
+                        href={content.menuUrl}
+                        event="menu_click"
+                        venueSlug={venue.slug}
+                      >
+                        View the menu
                       </TrackedOutboundLink>
                     </dd>
                   </div>
