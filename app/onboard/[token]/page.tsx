@@ -36,9 +36,8 @@ export default async function OnboardPage({
       </p>
       <h1 className="mt-1 text-2xl font-bold">Hello, {v.name}!</h1>
       <p className="mt-2 text-sm text-stone-600">
-        We&apos;re building a curated Bali guide for travellers, starting with
-        Canggu. Below is how your place will appear. Review it, upload your
-        photos, and confirm.
+        We&apos;re building a curated Bali guide for travellers. Below is how your
+        place will appear. Review it, upload your own photos, and confirm.
       </p>
 
       <div className="mt-5">
@@ -67,7 +66,7 @@ export default async function OnboardPage({
             <li>• This offer is pending your approval and is not shown here as a tourist redeem action.</li>
           )}
           <li>• We share aggregate visit numbers with you — never guests&apos; personal data.</li>
-          <li>• Photos you upload are yours; you allow us to show them on the guide.</li>
+          <li>• Only photos you upload yourself are shown — your own images, with your permission. We never take photos from elsewhere.</li>
           <li>• You can change the offer or pause the listing anytime via WhatsApp.</li>
         </ul>
       </div>

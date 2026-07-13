@@ -773,12 +773,27 @@ export async function confirmOnboarding(input: {
   return { ok: Boolean(r.ok), error: r.error as string | undefined };
 }
 
-export async function setVenuePhoto(token: string, url: string): Promise<boolean> {
+// Registers an owner-uploaded photo as the venue's card photo. Consent is
+// mandatory and logged (venue_photo_consents) — the RPC refuses without it, so
+// no ungranted photo can ever go live. Photo rights are settled here: the owner
+// uploads their own image and grants us the right to show it (guardrail #1).
+export async function setVenuePhoto(
+  token: string,
+  url: string,
+  input?: { consent?: boolean; grantedBy?: string; userAgent?: string }
+): Promise<{ ok: boolean; error?: string }> {
   const sb = anonClient();
-  if (!sb) return false;
-  const { data, error } = await sb.rpc("set_venue_photo", { p_token: token, p_url: url });
-  if (error) return false;
-  return Boolean((data as Record<string, unknown>)?.ok);
+  if (!sb) return { ok: false, error: "unconfigured" };
+  const { data, error } = await sb.rpc("set_venue_photo", {
+    p_token: token,
+    p_url: url,
+    p_consent: input?.consent ?? false,
+    p_granted_by: input?.grantedBy ?? null,
+    p_user_agent: input?.userAgent ?? null,
+  });
+  if (error) return { ok: false, error: "write_failed" };
+  const r = (data ?? {}) as Record<string, unknown>;
+  return { ok: Boolean(r.ok), error: r.error as string | undefined };
 }
 
 // Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /

@@ -89,6 +89,9 @@ export default function OnboardActions({
   );
   const [photoState, setPhotoState] = useState<"idle" | "busy" | "done" | "error">("idle");
   const [photoMsg, setPhotoMsg] = useState("");
+  // Explicit photo-rights grant. Uploading is disabled until this is ticked, and
+  // it's sent to the server, which logs it — no ungranted photo can go live.
+  const [photoConsent, setPhotoConsent] = useState(false);
 
   async function confirm() {
     setConfirmState("busy");
@@ -106,6 +109,11 @@ export default function OnboardActions({
   }
 
   async function uploadPhoto(file: File) {
+    if (!photoConsent) {
+      setPhotoState("error");
+      setPhotoMsg("Please tick the photo-rights box first.");
+      return;
+    }
     if (file.size > MAX_MB * 1024 * 1024) {
       setPhotoState("error");
       setPhotoMsg(`Photo is too large — max ${MAX_MB} MB.`);
@@ -133,7 +141,7 @@ export default function OnboardActions({
     const res = await fetch("/api/onboard/photo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token, url: pub.publicUrl }),
+      body: JSON.stringify({ token, url: pub.publicUrl, consent: true, grantedBy: name }),
     }).catch(() => null);
     if (res && res.ok) {
       setPhotoState("done");
@@ -153,15 +161,37 @@ export default function OnboardActions({
           Upload 1–3 photos of your space and food — straight from your phone.
           The last one becomes the card photo.
         </p>
+        <label className="mt-3 flex items-start gap-2 text-sm text-stone-700">
+          <input
+            type="checkbox"
+            checked={photoConsent}
+            onChange={(e) => {
+              setPhotoConsent(e.target.checked);
+              setPhotoState("idle");
+              setPhotoMsg("");
+            }}
+            className="mt-0.5"
+          />
+          <span>
+            These are my own photos (or I have the rights to them), and I allow
+            Other Bali to show them on the guide.
+          </span>
+        </label>
         <label className="mt-3 block">
-          <span className="inline-block cursor-pointer rounded-xl border border-cyan-700 px-4 py-2.5 text-sm font-semibold text-cyan-700">
+          <span
+            className={`inline-block rounded-xl border px-4 py-2.5 text-sm font-semibold ${
+              photoConsent && photoState !== "busy"
+                ? "cursor-pointer border-cyan-700 text-cyan-700"
+                : "cursor-not-allowed border-stone-200 text-stone-300"
+            }`}
+          >
             {photoState === "busy" ? "Uploading…" : "Choose photo"}
           </span>
           <input
             type="file"
             accept="image/*"
             className="hidden"
-            disabled={photoState === "busy"}
+            disabled={!photoConsent || photoState === "busy"}
             onChange={(e) => {
               const f = e.target.files?.[0];
               if (f) uploadPhoto(f);
