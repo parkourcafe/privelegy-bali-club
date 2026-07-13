@@ -122,6 +122,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   social-only blocker. Artisan name drift, Tropical Temptation's stale map
   alias, and provider-specific booking constraints remain explicit. Ledger
   state is 78 complete, 24 blocked, and 105 queued.
+- Uluwatu–Bukit batch 01 is processed: eight partial official menus and two
+  social/branch blockers. M. MASON legacy-name drift and raw-price scale
+  caveats remain explicit. Ledger state is 86 complete, 26 blocked, and 95
+  queued.
 
 ## Validation
 
@@ -196,6 +200,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   acceptance. JSON, provenance, unique IDs, draft/null gates, denominator
   metrics and completed batch state passed; `currentBatchId` remains the first
   queued batch, `ubud-03`.
+- Uluwatu–Bukit 01: Alchemy, BGS, El Kabron, Gooseberry, KALA, Mana, M. MASON
+  and oneeighty official menu surfaces were independently reopened; both
+  social-only profiles were retried and remained inaccessible. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and completed
+  batch state passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

@@ -314,9 +314,22 @@
     },
     {
       "batchId": "uluwatu-bukit-01",
+      "completedVenueSlugs": [
+        "alchemy-uluwatu",
+        "artisan-uluwatu",
+        "bgs-uluwatu",
+        "el-kabron-bali",
+        "gooseberry-french-restaurant-uluwatu",
+        "kala-uluwatu",
+        "laggas-uluwatu",
+        "mana-uluwatu",
+        "masonry-restaurant",
+        "oneeighty"
+      ],
       "district": "uluwatu-bukit",
-      "resumeFromSlug": "alchemy-uluwatu",
-      "status": "queued",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "alchemy-uluwatu",
         "artisan-uluwatu",
@@ -536,8 +549,8 @@
     }
   ],
   "currentBatchId": "ubud-03",
-  "generatedAt": "2026-07-13T15:51:46Z",
+  "generatedAt": "2026-07-13T15:51:50Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T15:51:46Z"
+  "updatedAt": "2026-07-13T15:51:50Z"
 }
