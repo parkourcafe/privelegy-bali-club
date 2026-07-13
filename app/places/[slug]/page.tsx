@@ -5,7 +5,7 @@ import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs
 import { readGuestRef } from "@/lib/guest-server";
 import SaveButton from "@/components/SaveButton";
 import { getUluwatuContent, ULUWATU_DB_SLUG, ULUWATU_PUBLIC_BASE } from "@/lib/uluwatu/venues";
-import { isIndexableVenueSlug } from "@/lib/publication";
+import { isIndexableVenueSlug, isVenueIndexable } from "@/lib/publication";
 import { rankSimilar } from "@/lib/similar";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
@@ -103,7 +103,10 @@ export async function generateMetadata({
   const description = (content?.verdict ?? venue?.whyItsHere ??
     `${name} — ${categoryLabel[venue?.category ?? "restaurant"]} in ${district}, Bali.`)
     .slice(0, 158);
-  const indexable = isIndexableVenueSlug(slug);
+  // Index every venue whose page passes the publication bar — the Uluwatu
+  // registry, or the decision-ready editorial bar for other districts. Falls
+  // back to the slug-only Uluwatu check when there's no DB row.
+  const indexable = venue ? isVenueIndexable(venue) : isIndexableVenueSlug(slug);
 
   return {
     title: `${name} — ${area ? `${area}, ` : ""}${district}`,
