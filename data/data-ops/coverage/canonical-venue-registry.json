@@ -1,6 +1,34 @@
 {
   "baselineSha": "10a82aa0aff8dc894d642d36acb14a4c9ed69175",
   "capturedAt": "2026-07-13T15:07:27Z",
+  "driftChecks": [
+    {
+      "id": "db-only-kynd-community",
+      "liveExpectedValue": "active Seminyak cafe",
+      "repoValue": "absent from reproducible imports",
+      "requiredResolution": "Live SQL snapshot for slug, status, category, district, and publication fields.",
+      "status": "warning"
+    },
+    {
+      "id": "cafe-del-mar-district",
+      "liveExpectedValue": "canggu",
+      "repoValue": "seminyak",
+      "requiredResolution": "Live SQL location check before menu attribution or denominator-by-district adjustment.",
+      "slug": "cafe-del-mar-bali",
+      "status": "warning"
+    },
+    {
+      "additionalReviewSlugs": [
+        "donna",
+        "onion-collective-the-onion-co-halal"
+      ],
+      "explicitLoserSlugs": 31,
+      "id": "dedupe-pair-count",
+      "migrationClaimedPairs": 32,
+      "requiredResolution": "Live duplicate audit; do not auto-delete or count either row as canonical F&B.",
+      "status": "warning"
+    }
+  ],
   "eligibilityRule": {
     "includedCategories": [
       "bar",
@@ -750,6 +778,10 @@
     "excludedRecords": 62,
     "liveDatabaseCandidate": 208,
     "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
+    "liveExpectationStatus": "needs_live_sql_confirmation",
+    "liveExpectedActiveAll": 250,
+    "liveExpectedActiveFnb": 208,
+    "liveExpectedPublishedFnb": 174,
     "publicationState": {
       "published": 171,
       "review": 36
@@ -2762,6 +2794,16 @@
       "canonical": true,
       "category": "restaurant",
       "district": "seminyak",
+      "districtAmbiguity": {
+        "evidence": [
+          "0015 imports the slug in Seminyak",
+          "0021 only updates the slug when district='canggu'"
+        ],
+        "menuUseBlockedUntilLocationConfirmed": true,
+        "productionOrientedDistrict": "canggu",
+        "repoReplayDistrict": "seminyak",
+        "status": "needs_live_sql_confirmation"
+      },
       "eligibilityState": "repo_canonical_active_fnb",
       "eligible": true,
       "name": "Café del Mar Bali",
