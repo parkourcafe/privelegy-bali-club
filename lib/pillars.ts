@@ -56,6 +56,9 @@ export const PILLARS: Pillar[] = [
     children: [
       { path: "/sanur/best-hotels", title: "Best hotels in Sanur" },
       { path: "/sanur/things-to-do", title: "Best things to do in Sanur" },
+      { path: "/sanur/best-restaurants", title: "Best restaurants in Sanur" },
+      { path: "/sanur/cafes-and-bars", title: "Best cafés & bars in Sanur" },
+      { path: "/sanur/spas-wellness", title: "Best spas & wellness in Sanur" },
     ],
   },
   {

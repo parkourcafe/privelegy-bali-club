@@ -56,6 +56,17 @@ const ubudCategoryGuide: Record<string, { href: string; label: string }> = {
   spa: { href: "/ubud/best-yoga-wellness", label: "Yoga & wellness" },
 };
 
+// Which Sanur guide a category belongs to (breadcrumb + related links).
+const sanurCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/sanur/best-restaurants", label: "Restaurants" },
+  warung: { href: "/sanur/best-restaurants", label: "Restaurants" },
+  cafe: { href: "/sanur/cafes-and-bars", label: "Cafés & bars" },
+  bar: { href: "/sanur/cafes-and-bars", label: "Cafés & bars" },
+  spa: { href: "/sanur/spas-wellness", label: "Spas & wellness" },
+  yoga: { href: "/sanur/spas-wellness", label: "Spas & wellness" },
+  beauty: { href: "/sanur/spas-wellness", label: "Spas & wellness" },
+};
+
 // Which Seminyak guide a category belongs to (breadcrumb + related links).
 const seminyakCategoryGuide: Record<string, { href: string; label: string }> = {
   restaurant: { href: "/seminyak/best-restaurants", label: "Restaurants" },
@@ -162,6 +173,7 @@ export default async function VenuePage({
   const isCanggu = venue.district === "canggu";
   const isUbud = venue.district === "ubud";
   const isSeminyak = venue.district === "seminyak";
+  const isSanur = venue.district === "sanur";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
@@ -174,6 +186,8 @@ export default async function VenuePage({
     ? ubudCategoryGuide[venue.category]
     : isSeminyak
     ? seminyakCategoryGuide[venue.category]
+    : isSanur
+    ? sanurCategoryGuide[venue.category]
     : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
@@ -209,6 +223,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Seminyak", href: "/seminyak" },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isSanur
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Sanur", href: "/sanur" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]
