@@ -57,6 +57,15 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke, data-driven route (app/best-beach-clubs-in-bali) — registry
+    // entry is metadata-only so the sitemap enumerates it.
+    slug: "best-beach-clubs-in-bali",
+    title: "The best beach clubs in Bali",
+    description:
+      "Bali's best beach clubs by area — clifftop sunsets in Uluwatu, the Seminyak classics, Canggu's Echo Beach line-up, and calm family options in the south.",
+  },
+
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
