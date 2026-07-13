@@ -66,6 +66,15 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke, data-driven route (app/best-coffee-in-bali) — curated specialty
+    // roasters/cafés; registry entry is metadata-only for the sitemap.
+    slug: "best-coffee-in-bali",
+    title: "The best specialty coffee in Bali",
+    description:
+      "Where to find serious coffee in Bali — the roasters and specialty cafés across Canggu, Seminyak, Ubud and Uluwatu that treat coffee as the craft.",
+  },
+
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
