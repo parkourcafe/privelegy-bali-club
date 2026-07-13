@@ -281,9 +281,22 @@
     },
     {
       "batchId": "ubud-03",
+      "completedVenueSlugs": [
+        "room4dessert",
+        "sawobali",
+        "seeds-of-life",
+        "seniman-coffee-studio",
+        "suka-espresso-ubud",
+        "the-elephant",
+        "warung-mendez",
+        "warung-siam",
+        "watercress-ubud",
+        "whos-who"
+      ],
       "district": "ubud",
-      "resumeFromSlug": "room4dessert",
-      "status": "queued",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
       "venueSlugs": [
         "room4dessert",
         "sawobali",
@@ -548,9 +561,9 @@
       ]
     }
   ],
-  "currentBatchId": "ubud-03",
-  "generatedAt": "2026-07-13T15:51:50Z",
+  "currentBatchId": "uluwatu-bukit-03",
+  "generatedAt": "2026-07-13T15:54:47Z",
   "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district.",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T15:51:50Z"
+  "updatedAt": "2026-07-13T15:54:47Z"
 }

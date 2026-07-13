@@ -126,6 +126,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   social/branch blockers. M. MASON legacy-name drift and raw-price scale
   caveats remain explicit. Ledger state is 86 complete, 26 blocked, and 95
   queued.
+- Ubud batch 03 is processed: five partial official menus, one action-only
+  record, and four exact blockers. This completes the full 32-record Ubud
+  denominator. Room4Dessert stale-price and The Elephant compromised-domain
+  evidence were rejected. Ledger state is 92 complete, 30 blocked, and 85
+  queued; the resumable pointer advances to `uluwatu-bukit-03`.
 
 ## Validation
 
@@ -205,6 +210,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   social-only profiles were retried and remained inaccessible. JSON,
   provenance, unique IDs, draft/null gates, denominator metrics and completed
   batch state passed.
+- Ubud 03: Room4Dessert, Seeds of Life, Seniman, SUKA, Watercress and Who's Who
+  official surfaces were reopened; all four social-only profiles were retried.
+  JSON, source mapping, unique IDs, draft/null gates, denominator metrics,
+  complete Ubud coverage and queue advancement passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
