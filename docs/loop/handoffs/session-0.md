@@ -80,6 +80,11 @@ or publishable.
 - Current repo-denominator progress is 19/207 complete: 18 official menus
   found, 17 partial transcriptions, 1 official menu found but not parsed, and 1
   action-only venue. The remaining deterministic queue contains 188 records.
+- Canggu batch 02 is processed across all 10 queued slugs. Five records have
+  partial official-menu evidence and five have concrete source blockers. The
+  Deus PDF was rejected as Australian wrong-branch collateral; Cafe Vida and
+  Honey were not backfilled from aggregators. Current ledger state is 24
+  complete, 5 blocked, and 178 queued out of 207.
 
 ## Validation
 
@@ -112,6 +117,11 @@ or publishable.
   from official sources during acceptance; branch identity and action links
   remained consistent. All batch records retain null verification, draft-only
   actions, no media, and publication prohibition.
+- Canggu 02: all 10 official identity/menu surfaces were independently reopened
+  during acceptance. JSON, unique slug, source mapping, action draft/null
+  verification, denominator and queue reconciliation checks passed. The batch
+  has 5 complete and 5 blocked research states; blocked records have an exact
+  retry reason and remain removed from the active queue.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
