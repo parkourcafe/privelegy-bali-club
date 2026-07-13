@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getRoutes, getDistrictHubs, getIntentSpokes, getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
+import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
 
 export const dynamic = "force-dynamic";
@@ -41,6 +42,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Trip-mission scenario landing pages (§6a.3).
     ...SCENARIOS.map((s) => ({
       url: `${BASE}/${s.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
+    // Long-form editorial guides (top-of-funnel SEO/AEO articles).
+    ...GUIDES.map((g) => ({
+      url: `${BASE}/${g.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.85,
     })),
