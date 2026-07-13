@@ -58,4 +58,15 @@ export const PILLARS: Pillar[] = [
       { path: "/sanur/things-to-do", title: "Best things to do in Sanur" },
     ],
   },
+  {
+    slug: "seminyak",
+    name: "Seminyak",
+    tagline: "The original style strip: dining, sunset beach clubs and Bali's densest spa scene.",
+    children: [
+      { path: "/seminyak/best-restaurants", title: "Best restaurants in Seminyak" },
+      { path: "/seminyak/beach-clubs-sunset", title: "Seminyak beach clubs & sunset" },
+      { path: "/seminyak/cafes-coffee", title: "Best cafés & coffee in Seminyak" },
+      { path: "/seminyak/spas-salons-wellness", title: "Best spas, salons & wellness in Seminyak" },
+    ],
+  },
 ];
