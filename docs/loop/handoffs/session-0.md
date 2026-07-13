@@ -345,4 +345,9 @@ queued. No venue is marked human-verified or publishable.
 
 ## Final SHA
 
-Not complete.
+Final data package SHA: `f943fafe130c60365fb85756a8dc716cca6eadf5`.
+
+This is the atomic commit containing the completed 207-record ledger, empty
+resumable queue, final Nusa Dua package, global gate corrections, validation
+evidence, and readiness handoff. The following documentation-only commit records
+this SHA and does not change research data.
