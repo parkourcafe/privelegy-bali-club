@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: in progress — Canggu, Ubud, Uluwatu–Bukit and Seminyak complete; Jimbaran active
+Status: in progress — all districts complete except Nusa Dua batch 01
 
 ## Discovery
 
@@ -35,8 +35,8 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
 ## Progress
 
 Wave 1, Canggu, Ubud and Uluwatu–Bukit are complete. Seminyak processing is
-active; 137 records are complete, 50 are blocked with concrete retry conditions,
-and 20 remain queued. No venue is marked human-verified or publishable.
+active; 145 records are complete, 52 are blocked with concrete retry conditions,
+and 10 remain queued. No venue is marked human-verified or publishable.
 
 - Canonical coverage baseline: `207` reproducible repo-canonical active F&B
   rows. Production-oriented expectations (`208` active F&B, `250` active all,
@@ -171,6 +171,10 @@ and 20 remain queued. No venue is marked human-verified or publishable.
   menus, one official action-only record, and six exact menu/identity/source
   blockers. Ledger state is 137 complete, 50 blocked, and 20 queued; the
   pointer remains `jimbaran-01`.
+- Jimbaran batch 01 completes all 16 repo-canonical Jimbaran records: seven
+  item-level partial menus, one found-but-unparsed official menu, and two exact
+  identity/menu blockers. Ledger state is 145 complete, 52 blocked, and 10
+  queued; the pointer advances to `nusa-dua-01`.
 
 ## Validation
 
@@ -297,6 +301,10 @@ and 20 remain queued. No venue is marked human-verified or publishable.
   reopened; social-only and no-source cases were retried. JSON, source mapping,
   unique IDs, draft/null gates, complete Sanur coverage, metrics and queue state
   passed. Retro freshness and Soul hours conflicts remain explicit.
+- Jimbaran 01: Bawang Merah, Cuca, DAVA, Kayumanis and other first-party sources
+  were independently reopened; AKUA and Nyoman identity/menu blockers were
+  repeated. JSON, source mapping, unique IDs, draft/null gates, complete
+  Jimbaran coverage, metrics and pointer advancement passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
