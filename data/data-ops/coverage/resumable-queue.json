@@ -10,19 +10,19 @@
         "milk-and-madu-berawa",
         "ji-restaurant-bali",
         "luma",
-        "santanera"
+        "santanera",
+        "revolver-canggu",
+        "ulekan-berawa"
       ],
       "district": "canggu",
       "remainingVenueSlugs": [
-        "revolver-canggu",
-        "ulekan-berawa",
         "hippie-fish-pererenan-beach",
         "baked-pererenan",
         "rize-cafe",
         "sensorium-bali",
         "shelter-restaurant"
       ],
-      "resumeFromSlug": "revolver-canggu",
+      "resumeFromSlug": "hippie-fish-pererenan-beach",
       "status": "in_progress",
       "venueSlugs": [
         "baked-pererenan",

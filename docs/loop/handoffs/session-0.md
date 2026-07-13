@@ -56,6 +56,10 @@ or publishable.
   Currency/scale ambiguity is preserved as raw source display text rather than
   converted; Ji's currently unreliable Chope redirect remains a draft action
   with an explicit warning.
+- Canggu loop 4 completed: `revolver-canggu`, `ulekan-berawa`.
+  Revolver prices are normalized only where its PDF explicitly states `000
+  IDR`; Ulekan uses an accessible official fallback because the branch PDF is
+  blocked, and placeholder menu descriptions were excluded.
 
 ## Validation
 
@@ -71,6 +75,9 @@ or publishable.
 - Loop 3: cumulative checks passed for 8 venues. Recheck at
   `2026-07-13T15:20:59Z`: Ji's official menu and Santanera's official booking
   page both returned HTTP 200.
+- Loop 4: cumulative checks passed for 10 venues. Recheck at
+  `2026-07-13T15:22:04Z`–`15:22:06Z`: Revolver's official Canggu page and
+  Ulekan's official fallback menu both returned HTTP 200.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks

@@ -183,6 +183,30 @@
       "verifiedAt": null
     },
     {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-revolver-canggu",
+      "label": "Revolver Canggu official location page",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://revolverbali.com/pages/canggu",
+      "venueSlug": "revolver-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-revolver-menu-pdf",
+      "label": "Revolver Canggu MENU / CG MENU WEB",
+      "notes": "13-page PDF linked by the official Canggu page; states all prices are in 000 IDR.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://cdn.shopify.com/s/files/1/0662/6603/8529/files/CG_MENU_WEB_36da8575-2666-4043-86da-688c30adfe69.pdf?v=1776741400",
+      "venueSlug": "revolver-canggu",
+      "verifiedAt": null
+    },
+    {
       "capturedAt": "2026-07-13T15:09:07Z",
       "id": "src-samesa-booking",
       "label": "Sa’Mesa booking destination linked by official site",
@@ -288,6 +312,42 @@
       "sourceType": "official_website",
       "url": "https://www.theshadyshackbali.com/",
       "venueSlug": "the-shady-shack",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ulekan-berawa-pdf",
+      "label": "Ulekan Berawa current menu link",
+      "notes": "Officially linked primary Berawa PDF could not be fetched by the research tool.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "blocked",
+      "sourceType": "official_menu_pdf",
+      "url": "https://madufamily-my.sharepoint.com/:b:/p/graphics/IQDjX0RyyOPpQ6az1QWqSlGeAQeOW4xQhYdgT2vrafU_Ktw?e=b9BjkF",
+      "venueSlug": "ulekan-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ulekan-menu-fallback",
+      "label": "Ulekan Menu fallback",
+      "notes": "Accessible official fallback has no prices and contains placeholder descriptions on several excluded dinner items.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://www.ulekanbali.com/ulekan-menu",
+      "venueSlug": "ulekan-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:09:20Z",
+      "id": "src-ulekan-site",
+      "label": "Ulekan official website — Berawa block",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_action_page",
+      "url": "https://www.ulekanbali.com/",
+      "venueSlug": "ulekan-berawa",
       "verifiedAt": null
     }
   ],

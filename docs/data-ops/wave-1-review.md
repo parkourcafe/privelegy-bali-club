@@ -12,6 +12,8 @@ All records are draft-only. `verifiedAt` is null, import dry-run is not ready, a
 | `ji-restaurant-bali` · Ji Restaurant Bali | official_menu_partial | Official venue/contact pages confirm the Batu Bolong Canggu location.; Reserve destination is not reliable enough for confirmation and remains draft. | Revalidate the Chope destination and obtain an official direct Maps link before import dry-run. |
 | `luma` · Luma | official_menu_partial | Official site and contact page confirm the Canggu venue.; Stable reservation iframe and Maps destinations could not be safely resolved. | Resolve the embedded booking/maps destinations and confirm menu currency/scale. |
 | `santanera` · Santanera | official_menu_partial | Official book page ties booking, WhatsApp, and Maps to the Tanah Barak venue.; Displayed $ prices remain currency-ambiguous. | Confirm the menu currency/scale with the operator before converting any price. |
+| `revolver-canggu` · Revolver Canggu | official_menu_partial | Dedicated official Canggu page and map destination confirm branch identity.; Reservation text has no exposed clickable destination; no reserve action was fabricated.; Printed phone number is not labelled/linked as WhatsApp. | Resolve the reservation destination and manually map remaining multi-column prices before a full parse. |
+| `ulekan-berawa` · Ulekan Berawa | official_menu_partial | Official site exposes a Berawa-specific menu link and action block.; The primary PDF is blocked and the accessible fallback is incomplete.; ResDiary mentions takeaway but no stable order-only deep link was exposed. | Operator should fetch/review the primary Berawa PDF and replace the fallback before import dry-run. |
 
 ## Batch validation
 

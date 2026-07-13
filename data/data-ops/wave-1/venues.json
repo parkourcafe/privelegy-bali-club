@@ -1908,6 +1908,456 @@
       "venueName": "Santanera",
       "venueSlug": "santanera",
       "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-revolver-canggu-website-01",
+          "kind": "website",
+          "label": "Official Canggu page",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "Revolver Canggu official location page",
+          "sourceManifestId": "src-revolver-canggu",
+          "sourceUrl": "https://revolverbali.com/pages/canggu",
+          "status": "draft",
+          "url": "https://revolverbali.com/pages/canggu",
+          "venueSlug": "revolver-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": false,
+          "evidenceNote": "Branch-specific official direction link.",
+          "expiresAt": null,
+          "id": "action-revolver-canggu-maps-02",
+          "kind": "maps",
+          "label": "Get direction",
+          "priority": 20,
+          "provider": "google_maps",
+          "sourceLabel": "Revolver Canggu official location page",
+          "sourceManifestId": "src-revolver-canggu",
+          "sourceUrl": "https://revolverbali.com/pages/canggu",
+          "status": "draft",
+          "url": "https://www.google.com/maps/place/Revolver%2BCanggu/%40-8.6531518%2C115.1329761%2C17z/data%3D%213m1%214b1%214m6%213m5%211s0x2dd239acbd9e8f9d%3A0x2c0fa91ee947fb0f%218m2%213d-8.6531518%214d115.135551%2116s%2Fg%2F11lfl5nvjn?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D",
+          "venueSlug": "revolver-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Dedicated official Canggu page and map destination confirm branch identity.",
+        "Reservation text has no exposed clickable destination; no reserve action was fabricated.",
+        "Printed phone number is not labelled/linked as WhatsApp."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:20Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "collectionNotes": [
+            "Partial transcription for review.",
+            "PDF explicitly states all prices are in 000 IDR.",
+            "Prices for the Salads + Bowls sample are omitted because multi-column PDF extraction made item-to-price mapping ambiguous."
+          ],
+          "expiresAt": null,
+          "id": "menu-revolver-canggu-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "revolver-canggu-v1-eggs-more",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Farine sourdough toast, smashed avo, chilli & sesame crunch, pickled onion, mixed herbs, soft boiled eggs, fresh lime",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-eggs-more-01",
+                  "name": "SMASHED AVO (V)",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Crispy zucchini fritters, spiced tzatziki, poached eggs, pickled shallot & soft herb salad, herb oil, fresh lemon",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-eggs-more-02",
+                  "name": "ZUCCHINI FRITTERS (V)",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fried eggs, bacon, grilled onion & peppers, potato gems, avocado salsa, cheddar, jalapeno, chipotle mayonnaise, Revs fermented hot sauce",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-eggs-more-03",
+                  "name": "BREAKFAST BURRITO",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120",
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "Eggs & More",
+              "position": 0
+            },
+            {
+              "description": null,
+              "id": "revolver-canggu-v1-salads-bowls",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Poached chicken, chopped greens, shredded broccoli, avocado, quinoa, toasted almonds, dried cranberry, marinated feta, herbs, lemon & mustard dressing",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-salads-bowls-01",
+                  "name": "CHOPPED CHICKEN SALAD (GF)",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Sashimi grade tuna, crispy rice, avocado, cucumber, radish, edamame, wakame, pickled ginger, shredded cabbage, nori flakes, toasted sesame & miso dressing",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-salads-bowls-02",
+                  "name": "TUNA SASHIMI & CRISPY RICE SALAD",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Slow roasted & glazed pumpkin, mixed grains, kale, dried cranberry, toasted walnuts, pepitas, mixed herbs, lemon dressing, whipped tahini",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "revolver-canggu-v1-salads-bowls-03",
+                  "name": "MAPLE ROASTED PUMPKIN & ANCIENT GRAIN SALAD (VG)",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "Salads + Bowls",
+              "position": 1
+            }
+          ],
+          "sourceLabel": "Revolver Canggu MENU / CG MENU WEB",
+          "sourceManifestId": "src-revolver-menu-pdf",
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0662/6603/8529/files/CG_MENU_WEB_36da8575-2666-4043-86da-688c30adfe69.pdf?v=1776741400",
+          "status": "draft",
+          "title": "Revolver Canggu Menu",
+          "venueSlug": "revolver-canggu",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Resolve the reservation destination and manually map remaining multi-column prices before a full parse.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-revolver-canggu",
+        "src-revolver-menu-pdf"
+      ],
+      "venueName": "Revolver Canggu",
+      "venueSlug": "revolver-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-ulekan-berawa-website-01",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 10,
+          "provider": "official_website",
+          "sourceLabel": "Ulekan official website — Berawa block",
+          "sourceManifestId": "src-ulekan-site",
+          "sourceUrl": "https://www.ulekanbali.com/",
+          "status": "draft",
+          "url": "https://www.ulekanbali.com/",
+          "venueSlug": "ulekan-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "expiresAt": null,
+          "id": "action-ulekan-berawa-reserve-02",
+          "kind": "reserve",
+          "label": "Book Berawa",
+          "priority": 20,
+          "provider": "resdiary",
+          "sourceLabel": "Ulekan official website — Berawa block",
+          "sourceManifestId": "src-ulekan-site",
+          "sourceUrl": "https://www.ulekanbali.com/",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/UlekanUlekan/1179",
+          "venueSlug": "ulekan-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Destination profile identifies Ulekan | Berawa.",
+          "expiresAt": null,
+          "id": "action-ulekan-berawa-whatsapp-03",
+          "kind": "whatsapp",
+          "label": "WhatsApp Berawa",
+          "priority": 30,
+          "provider": "whatsapp",
+          "sourceLabel": "Ulekan official website — Berawa block",
+          "sourceManifestId": "src-ulekan-site",
+          "sourceUrl": "https://www.ulekanbali.com/",
+          "status": "draft",
+          "url": "https://wa.me/6282145948624",
+          "venueSlug": "ulekan-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "confirmationRequired": false,
+          "evidenceNote": "Resolves to Ulekan at -8.660204,115.142973.",
+          "expiresAt": null,
+          "id": "action-ulekan-berawa-maps-04",
+          "kind": "maps",
+          "label": "Open in Google Maps",
+          "priority": 40,
+          "provider": "google_maps",
+          "sourceLabel": "Ulekan official website — Berawa block",
+          "sourceManifestId": "src-ulekan-site",
+          "sourceUrl": "https://www.ulekanbali.com/",
+          "status": "draft",
+          "url": "https://goo.gl/maps/Cfnxa7huAV82bmGu8",
+          "venueSlug": "ulekan-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "collectionNotes": [
+        "Official site exposes a Berawa-specific menu link and action block.",
+        "The primary PDF is blocked and the accessible fallback is incomplete.",
+        "ResDiary mentions takeaway but no stable order-only deep link was exposed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "identityCheckedAt": "2026-07-13T15:09:20Z",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:09:20Z",
+          "collectionNotes": [
+            "Primary branch-specific PDF was blocked; this is a partial fallback transcription.",
+            "No prices are shown on the accessible fallback.",
+            "Items with obvious placeholder descriptions were deliberately excluded."
+          ],
+          "expiresAt": null,
+          "id": "menu-ulekan-berawa-v1",
+          "sections": [
+            {
+              "description": null,
+              "id": "ulekan-berawa-v1-rice-noodles-sharing",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "a great way to try out our favorite dishes in one plate",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-rice-noodles-sharing-01",
+                  "name": "Nasi Campur Royal",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "lena's egg noodles, bok choy, bean sprouts, scallions hot, broth, glazed tofu, bbq pork belly",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-rice-noodles-sharing-02",
+                  "name": "Bakmi Ulekan",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "slow cooked chicken broth, rice noodles, bean sprouts, cabbage kampung egg, potato crisps",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-rice-noodles-sharing-03",
+                  "name": "Soto Ayam",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "oyster mushroom & sweet corn fried rice, bumbu bali, fried edd, acar pickles, emping, add chicken sate",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-rice-noodles-sharing-04",
+                  "name": "Nasi Goreng Ulekan",
+                  "partnerRecommended": false,
+                  "position": 3,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "tender beef cheek in a rich padang curry of coconut coriander, cinnamon, clove & star anise aromatics",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-rice-noodles-sharing-05",
+                  "name": "Rendang Sapi",
+                  "partnerRecommended": false,
+                  "position": 4,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "MAKAN SIANG / Rice & Noodles | Sharing",
+              "position": 0
+            },
+            {
+              "description": null,
+              "id": "ulekan-berawa-v1-sambal-journey",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "a deep red sambal tomatoes, red chili, shallots, garlic, palm sugar (V, VE)",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-sambal-journey-01",
+                  "name": "Sambal Ulekan",
+                  "partnerRecommended": false,
+                  "position": 0,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "finely sliced shallots, torch ginger, chili, tejakulla sea salt, coconut oil",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-sambal-journey-02",
+                  "name": "Sambal Matah",
+                  "partnerRecommended": false,
+                  "position": 1,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "fried green chili, green tomatoes, shallots, garlic, kaffir lime leaves",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-sambal-journey-03",
+                  "name": "Sambal Ijo",
+                  "partnerRecommended": false,
+                  "position": 2,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "golden fried shallots, crispy gralic, red chillies & fragrant shrimp taste",
+                  "dietaryTags": [],
+                  "editorialNote": null,
+                  "editorialPick": false,
+                  "id": "ulekan-berawa-v1-sambal-journey-04",
+                  "name": "Sambal Embe",
+                  "partnerRecommended": false,
+                  "position": 3,
+                  "priceMinor": null,
+                  "verifiedAllergenTags": []
+                }
+              ],
+              "name": "MAKAN SIANG / Sambal Journey",
+              "position": 1
+            }
+          ],
+          "sourceLabel": "Ulekan Menu fallback",
+          "sourceManifestId": "src-ulekan-menu-fallback",
+          "sourceUrl": "https://www.ulekanbali.com/ulekan-menu",
+          "status": "draft",
+          "title": "Ulekan Menu — accessible official fallback",
+          "venueSlug": "ulekan-berawa",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "publicationAllowed": false,
+      "readyForImportDryRun": false,
+      "readyForOperatorReview": true,
+      "recommendedNextAction": "Operator should fetch/review the primary Berawa PDF and replace the fallback before import dry-run.",
+      "repositoryState": "active",
+      "reviewState": "operator_review_required",
+      "sourceManifestIds": [
+        "src-ulekan-site",
+        "src-ulekan-berawa-pdf",
+        "src-ulekan-menu-fallback"
+      ],
+      "venueName": "Ulekan Berawa",
+      "venueSlug": "ulekan-berawa",
+      "verifiedAt": null
     }
   ],
   "wave": "wave-1"
