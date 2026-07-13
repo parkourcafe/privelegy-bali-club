@@ -71,14 +71,33 @@ guide. Recategorisation (to a `fitness` category) is a separate, optional cleanu
 After tranche 1 + 2, essentially the entire **active** Canggu catalogue carries
 editorial. Remaining empties are inactive/archived rows and a few duplicates.
 
+## Follow-up fix — 2026-07-13 (migration `0023_dandelion_casatua_dicarik_fix.sql`)
+
+Resolved the two rows tranche 2 deliberately left untouched:
+
+- **`dandelion` → renamed to `Casa Tua`.** Verified rebrand (same venue, team, menu,
+  est. 2014) — found via web research, not guessed. Slug intentionally kept as
+  `dandelion` (perks/plan_entries reference it via a non-deferrable FK; the row isn't
+  publicly indexed yet, so a clean slug + redirect migration can happen later without
+  urgency). `name`/`address`/`area`/`gmaps_url` were direct-overwritten (the old values
+  were placeholder-grade); full editorial added. Now publishes.
+- **`dicarik-warung` → moved to `district = 'ubud'`.** Its stored gmaps coordinates
+  turned out to be ~1.2km from Ubud centre on Jl. Kajeng — a real venue, just mis-filed
+  under Canggu by an earlier import. Zero references (0 perks/plan_entries), safe to
+  correct. Editorial deliberately left empty (not invented) for a future Ubud evidence
+  pass; it stays unpublished either way.
+
+**Canggu is now at 85 / 85 active venues publishable — the entire active catalogue.**
+
 ## What still remains
 
 - **Photos: none, any district.** Venue detail pages stay `noindex` until a
   rights-cleared image pass. Only the curated `/canggu` guide surfaces publish — no thin
   venue pages get indexed.
-- **`dandelion` rename → Casa Tua** and **`dicarik-warung` disambiguation** (above).
-- Optional: recategorise the 3 sport/fitness rows out of `spa`.
-- **Apply status:** tranche 1 (`0021`) is applied to the production DB. Tranche 2
-  (`0022`) is committed but its **prod apply is a founder step (pending)** — run the
-  migration's SQL against prod to take the extra 50 live. The `/canggu` page code ships
-  when the branch's PR merges and deploys.
+- Optional: recategorise the 3 sport/fitness rows out of `spa` (`jungle-padel`,
+  `wrong-gym-pererenan`, `finns-recreation-club-...`).
+- Optional future work: a proper Ubud evidence pass could pick up `dicarik-warung` now
+  that it's correctly filed there.
+- **Apply status:** migrations `0021`, `0022`, and `0023` are all applied to the
+  production DB. The `/canggu` page code (+ the `venueHasJob` fix) ships to the live
+  site when the branch's PR merges and deploys.
