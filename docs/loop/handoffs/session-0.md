@@ -131,6 +131,11 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   denominator. Room4Dessert stale-price and The Elephant compromised-domain
   evidence were rejected. Ledger state is 92 complete, 30 blocked, and 85
   queued; the resumable pointer advances to `uluwatu-bukit-03`.
+- Uluwatu–Bukit batch 03 is processed: all five have official menu/action
+  surfaces, with explicit item prices transcribed only where the first-party
+  source safely exposes them. This completes the full 25-record Uluwatu–Bukit
+  denominator. Ledger state is 97 complete, 30 blocked, and 80 queued; the
+  pointer advances to `seminyak-01`.
 
 ## Validation
 
@@ -214,6 +219,10 @@ Wave 1 and the full Canggu denominator are complete. Ubud processing is active;
   official surfaces were reopened; all four social-only profiles were retried.
   JSON, source mapping, unique IDs, draft/null gates, denominator metrics,
   complete Ubud coverage and queue advancement passed.
+- Uluwatu–Bukit 03: Ulu Garden, Waatu, White Rock, YUKI and Zali official menu
+  and branch surfaces were independently opened. JSON, source mapping, unique
+  IDs, draft/null gates, denominator metrics, complete 25-record district
+  coverage and queue advancement passed.
 - Diff check passed; only Session 0-owned paths changed.
 
 ## Contract requests and risks
