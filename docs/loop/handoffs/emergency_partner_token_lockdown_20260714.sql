@@ -1,3 +1,4 @@
+-- USE THIS FILE: SQL EDITOR COMPATIBLE VERSION 2 (2026-07-14).
 -- Emergency production-only lockdown for the legacy onboarding-token leak.
 -- Apply as one tracked Supabase migration named:
 --   emergency_partner_token_lockdown_20260714
