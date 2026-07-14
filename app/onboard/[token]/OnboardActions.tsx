@@ -22,10 +22,14 @@ type Jtbd = {
 export default function OnboardActions({
   token,
   alreadyConfirmed,
+  maintenanceDraftsEnabled,
+  photoSubmissionEnabled,
   initialJtbd,
 }: {
   token: string;
   alreadyConfirmed: boolean;
+  maintenanceDraftsEnabled: boolean;
+  photoSubmissionEnabled: boolean;
   initialJtbd: Jtbd;
 }) {
   const [name, setName] = useState("");
@@ -120,7 +124,8 @@ export default function OnboardActions({
   return (
     <div className="mt-6 space-y-5 pb-16">
       {/* Photos */}
-      <div className="rounded-2xl border border-stone-200 bg-white p-4">
+      {photoSubmissionEnabled ? (
+        <div className="rounded-2xl border border-stone-200 bg-white p-4">
         <p className="font-medium">Submit a photo for review</p>
         <p className="mt-1 text-sm text-stone-500">
           Submit one photo of your space or food at a time. It stays private until an Other Bali operator checks the image and its rights record.
@@ -192,7 +197,13 @@ export default function OnboardActions({
             {photoMsg}
           </p>
         )}
-      </div>
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm text-stone-600">
+          Photo submissions are temporarily paused while the private review
+          queue is being prepared. Your current listing stays unchanged.
+        </div>
+      )}
 
       {/* Venue-authored copy stays visibly attributed; editorial fit stays operator-owned. */}
       <div className="rounded-2xl border border-stone-200 bg-white p-4">
@@ -233,7 +244,7 @@ export default function OnboardActions({
         )}
       </div>
 
-      <PartnerMaintenanceDrafts token={token} />
+      {maintenanceDraftsEnabled ? <PartnerMaintenanceDrafts token={token} /> : null}
 
       {/* Confirmation */}
       {confirmState === "done" ? (

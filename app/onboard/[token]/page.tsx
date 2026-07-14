@@ -1,4 +1,5 @@
 import { getOnboardInfo } from "@/lib/data";
+import { getReleaseReadiness } from "@/lib/data/release-readiness";
 import VenueCard from "@/components/VenueCard";
 import OnboardActions from "./OnboardActions";
 
@@ -28,6 +29,7 @@ export default async function OnboardPage({
   }
 
   const v = info.venue;
+  const readiness = await getReleaseReadiness();
 
   return (
     <main className="mx-auto w-full max-w-md px-4 py-8">
@@ -75,6 +77,8 @@ export default async function OnboardPage({
       <OnboardActions
         token={token}
         alreadyConfirmed={info.confirmed}
+        maintenanceDraftsEnabled={readiness.maintenanceDrafts}
+        photoSubmissionEnabled={readiness.photoSubmissions}
         initialJtbd={{
           bestFor: v.bestFor ?? "",
           notFor: v.notFor ?? "",

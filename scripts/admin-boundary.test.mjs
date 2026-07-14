@@ -12,6 +12,8 @@ const [
   freshnessActions,
   photoClient,
   photoRoute,
+  releaseReadiness,
+  onboardPage,
 ] = await Promise.all([
   read("lib/admin-invites.ts"),
   read("lib/data.ts"),
@@ -20,6 +22,8 @@ const [
   read("app/admin/freshness/actions.ts"),
   read("app/onboard/[token]/OnboardActions.tsx"),
   read("app/api/onboard/photo/route.ts"),
+  read("lib/data/release-readiness.ts"),
+  read("app/onboard/[token]/page.tsx"),
 ]);
 
 function functionBody(source, name) {
@@ -66,4 +70,17 @@ test("partner photo browser never uploads to storage or receives publication coo
   );
   assert.doesNotMatch(photoRoute, /getPublicUrl|createSignedUrl/);
   assert.match(photoRoute, /reserve_venue_photo_submission/);
+});
+
+test("partner release forms stay fail-closed until their private schema is ready", () => {
+  assert.match(releaseReadiness, /^import "server-only";/);
+  assert.match(releaseReadiness, /serviceClient\(\)/);
+  assert.match(releaseReadiness, /maintenanceDrafts:\s*false/);
+  assert.match(releaseReadiness, /photoSubmissions:\s*false/);
+  assert.match(releaseReadiness, /\.from\("menus"\)/);
+  assert.match(releaseReadiness, /\.from\("venue_action_capabilities"\)/);
+  assert.match(releaseReadiness, /\.from\("venue_photo_submissions"\)/);
+  assert.match(onboardPage, /getReleaseReadiness\(\)/);
+  assert.match(photoClient, /photoSubmissionEnabled\s*\?/);
+  assert.match(photoClient, /maintenanceDraftsEnabled\s*\?/);
 });
