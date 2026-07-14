@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Best hotels in Sanur · Other Bali",
     description:
       "Harbour-side, central beachfront, and south-end resorts — chosen by zone and travel style.",
-    url: "https://otherbali.com/sanur/best-hotels",
+    url: "https://www.otherbali.com/sanur/best-hotels",
     type: "article",
   },
 };

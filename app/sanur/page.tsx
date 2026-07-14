@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "The Sanur guide · Other Bali",
     description:
       "Calm sunrise coast, a 5 km beach promenade, stay zones decoded, a hotel shortlist and easy things to do.",
-    url: "https://otherbali.com/sanur",
+    url: "https://www.otherbali.com/sanur",
     type: "article",
   },
   twitter: {

@@ -15,7 +15,7 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", dis
 // Public launch label: Other Bali is the tourist-facing brand. "Bali Privilege"
 // remains internal/technical only.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://otherbali.com"),
+  metadataBase: new URL("https://www.otherbali.com"),
   title: {
     default: "Other Bali — the right place for the moment you're in",
     template: "%s · Other Bali",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Other Bali — the right place for the moment you're in",
     description:
       "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, hand off to a booked table. Travellers never pay.",
-    url: "https://otherbali.com",
+    url: "https://www.otherbali.com",
     siteName: "Other Bali",
     locale: "en_US",
     type: "website",

@@ -5,7 +5,26 @@ import VenueCard from "@/components/VenueCard";
 
 export const dynamic = "force-dynamic";
 
-const SITE = "https://otherbali.com";
+const SITE = "https://www.otherbali.com";
+
+// Route JSON-LD used to hardcode every stop as schema.org/Restaurant, which is
+// wrong for cafés, bars, spas and studios (audit 2026-07, P1). Map the venue
+// category to the closest schema.org type; unknown falls back to LocalBusiness.
+const SCHEMA_TYPE_BY_CATEGORY: Record<string, string> = {
+  cafe: "CafeOrCoffeeShop",
+  warung: "Restaurant",
+  restaurant: "Restaurant",
+  beach_club: "Restaurant",
+  bar: "BarOrPub",
+  spa: "HealthAndBeautyBusiness",
+  beauty: "HealthAndBeautyBusiness",
+  fitness: "SportsActivityLocation",
+  yoga: "SportsActivityLocation",
+  surf: "SportsActivityLocation",
+};
+function schemaTypeForCategory(category?: string): string {
+  return (category && SCHEMA_TYPE_BY_CATEGORY[category]) || "LocalBusiness";
+}
 
 export async function generateMetadata({
   params,
@@ -104,7 +123,7 @@ export default async function RoutePage({
                 "@type": "ListItem",
                 position: i + 1,
                 item: {
-                  "@type": "Restaurant",
+                  "@type": schemaTypeForCategory(v.category),
                   name: v.name,
                   ...(v.address ? { address: v.address } : {}),
                   ...(v.gmapsUrl ? { hasMap: v.gmapsUrl } : {}),

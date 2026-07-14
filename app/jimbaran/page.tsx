@@ -8,7 +8,7 @@ import { getJimbaranVenues, toJimbaranPlaceCard } from "@/lib/jimbaran";
 import { JIMBARAN_GUIDES } from "@/lib/jimbaran-guides";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Jimbaran guide — the seafood bay, sunset bars & resort dining",

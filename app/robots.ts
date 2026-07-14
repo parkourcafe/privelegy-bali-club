@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/partner/", "/onboard/", "/api/", "/me", "/v/"],
       },
     ],
-    sitemap: "https://otherbali.com/sitemap.xml",
+    sitemap: "https://www.otherbali.com/sitemap.xml",
   };
 }

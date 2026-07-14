@@ -9,7 +9,7 @@ import { getNusaDuaVenues, toNusaDuaPlaceCard } from "@/lib/nusa-dua";
 import { NUSA_DUA_GUIDES } from "@/lib/nusa-dua-guides";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Nusa Dua guide — the calm, polished resort enclave",

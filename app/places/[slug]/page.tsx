@@ -17,7 +17,7 @@ import VenueActionBar from "@/components/VenueActionBar";
 
 export const dynamic = "force-dynamic";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",

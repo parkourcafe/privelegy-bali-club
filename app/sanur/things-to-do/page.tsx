@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Best things to do in Sanur · Other Bali",
     description:
       "Sunrise walks, the beach path, calm-water activities, and the boat gateway — Sanur at its low-stress best.",
-    url: "https://otherbali.com/sanur/things-to-do",
+    url: "https://www.otherbali.com/sanur/things-to-do",
     type: "article",
   },
 };
