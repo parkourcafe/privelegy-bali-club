@@ -9,6 +9,7 @@ import {
   RelatedGuides,
   VenuePicks,
 } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 
 // Uluwatu pillar page (ContentPage type district_guide, master §6a.3).
 // Search intent: "uluwatu bali guide / where to eat in uluwatu / what is
@@ -378,6 +379,8 @@ export default function UluwatuPillarPage() {
             Get the 48-hour plan →
           </Link>
         </div>
+
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("uluwatu")} />
 
         <GuideFooter />
       </main>
