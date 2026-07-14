@@ -104,6 +104,97 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    slug: "is-bali-safe",
+    eyebrow: "Is Bali safe?",
+    title: "Is Bali safe? An honest, practical safety guide",
+    description:
+      "Yes — Bali is broadly safe for tourists. The real risks are mundane and preventable: scooters, rip currents, stomach bugs and petty scams. Here's how to handle each.",
+    lede: "Yes — Bali is broadly safe for mainstream travel, and no major government rates it a danger zone. The honest picture is that the real risks are ordinary and largely preventable — rented scooters, rip currents, stomach bugs, dodgy drinks and petty scams — not terrorism or violent crime. Handle those few things well and Bali is as safe as most popular holiday destinations.",
+    sections: [
+      {
+        heading: "The biggest real risk: scooters and roads",
+        paras: [
+          "Traffic accidents — overwhelmingly on rented scooters — are the number-one cause of tourist injury and death in Bali. This is the risk to take seriously, not crime.",
+          "You legally need your home licence plus an International Driving Permit that carries the motorcycle (Class A) endorsement — a car-only IDP doesn't cover even a 110cc scooter. Helmets are mandatory. Critically, most travel-insurance policies void your medical cover if you ride without the correct licence or a helmet, which can leave you personally liable for a very large hospital bill.",
+          "Get the motorcycle-endorsed IDP before you fly, always wear the helmet, and confirm in writing that your insurer covers motorbikes. If you're not a confident rider, use Grab, Gojek or a private driver instead — it's cheap and removes the single biggest danger.",
+        ],
+      },
+      {
+        heading: "The sea: rip currents and which beaches are calm",
+        paras: [
+          "Bali's west and south coasts — Kuta, Legian, Echo Beach and the Uluwatu stretch — have year-round surf and permanent rip currents that catch swimmers every year, often at unpatrolled beaches. Calmer, family-friendly swimming is on the east and south-east: Sanur, Nusa Dua's protected bay, and Jimbaran Bay.",
+          "Patrolled beaches use Balawista lifeguards and a flag system: swim only between the red-and-yellow flags, and never when a red flag is flying. If you're caught in a rip, don't fight it — stay calm, float, and swim parallel to the beach to escape the channel before heading in.",
+        ],
+      },
+      {
+        heading: "Staying healthy: stomach, rabies and mosquitoes",
+        paras: [
+          "\"Bali belly\" — traveller's diarrhoea — is the most common traveller ailment, usually from tap water, ice or undercooked food. Bali tap water isn't safe to drink: use sealed bottled or filtered water (including for brushing teeth), skip ice unless you know it's from purified water, and favour freshly cooked, hot, busy-kitchen food.",
+          "Rabies is present in Bali, carried mainly by stray dogs; the monkeys at Ubud's Monkey Forest and Uluwatu Temple also bite and scratch. Don't touch or feed stray animals. A bite or scratch is a time-critical emergency — wash it with soap under running water for about 15 minutes and get to a clinic (BIMC, Siloam) the same day for post-exposure treatment, which works well when started promptly.",
+          "Dengue fever is endemic, worst in the rainy season, and its mosquitoes bite by day — use a DEET or picaridin repellent and cover up at dawn and dusk. Malaria is essentially not a risk in Bali's tourist areas, so antimalarial tablets aren't normally recommended for a standard Bali trip.",
+        ],
+      },
+      {
+        heading: "Drinks: the one methanol rule",
+        paras: [
+          "This is a documented, occasionally fatal risk rather than a myth: bootleg local spirits (arak) and very cheap \"free-pour\" cocktails have been contaminated with methanol, which can blind or kill, and there have been tourist deaths on record.",
+          "The rule is simple: stick to sealed, reputable-brand bottles and cans with intact seals, and be wary of unusually cheap cocktails, free arak shots and drinks from unlicensed sellers. Severe next-day illness or blurred vision after drinking warrants immediate hospital care.",
+        ],
+      },
+      {
+        heading: "Scams and petty theft",
+        paras: [
+          "Crime against tourists is mostly petty and opportunistic, not violent. The usual scams: money-changers short-changing you (use authorised changers with a posted licence, not \"amazing rate\" street booths, and count the cash yourself before leaving); ATM skimming (use machines inside bank branches); bag-snatching by passing scooters (carry bags on the side away from the road); and inflated taxi fares (use the Grab or Gojek apps, or metered Bluebird).",
+          "The classic scooter-rental trick is an invented \"damage\" claim on return. Before you ride off, film a slow, narrated video of every panel, mirror and the seat compartment — it ends the argument instantly.",
+        ],
+      },
+      {
+        heading: "Natural hazards: volcanoes and earthquakes",
+        paras: [
+          "Bali sits on the Ring of Fire, so earthquakes and volcanic activity are routine and tsunami risk is low but real (coastal areas have evacuation signage). Bali's own Mount Agung has been calm recently, but volcanoes elsewhere in the region periodically send ash over the flight paths and cancel Bali flights — which is a safety measure, not an over-reaction.",
+          "Volcano status changes fast, so check the live alert level on Indonesia's official MAGMA Indonesia service before you travel, and build a buffer day into tight flight connections during any eruption period.",
+        ],
+      },
+      {
+        heading: "Solo and female travellers",
+        paras: [
+          "Bali is a very popular and generally safe destination for solo and female travellers with standard precautions. The honest caveats: reports of sexual assault are relatively high in Bali and Lombok, and drink-spiking has been reported around nightlife — so vigilance at bars and clubs matters.",
+          "Watch your drink being made or choose sealed bottles, never leave it unattended, avoid solo scooter rides on unlit roads late at night, and dress modestly at temples. These are the same precautions you'd take in any busy nightlife destination.",
+        ],
+      },
+      {
+        heading: "Laws worth knowing",
+        paras: [
+          "Drugs are genuinely zero-tolerance: Indonesia imposes long prison terms for even small amounts, and serious trafficking can carry life imprisonment or the death penalty, with no exemption for foreigners. Decline entirely — nothing is worth the risk.",
+          "Indonesia's new criminal code (in force from January 2026) was widely misreported. It technically restricts sex outside marriage and unmarried cohabitation, but these are complaint-based offences that can only be acted on if a close family member files a formal complaint, and the government has confirmed there are no marital-status checks at hotels. Ordinary couples sharing a room are not the target.",
+          "Temple etiquette is taken seriously: wear a sarong, cover shoulders and knees, and don't climb sacred structures. Sarongs are usually provided at temple entrances.",
+        ],
+      },
+      {
+        heading: "If something goes wrong",
+        paras: [
+          "Indonesia's emergency number is 112. Bali has good private hospitals used to foreign patients — BIMC and Siloam — but treatment, and especially medical evacuation, are expensive without cover: an evacuation can run into tens of thousands of dollars.",
+          "This is why comprehensive travel insurance is non-negotiable. Buy a policy that explicitly covers scooter use (with a valid licence) and medical evacuation with a high limit, and save your insurer's 24-hour assistance line and the hospital numbers in your phone before you need them.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Bali safe for tourists right now?", a: "Broadly, yes. Major government advisories keep Indonesia in the middle \"exercise increased/high caution\" band — the same as many popular destinations — rather than a \"do not travel\" rating, and Bali specifically has no blanket warning. Check your own government's page and any live volcano status the week you fly." },
+      { q: "What is the biggest danger in Bali?", a: "Rented scooters. Traffic accidents are by far the leading cause of tourist injury, and riding without the correct motorcycle licence can also void your travel insurance. Wear a helmet, carry a motorcycle-endorsed IDP, or use a driver." },
+      { q: "Is Bali safe for solo female travellers?", a: "Yes, it's a popular and generally safe solo destination with standard precautions. Be alert around nightlife (drink-spiking has been reported), avoid solo night scooter rides on dark roads, and dress modestly at temples." },
+      { q: "Can you drink the tap water in Bali?", a: "No — tap water isn't safe to drink. Use sealed bottled or filtered water (including for brushing teeth), avoid ice of uncertain source, and eat freshly cooked hot food to avoid \"Bali belly.\"" },
+      { q: "Do I need malaria tablets for Bali?", a: "Not for a standard Bali trip — the tourist areas are considered malaria-free. Dengue is present, though, so focus on daytime mosquito-bite prevention with repellent and covering up at dawn and dusk." },
+      { q: "Do Indonesia's new sex laws affect tourists?", a: "In practice, no. The 2026 criminal code's cohabitation and extramarital-sex provisions are complaint-based — only actionable if a close family member formally complains — and officials have confirmed there are no marital-status checks at hotels. Ordinary couples sharing a room are not the target." },
+      { q: "Is it safe to swim at Bali's beaches?", a: "It depends on the beach. The west and south coasts (Kuta, Canggu, Uluwatu) have strong rip currents; Sanur, Nusa Dua and Jimbaran Bay are calm and swimmable. Swim between the red-and-yellow flags and never under a red flag." },
+    ],
+    related: [
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Scooters, drivers and apps — and how to do it safely." },
+      { href: "/best-time-to-visit-bali", title: "Best time to visit Bali", blurb: "Seasons, weather and when to go." },
+      { href: "/first-time-in-bali", title: "First time in Bali", blurb: "Your first trip without the rookie mistakes." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "The five first-timer areas, compared." },
+    ],
+  },
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
@@ -639,6 +730,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
       "bali-itinerary-10-days",
       "best-time-to-visit-bali",
       "how-to-get-around-bali",
+      "is-bali-safe",
       "bali-on-a-budget",
     ],
   },
