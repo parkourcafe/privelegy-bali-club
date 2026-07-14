@@ -13,6 +13,8 @@
 // Partner-proof events (redemption, reservation_click) are NOT routed through
 // this helper — they keep their existing dedicated paths.
 
+import { analyticsAllowed } from "./consent";
+
 type GtagFn = (...args: unknown[]) => void;
 
 declare global {
@@ -42,6 +44,10 @@ export function track(
   params?: { venueSlug?: string; pageSlug?: string; label?: string }
 ): void {
   const slug = params?.venueSlug ?? params?.pageSlug;
+
+  // Analytics is opt-in (audit 2026-07): skip entirely until the traveller has
+  // accepted. The server route also guards, so this is the fast client path.
+  if (!analyticsAllowed()) return;
 
   // Internal funnel store — best-effort, never blocks navigation.
   try {

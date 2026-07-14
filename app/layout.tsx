@@ -4,6 +4,7 @@ import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
+import ConsentBanner from "@/components/ConsentBanner";
 
 // Real loaded type (not system stacks): Fraunces (editorial serif) for display,
 // Geist for body/UI. Exposed as CSS vars and consumed by --font-display /
@@ -60,6 +61,7 @@ export default function RootLayout({
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />
+        <ConsentBanner />
       </body>
     </html>
   );
