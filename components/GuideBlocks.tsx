@@ -123,9 +123,15 @@ export function GuideFooter() {
         Other Bali is free for travellers. Recommendations are editorial —
         sponsored placements are always labeled and never change the order.
       </p>
-      <div className="mt-3 flex gap-4">
+      <div className="mt-3 flex flex-wrap gap-4">
         <Link href="/places" className="quiet-link">
           All places
+        </Link>
+        <Link href="/bali" className="quiet-link">
+          Bali by district
+        </Link>
+        <Link href="/guides" className="quiet-link">
+          Travel guides
         </Link>
         <Link href="/privacy" className="quiet-link">
           Privacy

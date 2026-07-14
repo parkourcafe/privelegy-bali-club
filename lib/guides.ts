@@ -594,6 +594,26 @@ export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
 
+// Which long-form guides are most relevant to each district pillar — used to
+// cross-link pillars → guides (internal-link mesh). Slugs only; the link cards
+// are built from the registry so titles/blurbs can't drift.
+const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
+  canggu: ["canggu-vs-uluwatu", "seminyak-vs-canggu", "where-to-stay-in-bali", "best-coffee-in-bali", "bali-for-digital-nomads"],
+  uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples"],
+  "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples"],
+  ubud: ["where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples", "how-many-days-in-bali", "bali-for-digital-nomads"],
+  sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "how-to-get-around-bali"],
+  seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
+  "nusa-dua": ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+};
+
+export function guidesForDistrict(slug: string): GuideRelated[] {
+  return (DISTRICT_GUIDE_SLUGS[slug] ?? ["where-to-stay-in-bali", "how-many-days-in-bali", "best-time-to-visit-bali"])
+    .map((s) => getGuide(s))
+    .filter((g): g is Guide => Boolean(g))
+    .map((g) => ({ href: `/${g.slug}`, title: g.title, blurb: g.description }));
+}
+
 export function guideMetadata(guide: Guide): Metadata {
   return {
     title: guide.title,

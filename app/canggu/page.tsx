@@ -4,6 +4,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
 import { CANGGU_GUIDES } from "@/lib/canggu-guides";
 import type { VenueWithPerk } from "@/lib/data";
@@ -126,6 +127,8 @@ export default async function CangguPillarPage() {
             { href: "/plan", title: "Plan a Canggu day", blurb: "Build a day by the moment you're in." },
           ]}
         />
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("canggu")} />
+
         <GuideFooter />
       </main>
     </div>

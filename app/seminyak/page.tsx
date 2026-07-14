@@ -4,6 +4,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
 import type { VenueWithPerk } from "@/lib/data";
@@ -127,6 +128,8 @@ export default async function SeminyakPillarPage() {
             { href: "/places", title: "All Bali places", blurb: "The full curated map by district." },
           ]}
         />
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("seminyak")} />
+
         <GuideFooter />
       </main>
     </div>
