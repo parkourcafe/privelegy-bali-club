@@ -13,8 +13,11 @@
 //      No approved venue photos exist yet, so published venues render the
 //      explicitly typographic editorial cover (never a fake image).
 //    - Every district also requires the database publication gate:
-//      status=active and publication_status=published. Editorial completeness
-//      never promotes a review or inactive row by itself.
+//      status=active and publication_status=published. Other districts then
+//      require the decision-ready editorial predicate; Uluwatu additionally
+//      requires its evidence registry. Editorial completeness never promotes
+//      a review or inactive row by itself. isVenueIndexable() works for all
+//      districts; isIndexableVenueSlug() is the Uluwatu slug-only variant.
 //
 // 2. REVIEW — internal only, through authenticated operator surfaces.
 

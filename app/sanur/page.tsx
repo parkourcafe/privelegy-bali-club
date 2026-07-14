@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 import {
   SANUR_FAQ,
   SANUR_HOTELS,
@@ -283,6 +284,8 @@ export default async function SanurPillarPage() {
             See the hotel shortlist →
           </Link>
         </div>
+
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("sanur")} />
 
         <GuideFooter />
       </main>

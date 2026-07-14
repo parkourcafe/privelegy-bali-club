@@ -70,3 +70,15 @@ remains draft and non-public.
   pre-existing policy-name collisions in `0031` were made idempotent.
 - Production remains unchanged by this rehearsal and still requires the bridge,
   schema application, one-time import call and operator publication gate.
+
+## Current production content reconciliation
+
+- While release work was in progress, Vercel promoted production deployment
+  `dpl_533Ribbd8KZHhm1dPUB3rrap1zLX` from content SHA `0c532b0`.
+- That production SHA was integrated before release deployment so the new
+  Ubud, Jimbaran, guide, catalogue and service-worker fixes are preserved.
+- The content stream's already-applied `0030_enrich_remaining_wellness.sql`
+  was archived as handoff evidence outside `supabase/migrations`; numbered
+  migration `0030` remains owned by `0030_photo_consent.sql`.
+- The combined tree passes all `57` Node tests, TypeScript, zero-warning lint
+  and an optimized build containing `39` application routes.

@@ -22,6 +22,7 @@ export const PILLARS: Pillar[] = [
     tagline: "Surf mornings, café work, sunset beach clubs — the deep guide.",
     children: [
       { path: "/canggu/best-restaurants", title: "Best restaurants in Canggu" },
+      { path: "/canggu/best-brunch", title: "Best brunch in Canggu" },
       { path: "/canggu/work-friendly-cafes", title: "Work-friendly cafés in Canggu" },
       { path: "/canggu/best-spas", title: "Best spas in Canggu" },
       { path: "/canggu/beach-clubs-sunset", title: "Canggu beach clubs & sunset" },
@@ -44,6 +45,7 @@ export const PILLARS: Pillar[] = [
     name: "Ubud",
     tagline: "Jungle mornings, rice-terrace calm, long slow dinners.",
     children: [
+      { path: "/ubud/things-to-do", title: "Best things to do in Ubud" },
       { path: "/ubud/best-restaurants", title: "Best restaurants in Ubud" },
       { path: "/ubud/best-cafes-coffee", title: "Best cafés & coffee in Ubud" },
       { path: "/ubud/best-yoga-wellness", title: "Best yoga & wellness in Ubud" },
@@ -79,6 +81,15 @@ export const PILLARS: Pillar[] = [
     children: [
       { path: "/nusa-dua/best-restaurants", title: "Best restaurants in Nusa Dua" },
       { path: "/nusa-dua/spas-wellness", title: "Best spas & wellness in Nusa Dua" },
+    ],
+  },
+  {
+    slug: "jimbaran",
+    name: "Jimbaran",
+    tagline: "The seafood bay: grills on the sand at sunset, cliff-edge bars and resort spas.",
+    children: [
+      { path: "/jimbaran/best-restaurants", title: "Best restaurants in Jimbaran" },
+      { path: "/jimbaran/spas-wellness", title: "Best spas & wellness in Jimbaran" },
     ],
   },
 ];

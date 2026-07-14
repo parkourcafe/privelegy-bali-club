@@ -26,6 +26,25 @@ export type CangguGuide = {
 
 export const CANGGU_GUIDES: CangguGuide[] = [
   {
+    slug: "best-brunch",
+    h1: "Best brunch in Canggu",
+    metaTitle: "Best brunch in Canggu — cafés, all-day spots and beachfront",
+    metaDescription:
+      "The best brunch in Canggu, sorted by the morning you want: café brunch and specialty coffee, all-day and weekend spreads, or a table by the beach.",
+    lede: "Brunch is Canggu's best meal. These are the spots we rate, sorted by the morning you're after — a laptop-and-coffee café, a proper weekend spread, or toes-near-sand by the beach.",
+    base: (v) => venueHasJob(v, ["brunch-after-surf"]),
+    groups: [
+      { key: "cafe", heading: "Café brunch & specialty coffee", note: "Bowls, eggs, good coffee — and a seat that lasts.", match: (v) => v.category === "cafe" },
+      { key: "allday", heading: "All-day & weekend brunch", note: "Bigger menus and a proper sit-down spread.", match: (v) => v.category === "restaurant" },
+      { key: "beach", heading: "Beachfront brunch", note: "Brunch with sand and surf out front.", match: (v) => v.category === "beach_club" },
+    ],
+    faq: [
+      { q: "Where is the best brunch in Canggu?", a: "Canggu's brunch clusters around Batu Bolong, Berawa and Pererenan — café-and-coffee spots for a laptop morning, all-day restaurants for a bigger weekend spread, and a few beachfront clubs. The picks above are sorted by which you want." },
+      { q: "Do I need to book brunch in Canggu?", a: "The popular weekend spots fill up, so a reservation helps on Saturday and Sunday mornings. Cafés and quieter places are usually walk-in." },
+      { q: "What time is brunch in Canggu?", a: "Most cafés open early (around 7–8am) and serve brunch all morning into the afternoon; many run all-day menus, so a late brunch is easy." },
+    ],
+  },
+  {
     slug: "best-restaurants",
     h1: "Best restaurants in Canggu",
     metaTitle: "Best restaurants in Canggu — sorted by the dinner you're planning",

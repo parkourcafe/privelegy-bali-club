@@ -53,6 +53,8 @@ const PLAN_VENUE_COLUMNS = [
   "district",
   "address",
   "gmaps_url",
+  "official_url",
+  "instagram_url",
   "tier",
   "status",
   "is_sponsored",
@@ -79,6 +81,8 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "district",
   "address",
   "gmaps_url",
+  "official_url",
+  "instagram_url",
   "tier",
   "status",
   "is_sponsored",
@@ -163,8 +167,12 @@ const mapVenue = (r: Row): Venue => {
     name: r.name as string,
     category: r.category as Venue["category"],
     district,
-    address: r.address as string,
+    // Never null downstream: a null address once 500'd all of /places via
+    // v.address.toLowerCase() in the catalogue filter.
+    address: (r.address as string) ?? "",
     gmapsUrl: publicDirectionsUrl(r),
+    officialUrl: (r.official_url as string) ?? undefined,
+    instagramUrl: (r.instagram_url as string) ?? undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
@@ -566,7 +574,7 @@ export const HUB_MIN_VENUES = 8;
 // Districts with a hand-crafted pillar (base's /uluwatu product) are NOT served
 // by the programmatic /bali/[district] hub — that would create two pages
 // competing for the same queries. The pillar owns those districts.
-const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur", "ubud", "seminyak", "nusa-dua"]);
+const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur", "ubud", "seminyak", "nusa-dua", "jimbaran"]);
 
 // Active, published venues grouped by district. Ranking pages show only
 // canonical live rows. Known districts

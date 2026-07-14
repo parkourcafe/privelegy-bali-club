@@ -4,6 +4,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES } from "@/lib/ubud-guides";
 import type { VenueWithPerk } from "@/lib/data";
@@ -103,6 +104,9 @@ export default async function UbudPillarPage() {
         </header>
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Ubud guides">
+          <Link href="/ubud/things-to-do" className="chip">
+            Things to do
+          </Link>
           {UBUD_GUIDES.map((g) => (
             <Link key={g.slug} href={`/ubud/${g.slug}`} className="chip">
               {g.h1.replace(" in Ubud", "").replace("Ubud ", "")}
@@ -122,6 +126,8 @@ export default async function UbudPillarPage() {
             { href: "/places", title: "All Bali places", blurb: "The full curated map by district." },
           ]}
         />
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("ubud")} />
+
         <GuideFooter />
       </main>
     </div>

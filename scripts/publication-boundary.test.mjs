@@ -4,7 +4,7 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
-const [catalogue, detail, publication, data, cards, placeCard, worker, partner, onboarding, analytics, analyticsClient, rootLayout, proxy] = await Promise.all([
+const [catalogue, detail, publication, data, cards, placeCard, worker, workerRegister, partner, onboarding, analytics, analyticsClient, rootLayout, proxy] = await Promise.all([
   read("app/places/page.tsx"),
   read("app/places/[slug]/page.tsx"),
   read("lib/publication.ts"),
@@ -12,6 +12,7 @@ const [catalogue, detail, publication, data, cards, placeCard, worker, partner, 
   read("app/places/PlacesView.tsx"),
   read("components/PlaceCard.tsx"),
   read("public/sw.js"),
+  read("app/ServiceWorkerRegister.tsx"),
   read("app/partner/[venue]/page.tsx"),
   read("app/api/onboard/jtbd/route.ts"),
   read("components/Analytics.tsx"),
@@ -43,13 +44,15 @@ test("TablePilot card handoffs require the active-deep coverage gate", () => {
   assert.match(placeCard, /buildTablePilotReservationUrl/);
 });
 
-test("service worker caches only the explicit public shell", () => {
-  assert.match(worker, /ob-shell-v5/);
-  assert.match(worker, /staticShell/);
-  assert.match(worker, /nextStatic/);
-  assert.match(worker, /request\.headers\.has\("authorization"\)/);
-  assert.match(worker, /private\|no-store/);
-  assert.doesNotMatch(worker, /url\.pathname\.includes\("\/redeem"\)/);
+test("service worker kill switch purges caches and unregisters without intercepting requests", () => {
+  assert.match(worker, /caches\.keys\(\)/);
+  assert.match(worker, /keys\.map\(\(k\) => caches\.delete\(k\)\)/);
+  assert.match(worker, /self\.registration\.unregister\(\)/);
+  assert.match(worker, /self\.clients\.matchAll/);
+  assert.doesNotMatch(worker, /caches\.open|caches\.match|respondWith/);
+  assert.match(workerRegister, /getRegistrations/);
+  assert.match(workerRegister, /r\.unregister\(\)/);
+  assert.doesNotMatch(workerRegister, /serviceWorker\.register/);
 });
 
 test("partner metrics are operator-only and venue token edits only owner copy", () => {

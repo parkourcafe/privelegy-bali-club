@@ -25,7 +25,9 @@ export async function generateMetadata({
   const hubs = district ? await getDistrictHubs() : [];
   const hub = hubs.find((h) => h.slug === district);
   return {
-    title: "Places",
+    title: "Places to eat, drink & go in Bali — by district",
+    description:
+      "A curated, resident-checked map of Bali by district — cafés, restaurants, beach clubs, bars and wellness, with who each place suits and what to expect. Free to browse; travellers never pay.",
     alternates: { canonical: hub ? `/bali/${hub.slug}` : "/places" },
   };
 }

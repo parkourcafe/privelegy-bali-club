@@ -20,6 +20,7 @@ function functionBody(sql, name) {
 
 test("release migrations preserve applied 0030 and sequence repairs after it", () => {
   assert.ok(migrationFiles.includes("0030_photo_consent.sql"));
+  assert.ok(!migrationFiles.includes("0030_enrich_remaining_wellness.sql"));
   assert.ok(migrationFiles.includes("0031_secure_partner_operator_rpcs.sql"));
   assert.ok(migrationFiles.includes("0032_menu_action_foundation.sql"));
   assert.ok(migrationFiles.includes("0033_venue_photo_consent_staging.sql"));

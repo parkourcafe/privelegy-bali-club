@@ -15,7 +15,12 @@ const categoryLabel: Record<string, string> = {
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "My list & offers" };
+// Private per-guest page — also disallowed in robots.ts and absent from the
+// sitemap; explicit noindex here is belt-and-suspenders.
+export const metadata = {
+  title: "My list & offers",
+  robots: { index: false, follow: false },
+};
 
 // A guest's saved places (§6c) + redeemed offers. Identity is the httpOnly
 // cookie; no login, no localStorage (guardrail #10).
