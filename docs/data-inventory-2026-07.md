@@ -146,8 +146,8 @@ currently used by the wrapper; confirm when native features are added.
    CLAUDE.md guardrail and confirm it is never exposed to the client bundle.
 9. Migration numbering **collisions** on disk (two `0030_`, three `0031_`, two
    `0032_`) — confirm apply order is unambiguous in prod.
-10. The merge added unit tests (`lib/*.test.ts`), but CI still runs only
-    lint/typecheck/build — wire a `test` step in `.github/workflows/ci.yml`.
+10. ~~The merge added unit tests but CI didn't run them.~~ **Done** — a `test`
+    step now runs the full `node:test` suite in CI (audit item 12).
 
 ---
 

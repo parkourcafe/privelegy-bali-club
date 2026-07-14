@@ -16,8 +16,11 @@ const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "1";
 
 export default function Analytics() {
   // Privacy gate (audit 2026-07) wins over the plain deploy-env check: GA loads
-  // only in a production build AND when explicitly enabled. Flag unset ⇒ nothing
-  // loads, window.gtag stays undefined, and lib/analytics' GA leg no-ops.
-  if (process.env.NODE_ENV !== "production" || !ANALYTICS_ENABLED) return null;
+  // only on the real production deployment AND when explicitly enabled. Gate on
+  // VERCEL_ENV, not the build-time env — preview deploys build as "production"
+  // too, so keying off the deploy env keeps QA traffic out of production
+  // analytics. Flag unset ⇒ nothing loads, window.gtag stays undefined, and
+  // lib/analytics' GA leg no-ops.
+  if (process.env.VERCEL_ENV !== "production" || !ANALYTICS_ENABLED) return null;
   return <AnalyticsClient measurementId={GA_ID} />;
 }
