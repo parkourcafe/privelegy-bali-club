@@ -85,6 +85,14 @@ partial package row or ledger record survived.
   recomputed package digests
 - the database RPC is executable only by `service_role`
 
+Cloud preview verification:
+
+- commit: `535586e`
+- Vercel deployment: `dpl_4fRc6CzhZo3KdH6EPL6KMiWn4baU` (`READY`)
+- preview URL: `https://privelegy-bali-club-7clmzin7b-yulaboober.vercel.app`
+- authenticated preview request to `POST /api/admin/data-ops-import`: `404`
+- response controls: `private, no-store` and `noindex, nofollow, noarchive`
+
 ## Remaining production sequence
 
 This rehearsal does not authorize immediate public visibility. Production still

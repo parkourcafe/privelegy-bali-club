@@ -63,5 +63,7 @@ remains draft and non-public.
   back every package and ledger row; the pre-existing confirmed action survived.
 - Anonymous visibility remained zero for all imported drafts. Full evidence is
   in `docs/loop/handoffs/production_import_rpc_20260714.md`.
+- Preview deployment `dpl_4fRc6CzhZo3KdH6EPL6KMiWn4baU` is `READY`; its
+  production-only import endpoint returns fail-closed `404` in preview.
 - Production remains unchanged by this rehearsal and still requires the bridge,
   schema application, one-time import call and operator publication gate.
