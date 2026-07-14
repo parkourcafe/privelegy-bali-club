@@ -89,9 +89,29 @@ async function bundleEvidence(directory, root = directory) {
   };
 }
 
-async function privacyManifestEvidence(file, relativePath) {
+async function decodedPrivacyManifest(file) {
+  try {
+    const { stdout } = await execFileAsync(
+      "/usr/bin/plutil",
+      ["-convert", "json", "-o", "-", file],
+      { maxBuffer: 1_000_000 },
+    );
+    const decoded = JSON.parse(stdout);
+    return decoded && typeof decoded === "object" && !Array.isArray(decoded)
+      ? decoded
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function privacyManifestEvidence(file, relativePath) {
   if (!(await nonEmptyFile(file))) return null;
   const contents = await readFile(file, "utf8");
+  // Xcode compiles the app-level .xcprivacy file into a binary plist. Decode
+  // it with the platform plist tool when available; retain the XML checks as
+  // the portable fail-closed path used by Linux config-only verification.
+  const decoded = await decodedPrivacyManifest(file);
   const metadata = await stat(file);
   const requiredKeys = [
     "NSPrivacyTracking",
@@ -99,14 +119,31 @@ async function privacyManifestEvidence(file, relativePath) {
     "NSPrivacyCollectedDataTypes",
     "NSPrivacyAccessedAPITypes",
   ];
-  const missingKeys = requiredKeys.filter((key) => !contents.includes(`<key>${key}</key>`));
-  const emptyDeclarations = [
-    "NSPrivacyTrackingDomains",
-    "NSPrivacyCollectedDataTypes",
-    "NSPrivacyAccessedAPITypes",
-  ].every((key) => new RegExp(`<key>${key}</key>\\s*<array\\s*/>`).test(contents));
-  const userDefaultsReasonCA921 = contents.includes("NSPrivacyAccessedAPICategoryUserDefaults")
-    && /<string>CA92\.1<\/string>/.test(contents);
+  const missingKeys = requiredKeys.filter((key) => decoded
+    ? !Object.prototype.hasOwnProperty.call(decoded, key)
+    : !contents.includes(`<key>${key}</key>`));
+  const emptyDeclarations = decoded
+    ? [
+        "NSPrivacyTrackingDomains",
+        "NSPrivacyCollectedDataTypes",
+        "NSPrivacyAccessedAPITypes",
+      ].every((key) => Array.isArray(decoded[key]) && decoded[key].length === 0)
+    : [
+        "NSPrivacyTrackingDomains",
+        "NSPrivacyCollectedDataTypes",
+        "NSPrivacyAccessedAPITypes",
+      ].every((key) => new RegExp(`<key>${key}</key>\\s*<array\\s*/>`).test(contents));
+  const userDefaultsReasonCA921 = decoded
+    ? Array.isArray(decoded.NSPrivacyAccessedAPITypes)
+      && decoded.NSPrivacyAccessedAPITypes.some((entry) => (
+        entry
+        && typeof entry === "object"
+        && entry.NSPrivacyAccessedAPIType === "NSPrivacyAccessedAPICategoryUserDefaults"
+        && Array.isArray(entry.NSPrivacyAccessedAPITypeReasons)
+        && entry.NSPrivacyAccessedAPITypeReasons.includes("CA92.1")
+      ))
+    : contents.includes("NSPrivacyAccessedAPICategoryUserDefaults")
+      && /<string>CA92\.1<\/string>/.test(contents);
   return {
     path: relativePath,
     bytes: metadata.size,

@@ -241,7 +241,7 @@ export default function DayIntentBuilder() {
       <div className="mt-4 flex items-center justify-between gap-3">
         <Link
           href="/places"
-          className="text-sm font-semibold text-[var(--ob-sand-dim)] underline-offset-4 transition-colors hover:text-[var(--ob-sand)] hover:underline"
+          className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--ob-sand-dim)] underline-offset-4 transition-colors hover:text-[var(--ob-sand)] hover:underline"
         >
           Browse all places →
         </Link>
@@ -250,7 +250,7 @@ export default function DayIntentBuilder() {
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
           aria-controls="day-builder-fine-tune"
-          className="inline-flex items-center gap-1 rounded-full border border-[var(--ob-line)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ob-sand)] transition-colors hover:border-[var(--ob-brass)]/55"
+          className="inline-flex min-h-11 items-center gap-1 rounded-full border border-[var(--ob-line)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ob-sand)] transition-colors hover:border-[var(--ob-brass)]/55"
         >
           {expanded ? "Hide fine-tune" : "Fine-tune your day"}
           <span aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>▾</span>

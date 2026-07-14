@@ -603,6 +603,21 @@ async function corePlannerAndConsent(page) {
     cookieEvidence(rejectedCookies),
   );
 
+  const fineTuneButton = await findByText(
+    page,
+    "#day-builder button",
+    "Fine-tune your day",
+  );
+  record("planner exposes fine-tune controls", Boolean(fineTuneButton));
+  if (fineTuneButton) {
+    await fineTuneButton.click();
+    await page.waitForSelector("#day-builder-fine-tune", { visible: true });
+    record(
+      "planner fine-tune control reports expanded state",
+      await fineTuneButton.evaluate((button) => button.getAttribute("aria-expanded") === "true"),
+    );
+  }
+
   const firstMission = await page.$("#day-builder fieldset:first-of-type button");
   record("planner exposes a mission toggle", Boolean(firstMission));
   if (firstMission) {
@@ -614,7 +629,7 @@ async function corePlannerAndConsent(page) {
   const liveBrief = await page.$eval("#day-builder [aria-live='polite']", (element) => element.textContent?.replace(/\s+/g, " ").trim() ?? "");
   record("planner announces the changed brief", liveBrief.toLowerCase().includes("first time"), liveBrief);
 
-  const plannerLink = await findByText(page, "#day-builder a", "Show my top 3");
+  const plannerLink = await findByText(page, "#day-builder a", "Show best matches");
   record("planner exposes shortlist navigation", Boolean(plannerLink));
   if (plannerLink) {
     const href = await plannerLink.evaluate((anchor) => anchor.getAttribute("href") ?? "");
