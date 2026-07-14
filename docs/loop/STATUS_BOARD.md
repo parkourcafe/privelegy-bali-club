@@ -124,3 +124,22 @@ remains draft and non-public.
   during the live audit. The combined release now preserves both menu routes
   and the new Nusa Penida/safety/island-guide content; post-deploy checks passed
   for all 127 menu pages and the three new guide routes.
+
+## Operator-approved actions and Maps — 2026-07-15
+
+- The operator approved publishing the package's official action links while
+  preserving a separate venue-owner approval step.
+- Production moved from `2` to `250` confirmed package actions: `248` were
+  newly confirmed. It moved from `8` to `50` exact package Maps URLs: `42` were
+  newly applied.
+- A full idempotent replay returned `250 already_confirmed` and
+  `50 already_exact` against package digest
+  `ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081`.
+- No photo or owner-confirmation row was changed. All `147` package candidate
+  venues remain pending venue-owner review; operator publication is not owner
+  verification.
+- The temporary digest-locked endpoint and sensitive production token were
+  removed. Clean deployment `dpl_FnNVXdj7wrEx3jfAdWhDMkw3Mbhf` from
+  `49e360aa097e` serves `www.otherbali.com`; the removed endpoint returns `404`.
+- Public smoke routes and liveness return `200`. Readiness remains blocked:
+  `/api/health/ready` returns `503 dependency_unavailable`.

@@ -128,3 +128,40 @@ island things-to-do guides from the concurrent production line. A transient
 content-only alias replacement was detected during the live audit and reversed;
 the final combined deployment then passed all 127 menu route checks plus HTTP
 `200` checks for those three guide routes.
+
+## Operator-approved action and Maps follow-on — 2026-07-15
+
+The operator explicitly approved publication of the package's official action
+links while keeping venue-owner confirmation as a separate pending workflow.
+Before mutation, a read-only production audit matched the import ledger and
+reported `250` package actions (`2` confirmed, `248` draft/review) and `50`
+package Maps targets (`8` already exact, `42` pending). It also confirmed zero
+owner confirmations across the package's `147` candidate venues.
+
+A temporary production-only, digest-locked endpoint applied one exact package
+candidate per request. It required a one-time sensitive token, the exact package
+digest and the explicit `OPERATOR_APPROVED_OWNER_PENDING` assertion. Every
+action request rechecked the deterministic database ID, venue, kind, provider,
+URL and official source before calling the existing publication RPC. Every Maps
+request was restricted to the exact package URL and an active package venue.
+The endpoint could not modify menus, photos or owner confirmations.
+
+Results:
+
+- actions newly confirmed: `248`; previously confirmed: `2`;
+- Maps newly applied: `42`; previously exact: `8`;
+- verification replay: `250 already_confirmed` and `50 already_exact`;
+- package digest:
+  `ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081`;
+- photos changed or published: `0`;
+- venue-owner confirmations created: `0`; all `147` candidate venues remain
+  owner-review pending.
+
+The temporary mutation deployment was replaced by clean production deployment
+`dpl_FnNVXdj7wrEx3jfAdWhDMkw3Mbhf` from runtime commit `49e360aa097e`.
+The temporary endpoint now returns HTTP `404`; its production environment
+variable and local token files were removed. Home, menus, KYND menu and KYND
+place routes return HTTP `200`, and `/api/health/live` returns HTTP `200`.
+`/api/health/ready` still returns HTTP `503` with
+`dependency_unavailable`; this pre-existing readiness blocker remains open and
+must not be represented as a fully healthy release.
