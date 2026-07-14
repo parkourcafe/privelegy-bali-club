@@ -118,6 +118,32 @@ export default async function BaliIndexPage() {
             );
           })}
         </div>
+
+        <section className="mt-12">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 className="section-title">Plan your trip</h2>
+            <Link href="/guides" className="quiet-link">
+              All guides →
+            </Link>
+          </div>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Where to stay, how many days, when to go, and island-wide best-of.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {[
+              { href: "/where-to-stay-in-bali", label: "Where to stay in Bali" },
+              { href: "/how-many-days-in-bali", label: "How many days" },
+              { href: "/best-time-to-visit-bali", label: "Best time to visit" },
+              { href: "/bali-itinerary-7-days", label: "7-day itinerary" },
+              { href: "/best-beach-clubs-in-bali", label: "Best beach clubs" },
+              { href: "/best-coffee-in-bali", label: "Best coffee" },
+            ].map((g) => (
+              <Link key={g.href} href={g.href} className="chip">
+                {g.label}
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       <script
