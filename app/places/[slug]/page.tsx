@@ -277,6 +277,18 @@ export default async function VenuePage({
       ]
     : [{ name: "Home", href: "/" }, { name: "Places", href: "/places" }, { name }];
 
+  // Entity-identity links (schema sameAs) — the venue's own site + Instagram.
+  // Prefer the Uluwatu registry, fall back to the DB fields so EVERY district's
+  // venue pages carry the signal, not just Uluwatu. Helps Google confirm this
+  // page is about that exact venue (branded-query relevance).
+  const schemaSameAs = [
+    content?.officialUrl ?? venue.officialUrl,
+    content?.instagramUrl ?? venue.instagramUrl,
+  ].filter((u): u is string => Boolean(u));
+  // priceRange as a "$"-band only (schema expects a band, not a live menu).
+  const schemaPriceRange =
+    content?.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
   const jsonLd: Record<string, unknown> = {
@@ -291,8 +303,8 @@ export default async function VenuePage({
       addressRegion: "Bali",
       addressCountry: "ID",
     },
-    ...(content?.officialUrl ? { sameAs: [content.officialUrl, content.instagramUrl].filter(Boolean) } : content?.instagramUrl ? { sameAs: [content.instagramUrl] } : {}),
-    ...(content?.priceBand ? { priceRange: content.priceBand } : {}),
+    ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
+    ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
     ...(SCHEMA_HOURS[slug] ? { openingHours: SCHEMA_HOURS[slug] } : {}),
     hasMap: venue.gmapsUrl,
   };
