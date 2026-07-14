@@ -75,6 +75,21 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke, data-driven route (app/best-spas-in-bali) — metadata only.
+    slug: "best-spas-in-bali",
+    title: "The best spas & wellness in Bali",
+    description:
+      "Bali's best spas and wellness by area — Ubud's healing centres, the Seminyak spa strip, Canggu recovery, and calm coastal treatments. Sorted by district.",
+  },
+  {
+    // Bespoke, data-driven route (app/where-to-watch-sunset-in-bali) — metadata only.
+    slug: "where-to-watch-sunset-in-bali",
+    title: "Where to watch the sunset in Bali",
+    description:
+      "The best sunset spots in Bali by area — Uluwatu's clifftop bars, the Seminyak and Canggu beach clubs, and calm-bay options in the south. Where to be at golden hour.",
+  },
+
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
@@ -461,6 +476,48 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    slug: "ubud-vs-canggu",
+    eyebrow: "Ubud vs Canggu",
+    title: "Ubud vs Canggu: which should you choose?",
+    description:
+      "Ubud for jungle, culture and calm; Canggu for surf, cafés and beach-town buzz. The two most popular first-timer bases, compared — and how to do both.",
+    lede: "Choose Ubud for jungle, culture and calm; choose Canggu for surf, cafés and a beach-town buzz. They're Bali's two most popular first-timer bases and they're opposites — inland rice terraces and yoga versus coastal boards and beach clubs, about 1.5–2 hours apart. Many first trips do a few nights of each.",
+    sections: [
+      {
+        heading: "Choose Ubud if…",
+        paras: [
+          "You want the cultural, natural side of Bali: rice terraces, temples, waterfalls, yoga and long slow dinners, in cooler, greener air. It's calm and wellness-led rather than party.",
+          "Trade-off: there's no beach (the coast is about an hour away) and it sees more rain than the south.",
+        ],
+      },
+      {
+        heading: "Choose Canggu if…",
+        paras: [
+          "You want surf, laptop cafés, beach clubs and a young, social scene, all in one busy hub. It's the easiest place to plug into a community and stay active.",
+          "Trade-off: real traffic, a built-up feel, and grey-sand beaches made for surfing and sunset drinks rather than swimming.",
+        ],
+      },
+      {
+        heading: "Do both — the classic combo",
+        paras: [
+          "The most popular first-timer route is a few nights inland in Ubud for culture and calm, then a few in Canggu for surf and the coast. One transfer, roughly 1.5–2 hours, and you get both sides of Bali.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Ubud or Canggu better for a first trip?", a: "Ubud for culture, nature and calm; Canggu for surf, cafés and a beach-town scene. They're opposites, so many first-timers spend a few nights in each rather than choosing." },
+      { q: "Which is better for digital nomads?", a: "Canggu — it's Bali's hub for co-working and laptop cafés. Ubud is the calmer, wellness-leaning alternative." },
+      { q: "Does Ubud have a beach?", a: "No — Ubud is inland in the hills, about an hour from the coast. If beach time matters, pair it with Canggu or another coastal area." },
+      { q: "How far is Ubud from Canggu?", a: "Roughly 1.5–2 hours by car, depending on traffic. It's a single easy transfer between the two." },
+    ],
+    related: [
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
+      { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
+    ],
+  },
+
+  {
     slug: "bali-on-a-budget",
     eyebrow: "Bali on a budget",
     title: "Bali on a budget: how to keep costs low",
@@ -580,13 +637,14 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
       "best-area-to-stay-in-bali-for-families",
       "canggu-vs-uluwatu",
       "seminyak-vs-canggu",
+      "ubud-vs-canggu",
       "bali-for-digital-nomads",
     ],
   },
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali"],
+    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali"],
   },
 ];
 
@@ -598,13 +656,13 @@ export function getGuide(slug: string): Guide | undefined {
 // cross-link pillars → guides (internal-link mesh). Slugs only; the link cards
 // are built from the registry so titles/blurbs can't drift.
 const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
-  canggu: ["canggu-vs-uluwatu", "seminyak-vs-canggu", "where-to-stay-in-bali", "best-coffee-in-bali", "bali-for-digital-nomads"],
-  uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples"],
-  "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples"],
-  ubud: ["where-to-stay-in-bali", "best-area-to-stay-in-bali-for-couples", "how-many-days-in-bali", "bali-for-digital-nomads"],
-  sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "how-to-get-around-bali"],
-  seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
-  "nusa-dua": ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  canggu: ["ubud-vs-canggu", "canggu-vs-uluwatu", "seminyak-vs-canggu", "where-to-stay-in-bali", "best-coffee-in-bali", "where-to-watch-sunset-in-bali"],
+  uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
+  "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
+  ubud: ["ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
+  sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
+  seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
+  "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
 export function guidesForDistrict(slug: string): GuideRelated[] {
