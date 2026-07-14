@@ -1,0 +1,94 @@
+{
+  "batchId": "kynd-community-final",
+  "generatedAt": "2026-07-14T02:52:06Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-live-snapshot",
+      "label": "Read-only production snapshot",
+      "notes": "Used only to prove slug existence, active status and Seminyak district; never used for menu facts.",
+      "officialControl": "production_database_read_only",
+      "outcome": "identity_only",
+      "sourceType": "production_snapshot",
+      "url": "https://supabase.com/dashboard/project/egkdapqwkfprtyqvvnso",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null,
+      "localReportPath": "/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md",
+      "snapshotAt": "2026-07-14T02:20:05Z"
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-venues",
+      "label": "KYND official venues page",
+      "notes": "Names Seminyak as the largest KYND location and publishes its map, contact, shared menu and dinner link.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_venues_page",
+      "url": "https://www.kyndcommunity.com/pages/venus",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-cafe",
+      "label": "KYND official cafe page",
+      "notes": "States three Bali locations, opening hours, walk-in policy, Gojek/Grab availability and the shared sample menu.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_network_page",
+      "url": "https://www.kyndcommunity.com/pages/kyndcafe",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-menu-may-2026",
+      "label": "KYND current May 2026 menu PDF",
+      "notes": "Four-page PDF created 2026-05-11; all readable sections, priced lines and descriptions were visually inspected and transcribed.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "usable",
+      "sourceType": "official_menu_pdf",
+      "url": "https://cdn.shopify.com/s/files/1/0051/1685/4321/files/KYND_MENU___WEBSITE_MAY_2026.pdf?v=1778470614",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-seminyak-maps",
+      "label": "Official Seminyak Google Maps link",
+      "notes": "HTTP redirect resolves to Google Maps place KYND COMMUNITY SEMINYAK.",
+      "officialControl": "venue_link_to_provider",
+      "outcome": "usable",
+      "sourceType": "official_maps_action",
+      "url": "https://maps.app.goo.gl/kz5v6uNC5brWQ6ph7",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-seminyak-whatsapp",
+      "label": "Official Seminyak WhatsApp",
+      "notes": "Official venues page labels +62 859 3112 0209 as Seminyak.",
+      "officialControl": "venue_link_to_provider",
+      "outcome": "usable",
+      "sourceType": "official_whatsapp_action",
+      "url": "https://api.whatsapp.com/send?phone=6285931120209",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-14T02:52:06Z",
+      "id": "src-kynd-booking-shortlink",
+      "label": "Official dinner booking short-link",
+      "notes": "HTTP 301 resolves to ResDiary KYNDCanggu/1352; rejected for the Seminyak record.",
+      "officialControl": "venue_link_to_provider",
+      "outcome": "rejected_wrong_branch",
+      "sourceType": "official_booking_redirect",
+      "url": "https://cutt.ly/book-kyndbali",
+      "venueSlug": "kynd-community",
+      "verifiedAt": null,
+      "resolvedUrl": "https://booking.resdiary.com/widget/Standard/KYNDCanggu/1352"
+    }
+  ]
+}

@@ -1,13 +1,18 @@
 {
   "baselineSha": "10a82aa0aff8dc894d642d36acb14a4c9ed69175",
-  "capturedAt": "2026-07-13T15:07:27Z",
+  "capturedAt": "2026-07-14T02:52:06Z",
   "driftChecks": [
     {
       "id": "db-only-kynd-community",
-      "liveExpectedValue": "active Seminyak cafe",
+      "liveExpectedValue": "active Seminyak cafe confirmed",
       "repoValue": "absent from reproducible imports",
-      "requiredResolution": "Live SQL snapshot for slug, status, category, district, and publication fields.",
-      "status": "warning"
+      "requiredResolution": "Resolved by the read-only production snapshot captured 2026-07-14T02:20:05Z.",
+      "status": "reconciled",
+      "resolution": {
+        "file": "/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md",
+        "snapshotAt": "2026-07-14T02:20:05Z",
+        "result": "slug exists; status=active; district=seminyak; eligible F&B cafe"
+      }
     },
     {
       "id": "cafe-del-mar-district",
@@ -742,26 +747,12 @@
       }
     }
   ],
-  "liveDatabaseCandidates": [
-    {
-      "category": "cafe",
-      "denominatorImpactIfConfirmed": 1,
-      "district": "seminyak",
-      "eligibilityState": "needs_live_sql_confirmation",
-      "name": "KYND Community",
-      "repositoryEvidence": {
-        "file": "supabase/migrations/0020_seminyak_brunch_enrich.sql",
-        "line": 36,
-        "note": "Migration updates a pre-existing DB row but no reproducible repository import creates it."
-      },
-      "slug": "kynd-community"
-    }
-  ],
+  "liveDatabaseCandidates": [],
   "metrics": {
     "byCategory": {
       "bar": 14,
       "beach_club": 12,
-      "cafe": 42,
+      "cafe": 43,
       "restaurant": 131,
       "warung": 8
     },
@@ -770,27 +761,29 @@
       "jimbaran": 16,
       "nusa-dua": 13,
       "sanur": 20,
-      "seminyak": 31,
+      "seminyak": 32,
       "ubud": 32,
       "uluwatu-bukit": 25
     },
     "closedConfirmed": 0,
     "excludedRecords": 62,
     "liveDatabaseCandidate": 208,
-    "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
-    "liveExpectationStatus": "needs_live_sql_confirmation",
+    "liveDatabaseCandidateStatus": "reconciled",
+    "liveExpectationStatus": "reconciled",
     "liveExpectedActiveAll": 250,
     "liveExpectedActiveFnb": 208,
     "liveExpectedPublishedFnb": 174,
     "publicationState": {
       "published": 171,
-      "review": 36
+      "review": 36,
+      "unknown_live_active": 1
     },
-    "repoCanonicalActiveFnb": 207,
-    "totalEligible": 207
+    "repoCanonicalActiveFnb": 208,
+    "totalEligible": 208,
+    "repoReplayActiveFnb": 207
   },
   "schemaVersion": 1,
-  "scope": "All repository-backed active venue records in food/drink categories across every represented district.",
+  "scope": "All canonical active F&B venue records: 207 reproducible repository rows plus one production-snapshot-confirmed live-only row.",
   "sourceAuthority": [
     "supabase/migrations/0015_publish_collected_venues.sql",
     "supabase/migrations/0018_dedupe_venue_twins.sql",
@@ -802,12 +795,14 @@
     "supabase/migrations/0024_ubud_editorial_pass.sql",
     "docs/canggu-editorial-pass.md",
     "docs/ubud-editorial-pass.md",
-    "lib/uluwatu/venues.ts"
+    "lib/uluwatu/venues.ts",
+    "/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md"
   ],
   "surfaceVisibility": {
     "baliHubActiveStatusPool": {
       "note": "Some /bali hub surfaces may use status=active without the /places publication-ready predicate; this is a candidate pool, not a single rendered-page count.",
-      "repoCanonicalActiveFnb": 207
+      "repoCanonicalActiveFnb": 208,
+      "repoReplayActiveFnb": 207
     },
     "deepDistrictGuides": {
       "cangguPublicationReadyFnb": 70,
@@ -818,7 +813,8 @@
     "places": {
       "publicationReady": 171,
       "review": 36,
-      "rule": "lib/publication.ts publication-ready gate"
+      "rule": "lib/publication.ts publication-ready gate",
+      "unknownLiveActive": 1
     }
   },
   "venues": [
@@ -2894,6 +2890,22 @@
         "file": "supabase/migrations/0015_publish_collected_venues.sql",
         "line": 194,
         "note": "Imported canonical planning-catalogue row; migration sets status=active."
+      }
+    },
+    {
+      "canonical": true,
+      "category": "cafe",
+      "district": "seminyak",
+      "eligibilityState": "live_snapshot_canonical_active_fnb",
+      "eligible": true,
+      "name": "KYND Community",
+      "publicationState": "unknown_live_active",
+      "repositoryState": "active_live_only",
+      "slug": "kynd-community",
+      "source": {
+        "file": "/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md",
+        "note": "Read-only production snapshot confirms the live-only slug exists with status=active and district=seminyak. Category cafe and F&B eligibility are part of the approved denominator reconciliation; this source is not used for menu facts.",
+        "snapshotAt": "2026-07-14T02:20:05Z"
       }
     },
     {

@@ -1,38 +1,36 @@
 {
   "schemaVersion": 1,
   "compilerVersion": 1,
-  "inputDigest": "dbe5ea0b22de50c266e6b0213f8faf0d1c92258c586e1af800021cd0b4ee97bf",
-  "expectedInputFiles": 53,
-  "inputFiles": 53,
-  "asOf": "2026-07-13T16:22:00.000Z",
+  "inputDigest": "28c0d143c8c9fa72279adc0ea888dba6c84eb5f60af4fa290a98e7297613afaf",
+  "expectedInputFiles": 55,
+  "inputFiles": 55,
+  "asOf": "2026-07-14T02:52:06.000Z",
   "dataUseState": "draft_operator_review_only",
   "forbiddenToPublish": true,
   "denominator": {
-    "packageVenues": 207,
-    "coverageLedgerVenues": 207,
-    "canonicalRegistryVenues": 207,
-    "ledgerTotalEligible": 207,
-    "registryTotalEligible": 207,
+    "packageVenues": 208,
+    "coverageLedgerVenues": 208,
+    "canonicalRegistryVenues": 208,
+    "ledgerTotalEligible": 208,
+    "registryTotalEligible": 208,
     "liveDatabaseCandidate": 208,
-    "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
-    "unresolvedLiveCandidateSlugs": [
-      "kynd-community"
-    ],
+    "liveDatabaseCandidateStatus": "reconciled",
+    "unresolvedLiveCandidateSlugs": [],
     "repositoryCountsAligned": true,
-    "liveCandidateMatchesRepository": false,
-    "liveCandidateConfirmed": false,
-    "fullyReconciled": false,
-    "complete": 152,
+    "liveCandidateMatchesRepository": true,
+    "liveCandidateConfirmed": true,
+    "fullyReconciled": true,
+    "complete": 153,
     "blocked": 55
   },
   "integrity": {
     "globallyUniqueIds": true,
-    "candidateIds": 423,
-    "nestedMenuIds": 904,
-    "sourceIds": 358,
+    "candidateIds": 427,
+    "nestedMenuIds": 1046,
+    "sourceIds": 365,
     "rejectionIds": 115,
-    "provenanceInputRefs": 424,
-    "linkedValidSourceRefs": 424,
+    "provenanceInputRefs": 428,
+    "linkedValidSourceRefs": 428,
     "rejectedInputRefsExcluded": true,
     "initialVersionOneOnly": true
   },
@@ -41,16 +39,16 @@
     "expectedInputFileSetComplete": true,
     "repositoryDenominatorInternallyAligned": true,
     "liveCandidateSourcesAgree": true,
-    "liveCandidateStatusConfirmed": false,
-    "liveCandidateMatchesRepository": false,
-    "denominatorReconciled": false,
+    "liveCandidateStatusConfirmed": true,
+    "liveCandidateMatchesRepository": true,
+    "denominatorReconciled": true,
     "candidateIntegrityPassed": true,
     "readyForOperatorReview": true,
-    "readyForImportDryRun": false,
-    "readyForStagingApply": false,
+    "readyForImportDryRun": true,
+    "readyForStagingApply": true,
     "readyForPublish": false
   },
-  "packageDigest": "682f63f1981383f39a6d98e78694af04295da96fd9becbcd327e2bb1d09e51a2",
+  "packageDigest": "2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265",
   "targetField": "venues.gmaps_url",
   "venueMapsCandidates": [
     {
@@ -643,6 +641,45 @@
           "normalized_map_alias"
         ],
         "evidenceNotes": []
+      },
+      "targetField": "venues.gmaps_url",
+      "canonicalActionType": "directions"
+    },
+    {
+      "id": "venue-map-6baea2546c45408b68160b44",
+      "venueSlug": "kynd-community",
+      "kind": "maps",
+      "provider": "google_maps",
+      "version": 1,
+      "url": "https://maps.app.goo.gl/kz5v6uNC5brWQ6ph7",
+      "label": "Seminyak Google Maps",
+      "status": "draft",
+      "priority": 100,
+      "confirmationRequired": false,
+      "sourceUrl": "https://maps.app.goo.gl/kz5v6uNC5brWQ6ph7",
+      "sourceLabel": "Official Seminyak Google Maps link",
+      "capturedAt": "2026-07-14T02:52:06.000Z",
+      "verifiedAt": null,
+      "expiresAt": null,
+      "provenance": {
+        "packageIds": [
+          "kynd-community-final"
+        ],
+        "inputIds": [
+          "a-kynd-seminyak-maps"
+        ],
+        "sourceIds": [
+          "source-c978d55f4e80460ab2e44025"
+        ],
+        "originalSourceIds": [
+          "src-kynd-seminyak-maps"
+        ],
+        "classifications": [
+          "normalized_map_alias"
+        ],
+        "evidenceNotes": [
+          "Official venues page map resolves to KYND COMMUNITY SEMINYAK."
+        ]
       },
       "targetField": "venues.gmaps_url",
       "canonicalActionType": "directions"
