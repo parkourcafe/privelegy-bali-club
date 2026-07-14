@@ -99,9 +99,22 @@ function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
 
+type AxisKey = "mission" | "duration" | "spend" | "feel" | "district" | "group" | "finish";
+
+const AXES: { key: AxisKey; legend: string; options: Choice[]; wash: string }[] = [
+  { key: "mission", legend: "What kind of Bali are you here for?", options: missionOptions, wash: "ob-wash-dawn" },
+  { key: "duration", legend: "How long are you here?", options: durationOptions, wash: "ob-wash-island" },
+  { key: "spend", legend: "How do you want to spend it?", options: spendOptions, wash: "ob-wash-dawn" },
+  { key: "feel", legend: "What do you want to feel?", options: feelOptions, wash: "ob-wash-feel" },
+  { key: "district", legend: "Where are you today?", options: districtOptions, wash: "ob-wash-island" },
+  { key: "group", legend: "Who are you with?", options: groupOptions, wash: "ob-wash-group" },
+  { key: "finish", legend: "How should it end?", options: finishOptions, wash: "ob-wash-finish" },
+];
+
 function buildHref(parts: Choice[], missionSlug: string, durationSlug: string) {
   const params = new URLSearchParams();
-  // Mission tags lead the brief (primary intent), so keep a slightly wider cap.
+  // Only the axes the traveller actually chose reach the brief (audit 2026-07 —
+  // no silent defaults). Mission tags lead, so keep a slightly wider cap.
   const query = unique(parts.flatMap((part) => part.query)).slice(0, 8);
   const district = parts.find((part) => part.district)?.district;
   const category = [...parts].reverse().find((part) => part.category)?.category;
@@ -111,40 +124,49 @@ function buildHref(parts: Choice[], missionSlug: string, durationSlug: string) {
   if (category) params.set("category", category);
   if (missionSlug) params.set("m", missionSlug);
   if (durationSlug) params.set("dur", durationSlug);
-  params.set("intent", "1");
+  // "Top picks for your brief" mode only makes sense when there is something to
+  // match on — otherwise land on the plain, unranked catalogue.
+  if (query.length > 0 || district || category) params.set("intent", "1");
 
   const qs = params.toString();
-  return `/places?${qs}`;
+  return qs ? `/places?${qs}` : "/places";
 }
 
 export default function DayIntentBuilder() {
-  const [mission, setMission] = useState(missionOptions[0].value);
-  const [duration, setDuration] = useState(durationOptions[0].value);
-  const [spend, setSpend] = useState(spendOptions[2].value);
-  const [feel, setFeel] = useState(feelOptions[2].value);
-  const [district, setDistrict] = useState(districtOptions[0].value);
-  const [group, setGroup] = useState(groupOptions[1].value);
-  const [finish, setFinish] = useState(finishOptions[0].value);
+  // Nothing is pre-selected: every axis starts empty so the brief carries ONLY
+  // what the traveller taps (audit 2026-07 — silent defaults like beach/couple/
+  // sunset used to bias the shortlist behind their back). Tapping a selected
+  // option again clears it.
+  const [choices, setChoices] = useState<Partial<Record<AxisKey, string>>>({});
 
-  // Mission + duration lead the brief; the explicit district/spend/finish
-  // choices still win on category/district via buildHref precedence.
+  function toggle(axis: AxisKey, value: string) {
+    setChoices((prev) => {
+      const next = { ...prev };
+      if (next[axis] === value) delete next[axis];
+      else next[axis] = value;
+      return next;
+    });
+  }
+
   const selected = useMemo(
-    () => [
-      missionOptions.find((option) => option.value === mission)!,
-      durationOptions.find((option) => option.value === duration)!,
-      spendOptions.find((option) => option.value === spend)!,
-      feelOptions.find((option) => option.value === feel)!,
-      districtOptions.find((option) => option.value === district)!,
-      groupOptions.find((option) => option.value === group)!,
-      finishOptions.find((option) => option.value === finish)!,
-    ],
-    [mission, duration, spend, feel, district, group, finish]
+    () =>
+      AXES.map((axis) => {
+        const value = choices[axis.key];
+        return value ? axis.options.find((option) => option.value === value) ?? null : null;
+      }).filter((choice): choice is Choice => choice !== null),
+    [choices]
   );
 
-  const href = useMemo(() => buildHref(selected, mission, duration), [selected, mission, duration]);
-  const missionChoice = selected[0];
-  const durationChoice = selected[1];
-  const summary = `${missionChoice.label.toLowerCase()} · ${durationChoice.label.toLowerCase()} · ${selected[3].label.toLowerCase()}`;
+  const href = useMemo(
+    () => buildHref(selected, choices.mission ?? "", choices.duration ?? ""),
+    [selected, choices.mission, choices.duration]
+  );
+
+  const hasBrief = selected.length > 0;
+  const summary = useMemo(
+    () => selected.map((choice) => choice.label.toLowerCase()).join(" · "),
+    [selected]
+  );
 
   // Visual only: re-key the brief box when the summary changes so it pulses
   // softly (ob-brief-pulse). Selection logic and the built URL are untouched.
@@ -177,55 +199,16 @@ export default function DayIntentBuilder() {
       </div>
 
       <div className="mt-5 space-y-4">
-        <ChoiceGroup
-          label="What kind of Bali are you here for?"
-          options={missionOptions}
-          selected={mission}
-          onSelect={setMission}
-          wash="ob-wash-dawn"
-        />
-        <ChoiceGroup
-          label="How long are you here?"
-          options={durationOptions}
-          selected={duration}
-          onSelect={setDuration}
-          wash="ob-wash-island"
-        />
-        <ChoiceGroup
-          label="How do you want to spend it?"
-          options={spendOptions}
-          selected={spend}
-          onSelect={setSpend}
-          wash="ob-wash-dawn"
-        />
-        <ChoiceGroup
-          label="What do you want to feel?"
-          options={feelOptions}
-          selected={feel}
-          onSelect={setFeel}
-          wash="ob-wash-feel"
-        />
-        <ChoiceGroup
-          label="Where are you today?"
-          options={districtOptions}
-          selected={district}
-          onSelect={setDistrict}
-          wash="ob-wash-island"
-        />
-        <ChoiceGroup
-          label="Who are you with?"
-          options={groupOptions}
-          selected={group}
-          onSelect={setGroup}
-          wash="ob-wash-group"
-        />
-        <ChoiceGroup
-          label="How should it end?"
-          options={finishOptions}
-          selected={finish}
-          onSelect={setFinish}
-          wash="ob-wash-finish"
-        />
+        {AXES.map((axis) => (
+          <ChoiceGroup
+            key={axis.key}
+            label={axis.legend}
+            options={axis.options}
+            selected={choices[axis.key] ?? null}
+            onSelect={(value) => toggle(axis.key, value)}
+            wash={axis.wash}
+          />
+        ))}
       </div>
 
       <div
@@ -236,7 +219,9 @@ export default function DayIntentBuilder() {
         <p className="text-xs font-semibold uppercase text-[var(--ob-brass-2)]">
           Your map brief
         </p>
-        <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">{summary}</p>
+        <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">
+          {hasBrief ? summary : "Nothing preselected — tap only what matters, skip the rest."}
+        </p>
       </div>
 
       <div className="mt-4 grid gap-2 sm:grid-cols-[1fr_auto]">
@@ -244,7 +229,7 @@ export default function DayIntentBuilder() {
           href={href}
           className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
-          Show my top 3
+          {hasBrief ? "Show my top 3" : "Browse all places"}
         </Link>
         <Link
           href="/places"
@@ -266,7 +251,7 @@ function ChoiceGroup({
 }: {
   label: string;
   options: Choice[];
-  selected: string;
+  selected: string | null;
   onSelect: (value: string) => void;
   wash?: string;
 }) {
@@ -274,8 +259,8 @@ function ChoiceGroup({
     <fieldset>
       <legend className="text-xs font-semibold text-[var(--ob-sand-dim)]">{label}</legend>
       {/* Two-column grid: every option is visible at once (no horizontal
-          scroll, nothing sliced off the right edge). Selection logic and the
-          built URLs are untouched — layout only. */}
+          scroll, nothing sliced off the right edge). Each button is a toggle —
+          aria-pressed announces selected state and a second tap clears it. */}
       <div className="mt-2 grid grid-cols-2 gap-2">
         {options.map((option) => {
           const active = selected === option.value;
@@ -283,6 +268,7 @@ function ChoiceGroup({
             <button
               key={option.value}
               type="button"
+              aria-pressed={active}
               onClick={() => onSelect(option.value)}
               data-active={active ? "true" : "false"}
               className={`ob-choice ${wash ?? ""} rounded-2xl border px-3 py-2 text-left ${
