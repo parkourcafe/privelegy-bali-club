@@ -38,7 +38,8 @@ export function toCangguPlaceCard(v: VenueWithPerk): PlaceCardData {
     photoUrl: v.photoUrl,
     isSponsored: v.isSponsored,
     gmapsUrl: v.gmapsUrl,
-    tablepilotSlug: v.tablepilotSlug,
+    // TablePilot is rendered from the RLS-gated capability store on detail
+    // pages, never from the legacy venue column.
     hasOffer: Boolean(v.perk),
   };
 }

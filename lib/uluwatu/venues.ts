@@ -89,6 +89,53 @@ export interface UluwatuVenueContent {
   evidence: FactEvidence[];
 }
 
+export type UluwatuActionEvidenceField =
+  | "official_url"
+  | "instagram_url"
+  | "booking_url"
+  | "menu_url";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function safeHttpsUrl(value: string | null | undefined): string | null {
+  if (!value) return null;
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol !== "https:" || parsed.username || parsed.password) return null;
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+export function freshVerifiedUluwatuActionUrl(
+  content: UluwatuVenueContent | null,
+  field: UluwatuActionEvidenceField,
+  candidate: string | null | undefined,
+  now: Date | number = Date.now(),
+): string | null {
+  const safeCandidate = safeHttpsUrl(candidate);
+  if (!content || !safeCandidate) return null;
+  const evidence = content.evidence.find((entry) => entry.field === field);
+  const safeEvidenceUrl = safeHttpsUrl(evidence?.sourceUrl);
+  if (!evidence || evidence.status !== "VERIFIED" || !safeEvidenceUrl) {
+    return null;
+  }
+  const candidateUrl = new URL(safeCandidate);
+  const evidenceUrl = new URL(safeEvidenceUrl);
+  const normalizedPath = (pathname: string) => pathname.replace(/\/+$/, "") || "/";
+  if (
+    candidateUrl.origin !== evidenceUrl.origin ||
+    normalizedPath(candidateUrl.pathname) !== normalizedPath(evidenceUrl.pathname)
+  ) return null;
+  const verifiedAt = Date.parse(`${evidence.verifiedAt}T00:00:00.000Z`);
+  const nowMs = now instanceof Date ? now.getTime() : now;
+  const ttlMs = field === "menu_url" ? 60 * DAY_MS : 30 * DAY_MS;
+  if (!Number.isFinite(verifiedAt) || !Number.isFinite(nowMs)) return null;
+  if (verifiedAt > nowMs || nowMs - verifiedAt > ttlMs) return null;
+  return safeCandidate;
+}
+
 // Verification dates: web pass ran 2026-07-12; the internal research
 // dashboard import (migrations 0015/0016) is dated 2026-07-11.
 const CHECKED = "2026-07-12";
@@ -1300,6 +1347,7 @@ export function uluwatuAsVenue(c: UluwatuVenueContent) {
     address: c.address ?? `${c.microArea}, Bukit Peninsula`,
     gmapsUrl: c.gmapsUrl,
     tier: "editorial_seed" as const,
+    status: c.publication === "published" ? "active" : "review",
     isSponsored: false,
     area: c.microArea,
     whyItsHere: c.whyHere,
@@ -1307,6 +1355,7 @@ export function uluwatuAsVenue(c: UluwatuVenueContent) {
     notFor: c.notFor,
     whatToOrder: c.whatToOrder?.join("; "),
     priceAnchor: c.priceBand ? `Price band: ${c.priceBand}` : undefined,
+    publicationStatus: c.publication,
   };
 }
 

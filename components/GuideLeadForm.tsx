@@ -203,7 +203,7 @@ export default function GuideLeadForm() {
         <span className="field-label">Guide language</span>
         <select name="language" defaultValue="en">
           <option value="en">English</option>
-          <option value="ru">Русский</option>
+                  <option value="ru">Russian</option>
         </select>
       </label>
 

@@ -1,14 +1,22 @@
 import Link from "next/link";
-import { getVenuesList, getOnboardStatus } from "@/lib/data";
+import { getVenuesList } from "@/lib/data";
+import { getOperatorOnboardStatus } from "@/lib/admin-operations";
+import { listAttributionSources } from "@/lib/admin-attribution";
+import {
+  createAttributionSource,
+  deactivateAttributionSource,
+} from "./source-actions";
 
 export const dynamic = "force-dynamic";
 
-// Operator Field Kit index. Protected in production by ADMIN_ACCESS_TOKEN in
-// proxy.ts. Aggregate/operational only, no guest PII.
-const SOURCE_PRESETS = ["villa_01", "villa_02", "coliving_01", "reels_001", "flyer_01"];
-
+// Operator Field Kit index. The root admin layout and proxy both require the
+// configured ADMIN_ACCESS_TOKEN. Aggregate/operational only, no guest PII.
 export default async function AdminIndex() {
-  const [venues, status] = await Promise.all([getVenuesList(), getOnboardStatus()]);
+  const [venues, status, sources] = await Promise.all([
+    getVenuesList(),
+    getOperatorOnboardStatus(),
+    listAttributionSources(),
+  ]);
   const confirmed = venues.filter((v) => status[v.slug]?.confirmed).length;
 
   return (
@@ -17,6 +25,22 @@ export default async function AdminIndex() {
         Field Kit · operator
       </p>
       <h1 className="mt-1 text-2xl font-bold">Phase 0 control</h1>
+
+      <Link
+        href="/admin/freshness"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-amber-700 p-4 text-white"
+      >
+        <span className="font-semibold">→ Freshness & publication queue</span>
+        <span className="text-amber-100">review</span>
+      </Link>
+
+      <Link
+        href="/admin/photos"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-emerald-700 p-4 text-white"
+      >
+        <span className="font-semibold">→ Pending photo review</span>
+        <span className="text-emerald-100">rights gate</span>
+      </Link>
 
       <Link
         href="/admin/phase0"
@@ -76,20 +100,38 @@ export default async function AdminIndex() {
         Source QR (villa / coliving / Reels)
       </h2>
       <p className="mt-1 text-xs text-stone-500">
-        Unique tag per location — this is what proves attribution (§22). Add any
-        tag by visiting <code>/admin/qr/source/&lt;tag&gt;</code>.
+        Create an issued source before printing its QR. Unknown or inactive tags
+        are rejected and never count as external attribution.
       </p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {SOURCE_PRESETS.map((s) => (
-          <Link
-            key={s}
-            href={`/admin/qr/source/${s}`}
-            className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm font-medium text-stone-700"
-          >
-            {s}
-          </Link>
+      <form action={createAttributionSource} className="mt-3 grid gap-2 rounded-xl border border-stone-200 bg-white p-3 sm:grid-cols-3">
+        <input name="id" required maxLength={64} pattern="[a-z0-9][a-z0-9_-]{0,63}" placeholder="villa_name_01" className="rounded-lg border border-stone-200 px-3 py-2 text-sm" />
+        <input name="label" required minLength={2} maxLength={160} placeholder="Villa Name reception" className="rounded-lg border border-stone-200 px-3 py-2 text-sm" />
+        <select name="sourceClass" defaultValue="external" className="rounded-lg border border-stone-200 px-3 py-2 text-sm">
+          <option value="external">External partner</option>
+          <option value="creator">Creator</option>
+          <option value="in_venue">In venue</option>
+        </select>
+        <button className="rounded-lg bg-cyan-700 px-3 py-2 text-sm font-semibold text-white sm:col-span-3">Issue source ID</button>
+      </form>
+      <ul className="mt-3 space-y-2">
+        {sources.map((source) => (
+          <li key={source.id} className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm">
+            <div>
+              <p className="font-medium">{source.label}</p>
+              <p className="text-xs text-stone-500">{source.id} · {source.sourceClass} · {source.active ? "active" : "inactive"}</p>
+            </div>
+            <div className="flex gap-2">
+              {source.active && <Link href={`/admin/qr/source/${source.id}`} className="rounded-lg bg-cyan-700 px-2 py-1.5 font-medium text-white">Print QR</Link>}
+              {source.active && (
+                <form action={deactivateAttributionSource}>
+                  <input type="hidden" name="id" value={source.id} />
+                  <button className="rounded-lg border border-stone-300 px-2 py-1.5">Deactivate</button>
+                </form>
+              )}
+            </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </main>
   );
 }

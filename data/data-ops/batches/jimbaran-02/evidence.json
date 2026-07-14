@@ -1,0 +1,258 @@
+{
+  "batchId": "jimbaran-02",
+  "capturedAt": "2026-07-13T16:15:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "jimbaran",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Pantai Muaya / Jl. Four Seasons, Jimbaran; official social branch could not be fetched.",
+      "collectionNotes": [
+        "Official-looking Instagram identity was unavailable. Aggregator menus, ratings and user photos were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Radja Seafood Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "radja-seafood-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:15:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sundara-1",
+          "kind": "reserve",
+          "label": "Reservations",
+          "provider": "official_booking",
+          "sourceManifestId": "src-sundara-menu",
+          "status": "draft",
+          "url": "https://www.sundarabali.com/reservations/",
+          "venueSlug": "sundara",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Sundara at Four Seasons Resort Bali at Jimbaran Bay.",
+      "collectionNotes": [
+        "Live venue-controlled all-day menu. Dollar-like glyph is the site display convention; footer explicitly defines values as 000s of IDR plus 10% service and 11% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:15:00Z",
+          "id": "menu-sundara-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-01",
+                  "name": "Stockyard Angus Rib Eye 300 gr",
+                  "priceMinor": 1100000,
+                  "sourceDisplayPrice": "$1,100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-02",
+                  "name": "Tokusen Wagyu Striploin 200 gr",
+                  "priceMinor": 700000,
+                  "sourceDisplayPrice": "$700"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-03",
+                  "name": "Carrara Wagyu Flank Steak 200 gr",
+                  "priceMinor": 590000,
+                  "sourceDisplayPrice": "$590"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-04",
+                  "name": "Charcoal-Grilled Baby Chicken",
+                  "priceMinor": 360000,
+                  "sourceDisplayPrice": "$360"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-05",
+                  "name": "Grilled Snapper",
+                  "priceMinor": 350000,
+                  "sourceDisplayPrice": "$350"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sundara-06",
+                  "name": "Grilled Prawns",
+                  "priceMinor": 320000,
+                  "sourceDisplayPrice": "$320"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sundara-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Sundara",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sundara",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:15:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sunset-beach-bar-an-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-sunset-beach-bar-an-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/intercontinental-sunset-beach-bar-and-grill/reserve/landing",
+          "venueSlug": "sunset-beach-bar-and-grill",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Sunset Beach Bar & Grill, InterContinental Bali Resort, Jimbaran Bay.",
+      "collectionNotes": [
+        "Current IHG dining page links a two-page official PDF and TableCheck. PDF is fetchable but did not expose safe item text in this capture, so no cached older prices were transcribed."
+      ],
+      "coverageOutcome": "official_menu_found",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "Sunset Beach Bar & Grill",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sunset-beach-bar-and-grill",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:15:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-unique-rooftop-bar--1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-unique-rooftop-bar--home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/shops/ayana-resort-and-spa-unique/reserve",
+          "venueSlug": "unique-rooftop-bar-and-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "UNIQUE Rooftop Bar & Restaurant, rooftop at RIMBA by AYANA Bali.",
+      "collectionNotes": [
+        "Current AYANA page links the seven-page official PDF and branch-specific TableCheck. PDF footer states 000 rupiah plus 10% service and 11% tax; no item subset was normalized because extraction was incomplete."
+      ],
+      "coverageOutcome": "official_menu_found",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "UNIQUE Rooftop Bar & Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "unique-rooftop-bar-and-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Jimbaran; no fetchable first-party identity/address was confirmed.",
+      "collectionNotes": [
+        "No venue-controlled website, menu or reliably fetchable official social source was found. Aggregators and reviews were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Warung Mami ikan bakar",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-mami-ikan-bakar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Jalan Pemelisan Agung, Jimbaran; official Facebook candidate unavailable.",
+      "collectionNotes": [
+        "The official-looking Facebook page could not be fetched. Third-party menu, ratings and pricing were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Warung Ramayana Ikan Bakar",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-ramayana-ikan-bakar",
+      "verifiedAt": null
+    }
+  ]
+}

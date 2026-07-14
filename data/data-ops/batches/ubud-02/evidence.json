@@ -1,0 +1,812 @@
+{
+  "batchId": "ubud-02",
+  "capturedAt": "2026-07-13T15:44:45Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "ubud",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-gelato-locator",
+          "kind": "website",
+          "label": "Official Bali shops",
+          "provider": "official_website",
+          "sourceManifestId": "src-gelato-ubud-shops",
+          "status": "draft",
+          "url": "https://gelatosecrets.com/bali/",
+          "venueSlug": "gelato-secrets-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official locator lists Pengosekan, Monkey Forest and Wenara Wana Ubud shops; repo row has no branch discriminator.",
+      "collectionNotes": [
+        "Blocked until the canonical row is mapped to one of three official Ubud branches; product catalogue is not treated as a branch menu."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Gelato Secrets Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "gelato-secrets-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-hujan-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-hujan-menu",
+          "status": "draft",
+          "url": "https://hujanlocale.com/grazing-menu/",
+          "venueSlug": "hujan-locale",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-hujan-book",
+          "kind": "reserve",
+          "label": "Book a table",
+          "provider": "official_booking",
+          "sourceManifestId": "src-hujan-menu",
+          "status": "draft",
+          "url": "https://hujanlocale.com/booking/",
+          "venueSlug": "hujan-locale",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-hujan-order",
+          "kind": "order",
+          "label": "Order on Grab",
+          "provider": "grab",
+          "sourceManifestId": "src-hujan-menu",
+          "status": "draft",
+          "url": "https://r.grab.com/o/63IFVjMr",
+          "venueSlug": "hujan-locale",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Sri Wedari No.5, Ubud.",
+      "collectionNotes": [
+        "Six items transcribed; full menu not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-hujan-locale-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Glazed in sweet soy, sambal rica-rica and peanut sauce.",
+                  "id": "hujan-01",
+                  "name": "GRILLED MUSHROOM SKEWER",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Smoked dashi and ginger shallot broth.",
+                  "id": "hujan-02",
+                  "name": "GROUPER & GARLIC CHIVE DUMPLING",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Padang-style chilli sauce and fried curry leaf.",
+                  "id": "hujan-03",
+                  "name": "SLIPPER LOBSTER DUMPLINGS",
+                  "priceMinor": 145000,
+                  "sourceDisplayPrice": "145"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Thick curry sauce, rice cake and pickled vegetables.",
+                  "id": "hujan-04",
+                  "name": "BEEF SATE PADANG",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Plecing kangkung and sambal bongkot.",
+                  "id": "hujan-05",
+                  "name": "SATE BABI MERAH",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Charred kimchi cabbage, tofu, cashew and sweet soy.",
+                  "id": "hujan-06",
+                  "name": "CRISPY CHICKEN & PORK BATAGOR DUMPLING",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-hujan-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Hujan Locale",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "hujan-locale",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-ibu-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-ibu-rai-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/iburairestaurant/",
+          "venueSlug": "ibu-rai",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud identity represented only by official social profile.",
+      "collectionNotes": [
+        "SEO/review-scraper domains were rejected; no aggregator substitution."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Ibu Rai",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "ibu-rai",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-karsa-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-karsa-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/karsakafe/",
+          "venueSlug": "karsa-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud venue; historical domain is currently compromised.",
+      "collectionNotes": [
+        "Compromised domain is recorded but not exposed as an action. Retry official social after access is available."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Karsa Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "karsa-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-laka-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-laka-menu",
+          "status": "draft",
+          "url": "https://www.lakaleke.com/",
+          "venueSlug": "laka-leke",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Nyuh Kuning, Ubud, Bali 80571.",
+      "collectionNotes": [
+        "Official menu taxonomy is usable, but localhost image links prevent price/item extraction."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-laka-leke-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-laka-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Laka Leke",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "laka-leke",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-loc-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-locavore-menu",
+          "status": "draft",
+          "url": "https://locavorenxt.com/nxt/menu",
+          "venueSlug": "locavore-nxt",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-loc-book",
+          "kind": "reserve",
+          "label": "Book Locavore NXT",
+          "provider": "revasi",
+          "sourceManifestId": "src-locavore-menu",
+          "status": "draft",
+          "url": "https://revasi.net/restaurants/locavorenxt/availability?utm_campaign=nxt-booking-website&utm_medium=referral&utm_source=website",
+          "venueSlug": "locavore-nxt",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-loc-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-locavore-menu",
+          "status": "draft",
+          "url": "https://wa.me/6282144956226",
+          "venueSlug": "locavore-nxt",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Ubud; official NXT menu and NXT-specific Revasi target.",
+      "collectionNotes": [
+        "Package-level transcription only; courses are not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-locavore-nxt-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Per-person tasting menu; animal protein, vegetarian and vegan variants.",
+                  "id": "loc-01",
+                  "name": "THE SOURCE TASTING MENU",
+                  "priceMinor": 2200000,
+                  "sourceDisplayPrice": "Rp 2.200.000++"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "loc-02",
+                  "name": "CREATIVE BEVERAGE PAIRING — low/no alcohol",
+                  "priceMinor": 650000,
+                  "sourceDisplayPrice": "Add Rp 650.000++"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "loc-03",
+                  "name": "CREATIVE BEVERAGE PAIRING — alcohol",
+                  "priceMinor": 850000,
+                  "sourceDisplayPrice": "Add Rp 850.000++"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "loc-04",
+                  "name": "WINE PAIRING",
+                  "priceMinor": 1500000,
+                  "sourceDisplayPrice": "Add Rp 1.500.000++"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "3–3.5 hours; breakfast, transport and lunch included.",
+                  "id": "loc-05",
+                  "name": "OPTIONAL FORAGING EXPERIENCE",
+                  "priceMinor": 1250000,
+                  "sourceDisplayPrice": "IDR 1,250,000++ / person"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-locavore-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Locavore NXT",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "locavore-nxt",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-manga-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-manga-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/warungmanggamadu/",
+          "venueSlug": "manga-madu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud identity represented by official social profile; similarly named menu candidate rejected.",
+      "collectionNotes": [
+        "warungmanggamadu.shop shows a menu branded BAKMIE NAU; all of its copy, media and actions are rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Manga Madu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "manga-madu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-location",
+          "kind": "website",
+          "label": "Official Ubud location",
+          "provider": "official_website",
+          "sourceManifestId": "src-milk-ubud",
+          "status": "draft",
+          "url": "https://milkandmadu.com/location/",
+          "venueSlug": "milk-and-madu-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-menu",
+          "kind": "website",
+          "label": "Official April 2026 breakfast menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-milk-menu",
+          "status": "draft",
+          "url": "https://milkandmadu.com/wp-content/uploads/2026/04/milk-madu-breakfast-pages-2.pdf",
+          "venueSlug": "milk-and-madu-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-milk-whatsapp",
+          "kind": "whatsapp",
+          "label": "Ubud WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-milk-ubud",
+          "status": "draft",
+          "url": "https://wa.me/6281329756708",
+          "venueSlug": "milk-and-madu-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-milk-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-milk-ubud",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/UmVZZDgFxPPTT8Mn7",
+          "venueSlug": "milk-and-madu-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Suweta No.3, Ubud, opposite Ubud Palace.",
+      "collectionNotes": [
+        "Raw values kept currency-null; PDF modified 2026-04-02."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-milk-and-madu-ubud-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-01",
+                  "name": "TOASTED BANANA & WALNUT BREAD",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-02",
+                  "name": "CINNAMON BUN FRENCH TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-03",
+                  "name": "RICOTTA CAKES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-04",
+                  "name": "MADU PANCAKES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-05",
+                  "name": "THE MADU",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "milk-06",
+                  "name": "ATLANTIC",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "125"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-milk-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Milk & Madu Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "milk-and-madu-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-mozaic-dining",
+          "kind": "website",
+          "label": "Official dining options",
+          "provider": "official_website",
+          "sourceManifestId": "src-mozaic-dining",
+          "status": "draft",
+          "url": "https://www.mozaic-bali.com/dining-options/",
+          "venueSlug": "mozaic",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-mozaic-whatsapp",
+          "kind": "whatsapp",
+          "label": "Reservations WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-mozaic-dining",
+          "status": "draft",
+          "url": "https://wa.me/6282147235550",
+          "venueSlug": "mozaic",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Mozaic Restaurant Gastronomique / Tipple Room, Ubud.",
+      "collectionNotes": [
+        "Six Tipple Room snacks transcribed; no full menu claim."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-mozaic-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Edam cheese.",
+                  "id": "moz-01",
+                  "name": "TRUFFLE CHOUQUETTE (2 pieces)",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Rendang spices and parmesan.",
+                  "id": "moz-02",
+                  "name": "WHOLE WATERMELON TART (2 pieces)",
+                  "priceMinor": 50000,
+                  "sourceDisplayPrice": "50K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Base gede and young coconut.",
+                  "id": "moz-03",
+                  "name": "YELLOW FIN TUNA (2 pieces)",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bangkuang and laksa gel.",
+                  "id": "moz-04",
+                  "name": "WILD MUSHROOM DUMPLING (2 pieces)",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Parmesan and kemangi.",
+                  "id": "moz-05",
+                  "name": "TOMATO TARTARE (2 pieces)",
+                  "priceMinor": 50000,
+                  "sourceDisplayPrice": "50K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Rendang spice, parmesan and sweet potato chips.",
+                  "id": "moz-06",
+                  "name": "WAGYU BEEF TARTARE",
+                  "priceMinor": 230000,
+                  "sourceDisplayPrice": "230K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-mozaic-tipple",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Mozaic",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mozaic",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-onion-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-onion-site",
+          "status": "draft",
+          "url": "https://theonionco.com/",
+          "venueSlug": "onion-collective",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-onion-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-onion-site",
+          "status": "draft",
+          "url": "https://wa.me/6285924501117",
+          "venueSlug": "onion-collective",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-onion-map",
+          "kind": "directions",
+          "label": "Official map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-onion-site",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/yFnnGZzsbRf35deD9",
+          "venueSlug": "onion-collective",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Repo name now presents officially as The Onion Co, Ubud halal kopitiam, Jl. Raya Pengosekan.",
+      "collectionNotes": [
+        "Duplicate-review flag remains; rebrand/name reconciliation and exact item transcription require operator review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:44:45Z",
+          "id": "menu-onion-collective-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-onion-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Onion Collective",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "onion-collective",
+      "verifiedAt": null
+    }
+  ]
+}

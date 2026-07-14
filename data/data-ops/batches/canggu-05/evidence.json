@@ -1,0 +1,1057 @@
+{
+  "batchId": "canggu-05",
+  "capturedAt": "2026-07-13T15:37:58Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-satusatu-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-satusatu-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/satusatucoffeecompany/",
+          "venueSlug": "satu-satu-coffee-company",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official Berawa brand/profile; exact current branch page inaccessible.",
+      "collectionNotes": [
+        "Official social inaccessible and former domain unavailable; no aggregator substitution."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Satu-Satu Coffee Company",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "satu-satu-coffee-company",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-seseh-store-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-seseh-store-site",
+          "status": "draft",
+          "url": "https://www.sesehgeneralstore.com/",
+          "venueSlug": "seseh-general-store",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-seseh-store-whatsapp",
+          "kind": "order",
+          "label": "Order / call on WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-seseh-store-site",
+          "status": "draft",
+          "url": "https://wa.me/6281246594003",
+          "venueSlug": "seseh-general-store",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-seseh-store-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-seseh-store-site",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/mWDXxp44kTDPFSpo8",
+          "venueSlug": "seseh-general-store",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "No.1 Jl Pantai Seseh, Sogsogan, Cemagi.",
+      "collectionNotes": [
+        "Official site publishes actions but no menu; classified action-only."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Seseh General Store",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "seseh-general-store",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-skool-site",
+          "kind": "website",
+          "label": "Official venue page",
+          "provider": "official_website",
+          "sourceManifestId": "src-skool-page",
+          "status": "draft",
+          "url": "https://www.projectblack.co/skoolkitchen",
+          "venueSlug": "skool-kitchen",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-skool-reserve",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "weeloy",
+          "sourceManifestId": "src-skool-page",
+          "status": "draft",
+          "url": "https://www.erestaurants.co/modules/booking/book_form_section.php?bkrestaurant=ID_DP_R_PbSkool&bktracking=WEBSITE&redirect=1",
+          "venueSlug": "skool-kitchen",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-skool-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-skool-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/HiqdzhtCbuZe92SGA",
+          "venueSlug": "skool-kitchen",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pura Dalem, Canggu; Batu Bolong Beach.",
+      "collectionNotes": [
+        "Six items from current image PDF; not full parsing."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-skool-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-01",
+                  "name": "Sourdough, roasted garlic & anchovy butter",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-02",
+                  "name": "Sakoshi Bay oyster, nam jim, sour apple granita",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115/ea"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-03",
+                  "name": "Heirloom tomato, burnt onion, honey, crema fresa",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-04",
+                  "name": "Beetroots, goat cheese, walnuts, figs",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-05",
+                  "name": "Hay-smoked kingfish tartare, creme fraiche, rice crackers",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "skool-06",
+                  "name": "Steak tartare, black garlic vinaigrette, creamed eggplant",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-skool-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "SKOOL Kitchen",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "skool-kitchen",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-avocado-site",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-avocado-menu",
+          "status": "draft",
+          "url": "https://theavocadofactory.com/menu/",
+          "venueSlug": "the-avocado-factory",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-avocado-whatsapp",
+          "kind": "whatsapp",
+          "label": "Reservations / takeaway",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-avocado-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281337382521",
+          "venueSlug": "the-avocado-factory",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-avocado-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-avocado-menu",
+          "status": "draft",
+          "url": "https://maps.google.com/?q=The+Avocado+Factory+Canggu+Bali",
+          "venueSlug": "the-avocado-factory",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Mejan, Canggu.",
+      "collectionNotes": [
+        "Official full catalogue omits numeric prices; none inferred."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-avocado-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Poached eggs & hollandaise over avocado and greens on toasted sourdough.",
+                  "id": "avo-01",
+                  "name": "Classic Benedict",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "House-baked granola, coconut yoghurt, fresh fruit & honey.",
+                  "id": "avo-02",
+                  "name": "Avo Granola",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Açaí, granola, banana, mango, blueberries & chia.",
+                  "id": "avo-03",
+                  "name": "Açaí Smoothie Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Steak, avocado, fried eggs & soy-sesame dressing.",
+                  "id": "avo-04",
+                  "name": "Avo Steak & Eggs",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Braised birria tacos with avocado & consommé.",
+                  "id": "avo-05",
+                  "name": "Avo Birria Tacos",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Red rice, tuna, avocado, edamame, corn & sesame dressing.",
+                  "id": "avo-06",
+                  "name": "Poke Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Named menu subset without prices"
+            }
+          ],
+          "sourceManifestId": "src-avocado-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Avocado Factory",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "the-avocado-factory",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-lawn-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-lawn-menu",
+          "status": "draft",
+          "url": "https://www.thelawncanggu.com/menu-eats-drinks",
+          "venueSlug": "the-lawn-canggu-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lawn-reserve",
+          "kind": "reserve",
+          "label": "Online reservation",
+          "provider": "weeloy",
+          "sourceManifestId": "src-lawn-linktree",
+          "status": "draft",
+          "url": "https://www.erestaurants.co/modules/booking/book_form_section.php?redirect=1&bkrestaurant=ID_DP_R_PbTheLawnCanggu&bktracking=INSTAGRAM",
+          "venueSlug": "the-lawn-canggu-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-lawn-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-lawn-linktree",
+          "status": "draft",
+          "url": "https://wa.me/6281138004951",
+          "venueSlug": "the-lawn-canggu-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pura Dalem, Canggu beachfront.",
+      "collectionNotes": [
+        "Six snack items; full live menu not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-lawn-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Crack salt, garlic aioli",
+                  "id": "lawn-01",
+                  "name": "Fries",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Garlic, ginger, soya, furikake",
+                  "id": "lawn-02",
+                  "name": "Edamames",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Spicy mayo",
+                  "id": "lawn-03",
+                  "name": "School Prawns",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Half dozen Flores oysters, pomegranate mignonette, lemon",
+                  "id": "lawn-04",
+                  "name": "Oysters",
+                  "priceMinor": 130000,
+                  "sourceDisplayPrice": "130"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Pepper aioli, rocket, lemon",
+                  "id": "lawn-05",
+                  "name": "Salt & Pepper Calamari",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Buffalo ranch, toasted sesame, spicy ginger",
+                  "id": "lawn-06",
+                  "name": "Chicken Wings",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                }
+              ],
+              "name": "Snacks review subset"
+            }
+          ],
+          "sourceManifestId": "src-lawn-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Lawn Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "the-lawn-canggu-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-slow-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-slow-site",
+          "status": "draft",
+          "url": "https://theslow.com/",
+          "venueSlug": "the-slow",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-slow-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-slow-site",
+          "status": "draft",
+          "url": "https://wa.me/628113899009",
+          "venueSlug": "the-slow",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Batu Bolong No.97, Canggu.",
+      "collectionNotes": [
+        "Compromised theslow.id excluded; hotel booking link is not a table reservation."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-slow-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, chorizo, bacon, beans, mushrooms, salsa, avocado and toast.",
+                  "id": "slow-01",
+                  "name": "BREAKFAST GRANDE",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, crema, chives, tobiko and choice of topping.",
+                  "id": "slow-02",
+                  "name": "SOFT SCRAMBLED HUEVOS",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sourdough, tomatoes, quest fresco and poached eggs.",
+                  "id": "slow-03",
+                  "name": "GUACAMOLE TOAST",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Local tropical fruit, granola.",
+                  "id": "slow-04",
+                  "name": "ACAI BOWL",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, rancheros sauce, beans, tortillas, salsa and guacamole.",
+                  "id": "slow-05",
+                  "name": "HUEVOS RANCHEROS",
+                  "priceMinor": 145000,
+                  "sourceDisplayPrice": "145"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, avocado, bacon, chorizo, chips and salsa.",
+                  "id": "slow-06",
+                  "name": "BREAKFAST BURRITO",
+                  "priceMinor": 145000,
+                  "sourceDisplayPrice": "145"
+                }
+              ],
+              "name": "Morning Eats review subset"
+            }
+          ],
+          "sourceManifestId": "src-slow-site",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Slow",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "the-slow",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-touche-hub",
+          "kind": "website",
+          "label": "Official Linktree",
+          "provider": "linktree",
+          "sourceManifestId": "src-touche-linktree",
+          "status": "draft",
+          "url": "https://linktr.ee/touche.bali",
+          "venueSlug": "touche-cafe-and-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-touche-maps",
+          "kind": "directions",
+          "label": "Pererenan Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-touche-linktree",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/3rm5EdsYDw9jkDxK9",
+          "venueSlug": "touche-cafe-and-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-touche-whatsapp",
+          "kind": "whatsapp",
+          "label": "Pererenan WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-touche-linktree",
+          "status": "draft",
+          "url": "https://wa.me/6282341850363",
+          "venueSlug": "touche-cafe-and-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-touche-grab",
+          "kind": "order",
+          "label": "Pererenan Grab",
+          "provider": "grabfood",
+          "sourceManifestId": "src-touche-linktree",
+          "status": "draft",
+          "url": "https://r.grab.com/g/6-20250729_190655_0C085D78C9E54F0898AF7E280C77A461_MEXMPS-6-C65DGTKHRXETLT",
+          "venueSlug": "touche-cafe-and-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Pererenan branch, Jl. Pantai Pererenan No.104; distinct from Tumbak Bayuh.",
+      "collectionNotes": [
+        "No official menu; Tumbak Bayuh actions explicitly excluded."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Touché Cafe & Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "touche-cafe-and-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nomad-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-tropical-nomad-site",
+          "status": "draft",
+          "url": "https://tropicalnomad.id/",
+          "venueSlug": "tropical-nomad",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-nomad-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-tropical-nomad-site",
+          "status": "draft",
+          "url": "https://wa.me/6281246926929",
+          "venueSlug": "tropical-nomad",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-nomad-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-tropical-nomad-site",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/xEqe3kLcPqbjGpZt8",
+          "venueSlug": "tropical-nomad",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl. Subak Canggu No.2; official identity is coworking with cafe amenity.",
+      "collectionNotes": [
+        "Restaurant category requires human/editorial classification decision."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Tropical Nomad",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "tropical-nomad",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-twoface-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-twoface-menu-page",
+          "status": "draft",
+          "url": "https://www.twofacebali.com/menu",
+          "venueSlug": "two-face-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-twoface-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-twoface-menu-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/eowu8RhR4RAcipYy9",
+          "venueSlug": "two-face-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-twoface-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-twoface-menu-page",
+          "status": "draft",
+          "url": "https://wa.me/6281239028952",
+          "venueSlug": "two-face-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-twoface-gofood",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-twoface-menu-page",
+          "status": "draft",
+          "url": "https://gofood.co.id/bali/restaurant/two-face-coffee-brunch-canggu-a4ed4a2f-7f6a-404a-9949-8aefdc547d1d",
+          "venueSlug": "two-face-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Munduk, Canggu; distinct from Ubud.",
+      "collectionNotes": [
+        "Current official PDF filename dated 17DEC25; freshness review required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-twoface-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Omelette, spinach, mushrooms, feta, pesto and sourdough.",
+                  "id": "twoface-01",
+                  "name": "SPINACH & MUSHROOM OMELETTE (V, CN)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Avocado, feta, beetroot, granola, herbs, lemon and sourdough.",
+                  "id": "twoface-02",
+                  "name": "SMASHED AVO (V, CN)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, parmesan, avocado, shallots, coriander and tortillas.",
+                  "id": "twoface-03",
+                  "name": "PARMESAN CRISPY EGGS (V)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Mushrooms, scrambled eggs, truffle, chives, parmesan and sourdough.",
+                  "id": "twoface-04",
+                  "name": "TRUFFLE MUSHROOM SCRAMBLE (V)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Shakshuka, eggs, herbs and sourdough.",
+                  "id": "twoface-05",
+                  "name": "SKILLET BAKED SHAKSHUKA (V)",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Eggs, bacon, avocado, hashbrown, mushrooms, tomato, hollandaise and sourdough.",
+                  "id": "twoface-06",
+                  "name": "BIG BREAKY",
+                  "priceMinor": 105000,
+                  "sourceDisplayPrice": "105"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-twoface-canggu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Two Face Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "two-face-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-udara-dining",
+          "kind": "website",
+          "label": "Official dining page",
+          "provider": "official_website",
+          "sourceManifestId": "src-udara-dining",
+          "status": "draft",
+          "url": "https://www.udara-bali.com/food-beverage/",
+          "venueSlug": "udara-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-udara-whatsapp",
+          "kind": "whatsapp",
+          "label": "General WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-udara-dining",
+          "status": "draft",
+          "url": "https://wa.me/6287877799970",
+          "venueSlug": "udara-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-udara-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-udara-dining",
+          "status": "draft",
+          "url": "https://goo.gl/maps/NaJntBzADYq",
+          "venueSlug": "udara-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pura Kramat, Seseh; Organic Ocean is Udara signature restaurant.",
+      "collectionNotes": [
+        "Parent-child venue identity retained; raw K values not normalized to a currency."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:37:58Z",
+          "id": "menu-udara-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Barramundi in coconut tomato red curry with shirataki noodles and spinach.",
+                  "id": "udara-01",
+                  "name": "Coconut Curry Barramundi (GF)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Prawns in coconut cream with turmeric rice and vegetables.",
+                  "id": "udara-02",
+                  "name": "Garlic Prawns (GF)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Seafood, konjac noodles, chilli soy sauce and vegetables.",
+                  "id": "udara-03",
+                  "name": "Seafood Shirataki Noodles (GF)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Seared tuna, herb rice, urab vegetables and sambal matah.",
+                  "id": "udara-04",
+                  "name": "Tuna Sambal Matah (GF)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "135K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Prawns, squid, fish, olive oil, chilli and parmesan.",
+                  "id": "udara-05",
+                  "name": "Seafood Linguine",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Mahi mahi satay, herb rice and urab vegetables.",
+                  "id": "udara-06",
+                  "name": "Satay Lilit (GF)",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120K"
+                }
+              ],
+              "name": "Main menu review subset"
+            }
+          ],
+          "sourceManifestId": "src-udara-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Udara Bali — Organic Ocean",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "udara-bali",
+      "verifiedAt": null
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "batchId": "ubud-04",
+  "capturedAt": "2026-07-13T15:42:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "ubud",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-wulan-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-wulan-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/wulanveg/",
+          "venueSlug": "wulan-vegetarian-warung",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Repo Ubud/Peliatan identity; official brand profile found but address not independently confirmed.",
+      "collectionNotes": [
+        "No official menu, stable booking/order, or map action; third-party menus excluded."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Wulan Vegetarian Warung",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "wulan-vegetarian-warung",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-zest-site",
+          "kind": "website",
+          "label": "Official website/menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-zest-site-menu",
+          "status": "draft",
+          "url": "https://www.zestubud.com/",
+          "venueSlug": "zest-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-zest-reserve",
+          "kind": "reserve",
+          "label": "Request reservation",
+          "provider": "official_booking",
+          "sourceManifestId": "src-zest-reservations",
+          "status": "draft",
+          "url": "https://www.zestubud.com/reservations",
+          "venueSlug": "zest-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-zest-whatsapp",
+          "kind": "whatsapp",
+          "label": "Book a table on WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-zest-site-menu",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6282340065048",
+          "venueSlug": "zest-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-zest-maps",
+          "kind": "directions",
+          "label": "Official map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-zest-site-menu",
+          "status": "draft",
+          "url": "https://goo.gl/maps/6EWyKfQ4z6VbFzch7",
+          "venueSlug": "zest-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl Raya Penestanan Kelod no.8, Ubud; repo gives nearby No.7, requiring address review.",
+      "collectionNotes": [
+        "Raw K prices remain currency-null; official site address differs by one street number from repo."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:42:00Z",
+          "id": "menu-zest-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Mango, pineapple, coconut flesh and yoghurt with fruit and granola.",
+                  "id": "zest-01",
+                  "name": "MANGO PASSION BOWLS",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "88K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Peanut butter, banana, strawberries, coconut yoghurt, granola and sesame.",
+                  "id": "zest-02",
+                  "name": "PEANUT BUTTER JELLY",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "88K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Avocado, tomato, daikon bacon, radish and olive oil on bananaflour toast.",
+                  "id": "zest-03",
+                  "name": "CLASSIC AVOCADO TOAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "88K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Mushrooms, tomato, avocado, jack sausage, chickpea omelet, spinach, sauce and toast.",
+                  "id": "zest-04",
+                  "name": "ROYAL BREAKFAST",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "98K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Salted caramel, rosella flowers and cinnamon ice cream.",
+                  "id": "zest-05",
+                  "name": "PUMPKIN, LEMON & CINNAMON WAFFLES",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "72K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Coconut calamari, watermelon tuna, edamame, daikon, nori, sprouts, rice and tahini.",
+                  "id": "zest-06",
+                  "name": "PLANT POWERED POKE BOWL",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "98K"
+                }
+              ],
+              "name": "Breakfast review subset"
+            }
+          ],
+          "sourceManifestId": "src-zest-site-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Zest Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "zest-ubud",
+      "verifiedAt": null
+    }
+  ]
+}

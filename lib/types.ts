@@ -23,10 +23,10 @@ export type VenueCategory =
   | "warung"
   | "restaurant"
   | "beach_club"
-  | "spa"
-  | "beauty"
   | "fitness"
   | "yoga"
+  | "spa"
+  | "beauty"
   | "bar"
   | "surf";
 
@@ -41,6 +41,7 @@ export interface Venue {
   officialUrl?: string; // venue's own website — used for schema sameAs (entity signal)
   instagramUrl?: string; // official IG — used for schema sameAs
   tier: VenueTier;
+  status?: string;
   isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3
   // Field Kit §2/§3 card content — all optional, filled from venue visits.
   vibeTags?: string[];
@@ -62,6 +63,8 @@ export interface Venue {
   // Owner's own words (UGC, self-service onboarding). Always shown attributed
   // ("From the owner") — never blended into the editorial voice.
   ownerNote?: string;
+  publicationStatus?: "published" | "review";
+  wellnessCategories?: VenueCategory[];
 }
 
 export interface Perk {
@@ -151,3 +154,14 @@ export interface Phase0Overview {
   };
   venues: Phase0VenueStat[];
 }
+
+// Additive public data-contract aliases. The canonical definitions live in
+// lib/contracts/menu-action.ts so all four loop sessions share one boundary.
+export type {
+  MenuRecord,
+  MenuSectionRecord,
+  MenuItemRecord,
+  VenueActionCapabilityRecord,
+  PublicVenueDetailExtension,
+  SafeActionEventPayload,
+} from "./contracts/menu-action";

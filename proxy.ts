@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { nanoid } from "nanoid";
+import { configuredAdminToken, hasAdminBasicAccess } from "@/lib/admin-auth";
 
 const ADMIN_REALM = "Other Bali Field Kit";
 
@@ -18,23 +19,10 @@ function isAdminPath(pathname: string): boolean {
   return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
-function adminAuthConfigured(): string {
-  return process.env.ADMIN_ACCESS_TOKEN?.trim() ?? "";
-}
-
-function hasAdminAccess(req: NextRequest, token: string): boolean {
-  const header = req.headers.get("authorization");
-  if (!header?.startsWith("Basic ")) return false;
-
-  try {
-    const decoded = atob(header.slice("Basic ".length));
-    const separator = decoded.indexOf(":");
-    if (separator === -1) return false;
-    const password = decoded.slice(separator + 1);
-    return password === token;
-  } catch {
-    return false;
-  }
+function isSensitivePath(pathname: string): boolean {
+  return ["/admin", "/onboard", "/partner", "/me", "/v", "/list"].some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
 }
 
 function adminChallenge(): NextResponse {
@@ -61,12 +49,22 @@ function adminNotFound(): NextResponse {
 // (Next 16: this is the `proxy` file convention, formerly `middleware`.)
 export function proxy(req: NextRequest) {
   if (isAdminPath(req.nextUrl.pathname)) {
-    const token = adminAuthConfigured();
-    if (!token && process.env.NODE_ENV === "production") return adminNotFound();
-    if (token && !hasAdminAccess(req, token)) return adminChallenge();
+    const token = configuredAdminToken();
+    if (!token) return adminNotFound();
+    if (!hasAdminBasicAccess(req.headers.get("authorization"), token)) {
+      return adminChallenge();
+    }
   }
 
   const res = NextResponse.next();
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
+    res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  }
+  if (isSensitivePath(req.nextUrl.pathname)) {
+    res.headers.set("Cache-Control", "private, no-store, max-age=0");
+    res.headers.set("Referrer-Policy", "no-referrer");
+    res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  }
   setGuestCookie(req, res);
   return res;
 }

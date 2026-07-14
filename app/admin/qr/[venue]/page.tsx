@@ -1,6 +1,8 @@
-import { headers } from "next/headers";
 import QRCode from "qrcode";
 import { getVenueWithPerk } from "@/lib/data";
+import { requireAdminRequest } from "@/lib/admin-request-auth";
+import { createRedemptionToken } from "@/lib/redemption-token";
+import { currentSiteOrigin } from "@/lib/site-origin";
 
 export const dynamic = "force-dynamic";
 
@@ -8,12 +10,10 @@ export const dynamic = "force-dynamic";
 // scanning it is what lets a guest redeem, so redemptions can't happen from a
 // villa. Partner needs zero app — just this sheet on the counter.
 
-async function redeemUrl(slug: string): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? `${proto}://${host}`;
-  return `${base}/v/${slug}/redeem`;
+function redeemUrl(slug: string, token: string, base: string): string {
+  const url = new URL(`/v/${encodeURIComponent(slug)}/redeem`, base);
+  url.searchParams.set("t", token);
+  return url.toString();
 }
 
 export default async function QrPosterPage({
@@ -21,17 +21,25 @@ export default async function QrPosterPage({
 }: {
   params: Promise<{ venue: string }>;
 }) {
+  await requireAdminRequest();
   const { venue: slug } = await params;
   const venue = await getVenueWithPerk(slug);
-  if (!venue) {
+  const base = await currentSiteOrigin();
+  const token = base
+    ? createRedemptionToken(slug, process.env.REDEMPTION_SIGNING_SECRET, base)
+    : null;
+  if (!venue || venue.district !== "canggu" || !venue.perk || !token || !base) {
     return (
       <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
-        <h1 className="text-xl font-semibold">Venue not found</h1>
+        <h1 className="text-xl font-semibold">Redemption QR unavailable</h1>
+        <p className="mt-2 text-sm text-stone-500">
+          This requires a published Canggu venue, a confirmed offer, and the server-side redemption signing secret.
+        </p>
       </main>
     );
   }
 
-  const url = await redeemUrl(slug);
+  const url = redeemUrl(slug, token, base);
   const qr = await QRCode.toDataURL(url, { width: 720, margin: 1, errorCorrectionLevel: "M" });
 
   return (
@@ -41,32 +49,19 @@ export default async function QrPosterPage({
           Other Bali
         </p>
         <h1 className="mt-1 text-2xl font-bold">{venue.name}</h1>
-        {venue.perk && (
-          <p className="mt-2 text-sm text-stone-600">{venue.perk.title}</p>
-        )}
+        <p className="mt-2 text-sm text-stone-600">{venue.perk.title}</p>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={qr}
-          alt={venue.perk ? "Scan to redeem" : "Scan to open venue"}
+          alt="Scan to redeem"
           className="mx-auto mt-6 w-64"
         />
 
-        {venue.perk ? (
-          <>
-            <p className="mt-6 text-lg font-semibold">Scan to claim your offer</p>
-            <p className="mt-1 text-sm text-stone-500">
-              Point your camera here, tap Redeem, show staff the green screen.
-            </p>
-          </>
-        ) : (
-          <>
-            <p className="mt-6 text-lg font-semibold">Scan to open this place</p>
-            <p className="mt-1 text-sm text-stone-500">
-              Point your camera here to open the venue page.
-            </p>
-          </>
-        )}
+        <p className="mt-6 text-lg font-semibold">Scan to claim your offer</p>
+        <p className="mt-1 text-sm text-stone-500">
+          Point your camera here, tap Redeem, show staff the green screen.
+        </p>
         <p className="mt-6 break-all text-[10px] text-stone-300">{url}</p>
       </div>
 

@@ -1,11 +1,7 @@
--- 0030_enrich_remaining_wellness.sql
--- Closes the last active non-Uluwatu venues without editorial: a padel club, a
--- salon, and an Ubud yoga centre. Verified web-research pass (official sites/IG);
--- guardrails held (no ratings/review counts; downsides only as not_for
--- fit-context; prices as bands; unverified fields blank). Wellness/sport rows
--- carry no what_to_order/jobs — they publish on why_its_here + best_for +
--- price_anchor. After apply, all three clear the decision-ready bar and their
--- /places pages become index,follow.
+-- HISTORICAL PRODUCTION EVIDENCE — DO NOT REPLAY AS A NUMBERED MIGRATION.
+-- This editorial update was already applied by the production content stream
+-- before its SHA was integrated into loop/05-release-integration. It was moved
+-- out of supabase/migrations because 0030 is owned by 0030_photo_consent.sql.
 
 begin;
 

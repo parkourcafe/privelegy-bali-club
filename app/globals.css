@@ -950,6 +950,9 @@ html {
 .type-cover-bar { background: linear-gradient(150deg, #3a2c1c, #16100c); }
 .type-cover-warung { background: linear-gradient(150deg, #4e5a3a, #232a1a 75%, #16100c); }
 .type-cover-spa { background: linear-gradient(150deg, #5a6b52, #2b3527 75%, #16100c); }
+.type-cover-fitness { background: linear-gradient(150deg, #8a4f35, #3d2820 75%, #16100c); }
+.type-cover-yoga { background: linear-gradient(150deg, #65745b, #30392c 75%, #16100c); }
+.type-cover-beauty { background: linear-gradient(150deg, #80576d, #3c2934 75%, #16100c); }
 .type-cover-surf { background: linear-gradient(150deg, #12666e, #1a3a40 70%, #16100c); }
 
 /* Editorial micro-labels */
@@ -2137,6 +2140,148 @@ html {
   padding-top: 14px;
   color: var(--muted);
   font-size: 12.5px;
+}
+
+/* Structured menu — sourced, freshness-aware, and deliberately quieter than
+   the editorial masthead. Native details keep long menus keyboard-friendly. */
+.structured-menu,
+.menu-state {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-soft);
+}
+
+.structured-menu-header {
+  display: grid;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 18px;
+}
+
+.structured-menu-eyebrow,
+.menu-state-kicker {
+  color: var(--clay);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.structured-menu-header h3,
+.menu-state h3 {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: clamp(21px, 5vw, 27px);
+  font-weight: 650;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.structured-menu-source {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.structured-menu-source a,
+.structured-menu-official-link a {
+  color: var(--lagoon-strong);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.structured-menu-allergen-note {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.structured-menu-section {
+  border-bottom: 1px solid var(--line);
+}
+
+.structured-menu-section:last-child {
+  border-bottom: 0;
+}
+
+.structured-menu-section summary {
+  display: flex;
+  min-height: 52px;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.structured-menu-section summary::-webkit-details-marker { display: none; }
+.structured-menu-section summary::after { content: "+"; color: var(--clay); font-size: 21px; }
+.structured-menu-section[open] summary::after { content: "–"; }
+.structured-menu-section summary small { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+.structured-menu-section-description {
+  padding: 0 18px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.structured-menu-section ul { list-style: none; }
+
+.structured-menu-item {
+  border-top: 1px solid var(--line);
+  padding: 16px 18px;
+}
+
+.structured-menu-item-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+}
+
+.structured-menu-item h4 { font-size: 15px; font-weight: 800; line-height: 1.35; overflow-wrap: anywhere; }
+.structured-menu-price { color: var(--ink); font-size: 13px; font-weight: 800; white-space: nowrap; }
+.structured-menu-description { margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+.structured-menu-signals { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.menu-signal,
+.menu-tag { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; color: var(--muted); font-size: 10.5px; font-weight: 750; line-height: 1.2; }
+.menu-signal-editorial { border-color: rgba(184, 138, 66, 0.55); background: rgba(184, 138, 66, 0.1); color: #704b1f; }
+.menu-signal-partner { border-style: dashed; background: transparent; color: var(--lagoon-strong); }
+.menu-tag-allergen { border-color: rgba(137, 76, 54, 0.3); color: #704536; }
+.structured-menu-editorial-note { margin-top: 10px; border-left: 2px solid var(--brass); padding-left: 10px; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
+.structured-menu-availability { margin-top: 8px; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+.structured-menu-official-link { border-top: 1px solid var(--line); padding: 14px 18px; font-size: 12.5px; }
+
+.menu-state { padding: 20px; }
+.menu-state p:not(.menu-state-kicker) { margin-top: 8px; max-width: 560px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.menu-state-stale { border-color: rgba(184, 138, 66, 0.45); }
+.menu-state-compact { margin-top: 16px; border-radius: 10px; background: var(--paper); padding: 14px; }
+.menu-state-compact h3 { font-size: 18px; }
+
+.structured-menu a:focus-visible,
+.structured-menu summary:focus-visible,
+.menu-state a:focus-visible {
+  outline: 3px solid rgba(0, 89, 98, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 430px) {
+  .structured-menu-header,
+  .structured-menu-item,
+  .structured-menu-section summary,
+  .structured-menu-section-description,
+  .structured-menu-allergen-note,
+  .structured-menu-official-link { padding-left: 14px; padding-right: 14px; }
+  .structured-menu-item-head { grid-template-columns: 1fr; gap: 5px; }
+  .structured-menu-price { white-space: normal; }
 }
 
 /* Sticky mobile action bar (44px+ targets, hidden on desktop) */

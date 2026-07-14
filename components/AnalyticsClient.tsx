@@ -1,0 +1,44 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import Script from "next/script";
+
+const PRIVATE_PREFIXES = ["/admin", "/api", "/onboard", "/partner", "/me", "/v", "/list"];
+
+function isPrivatePath(pathname: string): boolean {
+  return PRIVATE_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`));
+}
+
+export default function AnalyticsClient({ measurementId }: { measurementId: string }) {
+  const pathname = usePathname();
+  const lastPage = useRef<string | null>(null);
+  const isPrivate = isPrivatePath(pathname);
+
+  useEffect(() => {
+    if (isPrivate || lastPage.current === pathname || !window.gtag) return;
+    lastPage.current = pathname;
+    window.gtag("event", "page_view", {
+      page_path: pathname,
+      page_location: `${window.location.origin}${pathname}`,
+    });
+  }, [isPrivate, pathname]);
+
+  if (isPrivate) return null;
+
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+gtag('js', new Date());
+gtag('config', ${JSON.stringify(measurementId)}, { send_page_view: false });`}
+      </Script>
+    </>
+  );
+}

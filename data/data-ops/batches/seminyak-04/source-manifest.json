@@ -1,0 +1,31 @@
+{
+  "batchId": "seminyak-04",
+  "generatedAt": "2026-07-13T16:06:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T16:06:00Z",
+      "id": "src-wcs-page",
+      "label": "Watercress Seminyak official location",
+      "notes": "No.21A Jalan Batu Belig; branch WhatsApp +62 851-0280-8030.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://watercressbali.com/",
+      "venueSlug": "watercress-seminyak",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:06:00Z",
+      "id": "src-wcs-menu",
+      "label": "Watercress March 2026 menu",
+      "notes": "Shared Watercress menu; raw values in 000, currency not named; +10% tax and +6% service.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://watercressbali.com/wp-content/uploads/2026/04/Watercress-Menu.pdf",
+      "venueSlug": "watercress-seminyak",
+      "verifiedAt": null
+    }
+  ]
+}

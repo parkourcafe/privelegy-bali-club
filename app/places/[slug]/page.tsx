@@ -4,16 +4,24 @@ import { notFound } from "next/navigation";
 import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
 import { readGuestRef } from "@/lib/guest-server";
 import SaveButton from "@/components/SaveButton";
-import { getUluwatuContent, ULUWATU_DB_SLUG, ULUWATU_PUBLIC_BASE } from "@/lib/uluwatu/venues";
-import { isIndexableVenueSlug, isVenueIndexable } from "@/lib/publication";
+import {
+  freshVerifiedUluwatuActionUrl,
+  getUluwatuContent,
+  ULUWATU_DB_SLUG,
+  ULUWATU_PUBLIC_BASE,
+} from "@/lib/uluwatu/venues";
+import { isVenueIndexable } from "@/lib/publication";
 import { rankSimilar } from "@/lib/similar";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
-import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
-import ReserveButton from "@/components/ReserveButton";
 import VenueActionBar from "@/components/VenueActionBar";
+import StructuredMenu from "@/components/menu/StructuredMenu";
+import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
+import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
+import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
+import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 
 export const dynamic = "force-dynamic";
 
@@ -136,7 +144,7 @@ const schemaType: Record<string, string> = {
   spa: "HealthAndBeautyBusiness",
   beauty: "HealthAndBeautyBusiness",
   fitness: "ExerciseGym",
-  yoga: "HealthAndBeautyBusiness",
+  yoga: "SportsActivityLocation",
   surf: "SportsActivityLocation",
 };
 
@@ -148,7 +156,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const content = getUluwatuContent(slug);
   const venue = await getVenueWithPerk(slug);
-  if (!venue && !content) return { title: "Place not found" };
+  if (!venue) {
+    return {
+      title: "Place not found",
+      robots: { index: false, follow: false },
+    };
+  }
 
   const name = content?.displayName ?? venue?.name ?? "Place";
   const area = content?.microArea ?? venue?.area;
@@ -159,7 +172,7 @@ export async function generateMetadata({
   // Index every venue whose page passes the publication bar — the Uluwatu
   // registry, or the decision-ready editorial bar for other districts. Falls
   // back to the slug-only Uluwatu check when there's no DB row.
-  const indexable = venue ? isVenueIndexable(venue) : isIndexableVenueSlug(slug);
+  const indexable = isVenueIndexable(venue);
 
   return {
     title: `${name} — ${area ? `${area}, ` : ""}${district}`,
@@ -182,10 +195,11 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs] = await Promise.all([
+  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
     getVenueWithPerk(slug),
     getPublishedVenues(),
     getSavedSlugs(await readGuestRef()),
+    getPublicVenueDetailExtension(slug),
   ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
@@ -199,7 +213,12 @@ export default async function VenuePage({
   const isNusaDua = venue.district === "nusa-dua";
   const isJimbaran = venue.district === "jimbaran";
   const published = isPublicReadyVenue(venue);
+  if (!published) notFound();
   const name = content?.displayName ?? venue.name;
+  const officialUrl = freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl);
+  const instagramUrl = freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl);
+  const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
+  const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
   const catLabel = categoryLabel[venue.category] ?? venue.category;
   const guide = isUluwatu
@@ -309,8 +328,38 @@ export default async function VenuePage({
     hasMap: venue.gmapsUrl,
   };
 
-  const bookHref = content?.bookingUrl ?? null;
+  const bookHref = bookingUrl;
   const bookLabel = content?.bookingLabel ?? "Book direct";
+  // Development fixtures override the repository only in local preview.
+  const fixtureMode = process.env.NODE_ENV === "development" ? process.env.MENU_FIXTURE : undefined;
+  const menu: MenuRecord | null = fixtureMode === "fresh"
+    ? { ...menuActionFixtures.freshMenu, venueSlug: slug }
+    : fixtureMode === "stale"
+    ? { ...menuActionFixtures.staleMenu, venueSlug: slug }
+    : detailExtension.menu;
+  const actionSlotProps: VenueActionBarProps = {
+    venueSlug: venue.slug,
+    venueName: name,
+    district: venue.district,
+    // A TablePilot capability can reach this repository only when database RLS
+    // confirms active-deep + monetization coverage. Derive the UI gate from
+    // that returned capability rather than a hard-coded district slug.
+    coverageMode: detailExtension.actionCapabilities.some(
+      (capability) => capability.provider === "tablepilot" && capability.kind === "reserve",
+    ) ? "active_deep" : isUbud ? "next_deep" : "planning_only",
+    capabilities: published ? detailExtension.actionCapabilities : [],
+    tablepilotBaseUrl: safeTablePilotPublicBase({
+      vercelEnv: process.env.VERCEL_ENV,
+      configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+    }),
+    fallbacks: published ? {
+      tablepilotSlug: undefined,
+      whatsapp: undefined,
+      officialMenuUrl: menuUrl,
+      websiteUrl: officialUrl,
+      googleMapsUrl: venue.gmapsUrl,
+    } : {},
+  };
 
   return (
     <div className="venue-page-pad">
@@ -324,13 +373,6 @@ export default async function VenuePage({
         <PageViewTracker event="venue_detail_view" slug={slug} />
 
         <Breadcrumbs items={crumbs} />
-
-        {!published && (
-          <p className="mb-4 rounded-lg border border-[var(--line)] bg-[var(--paper-soft)] px-4 py-3 text-sm text-[var(--muted)]">
-            Internal review — this place has not passed the publication gate
-            yet and is not indexed.
-          </p>
-        )}
 
         {/* Editorial hero. With an approved photo → photo masthead; without →
             a designed typographic masthead (kicker + name + verdict laid over
@@ -415,6 +457,16 @@ export default async function VenuePage({
               </section>
             )}
 
+            <section className="guide-section" aria-labelledby="menu-heading">
+              <h2 id="menu-heading">Menu</h2>
+              <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+              <div className="mt-4">
+                <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
+              </div>
+            </section>
+
+            <VenueActionBar {...actionSlotProps} />
+
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (
               <section className="guide-section">
@@ -424,9 +476,9 @@ export default async function VenuePage({
                   {venue.perk.terms && (
                     <p className="mt-1 text-sm text-[var(--muted)]">{venue.perk.terms}</p>
                   )}
-                  <Link href={`/v/${venue.slug}/redeem`} className="button-primary mt-4">
-                    Show offer at the venue
-                  </Link>
+                  <p className="mt-4 text-sm text-[var(--muted)]">
+                    Redeem by scanning this venue&apos;s Other Bali counter QR when you arrive.
+                  </p>
                 </div>
               </section>
             )}
@@ -486,7 +538,8 @@ export default async function VenuePage({
                           photoUrl: s.photoUrl,
                           isSponsored: s.isSponsored,
                           gmapsUrl: s.gmapsUrl,
-                          tablepilotSlug: s.tablepilotSlug,
+                          tablepilotSlug: undefined,
+                          coverageMode: "planning_only",
                           hasOffer: false,
                         }}
                       />
@@ -542,34 +595,18 @@ export default async function VenuePage({
                 )}
               </dl>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {venue.tablepilotSlug ? (
-                  <ReserveButton
+              {bookHref && !venue.tablepilotSlug && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <TrackedOutboundLink
+                    href={bookHref}
+                    event="booking_click"
                     venueSlug={venue.slug}
-                    tablepilotSlug={venue.tablepilotSlug}
-                    whatsapp={venue.whatsapp}
-                    perkTitle={venue.perk?.title}
-                  />
-                ) : (
-                  bookHref && (
-                    <TrackedOutboundLink
-                      href={bookHref}
-                      event="booking_click"
-                      venueSlug={venue.slug}
-                      className="button-primary"
-                    >
-                      {bookLabel}
-                    </TrackedOutboundLink>
-                  )
-                )}
-                <TrackedDirectionsLink
-                  href={venue.gmapsUrl}
-                  venueSlug={venue.slug}
-                  className="button-secondary"
-                >
-                  Directions
-                </TrackedDirectionsLink>
-              </div>
+                    className="button-primary"
+                  >
+                    {bookLabel}
+                  </TrackedOutboundLink>
+                </div>
+              )}
             </div>
 
             <div className="quick-block mt-4">
@@ -593,12 +630,12 @@ export default async function VenuePage({
                     <dd>{content.priceBand} — relative to the area</dd>
                   </div>
                 )}
-                {content?.officialUrl && (
+                {officialUrl && (
                   <div>
                     <dt>Website</dt>
                     <dd>
                       <TrackedOutboundLink
-                        href={content.officialUrl}
+                        href={officialUrl}
                         event="official_website_click"
                         venueSlug={venue.slug}
                       >
@@ -607,12 +644,12 @@ export default async function VenuePage({
                     </dd>
                   </div>
                 )}
-                {content?.menuUrl && (
+                {menuUrl && (
                   <div>
                     <dt>Menu</dt>
                     <dd>
                       <TrackedOutboundLink
-                        href={content.menuUrl}
+                        href={menuUrl}
                         event="menu_click"
                         venueSlug={venue.slug}
                       >
@@ -621,62 +658,26 @@ export default async function VenuePage({
                     </dd>
                   </div>
                 )}
-                {content?.instagramUrl && (
+                {instagramUrl && (
                   <div>
                     <dt>Instagram</dt>
                     <dd>
                       <TrackedOutboundLink
-                        href={content.instagramUrl}
+                        href={instagramUrl}
                         event="instagram_click"
                         venueSlug={venue.slug}
                       >
-                        {content.instagramUrl.replace("https://www.instagram.com/", "@").replace(/\/$/, "")}
+                        {instagramUrl.replace("https://www.instagram.com/", "@").replace(/\/$/, "")}
                       </TrackedOutboundLink>
                     </dd>
                   </div>
                 )}
-                {venue.whatsapp && (
-                  <div>
-                    <dt>WhatsApp</dt>
-                    <dd>
-                      <TrackedOutboundLink
-                        href={`https://wa.me/${venue.whatsapp}`}
-                        event="booking_click"
-                        venueSlug={venue.slug}
-                        label="whatsapp"
-                      >
-                        Message venue
-                      </TrackedOutboundLink>
-                    </dd>
-                  </div>
-                )}
-                <div>
-                  <dt>Map</dt>
-                  <dd>
-                    <TrackedDirectionsLink href={venue.gmapsUrl} venueSlug={venue.slug}>
-                      Open in Google Maps
-                    </TrackedDirectionsLink>
-                  </dd>
-                </div>
               </dl>
             </div>
           </aside>
         </div>
       </main>
 
-      {/* Mobile sticky action bar — 46px targets, safe-area padded */}
-      <VenueActionBar
-        slug={venue.slug}
-        gmapsUrl={venue.gmapsUrl}
-        bookHref={
-          venue.tablepilotSlug
-            ? `${process.env.NEXT_PUBLIC_TABLEPILOT_URL ?? "https://tablepilot-id.vercel.app"}/book/${encodeURIComponent(venue.tablepilotSlug)}?source=bali_privilege`
-            : bookHref
-        }
-        bookLabel={venue.tablepilotSlug ? "Reserve a table" : bookLabel}
-        whatsapp={venue.whatsapp}
-        isTablepilot={Boolean(venue.tablepilotSlug)}
-      />
     </div>
   );
 }

@@ -1,0 +1,982 @@
+{
+  "batchId": "seminyak-02",
+  "capturedAt": "2026-07-13T16:03:26Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "seminyak",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-la-casetta-bali-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp booking",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-la-casetta-bali-home",
+          "status": "draft",
+          "url": "https://wa.me/6281337275726",
+          "venueSlug": "la-casetta-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-la-casetta-bali-2",
+          "kind": "map",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-la-casetta-bali-home",
+          "status": "draft",
+          "url": "https://www.google.com/maps/place/La%2BCasetta/@-8.6611773,115.1504419,17z",
+          "venueSlug": "la-casetta-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Bumbak Dauh No.172, Umalas II, Kerobokan, Bali.",
+      "collectionNotes": [
+        "Live dinner page excludes 5% service and 10% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-la-casetta-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-01",
+                  "name": "CAPRESE",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "Rp 90.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-02",
+                  "name": "BURRATA",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "Rp 120.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-03",
+                  "name": "PANZEROTTI FRITTI",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "Rp 70.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-04",
+                  "name": "CALAMARI FRITTI",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "Rp 80.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-05",
+                  "name": "POLPETTE DI MELANZANE",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "Rp 65.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "la-casetta-bali-06",
+                  "name": "POLPETTE DI CARNE",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "Rp 75.000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-la-casetta-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "La Casetta Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "la-casetta-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ling-lings-bali-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp booking",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-ling-lings-bali-home",
+          "status": "draft",
+          "url": "https://wa.me/62817427354",
+          "venueSlug": "ling-lings-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Petitenget No.43B, Kerobokan Kelod, Bali 80361.",
+      "collectionNotes": [
+        "Current first-party menu image is dated by its July 2026 asset path; prices exclude 10% tax and 7% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-ling-lings-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-01",
+                  "name": "CHICKEN KARAAGE taco (1 pc)",
+                  "priceMinor": 30000,
+                  "sourceDisplayPrice": "30"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-02",
+                  "name": "CHAR SIU PORK taco (1 pc)",
+                  "priceMinor": 30000,
+                  "sourceDisplayPrice": "30"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-03",
+                  "name": "EL HONGO taco (1 pc)",
+                  "priceMinor": 30000,
+                  "sourceDisplayPrice": "30"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-04",
+                  "name": "BEEF RENDANG taco (1 pc)",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "35"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-05",
+                  "name": "CRISPY RICE SUSHI (4 pc)",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ling-lings-bali-06",
+                  "name": "JAPANESE PORK RIBS",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ling-lings-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Ling-Ling's Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ling-lings-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mamasan-bali-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "now_book_it",
+          "sourceManifestId": "src-mamasan-bali-home",
+          "status": "draft",
+          "url": "https://bookings.nowbookit.com/?accountid=4fed74a4-ba21-45d5-aac0-cc8ac154337c&venueid=8382",
+          "venueSlug": "mamasan-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mamasan-bali-2",
+          "kind": "order",
+          "label": "Order on Grab",
+          "provider": "grab",
+          "sourceManifestId": "src-mamasan-bali-home",
+          "status": "draft",
+          "url": "https://r.grab.com/o/iuMZFfiy",
+          "venueSlug": "mamasan-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Kerobokan 135, Seminyak, Bali.",
+      "collectionNotes": [
+        "Live lunch page; prices are in thousands of rupiah and exclude 10% government tax and 7.5% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-mamasan-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-01",
+                  "name": "PAD GRA PROW",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-02",
+                  "name": "HAINANESE CHICKEN",
+                  "priceMinor": 145000,
+                  "sourceDisplayPrice": "145"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-03",
+                  "name": "RENDANG STUFFED DOUGHNUTS",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-04",
+                  "name": "CRISPY CHICKEN MONEY BAG",
+                  "priceMinor": 105000,
+                  "sourceDisplayPrice": "105"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-05",
+                  "name": "PRAWN HAR GOW",
+                  "priceMinor": 115000,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mamasan-bali-06",
+                  "name": "SLOW-COOKED BEEF RENDANG",
+                  "priceMinor": 340000,
+                  "sourceDisplayPrice": "340"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-mamasan-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Mamasan Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mamasan-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mauri-restaurant-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-mauri-restaurant-home",
+          "status": "draft",
+          "url": "https://book.chope.co/booking?rid=mauri1812bal&source=rest_mauri-restaurant.com",
+          "venueSlug": "mauri-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-mauri-restaurant-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-mauri-restaurant-home",
+          "status": "draft",
+          "url": "https://wa.me/62817776177",
+          "venueSlug": "mauri-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Petitenget No.100, Seminyak, Bali.",
+      "collectionNotes": [
+        "Official page says menus change regularly and are reference only; prices exclude 10% tax and 8% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-mauri-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-01",
+                  "name": "Formaggi",
+                  "priceMinor": 280000,
+                  "sourceDisplayPrice": "280"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-02",
+                  "name": "Macedonia Balinese",
+                  "priceMinor": 140000,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-03",
+                  "name": "Crostata di Lamponi",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-04",
+                  "name": "Giandujotto",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-05",
+                  "name": "Tiramisu",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "mauri-restaurant-06",
+                  "name": "Affogato al Caffe",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-mauri-restaurant-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Mauri Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mauri-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-merah-putih-indone-1",
+          "kind": "reserve",
+          "label": "Book",
+          "provider": "official_booking",
+          "sourceManifestId": "src-merah-putih-indone-home",
+          "status": "draft",
+          "url": "https://merahputihbali.com/booking/",
+          "venueSlug": "merah-putih-indonesian-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-merah-putih-indone-2",
+          "kind": "order",
+          "label": "Order on GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-merah-putih-indone-home",
+          "status": "draft",
+          "url": "https://gofood.link/a/EUqtcNY",
+          "venueSlug": "merah-putih-indonesian-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-merah-putih-indone-3",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-merah-putih-indone-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6281338578815",
+          "venueSlug": "merah-putih-indonesian-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Petitenget No.100x, Kerobokan, Bali 80361.",
+      "collectionNotes": [
+        "April 2026 official dinner PDF; prices exclude 10% tax and 7.5% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-merah-putih-indonesian-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-01",
+                  "name": "Rujak Ikan",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-02",
+                  "name": "Jangkang",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-03",
+                  "name": "Bakpao Babi",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-04",
+                  "name": "Buntut Konro",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-05",
+                  "name": "Opor Tahu",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "merah-putih-indone-06",
+                  "name": "Ikan Lempah Kuning",
+                  "priceMinor": 275000,
+                  "sourceDisplayPrice": "275"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-merah-putih-indone-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Merah Putih | Indonesian Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "merah-putih-indonesian-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-moonlite-kitchen-a-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-moonlite-kitchen-a-home",
+          "status": "draft",
+          "url": "https://cho.pe/web_moonlite_kitchen",
+          "venueSlug": "moonlite-kitchen-and-bar",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Grand Seminyak rooftop, Jl. Camplung Tanduk, Seminyak 80361.",
+      "collectionNotes": [
+        "Current first-party page links a Drive PDF titled Menu 2025; PDF metadata is 2026-01-13. Preserve this date/title mismatch. Prices exclude 11% tax and 10% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-moonlite-kitchen-and-bar-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-01",
+                  "name": "Crispy Seafood",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-02",
+                  "name": "Pork Ribs Bun",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "135"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-03",
+                  "name": "Soft Shell Crab",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-04",
+                  "name": "Lombok Scallop",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-05",
+                  "name": "Beef Salad",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "moonlite-kitchen-a-06",
+                  "name": "Tom Yum Talay",
+                  "priceMinor": 155000,
+                  "sourceDisplayPrice": "155"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-moonlite-kitchen-a-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "MOONLITE KITCHEN & BAR",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "moonlite-kitchen-and-bar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-natys-restaurant-s-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp reservation",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-natys-restaurant-s-home",
+          "status": "draft",
+          "url": "https://wa.me/6281337316293",
+          "venueSlug": "natys-restaurant-seminyak",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl. Kayu Aya No.53, Seminyak, Bali 80361.",
+      "collectionNotes": [
+        "Both first-party menu buttons resolve to the same unavailable Google Drive file; no menu facts were inferred."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "Natys Restaurant Seminyak",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "natys-restaurant-seminyak",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-naughty-nuris-waru-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-naughty-nuris-waru-home",
+          "status": "draft",
+          "url": "https://wa.me/628113994411",
+          "venueSlug": "naughty-nuris-warung-seminyak",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Mertanadi No.62, Kerobokan, Seminyak, Bali.",
+      "collectionNotes": [
+        "Official PDF modified 2026-07-09; prices use K and exclude 10% tax and 7% service. Conflicting visible phone and tel href require human review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-naughty-nuris-warung-seminyak-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-01",
+                  "name": "BEEF RIB-EYE",
+                  "priceMinor": 375000,
+                  "sourceDisplayPrice": "375K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-02",
+                  "name": "STRIPLOIN",
+                  "priceMinor": 295000,
+                  "sourceDisplayPrice": "295K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-03",
+                  "name": "BEEF SKEWERS",
+                  "priceMinor": 149000,
+                  "sourceDisplayPrice": "149K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-04",
+                  "name": "BEEF SHORT RIBS",
+                  "priceMinor": 349000,
+                  "sourceDisplayPrice": "349K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-05",
+                  "name": "Nuri's Garlic Bread",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "35K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "naughty-nuris-waru-06",
+                  "name": "Nuri's Truffle Fries",
+                  "priceMinor": 48000,
+                  "sourceDisplayPrice": "48K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-naughty-nuris-waru-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Naughty Nuri's Warung Seminyak",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "naughty-nuris-warung-seminyak",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Umalas / Kerobokan; exact first-party address unavailable.",
+      "collectionNotes": [
+        "No fetchable first-party website or menu was confirmed. Official-looking Instagram and Facebook surfaces were unavailable; third-party sources were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Nook Umalas",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "nook-umalas",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-pison-petitenget-1",
+          "kind": "whatsapp",
+          "label": "Brand WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-pison-petitenget-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?app_absent=0&phone=6281236646607&text=",
+          "venueSlug": "pison-petitenget",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Petitenget St No.19A, Kerobokan Kelod, Bali 80361.",
+      "collectionNotes": [
+        "February 2026 branch PDF; prices exclude 10% tax and 6.5% service. WhatsApp is brand-level; branch phone was not converted to a URL action."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:26Z",
+          "id": "menu-pison-petitenget-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-01",
+                  "name": "BING BREAD PLATTER",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-02",
+                  "name": "HOUSE CURED SALMON BAGEL",
+                  "priceMinor": 79000,
+                  "sourceDisplayPrice": "79"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-03",
+                  "name": "SUNRISE",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-04",
+                  "name": "TURKISH EGGS",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-05",
+                  "name": "CORN FRITTERS STACK",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pison-petitenget-06",
+                  "name": "HAM & CHEESE CROISSANT",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-pison-petitenget-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Pison, Petitenget",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "pison-petitenget",
+      "verifiedAt": null
+    }
+  ]
+}

@@ -1,12 +1,17 @@
 import Link from "next/link";
+import { cache } from "react";
 import PlaceCard from "@/components/PlaceCard";
 import { getUluwatuContent, toPlaceCard } from "@/lib/uluwatu/venues";
+import { getPublishedVenues } from "@/lib/data";
 
 // Shared building blocks for the editorial guide pages (pillar + children).
 // Server components; JSON-LD is emitted only for content visibly rendered on
 // the page (brief §15 — no FAQ schema for invisible content).
 
 const BASE = "https://otherbali.com";
+const publicVenueSlugs = cache(async () =>
+  new Set((await getPublishedVenues()).map((venue) => venue.slug))
+);
 
 export interface FaqItem {
   q: string;
@@ -44,12 +49,14 @@ export function FaqBlock({ items, heading = "Good to know" }: { items: FaqItem[]
 
 // ItemList JSON-LD for editorial venue lists — order is editorial, never paid
 // (guardrail #6).
-export function VenueItemListSchema({ name, slugs }: { name: string; slugs: string[] }) {
+export async function VenueItemListSchema({ name, slugs }: { name: string; slugs: string[] }) {
+  const allowed = await publicVenueSlugs();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name,
     itemListElement: slugs
+      .filter((slug) => allowed.has(slug))
       .map((slug, i) => {
         const content = getUluwatuContent(slug);
         if (!content) return null;
@@ -72,8 +79,10 @@ export function VenueItemListSchema({ name, slugs }: { name: string; slugs: stri
 
 // A grid of registry-driven place cards for a list of slugs. Unknown or
 // unpublished slugs are silently skipped — the gate holds everywhere.
-export function VenuePicks({ slugs, columns = 2 }: { slugs: string[]; columns?: 2 | 3 }) {
+export async function VenuePicks({ slugs, columns = 2 }: { slugs: string[]; columns?: 2 | 3 }) {
+  const allowed = await publicVenueSlugs();
   const places = slugs
+    .filter((slug) => allowed.has(slug))
     .map((slug) => getUluwatuContent(slug))
     .filter((c): c is NonNullable<typeof c> => Boolean(c && c.publication === "published"));
   if (places.length === 0) return null;
@@ -109,8 +118,11 @@ export function RelatedGuides({ links, heading = "Keep planning" }: { links: Gui
 }
 
 // Inline venue link for prose — always the internal place page.
-export function PlaceLink({ slug, children }: { slug: string; children?: React.ReactNode }) {
+export async function PlaceLink({ slug, children }: { slug: string; children?: React.ReactNode }) {
   const content = getUluwatuContent(slug);
+  if (!(await publicVenueSlugs()).has(slug)) {
+    return <span>{children ?? content?.displayName ?? slug}</span>;
+  }
   return (
     <Link href={`/places/${slug}`}>{children ?? content?.displayName ?? slug}</Link>
   );

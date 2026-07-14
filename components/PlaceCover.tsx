@@ -17,6 +17,9 @@ const categoryWord: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Wellness",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
 };

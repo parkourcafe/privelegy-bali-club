@@ -5,10 +5,16 @@ import { nanoid } from "nanoid";
 // The client never reads or sends the id; API routes resolve it here.
 
 export const GUEST_COOKIE = "bp_guest";
+const GUEST_REF = /^g_[A-Za-z0-9_-]{16}$/;
+
+export function isGuestRef(value: unknown): value is string {
+  return typeof value === "string" && GUEST_REF.test(value);
+}
 
 export async function readGuestRef(): Promise<string | null> {
   const c = await cookies();
-  return c.get(GUEST_COOKIE)?.value ?? null;
+  const value = c.get(GUEST_COOKIE)?.value;
+  return isGuestRef(value) ? value : null;
 }
 
 // Returns the ref, minting one if the cookie is somehow absent (direct API hit

@@ -28,10 +28,12 @@ export default function RedeemFlow({
   venueSlug,
   venueName,
   perkTitle,
+  qrToken,
 }: {
   venueSlug: string;
   venueName: string;
   perkTitle: string;
+  qrToken: string;
 }) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [result, setResult] = useState<RedemptionResult | null>(null);
@@ -65,7 +67,7 @@ export default function RedeemFlow({
       const res = await fetch("/api/redeem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ venueSlug, consentGranted }),
+        body: JSON.stringify({ venueSlug, consentGranted, qrToken }),
       });
       const data: RedemptionResult = await res.json();
       if (data.ok) {

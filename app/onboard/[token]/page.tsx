@@ -1,12 +1,13 @@
 import { getOnboardInfo } from "@/lib/data";
+import { getReleaseReadiness } from "@/lib/data/release-readiness";
 import VenueCard from "@/components/VenueCard";
 import OnboardActions from "./OnboardActions";
 
 export const dynamic = "force-dynamic";
 
 // Partner self-onboarding page, reached via a tokenized WhatsApp link. The
-// venue sees exactly how its card will look, confirms listing under our
-// policy, and uploads its own photos (settling photo rights).
+// venue sees exactly how its card will look, confirms the listing policy and
+// may submit explicitly licensed photos to a private operator-review queue.
 export default async function OnboardPage({
   params,
 }: {
@@ -28,6 +29,7 @@ export default async function OnboardPage({
   }
 
   const v = info.venue;
+  const readiness = await getReleaseReadiness();
 
   return (
     <main className="mx-auto w-full max-w-md px-4 py-8">
@@ -37,8 +39,8 @@ export default async function OnboardPage({
       <h1 className="mt-1 text-2xl font-bold">Hello, {v.name}!</h1>
       <p className="mt-2 text-sm text-stone-600">
         We&apos;re building a curated Bali guide for travellers, starting with
-        Canggu. Below is how your place will appear. Review it, upload your
-        photos, and confirm.
+        Canggu. Below is how your place will appear. Review it, send any photos
+        you have the right to share for our private review, and confirm.
       </p>
 
       <div className="mt-5">
@@ -56,25 +58,27 @@ export default async function OnboardPage({
           <li>• No setup fee during the pilot.</li>
           {v.perk && (
             <li>
-              • {info.confirmed ? "You have approved" : "By confirming, you approve"} the listed
-              guest offer (<b>{v.perk.title}</b>) for guests who show the redeem screen.
+              • The displayed guest offer (<b>{v.perk.title}</b>) is a preview only.
+              Offer approval is a separate, exact-terms confirmation and is not granted by this listing confirmation.
             </li>
           )}
           {!v.perk && (
             <li>• No guest offer is attached yet; we will confirm any offer with you before publishing one.</li>
           )}
-          {v.perk && info.offerNeedsApproval && !info.confirmed && (
-            <li>• This offer is pending your approval and is not shown here as a tourist redeem action.</li>
+          {v.perk && info.offerNeedsApproval && (
+            <li>• This draft offer remains unpublished until its own approval and operator verification are recorded.</li>
           )}
           <li>• We share aggregate visit numbers with you — never guests&apos; personal data.</li>
-          <li>• Photos you upload are yours; you allow us to show them on the guide.</li>
-          <li>• You can change the offer or pause the listing anytime via WhatsApp.</li>
+          <li>• Each photo needs its own rights confirmation. It stays private and does not appear on the guide unless an Other Bali operator approves both the image and its linked consent record.</li>
+          <li>• You can request changes or ask us to pause the listing anytime via WhatsApp.</li>
         </ul>
       </div>
 
       <OnboardActions
         token={token}
         alreadyConfirmed={info.confirmed}
+        maintenanceDraftsEnabled={readiness.maintenanceDrafts}
+        photoSubmissionEnabled={readiness.photoSubmissions}
         initialJtbd={{
           bestFor: v.bestFor ?? "",
           notFor: v.notFor ?? "",

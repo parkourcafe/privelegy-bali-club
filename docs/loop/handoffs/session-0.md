@@ -1,0 +1,419 @@
+# Session 0 — AI Data Ops Handoff
+
+Status: research and deterministic compilation complete — 208/208 canonical F&B records dispositioned
+
+## Discovery
+
+Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
+`10a82aa0aff8dc894d642d36acb14a4c9ed69175`; the working tree was clean.
+
+- Read `AGENTS.md`, `Other_Bali_Master_Architecture.md`,
+  `PARALLEL_LOOP_EXECUTION_PLAN.md`, `docs/DATA_OPS_TRACK.md`, the frozen
+  `lib/contracts/menu-action.ts` contract and its fixtures, plus the existing
+  Canggu catalogue, editorial pass, launch audit, and venue-collection guidance.
+- The old `lib/seed.ts` Canggu list is explicitly placeholder content and is not
+  suitable for Wave 1 selection. The canonical candidate evidence is the real
+  catalogue slugs in migrations `0021`, `0022`, and the correction in `0023`,
+  cross-checked against `docs/canggu-editorial-pass.md`.
+- Wave 1 prioritises 15 existing food venues with first-party website candidates
+  and likely menu coverage: `mason`, `samesa-canggu`, `luigis-hot-pizza`,
+  `the-shady-shack`, `milk-and-madu-berawa`, `ji-restaurant-bali`, `luma`,
+  `santanera`, `revolver-canggu`, `ulekan-berawa`,
+  `hippie-fish-pererenan-beach`, `baked-pererenan`, `rize-cafe`,
+  `sensorium-bali`, and `shelter-restaurant`.
+- All records will remain draft/review-only with `verifiedAt: null`. Website
+  availability does not grant media rights; any candidate media would remain
+  `publicationAllowed: false` (none is required for this wave).
+- Contract-fit decision: retain the frozen menu/action shapes and add only a
+  Data Ops wrapper for displayed venue name, provenance references, collection
+  notes, and review state. Any fact the contract cannot safely express will be
+  documented rather than forced into a shared-contract change.
+- The optional local deep-research runner could not start because
+  `OPENAI_API_KEY` is absent. This did not modify project files and is not a
+  blocker; official sources are being checked directly.
+
+## 2026-07-14 live-only denominator reconciliation
+
+- The independent read-only production report at
+  `/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md`, snapshot
+  `2026-07-14T02:20:05Z`, confirms `kynd-community` exists with
+  `status=active` and `district=seminyak`. It is used only for identity/live
+  status, never for menu facts.
+- KYND is now the 208th canonical eligible F&B record: the reproducible repo
+  replay remains 207, while the package/registry/ledger denominator is 208 with
+  `liveDatabaseCandidateStatus=reconciled` and no unresolved live candidates.
+- The official May 2026 four-page menu PDF was extracted and visually checked
+  page by page. The draft menu contains 22 sections and 120 priced item/group
+  lines, exact price text, unambiguous integer IDR values, explicit labels, and
+  the source note that all prices incur 10% tax plus 6% service.
+- Accepted action candidates are the official KYND cafe page, the official
+  Seminyak WhatsApp, and the venue-published Maps link that resolves to
+  `KYND COMMUNITY SEMINYAK`. The official dinner short-link is rejected because
+  it resolves to `KYNDCanggu`; Gojek and Grab statements are retained without
+  fabricated branch-deep URLs.
+- The final batch is `data/data-ops/batches/kynd-community-final/`. All new
+  candidates remain `draft`, `verifiedAt: null`, `publicationAllowed: false`,
+  operator-review-only, and forbidden to publish.
+- The integration compiler is not present on this Session 0 branch. To preserve
+  ownership boundaries, its source worktree was not changed. A machine-applicable
+  compatibility patch is included at
+  `data/data-ops/compiler/integration-compiler-55.patch`; `git apply --check`
+  passes against the integration compiler, updating the 53→55 input gate and
+  all exact test expectations without weakening set, digest, provenance, or
+  denominator checks.
+- Deterministic compiled package digest after the release-integration
+  completeness gate:
+  `ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081`;
+  input digest:
+  `79eac95c0d8a93a18045b1a4d79691d2c1ac5fe869bd41ea9764010412844e9a`.
+
+## Progress
+
+Research is complete across Canggu, Ubud, Seminyak, Uluwatu–Bukit, Sanur,
+Jimbaran, and Nusa Dua. Of the 208 canonical records, 153 are complete research
+records and 55 are blocked with concrete retry conditions. All 208 still require
+operator review. Zero remain queued; no venue is human-verified or publishable.
+
+- Canonical coverage baseline: `207` reproducible repo-replay active F&B rows
+  plus the snapshot-confirmed live-only `kynd-community`, yielding `208`
+  canonical package records. The expected `250` active-all and approximately
+  `174` publication-ready F&B values remain production drift checks; KYND's
+  public-surface publication state is explicitly unknown.
+- Coverage drift is explicit for `cafe-del-mar-bali` (repo replay Seminyak;
+  production-oriented Canggu), the dedupe migration's 32-pair claim versus its
+  31 explicit loser slugs, and the two remaining Ubud duplicate-review slugs.
+- Canggu loop 1 completed: `mason`, `samesa-canggu`,
+  `luigis-hot-pizza`. Each has a draft menu record, official action evidence,
+  manifest linkage, `verifiedAt: null`, and `publicationAllowed: false`.
+- Canggu loop 2 completed: `the-shady-shack`,
+  `milk-and-madu-berawa`. Both have branch-matched official menu sources and
+  official action evidence; currency is normalized only where the source names
+  IDR and its scale.
+- Canggu loop 3 completed: `ji-restaurant-bali`, `luma`, `santanera`.
+  Currency/scale ambiguity is preserved as raw source display text rather than
+  converted; Ji's currently unreliable Chope redirect remains a draft action
+  with an explicit warning.
+- Canggu loop 4 completed: `revolver-canggu`, `ulekan-berawa`.
+  Revolver prices are normalized only where its PDF explicitly states `000
+  IDR`; Ulekan uses an accessible official fallback because the branch PDF is
+  blocked, and placeholder menu descriptions were excluded.
+- Canggu loop 5 completed: `hippie-fish-pererenan-beach`,
+  `baked-pererenan`, `rize-cafe`. Hippie Fish and RiZE have partial official
+  menus; BAKED has branch-matched official actions but no itemized restaurant
+  menu, so it is classified `only_action_links_found` rather than padded with
+  retail products or inferred items.
+- Canggu loop 6 completed: `sensorium-bali`, `shelter-restaurant`.
+  SENSORIUM is flagged stale/address-conflicting after its PDF returned
+  `Last-Modified: 2021-11-02`; Shelter uses the unambiguous official 2026 lunch
+  asset and rejects the older placeholder flipbook.
+- Wave 1 checkpoint is complete: 15/15 researched; 14 have partial official
+  menu evidence and 1 (`baked-pererenan`) has official actions only. Zero menus
+  are claimed fully parsed or human-verified.
+- Post-Wave checkpoint `canggu-04a` completed four additional branch-matched
+  records: Nüde Berawa plus Riviera Bistro Berawa, Riviera Cafe Cemagi, and
+  Riviera Trattoria Pererenan. Nüde has an official menu folder that was not
+  safely parseable; the three Riviera records have partial official menu
+  evidence and strictly separated branch actions.
+- Current repo-denominator progress is 19/207 complete: 18 official menus
+  found, 17 partial transcriptions, 1 official menu found but not parsed, and 1
+  action-only venue. The remaining deterministic queue contains 188 records.
+- Canggu batch 02 is processed across all 10 queued slugs. Five records have
+  partial official-menu evidence and five have concrete source blockers. The
+  Deus PDF was rejected as Australian wrong-branch collateral; Cafe Vida and
+  Honey were not backfilled from aggregators. Current ledger state is 24
+  complete, 5 blocked, and 178 queued out of 207.
+- Canggu batch 01 is processed across all 10 slugs: eight partial official-menu
+  transcriptions and two concrete menu-access blockers. Shared menu/branch
+  caveats are retained for Bali Buda, Brunch Club and Bottega; a Legian booking
+  target was rejected for the Pererenan record. Ledger state is now 32
+  complete, 7 blocked, and 168 queued.
+- Canggu batch 03 is processed across all 10 slugs: eight partial official-menu
+  transcriptions and two social-only blockers (MIEL and Milu). Stale-looking
+  filenames and duplicated live menu blocks are retained as review warnings.
+  Ledger state is 40 complete, 9 blocked, and 158 queued.
+- Canggu batch 04 is fully processed after checkpoint 04b: Pizza Fabbrica has a
+  partial official menu, while four social-only venues and Samadi have exact
+  access/menu blockers. Ledger state is 41 complete, 14 blocked, and 152
+  queued.
+- Canggu batch 05 is processed: six partial official menus, two valid
+  action-only records, and two exact blockers. Cross-branch Touché actions,
+  compromised The Slow collateral, and non-restaurant booking links were
+  excluded. Ledger state is 49 complete, 16 blocked, and 142 queued.
+- Canggu batch 06 completes the full 70-record Canggu denominator. Three venues
+  have item-level partial menus, Warung Bu Mi has buffet-level official menu
+  evidence, and Warung Nonii has a specific no-first-party-source blocker.
+  Overall ledger state is 53 complete, 17 blocked, and 137 queued.
+- Ubud batch 04 is processed: Zest has partial official evidence with an address
+  mismatch warning; Wulan is blocked on inaccessible social-only evidence.
+  Ledger state is 54 complete, 18 blocked, and 135 queued.
+- Ubud batch 01 is processed: six partial official menus, three valid
+  action-only records, and one social-only blocker (`dicarik-warung`). Branch,
+  currency and duplicate-review caveats remain explicit. Ledger state is 63
+  complete, 19 blocked, and 125 queued.
+- Ubud batch 02 is processed: six partial official menus and four exact
+  blockers. Three-way Gelato branch ambiguity, Karsa's compromised domain,
+  wrong-venue Manga collateral, and Onion's rebrand/duplicate review remain
+  explicit. Ledger state is 69 complete, 23 blocked, and 115 queued.
+- Uluwatu–Bukit batch 02 is processed: nine partial official menus and one
+  social-only blocker. Artisan name drift, Tropical Temptation's stale map
+  alias, and provider-specific booking constraints remain explicit. Ledger
+  state is 78 complete, 24 blocked, and 105 queued.
+- Uluwatu–Bukit batch 01 is processed: eight partial official menus and two
+  social/branch blockers. M. MASON legacy-name drift and raw-price scale
+  caveats remain explicit. Ledger state is 86 complete, 26 blocked, and 95
+  queued.
+- Ubud batch 03 is processed: five partial official menus, one action-only
+  record, and four exact blockers. This completes the full 32-record Ubud
+  denominator. Room4Dessert stale-price and The Elephant compromised-domain
+  evidence were rejected. Ledger state is 92 complete, 30 blocked, and 85
+  queued; the resumable pointer advances to `uluwatu-bukit-03`.
+- Uluwatu–Bukit batch 03 is processed: all five have official menu/action
+  surfaces, with explicit item prices transcribed only where the first-party
+  source safely exposes them. This completes the full 25-record Uluwatu–Bukit
+  denominator. Ledger state is 97 complete, 30 blocked, and 80 queued; the
+  pointer advances to `seminyak-01`.
+- Seminyak batch 04 is processed: Watercress Seminyak is branch-matched to its
+  official location and WhatsApp, with six currency-null items from the shared
+  March 2026 menu. Ledger state is 98 complete, 30 blocked, and 79 queued.
+- Seminyak batch 02 is processed: eight item-level partial official menus and
+  two exact access/source blockers. Natys' removed Drive menu and Nook's
+  inaccessible first-party candidates remain empty rather than inferred.
+  Ledger state is 106 complete, 32 blocked, and 69 queued.
+- Seminyak batch 03 is processed: nine partial first-party menus and one exact
+  binary-source blocker. Sisterfields prices remain null because its official
+  page omits them; Warung Nia cached/indexed values were rejected after the
+  first-party 2026 PDFs returned 404. Ledger state is 115 complete, 33 blocked,
+  and 59 queued.
+- Jimbaran batch 02 is processed out of order without moving the pointer past
+  Seminyak 01: Sundara has partial menu evidence, Sunset and UNIQUE have
+  fetchable official menus not yet parsed, and three local venues retain exact
+  first-party-source blockers. Ledger state is 118 complete, 36 blocked, and
+  53 queued.
+- Seminyak batch 01 completes all 31 repo-canonical Seminyak records: six
+  partial item menus, one action/group-menu-only record, and three exact
+  freshness/identity/location blockers. Café del Mar is retained in the repo
+  district denominator but no menu is attributed while its official site says
+  Canggu. Ledger state is 125 complete, 39 blocked, and 43 queued; the pointer
+  advances to `jimbaran-01`.
+- Nusa Dua batch 02 is processed out of order: Tetaring and The Beach Grill
+  retain price-null named dishes from first-party pages; White Orchid is
+  blocked without a confirmed first-party source. Ledger state is 127 complete,
+  40 blocked, and 40 queued; the pointer remains `jimbaran-01`.
+- Sanur batch 01 is processed out of order: six partial official menus and four
+  exact identity/location/source blockers. Raw currency-ambiguous values and
+  Massimo's stale asset date remain explicit. Ledger state is 133 complete, 44
+  blocked, and 30 queued; the pointer remains `jimbaran-01`.
+- Sanur batch 02 completes all 20 repo-canonical Sanur records: three partial
+  menus, one official action-only record, and six exact menu/identity/source
+  blockers. Ledger state is 137 complete, 50 blocked, and 20 queued; the
+  pointer remains `jimbaran-01`.
+- Jimbaran batch 01 completes all 16 repo-canonical Jimbaran records: seven
+  item-level partial menus, one found-but-unparsed official menu, and two exact
+  identity/menu blockers. Ledger state is 145 complete, 52 blocked, and 10
+  queued; the pointer advances to `nusa-dua-01`.
+- Nusa Dua batch 01 completes the full 207-record repo denominator: nine
+  item/package-level partial menus and three exact branch/freshness/priced-menu
+  blockers; two blockers overlap the partial-menu set. Final ledger state is
+  152 complete, 55 blocked, and 0 queued; `currentBatchId` is `null`.
+
+## Validation
+
+- Loop 1: JSON parse passed; 3 unique venue slugs; menu item IDs unique within
+  each menu; every menu/action maps to a manifest source; every unverified
+  record keeps `verifiedAt: null`; no media is publishable.
+- Two-source recheck passed at `2026-07-13T15:18:21Z`–`15:18:23Z`:
+  MASONRY Canggu menu and Luigi's menu both returned HTTP 200.
+- Loop 2: JSON parse/provenance/duplicate-ID checks passed for 5 cumulative
+  venues. Recheck at `2026-07-13T15:19:49Z`: Shady Shack's official PDF link
+  returned the expected Squarespace asset redirect (HTTP 302), and Milk &
+  Madu's official contact page returned HTTP 200.
+- Loop 3: cumulative checks passed for 8 venues. Recheck at
+  `2026-07-13T15:20:59Z`: Ji's official menu and Santanera's official booking
+  page both returned HTTP 200.
+- Loop 4: cumulative checks passed for 10 venues. Recheck at
+  `2026-07-13T15:22:04Z`–`15:22:06Z`: Revolver's official Canggu page and
+  Ulekan's official fallback menu both returned HTTP 200.
+- Loop 5: cumulative checks passed for 13 venues, including the no-menu BAKED
+  classification and unique IDs across RiZE's two menu records. Recheck at
+  `2026-07-13T15:23:30Z`: Hippie Fish and BAKED's official branch/location
+  pages both returned HTTP 200.
+- Loop 6 / Wave 1: cumulative JSON, provenance, duplicate slug/item/menu ID,
+  draft status, null verification, and publication-block checks passed for 15
+  venues. Recheck at `2026-07-13T15:24:36Z`–`15:24:37Z`: SENSORIUM's official
+  PDF and Shelter's official lunch page returned HTTP 200; SENSORIUM's stale
+  `Last-Modified` value is recorded as a blocker for import readiness.
+- Canggu 04a: JSON and source mapping checks passed for four unique venue
+  slugs. The Nüde Berawa page/menu and Riviera Bistro branch/menu were reopened
+  from official sources during acceptance; branch identity and action links
+  remained consistent. All batch records retain null verification, draft-only
+  actions, no media, and publication prohibition.
+- Canggu 02: all 10 official identity/menu surfaces were independently reopened
+  during acceptance. JSON, unique slug, source mapping, action draft/null
+  verification, denominator and queue reconciliation checks passed. The batch
+  has 5 complete and 5 blocked research states; blocked records have an exact
+  retry reason and remain removed from the active queue.
+- Canggu 01: venue-controlled pages for all 10 records were reopened during
+  acceptance. Deterministic JSON, unique slugs/items, source mapping, action
+  draft/null verification, denominator metrics, and completed queue state all
+  passed validation. No network-wide menu is represented as branch-verified.
+- Canggu 03: all 10 primary pages were reopened during acceptance. JSON,
+  provenance, unique identifiers, draft/null verification, denominator metrics
+  and queue completion passed. Ambiguous `k`/numeric values were not assigned a
+  currency merely from Bali context.
+- Canggu 04b: all six official identities/surfaces were rechecked. JSON,
+  provenance, unique IDs, draft/null verification, denominator metrics and the
+  now-complete Canggu-04 queue passed. Pizza Fabbrica's SSL and Samadi's removed
+  PDF are retained as explicit retry conditions.
+- Canggu 05: all 10 official surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null verification, denominator metrics and
+  queue completion passed. Action-only and classification-blocked states remain
+  distinct.
+- Canggu 06: official pages for Warung Bu Mi, Woods, YUKI and ZIN were reopened;
+  Warung Nonii produced only rejected third-party results. JSON, source mapping,
+  unique IDs, draft/null gates, metric reconciliation and all seven completed
+  Canggu queue checkpoints passed.
+- Ubud 04: Zest and Wulan sources were both reopened. JSON, source mapping,
+  unique IDs, draft/null gates, denominator metrics and completed queue state
+  passed.
+- Ubud 01: all ten venue-controlled identity/menu surfaces were independently
+  reopened during acceptance. JSON, provenance, unique slugs, draft/null
+  verification, publication gates, denominator metrics and completed queue
+  state passed; no menu is represented as fully parsed.
+- Ubud 02: Gelato Secrets, Hujan Locale, Locavore NXT, Milk & Madu, Mozaic and
+  The Onion Co official surfaces were reopened during acceptance; blocked
+  social/compromised cases retain exact retry evidence. JSON, provenance,
+  unique slugs, source mapping, draft/null gates, denominator metrics and queue
+  advancement to `ubud-03` passed.
+- Ubud 02 provenance replay: exact Ibu Rai, Karsa and Warung Mangga Madu social
+  handles, the April 2026 Milk & Madu PDF, branch map, exact Locavore booking,
+  and current Onion menu route were reconciled without changing coverage
+  metrics. JSON/source mapping and gates passed again.
+- Uluwatu–Bukit 02: Papi Sapi, Sundays, Hyatt/Alila, Tropical Temptation,
+  Artisan and ULU Fishmarket sources were independently reopened during
+  acceptance. JSON, provenance, unique IDs, draft/null gates, denominator
+  metrics and completed batch state passed; `currentBatchId` remains the first
+  queued batch, `ubud-03`.
+- Uluwatu–Bukit 01: Alchemy, BGS, El Kabron, Gooseberry, KALA, Mana, M. MASON
+  and oneeighty official menu surfaces were independently reopened; both
+  social-only profiles were retried and remained inaccessible. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and completed
+  batch state passed.
+- Ubud 03: Room4Dessert, Seeds of Life, Seniman, SUKA, Watercress and Who's Who
+  official surfaces were reopened; all four social-only profiles were retried.
+  JSON, source mapping, unique IDs, draft/null gates, denominator metrics,
+  complete Ubud coverage and queue advancement passed.
+- Uluwatu–Bukit 03: Ulu Garden, Waatu, White Rock, YUKI and Zali official menu
+  and branch surfaces were independently opened. JSON, source mapping, unique
+  IDs, draft/null gates, denominator metrics, complete 25-record district
+  coverage and queue advancement passed.
+- Seminyak 04: Watercress's official location, menu and Seminyak contact were
+  independently reopened. JSON, source mapping, unique IDs, draft/null gates,
+  denominator metrics and completed one-record batch state passed.
+- Seminyak 02: La Casetta, Mama San, Merah Putih, Pison and the remaining
+  first-party menu/action surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and queue state
+  passed. Natys and Nook retain concrete retry blockers and no inferred menu
+  data.
+- Seminyak 03: Potato Head, Revolver, Sea Circus, Sisterfields and other
+  first-party branch/menu surfaces were independently reopened. JSON,
+  provenance, unique IDs, draft/null gates, denominator metrics and queue state
+  passed. Warung Nia remains empty pending a fetchable first-party PDF.
+- Jimbaran 02: Sundara, InterContinental Sunset and AYANA UNIQUE official
+  branch/menu/booking surfaces were independently reopened; Radja and Ramayana
+  social candidates were retried and remained inaccessible. JSON, provenance,
+  unique IDs, draft/null gates, metrics and out-of-order queue consistency
+  passed.
+- Seminyak 01: Corner House, Boy'N'Cow, KU DE TA, Café del Mar and the other
+  venue-controlled identity/menu surfaces were independently reopened. JSON,
+  source mapping, unique IDs, draft/null gates, complete Seminyak coverage,
+  denominator metrics and pointer advancement passed. Undeclared price scales
+  remain currency-null.
+- Nusa Dua 02: Kayumanis Tetaring and Ritz-Carlton/The Beach Grill sources were
+  reopened; White Orchid searches produced no acceptable first-party source.
+  JSON, source mapping, unique IDs, draft/null gates, metrics and out-of-order
+  queue consistency passed.
+- Sanur 01: Genius, Gong, Jalapeño, Kuu, Linga Longa and Massimo first-party
+  sources were independently reopened; unavailable social-only cases were
+  retried. JSON, source mapping, unique IDs, draft/null gates, metrics and
+  out-of-order queue consistency passed. Agent rechecks reproduced identical
+  Genius PDF and Linga image hashes.
+- Sanur 02: Pizzaria, Retro and Soul branch/menu/action chains were independently
+  reopened; social-only and no-source cases were retried. JSON, source mapping,
+  unique IDs, draft/null gates, complete Sanur coverage, metrics and queue state
+  passed. Retro freshness and Soul hours conflicts remain explicit.
+- Jimbaran 01: Bawang Merah, Cuca, DAVA, Kayumanis and other first-party sources
+  were independently reopened; AKUA and Nyoman identity/menu blockers were
+  repeated. JSON, source mapping, unique IDs, draft/null gates, complete
+  Jimbaran coverage, metrics and pointer advancement passed.
+- Nusa Dua 01: Arwana, Bejana, Bumbu Bali, Kempinski, St. Regis, ISMAYA,
+  Nusa Dua Beach Grill, Piasan and Mulia sources were independently reopened.
+  JSON, source mapping, unique IDs, draft/null gates, complete 207-record
+  coverage, final metrics and `currentBatchId: null` passed. Bumbu branch,
+  Kayuputi current/stale and Soleil priced-menu blockers remain explicit.
+- Global closeout passed across 53 JSON files and 24 completed queue batches:
+  207 unique package slugs, 391 actions, 148 menus, and 819 items. Provenance,
+  duplicate, source mapping, denominator/metrics, null-verification,
+  draft-action, publication prohibition, and Wave 1 plus batch coverage checks
+  all passed; `currentBatchId` and the remaining queue are both empty.
+- KYND final closeout supersedes the 207-record checkpoint: 55 raw input JSON
+  files, 25 completed queue batches plus Wave 1, 208 unique package/ledger/
+  registry slugs, 365 source records, 394 raw actions, 149 raw menus, and 939 raw
+  items. Source mapping is 543/543; duplicate/global-ID, provenance, null-
+  verification, publication, queue, exact denominator and compiler-integrity
+  checks all passed.
+- Compiler results: 127 menu candidates with 881 items (1 full-menu candidate,
+  126 explicitly partial/subset candidates), 250 capability
+  candidates, 50 map-verification candidates, 115 existing compiled rejection
+  records, zero unmatched sources, and 427 total draft candidates. The KYND
+  batch contributes one fully parsed menu, two importable capabilities, one map
+  verification candidate, seven sources, and three explicit research-level
+  action rejections.
+- Release integration added a fail-closed completeness classification without
+  changing any raw evidence or the input digest. Partial/subset candidates may
+  be imported for operator work but cannot pass the verified full-menu publish
+  gate. KYND Community is the only current full-menu candidate.
+- Exact compiler validation used the integration compiler from commit
+  `e4fcc8a5a12431f6b6247ae64f1c43888a395c52` in an isolated copy:
+  `node /private/tmp/kynd-compiler/compile-data-ops.mjs --root '<session-0-root>'`,
+  `node --test /private/tmp/kynd-compiler/data-ops-compiler.test.mjs`, and
+  `node /private/tmp/kynd-compiler/compile-data-ops.mjs --root '<session-0-root>' --check`.
+  Compilation passed; all 6 tests passed; byte-for-byte check passed.
+- Diff check passed; changes are limited to Session 0-owned paths plus the
+  explicitly requested shared `docs/loop/STATUS_BOARD.md`. No app, lib,
+  migration, fixture, or Session 1–4 handoff file changed.
+
+## Readiness and gates
+
+- **Data ready for operator review:** yes for all 208 records; 153 are complete
+  research records and 55 retain exact blockers.
+- **Ready for import dry-run:** yes. Deterministic compiler, provenance, safety,
+  and reconciled-denominator gates pass; this does not authorize an actual
+  database write.
+- **Ready for staging apply:** yes at package-gate level; no staging apply was
+  performed in Session 0.
+- **Blocked:** 55 pre-existing venue research records. KYND is complete, but its
+  reserve capability remains rejected until a Seminyak-safe official destination
+  exists, and delivery remains statement-only without branch-deep URLs.
+- **Forbidden to publish:** yes, for all 208 records. Human/owner verification
+  remains null, no media rights are asserted, and no import, publication,
+  deployment, or external message was performed.
+
+## Contract requests and risks
+
+- The frozen contract has no fields for venue display name, manifest linkage,
+  per-source outcome, collection notes, or operator review state. These will be
+  carried in Data Ops-owned wrapper/manifest fields, not added to the contract.
+- First-party sites may use JavaScript, bot protection, location-wide menus, or
+  booking widgets that cannot be safely attributed to one branch. Such cases
+  will be recorded as ambiguous/unavailable rather than inferred.
+
+## Final SHA
+
+Previous 207-record data package SHA:
+`f943fafe130c60365fb85756a8dc716cca6eadf5`.
+
+Final 208-record implementation/data-package SHA:
+`f72bf43a6b08c9fae5b8b82b579abacb7bf70d2f`.
+
+The following documentation-only commit records this SHA in the handoff and
+status board; it does not change research or compiled data.

@@ -1,10 +1,10 @@
-# Bali Privilege — Canggu (thin G0→G1 MVP)
+# Other Bali — release integration workspace
 
-Web-first, tourist-first planning + perk-redemption for one deep district (Canggu).
-Built to prove **one** chain: a tourist finds a venue here, reserves a table
-through TablePilot, shows up and is seated — and the venue can see that visit is
-ours. Perk redemption stays as the on-the-ground arrival proof and tourist
-incentive. Everything else is deliberately out of scope.
+Resident-curated Bali planning, verified venue menus and safe external action
+handoffs. Canggu remains the first deep operating district; other districts are
+planning surfaces until their own release gates are met. Reservations stay in
+TablePilot or another verified external provider rather than being recreated in
+this repository.
 
 > Positioning: **Bali-wide planning, Canggu-deep execution.** Free for tourists;
 > venues pay a fixed fee per confirmed seated reservation made through us —
@@ -35,9 +35,11 @@ cp .env.local.example .env.local   # optional for G0; required for G1 writes
 npm run dev
 ```
 
-Without Supabase env vars the app serves **seed data** (`lib/seed.ts`) so G0 is
-fully browsable. Redemption writes need a DB and will return
-`redemption_storage_unconfigured` until configured.
+Deployed builds fail closed when Supabase is unavailable. For local development
+only, invented fixture data can be enabled explicitly with
+`OTHER_BALI_ALLOW_FIXTURE_DATA=YES`; preview and production ignore that flag.
+Redemption writes need an isolated configured database and otherwise return
+`redemption_storage_unconfigured`.
 
 In production, `/admin/*` is protected by `ADMIN_ACCESS_TOKEN`. The browser
 username can be anything; the password must match the token. If the token is
@@ -45,18 +47,27 @@ unset in production, `/admin/*` returns 404.
 
 ## Database
 
-Apply `supabase/migrations/` in order, then `supabase/seed.sql` for local seed data.
-RLS: planning tables are public-read; identity/consent/redemption tables are
-default-deny and written exclusively through SECURITY DEFINER RPCs with the anon key.
-Do not add a service-role key to the app or Vercel.
+Do **not** apply the migration folder to staging or production yet. Historical
+versions `0015`–`0019` are duplicated and first require a read-only comparison
+with the live Supabase migration history plus an approved baseline/repair plan.
+After that reconciliation, apply only the reviewed ordered plan; never guess by
+renaming migrations that may already have run.
 
-## Scope discipline (NOT built — later gates)
+RLS exposes only active, published planning rows. Identity/consent/redemption
+tables are default-deny. Operator queues use a server-only service-role key;
+never prefix it with `NEXT_PUBLIC_` or expose it to browser code. Preview may
+use only an isolated staging project ref and hard-denies the production ref.
 
-Partner auth/roles, multi-district, reviews, AI, second district. Paid tiers are
-dead permanently (money model v0.3), not gated. Reservations are never built
-internally — BP hands off to the external TablePilot product
-(`docs/tablepilot-bridge-handoff.md`). See the master architecture doc for the
-gate sequence.
+## Current release gate
+
+The codebase now contains public planning/place pages, draft menu/action
+contracts, operator review queues, token-scoped partner maintenance, private
+photo staging with exact-image consent, and a deterministic Data Ops compiler.
+This does not mean production publication is approved: live migration history,
+the 207-vs-208 venue denominator, isolated staging apply, operator verification,
+and preview QA must close first. Reviews and aggregator content are not a public
+product, and Data Ops captures remain unverified drafts until a real operator
+checks them.
 
 ## Seed data is placeholder
 
