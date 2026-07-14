@@ -406,5 +406,8 @@ operator review. Zero remain queued; no venue is human-verified or publishable.
 Previous 207-record data package SHA:
 `f943fafe130c60365fb85756a8dc716cca6eadf5`.
 
-The final 208-record implementation SHA will be recorded here by the following
-documentation-only commit after the atomic KYND package commit is created.
+Final 208-record implementation/data-package SHA:
+`f72bf43a6b08c9fae5b8b82b579abacb7bf70d2f`.
+
+The following documentation-only commit records this SHA in the handoff and
+status board; it does not change research or compiled data.
