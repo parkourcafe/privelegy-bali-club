@@ -48,5 +48,19 @@ implying a branch-exclusive or exhaustive menu.
 - Set `expires_at` to 60 days after the operator verification timestamp.
 - No photo rights are implied by this verification.
 - Do not publish the Canggu dinner-booking redirect for the Seminyak venue.
-- The Seminyak WhatsApp action and shared website/menu actions may be reviewed
-  separately against their exact official links.
+
+## Action decisions
+
+The following two candidates were checked against the official pages and may
+be confirmed after draft import with the normal 30-day action freshness window:
+
+- `capability-627aaa74a6d7e4492df3552d`: Seminyak WhatsApp,
+  `https://api.whatsapp.com/send?phone=6285931120209`. The official venues page
+  labels this exact number as Seminyak, and the target returned HTTP 200.
+- `capability-e7038ddd3fefb10b5e5a809e`: shared official cafe page,
+  `https://www.kyndcommunity.com/pages/kyndcafe`. The page identifies all three
+  Bali locations including Seminyak and returned HTTP 200.
+
+No reservation action is approved for this venue. The official dinner short
+link currently resolves to a Canggu ResDiary destination and is branch-wrong
+for the Seminyak record.
