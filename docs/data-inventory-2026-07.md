@@ -38,19 +38,20 @@ token), never a name/email/account.
 | Data element | Table (migration) | Fields | Purpose | Legal basis (draft) | Retention (current) | Deletion path |
 |---|---|---|---|---|---|---|
 | Device reference | `guest_refs` (0001/0003) | `ref`, `source`, `first_district`, `created_at` | Attribution + "my offers" | Legitimate interest / functional | **None (indefinite)** | `forget_guest` nulls `source`; row kept for redemption FK |
-| Behavioural events | `events` (0003) | `type`, `guest_ref_id`, `venue_slug`, `source`, `ts` | Funnel analytics (growth vs partner-proof) | **Consent** (opt-in gate, §audit item 9) | **None (indefinite)** | `forget_guest` deletes; email request |
+| Behavioural events | `events` (0003, `payload` added 0032) | `type`, `guest_ref_id`, `venue_slug`, `source`, `ts`, `payload` (jsonb) | Funnel analytics (growth vs partner-proof). `payload` carries menu/action context (`menuId`, `menuItemId`, `action`, `provider`, `capabilityId`) — **RPC-validated PII-free** (key allowlist + regex, 0032) | **Consent** (opt-in gate, §audit item 9) | **None (indefinite)** | `forget_guest` deletes; email request |
 | Redemptions | `redemption_events` (0001/0003) | `guest_ref_id`, `venue_slug`, `perk_id`, `confirm_code`, `source`, `ts`, `externally_attributed` | Partner-proof / billing evidence (guardrail #8) | Legitimate interest / contract (venue) | **None (indefinite)** — retained as proof | **Retained** by `forget_guest` **[LEGAL]**; email for full erasure |
 | Consent record | `consent_log` (0001) | `guest_ref_id`, `consent_type`, `granted`, `user_agent`, `ts` | Proof of redemption-tracking consent | Legal obligation / legitimate interest | **None (indefinite)** | Retained (consent proof) **[LEGAL]** |
 | Saved places | `saved_places` (0019) | `guest_ref_id`, `venue_slug` | Anonymous ♥ list on device | Functional | **None** | `forget_guest` deletes |
 | Shared lists | `shared_lists` (0019) | `id`, `guest_ref_id`, `venue_slugs` | Share-by-link | Functional | **None** | `forget_guest` deletes |
 | **Guide leads (PII)** | `guide_leads` (0018) | `first_name`, `email` **or** `whatsapp`, `travel_date`, `interests[]`, `language`, `source`, `utm`, `consent_granted`, `consent_ts`, `user_agent`, timestamps | 48-hour guide delivery + follow-up (explicit opt-in lead magnet) | **Consent** (`consent_granted` required, `app/api/guide-lead`) | **None (indefinite)** | **No self-serve path** — email request only ⚠️ |
 
-**Partner/venue-owner data (B2B, not tourist-facing):**
+**Partner/venue-owner data (B2B, web onboarding — not the tourist app):**
 
 | Data | Where | Fields | Notes |
 |---|---|---|---|
 | Venue confirmation | `venue_confirmations` (via `confirm_onboarding`) | contact `name`, `agreed`, `user_agent` | Venue owner accepts listing terms |
-| Venue photos | `venues.photo_url` (via `set_venue_photo`) | owner-uploaded image URL + rights | Owner submission, shown attributed |
+| Venue photos | `venues.photo_url` (via `set_venue_photo`, consent-gated 0030) | owner-uploaded image URL + rights | Owner submission, shown attributed |
+| **Photo-rights consent (incl. IP)** | `venue_photo_consents` (0030) + `consent_log` owner fields (0033) | `venue_slug`, `photo_url`, `granted_by` (name/role), `user_agent`, **`submitted_ip` (inet)**, `terms_version`, `scope` | ⚠️ **IP address IS captured here** — venue-owner consent evidence at photo-upload time (`app/api/onboard/photo` reads `x-forwarded-for`). B2B web flow; **not** the tourist path. |
 
 ---
 
@@ -58,7 +59,7 @@ token), never a name/email/account.
 
 | Party | Role | Data it sees | Status |
 |---|---|---|---|
-| **Supabase** | Database + hosting of §2 | All server-side data above | Active (sub-processor) |
+| **Supabase** | Database + hosting of §2 | All server-side data above | Active (sub-processor). Access uses the anon key + RLS/RPCs; a **`service_role` client** (`lib/supabase/service.ts`, `SUPABASE_SERVICE_ROLE_KEY`) was **added in the merge** for privileged server-only ops, env-guarded against preview→prod. NB: contradicts the earlier CLAUDE.md line "no service_role secret needed anywhere" — reconcile. |
 | **Vercel** | App hosting | Request metadata at infra level — **IP address + user-agent in access/runtime logs** (standard; the app itself stores no IP) | Active (sub-processor) |
 | **Google Analytics (GA4)** | Web analytics | Would receive event names + the GA client id | **DISABLED** — off unless `NEXT_PUBLIC_ENABLE_ANALYTICS=1` (audit item 8); ships off |
 | Google Maps | External navigation handoff | Whatever the user does *after* leaving via a maps link | Not integrated in-app; user's own session under Google's policy |
@@ -72,9 +73,12 @@ token), never a name/email/account.
 
 - **No account / login, no password.**
 - **No payment data** (travellers never pay; guardrail #5).
-- **No precise or coarse location / geolocation** — no geolocation API is used
-  (Permissions-Policy denies it), and there are no lat/long or IP columns in the
-  schema. "District" is a tapped preference, not a measured location.
+- **No precise or coarse location / geolocation for travellers** — no geolocation
+  API is used (Permissions-Policy denies it); no lat/long anywhere. "District" is
+  a tapped preference, not a measured location. **IP caveat:** the only IP stored
+  in the schema is `submitted_ip` on the **venue-owner** photo-consent path (B2B
+  web onboarding), as rights-grant evidence — not the traveller flow. Vercel
+  infra logs still see request IPs (standard, all hosts).
 - **No IDFA / ATT / advertising identifier; no cross-app or cross-site tracking;
   no data brokers.** → `NSPrivacyTracking=false` is correct.
 - **No third-party analytics or ad SDKs** (GA is first-party config and off).
@@ -94,6 +98,11 @@ Based on §1–§4, the in-app data flows suggest declaring:
 | Location, Financial, Health, Browsing history, Contacts, etc. | **No** | — | — | — |
 
 "Data used to track you": **None** → tracking = No.
+
+Note on IP: the only stored IP (`submitted_ip`) is on the **venue-owner** photo-consent
+web flow, not the tourist app — so it likely falls outside the tourist app's
+labels, but confirm scope with legal (§7.7). If venue owners ever submit photos
+from *inside* the app, IP would then be app-collected and need declaring.
 
 ---
 
@@ -131,6 +140,14 @@ currently used by the wrapper; confirm when native features are added.
 5. Controller identity, business address, governing law, international transfer
    (Supabase/Vercel regions) — needed for the policy and DSA trader status.
 6. §6(a) vs §6(b): the `PrivacyInfo.xcprivacy` collected-data reading.
+7. Venue-owner `submitted_ip` (photo consent) — retention + is it in scope for
+   the tourist **app's** privacy labels (it's a B2B web flow, not app collection)?
+8. `service_role` key now in use (`lib/supabase/service.ts`) — reconcile with the
+   CLAUDE.md guardrail and confirm it is never exposed to the client bundle.
+9. Migration numbering **collisions** on disk (two `0030_`, three `0031_`, two
+   `0032_`) — confirm apply order is unambiguous in prod.
+10. The merge added unit tests (`lib/*.test.ts`), but CI still runs only
+    lint/typecheck/build — wire a `test` step in `.github/workflows/ci.yml`.
 
 ---
 
@@ -139,5 +156,8 @@ currently used by the wrapper; confirm when native features are added.
 Cookies: `lib/guest-server.ts`, `lib/consent.ts`. Tables: `supabase/migrations/`
 0001, 0003, 0018, 0019. APIs: `app/api/{event,source,redeem,guide-lead,privacy/forget}`.
 Analytics: `components/Analytics.tsx`, `lib/analytics.ts`. Erasure:
-`supabase/migrations/0031_forget_guest.sql`. No IP/geolocation columns exist in
-any migration (verified 2026-07-14).
+`supabase/migrations/0031_forget_guest.sql`. Menu/action events: `0032`,
+`lib/actions/*`, `lib/contracts/menu-action`. Photo-rights consent + the only
+stored IP: `0030`/`0033`, `app/api/onboard/photo/route.ts`. Service client:
+`lib/supabase/service.ts`. Refreshed 2026-07-14 against the merged menu/action +
+photo-consent code.
