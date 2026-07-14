@@ -2,7 +2,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
 
-const SITE = "https://otherbali.com";
+const SITE = "https://www.otherbali.com";
 
 // Presentational scenario page (master §6a.3). Uses the shared inner-page dark
 // system (page-dark / site-shell / hero-*) so it reads as one product with

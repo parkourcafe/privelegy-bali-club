@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getSanurVenues, toSanurPlaceCard } from "@/lib/sanur";
 import { SANUR_GUIDES, type SanurGuide } from "@/lib/sanur-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
   const venues = (await getSanurVenues()).filter(guide.base);

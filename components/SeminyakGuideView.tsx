@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES, type SeminyakGuide } from "@/lib/seminyak-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuide }) {
   const venues = (await getSeminyakVenues()).filter(guide.base);
