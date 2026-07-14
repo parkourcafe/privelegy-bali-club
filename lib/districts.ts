@@ -181,7 +181,19 @@ const GUIDE: DistrictGuideEntry[] = [
   },
 ];
 
+// Districts that shipped a hand-crafted pillar page — the homepage card links
+// there (a real route) instead of the programmatic /bali/[district] hub, which
+// deliberately excludes these slugs (HUB_EXCLUDE_DISTRICTS) and would 404.
+const PILLAR_PATH: Record<string, string> = {
+  "uluwatu-bukit": "/uluwatu",
+  ubud: "/ubud",
+  seminyak: "/seminyak",
+  sanur: "/sanur",
+  "nusa-dua": "/nusa-dua",
+};
+
 export const DISTRICT_GUIDE: DistrictGuideEntry[] = GUIDE.map((d) => ({
   ...d,
   catalogued: CATALOGUED.has(d.slug),
+  guidePath: d.guidePath ?? PILLAR_PATH[d.slug],
 }));

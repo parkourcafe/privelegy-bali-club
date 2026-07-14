@@ -343,10 +343,18 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
   }
 
   if (!venue) return null;
-  // Guardrail #4: offers attach only inside the active_deep district.
-  if (venue.district !== "canggu") perk = undefined;
+  // Guardrail #4: offers AND the TablePilot seated-reservation money loop
+  // attach only inside the active_deep district. Verified official booking
+  // links (content.bookingUrl) are NOT the money loop and stay available.
+  const activeDeep = venue.district === "canggu";
+  if (!activeDeep) perk = undefined;
   const entry = PLAN_ENTRIES.find((e) => e.venueSlug === slug);
-  return { ...venue, perk: perk ?? null, blurb: entry?.blurb ?? "" };
+  return {
+    ...venue,
+    perk: perk ?? null,
+    tablepilotSlug: activeDeep ? venue.tablepilotSlug : undefined,
+    blurb: entry?.blurb ?? "",
+  };
 }
 
 // ---- Write layer (redemption, G1) ----
@@ -529,6 +537,10 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     .map((v) => ({
       ...v,
       perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
+      // Guardrail #4: the TablePilot seated-reservation loop is the billing
+      // event — never render it outside the active_deep district, even if a
+      // slug leaks onto a planning_only row via bulk import.
+      tablepilotSlug: isActiveDeep(v.district) ? v.tablepilotSlug : undefined,
       blurb: "",
     }));
 }

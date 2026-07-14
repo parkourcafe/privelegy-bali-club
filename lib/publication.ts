@@ -12,11 +12,12 @@
 //      practical decision detail exist, and a verification date is set.
 //      No approved venue photos exist yet, so published venues render the
 //      explicitly typographic editorial cover (never a fake image).
-//    - Other districts (Canggu active_deep flow etc.): the legacy
-//      display predicate (editorial reason + fit + price/order anchor)
-//      keeps the catalogue behaviour unchanged, but their detail pages are
-//      NOT indexable in this release (no evidence layer yet) — see
-//      isIndexableVenueSlug().
+//    - Other districts: the legacy decision-ready display predicate
+//      (editorial reason + fit + price/order anchor) now doubles as the index
+//      bar — a detail page carries index,follow once it clears that bar.
+//      isVenueIndexable() works for ALL districts; isIndexableVenueSlug() is
+//      the Uluwatu-registry, slug-only variant kept for callers that only
+//      have a slug (page/sitemap code with the full Venue should not use it).
 //
 // 2. REVIEW — internal only. Reachable via /places?all=1 and direct URL,
 //    always noindex,nofollow. Archived/uncertain/unverified rows stay here.
