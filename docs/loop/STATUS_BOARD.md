@@ -8,7 +8,7 @@ commit; product implementation diffs are therefore measured against `1d77f1e`.
 
 | Session | Branch | Status | Final SHA | Handoff |
 | --- | --- | --- | --- | --- |
-| 0 — AI Data Ops | `loop/00-data-ops` | 208/208 reconciled; deterministic draft package ready for operator review/import dry-run/staging apply; forbidden to publish | pending final KYND commit | `docs/loop/handoffs/session-0.md` |
+| 0 — AI Data Ops | `loop/00-data-ops` | 208/208 reconciled; deterministic draft package ready for operator review/import dry-run/staging apply; forbidden to publish | `f72bf43a6b08c9fae5b8b82b579abacb7bf70d2f` | `docs/loop/handoffs/session-0.md` |
 | 1 — Data foundation | `loop/01-data-foundation` | ready to start | — | `docs/loop/handoffs/session-1.md` |
 | 2 — Place/menu UI | `loop/02-menu-place-ui` | ready to start | — | `docs/loop/handoffs/session-2.md` |
 | 3 — Action gateway | `loop/03-action-gateway` | ready to start | — | `docs/loop/handoffs/session-3.md` |
