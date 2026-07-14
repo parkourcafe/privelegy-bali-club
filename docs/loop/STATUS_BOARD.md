@@ -50,3 +50,18 @@ remains draft and non-public.
   passed inside a rolled-back operator transaction.
 - Production was not connected to or mutated by this rehearsal. Full evidence
   is in `docs/loop/handoffs/staging_import_20260714.md`.
+
+## Transactional production-import rehearsal
+
+- The production-only one-shot importer now validates the exact package and
+  input digests, expected row counts, draft/unverified state, HTTPS evidence,
+  venue mapping and service-role caller before any write.
+- A full disposable Supabase JS/PostgREST rehearsal imported `127 / 165 / 881 /
+  250` menu/action rows, preserved a simulated confirmed compatibility action
+  as version 1 and linked its new package draft as version 2.
+- Exact repeat was idempotent. A forced mid-import unique-key failure rolled
+  back every package and ledger row; the pre-existing confirmed action survived.
+- Anonymous visibility remained zero for all imported drafts. Full evidence is
+  in `docs/loop/handoffs/production_import_rpc_20260714.md`.
+- Production remains unchanged by this rehearsal and still requires the bridge,
+  schema application, one-time import call and operator publication gate.

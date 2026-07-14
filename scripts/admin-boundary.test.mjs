@@ -14,6 +14,7 @@ const [
   photoRoute,
   releaseReadiness,
   onboardPage,
+  dataOpsImportRoute,
 ] = await Promise.all([
   read("lib/admin-invites.ts"),
   read("lib/data.ts"),
@@ -24,6 +25,7 @@ const [
   read("app/api/onboard/photo/route.ts"),
   read("lib/data/release-readiness.ts"),
   read("app/onboard/[token]/page.tsx"),
+  read("app/api/admin/data-ops-import/route.ts"),
 ]);
 
 function functionBody(source, name) {
@@ -83,4 +85,23 @@ test("partner release forms stay fail-closed until their private schema is ready
   assert.match(onboardPage, /getReleaseReadiness\(\)/);
   assert.match(photoClient, /photoSubmissionEnabled\s*\?/);
   assert.match(photoClient, /maintenanceDraftsEnabled\s*\?/);
+});
+
+test("one-shot production import route is exact-target, token and digest gated", () => {
+  assert.match(dataOpsImportRoute, /VERCEL_ENV !== "production"/);
+  assert.match(dataOpsImportRoute, /egkdapqwkfprtyqvvnso/);
+  assert.match(dataOpsImportRoute, /url\.protocol === "https:"/);
+  assert.match(dataOpsImportRoute, /DATA_OPS_IMPORT_TOKEN/);
+  assert.match(dataOpsImportRoute, /expectedToken\.length < 48/);
+  assert.match(dataOpsImportRoute, /timingSafeSecretEqual\(providedToken, expectedToken\)/);
+  assert.match(dataOpsImportRoute, /x-other-bali-package-digest/);
+  assert.match(dataOpsImportRoute, /ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081/);
+  assert.match(dataOpsImportRoute, /delete payload\.packageDigest/);
+  assert.match(dataOpsImportRoute, /createHash\("sha256"\)/);
+  assert.match(dataOpsImportRoute, /recomputePackageDigest\(\) !== PACKAGE_DIGEST/);
+  assert.match(dataOpsImportRoute, /serviceClient\(\)/);
+  assert.match(dataOpsImportRoute, /rpc\("import_data_ops_package"/);
+  assert.doesNotMatch(dataOpsImportRoute, /anonClient|browserClient/);
+  assert.match(dataOpsImportRoute, /Cache-Control": "private, no-store/);
+  assert.match(dataOpsImportRoute, /X-Robots-Tag": "noindex/);
 });

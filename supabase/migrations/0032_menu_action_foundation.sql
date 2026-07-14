@@ -249,6 +249,10 @@ revoke all on table public.menu_items from public, anon, authenticated;
 revoke all on table public.venue_action_capabilities from public, anon, authenticated;
 grant select on table public.menus, public.menu_sections, public.menu_items,
   public.venue_action_capabilities to anon, authenticated;
+-- The public action policy checks district monetization for TablePilot. Keep
+-- this public directory ACL explicit so policy evaluation returns zero rows
+-- rather than a permission error on a freshly replayed production schema.
+grant select on table public.districts to anon, authenticated;
 grant select, insert, update, delete on table public.menus, public.menu_sections,
   public.menu_items, public.venue_action_capabilities to service_role;
 

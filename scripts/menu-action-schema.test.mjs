@@ -4,10 +4,11 @@ import test from "node:test";
 
 const migrationDirectory = new URL("../supabase/migrations/", import.meta.url);
 const migrationFiles = await readdir(migrationDirectory);
-const [securitySql, menuSql, photoSql] = await Promise.all([
+const [securitySql, menuSql, photoSql, importSql] = await Promise.all([
   readFile(new URL("0031_secure_partner_operator_rpcs.sql", migrationDirectory), "utf8"),
   readFile(new URL("0032_menu_action_foundation.sql", migrationDirectory), "utf8"),
   readFile(new URL("0033_venue_photo_consent_staging.sql", migrationDirectory), "utf8"),
+  readFile(new URL("0034_transactional_data_ops_import.sql", migrationDirectory), "utf8"),
 ]);
 
 function functionBody(sql, name) {
@@ -22,8 +23,46 @@ test("release migrations preserve applied 0030 and sequence repairs after it", (
   assert.ok(migrationFiles.includes("0031_secure_partner_operator_rpcs.sql"));
   assert.ok(migrationFiles.includes("0032_menu_action_foundation.sql"));
   assert.ok(migrationFiles.includes("0033_venue_photo_consent_staging.sql"));
+  assert.ok(migrationFiles.includes("0034_transactional_data_ops_import.sql"));
   assert.ok(!migrationFiles.includes("0026_menu_action_foundation.sql"));
   assert.ok(!migrationFiles.includes("0027_venue_photo_consent_staging.sql"));
+});
+
+test("Data Ops import is atomic, immutable and service-only", () => {
+  const importRpc = functionBody(importSql, "import_data_ops_package");
+  assert.match(importSql, /create table if not exists public\.data_ops_import_runs/i);
+  assert.match(importSql, /alter table public\.data_ops_import_runs enable row level security/i);
+  assert.match(
+    importSql,
+    /revoke all on table public\.data_ops_import_runs from public, anon, authenticated/i,
+  );
+  assert.match(importRpc, /auth\.role\(\) is distinct from 'service_role'/i);
+  assert.match(importRpc, /pg_advisory_xact_lock/i);
+  assert.match(importRpc, /ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081/i);
+  assert.match(importRpc, /79eac95c0d8a93a18045b1a4d79691d2c1ac5fe869bd41ea9764010412844e9a/i);
+  assert.match(importRpc, /jsonb_array_length\(p_package->'menus'\) <> 127/i);
+  assert.match(importRpc, /v_nested_section_count <> 165 or v_nested_item_count <> 881/i);
+  assert.match(importRpc, /jsonb_array_length\(p_package->'capabilities'\) <> 250/i);
+  assert.match(importRpc, /jsonb_array_length\(p_package->'venueMapsCandidates'\) <> 50/i);
+  assert.match(importRpc, /value->>'kind' = 'maps'/i);
+  assert.match(importRpc, /exists \(select 1 from public\.menus\)/i);
+  assert.match(importRpc, /Data Ops menu target is not empty/i);
+  assert.match(importRpc, /Data Ops action target contains an unapproved pre-existing row/i);
+  assert.match(importRpc, /\) is not true[\s\S]*?Data Ops action target/i);
+  assert.match(importRpc, /v_capability_version := greatest/i);
+  assert.match(importRpc, /v_replaces_capability_id/i);
+  assert.match(importRpc, /md5\('otherbali:dataops:menu:'/i);
+  assert.match(importRpc, /md5\('otherbali:dataops:section:'/i);
+  assert.match(importRpc, /md5\('otherbali:dataops:item:'/i);
+  assert.match(importRpc, /md5\('otherbali:dataops:capability:'/i);
+  assert.match(
+    importSql,
+    /revoke all on function public\.import_data_ops_package\(jsonb\)[\s\S]*?from public, anon, authenticated/i,
+  );
+  assert.match(
+    importSql,
+    /grant execute on function public\.import_data_ops_package\(jsonb\) to service_role/i,
+  );
 });
 
 test("legacy token minting and roster export are service-only", () => {
@@ -127,6 +166,10 @@ test("all menu/action stores enable RLS and public reads enforce freshness", () 
   assert.match(
     menuSql,
     /revoke all on table public\.venue_action_capabilities from public, anon, authenticated/i,
+  );
+  assert.match(
+    menuSql,
+    /grant select on table public\.districts to anon, authenticated/i,
   );
 });
 
@@ -304,7 +347,7 @@ test("photo consent is exact-image evidence and publication is service-only", ()
 });
 
 test("migration function bodies have balanced dollar quotes", () => {
-  for (const sql of [securitySql, menuSql, photoSql]) {
+  for (const sql of [securitySql, menuSql, photoSql, importSql]) {
     assert.equal((sql.match(/\$\$/g) ?? []).length % 2, 0);
   }
 });
