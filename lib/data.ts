@@ -3,6 +3,7 @@ import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { getPublicationStatus } from "./publication";
+import { keepRenderableVenues } from "./venue-validation";
 import { ULUWATU_VENUES, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
@@ -486,7 +487,9 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
       out.push(v);
     }
   }
-  return out.sort((a, b) => a.name.localeCompare(b.name));
+  // Drop structurally-broken rows before the sort — a null name/slug here would
+  // otherwise crash localeCompare (audit 2026-07, same class as the /places 500).
+  return keepRenderableVenues(out).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Public readiness gate. Since the Uluwatu launch this delegates to the
@@ -540,7 +543,12 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // product still renders. uniqueBy keeps the DB row when both exist.
   const uluwatuFallback = ULUWATU_VENUES.map(uluwatuAsVenue) as Venue[];
 
-  return uniqueBy([...venues, ...uluwatuFallback], (v) => v.slug)
+  // Guard the trust boundary: drop rows missing slug/name/district or with an
+  // unknown category before they reach sort/uniqueBy/display. A bad active row
+  // (bulk import, partial migration) is logged and excluded, never rendered.
+  const renderable = keepRenderableVenues([...venues, ...uluwatuFallback]);
+
+  return uniqueBy(renderable, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,
