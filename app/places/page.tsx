@@ -91,6 +91,9 @@ export default async function PlacesPage({
               stand behind — why it&apos;s worth it, who it suits, and what to
               expect. Offers appear only when venues confirm them.
             </p>
+            <p className="mt-4">
+              <Link href="/menus" className="quiet-link">Browse available menus →</Link>
+            </p>
           </div>
           <div className="editorial-signal" aria-label="Bali places signal">
             {/* Show only the publication-gated count rendered on this page. */}

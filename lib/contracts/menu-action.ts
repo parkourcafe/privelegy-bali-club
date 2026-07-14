@@ -1,4 +1,9 @@
-export type MenuStatus = "draft" | "review" | "published" | "archived";
+export type MenuStatus =
+  | "draft"
+  | "review"
+  | "published"
+  | "source_snapshot"
+  | "archived";
 export type MenuCompleteness = "full" | "partial";
 export type ActionStatus = "draft" | "review" | "confirmed" | "disabled" | "archived";
 export type ActionKind =
@@ -51,6 +56,8 @@ export type MenuRecord = Evidence & {
   expiresAt: string | null;
   sections: MenuSectionRecord[];
 };
+
+export type MenuSummary = Omit<MenuRecord, "sections">;
 
 export type VenueActionCapabilityRecord = Evidence & {
   id: string;

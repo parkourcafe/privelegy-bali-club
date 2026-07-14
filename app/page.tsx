@@ -807,6 +807,9 @@ function SiteFooter() {
           <Link href="/places" className={footerLink}>
             Places
           </Link>
+          <Link href="/menus" className={footerLink}>
+            Menus
+          </Link>
           <Link href="/bali" className={footerLink}>
             Bali by district
           </Link>

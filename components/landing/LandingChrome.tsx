@@ -9,6 +9,7 @@ const NAV = [
   { href: "#moments", label: "Moments" },
   { href: "#bali", label: "Around Bali" },
   { href: "/places", label: "Places" },
+  { href: "/menus", label: "Menus" },
 ];
 
 // Top nav: transparent over the hero, frosts once you scroll past it.
