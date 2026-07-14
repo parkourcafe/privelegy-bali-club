@@ -1,14 +1,41 @@
 import type { NextConfig } from "next";
 
-// Baseline security headers (audit 2026-07, P1). These are the headers that are
-// safe to apply globally without breaking third-party origins the app depends on
-// (GA4, Supabase, Google Fonts via next/font, Google Maps deep links).
+// Content-Security-Policy (audit 2026-07, P1). Allowlist derived from the
+// origins the browser actually touches:
+//   - scripts/styles: self + Next's inline bootstrap ('unsafe-inline'; the app
+//     has no nonce pipeline). googletagmanager is pre-allowed so re-enabling GA
+//     later needs no CSP change — it stays dormant while GA is off.
+//   - connect: self (/api) + the browser Supabase client (*.supabase.co) +
+//     dormant GA. No other external client calls exist (no iframes; fonts, hero
+//     video and scenes are self-hosted via next/font + public/).
+//   - img: open over https (venue photos may come from external CDNs) + data:.
 //
-// NOTE: a full Content-Security-Policy is deliberately NOT set here yet — a
-// strict CSP needs an allowlist verified against the live GA/Supabase/Maps
-// origins and Next's inline runtime, and shipping an over-strict policy blind
-// would break the site. Tracked as a follow-up in docs/audit-2026-07.md.
+// SHIPPED AS REPORT-ONLY: browsers never block on this header, so it cannot
+// break the site — it only reports violations (to /api/csp-report and the
+// devtools console). Once the logs are clean, enforce by renaming the header
+// key to "Content-Security-Policy". See docs/audit-2026-07.md.
+const cspDirectives = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "media-src 'self'",
+  "connect-src 'self' https://*.supabase.co https://*.google-analytics.com https://region1.google-analytics.com",
+  "worker-src 'self'",
+  "manifest-src 'self'",
+  "frame-src 'none'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "upgrade-insecure-requests",
+  "report-uri /api/csp-report",
+].join("; ");
+
+// Baseline security headers (audit 2026-07, P1). Safe to apply globally.
 const securityHeaders = [
+  { key: "Content-Security-Policy-Report-Only", value: cspDirectives },
   // Clickjacking protection. frame-ancestors 'none' is the modern equivalent;
   // X-Frame-Options covers older UAs.
   { key: "X-Frame-Options", value: "DENY" },
