@@ -670,6 +670,7 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  jimbaran: ["where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
 export function guidesForDistrict(slug: string): GuideRelated[] {

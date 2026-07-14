@@ -4,11 +4,20 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { guidesForDistrict } from "@/lib/guides";
 import { getJimbaranVenues, toJimbaranPlaceCard } from "@/lib/jimbaran";
 import { JIMBARAN_GUIDES } from "@/lib/jimbaran-guides";
+import {
+  JIMBARAN_FAQ,
+  JIMBARAN_REVIEW_DATE,
+  JIMBARAN_THINGS_TO_DO,
+  JIMBARAN_ZONES,
+} from "@/lib/jimbaran/content";
 import type { VenueWithPerk } from "@/lib/data";
 
 const BASE = "https://www.otherbali.com";
+
+const previewThings = JIMBARAN_THINGS_TO_DO.slice(0, 4);
 
 export const metadata: Metadata = {
   title: "Jimbaran guide — the seafood bay, sunset bars & resort dining",
@@ -27,25 +36,6 @@ export const metadata: Metadata = {
     description: "Seafood on the sand, cliff-edge sunset bars, calm bay mornings near the airport.",
   },
 };
-
-const FAQ = [
-  {
-    q: "What is Jimbaran best for?",
-    a: "Seafood at sunset and a calmer, resort-leaning base close to the airport. It suits couples and families who want swimmable bay beaches, a famous grilled-seafood dinner on the sand, and cliff-top resort dining — over an independent café or nightlife scene, which lives up in Canggu and Seminyak.",
-  },
-  {
-    q: "Is the Jimbaran seafood on the beach worth it?",
-    a: "Yes, if you time it right. The bay grills serve fresh seafood cooked over coconut husk at tables near the sand — go for sunset, agree the price by weight before ordering, and treat it as the experience it is rather than the island's finest cooking.",
-  },
-  {
-    q: "Is Jimbaran a good base near the airport?",
-    a: "It's one of the closest calm areas to the airport (roughly 10–20 minutes), which makes it an easy first or last night. The bay is swimmable and family-friendly; the headland resorts are quiet and polished.",
-  },
-  {
-    q: "Where is the sunset in Jimbaran?",
-    a: "The bay faces west, so the seafood grills get the sunset directly. The headland above the bay holds Bali's best-known cliff-edge sunset bars — book a seat ahead for a weekend evening.",
-  },
-];
 
 function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
   if (venues.length === 0) return null;
@@ -107,8 +97,12 @@ export default async function JimbaranPillarPage() {
             A calm, west-facing bay a short hop from the airport, famous for one
             thing above all: grilled seafood eaten near the sand at sunset. Above
             it, the headland holds cliff-edge sunset bars and some of Bali&apos;s
-            most serious resort spas. This guide covers where to eat, drink and be
-            looked after — curated from places we actually rate, never a directory.
+            most serious resort spas. This guide covers who it suits, its beaches,
+            what to do, where to eat and where to be looked after — curated from
+            places we actually rate, never a directory.
+          </p>
+          <p className="guide-meta-line">
+            Editorial review: {JIMBARAN_REVIEW_DATE} · researched, not sponsored · no paid ranking
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link href="/places?district=jimbaran" className="button-secondary button-large">Browse all Jimbaran places</Link>
@@ -116,6 +110,7 @@ export default async function JimbaranPillarPage() {
         </header>
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Jimbaran guides">
+          <Link href="/jimbaran/things-to-do" className="chip">Things to do</Link>
           {JIMBARAN_GUIDES.map((g) => (
             <Link key={g.slug} href={`/jimbaran/${g.slug}`} className="chip">
               {g.h1.replace(" in Jimbaran", "").replace("Jimbaran ", "")}
@@ -123,17 +118,130 @@ export default async function JimbaranPillarPage() {
           ))}
         </nav>
 
+        <section className="guide-section">
+          <h2>Who Jimbaran suits — and who it frustrates</h2>
+          <div className="guide-prose">
+            <p>
+              <strong>It suits</strong> couples and families who want a calm,
+              swimmable bay, the famous grilled-seafood dinner on the sand, and a
+              quiet resort base — plus anyone who wants the closest relaxed area to
+              the airport for a first or last night.
+            </p>
+            <p>
+              <strong>It frustrates</strong> travellers after nightlife, a walkable
+              café strip or an independent scene — Jimbaran is a seafood-and-resort
+              bay, not a hangout district. For that energy, Canggu and Seminyak are
+              up the coast; the surf and cliffs are on the Bukit, just south.
+            </p>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>The beaches</h2>
+          <p className="guide-lede">
+            Jimbaran is a west-facing bay sheltered by its own curve — which is why
+            the water is calm where the surf coast is not.
+          </p>
+          <div className="compare-table-wrap">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Beach</th>
+                  <th scope="col">Character</th>
+                  <th scope="col">Swimming</th>
+                </tr>
+              </thead>
+              <tbody>
+                {JIMBARAN_ZONES.map((z) => (
+                  <tr key={z.label}>
+                    <th scope="row">{z.label}</th>
+                    <td>{z.character}</td>
+                    <td>{z.swimming}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>Best things to do</h2>
+          <p className="guide-lede">
+            More than the seafood dinner: a morning fish market, hidden tide pools,
+            a cliff-base sunset bar and a giant cultural park up the hill.{" "}
+            <Link href="/jimbaran/things-to-do" className="font-bold text-[var(--lagoon-strong)]">
+              The full things-to-do guide →
+            </Link>
+          </p>
+          <ul className="guide-prose">
+            {previewThings.map((t) => (
+              <li key={t.title}>
+                <strong>{t.title}.</strong> {t.blurb}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <TopPicks title="Where to eat & drink" note="Bay seafood grills, sunset bars and resort fine dining." venues={dining} href="/jimbaran/best-restaurants" />
         <TopPicks title="Spas & wellness" note="Cliff-top resort spas, plus fitness and yoga." venues={wellness} href="/jimbaran/spas-wellness" />
 
-        <FaqBlock items={FAQ} />
+        <section className="guide-section">
+          <h2>Practical notes (read before you plan)</h2>
+          <div className="guide-prose">
+            <ul>
+              <li>
+                <strong>Closest calm base to the airport.</strong> Roughly 15–30
+                minutes from Ngurah Rai depending on which end — an easy first or
+                last night.
+              </li>
+              <li>
+                <strong>Agree the seafood price by weight first.</strong> The bay
+                grills sell by the kilo; confirm the weight and price before it
+                goes on the coals.
+              </li>
+              <li>
+                <strong>The bay is genuinely swimmable.</strong> Its shape blocks
+                the swell that hits the surf coast, so it&apos;s calm and
+                family-safe — a real contrast with nearby Balangan or the Bukit.
+              </li>
+              <li>
+                <strong>Tegal Wangi is tide-dependent.</strong> The natural rock
+                pools only work at low tide, and the access path is a steep,
+                rocky descent — wear proper shoes.
+              </li>
+              <li>
+                <strong>Eat and be looked after.</strong> See the{" "}
+                <Link href="/jimbaran/best-restaurants" className="font-bold text-[var(--lagoon-strong)]">dining</Link> and{" "}
+                <Link href="/jimbaran/spas-wellness" className="font-bold text-[var(--lagoon-strong)]">spas &amp; wellness</Link> guides.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <FaqBlock items={JIMBARAN_FAQ} />
         <RelatedGuides
           links={[
+            { href: "/jimbaran/things-to-do", title: "Best things to do in Jimbaran", blurb: "The fish market, Tegal Wangi tide pools, Rock Bar and GWK." },
             { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets and world-class surf, just south." },
             { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "The calm resort enclave, next door to the east." },
             { href: "/places", title: "All Bali places", blurb: "The full curated map by district." },
           ]}
         />
+
+        <div className="cta-band">
+          <h2>Use Jimbaran for the seafood-and-sunset night</h2>
+          <p>
+            Swim the calm bay by day, watch the light drop from a table on the
+            sand, and stay ten minutes from the airport. Start with the beach that
+            fits your evening, then pick the grill.
+          </p>
+          <Link href="/jimbaran/things-to-do" className="cta-band-action">
+            See the things-to-do guide →
+          </Link>
+        </div>
+
+        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("jimbaran")} />
+
         <GuideFooter />
       </main>
     </div>
