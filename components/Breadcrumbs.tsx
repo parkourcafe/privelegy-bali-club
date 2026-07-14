@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 // Visible breadcrumb trail + BreadcrumbList JSON-LD (brief §10/§15).
 // Server component — safe to use in any page. The last item is the current
 // page and is not a link.
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export interface Crumb {
   name: string;
@@ -27,7 +28,7 @@ export default function Breadcrumbs({ items }: { items: Crumb[] }) {
     <nav aria-label="Breadcrumb" className="breadcrumbs">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ol>
         {items.map((item, i) => (

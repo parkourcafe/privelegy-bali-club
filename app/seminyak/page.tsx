@@ -8,8 +8,9 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Seminyak guide — where to eat, drink at sunset and be looked after",
@@ -88,7 +89,7 @@ export default async function SeminyakPillarPage() {
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="seminyak" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

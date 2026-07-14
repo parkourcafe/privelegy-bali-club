@@ -1,19 +1,16 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { nanoid } from "nanoid";
-import { configuredAdminToken, hasAdminBasicAccess } from "@/lib/admin-auth";
+import {
+  configuredProxyAdminToken,
+  hasProxyAdminBasicAccess,
+} from "@/lib/proxy-admin-auth";
+import {
+  REQUEST_ID_HEADER,
+  createRequestCorrelationId,
+  requestHeadersWithCorrelationId,
+  responseWithCorrelationId,
+} from "@/lib/request-correlation";
 
 const ADMIN_REALM = "Other Bali Field Kit";
-
-function setGuestCookie(req: NextRequest, res: NextResponse) {
-  if (req.cookies.get("bp_guest")) return;
-  res.cookies.set("bp_guest", "g_" + nanoid(16), {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-  });
-}
 
 function isAdminPath(pathname: string): boolean {
   return pathname === "/admin" || pathname.startsWith("/admin/");
@@ -42,21 +39,28 @@ function adminNotFound(): NextResponse {
   });
 }
 
-// Guardrail #10: the anonymous GuestRef lives in a server-set httpOnly cookie,
-// not localStorage. Set it on the first document request so every later fetch
-// (source/event/redeem/dish) shares one stable id — no client-side identity, no
-// races between concurrent first calls.
+// Ordinary document requests remain identity-free. Identity-bearing actions
+// first use the cross-tab coordinated /api/guest/bootstrap boundary.
 // (Next 16: this is the `proxy` file convention, formerly `middleware`.)
-export function proxy(req: NextRequest) {
+export async function proxy(req: NextRequest) {
+  const requestId = createRequestCorrelationId(req.headers.get(REQUEST_ID_HEADER));
+  const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
+
   if (isAdminPath(req.nextUrl.pathname)) {
-    const token = configuredAdminToken();
-    if (!token) return adminNotFound();
-    if (!hasAdminBasicAccess(req.headers.get("authorization"), token)) {
-      return adminChallenge();
+    // Shared Basic Auth is not an acceptable public-production admin boundary.
+    // Until individual auth, roles, MFA and audit logging exist, the operator
+    // UI is available only outside the production deployment.
+    if (process.env.VERCEL_ENV === "production") {
+      return responseWithCorrelationId(adminNotFound(), requestId);
+    }
+    const token = configuredProxyAdminToken();
+    if (!token) return responseWithCorrelationId(adminNotFound(), requestId);
+    if (!(await hasProxyAdminBasicAccess(req.headers.get("authorization"), token))) {
+      return responseWithCorrelationId(adminChallenge(), requestId);
     }
   }
 
-  const res = NextResponse.next();
+  const res = NextResponse.next({ request: { headers: requestHeaders } });
   if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
@@ -65,8 +69,7 @@ export function proxy(req: NextRequest) {
     res.headers.set("Referrer-Policy", "no-referrer");
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
-  setGuestCookie(req, res);
-  return res;
+  return responseWithCorrelationId(res, requestId);
 }
 
 export const config = {

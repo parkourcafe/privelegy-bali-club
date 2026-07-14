@@ -1,6 +1,7 @@
 import type { SafeActionEventPayload } from "./contracts/menu-action";
 import type { SafeEventPayload, SafeMenuEventPayload } from "./actions/event-payload";
 import { isSafeActionEventPayload } from "./actions/event-payload";
+import { browserConsentState } from "./privacy/consent";
 
 // Client-side event tracking for the editorial/district surfaces.
 //
@@ -50,11 +51,19 @@ type GrowthEvent = TrackedEvent | ActionTrackedEvent;
 type InternalEvent = GrowthEvent | "reservation_click";
 type TrackParams = { venueSlug?: string; pageSlug?: string; label?: string };
 
+function analyticsAllowedInBrowser(): boolean {
+  // These functions are browser entry points. The server-side fallback keeps
+  // pure unit tests deterministic while every real browser send is consent-gated.
+  return typeof document === "undefined" ||
+    browserConsentState(document.cookie) === "analytics_allowed";
+}
+
 function postInternal(
   type: InternalEvent,
   venueSlug?: string,
   payload?: SafeEventPayload
 ): void {
+  if (!analyticsAllowedInBrowser()) return;
   const body: {
     type: InternalEvent;
     venueSlug?: string;
@@ -80,6 +89,7 @@ function emitGrowthEvent(
   params?: TrackParams,
   payload?: SafeEventPayload
 ): void {
+  if (!analyticsAllowedInBrowser()) return;
   postInternal(type, params?.venueSlug ?? params?.pageSlug, payload);
 
   const actionPayload = payload && isSafeActionEventPayload(payload) ? payload : undefined;

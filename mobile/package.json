@@ -1,0 +1,8 @@
+{
+  "name": "@otherbali/mobile-shell",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node ../scripts/build-mobile-shell.mjs"
+  }
+}

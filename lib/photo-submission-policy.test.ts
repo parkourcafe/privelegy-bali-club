@@ -41,10 +41,10 @@ test("constructs only venue-scoped object and HTTPS delivery paths", () => {
   const id = "11111111-1111-4111-8111-111111111111";
   assert.equal(photoObjectPath("fixture-venue", id, "image/webp"), `fixture-venue/${id}.webp`);
   assert.equal(photoObjectPath("../escape", id, "image/webp"), null);
-  assert.equal(approvedPhotoDeliveryUrl(id, "https://otherbali.com"), `https://otherbali.com/api/venue-photo/${id}`);
+  assert.equal(approvedPhotoDeliveryUrl(id, "https://www.otherbali.com"), `https://www.otherbali.com/api/venue-photo/${id}`);
   assert.equal(approvedPhotoDeliveryUrl(id, "http://otherbali.com"), null);
   assert.equal(approvedPhotoDeliveryUrl(id, "https://user:secret@otherbali.com"), null);
-  assert.equal(approvedPhotoDeliveryUrl("not-an-id", "https://otherbali.com"), null);
+  assert.equal(approvedPhotoDeliveryUrl("not-an-id", "https://www.otherbali.com"), null);
   assert.equal(approvedPhotoDeliveryUrl(id, null), null);
 });
 

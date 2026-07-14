@@ -1,7 +1,7 @@
 # Other Bali - iOS App Store Launch Setup
 
 Date: 2026-07-12
-Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still manual.
+Status: bundled local-shell foundation implemented; native capability, signing, and App Store Connect work remains.
 
 ## What Is In The Repo Now
 
@@ -12,16 +12,18 @@ Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still 
 - App icon source: `public/icon-512.png`
 - iOS app icon asset: `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png`
 - Native privacy manifest: `ios/App/App/PrivacyInfo.xcprivacy`
-- Local fallback shell: `ios-web/index.html` and `ios-web/offline.html`
-- Live app URL loaded by the wrapper: `https://www.otherbali.com`
+- Bundled local shell: `ios-web/index.html`, hashed local assets, and `ios-web/offline.html`
+- Production Capacitor config has no `server.url` and disables Release logging
+- Exact Capacitor 8 App, AppLauncher, Browser, Network, Preferences and Share plugins
+- Local canonical place/route handlers for cold and warm app-link events; production Universal Links are not yet claimed
 
 ## Important App Review Risk
 
-This first wrapper loads the live Other Bali web app because the product depends on Next.js server routes and Supabase-backed data. Capacitor supports external URL loading, but its own config docs mark `server.url` as intended for live-reload style development, not as the ideal production architecture.
+The first foundation slice is a bundled local shell backed by the versioned public mobile API. Saved venues retain a validated timestamped public detail snapshot and its stored Maps handoff; search/generic URLs are not described as exact routing. A failed detail fetch falls back to the compact summary without inventing directions. The complete native capability set is not implemented yet.
 
-Before final App Store submission, review the app on device and keep the traveller flow strongly app-like:
+Before final App Store submission, review the app on device and keep the traveller flow strongly app-like. The current shell shows Places, Routes and Saved; it does not yet contain the web day builder or a native map:
 
-- first screen shows the day builder and curated map experience;
+- first screen shows the real bundled Places/Routes/Saved experience;
 - no "beta" language;
 - no empty catalogue state;
 - no tourist payment;
@@ -47,27 +49,9 @@ Create a new app record with:
 - Privacy Policy URL: `https://www.otherbali.com/privacy`
 - Marketing URL: `https://www.otherbali.com`
 
-## Privacy Answers Draft
+## Privacy answers — engineering input only
 
-Tracking:
-
-- No, unless advertising/data-broker sharing is added later.
-
-Data linked to the user:
-
-- None for tourist account identity, because tourists do not create accounts.
-
-Data not linked to the user:
-
-- Identifiers: anonymous `bp_guest` httpOnly cookie/device reference.
-- Usage Data: page/card opens, district opens, directions clicks, reservation handoff clicks, offer redemption events.
-- Diagnostics: Vercel/native crash diagnostics only if enabled in the submitted build.
-
-Data not collected:
-
-- Contact info from tourists by default.
-- Payment information from tourists.
-- Precise location, camera, microphone, contacts, photos, health, financial info.
+The current native shell does not use the web GuestRef/event/redemption APIs and has no GA or ad SDK. It stores public cache/saved UI state only on device through Capacitor Preferences; prior bounded WebView values migrate without being uploaded. The privacy manifest declares the Preferences/UserDefaults `CA92.1` reason. Network/provider logs may still include IP, user agent, path, time and status. Final collected/linked/diagnostics answers require the built dependency scan, provider-account evidence and App Store review against `docs/launch/data-inventory.md`; do not submit the old “anonymous/not linked” assumption.
 
 ## Manual Apple Account Steps
 
@@ -87,14 +71,19 @@ Data not collected:
 
 ## Review Notes Draft
 
-`Other Bali is a free curated Bali travel guide. No account is required. Open the app, choose how you want the day to feel, browse filtered places across Bali, open directions, or view confirmed offers where available. The app does not charge travellers and does not sell digital content. Venue monetization, if any, happens outside the traveller experience and is based on confirmed seated reservations through partner systems.`
+`Other Bali is a free curated Bali guide. No account is required. The submitted app lets a reviewer browse public Places and Routes, save a place or route, reopen a previously loaded saved venue detail from the local snapshot, and make a user-initiated handoff to the venue's validated Google Maps URL when available. Public guide refresh requires a network connection. Other Bali does not confirm bookings or sell digital content.`
 
 No demo account is required.
 
 ## Local Commands
 
 ```bash
+npm run mobile:build
 npm run mobile:sync
+npm run ios:verify -- --config-only
+npm run ios:verify
+npm run ios:archive:dry
+npm run ios:native-readiness
 npm run mobile:open:ios
 npm run mobile:run:ios
 ```
@@ -111,4 +100,6 @@ P1 - App Store screenshots are not prepared.
 
 P1 - Final privacy labels must be confirmed against the actual submitted native build.
 
-P1 - Because this wrapper loads `https://www.otherbali.com`, App Review risk remains if Apple treats it as a repackaged website. Add native-only value or a bundled app-like shell before final submission if review feedback requires it.
+P0 - Associated domains/AASA with the real Team ID, signed-device Universal Link evidence, native MapKit route UI, and their remaining tests are blocked as listed in `docs/ios-native-readiness.md`.
+
+P0 - The app privacy-manifest declaration (including UserDefaults `CA92.1`) remains provisional until a built dependency/binary scan, App Store privacy report, and real-device behavior review are complete.

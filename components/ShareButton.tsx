@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { withGuestIdentity } from "@/lib/guest-client";
 
 // Share a read-only list by link (master §6c, Rung 2). Creates a shared list
 // server-side, then uses the native share sheet or copies the link. No account.
@@ -11,11 +12,12 @@ export default function ShareButton({ slugs }: { slugs?: string[] }) {
     if (state === "working") return;
     setState("working");
     try {
-      const r = await fetch("/api/list", {
+      const r = await withGuestIdentity((signal) => fetch("/api/list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(slugs ? { slugs } : {}),
-      });
+        signal,
+      }));
       const d = await r.json();
       if (!d.id) {
         setState("error");

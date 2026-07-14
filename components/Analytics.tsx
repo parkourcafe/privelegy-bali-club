@@ -1,13 +1,12 @@
 import AnalyticsClient from "./AnalyticsClient";
 
-// Google Analytics 4 (gtag.js). Rendered server-side into the initial HTML so
-// Google's "verify installation" / tag detector can see it (a client-only,
-// post-hydration injection is invisible to that check). Loaded in production
-// production deployment only. Vercel previews are production builds too, but
-// must not write QA traffic into the live GA property.
+// GA4 is disabled for the first build. It can load only on the canonical
+// production deployment when the explicit public release flag is enabled;
+// AnalyticsClient then adds the independent browser-consent gate.
 const GA_ID = "G-F3TEVWTWX4";
+const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "1";
 
 export default function Analytics() {
-  if (process.env.VERCEL_ENV !== "production") return null;
+  if (process.env.VERCEL_ENV !== "production" || !ANALYTICS_ENABLED) return null;
   return <AnalyticsClient measurementId={GA_ID} />;
 }

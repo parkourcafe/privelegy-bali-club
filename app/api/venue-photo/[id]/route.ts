@@ -1,3 +1,4 @@
+import { photoDigestMatches } from "@/lib/photo-content-digest";
 import { serviceClient } from "@/lib/supabase/service";
 import {
   MAX_STORED_PHOTO_BYTES,
@@ -31,9 +32,11 @@ export async function GET(
   if (!client) return notFound();
   const { data: submission, error } = await client
     .from("venue_photo_submissions")
-    .select("id,venue_slug,image_path,status,consent_granted,consent_log_id,published_url")
+    .select("id,venue_slug,image_path,status,storage_state,content_sha256,consent_granted,consent_log_id,published_url")
     .eq("id", id)
     .eq("status", "approved")
+    .eq("storage_state", "uploaded")
+    .not("content_sha256", "is", null)
     .eq("consent_granted", true)
     .not("consent_log_id", "is", null)
     .single();
@@ -59,7 +62,7 @@ export async function GET(
 
   const bytes = new Uint8Array(await object.arrayBuffer());
   const mime = detectPhotoMime(bytes);
-  if (!mime) return notFound();
+  if (!mime || !photoDigestMatches(bytes, submission.content_sha256)) return notFound();
 
   return new Response(bytes, {
     status: 200,

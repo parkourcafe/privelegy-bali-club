@@ -10,6 +10,7 @@ import {
   spokeJsonLd,
 } from "@/lib/hub";
 import VenueCard from "@/components/VenueCard";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -30,7 +31,7 @@ export async function generateMetadata({
   if (!spoke) return {};
   const title = spokeTitle(spoke);
   const description = spokeMetaDescription(spoke);
-  const url = `https://otherbali.com/bali/${district}/${intent}`;
+  const url = `https://www.otherbali.com/bali/${district}/${intent}`;
   return {
     title,
     description,
@@ -147,7 +148,7 @@ export default async function IntentSpokePage({
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(spokeJsonLd(spoke)) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(spokeJsonLd(spoke)) }}
       />
     </div>
   );

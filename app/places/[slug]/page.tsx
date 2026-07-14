@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
-import { readGuestRef } from "@/lib/guest-server";
+import {
+  getVenueWithPerk,
+  getPublishedVenues,
+  getRelatedRoutesForVenue,
+  isPublicReadyVenue,
+  getSavedSlugs,
+} from "@/lib/data";
+import { readGuestRefForDataAccess } from "@/lib/guest-data-access";
 import SaveButton from "@/components/SaveButton";
 import {
   freshVerifiedUluwatuActionUrl,
@@ -22,10 +28,12 @@ import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
+import { serializeJsonLd } from "@/lib/json-ld";
+import ReportIncorrectForm from "@/components/ReportIncorrectForm";
 
 export const dynamic = "force-dynamic";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -195,11 +203,14 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
+  const [venue, all, savedSlugs, detailExtension, relatedRoutes] = await Promise.all([
     getVenueWithPerk(slug),
     getPublishedVenues(),
-    getSavedSlugs(await readGuestRef()),
+    getSavedSlugs(await readGuestRefForDataAccess()),
     getPublicVenueDetailExtension(slug),
+    // Related routes are an ancillary navigation surface. Their data boundary
+    // logs its own failure; a route-table outage must not take down place detail.
+    getRelatedRoutesForVenue(slug).catch(() => []),
   ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
@@ -325,7 +336,7 @@ export default async function VenuePage({
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
     ...(SCHEMA_HOURS[slug] ? { openingHours: SCHEMA_HOURS[slug] } : {}),
-    hasMap: venue.gmapsUrl,
+    ...(venue.gmapsUrl ? { hasMap: venue.gmapsUrl } : {}),
   };
 
   const bookHref = bookingUrl;
@@ -357,7 +368,7 @@ export default async function VenuePage({
       whatsapp: undefined,
       officialMenuUrl: menuUrl,
       websiteUrl: officialUrl,
-      googleMapsUrl: venue.gmapsUrl,
+      googleMapsUrl: venue.gmapsUrl || null,
     } : {},
   };
 
@@ -367,7 +378,7 @@ export default async function VenuePage({
         {published && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
           />
         )}
         <PageViewTracker event="venue_detail_view" slug={slug} />
@@ -517,6 +528,27 @@ export default async function VenuePage({
               </section>
             )}
 
+            {relatedRoutes.length > 0 && (
+              <section className="guide-section" aria-labelledby="related-routes-heading">
+                <h2 id="related-routes-heading">Routes through this place</h2>
+                <div className="related-guides">
+                  {relatedRoutes.map((route) => (
+                    <Link
+                      key={route.slug}
+                      href={`/route/${route.slug}`}
+                      className="related-guide-card"
+                    >
+                      <h3>{route.title}</h3>
+                      <p>
+                        Stop {route.venuePosition} of {route.stopCount}
+                        {route.subtitle ? ` · ${route.subtitle}` : ""}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* Similar places */}
             {similar.length > 0 && (
               <section className="guide-section">
@@ -556,6 +588,8 @@ export default async function VenuePage({
                 hours and menus change — confirm big plans with the venue.
               </p>
             )}
+
+            <ReportIncorrectForm venueSlug={venue.slug} venueName={name} />
           </div>
 
           {/* ── Aside: quick decision block + practical info ── */}

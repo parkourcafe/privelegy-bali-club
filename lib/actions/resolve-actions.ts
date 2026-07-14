@@ -110,7 +110,7 @@ function capabilityEligibility(
 function disclosure(provider: CanonicalActionProvider, kind: ActionKind): string {
   const label = getProviderLabel(provider);
   if (provider === "tablepilot") return "Booking handled by TablePilot";
-  if (provider === "google_maps") return "Directions open in Google Maps";
+  if (provider === "google_maps") return "Opens the stored Google Maps handoff";
   if (provider === "whatsapp") return "Opens WhatsApp to message the venue";
   if (provider === "official") {
     if (kind === "reserve") return "Opens the venue's official booking page";

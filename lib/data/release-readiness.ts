@@ -1,5 +1,6 @@
 import "server-only";
 
+import { exactReleaseSchemaProbe } from "../release-schema-probe";
 import { serviceClient } from "../supabase/service";
 
 export type ReleaseReadiness = {
@@ -12,23 +13,24 @@ const NOT_READY: ReleaseReadiness = {
   photoSubmissions: false,
 };
 
-// The release migrations are transactional. A successful service-role read of
-// their private tables is therefore a fail-closed readiness signal: partner
-// forms stay hidden before the schema exists or when its ACLs are incomplete.
+// Partner forms stay hidden until their exact service-only schema probes pass.
+// A table read alone is not sufficient: an older migration can expose the row
+// while still lacking the atomic write/cleanup invariants used by the route.
 export async function getReleaseReadiness(): Promise<ReleaseReadiness> {
   const client = serviceClient();
   if (!client) return NOT_READY;
 
   try {
-    const [menus, actions, photos] = await Promise.all([
-      client.from("menus").select("id").limit(1),
-      client.from("venue_action_capabilities").select("id").limit(1),
-      client.from("venue_photo_submissions").select("id").limit(1),
+    const [maintenance, photos] = await Promise.all([
+      client.rpc("release_readiness_v1"),
+      client.rpc("release_readiness_v2"),
     ]);
 
     return {
-      maintenanceDrafts: !menus.error && !actions.error,
-      photoSubmissions: !photos.error,
+      maintenanceDrafts: !maintenance.error
+        && exactReleaseSchemaProbe(maintenance.data, 1, "0040"),
+      photoSubmissions: !photos.error
+        && exactReleaseSchemaProbe(photos.data, 2, "0041"),
     };
   } catch {
     return NOT_READY;

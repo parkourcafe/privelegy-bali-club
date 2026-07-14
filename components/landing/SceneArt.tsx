@@ -3,6 +3,8 @@
 // never be presented as a real photo of a specific venue (editorial guardrail).
 // Variants share one warm palette so the whole site reads as one film.
 
+import { useId } from "react";
+
 export default function SceneArt({
   variant = "sunset",
   className = "",
@@ -17,7 +19,9 @@ export default function SceneArt({
     night: ["#0c0f1a", "#1a2138", "#3a4a72"],
   };
   const [top, mid, glow] = skies[variant];
-  const uid = variant;
+  // The same scene variant can appear more than once on a page. React's
+  // hydration-stable id prevents SVG gradient definitions from colliding.
+  const uid = `${variant}-${useId().replace(/:/g, "")}`;
 
   return (
     <svg

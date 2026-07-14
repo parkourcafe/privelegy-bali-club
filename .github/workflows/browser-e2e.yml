@@ -1,0 +1,149 @@
+name: Browser E2E
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+    inputs:
+      venue_path:
+        description: Optional published venue path for configured data-backed runs
+        required: false
+        type: string
+      route_path:
+        description: Optional published route path for configured data-backed runs
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-e2e-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chromium-production:
+    name: chromium-production
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      BASE_URL: http://localhost:3108
+      ARTIFACT_DIR: artifacts/browser-e2e
+      E2E_REQUIRE_DATA: "0"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build production application
+        run: npm run build
+
+      - name: Run real Chromium E2E and accessibility gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$ARTIFACT_DIR"
+          BROWSER_PATH="$(command -v google-chrome || command -v chromium)"
+          export BROWSER_PATH
+          npm start -- --hostname 127.0.0.1 --port 3108 > "$ARTIFACT_DIR/next-start.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          npm run test:e2e 2>&1 | tee "$ARTIFACT_DIR/browser-e2e.log"
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: browser-e2e-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/browser-e2e
+          if-no-files-found: error
+          retention-days: 14
+
+  chromium-staging-data:
+    name: chromium-staging-data
+    if: ${{ github.event_name == 'workflow_dispatch' && github.ref_protected && inputs.venue_path != '' && inputs.route_path != '' }}
+    environment: otherbali-browser-staging
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      BASE_URL: http://localhost:3108
+      ARTIFACT_DIR: artifacts/browser-e2e-staging
+      E2E_VENUE_PATH: ${{ inputs.venue_path }}
+      E2E_ROUTE_PATH: ${{ inputs.route_path }}
+      E2E_REQUIRE_DATA: "1"
+
+    steps:
+      - name: Checkout protected ref
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies without staging secrets
+        run: npm ci
+
+      - name: Validate isolated staging target
+        env:
+          VERCEL_ENV: preview
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.OTHER_BALI_STAGING_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.OTHER_BALI_STAGING_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.OTHER_BALI_STAGING_SUPABASE_SERVICE_ROLE_KEY }}
+          GUEST_REF_SIGNING_SECRET: ${{ secrets.OTHER_BALI_STAGING_GUEST_REF_SIGNING_SECRET }}
+          OTHER_BALI_PREVIEW_SUPABASE_PROJECT_REF: ${{ vars.OTHER_BALI_STAGING_SUPABASE_PROJECT_REF }}
+        run: node scripts/ci-validate-browser-staging.mjs
+
+      - name: Build against read-only staging data
+        env:
+          VERCEL_ENV: preview
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.OTHER_BALI_STAGING_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.OTHER_BALI_STAGING_SUPABASE_ANON_KEY }}
+          OTHER_BALI_PREVIEW_SUPABASE_PROJECT_REF: ${{ vars.OTHER_BALI_STAGING_SUPABASE_PROJECT_REF }}
+        run: npm run build
+
+      - name: Run configured Chromium E2E and accessibility gate
+        shell: bash
+        env:
+          VERCEL_ENV: preview
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.OTHER_BALI_STAGING_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.OTHER_BALI_STAGING_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.OTHER_BALI_STAGING_SUPABASE_SERVICE_ROLE_KEY }}
+          GUEST_REF_SIGNING_SECRET: ${{ secrets.OTHER_BALI_STAGING_GUEST_REF_SIGNING_SECRET }}
+          OTHER_BALI_PREVIEW_SUPABASE_PROJECT_REF: ${{ vars.OTHER_BALI_STAGING_SUPABASE_PROJECT_REF }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$ARTIFACT_DIR"
+          BROWSER_PATH="$(command -v google-chrome || command -v chromium)"
+          export BROWSER_PATH
+          npm start -- --hostname 127.0.0.1 --port 3108 > "$ARTIFACT_DIR/next-start.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          npm run test:e2e 2>&1 | tee "$ARTIFACT_DIR/browser-e2e.log"
+
+      - name: Upload configured browser evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: browser-e2e-staging-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/browser-e2e-staging
+          if-no-files-found: error
+          retention-days: 14

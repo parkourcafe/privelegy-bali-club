@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getDistrictHubs } from "@/lib/data";
 import { SITE_ORIGIN, categoryPhrase, topAreas } from "@/lib/hub";
 import { PILLARS } from "@/lib/pillars";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const revalidate = 3600;
 
@@ -65,7 +66,7 @@ export default async function BaliIndexPage() {
               guide a real day. Free to use; travellers never pay.
             </p>
           </div>
-          <div className="editorial-signal" aria-label="Bali districts signal">
+          <div className="editorial-signal" role="group" aria-label="Bali districts signal">
             <p className="editorial-signal-label">
               {PILLARS.length + hubs.length} district guides.
             </p>
@@ -148,7 +149,7 @@ export default async function BaliIndexPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
     </div>
   );

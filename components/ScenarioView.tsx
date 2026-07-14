@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const SITE = "https://otherbali.com";
+const SITE = "https://www.otherbali.com";
 
 // Presentational scenario page (master §6a.3). Uses the shared inner-page dark
 // system (page-dark / site-shell / hero-*) so it reads as one product with
@@ -55,7 +56,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
               </p>
             </div>
           </div>
-          <div className="editorial-signal" aria-label="Who this trip is for">
+          <div className="editorial-signal" role="group" aria-label="Who this trip is for">
             <p className="editorial-signal-label">Who it&apos;s for</p>
             <p className="mt-2 text-sm text-[var(--ink)]">{scenario.forWho}</p>
             <p className="mt-3 text-xs text-[var(--muted)]">
@@ -130,7 +131,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
     </div>
   );

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { withGuestIdentity } from "@/lib/guest-client";
 
-// ♡ Save toggle (master §6c, Rung 1). Optimistic; posts to /api/save which keys
+// ♡ Save control (master §6c, Rung 1). Optimistic; posts the desired state to
+// /api/save, which keys
 // off the anonymous guest cookie. Sits above the card's stretched link, so it
 // stops propagation to avoid navigating when tapped.
 export default function SaveButton({
@@ -25,11 +27,12 @@ export default function SaveButton({
     const next = !saved;
     setSaved(next);
     try {
-      const r = await fetch("/api/save", {
+      const r = await withGuestIdentity((signal) => fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ venueSlug }),
-      });
+        body: JSON.stringify({ venueSlug, saved: next }),
+        signal,
+      }));
       const d = await r.json();
       if (typeof d.saved === "boolean") setSaved(d.saved);
       else setSaved(!next);

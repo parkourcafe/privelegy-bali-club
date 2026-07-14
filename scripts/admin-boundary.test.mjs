@@ -12,6 +12,8 @@ const [
   freshnessActions,
   photoClient,
   photoRoute,
+  photoActions,
+  publishedPhotoRoute,
   releaseReadiness,
   onboardPage,
   dataOpsImportRoute,
@@ -23,6 +25,8 @@ const [
   read("app/admin/freshness/actions.ts"),
   read("app/onboard/[token]/OnboardActions.tsx"),
   read("app/api/onboard/photo/route.ts"),
+  read("app/admin/photos/actions.ts"),
+  read("app/api/venue-photo/[id]/route.ts"),
   read("lib/data/release-readiness.ts"),
   read("app/onboard/[token]/page.tsx"),
   read("app/api/admin/data-ops-import/route.ts"),
@@ -72,6 +76,21 @@ test("partner photo browser never uploads to storage or receives publication coo
   );
   assert.doesNotMatch(photoRoute, /getPublicUrl|createSignedUrl/);
   assert.match(photoRoute, /reserve_venue_photo_submission/);
+  assert.match(photoRoute, /isTrustedSameOriginMutation/);
+  assert.match(photoRoute, /rpc\("release_readiness_v2"\)/);
+  assert.ok(
+    photoRoute.indexOf('rpc("release_readiness_v2")')
+      < photoRoute.indexOf('rpc(\n    "reserve_venue_photo_submission"'),
+    "0041 readiness must pass before photo reservation",
+  );
+  assert.match(photoRoute, /markPhotoUploadStored/);
+  assert.match(photoRoute, /cleanUnconsentedPhoto/);
+  assert.match(photoRoute, /status: "processing"/);
+  assert.doesNotMatch(photoRoute, /Promise\.allSettled|venue_photo_submissions"\)\.delete/);
+  assert.match(photoActions, /photoDigestMatches/);
+  assert.match(photoActions, /rpc\("reject_venue_photo_submission"/);
+  assert.doesNotMatch(photoActions, /\.from\("venue_photo_submissions"\)[\s\S]*?\.update\(/);
+  assert.match(publishedPhotoRoute, /photoDigestMatches/);
 });
 
 test("partner release forms stay fail-closed until their private schema is ready", () => {
@@ -79,9 +98,10 @@ test("partner release forms stay fail-closed until their private schema is ready
   assert.match(releaseReadiness, /serviceClient\(\)/);
   assert.match(releaseReadiness, /maintenanceDrafts:\s*false/);
   assert.match(releaseReadiness, /photoSubmissions:\s*false/);
-  assert.match(releaseReadiness, /\.from\("menus"\)/);
-  assert.match(releaseReadiness, /\.from\("venue_action_capabilities"\)/);
-  assert.match(releaseReadiness, /\.from\("venue_photo_submissions"\)/);
+  assert.match(releaseReadiness, /rpc\("release_readiness_v1"\)/);
+  assert.match(releaseReadiness, /rpc\("release_readiness_v2"\)/);
+  assert.match(releaseReadiness, /exactReleaseSchemaProbe\(maintenance\.data, 1, "0040"\)/);
+  assert.match(releaseReadiness, /exactReleaseSchemaProbe\(photos\.data, 2, "0041"\)/);
   assert.match(onboardPage, /getReleaseReadiness\(\)/);
   assert.match(photoClient, /photoSubmissionEnabled\s*\?/);
   assert.match(photoClient, /maintenanceDraftsEnabled\s*\?/);

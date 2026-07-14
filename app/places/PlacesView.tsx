@@ -1,10 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
 import { track } from "@/lib/analytics";
+import {
+  PLACE_CATEGORY_LABELS,
+  prettyPlaceSignal,
+  rankPlacesForBrief,
+  venueSearchText,
+} from "@/lib/places-ranking";
+import {
+  buildPlacesFilterPath,
+  readPlacesFilterState,
+  type PlacesFilterState,
+} from "@/lib/places-filter-url";
 
 // Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
 // parsed price bands) so the card layer stays lean.
@@ -33,18 +44,7 @@ function toCard(v: CataloguePlace): PlaceCardData {
   };
 }
 
-const categoryLabel: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  fitness: "Fitness",
-  yoga: "Yoga",
-  beauty: "Beauty",
-  bar: "Bar",
-  surf: "Surf",
-};
+const categoryLabel = PLACE_CATEGORY_LABELS;
 
 const districtLabel: Record<string, string> = {
   canggu: "Canggu",
@@ -75,73 +75,6 @@ type InitialFilters = {
 
 // A place's fit against the day brief. Pure + deterministic — this is the
 // "Top 3 for your brief" ranking (master §6a.7 step 3), not an AI recommender.
-function haystack(v: VenueWithPerk): string {
-  return [
-    v.name,
-    v.area,
-    v.category,
-    ...(v.wellnessCategories ?? []),
-    v.district,
-    v.whyItsHere,
-    v.bestFor,
-    ...(v.vibeTags ?? []),
-    ...(v.practicalTags ?? []),
-    ...(v.jobs ?? []),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-}
-
-function prettyTag(t: string): string {
-  return t.replace(/[-_]/g, " ").trim();
-}
-
-function scoreVenue(
-  v: VenueWithPerk,
-  tokens: string[],
-  category: string | null,
-  district: string | null
-): { score: number; reasons: string[] } {
-  const hay = haystack(v);
-  const reasons: string[] = [];
-  let score = 0;
-
-  const categoryMatched = Boolean(
-    category && (v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"]))
-  );
-  if (categoryMatched) {
-    score += 3;
-    reasons.push(categoryLabel[category!] ?? category!);
-  }
-  const catWords = new Set([v.category, (categoryLabel[v.category] ?? "").toLowerCase()]);
-  for (const t of tokens) {
-    if (t && hay.includes(t)) {
-      score += 2;
-      // Don't repeat the category as a reason when it already matched
-      // ("Café · cafe" reads as noise).
-      if (!(categoryMatched && catWords.has(t))) reasons.push(prettyTag(t));
-    }
-  }
-  if (district && v.district === district) score += 1;
-  // Completeness / relationship tie-breakers — surface the most decision-ready
-  // places first without ever becoming a paid-ranking signal (guardrail #6).
-  if (v.photoUrl) score += 1;
-  if (v.bestFor) score += 1;
-  if (v.priceAnchor || v.whatToOrder) score += 1;
-  score += v.tier === "founding" ? 1 : v.tier === "launch" ? 0.5 : 0;
-
-  const seen = new Set<string>();
-  const uniqueReasons = reasons.filter((r) => {
-    const k = r.toLowerCase();
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  });
-
-  return { score, reasons: uniqueReasons.slice(0, 4) };
-}
-
 export default function PlacesView({
   venues,
   initialFilters,
@@ -149,14 +82,47 @@ export default function PlacesView({
   venues: CataloguePlace[];
   initialFilters?: InitialFilters;
 }) {
-  const [query, setQuery] = useState(initialFilters?.query ?? "");
+  const [query, setQuery] = useState(initialFilters?.query?.slice(0, 240) ?? "");
   const [district, setDistrict] = useState<string | null>(
     initialFilters?.district || null
   );
   const [category, setCategory] = useState<string | null>(
     initialFilters?.category || null
   );
-  const intentMode = initialFilters?.intentMode ?? false;
+  const [intentMode, setIntentMode] = useState(initialFilters?.intentMode ?? false);
+
+  function commitFilters(
+    filters: Pick<PlacesFilterState, "query" | "district" | "category">,
+    mode: "push" | "replace",
+    clearBrief = false,
+  ) {
+    const boundedFilters = { ...filters, query: filters.query.slice(0, 240) };
+    setQuery(boundedFilters.query);
+    setDistrict(boundedFilters.district);
+    setCategory(boundedFilters.category);
+    if (clearBrief) setIntentMode(false);
+    const path = buildPlacesFilterPath({
+      pathname: window.location.pathname,
+      search: window.location.search,
+      hash: window.location.hash,
+      filters: boundedFilters,
+      clearBrief,
+    });
+    if (mode === "push") window.history.pushState(null, "", path);
+    else window.history.replaceState(null, "", path);
+  }
+
+  useEffect(() => {
+    function syncFromHistory() {
+      const filters = readPlacesFilterState(window.location.search);
+      setQuery(filters.query);
+      setDistrict(filters.district);
+      setCategory(filters.category);
+      setIntentMode(filters.intentMode);
+    }
+    window.addEventListener("popstate", syncFromHistory);
+    return () => window.removeEventListener("popstate", syncFromHistory);
+  }, []);
 
   const districts = useMemo(
     () => [...new Set(venues.map((v) => v.district))].sort(),
@@ -174,7 +140,7 @@ export default function PlacesView({
 
   const filtered = useMemo(() => {
     return venues.filter((v) => {
-      const hay = haystack(v) + " " + (v.address ?? "").toLowerCase();
+      const hay = venueSearchText(v) + " " + (v.address ?? "").toLowerCase();
       return (
         (!district || v.district === district) &&
         (!category || v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"])) &&
@@ -190,11 +156,7 @@ export default function PlacesView({
   // (intentMode) with something to match on. Everything else "widens" below.
   const topPicks = useMemo(() => {
     if (!intentMode || (tokens.length === 0 && !category)) return [];
-    return filtered
-      .map((v) => ({ venue: v, ...scoreVenue(v, tokens, category, district) }))
-      .filter((r) => r.score > 0)
-      .sort((a, b) => b.score - a.score || a.venue.name.localeCompare(b.venue.name))
-      .slice(0, 3);
+    return rankPlacesForBrief(filtered, tokens, category, district, 3);
   }, [filtered, tokens, category, district, intentMode]);
 
   const topSlugs = useMemo(
@@ -221,6 +183,36 @@ export default function PlacesView({
     .filter(Boolean)
     .join(" · ");
 
+  const activeCriteria: { key: string; label: string; onRemove: () => void }[] = [
+    ...tokens.map((token) => ({
+      key: `q:${token}`,
+      label: prettyPlaceSignal(token),
+      onRemove: () => commitFilters({
+        query: tokens.filter((candidate) => candidate !== token).join(" "),
+        district,
+        category,
+      }, "push"),
+    })),
+    ...(district
+      ? [{
+          key: "district",
+          label: districtLabel[district] ?? district,
+          onRemove: () => commitFilters({ query, district: null, category }, "push"),
+        }]
+      : []),
+    ...(category
+      ? [{
+          key: "category",
+          label: categoryLabel[category] ?? category,
+          onRemove: () => commitFilters({ query, district, category: null }, "push"),
+        }]
+      : []),
+  ];
+
+  function clearAllCriteria() {
+    commitFilters({ query: "", district: null, category: null }, "push", true);
+  }
+
   return (
     <section className="scroll-mt-8">
       <div className="filter-panel">
@@ -228,7 +220,12 @@ export default function PlacesView({
           <span className="chip-label">Search</span>
           <input
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            maxLength={240}
+            onChange={(event) => commitFilters({
+              query: event.target.value,
+              district,
+              category,
+            }, "replace")}
             placeholder="Place, area, vibe..."
             className="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 text-sm text-[var(--ink)] outline-none focus:border-[var(--lagoon)]"
           />
@@ -237,17 +234,33 @@ export default function PlacesView({
           label="District"
           options={districts}
           selected={district}
-          onSelect={setDistrict}
+          onSelect={(value) => commitFilters({ query, district: value, category }, "push")}
           render={(v) => districtLabel[v] ?? v}
         />
         <Chips
           label="Type"
           options={categories}
           selected={category}
-          onSelect={setCategory}
+          onSelect={(value) => commitFilters({ query, district, category: value }, "push")}
           render={(v) => categoryLabel[v] ?? v}
         />
       </div>
+
+      {activeCriteria.length > 0 && (
+        <div className="criteria-row" role="group" aria-label="Your active brief — tap a chip to remove it">
+          <span className="chip-label">Your brief</span>
+          {activeCriteria.map((criterion) => (
+            <button key={criterion.key} type="button" className="criteria-chip" onClick={criterion.onRemove}>
+              <span>{criterion.label}</span>
+              <span className="criteria-x" aria-hidden="true">×</span>
+              <span className="sr-only">Remove {criterion.label}</span>
+            </button>
+          ))}
+          <button type="button" className="criteria-clear" onClick={clearAllCriteria}>
+            Clear all
+          </button>
+        </div>
+      )}
 
       {district === "uluwatu-bukit" && (
         <div className="mb-6 rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-4 py-3 text-sm">
@@ -283,6 +296,9 @@ export default function PlacesView({
                       {pick.reasons.join(" · ")}
                     </p>
                   )}
+                  {pick.editorialRankReason ? (
+                    <p className="mt-1 text-xs text-[var(--muted)]">{pick.editorialRankReason}</p>
+                  ) : null}
                 </div>
                 <PlaceCard place={toCard(pick.venue)} />
               </div>
@@ -291,11 +307,23 @@ export default function PlacesView({
         </section>
       )}
 
-      <p className="mt-4 text-sm text-[var(--muted)]">
-        {topPicks.length > 0
-          ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
-          : `Showing ${filtered.length} of ${venues.length} places.`}
-      </p>
+      <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
+        <p>
+          {topPicks.length > 0
+            ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
+            : `Showing ${filtered.length} of ${venues.length} places.`}
+        </p>
+        {intentMode && (tokens.length > 0 || category) && topPicks.length > 0 && topPicks.length < 3 && (
+          <p className="mt-1">
+            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — drop a chip above to widen it.
+          </p>
+        )}
+        {intentMode && (tokens.length > 0 || category) && topPicks.length === 0 && filtered.length > 0 && (
+          <p className="mt-1">
+            No ranked shortlist for this brief — showing everything that fits. Add a vibe or type for a Top 3.
+          </p>
+        )}
+      </div>
 
       {grouped.map(([slug, items]) => (
         <section key={slug} className="slot-section">
@@ -347,6 +375,8 @@ function Chips({
         return (
           <button
             key={option}
+            type="button"
+            aria-pressed={active}
             onClick={() => onSelect(active ? null : option)}
             className={`chip ${active ? "chip-active" : ""}`}
           >

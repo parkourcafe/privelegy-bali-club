@@ -7,8 +7,9 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getJimbaranVenues, toJimbaranPlaceCard } from "@/lib/jimbaran";
 import { JIMBARAN_GUIDES } from "@/lib/jimbaran-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Jimbaran guide — the seafood bay, sunset bars & resort dining",
@@ -96,7 +97,7 @@ export default async function JimbaranPillarPage() {
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="jimbaran" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

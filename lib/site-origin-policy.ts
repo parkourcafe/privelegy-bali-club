@@ -1,7 +1,4 @@
-const PRODUCTION_ORIGINS = new Set([
-  "https://otherbali.com",
-  "https://www.otherbali.com",
-]);
+export const CANONICAL_SITE_ORIGIN = "https://www.otherbali.com";
 
 function httpsOrigin(value: string | null | undefined): string | null {
   const candidate = value?.trim();
@@ -44,15 +41,15 @@ export function resolveSiteOrigin(input: {
 }): string | null {
   if (input.vercelEnv === "production") {
     const configured = httpsOrigin(input.configuredSiteUrl);
-    return configured && PRODUCTION_ORIGINS.has(configured)
+    return configured === CANONICAL_SITE_ORIGIN
       ? configured
-      : "https://otherbali.com";
+      : CANONICAL_SITE_ORIGIN;
   }
 
   const current = requestOrigin(input);
   if (input.vercelEnv === "preview") {
     const trustedPreview = httpsOrigin(input.vercelUrl);
-    if (!trustedPreview || PRODUCTION_ORIGINS.has(trustedPreview)) return null;
+    if (!trustedPreview || trustedPreview === CANONICAL_SITE_ORIGIN) return null;
     if (!trustedPreview.endsWith(".vercel.app")) return null;
     if (current && current !== trustedPreview) return null;
     return trustedPreview;

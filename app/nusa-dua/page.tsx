@@ -8,8 +8,9 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getNusaDuaVenues, toNusaDuaPlaceCard } from "@/lib/nusa-dua";
 import { NUSA_DUA_GUIDES } from "@/lib/nusa-dua-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Nusa Dua guide — the calm, polished resort enclave",
@@ -84,7 +85,7 @@ export default async function NusaDuaPillarPage() {
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="nusa-dua" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

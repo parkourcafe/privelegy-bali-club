@@ -4,8 +4,9 @@ import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES, type SeminyakGuide } from "@/lib/seminyak-guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuide }) {
   const venues = (await getSeminyakVenues()).filter(guide.base);
@@ -54,7 +55,7 @@ export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuid
     <div>
       <main className="site-shell">
         <PageViewTracker event="editorial_page_view" slug={`seminyak/${guide.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

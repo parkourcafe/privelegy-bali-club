@@ -4,8 +4,9 @@ import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getJimbaranVenues, toJimbaranPlaceCard } from "@/lib/jimbaran";
 import { JIMBARAN_GUIDES, type JimbaranGuide } from "@/lib/jimbaran-guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function JimbaranGuideView({ guide }: { guide: JimbaranGuide }) {
   const venues = (await getJimbaranVenues()).filter(guide.base);
@@ -54,7 +55,7 @@ export default async function JimbaranGuideView({ guide }: { guide: JimbaranGuid
     <div>
       <main className="site-shell">
         <PageViewTracker event="editorial_page_view" slug={`jimbaran/${guide.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

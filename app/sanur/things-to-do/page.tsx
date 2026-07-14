@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
 import { SANUR_REVIEW_DATE, SANUR_THINGS_TO_DO } from "@/lib/sanur/content";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Best things to do in Sanur — beyond sitting at the hotel",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     title: "Best things to do in Sanur · Other Bali",
     description:
       "Sunrise walks, the beach path, calm-water activities, and the boat gateway — Sanur at its low-stress best.",
-    url: "https://otherbali.com/sanur/things-to-do",
+    url: "https://www.otherbali.com/sanur/things-to-do",
     type: "article",
   },
 };
@@ -115,7 +116,7 @@ export default function SanurThingsToDoPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
     </div>
   );

@@ -3,8 +3,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
 import { UBUD_REVIEW_DATE, UBUD_THINGS_TO_DO } from "@/lib/ubud-things";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Best things to do in Ubud — temples, rice terraces & jungle",
@@ -128,7 +129,7 @@ export default function UbudThingsToDoPage() {
         <GuideFooter />
       </main>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
     </div>
   );
 }

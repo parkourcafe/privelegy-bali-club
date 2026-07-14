@@ -47,7 +47,7 @@ export default async function OnboardPage({
         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">
           Your card preview
         </p>
-        <VenueCard v={v} showActions={false} showSimilar={false} />
+        <VenueCard v={v} showActions={false} showSimilar={false} linkToPage={false} />
       </div>
 
       <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-4">

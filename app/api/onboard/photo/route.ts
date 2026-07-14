@@ -11,15 +11,57 @@ import {
   photoObjectPath,
   validatePhotoSubmissionFields,
 } from "@/lib/photo-submission-policy";
+import { photoContentSha256 } from "@/lib/photo-content-digest";
+import {
+  cleanUnconsentedPhoto,
+  markPhotoUploadStored,
+  requestUnconsentedPhotoCleanup,
+  type PhotoCleanupResult,
+} from "@/lib/photo-submission-reconciliation";
+import { isTrustedSameOriginMutation } from "@/lib/same-origin-mutation";
+import { exactReleaseSchemaProbe } from "@/lib/release-schema-probe";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const MAX_MULTIPART_OVERHEAD = 512 * 1024;
-const SAME_SITE_REQUESTS = new Set(["same-origin", "same-site", "none"]);
+const NO_STORE = { "Cache-Control": "no-store" };
 
 function response(error: string, status: number) {
-  return NextResponse.json({ ok: false, error }, { status });
+  return NextResponse.json({ ok: false, error }, { status, headers: NO_STORE });
+}
+
+function pendingReviewResponse() {
+  return NextResponse.json(
+    { ok: true, status: "pending_review" },
+    { status: 201, headers: NO_STORE },
+  );
+}
+
+function processingResponse() {
+  return NextResponse.json(
+    { ok: true, status: "processing" },
+    {
+      status: 202,
+      headers: { ...NO_STORE, "Retry-After": "60" },
+    },
+  );
+}
+
+function rpcAccepted(data: unknown): boolean {
+  return Boolean(data)
+    && typeof data === "object"
+    && !Array.isArray(data)
+    && (data as { ok?: unknown }).ok === true;
+}
+
+function responseAfterCleanup(
+  cleanup: PhotoCleanupResult,
+  failure: string,
+) {
+  return cleanup === "removed"
+    ? response(failure, 502)
+    : processingResponse();
 }
 
 function tokenHash(token: string): string {
@@ -56,20 +98,8 @@ async function resolveVenueSlug(
   return String(onboardingToken.venue_slug);
 }
 
-async function cleanFailedSubmission(
-  client: SupabaseClient,
-  submissionId: string,
-  imagePath: string
-) {
-  await Promise.allSettled([
-    client.from("venue_photo_submissions").delete().eq("id", submissionId),
-    client.storage.from(PHOTO_BUCKET).remove([imagePath]),
-  ]);
-}
-
 export async function POST(req: Request) {
-  const fetchSite = req.headers.get("sec-fetch-site");
-  if (fetchSite && !SAME_SITE_REQUESTS.has(fetchSite)) return response("forbidden", 403);
+  if (!isTrustedSameOriginMutation(req)) return response("forbidden", 403);
 
   const contentLength = Number(req.headers.get("content-length"));
   if (Number.isFinite(contentLength) && contentLength > MAX_PHOTO_BYTES + MAX_MULTIPART_OVERHEAD) {
@@ -102,6 +132,10 @@ export async function POST(req: Request) {
 
   const client = serviceClient();
   if (!client) return response("unavailable", 503);
+  const schema = await client.rpc("release_readiness_v2");
+  if (schema.error || !exactReleaseSchemaProbe(schema.data, 2, "0041")) {
+    return response("unavailable", 503);
+  }
   const venueSlug = await resolveVenueSlug(client, validation.token);
   if (!venueSlug) return response("invalid_invitation", 404);
 
@@ -115,6 +149,7 @@ export async function POST(req: Request) {
   if (!detectedMime || detectedMime !== validation.mime) {
     return response("invalid_file", 415);
   }
+  const contentSha256 = photoContentSha256(bytes);
 
   const submissionId = randomUUID();
   const imagePath = photoObjectPath(venueSlug, submissionId, detectedMime);
@@ -141,36 +176,78 @@ export async function POST(req: Request) {
       contentType: detectedMime,
       cacheControl: "300",
       upsert: false,
-    });
+  });
   if (uploadError) {
-    await cleanFailedSubmission(client, submissionId, imagePath);
-    return response("upload_failed", 502);
+    // A failed response does not prove that the object PUT stopped. Request
+    // durable cleanup, but leave physical removal to the grace-delayed
+    // reconciler so a late Storage commit cannot recreate an orphan object.
+    await requestUnconsentedPhotoCleanup(
+      client,
+      submissionId,
+      venueSlug,
+      imagePath,
+      "upload_failed",
+    );
+    return processingResponse();
+  }
+
+  const uploadStored = await markPhotoUploadStored(
+    client,
+    submissionId,
+    venueSlug,
+    imagePath,
+    contentSha256,
+  );
+  if (!uploadStored) {
+    const cleanup = await cleanUnconsentedPhoto(
+      client,
+      submissionId,
+      venueSlug,
+      imagePath,
+      "state_transition_failed",
+    );
+    return responseAfterCleanup(cleanup, "submission_failed");
   }
 
   const userAgent = (req.headers.get("user-agent") ?? "").slice(0, 500);
   const submittedIp = boundedClientIp(
     req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip")
   );
-  const { data: consent, error: consentError } = await client.rpc(
-    "record_venue_photo_consent",
-    {
-      p_submission_ids: [submissionId],
-      p_venue_slug: venueSlug,
-      p_actor_name: validation.submitterName,
-      p_actor_contact: validation.submitterContact ?? "",
-      p_terms_version: PHOTO_CONSENT_TERMS_VERSION,
-      p_user_agent: userAgent,
-      p_submitted_ip: submittedIp,
-    }
-  );
-  if (consentError || !consent || consent.ok !== true) {
-    await cleanFailedSubmission(client, submissionId, imagePath);
-    return response("consent_failed", 502);
+  const consentArgs = {
+    p_submission_ids: [submissionId],
+    p_venue_slug: venueSlug,
+    p_actor_name: validation.submitterName,
+    p_actor_contact: validation.submitterContact ?? "",
+    p_terms_version: PHOTO_CONSENT_TERMS_VERSION,
+    p_user_agent: userAgent,
+    p_submitted_ip: submittedIp,
+  };
+  const consent = await client.rpc("record_venue_photo_consent", consentArgs);
+  if (consent.error) {
+    // The first transaction may have committed even if its response was lost.
+    // One exact retry is safe because 0041 makes consent idempotent. If the
+    // retry is still ambiguous, preserve both row and object for reconciliation.
+    const retry = await client.rpc("record_venue_photo_consent", consentArgs);
+    return !retry.error && rpcAccepted(retry.data)
+      ? pendingReviewResponse()
+      : processingResponse();
+  }
+  if (!consent.data || typeof consent.data !== "object" || Array.isArray(consent.data)) {
+    return processingResponse();
+  }
+  if (!rpcAccepted(consent.data)) {
+    const cleanup = await cleanUnconsentedPhoto(
+      client,
+      submissionId,
+      venueSlug,
+      imagePath,
+      "consent_rejected",
+    );
+    return cleanup === "consent_recorded"
+      ? pendingReviewResponse()
+      : responseAfterCleanup(cleanup, "consent_failed");
   }
 
   // Never return a storage path, signed URL, public URL or roster data here.
-  return NextResponse.json(
-    { ok: true, status: "pending_review" },
-    { status: 201, headers: { "Cache-Control": "no-store" } }
-  );
+  return pendingReviewResponse();
 }

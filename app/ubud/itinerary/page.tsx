@@ -3,8 +3,9 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 // Search intent: "ubud itinerary / 2 days in ubud / 3 days in ubud / ubud
 // 2 day plan". A realistic sequenced plan that leans on the things-to-do sights
@@ -150,7 +151,7 @@ export default function UbudItineraryPage() {
         <GuideFooter />
       </main>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
     </div>
   );
 }

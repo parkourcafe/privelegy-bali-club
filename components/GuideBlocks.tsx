@@ -3,12 +3,13 @@ import { cache } from "react";
 import PlaceCard from "@/components/PlaceCard";
 import { getUluwatuContent, toPlaceCard } from "@/lib/uluwatu/venues";
 import { getPublishedVenues } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 // Shared building blocks for the editorial guide pages (pillar + children).
 // Server components; JSON-LD is emitted only for content visibly rendered on
 // the page (brief §15 — no FAQ schema for invisible content).
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const publicVenueSlugs = cache(async () =>
   new Set((await getPublishedVenues()).map((venue) => venue.slug))
 );
@@ -33,7 +34,7 @@ export function FaqBlock({ items, heading = "Good to know" }: { items: FaqItem[]
       <h2>{heading}</h2>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <div className="faq-list">
         {items.map((item) => (
@@ -72,7 +73,7 @@ export async function VenueItemListSchema({ name, slugs }: { name: string; slugs
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
     />
   );
 }

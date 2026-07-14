@@ -4,6 +4,7 @@ import ReserveButton from "@/components/ReserveButton";
 import SimilarPlaces from "@/components/SimilarPlaces";
 import VenueVisual from "@/components/VenueVisual";
 import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 // Presentational venue card — shared by the planning grid and route pages.
 
@@ -13,6 +14,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Spa",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
 };
@@ -22,17 +26,18 @@ export default function VenueCard({
   showActions = true,
   showSimilar = true,
   actionMode,
-  linkToPage = false,
+  linkToPage = true,
 }: {
   v: VenueWithPerk;
   showActions?: boolean;
   showSimilar?: boolean;
   actionMode?: "full" | "directions" | "none";
-  // Wrap the name in a link to the /places/[slug] venue page. Only passed from
-  // hub/spoke grids; /places and /plan render their own cards without it.
+  // Public cards link to the full place by default. Internal previews may opt
+  // out explicitly, but planner and route cards must never become dead ends.
   linkToPage?: boolean;
 }) {
   const resolvedActionMode = showActions ? actionMode ?? "full" : "none";
+  const mapsLabel = googleMapsHandoffLabel(v.gmapsUrl);
 
   return (
     <article className="venue-card">
@@ -133,13 +138,15 @@ export default function VenueCard({
 
         {resolvedActionMode !== "none" && (
           <div className="action-row">
-            <TrackedDirectionsLink
-              href={v.gmapsUrl}
-              venueSlug={v.slug}
-              className="button-secondary"
-            >
-              Directions
-            </TrackedDirectionsLink>
+            {v.gmapsUrl && mapsLabel ? (
+              <TrackedDirectionsLink
+                href={v.gmapsUrl}
+                venueSlug={v.slug}
+                className="button-secondary"
+              >
+                {mapsLabel}
+              </TrackedDirectionsLink>
+            ) : null}
             {resolvedActionMode === "full" && (
               <>
                 <ReserveButton

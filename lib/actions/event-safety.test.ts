@@ -1,13 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-
-const eventSafety = (await import(
-  new URL("./event-safety.ts", import.meta.url).href
-)) as typeof import("./event-safety");
-const {
-  ALLOWED_EVENT_TYPES,
-  parseEventRequest,
-} = eventSafety;
+import { ALLOWED_EVENT_TYPES, parseEventRequest } from "./event-safety";
 
 const EXISTING_EVENTS = [
   "landing_open",
@@ -66,6 +59,20 @@ test("preserves safe slash-separated page slugs used by existing trackers", () =
         payload: null,
       },
     }
+  );
+});
+
+test("normalizes bounded event subjects before storage", () => {
+  assert.deepEqual(
+    parseEventRequest({ type: "venue_detail_view", venueSlug: "  FIXTURE-VENUE  " }),
+    {
+      ok: true,
+      event: {
+        type: "venue_detail_view",
+        venueSlug: "fixture-venue",
+        payload: null,
+      },
+    },
   );
 });
 
@@ -307,6 +314,34 @@ test("rejects any client attempt to set acquisition source", () => {
     }).ok,
     false
   );
+  assert.equal(
+    parseEventRequest({ type: "source_scan", source: "villa_01" }).ok,
+    false,
+  );
+});
+
+test("rejects every client-supplied guest identity spelling", () => {
+  for (const key of ["guestRef", "guest_ref", "guestId", "guest_id"]) {
+    assert.equal(
+      parseEventRequest({ type: "landing_open", [key]: "g_attackerchosen1" }).ok,
+      false,
+      key,
+    );
+    assert.equal(
+      parseEventRequest({
+        type: "action_handoff",
+        venueSlug: "fixture-venue",
+        payload: {
+          action: "website",
+          provider: "official",
+          venueSlug: "fixture-venue",
+          [key]: "g_attackerchosen1",
+        },
+      }).ok,
+      false,
+      key,
+    );
+  }
 });
 
 test("does not accept action payloads on unrelated events", () => {

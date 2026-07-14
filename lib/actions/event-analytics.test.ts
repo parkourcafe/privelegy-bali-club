@@ -2,11 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import type { SafeActionEventPayload } from "../contracts/menu-action";
 import type { SafeEventPayload } from "./event-payload";
-
-const analytics = (await import(
-  new URL("../analytics.ts", import.meta.url).href
-)) as typeof import("../analytics");
-const { trackMenuItemOpen, trackMenuOpen, trackVenueAction } = analytics;
+import { trackMenuItemOpen, trackMenuOpen, trackVenueAction } from "../analytics";
 
 type PostedEvent = {
   type: string;

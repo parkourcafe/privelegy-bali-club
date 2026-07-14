@@ -3,8 +3,9 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { GuideFooter } from "@/components/GuideBlocks";
 import { GUIDE_GROUPS, getGuide } from "@/lib/guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Bali travel guides — planning, areas and best-of",
@@ -52,7 +53,7 @@ export default function GuidesIndexPage() {
       <main className="site-shell">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
 
         <header className="guide-hero">

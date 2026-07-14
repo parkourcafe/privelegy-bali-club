@@ -4,8 +4,9 @@ import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getNusaDuaVenues, toNusaDuaPlaceCard } from "@/lib/nusa-dua";
 import { NUSA_DUA_GUIDES, type NusaDuaGuide } from "@/lib/nusa-dua-guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide }) {
   const venues = (await getNusaDuaVenues()).filter(guide.base);
@@ -54,7 +55,7 @@ export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide 
     <div>
       <main className="site-shell">
         <PageViewTracker event="editorial_page_view" slug={`nusa-dua/${guide.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

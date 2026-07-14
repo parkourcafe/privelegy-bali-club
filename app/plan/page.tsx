@@ -56,7 +56,7 @@ export default async function Plan({
             <p className="hero-note">No signup. Offers appear only where venues confirm them.</p>
           </div>
         </div>
-        <div className="editorial-signal" aria-label="Canggu route collage">
+        <div className="editorial-signal" role="group" aria-label="Canggu route collage">
           <p className="editorial-signal-label">From coffee to dinner, picked for the kind of day you&apos;re having.</p>
         </div>
       </header>

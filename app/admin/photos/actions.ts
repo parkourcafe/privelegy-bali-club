@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { requireAdminRequest } from "@/lib/admin-request-auth";
+import { photoDigestMatches } from "@/lib/photo-content-digest";
 import {
   MAX_STORED_PHOTO_BYTES,
   PHOTO_BUCKET,
@@ -49,9 +50,11 @@ export async function approvePhoto(formData: FormData) {
 
   const { data: submission, error: submissionError } = await client
     .from("venue_photo_submissions")
-    .select("image_path,status")
+    .select("image_path,status,storage_state,content_sha256")
     .eq("id", id)
     .eq("status", "pending")
+    .eq("storage_state", "uploaded")
+    .not("content_sha256", "is", null)
     .single();
   if (submissionError || !submission?.image_path) {
     throw new Error(submissionError?.message ?? "Photo is no longer pending review.");
@@ -64,6 +67,9 @@ export async function approvePhoto(formData: FormData) {
   }
   const bytes = new Uint8Array(await object.arrayBuffer());
   if (!detectPhotoMime(bytes)) throw new Error("The private photo object failed its signature check.");
+  if (!photoDigestMatches(bytes, submission.content_sha256)) {
+    throw new Error("The private photo object no longer matches its consented digest.");
+  }
 
   const { data, error } = await client.rpc("approve_venue_photo_submission", {
     p_submission_id: id,
@@ -79,20 +85,12 @@ export async function approvePhoto(formData: FormData) {
 export async function rejectPhoto(formData: FormData) {
   const client = await operatorClient();
   const id = submissionId(formData);
-  const reviewedAt = new Date().toISOString();
-  const { data, error } = await client
-    .from("venue_photo_submissions")
-    .update({
-      status: "rejected",
-      is_primary: false,
-      reviewed_at: reviewedAt,
-      reviewed_by: reviewer(formData),
-      updated_at: reviewedAt,
-    })
-    .eq("id", id)
-    .eq("status", "pending")
-    .select("id")
-    .maybeSingle();
-  if (error || !data) throw new Error(error?.message ?? "Photo is no longer pending review.");
+  const { data, error } = await client.rpc("reject_venue_photo_submission", {
+    p_submission_id: id,
+    p_reviewed_by: reviewer(formData),
+  });
+  if (error || !data || data.ok !== true) {
+    throw new Error(error?.message ?? data?.error ?? "Photo is no longer pending review.");
+  }
   refreshPhotoSurfaces();
 }

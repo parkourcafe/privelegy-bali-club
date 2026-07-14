@@ -3,8 +3,9 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getGuide } from "@/lib/guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const guide = getGuide("where-to-stay-in-bali")!;
 
 export const metadata: Metadata = {
@@ -119,7 +120,7 @@ export default function WhereToStayPage() {
       <main className="site-shell">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
 
         <header className="guide-hero">

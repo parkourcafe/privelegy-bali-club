@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { readGuestRef } from "@/lib/guest-server";
+import { readGuestRefForDataAccess } from "@/lib/guest-data-access";
 import { getMyRedemptions, getSavedVenues } from "@/lib/data";
 import ShareButton from "@/components/ShareButton";
 
@@ -25,7 +25,7 @@ export const metadata = {
 // A guest's saved places (§6c) + redeemed offers. Identity is the httpOnly
 // cookie; no login, no localStorage (guardrail #10).
 export default async function MyPerksPage() {
-  const ref = await readGuestRef();
+  const ref = await readGuestRefForDataAccess();
   const [perks, saved] = ref
     ? await Promise.all([getMyRedemptions(ref), getSavedVenues(ref)])
     : [[], []];

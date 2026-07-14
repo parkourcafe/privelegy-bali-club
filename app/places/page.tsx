@@ -92,7 +92,7 @@ export default async function PlacesPage({
               expect. Offers appear only when venues confirm them.
             </p>
           </div>
-          <div className="editorial-signal" aria-label="Bali places signal">
+          <div className="editorial-signal" role="group" aria-label="Bali places signal">
             {/* Show only the publication-gated count rendered on this page. */}
             <p className="editorial-signal-label">
               {`${ready.length} curated places`}

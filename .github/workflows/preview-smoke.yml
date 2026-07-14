@@ -1,0 +1,77 @@
+name: Preview smoke
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      preview_url:
+        description: HTTPS Vercel preview URL to verify
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-smoke-${{ github.event.deployment.id || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: core-routes
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment != 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      PREVIEW_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.preview_url || github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}
+      PREVIEW_ALLOWED_HOSTS: ${{ vars.PREVIEW_ALLOWED_HOSTS }}
+
+    steps:
+      # Always run trusted smoke code from the default branch. The target
+      # deployment is exercised over HTTP and cannot alter the script that
+      # receives the optional protection-bypass secret.
+      - name: Checkout trusted smoke harness
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Prepare report directory
+        run: mkdir -p artifacts/preview-smoke
+
+      - name: Wait for preview readiness
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          set -o pipefail
+          node scripts/ci-wait-preview.mjs 2>&1 | tee artifacts/preview-smoke/readiness.log
+
+      - name: Run preview smoke contract
+        env:
+          BASE_URL: ${{ env.PREVIEW_URL }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          set -o pipefail
+          npm run test:smoke 2>&1 | tee artifacts/preview-smoke/smoke.log
+
+      - name: Upload preview smoke evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: preview-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/preview-smoke
+          if-no-files-found: error
+          retention-days: 14

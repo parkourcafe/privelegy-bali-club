@@ -1,27 +1,47 @@
 import { NextResponse } from "next/server";
-import { toggleSavedPlace } from "@/lib/data";
-import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
+import { setSavedPlace } from "@/lib/data";
+import { readGuestRef } from "@/lib/guest-server";
+import { readBoundedJson } from "@/lib/api/request";
+import { parseSavePlaceRequest } from "@/lib/api/public-post-contracts";
+import { logRequestFailure } from "@/lib/server-log";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+const MAX_SAVE_BODY_BYTES = 512;
+const NO_STORE = { "Cache-Control": "no-store" };
 
-// Toggle a saved place (master §6c, Rung 1). Anonymous — guest id from the
-// httpOnly cookie; no login, no PII, no localStorage (guardrail #10).
+function errorResponse(error: string, status: number) {
+  return NextResponse.json({ ok: false, error }, { status, headers: NO_STORE });
+}
+
+// Set the requested saved state idempotently (master §6c, Rung 1). Anonymous —
+// guest id from the httpOnly cookie; no login, no PII, no localStorage
+// (guardrail #10). A stale tab can repeat the request without removing data.
 export async function POST(req: Request) {
-  let body: { venueSlug?: string };
+  const body = await readBoundedJson(req, MAX_SAVE_BODY_BYTES);
+  if (!body.ok) {
+    const status = body.error === "payload_too_large"
+      ? 413
+      : body.error === "invalid_content_type"
+        ? 415
+        : 400;
+    return errorResponse(body.error, status);
+  }
+  const parsed = parseSavePlaceRequest(body.value);
+  if (!parsed) return errorResponse("invalid_request", 400);
+
   try {
-    body = await req.json();
+    const ref = await readGuestRef();
+    if (!ref) return errorResponse("guest_identity_required", 409);
+    const result = await setSavedPlace(ref, parsed.venueSlug, parsed.saved);
+    if (!result.ok) {
+      logRequestFailure(req, "public_save_unavailable");
+      return errorResponse("save_unavailable", 503);
+    }
+
+    return NextResponse.json(result, { headers: NO_STORE });
   } catch {
-    return NextResponse.json({ ok: false }, { status: 400 });
+    logRequestFailure(req, "public_save_unavailable");
+    return errorResponse("save_unavailable", 503);
   }
-  if (!body.venueSlug) {
-    return NextResponse.json({ ok: false }, { status: 400 });
-  }
-
-  const { ref, created } = await resolveGuestRef();
-  const result = await toggleSavedPlace(ref, body.venueSlug);
-
-  const res = NextResponse.json(result);
-  if (created) res.cookies.set(GUEST_COOKIE, ref, guestCookieOptions());
-  return res;
 }

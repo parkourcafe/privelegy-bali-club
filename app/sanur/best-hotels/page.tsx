@@ -8,6 +8,7 @@ import {
   SANUR_ZONE_LABEL,
   type SanurZone,
 } from "@/lib/sanur/content";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Best hotels in Sanur — beachfront classics by zone",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: "Best hotels in Sanur · Other Bali",
     description:
       "Harbour-side, central beachfront, and south-end resorts — chosen by zone and travel style.",
-    url: "https://otherbali.com/sanur/best-hotels",
+    url: "https://www.otherbali.com/sanur/best-hotels",
     type: "article",
   },
 };
@@ -154,7 +155,7 @@ export default function SanurHotelsPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
     </div>
   );

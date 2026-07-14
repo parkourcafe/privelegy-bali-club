@@ -2,8 +2,9 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import type { Guide } from "@/lib/guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 // Generic renderer for the long-form editorial guides that follow the standard
 // structure (docs/content-style.md): answer-first lede, scannable sections,
@@ -31,7 +32,7 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
       <main className="site-shell">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
 
         <header className="guide-hero">

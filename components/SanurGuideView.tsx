@@ -4,8 +4,9 @@ import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getSanurVenues, toSanurPlaceCard } from "@/lib/sanur";
 import { SANUR_GUIDES, type SanurGuide } from "@/lib/sanur-guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
   const venues = (await getSanurVenues()).filter(guide.base);
@@ -54,7 +55,7 @@ export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
     <div>
       <main className="site-shell">
         <PageViewTracker event="editorial_page_view" slug={`sanur/${guide.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

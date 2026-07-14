@@ -8,8 +8,9 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES } from "@/lib/ubud-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Ubud guide — where to eat, drink coffee and slow down",
@@ -85,7 +86,7 @@ export default async function UbudPillarPage() {
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="ubud" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

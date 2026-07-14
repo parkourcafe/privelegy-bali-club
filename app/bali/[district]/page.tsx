@@ -11,6 +11,7 @@ import {
   hubJsonLd,
 } from "@/lib/hub";
 import VenueCard from "@/components/VenueCard";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 // SEO hub. Server-rendered + ISR so crawlers and AI fetchers see full content.
 export const revalidate = 3600;
@@ -86,7 +87,7 @@ export default async function DistrictHubPage({
               </Link>
             </div>
           </div>
-          <div className="editorial-signal" aria-label={`${hub.name} signal`}>
+          <div className="editorial-signal" role="group" aria-label={`${hub.name} signal`}>
             <p className="editorial-signal-label">
               {hub.venues.length} curated places in {hub.name}.
             </p>
@@ -164,7 +165,7 @@ export default async function DistrictHubPage({
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubJsonLd(hub)) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(hubJsonLd(hub)) }}
       />
     </div>
   );

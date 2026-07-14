@@ -1,13 +1,35 @@
 import { anonClient, isSeedFallbackAllowed, isSupabaseConfigured } from "./supabase/server";
+import { headers } from "next/headers";
 import { serviceClient } from "./supabase/service";
-import {
-  buildGoogleMapsSearchUrl,
-  validateGoogleMapsUrl,
-} from "./integrations/google-maps";
+import { validateGoogleMapsUrl } from "./integrations/google-maps";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { getPublicationStatus } from "./publication";
+import {
+  failPublicDataRead,
+  requireConfiguredPublicDataSource,
+} from "./data-availability";
+import { REQUEST_ID_HEADER } from "./request-correlation";
+import { logServerFailure } from "./server-log";
+import { exactReleaseSchemaProbe } from "./release-schema-probe";
+import {
+  parseLegacyPublicVenueRow,
+  parseLegacyVenueRow,
+  type LegacyVenueRow,
+} from "./schema/venue";
+import { parsePublicPerkRow } from "./schema/perk";
+import { parsePublicRows } from "./schema/public-boundary";
+import { isRecord } from "./schema/common";
+import {
+  parsePlanEntryRow,
+  parseRouteRow,
+  parseRouteStopRow,
+} from "./schema/route";
+import {
+  validateInstagramUrl,
+  validateOfficialWebsiteUrl,
+} from "./external-links";
 import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
@@ -21,6 +43,13 @@ import type {
   RouteDef,
 } from "./types";
 import { SLOTS } from "./types";
+import {
+  matchExactRelatedRoutes,
+  resolveExactRouteStops,
+  routesWithDuplicateStopRanks,
+  type ExactRelatedRouteSummary,
+  type RouteIntegrityFailure,
+} from "./route-integrity";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -33,6 +62,25 @@ export interface PlanBySlot {
   label: string;
   hint: string;
   venues: VenueWithPerk[];
+}
+
+async function failPublicDataRequest(context: string): Promise<never> {
+  let requestId: string | null = null;
+  try {
+    requestId = (await headers()).get(REQUEST_ID_HEADER);
+  } catch {
+    // Build-time/non-request callers still get a release-aware safe record.
+  }
+  logServerFailure({ event: "public_data_unavailable", requestId });
+  return failPublicDataRead(context);
+}
+
+async function requirePublicDataSource(configured: boolean, context: string): Promise<void> {
+  try {
+    requireConfiguredPublicDataSource(configured, context);
+  } catch {
+    await failPublicDataRequest(context);
+  }
 }
 
 // Postgres columns are snake_case; the domain types are camelCase. Map at the
@@ -61,7 +109,6 @@ const PLAN_VENUE_COLUMNS = [
   "vibe_tags",
   "price_anchor",
   "what_to_order",
-  "photo_url",
   "area",
   "why_its_here",
   "best_for",
@@ -89,7 +136,6 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "vibe_tags",
   "price_anchor",
   "what_to_order",
-  "photo_url",
   // Legacy action fields are deliberately excluded. Public actions may
   // surface only through the fresh, confirmed capability store.
   "area",
@@ -105,6 +151,8 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
 const PLAN_ENTRY_COLUMNS = "venue_slug,slot,rank,blurb";
+const ROUTE_COLUMNS = "slug,title,subtitle,rank";
+const ROUTE_STOP_COLUMNS = "route_slug,venue_slug,rank,note";
 
 function textValue(value: unknown): string {
   return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
@@ -119,13 +167,10 @@ function isDraftPerk(title: unknown, terms: unknown): boolean {
   return hasDraftPerkLanguage(title) || hasDraftPerkLanguage(terms);
 }
 
-function mapsSearchUrl(name: unknown, address: unknown): string {
-  const query = [textValue(name), textValue(address), "Bali"].filter(Boolean).join(" ");
-  return buildGoogleMapsSearchUrl(query) ?? "https://www.google.com/maps";
-}
-
-function publicDirectionsUrl(r: Row): string {
-  return validateGoogleMapsUrl(r.gmaps_url) ?? mapsSearchUrl(r.name, r.address);
+function publicDirectionsUrl(r: LegacyVenueRow): string {
+  // Never synthesize a URL from a name/address. The UI separately labels a
+  // stored handoff as exact listing, search, or unresolved short/generic link.
+  return validateGoogleMapsUrl(r.gmaps_url) ?? "";
 }
 
 function uniqueBy<T>(items: T[], keyOf: (item: T) => string): T[] {
@@ -159,61 +204,67 @@ function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
     });
 }
 
-const mapVenue = (r: Row): Venue => {
-  const district = r.district as string;
+const mapVenue = (r: LegacyVenueRow): Venue => {
   return {
-    id: r.id as string,
-    slug: r.slug as string,
-    name: r.name as string,
-    category: r.category as Venue["category"],
-    district,
+    id: r.id,
+    slug: r.slug,
+    name: r.name,
+    category: r.category,
+    district: r.district,
     // Never null downstream: a null address once 500'd all of /places via
     // v.address.toLowerCase() in the catalogue filter.
-    address: (r.address as string) ?? "",
+    address: r.address ?? "",
     gmapsUrl: publicDirectionsUrl(r),
-    officialUrl: (r.official_url as string) ?? undefined,
-    instagramUrl: (r.instagram_url as string) ?? undefined,
-    tier: r.tier as Venue["tier"],
-    status: (r.status as string) ?? undefined,
-    isSponsored: Boolean(r.is_sponsored),
-    vibeTags: (r.vibe_tags as string[]) ?? undefined,
-    priceAnchor: (r.price_anchor as string) ?? undefined,
-    whatToOrder: (r.what_to_order as string) ?? undefined,
-    photoUrl: (r.photo_url as string) ?? undefined,
+    officialUrl: validateOfficialWebsiteUrl(r.official_url) ?? undefined,
+    instagramUrl: validateInstagramUrl(r.instagram_url) ?? undefined,
+    tier: r.tier,
+    status: r.status,
+    isSponsored: r.is_sponsored,
+    vibeTags: r.vibe_tags ?? undefined,
+    priceAnchor: r.price_anchor ?? undefined,
+    whatToOrder: r.what_to_order ?? undefined,
+    // Legacy photo_url carries no normalized rights/approval evidence. Web,
+    // like mobile v1, remains fail-closed until the approved photo DTO exists.
+    photoUrl: undefined,
     whatsapp: undefined,
     tablepilotSlug: undefined,
-    area: (r.area as string) ?? undefined,
-    whyItsHere: (r.why_its_here as string) ?? undefined,
-    bestFor: (r.best_for as string) ?? undefined,
-    notFor: (r.not_for as string) ?? undefined,
-    practicalTags: (r.practical_tags as string[]) ?? undefined,
-    jobs: (r.jobs as string[]) ?? undefined,
-    ownerNote: (r.owner_note as string) ?? undefined,
-    publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
-    wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
+    area: r.area ?? undefined,
+    whyItsHere: r.why_its_here ?? undefined,
+    bestFor: r.best_for ?? undefined,
+    notFor: r.not_for ?? undefined,
+    practicalTags: r.practical_tags ?? undefined,
+    jobs: r.jobs ?? undefined,
+    ownerNote: r.owner_note ?? undefined,
+    publicationStatus: r.publication_status ?? undefined,
+    wellnessCategories: r.wellness_categories ?? undefined,
   };
 };
+
+function mapPublicVenueRows(rows: readonly unknown[], context: string): Venue[] {
+  return parsePublicRows(rows, parseLegacyPublicVenueRow, {
+    entity: "venue",
+    context,
+  }).map(mapVenue).filter(isPublicReadyVenue);
+}
+
+function mapPublicVenueRow(row: unknown, context: string): Venue | null {
+  return mapPublicVenueRows([row], context)[0] ?? null;
+}
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.
-const mapPublicPerk = (r: Row): Perk | null => {
-  if (isDraftPerk(r.title, r.terms)) return null;
-  const title = textValue(r.title);
-  if (!title) return null;
-  return {
-    id: textValue(r.id),
-    venueSlug: textValue(r.venue_slug),
-    title,
-    terms: textValue(r.terms),
-  };
-};
-const mapPublicPerks = (rows: Row[]): Perk[] =>
-  rows.map(mapPublicPerk).filter((p): p is Perk => p !== null);
-const mapPlan = (r: Row): PlanEntry => ({
-  venueSlug: r.venue_slug as string,
-  slot: r.slot as Slot,
-  rank: r.rank as number,
-  blurb: r.blurb as string,
-});
+function mapPublicPerks(rows: readonly unknown[], context: string): Perk[] {
+  return parsePublicRows(rows, parsePublicPerkRow, {
+    entity: "perk",
+    context,
+  }).filter((perk) => !isDraftPerk(perk.title, perk.terms));
+}
+
+function mapPlanEntries(rows: readonly unknown[], context: string): PlanEntry[] {
+  return parsePublicRows(rows, parsePlanEntryRow, {
+    entity: "plan_entry",
+    context,
+  });
+}
 
 function publicStoredPerkTitle(value: unknown): string {
   const title = textValue(value);
@@ -254,16 +305,22 @@ function mapInternalPerk(r: Row): Perk | null {
 
 export async function getCangguPlan(): Promise<PlanBySlot[]> {
   const allowSeed = isSeedFallbackAllowed();
+  const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "canggu_plan");
   let venues = allowSeed ? VENUES : [];
   let perks = allowSeed ? PERKS : [];
   let entries = allowSeed ? PLAN_ENTRIES : [];
 
-  if (isSupabaseConfigured()) {
+  if (configured) {
     venues = [];
     perks = [];
     entries = [];
     const sb = anonClient()!;
-    const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
+    const [
+      { data: v, error: venueError },
+      { data: p },
+      { data: e, error: entriesError },
+    ] = await Promise.all([
       sb
         .from("venues")
         .select(PLAN_VENUE_COLUMNS)
@@ -273,12 +330,13 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
       sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
     ]);
-    if (v) venues = (v as unknown as Row[]).map(mapVenue);
-    if (p) perks = mapPublicPerks(p as unknown as Row[]);
-    if (e) entries = (e as unknown as Row[]).map(mapPlan);
+    if (venueError || entriesError || !v || !e) await failPublicDataRequest("canggu_plan");
+    venues = mapPublicVenueRows(v ?? [], "canggu_plan");
+    if (p) perks = mapPublicPerks(p, "canggu_plan");
+    entries = mapPlanEntries(e ?? [], "canggu_plan");
   }
 
-  venues = uniqueBy(venues, (v) => v.slug);
+  venues = uniqueBy(venues.filter(isPublicReadyVenue), (v) => v.slug);
   perks = normalizePublicPerks(perks);
   entries = normalizePlanEntries(entries);
 
@@ -310,10 +368,12 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
 // is reflected on the site without a deploy. Copy stays in code (ContentPage
 // territory is deliberately not entered here).
 export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
-  if (!isSupabaseConfigured()) return DISTRICT_GUIDE;
+  const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "district_guide");
+  if (!configured) return DISTRICT_GUIDE;
   const sb = anonClient()!;
-  const { data } = await sb.from("districts").select("slug, status");
-  if (!data) return DISTRICT_GUIDE;
+  const { data, error } = await sb.from("districts").select("slug, status");
+  if (error || !data) await failPublicDataRequest("district_guide");
   const statusBySlug = new Map(
     (data as Row[]).map((r) => [String(r.slug), String(r.status)] as const)
   );
@@ -328,6 +388,7 @@ export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
 
 export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
   const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "venue_detail");
   const allowSeed = isSeedFallbackAllowed();
   let venue: Venue | undefined = allowSeed ? VENUES.find((v) => v.slug === slug) : undefined;
   let perk: Perk | undefined = allowSeed ? PERKS.find((p) => p.venueSlug === slug) : undefined;
@@ -336,22 +397,23 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
     venue = undefined;
     perk = undefined;
     const sb = anonClient()!;
-    const { data: v } = await sb
+    const { data: v, error: venueError } = await sb
       .from("venues")
       .select(PUBLIC_PLACES_VENUE_COLUMNS)
       .eq("slug", slug)
       .eq("status", "active")
       .eq("publication_status", "published")
       .maybeSingle();
-    if (v) venue = mapVenue(v as unknown as Row);
+    if (venueError) await failPublicDataRequest("venue_detail");
+    if (v) venue = mapPublicVenueRow(v, "venue_detail") ?? undefined;
     const { data: p } = await sb
       .from("perks")
-      .select("*")
+      .select(PUBLIC_PERK_COLUMNS)
       .eq("venue_slug", slug)
       .eq("active", true)
       .limit(1)
       .maybeSingle();
-    if (p) perk = mapPublicPerk(p as Row) ?? undefined;
+    if (p) perk = mapPublicPerks([p], "venue_detail")[0];
   }
 
   // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
@@ -361,7 +423,7 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
     if (content?.publication === "published") venue = uluwatuAsVenue(content) as Venue;
   }
 
-  if (!venue) return null;
+  if (!venue || !isPublicReadyVenue(venue)) return null;
   // Configured deployments trust the perk RLS policy, which checks the live
   // district coverage flags. Local fixture mode contains Canggu data only.
   const entry = allowSeed ? PLAN_ENTRIES.find((e) => e.venueSlug === slug) : undefined;
@@ -428,20 +490,6 @@ export async function getVenueRedemptionCount(venueSlug: string): Promise<number
 // These never throw to the caller: attribution is valuable but must never block
 // or break the redemption ring. If the RPCs don't exist yet (migration not
 // applied), they fail silently and the ring keeps working.
-
-export async function setGuestSource(guestRef: string, source: string): Promise<boolean> {
-  const sb = serviceClient();
-  if (!sb || !guestRef || !source) return false;
-  try {
-    const { data, error } = await sb.rpc("set_guest_source", {
-      p_guest_ref: guestRef,
-      p_source: source,
-    });
-    return !error && data === true;
-  } catch {
-    return false;
-  }
-}
 
 export async function logEvent(input: {
   type: string;
@@ -514,6 +562,7 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // Seed fallback keeps the catalogue browsable (and demos honest) without a
   // configured DB, same as the /plan loaders.
   const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "published_catalogue");
   const allowSeed = isSeedFallbackAllowed();
   let venues: Venue[] = allowSeed ? VENUES : [];
   let perks: Perk[] = allowSeed ? PERKS : [];
@@ -534,10 +583,9 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
         .order("name", { ascending: true }),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
     ]);
-    if (!venueError && v) {
-      venues = (v as unknown as Row[]).map(mapVenue);
-      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-    }
+    if (venueError || !v) await failPublicDataRequest("published_catalogue");
+    venues = mapPublicVenueRows(v ?? [], "published_catalogue");
+    perks = !perkError && p ? mapPublicPerks(p, "published_catalogue") : [];
   }
 
   perks = normalizePublicPerks(perks);
@@ -551,6 +599,7 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     : [];
 
   return uniqueBy([...venues, ...uluwatuFallback], (v) => v.slug)
+    .filter(isPublicReadyVenue)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,
@@ -582,10 +631,12 @@ const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur", "ubud
 // page with no editorial identity.
 export async function getDistrictHubs(): Promise<DistrictHub[]> {
   const allowSeed = isSeedFallbackAllowed();
+  const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "district_hubs");
   let venues: Venue[] = allowSeed ? VENUES : [];
   let perks: Perk[] = allowSeed ? PERKS : [];
 
-  if (isSupabaseConfigured()) {
+  if (configured) {
     venues = [];
     perks = [];
     const sb = anonClient()!;
@@ -599,10 +650,9 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
         .order("name", { ascending: true }),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
     ]);
-    if (!venueError && v) {
-      venues = (v as unknown as Row[]).map(mapVenue);
-      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-    }
+    if (venueError || !v) await failPublicDataRequest("district_hubs");
+    venues = mapPublicVenueRows(v ?? [], "district_hubs");
+    perks = !perkError && p ? mapPublicPerks(p, "district_hubs") : [];
   }
 
   perks = normalizePublicPerks(perks);
@@ -610,7 +660,7 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
   const nameBySlug = new Map(DISTRICT_GUIDE.map((d) => [d.slug, d.name] as const));
 
   const byDistrict = new Map<string, VenueWithPerk[]>();
-  for (const v of uniqueBy(venues, (x) => x.slug)) {
+  for (const v of uniqueBy(venues, (x) => x.slug).filter(isPublicReadyVenue)) {
     if (!nameBySlug.has(v.district)) continue;
     if (HUB_EXCLUDE_DISTRICTS.has(v.district)) continue;
     const list = byDistrict.get(v.district) ?? [];
@@ -704,20 +754,20 @@ export async function logDishFeedback(input: {
   venueSlug: string;
   dish: string;
   verdict: string;
-}): Promise<void> {
+}): Promise<boolean> {
   const sb = serviceClient();
-  if (!sb || !input.venueSlug) return;
-  await sb
-    .rpc("log_dish_feedback", {
+  if (!sb || !input.venueSlug) return false;
+  try {
+    const { error } = await sb.rpc("log_dish_feedback", {
       p_guest_ref: input.guestRef,
       p_venue_slug: input.venueSlug,
       p_dish: input.dish,
       p_verdict: input.verdict,
-    })
-    .then(
-      () => {},
-      () => {}
-    );
+    });
+    return !error;
+  } catch {
+    return false;
+  }
 }
 
 // ---- Onboarding status (operator dashboard) ----
@@ -736,8 +786,19 @@ export async function getOnboardInfo(token: string): Promise<OnboardInfo | null>
   if (error || !data) return null;
   const r = data as Record<string, unknown>;
   if (!r.venue) return { venue: null, confirmed: false, offerNeedsApproval: false };
-  const venue = mapVenue(r.venue as Row);
-  const perkRaw = r.perk as Record<string, unknown> | null;
+  const parsedVenue = parsePublicRows([r.venue], parseLegacyVenueRow, {
+    entity: "venue",
+    context: "onboard_info",
+  })[0];
+  if (!parsedVenue) {
+    return {
+      venue: null,
+      confirmed: Boolean(r.confirmed),
+      offerNeedsApproval: false,
+    };
+  }
+  const venue = mapVenue(parsedVenue);
+  const perkRaw = isRecord(r.perk) ? r.perk : null;
   const perk = perkRaw
     ? mapInternalPerk({
         id: "",
@@ -765,6 +826,10 @@ export async function confirmOnboarding(input: {
 }): Promise<{ ok: boolean; error?: string }> {
   const sb = serviceClient();
   if (!sb) return { ok: false, error: "unconfigured" };
+  const schema = await sb.rpc("release_readiness_v1");
+  if (schema.error || !exactReleaseSchemaProbe(schema.data, 1, "0040")) {
+    return { ok: false, error: "unconfigured" };
+  }
   const { data, error } = await sb.rpc("confirm_onboarding", {
     p_token: input.token,
     p_name: input.name,
@@ -787,6 +852,10 @@ export async function setVenueJtbd(
 ): Promise<boolean> {
   const sb = serviceClient();
   if (!sb) return false;
+  const schema = await sb.rpc("release_readiness_v1");
+  if (schema.error || !exactReleaseSchemaProbe(schema.data, 1, "0040")) {
+    return false;
+  }
   const { data, error } = await sb.rpc("set_venue_jtbd", {
     p_token: token,
     p_best_for: "",
@@ -825,122 +894,71 @@ export interface RouteDetail {
   subtitle?: string;
   stops: VenueWithPerk[];
 }
+const PUBLIC_VENUE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+export type RelatedRouteSummary = ExactRelatedRouteSummary;
 
-type RouteFallbackStage = {
-  note: string;
-  categories?: Venue["category"][];
-  terms?: string[];
-};
-
-const ROUTE_FALLBACK_STAGES: Record<string, RouteFallbackStage[]> = {
-  "first-day": [
-    { note: "Coffee to shake off the flight.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
-    { note: "Easy first daytime stop.", categories: ["surf", "beach_club"], terms: ["surf", "beach", "day"] },
-    { note: "Sunset anchor.", categories: ["beach_club", "bar"], terms: ["sunset", "view"] },
-    { note: "Dinner to close the day.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
-  ],
-  "cafe-work": [
-    { note: "Quiet start with coffee.", categories: ["cafe"], terms: ["coffee", "breakfast", "slow"] },
-    { note: "Laptop-friendly second stop.", categories: ["cafe"], terms: ["work", "wifi", "laptop", "sockets"] },
-    { note: "Easy lunch between calls.", categories: ["warung", "restaurant"], terms: ["lunch", "quick"] },
-  ],
-  "sunset-run": [
-    { note: "Get there before golden hour.", categories: ["beach_club"], terms: ["sunset", "beach", "view"] },
-    { note: "Dinner as the light goes.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
-    { note: "Close with a drink nearby.", categories: ["bar", "beach_club"], terms: ["cocktail", "night", "drinks"] },
-  ],
-};
-
-function routeFallbackCount(slug: string): number {
-  return ROUTE_FALLBACK_STAGES[slug]?.length ?? 0;
-}
-
-function routeText(v: VenueWithPerk): string {
-  return [
-    v.name,
-    v.category,
-    v.area,
-    v.blurb,
-    v.whyItsHere,
-    v.bestFor,
-    v.notFor,
-    v.whatToOrder,
-    ...(v.jobs ?? []),
-    ...(v.vibeTags ?? []),
-    ...(v.practicalTags ?? []),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-}
-
-function findRouteVenue(
-  venues: VenueWithPerk[],
-  used: Set<string>,
-  stage: RouteFallbackStage
-): VenueWithPerk | null {
-  const byCategory = venues.find(
-    (v) => !used.has(v.slug) && stage.categories?.includes(v.category)
-  );
-  if (byCategory) return byCategory;
-
-  return (
-    venues.find((v) => {
-      if (used.has(v.slug)) return false;
-      const text = routeText(v);
-      return stage.terms?.some((term) => text.includes(term)) ?? false;
-    }) ?? null
-  );
-}
-
-function fallbackRouteStops(slug: string, venues: VenueWithPerk[]): VenueWithPerk[] {
-  const stages = ROUTE_FALLBACK_STAGES[slug] ?? [];
-  const used = new Set<string>();
-  const out: VenueWithPerk[] = [];
-
-  for (const stage of stages) {
-    const match = findRouteVenue(venues, used, stage) ?? venues.find((v) => !used.has(v.slug));
-    if (!match) continue;
-    used.add(match.slug);
-    out.push({ ...match, blurb: stage.note || match.blurb });
-  }
-
-  return out;
-}
-
-function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[] {
-  const bySlug = new Map(venues.map((v) => [v.slug, v]));
-  const explicit = d.stops
-    .map((s) => {
-      const v = bySlug.get(s.venueSlug);
-      if (!v) return null;
-      return { ...v, blurb: s.note ?? v.blurb };
-    })
-    .filter((x): x is VenueWithPerk => x !== null);
-
-  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, venues);
+function logRejectedRoute(routeSlug: string, failure: RouteIntegrityFailure): void {
+  console.warn(JSON.stringify({
+    event: "public_route_rejected",
+    routeSlug,
+    code: failure.code,
+    ...("stopIndex" in failure ? { stopIndex: failure.stopIndex } : {}),
+    ...("venueSlug" in failure ? { venueSlug: failure.venueSlug } : {}),
+  }));
 }
 
 // Route definitions from DB (if present) else seed.
 async function getRouteDefs(): Promise<RouteDef[]> {
-  if (isSupabaseConfigured()) {
+  const configured = isSupabaseConfigured();
+  await requirePublicDataSource(configured, "route_definitions");
+  if (configured) {
     const sb = anonClient()!;
-    const { data: routes } = await sb
+    const { data: routes, error: routesError } = await sb
       .from("routes")
-      .select("*")
+      .select(ROUTE_COLUMNS)
       .eq("district", "canggu")
       .order("rank");
+    if (routesError || !routes) await failPublicDataRequest("route_definitions");
     if (routes?.length) {
-      const { data: stops } = await sb.from("route_stops").select("*").order("rank");
-      const rows = (stops ?? []) as Row[];
-      return (routes as Row[]).map((r) => ({
-        slug: r.slug as string,
-        title: r.title as string,
-        subtitle: (r.subtitle as string) ?? undefined,
-        rank: (r.rank as number) ?? 100,
-        stops: rows
-          .filter((s) => s.route_slug === r.slug)
-          .map((s) => ({ venueSlug: s.venue_slug as string, note: (s.note as string) ?? undefined })),
+      const { data: stops, error: stopsError } = await sb
+        .from("route_stops")
+        .select(ROUTE_STOP_COLUMNS)
+        .order("rank");
+      if (stopsError || !stops) await failPublicDataRequest("route_stops");
+      const routeRows = parsePublicRows(routes, parseRouteRow, {
+        entity: "route",
+        context: "route_definitions",
+      });
+      const stopRows = parsePublicRows(stops ?? [], parseRouteStopRow, {
+        entity: "route_stop",
+        context: "route_stops",
+      });
+      const routesWithMalformedStops = new Set(
+        (stops ?? []).flatMap((row, index) => {
+          const result = parseRouteStopRow(row, index);
+          if (result.ok || !isRecord(row) || typeof row.route_slug !== "string") return [];
+          return [row.route_slug];
+        }),
+      );
+      const routesWithDuplicateRanks = routesWithDuplicateStopRanks(stopRows);
+      for (const routeSlug of routesWithDuplicateRanks) {
+        logRejectedRoute(routeSlug, { ok: false, code: "route_stop_duplicate_rank" });
+      }
+      return routeRows.filter((route) => (
+        !routesWithMalformedStops.has(route.slug)
+        && !routesWithDuplicateRanks.has(route.slug)
+      )).map((route) => ({
+        slug: route.slug,
+        title: route.title,
+        subtitle: route.subtitle,
+        rank: route.rank,
+        stops: stopRows
+          .filter((stop) => stop.routeSlug === route.slug)
+          .sort((a, b) => a.rank - b.rank)
+          .map((stop) => ({
+            venueSlug: stop.venueSlug,
+            ...(stop.note ? { note: stop.note } : {}),
+          })),
       }));
     }
   }
@@ -948,15 +966,20 @@ async function getRouteDefs(): Promise<RouteDef[]> {
 }
 
 export async function getRoutes(): Promise<RouteSummary[]> {
-  const defs = await getRouteDefs();
-  return defs
-    .map((d) => ({
-      slug: d.slug,
-      title: d.title,
-      subtitle: d.subtitle,
-      stopCount: d.stops.length || routeFallbackCount(d.slug),
-    }))
-    .filter((d) => d.stopCount > 0);
+  const [defs, venues] = await Promise.all([getRouteDefs(), getVenuesList()]);
+  return defs.flatMap((definition) => {
+    const resolved = resolveExactRouteStops(definition, venues);
+    if (!resolved.ok) {
+      logRejectedRoute(definition.slug, resolved);
+      return [];
+    }
+    return [{
+      slug: definition.slug,
+      title: definition.title,
+      subtitle: definition.subtitle,
+      stopCount: resolved.stops.length,
+    }];
+  });
 }
 
 export async function getRoute(slug: string): Promise<RouteDetail | null> {
@@ -964,9 +987,23 @@ export async function getRoute(slug: string): Promise<RouteDetail | null> {
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
   const all = await getVenuesList();
-  const stops = resolveRouteStops(d, all);
-  if (stops.length === 0) return null;
-  return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
+  const resolved = resolveExactRouteStops(d, all);
+  if (!resolved.ok) {
+    logRejectedRoute(d.slug, resolved);
+    return null;
+  }
+  return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops: resolved.stops };
+}
+
+// One definitions read + one public-venue read; invalid routes are excluded as
+// a whole by the same exact-stop resolver used on the route page. No inferred
+// replacement or category-based relationship can enter venue detail pages.
+export async function getRelatedRoutesForVenue(
+  venueSlug: string,
+): Promise<RelatedRouteSummary[]> {
+  if (venueSlug.length > 120 || !PUBLIC_VENUE_SLUG.test(venueSlug)) return [];
+  const [definitions, publicVenues] = await Promise.all([getRouteDefs(), getVenuesList()]);
+  return matchExactRelatedRoutes(definitions, publicVenues, venueSlug);
 }
 
 // ---- Traveller saves & sharing (master §6c) ----
@@ -995,6 +1032,28 @@ export async function toggleSavedPlace(
   if (error || !data) return { ok: false, saved: false };
   const r = data as Record<string, unknown>;
   return { ok: Boolean(r.ok), saved: Boolean(r.saved) };
+}
+
+export async function setSavedPlace(
+  guestRef: string,
+  venueSlug: string,
+  saved: boolean,
+): Promise<{ ok: boolean; saved: boolean }> {
+  const sb = serviceClient();
+  if (!sb) return { ok: false, saved: false };
+  const { data, error } = await sb.rpc("set_saved_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_saved: saved,
+  });
+  if (error || !data || typeof data !== "object" || Array.isArray(data)) {
+    return { ok: false, saved: false };
+  }
+  const result = data as Record<string, unknown>;
+  return {
+    ok: result.ok === true,
+    saved: result.saved === true,
+  };
 }
 
 export async function getVenuesBySlugs(slugs: string[]): Promise<VenueWithPerk[]> {

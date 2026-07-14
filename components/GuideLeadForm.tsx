@@ -24,7 +24,7 @@ const INTERESTS = [
 type Status =
   | { kind: "idle" }
   | { kind: "loading" }
-  | { kind: "success"; duplicate: boolean }
+  | { kind: "success" }
   | { kind: "error"; message: string };
 
 const ERROR_COPY: Record<string, string> = {
@@ -90,7 +90,7 @@ export default function GuideLeadForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json()) as { ok?: boolean; error?: string; duplicate?: boolean };
+      const data = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !data.ok) {
         setStatus({
           kind: "error",
@@ -99,7 +99,7 @@ export default function GuideLeadForm() {
         return;
       }
       track("guide_form_submitted", { pageSlug: "uluwatu-48-hours" });
-      setStatus({ kind: "success", duplicate: Boolean(data.duplicate) });
+      setStatus({ kind: "success" });
       form.reset();
     } catch {
       setStatus({ kind: "error", message: ERROR_COPY.lead_write_failed });
@@ -107,14 +107,14 @@ export default function GuideLeadForm() {
   }
 
   const waShare = `https://wa.me/?text=${encodeURIComponent(
-    "48 hours in Uluwatu — the Other Bali guide: https://otherbali.com/uluwatu/48-hours"
+    "48 hours in Uluwatu — the Other Bali guide: https://www.otherbali.com/uluwatu/48-hours"
   )}`;
 
   if (status.kind === "success") {
     return (
       <div className="form-note-success" role="status">
         <p className="font-bold">
-          {status.duplicate ? "You're already on the list — details updated." : "Saved. You're on the list."}
+          Request accepted.
         </p>
         <p className="mt-1">
           The full guide is right here on this page — bookmark it, or send the

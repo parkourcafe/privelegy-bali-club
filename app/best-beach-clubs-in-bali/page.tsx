@@ -4,10 +4,11 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const guide = getGuide("best-beach-clubs-in-bali")!;
 export const metadata = guideMetadata(guide);
 
@@ -71,7 +72,7 @@ export default async function BestBeachClubsPage() {
       <main className="site-shell">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
 
         <header className="guide-hero">

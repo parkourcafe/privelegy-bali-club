@@ -1,5 +1,12 @@
 import type { ActionKind } from "../contracts/menu-action";
 import type { CanonicalActionProvider } from "../actions/types";
+import {
+  hostMatches,
+  parseSafeHttpsUrl,
+  validateOfficialWebsiteUrl,
+} from "../external-links";
+
+export { hostMatches, parseSafeHttpsUrl, validatePublicEvidenceUrl } from "../external-links";
 
 const PROVIDER_ALIASES: Record<string, CanonicalActionProvider> = {
   tablepilot: "tablepilot",
@@ -53,39 +60,6 @@ const BOOKING_PROVIDERS = new Set<CanonicalActionProvider>([
   "resdiary",
   "dishcult",
 ]);
-
-export function parseSafeHttpsUrl(value: unknown): URL | null {
-  if (typeof value !== "string" || !value.trim()) return null;
-  try {
-    const url = new URL(value.trim());
-    if (url.protocol !== "https:" || url.username || url.password || !url.hostname) return null;
-    return url;
-  } catch {
-    return null;
-  }
-}
-
-export function validatePublicEvidenceUrl(value: unknown): string | null {
-  const url = parseSafeHttpsUrl(value);
-  if (!url) return null;
-  const host = url.hostname.toLowerCase().replace(/\.$/, "");
-  if (
-    !host.includes(".") ||
-    host === "localhost" ||
-    /^\d+(?:\.\d+){3}$/.test(host) ||
-    host === "example.com" ||
-    host.endsWith(".example.com") ||
-    host.endsWith(".invalid") ||
-    host.endsWith(".test")
-  ) return null;
-  return url.toString();
-}
-
-export function hostMatches(hostname: string, allowedHost: string): boolean {
-  const host = hostname.toLowerCase().replace(/\.$/, "");
-  const allowed = allowedHost.toLowerCase().replace(/\.$/, "");
-  return host === allowed || host.endsWith(`.${allowed}`);
-}
 
 function hostsShareOfficialFamily(left: string, right: string): boolean {
   return hostMatches(left, right) || hostMatches(right, left);
@@ -156,5 +130,5 @@ export function validateExternalProviderUrl(input: {
 }
 
 export function validateOfficialFallbackUrl(value: unknown): string | null {
-  return parseSafeHttpsUrl(value)?.toString() ?? null;
+  return validateOfficialWebsiteUrl(value);
 }

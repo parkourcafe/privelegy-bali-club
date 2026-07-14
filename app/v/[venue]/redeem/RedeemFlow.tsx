@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { RedemptionResult } from "@/lib/types";
+import { withGuestIdentity } from "@/lib/guest-client";
 
 function postEvent(type: string, venueSlug: string) {
   fetch("/api/event", {
@@ -39,16 +40,27 @@ export default function RedeemFlow({
   const [result, setResult] = useState<RedemptionResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [fbSent, setFbSent] = useState(false);
+  const [fbSending, setFbSending] = useState(false);
+  const [fbError, setFbError] = useState("");
   const [dish, setDish] = useState("");
 
-  function sendFeedback(verdict: "worth_it" | "meh") {
-    setFbSent(true);
-    fetch("/api/dish", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ venueSlug, dish, verdict }),
-      keepalive: true,
-    }).catch(() => {});
+  async function sendFeedback(verdict: "worth_it" | "meh") {
+    setFbSending(true);
+    setFbError("");
+    try {
+      const response = await fetch("/api/dish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ venueSlug, dish, verdict }),
+        keepalive: true,
+      });
+      if (!response.ok) throw new Error("feedback_unavailable");
+      setFbSent(true);
+    } catch {
+      setFbError("Feedback could not be saved. Please try again.");
+    } finally {
+      setFbSending(false);
+    }
   }
 
   // Funnel: opening this page is a venue_card_open (§18).
@@ -64,11 +76,12 @@ export default function RedeemFlow({
   async function submit(consentGranted: boolean) {
     setPhase("submitting");
     try {
-      const res = await fetch("/api/redeem", {
+      const res = await withGuestIdentity((signal) => fetch("/api/redeem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ venueSlug, consentGranted, qrToken }),
-      });
+        signal,
+      }));
       const data: RedemptionResult = await res.json();
       if (data.ok) {
         setResult(data);
@@ -108,6 +121,9 @@ export default function RedeemFlow({
           <div className="mt-4 rounded-lg border border-[var(--line)] bg-[rgba(255,250,241,0.7)] p-4">
             <p className="text-sm font-bold text-[var(--ink)]">Help other travellers</p>
             <p className="text-xs text-[var(--muted)]">What did you order? Was it worth it?</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">
+              Sending stores this dish note and verdict with your redeemed visit. You can delete it in Privacy Choices.
+            </p>
             <input
               value={dish}
               onChange={(e) => setDish(e.target.value)}
@@ -117,19 +133,23 @@ export default function RedeemFlow({
             <div className="mt-3 flex gap-2">
               <button
                 onClick={() => sendFeedback("worth_it")}
+                disabled={fbSending}
                 className="button-primary flex-1"
               >
                 Worth it
               </button>
               <button
                 onClick={() => sendFeedback("meh")}
+                disabled={fbSending}
                 className="button-secondary flex-1"
               >
                 Meh
               </button>
             </div>
+            {fbError ? <p className="mt-2 text-xs text-rose-700" role="alert">{fbError}</p> : null}
             <button
               onClick={() => setFbSent(true)}
+              disabled={fbSending}
               className="mt-2 w-full py-1 text-xs text-[var(--muted)]"
             >
               Skip

@@ -29,8 +29,10 @@ export async function getPendingPhotoReviews(): Promise<PendingPhotoReviewResult
 
   const { data, error } = await client
     .from("venue_photo_submissions")
-    .select("id,venue_slug,image_path,submitter_name,submitter_contact,consent_granted,consent_terms_version,consent_at,consent_log_id,created_at")
+    .select("id,venue_slug,image_path,storage_state,content_sha256,submitter_name,submitter_contact,consent_granted,consent_terms_version,consent_at,consent_log_id,created_at")
     .eq("status", "pending")
+    .eq("storage_state", "uploaded")
+    .not("content_sha256", "is", null)
     .order("created_at", { ascending: true });
   if (error) return { configured: true, error: error.message, submissions: [] };
 

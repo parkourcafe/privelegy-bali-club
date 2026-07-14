@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-12T00:00:00.000Z",
+  "source": {
+    "kind": "scrubbed_snapshot",
+    "label": "launch-evidence-ledger-2026-07-12"
+  },
+  "venues": [
+    {
+      "id": "snapshot:tropical-temptation-adult-only-beach-club",
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "name": "Tropical Temptation Beach Club",
+      "venue_type": "beach_club",
+      "district": "uluwatu-bukit",
+      "subarea": "Melasti, Ungasan",
+      "full_address": "Jalan Melasti Beach 88, Ungasan",
+      "latitude": null,
+      "longitude": null,
+      "google_place_id": null,
+      "gmaps_url": "https://www.google.com/maps/search/?api=1&query=Tropical+Temptation+Beach+Club+Melasti+Ungasan+Bali",
+      "official_url": "https://ttbeach.club/",
+      "instagram_url": "https://www.instagram.com/tropicaltemptation/",
+      "price_min_idr": null,
+      "price_max_idr": null,
+      "price_band": "$$$",
+      "price_anchor": "$$$",
+      "opening_hours_json": "Daily 10:00–21:00",
+      "verified_at": "2026-07-12",
+      "verification_source": "recorded_evidence_ledger",
+      "editorial_status": "published",
+      "status": "active",
+      "why_its_here": "An adults-only pool-and-sunset option with direct Melasti beach access and an on-site spa.",
+      "best_for": "Couples' pool days and sunset drinks without the family crowd.",
+      "not_for": "Families — entry is 18+ by venue policy.",
+      "practical_tags": [],
+      "occasions": ["sunset_drinks"],
+      "meal_periods": ["lunch", "dinner"],
+      "vibes": ["lively", "view"],
+      "photos": [],
+      "photo_status": "approved_no_photo",
+      "booking_methods": [
+        {
+          "type": "official_booking",
+          "url": "https://reserve.ttbeach.club/"
+        }
+      ],
+      "is_sponsored": false
+    },
+    {
+      "id": "snapshot:yuki-uluwatu",
+      "slug": "yuki-uluwatu",
+      "name": "YUKI Uluwatu",
+      "venue_type": "restaurant",
+      "district": "uluwatu-bukit",
+      "subarea": "Labuan Sait, Pecatu",
+      "full_address": "Jl. Labuansait, Pecatu",
+      "latitude": null,
+      "longitude": null,
+      "google_place_id": null,
+      "gmaps_url": "https://www.google.com/maps/search/?api=1&query=YUKI+Uluwatu+Pecatu+Bali",
+      "official_url": "https://www.yuki-bali.com/uluwatu",
+      "instagram_url": "https://www.instagram.com/yukibali_/",
+      "price_min_idr": null,
+      "price_max_idr": null,
+      "price_band": "$$$",
+      "price_anchor": "$$$",
+      "opening_hours_json": "Daily from 11:00 until late",
+      "verified_at": "2026-07-12",
+      "verification_source": "recorded_evidence_ledger",
+      "editorial_status": "published",
+      "status": "active",
+      "why_its_here": "A modern Japanese izakaya with a sharing-plate format and a lively dinner room.",
+      "best_for": "Group dinners, date nights and special occasions.",
+      "not_for": "A silent, slow tasting-menu evening.",
+      "practical_tags": [],
+      "occasions": ["date_night", "group_dinner", "special_occasion"],
+      "meal_periods": ["lunch", "dinner", "late_night"],
+      "vibes": ["lively", "romantic"],
+      "photos": [],
+      "photo_status": "approved_no_photo",
+      "booking_methods": [
+        {
+          "type": "official_booking",
+          "url": "https://www.yuki-bali.com/ulu-reservations"
+        }
+      ],
+      "is_sponsored": false
+    }
+  ]
+}

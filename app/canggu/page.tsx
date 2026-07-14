@@ -8,8 +8,9 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
 import { CANGGU_GUIDES } from "@/lib/canggu-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Canggu guide — where to eat, work, reset and watch the sunset",
@@ -87,7 +88,7 @@ export default async function CangguPillarPage() {
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="canggu" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

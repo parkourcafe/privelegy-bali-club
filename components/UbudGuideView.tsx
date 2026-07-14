@@ -4,8 +4,9 @@ import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES, type UbudGuide } from "@/lib/ubud-guides";
+import { serializeJsonLd } from "@/lib/json-ld";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
   const venues = (await getUbudVenues()).filter(guide.base);
@@ -54,7 +55,7 @@ export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
     <div>
       <main className="site-shell">
         <PageViewTracker event="editorial_page_view" slug={`ubud/${guide.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

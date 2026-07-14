@@ -4,6 +4,7 @@ import { useRef } from "react";
 import type { MouseEvent } from "react";
 import type { VenueWithPerk } from "@/lib/data";
 import ReserveButton from "@/components/ReserveButton";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 // Reservation fallback (backlog #4): if a guest can't get a table here (venue
 // closed / fully booked on TablePilot), or just wants options, offer the
@@ -78,14 +79,16 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
               </div>
             )}
             <div className="mt-2 flex flex-wrap gap-2">
-              <a
-                href={s.gmapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="button-secondary min-h-8 px-2.5 py-1 text-xs"
-              >
-                Directions
-              </a>
+              {s.gmapsUrl ? (
+                <a
+                  href={s.gmapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-secondary min-h-8 px-2.5 py-1 text-xs"
+                >
+                  {googleMapsHandoffLabel(s.gmapsUrl)}
+                </a>
+              ) : null}
               <ReserveButton
                 venueSlug={s.slug}
                 tablepilotSlug={s.tablepilotSlug}

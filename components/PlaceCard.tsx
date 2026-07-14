@@ -5,6 +5,7 @@ import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
 import { track } from "@/lib/analytics";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -72,6 +73,7 @@ export default function PlaceCard({
         process.env.NEXT_PUBLIC_TABLEPILOT_URL,
       )
     : null;
+  const mapsLabel = googleMapsHandoffLabel(place.gmapsUrl);
 
   return (
     <article className="place-card">
@@ -139,7 +141,7 @@ export default function PlaceCard({
               </a>
             ) : (
               secondaryAction === "directions" &&
-              place.gmapsUrl && (
+              place.gmapsUrl && mapsLabel && (
                 <a
                   href={place.gmapsUrl}
                   target="_blank"
@@ -147,7 +149,7 @@ export default function PlaceCard({
                   className="place-card-cta"
                   onClick={() => track("direction_click", { venueSlug: place.slug })}
                 >
-                  Directions
+                  {mapsLabel}
                 </a>
               )
             )}

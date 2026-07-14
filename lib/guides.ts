@@ -680,7 +680,7 @@ export function guideMetadata(guide: Guide): Metadata {
     openGraph: {
       title: `${guide.title} · Other Bali`,
       description: guide.description,
-      url: `https://otherbali.com/${guide.slug}`,
+      url: `https://www.otherbali.com/${guide.slug}`,
       type: "article",
     },
     twitter: {

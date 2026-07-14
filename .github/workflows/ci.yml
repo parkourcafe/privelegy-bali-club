@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: quality-gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Prepare diagnostics directory
+        run: mkdir -p artifacts/ci/build
+
+      - name: Install locked dependencies
+        id: install
+        run: |
+          set -o pipefail
+          npm ci 2>&1 | tee artifacts/ci/npm-ci.log
+
+      - name: Lint
+        id: lint
+        if: always() && steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run lint 2>&1 | tee artifacts/ci/lint.log
+
+      - name: Typecheck
+        id: typecheck
+        if: always() && steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run typecheck 2>&1 | tee artifacts/ci/typecheck.log
+
+      - name: Unit tests
+        id: tests
+        if: always() && steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee artifacts/ci/unit-tests.log
+
+      - name: Production build
+        id: build
+        if: always() && steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee artifacts/ci/build.log
+
+      - name: Enforce every quality gate
+        if: always()
+        env:
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          LINT_OUTCOME: ${{ steps.lint.outcome }}
+          TYPECHECK_OUTCOME: ${{ steps.typecheck.outcome }}
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+        run: |
+          failed=0
+          for gate in INSTALL LINT TYPECHECK TEST BUILD; do
+            outcome_variable="${gate}_OUTCOME"
+            outcome="${!outcome_variable}"
+            if [ "$outcome" != "success" ]; then
+              echo "::error title=${gate} gate failed::Outcome: ${outcome:-not run}"
+              failed=1
+            fi
+          done
+          exit "$failed"
+
+      - name: Collect failure diagnostics
+        if: failure()
+        run: |
+          for file in .next/build-manifest.json .next/routes-manifest.json .next/trace; do
+            if [ -f "$file" ]; then
+              cp "$file" "artifacts/ci/build/$(basename "$file")"
+            fi
+          done
+          git status --short > artifacts/ci/working-tree.txt
+
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ci-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/ci
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,110 @@
+name: Data audit
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Explicit audit source (snapshot is deterministic; db is read-only)
+        required: true
+        default: snapshot
+        type: choice
+        options:
+          - snapshot
+          - db
+      snapshot_path:
+        description: Checked-in scrubbed snapshot used when source=snapshot
+        required: true
+        default: scripts/fixtures/venues.snapshot.json
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: data-audit-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  venue-contract:
+    name: venue-contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: "true"
+      DATA_AUDIT_SOURCE: ${{ inputs.source || 'snapshot' }}
+      DATA_AUDIT_SNAPSHOT: ${{ inputs.snapshot_path || 'scripts/fixtures/venues.snapshot.json' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Require the data audit contract
+        run: |
+          node -e 'const scripts = require("./package.json").scripts ?? {}; if (!scripts["data:audit"]) { console.error("Missing required package script: data:audit"); process.exit(2); }'
+
+      - name: Reject an unsupported audit source
+        if: env.DATA_AUDIT_SOURCE != 'snapshot' && env.DATA_AUDIT_SOURCE != 'db'
+        run: |
+          echo "::error title=Invalid audit source::Expected snapshot or db"
+          exit 2
+
+      - name: Audit scrubbed snapshot
+        if: env.DATA_AUDIT_SOURCE == 'snapshot'
+        run: |
+          mkdir -p artifacts/data-audit
+          if [ ! -f "$DATA_AUDIT_SNAPSHOT" ]; then
+            echo "::error title=Missing scrubbed snapshot::$DATA_AUDIT_SNAPSHOT does not exist"
+            exit 2
+          fi
+          npm run data:audit -- \
+            --input "$DATA_AUDIT_SNAPSHOT" \
+            --output-dir artifacts/data-audit
+
+      # DB credentials are exposed only to an explicit maintainer-triggered DB
+      # audit, never to dependency installation or ordinary PR snapshot checks.
+      - name: Audit read-only production-like database
+        if: env.DATA_AUDIT_SOURCE == 'db'
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.DATA_AUDIT_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.DATA_AUDIT_SUPABASE_ANON_KEY }}
+        run: |
+          mkdir -p artifacts/data-audit
+          if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ]; then
+            echo "::error title=DB audit requires explicit dispatch::Use workflow_dispatch with source=db"
+            exit 2
+          fi
+          if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ]; then
+            echo "::error title=Read-only DB source not configured::Set DATA_AUDIT_SUPABASE_URL variable and DATA_AUDIT_SUPABASE_ANON_KEY secret"
+            exit 2
+          fi
+          npm run data:audit -- \
+            --source db \
+            --output-dir artifacts/data-audit
+
+      - name: Require machine and human reports
+        if: success()
+        run: |
+          test -s artifacts/data-audit/data-audit.json
+          test -s artifacts/data-audit/data-audit.md
+
+      - name: Upload data audit report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: data-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/data-audit
+          if-no-files-found: error
+          retention-days: 30

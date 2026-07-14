@@ -5,7 +5,7 @@ import { resolveSiteOrigin } from "./site-origin-policy";
 test("preview links use the trusted preview host and ignore production configuration", () => {
   assert.equal(resolveSiteOrigin({
     vercelEnv: "preview",
-    configuredSiteUrl: "https://otherbali.com",
+    configuredSiteUrl: "https://www.otherbali.com",
     vercelUrl: "otherbali-git-audit-team.vercel.app",
     forwardedHost: "otherbali-git-audit-team.vercel.app",
     forwardedProto: "https",
@@ -16,17 +16,17 @@ test("preview fails closed when the request or trusted host points at production
   assert.equal(resolveSiteOrigin({
     vercelEnv: "preview",
     vercelUrl: "otherbali-git-audit-team.vercel.app",
-    forwardedHost: "otherbali.com",
+    forwardedHost: "www.otherbali.com",
     forwardedProto: "https",
   }), null);
   assert.equal(resolveSiteOrigin({
     vercelEnv: "preview",
-    vercelUrl: "otherbali.com",
-    forwardedHost: "otherbali.com",
+    vercelUrl: "www.otherbali.com",
+    forwardedHost: "www.otherbali.com",
   }), null);
 });
 
-test("production accepts only the canonical Other Bali origins", () => {
+test("production always resolves to the www canonical origin", () => {
   assert.equal(resolveSiteOrigin({
     vercelEnv: "production",
     configuredSiteUrl: "https://www.otherbali.com/path",
@@ -34,5 +34,9 @@ test("production accepts only the canonical Other Bali origins", () => {
   assert.equal(resolveSiteOrigin({
     vercelEnv: "production",
     configuredSiteUrl: "https://evil.test",
-  }), "https://otherbali.com");
+  }), "https://www.otherbali.com");
+  assert.equal(resolveSiteOrigin({
+    vercelEnv: "production",
+    configuredSiteUrl: "https://otherbali.com",
+  }), "https://www.otherbali.com");
 });

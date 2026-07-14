@@ -15,7 +15,7 @@ export default function TrackedDirectionsLink({
   href,
   venueSlug,
   className,
-  children = "Directions",
+  children = "Open in Google Maps",
 }: {
   href: string;
   venueSlug: string;

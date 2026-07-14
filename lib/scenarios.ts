@@ -177,7 +177,7 @@ export function scenarioMetadata(s: Scenario): Metadata {
     openGraph: {
       title: `${s.metaTitle} · Other Bali`,
       description: s.metaDescription,
-      url: `https://otherbali.com/${s.slug}`,
+      url: `https://www.otherbali.com/${s.slug}`,
       type: "article",
     },
   };

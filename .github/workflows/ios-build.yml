@@ -1,0 +1,85 @@
+name: iOS build
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  simulator-release:
+    name: simulator-release
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      DERIVED_DATA_PATH: artifacts/ios/DerivedData
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Prepare iOS evidence directory
+        run: mkdir -p artifacts/ios
+
+      - name: Require mobile release commands
+        run: |
+          node -e 'const scripts = require("./package.json").scripts ?? {}; const missing = ["mobile:build", "mobile:sync", "ios:verify"].filter((name) => !scripts[name]); if (missing.length) { console.error(`Missing required package scripts: ${missing.join(", ")}`); process.exit(2); }'
+
+      - name: Build local mobile shell
+        run: npm run mobile:build
+
+      - name: Sync Capacitor iOS project
+        run: npm run mobile:sync
+
+      - name: Verify and build unsigned iOS Simulator Release
+        run: |
+          set -o pipefail
+          npm run ios:verify 2>&1 | tee artifacts/ios/ios-verify.log
+
+      - name: Verify built app release boundary
+        run: |
+          set -o pipefail
+          APP_PATH="$DERIVED_DATA_PATH/Build/Products/Release-iphonesimulator/App.app"
+          test -d "$APP_PATH"
+          test -f "$APP_PATH/Info.plist"
+          test -f "$APP_PATH/public/index.html"
+
+          debug_value="$(/usr/libexec/PlistBuddy -c 'Print :CAPACITOR_DEBUG' "$APP_PATH/Info.plist" 2>/dev/null || true)"
+          if [ "$debug_value" = "true" ] || [ "$debug_value" = "YES" ] || [ "$debug_value" = "1" ]; then
+            echo "::error title=Release debug logging enabled::CAPACITOR_DEBUG is true in the built app"
+            exit 1
+          fi
+
+          node scripts/ci-ios-release-guard.mjs "$APP_PATH" \
+            | tee artifacts/ios/release-guard.log
+
+      - name: Upload iOS build evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ios-release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/ios/*.log
+            artifacts/ios/*.json
+            artifacts/ios/*.xcresult
+          if-no-files-found: error
+          retention-days: 14

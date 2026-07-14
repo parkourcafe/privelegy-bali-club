@@ -7,11 +7,7 @@ import type {
   LogEventV2Args,
 } from "./event-compat";
 import type { EventStoreInput } from "./event-store";
-
-const eventStore = (await import(
-  new URL("./event-store.ts", import.meta.url).href
-)) as typeof import("./event-store");
-const { storeEvent } = eventStore;
+import { storeEvent } from "./event-store";
 
 function input(): EventStoreInput {
   return {

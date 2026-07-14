@@ -33,7 +33,7 @@ export function LandingNav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="inline-flex min-h-10 items-center gap-2">
+        <Link href="/" className="inline-flex min-h-11 items-center gap-2">
           <span className="font-display text-lg font-semibold text-[var(--ob-sand)]">
             Other Bali
           </span>
@@ -47,14 +47,14 @@ export function LandingNav() {
             <a
               key={n.href}
               href={n.href}
-              className="text-sm text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
+              className="inline-flex min-h-11 items-center text-sm text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
             >
               {n.label}
             </a>
           ))}
           <Link
             href="#day-builder"
-            className="rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+            className="inline-flex min-h-11 items-center rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
           >
             Build my day
           </Link>
@@ -62,7 +62,7 @@ export function LandingNav() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -106,7 +106,8 @@ export function MobileStickyCTA() {
   }, []);
 
   return (
-    <div
+    <nav
+      aria-label="Quick planner action"
       className={`fixed inset-x-0 bottom-0 z-40 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] transition-transform duration-500 md:hidden ${
         show ? "translate-y-0" : "translate-y-[130%]"
       }`}
@@ -117,6 +118,6 @@ export function MobileStickyCTA() {
       >
         Build my day →
       </Link>
-    </div>
+    </nav>
   );
 }

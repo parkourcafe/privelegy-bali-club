@@ -81,6 +81,7 @@ const MAX_EVENT_SUBJECT_LENGTH = 120;
 const MAX_PROVIDER_LENGTH = 64;
 const MAX_CAPABILITY_ID_LENGTH = 120;
 const MAX_MENU_ENTITY_ID_LENGTH = 120;
+const CLIENT_IDENTITY_KEYS = ["guestRef", "guest_ref", "guestId", "guest_id"] as const;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -90,21 +91,34 @@ function hasOwn(value: Record<string, unknown>, key: string): boolean {
   return Object.prototype.hasOwnProperty.call(value, key);
 }
 
+function hasClientIdentity(value: Record<string, unknown>): boolean {
+  return CLIENT_IDENTITY_KEYS.some((key) => hasOwn(value, key));
+}
+
 function isBoundedMatch(value: unknown, max: number, pattern: RegExp): value is string {
   return typeof value === "string" && value.length > 0 && value.length <= max && pattern.test(value);
 }
 
-function isVenueSlug(value: unknown): value is string {
-  return isBoundedMatch(value, MAX_VENUE_SLUG_LENGTH, VENUE_SLUG);
+function normalizeVenueSlug(value: unknown): string | null {
+  if (typeof value !== "string" || value.length > MAX_VENUE_SLUG_LENGTH + 16) return null;
+  const normalized = value.trim().toLowerCase();
+  return isBoundedMatch(normalized, MAX_VENUE_SLUG_LENGTH, VENUE_SLUG)
+    ? normalized
+    : null;
 }
 
-function isEventSubject(value: unknown): value is string {
-  return isBoundedMatch(value, MAX_EVENT_SUBJECT_LENGTH, EVENT_SUBJECT);
+function normalizeEventSubject(value: unknown): string | null {
+  if (typeof value !== "string" || value.length > MAX_EVENT_SUBJECT_LENGTH + 16) return null;
+  const normalized = value.trim().toLowerCase();
+  return isBoundedMatch(normalized, MAX_EVENT_SUBJECT_LENGTH, EVENT_SUBJECT)
+    ? normalized
+    : null;
 }
 
 function parseActionPayload(value: unknown): SafeActionEventPayload | null {
   if (!isRecord(value)) return null;
   if (
+    hasClientIdentity(value) ||
     hasOwn(value, "source") ||
     hasOwn(value, "acquisitionSource")
   ) {
@@ -114,7 +128,8 @@ function parseActionPayload(value: unknown): SafeActionEventPayload | null {
   const { action, provider, capabilityId, venueSlug } = value;
   if (typeof action !== "string" || !ACTIONS.has(action as ActionKind)) return null;
   if (!isBoundedMatch(provider, MAX_PROVIDER_LENGTH, PROVIDER)) return null;
-  if (!isVenueSlug(venueSlug)) return null;
+  const normalizedVenueSlug = normalizeVenueSlug(venueSlug);
+  if (!normalizedVenueSlug) return null;
   if (
     capabilityId !== undefined &&
     !isBoundedMatch(capabilityId, MAX_CAPABILITY_ID_LENGTH, CAPABILITY_ID)
@@ -126,7 +141,7 @@ function parseActionPayload(value: unknown): SafeActionEventPayload | null {
     action: action as ActionKind,
     provider,
     ...(capabilityId === undefined ? {} : { capabilityId }),
-    venueSlug,
+    venueSlug: normalizedVenueSlug,
   };
 }
 
@@ -135,10 +150,15 @@ function parseMenuPayload(
   requiresItem: boolean
 ): SafeMenuEventPayload | null {
   if (!isRecord(value)) return null;
-  if (hasOwn(value, "source") || hasOwn(value, "acquisitionSource")) return null;
+  if (
+    hasClientIdentity(value) ||
+    hasOwn(value, "source") ||
+    hasOwn(value, "acquisitionSource")
+  ) return null;
 
   const { venueSlug, menuId, menuItemId } = value;
-  if (!isVenueSlug(venueSlug)) return null;
+  const normalizedVenueSlug = normalizeVenueSlug(venueSlug);
+  if (!normalizedVenueSlug) return null;
   if (!isBoundedMatch(menuId, MAX_MENU_ENTITY_ID_LENGTH, MENU_ENTITY_ID)) return null;
   if (requiresItem) {
     if (!isBoundedMatch(menuItemId, MAX_MENU_ENTITY_ID_LENGTH, MENU_ENTITY_ID)) return null;
@@ -147,7 +167,7 @@ function parseMenuPayload(
   }
 
   return {
-    venueSlug,
+    venueSlug: normalizedVenueSlug,
     menuId,
     ...(requiresItem ? { menuItemId: menuItemId as string } : {}),
   };
@@ -155,7 +175,11 @@ function parseMenuPayload(
 
 export function parseEventRequest(input: unknown): EventParseResult {
   if (!isRecord(input)) return { ok: false };
-  if (hasOwn(input, "source") || hasOwn(input, "acquisitionSource")) {
+  if (
+    hasClientIdentity(input) ||
+    hasOwn(input, "source") ||
+    hasOwn(input, "acquisitionSource")
+  ) {
     return { ok: false };
   }
 
@@ -163,10 +187,13 @@ export function parseEventRequest(input: unknown): EventParseResult {
   if (typeof type !== "string" || !ALLOWED_EVENTS.has(type)) return { ok: false };
 
   const parsedType = type as AllowedEventType;
-  const parsedVenueSlug = venueSlug === undefined ? null : venueSlug;
+  const normalizedVenueSlug = venueSlug === undefined || venueSlug === null
+    ? null
+    : normalizeEventSubject(venueSlug);
 
   if (MENU_EVENT_TYPES.has(parsedType)) {
-    if (!isVenueSlug(parsedVenueSlug)) return { ok: false };
+    const parsedVenueSlug = normalizeVenueSlug(venueSlug);
+    if (!parsedVenueSlug) return { ok: false };
     const parsedPayload = parseMenuPayload(payload, parsedType === "menu_item_open");
     if (!parsedPayload || parsedPayload.venueSlug !== parsedVenueSlug) return { ok: false };
     return {
@@ -176,15 +203,16 @@ export function parseEventRequest(input: unknown): EventParseResult {
   }
 
   if (!ACTION_EVENT_TYPES.has(parsedType)) {
-    if (parsedVenueSlug !== null && !isEventSubject(parsedVenueSlug)) return { ok: false };
+    if (venueSlug !== undefined && venueSlug !== null && !normalizedVenueSlug) return { ok: false };
     if (payload !== undefined && payload !== null) return { ok: false };
     return {
       ok: true,
-      event: { type: parsedType, venueSlug: parsedVenueSlug, payload: null },
+      event: { type: parsedType, venueSlug: normalizedVenueSlug, payload: null },
     };
   }
 
-  if (!isVenueSlug(parsedVenueSlug)) return { ok: false };
+  const parsedVenueSlug = normalizeVenueSlug(venueSlug);
+  if (!parsedVenueSlug) return { ok: false };
   const parsedPayload = parseActionPayload(payload);
   if (!parsedPayload || parsedPayload.venueSlug !== parsedVenueSlug) return { ok: false };
 

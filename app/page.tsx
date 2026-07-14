@@ -515,11 +515,18 @@ function Comparison() {
         </h2>
       </Reveal>
       <Reveal delay={100}>
-        <div className="mt-9 overflow-x-auto rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/40">
+        <div
+          className="mt-9 overflow-x-auto rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ob-brass)]"
+          role="region"
+          aria-label="Other Bali comparison table"
+          tabIndex={0}
+        >
           <table className="ob-compare w-full min-w-[34rem] border-collapse text-left">
             <thead>
               <tr className="bg-[var(--ob-espresso-2)]">
-                <th className="p-4 text-sm font-medium text-[var(--ob-stone)]">&nbsp;</th>
+                <th scope="col" className="p-4 text-sm font-medium text-[var(--ob-stone)]">
+                  <span className="sr-only">Feature</span>
+                </th>
                 {cols.map((c, i) => (
                   <th
                     key={c}

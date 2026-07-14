@@ -4,7 +4,7 @@ import test from "node:test";
 import { createRedemptionToken, verifyRedemptionToken } from "./redemption-token";
 
 const secret = "release-test-secret-that-is-longer-than-32-characters";
-const production = "https://otherbali.com";
+const production = "https://www.otherbali.com";
 const preview = "https://otherbali-audit.vercel.app";
 const now = Date.parse("2026-07-14T00:00:00.000Z");
 

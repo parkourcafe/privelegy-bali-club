@@ -1,128 +1,78 @@
-# Other Bali - App Store Release Readiness
+# Other Bali — App Store release readiness
 
-Date: 2026-07-12
-Status: Web/PWA ready; Capacitor iOS wrapper scaffolded; App Store submission is blocked on Apple signing, App Store Connect setup, screenshots, and device QA.
+Date: 2026-07-14
+Status: **bundled-shell foundation only; not TestFlight or App Store ready**.
 
-## Current Target
+Final local 2026-07-14 evidence: Mobile build/sync and portable iOS config verification passed. Full Simulator Release was unavailable because full Xcode is not selected; strict readiness remains red with the five documented signing/Associated Domains/AASA/native-map blockers.
 
-Other Bali is a Next.js/Vercel web app, installable PWA, and now has a Capacitor iOS wrapper scaffold:
+## Current product truth
 
-- `capacitor.config.ts`
-- `ios/App/App.xcodeproj`
-- `ios-web/`
-- bundle id `com.otherbali.app`
-- native display name `Other Bali`
+The iOS target no longer opens the production website as its primary UI. It bundles a local React/Capacitor shell from `ios-web/` and reads strict public data from `/api/mobile/v1/*`.
 
-There is still no signed archive uploaded to App Store Connect yet.
+The implemented shell currently provides:
 
-## Recommended Native Path
+- public Places, Routes and Saved surfaces;
+- a last-successful bootstrap cache with an explicit offline state and timestamp;
+- locally saved venue and route IDs;
+- a validated full public venue-detail snapshot for saved places;
+- current route-stop detail loaded from the versioned public API;
+- a validated stored Google Maps handoff only when venue detail supplies it, without claiming exact routing when the URL is search/generic;
+- Preferences-backed state restoration with safe migration from the prior WebView store;
+- native Network status, Share sheet and controlled Browser/AppLauncher HTTPS handoffs;
+- strict local cold/warm deep-link parsing for canonical place and route URLs;
+- no login, tourist payment, GA tag, ad SDK or cross-app tracking code.
 
-Use a thin Capacitor iOS shell only if the app keeps enough app-like utility to pass review:
+It does **not** currently provide the web planner/day builder, native MapKit routes, production Universal Links, confirmed offers, live availability, offline booking or background sync. App Store copy and screenshots must not imply those features. Local deep-link handlers are not production Universal Link evidence without the signed entitlement and production AASA.
 
-- native display name: `Other Bali`
-- bundle id: `com.otherbali.app`
-- app opens `https://www.otherbali.com`
-- App Store Support URL: `https://www.otherbali.com/support`
+## Technical release boundary
+
+- Bundle ID: `com.otherbali.app`.
+- Minimum target remains iOS 15.0.
+- First release is configured iPhone-only until iPad QA exists.
+- Release Capacitor config has no `server.url` and disables bridge debug logging.
+- `mobile:build` records a source hash; `ios:verify` rejects stale `ios-web` output, and a built app must contain the same manifest/assets.
+- The current privacy manifest includes the Preferences/UserDefaults `CA92.1` required reason; its empty tracking/data declarations remain provisional until the built binary/dependencies and App Store privacy report are reviewed.
+
+## Commands
+
+```bash
+npm run mobile:build
+npm run mobile:sync
+npm run ios:verify -- --config-only
+npm run ios:verify
+npm run ios:native-readiness
+npm run ios:archive:dry
+```
+
+`ios:archive:dry` rebuilds and synchronizes the shell before attempting an unsigned archive. A green config-only check is not an Xcode build, device test, archive, TestFlight upload or App Review result.
+
+## App Store metadata boundary
+
+Stable candidate values:
+
+- Name: `Other Bali`
+- Bundle ID: `com.otherbali.app`
+- Primary category: Travel
+- Price: Free
+- In-App Purchases: None
+- Support URL: `https://www.otherbali.com/support`
 - Privacy Policy URL: `https://www.otherbali.com/privacy`
-- no tourist payments
-- no account requirement
-- no AI/chatbot
-- no App Tracking Transparency prompt unless tracking is added
-- no location permission unless a native feature genuinely needs it
+- Marketing URL: `https://www.otherbali.com`
 
-Do not submit a plain "website in a wrapper" without the day-builder, saved offers, routes, and app-like mobile UX being visible in review.
+Age rating, privacy labels, storefronts, DSA/trader answers, final description, keywords, screenshots, review contact and review notes remain owner/App Store Connect decisions. Use `docs/launch/data-inventory.md` as engineering input, not as a submitted legal answer.
 
-## App Store Connect Metadata Draft
+## Review-notes draft boundary
 
-App name: `Other Bali`
+Only after native readiness and device QA are complete, a factual draft may explain that the app works without login; Places and Routes refresh over the network; saved public venue details can reopen from the last validated snapshot; Google Maps is an external user-initiated handoff; and the app does not confirm a booking. Do not direct a reviewer to a day builder, native map, deep link or offer flow until that exact submitted binary contains and passes those flows.
 
-Subtitle: `Curated Bali days`
+## Blocking evidence
 
-Promotional text:
-`Find the right place for the moment you are in - coffee, beach day, date night, family lunch, or sunset.`
+- Apple Developer Team/signing and App Store Connect record.
+- Associated Domains entitlement, production AASA with exact Team ID, and signed-device warm/cold Universal Link evidence.
+- Native MapKit route experience.
+- Full current Xcode Simulator Release and archive evidence.
+- Built binary/dependency privacy scan and approved App Store privacy answers.
+- Real-device and TestFlight matrix, including offline/return-to-app behavior.
+- Real screenshots and final metadata matching the submitted binary.
 
-Description:
-`Other Bali is a free curated guide for Bali travellers. Tell us how you want the day to feel, who you are with, and where you want to go. The app turns that into a filtered map of places across Bali, with deeper Canggu routes and confirmed venue offers where available. Travellers never pay Other Bali; venues may pay only when a referred reservation becomes a real seated visit.`
-
-Keywords:
-`Bali, travel, restaurants, Canggu, Ubud, Seminyak, Uluwatu, cafes, guide, places`
-
-Category:
-`Travel`
-
-Age rating:
-`4+` if no unrestricted web browsing, alcohol-focused content, user-generated content, or mature venue content is added. Reassess before submission.
-
-Support URL:
-`https://www.otherbali.com/support`
-
-Privacy Policy URL:
-`https://www.otherbali.com/privacy`
-
-## Privacy Label Draft
-
-Likely data collection to disclose:
-
-- Identifiers: anonymous app/device reference via httpOnly cookie, used for app functionality and analytics.
-- Usage Data: card opens, directions clicks, reservation clicks, source scans, offer redemptions, used for app functionality and analytics.
-- Diagnostics: only if Vercel/runtime error logs are treated as app diagnostics in the submitted native wrapper.
-- Contact Info: not collected from travellers by default. Venue onboarding can collect venue contact name, but that is partner/admin-side, not tourist app signup.
-
-Tracking:
-
-- Answer `No` unless Other Bali links data with third-party data for advertising or shares data with a data broker.
-
-Payments:
-
-- No in-app purchases.
-- No tourist-side purchases.
-- Reservation handoff goes to an external venue/reservation flow; Other Bali does not sell digital goods.
-
-## Review Notes Draft
-
-`Other Bali is a free curated Bali travel guide. No account is required. The main flow is: open the app, choose how you want the day to feel in the Build Today tool, browse filtered places, open directions, or view confirmed offers where available. The app does not charge travellers and does not sell digital content. Venue monetization, if any, happens outside the traveller experience and is based on confirmed seated reservations through partner systems.`
-
-If reviewer needs a path:
-
-1. Open the app.
-2. Tap `Build my Bali day`.
-3. Choose day context.
-4. Tap the map/places CTA.
-5. Open a place card and directions.
-6. Open `Your Canggu day` to see routes and confirmed offers.
-
-No demo account is required.
-
-## Web/PWA Verification
-
-Local production verification on 2026-07-12:
-
-- `npm run lint` passed.
-- `npm run build` passed.
-- Mobile audit passed for `/`, `/support`, `/privacy`, `/terms`, `/plan`, and `/places`.
-- No horizontal overflow at 390px width.
-- No small mobile tap targets on the audited pages.
-- No console/status errors on the audited pages.
-- `/places` has a safe editorial seed fallback when Supabase is unavailable, so the public catalogue does not render as an empty app in local or degraded review conditions. Production should still use Supabase as the source of truth.
-
-## Release Blockers
-
-P0 - Apple Developer signing team is not configured in Xcode.
-
-P0 - App Store Connect app record for `com.otherbali.app` is not created yet.
-
-P0 - No signed archive has been uploaded to App Store Connect yet.
-
-P0 - Real iPhone and TestFlight QA are still required.
-
-P1 - `support@otherbali.com` must be a real monitored mailbox before submission.
-
-P1 - App Store screenshots are not prepared yet.
-
-P1 - Apple Developer account, bundle id, signing team, and App Store Connect app record are not configured in repo.
-
-P1 - Final privacy label must be confirmed against the actual native wrapper SDKs. Capacitor, analytics, crash reporting, or push notification SDKs can change the privacy answers.
-
-P1 - The current Capacitor wrapper loads `https://www.otherbali.com`; this is practical for the current Next/Supabase architecture, but remains an App Review risk if Apple treats it as a repackaged website.
-
-P2 - `/places` intentionally renders all venues. It is usable on mobile, but native release should consider district-first/lazy rendering before paid acquisition.
+The strict machine-readable blocker list is produced by `npm run ios:native-readiness`; detailed evidence limits are in `docs/ios-native-readiness.md` and `docs/launch/manual-blockers.md`.

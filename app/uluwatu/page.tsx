@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "The Uluwatu guide · Other Bali",
     description:
       "Micro-areas, verified restaurants and cafés, sunset clubs compared, and a realistic 48-hour plan for the Bukit.",
-    url: "https://otherbali.com/uluwatu",
+    url: "https://www.otherbali.com/uluwatu",
     type: "article",
   },
   twitter: {

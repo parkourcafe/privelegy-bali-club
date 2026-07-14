@@ -115,6 +115,12 @@ export default function OnboardActions({
       setPhotoFile(null);
       setPhotoRights(false);
       if (photoInput.current) photoInput.current.value = "";
+    } else if (res?.status === 202 && result?.ok === true && result.status === "processing") {
+      setPhotoState("done");
+      setPhotoMsg("Your submission attempt is being reconciled against its private review record. Please do not resend it; nothing can be published until that check finishes.");
+      setPhotoFile(null);
+      setPhotoRights(false);
+      if (photoInput.current) photoInput.current.value = "";
     } else {
       setPhotoState("error");
       setPhotoMsg("The photo was not submitted. Check the file and rights confirmation, then try again.");

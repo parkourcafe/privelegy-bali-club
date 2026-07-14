@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "48 hours in Uluwatu · Other Bali",
     description:
       "A realistic two-day Bukit plan: sequenced stops, booking notes, rain alternatives.",
-    url: "https://otherbali.com/uluwatu/48-hours",
+    url: "https://www.otherbali.com/uluwatu/48-hours",
     type: "article",
   },
   twitter: {
