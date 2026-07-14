@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
-import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { FaqBlock, GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
 import { UBUD_REVIEW_DATE, UBUD_THINGS_TO_DO } from "@/lib/ubud-things";
 
 const BASE = "https://otherbali.com";
@@ -53,15 +53,7 @@ const jsonLd = [
       name: t.title,
     })),
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  },
+  // FAQPage is emitted by the visible FaqBlock below (kept in sync with content).
 ];
 
 export default function UbudThingsToDoPage() {
@@ -121,6 +113,8 @@ export default function UbudThingsToDoPage() {
             </p>
           </div>
         </section>
+
+        <FaqBlock items={FAQ} heading="Good to know" />
 
         <RelatedGuides
           links={[
