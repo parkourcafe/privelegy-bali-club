@@ -107,6 +107,9 @@ export default async function UbudPillarPage() {
           <Link href="/ubud/things-to-do" className="chip">
             Things to do
           </Link>
+          <Link href="/ubud/itinerary" className="chip">
+            2–3 day itinerary
+          </Link>
           {UBUD_GUIDES.map((g) => (
             <Link key={g.slug} href={`/ubud/${g.slug}`} className="chip">
               {g.h1.replace(" in Ubud", "").replace("Ubud ", "")}
