@@ -5,17 +5,19 @@ import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
 import { publishedUluwatuVenues, ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
+import { getPublicMenuSummariesOptional } from "@/lib/data/menu-repository";
 
 export const dynamic = "force-dynamic";
 
 const BASE = "https://www.otherbali.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [routes, hubs, spokes, catalogue] = await Promise.all([
+  const [routes, hubs, spokes, catalogue, menus] = await Promise.all([
     getRoutes(),
     getDistrictHubs(),
     getIntentSpokes(),
     getPublishedVenues(),
+    getPublicMenuSummariesOptional(),
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenueSlugs = catalogue.filter(isVenueIndexable).map((v) => v.slug);
@@ -31,6 +33,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/plan`, changeFrequency: "daily", priority: 0.9 },
     // Bali-wide curated places catalogue.
     { url: `${BASE}/places`, changeFrequency: "daily", priority: 0.8 },
+    // Public menu index. Source snapshots stay noindex because they are
+    // freshness-bounded extracts; verified full menus are indexable.
+    { url: `${BASE}/menus`, changeFrequency: "daily", priority: 0.8 },
+    ...menus.filter((menu) => menu.status === "published").map((menu) => ({
+      url: `${BASE}/menus/${menu.venueSlug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
     // SEO hub index + per-district hubs — the programmatic ranking surface for
     // districts without a hand-crafted pillar (Uluwatu is excluded — it has its
     // own /uluwatu pillar below).

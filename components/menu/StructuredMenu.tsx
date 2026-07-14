@@ -14,16 +14,37 @@ export default function StructuredMenu({ menu, venueSlug, officialMenuUrl }: { m
   const verified = formatMenuDate(menu.verifiedAt);
   const expires = formatMenuDate(menu.expiresAt);
   const sections = [...menu.sections].sort((a, b) => a.position - b.position);
+  const itemCount = sections.reduce((count, section) => count + section.items.length, 0);
+  const sourceSnapshot = menu.status === "source_snapshot";
   return (
     <div className="structured-menu">
       <MenuOpenTracker venueSlug={venueSlug} menuId={menu.id} />
       <header className="structured-menu-header">
-        <div><p className="structured-menu-eyebrow">Verified full menu · version {menu.version}</p><h3>{menu.title}</h3></div>
-        <p className="structured-menu-source">Source: <a href={menu.sourceUrl} target="_blank" rel="noreferrer">{menu.sourceLabel} ↗</a>{captured ? ` · prices as of ${captured}, may vary` : ""}{verified ? ` · checked ${verified}` : ""}{expires ? ` · current until ${expires}` : ""}</p>
+        <div>
+          <p className="structured-menu-eyebrow">
+            {sourceSnapshot
+              ? `Partial source snapshot · ${itemCount} listed item${itemCount === 1 ? "" : "s"}`
+              : `Verified full menu · version ${menu.version}`}
+          </p>
+          <h3>{menu.title}</h3>
+        </div>
+        <p className="structured-menu-source">
+          {sourceSnapshot ? "Official source: " : "Source: "}
+          <a href={menu.sourceUrl} target="_blank" rel="noreferrer">{menu.sourceLabel} ↗</a>
+          {captured ? ` · captured ${captured}` : ""}
+          {verified ? ` · checked ${verified}` : ""}
+          {expires ? ` · recheck by ${expires}` : ""}
+        </p>
       </header>
-      <p className="structured-menu-allergen-note"><strong>Allergen note:</strong> only explicitly verified allergens are shown. No allergen tag means unknown, not allergen-free.</p>
-      <div className="structured-menu-sections">{sections.map((section, index) => <MenuSection key={section.id} section={{ ...section, items: [...section.items].sort((a, b) => a.position - b.position) }} venueSlug={venueSlug} menuId={menu.id} initiallyOpen={index === 0} />)}</div>
-      {officialMenuUrl && (
+      {sourceSnapshot ? (
+        <p className="structured-menu-allergen-note" role="note">
+          <strong>Selected items only:</strong> this is not the complete menu and has not been independently verified item by item. Prices, taxes, service charges and availability may have changed. Confirm important details with the venue.
+        </p>
+      ) : (
+        <p className="structured-menu-allergen-note"><strong>Allergen note:</strong> only explicitly verified allergens are shown. No allergen tag means unknown, not allergen-free.</p>
+      )}
+      <div className="structured-menu-sections">{sections.map((section, index) => <MenuSection key={section.id} section={{ ...section, items: [...section.items].sort((a, b) => a.position - b.position) }} venueSlug={venueSlug} menuId={menu.id} initiallyOpen={index === 0} sourceSnapshot={sourceSnapshot} />)}</div>
+      {officialMenuUrl && officialMenuUrl !== menu.sourceUrl && (
         <p className="structured-menu-official-link">
           <TrackedOutboundLink href={officialMenuUrl} event="menu_click" venueSlug={venueSlug}>
             Compare with the official menu ↗

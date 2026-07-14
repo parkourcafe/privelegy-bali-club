@@ -9,8 +9,10 @@ import { browserConsentState } from "./privacy/consent";
 // - the INTERNAL event store (/api/event → version-compatible RPC) is the funnel
 //   system of record (growth vs partner-proof separation lives there);
 // - GA4 receives the same event name as a custom event for acquisition
-//   analysis. GA4 is production-only (components/Analytics.tsx) and gtag is
-//   absent in dev, so the GA4 leg silently no-ops outside production.
+//   analysis. GA4 is DISABLED by default (audit 2026-07 — no third-party
+//   analytics until a consent flow exists; see components/Analytics.tsx). When
+//   GA is off, `window.gtag` is never defined, so the GA4 leg below silently
+//   no-ops. Re-enabling GA is a consent-gated env change, not a code edit here.
 //
 // Partner-proof events never go to GA4. trackVenueAction keeps TablePilot's
 // reservation_click on the internal leg only.
@@ -72,6 +74,7 @@ function postInternal(
   if (venueSlug !== undefined) body.venueSlug = venueSlug;
   if (payload !== undefined) body.payload = payload;
 
+  // Internal funnel store — best-effort, never blocks navigation.
   try {
     fetch("/api/event", {
       method: "POST",

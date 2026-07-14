@@ -23,6 +23,7 @@ export const PILLARS: Pillar[] = [
     children: [
       { path: "/canggu/best-restaurants", title: "Best restaurants in Canggu" },
       { path: "/canggu/best-brunch", title: "Best brunch in Canggu" },
+      { path: "/canggu/best-warungs", title: "Best warungs & local food in Canggu" },
       { path: "/canggu/work-friendly-cafes", title: "Work-friendly cafés in Canggu" },
       { path: "/canggu/best-spas", title: "Best spas in Canggu" },
       { path: "/canggu/beach-clubs-sunset", title: "Canggu beach clubs & sunset" },
@@ -48,6 +49,7 @@ export const PILLARS: Pillar[] = [
       { path: "/ubud/things-to-do", title: "Best things to do in Ubud" },
       { path: "/ubud/itinerary", title: "2 to 3 days in Ubud (itinerary)" },
       { path: "/ubud/best-restaurants", title: "Best restaurants in Ubud" },
+      { path: "/ubud/best-warungs", title: "Best warungs & local food in Ubud" },
       { path: "/ubud/best-cafes-coffee", title: "Best cafés & coffee in Ubud" },
       { path: "/ubud/best-yoga-wellness", title: "Best yoga & wellness in Ubud" },
     ],
@@ -80,6 +82,7 @@ export const PILLARS: Pillar[] = [
     name: "Nusa Dua",
     tagline: "The calm, gated resort enclave: swimmable beaches, fine dining and big resort spas.",
     children: [
+      { path: "/nusa-dua/things-to-do", title: "Best things to do in Nusa Dua" },
       { path: "/nusa-dua/best-restaurants", title: "Best restaurants in Nusa Dua" },
       { path: "/nusa-dua/spas-wellness", title: "Best spas & wellness in Nusa Dua" },
     ],
@@ -89,6 +92,7 @@ export const PILLARS: Pillar[] = [
     name: "Jimbaran",
     tagline: "The seafood bay: grills on the sand at sunset, cliff-edge bars and resort spas.",
     children: [
+      { path: "/jimbaran/things-to-do", title: "Best things to do in Jimbaran" },
       { path: "/jimbaran/best-restaurants", title: "Best restaurants in Jimbaran" },
       { path: "/jimbaran/spas-wellness", title: "Best spas & wellness in Jimbaran" },
     ],

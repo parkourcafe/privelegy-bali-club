@@ -187,6 +187,9 @@ test("all mapped public paths apply the editorial publication gate", () => {
   assert.match(source, /map\(mapVenue\)\.filter\(isPublicReadyVenue\)/);
   assert.match(source, /venues = uniqueBy\(venues\.filter\(isPublicReadyVenue\)/);
   assert.match(source, /if \(!venue \|\| !isPublicReadyVenue\(venue\)\) return null/);
-  assert.match(source, /uniqueBy\(\[\.\.\.venues, \.\.\.uluwatuFallback\][\s\S]*?filter\(isPublicReadyVenue\)/);
+  assert.match(
+    source,
+    /const renderable = keepRenderableVenues\(\[\.\.\.venues, \.\.\.uluwatuFallback\]\);[\s\S]*?uniqueBy\(renderable[\s\S]*?filter\(isPublicReadyVenue\)/
+  );
   assert.match(source, /uniqueBy\(venues, \(x\) => x\.slug\)\.filter\(isPublicReadyVenue\)/);
 });

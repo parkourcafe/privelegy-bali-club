@@ -770,6 +770,24 @@ When structured menu data is stale:
 
 Do not leave old prices on the page because deleting them felt emotionally difficult.
 
+### 11.5 Public menu states
+
+Public structured menu data has two deliberately different states:
+
+- `published`: a complete menu that an operator actually verified. It requires
+  `completeness=full`, a real `verified_at`, a fresh expiry and an active,
+  published venue profile.
+- `source_snapshot`: a partial transcription from a named official source. It
+  remains explicitly unverified (`verified_at=null`), is labelled as selected
+  items rather than a full menu, expires after 60 days and may be shown on the
+  dedicated menu route while the venue profile itself remains under review.
+
+A source snapshot must never inherit editorial picks, partner recommendations,
+dietary claims or allergen claims. Its evidence and child items become immutable
+when it crosses the public boundary. A later verified full menu atomically
+archives the source snapshot; the two states can never be public for the same
+venue at the same time.
+
 ---
 
 ## 12. Action gateway

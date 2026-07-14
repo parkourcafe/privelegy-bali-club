@@ -106,6 +106,18 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+              What we do not do
+            </h2>
+            <p className="mt-3">
+              We do not use Google Analytics or any third-party analytics or
+              advertising trackers, and we do not track you across other apps or
+              websites. The only analytics is the first-party interaction record
+              described above, kept to run the guide and venue attribution.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
               Services you choose to open
             </h2>
             <p className="mt-3">
@@ -125,6 +137,14 @@ export default function PrivacyPage() {
               such as planning, directions, and booking handoffs still work.
               In the first build, an analytics choice controls only Other
               Bali&apos;s first-party usage records because Google Analytics is disabled.
+            </p>
+            <p className="mt-3">
+              Use the{" "}
+              <Link href="/privacy/choices" className="text-[var(--ob-brass)] underline underline-offset-2">
+                privacy choices
+              </Link>{" "}
+              page to change consent, export browser-linked data, or request
+              permanent browser-linked deletion without an account.
             </p>
             <p className="mt-3">
               Older unprefixed browser references are not automatically copied

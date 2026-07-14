@@ -135,14 +135,29 @@ function evidenceIssues(
 export function evaluateMenus(rows: AdminMenuRow[], now = new Date()): FreshnessIssue[] {
   const nowMs = now.getTime();
   return rows.flatMap((row) => {
-    const issues = evidenceIssues(row, "menu", row.id, row.venue_slug, row.status !== "draft");
+    const issues = evidenceIssues(
+      row,
+      "menu",
+      row.id,
+      row.venue_slug,
+      row.status !== "draft" && row.status !== "source_snapshot",
+    );
     if (row.completeness !== "full") {
-      issues.push({ code: "partial_menu", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "This record is a partial menu extract and cannot be published as a verified full menu." });
+      issues.push({
+        code: "partial_menu",
+        severity: row.status === "source_snapshot" ? "info" : "blocker",
+        entity: "menu",
+        entityId: row.id,
+        venueSlug: row.venue_slug,
+        message: row.status === "source_snapshot"
+          ? "This public record is intentionally labelled as a partial source snapshot, not a verified full menu."
+          : "This record is a partial menu extract and cannot be published as a verified full menu.",
+      });
     }
     const expiry = timestamp(row.expires_at);
-    if (["review", "published"].includes(row.status) && expiry === null) {
+    if (["review", "published", "source_snapshot"].includes(row.status) && expiry === null) {
       issues.push({ code: "missing_expiry", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Reviewed/public menu has no mandatory freshness expiry." });
-    } else if (row.status === "published" && expiry !== null && expiry <= nowMs) {
+    } else if (["published", "source_snapshot"].includes(row.status) && expiry !== null && expiry <= nowMs) {
       issues.push({ code: "stale_menu", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Published menu is expired and must be suppressed or archived." });
     } else if (expiry !== null && expiry <= nowMs + 14 * DAY) {
       issues.push({ code: "menu_expiring", severity: "warning", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Menu expires within 14 days." });

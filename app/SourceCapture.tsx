@@ -3,10 +3,9 @@
 import { useEffect } from "react";
 import { browserConsentState, CONSENT_EVENT } from "@/lib/privacy/consent";
 
-// On load: if the URL carries a source tag (?s=villa_01 — the guest scanned a
-// villa/coliving/Reels QR), bind it to the anonymous guest server-side
-// (first-touch wins there). Always log a landing_open. The guest id is a
-// server httpOnly cookie — no client identity, no localStorage (guardrail #10).
+// After explicit analytics consent, bind an incoming source tag to the
+// anonymous guest server-side (first-touch wins there), then log landing_open.
+// Merely loading the page or choosing Essential only creates no guest identity.
 export default function SourceCapture() {
   useEffect(() => {
     let sent = false;

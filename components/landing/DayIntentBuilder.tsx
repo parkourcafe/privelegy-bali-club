@@ -95,6 +95,18 @@ const finishOptions: Choice[] = [
   { value: "early", label: "Early night", hint: "Good food, easy exit", query: ["family", "quiet"] },
 ];
 
+// One-tap moments: the primary, default way to use the builder. Each is a real
+// link straight to a filtered /places, so a traveller picks the moment they're
+// in and lands on the map — no questions required. Hrefs mirror the working
+// "moments" cards on the homepage so the results are never empty. The full
+// seven-axis brief is optional and lives behind the "Fine-tune" toggle.
+const quickStarts: { label: string; hint: string; href: string }[] = [
+  { label: "Slow morning", hint: "Coffee & a calm table", href: "/places?intent=1&q=cafe%20quiet&category=cafe" },
+  { label: "Beach day", hint: "Sun, swim, sunset", href: "/places?intent=1&q=sunset%20view&category=beach_club" },
+  { label: "Food crawl", hint: "Lunch & dinner worth ordering", href: "/places?intent=1&q=dinner%20restaurant&category=restaurant" },
+  { label: "Date night", hint: "A table for two", href: "/places?intent=1&q=romantic%20date&category=restaurant" },
+];
+
 function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
@@ -113,7 +125,8 @@ const AXES: { key: AxisKey; legend: string; options: Choice[]; wash: string }[] 
 
 export function buildIntentHref(parts: Choice[], missionSlug: string, durationSlug: string) {
   const params = new URLSearchParams();
-  // Only axes the traveller actually selected reach the brief.
+  // Only the axes the traveller actually chose reach the brief (audit 2026-07 —
+  // no silent defaults). Mission tags lead, so keep a slightly wider cap.
   const query = unique(parts.flatMap((part) => part.query)).slice(0, 8);
   const district = parts.find((part) => part.district)?.district;
   const category = [...parts].reverse().find((part) => part.category)?.category;
@@ -123,6 +136,8 @@ export function buildIntentHref(parts: Choice[], missionSlug: string, durationSl
   if (category) params.set("category", category);
   if (missionSlug) params.set("m", missionSlug);
   if (durationSlug) params.set("dur", durationSlug);
+  // "Top picks for your brief" mode only makes sense when there is something to
+  // match on — otherwise land on the plain, unranked catalogue.
   if (query.length > 0 || district || category) params.set("intent", "1");
 
   const qs = params.toString();
@@ -130,11 +145,18 @@ export function buildIntentHref(parts: Choice[], missionSlug: string, durationSl
 }
 
 export default function DayIntentBuilder() {
+  // Nothing is pre-selected: every axis starts empty so the brief carries ONLY
+  // what the traveller taps (audit 2026-07 — silent defaults like beach/couple/
+  // sunset used to bias the shortlist behind their back). Tapping a selected
+  // option again clears it.
   const [choices, setChoices] = useState<Partial<Record<AxisKey, string>>>({});
+  // The seven-axis builder is advanced/optional — collapsed by default so the
+  // column leads with one obvious action (pick a moment) instead of a wall.
+  const [expanded, setExpanded] = useState(false);
 
   function toggle(axis: AxisKey, value: string) {
-    setChoices((previous) => {
-      const next = { ...previous };
+    setChoices((prev) => {
+      const next = { ...prev };
       if (next[axis] === value) delete next[axis];
       else next[axis] = value;
       return next;
@@ -142,10 +164,11 @@ export default function DayIntentBuilder() {
   }
 
   const selected = useMemo(
-    () => AXES.map((axis) => {
-      const value = choices[axis.key];
-      return value ? axis.options.find((option) => option.value === value) ?? null : null;
-    }).filter((choice): choice is Choice => choice !== null),
+    () =>
+      AXES.map((axis) => {
+        const value = choices[axis.key];
+        return value ? axis.options.find((option) => option.value === value) ?? null : null;
+      }).filter((choice): choice is Choice => choice !== null),
     [choices]
   );
 
@@ -189,46 +212,101 @@ export default function DayIntentBuilder() {
         </span>
       </div>
 
-      <div className="mt-5 space-y-4">
-        {AXES.map((axis) => (
-          <ChoiceGroup
-            key={axis.key}
-            label={axis.legend}
-            options={axis.options}
-            selected={choices[axis.key] ?? null}
-            onSelect={(value) => toggle(axis.key, value)}
-            wash={axis.wash}
-          />
+      {/* DEFAULT (simple) view — one obvious job: pick the moment you're in and
+          land on a filtered map. No wall of questions; the full seven-axis
+          brief is optional and tucked behind "Fine-tune" below. */}
+      <p className="mt-4 text-sm leading-relaxed text-[var(--ob-sand-dim)]">
+        What&rsquo;s today about? Tap a moment — we&rsquo;ll open the map.
+      </p>
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        {quickStarts.map((q) => (
+          <Link
+            key={q.label}
+            href={q.href}
+            className="group rounded-2xl border border-[var(--ob-line)] bg-white/[0.04] px-3.5 py-3 transition-colors hover:border-[var(--ob-brass)] hover:bg-[var(--ob-brass)]/10"
+          >
+            <span className="flex items-center justify-between gap-1">
+              <span className="text-sm font-semibold text-[var(--ob-sand)]">{q.label}</span>
+              <span className="text-[var(--ob-brass-2)] transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
+            </span>
+            <span className="mt-0.5 block text-[11px] leading-snug text-[var(--ob-sand-dim)]">
+              {q.hint}
+            </span>
+          </Link>
         ))}
       </div>
 
-      <div
-        key={pulseKey}
-        className={`mt-5 rounded-2xl bg-black/18 p-3 ${pulseKey > 0 ? "ob-brief-pulse" : ""}`}
-        aria-live="polite"
-      >
-        <p className="text-xs font-semibold uppercase text-[var(--ob-brass-2)]">
-          Your map brief
-        </p>
-        <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">
-          {hasBrief ? summary : "Nothing preselected — tap only what matters, skip the rest."}
-        </p>
-      </div>
-
-      <div className="mt-4 grid gap-2 sm:grid-cols-[1fr_auto]">
-        <Link
-          href={href}
-          className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
-        >
-          {hasBrief ? "Show my top 3" : "Browse all places"}
-        </Link>
+      <div className="mt-4 flex items-center justify-between gap-3">
         <Link
           href="/places"
-          className="rounded-full border border-[var(--ob-line)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5"
+          className="text-sm font-semibold text-[var(--ob-sand-dim)] underline-offset-4 transition-colors hover:text-[var(--ob-sand)] hover:underline"
         >
-          All places
+          Browse all places →
         </Link>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          aria-controls="day-builder-fine-tune"
+          className="inline-flex items-center gap-1 rounded-full border border-[var(--ob-line)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ob-sand)] transition-colors hover:border-[var(--ob-brass)]/55"
+        >
+          {expanded ? "Hide fine-tune" : "Fine-tune your day"}
+          <span aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>▾</span>
+        </button>
       </div>
+
+      {/* FINE-TUNE — the full seven-axis brief. Collapsed by default; only power
+          users who want a tailored shortlist open it. */}
+      {expanded && (
+        <div id="day-builder-fine-tune" className="mt-5 border-t border-[var(--ob-line)] pt-5">
+          <p className="text-xs font-semibold text-[var(--ob-sand-dim)]">
+            Tap only what matters — skip the rest. Your brief updates as you choose.
+          </p>
+
+          <div className="mt-4 space-y-4">
+            {AXES.map((axis) => (
+              <ChoiceGroup
+                key={axis.key}
+                label={axis.legend}
+                options={axis.options}
+                selected={choices[axis.key] ?? null}
+                onSelect={(value) => toggle(axis.key, value)}
+                wash={axis.wash}
+              />
+            ))}
+          </div>
+
+          <div
+            key={pulseKey}
+            className={`mt-5 rounded-2xl bg-black/18 p-3 ${pulseKey > 0 ? "ob-brief-pulse" : ""}`}
+            aria-live="polite"
+          >
+            <p className="text-xs font-semibold uppercase text-[var(--ob-brass-2)]">
+              Your map brief
+            </p>
+            <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">
+              {hasBrief ? summary : "Nothing preselected — tap only what matters, skip the rest."}
+            </p>
+          </div>
+
+          <div className="mt-4 grid gap-2 sm:grid-cols-[1fr_auto]">
+            <Link
+              href={href}
+              className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+            >
+              {hasBrief ? "Show best matches" : "Browse all places"}
+            </Link>
+            <Link
+              href="/places"
+              className="rounded-full border border-[var(--ob-line)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5"
+            >
+              All places
+            </Link>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -249,8 +327,9 @@ function ChoiceGroup({
   return (
     <fieldset>
       <legend className="text-xs font-semibold text-[var(--ob-sand-dim)]">{label}</legend>
-      {/* Two-column grid: every option is visible at once. Buttons are true
-          toggles; a second tap clears the selection. */}
+      {/* Two-column grid: every option is visible at once (no horizontal
+          scroll, nothing sliced off the right edge). Each button is a toggle —
+          aria-pressed announces selected state and a second tap clears it. */}
       <div className="mt-2 grid grid-cols-2 gap-2">
         {options.map((option) => {
           const active = selected === option.value;

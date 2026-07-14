@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 45
     env:
       CI: "true"
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
       NEXT_TELEMETRY_DISABLED: "1"
       DERIVED_DATA_PATH: artifacts/ios/DerivedData
 
@@ -33,6 +34,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
+
+      - name: Verify supported Xcode toolchain
+        run: |
+          xcodebuild -version
+          swift --version
 
       - name: Install locked dependencies
         run: npm ci

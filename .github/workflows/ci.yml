@@ -1,5 +1,6 @@
 name: CI
 
+# Secret-free quality gates run for every pull request, push and manual dispatch.
 on:
   pull_request:
   push:

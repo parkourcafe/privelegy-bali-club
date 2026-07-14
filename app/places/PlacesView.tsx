@@ -16,6 +16,7 @@ import {
   readPlacesFilterState,
   type PlacesFilterState,
 } from "@/lib/places-filter-url";
+import { getTripDuration, getTripMission } from "@/lib/trip-missions";
 
 // Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
 // parsed price bands) so the card layer stays lean.
@@ -90,6 +91,10 @@ export default function PlacesView({
     initialFilters?.category || null
   );
   const [intentMode, setIntentMode] = useState(initialFilters?.intentMode ?? false);
+  // Mission/duration are explanatory labels. Matchable terms remain visible as
+  // individual query chips, while these labels can be removed independently.
+  const [missionLabel, setMissionLabel] = useState(initialFilters?.missionLabel);
+  const [durationLabel, setDurationLabel] = useState(initialFilters?.durationLabel);
 
   function commitFilters(
     filters: Pick<PlacesFilterState, "query" | "district" | "category">,
@@ -100,7 +105,11 @@ export default function PlacesView({
     setQuery(boundedFilters.query);
     setDistrict(boundedFilters.district);
     setCategory(boundedFilters.category);
-    if (clearBrief) setIntentMode(false);
+    if (clearBrief) {
+      setIntentMode(false);
+      setMissionLabel(undefined);
+      setDurationLabel(undefined);
+    }
     const path = buildPlacesFilterPath({
       pathname: window.location.pathname,
       search: window.location.search,
@@ -119,6 +128,9 @@ export default function PlacesView({
       setDistrict(filters.district);
       setCategory(filters.category);
       setIntentMode(filters.intentMode);
+      const params = new URLSearchParams(window.location.search);
+      setMissionLabel(getTripMission(params.get("m"))?.label);
+      setDurationLabel(getTripDuration(params.get("dur"))?.label);
     }
     window.addEventListener("popstate", syncFromHistory);
     return () => window.removeEventListener("popstate", syncFromHistory);
@@ -179,10 +191,23 @@ export default function PlacesView({
     return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
   }, [rest]);
 
-  const briefLabel = [initialFilters?.missionLabel, initialFilters?.durationLabel]
-    .filter(Boolean)
-    .join(" · ");
+  const briefLabel = [missionLabel, durationLabel].filter(Boolean).join(" · ");
 
+  function removeBriefCriterion(param: "m" | "dur") {
+    const params = new URLSearchParams(window.location.search);
+    params.delete(param);
+    const nextSearch = params.toString();
+    window.history.pushState(
+      null,
+      "",
+      `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`,
+    );
+    if (param === "m") setMissionLabel(undefined);
+    else setDurationLabel(undefined);
+  }
+
+  // The live brief, one removable chip per criterion, so nothing silently
+  // narrows the map. Filter removals also update the shareable URL.
   const activeCriteria: { key: string; label: string; onRemove: () => void }[] = [
     ...tokens.map((token) => ({
       key: `q:${token}`,
@@ -205,7 +230,13 @@ export default function PlacesView({
           key: "category",
           label: categoryLabel[category] ?? category,
           onRemove: () => commitFilters({ query, district, category: null }, "push"),
-        }]
+      }]
+      : []),
+    ...(missionLabel
+      ? [{ key: "mission", label: missionLabel, onRemove: () => removeBriefCriterion("m") }]
+      : []),
+    ...(durationLabel
+      ? [{ key: "duration", label: durationLabel, onRemove: () => removeBriefCriterion("dur") }]
       : []),
   ];
 
@@ -313,6 +344,8 @@ export default function PlacesView({
             ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
             : `Showing ${filtered.length} of ${venues.length} places.`}
         </p>
+        {/* Honest fallback signal (audit 2026-07): say so when the full brief
+            didn't yield a clean Top 3, instead of quietly showing fewer. */}
         {intentMode && (tokens.length > 0 || category) && topPicks.length > 0 && topPicks.length < 3 && (
           <p className="mt-1">
             Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — drop a chip above to widen it.

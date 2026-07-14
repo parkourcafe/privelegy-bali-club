@@ -104,3 +104,23 @@ remains draft and non-public.
   endpoint returns `401`.
 - Full release evidence is recorded in
   `docs/loop/PRODUCTION_RELEASE_COMPLETION_20260714.md`.
+
+## Public menu coverage follow-on — 2026-07-14
+
+- Menu implementation commit `eb74912` and the concurrent content line through
+  `7e79ffa` were reconciled in release commit `35ac394`. The combined production
+  deployment `dpl_5H7tUbge6zaChcJRhzaTN3zdNFpc` is aliased to
+  `https://www.otherbali.com`.
+- The exact digest/count-gated migration completed successfully and reported
+  `1` verified full menu plus `126` public partial source snapshots (`127`
+  total). `verified_at` remains null for every partial snapshot.
+- All 127 detail routes were checked after activation and returned HTTP `200`.
+  Partial pages show their official source and selected-items warning and are
+  `noindex, follow`; only the verified KYND detail is present in the sitemap.
+- The 81 reconciled venues without a structured menu remain future Data Ops
+  coverage work. The 126 source snapshots must be refreshed or replaced by
+  verified full menus before their 60-day freshness window expires.
+- A transient alias replacement by the content-only deployment was detected
+  during the live audit. The combined release now preserves both menu routes
+  and the new Nusa Penida/safety/island-guide content; post-deploy checks passed
+  for all 127 menu pages and the three new guide routes.

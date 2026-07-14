@@ -91,7 +91,40 @@ public aliases.
 
 ## Remaining work
 
-The remaining `126` partial menus and `248` imported actions stay deliberately
-private. They require a later Data Ops/operator wave with branch-specific
-first-party evidence and real verification before any further publication.
-KYND must be rechecked before its verification expiry.
+The remaining `248` imported actions stay deliberately private. They require a
+later Data Ops/operator wave with branch-specific first-party evidence and real
+verification before publication. KYND must be rechecked before its verification
+expiry.
+
+## Public source-snapshot follow-on release
+
+Later on 2026-07-14, menu implementation commit `eb74912` was reconciled with
+the concurrent content line through `7e79ffa`. Final release commit `35ac394`
+was deployed as Vercel production deployment
+`dpl_5H7tUbge6zaChcJRhzaTN3zdNFpc`. The reviewed migration exposed the 126
+partial menu records through a separate `source_snapshot` state rather than
+mislabeling them as verified full menus.
+
+The production confirmation row reported:
+
+- `ok=true`;
+- `verified_full_menus=1`;
+- `partial_source_snapshots=126`;
+- `total_public_menus=127`.
+
+The migration transaction revalidated the exact live package shape of 127
+menus, 165 sections and 881 items before activation. Partial snapshots keep
+`verified_at=null`, expire after 60 days, link to their official evidence and
+cannot carry dietary, allergen, editorial or partner-verification signals.
+
+Post-release verification fetched the catalogue and every one of its 127 unique
+detail routes. All returned HTTP `200`; the 126 partial pages contained the
+selected-items warning, official-source link and `noindex, follow` metadata.
+Only `/menus/kynd-community`, the complete verified menu, is included as an
+indexable menu detail in the production sitemap.
+
+The combined release also preserves the Nusa Penida day-trip, Bali safety and
+island things-to-do guides from the concurrent production line. A transient
+content-only alias replacement was detected during the live audit and reversed;
+the final combined deployment then passed all 127 menu route checks plus HTTP
+`200` checks for those three guide routes.

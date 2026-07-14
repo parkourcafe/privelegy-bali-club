@@ -87,3 +87,50 @@ export const UBUD_THINGS_TO_DO: UbudThing[] = [
       "Ubud is Bali's wellness capital, with daily drop-in yoga and meditation, plus traditional Balinese cooking classes that usually start with a market visit. See our yoga & wellness guide for the studios.",
   },
 ];
+
+export interface UbudZone {
+  label: string;
+  character: string;
+  bestFor: string;
+}
+
+// The main stay-zones of Ubud (verified geographic reference, 14 Jul 2026).
+// Character is fit-context; positions and neighbourhood facts are established.
+export const UBUD_ZONES: UbudZone[] = [
+  {
+    label: "Central Ubud",
+    character:
+      "The walkable core around Jl. Raya Ubud, the Palace, the market and Monkey Forest Road — everything within about a 10-minute walk. Also the busiest, with a congested one-way loop in the evenings.",
+    bestFor: "First-timers and short stays who want to walk everywhere.",
+  },
+  {
+    label: "Nyuh Kuning",
+    character:
+      "A quiet, clean village just south of the Monkey Forest — you can walk to the centre through the forest. One of the few Ubud areas where you barely need a scooter.",
+    bestFor: "Calm and residential, but still walkable to the centre.",
+  },
+  {
+    label: "Penestanan",
+    character:
+      "The hillside painters' village west of the centre, above the Campuhan ravine, ringed by rice paddies — quieter, with pedestrian lanes and a long art history. About 15–20 minutes' walk in (uphill back).",
+    bestFor: "Yoga, longer stays and a quieter, arty base near town.",
+  },
+  {
+    label: "Sanggingan / Campuhan",
+    character:
+      "The gallery-and-ridge belt northwest of the centre — the Campuhan Ridge Walk, the Blanco and Neka art museums, and some more spacious upscale hotels. Walkable to town via the ridge.",
+    bestFor: "Art and museums, ridge scenery, and centre-accessible upscale stays.",
+  },
+  {
+    label: "Peliatan",
+    character:
+      "A traditional-arts village a short hop east of downtown — painting, gamelan and especially Legong dance, with regular evening performances at the Peliatan Palace. Quieter and more local.",
+    bestFor: "Traditional-arts immersion and a lower-key, local base.",
+  },
+  {
+    label: "Sayan / Kedewatan / Payangan / Keliki",
+    character:
+      "The river-valley luxury belt outside the centre — dramatic Ayung and Wos gorge settings and Bali's original jungle-resort cluster. Secluded and scenic; you'll drive to town.",
+    bestFor: "Secluded luxury and honeymoon jungle-gorge resorts.",
+  },
+];
