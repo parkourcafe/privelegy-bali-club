@@ -177,7 +177,9 @@ const mapVenue = (r: Row): Venue => ({
   name: r.name as string,
   category: r.category as Venue["category"],
   district: r.district as string,
-  address: r.address as string,
+  // Never null downstream: a null address once 500'd all of /places via
+  // v.address.toLowerCase() in the catalogue filter. Default to "" at the boundary.
+  address: (r.address as string) ?? "",
   gmapsUrl: publicDirectionsUrl(r),
   officialUrl: (r.official_url as string) ?? undefined,
   instagramUrl: (r.instagram_url as string) ?? undefined,

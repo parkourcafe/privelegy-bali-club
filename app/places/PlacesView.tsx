@@ -167,7 +167,7 @@ export default function PlacesView({
 
   const filtered = useMemo(() => {
     return venues.filter((v) => {
-      const hay = haystack(v) + " " + v.address.toLowerCase();
+      const hay = haystack(v) + " " + (v.address ?? "").toLowerCase();
       return (
         (!district || v.district === district) &&
         (!category || v.category === category) &&
