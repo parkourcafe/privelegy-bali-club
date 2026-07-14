@@ -82,6 +82,7 @@ export const PILLARS: Pillar[] = [
     name: "Nusa Dua",
     tagline: "The calm, gated resort enclave: swimmable beaches, fine dining and big resort spas.",
     children: [
+      { path: "/nusa-dua/things-to-do", title: "Best things to do in Nusa Dua" },
       { path: "/nusa-dua/best-restaurants", title: "Best restaurants in Nusa Dua" },
       { path: "/nusa-dua/spas-wellness", title: "Best spas & wellness in Nusa Dua" },
     ],
