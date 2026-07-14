@@ -436,6 +436,18 @@ export async function setGuestSource(guestRef: string, source: string): Promise<
   );
 }
 
+// Right-to-be-forgotten (audit 2026-07): erase this device's behavioural +
+// preference data. Best-effort — no-ops safely if the RPC isn't deployed yet
+// (migration 0031, prod apply is a founder step) so the cookie unlink still works.
+export async function forgetGuest(guestRef: string): Promise<void> {
+  const sb = anonClient();
+  if (!sb || !guestRef) return;
+  await sb.rpc("forget_guest", { p_guest_ref: guestRef }).then(
+    () => {},
+    () => {}
+  );
+}
+
 export async function logEvent(input: {
   type: string;
   guestRef?: string;

@@ -87,6 +87,14 @@ export default function PrivacyPage() {
               </a>{" "}
               and we will remove them.
             </p>
+            <p className="mt-3">
+              You can also turn analytics on or off, or forget this device, on
+              the{" "}
+              <Link href="/privacy/choices" className="text-[var(--ob-brass)] underline underline-offset-2">
+                privacy choices
+              </Link>{" "}
+              page.
+            </p>
           </section>
 
           <section>
