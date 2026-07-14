@@ -54,6 +54,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Don't advertise the framework/version.
   poweredByHeader: false,
+  // Keep Turbopack scoped to this checkout even when a developer has another
+  // package-lock.json higher in the home directory.
+  turbopack: { root: process.cwd() },
   async headers() {
     return [
       {
