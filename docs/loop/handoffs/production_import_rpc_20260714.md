@@ -93,6 +93,15 @@ Cloud preview verification:
 - authenticated preview request to `POST /api/admin/data-ops-import`: `404`
 - response controls: `private, no-store` and `noindex, nofollow, noarchive`
 
+Current production-content-integrated preview:
+
+- release merge commit: `2d588b5` (includes production content SHA `0c532b0`)
+- Vercel deployment: `dpl_GTBvzWh4rDCUVYugXFnGw9LLDWuf` (`READY`)
+- `/`, `/ubud/things-to-do`, `/jimbaran` and `/places`: `200`
+- `POST /api/admin/data-ops-import` in preview: fail-closed `404`
+- build includes `39` application routes and preserves the service-worker
+  cache purge/unregister kill-switch from current production
+
 ## Full production-order SQL rehearsal
 
 The complete operator sequence was replayed on another disposable clone in the

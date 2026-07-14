@@ -82,3 +82,6 @@ remains draft and non-public.
   migration `0030` remains owned by `0030_photo_consent.sql`.
 - The combined tree passes all `57` Node tests, TypeScript, zero-warning lint
   and an optimized build containing `39` application routes.
+- Combined preview `dpl_GTBvzWh4rDCUVYugXFnGw9LLDWuf` is `READY`; home,
+  Ubud things-to-do, Jimbaran and places return `200`, while the production-only
+  import route remains fail-closed with `404`.
