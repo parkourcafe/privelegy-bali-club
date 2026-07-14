@@ -4,7 +4,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
 import { UBUD_REVIEW_DATE, UBUD_THINGS_TO_DO } from "@/lib/ubud-things";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Best things to do in Ubud — temples, rice terraces & jungle",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Best things to do in Nusa Dua · Other Bali",
     description:
       "The promenade, Water Blow, Geger Beach, Museum Pasifika, the Devdan Show and Tanjung Benoa watersports.",
-    url: "https://otherbali.com/nusa-dua/things-to-do",
+    url: "https://www.otherbali.com/nusa-dua/things-to-do",
     type: "article",
   },
 };

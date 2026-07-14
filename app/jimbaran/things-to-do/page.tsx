@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Best things to do in Jimbaran · Other Bali",
     description:
       "The fish market, Tegal Wangi tide pools, Muaya sunset, Rock Bar and GWK Cultural Park.",
-    url: "https://otherbali.com/jimbaran/things-to-do",
+    url: "https://www.otherbali.com/jimbaran/things-to-do",
     type: "article",
   },
 };
