@@ -1,6 +1,7 @@
 import { getDistrictHubs, getIntentSpokes } from "@/lib/data";
 import { PILLARS } from "@/lib/pillars";
 import { SCENARIOS } from "@/lib/scenarios";
+import { GUIDES } from "@/lib/guides";
 
 export const revalidate = 3600;
 
@@ -38,6 +39,10 @@ export async function GET() {
     "",
     "## Trip scenarios",
     ...SCENARIOS.map((s) => `- [${s.eyebrow}](${BASE}/${s.slug}): ${s.promise}`),
+    "",
+    "## Planning & area guides",
+    `- [Bali travel guides](${BASE}/guides): index of planning and best-of guides`,
+    ...GUIDES.map((g) => `- [${g.title}](${BASE}/${g.slug}): ${g.description}`),
     "",
     "## Tools",
     `- [Plan a Canggu day](${BASE}/plan)`,

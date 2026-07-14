@@ -52,7 +52,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.85,
     })),
-    // Long-form editorial guides (top-of-funnel SEO/AEO articles).
+    // Guides hub + the long-form editorial guides (top-of-funnel SEO/AEO).
+    { url: `${BASE}/guides`, changeFrequency: "weekly", priority: 0.8 },
     ...GUIDES.map((g) => ({
       url: `${BASE}/${g.slug}`,
       changeFrequency: "weekly" as const,

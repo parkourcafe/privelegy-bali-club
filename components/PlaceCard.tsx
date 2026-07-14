@@ -151,9 +151,13 @@ export default function PlaceCard({
                 </a>
               )
             )}
-            <span aria-hidden="true" className="place-card-cta">
+            <Link
+              href={href}
+              className="place-card-cta"
+              onClick={() => track("venue_card_click", { venueSlug: place.slug })}
+            >
               View place →
-            </span>
+            </Link>
           </div>
         </div>
       </div>

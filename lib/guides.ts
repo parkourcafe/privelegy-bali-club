@@ -57,6 +57,24 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke, data-driven route (app/best-beach-clubs-in-bali) — registry
+    // entry is metadata-only so the sitemap enumerates it.
+    slug: "best-beach-clubs-in-bali",
+    title: "The best beach clubs in Bali",
+    description:
+      "Bali's best beach clubs by area — clifftop sunsets in Uluwatu, the Seminyak classics, Canggu's Echo Beach line-up, and calm family options in the south.",
+  },
+
+  {
+    // Bespoke, data-driven route (app/best-coffee-in-bali) — curated specialty
+    // roasters/cafés; registry entry is metadata-only for the sitemap.
+    slug: "best-coffee-in-bali",
+    title: "The best specialty coffee in Bali",
+    description:
+      "Where to find serious coffee in Bali — the roasters and specialty cafés across Canggu, Seminyak, Ubud and Uluwatu that treat coffee as the craft.",
+  },
+
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
@@ -534,6 +552,41 @@ export const GUIDES: Guide[] = [
       { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
       { href: "/bali-for-a-month", title: "Bali for a month", blurb: "Settle in and live like a local for a while." },
     ],
+  },
+];
+
+// Display grouping for the /guides hub (and any nav that lists guides). Slug
+// lists here are the single source for how guides are grouped, so the hub can't
+// drift from the registry.
+export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[] = [
+  {
+    heading: "Plan your trip",
+    blurb: "How long to go, when, how to get around, and what it costs.",
+    slugs: [
+      "how-many-days-in-bali",
+      "bali-itinerary-7-days",
+      "bali-itinerary-10-days",
+      "best-time-to-visit-bali",
+      "how-to-get-around-bali",
+      "bali-on-a-budget",
+    ],
+  },
+  {
+    heading: "Choose where to stay",
+    blurb: "Which area fits your trip — by traveller, and head-to-head.",
+    slugs: [
+      "where-to-stay-in-bali",
+      "best-area-to-stay-in-bali-for-couples",
+      "best-area-to-stay-in-bali-for-families",
+      "canggu-vs-uluwatu",
+      "seminyak-vs-canggu",
+      "bali-for-digital-nomads",
+    ],
+  },
+  {
+    heading: "Best of Bali",
+    blurb: "Island-wide picks, from real places we stand behind.",
+    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali"],
   },
 ];
 

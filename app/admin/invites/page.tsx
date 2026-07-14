@@ -10,12 +10,14 @@ export const dynamic = "force-dynamic";
 // the whole roster as CSV to send in bulk. Money stays out of this — launch is
 // listing + owner confirmation only. Protected by ADMIN_ACCESS_TOKEN (proxy.ts).
 
-// No-offer launch templates (matches the launch dashboard WhatsApp copy).
+// Reverse lead magnet copy (matches the venue-reverse-magnet skill): the pitch
+// is "we already built your page" — literally true, the /onboard link is live.
+// No-offer: the ask is confirm + who-you're-for + photos, never a promo.
 function messageEN(venue: string, link: string): string {
-  return `Hi! I'm Selena from Other Bali — a free, resident-curated Bali guide. We're preparing a listing for ${venue}. Tourists don't pay, and we're not asking you to run an offer. Please confirm your listing and add 1-3 photos here: ${link}\nConfirmed venues show as owner-confirmed; offers only appear later, if you choose to activate them.`;
+  return `Hi! I'm Selena from Other Bali — a free, locals-run Bali guide. We've already built a page for ${venue} — here's exactly how travellers will see you: ${link}\nTourists never pay, and we're not asking you to run any offer. Takes ~2 min: (1) confirm it's your place, (2) tick which moments you're best for, (3) add 1-3 photos. That's it 🙌`;
 }
 function messageRU(venue: string, link: string): string {
-  return `Здравствуйте! Меня зовут Селена, проект Other Bali — бесплатный гид по Бали, который ведут местные. Мы готовим страницу для ${venue}. Туристы не платят, и мы не просим запускать акцию. Пожалуйста, подтвердите листинг и добавьте 1-3 фото здесь: ${link}\nПодтверждённые заведения помечаются как проверенные владельцем; акции появляются позже — только если вы сами захотите.`;
+  return `Здравствуйте! Это Селена, проект Other Bali — бесплатный гид по Бали, который ведут местные. Мы уже сделали страницу для ${venue} — вот как вас увидят путешественники: ${link}\nТурист ничего не платит, и мы не просим запускать акцию. Нужно ~2 минуты: (1) подтвердите, что это ваше заведение, (2) отметьте, для каких моментов вы, (3) добавьте 1-3 фото. Всё 🙌`;
 }
 
 export default async function InvitesPage() {
