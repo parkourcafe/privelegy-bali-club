@@ -1,6 +1,6 @@
 # Session 0 — AI Data Ops Handoff
 
-Status: research complete — 207/207 repo-canonical F&B records dispositioned
+Status: research and deterministic compilation complete — 208/208 canonical F&B records dispositioned
 
 ## Discovery
 
@@ -32,18 +32,52 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
   `OPENAI_API_KEY` is absent. This did not modify project files and is not a
   blocker; official sources are being checked directly.
 
+## 2026-07-14 live-only denominator reconciliation
+
+- The independent read-only production report at
+  `/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md`, snapshot
+  `2026-07-14T02:20:05Z`, confirms `kynd-community` exists with
+  `status=active` and `district=seminyak`. It is used only for identity/live
+  status, never for menu facts.
+- KYND is now the 208th canonical eligible F&B record: the reproducible repo
+  replay remains 207, while the package/registry/ledger denominator is 208 with
+  `liveDatabaseCandidateStatus=reconciled` and no unresolved live candidates.
+- The official May 2026 four-page menu PDF was extracted and visually checked
+  page by page. The draft menu contains 22 sections and 120 priced item/group
+  lines, exact price text, unambiguous integer IDR values, explicit labels, and
+  the source note that all prices incur 10% tax plus 6% service.
+- Accepted action candidates are the official KYND cafe page, the official
+  Seminyak WhatsApp, and the venue-published Maps link that resolves to
+  `KYND COMMUNITY SEMINYAK`. The official dinner short-link is rejected because
+  it resolves to `KYNDCanggu`; Gojek and Grab statements are retained without
+  fabricated branch-deep URLs.
+- The final batch is `data/data-ops/batches/kynd-community-final/`. All new
+  candidates remain `draft`, `verifiedAt: null`, `publicationAllowed: false`,
+  operator-review-only, and forbidden to publish.
+- The integration compiler is not present on this Session 0 branch. To preserve
+  ownership boundaries, its source worktree was not changed. A machine-applicable
+  compatibility patch is included at
+  `data/data-ops/compiler/integration-compiler-55.patch`; `git apply --check`
+  passes against the integration compiler, updating the 53→55 input gate and
+  all exact test expectations without weakening set, digest, provenance, or
+  denominator checks.
+- Deterministic compiled package digest:
+  `2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265`;
+  input digest:
+  `28c0d143c8c9fa72279adc0ea888dba6c84eb5f60af4fa290a98e7297613afaf`.
+
 ## Progress
 
 Research is complete across Canggu, Ubud, Seminyak, Uluwatu–Bukit, Sanur,
-Jimbaran, and Nusa Dua. Of the 207 repo-canonical records, 152 are ready for
-operator review and 55 are blocked with concrete retry conditions. Zero remain
-queued. No venue is marked human-verified or publishable.
+Jimbaran, and Nusa Dua. Of the 208 canonical records, 153 are complete research
+records and 55 are blocked with concrete retry conditions. All 208 still require
+operator review. Zero remain queued; no venue is human-verified or publishable.
 
-- Canonical coverage baseline: `207` reproducible repo-canonical active F&B
-  rows. Production-oriented expectations (`208` active F&B, `250` active all,
-  approximately `174` publication-ready F&B) remain drift checks pending a
-  live SQL snapshot. `kynd-community` is the DB-only candidate that explains
-  the first difference.
+- Canonical coverage baseline: `207` reproducible repo-replay active F&B rows
+  plus the snapshot-confirmed live-only `kynd-community`, yielding `208`
+  canonical package records. The expected `250` active-all and approximately
+  `174` publication-ready F&B values remain production drift checks; KYND's
+  public-surface publication state is explicitly unknown.
 - Coverage drift is explicit for `cafe-del-mar-bali` (repo replay Seminyak;
   production-oriented Canggu), the dedupe migration's 32-pair claim versus its
   31 explicit loser slugs, and the two remaining Ubud duplicate-review slugs.
@@ -320,19 +354,43 @@ queued. No venue is marked human-verified or publishable.
   duplicate, source mapping, denominator/metrics, null-verification,
   draft-action, publication prohibition, and Wave 1 plus batch coverage checks
   all passed; `currentBatchId` and the remaining queue are both empty.
-- Diff check passed; only Session 0-owned paths changed.
+- KYND final closeout supersedes the 207-record checkpoint: 55 raw input JSON
+  files, 25 completed queue batches plus Wave 1, 208 unique package/ledger/
+  registry slugs, 365 source records, 394 raw actions, 149 raw menus, and 939 raw
+  items. Source mapping is 543/543; duplicate/global-ID, provenance, null-
+  verification, publication, queue, exact denominator and compiler-integrity
+  checks all passed.
+- Compiler results: 127 menu candidates with 881 items, 250 capability
+  candidates, 50 map-verification candidates, 115 existing compiled rejection
+  records, zero unmatched sources, and 427 total draft candidates. The KYND
+  batch contributes one fully parsed menu, two importable capabilities, one map
+  verification candidate, seven sources, and three explicit research-level
+  action rejections.
+- Exact compiler validation used the integration compiler from commit
+  `e4fcc8a5a12431f6b6247ae64f1c43888a395c52` in an isolated copy:
+  `node /private/tmp/kynd-compiler/compile-data-ops.mjs --root '<session-0-root>'`,
+  `node --test /private/tmp/kynd-compiler/data-ops-compiler.test.mjs`, and
+  `node /private/tmp/kynd-compiler/compile-data-ops.mjs --root '<session-0-root>' --check`.
+  Compilation passed; all 6 tests passed; byte-for-byte check passed.
+- Diff check passed; changes are limited to Session 0-owned paths plus the
+  explicitly requested shared `docs/loop/STATUS_BOARD.md`. No app, lib,
+  migration, fixture, or Session 1–4 handoff file changed.
 
 ## Readiness and gates
 
-- **Data ready for operator review:** yes for the 152 `complete` records; the 55
-  `blocked` records are not ready and retain exact retry conditions.
-- **Ready for import dry-run:** no. Session 1 schema support and the later
-  publish gates are not available; all research data remains draft/review-only.
-- **Blocked:** 55 venue records, plus live SQL confirmation for the DB-only
-  `kynd-community` candidate and production drift denominators.
-- **Forbidden to publish:** yes, for all 207 records. Human/owner verification
-  remains null, no media rights are asserted, and no import or publication was
-  performed.
+- **Data ready for operator review:** yes for all 208 records; 153 are complete
+  research records and 55 retain exact blockers.
+- **Ready for import dry-run:** yes. Deterministic compiler, provenance, safety,
+  and reconciled-denominator gates pass; this does not authorize an actual
+  database write.
+- **Ready for staging apply:** yes at package-gate level; no staging apply was
+  performed in Session 0.
+- **Blocked:** 55 pre-existing venue research records. KYND is complete, but its
+  reserve capability remains rejected until a Seminyak-safe official destination
+  exists, and delivery remains statement-only without branch-deep URLs.
+- **Forbidden to publish:** yes, for all 208 records. Human/owner verification
+  remains null, no media rights are asserted, and no import, publication,
+  deployment, or external message was performed.
 
 ## Contract requests and risks
 
@@ -345,9 +403,8 @@ queued. No venue is marked human-verified or publishable.
 
 ## Final SHA
 
-Final data package SHA: `f943fafe130c60365fb85756a8dc716cca6eadf5`.
+Previous 207-record data package SHA:
+`f943fafe130c60365fb85756a8dc716cca6eadf5`.
 
-This is the atomic commit containing the completed 207-record ledger, empty
-resumable queue, final Nusa Dua package, global gate corrections, validation
-evidence, and readiness handoff. The following documentation-only commit records
-this SHA and does not change research data.
+The final 208-record implementation SHA will be recorded here by the following
+documentation-only commit after the atomic KYND package commit is created.

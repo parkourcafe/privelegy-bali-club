@@ -1,13 +1,18 @@
 {
-  "capturedAt": "2026-07-13T16:22:00Z",
+  "capturedAt": "2026-07-14T02:52:06Z",
   "denominatorSource": "data/data-ops/coverage/canonical-venue-registry.json",
   "driftWarnings": [
     {
       "id": "db-only-kynd-community",
-      "liveExpectedValue": "active Seminyak cafe",
+      "liveExpectedValue": "active Seminyak cafe confirmed",
       "repoValue": "absent from reproducible imports",
-      "requiredResolution": "Live SQL snapshot for slug, status, category, district, and publication fields.",
-      "status": "warning"
+      "requiredResolution": "Resolved by the read-only production snapshot captured 2026-07-14T02:20:05Z.",
+      "status": "reconciled",
+      "resolution": {
+        "file": "/Users/msnigmatullaeva/Downloads/readonlyreportlivedb.md",
+        "snapshotAt": "2026-07-14T02:20:05Z",
+        "result": "slug exists; status=active; district=seminyak; eligible F&B cafe"
+      }
     },
     {
       "id": "cafe-del-mar-district",
@@ -29,34 +34,26 @@
       "status": "warning"
     }
   ],
-  "liveDatabaseCandidates": [
-    {
-      "blocker": "Requires a live SQL export to prove the DB-only row exists and is active.",
-      "coverageOutcome": "needs_human_review",
-      "publicationAllowed": false,
-      "researchStatus": "blocked",
-      "slug": "kynd-community",
-      "verifiedAt": null
-    }
-  ],
+  "liveDatabaseCandidates": [],
   "metrics": {
     "blocked": 55,
-    "completed": 152,
+    "completed": 153,
     "inProgress": 0,
     "liveDatabaseCandidate": 208,
-    "liveDatabaseCandidateStatus": "needs_live_sql_confirmation",
+    "liveDatabaseCandidateStatus": "reconciled",
     "liveExpectedActiveAll": 250,
     "liveExpectedActiveFnb": 208,
     "liveExpectedPublishedFnb": 174,
-    "needsHumanReview": 207,
+    "needsHumanReview": 208,
     "noOfficialSource": 8,
-    "officialMenuFound": 153,
-    "officialMenuFullyParsed": 0,
+    "officialMenuFound": 154,
+    "officialMenuFullyParsed": 1,
     "officialMenuPartial": 142,
     "onlyActionLinksFound": 34,
     "queued": 0,
-    "repoCanonicalActiveFnb": 207,
-    "totalEligible": 207
+    "repoCanonicalActiveFnb": 208,
+    "totalEligible": 208,
+    "repoReplayActiveFnb": 207
   },
   "schemaVersion": 1,
   "venues": [
@@ -3380,6 +3377,37 @@
       "sourceManifestIds": [
         "src-ku-de-ta-home",
         "src-ku-de-ta-menu"
+      ],
+      "verifiedAt": null
+    },
+    {
+      "actionCoverage": "found",
+      "blocked": false,
+      "category": "cafe",
+      "coverageOutcome": "official_menu_fully_parsed",
+      "district": "seminyak",
+      "lastCheckedAt": "2026-07-14T02:52:06Z",
+      "menuCoverage": "fully_parsed",
+      "name": "KYND Community",
+      "needsHumanReview": true,
+      "nextAction": "Operator review before any staging apply or publication; reserve and delivery deep links remain rejected until branch-safe official destinations exist.",
+      "noOfficialSource": false,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": true,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "publicationState": "unknown_live_active",
+      "researchStatus": "complete",
+      "slug": "kynd-community",
+      "sourceManifestIds": [
+        "src-kynd-booking-shortlink",
+        "src-kynd-cafe",
+        "src-kynd-live-snapshot",
+        "src-kynd-menu-may-2026",
+        "src-kynd-seminyak-maps",
+        "src-kynd-seminyak-whatsapp",
+        "src-kynd-venues"
       ],
       "verifiedAt": null
     },

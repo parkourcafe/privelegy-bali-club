@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": 1,
+  "inputDigest": "28c0d143c8c9fa72279adc0ea888dba6c84eb5f60af4fa290a98e7297613afaf",
+  "expectedInputFiles": 55,
+  "inputFiles": 55,
+  "asOf": "2026-07-14T02:52:06.000Z",
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "denominator": {
+    "packageVenues": 208,
+    "coverageLedgerVenues": 208,
+    "canonicalRegistryVenues": 208,
+    "ledgerTotalEligible": 208,
+    "registryTotalEligible": 208,
+    "liveDatabaseCandidate": 208,
+    "liveDatabaseCandidateStatus": "reconciled",
+    "unresolvedLiveCandidateSlugs": [],
+    "repositoryCountsAligned": true,
+    "liveCandidateMatchesRepository": true,
+    "liveCandidateConfirmed": true,
+    "fullyReconciled": true,
+    "complete": 153,
+    "blocked": 55
+  },
+  "integrity": {
+    "globallyUniqueIds": true,
+    "candidateIds": 427,
+    "nestedMenuIds": 1046,
+    "sourceIds": 365,
+    "rejectionIds": 115,
+    "provenanceInputRefs": 428,
+    "linkedValidSourceRefs": 428,
+    "rejectedInputRefsExcluded": true,
+    "initialVersionOneOnly": true
+  },
+  "releaseGates": {
+    "queueClosed": true,
+    "expectedInputFileSetComplete": true,
+    "repositoryDenominatorInternallyAligned": true,
+    "liveCandidateSourcesAgree": true,
+    "liveCandidateStatusConfirmed": true,
+    "liveCandidateMatchesRepository": true,
+    "denominatorReconciled": true,
+    "candidateIntegrityPassed": true,
+    "readyForOperatorReview": true,
+    "readyForImportDryRun": true,
+    "readyForStagingApply": true,
+    "readyForPublish": false
+  },
+  "packageDigest": "2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265",
+  "inputs": {
+    "files": 55,
+    "packages": 26,
+    "wavePackages": 1,
+    "batchPackages": 25,
+    "sources": 365,
+    "validSources": 292,
+    "quarantinedSources": 73,
+    "freshnessQuarantinedSources": 14,
+    "rawMenus": 149,
+    "rawActions": 394,
+    "rawItems": 939,
+    "verifiedAtNonNull": 0,
+    "publicationAllowedTrue": 0
+  },
+  "provenance": {
+    "sourceReferencesTotal": 543,
+    "sourceReferencesMatched": 543,
+    "sourceReferencesUnmatched": 0,
+    "originalSourceIdsUnique": 364,
+    "canonicalSourceIdsUnique": 365,
+    "sourceIdCollisionCount": 1,
+    "sourceIdCollisions": [
+      {
+        "originalId": "src-yuki-menu",
+        "canonicalIds": [
+          "source-4ecdf203274a3863aca1269e",
+          "source-f87964bb1dae8795dcb20292"
+        ],
+        "venues": [
+          "yuki-canggu",
+          "yuki-uluwatu"
+        ]
+      }
+    ],
+    "integrity": {
+      "globallyUniqueIds": true,
+      "candidateIds": 427,
+      "nestedMenuIds": 1046,
+      "sourceIds": 365,
+      "rejectionIds": 115,
+      "provenanceInputRefs": 428,
+      "linkedValidSourceRefs": 428,
+      "rejectedInputRefsExcluded": true,
+      "initialVersionOneOnly": true
+    }
+  },
+  "transformations": {
+    "actionKindClassifications": {
+      "ambiguous_order_kind": 2,
+      "normalized_map_alias": 49,
+      "order_provider_delivery": 15,
+      "unchanged": 328
+    },
+    "actionDuplicatesMerged": 0,
+    "venueMapDuplicatesMerged": 0,
+    "pricingPolicy": {
+      "IDR": "priceMinor is copied as an integer rupiah amount; zero-decimal currency, no x100 scaling",
+      "priceText": "sourceDisplayPrice is preserved exactly and maps to menu_items.price_text"
+    },
+    "localBlockerMismatches": []
+  },
+  "outputs": {
+    "menuCandidates": 127,
+    "capabilityCandidates": 250,
+    "venueMapsVerificationCandidates": 50,
+    "menuItems": 881,
+    "sourceDisplayPricesPreserved": 816,
+    "sourceDisplayPriceOnly": 242,
+    "idrZeroDecimalPriceMinorRecords": 574,
+    "venuesWithAnyCandidate": 147,
+    "venuesInStructuredImportPlan": 147,
+    "completeVenuesWithoutCandidate": [
+      "arwana",
+      "izakaya-by-oku",
+      "manarai-beach-house",
+      "masonry-restaurant",
+      "massimo-italian-restaurant",
+      "onion-collective"
+    ],
+    "statuses": {
+      "draft": 427
+    },
+    "providers": {
+      "chope": 8,
+      "gofood": 13,
+      "grabfood": 4,
+      "official": 106,
+      "resdiary": 5,
+      "sevenrooms": 15,
+      "tablecheck": 10,
+      "whatsapp": 89
+    },
+    "kinds": {
+      "delivery": 17,
+      "reserve": 56,
+      "website": 88,
+      "whatsapp": 89
+    },
+    "verifiedAtNonNull": 0
+  },
+  "exclusions": {
+    "records": 115,
+    "byEntity": {
+      "capability": 94,
+      "menu": 21
+    },
+    "byReason": {
+      "action_url_not_https": 3,
+      "ambiguous_order_kind": 2,
+      "conflicting_action_candidates": 2,
+      "empty_menu_placeholder": 11,
+      "source_freshness_recheck_required": 12,
+      "source_outcome_not_candidate_eligible": 45,
+      "unsupported_provider": 42,
+      "validation:official action URL must share the source host family": 1,
+      "validation:provider does not support this action kind": 1,
+      "validation:url host is not approved for the canonical provider": 9,
+      "venue_blocked": 54
+    }
+  },
+  "gates": {
+    "queueClosed": true,
+    "expectedInputFileSetComplete": true,
+    "repositoryDenominatorInternallyAligned": true,
+    "liveCandidateSourcesAgree": true,
+    "liveCandidateStatusConfirmed": true,
+    "liveCandidateMatchesRepository": true,
+    "denominatorReconciled": true,
+    "candidateIntegrityPassed": true,
+    "readyForOperatorReview": true,
+    "readyForImportDryRun": true,
+    "readyForStagingApply": true,
+    "readyForPublish": false,
+    "allCandidateSourcesMapped": true,
+    "allCandidatesDraftOrReview": true,
+    "allCandidatesUnverified": true,
+    "venueMapsExcludedFromCapabilityImport": true
+  }
+}

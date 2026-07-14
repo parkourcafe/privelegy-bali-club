@@ -1,0 +1,1465 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": 1,
+  "inputDigest": "28c0d143c8c9fa72279adc0ea888dba6c84eb5f60af4fa290a98e7297613afaf",
+  "expectedInputFiles": 55,
+  "inputFiles": 55,
+  "asOf": "2026-07-14T02:52:06.000Z",
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "denominator": {
+    "packageVenues": 208,
+    "coverageLedgerVenues": 208,
+    "canonicalRegistryVenues": 208,
+    "ledgerTotalEligible": 208,
+    "registryTotalEligible": 208,
+    "liveDatabaseCandidate": 208,
+    "liveDatabaseCandidateStatus": "reconciled",
+    "unresolvedLiveCandidateSlugs": [],
+    "repositoryCountsAligned": true,
+    "liveCandidateMatchesRepository": true,
+    "liveCandidateConfirmed": true,
+    "fullyReconciled": true,
+    "complete": 153,
+    "blocked": 55
+  },
+  "integrity": {
+    "globallyUniqueIds": true,
+    "candidateIds": 427,
+    "nestedMenuIds": 1046,
+    "sourceIds": 365,
+    "rejectionIds": 115,
+    "provenanceInputRefs": 428,
+    "linkedValidSourceRefs": 428,
+    "rejectedInputRefsExcluded": true,
+    "initialVersionOneOnly": true
+  },
+  "releaseGates": {
+    "queueClosed": true,
+    "expectedInputFileSetComplete": true,
+    "repositoryDenominatorInternallyAligned": true,
+    "liveCandidateSourcesAgree": true,
+    "liveCandidateStatusConfirmed": true,
+    "liveCandidateMatchesRepository": true,
+    "denominatorReconciled": true,
+    "candidateIntegrityPassed": true,
+    "readyForOperatorReview": true,
+    "readyForImportDryRun": true,
+    "readyForStagingApply": true,
+    "readyForPublish": false
+  },
+  "packageDigest": "2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265",
+  "rejections": [
+    {
+      "id": "rejection-5f8e87846f1aa2c99debfc80",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "12-kitchen-and-wine",
+      "inputId": "action-12-maps",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-bfc556ae70be07117b19e023",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "12-kitchen-and-wine",
+      "inputId": "action-12-site",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-9b1c26f060cf03b877cdb94c",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "12-kitchen-and-wine",
+      "inputId": "action-12-whatsapp",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-d3b367ab503dcc1d84a73a4f",
+      "entityType": "menu",
+      "packageId": "canggu-01",
+      "venueSlug": "12-kitchen-and-wine",
+      "inputId": "menu-0",
+      "reasons": [
+        "empty_menu_placeholder",
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-84f7b7430049ecdfe8a0227c",
+      "entityType": "capability",
+      "packageId": "seminyak-01",
+      "venueSlug": "7am-bakers-umalas",
+      "inputId": "a-7am-bakers-umalas-1",
+      "reasons": [
+        "action_url_not_https"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-e7cc68eda1b0d6f604ea55cd",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "artisan-uluwatu",
+      "inputId": "a-art-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-4e6bcefb96881e3b43b3968b",
+      "entityType": "menu",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "arwana",
+      "inputId": "menu-arwana-v1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ]
+    },
+    {
+      "id": "rejection-09e1a66e89a7e9758bb27c0c",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "baked-berawa",
+      "inputId": "action-baked-berawa-gofood",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "order",
+      "rawProvider": "gofood"
+    },
+    {
+      "id": "rejection-d0b4ec290e83922fe3778547",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "baked-berawa",
+      "inputId": "action-baked-berawa-maps",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-d71feb32a74603b76ba1f230",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "baked-berawa",
+      "inputId": "action-baked-berawa-site",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-1627df85c722a79aac6438ff",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "baked-berawa",
+      "inputId": "action-baked-berawa-whatsapp",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-0f52a0bcef8578fb5fc6095d",
+      "entityType": "menu",
+      "packageId": "canggu-01",
+      "venueSlug": "baked-berawa",
+      "inputId": "menu-0",
+      "reasons": [
+        "empty_menu_placeholder",
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-b4a1f5653017a3328822fcec",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "bali-buda-canggu",
+      "inputId": "action-bali-buda-maps",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-ca05bedf9e9fcb43a441dce2",
+      "entityType": "capability",
+      "packageId": "ubud-01",
+      "venueSlug": "bali-buda-ubud",
+      "inputId": "action-bbub-map",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-03dca4bb4faf470584b5d295",
+      "entityType": "capability",
+      "packageId": "seminyak-01",
+      "venueSlug": "biku",
+      "inputId": "a-biku-1",
+      "reasons": [
+        "source_freshness_recheck_required",
+        "venue_blocked"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "resdiary"
+    },
+    {
+      "id": "rejection-51ba34f86cfa4cb4bfaa54ab",
+      "entityType": "capability",
+      "packageId": "seminyak-01",
+      "venueSlug": "biku",
+      "inputId": "a-biku-2",
+      "reasons": [
+        "action_url_not_https",
+        "source_freshness_recheck_required",
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-0513b9cfaa2dcf67515ee4ed",
+      "entityType": "menu",
+      "packageId": "seminyak-01",
+      "venueSlug": "biku",
+      "inputId": "menu-biku-v1",
+      "reasons": [
+        "source_freshness_recheck_required",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-79142805e14f6e365b79c5eb",
+      "entityType": "capability",
+      "packageId": "canggu-01",
+      "venueSlug": "boheme-canggu",
+      "inputId": "action-boheme-whatsapp",
+      "reasons": [
+        "validation:provider does not support this action kind"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-48c3a08b711dba7f5c8ce721",
+      "entityType": "menu",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "bumbu-bali",
+      "inputId": "menu-bumbu-bali-v1",
+      "reasons": [
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-27271e4cd5b9efa26dd51640",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "cafe-vida-healthy-organic-restaurant-canggu",
+      "inputId": "action-cafe-vida-facebook",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "facebook"
+    },
+    {
+      "id": "rejection-7b1b908212f5cb454bd267d3",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "cafe-vida-healthy-organic-restaurant-canggu",
+      "inputId": "action-cafe-vida-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-bc10b4788f1337535e7dc2f4",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "como-beach-club-canggu",
+      "inputId": "action-como-reserve",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-afe8f6b07b1a676cd524b09b",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "crate-cafe",
+      "inputId": "action-crate-site",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-f08366f9448e1bb77f06b8e3",
+      "entityType": "menu",
+      "packageId": "canggu-02",
+      "venueSlug": "crate-cafe",
+      "inputId": "menu-0",
+      "reasons": [
+        "empty_menu_placeholder",
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-196cdbbba97a43bed23c063e",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "dandelion",
+      "inputId": "action-casa-tua-site",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-057460a371685c59a2d817cc",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "dandelion",
+      "inputId": "action-casa-tua-whatsapp",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-4a81965c4bf9c32aeb8d6720",
+      "entityType": "menu",
+      "packageId": "canggu-02",
+      "venueSlug": "dandelion",
+      "inputId": "menu-0",
+      "reasons": [
+        "empty_menu_placeholder",
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-07741613766e98ca870aec27",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "deus-ex-machina",
+      "inputId": "action-deus-instagram",
+      "reasons": [
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-1677d02ac78b281773c560cb",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "deus-ex-machina",
+      "inputId": "action-deus-site",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-b227b11fb2d2e157d6aa38ef",
+      "entityType": "capability",
+      "packageId": "ubud-01",
+      "venueSlug": "dicarik-warung",
+      "inputId": "action-dicarik-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-9a558267d5be4f07dc9238ad",
+      "entityType": "capability",
+      "packageId": "ubud-01",
+      "venueSlug": "donna-ubud",
+      "inputId": "action-donna-wa",
+      "reasons": [
+        "action_url_not_https"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-e6f64d858161434ea5a44dd4",
+      "entityType": "capability",
+      "packageId": "ubud-01",
+      "venueSlug": "fair-warung-bale",
+      "inputId": "action-fair-instagram",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-f89c83cc8ed8ca1ff2ff511e",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "finns-beach-club",
+      "inputId": "action-finns-whatsapp",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-f9ff31842007a8bb0d0a2fbb",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "gelato-secrets-ubud",
+      "inputId": "action-gelato-locator",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-016178c80f1f3e8a98e2cbed",
+      "entityType": "capability",
+      "packageId": "canggu-wave-1",
+      "venueSlug": "hippie-fish-pererenan-beach",
+      "inputId": "action-hippie-fish-pererenan-beach-reserve-02",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "nowbookit"
+    },
+    {
+      "id": "rejection-4c15150ba81341c1efb2a131",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "honey-kitchen",
+      "inputId": "action-honey-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-28080f42e3a280975ead0f04",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "ibu-rai",
+      "inputId": "action-ibu-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-5780ba71fefd9feb5dd6c358",
+      "entityType": "capability",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "izakaya-by-oku",
+      "inputId": "a-izakaya-by-oku-1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "tablecheck"
+    },
+    {
+      "id": "rejection-4e6fd30f81881c9012191d76",
+      "entityType": "menu",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "izakaya-by-oku",
+      "inputId": "menu-izakaya-by-oku-v1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ]
+    },
+    {
+      "id": "rejection-75d911a046c5d9dafddfb73b",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "karsa-cafe",
+      "inputId": "action-karsa-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-8d0c29a79bd958db76d998b5",
+      "entityType": "capability",
+      "packageId": "jimbaran-01",
+      "venueSlug": "kayumanis-resto-jimbaran",
+      "inputId": "a-kayumanis-resto-jimb-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "umai"
+    },
+    {
+      "id": "rejection-cfb635dc6862b2efa8f2e1f8",
+      "entityType": "menu",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "kayuputi",
+      "inputId": "menu-kayuputi-v1",
+      "reasons": [
+        "source_freshness_recheck_required",
+        "venue_blocked"
+      ]
+    },
+    {
+      "id": "rejection-d69572e0046f67abeb6eda8d",
+      "entityType": "capability",
+      "packageId": "canggu-02",
+      "venueSlug": "la-brisa-bali",
+      "inputId": "action-labrisa-reserve",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "reserveyourvenue"
+    },
+    {
+      "id": "rejection-211133ccb88d5b917a3cf8f9",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "laggas-uluwatu",
+      "inputId": "a-laggas-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-373dff850bd883c530c16069",
+      "entityType": "menu",
+      "packageId": "ubud-02",
+      "venueSlug": "laka-leke",
+      "inputId": "menu-laka-leke-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    },
+    {
+      "id": "rejection-1cbf3922a4ce82b0237a5686",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "locavore-nxt",
+      "inputId": "action-loc-book",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "revasi"
+    },
+    {
+      "id": "rejection-3c924528abb4041fef4726f2",
+      "entityType": "capability",
+      "packageId": "canggu-03",
+      "venueSlug": "lyma-beach",
+      "inputId": "action-lyma-reserve",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-b23a1a1a3f70a4da585ef5c9",
+      "entityType": "capability",
+      "packageId": "seminyak-02",
+      "venueSlug": "mamasan-bali",
+      "inputId": "a-mamasan-bali-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "now_book_it"
+    },
+    {
+      "id": "rejection-84aa78b3e2adfa2151541455",
+      "entityType": "capability",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "manarai-beach-house",
+      "inputId": "a-manarai-beach-house-1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-b26e06d1691e65bb571a9080",
+      "entityType": "menu",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "manarai-beach-house",
+      "inputId": "menu-manarai-beach-house-v1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ]
+    },
+    {
+      "id": "rejection-7d7b23ea96ffd5d011ee73b6",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "manga-madu",
+      "inputId": "action-manga-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-bcf23772aaacd76516dd126a",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "masonry-restaurant",
+      "inputId": "a-mas-book",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "sevenrooms"
+    },
+    {
+      "id": "rejection-3396c38c386eece2522e240d",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "masonry-restaurant",
+      "inputId": "a-mas-menu",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-0a3b2be28d98b9a9aa68b985",
+      "entityType": "menu",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "masonry-restaurant",
+      "inputId": "menu-masonry-restaurant-v1",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ]
+    },
+    {
+      "id": "rejection-055c84ac6b54513eaf04f96f",
+      "entityType": "capability",
+      "packageId": "sanur-01",
+      "venueSlug": "massimo-italian-restaurant",
+      "inputId": "a-massimo-italian-rest-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "umai"
+    },
+    {
+      "id": "rejection-179cbc645854d1b0501d5f38",
+      "entityType": "menu",
+      "packageId": "sanur-01",
+      "venueSlug": "massimo-italian-restaurant",
+      "inputId": "menu-massimo-italian-restaurant-v1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ]
+    },
+    {
+      "id": "rejection-8f83cb051cc58365a8d17797",
+      "entityType": "capability",
+      "packageId": "canggu-03",
+      "venueSlug": "miel-specialty-coffee-canggu",
+      "inputId": "action-miel-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-ab6d08ddb18aa59b20c4c77b",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "milk-and-madu-ubud",
+      "inputId": "action-milk-location",
+      "reasons": [
+        "conflicting_action_candidates"
+      ],
+      "canonicalKey": "milk-and-madu-ubud:website:official",
+      "conflictingUrls": [
+        "https://milkandmadu.com/location/",
+        "https://milkandmadu.com/wp-content/uploads/2026/04/milk-madu-breakfast-pages-2.pdf"
+      ]
+    },
+    {
+      "id": "rejection-a0e9ca27dbc35b78797b398e",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "milk-and-madu-ubud",
+      "inputId": "action-milk-menu",
+      "reasons": [
+        "conflicting_action_candidates"
+      ],
+      "canonicalKey": "milk-and-madu-ubud:website:official",
+      "conflictingUrls": [
+        "https://milkandmadu.com/location/",
+        "https://milkandmadu.com/wp-content/uploads/2026/04/milk-madu-breakfast-pages-2.pdf"
+      ]
+    },
+    {
+      "id": "rejection-69fba0c02afd10969b00cab3",
+      "entityType": "capability",
+      "packageId": "canggu-03",
+      "venueSlug": "milu-by-nook",
+      "inputId": "action-milu-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-4ff1fc9ad0771433d3da3d74",
+      "entityType": "capability",
+      "packageId": "canggu-03",
+      "venueSlug": "moana-fish-eatery",
+      "inputId": "action-moana-hub",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "website",
+      "rawProvider": "linktree"
+    },
+    {
+      "id": "rejection-02ef1b250cdc7611a692184c",
+      "entityType": "capability",
+      "packageId": "seminyak-02",
+      "venueSlug": "moonlite-kitchen-and-bar",
+      "inputId": "a-moonlite-kitchen-a-1",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-bface3efbd1eeec1d4e6dac1",
+      "entityType": "capability",
+      "packageId": "seminyak-02",
+      "venueSlug": "natys-restaurant-seminyak",
+      "inputId": "a-natys-restaurant-s-1",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-b2c1ad5e5b261f49d9ec71c5",
+      "entityType": "capability",
+      "packageId": "canggu-04a",
+      "venueSlug": "nude-berawa",
+      "inputId": "action-nude-berawa-reserve",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "sevenrooms"
+    },
+    {
+      "id": "rejection-6b10ba81d621fc4e2e1af6cf",
+      "entityType": "menu",
+      "packageId": "canggu-04a",
+      "venueSlug": "nude-berawa",
+      "inputId": "menu-0",
+      "reasons": [
+        "empty_menu_placeholder",
+        "source_outcome_not_candidate_eligible"
+      ]
+    },
+    {
+      "id": "rejection-df3177ea75d16e25d9e328ea",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "oma-jamu",
+      "inputId": "action-oma-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-182d7a51cb4c3407b37ee858",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-01",
+      "venueSlug": "oneeighty",
+      "inputId": "a-one-book",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-93f11cf028d5a2a82b0a31fa",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "onion-collective",
+      "inputId": "action-onion-map",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-bb00aaa9f3e99e36c370d6c4",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "onion-collective",
+      "inputId": "action-onion-site",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-ccb50fe4e3cd57491c9f69b5",
+      "entityType": "capability",
+      "packageId": "ubud-02",
+      "venueSlug": "onion-collective",
+      "inputId": "action-onion-whatsapp",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-f6352a5ad955dd00da8274c5",
+      "entityType": "menu",
+      "packageId": "ubud-02",
+      "venueSlug": "onion-collective",
+      "inputId": "menu-onion-collective-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    },
+    {
+      "id": "rejection-2be26b97cfb6ffaf24403939",
+      "entityType": "capability",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "piasan",
+      "inputId": "a-piasan-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "umai"
+    },
+    {
+      "id": "rejection-e2b394eb833b613a206e5405",
+      "entityType": "capability",
+      "packageId": "seminyak-03",
+      "venueSlug": "potato-head-beach-club",
+      "inputId": "a-potato-head-beach--1",
+      "reasons": [
+        "validation:official action URL must share the source host family"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "official_booking"
+    },
+    {
+      "id": "rejection-2c5d730b347a9ec5caa3f2b0",
+      "entityType": "capability",
+      "packageId": "seminyak-03",
+      "venueSlug": "poule-de-luxe-bali",
+      "inputId": "a-poule-de-luxe-bali-1",
+      "reasons": [
+        "ambiguous_order_kind"
+      ],
+      "rawKind": "order",
+      "rawProvider": "official_order"
+    },
+    {
+      "id": "rejection-b21ea2110498e959af6844c2",
+      "entityType": "menu",
+      "packageId": "sanur-02",
+      "venueSlug": "retro-kitchen-and-bar",
+      "inputId": "menu-retro-kitchen-and-bar-v1",
+      "reasons": [
+        "source_freshness_recheck_required"
+      ]
+    },
+    {
+      "id": "rejection-50e28051ae67e4f261db4d99",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "rise-and-shine-cafe",
+      "inputId": "action-rise-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-d495a7ee6d070452bcd19dc0",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "roots-pererenan",
+      "inputId": "action-roots-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-bdc756be1b1cc8ac71a4202b",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "ruko-cafe",
+      "inputId": "action-ruko-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-a39ca5ca48d8157c63e600e1",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "samadi-bali",
+      "inputId": "action-samadi-map",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-458bfd7efd8a7dc13594f186",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "samadi-bali",
+      "inputId": "action-samadi-site",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-720c9bbfd1daf2c9e0026104",
+      "entityType": "capability",
+      "packageId": "canggu-04b",
+      "venueSlug": "samadi-bali",
+      "inputId": "action-samadi-whatsapp",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-e74e160576b7fdbccfce0fce",
+      "entityType": "capability",
+      "packageId": "canggu-wave-1",
+      "venueSlug": "samesa-canggu",
+      "inputId": "action-samesa-canggu-reserve-02",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "hostinger_booking"
+    },
+    {
+      "id": "rejection-7b987d933d765cdaca7583b7",
+      "entityType": "capability",
+      "packageId": "seminyak-03",
+      "venueSlug": "sangsaka",
+      "inputId": "a-sangsaka-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "now_book_it"
+    },
+    {
+      "id": "rejection-fab47303cbcb8167cbbe15d4",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "satu-satu-coffee-company",
+      "inputId": "action-satusatu-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-b5f8acedd067f6abb346e15a",
+      "entityType": "capability",
+      "packageId": "ubud-03",
+      "venueSlug": "sawobali",
+      "inputId": "a-sawo-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-132ae4857b1a896be61fef1c",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "seed-bingin",
+      "inputId": "a-seed-book",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-7aa40cbb651ffc250203d401",
+      "entityType": "menu",
+      "packageId": "canggu-wave-1",
+      "venueSlug": "sensorium-bali",
+      "inputId": "menu-sensorium-bali-v1",
+      "reasons": [
+        "source_freshness_recheck_required",
+        "source_outcome_not_candidate_eligible"
+      ]
+    },
+    {
+      "id": "rejection-d1ac9b2874df3ffb4bbb767d",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "seseh-general-store",
+      "inputId": "action-seseh-store-whatsapp",
+      "reasons": [
+        "ambiguous_order_kind"
+      ],
+      "rawKind": "order",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-6bacb96324e4f381f0e1beee",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "skool-kitchen",
+      "inputId": "action-skool-reserve",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "weeloy"
+    },
+    {
+      "id": "rejection-a04ca855f31eed0777f2e838",
+      "entityType": "capability",
+      "packageId": "nusa-dua-01",
+      "venueSlug": "soleil-at-mulia",
+      "inputId": "a-soleil-at-mulia-1",
+      "reasons": [
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "eat_app"
+    },
+    {
+      "id": "rejection-bad13d1ee93faf2c80a93080",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "son-of-a-baker",
+      "inputId": "a-son-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-72af68c32fcbfacfc01684c6",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "suka-espresso",
+      "inputId": "a-suka-book",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "whatsform"
+    },
+    {
+      "id": "rejection-ba6385e6d8adc7d975ba3469",
+      "entityType": "capability",
+      "packageId": "ubud-03",
+      "venueSlug": "the-elephant",
+      "inputId": "a-ele-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-cdaf9d8d8c2f0aaa1e9766ff",
+      "entityType": "capability",
+      "packageId": "ubud-03",
+      "venueSlug": "the-elephant",
+      "inputId": "a-ele-wa",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-ac3cf38c68dbc942d0230ee1",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "the-lawn-canggu-beach-club",
+      "inputId": "action-lawn-reserve",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "weeloy"
+    },
+    {
+      "id": "rejection-e47183e78daf3b7f665ada18",
+      "entityType": "capability",
+      "packageId": "canggu-wave-1",
+      "venueSlug": "the-shady-shack",
+      "inputId": "action-the-shady-shack-reserve-02",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "umai"
+    },
+    {
+      "id": "rejection-b73c954541473d39db9e1751",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "touche-cafe-and-restaurant",
+      "inputId": "action-touche-hub",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "website",
+      "rawProvider": "linktree"
+    },
+    {
+      "id": "rejection-121607b9582b5e5068a3d9f4",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "tropical-nomad",
+      "inputId": "action-nomad-maps",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-9b4fde362776c4bf0e4c8de6",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "tropical-nomad",
+      "inputId": "action-nomad-site",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-caa7b78011314db4f58f5fe4",
+      "entityType": "capability",
+      "packageId": "canggu-05",
+      "venueSlug": "tropical-nomad",
+      "inputId": "action-nomad-whatsapp",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-8b248bad5c0e70ac3bb6ef98",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "ulu-artisan-ungasan",
+      "inputId": "a-art-book",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "sevenrooms"
+    },
+    {
+      "id": "rejection-39e9efc2351402873a76bcc7",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "ulu-artisan-ungasan",
+      "inputId": "a-art-map",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "directions",
+      "rawProvider": "google_maps"
+    },
+    {
+      "id": "rejection-d17cd27cf09b8f086731b150",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "ulu-artisan-ungasan",
+      "inputId": "a-art-page",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "website",
+      "rawProvider": "official_website"
+    },
+    {
+      "id": "rejection-6e11af8194bde2daf3294d64",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "ulu-artisan-ungasan",
+      "inputId": "a-art-wa",
+      "reasons": [
+        "source_outcome_not_candidate_eligible"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-7e6dd562cbce9dc213cbcc35",
+      "entityType": "capability",
+      "packageId": "uluwatu-bukit-02",
+      "venueSlug": "ulu-fishmarket",
+      "inputId": "a-ulu-book",
+      "reasons": [
+        "validation:url host is not approved for the canonical provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "chope"
+    },
+    {
+      "id": "rejection-9804489d5a986aacc35622cf",
+      "entityType": "menu",
+      "packageId": "uluwatu-bukit-03",
+      "venueSlug": "ulu-garden",
+      "inputId": "menu-ulu-garden-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    },
+    {
+      "id": "rejection-772d93e57212c29d4090c48b",
+      "entityType": "capability",
+      "packageId": "seminyak-03",
+      "venueSlug": "waroeng-bernadette",
+      "inputId": "a-waroeng-bernadette-1",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "reserve",
+      "rawProvider": "umai"
+    },
+    {
+      "id": "rejection-5af2b6a42ca545b485d08f19",
+      "entityType": "capability",
+      "packageId": "canggu-06",
+      "venueSlug": "warung-bu-mi",
+      "inputId": "action-warung-bumi-instagram",
+      "reasons": [
+        "unsupported_provider"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-6d902e14a1410676fae3f732",
+      "entityType": "menu",
+      "packageId": "canggu-06",
+      "venueSlug": "warung-bu-mi",
+      "inputId": "menu-warung-bumi-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    },
+    {
+      "id": "rejection-c8f99197890ad8b309337950",
+      "entityType": "capability",
+      "packageId": "ubud-03",
+      "venueSlug": "warung-mendez",
+      "inputId": "a-mendez-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-bf28445429665e295c648f4e",
+      "entityType": "capability",
+      "packageId": "seminyak-03",
+      "venueSlug": "warung-nia-balinese-food-and-pork-ribs",
+      "inputId": "a-warung-nia-balines-1",
+      "reasons": [
+        "venue_blocked"
+      ],
+      "rawKind": "whatsapp",
+      "rawProvider": "whatsapp"
+    },
+    {
+      "id": "rejection-37bd54e26937fe4329e96e69",
+      "entityType": "capability",
+      "packageId": "ubud-03",
+      "venueSlug": "warung-siam",
+      "inputId": "a-siam-social",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-279eea121e705098bf773c47",
+      "entityType": "menu",
+      "packageId": "uluwatu-bukit-03",
+      "venueSlug": "white-rock-beach-club",
+      "inputId": "menu-white-rock-beach-club-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    },
+    {
+      "id": "rejection-d68dd63a5f210d7deafcc546",
+      "entityType": "capability",
+      "packageId": "ubud-04",
+      "venueSlug": "wulan-vegetarian-warung",
+      "inputId": "action-wulan-instagram",
+      "reasons": [
+        "source_outcome_not_candidate_eligible",
+        "unsupported_provider",
+        "venue_blocked"
+      ],
+      "rawKind": "website",
+      "rawProvider": "instagram"
+    },
+    {
+      "id": "rejection-cbd90a6fb3136f0bd620516d",
+      "entityType": "menu",
+      "packageId": "uluwatu-bukit-03",
+      "venueSlug": "zali-uluwatu",
+      "inputId": "menu-zali-uluwatu-v1",
+      "reasons": [
+        "empty_menu_placeholder"
+      ]
+    }
+  ]
+}
