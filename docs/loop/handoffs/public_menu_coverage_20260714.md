@@ -58,8 +58,10 @@ menus.
 
 The application and reviewed source-snapshot migration are live in production.
 
-- Release commit: `eb74912` (`loop/06-public-menu-coverage`).
-- Vercel deployment: `dpl_55KpKbwnvS4GdxgPtLwq3T7oaWD5`.
+- Menu implementation commit: `eb74912`.
+- Final reconciled release commit: `35ac394`
+  (`loop/07-menu-content-reconciliation`).
+- Vercel deployment: `dpl_5H7tUbge6zaChcJRhzaTN3zdNFpc`.
 - Public alias: `https://www.otherbali.com`.
 - The SQL Editor confirmation row returned `ok=true`,
   `verified_full_menus=1`, `partial_source_snapshots=126` and
@@ -72,3 +74,6 @@ The application and reviewed source-snapshot migration are live in production.
   `noindex, follow` metadata.
 - The production sitemap contains `/menus` and the verified
   `/menus/kynd-community` detail only; no partial snapshot detail is indexed.
+- The final deployment also contains the concurrent content line through
+  `7e79ffa`, including the Nusa Penida, safety and island things-to-do guides.
+  This prevents either release line from replacing the other at the alias.

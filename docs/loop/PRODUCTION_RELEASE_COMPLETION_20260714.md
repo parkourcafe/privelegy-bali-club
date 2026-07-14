@@ -98,10 +98,12 @@ expiry.
 
 ## Public source-snapshot follow-on release
 
-Later on 2026-07-14, release commit `eb74912` was deployed as Vercel production
-deployment `dpl_55KpKbwnvS4GdxgPtLwq3T7oaWD5`. The reviewed migration exposed
-the 126 partial menu records through a separate `source_snapshot` state rather
-than mislabeling them as verified full menus.
+Later on 2026-07-14, menu implementation commit `eb74912` was reconciled with
+the concurrent content line through `7e79ffa`. Final release commit `35ac394`
+was deployed as Vercel production deployment
+`dpl_5H7tUbge6zaChcJRhzaTN3zdNFpc`. The reviewed migration exposed the 126
+partial menu records through a separate `source_snapshot` state rather than
+mislabeling them as verified full menus.
 
 The production confirmation row reported:
 
@@ -120,3 +122,9 @@ detail routes. All returned HTTP `200`; the 126 partial pages contained the
 selected-items warning, official-source link and `noindex, follow` metadata.
 Only `/menus/kynd-community`, the complete verified menu, is included as an
 indexable menu detail in the production sitemap.
+
+The combined release also preserves the Nusa Penida day-trip, Bali safety and
+island things-to-do guides from the concurrent production line. A transient
+content-only alias replacement was detected during the live audit and reversed;
+the final combined deployment then passed all 127 menu route checks plus HTTP
+`200` checks for those three guide routes.
