@@ -159,12 +159,20 @@ grant execute on function public.invite_roster() to service_role;
 
 do $$
 declare
-  v_before _other_bali_token_lockdown_before%rowtype;
+  -- Use scalar variables instead of the temporary table's row type. Supabase
+  -- SQL Editor parses a pasted multi-statement batch before executing the
+  -- CREATE TEMP TABLE statement, so a %rowtype reference fails there even
+  -- though the same file works when psql streams it statement-by-statement.
+  v_before_token_count bigint;
+  v_before_venue_count bigint;
+  v_before_token_digest text;
   v_after_count bigint;
   v_after_venues bigint;
   v_after_digest text;
 begin
-  select * into v_before from _other_bali_token_lockdown_before;
+  select token_count, venue_count, token_set_digest
+  into v_before_token_count, v_before_venue_count, v_before_token_digest
+  from _other_bali_token_lockdown_before;
 
   select
     count(*)::bigint,
@@ -173,12 +181,12 @@ begin
   into v_after_count, v_after_venues, v_after_digest
   from public.venue_onboard_tokens;
 
-  if v_after_count <> v_before.token_count
-     or v_after_venues <> v_before.venue_count then
+  if v_after_count <> v_before_token_count
+     or v_after_venues <> v_before_venue_count then
     raise exception 'Lockdown verification failed: token/venue counts changed';
   end if;
 
-  if v_after_digest = v_before.token_set_digest then
+  if v_after_digest = v_before_token_digest then
     raise exception 'Lockdown verification failed: token set did not rotate';
   end if;
 
