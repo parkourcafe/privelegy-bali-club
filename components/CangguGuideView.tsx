@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getCangguVenues, toCangguPlaceCard } from "@/lib/canggu";
 import { CANGGU_GUIDES, type CangguGuide } from "@/lib/canggu-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function CangguGuideView({ guide }: { guide: CangguGuide }) {
   const venues = (await getCangguVenues()).filter(guide.base);

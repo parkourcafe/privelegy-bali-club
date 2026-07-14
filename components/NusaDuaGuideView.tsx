@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getNusaDuaVenues, toNusaDuaPlaceCard } from "@/lib/nusa-dua";
 import { NUSA_DUA_GUIDES, type NusaDuaGuide } from "@/lib/nusa-dua-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide }) {
   const venues = (await getNusaDuaVenues()).filter(guide.base);

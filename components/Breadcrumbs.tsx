@@ -4,7 +4,7 @@ import Link from "next/link";
 // Server component — safe to use in any page. The last item is the current
 // page and is not a link.
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export interface Crumb {
   name: string;

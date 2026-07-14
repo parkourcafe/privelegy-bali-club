@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getJimbaranVenues, toJimbaranPlaceCard } from "@/lib/jimbaran";
 import { JIMBARAN_GUIDES, type JimbaranGuide } from "@/lib/jimbaran-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function JimbaranGuideView({ guide }: { guide: JimbaranGuide }) {
   const venues = (await getJimbaranVenues()).filter(guide.base);
