@@ -197,6 +197,87 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+    slug: "nusa-penida-day-trip",
+    eyebrow: "Nusa Penida day trip",
+    title: "Nusa Penida day trip from Bali: how to do it well",
+    description:
+      "How to visit Nusa Penida from Bali — the fast boat from Sanur, the west-coast loop (Kelingking, Angel's Billabong), the quieter east, snorkelling with mantas, and whether to day-trip or stay overnight.",
+    lede: "You can do Nusa Penida as a day trip from Bali — it's a 30–45 minute fast boat from Sanur — and most people do. The honest catch is that it's a long, rushed day on rough roads, so you realistically see one side of the island. If you can spare a night, staying over is the single biggest upgrade: you split the island east and west, and you get the big sights near-empty once the day-trippers leave.",
+    sections: [
+      {
+        heading: "Getting there: the fast boat from Sanur",
+        paras: [
+          "Sanur is the main gateway. Since late 2022 most boats leave from the government-built Sanur Harbour on Jl. Matahari Terbit — a proper terminal with indoor check-in and a dry pier, not the old wade-through-the-surf boarding. The crossing is roughly 30–45 minutes, and fast boats run frequently from early morning (around 6.30–7.30am) to a last boat around 5pm.",
+          "If you're staying in east Bali, Kusamba is an alternative departure point with a slightly shorter crossing. Book online ahead — especially the first morning boat and in peak season — and arrive at least 30 minutes before departure to swap your voucher for a boarding pass. Exact times vary by operator, so check your own boat's timetable.",
+        ],
+      },
+      {
+        heading: "Day trip or overnight?",
+        paras: [
+          "A day trip works, but be realistic: ferry check-in, waiting for your group, potholed roads that turn short distances into 40-minute drives, and photo queues at Kelingking all eat the clock. In one day you comfortably see one side of the island — usually the west.",
+          "An overnight changes the trip entirely. You cover the west one day and the east the other, fit in a snorkel, and — the real prize — reach the headline sites in the late afternoon and early morning, after the day boats have gone and before they arrive.",
+        ],
+      },
+      {
+        heading: "The west loop (the classic day)",
+        paras: [
+          "The west and south-west cluster is closest to the harbour and makes a natural single-day loop. Kelingking Beach is the famous \"T-Rex\" cliff — the viewpoint is a short walk, but the descent to the sand is steep, strenuous and optional, and swimming at the beach is forbidden because the currents are deadly.",
+          "Angel's Billabong is a natural infinity tidal pool that is only safe at low tide — never enter on a rising or high tide, as rogue waves have swept people out to sea here. Broken Beach (Pasih Uug) next door is a photogenic rock-arch cove, but a viewpoint rather than a swim. Crystal Bay is the calm, palm-lined west-side beach for a swim, a snorkel and the sunset.",
+        ],
+      },
+      {
+        heading: "The quieter east side",
+        paras: [
+          "The east is at least as beautiful as the west and far less crowded, which is why it's usually a separate day. Diamond Beach and neighbouring Atuh Beach are dramatic white-sand coves under east-facing cliffs, reached by steep carved stairways.",
+          "Nearby, the Thousand Islands viewpoint (Raja Lima) looks out over scattered islets and the famous cliffside tree house, and the rolling Teletubbies Hills are named for their resemblance to the children's show. The stairways down to the beaches are a real climb in the heat — do them earlier and carry water.",
+        ],
+      },
+      {
+        heading: "Snorkelling with manta rays",
+        paras: [
+          "Manta rays are a genuine headline draw, and snorkelling with them is a common half-day boat trip, usually stopping at three or four spots — Manta Point or Manta Bay, Crystal Bay and Gamat Bay among them, depending on the day's water. Mantas are present at the cleaning stations essentially year-round, so there's no strictly wrong season, though sightings are very likely rather than guaranteed.",
+          "Manta Point water is often colder and choppier than the calmer bays, so a rash guard helps and seasickness precautions are worth taking if you're prone.",
+        ],
+      },
+      {
+        heading: "Getting around the island",
+        paras: [
+          "The roads are genuinely rough in places — potholes, steep descents and sections barely wide enough for two vehicles — though some main routes have been resurfaced. There is no Grab, Gojek or taxi network on the island.",
+          "For most visitors the clear choice is a hired car with a driver or an organised tour, not a self-drive scooter day: the descents to beaches like Kelingking are steep enough to overwhelm scooter brakes. Arrange your driver or tour before you arrive, expect parking bottlenecks at Kelingking, and start at the far or less-crowded stop first to stay ahead of the crowd.",
+        ],
+      },
+      {
+        heading: "What to pack and know",
+        paras: [
+          "Wear proper closed shoes for the steep stairs and rocky terrain, and carry flip-flops for the beach. Bring plenty of cash — ATMs are few, often don't take foreign cards and frequently run empty, so withdraw on mainland Bali before you cross.",
+          "Pack high-SPF reef-safe sunscreen and water, start on the first morning boat to maximise daylight and beat the crowds, and take the water safety seriously: only enter Angel's Billabong at low tide, obey the no-swimming signs at Kelingking, and check ocean conditions before getting in anywhere. The channel crossing can be choppy, so bring motion-sickness medication if you're susceptible.",
+        ],
+      },
+      {
+        heading: "How long to spend",
+        paras: [
+          "One day is realistic for one side (usually the west) or a snorkel plus a couple of sights — doable but rushed. Two days with a night on the island is the sweet spot: west one day, east the other, with a snorkel fitted in and far fewer crowds.",
+          "Three or four days lets you add relaxed beach time and see everything without racing the ferry clock. If you can spare even one night, it converts a stressful car-bound day into two calm ones.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Can you do Nusa Penida as a day trip from Bali?", a: "Yes — it's a 30–45 minute fast boat from Sanur, and a day trip is what most people do. But it's a long, rushed day on rough roads, so you'll realistically see just one side (usually the west). An overnight lets you see both sides comfortably and avoid the crowds." },
+      { q: "How do you get to Nusa Penida?", a: "By fast boat, mainly from Sanur Harbour (about 30–45 minutes), with frequent departures from early morning to around 5pm. Kusamba, in east Bali, is an alternative with a slightly shorter crossing. Book ahead, especially the first morning boat." },
+      { q: "Is one day enough for Nusa Penida?", a: "For one side of the island, yes. Trying to combine the west (Kelingking, Angel's Billabong) and the east (Diamond, Atuh) in a single day means spending most of it in the car on rough roads. Pick one side, or stay a night." },
+      { q: "Can you swim at Nusa Penida's beaches?", a: "At some, not others. Swimming is forbidden at Kelingking (deadly currents), and Angel's Billabong is only safe to enter at low tide — never on a rising tide, where people have been swept out. Crystal Bay is the calm, swimmable west-side beach." },
+      { q: "Should you rent a scooter in Nusa Penida?", a: "Only if you're a confident, experienced rider — the roads are rough and the descents to the beaches are steep enough to overwhelm scooter brakes. For most visitors a hired driver or an organised tour is the safer, easier choice, and there's no Grab or taxi network on the island." },
+      { q: "Can you see manta rays in Nusa Penida?", a: "Yes — snorkelling with manta rays is a popular half-day boat trip, with mantas present at the cleaning stations essentially year-round. Sightings are very likely but never guaranteed." },
+      { q: "Do you need cash in Nusa Penida?", a: "Yes — bring plenty. ATMs are few, often don't accept foreign cards and frequently run empty, and most tours, rentals and eateries are cash-only. Withdraw on mainland Bali before you cross." },
+    ],
+    related: [
+      { href: "/sanur", title: "The Sanur guide", blurb: "The calm base and fast-boat gateway to the Nusa islands." },
+      { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
+      { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Water, roads and the practical safety basics." },
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Boats, drivers and apps between the sights." },
+    ],
+  },
+  {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
@@ -752,7 +833,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["things-to-do-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
+    slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
 ];
 
@@ -768,7 +849,7 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   ubud: ["ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
-  sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
+  sanur: ["nusa-penida-day-trip", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
   jimbaran: ["where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
