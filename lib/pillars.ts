@@ -45,6 +45,7 @@ export const PILLARS: Pillar[] = [
     name: "Ubud",
     tagline: "Jungle mornings, rice-terrace calm, long slow dinners.",
     children: [
+      { path: "/ubud/things-to-do", title: "Best things to do in Ubud" },
       { path: "/ubud/best-restaurants", title: "Best restaurants in Ubud" },
       { path: "/ubud/best-cafes-coffee", title: "Best cafés & coffee in Ubud" },
       { path: "/ubud/best-yoga-wellness", title: "Best yoga & wellness in Ubud" },
