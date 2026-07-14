@@ -5,7 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES, type UbudGuide } from "@/lib/ubud-guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
   const venues = (await getUbudVenues()).filter(guide.base);

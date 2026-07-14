@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${guide.h1} · Other Bali`,
     description: guide.metaDescription,
-    url: `https://otherbali.com/ubud/best-yoga-wellness`,
+    url: `https://www.otherbali.com/ubud/best-yoga-wellness`,
     type: "article",
   },
   twitter: { card: "summary_large_image", title: `${guide.h1} · Other Bali`, description: guide.metaDescription },

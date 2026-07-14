@@ -9,7 +9,7 @@ import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
 import { CANGGU_GUIDES } from "@/lib/canggu-guides";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Canggu guide — where to eat, work, reset and watch the sunset",
@@ -30,6 +30,36 @@ export const metadata: Metadata = {
   },
 };
 
+// The main areas of Canggu, north to south — names already used across our
+// venue data (migration 0031). Character is fit-context; positions are
+// established local geography.
+const CANGGU_AREAS: { label: string; character: string; bestFor: string }[] = [
+  {
+    label: "Batu Bolong",
+    character:
+      "The busy heart — the beach temple, the café-and-surf strip, and the tightest cluster of restaurants and bars. Walkable in patches, and the most congested.",
+    bestFor: "First-timers who want everything a short walk away.",
+  },
+  {
+    label: "Berawa",
+    character:
+      "The polished side: big beach clubs, gyms and health cafés, and a fast-developing dining scene. A little more spread out, scooter-friendly.",
+    bestFor: "Beach clubs, fitness and a livelier, upscale base.",
+  },
+  {
+    label: "Pererenan",
+    character:
+      "The quieter, greener neighbour just west — rice fields, a growing crop of good restaurants, and a calmer pace while staying close to the action.",
+    bestFor: "A calmer base that's still minutes from Batu Bolong.",
+  },
+  {
+    label: "Echo Beach & Canggu village",
+    character:
+      "The surf-and-sunset end (Batu Mejan/Echo) and the more local village core inland — warungs, board rental and a less polished feel.",
+    bestFor: "Surfers and a quieter, more local sunset base.",
+  },
+];
+
 const FAQ = [
   {
     q: "What is Canggu best for?",
@@ -41,7 +71,15 @@ const FAQ = [
   },
   {
     q: "Which area of Canggu should I stay in?",
-    a: "Berawa and Batu Bolong for cafés, beach clubs and walkable dinners; Echo Beach for a quieter surf-and-sunset base. The guides below sort places by decision so you can plan around wherever you land.",
+    a: "Batu Bolong for walk-everywhere convenience; Berawa for beach clubs and an upscale scene; Pererenan for a calmer, greener base; Echo Beach and the village for surf and a more local feel. The guides below sort places by decision so you can plan around wherever you land.",
+  },
+  {
+    q: "Is Canggu walkable, or do I need a scooter?",
+    a: "You can walk within an area — Batu Bolong especially — but getting between Berawa, Batu Bolong, Pererenan and Echo Beach means real traffic on narrow roads. Most people rent a scooter or use ride apps; leave extra time at sunset and on weekends.",
+  },
+  {
+    q: "Is Canggu good for families or for nightlife?",
+    a: "Both, in parts — Berawa's beach clubs and Canggu's bars run late for a night out, while the calmer Pererenan and village sides and daytime beach clubs suit families. It's less family-gentle than Sanur or Nusa Dua, and less of a party than the old Kuta scene.",
   },
 ];
 
@@ -100,6 +138,9 @@ export default async function CangguPillarPage() {
             choosing: where to eat, where to work, where to reset, where to watch the
             sun go down. Confirmed offers and table reservations are one tap away.
           </p>
+          <p className="guide-meta-line">
+            Editorial review: 2026-07-14 · researched, not sponsored · no paid ranking
+          </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link href="/plan" className="button-primary button-large">Plan your Canggu day</Link>
             <Link href="/places?district=canggu" className="button-secondary button-large">Browse all Canggu places</Link>
@@ -114,10 +155,87 @@ export default async function CangguPillarPage() {
           ))}
         </nav>
 
+        <section className="guide-section">
+          <h2>Who Canggu suits — and who it frustrates</h2>
+          <div className="guide-prose">
+            <p>
+              <strong>It suits</strong> surfers, remote workers and travellers who
+              want energy — café mornings, beach clubs, a deep dinner scene and a
+              sunset every night. It&apos;s the island&apos;s busiest hub, and the
+              easiest place to fill a day without planning one.
+            </p>
+            <p>
+              <strong>It frustrates</strong> anyone chasing calm or classic Bali:
+              the traffic between areas is real, the beaches are grey-sand surf
+              beaches rather than swimming postcards, and construction is constant.
+              For quiet, culture or gentle water, Ubud, Sanur or the Bukit fit
+              better.
+            </p>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>The areas: where to base</h2>
+          <p className="guide-lede">
+            Canggu is really several villages that have grown together — the area
+            you pick sets your whole day. From busiest to calmest:
+          </p>
+          <div className="compare-table-wrap">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Area</th>
+                  <th scope="col">Character</th>
+                  <th scope="col">Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                {CANGGU_AREAS.map((a) => (
+                  <tr key={a.label}>
+                    <th scope="row">{a.label}</th>
+                    <td>{a.character}</td>
+                    <td>{a.bestFor}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurants} href="/canggu/best-restaurants" />
         <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafes} href="/canggu/work-friendly-cafes" />
         <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spas} href="/canggu/best-spas" />
         <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunset} href="/canggu/beach-clubs-sunset" />
+
+        <section className="guide-section">
+          <h2>Practical notes (read before you plan)</h2>
+          <div className="guide-prose">
+            <ul>
+              <li>
+                <strong>Traffic is the tax.</strong> The narrow roads between
+                Berawa, Batu Bolong and Pererenan jam badly at sunset and on
+                weekends — build in extra time, or walk within one area.
+              </li>
+              <li>
+                <strong>The beach is for surf and sunset, not swimming.</strong>
+                Grey-sand beach breaks with rips; great for learning to surf and
+                for golden hour, less so for a calm dip.
+              </li>
+              <li>
+                <strong>Book the popular rooms and weekend sunsets.</strong> Where
+                you see a Reserve button, a table is one tap away; cafés and
+                warungs stay walk-in.
+              </li>
+              <li>
+                <strong>Mornings are for cafés and surf, afternoons for reset.</strong>
+                Beat the heat and the crowds early — see the{" "}
+                <Link href="/canggu/work-friendly-cafes" className="font-bold text-[var(--lagoon-strong)]">café</Link>,{" "}
+                <Link href="/canggu/best-warungs" className="font-bold text-[var(--lagoon-strong)]">warung</Link> and{" "}
+                <Link href="/canggu/best-spas" className="font-bold text-[var(--lagoon-strong)]">spa</Link> guides.
+              </li>
+            </ul>
+          </div>
+        </section>
 
         <FaqBlock items={FAQ} />
         <RelatedGuides
@@ -127,6 +245,19 @@ export default async function CangguPillarPage() {
             { href: "/plan", title: "Plan a Canggu day", blurb: "Build a day by the moment you're in." },
           ]}
         />
+
+        <div className="cta-band">
+          <h2>Plan your Canggu day</h2>
+          <p>
+            Surf or café in the morning, reset in the afternoon, a table or a
+            beach club for sunset — build it around the moment you&apos;re in, with
+            reservations a tap away.
+          </p>
+          <Link href="/plan" className="cta-band-action">
+            Build your Canggu day →
+          </Link>
+        </div>
+
         <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("canggu")} />
 
         <GuideFooter />

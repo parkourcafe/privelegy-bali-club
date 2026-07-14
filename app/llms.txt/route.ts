@@ -5,7 +5,7 @@ import { GUIDES } from "@/lib/guides";
 
 export const revalidate = 3600;
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 // llms.txt — a plain-text map of the site's canonical, machine-extractable
 // content for AI answer engines (AEO, docs/seo-strategy.md §4). Signpost, not a

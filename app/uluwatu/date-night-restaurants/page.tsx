@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Date-night restaurants in Uluwatu · Other Bali",
     description:
       "Quiet conversation, a view, or a kitchen worth the trip — the honest date-night taxonomy.",
-    url: "https://otherbali.com/uluwatu/date-night-restaurants",
+    url: "https://www.otherbali.com/uluwatu/date-night-restaurants",
     type: "article",
   },
   twitter: {

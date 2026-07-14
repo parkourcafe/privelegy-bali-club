@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "The Sanur guide · Other Bali",
     description:
       "Calm sunrise coast, a 5 km beach promenade, stay zones decoded, a hotel shortlist and easy things to do.",
-    url: "https://otherbali.com/sanur",
+    url: "https://www.otherbali.com/sanur",
     type: "article",
   },
   twitter: {
@@ -43,6 +43,15 @@ export const metadata: Metadata = {
 
 const previewHotels = SANUR_HOTELS.slice(0, 3);
 const previewThings = SANUR_THINGS_TO_DO.slice(0, 4);
+
+// Guide chips — quick nav to every Sanur child (mirrors the Seminyak pillar).
+const SANUR_CHIPS: { href: string; label: string }[] = [
+  { href: "/sanur/best-hotels", label: "Hotels" },
+  { href: "/sanur/things-to-do", label: "Things to do" },
+  { href: "/sanur/best-restaurants", label: "Restaurants" },
+  { href: "/sanur/cafes-and-bars", label: "Cafés & bars" },
+  { href: "/sanur/spas-wellness", label: "Spas & wellness" },
+];
 
 function VenuePicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
   if (venues.length === 0) return null;
@@ -98,6 +107,14 @@ export default async function SanurPillarPage() {
             no paid ranking
           </p>
         </header>
+
+        <nav className="mt-6 flex flex-wrap gap-2" aria-label="Sanur guides">
+          {SANUR_CHIPS.map((c) => (
+            <Link key={c.href} href={c.href} className="chip">
+              {c.label}
+            </Link>
+          ))}
+        </nav>
 
         <section className="guide-section">
           <h2>Who Sanur suits — and who it frustrates</h2>

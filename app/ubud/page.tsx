@@ -7,9 +7,12 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { guidesForDistrict } from "@/lib/guides";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES } from "@/lib/ubud-guides";
+import { UBUD_REVIEW_DATE, UBUD_THINGS_TO_DO, UBUD_ZONES } from "@/lib/ubud-things";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
+
+const previewThings = UBUD_THINGS_TO_DO.slice(0, 4);
 
 export const metadata: Metadata = {
   title: "Ubud guide — where to eat, drink coffee and slow down",
@@ -36,11 +39,19 @@ const FAQ = [
   },
   {
     q: "Is Ubud walkable?",
-    a: "The centre is walkable-ish, but sights and cafés spread into the surrounding villages and rice fields — a scooter or driver helps for anything beyond the core.",
+    a: "Central Ubud is genuinely walkable — the Palace, market, Monkey Forest and much of the food are within about a 10-minute walk. Beyond the core, sights and cafés spread into the surrounding villages and rice fields, so a scooter or driver helps.",
   },
   {
     q: "How long should I spend in Ubud?",
-    a: "Two to three days covers the food, a walk or two and a temple or market at an unhurried pace. Longer if you're here to slow down properly.",
+    a: "Two to three days covers the food, a walk or two and a temple or market at an unhurried pace. Longer if you're here to slow down properly — see our 2–3 day itinerary.",
+  },
+  {
+    q: "Which part of Ubud should I stay in?",
+    a: "Central Ubud for walk-everywhere convenience (and the most noise); Nyuh Kuning or Penestanan for calm within walking reach; Sanggingan/Campuhan for art and ridge scenery; and the Sayan/Payangan river valleys for secluded jungle-resort luxury you'll drive to town from.",
+  },
+  {
+    q: "Is Ubud good for beaches?",
+    a: "No — Ubud is inland, in the central highlands, roughly an hour or more from the coast. Come for rice fields, jungle, culture and wellness; pair it with a beach district like Canggu or Sanur if you want both.",
   },
 ];
 
@@ -98,6 +109,9 @@ export default async function UbudPillarPage() {
             where to eat, where to drink coffee, and where to practise yoga, be
             worked on and reset — curated from places we actually rate.
           </p>
+          <p className="guide-meta-line">
+            Editorial review: {UBUD_REVIEW_DATE} · researched, not sponsored · no paid ranking
+          </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link href="/places?district=ubud" className="button-secondary button-large">Browse all Ubud places</Link>
           </div>
@@ -117,18 +131,134 @@ export default async function UbudPillarPage() {
           ))}
         </nav>
 
+        <section className="guide-section">
+          <h2>Who Ubud suits — and who it frustrates</h2>
+          <div className="guide-prose">
+            <p>
+              <strong>It suits</strong> travellers here for culture, calm and
+              wellness — rice-terrace walks, yoga and long healthy dinners — plus
+              anyone who wants a green, inland base and doesn&apos;t mind that the
+              beach is an hour or more away.
+            </p>
+            <p>
+              <strong>It frustrates</strong> people who came for the coast: there
+              is no beach, no surf and no sunset-on-the-sand, and the busy central
+              loop jams with traffic in the evenings. For beaches and nightlife,
+              base on the west or south coast and treat Ubud as a few slow days.
+            </p>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>Where to stay: the zones</h2>
+          <p className="guide-lede">
+            Ubud makes more sense sorted by neighbourhood than by star rating —
+            pick the zone for the pace you want, the hotel second.
+          </p>
+          <div className="compare-table-wrap">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Zone</th>
+                  <th scope="col">Character</th>
+                  <th scope="col">Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                {UBUD_ZONES.map((z) => (
+                  <tr key={z.label}>
+                    <th scope="row">{z.label}</th>
+                    <td>{z.character}</td>
+                    <td>{z.bestFor}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>Best things to do</h2>
+          <p className="guide-lede">
+            The ridge walk, the Monkey Forest, rice terraces, temples and markets —
+            an unhurried mix of culture and green.{" "}
+            <Link href="/ubud/things-to-do" className="font-bold text-[var(--lagoon-strong)]">
+              The full things-to-do guide →
+            </Link>{" "}
+            or follow the{" "}
+            <Link href="/ubud/itinerary" className="font-bold text-[var(--lagoon-strong)]">
+              2–3 day itinerary →
+            </Link>
+          </p>
+          <ul className="guide-prose">
+            {previewThings.map((t) => (
+              <li key={t.title}>
+                <strong>{t.title}.</strong> {t.blurb}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <TopPicks title="Best restaurants" note="Long slow dinners and healthy plates." venues={restaurants} href="/ubud/best-restaurants" />
         <TopPicks title="Cafés & coffee" note="Serious coffee and calm mornings." venues={cafes} href="/ubud/best-cafes-coffee" />
         <TopPicks title="Yoga & wellness" note="Studios, spas, sound and retreats — Ubud's signature." venues={wellness} href="/ubud/best-yoga-wellness" />
 
+        <section className="guide-section">
+          <h2>Practical notes (read before you plan)</h2>
+          <div className="guide-prose">
+            <ul>
+              <li>
+                <strong>It&apos;s inland — no beach.</strong> Ubud sits in the
+                central highlands, roughly an hour or more from the coast. Come for
+                rice fields, jungle and culture; pair it with a beach base if you
+                want both.
+              </li>
+              <li>
+                <strong>Walk the centre, drive the rest.</strong> Central Ubud is
+                genuinely walkable, but the ridge walks, rice terraces and waterfalls
+                spread out — a scooter or a half-day driver opens them up.
+              </li>
+              <li>
+                <strong>Go early for the big sights.</strong> The Monkey Forest,
+                Campuhan Ridge and Tegallalang are best at opening or late
+                afternoon — cooler, quieter and better light than midday.
+              </li>
+              <li>
+                <strong>Two to three days is the sweet spot.</strong> Enough for
+                the food, a walk or two and a temple or market without rushing —
+                follow the{" "}
+                <Link href="/ubud/itinerary" className="font-bold text-[var(--lagoon-strong)]">2–3 day itinerary</Link>.
+              </li>
+              <li>
+                <strong>Dress for temples.</strong> A sarong and covered shoulders
+                are required at the temples and expected at the palace performances.
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <FaqBlock items={FAQ} />
         <RelatedGuides
           links={[
+            { href: "/ubud/itinerary", title: "2 to 3 days in Ubud", blurb: "A slow, well-paced route through the highlights." },
             { href: "/canggu", title: "The Canggu guide", blurb: "Surf, cafés and a deep dinner scene." },
             { href: "/bali-retreat-reset", title: "A Bali reset", blurb: "A calmer week for your nervous system." },
             { href: "/places", title: "All Bali places", blurb: "The full curated map by district." },
           ]}
         />
+
+        <div className="cta-band">
+          <h2>Use Ubud to slow down</h2>
+          <p>
+            Green mornings, a walk before the heat, a long healthy dinner, and a
+            temple or market at an unhurried pace. Pick the zone for the pace you
+            want, then plan the days.
+          </p>
+          <Link href="/ubud/itinerary" className="cta-band-action">
+            See the 2–3 day itinerary →
+          </Link>
+        </div>
+
         <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("ubud")} />
 
         <GuideFooter />

@@ -8,7 +8,7 @@ import type { DistrictHub, IntentSpoke } from "./data";
 import type { VenueWithPerk } from "./data";
 import { DISTRICT_GUIDE } from "./districts";
 
-export const SITE_ORIGIN = "https://otherbali.com";
+export const SITE_ORIGIN = "https://www.otherbali.com";
 
 // Plural section labels. Ordered so the highest-intent food/drink sections lead.
 export const HUB_CATEGORY_LABEL: Record<string, string> = {

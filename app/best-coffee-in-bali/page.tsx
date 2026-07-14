@@ -7,7 +7,7 @@ import { getGuide, guideMetadata } from "@/lib/guides";
 
 export const dynamic = "force-dynamic";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const guide = getGuide("best-coffee-in-bali")!;
 export const metadata = guideMetadata(guide);
 

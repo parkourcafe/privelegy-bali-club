@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 // Search intent: "ubud itinerary / 2 days in ubud / 3 days in ubud / ubud
 // 2 day plan". A realistic sequenced plan that leans on the things-to-do sights

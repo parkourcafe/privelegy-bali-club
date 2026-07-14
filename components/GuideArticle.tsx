@@ -3,7 +3,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import type { Guide } from "@/lib/guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 // Generic renderer for the long-form editorial guides that follow the standard
 // structure (docs/content-style.md): answer-first lede, scannable sections,

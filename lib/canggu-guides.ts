@@ -45,6 +45,26 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     ],
   },
   {
+    slug: "best-warungs",
+    h1: "Best warungs & local food in Canggu",
+    metaTitle: "Best warungs in Canggu — cheap, authentic local food",
+    metaDescription:
+      "Where to eat cheap, authentic local food in Canggu: the nasi campur warungs and babi guling stalls worth seeking out, from Batu Bolong to Pererenan.",
+    lede: "Beyond the brunch cafés, Canggu has honest, cheap warungs and babi guling stalls doing real Balinese and Indonesian food. These are the local plates we send people to, sorted by what you're after.",
+    // Catches local warungs, including those keyed as `restaurant` by name
+    // (Warung Bu Mi, Warung Nonii), without a destructive re-category migration.
+    base: (v) => v.category === "warung" || /\bwarung\b/i.test(v.name),
+    groups: [
+      { key: "nasi", heading: "Nasi campur & local plates", note: "Point-and-pick mixed rice and home-style Indonesian, cheap and generous.", match: (v) => !/babi/i.test(v.name) },
+      { key: "babi", heading: "Babi guling & roast pork", note: "Balinese suckling pig with rice, crackling and sambal.", match: (v) => /babi/i.test(v.name) },
+    ],
+    faq: [
+      { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food — nasi campur, satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
+      { q: "Where do you eat cheap local food in Canggu?", a: "At the warungs and babi guling stalls above — clustered around Batu Bolong, Pererenan and Padang Linjong. Nasi campur (build-your-own mixed rice) is the everyday plate; babi guling is the Balinese roast-pork specialty." },
+      { q: "What is babi guling?", a: "Babi guling is Balinese roast suckling pig, served with rice, crispy crackling, lawar and sambal. It's a local celebration dish and a hearty, affordable warung plate." },
+    ],
+  },
+  {
     slug: "best-restaurants",
     h1: "Best restaurants in Canggu",
     metaTitle: "Best restaurants in Canggu — sorted by the dinner you're planning",

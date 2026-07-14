@@ -71,6 +71,8 @@ export default function PlanView({
           return (
             <button
               key={m.slug}
+              type="button"
+              aria-pressed={on}
               onClick={() => setMomentSlug(on ? null : m.slug)}
               className={`moment-card ${on ? "moment-card-active" : ""}`}
             >
@@ -149,6 +151,8 @@ function Chips({
         return (
           <button
             key={o}
+            type="button"
+            aria-pressed={on}
             onClick={() => onSelect(on ? null : o)}
             className={`chip ${on ? "chip-active" : ""}`}
           >

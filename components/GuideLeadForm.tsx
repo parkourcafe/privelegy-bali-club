@@ -107,7 +107,7 @@ export default function GuideLeadForm() {
   }
 
   const waShare = `https://wa.me/?text=${encodeURIComponent(
-    "48 hours in Uluwatu — the Other Bali guide: https://otherbali.com/uluwatu/48-hours"
+    "48 hours in Uluwatu — the Other Bali guide: https://www.otherbali.com/uluwatu/48-hours"
   )}`;
 
   if (status.kind === "success") {

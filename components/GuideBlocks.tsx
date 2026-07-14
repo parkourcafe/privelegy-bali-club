@@ -8,7 +8,7 @@ import { getPublishedVenues } from "@/lib/data";
 // Server components; JSON-LD is emitted only for content visibly rendered on
 // the page (brief §15 — no FAQ schema for invisible content).
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const publicVenueSlugs = cache(async () =>
   new Set((await getPublishedVenues()).map((venue) => venue.slug))
 );

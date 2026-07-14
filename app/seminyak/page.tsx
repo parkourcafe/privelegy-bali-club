@@ -9,7 +9,7 @@ import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Seminyak guide — where to eat, drink at sunset and be looked after",

@@ -43,6 +43,8 @@ export interface Guide {
 
 const PILLAR_LINKS: GuideRelated[] = [
   { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "Which of the five first-timer areas fits your trip." },
+  { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
+  { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "An honest, practical safety guide — scooters, sea, scams." },
   { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
   { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
   { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
@@ -88,7 +90,193 @@ export const GUIDES: Guide[] = [
     description:
       "The best sunset spots in Bali by area — Uluwatu's clifftop bars, the Seminyak and Canggu beach clubs, and calm-bay options in the south. Where to be at golden hour.",
   },
+  {
+    // Bespoke, data-driven route (app/best-warungs-in-bali) — metadata only.
+    slug: "best-warungs-in-bali",
+    title: "The best warungs & local food in Bali",
+    description:
+      "Where to eat cheap, authentic local food in Bali — the warungs and babi guling stalls we rate, district by district, from Canggu and Ubud to the south.",
+  },
+  {
+    // Bespoke hub route (app/things-to-do-in-bali) — metadata only.
+    slug: "things-to-do-in-bali",
+    title: "Best things to do in Bali",
+    description:
+      "The best things to do in Bali, sorted by what you want: the island icons (temples, volcanoes, waterfalls and Nusa Penida) and what to do in each area, from Ubud's rice terraces to Uluwatu's cliffs.",
+  },
 
+  {
+    slug: "is-bali-safe",
+    eyebrow: "Is Bali safe?",
+    title: "Is Bali safe? An honest, practical safety guide",
+    description:
+      "Yes — Bali is broadly safe for tourists. The real risks are mundane and preventable: scooters, rip currents, stomach bugs and petty scams. Here's how to handle each.",
+    lede: "Yes — Bali is broadly safe for mainstream travel, and no major government rates it a danger zone. The honest picture is that the real risks are ordinary and largely preventable — rented scooters, rip currents, stomach bugs, dodgy drinks and petty scams — not terrorism or violent crime. Handle those few things well and Bali is as safe as most popular holiday destinations.",
+    sections: [
+      {
+        heading: "The biggest real risk: scooters and roads",
+        paras: [
+          "Traffic accidents — overwhelmingly on rented scooters — are the number-one cause of tourist injury and death in Bali. This is the risk to take seriously, not crime.",
+          "You legally need your home licence plus an International Driving Permit that carries the motorcycle (Class A) endorsement — a car-only IDP doesn't cover even a 110cc scooter. Helmets are mandatory. Critically, most travel-insurance policies void your medical cover if you ride without the correct licence or a helmet, which can leave you personally liable for a very large hospital bill.",
+          "Get the motorcycle-endorsed IDP before you fly, always wear the helmet, and confirm in writing that your insurer covers motorbikes. If you're not a confident rider, use Grab, Gojek or a private driver instead — it's cheap and removes the single biggest danger.",
+        ],
+      },
+      {
+        heading: "The sea: rip currents and which beaches are calm",
+        paras: [
+          "Bali's west and south coasts — Kuta, Legian, Echo Beach and the Uluwatu stretch — have year-round surf and permanent rip currents that catch swimmers every year, often at unpatrolled beaches. Calmer, family-friendly swimming is on the east and south-east: Sanur, Nusa Dua's protected bay, and Jimbaran Bay.",
+          "Patrolled beaches use Balawista lifeguards and a flag system: swim only between the red-and-yellow flags, and never when a red flag is flying. If you're caught in a rip, don't fight it — stay calm, float, and swim parallel to the beach to escape the channel before heading in.",
+        ],
+      },
+      {
+        heading: "Staying healthy: stomach, rabies and mosquitoes",
+        paras: [
+          "\"Bali belly\" — traveller's diarrhoea — is the most common traveller ailment, usually from tap water, ice or undercooked food. Bali tap water isn't safe to drink: use sealed bottled or filtered water (including for brushing teeth), skip ice unless you know it's from purified water, and favour freshly cooked, hot, busy-kitchen food.",
+          "Rabies is present in Bali, carried mainly by stray dogs; the monkeys at Ubud's Monkey Forest and Uluwatu Temple also bite and scratch. Don't touch or feed stray animals. A bite or scratch is a time-critical emergency — wash it with soap under running water for about 15 minutes and get to a clinic (BIMC, Siloam) the same day for post-exposure treatment, which works well when started promptly.",
+          "Dengue fever is endemic, worst in the rainy season, and its mosquitoes bite by day — use a DEET or picaridin repellent and cover up at dawn and dusk. Malaria is essentially not a risk in Bali's tourist areas, so antimalarial tablets aren't normally recommended for a standard Bali trip.",
+        ],
+      },
+      {
+        heading: "Drinks: the one methanol rule",
+        paras: [
+          "This is a documented, occasionally fatal risk rather than a myth: bootleg local spirits (arak) and very cheap \"free-pour\" cocktails have been contaminated with methanol, which can blind or kill, and there have been tourist deaths on record.",
+          "The rule is simple: stick to sealed, reputable-brand bottles and cans with intact seals, and be wary of unusually cheap cocktails, free arak shots and drinks from unlicensed sellers. Severe next-day illness or blurred vision after drinking warrants immediate hospital care.",
+        ],
+      },
+      {
+        heading: "Scams and petty theft",
+        paras: [
+          "Crime against tourists is mostly petty and opportunistic, not violent. The usual scams: money-changers short-changing you (use authorised changers with a posted licence, not \"amazing rate\" street booths, and count the cash yourself before leaving); ATM skimming (use machines inside bank branches); bag-snatching by passing scooters (carry bags on the side away from the road); and inflated taxi fares (use the Grab or Gojek apps, or metered Bluebird).",
+          "The classic scooter-rental trick is an invented \"damage\" claim on return. Before you ride off, film a slow, narrated video of every panel, mirror and the seat compartment — it ends the argument instantly.",
+        ],
+      },
+      {
+        heading: "Natural hazards: volcanoes and earthquakes",
+        paras: [
+          "Bali sits on the Ring of Fire, so earthquakes and volcanic activity are routine and tsunami risk is low but real (coastal areas have evacuation signage). Bali's own Mount Agung has been calm recently, but volcanoes elsewhere in the region periodically send ash over the flight paths and cancel Bali flights — which is a safety measure, not an over-reaction.",
+          "Volcano status changes fast, so check the live alert level on Indonesia's official MAGMA Indonesia service before you travel, and build a buffer day into tight flight connections during any eruption period.",
+        ],
+      },
+      {
+        heading: "Solo and female travellers",
+        paras: [
+          "Bali is a very popular and generally safe destination for solo and female travellers with standard precautions. The honest caveats: reports of sexual assault are relatively high in Bali and Lombok, and drink-spiking has been reported around nightlife — so vigilance at bars and clubs matters.",
+          "Watch your drink being made or choose sealed bottles, never leave it unattended, avoid solo scooter rides on unlit roads late at night, and dress modestly at temples. These are the same precautions you'd take in any busy nightlife destination.",
+        ],
+      },
+      {
+        heading: "Laws worth knowing",
+        paras: [
+          "Drugs are genuinely zero-tolerance: Indonesia imposes long prison terms for even small amounts, and serious trafficking can carry life imprisonment or the death penalty, with no exemption for foreigners. Decline entirely — nothing is worth the risk.",
+          "Indonesia's new criminal code (in force from January 2026) was widely misreported. It technically restricts sex outside marriage and unmarried cohabitation, but these are complaint-based offences that can only be acted on if a close family member files a formal complaint, and the government has confirmed there are no marital-status checks at hotels. Ordinary couples sharing a room are not the target.",
+          "Temple etiquette is taken seriously: wear a sarong, cover shoulders and knees, and don't climb sacred structures. Sarongs are usually provided at temple entrances.",
+        ],
+      },
+      {
+        heading: "If something goes wrong",
+        paras: [
+          "Indonesia's emergency number is 112. Bali has good private hospitals used to foreign patients — BIMC and Siloam — but treatment, and especially medical evacuation, are expensive without cover: an evacuation can run into tens of thousands of dollars.",
+          "This is why comprehensive travel insurance is non-negotiable. Buy a policy that explicitly covers scooter use (with a valid licence) and medical evacuation with a high limit, and save your insurer's 24-hour assistance line and the hospital numbers in your phone before you need them.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Bali safe for tourists right now?", a: "Broadly, yes. Major government advisories keep Indonesia in the middle \"exercise increased/high caution\" band — the same as many popular destinations — rather than a \"do not travel\" rating, and Bali specifically has no blanket warning. Check your own government's page and any live volcano status the week you fly." },
+      { q: "What is the biggest danger in Bali?", a: "Rented scooters. Traffic accidents are by far the leading cause of tourist injury, and riding without the correct motorcycle licence can also void your travel insurance. Wear a helmet, carry a motorcycle-endorsed IDP, or use a driver." },
+      { q: "Is Bali safe for solo female travellers?", a: "Yes, it's a popular and generally safe solo destination with standard precautions. Be alert around nightlife (drink-spiking has been reported), avoid solo night scooter rides on dark roads, and dress modestly at temples." },
+      { q: "Can you drink the tap water in Bali?", a: "No — tap water isn't safe to drink. Use sealed bottled or filtered water (including for brushing teeth), avoid ice of uncertain source, and eat freshly cooked hot food to avoid \"Bali belly.\"" },
+      { q: "Do I need malaria tablets for Bali?", a: "Not for a standard Bali trip — the tourist areas are considered malaria-free. Dengue is present, though, so focus on daytime mosquito-bite prevention with repellent and covering up at dawn and dusk." },
+      { q: "Do Indonesia's new sex laws affect tourists?", a: "In practice, no. The 2026 criminal code's cohabitation and extramarital-sex provisions are complaint-based — only actionable if a close family member formally complains — and officials have confirmed there are no marital-status checks at hotels. Ordinary couples sharing a room are not the target." },
+      { q: "Is it safe to swim at Bali's beaches?", a: "It depends on the beach. The west and south coasts (Kuta, Canggu, Uluwatu) have strong rip currents; Sanur, Nusa Dua and Jimbaran Bay are calm and swimmable. Swim between the red-and-yellow flags and never under a red flag." },
+    ],
+    related: [
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Scooters, drivers and apps — and how to do it safely." },
+      { href: "/best-time-to-visit-bali", title: "Best time to visit Bali", blurb: "Seasons, weather and when to go." },
+      { href: "/first-time-in-bali", title: "First time in Bali", blurb: "Your first trip without the rookie mistakes." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "The five first-timer areas, compared." },
+    ],
+  },
+  {
+    slug: "nusa-penida-day-trip",
+    eyebrow: "Nusa Penida day trip",
+    title: "Nusa Penida day trip from Bali: how to do it well",
+    description:
+      "How to visit Nusa Penida from Bali — the fast boat from Sanur, the west-coast loop (Kelingking, Angel's Billabong), the quieter east, snorkelling with mantas, and whether to day-trip or stay overnight.",
+    lede: "You can do Nusa Penida as a day trip from Bali — it's a 30–45 minute fast boat from Sanur — and most people do. The honest catch is that it's a long, rushed day on rough roads, so you realistically see one side of the island. If you can spare a night, staying over is the single biggest upgrade: you split the island east and west, and you get the big sights near-empty once the day-trippers leave.",
+    sections: [
+      {
+        heading: "Getting there: the fast boat from Sanur",
+        paras: [
+          "Sanur is the main gateway. Since late 2022 most boats leave from the government-built Sanur Harbour on Jl. Matahari Terbit — a proper terminal with indoor check-in and a dry pier, not the old wade-through-the-surf boarding. The crossing is roughly 30–45 minutes, and fast boats run frequently from early morning (around 6.30–7.30am) to a last boat around 5pm.",
+          "If you're staying in east Bali, Kusamba is an alternative departure point with a slightly shorter crossing. Book online ahead — especially the first morning boat and in peak season — and arrive at least 30 minutes before departure to swap your voucher for a boarding pass. Exact times vary by operator, so check your own boat's timetable.",
+        ],
+      },
+      {
+        heading: "Day trip or overnight?",
+        paras: [
+          "A day trip works, but be realistic: ferry check-in, waiting for your group, potholed roads that turn short distances into 40-minute drives, and photo queues at Kelingking all eat the clock. In one day you comfortably see one side of the island — usually the west.",
+          "An overnight changes the trip entirely. You cover the west one day and the east the other, fit in a snorkel, and — the real prize — reach the headline sites in the late afternoon and early morning, after the day boats have gone and before they arrive.",
+        ],
+      },
+      {
+        heading: "The west loop (the classic day)",
+        paras: [
+          "The west and south-west cluster is closest to the harbour and makes a natural single-day loop. Kelingking Beach is the famous \"T-Rex\" cliff — the viewpoint is a short walk, but the descent to the sand is steep, strenuous and optional, and swimming at the beach is forbidden because the currents are deadly.",
+          "Angel's Billabong is a natural infinity tidal pool that is only safe at low tide — never enter on a rising or high tide, as rogue waves have swept people out to sea here. Broken Beach (Pasih Uug) next door is a photogenic rock-arch cove, but a viewpoint rather than a swim. Crystal Bay is the calm, palm-lined west-side beach for a swim, a snorkel and the sunset.",
+        ],
+      },
+      {
+        heading: "The quieter east side",
+        paras: [
+          "The east is at least as beautiful as the west and far less crowded, which is why it's usually a separate day. Diamond Beach and neighbouring Atuh Beach are dramatic white-sand coves under east-facing cliffs, reached by steep carved stairways.",
+          "Nearby, the Thousand Islands viewpoint (Raja Lima) looks out over scattered islets and the famous cliffside tree house, and the rolling Teletubbies Hills are named for their resemblance to the children's show. The stairways down to the beaches are a real climb in the heat — do them earlier and carry water.",
+        ],
+      },
+      {
+        heading: "Snorkelling with manta rays",
+        paras: [
+          "Manta rays are a genuine headline draw, and snorkelling with them is a common half-day boat trip, usually stopping at three or four spots — Manta Point or Manta Bay, Crystal Bay and Gamat Bay among them, depending on the day's water. Mantas are present at the cleaning stations essentially year-round, so there's no strictly wrong season, though sightings are very likely rather than guaranteed.",
+          "Manta Point water is often colder and choppier than the calmer bays, so a rash guard helps and seasickness precautions are worth taking if you're prone.",
+        ],
+      },
+      {
+        heading: "Getting around the island",
+        paras: [
+          "The roads are genuinely rough in places — potholes, steep descents and sections barely wide enough for two vehicles — though some main routes have been resurfaced. There is no Grab, Gojek or taxi network on the island.",
+          "For most visitors the clear choice is a hired car with a driver or an organised tour, not a self-drive scooter day: the descents to beaches like Kelingking are steep enough to overwhelm scooter brakes. Arrange your driver or tour before you arrive, expect parking bottlenecks at Kelingking, and start at the far or less-crowded stop first to stay ahead of the crowd.",
+        ],
+      },
+      {
+        heading: "What to pack and know",
+        paras: [
+          "Wear proper closed shoes for the steep stairs and rocky terrain, and carry flip-flops for the beach. Bring plenty of cash — ATMs are few, often don't take foreign cards and frequently run empty, so withdraw on mainland Bali before you cross.",
+          "Pack high-SPF reef-safe sunscreen and water, start on the first morning boat to maximise daylight and beat the crowds, and take the water safety seriously: only enter Angel's Billabong at low tide, obey the no-swimming signs at Kelingking, and check ocean conditions before getting in anywhere. The channel crossing can be choppy, so bring motion-sickness medication if you're susceptible.",
+        ],
+      },
+      {
+        heading: "How long to spend",
+        paras: [
+          "One day is realistic for one side (usually the west) or a snorkel plus a couple of sights — doable but rushed. Two days with a night on the island is the sweet spot: west one day, east the other, with a snorkel fitted in and far fewer crowds.",
+          "Three or four days lets you add relaxed beach time and see everything without racing the ferry clock. If you can spare even one night, it converts a stressful car-bound day into two calm ones.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Can you do Nusa Penida as a day trip from Bali?", a: "Yes — it's a 30–45 minute fast boat from Sanur, and a day trip is what most people do. But it's a long, rushed day on rough roads, so you'll realistically see just one side (usually the west). An overnight lets you see both sides comfortably and avoid the crowds." },
+      { q: "How do you get to Nusa Penida?", a: "By fast boat, mainly from Sanur Harbour (about 30–45 minutes), with frequent departures from early morning to around 5pm. Kusamba, in east Bali, is an alternative with a slightly shorter crossing. Book ahead, especially the first morning boat." },
+      { q: "Is one day enough for Nusa Penida?", a: "For one side of the island, yes. Trying to combine the west (Kelingking, Angel's Billabong) and the east (Diamond, Atuh) in a single day means spending most of it in the car on rough roads. Pick one side, or stay a night." },
+      { q: "Can you swim at Nusa Penida's beaches?", a: "At some, not others. Swimming is forbidden at Kelingking (deadly currents), and Angel's Billabong is only safe to enter at low tide — never on a rising tide, where people have been swept out. Crystal Bay is the calm, swimmable west-side beach." },
+      { q: "Should you rent a scooter in Nusa Penida?", a: "Only if you're a confident, experienced rider — the roads are rough and the descents to the beaches are steep enough to overwhelm scooter brakes. For most visitors a hired driver or an organised tour is the safer, easier choice, and there's no Grab or taxi network on the island." },
+      { q: "Can you see manta rays in Nusa Penida?", a: "Yes — snorkelling with manta rays is a popular half-day boat trip, with mantas present at the cleaning stations essentially year-round. Sightings are very likely but never guaranteed." },
+      { q: "Do you need cash in Nusa Penida?", a: "Yes — bring plenty. ATMs are few, often don't accept foreign cards and frequently run empty, and most tours, rentals and eateries are cash-only. Withdraw on mainland Bali before you cross." },
+    ],
+    related: [
+      { href: "/sanur", title: "The Sanur guide", blurb: "The calm base and fast-boat gateway to the Nusa islands." },
+      { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
+      { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Water, roads and the practical safety basics." },
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Boats, drivers and apps between the sights." },
+    ],
+  },
   {
     slug: "how-many-days-in-bali",
     eyebrow: "How many days in Bali",
@@ -625,6 +813,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
       "bali-itinerary-10-days",
       "best-time-to-visit-bali",
       "how-to-get-around-bali",
+      "is-bali-safe",
       "bali-on-a-budget",
     ],
   },
@@ -644,7 +833,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali"],
+    slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
 ];
 
@@ -660,9 +849,10 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   ubud: ["ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
-  sanur: ["best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
+  sanur: ["nusa-penida-day-trip", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  jimbaran: ["where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
 export function guidesForDistrict(slug: string): GuideRelated[] {
@@ -680,7 +870,7 @@ export function guideMetadata(guide: Guide): Metadata {
     openGraph: {
       title: `${guide.title} · Other Bali`,
       description: guide.description,
-      url: `https://otherbali.com/${guide.slug}`,
+      url: `https://www.otherbali.com/${guide.slug}`,
       type: "article",
     },
     twitter: {
