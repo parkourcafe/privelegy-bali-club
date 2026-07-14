@@ -180,8 +180,18 @@ export function assertStagingApplyEnvironment(plan, env = process.env) {
   } catch {
     throw new Error("Apply blocked: staging or production Supabase URL is invalid");
   }
-  if (parsed.protocol !== "https:" || parsed.hostname !== `${projectRef}.supabase.co`) {
-    throw new Error("Apply blocked: staging URL must exactly match https://<OTHER_BALI_STAGING_PROJECT_REF>.supabase.co");
+  const hostedStaging = parsed.protocol === "https:"
+    && parsed.hostname === `${projectRef}.supabase.co`;
+  const localDisposableStaging = env.OTHER_BALI_STAGING_LOCAL_DISPOSABLE === "YES"
+    && projectRef === "local-disposable"
+    && parsed.protocol === "http:"
+    && ["127.0.0.1", "localhost"].includes(parsed.hostname)
+    && parsed.port === "54321"
+    && parsed.pathname === "/"
+    && !parsed.search
+    && !parsed.hash;
+  if (!hostedStaging && !localDisposableStaging) {
+    throw new Error("Apply blocked: staging URL must be an exact hosted project URL or the explicitly acknowledged local disposable Supabase target");
   }
   if (parsedProduction.protocol !== "https:" || parsedProduction.hostname !== `${productionProjectRef}.supabase.co`) {
     throw new Error("Apply blocked: production URL must exactly match https://<OTHER_BALI_PRODUCTION_PROJECT_REF>.supabase.co");

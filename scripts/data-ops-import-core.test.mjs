@@ -52,6 +52,21 @@ test("staging apply requires reconciled gates, explicit disposable target, diges
     serviceRoleKey: "secret",
     projectRef: "stagingref",
   });
+  const localDisposable = {
+    ...valid,
+    OTHER_BALI_STAGING_LOCAL_DISPOSABLE: "YES",
+    OTHER_BALI_STAGING_SUPABASE_URL: "http://127.0.0.1:54321",
+    OTHER_BALI_STAGING_PROJECT_REF: "local-disposable",
+  };
+  assert.deepEqual(assertStagingApplyEnvironment(plan, localDisposable), {
+    url: "http://127.0.0.1:54321",
+    serviceRoleKey: "secret",
+    projectRef: "local-disposable",
+  });
+  assert.throws(() => assertStagingApplyEnvironment(plan, {
+    ...localDisposable,
+    OTHER_BALI_STAGING_LOCAL_DISPOSABLE: "NO",
+  }), /exact hosted project URL or the explicitly acknowledged local disposable/);
   assert.throws(() => assertStagingApplyEnvironment(plan, {
     ...valid,
     OTHER_BALI_PRODUCTION_SUPABASE_URL: valid.OTHER_BALI_STAGING_SUPABASE_URL,

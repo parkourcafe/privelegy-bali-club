@@ -38,3 +38,15 @@ Integration order completed: Session 1 merge `10efe86`, Session 3 merge
 `9824d93`, Session 2 merge `575f671`; vertical wiring `51a5a49`. The final
 Data Ops package is integrated for staging import review, while every candidate
 remains draft and non-public.
+
+## Release-integration staging rehearsal
+
+- Disposable staging apply completed at `2026-07-14T08:42:40Z` through
+  Supabase JS/PostgREST: 127 menus, 165 sections, 881 items and 250 action
+  capabilities.
+- Post-apply reconciliation found zero duplicates, zero orphan rows, zero
+  unexpected verified/public rows and zero anonymous draft visibility.
+- The publication gate rejected a partial menu; the full KYND publication path
+  passed inside a rolled-back operator transaction.
+- Production was not connected to or mutated by this rehearsal. Full evidence
+  is in `docs/loop/handoffs/staging_import_20260714.md`.
