@@ -38,6 +38,8 @@ export interface Venue {
   district: string; // district slug
   address: string;
   gmapsUrl: string;
+  officialUrl?: string; // venue's own website — used for schema sameAs (entity signal)
+  instagramUrl?: string; // official IG — used for schema sameAs
   tier: VenueTier;
   isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3
   // Field Kit §2/§3 card content — all optional, filled from venue visits.
