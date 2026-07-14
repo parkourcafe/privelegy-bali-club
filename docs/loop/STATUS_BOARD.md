@@ -85,3 +85,22 @@ remains draft and non-public.
 - Combined preview `dpl_GTBvzWh4rDCUVYugXFnGw9LLDWuf` is `READY`; home,
   Ubud things-to-do, Jimbaran and places return `200`, while the production-only
   import route remains fail-closed with `404`.
+
+## Production release completion — 2026-07-14
+
+- Public domains are served by deployment
+  `dpl_HQ17z3Ymh6N5sg6P7QeirQbteA1e` from runtime release commit `98c7c74`.
+- The exact Data Ops package was imported atomically as `127 / 165 / 881 / 250`
+  private draft menu/section/item/action rows.
+- KYND Community is the sole newly published menu: `22` sections, `120` items,
+  verified against the official May 2026 PDF and expiring on 2026-09-12.
+- Only the official KYND cafe page and Seminyak WhatsApp action were published.
+  The Canggu booking target and all photos remain closed.
+- The remaining `126` partial menus and `248` package actions remain private
+  drafts. Anonymous visibility is limited to the one verified KYND menu and its
+  contents.
+- One-time import/operator environment variables and temporary mutation or
+  diagnostic deployments were removed. The unauthenticated production import
+  endpoint returns `401`.
+- Full release evidence is recorded in
+  `docs/loop/PRODUCTION_RELEASE_COMPLETION_20260714.md`.
