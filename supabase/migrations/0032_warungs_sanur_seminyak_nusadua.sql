@@ -132,4 +132,16 @@ values
  $ob$dinner with grilled fish and seafood near Nusa Dua beach; travellers wanting a comfortable seated seafood meal without going to Jimbaran; those who like live music in the evening$ob$,
  $ob$budget travellers after hole-in-the-wall warung prices (this is a fuller-service seafood restaurant)$ob$,
  $ob$grilled red snapper; grilled grouper; king prawns; grilled or steamed lobster; fried seafood platter$ob$,
- $ob$$$–$$$ · grilled fish & seafood mains$ob$, $ob$https://kenjaikanbakar.com/$ob$, null);
+ $ob$$$–$$$ · grilled fish & seafood mains$ob$, $ob$https://kenjaikanbakar.com/$ob$, null)
+on conflict (slug) do update set
+  name          = excluded.name,
+  category      = excluded.category,
+  district      = excluded.district,
+  area          = excluded.area,
+  why_its_here  = excluded.why_its_here,
+  best_for      = excluded.best_for,
+  not_for       = excluded.not_for,
+  what_to_order = excluded.what_to_order,
+  price_anchor  = excluded.price_anchor,
+  official_url  = excluded.official_url,
+  instagram_url = excluded.instagram_url;
