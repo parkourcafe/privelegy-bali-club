@@ -78,6 +78,17 @@ Temporary diagnostic preview deployments used for the final checks were also
 removed. Recent runtime logs contained no `5xx` responses for the checked
 production deployment.
 
+## Concurrent deployment note
+
+At final audit time, Vercel also contained a newer target=`production`
+deployment `dpl_CHpskoToXJDfLzDAgrQkCzHqWeiW` from the independent branch
+`claude/bali-tourism-platform-fhd0l9` at `3fd94ac6`. It does not own
+`www.otherbali.com` or `otherbali.com`; both public domains remain on the
+reviewed deployment above. Git ancestry confirms that `3fd94ac6` contains
+`98c7c74`, but its additional changes were not part of this release gate. A
+future operator should reconcile the two production lines before moving the
+public aliases.
+
 ## Remaining work
 
 The remaining `126` partial menus and `248` imported actions stay deliberately
