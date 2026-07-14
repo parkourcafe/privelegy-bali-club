@@ -1,0 +1,700 @@
+{
+  "batches": [
+    {
+      "batchId": "canggu-wave-1",
+      "completedVenueSlugs": [
+        "mason",
+        "samesa-canggu",
+        "luigis-hot-pizza",
+        "the-shady-shack",
+        "milk-and-madu-berawa",
+        "ji-restaurant-bali",
+        "luma",
+        "santanera",
+        "revolver-canggu",
+        "ulekan-berawa",
+        "hippie-fish-pererenan-beach",
+        "baked-pererenan",
+        "rize-cafe",
+        "sensorium-bali",
+        "shelter-restaurant"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "baked-pererenan",
+        "hippie-fish-pererenan-beach",
+        "ji-restaurant-bali",
+        "luigis-hot-pizza",
+        "luma",
+        "mason",
+        "milk-and-madu-berawa",
+        "revolver-canggu",
+        "rize-cafe",
+        "samesa-canggu",
+        "santanera",
+        "sensorium-bali",
+        "shelter-restaurant",
+        "the-shady-shack",
+        "ulekan-berawa"
+      ]
+    },
+    {
+      "batchId": "canggu-01",
+      "completedVenueSlugs": [
+        "12-kitchen-and-wine",
+        "atlas-beach-club",
+        "baked-berawa",
+        "bali-buda-canggu",
+        "bar-vera-bistro-and-wine-bar",
+        "beach-boy-canggu",
+        "boheme-canggu",
+        "bokashi-berawa",
+        "bottega-italiana",
+        "brunch-club-pererenan"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "12-kitchen-and-wine",
+        "atlas-beach-club",
+        "baked-berawa",
+        "bali-buda-canggu",
+        "bar-vera-bistro-and-wine-bar",
+        "beach-boy-canggu",
+        "boheme-canggu",
+        "bokashi-berawa",
+        "bottega-italiana",
+        "brunch-club-pererenan"
+      ]
+    },
+    {
+      "batchId": "canggu-02",
+      "completedVenueSlugs": [
+        "cafe-vida-healthy-organic-restaurant-canggu",
+        "como-beach-club-canggu",
+        "copenhagen-cafe-berawa",
+        "crate-cafe",
+        "dandelion",
+        "deus-ex-machina",
+        "finns-beach-club",
+        "honey-kitchen",
+        "isla-by-earth-island",
+        "la-brisa-bali"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "cafe-vida-healthy-organic-restaurant-canggu",
+        "como-beach-club-canggu",
+        "copenhagen-cafe-berawa",
+        "crate-cafe",
+        "dandelion",
+        "deus-ex-machina",
+        "finns-beach-club",
+        "honey-kitchen",
+        "isla-by-earth-island",
+        "la-brisa-bali"
+      ]
+    },
+    {
+      "batchId": "canggu-03",
+      "completedVenueSlugs": [
+        "lulu-bistrot",
+        "lyma-beach",
+        "miel-specialty-coffee-canggu",
+        "milk-and-madu-beach-road",
+        "milu-by-nook",
+        "moana-fish-eatery",
+        "mosto-berawa",
+        "motion-cafe",
+        "neighbourhood-food-berawa",
+        "neighbourhood-food-seseh"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "lulu-bistrot",
+        "lyma-beach",
+        "miel-specialty-coffee-canggu",
+        "milk-and-madu-beach-road",
+        "milu-by-nook",
+        "moana-fish-eatery",
+        "mosto-berawa",
+        "motion-cafe",
+        "neighbourhood-food-berawa",
+        "neighbourhood-food-seseh"
+      ]
+    },
+    {
+      "batchId": "canggu-04",
+      "completedVenueSlugs": [
+        "nude-berawa",
+        "oma-jamu",
+        "pizza-fabbrica",
+        "rise-and-shine-cafe",
+        "riviera-bistro-berawa",
+        "riviera-cafe-cemagi",
+        "riviera-trattoria-pererenan",
+        "roots-pererenan",
+        "ruko-cafe",
+        "samadi-bali"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "nude-berawa",
+        "oma-jamu",
+        "pizza-fabbrica",
+        "rise-and-shine-cafe",
+        "riviera-bistro-berawa",
+        "riviera-cafe-cemagi",
+        "riviera-trattoria-pererenan",
+        "roots-pererenan",
+        "ruko-cafe",
+        "samadi-bali"
+      ]
+    },
+    {
+      "batchId": "canggu-05",
+      "completedVenueSlugs": [
+        "satu-satu-coffee-company",
+        "seseh-general-store",
+        "skool-kitchen",
+        "the-avocado-factory",
+        "the-lawn-canggu-beach-club",
+        "the-slow",
+        "touche-cafe-and-restaurant",
+        "tropical-nomad",
+        "two-face-canggu",
+        "udara-bali"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "satu-satu-coffee-company",
+        "seseh-general-store",
+        "skool-kitchen",
+        "the-avocado-factory",
+        "the-lawn-canggu-beach-club",
+        "the-slow",
+        "touche-cafe-and-restaurant",
+        "tropical-nomad",
+        "two-face-canggu",
+        "udara-bali"
+      ]
+    },
+    {
+      "batchId": "canggu-06",
+      "completedVenueSlugs": [
+        "warung-bu-mi",
+        "warung-nonii",
+        "woods-bali",
+        "yuki-canggu",
+        "zin-cafe-canggu"
+      ],
+      "district": "canggu",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "warung-bu-mi",
+        "warung-nonii",
+        "woods-bali",
+        "yuki-canggu",
+        "zin-cafe-canggu"
+      ]
+    },
+    {
+      "batchId": "ubud-01",
+      "completedVenueSlugs": [
+        "alchemy",
+        "anomali-coffee-ubud",
+        "bali-bohemia",
+        "bali-buda-ubud",
+        "cafe-wayan-and-bakery",
+        "casa-luna",
+        "cascades",
+        "dicarik-warung",
+        "donna-ubud",
+        "fair-warung-bale"
+      ],
+      "district": "ubud",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "alchemy",
+        "anomali-coffee-ubud",
+        "bali-bohemia",
+        "bali-buda-ubud",
+        "cafe-wayan-and-bakery",
+        "casa-luna",
+        "cascades",
+        "dicarik-warung",
+        "donna-ubud",
+        "fair-warung-bale"
+      ]
+    },
+    {
+      "batchId": "ubud-02",
+      "completedVenueSlugs": [
+        "gelato-secrets-ubud",
+        "hujan-locale",
+        "ibu-rai",
+        "karsa-cafe",
+        "laka-leke",
+        "locavore-nxt",
+        "manga-madu",
+        "milk-and-madu-ubud",
+        "mozaic",
+        "onion-collective"
+      ],
+      "district": "ubud",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "gelato-secrets-ubud",
+        "hujan-locale",
+        "ibu-rai",
+        "karsa-cafe",
+        "laka-leke",
+        "locavore-nxt",
+        "manga-madu",
+        "milk-and-madu-ubud",
+        "mozaic",
+        "onion-collective"
+      ]
+    },
+    {
+      "batchId": "ubud-03",
+      "completedVenueSlugs": [
+        "room4dessert",
+        "sawobali",
+        "seeds-of-life",
+        "seniman-coffee-studio",
+        "suka-espresso-ubud",
+        "the-elephant",
+        "warung-mendez",
+        "warung-siam",
+        "watercress-ubud",
+        "whos-who"
+      ],
+      "district": "ubud",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "room4dessert",
+        "sawobali",
+        "seeds-of-life",
+        "seniman-coffee-studio",
+        "suka-espresso-ubud",
+        "the-elephant",
+        "warung-mendez",
+        "warung-siam",
+        "watercress-ubud",
+        "whos-who"
+      ]
+    },
+    {
+      "batchId": "ubud-04",
+      "completedVenueSlugs": [
+        "wulan-vegetarian-warung",
+        "zest-ubud"
+      ],
+      "district": "ubud",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "wulan-vegetarian-warung",
+        "zest-ubud"
+      ]
+    },
+    {
+      "batchId": "uluwatu-bukit-01",
+      "completedVenueSlugs": [
+        "alchemy-uluwatu",
+        "artisan-uluwatu",
+        "bgs-uluwatu",
+        "el-kabron-bali",
+        "gooseberry-french-restaurant-uluwatu",
+        "kala-uluwatu",
+        "laggas-uluwatu",
+        "mana-uluwatu",
+        "masonry-restaurant",
+        "oneeighty"
+      ],
+      "district": "uluwatu-bukit",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "alchemy-uluwatu",
+        "artisan-uluwatu",
+        "bgs-uluwatu",
+        "el-kabron-bali",
+        "gooseberry-french-restaurant-uluwatu",
+        "kala-uluwatu",
+        "laggas-uluwatu",
+        "mana-uluwatu",
+        "masonry-restaurant",
+        "oneeighty"
+      ]
+    },
+    {
+      "batchId": "uluwatu-bukit-02",
+      "completedVenueSlugs": [
+        "papi-sapi",
+        "seed-bingin",
+        "single-fin",
+        "son-of-a-baker",
+        "suka-espresso",
+        "sundays-beach-club",
+        "the-warung-at-alila-villas-uluwatu",
+        "tropical-temptation-adult-only-beach-club",
+        "ulu-artisan-ungasan",
+        "ulu-fishmarket"
+      ],
+      "district": "uluwatu-bukit",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "papi-sapi",
+        "seed-bingin",
+        "single-fin",
+        "son-of-a-baker",
+        "suka-espresso",
+        "sundays-beach-club",
+        "the-warung-at-alila-villas-uluwatu",
+        "tropical-temptation-adult-only-beach-club",
+        "ulu-artisan-ungasan",
+        "ulu-fishmarket"
+      ]
+    },
+    {
+      "batchId": "uluwatu-bukit-03",
+      "completedVenueSlugs": [
+        "ulu-garden",
+        "waatu",
+        "white-rock-beach-club",
+        "yuki-uluwatu",
+        "zali-uluwatu"
+      ],
+      "district": "uluwatu-bukit",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "ulu-garden",
+        "waatu",
+        "white-rock-beach-club",
+        "yuki-uluwatu",
+        "zali-uluwatu"
+      ]
+    },
+    {
+      "batchId": "seminyak-01",
+      "district": "seminyak",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "7am-bakers-umalas",
+        "bambu",
+        "biku",
+        "boyncow",
+        "cafe-del-mar-bali",
+        "corner-house-bali",
+        "ginger-moon-canteen",
+        "hog-wild-with-chef-bruno",
+        "kilo-kitchen-bali-seminyak",
+        "ku-de-ta"
+      ],
+      "completedVenueSlugs": [
+        "7am-bakers-umalas",
+        "bambu",
+        "biku",
+        "boyncow",
+        "cafe-del-mar-bali",
+        "corner-house-bali",
+        "ginger-moon-canteen",
+        "hog-wild-with-chef-bruno",
+        "kilo-kitchen-bali-seminyak",
+        "ku-de-ta"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "seminyak-02",
+      "district": "seminyak",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "la-casetta-bali",
+        "ling-lings-bali",
+        "mamasan-bali",
+        "mauri-restaurant",
+        "merah-putih-indonesian-restaurant",
+        "moonlite-kitchen-and-bar",
+        "natys-restaurant-seminyak",
+        "naughty-nuris-warung-seminyak",
+        "nook-umalas",
+        "pison-petitenget"
+      ],
+      "completedVenueSlugs": [
+        "la-casetta-bali",
+        "ling-lings-bali",
+        "mamasan-bali",
+        "mauri-restaurant",
+        "merah-putih-indonesian-restaurant",
+        "moonlite-kitchen-and-bar",
+        "natys-restaurant-seminyak",
+        "naughty-nuris-warung-seminyak",
+        "nook-umalas",
+        "pison-petitenget"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "seminyak-03",
+      "district": "seminyak",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "potato-head-beach-club",
+        "poule-de-luxe-bali",
+        "revolver-seminyak",
+        "sangsaka",
+        "sardine",
+        "sea-circus",
+        "seasalt",
+        "sisterfields",
+        "waroeng-bernadette",
+        "warung-nia-balinese-food-and-pork-ribs"
+      ],
+      "completedVenueSlugs": [
+        "potato-head-beach-club",
+        "poule-de-luxe-bali",
+        "revolver-seminyak",
+        "sangsaka",
+        "sardine",
+        "sea-circus",
+        "seasalt",
+        "sisterfields",
+        "waroeng-bernadette",
+        "warung-nia-balinese-food-and-pork-ribs"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "seminyak-04",
+      "completedVenueSlugs": [
+        "watercress-seminyak"
+      ],
+      "district": "seminyak",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "watercress-seminyak"
+      ]
+    },
+    {
+      "batchId": "jimbaran-01",
+      "district": "jimbaran",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "akua-mediterranean",
+        "balique-restaurant",
+        "bawang-merah-beachfront",
+        "bella-cucina",
+        "cuca-restaurant",
+        "dava-steak-and-seafood",
+        "kayumanis-resto-jimbaran",
+        "ko-japanese-teppanyaki-and-sushi",
+        "nelayan-restaurant-and-puri-bar",
+        "nyoman-cafe"
+      ],
+      "completedVenueSlugs": [
+        "akua-mediterranean",
+        "balique-restaurant",
+        "bawang-merah-beachfront",
+        "bella-cucina",
+        "cuca-restaurant",
+        "dava-steak-and-seafood",
+        "kayumanis-resto-jimbaran",
+        "ko-japanese-teppanyaki-and-sushi",
+        "nelayan-restaurant-and-puri-bar",
+        "nyoman-cafe"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "jimbaran-02",
+      "district": "jimbaran",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "radja-seafood-cafe",
+        "sundara",
+        "sunset-beach-bar-and-grill",
+        "unique-rooftop-bar-and-restaurant",
+        "warung-mami-ikan-bakar",
+        "warung-ramayana-ikan-bakar"
+      ],
+      "completedVenueSlugs": [
+        "radja-seafood-cafe",
+        "sundara",
+        "sunset-beach-bar-and-grill",
+        "unique-rooftop-bar-and-restaurant",
+        "warung-mami-ikan-bakar",
+        "warung-ramayana-ikan-bakar"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "nusa-dua-01",
+      "district": "nusa-dua",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "arwana",
+        "bejana-ritz-carlton",
+        "bumbu-bali",
+        "izakaya-by-oku",
+        "kayuputi",
+        "koral",
+        "manarai-beach-house",
+        "nusa-dua-beach-grill",
+        "piasan",
+        "soleil-at-mulia"
+      ],
+      "completedVenueSlugs": [
+        "arwana",
+        "bejana-ritz-carlton",
+        "bumbu-bali",
+        "izakaya-by-oku",
+        "kayuputi",
+        "koral",
+        "manarai-beach-house",
+        "nusa-dua-beach-grill",
+        "piasan",
+        "soleil-at-mulia"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "nusa-dua-02",
+      "district": "nusa-dua",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "tetaring",
+        "the-beach-grill-ritz-carlton",
+        "white-orchid-nusa-dua"
+      ],
+      "completedVenueSlugs": [
+        "tetaring",
+        "the-beach-grill-ritz-carlton",
+        "white-orchid-nusa-dua"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "sanur-01",
+      "district": "sanur",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "bella-italia-sanur",
+        "genius-cafe",
+        "gong-restaurant",
+        "jalapeno",
+        "kuu-izakaya-dining",
+        "lilla-pantai",
+        "linga-longa-bar",
+        "massimo-italian-restaurant",
+        "mona-lisa-cafe",
+        "oranje-bar"
+      ],
+      "completedVenueSlugs": [
+        "bella-italia-sanur",
+        "genius-cafe",
+        "gong-restaurant",
+        "jalapeno",
+        "kuu-izakaya-dining",
+        "lilla-pantai",
+        "linga-longa-bar",
+        "massimo-italian-restaurant",
+        "mona-lisa-cafe",
+        "oranje-bar"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "sanur-02",
+      "district": "sanur",
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "pizzaria-hyatt",
+        "red-manna",
+        "retro-kitchen-and-bar",
+        "sala-bistro",
+        "segara-the-seaside",
+        "soul-on-the-beach",
+        "warung-coconut-tree",
+        "warung-little-bird",
+        "warung-makan-little-mars",
+        "white-orchid-sanur"
+      ],
+      "completedVenueSlugs": [
+        "pizzaria-hyatt",
+        "red-manna",
+        "retro-kitchen-and-bar",
+        "sala-bistro",
+        "segara-the-seaside",
+        "soul-on-the-beach",
+        "warung-coconut-tree",
+        "warung-little-bird",
+        "warung-makan-little-mars",
+        "white-orchid-sanur"
+      ],
+      "remainingVenueSlugs": []
+    },
+    {
+      "batchId": "kynd-community-final",
+      "completedVenueSlugs": [
+        "kynd-community"
+      ],
+      "district": "seminyak",
+      "remainingVenueSlugs": [],
+      "resumeFromSlug": null,
+      "status": "complete",
+      "venueSlugs": [
+        "kynd-community"
+      ]
+    }
+  ],
+  "currentBatchId": null,
+  "generatedAt": "2026-07-13T16:22:00Z",
+  "orderingPolicy": "Finish Canggu Wave 1, then remaining Canggu, Ubud, Uluwatu-Bukit, Seminyak, Jimbaran, Nusa Dua, Sanur; alphabetical within each district. Final live-only denominator reconciliation: kynd-community.",
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-14T02:52:06Z"
+}

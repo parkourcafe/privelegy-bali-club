@@ -6,6 +6,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Dinner",
   beach_club: "Sunset",
   spa: "Reset",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Nightcap",
   surf: "Surf",
 };

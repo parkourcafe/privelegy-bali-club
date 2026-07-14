@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
 import { track } from "@/lib/analytics";
+import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -20,6 +21,9 @@ const categoryLabel: Record<string, string> = {
   restaurant: "Restaurant",
   beach_club: "Beach club",
   spa: "Wellness",
+  fitness: "Fitness",
+  yoga: "Yoga",
+  beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
 };
@@ -38,12 +42,10 @@ export interface PlaceCardData {
   // Canggu money loop: when set, the card keeps a Reserve secondary CTA —
   // the TablePilot handoff (guardrail #3) stays one tap from the catalogue.
   tablepilotSlug?: string;
+  coverageMode?: "active_deep" | "next_deep" | "planning_only";
   // Confirmed offer exists — shown as a hint only; terms live on the page.
   hasOffer?: boolean;
 }
-
-const TABLEPILOT_URL =
-  process.env.NEXT_PUBLIC_TABLEPILOT_URL ?? "https://tablepilot-id.vercel.app";
 
 // reservation_click is a partner-proof demand signal: internal store only,
 // never GA4 (same contract as ReserveButton).
@@ -64,6 +66,12 @@ export default function PlaceCard({
   secondaryAction?: "directions" | "none";
 }) {
   const href = `/places/${place.slug}`;
+  const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
+    ? buildTablePilotReservationUrl(
+        place.tablepilotSlug,
+        process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+      )
+    : null;
 
   return (
     <article className="place-card">
@@ -119,9 +127,9 @@ export default function PlaceCard({
             ) : null}
           </span>
           <div className="place-card-actions">
-            {place.tablepilotSlug ? (
+            {tablepilotHref ? (
               <a
-                href={`${TABLEPILOT_URL}/book/${encodeURIComponent(place.tablepilotSlug)}?source=bali_privilege`}
+                href={tablepilotHref}
                 target="_blank"
                 rel="noreferrer"
                 className="place-card-cta"

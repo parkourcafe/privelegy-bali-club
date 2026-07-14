@@ -95,6 +95,17 @@ const finishOptions: Choice[] = [
   { value: "early", label: "Early night", hint: "Good food, easy exit", query: ["family", "quiet"] },
 ];
 
+// One-tap shortcuts: real links straight to a filtered /places, for people who
+// don't want to answer seven questions. Hrefs mirror the working "moments"
+// cards on the homepage so the results are never empty. The seven-axis builder
+// below stays for anyone who wants to fine-tune the brief.
+const quickStarts: { label: string; href: string }[] = [
+  { label: "Slow morning", href: "/places?intent=1&q=cafe%20quiet&category=cafe" },
+  { label: "Beach day", href: "/places?intent=1&q=sunset%20view&category=beach_club" },
+  { label: "Food crawl", href: "/places?intent=1&q=dinner%20restaurant&category=restaurant" },
+  { label: "Date night", href: "/places?intent=1&q=romantic%20date&category=restaurant" },
+];
+
 function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
@@ -198,7 +209,60 @@ export default function DayIntentBuilder() {
         </span>
       </div>
 
-      <div className="mt-5 space-y-4">
+      {/* Live result at the TOP of the column, so the whole builder reads as
+          "this produces a list of places" from the first glance — not a dead
+          form whose only exit is buried below the questions. No defaults are
+          injected (audit 2026-07): with nothing tapped it points at the plain
+          catalogue, and it re-points as choices are added. */}
+      <Link
+        href={href}
+        key={`top-${pulseKey}`}
+        className={`ob-cta-shimmer mt-4 block rounded-2xl border border-[var(--ob-brass)]/45 bg-[var(--ob-brass)]/12 p-3.5 transition-colors hover:bg-[var(--ob-brass)]/20 ${
+          pulseKey > 0 ? "ob-brief-pulse" : ""
+        }`}
+      >
+        <span className="flex items-center justify-between gap-3">
+          <span className="min-w-0">
+            <span className="block text-[11px] font-semibold uppercase tracking-wide text-[var(--ob-brass-2)]">
+              Your places
+            </span>
+            <span className="mt-0.5 block truncate font-display text-sm italic text-[var(--ob-sand)]">
+              {hasBrief ? summary : "Tap what matters below — or browse all places"}
+            </span>
+          </span>
+          <span className="shrink-0 rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)]">
+            Show →
+          </span>
+        </span>
+      </Link>
+
+      {/* One-tap shortcuts — real links straight to results, for people who
+          don't want to answer the questions below. */}
+      <div className="mt-4">
+        <p className="text-xs font-semibold text-[var(--ob-sand-dim)]">
+          In a hurry? Jump straight in
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {quickStarts.map((q) => (
+            <Link
+              key={q.label}
+              href={q.href}
+              className="group inline-flex items-center gap-1 rounded-full border border-[var(--ob-brass)]/45 bg-[var(--ob-brass)]/10 px-3.5 py-1.5 text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:border-[var(--ob-brass)] hover:bg-[var(--ob-brass)]/20"
+            >
+              {q.label}
+              <span className="text-[var(--ob-brass-2)] transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <p className="mt-5 border-t border-[var(--ob-line)] pt-4 text-xs font-semibold text-[var(--ob-sand-dim)]">
+        …or fine-tune the brief below — the places update as you choose
+      </p>
+
+      <div className="mt-4 space-y-4">
         {AXES.map((axis) => (
           <ChoiceGroup
             key={axis.key}
@@ -229,7 +293,7 @@ export default function DayIntentBuilder() {
           href={href}
           className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
-          {hasBrief ? "Show my top 3" : "Browse all places"}
+          {hasBrief ? "Show my top 3 places" : "Browse all places"}
         </Link>
         <Link
           href="/places"

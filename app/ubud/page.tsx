@@ -104,6 +104,12 @@ export default async function UbudPillarPage() {
         </header>
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Ubud guides">
+          <Link href="/ubud/things-to-do" className="chip">
+            Things to do
+          </Link>
+          <Link href="/ubud/itinerary" className="chip">
+            2–3 day itinerary
+          </Link>
           {UBUD_GUIDES.map((g) => (
             <Link key={g.slug} href={`/ubud/${g.slug}`} className="chip">
               {g.h1.replace(" in Ubud", "").replace("Ubud ", "")}

@@ -29,8 +29,10 @@ export default function PrivacyPage() {
             </p>
             <p className="mt-3">
               We do not ask travellers for an account, payment card, or profile.
-              If a venue uses partner onboarding, the venue may submit a contact
-              name, confirmation, and photos it chooses to upload.
+              If a venue uses partner onboarding, its representative may submit
+              a name, optional contact, confirmation, photo-rights consent, and
+              photos for private operator review. We also retain limited consent
+              evidence such as time, terms version, IP address, and user agent.
             </p>
           </section>
 

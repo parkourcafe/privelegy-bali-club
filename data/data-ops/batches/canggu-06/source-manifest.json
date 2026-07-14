@@ -1,0 +1,103 @@
+{
+  "batchId": "canggu-06",
+  "generatedAt": "2026-07-13T15:39:03Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-warung-bumi-menu",
+      "label": "Warung Bu Mi official menu page",
+      "notes": "Buffet examples and meals from 20k IDR, but no item-price pairs.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://warungbumi.shop/menu",
+      "venueSlug": "warung-bu-mi",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-warung-nonii-none",
+      "label": "No official source located",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "Only repo identity; all web results were third-party and excluded.",
+      "sourceType": "no_official_source",
+      "url": "repo_identity_only",
+      "venueSlug": "warung-nonii",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-woods-menu",
+      "label": "Woods Bali official menu",
+      "notes": "Dedicated live menu used; homepage showcase conflicts are ignored.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://woodsbali.com/menu/",
+      "venueSlug": "woods-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-yuki-canggu",
+      "label": "YUKI Canggu official branch page",
+      "notes": null,
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.yuki-bali.com/canggu",
+      "venueSlug": "yuki-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-yuki-menu",
+      "label": "YUKI official menu",
+      "notes": "Prices in 000 rupiah; plus 10% tax and 7% service.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://www.yuki-bali.com/menu",
+      "venueSlug": "yuki-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-zin-cafe",
+      "label": "ZIN Cafe Canggu official page",
+      "notes": "Footer phone ends 6646 while official WhatsApp ends 6647.",
+      "officialControl": "venue",
+      "outcome": "usable_with_caveat",
+      "sourceType": "official_branch_page",
+      "url": "https://zin.world/zin-cafe/",
+      "venueSlug": "zin-cafe-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-zin-menu",
+      "label": "ZIN Cafe official menu page",
+      "notes": "Embedded PDF is 404; current official image pages remain live. Currency is unnamed.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_website_menu",
+      "url": "https://zin.world/zin-cafe-menu/",
+      "venueSlug": "zin-cafe-canggu",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:39:03Z",
+      "id": "src-zin-menu-image",
+      "label": "ZIN Cafe live menu image",
+      "notes": "Raw k prices retained; currency not stated.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_image",
+      "url": "https://zin.world/wp-content/uploads/2025/06/5.webp",
+      "venueSlug": "zin-cafe-canggu",
+      "verifiedAt": null
+    }
+  ]
+}

@@ -1,0 +1,842 @@
+{
+  "batchId": "jimbaran-01",
+  "capturedAt": "2026-07-13T16:16:42Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "jimbaran",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "AKUA Mediterranean / AKUA de Bilbao, seaside in Jimbaran; exact address unavailable first-party.",
+      "collectionNotes": [
+        "Official social identity confirms Jimbaran and name drift, but no first-party menu, prices or action URL was found."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "AKUA Mediterranean",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "akua-mediterranean",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-balique-restaurant-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-balique-restaurant-home",
+          "status": "draft",
+          "url": "https://bookv5.chope.co/booking?rid=balique1603bal&source=rest_balique-bali.com",
+          "venueSlug": "balique-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Balique Restaurant, Jalan Raya Uluwatu No.39, Jimbaran 80361.",
+      "collectionNotes": [
+        "Current official menu page lists dishes/descriptions but no prices, currency or tax/service policy; item records are deferred."
+      ],
+      "coverageOutcome": "official_menu_found",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [],
+      "name": "Balique Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "balique-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-bawang-merah-beachfr-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bawang-merah-beachfr-home",
+          "status": "draft",
+          "url": "https://wa.me/6287738449169",
+          "venueSlug": "bawang-merah-beachfront",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Bawang Merah Beachfront Restaurant, Kelan Beach, Jimbaran Bay 80361.",
+      "collectionNotes": [
+        "Live official HTML menu updated 2026-05-29; IDR prices exclude 10% tax and 6% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-bawang-merah-beachfront-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-01",
+                  "name": "Ayam Pelecing",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "IDR 55,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-02",
+                  "name": "Lumpia Sari Laut / Seafood Spring Roll",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "IDR 75,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-03",
+                  "name": "Bebek Betutu",
+                  "priceMinor": 225000,
+                  "sourceDisplayPrice": "IDR 225,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-04",
+                  "name": "Nasi Goreng Sari Segara",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "IDR 95,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-05",
+                  "name": "Kare Languan / Seafood Curry",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "IDR 200,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bawang-merah-beachfr-06",
+                  "name": "Sirloin Steak",
+                  "priceMinor": 210000,
+                  "sourceDisplayPrice": "IDR 210,000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bawang-merah-beachfr-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bawang Merah Beachfront",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bawang-merah-beachfront",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-bella-cucina-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-bella-cucina-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/intercontinental-bella-cucina/reserve/message?utm_source=hotel_iws",
+          "venueSlug": "bella-cucina",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Bella Cucina, InterContinental Bali Resort, Jalan Uluwatu 45, Jimbaran.",
+      "collectionNotes": [
+        "Current official link points to a PDF internally modified 2025-06-25 and uploaded 2026-05-21; revalidate freshness. Values are thousand IDR plus 10% service and 11% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-bella-cucina-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-01",
+                  "name": "Carpaccio Mi-Cuit",
+                  "priceMinor": 280000,
+                  "sourceDisplayPrice": "280"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-02",
+                  "name": "Seared Scallop",
+                  "priceMinor": 280000,
+                  "sourceDisplayPrice": "280"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-03",
+                  "name": "Tuna Crudo",
+                  "priceMinor": 260000,
+                  "sourceDisplayPrice": "260"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-04",
+                  "name": "Linguine alle Vongole",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-05",
+                  "name": "Seared Seabass",
+                  "priceMinor": 550000,
+                  "sourceDisplayPrice": "550"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "bella-cucina-06",
+                  "name": "Tagliata di Manzo",
+                  "priceMinor": 520000,
+                  "sourceDisplayPrice": "520"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-bella-cucina-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Bella Cucina",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bella-cucina",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-cuca-restaurant-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "official_booking",
+          "sourceManifestId": "src-cuca-restaurant-home",
+          "status": "draft",
+          "url": "https://www.cucabali.com/reservation/",
+          "venueSlug": "cuca-restaurant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-cuca-restaurant-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-cuca-restaurant-home",
+          "status": "draft",
+          "url": "https://wa.me/6281236870486",
+          "venueSlug": "cuca-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Cuca Restaurant, Jimbaran, Bali.",
+      "collectionNotes": [
+        "Live official page states thousand rupiah; government tax and service apply but percentages are not stated. Current visible hours win over legacy duplicate script."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-cuca-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-01",
+                  "name": "Potatoes in Delhi",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80 / 2pc"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-02",
+                  "name": "Almost BBQ Ribs",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90 / 2pc"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-03",
+                  "name": "Coconut Ceviche",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-04",
+                  "name": "Broccoli Caesar",
+                  "priceMinor": 165000,
+                  "sourceDisplayPrice": "165"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-05",
+                  "name": "Honey Baked Pumpkin Salad",
+                  "priceMinor": 165000,
+                  "sourceDisplayPrice": "165"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "cuca-restaurant-06",
+                  "name": "Ricotta Gnocchi",
+                  "priceMinor": 220000,
+                  "sourceDisplayPrice": "220"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-cuca-restaurant-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Cuca Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "cuca-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-dava-steak-and-seafo-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-dava-steak-and-seafo-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/ayana-resort-and-spa-dava/reserve/message?utm_source=ayanawebsite",
+          "venueSlug": "dava-steak-and-seafood",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "DAVA Steak & Seafood, AYANA Villas area, Jimbaran 80364.",
+      "collectionNotes": [
+        "Official PDF created 2026-01-21 and modified 2026-03-17; values are 000 rupiah plus 10% service and 11% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-dava-steak-and-seafood-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-01",
+                  "name": "Hamachi Tiradito",
+                  "priceMinor": 210000,
+                  "sourceDisplayPrice": "210"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-02",
+                  "name": "Empanada de Carne",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-03",
+                  "name": "Beef Tenderloin Anticucho",
+                  "priceMinor": 225000,
+                  "sourceDisplayPrice": "225"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-04",
+                  "name": "Langostinos a la Brasa",
+                  "priceMinor": 595000,
+                  "sourceDisplayPrice": "595"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-05",
+                  "name": "Encocado de Pescado",
+                  "priceMinor": 340000,
+                  "sourceDisplayPrice": "340"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "dava-steak-and-seafo-06",
+                  "name": "Picanha Madurada en Café",
+                  "priceMinor": 710000,
+                  "sourceDisplayPrice": "710"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-dava-steak-and-seafo-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "DAVA Steak & Seafood",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "dava-steak-and-seafood",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kayumanis-resto-jimb-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "umai",
+          "sourceManifestId": "src-kayumanis-resto-jimb-home",
+          "status": "draft",
+          "url": "https://reservation.umai.io/en/widget/kayumanis-resto-jimbaran?tracking_id=3f3667c0",
+          "venueSlug": "kayumanis-resto-jimbaran",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kayumanis-resto-jimb-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-kayumanis-resto-jimb-home",
+          "status": "draft",
+          "url": "https://wa.me/6281775705777",
+          "venueSlug": "kayumanis-resto-jimbaran",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Kayumanis Resto Jimbaran, Jl. Yoga Perkanthi, Jimbaran 80364.",
+      "collectionNotes": [
+        "Live first-party menu with no intrinsic revision date; prices exclude combined 21% tax/service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-kayumanis-resto-jimbaran-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-01",
+                  "name": "Mie Goreng Kayumanis",
+                  "priceMinor": 135000,
+                  "sourceDisplayPrice": "Rp 135.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-02",
+                  "name": "Udang Saus Pete",
+                  "priceMinor": 165000,
+                  "sourceDisplayPrice": "Rp 165.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-03",
+                  "name": "Mangut Ikan",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "Rp 150.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-04",
+                  "name": "Paket Ikan Bakar Jimbaran",
+                  "priceMinor": 199000,
+                  "sourceDisplayPrice": "Rp 199.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-05",
+                  "name": "Karangan Be Pasih",
+                  "priceMinor": 425000,
+                  "sourceDisplayPrice": "Rp 425.000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "kayumanis-resto-jimb-06",
+                  "name": "Bebek Panggang Mekudus",
+                  "priceMinor": 355000,
+                  "sourceDisplayPrice": "Rp 355.000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-kayumanis-resto-jimb-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Kayumanis Resto Jimbaran",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "kayumanis-resto-jimbaran",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ko-japanese-teppanya-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-ko-japanese-teppanya-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/intercontinental-ko-restaurant/reserve/landing?utm_source=hotel_iws",
+          "venueSlug": "ko-japanese-teppanyaki-and-sushi",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "KO Restaurant, InterContinental Bali Resort, Jalan Uluwatu 45, Jimbaran.",
+      "collectionNotes": [
+        "Current official link points to a PDF internally modified 2025-06-25 and uploaded 2026-05-21; revalidate freshness. Values are thousand IDR plus 10% service and 11% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-ko-japanese-teppanyaki-and-sushi-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-01",
+                  "name": "Edamame with 3 Kinds of Kusamba Salt",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-02",
+                  "name": "Tataki Tuna Jatiluwih Style",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-03",
+                  "name": "Karaage Chicken",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-04",
+                  "name": "Prawn Tempura (5 pcs)",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-05",
+                  "name": "Teriyaki Salmon",
+                  "priceMinor": 400000,
+                  "sourceDisplayPrice": "400"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ko-japanese-teppanya-06",
+                  "name": "Teriyaki Wagyu Striploin",
+                  "priceMinor": 800000,
+                  "sourceDisplayPrice": "800"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ko-japanese-teppanya-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "KO Japanese Teppanyaki & Sushi",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ko-japanese-teppanyaki-and-sushi",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": false,
+      "branchIdentity": "Nelayan at Jimbaran Puri, Yoga Perkanthi Lane, Jimbaran 80361.",
+      "collectionNotes": [
+        "Official lunch PDF created 2025-03-31 and modified 2025-05-08 remains actively linked; revalidate freshness. Values are thousand IDR plus 11% tax and 10% admin fee."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:16:42Z",
+          "id": "menu-nelayan-restaurant-and-puri-bar-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-01",
+                  "name": "Plaga Farms Salad",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-02",
+                  "name": "Light Spicy Seafood Soup",
+                  "priceMinor": 170000,
+                  "sourceDisplayPrice": "170"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-03",
+                  "name": "Seafood & Tomato Salsa Pasta",
+                  "priceMinor": 200000,
+                  "sourceDisplayPrice": "200"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-04",
+                  "name": "Prawns Sandwich",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-05",
+                  "name": "Jimbaran Seafood Kebab",
+                  "priceMinor": 250000,
+                  "sourceDisplayPrice": "250"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "nelayan-restaurant-a-06",
+                  "name": "Ayam Betutu",
+                  "priceMinor": 220000,
+                  "sourceDisplayPrice": "220"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-nelayan-restaurant-a-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Nelayan Restaurant & Puri Bar",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "nelayan-restaurant-and-puri-bar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo canonical Nyoman Cafe, Jimbaran; exact first-party branch unresolved.",
+      "collectionNotes": [
+        "Two official-looking Instagram profiles conflict and neither provides enough branch/menu/action evidence; unavailable domain and aggregator data rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "jimbaran",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Nyoman Café",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "nyoman-cafe",
+      "verifiedAt": null
+    }
+  ]
+}

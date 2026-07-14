@@ -1,10 +1,15 @@
-import { anonClient, isSupabaseConfigured } from "./supabase/server";
+import { anonClient, isSeedFallbackAllowed, isSupabaseConfigured } from "./supabase/server";
+import { serviceClient } from "./supabase/service";
+import {
+  buildGoogleMapsSearchUrl,
+  validateGoogleMapsUrl,
+} from "./integrations/google-maps";
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { getPublicationStatus } from "./publication";
 import { keepRenderableVenues } from "./venue-validation";
-import { ULUWATU_VENUES, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
+import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
   Perk,
@@ -14,7 +19,6 @@ import type {
   PartnerReport,
   PartnerNotes,
   MyRedemption,
-  Phase0Overview,
   RouteDef,
 } from "./types";
 import { SLOTS } from "./types";
@@ -53,13 +57,12 @@ const PLAN_VENUE_COLUMNS = [
   "official_url",
   "instagram_url",
   "tier",
+  "status",
   "is_sponsored",
   "vibe_tags",
   "price_anchor",
   "what_to_order",
   "photo_url",
-  "whatsapp",
-  "tablepilot_slug",
   "area",
   "why_its_here",
   "best_for",
@@ -67,6 +70,8 @@ const PLAN_VENUE_COLUMNS = [
   "practical_tags",
   "jobs",
   "owner_note",
+  "publication_status",
+  "wellness_categories",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -80,15 +85,14 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "official_url",
   "instagram_url",
   "tier",
+  "status",
   "is_sponsored",
   "vibe_tags",
   "price_anchor",
   "what_to_order",
   "photo_url",
-  // Booking paths must be visible in the public catalogue too — both are
-  // already public on /plan (TablePilot handoff URL, wa.me link).
-  "whatsapp",
-  "tablepilot_slug",
+  // Legacy action fields are deliberately excluded. Public actions may
+  // surface only through the fresh, confirmed capability store.
   "area",
   "why_its_here",
   "best_for",
@@ -96,6 +100,8 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "practical_tags",
   "jobs",
   "owner_note",
+  "publication_status",
+  "wellness_categories",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -114,31 +120,13 @@ function isDraftPerk(title: unknown, terms: unknown): boolean {
   return hasDraftPerkLanguage(title) || hasDraftPerkLanguage(terms);
 }
 
-function isGoogleMapsUrl(value: unknown): boolean {
-  const raw = textValue(value);
-  if (!raw) return false;
-
-  try {
-    const url = new URL(raw);
-    const host = url.hostname.toLowerCase();
-    const path = url.pathname.toLowerCase();
-
-    if (host === "maps.app.goo.gl") return true;
-    if (host === "goo.gl" && path.startsWith("/maps")) return true;
-    if (host.startsWith("maps.google.")) return true;
-    return host.includes("google.") && path.includes("/maps");
-  } catch {
-    return false;
-  }
-}
-
 function mapsSearchUrl(name: unknown, address: unknown): string {
   const query = [textValue(name), textValue(address), "Bali"].filter(Boolean).join(" ");
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  return buildGoogleMapsSearchUrl(query) ?? "https://www.google.com/maps";
 }
 
 function publicDirectionsUrl(r: Row): string {
-  return isGoogleMapsUrl(r.gmaps_url) ? textValue(r.gmaps_url) : mapsSearchUrl(r.name, r.address);
+  return validateGoogleMapsUrl(r.gmaps_url) ?? mapsSearchUrl(r.name, r.address);
 }
 
 function uniqueBy<T>(items: T[], keyOf: (item: T) => string): T[] {
@@ -172,34 +160,40 @@ function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
     });
 }
 
-const mapVenue = (r: Row): Venue => ({
-  id: r.id as string,
-  slug: r.slug as string,
-  name: r.name as string,
-  category: r.category as Venue["category"],
-  district: r.district as string,
-  // Never null downstream: a null address once 500'd all of /places via
-  // v.address.toLowerCase() in the catalogue filter. Default to "" at the boundary.
-  address: (r.address as string) ?? "",
-  gmapsUrl: publicDirectionsUrl(r),
-  officialUrl: (r.official_url as string) ?? undefined,
-  instagramUrl: (r.instagram_url as string) ?? undefined,
-  tier: r.tier as Venue["tier"],
-  isSponsored: Boolean(r.is_sponsored),
-  vibeTags: (r.vibe_tags as string[]) ?? undefined,
-  priceAnchor: (r.price_anchor as string) ?? undefined,
-  whatToOrder: (r.what_to_order as string) ?? undefined,
-  photoUrl: (r.photo_url as string) ?? undefined,
-  whatsapp: (r.whatsapp as string) ?? undefined,
-  tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
-  area: (r.area as string) ?? undefined,
-  whyItsHere: (r.why_its_here as string) ?? undefined,
-  bestFor: (r.best_for as string) ?? undefined,
-  notFor: (r.not_for as string) ?? undefined,
-  practicalTags: (r.practical_tags as string[]) ?? undefined,
-  jobs: (r.jobs as string[]) ?? undefined,
-  ownerNote: (r.owner_note as string) ?? undefined,
-});
+const mapVenue = (r: Row): Venue => {
+  const district = r.district as string;
+  return {
+    id: r.id as string,
+    slug: r.slug as string,
+    name: r.name as string,
+    category: r.category as Venue["category"],
+    district,
+    // Never null downstream: a null address once 500'd all of /places via
+    // v.address.toLowerCase() in the catalogue filter.
+    address: (r.address as string) ?? "",
+    gmapsUrl: publicDirectionsUrl(r),
+    officialUrl: (r.official_url as string) ?? undefined,
+    instagramUrl: (r.instagram_url as string) ?? undefined,
+    tier: r.tier as Venue["tier"],
+    status: (r.status as string) ?? undefined,
+    isSponsored: Boolean(r.is_sponsored),
+    vibeTags: (r.vibe_tags as string[]) ?? undefined,
+    priceAnchor: (r.price_anchor as string) ?? undefined,
+    whatToOrder: (r.what_to_order as string) ?? undefined,
+    photoUrl: (r.photo_url as string) ?? undefined,
+    whatsapp: undefined,
+    tablepilotSlug: undefined,
+    area: (r.area as string) ?? undefined,
+    whyItsHere: (r.why_its_here as string) ?? undefined,
+    bestFor: (r.best_for as string) ?? undefined,
+    notFor: (r.not_for as string) ?? undefined,
+    practicalTags: (r.practical_tags as string[]) ?? undefined,
+    jobs: (r.jobs as string[]) ?? undefined,
+    ownerNote: (r.owner_note as string) ?? undefined,
+    publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
+    wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
+  };
+};
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
 // absent until confirmed, so draft operational language never appears on cards.
 const mapPublicPerk = (r: Row): Perk | null => {
@@ -260,14 +254,23 @@ function mapInternalPerk(r: Row): Perk | null {
 // and demos without a live DB. Reads are public either way.
 
 export async function getCangguPlan(): Promise<PlanBySlot[]> {
-  let venues = VENUES;
-  let perks = PERKS;
-  let entries = PLAN_ENTRIES;
+  const allowSeed = isSeedFallbackAllowed();
+  let venues = allowSeed ? VENUES : [];
+  let perks = allowSeed ? PERKS : [];
+  let entries = allowSeed ? PLAN_ENTRIES : [];
 
   if (isSupabaseConfigured()) {
+    venues = [];
+    perks = [];
+    entries = [];
     const sb = anonClient()!;
     const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
-      sb.from("venues").select(PLAN_VENUE_COLUMNS).eq("district", "canggu").eq("status", "active"),
+      sb
+        .from("venues")
+        .select(PLAN_VENUE_COLUMNS)
+        .eq("district", "canggu")
+        .eq("status", "active")
+        .eq("publication_status", "published"),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
       sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
     ]);
@@ -325,15 +328,23 @@ export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
 }
 
 export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
-  let venue: Venue | undefined = VENUES.find((v) => v.slug === slug);
-  let perk: Perk | undefined = PERKS.find((p) => p.venueSlug === slug);
+  const configured = isSupabaseConfigured();
+  const allowSeed = isSeedFallbackAllowed();
+  let venue: Venue | undefined = allowSeed ? VENUES.find((v) => v.slug === slug) : undefined;
+  let perk: Perk | undefined = allowSeed ? PERKS.find((p) => p.venueSlug === slug) : undefined;
 
-  if (isSupabaseConfigured()) {
+  if (configured) {
     venue = undefined;
     perk = undefined;
     const sb = anonClient()!;
-    const { data: v } = await sb.from("venues").select("*").eq("slug", slug).maybeSingle();
-    if (v) venue = mapVenue(v as Row);
+    const { data: v } = await sb
+      .from("venues")
+      .select(PUBLIC_PLACES_VENUE_COLUMNS)
+      .eq("slug", slug)
+      .eq("status", "active")
+      .eq("publication_status", "published")
+      .maybeSingle();
+    if (v) venue = mapVenue(v as unknown as Row);
     const { data: p } = await sb
       .from("perks")
       .select("*")
@@ -346,24 +357,16 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
 
   // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
   // the DB row is missing (seed mode / prod migration lag).
-  if (!venue) {
+  if (allowSeed && !venue) {
     const content = getUluwatuContent(slug);
-    if (content) venue = uluwatuAsVenue(content) as Venue;
+    if (content?.publication === "published") venue = uluwatuAsVenue(content) as Venue;
   }
 
   if (!venue) return null;
-  // Guardrail #4: offers AND the TablePilot seated-reservation money loop
-  // attach only inside the active_deep district. Verified official booking
-  // links (content.bookingUrl) are NOT the money loop and stay available.
-  const activeDeep = venue.district === "canggu";
-  if (!activeDeep) perk = undefined;
-  const entry = PLAN_ENTRIES.find((e) => e.venueSlug === slug);
-  return {
-    ...venue,
-    perk: perk ?? null,
-    tablepilotSlug: activeDeep ? venue.tablepilotSlug : undefined,
-    blurb: entry?.blurb ?? "",
-  };
+  // Configured deployments trust the perk RLS policy, which checks the live
+  // district coverage flags. Local fixture mode contains Canggu data only.
+  const entry = allowSeed ? PLAN_ENTRIES.find((e) => e.venueSlug === slug) : undefined;
+  return { ...venue, perk: perk ?? null, blurb: entry?.blurb ?? "" };
 }
 
 // ---- Write layer (redemption, G1) ----
@@ -377,7 +380,7 @@ export async function recordRedemption(input: {
   consentGranted: boolean;
   userAgent: string;
 }): Promise<RedemptionResult> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return { ok: false, error: "redemption_storage_unconfigured" };
 
   const { data: activePerk } = await sb
@@ -415,7 +418,7 @@ export async function recordRedemption(input: {
 
 // Aggregate-by-default partner view (privacy). Returns a count only.
 export async function getVenueRedemptionCount(venueSlug: string): Promise<number | null> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return null;
   const { data, error } = await sb.rpc("venue_redemption_count", { p_venue_slug: venueSlug });
   if (error) return null;
@@ -427,13 +430,18 @@ export async function getVenueRedemptionCount(venueSlug: string): Promise<number
 // or break the redemption ring. If the RPCs don't exist yet (migration not
 // applied), they fail silently and the ring keeps working.
 
-export async function setGuestSource(guestRef: string, source: string): Promise<void> {
-  const sb = anonClient();
-  if (!sb || !guestRef || !source) return;
-  await sb.rpc("set_guest_source", { p_guest_ref: guestRef, p_source: source }).then(
-    () => {},
-    () => {}
-  );
+export async function setGuestSource(guestRef: string, source: string): Promise<boolean> {
+  const sb = serviceClient();
+  if (!sb || !guestRef || !source) return false;
+  try {
+    const { data, error } = await sb.rpc("set_guest_source", {
+      p_guest_ref: guestRef,
+      p_source: source,
+    });
+    return !error && data === true;
+  } catch {
+    return false;
+  }
 }
 
 // Right-to-be-forgotten (audit 2026-07): erase this device's behavioural +
@@ -454,7 +462,7 @@ export async function logEvent(input: {
   venueSlug?: string;
   source?: string;
 }): Promise<void> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb || !input.type) return;
   await sb
     .rpc("log_event", {
@@ -472,7 +480,7 @@ export async function logEvent(input: {
 // Partner Reach/Intent/Proof report. Returns null if unavailable (e.g. migration
 // not applied yet) so callers can fall back to a plain count.
 export async function getPartnerReport(venueSlug: string): Promise<PartnerReport | null> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return null;
   const { data, error } = await sb.rpc("partner_report", { p_venue_slug: venueSlug });
   if (error || !data) return null;
@@ -506,36 +514,42 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
 
 // Public readiness gate. Since the Uluwatu launch this delegates to the
 // explicit publication policy in lib/publication.ts: evidence-backed registry
-// gate for Uluwatu, the legacy decision-ready predicate for districts without
-// an evidence layer yet. Sparse/held rows stay tracked and remain reachable
-// for internal review via /places?all=1.
+// gate for Uluwatu plus explicit active/published state for every district.
+// Sparse or held rows remain available only in authenticated operator queues.
 export function isPublicReadyVenue(v: Venue): boolean {
   return getPublicationStatus(v) === "published";
 }
 
-// Public planning catalogue: all tracked venue rows across planning districts.
+// Public planning catalogue: explicitly active, published venue rows only.
 // Perks/booking attach ONLY inside the active_deep district (guardrail #4,
-// enforced below); planning_only rows never surface an offer. The list stays
-// inclusive at the data layer (research, archived, cleanup-pending rows all
-// returned) so internal review sees everything; the public /places surface
-// applies `isPublicReadyVenue` before display.
+// enforced below); planning_only rows never surface an offer. Review,
+// archived and cleanup-pending rows belong to authenticated operator
+// queues and never cross this public data boundary.
 export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   // Seed fallback keeps the catalogue browsable (and demos honest) without a
   // configured DB, same as the /plan loaders.
-  let venues: Venue[] = VENUES;
-  let perks: Perk[] = PERKS;
+  const configured = isSupabaseConfigured();
+  const allowSeed = isSeedFallbackAllowed();
+  let venues: Venue[] = allowSeed ? VENUES : [];
+  let perks: Perk[] = allowSeed ? PERKS : [];
 
-  if (isSupabaseConfigured()) {
+  if (configured) {
+    // A configured database must fail closed. Seed data is not a substitute
+    // for a schema/query error in staging or production.
+    venues = [];
+    perks = [];
     const sb = anonClient()!;
     const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
       sb
         .from("venues")
         .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .eq("status", "active")
+        .eq("publication_status", "published")
         .order("district", { ascending: true })
         .order("name", { ascending: true }),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
     ]);
-    if (!venueError && v && v.length > 0) {
+    if (!venueError && v) {
       venues = (v as unknown as Row[]).map(mapVenue);
       perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
     }
@@ -544,16 +558,12 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
   perks = normalizePublicPerks(perks);
   const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
 
-  // Guardrail #4 — no offers/perks outside the active_deep district, enforced
-  // here as a constraint (not convention): the island catalogue attaches a perk
-  // only for Canggu. A stray perk row in a planning_only district (e.g. from a
-  // bulk import) can never surface as a tourist offer on /places.
-  const isActiveDeep = (district: string) => district === "canggu";
-
   // Uluwatu registry venues ride along as a resilience layer: when the DB is
   // unreachable (seed mode) or a prod migration lags the repo, the district
   // product still renders. uniqueBy keeps the DB row when both exist.
-  const uluwatuFallback = ULUWATU_VENUES.map(uluwatuAsVenue) as Venue[];
+  const uluwatuFallback = allowSeed
+    ? publishedUluwatuVenues().map(uluwatuAsVenue) as Venue[]
+    : [];
 
   // Guard the trust boundary: drop rows missing slug/name/district or with an
   // unknown category before they reach sort/uniqueBy/display. A bad active row
@@ -564,11 +574,7 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,
-      perk: isActiveDeep(v.district) ? perkByVenue.get(v.slug) ?? null : null,
-      // Guardrail #4: the TablePilot seated-reservation loop is the billing
-      // event — never render it outside the active_deep district, even if a
-      // slug leaks onto a planning_only row via bulk import.
-      tablepilotSlug: isActiveDeep(v.district) ? v.tablepilotSlug : undefined,
+      perk: perkByVenue.get(v.slug) ?? null,
       blurb: "",
     }));
 }
@@ -590,28 +596,30 @@ export const HUB_MIN_VENUES = 8;
 // competing for the same queries. The pillar owns those districts.
 const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur", "ubud", "seminyak", "nusa-dua", "jimbaran"]);
 
-// Active venues grouped by district, gated to publishable districts. Unlike the
-// deliberately-inclusive /places catalogue (getPublishedVenues), a ranking page
-// must show only canonical, live rows — so this filters status='active', which
-// also excludes the archived/duplicate twins that 0018 removes. Known districts
+// Active, published venues grouped by district. Ranking pages show only
+// canonical live rows. Known districts
 // only (must exist in DISTRICT_GUIDE) so a stray district string can't mint a
 // page with no editorial identity.
 export async function getDistrictHubs(): Promise<DistrictHub[]> {
-  let venues: Venue[] = VENUES;
-  let perks: Perk[] = PERKS;
+  const allowSeed = isSeedFallbackAllowed();
+  let venues: Venue[] = allowSeed ? VENUES : [];
+  let perks: Perk[] = allowSeed ? PERKS : [];
 
   if (isSupabaseConfigured()) {
+    venues = [];
+    perks = [];
     const sb = anonClient()!;
     const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
       sb
         .from("venues")
         .select(PUBLIC_PLACES_VENUE_COLUMNS)
         .eq("status", "active")
+        .eq("publication_status", "published")
         .order("district", { ascending: true })
         .order("name", { ascending: true }),
       sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
     ]);
-    if (!venueError && v && v.length > 0) {
+    if (!venueError && v) {
       venues = (v as unknown as Row[]).map(mapVenue);
       perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
     }
@@ -697,7 +705,7 @@ export async function getIntentSpoke(
 
 // A guest's own redemptions (for "My offers"). Guest ref comes from the cookie.
 export async function getMyRedemptions(guestRef: string): Promise<MyRedemption[]> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb || !guestRef) return [];
   const { data, error } = await sb.rpc("my_redemptions", { p_guest_ref: guestRef });
   if (error || !data) return [];
@@ -717,7 +725,7 @@ export async function logDishFeedback(input: {
   dish: string;
   verdict: string;
 }): Promise<void> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb || !input.venueSlug) return;
   await sb
     .rpc("log_dish_feedback", {
@@ -733,31 +741,6 @@ export async function logDishFeedback(input: {
 }
 
 // ---- Onboarding status (operator dashboard) ----
-export interface OnboardStatus {
-  slug: string;
-  invited: boolean;
-  confirmed: boolean;
-  hasPhoto: boolean;
-}
-
-export async function getOnboardStatus(): Promise<Record<string, OnboardStatus>> {
-  const sb = anonClient();
-  if (!sb) return {};
-  const { data, error } = await sb.rpc("onboard_status");
-  if (error || !data) return {};
-  const out: Record<string, OnboardStatus> = {};
-  for (const r of data as Record<string, unknown>[]) {
-    const slug = String(r.slug);
-    out[slug] = {
-      slug,
-      invited: Boolean(r.invited),
-      confirmed: Boolean(r.confirmed),
-      hasPhoto: Boolean(r.has_photo),
-    };
-  }
-  return out;
-}
-
 // ---- Partner onboarding (tokenized invite links) ----
 
 export interface OnboardInfo {
@@ -800,7 +783,7 @@ export async function confirmOnboarding(input: {
   agreed: boolean;
   userAgent: string;
 }): Promise<{ ok: boolean; error?: string }> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return { ok: false, error: "unconfigured" };
   const { data, error } = await sb.rpc("confirm_onboarding", {
     p_token: input.token,
@@ -813,83 +796,32 @@ export async function confirmOnboarding(input: {
   return { ok: Boolean(r.ok), error: r.error as string | undefined };
 }
 
-export async function setVenuePhoto(token: string, url: string): Promise<boolean> {
-  const sb = anonClient();
-  if (!sb) return false;
-  const { data, error } = await sb.rpc("set_venue_photo", { p_token: token, p_url: url });
-  if (error) return false;
-  return Boolean((data as Record<string, unknown>)?.ok);
-}
-
-// Partner self-service JTBD write (onboarding). Server RPC whitelists jobs /
-// practical_tags and caps free text; why_its_here stays editorial (not here).
-// owner_note is the venue's own words (UGC) — shown attributed on the card,
-// never merged into the editorial voice.
+// Partner self-service own-words update. The compatibility RPC still accepts
+// the historical arguments, but the 0031 repair ignores them so partners can
+// never overwrite Other Bali editorial fit fields.
 export async function setVenueJtbd(
   token: string,
   input: {
-    bestFor: string;
-    notFor: string;
-    jobs: string[];
-    practicalTags: string[];
     ownerNote: string;
   }
 ): Promise<boolean> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return false;
   const { data, error } = await sb.rpc("set_venue_jtbd", {
     p_token: token,
-    p_best_for: input.bestFor,
-    p_not_for: input.notFor,
-    p_jobs: input.jobs,
-    p_practical_tags: input.practicalTags,
+    p_best_for: "",
+    p_not_for: "",
+    p_jobs: [],
+    p_practical_tags: [],
     p_owner_note: input.ownerNote,
   });
   if (error) return false;
   return Boolean((data as Record<string, unknown>)?.ok);
 }
 
-export interface InviteRosterRow {
-  slug: string;
-  name: string;
-  district: string;
-  status: string;
-  whatsapp: string;
-  token: string;
-  confirmed: boolean;
-  hasPhoto: boolean;
-}
-
-// Island-wide invite roster for /admin/invites — one RPC ensures every venue
-// has an onboarding token and returns the list (operator-only surface).
-export async function getInviteRoster(): Promise<InviteRosterRow[]> {
-  const sb = anonClient();
-  if (!sb) return [];
-  const { data, error } = await sb.rpc("invite_roster");
-  if (error || !Array.isArray(data)) return [];
-  return (data as Record<string, unknown>[]).map((r) => ({
-    slug: String(r.slug ?? ""),
-    name: String(r.name ?? ""),
-    district: String(r.district ?? ""),
-    status: String(r.status ?? ""),
-    whatsapp: String(r.whatsapp ?? ""),
-    token: String(r.token ?? ""),
-    confirmed: Boolean(r.confirmed),
-    hasPhoto: Boolean(r.has_photo),
-  }));
-}
-
-export async function getOrCreateOnboardToken(venueSlug: string): Promise<string | null> {
-  const sb = anonClient();
-  if (!sb) return null;
-  const { data, error } = await sb.rpc("get_or_create_onboard_token", { p_venue_slug: venueSlug });
-  if (error || !data) return null;
-  return data as string;
-}
-
 // Partner §11 Notes: source-type breakdown + repeat. Null if unavailable.
 export async function getPartnerNotes(venueSlug: string): Promise<PartnerNotes | null> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return null;
   const { data, error } = await sb.rpc("partner_notes", { p_venue_slug: venueSlug });
   if (error || !data) return null;
@@ -1032,7 +964,7 @@ async function getRouteDefs(): Promise<RouteDef[]> {
       }));
     }
   }
-  return [...ROUTES].sort((a, b) => a.rank - b.rank);
+  return isSeedFallbackAllowed() ? [...ROUTES].sort((a, b) => a.rank - b.rank) : [];
 }
 
 export async function getRoutes(): Promise<RouteSummary[]> {
@@ -1057,47 +989,13 @@ export async function getRoute(slug: string): Promise<RouteDetail | null> {
   return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
 }
 
-// Phase 0 operator dashboard data (§22). Returns null if unavailable.
-export async function getPhase0Overview(): Promise<Phase0Overview | null> {
-  const sb = anonClient();
-  if (!sb) return null;
-  const { data, error } = await sb.rpc("phase0_overview");
-  if (error || !data) return null;
-  const d = data as Record<string, unknown>;
-  const f = (d.funnel ?? {}) as Record<string, unknown>;
-  const venues = (d.venues ?? []) as Record<string, unknown>[];
-  return {
-    funnel: {
-      sourceScan: Number(f.source_scan ?? 0),
-      landingOpen: Number(f.landing_open ?? 0),
-      venueCardOpen: Number(f.venue_card_open ?? 0),
-      perkOpen: Number(f.perk_open ?? 0),
-      directionClick: Number(f.direction_click ?? 0),
-      reservationClick: Number(f.reservation_click ?? 0),
-      similarOpen: Number(f.similar_open ?? 0),
-      redemption: Number(f.redemption ?? 0),
-    },
-    venues: venues.map((v) => ({
-      slug: String(v.slug),
-      name: String(v.name),
-      directionClicks: Number(v.direction_clicks ?? 0),
-      reservationClicks: Number(v.reservation_clicks ?? 0),
-      perkOpens: Number(v.perk_opens ?? 0),
-      redemptions: Number(v.redemptions ?? 0),
-      externallyAttributed: Number(v.externally_attributed ?? 0),
-      inVenue: Number(v.in_venue ?? 0),
-      creator: Number(v.creator ?? 0),
-    })),
-  };
-}
-
 // ---- Traveller saves & sharing (master §6c) ----
 // Anonymous by default: guest ref = httpOnly cookie. All best-effort — if the
 // migrations (0019/0020) aren't applied yet they fail silently and the UI stays
 // usable. Rung 3 (saveGuestContact) is the only PII path, opt-in + consent.
 
 export async function getSavedSlugs(guestRef: string | null): Promise<string[]> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb || !guestRef) return [];
   const { data, error } = await sb.rpc("saved_places_for", { p_guest_ref: guestRef });
   if (error || !Array.isArray(data)) return [];
@@ -1108,7 +1006,7 @@ export async function toggleSavedPlace(
   guestRef: string,
   venueSlug: string
 ): Promise<{ ok: boolean; saved: boolean }> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb) return { ok: false, saved: false };
   const { data, error } = await sb.rpc("toggle_saved_place", {
     p_guest_ref: guestRef,
@@ -1136,7 +1034,7 @@ export async function createSharedList(
   guestRef: string | null,
   slugs: string[]
 ): Promise<string | null> {
-  const sb = anonClient();
+  const sb = serviceClient();
   if (!sb || slugs.length === 0) return null;
   const { data, error } = await sb.rpc("create_shared_list", {
     p_guest_ref: guestRef,

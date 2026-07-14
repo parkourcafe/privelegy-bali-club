@@ -12,15 +12,14 @@
 //      practical decision detail exist, and a verification date is set.
 //      No approved venue photos exist yet, so published venues render the
 //      explicitly typographic editorial cover (never a fake image).
-//    - Other districts: the legacy decision-ready display predicate
-//      (editorial reason + fit + price/order anchor) now doubles as the index
-//      bar — a detail page carries index,follow once it clears that bar.
-//      isVenueIndexable() works for ALL districts; isIndexableVenueSlug() is
-//      the Uluwatu-registry, slug-only variant kept for callers that only
-//      have a slug (page/sitemap code with the full Venue should not use it).
+//    - Every district also requires the database publication gate:
+//      status=active and publication_status=published. Other districts then
+//      require the decision-ready editorial predicate; Uluwatu additionally
+//      requires its evidence registry. Editorial completeness never promotes
+//      a review or inactive row by itself. isVenueIndexable() works for all
+//      districts; isIndexableVenueSlug() is the Uluwatu slug-only variant.
 //
-// 2. REVIEW — internal only. Reachable via /places?all=1 and direct URL,
-//    always noindex,nofollow. Archived/uncertain/unverified rows stay here.
+// 2. REVIEW — internal only, through authenticated operator surfaces.
 
 import type { Venue } from "./types";
 import {
@@ -35,8 +34,10 @@ function hasText(value: unknown): boolean {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-// Legacy decision-ready predicate (master §6a.5) — retained as the display
-// bar for districts that do not yet have an evidence layer.
+// Decision-ready editorial bar (master §6a.5) — the display gate for districts
+// without an evidence layer, and the fallback for DB-driven Uluwatu rows that
+// are not in the evidence registry (wellness). A row is publishable when it has
+// an editorial reason, a fit context, and at least one practical detail.
 function legacyDecisionReady(v: Venue): boolean {
   return (
     hasText(v.whyItsHere) &&
@@ -46,17 +47,26 @@ function legacyDecisionReady(v: Venue): boolean {
 }
 
 export function getPublicationStatus(v: Venue): PublicationStatus {
+  if (v.status !== "active" || v.publicationStatus !== "published") return "review";
   if (v.district === ULUWATU_DB_SLUG) {
     const content = getUluwatuContent(v.slug);
-    return content?.publication === "published" ? "published" : "review";
+    // The Uluwatu registry is the source of truth ONLY for the venues it
+    // covers (the food launch). Uluwatu rows that are NOT in the registry
+    // (e.g. DB-driven wellness: spa/yoga/fitness/beauty) fall back to the same
+    // decision-ready editorial gate every other district uses, so they publish
+    // straight from the DB without a registry entry. Registered venues keep
+    // their evidence-backed gate unchanged (no regression to the food set).
+    if (content) {
+      return content.publication === "published" ? "published" : "review";
+    }
+    return legacyDecisionReady(v) ? "published" : "review";
   }
-  return legacyDecisionReady(v) ? "published" : "review";
+  return hasText(v.whyItsHere) && hasText(v.bestFor) ? "published" : "review";
 }
 
 // A venue detail page carries index,follow when the venue is "published" —
-// i.e. it passes getPublicationStatus: the evidence-backed registry for Uluwatu,
-// or the decision-ready editorial bar (why-it's-here + best-for + price/order)
-// for every other district. Empty/review rows stay noindex,nofollow so we never
+// i.e. it passes the explicit database gate and the district editorial check.
+// Empty/review rows stay noindex,nofollow so we never
 // ship thin pages to the index. Prefer this (it works for all districts) over
 // isIndexableVenueSlug, which is Uluwatu-registry-only and kept for callers that
 // only have a slug.

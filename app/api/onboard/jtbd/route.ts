@@ -4,16 +4,11 @@ import { setVenueJtbd } from "@/lib/data";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// Partner fills its own fit context (Best for / Not for / jobs / practical
-// tags) plus an own-words note (UGC). The RPC whitelists tags and caps text;
-// we just shape the payload.
+// Partners may update only their clearly attributed own-words note. Other
+// fit/editorial fields stay operator-owned.
 export async function POST(req: Request) {
   let body: {
     token?: string;
-    bestFor?: string;
-    notFor?: string;
-    jobs?: unknown;
-    practicalTags?: unknown;
     ownerNote?: string;
   };
   try {
@@ -25,14 +20,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "bad_request" }, { status: 400 });
   }
 
-  const asStrings = (v: unknown): string[] =>
-    Array.isArray(v) ? v.filter((x): x is string => typeof x === "string").slice(0, 12) : [];
-
   const ok = await setVenueJtbd(body.token, {
-    bestFor: (body.bestFor ?? "").slice(0, 200),
-    notFor: (body.notFor ?? "").slice(0, 200),
-    jobs: asStrings(body.jobs),
-    practicalTags: asStrings(body.practicalTags),
     ownerNote: (typeof body.ownerNote === "string" ? body.ownerNote : "").slice(0, 4000),
   });
 

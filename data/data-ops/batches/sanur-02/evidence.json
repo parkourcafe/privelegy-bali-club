@@ -1,0 +1,525 @@
+{
+  "batchId": "sanur-02",
+  "capturedAt": "2026-07-13T16:14:29Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "sanur",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-pizzaria-hyatt-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-pizzaria-hyatt-home",
+          "status": "draft",
+          "url": "https://www.tablecheck.com/en/hyatt-regency-bali-pizzaria/reserve/landing?source=website",
+          "venueSlug": "pizzaria-hyatt",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Pizzaria at Hyatt Regency Bali, Jalan Danau Tamblingan 89, Sanur.",
+      "collectionNotes": [
+        "Current lunch PDF dated 2026-06-26; values are thousand IDR plus 10% service and 11% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "id": "menu-pizzaria-hyatt-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-01",
+                  "name": "Crostini cherry tomato",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-02",
+                  "name": "Suppli",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-03",
+                  "name": "Calamari Fritti",
+                  "priceMinor": 105000,
+                  "sourceDisplayPrice": "105"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-04",
+                  "name": "Pizzaria Salad",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-05",
+                  "name": "Burrata and Fennel",
+                  "priceMinor": 140000,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "pizzaria-hyatt-06",
+                  "name": "La Caprese",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-pizzaria-hyatt-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Pizzaria (Hyatt)",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "pizzaria-hyatt",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; no first-party identity confirmed.",
+      "collectionNotes": [
+        "No discoverable first-party web/social/menu property; third-party phones conflict and the listing is unclaimed."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Red Manna",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "red-manna",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-retro-kitchen-and-bar-1",
+          "kind": "order",
+          "label": "Order on GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-retro-kitchen-and-bar-home",
+          "status": "draft",
+          "url": "https://gofood.link/a/yqg9h8N",
+          "venueSlug": "retro-kitchen-and-bar",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-retro-kitchen-and-bar-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp reservation",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-retro-kitchen-and-bar-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6281237923557",
+          "venueSlug": "retro-kitchen-and-bar",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Retro Kitchen and Bar, Jl. Danau Tamblingan No.126A, Sanur.",
+      "collectionNotes": [
+        "Current official Linktree still links an October menu created 2022-10-28; retain freshness warning. Prices are thousand IDR plus 10% tax and 6% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "id": "menu-retro-kitchen-and-bar-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-01",
+                  "name": "Breakfast Power",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-02",
+                  "name": "Smashed Avocado",
+                  "priceMinor": 69000,
+                  "sourceDisplayPrice": "69"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-03",
+                  "name": "Shrimp Avocado Cucumber Bites",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-04",
+                  "name": "Calamari Rings",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-05",
+                  "name": "Greek Salad with Avocado",
+                  "priceMinor": 69000,
+                  "sourceDisplayPrice": "69"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "retro-kitchen-and-bar-06",
+                  "name": "Buddha Salmon",
+                  "priceMinor": 95000,
+                  "sourceDisplayPrice": "95"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-retro-kitchen-and-bar-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Retro Kitchen and Bar",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "retro-kitchen-and-bar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "SALA Sanur; exact street address not confirmed first-party.",
+      "collectionNotes": [
+        "Official Instagram confirms Sanur and 07:30–22:00 but no first-party menu/action was found; unrelated Philippine domain rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Sala Bistro",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "sala-bistro",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Segara, Sanur; exact street address not confirmed first-party.",
+      "collectionNotes": [
+        "Official Instagram confirms identity and 07:00–22:00, but no first-party menu/action link was found; non-official menu site rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Segara the Seaside",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "segara-the-seaside",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-soul-on-the-beach-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "resdiary",
+          "sourceManifestId": "src-soul-on-the-beach-home",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/SoulontheBeach/1997?channelCode=INSTAGRAM",
+          "venueSlug": "soul-on-the-beach",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-soul-on-the-beach-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-soul-on-the-beach-home",
+          "status": "draft",
+          "url": "https://wa.me/6281339751932",
+          "venueSlug": "soul-on-the-beach",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Soul On The Beach, Jl. Pantai Sindhu, Sanur.",
+      "collectionNotes": [
+        "Current official all-day PDF dated 2025-12-22; prices use K IDR plus 16.6% tax/service. Site says 07:00–23:00 while PDF says 07:00–22:00; conflict retained."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "id": "menu-soul-on-the-beach-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-01",
+                  "name": "Tomato Bruschetta",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-02",
+                  "name": "Salt & Pepper Calamari",
+                  "priceMinor": 80000,
+                  "sourceDisplayPrice": "80K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-03",
+                  "name": "Ahi Tuna Crudo",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-04",
+                  "name": "Trio of Dips",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-05",
+                  "name": "Long Beach Tacos",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "soul-on-the-beach-06",
+                  "name": "What Everyone Gets salad",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-soul-on-the-beach-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Soul on the Beach",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "soul-on-the-beach",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; no first-party identity confirmed.",
+      "collectionNotes": [
+        "No venue-controlled website/social source found; unclaimed and aggregator pages were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Warung Coconut Tree",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-coconut-tree",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Warung Littlebird, Jl. Danau Tamblingan No.34, Sanur 80228.",
+      "collectionNotes": [
+        "Official Instagram confirms identity/address but exposes no menu, pricing or action href; third-party menu sites rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Warung Little Bird",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "warung-little-bird",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:14:29Z",
+          "confirmationRequired": true,
+          "evidenceNote": "URL normalized from official WhatsApp-labelled number.",
+          "id": "a-warung-makan-little-m-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-warung-makan-little-m-home",
+          "status": "draft",
+          "url": "https://wa.me/6281338181842",
+          "venueSlug": "warung-makan-little-mars",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Little Mars, Sanur; official Instagram confirms venue but exact postcode remains ambiguous.",
+      "collectionNotes": [
+        "Official bio states 07:00–22:00 and labels +6281338181842 as WhatsApp. No first-party menu or Gojek merchant href was exposed."
+      ],
+      "coverageOutcome": "action_links_only",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Warung Makan Little Mars",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "warung-makan-little-mars",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "White Orchid, Jalan Danau Tamblingan No.85, Sanur.",
+      "collectionNotes": [
+        "Official Instagram distinguishes Sanur from Ubud and gives a phone, but no menu or explicit booking/order/WhatsApp href was found."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "White Orchid (Sanur)",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "white-orchid-sanur",
+      "verifiedAt": null
+    }
+  ]
+}

@@ -1,18 +1,11 @@
 import Link from "next/link";
-import { headers } from "next/headers";
-import { getVenueWithPerk, getOrCreateOnboardToken } from "@/lib/data";
+import { getInviteRoster } from "@/lib/admin-invites";
+import { currentSiteOrigin } from "@/lib/site-origin";
 
 export const dynamic = "force-dynamic";
 
 // Operator: mint/show the onboarding invite for a venue, with a ready-to-send
-// WhatsApp message. Protected in production by ADMIN_ACCESS_TOKEN in proxy.ts.
-
-async function baseUrl(): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return process.env.NEXT_PUBLIC_SITE_URL ?? `${proto}://${host}`;
-}
+// WhatsApp message. The data call re-checks admin auth and uses service role.
 
 export default async function InvitePage({
   params,
@@ -20,7 +13,7 @@ export default async function InvitePage({
   params: Promise<{ venue: string }>;
 }) {
   const { venue: slug } = await params;
-  const venue = await getVenueWithPerk(slug);
+  const venue = (await getInviteRoster()).find((row) => row.slug === slug);
   if (!venue) {
     return (
       <main className="mx-auto w-full max-w-md px-4 py-16 text-center">
@@ -29,12 +22,12 @@ export default async function InvitePage({
     );
   }
 
-  const token = await getOrCreateOnboardToken(slug);
-  const base = await baseUrl();
-  const link = token ? `${base}/onboard/${token}` : null;
+  const token = venue.token || null;
+  const base = await currentSiteOrigin();
+  const link = token && base ? `${base}/onboard/${token}` : null;
 
   const waText = link
-    ? `Hi! This is Other Bali — the curated Bali guide we talked about. Here's your listing preview: ${link}\nPlease check your card, upload 1-3 photos and tap Confirm. Takes 2 minutes. No setup fee during the pilot.`
+    ? `Hi! This is Other Bali — the curated Bali guide we talked about. Here's your listing preview: ${link}\nPlease check your card, submit any photos you have the right to share for our review, and tap Confirm. Takes 2 minutes. No setup fee during the pilot.`
     : "";
 
   return (
@@ -76,9 +69,9 @@ export default async function InvitePage({
           </div>
 
           <p className="mt-4 text-xs text-stone-400">
-            The venue will see its card preview, the listing policy, a photo
-            upload and a Confirm button. Confirmation is recorded with name,
-            time and device.
+            The venue will see its card preview, the listing policy, a private
+            photo-review submission and a Confirm button. Listing confirmation
+            and per-image photo consent are recorded separately.
           </p>
         </>
       )}

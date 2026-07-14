@@ -1,0 +1,868 @@
+{
+  "batchId": "seminyak-01",
+  "capturedAt": "2026-07-13T16:07:45Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "seminyak",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-7am-bakers-umalas-1",
+          "kind": "whatsapp",
+          "label": "Umalas WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-7am-bakers-umalas-home",
+          "status": "draft",
+          "url": "http://wa.me/+628113850303",
+          "venueSlug": "7am-bakers-umalas",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-7am-bakers-umalas-2",
+          "kind": "map",
+          "label": "Umalas map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-7am-bakers-umalas-home",
+          "status": "draft",
+          "url": "https://goo.gl/maps/AyvyKmGZwPrxoxCm8",
+          "venueSlug": "7am-bakers-umalas",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "7AM Bakers Umalas; branch identity and actions from official Linktree.",
+      "collectionNotes": [
+        "Official PDF modified 2026-07-06. K values remain currency-null because currency/multiplier are not declared; prices exclude 17% tax/service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-7am-bakers-umalas-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-01",
+                  "name": "Eggs En Cocotte",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-02",
+                  "name": "Avocado Toast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-03",
+                  "name": "Velvet Eggs",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "100K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-04",
+                  "name": "Croissant Benedict",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-05",
+                  "name": "Vanilla and Orange Pancakes",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "7am-bakers-umalas-06",
+                  "name": "7am Cheese Burger",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-7am-bakers-umalas-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "7AM Bakers Umalas",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "7am-bakers-umalas",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-bambu-1",
+          "kind": "reserve",
+          "label": "Book",
+          "provider": "official_booking",
+          "sourceManifestId": "src-bambu-home",
+          "status": "draft",
+          "url": "https://bambubali.com/booking/",
+          "venueSlug": "bambu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-bambu-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-bambu-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?phone=6281901051999",
+          "venueSlug": "bambu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Bambu, Petitenget; official site says nightly in Petitenget from 18:00.",
+      "collectionNotes": [
+        "First-party item menu was not found. Group dining only states menus from IDR 600,000++ for four courses; no items were created."
+      ],
+      "coverageOutcome": "action_links_only",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Bambu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "bambu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-biku-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "resdiary",
+          "sourceManifestId": "src-biku-home",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/Biku/3752",
+          "venueSlug": "biku",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-biku-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-biku-home",
+          "status": "draft",
+          "url": "http://wa.me/6285100570888",
+          "venueSlug": "biku",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Biku Bali, Petitenget / Kerobokan.",
+      "collectionNotes": [
+        "Official-linked 2019 menu is stale and mostly unpriced; only one explicit add-on is retained. Site hours conflict between 08:00–23:00 and 09:00–22:00. Prices exclude 10% tax and 5% service."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-biku-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "biku-01",
+                  "name": "Bacon extra",
+                  "priceMinor": 18000,
+                  "sourceDisplayPrice": "rp.18,000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-biku-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Biku",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "biku",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-boyncow-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-boyncow-home",
+          "status": "draft",
+          "url": "https://book.chope.co/booking?rid=boyncow1708bal&source=rest_boyncow.com",
+          "venueSlug": "boyncow",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-boyncow-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-boyncow-home",
+          "status": "draft",
+          "url": "https://wa.me/6282144716526",
+          "venueSlug": "boyncow",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Boy'N'Cow, Jl. Raya Kerobokan 138, Seminyak 80361.",
+      "collectionNotes": [
+        "Live food page modified 2026-07-13. K values remain currency-null because the page does not declare currency/multiplier."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-boyncow-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-01",
+                  "name": "JPN Sakoshi Oyster",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-02",
+                  "name": "Salt Baked Beets",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-03",
+                  "name": "Red Snapper Crudo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "150K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-04",
+                  "name": "AUS Beef Striploin Carpaccio",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "150K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-05",
+                  "name": "Grilled Octopus",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "330K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "boyncow-06",
+                  "name": "Crispy Skin Salmon",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "370K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-boyncow-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Boy'N'Cow",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "boyncow",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Official current location is Jalan Subak Sari, Canggu, conflicting with repo Seminyak district.",
+      "collectionNotes": [
+        "Location mismatch requires live SQL/canonical reconciliation. Official menu and booking actions were intentionally not attributed to this Seminyak ledger record."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Café del Mar Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "cafe-del-mar-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-corner-house-bali-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-corner-house-bali-home",
+          "status": "draft",
+          "url": "https://wa.me/6281339609258",
+          "venueSlug": "corner-house-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-corner-house-bali-2",
+          "kind": "map",
+          "label": "Map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-corner-house-bali-home",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/VXt3Ynno5uq6UrpE6",
+          "venueSlug": "corner-house-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Top of Eat Street, Jl. Kayu Aya No.10, Seminyak.",
+      "collectionNotes": [
+        "Live all-day page modified 2026-05-04; IDR K prices normalize to rupiah. Footer states 000 scale plus 10% tax and 6% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-corner-house-bali-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-01",
+                  "name": "Burrata Bruschetta (2pcs)",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "IDR 110K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-02",
+                  "name": "Vegetarian Spring Rolls (3pcs)",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "IDR 110K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-03",
+                  "name": "Red White and Blue All-American Buffalo Wings (6pcs)",
+                  "priceMinor": 119000,
+                  "sourceDisplayPrice": "IDR 119K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-04",
+                  "name": "Balinese Chicken Satay Lilit",
+                  "priceMinor": 169000,
+                  "sourceDisplayPrice": "IDR 169K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-05",
+                  "name": "Salt And Pepper Squid",
+                  "priceMinor": 149000,
+                  "sourceDisplayPrice": "IDR 149K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "corner-house-bali-06",
+                  "name": "Corner House Garlic Prawns",
+                  "priceMinor": 169000,
+                  "sourceDisplayPrice": "IDR 169K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-corner-house-bali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Corner House Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "corner-house-bali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ginger-moon-canteen-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-ginger-moon-canteen-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?phone=6281236081718",
+          "venueSlug": "ginger-moon-canteen",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Ginger Moon, Jl. Kayu Aya No.7, Seminyak.",
+      "collectionNotes": [
+        "Current site links the undated PDF. PDF declares 000 IDR plus 7% service and 10% tax."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-ginger-moon-canteen-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-01",
+                  "name": "Rice paper rolls",
+                  "priceMinor": 119000,
+                  "sourceDisplayPrice": "119"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-02",
+                  "name": "Spicy BBQ chicken wings",
+                  "priceMinor": 93000,
+                  "sourceDisplayPrice": "93"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-03",
+                  "name": "Babi guling half-moon steamed buns (3)",
+                  "priceMinor": 105000,
+                  "sourceDisplayPrice": "105"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-04",
+                  "name": "Beef Rendang pizza",
+                  "priceMinor": 185000,
+                  "sourceDisplayPrice": "185"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-05",
+                  "name": "BBQ pork ribs Babi Kecap 400gm",
+                  "priceMinor": 235000,
+                  "sourceDisplayPrice": "235"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ginger-moon-canteen-06",
+                  "name": "Beef Rendang 300gm",
+                  "priceMinor": 292000,
+                  "sourceDisplayPrice": "292"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ginger-moon-canteen-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Ginger Moon Canteen",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ginger-moon-canteen",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Current Hogwild identity; canonical legacy-name match needs review.",
+      "collectionNotes": [
+        "Official site is a Coming Soon page and official Instagram exposes no fetchable item menu. Old site is unavailable; aggregator prices were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Hog Wild with Chef Bruno",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "hog-wild-with-chef-bruno",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kilo-kitchen-bali-se-1",
+          "kind": "whatsapp",
+          "label": "RSVP WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-kilo-kitchen-bali-se-home",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6281246167618",
+          "venueSlug": "kilo-kitchen-bali-seminyak",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Kilo Kitchen Bali – Seminyak, Jl. Drupadi No.22.",
+      "collectionNotes": [
+        "Current June 2026 dinner PDF created 2026-07-02 and modified 2026-07-13 supersedes the 2024 menu. Numeric values remain currency-null because the PDF does not declare currency/multiplier; excludes 10% tax and 8% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-kilo-kitchen-bali-seminyak-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-01",
+                  "name": "Wasabi Tuna Tartare",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "160"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-02",
+                  "name": "Kilo's Steak Tartare",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-03",
+                  "name": "Truffled Tai Yuzu Roll",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-04",
+                  "name": "Squid Ink Rice",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "215"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-05",
+                  "name": "Slow Cooked Beef Cheek",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "325"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kilo-kitchen-bali-se-06",
+                  "name": "Grilled Wagyu Steak",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "950"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-kilo-kitchen-bali-se-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Kilo Kitchen Bali - Seminyak",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "kilo-kitchen-bali-seminyak",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ku-de-ta-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "tablecheck",
+          "sourceManifestId": "src-ku-de-ta-home",
+          "status": "draft",
+          "url": "https://tablecheck.com/en/kudeta/reserve?isIframe=true&appearance=classic",
+          "venueSlug": "ku-de-ta",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ku-de-ta-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-ku-de-ta-home",
+          "status": "draft",
+          "url": "https://wa.me/62361736969",
+          "venueSlug": "ku-de-ta",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "KU DE TA, Jalan Kayu Aya No.9, Seminyak.",
+      "collectionNotes": [
+        "Official dinner PDF linked by the live menu viewer; values are 000 rupiah plus 10% tax and 8% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:07:45Z",
+          "id": "menu-ku-de-ta-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-01",
+                  "name": "Citrus Olives & Fine Cheese",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-02",
+                  "name": "Fire-Roasted Octopus",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-03",
+                  "name": "Creamy Tuna Tartare",
+                  "priceMinor": 190000,
+                  "sourceDisplayPrice": "190"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-04",
+                  "name": "Portuguese-Style Linefish",
+                  "priceMinor": 270000,
+                  "sourceDisplayPrice": "270"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-05",
+                  "name": "Matara Braised Beef Cheek",
+                  "priceMinor": 350000,
+                  "sourceDisplayPrice": "350"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "ku-de-ta-06",
+                  "name": "220g F1 Wagyu MB6+ Rump Fillet",
+                  "priceMinor": 650000,
+                  "sourceDisplayPrice": "650"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ku-de-ta-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "KU DE TA",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ku-de-ta",
+      "verifiedAt": null
+    }
+  ]
+}

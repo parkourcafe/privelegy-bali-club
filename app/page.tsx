@@ -27,19 +27,21 @@ export default function Landing() {
       <LandingNav />
       <MobileStickyCTA />
 
-      <Hero />
-      <ChaosToOrder />
-      <Mechanism />
-      <HowItWorks />
-      <Moments />
-      <ProofChain />
-      <TrustCards />
-      <WhatsInside />
-      <Comparison />
-      <AroundBali />
-      <HumanMoment />
-      <Faq />
-      <FinalCta />
+      <main>
+        <Hero />
+        <ChaosToOrder />
+        <Mechanism />
+        <HowItWorks />
+        <Moments />
+        <ProofChain />
+        <TrustCards />
+        <WhatsInside />
+        <Comparison />
+        <AroundBali />
+        <HumanMoment />
+        <Faq />
+        <FinalCta />
+      </main>
       <SiteFooter />
     </div>
   );

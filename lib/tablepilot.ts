@@ -27,6 +27,30 @@ export interface TablePilotReportResult {
 }
 
 const DEFAULT_REPORT_URL = "https://tablepilot-id.vercel.app/api/partner/bali-privilege/report";
+const PRODUCTION_REPORT_ORIGIN = new URL(DEFAULT_REPORT_URL).origin;
+
+export function tablePilotReportConfig(input: {
+  vercelEnv?: string;
+  token?: string;
+  reportUrl?: string;
+  previewToken?: string;
+  previewReportUrl?: string;
+}): { token: string; reportUrl: string } | null {
+  const token = input.vercelEnv === "preview" ? input.previewToken : input.token;
+  const rawUrl = input.vercelEnv === "preview"
+    ? input.previewReportUrl
+    : input.reportUrl ?? (input.vercelEnv === "production" ? DEFAULT_REPORT_URL : undefined);
+  if (!token || !rawUrl) return null;
+  try {
+    const parsed = new URL(rawUrl);
+    if (parsed.protocol !== "https:" || parsed.username || parsed.password) return null;
+    if (input.vercelEnv === "preview" && parsed.origin === PRODUCTION_REPORT_ORIGIN) return null;
+    if (input.vercelEnv === "production" && parsed.origin !== PRODUCTION_REPORT_ORIGIN) return null;
+    return { token, reportUrl: parsed.toString() };
+  } catch {
+    return null;
+  }
+}
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" ? (value as Record<string, unknown>) : {};
@@ -60,15 +84,20 @@ function parseReport(value: unknown): TablePilotReport {
 }
 
 export async function getTablePilotReport(): Promise<TablePilotReportResult> {
-  const token = process.env.TABLEPILOT_PARTNER_TOKEN;
-  const reportUrl = process.env.TABLEPILOT_REPORT_URL ?? DEFAULT_REPORT_URL;
-  if (!token) {
+  const config = tablePilotReportConfig({
+    vercelEnv: process.env.VERCEL_ENV,
+    token: process.env.TABLEPILOT_PARTNER_TOKEN,
+    reportUrl: process.env.TABLEPILOT_REPORT_URL,
+    previewToken: process.env.TABLEPILOT_PREVIEW_PARTNER_TOKEN,
+    previewReportUrl: process.env.TABLEPILOT_PREVIEW_REPORT_URL,
+  });
+  if (!config) {
     return { configured: false, ok: false, error: "tablepilot_report_not_configured" };
   }
 
   try {
-    const response = await fetch(reportUrl, {
-      headers: { Authorization: `Bearer ${token}` },
+    const response = await fetch(config.reportUrl, {
+      headers: { Authorization: `Bearer ${config.token}` },
       cache: "no-store",
     });
     if (!response.ok) {

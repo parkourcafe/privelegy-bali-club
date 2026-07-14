@@ -1,3 +1,7 @@
+> **ARCHIVED — NOT AUTHORITATIVE.** Preserved only for implementation history.
+> The current product and technical authority is
+> [`Other_Bali_Master_Architecture.md`](../../Other_Bali_Master_Architecture.md).
+
 # Bali Privilege / Other Bali — Master Architecture
 
 **Status:** v0.4-current · post app-merge reconciliation · 2026-07-09.

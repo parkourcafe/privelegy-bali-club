@@ -1,0 +1,1886 @@
+{
+  "batchId": "kynd-community-final",
+  "capturedAt": "2026-07-14T02:52:06Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "seminyak",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": true,
+  "readyForOperatorReview": true,
+  "readyForStagingApply": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "confirmationRequired": false,
+          "evidenceNote": "Official KYND cafe page covering Seminyak, Canggu and Uluwatu.",
+          "expiresAt": null,
+          "id": "a-kynd-official-site",
+          "kind": "website",
+          "label": "Official website",
+          "priority": 90,
+          "provider": "official_website",
+          "sourceManifestId": "src-kynd-cafe",
+          "status": "draft",
+          "url": "https://www.kyndcommunity.com/pages/kyndcafe",
+          "venueSlug": "kynd-community",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Official venues page labels this contact as Seminyak.",
+          "expiresAt": null,
+          "id": "a-kynd-seminyak-whatsapp",
+          "kind": "whatsapp",
+          "label": "Seminyak WhatsApp",
+          "priority": 80,
+          "provider": "whatsapp",
+          "sourceManifestId": "src-kynd-seminyak-whatsapp",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=6285931120209",
+          "venueSlug": "kynd-community",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "confirmationRequired": false,
+          "evidenceNote": "Official venues page map resolves to KYND COMMUNITY SEMINYAK.",
+          "expiresAt": null,
+          "id": "a-kynd-seminyak-maps",
+          "kind": "directions",
+          "label": "Seminyak Google Maps",
+          "priority": 100,
+          "provider": "google_maps",
+          "sourceManifestId": "src-kynd-seminyak-maps",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/kz5v6uNC5brWQ6ph7",
+          "venueSlug": "kynd-community",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "KYND Community Seminyak; live production snapshot confirms active status and district=seminyak, while the official venue map resolves to KYND COMMUNITY SEMINYAK.",
+      "collectionNotes": [
+        "The official site describes a shared three-location menu and calls it a sample; this record fully parses the captured four-page May 2026 PDF, not any unlisted separate menu.",
+        "Every displayed price uses k notation and is normalized as integer IDR where unambiguous; source price text is preserved verbatim.",
+        "All prices are subject to 10% tax and 6% service.",
+        "Gojek and Grab delivery are stated on the official site, but no Seminyak branch-deep URLs are published, so no delivery capability is fabricated.",
+        "The official dinner short-link resolved to KYNDCanggu at capture and is rejected for this Seminyak record."
+      ],
+      "coverageOutcome": "official_menu_fully_parsed",
+      "district": "seminyak",
+      "forbiddenToPublish": true,
+      "menuCoverage": "fully_parsed",
+      "menus": [
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "collectionNotes": [
+            "PDF title metadata: WEBSITE MENU > FOOD & DRINKS.",
+            "PDF created and modified 2026-05-11 11:36:15 WITA; four pages visually inspected after text extraction.",
+            "All prices are subject to 10% tax and 6% service.",
+            "PDF describes some grouped variants under one displayed price; grouped lines remain grouped rather than inventing separate prices."
+          ],
+          "expiresAt": null,
+          "id": "menu-kynd-community-may-2026-v1",
+          "sections": [
+            {
+              "id": "kynd-section-01-smoothie-bowls",
+              "name": "Smoothie Bowls",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "dragon fruit blended with banana, mango, mixed berries, coconut water, protein powder, topped with house made granola, strawberries & banana; choose whey or plant-based protein powder",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-01-01",
+                  "name": "Tropical Protein Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 130000,
+                  "priceText": "130k",
+                  "sourceDisplayPrice": "130k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Tropical Protein Bowl",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-01-02",
+                  "name": "Swap for gluten-free granola",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "+15k",
+                  "sourceDisplayPrice": "+15k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "acai berries, banana, mixed berries, apple juice topped with island fruits & house made granola",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-01-03",
+                  "name": "Acai Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 120000,
+                  "priceText": "120k",
+                  "sourceDisplayPrice": "120k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Acai Bowl",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-01-04",
+                  "name": "Add a scoop of peanut butter",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "+15k",
+                  "sourceDisplayPrice": "+15k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "banana blended with biscoff spread, cocoa & oat milk topped with fresh banana, strawberries, biscoff cookies and chocolate granola",
+                  "dietaryTags": [],
+                  "id": "kynd-item-01-05",
+                  "name": "Biscoff Choc Banana Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 110000,
+                  "priceText": "110k",
+                  "sourceDisplayPrice": "110k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Biscoff Choc Banana Bowl",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-01-06",
+                  "name": "Add protein powder",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "+30k",
+                  "sourceDisplayPrice": "+30k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Custom garnish",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-01-07",
+                  "name": "Customise Your Smoothie Bowl Garnish (max 8 letters)",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "+25k",
+                  "sourceDisplayPrice": "+25k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-02-brunch-cocktails",
+              "name": "Brunch Cocktails",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "celery infused gin, tomato juice, vegan worcestershire, citrus, salt",
+                  "dietaryTags": [],
+                  "id": "kynd-item-02-01",
+                  "name": "Bloody Mary",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "140k",
+                  "sourceDisplayPrice": "140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "sparkling wine, fresh orange juice",
+                  "dietaryTags": [],
+                  "id": "kynd-item-02-02",
+                  "name": "Mimosa",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "140k",
+                  "sourceDisplayPrice": "140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "vodka, coffee liqueur, salted caramel, espresso",
+                  "dietaryTags": [],
+                  "id": "kynd-item-02-03",
+                  "name": "Espresso Martini",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "140k",
+                  "sourceDisplayPrice": "140k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-03-make-your-own",
+              "name": "Make Your Own",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-01",
+                  "name": "Sourdough or gluten-free bread",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "25k",
+                  "sourceDisplayPrice": "25k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-02",
+                  "name": "Eggs (2pcs)",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "25k",
+                  "sourceDisplayPrice": "25k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-03",
+                  "name": "Halloumi",
+                  "partnerRecommended": false,
+                  "priceMinor": 40000,
+                  "priceText": "40k",
+                  "sourceDisplayPrice": "40k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-04",
+                  "name": "Hashbrown",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "25k",
+                  "sourceDisplayPrice": "25k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-05",
+                  "name": "Avocado | scrambled tofu",
+                  "partnerRecommended": false,
+                  "priceMinor": 20000,
+                  "priceText": "20k",
+                  "sourceDisplayPrice": "20k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-06",
+                  "name": "Smokey mushrooms | sauerkraut | vegan pesto",
+                  "partnerRecommended": false,
+                  "priceMinor": 20000,
+                  "priceText": "20k",
+                  "sourceDisplayPrice": "20k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-07",
+                  "name": "Whipped hummus | tomato relish | beans",
+                  "partnerRecommended": false,
+                  "priceMinor": 20000,
+                  "priceText": "20k",
+                  "sourceDisplayPrice": "20k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-03-08",
+                  "name": "Vegemite | berry compote | peanut butter",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "15k",
+                  "sourceDisplayPrice": "15k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-04-breakfast",
+              "name": "Breakfast",
+              "description": "Available until 5pm.",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "seasonal island fruits, mint & rosella dust",
+                  "dietaryTags": [
+                    "GF"
+                  ],
+                  "id": "kynd-item-04-01",
+                  "name": "Fruits of Life",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": "cardamom-infused greek yogurt, house-made granola, caramelised cashews, strawberries & honey",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-02",
+                  "name": "Summer Yoghurt Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 85000,
+                  "priceText": "85k",
+                  "sourceDisplayPrice": "85k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "oats, peanut butter, cinnamon, caramelised banana, berry compote, strawberries & coconut nectar",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-03",
+                  "name": "Power Porridge",
+                  "partnerRecommended": false,
+                  "priceMinor": 80000,
+                  "priceText": "80k",
+                  "sourceDisplayPrice": "80k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "pancakes, home made vanilla ice-cream, maple syrup, berry compote, banana & pink cream",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-04",
+                  "name": "Paradise Pancakes",
+                  "partnerRecommended": false,
+                  "priceMinor": 115000,
+                  "priceText": "115k",
+                  "sourceDisplayPrice": "115k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "house baked banana bread, fresh banana, whipped cream, salted caramel, pavlova dust",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-05",
+                  "name": "Bananas & Cream",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": "garlic sourdough, avocado, cherry tomato, feta, toasted seeds, lemon & herbs",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-04-06",
+                  "name": "Avo Toast",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Avo Toast",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-07",
+                  "name": "Add poached egg",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "+15k",
+                  "sourceDisplayPrice": "+15k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "choose scrambled eggs OR keep it vegan with scrambled tofu; tortilla, beans, hash browns, avocado, salsa, truffle aioli & bbq sauce",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-08",
+                  "name": "Breakfast Burrito",
+                  "partnerRecommended": false,
+                  "priceMinor": 100000,
+                  "priceText": "100k",
+                  "sourceDisplayPrice": "100k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "choose free range egg OR keep it vegan with scrambled tofu; sourdough, smokey mushrooms, homemade hash brown, breakfast beans, avocado, semi-dried tomatoes & tomato relish",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-09",
+                  "name": "Big Boss Breaky",
+                  "partnerRecommended": false,
+                  "priceMinor": 120000,
+                  "priceText": "120k",
+                  "sourceDisplayPrice": "120k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": "folded scrambled eggs, fermented chilli, sourdough",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-04-10",
+                  "name": "Folded Chilli Eggs",
+                  "partnerRecommended": false,
+                  "priceMinor": 80000,
+                  "priceText": "80k",
+                  "sourceDisplayPrice": "80k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": "skillet eggs with beans, tomato sauce, cheese, crispy roasted potatoes, sour cream, and parsley",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-04-11",
+                  "name": "Baked Eggs",
+                  "partnerRecommended": false,
+                  "priceMinor": 110000,
+                  "priceText": "110k",
+                  "sourceDisplayPrice": "110k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": "poached eggs, english muffin, spinach, semi-dried tomatoes & hollandaise",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-12",
+                  "name": "Eggs Benedict",
+                  "partnerRecommended": false,
+                  "priceMinor": 100000,
+                  "priceText": "100k",
+                  "sourceDisplayPrice": "100k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": "boiled egg, sauerkraut, hummus, crispy seed cracker, salad, halloumi & avocado",
+                  "dietaryTags": [
+                    "GF"
+                  ],
+                  "id": "kynd-item-04-13",
+                  "name": "Sunshine Breaky Salad",
+                  "partnerRecommended": false,
+                  "priceMinor": 100000,
+                  "priceText": "100k",
+                  "sourceDisplayPrice": "100k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": "english muffin, homemade hashbrowns, plant-based pattie, fried egg, cheddar cheese, red onion, pickles, aioli, bbq sauce",
+                  "dietaryTags": [],
+                  "id": "kynd-item-04-14",
+                  "name": "Breakky Burger",
+                  "partnerRecommended": false,
+                  "priceMinor": 90000,
+                  "priceText": "90k",
+                  "sourceDisplayPrice": "90k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-05-mains",
+              "name": "Mains",
+              "description": "Available from 12pm till close.",
+              "items": [
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": "tortilla chips, mexican beans, cheddar cheese, salsa, sweet chilli pickled jalapeños, sour cream & guacamole",
+                  "dietaryTags": [],
+                  "id": "kynd-item-05-01",
+                  "name": "Nachos",
+                  "partnerRecommended": false,
+                  "priceMinor": 100000,
+                  "priceText": "100k",
+                  "sourceDisplayPrice": "100k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "creamy carbonara sauce, spaghetti, plant-based bakon, mushrooms & vegan parmesan",
+                  "dietaryTags": [],
+                  "id": "kynd-item-05-02",
+                  "name": "Carbonara",
+                  "partnerRecommended": false,
+                  "priceMinor": 120000,
+                  "priceText": "120k",
+                  "sourceDisplayPrice": "120k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "rigatoni, basil pesto, sundried tomato, popped capers & roasted cherry tomatoes",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-05-03",
+                  "name": "Pesto Rigatoni",
+                  "partnerRecommended": false,
+                  "priceMinor": 100000,
+                  "priceText": "100k",
+                  "sourceDisplayPrice": "100k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "spaghetti, bolognese sauce, vegan parmesan & garlic bread",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-05-04",
+                  "name": "Spaghetti Bolognese",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Spaghetti Bolognese",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-05-05",
+                  "name": "Gluten Free pasta",
+                  "partnerRecommended": false,
+                  "priceMinor": 20000,
+                  "priceText": "+20k",
+                  "sourceDisplayPrice": "+20k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "creamy broth, ramen noodles, seasoned plant-based mince, bok choy, mushrooms, wakame, crispy garlic, chilli oil & sesame",
+                  "dietaryTags": [],
+                  "id": "kynd-item-05-06",
+                  "name": "Creamy Tan Tan Ramen",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "indonesian fried rice, satay peanut cheeken skewers, fried egg, green sambal, crispy crackers",
+                  "dietaryTags": [],
+                  "id": "kynd-item-05-07",
+                  "name": "Nasi Goreng",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-06-burgers-sandwiches",
+              "name": "Burgers & Sandwiches",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": "sourdough, sautéed mushrooms, pesto, caramelised onions, melted cheddar",
+                  "dietaryTags": [],
+                  "id": "kynd-item-06-01",
+                  "name": "Pesto Mushroom Toastie",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "burger bun, plant-based pattie, vegan cheese, big mac sauce, onion, lettuce, pickles & fries",
+                  "dietaryTags": [],
+                  "id": "kynd-item-06-02",
+                  "name": "KYND Burger",
+                  "partnerRecommended": false,
+                  "priceMinor": 110000,
+                  "priceText": "110k",
+                  "sourceDisplayPrice": "110k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "flat bread, falafel, whipped hummus, tabouleh, pickled onion, fresh greens & fries; hot tip: put your fries inside your shawarma!",
+                  "dietaryTags": [],
+                  "id": "kynd-item-06-03",
+                  "name": "Falafel Shawarma",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "burger bun, crispy mushroom, KFC inspired zinger sauce, lettuce, tomato, pickle, onion & fries",
+                  "dietaryTags": [],
+                  "id": "kynd-item-06-04",
+                  "name": "Cheekan Zinger Burger",
+                  "partnerRecommended": false,
+                  "priceMinor": 105000,
+                  "priceText": "105k",
+                  "sourceDisplayPrice": "105k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "tortilla, rice, mexi beans, lettuce, avocado, salsa, corn, slaw, mexi potatoes, coriander, chipotle aioli, sweet chilli & jalapenos",
+                  "dietaryTags": [],
+                  "id": "kynd-item-06-05",
+                  "name": "Mexican Burrito",
+                  "partnerRecommended": false,
+                  "priceMinor": 110000,
+                  "priceText": "110k",
+                  "sourceDisplayPrice": "110k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-07-sides",
+              "name": "Sides",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "simply sautéed with olive oil & garlic",
+                  "dietaryTags": [
+                    "GF"
+                  ],
+                  "id": "kynd-item-07-01",
+                  "name": "Broccoli Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 50000,
+                  "priceText": "50k",
+                  "sourceDisplayPrice": "50k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "french fries fully loaded with herb salt, chipotle aioli, crunchy onion mix & jalapeños",
+                  "dietaryTags": [
+                    "GF"
+                  ],
+                  "id": "kynd-item-07-02",
+                  "name": "Loaded Fries",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-08-small-plates",
+              "name": "Small Plates",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "whipped hummus, pita bread, tabbouleh, dukkah",
+                  "dietaryTags": [],
+                  "id": "kynd-item-08-01",
+                  "name": "Whipped Hummus",
+                  "partnerRecommended": false,
+                  "priceMinor": 50000,
+                  "priceText": "50k",
+                  "sourceDisplayPrice": "50k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "crunchy cauliflower, house-made bbq sauce, chipotle aioli & chives",
+                  "dietaryTags": [],
+                  "id": "kynd-item-08-02",
+                  "name": "Buffalo Cauliflower Wings",
+                  "partnerRecommended": false,
+                  "priceMinor": 80000,
+                  "priceText": "80k",
+                  "sourceDisplayPrice": "80k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "rice paper rolls with marinated tofu & tempe, hoisin, carrot, cucumber, coriander, cabbage & peanut sauce (2pcs)",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-08-03",
+                  "name": "High Rolling",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "cheekan skewers, watercress, gremolata & toum (4pcs)",
+                  "dietaryTags": [],
+                  "id": "kynd-item-08-04",
+                  "name": "Cheekan Skewers",
+                  "partnerRecommended": false,
+                  "priceMinor": 70000,
+                  "priceText": "70k",
+                  "sourceDisplayPrice": "70k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-09-salad-bowls",
+              "name": "Salad Bowls",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": "falafel, whipped hummus, tabouleh, salad, olives, halloumi, sauerkraut, dukkah, pita bread",
+                  "dietaryTags": [],
+                  "id": "kynd-item-09-01",
+                  "name": "Mediterranean Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 105000,
+                  "priceText": "105k",
+                  "sourceDisplayPrice": "105k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "organic greens, broccoli, chickpeas, lentils, carrot, oven-baked tofu, roasted pumpkin, aioli, cauliflower rice, whipped hummus, house dressing & garlic sourdough",
+                  "dietaryTags": [
+                    "GFO"
+                  ],
+                  "id": "kynd-item-09-02",
+                  "name": "Bli Buddha",
+                  "partnerRecommended": false,
+                  "priceMinor": 110000,
+                  "priceText": "110k",
+                  "sourceDisplayPrice": "110k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Separate DIY menu was not present in the captured PDF",
+                  "currency": "IDR",
+                  "description": "see separate menu for full DIY salad bowl options",
+                  "dietaryTags": [],
+                  "id": "kynd-item-09-03",
+                  "name": "Build Your Own Bowl",
+                  "partnerRecommended": false,
+                  "priceMinor": 125000,
+                  "priceText": "125k",
+                  "sourceDisplayPrice": "125k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-10-sweets",
+              "name": "Sweets",
+              "description": "Check the cake fridge for more desserts.",
+              "items": [
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-01",
+                  "name": "Nutella Coconut Balls",
+                  "partnerRecommended": false,
+                  "priceMinor": 35000,
+                  "priceText": "35k",
+                  "sourceDisplayPrice": "35k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-02",
+                  "name": "Classic Tiramisu",
+                  "partnerRecommended": false,
+                  "priceMinor": 65000,
+                  "priceText": "65k",
+                  "sourceDisplayPrice": "65k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-03",
+                  "name": "Caramel Slice",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "30k",
+                  "sourceDisplayPrice": "30k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-04",
+                  "name": "Banana Bread",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "30k",
+                  "sourceDisplayPrice": "30k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-05",
+                  "name": "Oreo Mudcake",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-06",
+                  "name": "Chocolate Brownie",
+                  "partnerRecommended": false,
+                  "priceMinor": 35000,
+                  "priceText": "35k",
+                  "sourceDisplayPrice": "35k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-07",
+                  "name": "Protein Ball",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "25k",
+                  "sourceDisplayPrice": "25k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [
+                    "GF"
+                  ],
+                  "id": "kynd-item-10-08",
+                  "name": "Carrot Cake",
+                  "partnerRecommended": false,
+                  "priceMinor": 65000,
+                  "priceText": "65k",
+                  "sourceDisplayPrice": "65k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Contains dairy and free-range eggs",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-10-09",
+                  "name": "Blueberry Cheesecake",
+                  "partnerRecommended": false,
+                  "priceMinor": 80000,
+                  "priceText": "80k",
+                  "sourceDisplayPrice": "80k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-11-coffee-tea",
+              "name": "Coffee & Tea",
+              "description": "Choose your milk: Oatside, Bonsoy, almond, dairy.",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-01",
+                  "name": "Espresso, piccolo, macchiato, long black",
+                  "partnerRecommended": false,
+                  "priceMinor": 32000,
+                  "priceText": "32k",
+                  "sourceDisplayPrice": "32k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-02",
+                  "name": "Latte, cappuccino, flat white",
+                  "partnerRecommended": false,
+                  "priceMinor": 45000,
+                  "priceText": "45k",
+                  "sourceDisplayPrice": "45k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-03",
+                  "name": "Mocha, hot chocolate, matcha latte",
+                  "partnerRecommended": false,
+                  "priceMinor": 47000,
+                  "priceText": "47k",
+                  "sourceDisplayPrice": "47k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-04",
+                  "name": "Decaf | extra shot | extra large",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "15k",
+                  "sourceDisplayPrice": "15k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "bali breakfast • organic green • earl grey • sunrise blend (green tea, berry & pineapple)",
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-05",
+                  "name": "Tea",
+                  "partnerRecommended": false,
+                  "priceMinor": 35000,
+                  "priceText": "35k",
+                  "sourceDisplayPrice": "35k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "iced caramel latte • iced hazelnut latte • iced matcha • iced chocolate",
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-06",
+                  "name": "Iced Coffee",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "iced lychee tea • iced lemon tea • iced peach tea w. pomegranate popsicle",
+                  "dietaryTags": [],
+                  "id": "kynd-item-11-07",
+                  "name": "Iced Tea",
+                  "partnerRecommended": false,
+                  "priceMinor": 40000,
+                  "priceText": "40k",
+                  "sourceDisplayPrice": "40k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-12-speciality-drinks",
+              "name": "Speciality Drinks",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "cold brew, oat milk, hazelnut, coco pop cold foam",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-01",
+                  "name": "Hazelnut Coco Pop Coffee",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "espresso, protein powder, oat milk blended with ice",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-02",
+                  "name": "Protein Coffee Frappe",
+                  "partnerRecommended": false,
+                  "priceMinor": 80000,
+                  "priceText": "80k",
+                  "sourceDisplayPrice": "80k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "espresso, oat milk, banana caramel cold foam, toffee bananas",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-03",
+                  "name": "Banana Latte",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "muddled strawberry, espresso, oat milk, vanilla, pink cold foam",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-04",
+                  "name": "Secret Drink",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "muddled strawberry, matcha, oat milk, pink cold foam",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-05",
+                  "name": "Pink Strawberry Matcha",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "iced matcha, oat milk, banana caramel cold foam, toffee bananas",
+                  "dietaryTags": [],
+                  "id": "kynd-item-12-06",
+                  "name": "Banana Matcha",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-13-love-mugs",
+              "name": "Love Mugs",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mushroom blend, espresso shot, cacao, cinnamon, MCT coconut oil, oat milk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-13-01",
+                  "name": "Medicinal Mushroom Latte",
+                  "partnerRecommended": false,
+                  "priceMinor": 65000,
+                  "priceText": "65k",
+                  "sourceDisplayPrice": "65k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "chai tea brewed with oat milk & coconut sugar",
+                  "dietaryTags": [],
+                  "id": "kynd-item-13-02",
+                  "name": "Spiced Chai",
+                  "partnerRecommended": false,
+                  "priceMinor": 65000,
+                  "priceText": "65k",
+                  "sourceDisplayPrice": "65k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Add-on for Spiced Chai",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-13-03",
+                  "name": "Make it dirty! Add a shot of coffee",
+                  "partnerRecommended": false,
+                  "priceMinor": 15000,
+                  "priceText": "+15k",
+                  "sourceDisplayPrice": "+15k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "ceremonial cacao, cinnamon & oat mylk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-13-04",
+                  "name": "Ceremonial Cacao",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-14-smoothies",
+              "name": "Smoothies",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "berries, mango, dragonfruit, spirulina, pomegranate, orange, pineapple, passionfruit",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-01",
+                  "name": "Tropical Sunrise",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mango, peaches, strawberries, raspberries, orange juice",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-02",
+                  "name": "Island Sunset",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "banana, mango, pineapple, passionfruit, spinach, spirulina, coconut milk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-03",
+                  "name": "Green House",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mango, pineapple, raspberry, coconut yoghurt, blue spirulina, oat milk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-04",
+                  "name": "Blue Crush",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mango, strawberry, raspberry, coconut yoghurt, maca, oat milk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-05",
+                  "name": "Strawberry Kisses",
+                  "partnerRecommended": false,
+                  "priceMinor": 75000,
+                  "priceText": "75k",
+                  "sourceDisplayPrice": "75k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mixed berries, accai, oat milk, vanilla protein powder",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-06",
+                  "name": "Six Pak",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "banana, peanut butter, cacao, vanilla protein powder, oat milk",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-07",
+                  "name": "Protein Boss",
+                  "partnerRecommended": false,
+                  "priceMinor": 95000,
+                  "priceText": "95k",
+                  "sourceDisplayPrice": "95k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Smoothie add-on",
+                  "currency": "IDR",
+                  "description": "choose from whey or vegan protein",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-08",
+                  "name": "Vanilla protein powder",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "+30k",
+                  "sourceDisplayPrice": "+30k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "Smoothie add-on",
+                  "currency": "IDR",
+                  "description": "a blend of lions mane, reishi, cordyceps, chaga, king trumpet, maitake & shiitake mushrooms",
+                  "dietaryTags": [],
+                  "id": "kynd-item-14-09",
+                  "name": "Superfeast mushroom powder",
+                  "partnerRecommended": false,
+                  "priceMinor": 25000,
+                  "priceText": "+25k",
+                  "sourceDisplayPrice": "+25k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-15-juices",
+              "name": "Juices",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "apple, beetroot, carrot, celery, ginger",
+                  "dietaryTags": [],
+                  "id": "kynd-item-15-01",
+                  "name": "Harvest",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "raspberry, orange, apple, passionfruit",
+                  "dietaryTags": [],
+                  "id": "kynd-item-15-02",
+                  "name": "Golden Hour",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "spinach, apple, cucumber, ginger, lemon",
+                  "dietaryTags": [],
+                  "id": "kynd-item-15-03",
+                  "name": "Greener Grass",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "oranges, apple, carrot, turmeric, ginger",
+                  "dietaryTags": [],
+                  "id": "kynd-item-15-04",
+                  "name": "Detoxify",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "strawberries, watermelon, apple, pineapple, orange",
+                  "dietaryTags": [],
+                  "id": "kynd-item-15-05",
+                  "name": "Tropical Feels",
+                  "partnerRecommended": false,
+                  "priceMinor": 60000,
+                  "priceText": "60k",
+                  "sourceDisplayPrice": "60k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-16-coolers",
+              "name": "Coolers",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "strawberry, passionfruit, soda",
+                  "dietaryTags": [],
+                  "id": "kynd-item-16-01",
+                  "name": "Passionate Love",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "orange juice, soda, elderflower",
+                  "dietaryTags": [],
+                  "id": "kynd-item-16-02",
+                  "name": "Citrus Spritz",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "lemon juice, soda, dragonfruit",
+                  "dietaryTags": [],
+                  "id": "kynd-item-16-03",
+                  "name": "KYND Lemonade",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "soda, lemongrass, ginger, kaffir lime",
+                  "dietaryTags": [],
+                  "id": "kynd-item-16-04",
+                  "name": "Ginger-Grass Fizz",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-17-cocktails",
+              "name": "Cocktails",
+              "description": "All cocktails 140k. 241 cocktail happy hour 4PM-7PM everyday and all day on Fridays. Classic cocktails can be made upon request.",
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "sparkling wine, fresh orange juice",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-01",
+                  "name": "Mimosa",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "sparkling wine, aperol, orange, soda",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-02",
+                  "name": "Aperol Spritz",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "celery infused gin, vegan worcestershire, tomato juice citrus, salt",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-03",
+                  "name": "Bloody Mary",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "PDF favourite",
+                  "currency": "IDR",
+                  "description": "strawberry gin, elderflower, honeydew, ginger soda",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-04",
+                  "name": "KYND Highball",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "vodka, nusantara coffee liqueur, salted caramel, espresso",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-05",
+                  "name": "Espresso Martini",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "PDF favourite",
+                  "currency": "IDR",
+                  "description": "vodka, passionfruit, apricot jam, pineapple, coconut, citrus",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-06",
+                  "name": "Passionate Soul",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "PDF favourite",
+                  "currency": "IDR",
+                  "description": "light rum, strawberry, lychee, citrus",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-07",
+                  "name": "Strawberry & Lychee Daiquiri",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "PDF favourite",
+                  "currency": "IDR",
+                  "description": "gin, elderflower, peach, citrus, bitters, sour candy",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-08",
+                  "name": "Sour Peaches",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "tequila, triple sec, citrus, salt",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-09",
+                  "name": "Classic Margarita",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "PDF favourite",
+                  "currency": "IDR",
+                  "description": "aperol, tequila reposado, peach, citrus",
+                  "dietaryTags": [],
+                  "id": "kynd-item-17-10",
+                  "name": "Frozen Aperol & Peach Margarita",
+                  "partnerRecommended": false,
+                  "priceMinor": 140000,
+                  "priceText": "all 140k",
+                  "sourceDisplayPrice": "all 140k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-18-mylkshakes",
+              "name": "Mylkshakes",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "strawberry / chocolate / oreo / banana",
+                  "dietaryTags": [],
+                  "id": "kynd-item-18-01",
+                  "name": "Mylkshakes",
+                  "partnerRecommended": false,
+                  "priceMinor": 55000,
+                  "priceText": "55k",
+                  "sourceDisplayPrice": "55k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-19-granitas",
+              "name": "Granitas",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "lychee & lime / mango & passionfruit",
+                  "dietaryTags": [],
+                  "id": "kynd-item-19-01",
+                  "name": "Granitas",
+                  "partnerRecommended": false,
+                  "priceMinor": 50000,
+                  "priceText": "50k",
+                  "sourceDisplayPrice": "50k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-20-water-coconuts",
+              "name": "Water & Coconuts",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-01",
+                  "name": "Small water still/sparkling",
+                  "partnerRecommended": false,
+                  "priceMinor": 37000,
+                  "priceText": "37k",
+                  "sourceDisplayPrice": "37k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-02",
+                  "name": "Large water still/sparkling",
+                  "partnerRecommended": false,
+                  "priceMinor": 65000,
+                  "priceText": "65k",
+                  "sourceDisplayPrice": "65k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-03",
+                  "name": "1 L infused water",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "30k",
+                  "sourceDisplayPrice": "30k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-04",
+                  "name": "Whole cold coconut",
+                  "partnerRecommended": false,
+                  "priceMinor": 40000,
+                  "priceText": "40k",
+                  "sourceDisplayPrice": "40k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "coconut water, lemon & himalyan salt",
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-05",
+                  "name": "Coco Hydration & Electrolytes",
+                  "partnerRecommended": false,
+                  "priceMinor": 50000,
+                  "priceText": "50k",
+                  "sourceDisplayPrice": "50k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "indonesian medicinal drink",
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-06",
+                  "name": "Jamu",
+                  "partnerRecommended": false,
+                  "priceMinor": 50000,
+                  "priceText": "50k",
+                  "sourceDisplayPrice": "50k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "turmeric, ginger, lemon, cayenne",
+                  "dietaryTags": [],
+                  "id": "kynd-item-20-07",
+                  "name": "Immunity Shot",
+                  "partnerRecommended": false,
+                  "priceMinor": 30000,
+                  "priceText": "30k",
+                  "sourceDisplayPrice": "30k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-21-beer",
+              "name": "Beer",
+              "description": null,
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-21-01",
+                  "name": "Bintang",
+                  "partnerRecommended": false,
+                  "priceMinor": 45000,
+                  "priceText": "45k",
+                  "sourceDisplayPrice": "45k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            },
+            {
+              "id": "kynd-section-22-wine",
+              "name": "Wine",
+              "description": "By bottle 600k.",
+              "items": [
+                {
+                  "availabilityNote": "By bottle",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-22-01",
+                  "name": "Valdivieso | Sparkling Brut, Chile",
+                  "partnerRecommended": false,
+                  "priceMinor": 600000,
+                  "priceText": "600k",
+                  "sourceDisplayPrice": "600k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "By bottle",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-22-02",
+                  "name": "Roche Mazet | Sauvignon Blanc, France",
+                  "partnerRecommended": false,
+                  "priceMinor": 600000,
+                  "priceText": "600k",
+                  "sourceDisplayPrice": "600k",
+                  "verifiedAllergenTags": []
+                },
+                {
+                  "availabilityNote": "By bottle",
+                  "currency": "IDR",
+                  "description": null,
+                  "dietaryTags": [],
+                  "id": "kynd-item-22-03",
+                  "name": "Roche Mazet | Merlot, France",
+                  "partnerRecommended": false,
+                  "priceMinor": 600000,
+                  "priceText": "600k",
+                  "sourceDisplayPrice": "600k",
+                  "verifiedAllergenTags": []
+                }
+              ]
+            }
+          ],
+          "sourceManifestId": "src-kynd-menu-may-2026",
+          "status": "draft",
+          "title": "KYND Community shared sample food & drinks menu - May 2026",
+          "venueSlug": "kynd-community",
+          "verifiedAt": null,
+          "version": 1
+        }
+      ],
+      "name": "KYND Community",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": true,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "rejectedActionCandidates": [
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "id": "reject-kynd-seminyak-reserve-wrong-branch",
+          "kind": "reserve",
+          "provider": "resdiary",
+          "reason": "Official short-link resolves to booking.resdiary.com/widget/Standard/KYNDCanggu/1352, not a confirmed Seminyak branch.",
+          "resolvedUrl": "https://booking.resdiary.com/widget/Standard/KYNDCanggu/1352",
+          "sourceManifestId": "src-kynd-booking-shortlink",
+          "url": "https://cutt.ly/book-kyndbali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "id": "reject-kynd-seminyak-gojek-no-deep-link",
+          "kind": "delivery",
+          "provider": "gofood",
+          "reason": "Official site states Gojek delivery but publishes no Seminyak branch-deep destination URL.",
+          "resolvedUrl": null,
+          "sourceManifestId": "src-kynd-cafe",
+          "url": null,
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-14T02:52:06Z",
+          "id": "reject-kynd-seminyak-grab-no-deep-link",
+          "kind": "delivery",
+          "provider": "grabfood",
+          "reason": "Official site states Grab delivery but publishes no Seminyak branch-deep destination URL.",
+          "resolvedUrl": null,
+          "sourceManifestId": "src-kynd-cafe",
+          "url": null,
+          "verifiedAt": null
+        }
+      ],
+      "slug": "kynd-community",
+      "verifiedAt": null
+    }
+  ]
+}

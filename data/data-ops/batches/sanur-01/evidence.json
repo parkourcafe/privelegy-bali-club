@@ -1,0 +1,736 @@
+{
+  "batchId": "sanur-01",
+  "capturedAt": "2026-07-13T16:11:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "sanur",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; first-party identity inaccessible.",
+      "collectionNotes": [
+        "Facebook and Instagram candidates were unavailable; no third-party facts were promoted."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Bella Italia Sanur",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "bella-italia-sanur",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-genius-cafe-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "official_booking",
+          "sourceManifestId": "src-genius-cafe-home",
+          "status": "draft",
+          "url": "https://geniuscafebali.com/reservations/",
+          "venueSlug": "genius-cafe",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-genius-cafe-2",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-genius-cafe-home",
+          "status": "draft",
+          "url": "https://wa.me/6282236944873",
+          "venueSlug": "genius-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Genius Cafe Sanur, Mertasari Beach.",
+      "collectionNotes": [
+        "Official embedded 2025 menu PDF created 2025-04-11; values are 000 IDR plus 11% VAT and 10% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-genius-cafe-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-01",
+                  "name": "Cassava / Sweet Potato Chips",
+                  "priceMinor": 30000,
+                  "sourceDisplayPrice": "30"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-02",
+                  "name": "Potato Chunks",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-03",
+                  "name": "French Fries",
+                  "priceMinor": 70000,
+                  "sourceDisplayPrice": "70"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-04",
+                  "name": "Holy Guacamole",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-05",
+                  "name": "3 Heavenly Dips",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "genius-cafe-06",
+                  "name": "Genius Acai Bowl",
+                  "priceMinor": 105000,
+                  "sourceDisplayPrice": "105"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-genius-cafe-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Genius Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "genius-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-gong-restaurant-1",
+          "kind": "map",
+          "label": "Get direction",
+          "provider": "google_maps",
+          "sourceManifestId": "src-gong-restaurant-home",
+          "status": "draft",
+          "url": "https://goo.gl/maps/1XZ6GJNuTTgyZqve9",
+          "venueSlug": "gong-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Tirta Akasa No.28, Sanur 80227.",
+      "collectionNotes": [
+        "Live official menu; prices in thousand rupiah plus 11% tax and 10% service. No authored date; capture time is used."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-gong-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-01",
+                  "name": "Gado-Gado",
+                  "priceMinor": 55000,
+                  "sourceDisplayPrice": "55"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-02",
+                  "name": "Kepiting Soka Telur Asin",
+                  "priceMinor": 153000,
+                  "sourceDisplayPrice": "153"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-03",
+                  "name": "Tuna Jerungga",
+                  "priceMinor": 73000,
+                  "sourceDisplayPrice": "73"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-04",
+                  "name": "Lumpia Sayur",
+                  "priceMinor": 46000,
+                  "sourceDisplayPrice": "46"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-05",
+                  "name": "Udang Sambal Matah",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "gong-restaurant-06",
+                  "name": "Be Tongkol Sere Embe",
+                  "priceMinor": 73000,
+                  "sourceDisplayPrice": "73"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-gong-restaurant-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Gong Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "gong-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-jalapeno-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "official_booking",
+          "sourceManifestId": "src-jalapeno-home",
+          "status": "draft",
+          "url": "https://jalapeno-bali.com/booking",
+          "venueSlug": "jalapeno",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalapeño Sanur; first-party site explicitly separates Sanur and Canggu.",
+      "collectionNotes": [
+        "Live Sanur menu provides names/descriptions but no prices, currency, tax or date. Canggu footer contact was excluded."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-jalapeno-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-01",
+                  "name": "Jalapeno",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-02",
+                  "name": "Queso",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-03",
+                  "name": "Cashew Queso",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-04",
+                  "name": "Carne Asada Tacos",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-05",
+                  "name": "Carnitas Tacos",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "jalapeno-06",
+                  "name": "Baja Fish Tacos",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-jalapeno-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Jalapeño",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "jalapeno",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-kuu-izakaya-dining-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "chope",
+          "sourceManifestId": "src-kuu-izakaya-dining-home",
+          "status": "draft",
+          "url": "https://bookv5.chope.co/booking?rid=kuu2112bal&source=rest_kuubali.com",
+          "venueSlug": "kuu-izakaya-dining",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Kuu Japanese Restaurant, Jalan Danau Tamblingan, Sanur 80228.",
+      "collectionNotes": [
+        "Current official-linked concierge menu has raw amounts but no currency/unit/tax/date. Stale 2021 PDF was not substituted."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-kuu-izakaya-dining-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-01",
+                  "name": "Agedashi Tofu",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-02",
+                  "name": "Avo Maguro",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-03",
+                  "name": "Charcoal Karaage",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "40"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-04",
+                  "name": "Chicken Gyoza",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-05",
+                  "name": "Crispy Rice & Spicy Tuna",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "kuu-izakaya-dining-06",
+                  "name": "Edamame",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "20"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-kuu-izakaya-dining-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Kuu Izakaya Dining",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "kuu-izakaya-dining",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; current location requires first-party confirmation after reported move.",
+      "collectionNotes": [
+        "Official-looking Instagram was inaccessible. Old addresses and third-party menu PDFs were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Lilla Pantai",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "lilla-pantai",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-linga-longa-bar-1",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-linga-longa-bar-home",
+          "status": "draft",
+          "url": "https://wa.me/6281803111333",
+          "venueSlug": "linga-longa-bar",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Cemara 36, Sanur, Bali.",
+      "collectionNotes": [
+        "Official September 2024 menu image omits currency/unit; raw glass amounts remain currency-null. Image states 10% tax and 5% service."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-linga-longa-bar-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "linga-longa-bar-01",
+                  "name": "Sumatran Tiger Attack",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "linga-longa-bar-02",
+                  "name": "Secret Sangria",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "115"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "linga-longa-bar-03",
+                  "name": "Tropical Aperol Spritz",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "linga-longa-bar-04",
+                  "name": "Jalapeno Margarita",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "linga-longa-bar-05",
+                  "name": "Latte Martini",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "120"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-linga-longa-bar-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Linga Longa Bar",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "linga-longa-bar",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-massimo-italian-rest-1",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "umai",
+          "sourceManifestId": "src-massimo-italian-rest-home",
+          "status": "draft",
+          "url": "https://reservation.umai.io/en/widget/massimo-restaurant",
+          "venueSlug": "massimo-italian-restaurant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Danau Tamblingan No.228, Sanur 80237.",
+      "collectionNotes": [
+        "Official page still publishes a menu image dated 2022-06-27; prices use K and the footer states 16% combined tax/service. Freshness review remains required."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:11:00Z",
+          "id": "menu-massimo-italian-restaurant-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-01",
+                  "name": "Burrata Fresca con Insalatina",
+                  "priceMinor": 59000,
+                  "sourceDisplayPrice": "59K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-02",
+                  "name": "Mozzarella Fresca alla Caprese",
+                  "priceMinor": 59000,
+                  "sourceDisplayPrice": "59K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-03",
+                  "name": "Crostini alla Boscaiola",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-04",
+                  "name": "Bruschette Salentine",
+                  "priceMinor": 39000,
+                  "sourceDisplayPrice": "39K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-05",
+                  "name": "Bruschette Pomodori e Basilico",
+                  "priceMinor": 33000,
+                  "sourceDisplayPrice": "33K"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "massimo-italian-rest-06",
+                  "name": "Calamaretti Fritti e Salsa Aioli",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75K"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-massimo-italian-rest-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Massimo — Italian Restaurant",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "massimo-italian-restaurant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; no first-party identity confirmed.",
+      "collectionNotes": [
+        "No venue-controlled website/social source found; unclaimed aggregator listing and uploaded menus were rejected."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Mona Lisa Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "mona-lisa-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [],
+      "blocked": true,
+      "branchIdentity": "Repo Sanur branch; exact social identity unresolved.",
+      "collectionNotes": [
+        "Two conflicting social candidates were inaccessible. No address/menu/hours were normalized from guides."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "sanur",
+      "forbiddenToPublish": true,
+      "menuCoverage": "none",
+      "menus": [],
+      "name": "Oranje Bar",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "oranje-bar",
+      "verifiedAt": null
+    }
+  ]
+}

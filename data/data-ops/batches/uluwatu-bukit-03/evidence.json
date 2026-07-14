@@ -1,0 +1,477 @@
+{
+  "batchId": "uluwatu-bukit-03",
+  "capturedAt": "2026-07-13T16:03:00Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "uluwatu-bukit",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-ulug-page",
+          "kind": "website",
+          "label": "Official venue page",
+          "provider": "official_website",
+          "sourceManifestId": "src-ulu-garden-page",
+          "status": "draft",
+          "url": "https://ulutribe.com/ulu-garden/",
+          "venueSlug": "ulu-garden",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ulug-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-ulu-garden-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/reservations/ulugarden",
+          "venueSlug": "ulu-garden",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-ulug-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-ulu-garden-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/XVPZGC9e1rhpYodG9",
+          "venueSlug": "ulu-garden",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Padang Padang Beach Street, Uluwatu.",
+      "collectionNotes": [
+        "Menu folder is official, but no exact items/prices are claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "id": "menu-ulu-garden-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-ulu-garden-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Ulu Garden",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "ulu-garden",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-waatu-page",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-waatu-page",
+          "status": "draft",
+          "url": "https://waatu.com/",
+          "venueSlug": "waatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-waatu-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-waatu-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/waatu/reservations/create/search/landing",
+          "venueSlug": "waatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-waatu-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-waatu-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/Qncha4ogaVhVkgUD8",
+          "venueSlug": "waatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Pantai Selatan Gau, Ungasan.",
+      "collectionNotes": [
+        "Six dinner snacks only; full breakfast/lunch/dinner set not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "id": "menu-waatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-01",
+                  "name": "beef tartare on toast with kimchi salt",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-02",
+                  "name": "mudcrab on toast with lardo",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-03",
+                  "name": "lamb flatbread + yoghurt",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-04",
+                  "name": "cured local reef fish + bbq tangerine + yuzu kosho",
+                  "priceMinor": 140000,
+                  "sourceDisplayPrice": "140"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-05",
+                  "name": "wood oven bone marrow + pickle onion + nori jam + flatbread",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "waatu-06",
+                  "name": "woodfired flatbread",
+                  "priceMinor": 45000,
+                  "sourceDisplayPrice": "45"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-waatu-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Waatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "waatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-white-menu",
+          "kind": "website",
+          "label": "Official menus",
+          "provider": "official_website",
+          "sourceManifestId": "src-white-page",
+          "status": "draft",
+          "url": "https://whiterockbali.com/menus/",
+          "venueSlug": "white-rock-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-white-book",
+          "kind": "reserve",
+          "label": "Bookings",
+          "provider": "official_booking",
+          "sourceManifestId": "src-white-page",
+          "status": "draft",
+          "url": "https://bookings.whiterockbali.com/",
+          "venueSlug": "white-rock-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Melasti Beach, Ungasan.",
+      "collectionNotes": [
+        "Official image menu found; item-price extraction remains for operator review."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "id": "menu-white-rock-beach-club-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-white-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "White Rock Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "white-rock-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-yuki-page",
+          "kind": "website",
+          "label": "Official Uluwatu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-yuki-page",
+          "status": "draft",
+          "url": "https://www.yuki-bali.com/uluwatu",
+          "venueSlug": "yuki-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-yuki-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "sevenrooms",
+          "sourceManifestId": "src-yuki-page",
+          "status": "draft",
+          "url": "https://www.sevenrooms.com/explore/yukiuluwatu/reservations/create/search?tracking=yuki-uluwatu",
+          "venueSlug": "yuki-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-yuki-wa",
+          "kind": "whatsapp",
+          "label": "Uluwatu WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-yuki-page",
+          "status": "draft",
+          "url": "https://wa.me/6281139608557",
+          "venueSlug": "yuki-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-yuki-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-yuki-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/qr3wZrGTXh7HGyie6",
+          "venueSlug": "yuki-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Labuansait, Pecatu.",
+      "collectionNotes": [
+        "Signature names/descriptions only; menu-image prices not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "id": "menu-yuki-uluwatu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Wagyu beef katsu, brioche, cheddar, truffle mayo and onion jam.",
+                  "id": "yuki-01",
+                  "name": "WAGYU BEEF SANDO",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": "Prawn tempura, salmon, spring onion, spicy mayo and sukiyaki sauce.",
+                  "id": "yuki-02",
+                  "name": "PRAWN TEMPURA MAKI ROLL",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-yuki-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "YUKI Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "yuki-uluwatu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-zali-page",
+          "kind": "website",
+          "label": "Official Uluwatu branch",
+          "provider": "official_website",
+          "sourceManifestId": "src-zali-page",
+          "status": "draft",
+          "url": "https://www.zalirestaurant.com/branches",
+          "venueSlug": "zali-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-zali-wa",
+          "kind": "whatsapp",
+          "label": "Uluwatu WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-zali-page",
+          "status": "draft",
+          "url": "https://wa.me/%2B6287778137273",
+          "venueSlug": "zali-uluwatu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-zali-map",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-zali-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/DQXCAaZn2Xc7MiRP8?g_st=iw",
+          "venueSlug": "zali-uluwatu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Zali Uluwatu, Jalan Pantai Labuan Sait, Pecatu.",
+      "collectionNotes": [
+        "Shared Bali image menu; exact prices and Uluwatu availability remain unparsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "uluwatu-bukit",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T16:03:00Z",
+          "id": "menu-zali-uluwatu-v1",
+          "sections": [
+            {
+              "items": [],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-zali-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Zali Uluwatu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "zali-uluwatu",
+      "verifiedAt": null
+    }
+  ]
+}

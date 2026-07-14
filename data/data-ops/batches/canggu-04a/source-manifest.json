@@ -1,0 +1,139 @@
+{
+  "batchId": "canggu-04a",
+  "generatedAt": "2026-07-13T15:30:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-nude-berawa-drive",
+      "label": "nüde Berawa Menu Google Drive folder",
+      "notes": "No item or price is inferred from image previews.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "blocked_parse",
+      "sourceType": "official_menu_folder",
+      "url": "https://drive.google.com/drive/folders/1kslNoCK4xQn_ey7z99Uf2Ds32h_Wb0_n",
+      "venueSlug": "nude-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-nude-berawa-menu",
+      "label": "Nüde Berawa official menu index",
+      "notes": "Official page links a branch-specific Google Drive folder; the folder listing was reachable but yielded no safely parseable item text in this run.",
+      "officialControl": "venue",
+      "outcome": "found_not_parsed",
+      "sourceType": "official_website_menu",
+      "url": "https://nude-bali.com/menu/",
+      "venueSlug": "nude-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-nude-berawa-page",
+      "label": "Nüde Cafe Berawa official branch page",
+      "notes": "Confirms Berawa identity, address, hours, Maps and WhatsApp actions.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://nude-bali.com/locations/berawa/",
+      "venueSlug": "nude-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-bistro-dinner",
+      "label": "Riviera Bistro dinner menu 02-07-2026",
+      "notes": "Current official dinner PDF; retained as provenance but not fully transcribed.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_menu_pdf",
+      "url": "https://rivieragroupbali.com/wp-content/uploads/2026/07/Bistro-Menu-Dinner-020726.pdf",
+      "venueSlug": "riviera-bistro-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-bistro-lunch",
+      "label": "Riviera Bistro lunch menu 02-07-2026",
+      "notes": "PDF states prices are thousands of IDR, plus 10% government tax and 7% service.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://rivieragroupbali.com/wp-content/uploads/2026/07/Bistro-Menu-Lunch-020726.pdf",
+      "venueSlug": "riviera-bistro-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-bistro-page",
+      "label": "Riviera Bistro official Berawa page",
+      "notes": "Confirms Berawa branch, address, phone, menu links and reservation actions.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://rivieragroupbali.com/riviera-bistro/",
+      "venueSlug": "riviera-bistro-berawa",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-cafe-brunch",
+      "label": "Riviera Cafe brunch menu 09-06-2026",
+      "notes": "Linked by the official page; fetch was incomplete and no PDF item text was accepted.",
+      "officialControl": "venue",
+      "outcome": "blocked_fetch",
+      "sourceType": "official_menu_pdf",
+      "url": "https://rivieragroupbali.com/wp-content/uploads/2026/06/RivieraCafe_Brunch-Menu-v8c-PRINTREADY_MLB-090626.pdf",
+      "venueSlug": "riviera-cafe-cemagi",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-cafe-dinner",
+      "label": "Riviera Cafe dinner menu 09-06-2026",
+      "notes": "Linked by the official page; no item text was accepted from the unavailable fetch.",
+      "officialControl": "venue",
+      "outcome": "blocked_fetch",
+      "sourceType": "official_menu_pdf",
+      "url": "https://rivieragroupbali.com/wp-content/uploads/2026/06/RivieraCafe-Dinner_V5c-PRINTREADY-MLB090626.pdf",
+      "venueSlug": "riviera-cafe-cemagi",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-cafe-page",
+      "label": "Riviera Cafe official Cemagi page",
+      "notes": "Confirms Cemagi branch, menu links and WhatsApp; official page exposes a small number of named food descriptions.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_branch_page",
+      "url": "https://rivieragroupbali.com/riviera-cafe/",
+      "venueSlug": "riviera-cafe-cemagi",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-trattoria-dinner",
+      "label": "Riviera Trattoria dinner menu 14-04-2026",
+      "notes": "Linked by the official page; direct fetch was unavailable, so no PDF-only items or prices were accepted.",
+      "officialControl": "venue",
+      "outcome": "blocked_fetch",
+      "sourceType": "official_menu_pdf",
+      "url": "https://rivieragroupbali.com/wp-content/uploads/2026/06/tratto-food-menu-dinner-14-04-26.pdf",
+      "venueSlug": "riviera-trattoria-pererenan",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T15:30:00Z",
+      "id": "src-riviera-trattoria-page",
+      "label": "Riviera Trattoria official Pererenan page",
+      "notes": "Confirms Pererenan branch, official dinner link, signature dishes and reservation action.",
+      "officialControl": "venue",
+      "outcome": "partial",
+      "sourceType": "official_branch_page",
+      "url": "https://rivieragroupbali.com/riviera-trattoria/",
+      "venueSlug": "riviera-trattoria-pererenan",
+      "verifiedAt": null
+    }
+  ]
+}

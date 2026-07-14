@@ -1,0 +1,917 @@
+{
+  "batchId": "canggu-02",
+  "capturedAt": "2026-07-13T15:28:59Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cafe-vida-facebook",
+          "kind": "website",
+          "label": "Official Facebook",
+          "provider": "facebook",
+          "sourceManifestId": "src-cafe-vida-facebook",
+          "status": "draft",
+          "url": "https://www.facebook.com/cafevidabali/",
+          "venueSlug": "cafe-vida-healthy-organic-restaurant-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cafe-vida-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-cafe-vida-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/cafe_vida_bali/",
+          "venueSlug": "cafe-vida-healthy-organic-restaurant-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official repo-linked Cafe Vida social profiles; current branch detail inaccessible.",
+      "collectionNotes": [
+        "Blocked by social-platform access; no aggregator content accepted."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "CAFE VIDA Healthy Organic Restaurant Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "cafe-vida-healthy-organic-restaurant-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-como-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-como-canggu-page",
+          "status": "draft",
+          "url": "https://www.comohotels.com/bali/como-uma-canggu/como-beach-club-canggu",
+          "venueSlug": "como-beach-club-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-como-reserve",
+          "kind": "reserve",
+          "label": "Make a reservation",
+          "provider": "chope",
+          "sourceManifestId": "src-como-canggu-page",
+          "status": "draft",
+          "url": "https://cho.pe/comobeachclub.web",
+          "venueSlug": "como-beach-club-canggu",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-como-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-como-canggu-page",
+          "status": "draft",
+          "url": "https://wa.me/6281138209418",
+          "venueSlug": "como-beach-club-canggu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "COMO Uma Canggu, Jalan Pantai Batu Mejan, Echo Beach.",
+      "collectionNotes": [
+        "Six items transcribed from a 23-page current PDF; not claimed fully parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "id": "menu-como-canggu-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "House-made, COMO Castello Del Nero organic extra virgin olive oil, dukkha spice",
+                  "id": "como-lunch-01",
+                  "name": "Rye Sourdough",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "House-made crackers, fruit, nuts and relish",
+                  "id": "como-lunch-02",
+                  "name": "Selection of Local Artisan Cheese",
+                  "priceMinor": 180000,
+                  "sourceDisplayPrice": "180"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Shredded vegetables, shiitake, baby corn, coriander, sweet chilli vinegar dipping sauce",
+                  "id": "como-lunch-03",
+                  "name": "Spring Rolls",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Masala spiced potato and pea, mango chutney",
+                  "id": "como-lunch-04",
+                  "name": "Samosas",
+                  "priceMinor": 100000,
+                  "sourceDisplayPrice": "100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Locally grown Meyer jam, lemon basil, grilled sourdough",
+                  "id": "como-lunch-05",
+                  "name": "Burrata",
+                  "priceMinor": 150000,
+                  "sourceDisplayPrice": "150"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Chopped yellowfin tuna, spicy mayonnaise, avocado, jalapeño, ponzu",
+                  "id": "como-lunch-06",
+                  "name": "Crispy Sushi",
+                  "priceMinor": 160000,
+                  "sourceDisplayPrice": "160"
+                }
+              ],
+              "name": "Lunch review subset"
+            }
+          ],
+          "sourceManifestId": "src-como-canggu-menu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "COMO Beach Club Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "como-beach-club-canggu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cph-site",
+          "kind": "website",
+          "label": "Official branch page",
+          "provider": "official_website",
+          "sourceManifestId": "src-cph-berawa-page",
+          "status": "draft",
+          "url": "https://cphbali.com/cafe/",
+          "venueSlug": "copenhagen-cafe-berawa",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-cph-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-cph-berawa-page",
+          "status": "draft",
+          "url": "https://www.google.com/maps/place/Copenhagen%2BBerawa/%40-8.6597001%2C115.1317603%2C16.5z/data%3D%214m10%211m2%212m1%211scopenhagen%2Bcafe%213m6%211s0x2dd2474e93e803ed%3A0x53cc824630314d84%218m2%213d-8.6589493%214d115.1381321%2115sCg9jb3BlbmhhZ2VuIGNhZmVaESIPY29wZW5oYWdlbiBjYWZlkgEKcmVzdGF1cmFudOABAA%2116s%2Fg%2F11t75tr_hn",
+          "venueSlug": "copenhagen-cafe-berawa",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Berawa, Gg. Anggrek, Tibubeneng; distinct from Canggu branch.",
+      "collectionNotes": [
+        "Currency is not named; package prices remain raw and are not assigned to individual selections."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "id": "menu-cph-berawa-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": "Selectable within 3pcs 79k / 5pcs 119k; add 1pcs 29k.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-01",
+                  "name": "avocado smash, seeds",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": "Selectable within package pricing.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-02",
+                  "name": "rocket, frisée, pomelo, orange mint, pistacio, evo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": "Selectable within package pricing.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-03",
+                  "name": "acai, banana,strawberries, granola, chocolate sauce",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": "Selectable within package pricing.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-04",
+                  "name": "mushroom toast, sourdough, truffle oil, mozzarella",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": "Selectable within package pricing.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-05",
+                  "name": "brioche bun, egg, bacon, onion jam, mayo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": "Selectable within package pricing.",
+                  "currency": null,
+                  "description": null,
+                  "id": "cph-feast-06",
+                  "name": "creamy tuna, capers",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Build your own feast"
+            }
+          ],
+          "sourceManifestId": "src-cph-breakfast-image",
+          "verifiedAt": null
+        }
+      ],
+      "name": "cøpenhagen CAFE Berawa",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "copenhagen-cafe-berawa",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-crate-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-crate-page",
+          "status": "draft",
+          "url": "https://lifescrate.com/",
+          "venueSlug": "crate-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl Sempol 8, Pererenan; official site conflicts with stale Batu Bolong editorial copy.",
+      "collectionNotes": [
+        "Official menu image found but DNS/fetch failure prevented item-level parsing."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [
+        {
+          "sections": [],
+          "sourceManifestId": "src-crate-menu-image",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Crate Cafe | Gallery",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "crate-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-casa-tua-site",
+          "kind": "website",
+          "label": "Official digital page",
+          "provider": "official_website",
+          "sourceManifestId": "src-casa-tua-page",
+          "status": "draft",
+          "url": "https://casa-tua-canggu.qr2order.net/",
+          "venueSlug": "dandelion",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": "Normalized from the phone explicitly printed by the venue-controlled page.",
+          "id": "action-casa-tua-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-casa-tua-page",
+          "status": "draft",
+          "url": "https://wa.me/6289622965413",
+          "venueSlug": "dandelion",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Rebranded Dandelion record; Jalan Pantai Batu Bolong No.10.",
+      "collectionNotes": [
+        "Menu route is JavaScript-only and returned Loading; no editorial dishes reused."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "found_not_parsed",
+      "menus": [
+        {
+          "sections": [],
+          "sourceManifestId": "src-casa-tua-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Casa Tua Canggu",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "dandelion",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-deus-site",
+          "kind": "website",
+          "label": "Official Canggu branch page",
+          "provider": "official_website",
+          "sourceManifestId": "src-deus-temple-page",
+          "status": "draft",
+          "url": "https://deuscustoms.co.id/pages/the-temple-of-enthusiasm-1",
+          "venueSlug": "deus-ex-machina",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-deus-instagram",
+          "kind": "website",
+          "label": "Deus Cafe Indonesia Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-deus-cafe-page",
+          "status": "draft",
+          "url": "https://www.instagram.com/deuscafe_indo/",
+          "venueSlug": "deus-ex-machina",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Jl. Pantai Batu Mejan No.8, Canggu.",
+      "collectionNotes": [
+        "Officially linked PDF is Australian collateral and is explicitly rejected for Canggu."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "rejected_wrong_branch",
+      "menus": [],
+      "name": "Deus Ex Machina — Temple of Enthusiasm",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "deus-ex-machina",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-finns-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-finns-page",
+          "status": "draft",
+          "url": "https://finnsbeachclub.com/",
+          "venueSlug": "finns-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-finns-reserve",
+          "kind": "reserve",
+          "label": "Book online",
+          "provider": "official_booking",
+          "sourceManifestId": "src-finns-page",
+          "status": "draft",
+          "url": "https://bookings.finnsbeachclub.com/",
+          "venueSlug": "finns-beach-club",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-finns-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-finns-page",
+          "status": "draft",
+          "url": "https://wa.link/finnsbeachclub",
+          "venueSlug": "finns-beach-club",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Pantai Berawa, Canggu.",
+      "collectionNotes": [
+        "Signature subset only; other official kitchen menus remain unparsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "id": "menu-finns-signature-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Rustic sharing plank with BBQ ribs, pulled pork, Caribbean chicken, sausage, potatoes, slaw, pickles and dipping sauce.",
+                  "id": "finns-sign-01",
+                  "name": "Meat Platter",
+                  "priceMinor": 4225000,
+                  "sourceDisplayPrice": "4,225"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Seafood feast with king prawns, oysters, scallops, mussels, calamari, octopus and crab.",
+                  "id": "finns-sign-02",
+                  "name": "Sailboat",
+                  "priceMinor": 3885000,
+                  "sourceDisplayPrice": "3,885"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Signature rolls, assorted nigiri and fresh sashimi with traditional condiments.",
+                  "id": "finns-sign-03",
+                  "name": "Sushi Boat",
+                  "priceMinor": 2485000,
+                  "sourceDisplayPrice": "2,485"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Spanish-style paella with pork sausage, duck, prawns, squid, octopus and saffron rice.",
+                  "id": "finns-sign-04",
+                  "name": "Paella",
+                  "priceMinor": 2225000,
+                  "sourceDisplayPrice": "2,225"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Stacked bao, har gow, dumplings, shumai, spring rolls and dipping sauce.",
+                  "id": "finns-sign-05",
+                  "name": "Dim Sum Tower",
+                  "priceMinor": 1325000,
+                  "sourceDisplayPrice": "1,325"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Sharing taco plank with slow-braised meats, vegetables, salsas, guacamole and pico de gallo.",
+                  "id": "finns-sign-06",
+                  "name": "Taco Plank",
+                  "priceMinor": 1125000,
+                  "sourceDisplayPrice": "1,125"
+                }
+              ],
+              "name": "Signature menu review subset"
+            }
+          ],
+          "sourceManifestId": "src-finns-signature-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "FINNS Beach Club",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "finns-beach-club",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-honey-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-honey-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/honeykitchenbali/",
+          "venueSlug": "honey-kitchen",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official Honey Kitchen Bali social profile; current Pererenan detail inaccessible.",
+      "collectionNotes": [
+        "Social-only footprint; no aggregator menu, address or actions accepted."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Honey Kitchen",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "honey-kitchen",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-isla-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-isla-page",
+          "status": "draft",
+          "url": "https://earth-island.com/pages/earth-island-bali",
+          "venueSlug": "isla-by-earth-island",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-isla-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-isla-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/yQY19DNbKQmwKHkw7",
+          "venueSlug": "isla-by-earth-island",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-isla-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-isla-page",
+          "status": "draft",
+          "url": "https://wa.me/6282144827577",
+          "venueSlug": "isla-by-earth-island",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Subak Canggu No.77, Canggu shortcut.",
+      "collectionNotes": [
+        "Six breakfast items transcribed; full PDF not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "id": "menu-isla-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "hummus / poached eggs / sourdough toast / tomato confit / feta cheese / herbs",
+                  "id": "isla-breakfast-01",
+                  "name": "Start Your Day",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "shakshuka sauce / feta cheese / herbs / sourdough toast",
+                  "id": "isla-breakfast-02",
+                  "name": "Simply Baked Egg",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "scrambled eggs / avocado / bacon / house sauce",
+                  "id": "isla-breakfast-03",
+                  "name": "Egg Bun",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "poached egg / spiced yoghurt / chilli oil / sourdough",
+                  "id": "isla-breakfast-04",
+                  "name": "The Egg That You Like",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "poached egg / smash avocado / bacon / feta cheese / sourdough",
+                  "id": "isla-breakfast-05",
+                  "name": "Avocado On Toast",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "mix berry compote / butter / honey / vanilla ice cream",
+                  "id": "isla-breakfast-06",
+                  "name": "Pancakes",
+                  "priceMinor": 60000,
+                  "sourceDisplayPrice": "60"
+                }
+              ],
+              "name": "Breakfast review subset"
+            }
+          ],
+          "sourceManifestId": "src-isla-menu-pdf",
+          "verifiedAt": null
+        }
+      ],
+      "name": "ISLA by Earth Island",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "isla-by-earth-island",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-labrisa-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-la-brisa-page",
+          "status": "draft",
+          "url": "https://labrisa-bali.com/",
+          "venueSlug": "la-brisa-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-labrisa-reserve",
+          "kind": "reserve",
+          "label": "Book now",
+          "provider": "reserveyourvenue",
+          "sourceManifestId": "src-la-brisa-page",
+          "status": "draft",
+          "url": "https://reserveyourvenue.com/labrisa",
+          "venueSlug": "la-brisa-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-labrisa-maps",
+          "kind": "directions",
+          "label": "Google Maps",
+          "provider": "google_maps",
+          "sourceManifestId": "src-la-brisa-page",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/nWV1nkuvvL98YDpo9",
+          "venueSlug": "la-brisa-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-labrisa-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-la-brisa-page",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send?phone=628113946666",
+          "venueSlug": "la-brisa-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Echo Beach, Jl. Pantai Batu Mejan.",
+      "collectionNotes": [
+        "Six snack items transcribed from a much larger live menu; not fully parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:28:59Z",
+          "id": "menu-labrisa-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "House pickled beetroot, cauliflower, carrots, cucumber",
+                  "id": "labrisa-snack-01",
+                  "name": "RAW & PICKLED VEGETABLES (v & gf)",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Mix olives, orange, lemon, rosemary, extra virgin olive oil",
+                  "id": "labrisa-snack-02",
+                  "name": "MARINATED OLIVES (v & gf)",
+                  "priceMinor": 65000,
+                  "sourceDisplayPrice": "65"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bali sea salt, lemon aioli",
+                  "id": "labrisa-snack-03",
+                  "name": "FRENCH FRIES / SWEET FRIES (vt & gf)",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Bali sea salt",
+                  "id": "labrisa-snack-04",
+                  "name": "EDAMAME (v & gf)",
+                  "priceMinor": 50000,
+                  "sourceDisplayPrice": "50"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Coriander, smoked paprika, mixed spices and nut dukkah",
+                  "id": "labrisa-snack-05",
+                  "name": "WHIPPED HUMMUS DIP & CORN TORTILLA CHIPS (vt & gf)",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Jimbaran market fish, onions, corn, coriander, cucumber, bonito and soy yuzu dressing",
+                  "id": "labrisa-snack-06",
+                  "name": "CEVICHE NIKKEI",
+                  "priceMinor": 140000,
+                  "sourceDisplayPrice": "140"
+                }
+              ],
+              "name": "Snacks review subset"
+            }
+          ],
+          "sourceManifestId": "src-la-brisa-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "La Brisa Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "la-brisa-bali",
+      "verifiedAt": null
+    }
+  ]
+}

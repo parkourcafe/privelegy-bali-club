@@ -89,7 +89,7 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
               <ReserveButton
                 venueSlug={s.slug}
                 tablepilotSlug={s.tablepilotSlug}
-                whatsapp={s.whatsapp}
+                whatsapp={undefined}
                 perkTitle={s.perk?.title}
               />
             </div>

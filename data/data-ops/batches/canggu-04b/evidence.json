@@ -1,0 +1,361 @@
+{
+  "batchId": "canggu-04b",
+  "capturedAt": "2026-07-13T15:36:15Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "canggu",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-oma-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-oma-jamu-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/omajamuvegan/",
+          "venueSlug": "oma-jamu",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official brand confirmed; exact Canggu/Berawa address not exposed.",
+      "collectionNotes": [
+        "No official menu, website or stable action link found."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Oma Jamu",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "oma-jamu",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-pf-site",
+          "kind": "website",
+          "label": "Official website",
+          "provider": "official_website",
+          "sourceManifestId": "src-pizza-fabbrica-site",
+          "status": "draft",
+          "url": "https://pizzafabbricabali.com/",
+          "venueSlug": "pizza-fabbrica",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-pf-whatsapp",
+          "kind": "whatsapp",
+          "label": "Reservation / WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-pizza-fabbrica-site",
+          "status": "draft",
+          "url": "https://wa.me/6281999330880",
+          "venueSlug": "pizza-fabbrica",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-pf-gofood",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-pizza-fabbrica-site",
+          "status": "draft",
+          "url": "https://gofood.co.id/en/bali/restaurant/pizza-fabbrica-canggu-9498e6d6-9d74-4e72-bf4c-a23a626d1b1a",
+          "venueSlug": "pizza-fabbrica",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Official Canggu branch; phone +62 819 9933 0880.",
+      "collectionNotes": [
+        "Six items only; menu not fully parsed.",
+        "Expired official SSL certificate requires operator recheck."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "id": "menu-pizza-fabbrica-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Toasted bread, fresh tomatoes, garlic, basil, rucola",
+                  "id": "pf-01",
+                  "name": "BRUSCHETTA",
+                  "priceMinor": 35000,
+                  "sourceDisplayPrice": "35"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Burrata cheese, cherry tomatoes, rucola",
+                  "id": "pf-02",
+                  "name": "BURRATA",
+                  "priceMinor": 110000,
+                  "sourceDisplayPrice": "110"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Homemade orecchiette, tomato sauce, burrata",
+                  "id": "pf-03",
+                  "name": "ORECCHIETTE POMODORO E BURRATA",
+                  "priceMinor": 125000,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Fresh pasta, slow cooked beef, tomato sauce",
+                  "id": "pf-04",
+                  "name": "TAGLIATELLE BOLOGNESE",
+                  "priceMinor": 120000,
+                  "sourceDisplayPrice": "120"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tomato sauce, mozzarella",
+                  "id": "pf-05",
+                  "name": "MARGHERITA",
+                  "priceMinor": 75000,
+                  "sourceDisplayPrice": "75"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": "Tomato, mozzarella, Parma ham, burrata",
+                  "id": "pf-06",
+                  "name": "FABBRICA",
+                  "priceMinor": 165000,
+                  "sourceDisplayPrice": "165"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-pizza-fabbrica-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Pizza Fabbrica",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "pizza-fabbrica",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-rise-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-rise-shine-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/riseandshine_bali/",
+          "venueSlug": "rise-and-shine-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official brand confirmed; Canggu/Berawa address not exposed.",
+      "collectionNotes": [
+        "All item-level menus found elsewhere were third-party and excluded."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Rise and Shine Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "rise-and-shine-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-roots-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-roots-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/rootsinbali/",
+          "venueSlug": "roots-pererenan",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official brand confirmed; Pererenan address not exposed in accessible profile.",
+      "collectionNotes": [
+        "A menu PDF on a foreign domain was excluded as non-official."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Roots Pererenan",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "roots-pererenan",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-ruko-instagram",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-ruko-instagram",
+          "status": "draft",
+          "url": "https://www.instagram.com/rukocafe/",
+          "venueSlug": "ruko-cafe",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Official brand confirmed; Canggu/Berawa address not exposed.",
+      "collectionNotes": [
+        "No official website, menu PDF or link hub found."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Ruko Cafe",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "ruko-cafe",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-samadi-site",
+          "kind": "website",
+          "label": "Official restaurant page",
+          "provider": "official_website",
+          "sourceManifestId": "src-samadi-restaurant",
+          "status": "draft",
+          "url": "https://samadibali.com/restaurant-2/",
+          "venueSlug": "samadi-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "action-samadi-whatsapp",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-samadi-site",
+          "status": "draft",
+          "url": "https://api.whatsapp.com/send/?app_absent=0&phone=%2B6281325257500&type=phone_number",
+          "venueSlug": "samadi-bali",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:36:15Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "action-samadi-map",
+          "kind": "directions",
+          "label": "Official map link",
+          "provider": "google_maps",
+          "sourceManifestId": "src-samadi-site",
+          "status": "draft",
+          "url": "https://share.google/1zfTQwzLkHA6Urm8v",
+          "venueSlug": "samadi-bali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Samadi Super Foods & Wellness, Jalan Padang Linjong 39, Canggu.",
+      "collectionNotes": [
+        "Historical PDF is gone; current VIEW MENU text is not a working link.",
+        "Yoga/workshop booking links are excluded from restaurant actions."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "canggu",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Samadi Bali",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "samadi-bali",
+      "verifiedAt": null
+    }
+  ]
+}

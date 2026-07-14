@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPhase0Overview } from "@/lib/data";
+import { getOperatorPhase0Overview } from "@/lib/admin-operations";
 import { getTablePilotReport } from "@/lib/tablepilot";
 
 export const dynamic = "force-dynamic";
@@ -11,7 +11,7 @@ const RESERVATION_TARGET = 1;
 const SEATED_TARGET = 1;
 
 export default async function Phase0Dashboard() {
-  const [o, tablepilot] = await Promise.all([getPhase0Overview(), getTablePilotReport()]);
+  const [o, tablepilot] = await Promise.all([getOperatorPhase0Overview(), getTablePilotReport()]);
 
   if (!o) {
     return (

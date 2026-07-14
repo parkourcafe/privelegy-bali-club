@@ -17,6 +17,7 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", dis
 // remains internal/technical only.
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.otherbali.com"),
+  referrer: "origin",
   title: {
     default: "Other Bali — the right place for the moment you're in",
     template: "%s · Other Bali",

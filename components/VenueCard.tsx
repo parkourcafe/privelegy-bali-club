@@ -145,16 +145,13 @@ export default function VenueCard({
                 <ReserveButton
                   venueSlug={v.slug}
                   tablepilotSlug={v.tablepilotSlug}
-                  whatsapp={v.whatsapp}
+                  whatsapp={undefined}
                   perkTitle={v.perk?.title}
                 />
                 {v.perk && (
-                  <Link
-                    href={`/v/${v.slug}/redeem`}
-                    className={v.tablepilotSlug ? "button-secondary" : "button-primary"}
-                  >
-                    Show offer
-                  </Link>
+                  <span className="text-xs text-[var(--muted)]">
+                    Scan the venue&apos;s counter QR to redeem
+                  </span>
                 )}
               </>
             )}

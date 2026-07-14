@@ -1,0 +1,822 @@
+{
+  "batchId": "ubud-03",
+  "capturedAt": "2026-07-13T15:54:47Z",
+  "dataUseState": "draft_operator_review_only",
+  "district": "ubud",
+  "forbiddenToPublish": true,
+  "media": [],
+  "readyForImportDryRun": false,
+  "readyForOperatorReview": true,
+  "schemaVersion": 1,
+  "venues": [
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-r4-book",
+          "kind": "reserve",
+          "label": "Reserve",
+          "provider": "resdiary",
+          "sourceManifestId": "src-r4d-menu",
+          "status": "draft",
+          "url": "https://booking.resdiary.com/widget/Standard/Room4DessertUbud/547?includeJquery=false",
+          "venueSlug": "room4dessert",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-r4-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-r4d-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281337050539",
+          "venueSlug": "room4dessert",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Raya Sanggingan, Kedewatan, Ubud.",
+      "collectionNotes": [
+        "Current Season 19 menu wins over stale FAQ; package prices only."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "id": "menu-room4dessert-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "r4-01",
+                  "name": "Natural wine tasting",
+                  "priceMinor": 1890000,
+                  "sourceDisplayPrice": "IDR 1,890,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "r4-02",
+                  "name": "Spirited tasting",
+                  "priceMinor": 1540000,
+                  "sourceDisplayPrice": "IDR 1,540,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "r4-03",
+                  "name": "Spiritless tasting",
+                  "priceMinor": 1290000,
+                  "sourceDisplayPrice": "IDR 1,290,000"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "r4-04",
+                  "name": "Unpaired tasting",
+                  "priceMinor": 1090000,
+                  "sourceDisplayPrice": "IDR 1,090,000"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-r4d-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Room4Dessert",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "room4dessert",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-sawo-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-sawo-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/sawobali/",
+          "venueSlug": "sawobali",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud vegan/gluten-free/allium-free buffet identity from official profile.",
+      "collectionNotes": [
+        "No first-party menu/action target; directory prices excluded."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Sawobali",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "sawobali",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-seeds-page",
+          "kind": "website",
+          "label": "Official menu page",
+          "provider": "official_website",
+          "sourceManifestId": "src-seeds-page",
+          "status": "draft",
+          "url": "https://theseedsoflifecafe.com/raw-food-cafe-menu/",
+          "venueSlug": "seeds-of-life",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-seeds-wa",
+          "kind": "whatsapp",
+          "label": "Reservations and delivery WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-seeds-page",
+          "status": "draft",
+          "url": "https://wa.me/6281294206132",
+          "venueSlug": "seeds-of-life",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Gautama No.2, Ubud.",
+      "collectionNotes": [
+        "K values kept currency-null; PDF modified 2026-07-11."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "id": "menu-seeds-of-life-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-01",
+                  "name": "Fruit Salad",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-02",
+                  "name": "Chai Chocolate Chia Parfait",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "65k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-03",
+                  "name": "Epic Papaya ‘Salmon’ Benny",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-04",
+                  "name": "Green Smoothie",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-05",
+                  "name": "Chocoberry",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "80k"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "seeds-06",
+                  "name": "Local Organic Acai",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95k"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-seeds-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "The Seeds of Life",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "seeds-of-life",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-sen-page",
+          "kind": "website",
+          "label": "Official Ubud page",
+          "provider": "official_website",
+          "sourceManifestId": "src-seniman-page",
+          "status": "draft",
+          "url": "https://www.senimancoffee.com/seniman-ubud/",
+          "venueSlug": "seniman-coffee-studio",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sen-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-seniman-menu",
+          "status": "draft",
+          "url": "https://wa.me/+6281283386641",
+          "venueSlug": "seniman-coffee-studio",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-sen-map",
+          "kind": "directions",
+          "label": "Official map",
+          "provider": "google_maps",
+          "sourceManifestId": "src-seniman-menu",
+          "status": "draft",
+          "url": "https://maps.app.goo.gl/TyQT3rqL8VbPVHUi8",
+          "venueSlug": "seniman-coffee-studio",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Sri Wedari No.5, Banjar Taman Kelod, Ubud.",
+      "collectionNotes": [
+        "Current official menu is price-free; aggregator prices excluded."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "id": "menu-seniman-coffee-studio-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-01",
+                  "name": "Americano",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-02",
+                  "name": "Piccolo",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-03",
+                  "name": "Cappuccino",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-04",
+                  "name": "Latte",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-05",
+                  "name": "Flat White",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "sen-06",
+                  "name": "Mocha",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": null
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-seniman-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Seniman Coffee Studio",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "seniman-coffee-studio",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-sukau-page",
+          "kind": "website",
+          "label": "Official Ubud page",
+          "provider": "official_website",
+          "sourceManifestId": "src-sukau-page",
+          "status": "draft",
+          "url": "https://www.bysuka.com/suka-ubud",
+          "venueSlug": "suka-espresso-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sukau-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-sukau-page",
+          "status": "draft",
+          "url": "https://wa.me/6281338692319/",
+          "venueSlug": "suka-espresso-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-sukau-go",
+          "kind": "order",
+          "label": "GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-sukau-page",
+          "status": "draft",
+          "url": "https://gofood.link/a/FrYFEg3",
+          "venueSlug": "suka-espresso-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Raya Pengosekan, Ubud.",
+      "collectionNotes": [
+        "Five lunch bowls only; full menu not claimed parsed."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "id": "menu-suka-espresso-ubud-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sukau-01",
+                  "name": "Beetroot & Quinoa Bowl",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sukau-02",
+                  "name": "Chicken Caesar Salad",
+                  "priceMinor": 85000,
+                  "sourceDisplayPrice": "85"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sukau-03",
+                  "name": "Tuna Poke Bowl",
+                  "priceMinor": 89000,
+                  "sourceDisplayPrice": "89"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sukau-04",
+                  "name": "Chicken Burrito Bowl",
+                  "priceMinor": 89000,
+                  "sourceDisplayPrice": "89"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": "IDR",
+                  "description": null,
+                  "id": "sukau-05",
+                  "name": "Lean Bowl",
+                  "priceMinor": 90000,
+                  "sourceDisplayPrice": "90"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-sukau-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "SUKA Espresso Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "suka-espresso-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-ele-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-ele-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/theelephantubud/",
+          "venueSlug": "the-elephant",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-ele-wa",
+          "kind": "whatsapp",
+          "label": "WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-ele-social",
+          "status": "draft",
+          "url": "https://wa.me/6281139608118",
+          "venueSlug": "the-elephant",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Current Ubud venue identity via official Instagram; historical domain compromised.",
+      "collectionNotes": [
+        "Compromised elephantbali.com is recorded but never exposed as an action."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "The Elephant",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "the-elephant",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-mendez-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-mendez-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/warungmendez/",
+          "venueSlug": "warung-mendez",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud; official profile states Indonesian/Thai/fusion and 08:00–21:00.",
+      "collectionNotes": [
+        "Phone is not assumed to be WhatsApp; no official item-price menu."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Warung Mendez",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "warung-mendez",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-siam-social",
+          "kind": "website",
+          "label": "Official Instagram",
+          "provider": "instagram",
+          "sourceManifestId": "src-siam-social",
+          "status": "draft",
+          "url": "https://www.instagram.com/warungsiam/",
+          "venueSlug": "warung-siam",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": true,
+      "branchIdentity": "Ubud Thai venue identity from official profile.",
+      "collectionNotes": [
+        "Facebook login-gated; no first-party menu/action URL."
+      ],
+      "coverageOutcome": "blocked",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Warung Siam",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "warung-siam",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-water-menu",
+          "kind": "website",
+          "label": "Official menu",
+          "provider": "official_website",
+          "sourceManifestId": "src-water-menu",
+          "status": "draft",
+          "url": "https://watercressbali.com/wp-content/uploads/2026/04/Watercress-Menu.pdf",
+          "venueSlug": "watercress-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-water-wa",
+          "kind": "whatsapp",
+          "label": "Ubud WhatsApp",
+          "provider": "whatsapp",
+          "sourceManifestId": "src-water-menu",
+          "status": "draft",
+          "url": "https://wa.me/6281338685599",
+          "venueSlug": "watercress-ubud",
+          "verifiedAt": null
+        },
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": true,
+          "evidenceNote": null,
+          "id": "a-water-go",
+          "kind": "order",
+          "label": "Ubud GoFood",
+          "provider": "gofood",
+          "sourceManifestId": "src-water-menu",
+          "status": "draft",
+          "url": "https://gofood.link/a/G1vmK1C",
+          "venueSlug": "watercress-ubud",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jl. Monkey Forest, Ubud; branch printed in official PDF.",
+      "collectionNotes": [
+        "Raw values and 000 legend preserved; currency not assigned."
+      ],
+      "coverageOutcome": "official_menu_partial",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "partial",
+      "menus": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "id": "menu-watercress-ubud-v1",
+          "sections": [
+            {
+              "items": [
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-01",
+                  "name": "Sprouted Goodness",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-02",
+                  "name": "Smashed Avo & Watercress",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "100"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-03",
+                  "name": "Salmon on the Rye",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "125"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-04",
+                  "name": "Classic Blueberry Pancake",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-05",
+                  "name": "Le French Toast",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "95"
+                },
+                {
+                  "availabilityNote": null,
+                  "currency": null,
+                  "description": null,
+                  "id": "water-06",
+                  "name": "Acai Smoothie Bowl",
+                  "priceMinor": null,
+                  "sourceDisplayPrice": "110"
+                }
+              ],
+              "name": "Review subset"
+            }
+          ],
+          "sourceManifestId": "src-water-menu",
+          "verifiedAt": null
+        }
+      ],
+      "name": "Watercress Ubud",
+      "needsHumanReview": true,
+      "officialMenuFound": true,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": true,
+      "onlyActionLinksFound": false,
+      "publicationAllowed": false,
+      "slug": "watercress-ubud",
+      "verifiedAt": null
+    },
+    {
+      "actions": [
+        {
+          "capturedAt": "2026-07-13T15:54:47Z",
+          "confirmationRequired": false,
+          "evidenceNote": null,
+          "id": "a-whos-site",
+          "kind": "website",
+          "label": "Official location and hours",
+          "provider": "official_website",
+          "sourceManifestId": "src-whos-site",
+          "status": "draft",
+          "url": "https://whoswhosworld.com/Location%20and%20Hours/",
+          "venueSlug": "whos-who",
+          "verifiedAt": null
+        }
+      ],
+      "blocked": false,
+      "branchIdentity": "Jalan Raya Pengosekan, Ubud.",
+      "collectionNotes": [
+        "Official site confirms identity/hours/contact but publishes no menu or prices."
+      ],
+      "coverageOutcome": "only_action_links_found",
+      "district": "ubud",
+      "forbiddenToPublish": true,
+      "menuCoverage": "not_found",
+      "menus": [],
+      "name": "Who's Who",
+      "needsHumanReview": true,
+      "officialMenuFound": false,
+      "officialMenuFullyParsed": false,
+      "officialMenuPartial": false,
+      "onlyActionLinksFound": true,
+      "publicationAllowed": false,
+      "slug": "whos-who",
+      "verifiedAt": null
+    }
+  ]
+}

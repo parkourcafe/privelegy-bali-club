@@ -1,0 +1,139 @@
+{
+  "batchId": "sanur-02",
+  "generatedAt": "2026-07-13T16:14:29Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-pizzaria-hyatt-home",
+      "label": "Hyatt Pizzaria page",
+      "notes": "Current lunch PDF dated 2026-06-26; values are thousand IDR plus 10% service and 11% tax.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://www.hyatt.com/en-US/hotel/indonesia/hyatt-regency-bali/dpsbl/dining/pizzaria",
+      "venueSlug": "pizzaria-hyatt",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-pizzaria-hyatt-menu",
+      "label": "Official-linked June 2026 lunch menu",
+      "notes": "Current lunch PDF dated 2026-06-26; values are thousand IDR plus 10% service and 11% tax.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1Q6BcpfjzmcJGC9twUSZpSkzMBJP6QOMT/view?usp=sharing",
+      "venueSlug": "pizzaria-hyatt",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-retro-kitchen-and-bar-home",
+      "label": "Retro official Linktree",
+      "notes": "Current official Linktree still links an October menu created 2022-10-28; retain freshness warning. Prices are thousand IDR plus 10% tax and 6% service.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_link_hub",
+      "url": "https://linktr.ee/retrosanur",
+      "venueSlug": "retro-kitchen-and-bar",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-retro-kitchen-and-bar-menu",
+      "label": "Official-linked stale-dated menu",
+      "notes": "Current official Linktree still links an October menu created 2022-10-28; retain freshness warning. Prices are thousand IDR plus 10% tax and 6% service.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1m20PW2yO0M2G3OLKLbcSzYzbQbmHB2fs/view?usp=sharing",
+      "venueSlug": "retro-kitchen-and-bar",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-sala-bistro-social",
+      "label": "SALA official Instagram",
+      "notes": "Official Instagram confirms Sanur and 07:30–22:00 but no first-party menu/action was found; unrelated Philippine domain rejected.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/salabistro/",
+      "venueSlug": "sala-bistro",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-segara-the-seaside-social",
+      "label": "Segara official Instagram",
+      "notes": "Official Instagram confirms identity and 07:00–22:00, but no first-party menu/action link was found; non-official menu site rejected.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/segara_theseaside/",
+      "venueSlug": "segara-the-seaside",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-soul-on-the-beach-home",
+      "label": "Soul official branch page",
+      "notes": "Current official all-day PDF dated 2025-12-22; prices use K IDR plus 16.6% tax/service. Site says 07:00–23:00 while PDF says 07:00–22:00; conflict retained.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_branch_page",
+      "url": "https://soulonthebeachbali.com/",
+      "venueSlug": "soul-on-the-beach",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-soul-on-the-beach-menu",
+      "label": "Official-linked current all-day menu",
+      "notes": "Current official all-day PDF dated 2025-12-22; prices use K IDR plus 16.6% tax/service. Site says 07:00–23:00 while PDF says 07:00–22:00; conflict retained.",
+      "officialControl": "official_asset_linked_by_venue",
+      "outcome": "partial",
+      "sourceType": "official_menu_pdf",
+      "url": "https://drive.google.com/file/d/1N5MkW3FC81p99OqxRnU6620aHwlhEXHU/view",
+      "venueSlug": "soul-on-the-beach",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-warung-little-bird-social",
+      "label": "Warung Littlebird official Instagram",
+      "notes": "Official Instagram confirms identity/address but exposes no menu, pricing or action href; third-party menu sites rejected.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/warung_littlebird/",
+      "venueSlug": "warung-little-bird",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-warung-makan-little-m-home",
+      "label": "Little Mars official Instagram",
+      "notes": "Official bio states 07:00–22:00 and labels +6281338181842 as WhatsApp. No first-party menu or Gojek merchant href was exposed.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/littlemarsbali/",
+      "venueSlug": "warung-makan-little-mars",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-13T16:14:29Z",
+      "id": "src-white-orchid-sanur-social",
+      "label": "White Orchid official Instagram",
+      "notes": "Official Instagram distinguishes Sanur from Ubud and gives a phone, but no menu or explicit booking/order/WhatsApp href was found.",
+      "officialControl": "venue",
+      "outcome": "usable",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/whiteorchidbali/",
+      "venueSlug": "white-orchid-sanur",
+      "verifiedAt": null
+    }
+  ]
+}
