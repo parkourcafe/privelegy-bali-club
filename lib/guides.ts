@@ -555,6 +555,41 @@ export const GUIDES: Guide[] = [
   },
 ];
 
+// Display grouping for the /guides hub (and any nav that lists guides). Slug
+// lists here are the single source for how guides are grouped, so the hub can't
+// drift from the registry.
+export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[] = [
+  {
+    heading: "Plan your trip",
+    blurb: "How long to go, when, how to get around, and what it costs.",
+    slugs: [
+      "how-many-days-in-bali",
+      "bali-itinerary-7-days",
+      "bali-itinerary-10-days",
+      "best-time-to-visit-bali",
+      "how-to-get-around-bali",
+      "bali-on-a-budget",
+    ],
+  },
+  {
+    heading: "Choose where to stay",
+    blurb: "Which area fits your trip — by traveller, and head-to-head.",
+    slugs: [
+      "where-to-stay-in-bali",
+      "best-area-to-stay-in-bali-for-couples",
+      "best-area-to-stay-in-bali-for-families",
+      "canggu-vs-uluwatu",
+      "seminyak-vs-canggu",
+      "bali-for-digital-nomads",
+    ],
+  },
+  {
+    heading: "Best of Bali",
+    blurb: "Island-wide picks, from real places we stand behind.",
+    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali"],
+  },
+];
+
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
