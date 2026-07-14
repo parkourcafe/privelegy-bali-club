@@ -54,13 +54,21 @@ menus.
   deactivation, blocked content rewriting and rejected an unverified dietary
   signal.
 
-## Production state at handoff
+## Production completion
 
-Code and SQL are ready for release, but this handoff does not claim that the
-new migration has run in production. The remaining operator sequence is:
+The application and reviewed source-snapshot migration are live in production.
 
-1. commit and deploy the application release;
-2. run the complete migration SQL once in the Supabase SQL Editor;
-3. require the final confirmation row to report `ok=true`, `1`, `126`, `127`;
-4. verify anonymous counts and representative full/partial pages;
-5. record the production deployment and final SHA.
+- Release commit: `eb74912` (`loop/06-public-menu-coverage`).
+- Vercel deployment: `dpl_55KpKbwnvS4GdxgPtLwq3T7oaWD5`.
+- Public alias: `https://www.otherbali.com`.
+- The SQL Editor confirmation row returned `ok=true`,
+  `verified_full_menus=1`, `partial_source_snapshots=126` and
+  `total_public_menus=127`.
+- The successful transaction's live-count gate also confirmed the exact
+  reviewed package shape: `127 / 165 / 881` menus/sections/items.
+- Post-release HTTP verification checked all 127 unique menu detail routes:
+  every route returned `200`, the verified KYND page remained indexable, and
+  all 126 partial snapshots carried the source/warning labels and
+  `noindex, follow` metadata.
+- The production sitemap contains `/menus` and the verified
+  `/menus/kynd-community` detail only; no partial snapshot detail is indexed.
