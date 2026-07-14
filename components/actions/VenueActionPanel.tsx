@@ -44,25 +44,12 @@ function ActionLink({
       href={action.href}
       target="_blank"
       rel="noreferrer"
-      className={classes(
-        "group flex min-h-[46px] min-w-0 flex-col justify-center rounded-xl border px-4 py-3 no-underline transition",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00737a]",
-        primary
-          ? "border-[#00737a] bg-[#00737a] text-[#fffaf1] hover:bg-[#005962]"
-          : "border-black/15 bg-[#fffaf1] text-[#20231e] hover:border-[#00737a]/60 hover:bg-[#00737a]/5"
-      )}
+      className={classes("action-link", primary && "action-link-primary")}
       aria-label={`${action.label}. ${action.disclosure}`}
       onClick={() => trackVenueAction(action.eventPayload)}
     >
-      <span className="break-words text-sm font-extrabold leading-5">{action.label}</span>
-      <span
-        className={classes(
-          "mt-0.5 break-words text-xs leading-4",
-          primary ? "text-[#fffaf1]/80" : "text-[#5f625a]"
-        )}
-      >
-        {action.disclosure}
-      </span>
+      <span className="action-link-label">{action.label}</span>
+      <span className="action-link-disclosure">{action.disclosure}</span>
     </a>
   );
 }
@@ -107,20 +94,15 @@ export default function VenueActionPanel({
   return (
     <>
       <section
-        className={classes(
-          "min-w-0 rounded-2xl border border-black/10 bg-[#fffaf1] p-4 shadow-[0_16px_40px_rgba(32,35,30,0.08)] sm:p-5",
-          className
-        )}
+        className={classes("action-gateway", className)}
         aria-labelledby={titleId}
       >
         <div className="max-w-2xl">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#00737a]">
-            Continue with a provider
-          </p>
-          <h2 id={titleId} className="mt-1 text-xl font-black text-[#20231e]">
+          <p className="action-gateway-eyebrow">Continue with a provider</p>
+          <h2 id={titleId} className="action-gateway-title">
             Choose what you want to do at {venueName}
           </h2>
-          <p className="mt-1 text-sm leading-5 text-[#5f625a]">
+          <p className="action-gateway-note">
             Other Bali helps you choose. The venue or provider handles the request, order or
             directions after handoff.
           </p>
@@ -130,7 +112,7 @@ export default function VenueActionPanel({
           <div className="mt-4">
             <ActionLink action={primary} primary />
             {primary.confirmationRequired && (
-              <p className="mt-2 text-xs leading-4 text-[#5f625a]">
+              <p className="action-gateway-confirm mt-2">
                 Confirmation happens with {primary.providerLabel} after you continue.
               </p>
             )}
@@ -143,7 +125,7 @@ export default function VenueActionPanel({
               <div key={action.id} className="min-w-0">
                 <ActionLink action={action} />
                 {action.confirmationRequired && (
-                  <p className="mt-1 px-1 text-xs leading-4 text-[#5f625a]">
+                  <p className="action-gateway-confirm mt-1 px-1">
                     Confirmation happens with {action.providerLabel} after handoff.
                   </p>
                 )}

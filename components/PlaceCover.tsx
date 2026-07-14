@@ -1,9 +1,10 @@
 import type { Venue } from "@/lib/types";
 
-// Typographic editorial cover — the honest no-photo state. It sets type on a
-// category-tinted field and never pretends to depict the venue (brief §9);
-// it replaces the abstract geometric placeholder on public surfaces. Venues
-// with an approved photo render the photo instead.
+// Typographic editorial cover — the honest no-photo state. It sets type over
+// category mood art (atmospheric still-life/landscape, deliberately NOT venue
+// photography — publication rule v2) on a category-tinted field and never
+// pretends to depict the venue (brief §9). Venues with an approved photo
+// render the photo instead.
 //
 // Variants avoid duplicated text around the cover:
 // - "card": the venue name as a poster plate (the card body carries the
@@ -38,6 +39,8 @@ export default function PlaceCover({
   if (variant === "hero") {
     return (
       <div className={`type-cover type-cover-${category}`} aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="type-cover-art" src={`/covers/${category}.webp`} alt="" loading="lazy" />
         <p className="type-cover-category">
           {categoryWord[category] ?? "Place"}
           {microArea ? ` · ${microArea}` : ""}
@@ -54,6 +57,8 @@ export default function PlaceCover({
 
   return (
     <div className={`type-cover type-cover-${category}`} aria-hidden="true">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="type-cover-art" src={`/covers/${category}.webp`} alt="" loading="lazy" />
       <span />
       <div>
         <div className="type-cover-rule" />
