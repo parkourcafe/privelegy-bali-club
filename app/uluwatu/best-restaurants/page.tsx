@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Best restaurants in Uluwatu · Other Bali",
     description:
       "Twelve verified dinner rooms sorted by the decision you're making — date night, groups, family, occasion.",
-    url: "https://otherbali.com/uluwatu/best-restaurants",
+    url: "https://www.otherbali.com/uluwatu/best-restaurants",
     type: "article",
   },
   twitter: {

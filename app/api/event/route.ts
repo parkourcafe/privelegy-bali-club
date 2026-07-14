@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { parseEventRequest } from "@/lib/actions/event-safety";
 import { asEventRpcClient } from "@/lib/actions/event-compat";
 import { storeEvent } from "@/lib/actions/event-store";
 import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
 import { serviceClient } from "@/lib/supabase/service";
+import { CONSENT_COOKIE } from "@/lib/consent";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -21,6 +23,15 @@ export async function POST(req: Request) {
   const parsed = parseEventRequest(body);
   if (!parsed.ok) {
     return NextResponse.json({ ok: false }, { status: 400 });
+  }
+
+  // Analytics is opt-in (audit 2026-07). Without explicit consent we neither
+  // mint a guest reference nor log the event — no analytics identity before
+  // consent. Server-side guard so a bypassed client still can't write. The
+  // functional paths (/api/source, /api/redeem) are deliberately not gated here.
+  const consent = (await cookies()).get(CONSENT_COOKIE)?.value;
+  if (consent !== "granted") {
+    return NextResponse.json({ ok: true, skipped: "no-consent" });
   }
 
   const { ref, created } = await resolveGuestRef();

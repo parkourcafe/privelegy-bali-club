@@ -4,7 +4,10 @@ const config: CapacitorConfig = {
   appId: "com.otherbali.app",
   appName: "Other Bali",
   webDir: "ios-web",
-  loggingBehavior: "debug",
+  // Release builds must not emit verbose native logs (audit 2026-07, P0
+  // "Release debug logging"). "none" silences the Capacitor bridge in
+  // production; switch back to "debug" locally only when diagnosing the shell.
+  loggingBehavior: "none",
   backgroundColor: "#20160f",
   ios: {
     contentInset: "automatic",

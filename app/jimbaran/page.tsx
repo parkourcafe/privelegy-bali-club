@@ -15,7 +15,7 @@ import {
 } from "@/lib/jimbaran/content";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 const previewThings = JIMBARAN_THINGS_TO_DO.slice(0, 4);
 

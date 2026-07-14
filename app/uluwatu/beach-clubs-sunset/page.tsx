@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Uluwatu beach clubs & sunset, compared · Other Bali",
     description:
       "Beach access, cliff views, adults-only policies, family fit and booking models — the honest comparison.",
-    url: "https://otherbali.com/uluwatu/beach-clubs-sunset",
+    url: "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
     type: "article",
   },
   twitter: {

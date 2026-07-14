@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Best brunch in Uluwatu · Other Bali",
     description:
       "Where Bukit mornings actually start: verified coffee, post-surf breakfasts and quiet garden brunches.",
-    url: "https://otherbali.com/uluwatu/best-brunch",
+    url: "https://www.otherbali.com/uluwatu/best-brunch",
     type: "article",
   },
   twitter: {

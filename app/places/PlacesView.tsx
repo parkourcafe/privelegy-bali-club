@@ -157,6 +157,11 @@ export default function PlacesView({
     initialFilters?.category || null
   );
   const intentMode = initialFilters?.intentMode ?? false;
+  // Mission/duration are human labels for the brief (they don't re-rank — the
+  // matchable tags already ride in `query`). Held in state so their chips are
+  // removable like the rest of the brief.
+  const [missionLabel, setMissionLabel] = useState(initialFilters?.missionLabel);
+  const [durationLabel, setDurationLabel] = useState(initialFilters?.durationLabel);
 
   const districts = useMemo(
     () => [...new Set(venues.map((v) => v.district))].sort(),
@@ -217,9 +222,38 @@ export default function PlacesView({
     return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
   }, [rest]);
 
-  const briefLabel = [initialFilters?.missionLabel, initialFilters?.durationLabel]
-    .filter(Boolean)
-    .join(" · ");
+  const briefLabel = [missionLabel, durationLabel].filter(Boolean).join(" · ");
+
+  // The live brief, one removable chip per criterion, so nothing silently
+  // narrows the map (audit 2026-07). Each token / district / category / mission
+  // / duration the traveller carries in is visible and droppable.
+  const activeCriteria: { key: string; label: string; onRemove: () => void }[] = [
+    ...tokens.map((t) => ({
+      key: `q:${t}`,
+      label: prettyTag(t),
+      onRemove: () => setQuery(tokens.filter((x) => x !== t).join(" ")),
+    })),
+    ...(district
+      ? [{ key: "district", label: districtLabel[district] ?? district, onRemove: () => setDistrict(null) }]
+      : []),
+    ...(category
+      ? [{ key: "category", label: categoryLabel[category] ?? category, onRemove: () => setCategory(null) }]
+      : []),
+    ...(missionLabel
+      ? [{ key: "mission", label: missionLabel, onRemove: () => setMissionLabel(undefined) }]
+      : []),
+    ...(durationLabel
+      ? [{ key: "duration", label: durationLabel, onRemove: () => setDurationLabel(undefined) }]
+      : []),
+  ];
+
+  function clearAllCriteria() {
+    setQuery("");
+    setDistrict(null);
+    setCategory(null);
+    setMissionLabel(undefined);
+    setDurationLabel(undefined);
+  }
 
   return (
     <section className="scroll-mt-8">
@@ -248,6 +282,22 @@ export default function PlacesView({
           render={(v) => categoryLabel[v] ?? v}
         />
       </div>
+
+      {activeCriteria.length > 0 && (
+        <div className="criteria-row" aria-label="Your active brief — tap a chip to remove it">
+          <span className="chip-label">Your brief</span>
+          {activeCriteria.map((c) => (
+            <button key={c.key} type="button" className="criteria-chip" onClick={c.onRemove}>
+              <span>{c.label}</span>
+              <span className="criteria-x" aria-hidden="true">×</span>
+              <span className="sr-only">Remove {c.label}</span>
+            </button>
+          ))}
+          <button type="button" className="criteria-clear" onClick={clearAllCriteria}>
+            Clear all
+          </button>
+        </div>
+      )}
 
       {district === "uluwatu-bukit" && (
         <div className="mb-6 rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-4 py-3 text-sm">
@@ -291,11 +341,25 @@ export default function PlacesView({
         </section>
       )}
 
-      <p className="mt-4 text-sm text-[var(--muted)]">
-        {topPicks.length > 0
-          ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
-          : `Showing ${filtered.length} of ${venues.length} places.`}
-      </p>
+      <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
+        <p>
+          {topPicks.length > 0
+            ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
+            : `Showing ${filtered.length} of ${venues.length} places.`}
+        </p>
+        {/* Honest fallback signal (audit 2026-07): say so when the full brief
+            didn't yield a clean Top 3, instead of quietly showing fewer. */}
+        {intentMode && (tokens.length > 0 || category) && topPicks.length > 0 && topPicks.length < 3 && (
+          <p className="mt-1">
+            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — drop a chip above to widen it.
+          </p>
+        )}
+        {intentMode && (tokens.length > 0 || category) && topPicks.length === 0 && filtered.length > 0 && (
+          <p className="mt-1">
+            No ranked shortlist for this brief — showing everything that fits. Add a vibe or type for a Top 3.
+          </p>
+        )}
+      </div>
 
       {grouped.map(([slug, items]) => (
         <section key={slug} className="slot-section">
@@ -347,6 +411,8 @@ function Chips({
         return (
           <button
             key={option}
+            type="button"
+            aria-pressed={active}
             onClick={() => onSelect(active ? null : option)}
             className={`chip ${active ? "chip-active" : ""}`}
           >

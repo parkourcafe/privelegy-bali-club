@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${guide.h1} · Other Bali`,
     description: guide.metaDescription,
-    url: `https://otherbali.com/canggu/beach-clubs-sunset`,
+    url: `https://www.otherbali.com/canggu/beach-clubs-sunset`,
     type: "article",
   },
   twitter: { card: "summary_large_image", title: `${guide.h1} · Other Bali`, description: guide.metaDescription },

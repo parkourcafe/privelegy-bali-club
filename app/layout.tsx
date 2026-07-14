@@ -4,6 +4,7 @@ import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
+import ConsentBanner from "@/components/ConsentBanner";
 
 // Real loaded type (not system stacks): Fraunces (editorial serif) for display,
 // Geist for body/UI. Exposed as CSS vars and consumed by --font-display /
@@ -15,7 +16,7 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", dis
 // Public launch label: Other Bali is the tourist-facing brand. "Bali Privilege"
 // remains internal/technical only.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://otherbali.com"),
+  metadataBase: new URL("https://www.otherbali.com"),
   referrer: "origin",
   title: {
     default: "Other Bali — the right place for the moment you're in",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Other Bali — the right place for the moment you're in",
     description:
       "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, hand off to a booked table. Travellers never pay.",
-    url: "https://otherbali.com",
+    url: "https://www.otherbali.com",
     siteName: "Other Bali",
     locale: "en_US",
     type: "website",
@@ -61,6 +62,7 @@ export default function RootLayout({
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />
+        <ConsentBanner />
       </body>
     </html>
   );

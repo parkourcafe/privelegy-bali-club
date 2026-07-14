@@ -1,0 +1,49 @@
+name: CI
+
+# Quality gate for every change (audit 2026-07, P0 "no CI"). Runs on PRs and on
+# pushes to the main development branches. The build is env-safe: the app guards
+# every Supabase call behind isSupabaseConfigured() and falls back to seed data,
+# and the prebuild scene-fetch no-ops without network — so no secrets are needed
+# to lint, typecheck, or build.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+      # Development happens on claude/* branches — run CI there too so problems
+      # surface before a PR is opened.
+      - "claude/**"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: lint · typecheck · build
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      # CI intentionally builds without Supabase credentials to prove the
+      # seed-data fallback path stays green.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build

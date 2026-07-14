@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!spoke) return {};
   const title = spokeTitle(spoke);
   const description = spokeMetaDescription(spoke);
-  const url = `https://otherbali.com/bali/${district}/${intent}`;
+  const url = `https://www.otherbali.com/bali/${district}/${intent}`;
   return {
     title,
     description,

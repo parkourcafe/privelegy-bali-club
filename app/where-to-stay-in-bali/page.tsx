@@ -4,7 +4,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getGuide } from "@/lib/guides";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 const guide = getGuide("where-to-stay-in-bali")!;
 
 export const metadata: Metadata = {

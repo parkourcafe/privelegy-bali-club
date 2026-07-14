@@ -8,7 +8,7 @@ import { publishedUluwatuVenues, ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
 
 export const dynamic = "force-dynamic";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [routes, hubs, spokes, catalogue] = await Promise.all([

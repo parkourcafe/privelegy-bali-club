@@ -14,7 +14,7 @@ import {
 } from "@/lib/nusa-dua/content";
 import type { VenueWithPerk } from "@/lib/data";
 
-const BASE = "https://otherbali.com";
+const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
   title: "Nusa Dua guide — the calm, polished resort enclave",
