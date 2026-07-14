@@ -95,6 +95,13 @@ export const GUIDES: Guide[] = [
     description:
       "Where to eat cheap, authentic local food in Bali — the warungs and babi guling stalls we rate, district by district, from Canggu and Ubud to the south.",
   },
+  {
+    // Bespoke hub route (app/things-to-do-in-bali) — metadata only.
+    slug: "things-to-do-in-bali",
+    title: "Best things to do in Bali",
+    description:
+      "The best things to do in Bali, sorted by what you want: the island icons (temples, volcanoes, waterfalls and Nusa Penida) and what to do in each area, from Ubud's rice terraces to Uluwatu's cliffs.",
+  },
 
   {
     slug: "how-many-days-in-bali",
@@ -651,7 +658,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
+    slugs: ["things-to-do-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
 ];
 
