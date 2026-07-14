@@ -17,14 +17,14 @@ import {
 test("builds a review-only dry-run plan from compiled candidates", async () => {
   const compiled = compileDataOps(await loadDataOpsInputs(process.cwd()));
   const plan = buildImportPlan(compiled.candidates);
-  assert.equal(plan.counts.menus, 126);
-  assert.equal(plan.counts.sections, 143);
-  assert.equal(plan.counts.items, 761);
-  assert.equal(plan.counts.capabilities, 248);
-  assert.equal(plan.counts.venueMapsVerificationCandidates, 49);
-  assert.equal(plan.counts.venues, 146);
-  assert.equal(plan.releaseGates.denominatorReconciled, false);
-  assert.equal(plan.releaseGates.readyForStagingApply, false);
+  assert.equal(plan.counts.menus, 127);
+  assert.equal(plan.counts.sections, 165);
+  assert.equal(plan.counts.items, 881);
+  assert.equal(plan.counts.capabilities, 250);
+  assert.equal(plan.counts.venueMapsVerificationCandidates, 50);
+  assert.equal(plan.counts.venues, 147);
+  assert.equal(plan.releaseGates.denominatorReconciled, true);
+  assert.equal(plan.releaseGates.readyForStagingApply, true);
 });
 
 test("staging apply requires reconciled gates, explicit disposable target, digest and non-production URL", () => {
@@ -111,7 +111,7 @@ test("apply inserts only draft/unverified version-1 records and omits editorial 
   const result = await applyImportPlan(plan, client);
   assert.equal(result.menus, 1);
   assert.equal(result.capabilities, 1);
-  assert.equal(result.venueMapsNotApplied, 49);
+  assert.equal(result.venueMapsNotApplied, 50);
   assert.ok(calls.filter((call) => call.table === "venue_action_capabilities").flatMap((call) => call.payload).every((row) => row.version === 1));
   assert.ok(calls.flatMap((call) => Array.isArray(call.payload) ? call.payload : [call.payload]).every((row) => row.verified_at === undefined || row.verified_at === null));
   assert.ok(calls.filter((call) => call.table === "menu_items").flatMap((call) => call.payload).every((row) =>
@@ -201,13 +201,13 @@ test("recomputes package digest and rejects tampered candidate content", async (
   assert.throws(() => buildImportPlan(tampered), /does not match the recomputed package content digest/);
 });
 
-test("canonical apply package must be rebuilt from exactly 53 files and match byte-for-byte", async () => {
+test("canonical apply package must be rebuilt from exactly 55 files and match byte-for-byte", async () => {
   const inputs = await loadDataOpsInputs(process.cwd());
   const compiled = compileDataOps(inputs);
   const bytes = serializeDataOpsCandidates(compiled.candidates);
   assert.doesNotThrow(() => assertCanonicalDataOpsCandidateBytes(bytes, compiled.candidates, inputs.inputFiles.length));
   assert.throws(() => assertCanonicalDataOpsCandidateBytes(`${bytes} `, compiled.candidates, inputs.inputFiles.length), /not byte-identical/);
-  assert.throws(() => assertCanonicalDataOpsCandidateBytes(bytes, compiled.candidates, 52), /exactly 53 raw Data Ops files/);
+  assert.throws(() => assertCanonicalDataOpsCandidateBytes(bytes, compiled.candidates, 54), /exactly 55 raw Data Ops files/);
 });
 
 test("rejects duplicate IDs, missing provenance and non-v1 imports even with a recomputed digest", async () => {
@@ -229,9 +229,14 @@ test("rejects duplicate IDs, missing provenance and non-v1 imports even with a r
   assert.throws(() => buildImportPlan(versionTwo), /initial Data Ops import version must equal 1|only version=1/);
 });
 
-test("direct apply refuses the current unreconciled release before touching a client", async () => {
+test("direct apply refuses a package whose staging release gate is closed before touching a client", async () => {
   const compiled = compileDataOps(await loadDataOpsInputs(process.cwd()));
   const plan = buildImportPlan(compiled.candidates);
+  plan.releaseGates = {
+    ...plan.releaseGates,
+    denominatorReconciled: false,
+    readyForStagingApply: false,
+  };
   let touched = false;
   const client = { from() { touched = true; throw new Error("must not touch client"); } };
   await assert.rejects(() => applyImportPlan(plan, client), /release gates do not authorize staging writes/);

@@ -6,7 +6,7 @@ import {
   loadDataOpsInputs,
 } from "./data-ops-compiler-core.mjs";
 
-test("compiles all 24 batches plus Wave 1 deterministically without double-counting", async () => {
+test("compiles all 25 batches plus Wave 1 deterministically without double-counting", async () => {
   const inputs = await loadDataOpsInputs(process.cwd());
   const first = compileDataOps(inputs);
   const second = compileDataOps(inputs);
@@ -16,32 +16,32 @@ test("compiles all 24 batches plus Wave 1 deterministically without double-count
 
   const report = first.coverageReport;
   assert.deepEqual(report.denominator, {
-    packageVenues: 207,
-    coverageLedgerVenues: 207,
-    canonicalRegistryVenues: 207,
-    ledgerTotalEligible: 207,
-    registryTotalEligible: 207,
+    packageVenues: 208,
+    coverageLedgerVenues: 208,
+    canonicalRegistryVenues: 208,
+    ledgerTotalEligible: 208,
+    registryTotalEligible: 208,
     liveDatabaseCandidate: 208,
-    liveDatabaseCandidateStatus: "needs_live_sql_confirmation",
-    unresolvedLiveCandidateSlugs: ["kynd-community"],
+    liveDatabaseCandidateStatus: "reconciled",
+    unresolvedLiveCandidateSlugs: [],
     repositoryCountsAligned: true,
-    liveCandidateMatchesRepository: false,
-    liveCandidateConfirmed: false,
-    fullyReconciled: false,
-    complete: 152,
+    liveCandidateMatchesRepository: true,
+    liveCandidateConfirmed: true,
+    fullyReconciled: true,
+    complete: 153,
     blocked: 55,
   });
-  assert.equal(report.inputs.files, 53);
-  assert.equal(report.inputs.packages, 25);
+  assert.equal(report.inputs.files, 55);
+  assert.equal(report.inputs.packages, 26);
   assert.equal(report.inputs.wavePackages, 1);
-  assert.equal(report.inputs.batchPackages, 24);
-  assert.equal(report.inputs.sources, 358);
-  assert.equal(report.inputs.validSources, 287);
-  assert.equal(report.inputs.quarantinedSources, 71);
+  assert.equal(report.inputs.batchPackages, 25);
+  assert.equal(report.inputs.sources, 365);
+  assert.equal(report.inputs.validSources, 292);
+  assert.equal(report.inputs.quarantinedSources, 73);
   assert.equal(report.inputs.freshnessQuarantinedSources, 14);
-  assert.equal(report.inputs.rawMenus, 148);
-  assert.equal(report.inputs.rawActions, 391);
-  assert.equal(report.inputs.rawItems, 819);
+  assert.equal(report.inputs.rawMenus, 149);
+  assert.equal(report.inputs.rawActions, 394);
+  assert.equal(report.inputs.rawItems, 939);
   assert.equal(report.inputs.verifiedAtNonNull, 0);
   assert.equal(report.inputs.publicationAllowedTrue, 0);
 });
@@ -49,13 +49,13 @@ test("compiles all 24 batches plus Wave 1 deterministically without double-count
 test("emits only mapped, unverified draft/review candidates and excludes blockers/placeholders", async () => {
   const inputs = await loadDataOpsInputs(process.cwd());
   const { candidates, coverageReport, rejections } = compileDataOps(inputs);
-  assert.equal(candidates.menus.length, 126);
-  assert.equal(candidates.capabilities.length, 248);
-  assert.equal(candidates.venueMapsCandidates.length, 49);
-  assert.equal(coverageReport.outputs.menuItems, 761);
+  assert.equal(candidates.menus.length, 127);
+  assert.equal(candidates.capabilities.length, 250);
+  assert.equal(candidates.venueMapsCandidates.length, 50);
+  assert.equal(coverageReport.outputs.menuItems, 881);
   assert.ok(coverageReport.outputs.sourceDisplayPricesPreserved > 0);
   assert.ok(coverageReport.outputs.sourceDisplayPriceOnly > 0);
-  assert.equal(coverageReport.outputs.venuesWithAnyCandidate, 146);
+  assert.equal(coverageReport.outputs.venuesWithAnyCandidate, 147);
   assert.deepEqual(coverageReport.outputs.completeVenuesWithoutCandidate, [
     "arwana",
     "izakaya-by-oku",
@@ -69,9 +69,9 @@ test("emits only mapped, unverified draft/review candidates and excludes blocker
   assert.ok(candidates.menus.some((menu) => menu.sections.some((section) => section.items.some((item) => item.sourceDisplayPrice))));
   assert.equal(coverageReport.provenance.sourceReferencesUnmatched, 0);
   assert.equal(rejections.rejections.filter((row) => row.reasons.includes("empty_menu_placeholder")).length, 11);
-  assert.equal(coverageReport.gates.denominatorReconciled, false);
-  assert.equal(coverageReport.gates.readyForImportDryRun, false);
-  assert.equal(coverageReport.gates.readyForStagingApply, false);
+  assert.equal(coverageReport.gates.denominatorReconciled, true);
+  assert.equal(coverageReport.gates.readyForImportDryRun, true);
+  assert.equal(coverageReport.gates.readyForStagingApply, true);
 
   const blocked = new Set(inputs.ledger.venues.filter((venue) => venue.researchStatus === "blocked").map((venue) => venue.slug));
   assert.ok(candidates.menus.every((menu) => !blocked.has(menu.venueSlug)));
@@ -82,7 +82,7 @@ test("emits only mapped, unverified draft/review candidates and excludes blocker
 test("canonicalizes the global source collision and action taxonomy safely", async () => {
   const inputs = await loadDataOpsInputs(process.cwd());
   const { candidates, coverageReport, sources, rejections } = compileDataOps(inputs);
-  assert.equal(new Set(sources.sources.map((source) => source.id)).size, 358);
+  assert.equal(new Set(sources.sources.map((source) => source.id)).size, 365);
   assert.deepEqual(coverageReport.provenance.sourceIdCollisions.map((collision) => collision.originalId), ["src-yuki-menu"]);
   assert.equal(coverageReport.provenance.sourceIdCollisions[0].canonicalIds.length, 2);
   assert.ok(candidates.capabilities.every((capability) => !["directions", "map", "maps", "order"].includes(capability.kind)));
@@ -90,7 +90,7 @@ test("canonicalizes the global source collision and action taxonomy safely", asy
   assert.ok(candidates.venueMapsCandidates.every((candidate) =>
     candidate.kind === "maps" && candidate.canonicalActionType === "directions" && candidate.targetField === "venues.gmaps_url"
   ));
-  assert.equal(coverageReport.transformations.actionKindClassifications.normalized_map_alias, 48);
+  assert.equal(coverageReport.transformations.actionKindClassifications.normalized_map_alias, 49);
   assert.equal(coverageReport.transformations.actionKindClassifications.order_provider_delivery, 15);
   assert.equal(coverageReport.exclusions.byReason.ambiguous_order_kind, 2);
   assert.equal(coverageReport.exclusions.byReason.action_url_not_https, 3);
@@ -172,7 +172,7 @@ test("preserves price text and copies IDR rupiah integers without cent scaling",
   assert.equal(flatBread.currency, "IDR");
   assert.equal(flatBread.priceMinor, 60000);
   assert.notEqual(flatBread.priceMinor, 6000000);
-  assert.equal(coverageReport.outputs.sourceDisplayPricesPreserved, 696);
+  assert.equal(coverageReport.outputs.sourceDisplayPricesPreserved, 816);
   assert.equal(coverageReport.outputs.sourceDisplayPriceOnly, 242);
-  assert.equal(coverageReport.outputs.idrZeroDecimalPriceMinorRecords, 454);
+  assert.equal(coverageReport.outputs.idrZeroDecimalPriceMinorRecords, 574);
 });

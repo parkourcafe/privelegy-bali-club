@@ -11,7 +11,7 @@ import {
 } from "./validation-core.mjs";
 
 export const DATA_OPS_COMPILER_VERSION = 1;
-export const DATA_OPS_EXPECTED_INPUT_FILE_COUNT = 53;
+export const DATA_OPS_EXPECTED_INPUT_FILE_COUNT = 55;
 
 const CANDIDATE_ELIGIBLE_SOURCE_OUTCOMES = new Set([
   "partial",
