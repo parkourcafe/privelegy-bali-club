@@ -187,6 +187,32 @@ export default function DayIntentBuilder() {
         </span>
       </div>
 
+      {/* Live result at the TOP of the column, so the whole builder reads as
+          "this produces a list of real places" the moment it's on screen —
+          not a dead form whose only exit is buried below seven questions. It
+          uses sensible defaults immediately and re-points as choices change. */}
+      <Link
+        href={href}
+        key={`top-${pulseKey}`}
+        className={`ob-cta-shimmer mt-4 block rounded-2xl border border-[var(--ob-brass)]/45 bg-[var(--ob-brass)]/12 p-3.5 transition-colors hover:bg-[var(--ob-brass)]/20 ${
+          pulseKey > 0 ? "ob-brief-pulse" : ""
+        }`}
+      >
+        <span className="flex items-center justify-between gap-3">
+          <span className="min-w-0">
+            <span className="block text-[11px] font-semibold uppercase tracking-wide text-[var(--ob-brass-2)]">
+              Your places
+            </span>
+            <span className="mt-0.5 block truncate font-display text-sm italic text-[var(--ob-sand)]">
+              {summary}
+            </span>
+          </span>
+          <span className="shrink-0 rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)]">
+            Show →
+          </span>
+        </span>
+      </Link>
+
       {/* One-tap shortcuts — real links straight to results. Placed above the
           builder so people who don't want to answer seven questions can jump
           in immediately (the chips below only build a brief). */}
@@ -211,7 +237,7 @@ export default function DayIntentBuilder() {
       </div>
 
       <p className="mt-5 border-t border-[var(--ob-line)] pt-4 text-xs font-semibold text-[var(--ob-sand-dim)]">
-        …or build the full brief and get your top 3
+        …or fine-tune the brief below — the places update as you choose
       </p>
 
       <div className="mt-4 space-y-4">
@@ -282,7 +308,7 @@ export default function DayIntentBuilder() {
           href={href}
           className="ob-cta-shimmer rounded-full bg-[var(--ob-sand)] px-5 py-3 text-center text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
-          Show my top 3
+          Show my top 3 places
         </Link>
         <Link
           href="/places"
