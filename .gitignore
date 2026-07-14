@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated cinematic scenes — fetched at build by scripts/fetch-scenes.mjs
-public/scenes/
+# generated cinematic scene stills — fetched at build by scripts/fetch-scenes.mjs.
+# The ambient .mp4 loops (hero-loop, ubud-dawn-loop) are COMMITTED assets:
+# compressed under the 3MB budget (2026-07-14 Higgsfield pass), fetch-scenes
+# sees them present-and-under-budget and skips them.
+public/scenes/*.webp
 shots*/
