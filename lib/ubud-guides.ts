@@ -34,6 +34,24 @@ export const UBUD_GUIDES: UbudGuide[] = [
     ],
   },
   {
+    slug: "best-warungs",
+    h1: "Best warungs & local food in Ubud",
+    metaTitle: "Best warungs in Ubud — cheap, authentic local food",
+    metaDescription:
+      "Where to eat cheap, authentic Balinese and Indonesian food in Ubud — the warungs we rate for nasi campur, home-style plates and honest local eating.",
+    lede: "Beyond the health cafés, Ubud has honest, affordable warungs doing real Balinese and Indonesian food. These are the ones we send people to.",
+    // Catches the local warungs, including those keyed as `restaurant` in the
+    // catalogue (name-based), without a destructive re-category migration.
+    base: (v) => v.category === "warung" || /\bwarung\b/i.test(v.name),
+    sectionHeading: "Warungs & local food",
+    sectionNote: "Cheap, authentic and unfussy — the local plates worth seeking out.",
+    faq: [
+      { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food — nasi campur, satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
+      { q: "Where do locals eat in Ubud?", a: "At warungs — small local eateries away from the tourist strip. The picks here are the ones we rate for authentic, affordable Balinese and Indonesian food." },
+      { q: "Is local food in Ubud cheap?", a: "Yes — warungs are among the best value in Bali, with generous plates for a fraction of café or restaurant prices." },
+    ],
+  },
+  {
     slug: "best-cafes-coffee",
     h1: "Best cafés & coffee in Ubud",
     metaTitle: "Best cafés & coffee in Ubud — where to sit, work and slow down",
