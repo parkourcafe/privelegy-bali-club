@@ -166,11 +166,13 @@ grant execute on function public.invite_roster() to service_role;
 -- Repair the original fail-open planning policies. Anonymous clients may see
 -- only explicitly active, published venues and their eligible public children.
 drop policy if exists "public read venues" on public.venues;
+drop policy if exists "public read active published venues" on public.venues;
 create policy "public read active published venues"
 on public.venues for select to anon, authenticated
 using (status = 'active' and publication_status = 'published');
 
 drop policy if exists "public read perks" on public.perks;
+drop policy if exists "public read eligible perks" on public.perks;
 
 -- Offers are versioned consent-bearing facts, not a legacy active boolean.
 -- Existing rows intentionally remain drafts until the venue approves the
@@ -273,6 +275,7 @@ using (
 );
 
 drop policy if exists "public read plan_entries" on public.plan_entries;
+drop policy if exists "public read published plan entries" on public.plan_entries;
 create policy "public read published plan entries"
 on public.plan_entries for select to anon, authenticated
 using (

@@ -93,6 +93,32 @@ Cloud preview verification:
 - authenticated preview request to `POST /api/admin/data-ops-import`: `404`
 - response controls: `private, no-store` and `noindex, nofollow, noarchive`
 
+## Full production-order SQL rehearsal
+
+The complete operator sequence was replayed on another disposable clone in the
+same order required for production:
+
+1. emergency token lockdown v3
+2. zero-downtime service-role bridge
+3. `0031_secure_partner_operator_rpcs.sql`
+4. `0032_menu_action_foundation.sql`
+5. `0033_venue_photo_consent_staging.sql`
+6. `0034_transactional_data_ops_import.sql`
+
+The first idempotency pass exposed three pre-existing policy-name collisions in
+`0031`. The migration was repaired to drop both legacy and final policy names
+before recreating them. The complete sequence then passed with stop-on-first-
+error enabled.
+
+Post-sequence assertions:
+
+- onboarding tokens remained one per venue and exactly 64 lowercase hex chars
+- `anon` cannot execute invite, redemption or package-import RPCs
+- `service_role` can execute all three required boundaries
+- venue, perk and plan public policies each exist exactly once
+- an anonymous action read returns zero rows instead of a district ACL error
+- menu, action, photo-staging and import-ledger tables all exist
+
 ## Remaining production sequence
 
 This rehearsal does not authorize immediate public visibility. Production still

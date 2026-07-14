@@ -109,6 +109,9 @@ test("operator credential tables have explicit least-privilege ACLs", () => {
 });
 
 test("public venue and partner-report boundaries fail closed", () => {
+  assert.match(securitySql, /drop policy if exists "public read active published venues"/i);
+  assert.match(securitySql, /drop policy if exists "public read eligible perks"/i);
+  assert.match(securitySql, /drop policy if exists "public read published plan entries"/i);
   assert.match(securitySql, /create policy "public read active published venues"[\s\S]*?status = 'active'[\s\S]*?publication_status = 'published'/i);
   assert.match(securitySql, /revoke all on table public\.venues from anon, authenticated/i);
   for (const rpc of ["partner_report", "partner_notes", "venue_redemption_count"]) {
