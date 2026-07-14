@@ -13,7 +13,7 @@ export default function PrivacyPage() {
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy Policy</h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 11, 2026</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
 
         <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
           <section>
@@ -48,6 +48,18 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+              What we do not do
+            </h2>
+            <p className="mt-3">
+              We do not use Google Analytics or any third-party analytics or
+              advertising trackers, and we do not track you across other apps or
+              websites. The only analytics is the first-party interaction record
+              described above, kept to run the guide and venue attribution.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
               Services you choose to open
             </h2>
             <p className="mt-3">
@@ -64,7 +76,16 @@ export default function PrivacyPage() {
             <p className="mt-3">
               You can clear your browser cookies to reset the anonymous Other
               Bali device reference. You can also choose not to redeem an offer
-              if you do not want a redemption recorded.
+              if you do not want a redemption recorded. To have the interaction
+              events tied to your device reference deleted from our records,
+              email us at{" "}
+              <a
+                className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+                href="mailto:support@otherbali.com"
+              >
+                support@otherbali.com
+              </a>{" "}
+              and we will remove them.
             </p>
           </section>
 

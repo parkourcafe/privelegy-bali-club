@@ -2,10 +2,13 @@
 //
 // Two sinks, one call — with a documented difference (brief §21):
 // - the INTERNAL event store (/api/event → log_event RPC) is the funnel
-//   system of record (growth vs partner-proof separation lives there);
+//   system of record (growth vs partner-proof separation lives there). This is
+//   first-party and always on — it is how attribution/partner-proof works.
 // - GA4 receives the same event name as a custom event for acquisition
-//   analysis. GA4 is production-only (components/Analytics.tsx) and gtag is
-//   absent in dev, so the GA4 leg silently no-ops outside production.
+//   analysis. GA4 is DISABLED by default (audit 2026-07 — no third-party
+//   analytics until a consent flow exists; see components/Analytics.tsx). When
+//   GA is off, `window.gtag` is never defined, so the GA4 leg below silently
+//   no-ops. Re-enabling GA is a consent-gated env change, not a code edit here.
 //
 // Partner-proof events (redemption, reservation_click) are NOT routed through
 // this helper — they keep their existing dedicated paths.
