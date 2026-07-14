@@ -35,8 +35,9 @@ export async function reviewMenu(formData: FormData) {
     throw new Error("Open the official source and explicitly confirm the menu comparison before verification.");
   }
   const id = recordId(formData);
-  const { data: menu, error } = await client.from("menus").select("id,status,source_url,source_label,captured_at").eq("id", id).single();
+  const { data: menu, error } = await client.from("menus").select("id,status,completeness,source_url,source_label,captured_at").eq("id", id).single();
   if (error || !menu) throw new Error(error?.message ?? "Menu not found.");
+  if (menu.completeness !== "full") throw new Error("Partial menu extracts cannot be verified or published as full menus.");
   if (!isPublishableHttpsUrl(menu.source_url) || !menu.source_label?.trim() || !Number.isFinite(Date.parse(menu.captured_at ?? ""))) {
     throw new Error("Menu evidence must be checked before review.");
   }

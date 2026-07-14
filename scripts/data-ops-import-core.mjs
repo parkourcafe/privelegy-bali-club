@@ -201,6 +201,7 @@ function menuRow(menu) {
     title: menu.title,
     version: menu.version,
     status: menu.status,
+    completeness: menu.completeness,
     source_url: menu.sourceUrl,
     source_label: menu.sourceLabel,
     captured_at: menu.capturedAt,

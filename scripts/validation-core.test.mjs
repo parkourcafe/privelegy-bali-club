@@ -23,6 +23,7 @@ function menu(overrides = {}) {
     title: "Menu",
     version: 1,
     status: "draft",
+    completeness: "full",
     expiresAt: null,
     sections: [{
       name: "Food",
@@ -80,6 +81,16 @@ test("publish validation requires real verification and a reviewed/public status
     verifiedAt: "2026-07-02T00:00:00Z",
   }), 0, { mode: VALIDATION_MODES.PUBLISH, now: "2026-07-14T00:00:00Z" });
   assert.deepEqual(ready.errors, []);
+});
+
+test("partial menu extracts remain importable drafts but cannot pass publication", () => {
+  assert.deepEqual(validateMenu(menu({ completeness: "partial" }), 0).errors, []);
+  const result = validateMenu(menu({
+    completeness: "partial",
+    status: "review",
+    verifiedAt: "2026-07-02T00:00:00Z",
+  }), 0, { mode: VALIDATION_MODES.PUBLISH, now: "2026-07-14T00:00:00Z" });
+  assert.ok(result.errors.includes("partial menu candidates cannot be published as verified menus"));
 });
 
 test("rejects future and illogical verification timestamps", () => {

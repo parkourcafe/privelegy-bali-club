@@ -13,6 +13,7 @@ export type AdminMenuRow = {
   id: string;
   venue_slug: string;
   status: string;
+  completeness: string;
   source_url: string | null;
   source_label: string | null;
   captured_at: string | null;
@@ -135,6 +136,9 @@ export function evaluateMenus(rows: AdminMenuRow[], now = new Date()): Freshness
   const nowMs = now.getTime();
   return rows.flatMap((row) => {
     const issues = evidenceIssues(row, "menu", row.id, row.venue_slug, row.status !== "draft");
+    if (row.completeness !== "full") {
+      issues.push({ code: "partial_menu", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "This record is a partial menu extract and cannot be published as a verified full menu." });
+    }
     const expiry = timestamp(row.expires_at);
     if (["review", "published"].includes(row.status) && expiry === null) {
       issues.push({ code: "missing_expiry", severity: "blocker", entity: "menu", entityId: row.id, venueSlug: row.venue_slug, message: "Reviewed/public menu has no mandatory freshness expiry." });

@@ -240,6 +240,11 @@ export function validateMenu(row, index, options) {
   if (!String(row.venueSlug ?? "").trim()) errors.push("venueSlug is required");
   if (!String(row.title ?? "").trim()) errors.push("title is required");
   if (String(row.title ?? "").length > 160) errors.push("title exceeds 160 characters");
+  if (!["full", "partial"].includes(row.completeness)) {
+    errors.push("completeness must be full or partial");
+  } else if (mode === VALIDATION_MODES.PUBLISH && row.completeness !== "full") {
+    errors.push("partial menu candidates cannot be published as verified menus");
+  }
   if (!Number.isInteger(row.version) || row.version <= 0) errors.push("version must be a positive integer");
   else if (mode === VALIDATION_MODES.IMPORT_DRY_RUN && row.version !== 1) errors.push("initial Data Ops import version must equal 1");
   if (row.expiresAt != null && !validTimestamp(row.expiresAt)) errors.push("expiresAt must be null or an ISO timestamp");

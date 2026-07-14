@@ -18,6 +18,7 @@ test("builds a review-only dry-run plan from compiled candidates", async () => {
   const compiled = compileDataOps(await loadDataOpsInputs(process.cwd()));
   const plan = buildImportPlan(compiled.candidates);
   assert.equal(plan.counts.menus, 127);
+  assert.equal(plan.menus.filter((menu) => menu.completeness === "full").length, 1);
   assert.equal(plan.counts.sections, 165);
   assert.equal(plan.counts.items, 881);
   assert.equal(plan.counts.capabilities, 250);
@@ -112,6 +113,7 @@ test("apply inserts only draft/unverified version-1 records and omits editorial 
   assert.equal(result.menus, 1);
   assert.equal(result.capabilities, 1);
   assert.equal(result.venueMapsNotApplied, 50);
+  assert.equal(calls.find((call) => call.table === "menus")?.payload.completeness, "partial");
   assert.ok(calls.filter((call) => call.table === "venue_action_capabilities").flatMap((call) => call.payload).every((row) => row.version === 1));
   assert.ok(calls.flatMap((call) => Array.isArray(call.payload) ? call.payload : [call.payload]).every((row) => row.verified_at === undefined || row.verified_at === null));
   assert.ok(calls.filter((call) => call.table === "menu_items").flatMap((call) => call.payload).every((row) =>

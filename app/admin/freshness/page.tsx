@@ -153,7 +153,7 @@ function MenuReviewCard({ menu, issues }: { menu: AdminMenuReview; issues: Fresh
     <article className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">{menu.status} · version {menu.version}</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">{menu.status} · {menu.completeness} · version {menu.version}</p>
           <h3 className="mt-1 text-xl font-semibold">{menu.venue_name}</h3>
           <p className="mt-1 font-medium">{menu.title}</p>
           <p className="mt-1 text-xs text-stone-500">Venue: {menu.venue_slug} · Menu: {menu.id}</p>

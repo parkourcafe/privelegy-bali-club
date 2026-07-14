@@ -120,6 +120,8 @@ test("all menu/action stores enable RLS and public reads enforce freshness", () 
     );
   }
   assert.match(menuSql, /status = 'published'[\s\S]*?verified_at is not null[\s\S]*?expires_at > now\(\)/i);
+  assert.match(menuSql, /completeness = 'full'/i);
+  assert.match(menuSql, /v_menu\.completeness <> 'full'/i);
   assert.match(menuSql, /status = 'confirmed'[\s\S]*?verified_at is not null[\s\S]*?expires_at > now\(\)/i);
   assert.match(menuSql, /publication_status = 'published'/i);
   assert.match(

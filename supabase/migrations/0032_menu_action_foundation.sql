@@ -12,6 +12,8 @@ create table if not exists public.menus (
   version integer not null check (version > 0),
   status text not null default 'draft'
     check (status in ('draft','review','published','archived')),
+  completeness text not null default 'partial'
+    check (completeness in ('full','partial')),
   source_url text not null check (source_url ~ '^https://[^[:space:]]+$'),
   source_label text not null check (length(btrim(source_label)) between 1 and 160),
   captured_at timestamptz not null,
@@ -21,8 +23,26 @@ create table if not exists public.menus (
   updated_at timestamptz not null default now(),
   unique (venue_slug, version),
   check (expires_at is null or expires_at > captured_at),
-  check (status <> 'published' or (verified_at is not null and expires_at is not null))
+  check (
+    status <> 'published'
+    or (completeness = 'full' and verified_at is not null and expires_at is not null)
+  )
 );
+
+alter table public.menus
+  add column if not exists completeness text not null default 'partial';
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conrelid = 'public.menus'::regclass
+      and conname = 'menus_completeness_check'
+  ) then
+    alter table public.menus add constraint menus_completeness_check
+      check (completeness in ('full','partial'));
+  end if;
+end;
+$$;
 
 create unique index if not exists menus_one_published_per_venue_idx
   on public.menus(venue_slug) where status = 'published';
@@ -164,10 +184,12 @@ begin
   end if;
 
   if old.verified_at is not null and row(
-    new.venue_slug, new.title, new.version, new.source_url, new.source_label,
+    new.venue_slug, new.title, new.version, new.completeness,
+    new.source_url, new.source_label,
     new.captured_at, new.verified_at, new.expires_at, new.created_at
   ) is distinct from row(
-    old.venue_slug, old.title, old.version, old.source_url, old.source_label,
+    old.venue_slug, old.title, old.version, old.completeness,
+    old.source_url, old.source_label,
     old.captured_at, old.verified_at, old.expires_at, old.created_at
   ) then
     raise exception 'verified menu snapshot evidence is immutable';
@@ -235,6 +257,7 @@ create policy "public read fresh published menus"
 on public.menus for select to anon, authenticated
 using (
   status = 'published'
+  and completeness = 'full'
   and verified_at is not null
   and captured_at is not null
   and expires_at > now()
@@ -257,6 +280,7 @@ using (
     join public.venues v on v.slug = m.venue_slug
     where m.id = menu_id
       and m.status = 'published'
+      and m.completeness = 'full'
       and m.verified_at is not null
       and m.expires_at > now()
       and v.status = 'active'
@@ -274,6 +298,7 @@ using (
     join public.venues v on v.slug = m.venue_slug
     where m.id = menu_id
       and m.status = 'published'
+      and m.completeness = 'full'
       and m.verified_at is not null
       and m.expires_at > now()
       and v.status = 'active'
@@ -366,6 +391,7 @@ begin
 
   if not found
     or v_menu.status <> 'review'
+    or v_menu.completeness <> 'full'
     or v_menu.verified_at is null
     or v_menu.expires_at is null
     or v_menu.expires_at <= now()
@@ -651,11 +677,11 @@ begin
   where venue_slug = v_slug;
 
   insert into public.menus(
-    venue_slug, title, version, status, source_url, source_label,
+    venue_slug, title, version, status, completeness, source_url, source_label,
     captured_at, expires_at
   )
   values (
-    v_slug, left(btrim(p_title), 160), v_version, 'draft', p_source_url,
+    v_slug, left(btrim(p_title), 160), v_version, 'draft', 'partial', p_source_url,
     left(btrim(p_source_label), 160), p_captured_at,
     coalesce(p_expires_at, p_captured_at + interval '60 days')
   )

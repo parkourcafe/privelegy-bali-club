@@ -19,6 +19,7 @@ export const menuActionFixtures: {
     title: "Fixture menu",
     version: 1,
     status: "published",
+    completeness: "full",
     expiresAt: "2099-01-01T00:00:00.000Z",
     sections: [
       {
@@ -53,6 +54,7 @@ export const menuActionFixtures: {
     title: "Expired fixture menu",
     version: 0,
     status: "published",
+    completeness: "full",
     expiresAt: "2020-01-01T00:00:00.000Z",
     sections: [],
   },

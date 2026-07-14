@@ -50,6 +50,9 @@ test("emits only mapped, unverified draft/review candidates and excludes blocker
   const inputs = await loadDataOpsInputs(process.cwd());
   const { candidates, coverageReport, rejections } = compileDataOps(inputs);
   assert.equal(candidates.menus.length, 127);
+  assert.equal(coverageReport.outputs.fullMenuCandidates, 1);
+  assert.equal(coverageReport.outputs.partialMenuCandidates, 126);
+  assert.deepEqual(candidates.menus.filter((menu) => menu.completeness === "full").map((menu) => menu.venueSlug), ["kynd-community"]);
   assert.equal(candidates.capabilities.length, 250);
   assert.equal(candidates.venueMapsCandidates.length, 50);
   assert.equal(coverageReport.outputs.menuItems, 881);
@@ -166,6 +169,7 @@ test("fails closed on duplicate IDs, broken provenance/source links and rejected
 test("preserves price text and copies IDR rupiah integers without cent scaling", async () => {
   const { candidates, coverageReport } = compileDataOps(await loadDataOpsInputs(process.cwd()));
   const mason = candidates.menus.find((menu) => menu.venueSlug === "mason");
+  assert.equal(mason.completeness, "partial");
   const flatBread = mason.sections.flatMap((section) => section.items).find((item) => item.name === "WOOD FIRED FLAT BREAD");
   assert.equal(flatBread.sourceDisplayPrice, "60");
   assert.equal(flatBread.priceText, "60");

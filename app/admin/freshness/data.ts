@@ -73,7 +73,7 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
   const client = serviceClient();
   if (!client) return emptyResult(false);
   const [menuResult, sectionResult, itemResult, actionResult, venueResult] = await Promise.all([
-    client.from("menus").select("id,venue_slug,title,version,status,source_url,source_label,captured_at,verified_at,expires_at").neq("status", "archived").order("venue_slug").order("version", { ascending: false }),
+    client.from("menus").select("id,venue_slug,title,version,status,completeness,source_url,source_label,captured_at,verified_at,expires_at").neq("status", "archived").order("venue_slug").order("version", { ascending: false }),
     client.from("menu_sections").select("id,menu_id,name,description,position").order("position"),
     client.from("menu_items").select("id,menu_id,section_id,name,description,price_minor,currency,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position").order("position"),
     client.from("venue_action_capabilities").select("id,venue_slug,kind,provider,label,status,url,source_url,source_label,captured_at,verified_at,expires_at"),
@@ -130,6 +130,7 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
       title: text(row.title),
       version: number(row.version, 1),
       status: text(row.status),
+      completeness: text(row.completeness),
       source_url: nullableText(row.source_url),
       source_label: nullableText(row.source_label),
       captured_at: nullableText(row.captured_at),

@@ -20,20 +20,25 @@ test("requires provider/action/host agreement before action publication", () => 
 });
 
 test("reports stale and empty menus without deleting them", () => {
-  const issues = evaluateMenus([{ id: "m1", venue_slug: "v1", status: "published", ...evidence, expires_at: "2026-07-01T00:00:00.000Z", section_count: 0, item_count: 0 }], NOW);
+  const issues = evaluateMenus([{ id: "m1", venue_slug: "v1", status: "published", completeness: "full", ...evidence, expires_at: "2026-07-01T00:00:00.000Z", section_count: 0, item_count: 0 }], NOW);
   assert.deepEqual(issues.map((issue) => issue.code).sort(), ["empty_menu", "stale_menu"]);
 });
 
 test("keeps draft replacement private and reports review work", () => {
-  const issues = evaluateMenus([{ id: "m2", venue_slug: "v1", status: "draft", ...evidence, verified_at: null, expires_at: null, section_count: 1, item_count: 1 }], NOW);
+  const issues = evaluateMenus([{ id: "m2", venue_slug: "v1", status: "draft", completeness: "full", ...evidence, verified_at: null, expires_at: null, section_count: 1, item_count: 1 }], NOW);
   assert.deepEqual(issues.map((issue) => issue.code), ["menu_needs_review"]);
 });
 
 test("requires real verification and expiry only after review/publication", () => {
-  const menuIssues = evaluateMenus([{ id: "m3", venue_slug: "v1", status: "review", ...evidence, verified_at: null, expires_at: null, section_count: 1, item_count: 1 }], NOW);
+  const menuIssues = evaluateMenus([{ id: "m3", venue_slug: "v1", status: "review", completeness: "full", ...evidence, verified_at: null, expires_at: null, section_count: 1, item_count: 1 }], NOW);
   assert.deepEqual(menuIssues.map((issue) => issue.code).sort(), ["menu_needs_review", "missing_expiry", "missing_verification"]);
   const actionIssues = evaluateActions([{ id: "a2", venue_slug: "v1", kind: "website", provider: "official", status: "confirmed", ...evidence, verified_at: null, source_url: "https://venue.test", url: "https://venue.test/book", expires_at: null }], NOW);
   assert.deepEqual(actionIssues.map((issue) => issue.code).sort(), ["missing_expiry", "missing_verification"]);
+});
+
+test("blocks a partial extract from the verified-menu workflow", () => {
+  const issues = evaluateMenus([{ id: "m4", venue_slug: "v1", status: "draft", completeness: "partial", ...evidence, verified_at: null, expires_at: null, section_count: 1, item_count: 1 }], NOW);
+  assert.deepEqual(issues.map((issue) => issue.code).sort(), ["menu_needs_review", "partial_menu"]);
 });
 
 test("blocks invalid and expired action handoffs", () => {

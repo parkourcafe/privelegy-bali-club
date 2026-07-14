@@ -61,10 +61,11 @@ Completed at `2026-07-13T15:07:27Z` on branch `loop/00-data-ops`, starting from
   passes against the integration compiler, updating the 53→55 input gate and
   all exact test expectations without weakening set, digest, provenance, or
   denominator checks.
-- Deterministic compiled package digest:
-  `2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265`;
+- Deterministic compiled package digest after the release-integration
+  completeness gate:
+  `ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081`;
   input digest:
-  `28c0d143c8c9fa72279adc0ea888dba6c84eb5f60af4fa290a98e7297613afaf`.
+  `79eac95c0d8a93a18045b1a4d79691d2c1ac5fe869bd41ea9764010412844e9a`.
 
 ## Progress
 
@@ -360,12 +361,17 @@ operator review. Zero remain queued; no venue is human-verified or publishable.
   items. Source mapping is 543/543; duplicate/global-ID, provenance, null-
   verification, publication, queue, exact denominator and compiler-integrity
   checks all passed.
-- Compiler results: 127 menu candidates with 881 items, 250 capability
+- Compiler results: 127 menu candidates with 881 items (1 full-menu candidate,
+  126 explicitly partial/subset candidates), 250 capability
   candidates, 50 map-verification candidates, 115 existing compiled rejection
   records, zero unmatched sources, and 427 total draft candidates. The KYND
   batch contributes one fully parsed menu, two importable capabilities, one map
   verification candidate, seven sources, and three explicit research-level
   action rejections.
+- Release integration added a fail-closed completeness classification without
+  changing any raw evidence or the input digest. Partial/subset candidates may
+  be imported for operator work but cannot pass the verified full-menu publish
+  gate. KYND Community is the only current full-menu candidate.
 - Exact compiler validation used the integration compiler from commit
   `e4fcc8a5a12431f6b6247ae64f1c43888a395c52` in an isolated copy:
   `node /private/tmp/kynd-compiler/compile-data-ops.mjs --root '<session-0-root>'`,

@@ -18,7 +18,7 @@ export default function StructuredMenu({ menu, venueSlug, officialMenuUrl }: { m
     <div className="structured-menu">
       <MenuOpenTracker venueSlug={venueSlug} menuId={menu.id} />
       <header className="structured-menu-header">
-        <div><p className="structured-menu-eyebrow">Verified menu · version {menu.version}</p><h3>{menu.title}</h3></div>
+        <div><p className="structured-menu-eyebrow">Verified full menu · version {menu.version}</p><h3>{menu.title}</h3></div>
         <p className="structured-menu-source">Source: <a href={menu.sourceUrl} target="_blank" rel="noreferrer">{menu.sourceLabel} ↗</a>{captured ? ` · prices as of ${captured}, may vary` : ""}{verified ? ` · checked ${verified}` : ""}{expires ? ` · current until ${expires}` : ""}</p>
       </header>
       <p className="structured-menu-allergen-note"><strong>Allergen note:</strong> only explicitly verified allergens are shown. No allergen tag means unknown, not allergen-free.</p>

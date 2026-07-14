@@ -12,7 +12,7 @@ import { formatMenuPrice } from "../components/menu/menu-model.ts";
 function menuRow(menu: typeof menuActionFixtures.freshMenu) {
   return {
     id: menu.id, venue_slug: menu.venueSlug, title: menu.title, version: menu.version,
-    status: menu.status, source_url: menu.sourceUrl, source_label: menu.sourceLabel,
+    status: menu.status, completeness: menu.completeness, source_url: menu.sourceUrl, source_label: menu.sourceLabel,
     captured_at: menu.capturedAt, verified_at: menu.verifiedAt, expires_at: menu.expiresAt,
   };
 }
@@ -27,6 +27,10 @@ test("published menu mapping suppresses unsafe evidence URLs", () => {
     sourceUrl: "https://official.example@evil.test/menu",
   };
   assert.equal(mapPublishedMenu(menuRow(unsafe), [], []), null);
+});
+
+test("published menu mapping suppresses partial extracts", () => {
+  assert.equal(mapPublishedMenu({ ...menuRow(menuActionFixtures.freshMenu), completeness: "partial" }, [], []), null);
 });
 
 test("menu mapping is deterministic and preserves snake/camel boundary", () => {

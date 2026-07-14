@@ -58,6 +58,7 @@ export function mapPublishedMenu(
   const sourceUrl = validatePublicEvidenceUrl(row.source_url);
   if (
     text(row.status) !== "published" ||
+    text(row.completeness) !== "full" ||
     !verifiedAt ||
     !isFresh(expiresAt, now) ||
     !sourceUrl
@@ -69,6 +70,7 @@ export function mapPublishedMenu(
     title: text(row.title),
     version: number(row.version, 1),
     status: "published",
+    completeness: "full",
     sourceUrl,
     sourceLabel: text(row.source_label),
     capturedAt: text(row.captured_at),

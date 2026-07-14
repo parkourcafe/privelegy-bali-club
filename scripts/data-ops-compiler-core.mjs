@@ -293,6 +293,11 @@ function cleanMenuPart({ rawMenu, venue, packageId, source }) {
     title: text(rawMenu.title) ?? `${venue.name} Menu`,
     version: 1,
     status: "draft",
+    completeness: (
+      source.outcome === "partial" ||
+      stringArray(rawMenu.collectionNotes).some((note) => /partial|subset|not a full/i.test(note)) ||
+      sections.some((section) => /review subset/i.test(section.name))
+    ) ? "partial" : "full",
     sourceUrl: source.url,
     sourceLabel: source.label,
     capturedAt: source.capturedAt,
@@ -334,6 +339,7 @@ function mergeMenuParts(parts, venue) {
     title: ordered.length === 1 ? ordered[0].title : `${venue.name} Menus`,
     version: 1,
     status: "draft",
+    completeness: ordered.every((part) => part.completeness === "full") ? "full" : "partial",
     sourceUrl: primary.sourceUrl,
     sourceLabel: primary.sourceLabel,
     capturedAt: primary.capturedAt,
@@ -876,6 +882,8 @@ export function compileDataOps(inputs) {
     },
     outputs: {
       menuCandidates: menus.length,
+      fullMenuCandidates: menus.filter((menu) => menu.completeness === "full").length,
+      partialMenuCandidates: menus.filter((menu) => menu.completeness === "partial").length,
       capabilityCandidates: sortedCapabilities.length,
       venueMapsVerificationCandidates: sortedVenueMaps.length,
       menuItems: outputItemCount,

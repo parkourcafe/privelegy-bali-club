@@ -9,9 +9,10 @@ export async function getPublishedMenu(venueSlug: string): Promise<MenuRecord | 
   try {
     const { data: menus, error } = await client
       .from("menus")
-      .select("id,venue_slug,title,version,status,source_url,source_label,captured_at,verified_at,expires_at")
+      .select("id,venue_slug,title,version,status,completeness,source_url,source_label,captured_at,verified_at,expires_at")
       .eq("venue_slug", venueSlug)
       .eq("status", "published")
+      .eq("completeness", "full")
       .order("version", { ascending: false })
       .limit(1);
     if (error || !menus?.[0]) return null;

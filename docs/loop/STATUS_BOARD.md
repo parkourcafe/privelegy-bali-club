@@ -18,8 +18,11 @@ commit; product implementation diffs are therefore measured against `1d77f1e`.
 
 - Denominator: 208/208 (`207` repo replay + confirmed live-only
   `kynd-community`); 153 complete research records, 55 blocked, 0 queued.
-- Package digest:
-  `2f6172e69078fe82142bb622693d80a8bd39d0fa61c696099141a161ed48f265`.
+- Package digest after the release-integration completeness gate:
+  `ba8599b410eb19a0032484cecfb936ce01429004e16a865ad99bd16dcecce081`.
+- Menu completeness: 1 full candidate (`kynd-community`) and 126
+  partial/subset candidates. Partial candidates are importable drafts but are
+  technically blocked from the verified full-menu publication workflow.
 - Gates: `denominatorReconciled=true`, `readyForImportDryRun=true`,
   `readyForStagingApply=true`, `readyForPublish=false`.
 - All 208 records remain operator-review-only, draft, unverified and forbidden

@@ -1,4 +1,5 @@
 export type MenuStatus = "draft" | "review" | "published" | "archived";
+export type MenuCompleteness = "full" | "partial";
 export type ActionStatus = "draft" | "review" | "confirmed" | "disabled" | "archived";
 export type ActionKind =
   | "reserve"
@@ -46,6 +47,7 @@ export type MenuRecord = Evidence & {
   title: string;
   version: number;
   status: MenuStatus;
+  completeness: MenuCompleteness;
   expiresAt: string | null;
   sections: MenuSectionRecord[];
 };
