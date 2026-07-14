@@ -81,4 +81,13 @@ export const PILLARS: Pillar[] = [
       { path: "/nusa-dua/spas-wellness", title: "Best spas & wellness in Nusa Dua" },
     ],
   },
+  {
+    slug: "jimbaran",
+    name: "Jimbaran",
+    tagline: "The seafood bay: grills on the sand at sunset, cliff-edge bars and resort spas.",
+    children: [
+      { path: "/jimbaran/best-restaurants", title: "Best restaurants in Jimbaran" },
+      { path: "/jimbaran/spas-wellness", title: "Best spas & wellness in Jimbaran" },
+    ],
+  },
 ];

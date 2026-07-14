@@ -90,6 +90,18 @@ const seminyakCategoryGuide: Record<string, { href: string; label: string }> = {
   yoga: { href: "/seminyak/spas-salons-wellness", label: "Spas, salons & wellness" },
 };
 
+// Which Jimbaran guide a category belongs to (breadcrumb + related links).
+const jimbaranCategoryGuide: Record<string, { href: string; label: string }> = {
+  restaurant: { href: "/jimbaran/best-restaurants", label: "Restaurants" },
+  warung: { href: "/jimbaran/best-restaurants", label: "Restaurants" },
+  beach_club: { href: "/jimbaran/best-restaurants", label: "Restaurants" },
+  bar: { href: "/jimbaran/best-restaurants", label: "Restaurants" },
+  spa: { href: "/jimbaran/spas-wellness", label: "Spas & wellness" },
+  fitness: { href: "/jimbaran/spas-wellness", label: "Spas & wellness" },
+  yoga: { href: "/jimbaran/spas-wellness", label: "Spas & wellness" },
+  beauty: { href: "/jimbaran/spas-wellness", label: "Spas & wellness" },
+};
+
 const districtLabel: Record<string, string> = {
   canggu: "Canggu",
   ubud: "Ubud",
@@ -185,6 +197,7 @@ export default async function VenuePage({
   const isSeminyak = venue.district === "seminyak";
   const isSanur = venue.district === "sanur";
   const isNusaDua = venue.district === "nusa-dua";
+  const isJimbaran = venue.district === "jimbaran";
   const published = isPublicReadyVenue(venue);
   const name = content?.displayName ?? venue.name;
   const microArea = content?.microArea ?? venue.area;
@@ -201,6 +214,8 @@ export default async function VenuePage({
     ? sanurCategoryGuide[venue.category]
     : isNusaDua
     ? nusaDuaCategoryGuide[venue.category]
+    : isJimbaran
+    ? jimbaranCategoryGuide[venue.category]
     : undefined;
 
   // Similar places: verified category/vibe/district match only — sponsored
@@ -250,6 +265,13 @@ export default async function VenuePage({
     ? [
         { name: "Home", href: "/" },
         { name: "Nusa Dua", href: "/nusa-dua" },
+        ...(guide ? [{ name: guide.label, href: guide.href }] : []),
+        { name },
+      ]
+    : isJimbaran
+    ? [
+        { name: "Home", href: "/" },
+        { name: "Jimbaran", href: "/jimbaran" },
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]

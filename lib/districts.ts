@@ -190,6 +190,7 @@ const PILLAR_PATH: Record<string, string> = {
   seminyak: "/seminyak",
   sanur: "/sanur",
   "nusa-dua": "/nusa-dua",
+  jimbaran: "/jimbaran",
 };
 
 export const DISTRICT_GUIDE: DistrictGuideEntry[] = GUIDE.map((d) => ({
