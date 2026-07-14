@@ -88,6 +88,13 @@ export const GUIDES: Guide[] = [
     description:
       "The best sunset spots in Bali by area — Uluwatu's clifftop bars, the Seminyak and Canggu beach clubs, and calm-bay options in the south. Where to be at golden hour.",
   },
+  {
+    // Bespoke, data-driven route (app/best-warungs-in-bali) — metadata only.
+    slug: "best-warungs-in-bali",
+    title: "The best warungs & local food in Bali",
+    description:
+      "Where to eat cheap, authentic local food in Bali — the warungs and babi guling stalls we rate, district by district, from Canggu and Ubud to the south.",
+  },
 
   {
     slug: "how-many-days-in-bali",
@@ -644,7 +651,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali"],
+    slugs: ["best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
 ];
 
