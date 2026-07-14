@@ -92,6 +92,7 @@ export const PILLARS: Pillar[] = [
     name: "Jimbaran",
     tagline: "The seafood bay: grills on the sand at sunset, cliff-edge bars and resort spas.",
     children: [
+      { path: "/jimbaran/things-to-do", title: "Best things to do in Jimbaran" },
       { path: "/jimbaran/best-restaurants", title: "Best restaurants in Jimbaran" },
       { path: "/jimbaran/spas-wellness", title: "Best spas & wellness in Jimbaran" },
     ],

@@ -34,6 +34,12 @@ function hasText(value: unknown): boolean {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+// The shared editorial gate used by every non-registry layer: a venue is
+// decision-ready once it carries an editorial summary and a "Best for" line.
+function decisionReadyEditorial(v: Venue): boolean {
+  return hasText(v.whyItsHere) && hasText(v.bestFor);
+}
+
 export function getPublicationStatus(v: Venue): PublicationStatus {
   if (v.status !== "active" || v.publicationStatus !== "published") return "review";
   if (v.district === ULUWATU_DB_SLUG) {
@@ -47,9 +53,9 @@ export function getPublicationStatus(v: Venue): PublicationStatus {
     if (content) {
       return content.publication === "published" ? "published" : "review";
     }
-    return legacyDecisionReady(v) ? "published" : "review";
+    return decisionReadyEditorial(v) ? "published" : "review";
   }
-  return hasText(v.whyItsHere) && hasText(v.bestFor) ? "published" : "review";
+  return decisionReadyEditorial(v) ? "published" : "review";
 }
 
 // A venue detail page carries index,follow when the venue is "published" —
