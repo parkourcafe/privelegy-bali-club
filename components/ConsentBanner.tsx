@@ -12,6 +12,10 @@ export default function ConsentBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Client-only one-shot: the consent cookie is unreadable during SSR, so we
+    // decide visibility after mount. A single post-mount sync, not a cascading
+    // render, so the set-state-in-effect guard is deliberately waived here.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisible(readConsent() === null);
   }, []);
 

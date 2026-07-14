@@ -13,6 +13,8 @@ export default function PrivacyChoices() {
   const [forgotten, setForgotten] = useState(false);
 
   useEffect(() => {
+    // Client-only read of the consent cookie after mount (SSR can't see it).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsentState(readConsent());
   }, []);
 

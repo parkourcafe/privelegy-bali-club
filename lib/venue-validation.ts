@@ -103,6 +103,5 @@ export function keepRenderableVenues<T extends Partial<Venue>>(
 
 function defaultOnDrop(venue: Partial<Venue>, issues: string[]): void {
   const id = venue.slug || venue.id || venue.name || "<unknown>";
-  // eslint-disable-next-line no-console
   console.warn(`[venue-validation] dropped unrenderable venue "${id}": ${issues.join(", ")}`);
 }
