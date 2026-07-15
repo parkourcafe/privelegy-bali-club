@@ -40,12 +40,22 @@
 - The checkbox is deliberately a venue selection, not a fabricated legal licence. Any publication agreement remains a separate follow-up with the Other Bali team.
 - The import never writes `venues.photo_url`, `published_url`, approved submission state or any public URL.
 
+### Developer review gallery
+
+- Added `/developer/photo-review` as a read-only, separately Basic-authenticated production review surface.
+- It shows the complete manifest denominator (814 photos / 343 venues), ten venues per page, with venue search, dimensions and provenance links.
+- The page creates only short-lived signed URLs from the private candidate bucket; it has no upload, update, delete, approval or publication mutation.
+- Unauthenticated production request: HTTP 401. Authenticated production request: HTTP 200, 814/343 summary present, first signed private object: HTTP 200 (`image/jpeg`, 257126 bytes).
+- Desktop browser QA: HTTP 200, 23 images on page 1, 12 loaded in the initial viewport, zero horizontal overflow.
+
 ### Cleanup and final production state
 
 - Implementation commit: `e990fa57291b2185215fa80c516ed40c1420a479`.
 - Permanent deployment: `dpl_CDyGynp6LJrPUf6peoYXCmosojhy`.
 - Simplified unlimited owner-selection commit: `c7d97f387d5134e3836989e1a0d657cb4d9429da`.
 - Current production deployment: `dpl_BGRhRvsTh2KQntYvB4xoE17W9vCh`.
+- Developer gallery commit: `280f113d8826c4560179e45ec03ab8d65b4c5375`.
+- Developer gallery production deployment: `dpl_5Z3StaS6ySLt79MEbVvW4ZKFWYSc`.
 - Temporary photo import endpoint removed from the build and returns HTTP 404.
 - `PHOTO_CANDIDATE_IMPORT_TOKEN` removed from the production environment.
 - `/api/health/live`: HTTP 200.
