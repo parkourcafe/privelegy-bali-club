@@ -67,3 +67,21 @@
   configured cache policy.
 - Validation: lint passed with one unrelated partner-review image warning;
   typecheck passed; 13/13 tests passed; production build passed.
+
+### Batch 4 — menu and route rendering
+
+- Venue pages no longer read GuestRef during public rendering. Save state loads
+  from a separate private/no-store endpoint, allowing venue pages to use
+  on-demand ISR without prebuilding 400+ records.
+- Closed structured-menu sections now load on demand through a publication-
+  gated endpoint. The first section, every section title, item count, official
+  source and freshness evidence remain in the initial page.
+- Menu items use native details markup and one delegated analytics listener
+  instead of one stateful Client Component per item.
+- Route pages use static params; Uluwatu pages and venue pages now appear as
+  SSG/ISR in the Next production build. Plan data remains cached even though
+  its URL-driven search params keep the page request-dynamic.
+- Operator menu/action mutations invalidate their matching public cache tag.
+- Validation: lint passed with one unrelated partner-review image warning;
+  typecheck passed; 16/16 tests passed; production build passed with 83 static
+  pages generated.

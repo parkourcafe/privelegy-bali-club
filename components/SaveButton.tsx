@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // ♡ Save toggle (master §6c, Rung 1). Optimistic; posts to /api/save which keys
 // off the anonymous guest cookie. Sits above the card's stretched link, so it
@@ -16,6 +16,22 @@ export default function SaveButton({
 }) {
   const [saved, setSaved] = useState(initialSaved);
   const [busy, setBusy] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`/api/save?venue=${encodeURIComponent(venueSlug)}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    })
+      .then((response) => response.json())
+      .then((body: { saved?: boolean }) => {
+        if (typeof body.saved === "boolean") setSaved(body.saved);
+      })
+      .catch(() => {})
+      .finally(() => setLoaded(true));
+    return () => controller.abort();
+  }, [venueSlug]);
 
   async function toggle(e: React.MouseEvent) {
     e.preventDefault();
@@ -43,8 +59,10 @@ export default function SaveButton({
   return (
     <button
       type="button"
+      disabled={!loaded || busy}
       onClick={toggle}
       aria-pressed={saved}
+      aria-busy={!loaded || busy}
       aria-label={saved ? "Remove from your list" : "Save to your list"}
       className={variant === "detail" ? "save-btn save-btn-detail" : "save-btn save-btn-card"}
       data-saved={saved ? "true" : "false"}
