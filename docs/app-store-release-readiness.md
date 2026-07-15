@@ -1,7 +1,7 @@
 # Other Bali - App Store Release Readiness
 
-Date: 2026-07-12
-Status: Web/PWA ready; Capacitor iOS wrapper scaffolded; App Store submission is blocked on Apple signing, App Store Connect setup, screenshots, and device QA.
+Date: 2026-07-14
+Status: Web/PWA production deployed; Capacitor iOS wrapper scaffolded and privacy/icon launch blockers fixed; submission remains blocked on architecture, signing, App Store Connect setup, screenshots, and device QA.
 
 ## Current Target
 
@@ -51,7 +51,8 @@ Category:
 `Travel`
 
 Age rating:
-`4+` if no unrestricted web browsing, alcohol-focused content, user-generated content, or mature venue content is added. Reassess before submission.
+Complete the current App Store Connect questionnaire truthfully. The catalogue
+includes bars, beach clubs and alcohol references, so do not preselect `4+`.
 
 Support URL:
 `https://www.otherbali.com/support`
@@ -63,10 +64,14 @@ Privacy Policy URL:
 
 Likely data collection to disclose:
 
-- Identifiers: anonymous app/device reference via httpOnly cookie, used for app functionality and analytics.
-- Usage Data: card opens, directions clicks, reservation clicks, source scans, offer redemptions, used for app functionality and analytics.
-- Diagnostics: only if Vercel/runtime error logs are treated as app diagnostics in the submitted native wrapper.
-- Contact Info: not collected from travellers by default. Venue onboarding can collect venue contact name, but that is partner/admin-side, not tourist app signup.
+- Contact Info: first name plus email or WhatsApp in the optional guide form; venue representative name/contact in onboarding.
+- Identifiers: anonymous `bp_guest` first-party reference; IP/user-agent evidence for consent and abuse prevention.
+- User Content: venue photos voluntarily submitted for private rights review.
+- Usage Data: card opens, directions clicks, reservation clicks, source scans, saves, shares, and offer redemptions.
+- Other Data: optional travel date, interests, language and source/campaign fields.
+
+The exact App Store Connect answers are recorded in
+`docs/store-privacy-declarations.md` and mirrored in the native privacy manifest.
 
 Tracking:
 
@@ -109,6 +114,9 @@ Local production verification on 2026-07-12:
 
 P0 - Apple Developer signing team is not configured in Xcode.
 
+P0 - App Store submissions now require Xcode 26+. This Mac can run Xcode 26.3,
+but Xcode is not installed and the current 14 GB free disk space is insufficient.
+
 P0 - App Store Connect app record for `com.otherbali.app` is not created yet.
 
 P0 - No signed archive has been uploaded to App Store Connect yet.
@@ -121,8 +129,12 @@ P1 - App Store screenshots are not prepared yet.
 
 P1 - Apple Developer account, bundle id, signing team, and App Store Connect app record are not configured in repo.
 
-P1 - Final privacy label must be confirmed against the actual native wrapper SDKs. Capacitor, analytics, crash reporting, or push notification SDKs can change the privacy answers.
+P1 - Final privacy label must be confirmed against the archived binary. Analytics, crash reporting, push notification, or advertising SDKs would change the answers.
 
 P1 - The current Capacitor wrapper loads `https://www.otherbali.com`; this is practical for the current Next/Supabase architecture, but remains an App Review risk if Apple treats it as a repackaged website.
+
+P1 - Replacing `server.url` with a complete bundled shell requires an explicit
+master-architecture amendment and a client/offline data design; it is not a
+safe configuration-only change.
 
 P2 - `/places` intentionally renders all venues. It is usable on mobile, but native release should consider district-first/lazy rendering before paid acquisition.

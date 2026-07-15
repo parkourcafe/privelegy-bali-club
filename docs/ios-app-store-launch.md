@@ -1,6 +1,6 @@
 # Other Bali - iOS App Store Launch Setup
 
-Date: 2026-07-12
+Date: 2026-07-14
 Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still manual.
 
 ## What Is In The Repo Now
@@ -9,7 +9,7 @@ Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still 
 - iOS project: `ios/App/App.xcodeproj`
 - Bundle ID: `com.otherbali.app`
 - Display name: `Other Bali`
-- App icon source: `public/icon-512.png`
+- App icon asset: 1024x1024 opaque PNG, full-square artwork; the platform applies its own mask
 - iOS app icon asset: `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png`
 - Native privacy manifest: `ios/App/App/PrivacyInfo.xcprivacy`
 - Local fallback shell: `ios-web/index.html` and `ios-web/offline.html`
@@ -40,7 +40,7 @@ Create a new app record with:
 - SKU: `other-bali-ios`
 - User Access: Full Access
 - Category: Travel
-- Age Rating: expected `4+`, assuming no unrestricted web browsing, alcohol-focused content, UGC, or mature venue content is added.
+- Age Rating: complete the current questionnaire truthfully; the catalogue includes bars, beach clubs and alcohol references, so do not assume `4+`.
 - Price: Free
 - In-App Purchases: None
 - Support URL: `https://www.otherbali.com/support`
@@ -53,37 +53,29 @@ Tracking:
 
 - No, unless advertising/data-broker sharing is added later.
 
-Data linked to the user:
-
-- None for tourist account identity, because tourists do not create accounts.
-
-Data not linked to the user:
-
-- Identifiers: anonymous `bp_guest` httpOnly cookie/device reference.
-- Usage Data: page/card opens, district opens, directions clicks, reservation handoff clicks, offer redemption events.
-- Diagnostics: Vercel/native crash diagnostics only if enabled in the submitted build.
-
-Data not collected:
-
-- Contact info from tourists by default.
-- Payment information from tourists.
-- Precise location, camera, microphone, contacts, photos, health, financial info.
+Use the code-aligned answer matrix in `docs/store-privacy-declarations.md`.
+It covers the optional guide contact form, venue photo onboarding, anonymous
+guest reference, consent evidence, product interactions and optional travel
+preferences. Tracking remains `No`.
 
 ## Manual Apple Account Steps
 
-1. In Apple Developer, create/register App ID `com.otherbali.app`.
-2. In App Store Connect, create the iOS app record with the values above.
-3. In Xcode, open `ios/App/App.xcodeproj`.
-4. Select the `App` target, then Signing & Capabilities.
-5. Choose the Apple Developer Team.
-6. Confirm Bundle Identifier is `com.otherbali.app`.
-7. Confirm Version `1.0` and Build `1`.
-8. Run on an iPhone simulator and a real iPhone.
-9. Archive from Xcode.
-10. Upload to App Store Connect.
-11. Fill privacy labels and review notes.
-12. Attach screenshots.
-13. Submit for TestFlight first, then App Review.
+1. Free at least 35 GB, then download Xcode 26.3 from Apple Developer Downloads.
+   Xcode 26.3 is compatible with this Mac's macOS 15.6.1 and meets the current
+   Xcode 26+ App Store upload requirement.
+2. In Apple Developer, create/register App ID `com.otherbali.app`.
+3. In App Store Connect, create the iOS app record with the values above.
+4. In Xcode, open `ios/App/App.xcodeproj`.
+5. Select the `App` target, then Signing & Capabilities.
+6. Choose the Apple Developer Team.
+7. Confirm Bundle Identifier is `com.otherbali.app`.
+8. Confirm Version `1.0` and Build `1`.
+9. Run on an iPhone simulator and a real iPhone.
+10. Archive from Xcode.
+11. Upload to App Store Connect.
+12. Fill privacy labels and review notes.
+13. Attach screenshots.
+14. Submit for TestFlight first, then App Review.
 
 ## Review Notes Draft
 
@@ -103,6 +95,8 @@ npm run mobile:run:ios
 
 P0 - Apple Developer Team ID/signing is not configured in the repo.
 
+P0 - Xcode 26.3 is not installed and current free disk space is insufficient.
+
 P0 - App Store Connect app record must be created manually or through App Store Connect API credentials.
 
 P0 - Real iPhone smoke test is still required.
@@ -110,5 +104,8 @@ P0 - Real iPhone smoke test is still required.
 P1 - App Store screenshots are not prepared.
 
 P1 - Final privacy labels must be confirmed against the actual submitted native build.
+
+P1 - `support@otherbali.com` cannot be declared operational until the domain has
+working MX records and the mailbox/forward is tested end to end.
 
 P1 - Because this wrapper loads `https://www.otherbali.com`, App Review risk remains if Apple treats it as a repackaged website. Add native-only value or a bundled app-like shell before final submission if review feedback requires it.

@@ -29,6 +29,12 @@ export default function PrivacyPage() {
             </p>
             <p className="mt-3">
               We do not ask travellers for an account, payment card, or profile.
+              If you choose to join a guide list, we collect your first name,
+              email address or WhatsApp number, optional travel date and trip
+              interests, and your consent so we can keep the details and contact
+              you about that guide.
+            </p>
+            <p className="mt-3">
               If a venue uses partner onboarding, its representative may submit
               a name, optional contact, confirmation, photo-rights consent, and
               photos for private operator review. We also retain limited consent
@@ -43,8 +49,9 @@ export default function PrivacyPage() {
             <p className="mt-3">
               We use this information to operate the guide, keep attribution
               accurate, prevent fake proof, show your own redeemed offers on this
-              device, and give venues aggregate results. Venues see counts by
-              default, not identifiable traveller data.
+              device, respond to guide requests, review licensed venue photos,
+              and give venues aggregate results. Venues see counts by default,
+              not identifiable traveller data.
             </p>
           </section>
 
