@@ -142,7 +142,17 @@ real-device/TestFlight comparison passes.
 - The founder confirmed creation of the `com.otherbali.app` App Store Connect
   record; Apple assigned app ID `6791214357`.
 - Final build `1.0 (1)` uploaded successfully on 2026-07-15. App Store Connect
-  accepted the package and reported `Uploaded package is processing`.
+  accepted the package, completed processing, and now reports `Ready to
+  Submit`. TestFlight build UUID:
+  `d1321d49-990a-4fc7-872e-b2cc40142637`.
+- The build-level `What to Test` instructions describe mood/district/duration,
+  plan restore, place deep links, offline restore and the native Share Sheet.
+- Internal group `Founder QA` was created with automatic distribution and has
+  build `1.0 (1)` assigned. The only App Store Connect account user is the
+  Account Holder/Admin and has all-app access, but Apple currently renders that
+  user's tester checkbox disabled. No invite was fabricated or bypassed; the
+  group remains at zero testers pending Apple eligibility synchronization or a
+  second eligible App Store Connect user.
 - Five 6.9-inch screenshots are committed at 1320 × 2868 PNG.
 - Simulator smoke checks passed for builder selection, plan persistence, three
   place deep links and the native Share Sheet.
@@ -152,8 +162,10 @@ real-device/TestFlight comparison passes.
 
 ## Founder-only sequence
 
-1. Wait for App Store processing of build `1.0 (1)` to complete.
-2. Test that exact build on a real iPhone through TestFlight.
+1. Recheck the Account Holder eligibility in internal group `Founder QA`; if
+   Apple keeps the checkbox disabled, add a second eligible App Store Connect
+   user or contact Apple Developer Support.
+2. Test build `1.0 (1)` on a real iPhone through TestFlight.
 3. Compare the TestFlight flow with the committed five-shot simulator set.
 4. Complete privacy, age rating, content rights, export compliance and review
    notes.
