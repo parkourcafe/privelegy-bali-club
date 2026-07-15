@@ -1,8 +1,14 @@
+import { cache as reactCache } from "react";
+import { unstable_cache } from "next/cache";
 import type { MenuRecord } from "../contracts/menu-action";
 import { mapPublishedMenu, type DataRow } from "../domain/menu";
 import { anonClient, isSupabaseConfigured } from "../supabase/server";
+import {
+  PUBLIC_CACHE_REVALIDATE_SECONDS,
+  PUBLIC_CACHE_TAGS,
+} from "./public-cache";
 
-export async function getPublishedMenu(venueSlug: string): Promise<MenuRecord | null> {
+async function fetchPublishedMenu(venueSlug: string): Promise<MenuRecord | null> {
   if (!venueSlug || !isSupabaseConfigured()) return null;
   const client = anonClient();
   if (!client) return null;
@@ -27,3 +33,14 @@ export async function getPublishedMenu(venueSlug: string): Promise<MenuRecord | 
     return null;
   }
 }
+
+const getCachedPublishedMenu = unstable_cache(
+  fetchPublishedMenu,
+  ["published-menu-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.menus],
+  },
+);
+
+export const getPublishedMenu = reactCache(getCachedPublishedMenu);
