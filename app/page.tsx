@@ -71,7 +71,7 @@ function Hero() {
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:items-start md:pt-28">
         <div>
           <p className="ob-in eyebrow text-[var(--ob-brass-2)]">
-            Bali planning · Canggu confirmed offers
+            Bali planning · Places for the moment
           </p>
           <h1
             className="ob-in mt-4 font-display text-[2.05rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl"
