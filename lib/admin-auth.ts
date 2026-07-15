@@ -24,7 +24,7 @@ export function configuredPhotoReviewShareToken(now = Date.now()): string | null
   const expiresAt = Date.parse(process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT?.trim() ?? "");
   if (
     !token ||
-    token.length < 40 ||
+    token.length < 12 ||
     /^(change-me|example|password|admin)/i.test(token) ||
     !Number.isFinite(expiresAt) ||
     expiresAt <= now

@@ -35,7 +35,7 @@ test("photo review uses an independent strong token", () => {
   else process.env.PHOTO_REVIEW_ACCESS_TOKEN = previous;
 });
 
-test("restaurateur share access requires a separate 40-character secret", () => {
+test("restaurateur share access requires a separate non-trivial secret", () => {
   const previousToken = process.env.PHOTO_REVIEW_SHARE_TOKEN;
   const previousExpiry = process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT;
   process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT = "2099-01-01T00:00:00.000Z";
@@ -43,6 +43,11 @@ test("restaurateur share access requires a separate 40-character secret", () => 
   assert.equal(configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")), null);
   process.env.PHOTO_REVIEW_SHARE_TOKEN = "password-that-is-long-but-still-explicitly-weak";
   assert.equal(configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")), null);
+  process.env.PHOTO_REVIEW_SHARE_TOKEN = "otherbali2026!";
+  assert.equal(
+    configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")),
+    "otherbali2026!",
+  );
   process.env.PHOTO_REVIEW_SHARE_TOKEN = "OtherBali-Restaurateur-Review-15July2026!";
   assert.equal(
     configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")),
