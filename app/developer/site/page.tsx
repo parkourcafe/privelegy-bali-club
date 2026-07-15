@@ -38,9 +38,13 @@ export default async function DeveloperPhotoSite() {
           </div>
         </header>
 
+        <p className="mb-6 text-sm text-[var(--muted)]">
+          {catalogue.venuesWithCandidates} venues have prepared photo covers. {catalogue.venuesWithoutCandidates} venues still use the designed category cover because no candidate image was found.
+        </p>
+
         {catalogue.unavailableCovers > 0 && (
           <p className="mb-6 rounded-xl border border-amber-400/30 bg-amber-400/10 p-3 text-sm text-amber-100">
-            {catalogue.unavailableCovers} cover previews are temporarily unavailable. Reload once to renew signed image links.
+            {catalogue.unavailableCovers} prepared cover previews are temporarily unavailable. Reload once to renew signed image links.
           </p>
         )}
 
