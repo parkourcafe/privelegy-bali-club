@@ -27,3 +27,13 @@ test("venue detail does not load the complete catalogue for similar places", asy
   assert.doesNotMatch(source, /getPublishedVenues/);
 });
 
+test("catalogue renders a bounded server-side page instead of hydrating every venue", async () => {
+  const page = await read("app/places/page.tsx");
+  const view = await read("app/places/PlacesView.tsx");
+  const card = await read("components/PlaceCard.tsx");
+  assert.match(page, /const PAGE_SIZE = 24/);
+  assert.match(page, /paginatedMatches\.slice/);
+  assert.doesNotMatch(view, /^"use client";/);
+  assert.doesNotMatch(card, /^"use client";/);
+  assert.match(view, /<form action="\/places" method="get"/);
+});

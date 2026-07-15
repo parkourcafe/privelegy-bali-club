@@ -1,10 +1,11 @@
-"use client";
-
-import Link from "next/link";
 import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
-import { track } from "@/lib/analytics";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import {
+  TrackedDirectionLink,
+  TrackedPlaceLink,
+  TrackedReservationLink,
+} from "@/components/PlaceCardActions";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -45,17 +46,6 @@ export interface PlaceCardData {
   coverageMode?: "active_deep" | "next_deep" | "planning_only";
   // Confirmed offer exists — shown as a hint only; terms live on the page.
   hasOffer?: boolean;
-}
-
-// reservation_click is a partner-proof demand signal: internal store only,
-// never GA4 (same contract as ReserveButton).
-function logReservationClick(venueSlug: string) {
-  fetch("/api/event", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "reservation_click", venueSlug }),
-    keepalive: true,
-  }).catch(() => {});
 }
 
 export default function PlaceCard({
@@ -101,12 +91,12 @@ export default function PlaceCard({
         </p>
 
         <h3 className="place-card-name">
-          <Link
+          <TrackedPlaceLink
             href={href}
-            onClick={() => track("venue_card_click", { venueSlug: place.slug })}
+            venueSlug={place.slug}
           >
             {place.name}
-          </Link>
+          </TrackedPlaceLink>
         </h3>
 
         {place.editorialLine && (
@@ -128,36 +118,32 @@ export default function PlaceCard({
           </span>
           <div className="place-card-actions">
             {tablepilotHref ? (
-              <a
+              <TrackedReservationLink
                 href={tablepilotHref}
-                target="_blank"
-                rel="noreferrer"
+                venueSlug={place.slug}
                 className="place-card-cta"
-                onClick={() => logReservationClick(place.slug)}
               >
                 Reserve
-              </a>
+              </TrackedReservationLink>
             ) : (
               secondaryAction === "directions" &&
               place.gmapsUrl && (
-                <a
+                <TrackedDirectionLink
                   href={place.gmapsUrl}
-                  target="_blank"
-                  rel="noreferrer"
+                  venueSlug={place.slug}
                   className="place-card-cta"
-                  onClick={() => track("direction_click", { venueSlug: place.slug })}
                 >
                   Directions
-                </a>
+                </TrackedDirectionLink>
               )
             )}
-            <Link
+            <TrackedPlaceLink
               href={href}
+              venueSlug={place.slug}
               className="place-card-cta"
-              onClick={() => track("venue_card_click", { venueSlug: place.slug })}
             >
               View place →
-            </Link>
+            </TrackedPlaceLink>
           </div>
         </div>
       </div>
