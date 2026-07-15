@@ -1,9 +1,12 @@
 import "server-only";
 
 import candidatePackage from "@/data/photo-candidates/owner-review.json";
+import type { VenueWithPerk } from "@/lib/data";
 import { OWNER_PHOTO_CANDIDATE_BUCKET } from "@/lib/owner-photo-candidates";
 import { requirePhotoReviewRequest } from "@/lib/photo-review-request-auth";
 import { serviceClient } from "@/lib/supabase/service";
+import type { VenueCategory, VenueTier } from "@/lib/types";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 type ManifestCandidate = {
   id: string;
@@ -48,6 +51,187 @@ const manifestVenues = (candidatePackage.venues as ManifestVenue[])
 
 function normalizedQuery(value: string): string {
   return value.trim().slice(0, 80).toLocaleLowerCase("en");
+}
+
+const PREVIEW_VENUE_COLUMNS = [
+  "id",
+  "slug",
+  "name",
+  "category",
+  "district",
+  "address",
+  "tier",
+  "status",
+  "is_sponsored",
+  "vibe_tags",
+  "price_anchor",
+  "what_to_order",
+  "area",
+  "why_its_here",
+  "best_for",
+  "not_for",
+  "practical_tags",
+  "jobs",
+  "owner_note",
+  "publication_status",
+  "wellness_categories",
+].join(",");
+
+const venueCategories = new Set<VenueCategory>([
+  "cafe",
+  "warung",
+  "restaurant",
+  "beach_club",
+  "fitness",
+  "yoga",
+  "spa",
+  "beauty",
+  "bar",
+  "surf",
+]);
+const venueTiers = new Set<VenueTier>(["editorial_seed", "launch", "founding"]);
+
+function text(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function textList(value: unknown): string[] | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const items = value.filter((item): item is string => typeof item === "string" && Boolean(item.trim()));
+  return items.length > 0 ? items : undefined;
+}
+
+function previewVenue(
+  manifest: ManifestVenue,
+  row: Record<string, unknown> | undefined,
+  photoUrl: string | undefined,
+): VenueWithPerk {
+  const rawCategory = text(row?.category) as VenueCategory;
+  const rawTier = text(row?.tier) as VenueTier;
+  const wellnessCategories = textList(row?.wellness_categories)?.filter(
+    (value): value is VenueCategory => venueCategories.has(value as VenueCategory),
+  );
+  return {
+    id: text(row?.id) || manifest.slug,
+    slug: manifest.slug,
+    name: text(row?.name) || manifest.name,
+    category: venueCategories.has(rawCategory) ? rawCategory : "restaurant",
+    district: text(row?.district) || "other-bali",
+    address: text(row?.address),
+    gmapsUrl: "",
+    tier: venueTiers.has(rawTier) ? rawTier : "editorial_seed",
+    status: text(row?.status) || "review",
+    isSponsored: Boolean(row?.is_sponsored),
+    vibeTags: textList(row?.vibe_tags),
+    priceAnchor: text(row?.price_anchor) || undefined,
+    whatToOrder: text(row?.what_to_order) || undefined,
+    photoUrl,
+    area: text(row?.area) || undefined,
+    whyItsHere: text(row?.why_its_here) || undefined,
+    bestFor: text(row?.best_for) || undefined,
+    notFor: text(row?.not_for) || undefined,
+    practicalTags: textList(row?.practical_tags),
+    jobs: textList(row?.jobs),
+    ownerNote: text(row?.owner_note) || undefined,
+    publicationStatus: row?.publication_status === "published" ? "published" : "review",
+    wellnessCategories,
+    perk: null,
+    blurb: "",
+  };
+}
+
+async function signedUrlsForPaths(
+  client: SupabaseClient,
+  paths: string[],
+): Promise<Map<string, string>> {
+  const signedByPath = new Map<string, string>();
+  for (let index = 0; index < paths.length; index += 100) {
+    const chunk = paths.slice(index, index + 100);
+    const response = await client.storage
+      .from(OWNER_PHOTO_CANDIDATE_BUCKET)
+      .createSignedUrls(chunk, 30 * 60);
+    if (response.error) continue;
+    for (const signed of response.data ?? []) {
+      if (!signed.error && signed.path && signed.signedUrl) {
+        signedByPath.set(signed.path, signed.signedUrl);
+      }
+    }
+  }
+  return signedByPath;
+}
+
+async function productionRows(client: SupabaseClient): Promise<Map<string, Record<string, unknown>>> {
+  const response = await client.from("venues").select(PREVIEW_VENUE_COLUMNS);
+  if (response.error || !Array.isArray(response.data)) return new Map();
+  return new Map(
+    (response.data as unknown as Record<string, unknown>[])
+      .map((row) => [text(row.slug), row] as const)
+      .filter(([slug]) => Boolean(slug)),
+  );
+}
+
+export type DeveloperPhotoSiteCatalogue = {
+  venues: VenueWithPerk[];
+  totalCandidates: number;
+  unavailableCovers: number;
+};
+
+export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSiteCatalogue> {
+  await requirePhotoReviewRequest();
+  const client = serviceClient();
+  if (!client) return { venues: [], totalCandidates: 814, unavailableCovers: manifestVenues.length };
+
+  const coverPaths = manifestVenues.map((venue) => venue.candidates[0]?.objectPath).filter(Boolean);
+  const [rows, signedByPath] = await Promise.all([
+    productionRows(client),
+    signedUrlsForPaths(client, coverPaths),
+  ]);
+  let unavailableCovers = 0;
+  const venues = manifestVenues.map((manifest) => {
+    const coverPath = manifest.candidates[0]?.objectPath;
+    const photoUrl = coverPath ? signedByPath.get(coverPath) : undefined;
+    if (!photoUrl) unavailableCovers += 1;
+    return previewVenue(manifest, rows.get(manifest.slug), photoUrl);
+  });
+  return {
+    venues,
+    totalCandidates: manifestVenues.reduce((sum, venue) => sum + venue.candidates.length, 0),
+    unavailableCovers,
+  };
+}
+
+export type DeveloperPhotoSiteVenue = {
+  venue: VenueWithPerk;
+  candidates: DeveloperPhotoReviewCandidate[];
+};
+
+export async function getDeveloperPhotoSiteVenue(
+  slug: string,
+): Promise<DeveloperPhotoSiteVenue | null> {
+  await requirePhotoReviewRequest();
+  const manifest = manifestVenues.find((venue) => venue.slug === slug);
+  if (!manifest) return null;
+  const client = serviceClient();
+  if (!client) return null;
+  const [rows, signedByPath] = await Promise.all([
+    productionRows(client),
+    signedUrlsForPaths(client, manifest.candidates.map((candidate) => candidate.objectPath)),
+  ]);
+  const candidates = manifest.candidates.flatMap((candidate) => {
+    const previewUrl = signedByPath.get(candidate.objectPath);
+    return previewUrl ? [{
+      id: candidate.id,
+      sourcePageUrl: candidate.sourcePageUrl,
+      sourceType: candidate.sourceType,
+      width: candidate.width,
+      height: candidate.height,
+      previewUrl,
+    }] : [];
+  });
+  return {
+    venue: previewVenue(manifest, rows.get(manifest.slug), candidates[0]?.previewUrl),
+    candidates,
+  };
 }
 
 export async function getDeveloperPhotoReviewPage(input: {

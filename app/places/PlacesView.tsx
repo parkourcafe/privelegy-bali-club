@@ -145,9 +145,13 @@ function scoreVenue(
 export default function PlacesView({
   venues,
   initialFilters,
+  detailBasePath,
+  previewMode = false,
 }: {
   venues: CataloguePlace[];
   initialFilters?: InitialFilters;
+  detailBasePath?: string;
+  previewMode?: boolean;
 }) {
   const [query, setQuery] = useState(initialFilters?.query ?? "");
   const [district, setDistrict] = useState<string | null>(
@@ -334,7 +338,12 @@ export default function PlacesView({
                     </p>
                   )}
                 </div>
-                <PlaceCard place={toCard(pick.venue)} />
+                <PlaceCard
+                  place={toCard(pick.venue)}
+                  detailBasePath={detailBasePath}
+                  disableTracking={previewMode}
+                  secondaryAction={previewMode ? "none" : "directions"}
+                />
               </div>
             ))}
           </div>
@@ -374,7 +383,13 @@ export default function PlacesView({
               page behind View place. */}
           <div className="pick-grid">
             {items.map((v) => (
-              <PlaceCard key={v.slug} place={toCard(v)} />
+              <PlaceCard
+                key={v.slug}
+                place={toCard(v)}
+                detailBasePath={detailBasePath}
+                disableTracking={previewMode}
+                secondaryAction={previewMode ? "none" : "directions"}
+              />
             ))}
           </div>
         </section>

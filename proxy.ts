@@ -25,11 +25,14 @@ function isAdminPath(pathname: string): boolean {
 }
 
 function isPhotoReviewPath(pathname: string): boolean {
-  return pathname === "/developer/photo-review" || pathname.startsWith("/developer/photo-review/");
+  return pathname === "/developer/photo-review" ||
+    pathname.startsWith("/developer/photo-review/") ||
+    pathname === "/developer/site" ||
+    pathname.startsWith("/developer/site/");
 }
 
 function isSensitivePath(pathname: string): boolean {
-  return ["/admin", "/developer/photo-review", "/onboard", "/partner", "/me", "/v", "/list"].some(
+  return ["/admin", "/developer/photo-review", "/developer/site", "/onboard", "/partner", "/me", "/v", "/list"].some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }
