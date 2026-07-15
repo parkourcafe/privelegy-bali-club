@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getSeminyakGuide } from "@/lib/seminyak-guides";
 import SeminyakGuideView from "@/components/SeminyakGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getSeminyakGuide("best-restaurants")!;
 
 export const metadata: Metadata = {

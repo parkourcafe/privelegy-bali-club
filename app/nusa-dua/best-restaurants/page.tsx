@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getNusaDuaGuide } from "@/lib/nusa-dua-guides";
 import NusaDuaGuideView from "@/components/NusaDuaGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getNusaDuaGuide("best-restaurants")!;
 
 export const metadata: Metadata = {

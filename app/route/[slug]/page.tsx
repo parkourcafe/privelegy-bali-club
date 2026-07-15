@@ -3,7 +3,10 @@ import Link from "next/link";
 import { getRoute } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
 
-export const dynamic = "force-dynamic";
+// ISR: statically cached for speed/SEO, regenerated at most every 5 min so
+// route/venue edits in Supabase surface without a redeploy. Build-safe now
+// that public reads degrade instead of throwing (lib/data.ts).
+export const revalidate = 300;
 
 const SITE = "https://www.otherbali.com";
 

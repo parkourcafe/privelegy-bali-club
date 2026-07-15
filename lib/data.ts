@@ -249,6 +249,21 @@ function mapInternalPerk(r: Row): Perk | null {
   };
 }
 
+// A build-time public-read fetch must never reject the whole render/build.
+// If Supabase is briefly unreachable (paused project, a network blip during
+// `generateStaticParams`, a transient 5xx), an uncaught rejection here crashes
+// the entire static build — blocking every deploy over a few data pages. Every
+// public read below therefore catches, logs, and degrades to its safe fallback
+// (empty when a DB is configured — fail closed, never substitute stale seed;
+// pages regenerate on the next good build/revalidate).
+function warnPublicReadFailed(label: string, e: unknown): void {
+  console.warn(
+    `[public-read:${label}] fetch failed, degrading to fallback: ${
+      (e as Error)?.message ?? e
+    }`,
+  );
+}
+
 // ---- Read layer (planning form, G0) ----
 // Falls back to seed data when Supabase is not configured, so the app builds
 // and demos without a live DB. Reads are public either way.
@@ -263,20 +278,27 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
     venues = [];
     perks = [];
     entries = [];
-    const sb = anonClient()!;
-    const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
-      sb
-        .from("venues")
-        .select(PLAN_VENUE_COLUMNS)
-        .eq("district", "canggu")
-        .eq("status", "active")
-        .eq("publication_status", "published"),
-      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
-      sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
-    ]);
-    if (v) venues = (v as unknown as Row[]).map(mapVenue);
-    if (p) perks = mapPublicPerks(p as unknown as Row[]);
-    if (e) entries = (e as unknown as Row[]).map(mapPlan);
+    try {
+      const sb = anonClient()!;
+      const [{ data: v }, { data: p }, { data: e }] = await Promise.all([
+        sb
+          .from("venues")
+          .select(PLAN_VENUE_COLUMNS)
+          .eq("district", "canggu")
+          .eq("status", "active")
+          .eq("publication_status", "published"),
+        sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+        sb.from("plan_entries").select(PLAN_ENTRY_COLUMNS).eq("district", "canggu"),
+      ]);
+      if (v) venues = (v as unknown as Row[]).map(mapVenue);
+      if (p) perks = mapPublicPerks(p as unknown as Row[]);
+      if (e) entries = (e as unknown as Row[]).map(mapPlan);
+    } catch (e) {
+      warnPublicReadFailed("canggu-plan", e);
+      venues = [];
+      perks = [];
+      entries = [];
+    }
   }
 
   venues = uniqueBy(venues, (v) => v.slug);
@@ -312,11 +334,20 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
 // territory is deliberately not entered here).
 export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
   if (!isSupabaseConfigured()) return DISTRICT_GUIDE;
-  const sb = anonClient()!;
-  const { data } = await sb.from("districts").select("slug, status");
-  if (!data) return DISTRICT_GUIDE;
+  let rows: Row[] | null = null;
+  try {
+    const sb = anonClient()!;
+    const { data } = await sb.from("districts").select("slug, status");
+    rows = (data as Row[] | null) ?? null;
+  } catch (e) {
+    // The editorial guide copy lives in code; the DB only overrides coverage
+    // status. On a fetch failure, serve the code-level guide unchanged.
+    warnPublicReadFailed("districts-guide", e);
+    return DISTRICT_GUIDE;
+  }
+  if (!rows) return DISTRICT_GUIDE;
   const statusBySlug = new Map(
-    (data as Row[]).map((r) => [String(r.slug), String(r.status)] as const)
+    rows.map((r) => [String(r.slug), String(r.status)] as const)
   );
   const valid = new Set<DistrictStatus>(["planning_only", "active_deep", "next_deep"]);
   return DISTRICT_GUIDE.map((d) => {
@@ -336,23 +367,29 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
   if (configured) {
     venue = undefined;
     perk = undefined;
-    const sb = anonClient()!;
-    const { data: v } = await sb
-      .from("venues")
-      .select(PUBLIC_PLACES_VENUE_COLUMNS)
-      .eq("slug", slug)
-      .eq("status", "active")
-      .eq("publication_status", "published")
-      .maybeSingle();
-    if (v) venue = mapVenue(v as unknown as Row);
-    const { data: p } = await sb
-      .from("perks")
-      .select("*")
-      .eq("venue_slug", slug)
-      .eq("active", true)
-      .limit(1)
-      .maybeSingle();
-    if (p) perk = mapPublicPerk(p as Row) ?? undefined;
+    try {
+      const sb = anonClient()!;
+      const { data: v } = await sb
+        .from("venues")
+        .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .eq("slug", slug)
+        .eq("status", "active")
+        .eq("publication_status", "published")
+        .maybeSingle();
+      if (v) venue = mapVenue(v as unknown as Row);
+      const { data: p } = await sb
+        .from("perks")
+        .select("*")
+        .eq("venue_slug", slug)
+        .eq("active", true)
+        .limit(1)
+        .maybeSingle();
+      if (p) perk = mapPublicPerk(p as Row) ?? undefined;
+    } catch (e) {
+      warnPublicReadFailed(`venue:${slug}`, e);
+      venue = undefined;
+      perk = undefined;
+    }
   }
 
   // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
@@ -538,20 +575,26 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     // for a schema/query error in staging or production.
     venues = [];
     perks = [];
-    const sb = anonClient()!;
-    const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
-      sb
-        .from("venues")
-        .select(PUBLIC_PLACES_VENUE_COLUMNS)
-        .eq("status", "active")
-        .eq("publication_status", "published")
-        .order("district", { ascending: true })
-        .order("name", { ascending: true }),
-      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
-    ]);
-    if (!venueError && v) {
-      venues = (v as unknown as Row[]).map(mapVenue);
-      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+    try {
+      const sb = anonClient()!;
+      const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
+        sb
+          .from("venues")
+          .select(PUBLIC_PLACES_VENUE_COLUMNS)
+          .eq("status", "active")
+          .eq("publication_status", "published")
+          .order("district", { ascending: true })
+          .order("name", { ascending: true }),
+        sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+      ]);
+      if (!venueError && v) {
+        venues = (v as unknown as Row[]).map(mapVenue);
+        perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+      }
+    } catch (e) {
+      warnPublicReadFailed("published-venues", e);
+      venues = [];
+      perks = [];
     }
   }
 
@@ -625,13 +668,7 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
         perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
       }
     } catch (e) {
-      // A build-time fetch rejection (Supabase unreachable / paused / a network
-      // blip during `generateStaticParams`) must never fail the whole static
-      // build — that would block every deploy over a few SEO hub pages. Degrade
-      // to no hubs; they regenerate on the next successful build/revalidate.
-      console.warn(
-        `[district-hubs] public data fetch failed at build, skipping hubs: ${(e as Error)?.message ?? e}`,
-      );
+      warnPublicReadFailed("district-hubs", e);
       venues = [];
       perks = [];
     }
@@ -956,24 +993,29 @@ function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[
 // Route definitions from DB (if present) else seed.
 async function getRouteDefs(): Promise<RouteDef[]> {
   if (isSupabaseConfigured()) {
-    const sb = anonClient()!;
-    const { data: routes } = await sb
-      .from("routes")
-      .select("*")
-      .eq("district", "canggu")
-      .order("rank");
-    if (routes?.length) {
-      const { data: stops } = await sb.from("route_stops").select("*").order("rank");
-      const rows = (stops ?? []) as Row[];
-      return (routes as Row[]).map((r) => ({
-        slug: r.slug as string,
-        title: r.title as string,
-        subtitle: (r.subtitle as string) ?? undefined,
-        rank: (r.rank as number) ?? 100,
-        stops: rows
-          .filter((s) => s.route_slug === r.slug)
-          .map((s) => ({ venueSlug: s.venue_slug as string, note: (s.note as string) ?? undefined })),
-      }));
+    try {
+      const sb = anonClient()!;
+      const { data: routes } = await sb
+        .from("routes")
+        .select("*")
+        .eq("district", "canggu")
+        .order("rank");
+      if (routes?.length) {
+        const { data: stops } = await sb.from("route_stops").select("*").order("rank");
+        const rows = (stops ?? []) as Row[];
+        return (routes as Row[]).map((r) => ({
+          slug: r.slug as string,
+          title: r.title as string,
+          subtitle: (r.subtitle as string) ?? undefined,
+          rank: (r.rank as number) ?? 100,
+          stops: rows
+            .filter((s) => s.route_slug === r.slug)
+            .map((s) => ({ venueSlug: s.venue_slug as string, note: (s.note as string) ?? undefined })),
+        }));
+      }
+    } catch (e) {
+      // Degrade to the seed routes (when allowed) rather than crash the build.
+      warnPublicReadFailed("route-defs", e);
     }
   }
   return isSeedFallbackAllowed() ? [...ROUTES].sort((a, b) => a.rank - b.rank) : [];

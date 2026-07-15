@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getCangguGuide } from "@/lib/canggu-guides";
 import CangguGuideView from "@/components/CangguGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getCangguGuide("best-spas")!;
 
 export const metadata: Metadata = {

@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getJimbaranGuide } from "@/lib/jimbaran-guides";
 import JimbaranGuideView from "@/components/JimbaranGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getJimbaranGuide("spas-wellness")!;
 
 export const metadata: Metadata = {

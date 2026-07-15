@@ -1,9 +1,15 @@
 // The Other Bali brand mark — the "O" as a brass ring framing a golden-hour
 // sun over the ocean (same geometry as the favicon, minus the espresso tile so
 // it sits cleanly on any background). Decorative; the wordmark carries the name.
-export default function BrandMark({ className = "" }: { className?: string }) {
+export default function BrandMark({
+  className = "",
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) {
   return (
-    <svg viewBox="0 0 512 512" className={className} aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 512 512" className={className} style={style} aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="bm-ring" x1="0.12" y1="0.08" x2="0.9" y2="0.96">
           <stop offset="0" stopColor="#f3d59b" />

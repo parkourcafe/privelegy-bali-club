@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getSanurGuide } from "@/lib/sanur-guides";
 import SanurGuideView from "@/components/SanurGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getSanurGuide("spas-wellness")!;
 
 export const metadata: Metadata = {

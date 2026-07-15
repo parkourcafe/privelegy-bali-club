@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getUbudGuide } from "@/lib/ubud-guides";
 import UbudGuideView from "@/components/UbudGuideView";
 
-export const dynamic = "force-dynamic";
-
 const guide = getUbudGuide("best-restaurants")!;
 
 export const metadata: Metadata = {

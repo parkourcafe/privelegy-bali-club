@@ -15,6 +15,12 @@ const SOURCE_LABEL: Record<string, string> = {
 
 export const dynamic = "force-dynamic";
 
+// Operator/partner dashboard — real tab title, never indexed (private metrics).
+export const metadata = {
+  title: "Partner dashboard",
+  robots: { index: false, follow: false },
+};
+
 // Pilot safety: partner-scoped auth is not implemented yet, so commercial
 // metrics are operator-only behind the existing admin guard.
 

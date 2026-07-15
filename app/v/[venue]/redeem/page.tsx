@@ -6,6 +6,13 @@ import { currentSiteOrigin } from "@/lib/site-origin";
 
 export const dynamic = "force-dynamic";
 
+// Tokenized redemption flow — give it a real tab title and keep it out of
+// search (transactional, per-guest, not a landing page).
+export const metadata = {
+  title: "Redeem your offer",
+  robots: { index: false, follow: false },
+};
+
 export default async function RedeemPage({
   params,
   searchParams,

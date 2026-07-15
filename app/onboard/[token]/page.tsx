@@ -5,6 +5,12 @@ import OnboardActions from "./OnboardActions";
 
 export const dynamic = "force-dynamic";
 
+// Tokenized owner onboarding — real tab title, kept out of search (private link).
+export const metadata = {
+  title: "Confirm your listing",
+  robots: { index: false, follow: false },
+};
+
 // Partner self-onboarding page, reached via a tokenized WhatsApp link. The
 // venue sees exactly how its card will look, confirms the listing policy and
 // may submit explicitly licensed photos to a private operator-review queue.

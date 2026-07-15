@@ -5,7 +5,10 @@ import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
 
-export const dynamic = "force-dynamic";
+// ISR: statically cached for speed/SEO, regenerated at most every 5 min so
+// venue/publication edits in Supabase surface without a redeploy. Build-safe
+// now that public reads degrade instead of throwing (lib/data.ts).
+export const revalidate = 300;
 
 const BASE = "https://www.otherbali.com";
 const guide = getGuide("best-beach-clubs-in-bali")!;
