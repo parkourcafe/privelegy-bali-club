@@ -2,8 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   configuredAdminToken,
+  configuredPhotoReviewShareToken,
   configuredPhotoReviewToken,
   hasAdminBasicAccess,
+  photoReviewSessionValue,
   timingSafeSecretEqual,
 } from "./admin-auth";
 import {
@@ -31,6 +33,28 @@ test("photo review uses an independent strong token", () => {
   assert.equal(configuredPhotoReviewToken(), "r8VQ2wLt9Hk4mNz6Xs3Pd7Yc5Fa1Bj0E");
   if (previous === undefined) delete process.env.PHOTO_REVIEW_ACCESS_TOKEN;
   else process.env.PHOTO_REVIEW_ACCESS_TOKEN = previous;
+});
+
+test("restaurateur share access requires a separate 40-character secret", () => {
+  const previousToken = process.env.PHOTO_REVIEW_SHARE_TOKEN;
+  const previousExpiry = process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT;
+  process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT = "2099-01-01T00:00:00.000Z";
+  process.env.PHOTO_REVIEW_SHARE_TOKEN = "short";
+  assert.equal(configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")), null);
+  process.env.PHOTO_REVIEW_SHARE_TOKEN = "password-that-is-long-but-still-explicitly-weak";
+  assert.equal(configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")), null);
+  process.env.PHOTO_REVIEW_SHARE_TOKEN = "OtherBali-Restaurateur-Review-15July2026!";
+  assert.equal(
+    configuredPhotoReviewShareToken(Date.parse("2026-07-15T00:00:00.000Z")),
+    "OtherBali-Restaurateur-Review-15July2026!",
+  );
+  assert.equal(configuredPhotoReviewShareToken(Date.parse("2099-01-01T00:00:00.000Z")), null);
+  assert.equal(photoReviewSessionValue("secret"), photoReviewSessionValue("secret"));
+  assert.notEqual(photoReviewSessionValue("secret"), photoReviewSessionValue("different"));
+  if (previousToken === undefined) delete process.env.PHOTO_REVIEW_SHARE_TOKEN;
+  else process.env.PHOTO_REVIEW_SHARE_TOKEN = previousToken;
+  if (previousExpiry === undefined) delete process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT;
+  else process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT = previousExpiry;
 });
 
 function basic(password: string, username = "operator"): string {

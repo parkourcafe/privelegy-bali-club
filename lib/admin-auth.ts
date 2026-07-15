@@ -19,6 +19,28 @@ export function configuredPhotoReviewToken(): string | null {
   return token;
 }
 
+export function configuredPhotoReviewShareToken(now = Date.now()): string | null {
+  const token = process.env.PHOTO_REVIEW_SHARE_TOKEN?.trim();
+  const expiresAt = Date.parse(process.env.PHOTO_REVIEW_SHARE_EXPIRES_AT?.trim() ?? "");
+  if (
+    !token ||
+    token.length < 40 ||
+    /^(change-me|example|password|admin)/i.test(token) ||
+    !Number.isFinite(expiresAt) ||
+    expiresAt <= now
+  ) {
+    return null;
+  }
+  return token;
+}
+
+export function photoReviewSessionValue(token: string): string {
+  return createHash("sha256")
+    .update("other-bali-photo-review-session\0", "utf8")
+    .update(token, "utf8")
+    .digest("hex");
+}
+
 export function timingSafeSecretEqual(candidate: string, expected: string): boolean {
   const candidateDigest = createHash("sha256").update(candidate, "utf8").digest();
   const expectedDigest = createHash("sha256").update(expected, "utf8").digest();

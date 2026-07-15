@@ -2,9 +2,13 @@ import { NextResponse, type NextRequest } from "next/server";
 import { nanoid } from "nanoid";
 import {
   configuredAdminToken,
+  configuredPhotoReviewShareToken,
   configuredPhotoReviewToken,
   hasAdminBasicAccess,
+  photoReviewSessionValue,
+  timingSafeSecretEqual,
 } from "@/lib/admin-auth";
+import { PHOTO_REVIEW_COOKIE } from "@/lib/photo-review-access";
 
 const ADMIN_REALM = "Other Bali Field Kit";
 const PHOTO_REVIEW_REALM = "Other Bali Photo Review";
@@ -32,7 +36,7 @@ function isPhotoReviewPath(pathname: string): boolean {
 }
 
 function isSensitivePath(pathname: string): boolean {
-  return ["/admin", "/developer/photo-review", "/developer/site", "/onboard", "/partner", "/me", "/v", "/list"].some(
+  return ["/admin", "/api/review-access", "/developer/photo-review", "/developer/site", "/review", "/onboard", "/partner", "/me", "/v", "/list"].some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }
@@ -81,8 +85,14 @@ export function proxy(req: NextRequest) {
 
   if (photoReviewRequest) {
     const token = configuredPhotoReviewToken();
-    if (!token) return adminNotFound();
-    if (!hasAdminBasicAccess(req.headers.get("authorization"), token)) {
+    const shareToken = configuredPhotoReviewShareToken();
+    const cookieValue = req.cookies.get(PHOTO_REVIEW_COOKIE)?.value;
+    const basicAllowed = hasAdminBasicAccess(req.headers.get("authorization"), token);
+    const shareAllowed = Boolean(
+      shareToken && cookieValue && timingSafeSecretEqual(cookieValue, photoReviewSessionValue(shareToken)),
+    );
+    if (!token && !shareToken) return adminNotFound();
+    if (!basicAllowed && !shareAllowed) {
       return photoReviewChallenge();
     }
   }
