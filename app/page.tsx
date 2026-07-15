@@ -571,6 +571,25 @@ function AroundBali() {
     next_deep: "In depth next",
     planning_only: "Planning notes",
   };
+  // Fallback SVG wash per district while (or if) the generated district still
+  // is unavailable — SceneImage renders /scenes/district-<slug>.webp above it.
+  const DISTRICT_VARIANT: Record<string, "sunset" | "ridge" | "surf" | "night"> = {
+    canggu: "surf",
+    ubud: "ridge",
+    seminyak: "sunset",
+    "kuta-legian": "surf",
+    jimbaran: "night",
+    "uluwatu-bukit": "sunset",
+    "nusa-dua": "sunset",
+    sanur: "sunset",
+    sidemen: "ridge",
+    amed: "sunset",
+    munduk: "ridge",
+    lovina: "sunset",
+    "nusa-islands": "sunset",
+    "gili-islands": "sunset",
+    lombok: "surf",
+  };
   return (
     <Section id="bali" className="bg-[var(--ob-espresso-2)]">
       <Reveal>
@@ -592,30 +611,45 @@ function AroundBali() {
           return (
             <Reveal key={d.slug} delay={(i % 3) * 60}>
               <div
-                className={`flex h-full flex-col rounded-3xl border p-6 transition-colors ${
+                className={`group flex h-full flex-col overflow-hidden rounded-3xl border transition-colors ${
                   deep
                     ? "border-[rgba(198,154,92,0.5)] bg-[var(--ob-espresso-3)]"
                     : "border-[var(--ob-line)] bg-[var(--ob-espresso)] hover:border-[rgba(198,154,92,0.4)]"
                 }`}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="eyebrow text-[var(--ob-sand-dim)]">{d.region}</span>
+                {/* District mood art (generated atmosphere, decorative — never a
+                    photo of a specific venue). SceneImage falls back to the SVG
+                    wash when the still is unavailable, so the card never goes
+                    empty. Name sits on the art so each area reads instantly. */}
+                <div className="ob-grain relative h-36 shrink-0 overflow-hidden md:h-40">
+                  <SceneImage
+                    scene={`district-${d.slug}`}
+                    variant={DISTRICT_VARIANT[d.slug] ?? "sunset"}
+                    imgClassName="ob-grade transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--ob-espresso)]/85 via-[var(--ob-espresso)]/15 to-[var(--ob-espresso)]/30" />
                   <span
-                    className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
+                    className={`absolute right-4 top-4 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm ${
                       deep
                         ? "bg-[var(--ob-sand)] text-[var(--ob-espresso)]"
                         : d.status === "next_deep"
-                          ? "border border-[rgba(198,154,92,0.5)] text-[var(--ob-brass-2)]"
-                          : "border border-[var(--ob-line)] text-[var(--ob-stone)]"
+                          ? "border border-[rgba(198,154,92,0.6)] bg-black/30 text-[var(--ob-brass-2)]"
+                          : "border border-white/20 bg-black/30 text-[var(--ob-sand-dim)]"
                     }`}
                   >
                     {STATUS_LABEL[d.status]}
                   </span>
+                  <div className="absolute inset-x-4 bottom-3">
+                    <span className="eyebrow block text-[10px] text-[var(--ob-sand-dim)]">
+                      {d.region}
+                    </span>
+                    <h3 className="mt-0.5 font-display text-2xl font-semibold leading-tight text-[var(--ob-sand)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+                      {d.name}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="mt-3 font-display text-xl font-semibold text-[var(--ob-sand)]">
-                  {d.name}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--ob-sand-dim)]">{d.moment}</p>
+                <div className="flex flex-1 flex-col p-6 pt-4">
+                <p className="text-sm text-[var(--ob-sand-dim)]">{d.moment}</p>
                 <p className="mt-3 text-xs leading-relaxed text-[var(--ob-sand-dim)]">
                   <span className="text-[var(--ob-brass-2)]">Best for</span>{" "}
                   {d.bestFor.join(" · ")}
@@ -676,6 +710,7 @@ function AroundBali() {
                       Map →
                     </DistrictMapLink>
                   )}
+                </div>
                 </div>
               </div>
             </Reveal>

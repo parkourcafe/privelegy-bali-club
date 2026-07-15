@@ -22,6 +22,25 @@ const SCENES = {
   "moment-goldenhour": ["hf_20260711_160531_33959ad1-f6ca-48e3-be60-9b09df36ed7e.png", 1200],
   "moment-dinner": ["hf_20260711_160538_4118293a-66fa-4ff6-a81f-9947ddfd07dc.png", 1200],
   "human-dusk": ["hf_20260711_160539_124f0320-4eb3-49a9-8afb-b1e118c86255.png", 1920],
+  // District mood stills (Higgsfield soul_cinematic, 2026-07-15 pass) for the
+  // "Around Bali" cards — one distinct atmospheric scene per district, same
+  // warm film grade as the rest of the set. Mood imagery of the AREA only;
+  // never presented as a photo of a specific venue.
+  "district-canggu": ["hf_20260715_012158_ead7e284-6553-4777-9844-786a11d42f51.png", 1200],
+  "district-ubud": ["hf_20260715_012200_48552dce-e77d-44ad-84f8-f30263de010e.png", 1200],
+  "district-seminyak": ["hf_20260715_012202_3f4ff508-69d2-492a-9d87-fd41f5cceee6.png", 1200],
+  "district-kuta-legian": ["hf_20260715_012204_fc4a9776-1d94-4171-8c2c-be0a89c52426.png", 1200],
+  "district-jimbaran": ["hf_20260715_012205_f9e2b9ad-b8c1-4a46-9644-a994e489d389.png", 1200],
+  "district-uluwatu-bukit": ["hf_20260715_012214_8ac42e15-2407-4d11-b319-e0cd3d3d5149.png", 1200],
+  "district-nusa-dua": ["hf_20260715_012215_b2745749-466d-4c05-b0c3-60059ce91438.png", 1200],
+  "district-sanur": ["hf_20260715_012217_2b58a942-2c8c-41c8-90bc-e00c61eb6627.png", 1200],
+  "district-sidemen": ["hf_20260715_012219_bcbeaeb5-0b6a-4959-ad82-8eb1fee06a60.png", 1200],
+  "district-amed": ["hf_20260715_012220_f8fddf2c-e293-4207-bdae-f395b449ef97.png", 1200],
+  "district-munduk": ["hf_20260715_012228_3f3158c9-907b-4470-93af-09d422e5884a.png", 1200],
+  "district-lovina": ["hf_20260715_012230_8eb60a5a-309d-48a2-9f55-4e316ecdc356.png", 1200],
+  "district-nusa-islands": ["hf_20260715_012231_1e69b197-86fd-427f-8776-078b9bc34c63.png", 1200],
+  "district-gili-islands": ["hf_20260715_012233_311e6d57-382e-4ff2-8f8d-fab56af2ec1e.png", 1200],
+  "district-lombok": ["hf_20260715_012234_ef0c9b5a-cdfe-4bd6-8449-d80231636d37.png", 1200],
 };
 
 // One short muted hero loop (silent). Hard 3MB gate: if the file is bigger
