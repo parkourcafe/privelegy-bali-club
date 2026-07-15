@@ -36,3 +36,5 @@
 - Catalogue cards identify prepared menu/action coverage and link directly to the menu section. Draft menus are labelled `operator reviewed · owner confirmation pending`; private review clicks do not mark source records published or verified.
 - Safety regression: a focused resolver test proves draft actions remain invisible in the public mode and are admitted only with the explicit protected-review option.
 - Verification: `npm run typecheck` passed; `npm run lint` passed; `node --import tsx --test lib/actions/__tests__/resolve-actions.test.ts` passed (35/35); `npm run build` passed.
+- Protected deployment: `dpl_qeqigi95TexJALvA9C8WncCCXzVa`; `https://review.otherbali.com` points to `privelegy-bali-club-3rcbob76s-yulaboober.vercel.app`.
+- Live QA: unauthenticated catalogue returns 401; authenticated catalogue returns 200. Mamasan renders a prepared partial menu plus Reserve and Delivery; KYND renders the prepared full menu; BAKED Pererenan renders the explicit owner-needed states for Menu, Reserve and Delivery. Public `https://www.otherbali.com/` remains HTTP 200 and was not assigned to this deployment.
