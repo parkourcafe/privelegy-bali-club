@@ -37,10 +37,29 @@ function props(overrides: Partial<VenueActionBarProps> = {}): VenueActionBarProp
 
 function resolve(
   input: VenueActionBarProps,
-  options: { now?: Date; tablepilotBaseUrl?: string } = {}
+  options: { now?: Date; tablepilotBaseUrl?: string; allowReviewCandidates?: boolean } = {}
 ) {
   return resolveVenueActions(input, { now: NOW, ...options });
 }
+
+test("shows unverified draft actions only inside the protected review mode", () => {
+  const draftReserve = capability({
+    id: "draft-official-reserve",
+    status: "draft",
+    provider: "official",
+    url: "https://venue-bali.com/reserve",
+    sourceUrl: "https://venue-bali.com/reserve",
+    verifiedAt: null,
+    expiresAt: null,
+  });
+  const input = props({ coverageMode: "planning_only", capabilities: [draftReserve] });
+
+  assert.deepEqual(resolve(input).all, []);
+  assert.equal(
+    resolve(input, { allowReviewCandidates: true }).primary?.id,
+    "draft-official-reserve",
+  );
+});
 
 test("resolves TablePilot with its external slug, fixed attribution, and safe UI metadata", () => {
   const result = resolve(props(), { tablepilotBaseUrl: TABLEPILOT_TEST_BASE });

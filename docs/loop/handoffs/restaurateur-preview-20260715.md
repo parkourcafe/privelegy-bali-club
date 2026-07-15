@@ -27,3 +27,12 @@
 - Final deployment: `dpl_GYZxbsTYfuWKwfYcVebxrG5FTNoE`.
 - Production alias: `https://www.otherbali.com`.
 - Implementation commits: `fbff4a3`, `91236ac`.
+
+## Menu, booking and delivery review overlay
+
+- The password-protected restaurateur preview now overlays the compiled Data Ops package after a second server-side review-session check. Public `/places/<slug>` requests continue to use the strict published/confirmed repositories and cannot read draft records.
+- Prepared review coverage: 127 menus (881 items; 1 full and 126 partial) and 250 action candidates across 131 venues (56 reserve, 17 delivery, 89 WhatsApp, 88 website).
+- Every F&B detail page in private review mode keeps a visible Menu, Reserve and Delivery review surface. Official prepared links are actionable; a missing source is shown as `Owner ... link needed` and never replaced with an invented URL.
+- Catalogue cards identify prepared menu/action coverage and link directly to the menu section. Draft menus are labelled `operator reviewed · owner confirmation pending`; private review clicks do not mark source records published or verified.
+- Safety regression: a focused resolver test proves draft actions remain invisible in the public mode and are admitted only with the explicit protected-review option.
+- Verification: `npm run typecheck` passed; `npm run lint` passed; `node --import tsx --test lib/actions/__tests__/resolve-actions.test.ts` passed (35/35); `npm run build` passed.

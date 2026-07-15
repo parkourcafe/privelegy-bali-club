@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
 import { track } from "@/lib/analytics";
+import type { ActionKind } from "@/lib/contracts/menu-action";
 
 // Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
 // parsed price bands) so the card layer stays lean.
@@ -13,6 +14,8 @@ export type CataloguePlace = VenueWithPerk & {
   cardArea?: string;
   cardBestFor?: string;
   cardPrice?: string;
+  hasPreparedMenu?: boolean;
+  preparedActionKinds?: ActionKind[];
 };
 
 function toCard(v: CataloguePlace): PlaceCardData {
@@ -30,6 +33,8 @@ function toCard(v: CataloguePlace): PlaceCardData {
     tablepilotSlug: undefined,
     coverageMode: "planning_only",
     hasOffer: Boolean(v.perk),
+    hasPreparedMenu: v.hasPreparedMenu,
+    preparedActionKinds: v.preparedActionKinds,
   };
 }
 
@@ -343,6 +348,7 @@ export default function PlacesView({
                   detailBasePath={detailBasePath}
                   disableTracking={previewMode}
                   secondaryAction={previewMode ? "none" : "directions"}
+                  reviewMode={previewMode}
                 />
               </div>
             ))}
@@ -389,6 +395,7 @@ export default function PlacesView({
                 detailBasePath={detailBasePath}
                 disableTracking={previewMode}
                 secondaryAction={previewMode ? "none" : "directions"}
+                reviewMode={previewMode}
               />
             ))}
           </div>

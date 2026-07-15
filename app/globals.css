@@ -910,6 +910,31 @@ html {
   font-weight: 700;
 }
 
+.place-card-review-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.place-card-review-signals span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.place-card-review-signals .is-ready {
+  border-color: rgba(198, 154, 92, 0.5);
+  color: var(--brass);
+}
+
+.place-card-review-signals .is-needed {
+  color: var(--muted);
+}
+
 .place-card-foot {
   display: flex;
   align-items: center;

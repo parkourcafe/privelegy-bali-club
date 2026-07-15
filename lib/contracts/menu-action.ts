@@ -82,6 +82,7 @@ export type VenueActionBarProps = {
   fallbacks: VenueActionFallbacks;
   acquisitionSource?: string;
   tablepilotBaseUrl?: string | null;
+  reviewMode?: boolean;
   className?: string;
 };
 

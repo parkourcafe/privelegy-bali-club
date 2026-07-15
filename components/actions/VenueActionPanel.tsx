@@ -9,6 +9,7 @@ type VenueActionPanelProps = {
   resolution: VenueActionResolution;
   className?: string;
   includeStickyBar?: boolean;
+  reviewMode?: boolean;
 };
 
 function classes(...values: Array<string | false | null | undefined>): string {
@@ -78,6 +79,7 @@ export default function VenueActionPanel({
   resolution,
   className,
   includeStickyBar = true,
+  reviewMode = false,
 }: VenueActionPanelProps) {
   const titleId = useId();
   const primary = resolution.primary;
@@ -88,8 +90,22 @@ export default function VenueActionPanel({
     (action, index, actions) =>
       action.id !== primary?.id && actions.findIndex((candidate) => candidate.id === action.id) === index
   );
+  const availableKinds = new Set(resolution.all.map((action) => action.kind));
+  const hasDeliveryAction = resolution.all.some((action) =>
+    ["delivery", "takeaway", "preorder"].includes(action.kind),
+  );
+  const missingReviewActions = reviewMode
+    ? [
+        ...(!availableKinds.has("reserve")
+          ? [{ key: "reserve", title: "Reserve a table", note: "Owner booking link needed" }]
+          : []),
+        ...(!hasDeliveryAction
+          ? [{ key: "delivery", title: "Order delivery", note: "Owner delivery link needed" }]
+          : []),
+      ]
+    : [];
 
-  if (!primary && alternatives.length === 0) return null;
+  if (!primary && alternatives.length === 0 && !reviewMode) return null;
 
   return (
     <>
@@ -97,6 +113,11 @@ export default function VenueActionPanel({
         className={classes("action-gateway", className)}
         aria-labelledby={titleId}
       >
+        {reviewMode && (
+          <p className="mb-4 rounded-xl border border-[rgba(198,154,92,0.45)] bg-[rgba(198,154,92,0.12)] px-3 py-2 text-xs text-[var(--ob-sand)]">
+            Prepared action links · operator reviewed · owner confirmation pending
+          </p>
+        )}
         <div className="max-w-2xl">
           <p className="action-gateway-eyebrow">Continue with a provider</p>
           <h2 id={titleId} className="action-gateway-title">
@@ -129,6 +150,17 @@ export default function VenueActionPanel({
                     Confirmation happens with {action.providerLabel} after handoff.
                   </p>
                 )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {missingReviewActions.length > 0 && (
+          <div className="mt-3 grid min-w-0 grid-cols-1 gap-2 sm:grid-cols-2">
+            {missingReviewActions.map((action) => (
+              <div key={action.key} className="action-link opacity-70" aria-disabled="true">
+                <span className="action-link-label">{action.title}</span>
+                <span className="action-link-disclosure">{action.note}</span>
               </div>
             ))}
           </div>

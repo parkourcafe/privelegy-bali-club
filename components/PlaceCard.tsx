@@ -5,6 +5,7 @@ import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
 import { track } from "@/lib/analytics";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import type { ActionKind } from "@/lib/contracts/menu-action";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -45,7 +46,25 @@ export interface PlaceCardData {
   coverageMode?: "active_deep" | "next_deep" | "planning_only";
   // Confirmed offer exists — shown as a hint only; terms live on the page.
   hasOffer?: boolean;
+  hasPreparedMenu?: boolean;
+  preparedActionKinds?: ActionKind[];
 }
+
+const reviewActionLabel: Partial<Record<ActionKind, string>> = {
+  reserve: "Booking",
+  delivery: "Delivery",
+  takeaway: "Takeaway",
+  preorder: "Pre-order",
+  whatsapp: "WhatsApp",
+};
+
+const foodCategories = new Set<Venue["category"]>([
+  "restaurant",
+  "cafe",
+  "warung",
+  "bar",
+  "beach_club",
+]);
 
 // reservation_click is a partner-proof demand signal: internal store only,
 // never GA4 (same contract as ReserveButton).
@@ -63,11 +82,13 @@ export default function PlaceCard({
   secondaryAction = "directions",
   detailBasePath = "/places",
   disableTracking = false,
+  reviewMode = false,
 }: {
   place: PlaceCardData;
   secondaryAction?: "directions" | "none";
   detailBasePath?: string;
   disableTracking?: boolean;
+  reviewMode?: boolean;
 }) {
   const href = `${detailBasePath}/${place.slug}`;
   const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
@@ -123,6 +144,19 @@ export default function PlaceCard({
           </p>
         )}
 
+        {reviewMode && foodCategories.has(place.category) && (
+          <div className="place-card-review-signals" aria-label="Prepared menu and action coverage">
+            <span className={place.hasPreparedMenu ? "is-ready" : "is-needed"}>
+              Menu {place.hasPreparedMenu ? "ready" : "link needed"}
+            </span>
+            {(place.preparedActionKinds ?? [])
+              .filter((kind) => reviewActionLabel[kind])
+              .map((kind) => (
+                <span key={kind} className="is-ready">{reviewActionLabel[kind]}</span>
+              ))}
+          </div>
+        )}
+
         <div className="place-card-foot">
           <span className="place-card-price">
             {place.priceBand ?? ""}
@@ -131,6 +165,14 @@ export default function PlaceCard({
             ) : null}
           </span>
           <div className="place-card-actions">
+            {reviewMode && foodCategories.has(place.category) && (
+              <Link
+                href={`/places/${place.slug}?photo-review=1#menu-heading`}
+                className="place-card-cta"
+              >
+                Menu
+              </Link>
+            )}
             {tablepilotHref ? (
               <a
                 href={tablepilotHref}

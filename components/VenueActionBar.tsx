@@ -7,6 +7,7 @@ import type { VenueActionBarProps } from "@/lib/contracts/menu-action";
 function VenueActionBar(props: VenueActionBarProps): React.ReactNode {
   const resolution = resolveVenueActions(props, {
     tablepilotBaseUrl: props.tablepilotBaseUrl,
+    allowReviewCandidates: props.reviewMode,
   });
 
   return (
@@ -14,6 +15,7 @@ function VenueActionBar(props: VenueActionBarProps): React.ReactNode {
       venueName={props.venueName}
       resolution={resolution}
       className={props.className}
+      reviewMode={props.reviewMode}
     />
   );
 }

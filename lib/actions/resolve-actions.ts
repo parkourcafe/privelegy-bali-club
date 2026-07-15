@@ -82,11 +82,15 @@ function resolutionNow(value: ResolveVenueActionsOptions["now"]): number {
 function capabilityEligibility(
   record: VenueActionCapabilityRecord,
   venueSlug: string,
-  now: number
+  now: number,
+  allowReviewCandidates = false,
 ): string | null {
   if (!CAPABILITY_ID.test(record.id)) return "invalid_capability_id";
   if (record.venueSlug !== venueSlug) return "venue_mismatch";
-  if (record.status !== "confirmed") return "not_confirmed";
+  if (
+    record.status !== "confirmed" &&
+    !(allowReviewCandidates && ["draft", "review"].includes(record.status))
+  ) return "not_confirmed";
   if (!record.sourceLabel.trim()) return "missing_source_label";
   if (!parseSafeHttpsUrl(record.sourceUrl)) return "invalid_source_url";
   if (!Number.isSafeInteger(record.priority) || record.priority < 0) {
@@ -96,11 +100,19 @@ function capabilityEligibility(
   const capturedAt = timestamp(record.capturedAt);
   const verifiedAt = timestamp(record.verifiedAt);
   if (capturedAt === null) return "invalid_captured_at";
-  if (verifiedAt === null) return "not_verified";
-  if (capturedAt > now || verifiedAt > now) return "future_evidence";
-  if (verifiedAt < capturedAt) return "verification_before_capture";
+  if (capturedAt > now) return "future_evidence";
+  if (!allowReviewCandidates || record.status === "confirmed") {
+    if (verifiedAt === null) return "not_verified";
+    if (verifiedAt > now) return "future_evidence";
+    if (verifiedAt < capturedAt) return "verification_before_capture";
+  } else if (verifiedAt !== null) {
+    if (verifiedAt > now) return "future_evidence";
+    if (verifiedAt < capturedAt) return "verification_before_capture";
+  }
 
-  if (record.expiresAt === null) return "missing_expiry";
+  if (record.expiresAt === null) {
+    return allowReviewCandidates && record.status !== "confirmed" ? null : "missing_expiry";
+  }
   const expiresAt = timestamp(record.expiresAt);
   if (expiresAt === null) return "invalid_expiry";
   if (expiresAt <= now) return "expired";
@@ -234,7 +246,12 @@ export function resolveVenueActions(
   const capabilityActions: ResolvedVenueAction[] = [];
 
   for (const record of props.capabilities) {
-    const reason = capabilityEligibility(record, props.venueSlug, now);
+    const reason = capabilityEligibility(
+      record,
+      props.venueSlug,
+      now,
+      options.allowReviewCandidates,
+    );
     if (reason) {
       rejected.push({ id: record.id, reason });
       continue;

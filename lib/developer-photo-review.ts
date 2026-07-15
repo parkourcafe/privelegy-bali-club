@@ -2,6 +2,7 @@ import "server-only";
 
 import candidatePackage from "@/data/photo-candidates/owner-review.json";
 import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
+import { getDeveloperReviewCatalogueSignals } from "@/lib/developer-review-data";
 import { OWNER_PHOTO_CANDIDATE_BUCKET } from "@/lib/owner-photo-candidates";
 import { requirePhotoReviewRequest } from "@/lib/photo-review-request-auth";
 import { serviceClient } from "@/lib/supabase/service";
@@ -171,7 +172,10 @@ async function productionRows(client: SupabaseClient): Promise<Map<string, Recor
 }
 
 export type DeveloperPhotoSiteCatalogue = {
-  venues: VenueWithPerk[];
+  venues: Array<VenueWithPerk & {
+    hasPreparedMenu?: boolean;
+    preparedActionKinds?: import("@/lib/contracts/menu-action").ActionKind[];
+  }>;
   totalCandidates: number;
   venuesWithCandidates: number;
   venuesWithoutCandidates: number;
@@ -181,15 +185,25 @@ export type DeveloperPhotoSiteCatalogue = {
 export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSiteCatalogue> {
   await requirePhotoReviewRequest();
   const client = serviceClient();
-  const publishedVenues = await getPublishedVenues();
+  const [publishedVenues, reviewSignals] = await Promise.all([
+    getPublishedVenues(),
+    getDeveloperReviewCatalogueSignals(),
+  ]);
+  const reviewVenues = publishedVenues.map((venue) => ({
+    ...venue,
+    ...(reviewSignals.get(venue.slug) ?? {
+      hasPreparedMenu: false,
+      preparedActionKinds: [],
+    }),
+  }));
   const manifestBySlug = new Map(manifestVenues.map((venue) => [venue.slug, venue] as const));
-  const venuesWithCandidates = publishedVenues.filter(
+  const venuesWithCandidates = reviewVenues.filter(
     (venue) => (manifestBySlug.get(venue.slug)?.candidates.length ?? 0) > 0,
   ).length;
-  const venuesWithoutCandidates = publishedVenues.length - venuesWithCandidates;
+  const venuesWithoutCandidates = reviewVenues.length - venuesWithCandidates;
   if (!client) {
     return {
-      venues: publishedVenues,
+      venues: reviewVenues,
       totalCandidates: manifestVenues.reduce((sum, venue) => sum + venue.candidates.length, 0),
       venuesWithCandidates,
       venuesWithoutCandidates,
@@ -197,12 +211,12 @@ export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSi
     };
   }
 
-  const coverPaths = publishedVenues
+  const coverPaths = reviewVenues
     .map((venue) => manifestBySlug.get(venue.slug)?.candidates[0]?.objectPath)
     .filter((path): path is string => Boolean(path));
   const signedByPath = await signedUrlsForPaths(client, coverPaths);
   let unavailableCovers = 0;
-  const venues = publishedVenues.map((venue) => {
+  const venues = reviewVenues.map((venue) => {
     const manifest = manifestBySlug.get(venue.slug);
     const coverPath = manifest?.candidates[0]?.objectPath;
     const photoUrl = coverPath ? signedByPath.get(coverPath) : undefined;

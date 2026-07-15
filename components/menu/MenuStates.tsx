@@ -15,6 +15,16 @@ export function MenuEmptyState() {
   return <div className="menu-state"><p className="menu-state-kicker">Menu not available</p><h3>Decide with the editorial picks above</h3><p>We do not have a verified menu for this place yet. Check with the venue before making a special trip for a specific item.</p></div>;
 }
 
+export function MenuOwnerLinkNeededState() {
+  return (
+    <div className="menu-state">
+      <p className="menu-state-kicker">Owner confirmation pending</p>
+      <h3>Menu link or file needed</h3>
+      <p>This review page is ready for the venue to add or confirm its current official menu. No menu items or prices have been invented.</p>
+    </div>
+  );
+}
+
 export function MenuStaleState({ venueSlug, officialMenuUrl }: { venueSlug: string; officialMenuUrl?: string | null }) {
   return <div className="menu-state menu-state-stale"><p className="menu-state-kicker">Menu update needed</p><h3>We have hidden an out-of-date menu</h3><p>Rather than show old prices or items, we suppress the structured menu until it is verified again.</p>{officialMenuUrl && <OfficialMenuFallback venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} compact />}</div>;
 }

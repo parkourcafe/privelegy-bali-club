@@ -23,6 +23,7 @@ import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-actio
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import { getDeveloperPhotoSiteVenue } from "@/lib/developer-photo-review";
+import { getDeveloperReviewVenueExtension } from "@/lib/developer-review-data";
 
 export const dynamic = "force-dynamic";
 
@@ -149,6 +150,8 @@ const schemaType: Record<string, string> = {
   surf: "SportsActivityLocation",
 };
 
+const FOOD_CATEGORIES = new Set(["restaurant", "cafe", "warung", "bar", "beach_club"]);
+
 export async function generateMetadata({
   params,
 }: {
@@ -200,12 +203,13 @@ export default async function VenuePage({
   const { slug } = await params;
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const photoReviewMode = resolvedSearchParams["photo-review"] === "1";
-  const [venue, all, savedSlugs, detailExtension, photoPreview] = await Promise.all([
+  const [venue, all, savedSlugs, detailExtension, photoPreview, reviewExtension] = await Promise.all([
     getVenueWithPerk(slug),
     getPublishedVenues(),
     getSavedSlugs(await readGuestRef()),
     getPublicVenueDetailExtension(slug),
     photoReviewMode ? getDeveloperPhotoSiteVenue(slug) : Promise.resolve(null),
+    photoReviewMode ? getDeveloperReviewVenueExtension(slug) : Promise.resolve(null),
   ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
@@ -218,6 +222,7 @@ export default async function VenuePage({
   const isSanur = venue.district === "sanur";
   const isNusaDua = venue.district === "nusa-dua";
   const isJimbaran = venue.district === "jimbaran";
+  const isFoodVenue = FOOD_CATEGORIES.has(venue.category);
   const published = isPublicReadyVenue(venue);
   if (!published) notFound();
   const name = content?.displayName ?? venue.name;
@@ -342,7 +347,12 @@ export default async function VenuePage({
     ? { ...menuActionFixtures.freshMenu, venueSlug: slug }
     : fixtureMode === "stale"
     ? { ...menuActionFixtures.staleMenu, venueSlug: slug }
+    : photoReviewMode
+    ? reviewExtension?.menu ?? detailExtension.menu
     : detailExtension.menu;
+  const actionCapabilities = photoReviewMode
+    ? [...(reviewExtension?.actionCapabilities ?? []), ...detailExtension.actionCapabilities]
+    : detailExtension.actionCapabilities;
   const actionSlotProps: VenueActionBarProps = {
     venueSlug: venue.slug,
     venueName: name,
@@ -350,10 +360,10 @@ export default async function VenuePage({
     // A TablePilot capability can reach this repository only when database RLS
     // confirms active-deep + monetization coverage. Derive the UI gate from
     // that returned capability rather than a hard-coded district slug.
-    coverageMode: detailExtension.actionCapabilities.some(
+    coverageMode: actionCapabilities.some(
       (capability) => capability.provider === "tablepilot" && capability.kind === "reserve",
     ) ? "active_deep" : isUbud ? "next_deep" : "planning_only",
-    capabilities: published ? detailExtension.actionCapabilities : [],
+    capabilities: published ? actionCapabilities : [],
     tablepilotBaseUrl: safeTablePilotPublicBase({
       vercelEnv: process.env.VERCEL_ENV,
       configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
@@ -365,6 +375,7 @@ export default async function VenuePage({
       websiteUrl: officialUrl,
       googleMapsUrl: venue.gmapsUrl,
     } : {},
+    reviewMode: photoReviewMode && isFoodVenue,
   };
 
   // Hero verdict — shown once in the masthead. "Why it's here" renders only
@@ -390,7 +401,7 @@ export default async function VenuePage({
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[rgba(198,154,92,0.45)] bg-[rgba(198,154,92,0.12)] px-4 py-3 text-sm text-[var(--ob-sand)]">
             <span>
               <strong className="text-[var(--ob-brass-2)]">Private restaurateur preview.</strong>{" "}
-              Current production page with {reviewCandidates.length} prepared review photo{reviewCandidates.length === 1 ? "" : "s"}.
+              Current production page with {reviewCandidates.length} prepared review photo{reviewCandidates.length === 1 ? "" : "s"}, {menu ? "a prepared menu" : "menu confirmation needed"}, and {actionCapabilities.length} prepared action link{actionCapabilities.length === 1 ? "" : "s"}.
             </span>
             <Link href="/developer/site/places" className="font-semibold underline underline-offset-4">
               ← Photo-complete catalogue
@@ -532,12 +543,16 @@ export default async function VenuePage({
             {/* Menu — rendered only when there is something real to show
                 (verified menu or an official source). No big empty-state box
                 on the 80% of venues without menu data. */}
-            {(menu || menuUrl) && (
+            {(menu || menuUrl || (photoReviewMode && isFoodVenue)) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
-                <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+                <p className="guide-lede">
+                  {photoReviewMode
+                    ? "Prepared from official sources for operator review; the venue owner can confirm or correct every item."
+                    : "Verified details when we have them; otherwise, the clearest official source available."}
+                </p>
                 <div className="mt-4">
-                  <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
+                  <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} reviewMode={photoReviewMode} />
                 </div>
               </section>
             )}

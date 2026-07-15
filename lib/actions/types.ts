@@ -44,4 +44,5 @@ export interface VenueActionResolution {
 export interface ResolveVenueActionsOptions {
   now?: Date | string | number;
   tablepilotBaseUrl?: string | null;
+  allowReviewCandidates?: boolean;
 }

@@ -2,13 +2,16 @@ import type { MenuRecord } from "@/lib/contracts/menu-action";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
 import MenuSection from "./MenuSection";
 import MenuOpenTracker from "./MenuAnalytics";
-import { MenuEmptyState, MenuStaleState, OfficialMenuFallback } from "./MenuStates";
+import { MenuEmptyState, MenuOwnerLinkNeededState, MenuStaleState, OfficialMenuFallback } from "./MenuStates";
 import { formatMenuDate, getMenuFreshness } from "./menu-model";
 
-export default function StructuredMenu({ menu, venueSlug, officialMenuUrl }: { menu: MenuRecord | null; venueSlug: string; officialMenuUrl?: string | null }) {
-  if (!menu) return officialMenuUrl ? <OfficialMenuFallback venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} /> : <MenuEmptyState />;
+export default function StructuredMenu({ menu, venueSlug, officialMenuUrl, reviewMode = false }: { menu: MenuRecord | null; venueSlug: string; officialMenuUrl?: string | null; reviewMode?: boolean }) {
+  if (!menu) {
+    if (officialMenuUrl) return <OfficialMenuFallback venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} />;
+    return reviewMode ? <MenuOwnerLinkNeededState /> : <MenuEmptyState />;
+  }
   const freshness = getMenuFreshness(menu);
-  if (freshness === "stale" || freshness === "unpublished") return <MenuStaleState venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} />;
+  if (!reviewMode && (freshness === "stale" || freshness === "unpublished")) return <MenuStaleState venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} />;
   if (freshness === "empty") return officialMenuUrl ? <OfficialMenuFallback venueSlug={venueSlug} officialMenuUrl={officialMenuUrl} /> : <MenuEmptyState />;
   const captured = formatMenuDate(menu.capturedAt);
   const verified = formatMenuDate(menu.verifiedAt);
@@ -16,9 +19,16 @@ export default function StructuredMenu({ menu, venueSlug, officialMenuUrl }: { m
   const sections = [...menu.sections].sort((a, b) => a.position - b.position);
   return (
     <div className="structured-menu">
-      <MenuOpenTracker venueSlug={venueSlug} menuId={menu.id} />
+      {!reviewMode && <MenuOpenTracker venueSlug={venueSlug} menuId={menu.id} />}
       <header className="structured-menu-header">
-        <div><p className="structured-menu-eyebrow">Verified full menu · version {menu.version}</p><h3>{menu.title}</h3></div>
+        <div>
+          <p className="structured-menu-eyebrow">
+            {reviewMode
+              ? `Prepared ${menu.completeness} menu · operator reviewed · owner confirmation pending`
+              : `Verified full menu · version ${menu.version}`}
+          </p>
+          <h3>{menu.title}</h3>
+        </div>
         <p className="structured-menu-source">Source: <a href={menu.sourceUrl} target="_blank" rel="noreferrer">{menu.sourceLabel} ↗</a>{captured ? ` · prices as of ${captured}, may vary` : ""}{verified ? ` · checked ${verified}` : ""}{expires ? ` · current until ${expires}` : ""}</p>
       </header>
       <p className="structured-menu-allergen-note"><strong>Allergen note:</strong> only explicitly verified allergens are shown. No allergen tag means unknown, not allergen-free.</p>
