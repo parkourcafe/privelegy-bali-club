@@ -41,6 +41,8 @@ export type TrackedEvent =
   | "partner_offer_click"
   | "guide_form_started"
   | "guide_form_submitted"
+  | "venue_submission_started"
+  | "venue_submission_submitted"
   | "whatsapp_guide_click"
   | "internal_guide_click";
 
