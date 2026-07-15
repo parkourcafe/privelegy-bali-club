@@ -27,14 +27,14 @@ test("restaurateur preview uses current production layouts and remains read-only
   assert.match(proxy, /PHOTO_REVIEW_COOKIE/);
   assert.match(loginPage, /action="\/api\/review-access"/);
   assert.match(loginPage, /type="password"/);
-  assert.match(loginPage, /80 hours/);
+  assert.match(loginPage, /180 hours/);
   assert.match(loginRoute, /httpOnly: true/);
   assert.match(loginRoute, /PHOTO_REVIEW_COOKIE_MAX_AGE/);
   assert.match(loginRoute, /photoReviewSessionValue/);
   assert.match(loginRoute, /noindex, nofollow, noarchive/);
   assert.match(requestAuth, /timingSafeSecretEqual/);
   assert.match(proxy, /PHOTO_REVIEW_SHARE_EXPIRES_AT|configuredPhotoReviewShareToken/);
-  assert.match(accessConstants, /60 \* 60 \* 80/);
+  assert.match(accessConstants, /60 \* 60 \* 180/);
   assert.match(data, /requirePhotoReviewRequest/);
   assert.match(data, /createSignedUrls/);
   assert.doesNotMatch(data, /\.upload\(|\.remove\(|\.update\(|\.insert\(|\.upsert\(/);

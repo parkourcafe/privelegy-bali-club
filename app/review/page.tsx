@@ -24,7 +24,7 @@ export default async function ReviewLoginPage({ searchParams }: ReviewLoginPageP
         </h1>
         <p className="mt-4 text-sm leading-6 text-[#dfd0bc]">
           Enter the shared review password to see the current site with the prepared venue photos.
-          This protected review window stays open for 80 hours.
+          This protected review window stays open for 180 hours.
         </p>
 
         <form action="/api/review-access" method="post" className="mt-8 space-y-4">
