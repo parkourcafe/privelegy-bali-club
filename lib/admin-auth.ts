@@ -11,6 +11,14 @@ export function configuredAdminToken(): string | null {
   return token;
 }
 
+export function configuredPhotoReviewToken(): string | null {
+  const token = process.env.PHOTO_REVIEW_ACCESS_TOKEN?.trim();
+  if (!token || token.length < 32 || /^(change-me|example|password|admin)/i.test(token)) {
+    return null;
+  }
+  return token;
+}
+
 export function timingSafeSecretEqual(candidate: string, expected: string): boolean {
   const candidateDigest = createHash("sha256").update(candidate, "utf8").digest();
   const expectedDigest = createHash("sha256").update(expected, "utf8").digest();
