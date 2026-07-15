@@ -25,7 +25,7 @@ test("restaurateur preview uses current production layouts and remains read-only
   assert.doesNotMatch(data, /\.upload\(|\.remove\(|\.update\(|\.insert\(|\.upsert\(/);
   assert.match(redirectPage, /redirect\("\/developer\/site"\)/);
   assert.match(sitePage, /Landing/);
-  assert.match(sitePage, /current production design/);
+  assert.match(sitePage, /Private restaurateur preview/);
   assert.match(cataloguePage, /PlacesView/);
   assert.match(cataloguePage, /live places/);
   assert.match(venueRedirect, /photo-review=1/);

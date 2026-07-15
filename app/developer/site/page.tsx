@@ -12,10 +12,9 @@ export const metadata: Metadata = {
 export default function RestaurateurSitePreview() {
   return (
     <>
-      <div className="fixed inset-x-0 top-0 z-[100] border-b border-[rgba(198,154,92,0.45)] bg-[rgba(22,15,11,0.96)] px-4 py-2 text-center text-xs text-[var(--ob-sand)] backdrop-blur-md sm:text-sm">
-        <strong className="text-[var(--ob-brass-2)]">Private restaurateur preview.</strong>{" "}
-        This is the current production design.{" "}
-        <Link href="/developer/site/places" className="font-semibold underline underline-offset-4">
+      <div className="fixed bottom-5 right-5 z-[60] max-w-[min(24rem,calc(100vw-2.5rem))] rounded-2xl border border-[rgba(198,154,92,0.55)] bg-[rgba(22,15,11,0.94)] px-4 py-3 text-xs text-[var(--ob-sand)] shadow-2xl backdrop-blur-md sm:text-sm">
+        <strong className="block text-[var(--ob-brass-2)]">Private restaurateur preview</strong>
+        <Link href="/developer/site/places" className="mt-1 block font-semibold underline underline-offset-4">
           Open the photo-complete places catalogue →
         </Link>
       </div>
