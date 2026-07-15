@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
 
@@ -29,9 +30,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
         <header className="hero-grid">
           <div>
             <div className="flex items-start justify-between">
-              <Link href="/" className="topline">
-                ← Other Bali
-              </Link>
+              <BrandHomeLink />
               <Link href="/places" className="quiet-link">
                 All places →
               </Link>

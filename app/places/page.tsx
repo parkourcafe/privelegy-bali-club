@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BrandHomeLink from "@/components/BrandHomeLink";
 import { getPublishedVenues, getDistrictHubs, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import { getTripMission, getTripDuration } from "@/lib/trip-missions";
 import {
@@ -90,9 +91,7 @@ export default async function PlacesPage({
 
             <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
               <div className="flex items-start justify-between gap-4">
-                <Link href="/" className="topline">
-                  ← Other Bali
-                </Link>
+                <BrandHomeLink />
                 <Link href="/plan" className="quiet-link">
                   Canggu day →
                 </Link>

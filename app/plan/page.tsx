@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandHomeLink from "@/components/BrandHomeLink";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
@@ -31,9 +32,7 @@ export default async function Plan({
       <header className="hero-grid">
         <div>
           <div className="flex items-start justify-between">
-            <Link href="/" className="topline">
-              ← Other Bali · Canggu guide
-            </Link>
+            <BrandHomeLink label="Other Bali · Canggu guide" />
             <Link href="/me" className="quiet-link">
               My offers →
             </Link>
