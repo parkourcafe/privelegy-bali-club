@@ -43,14 +43,17 @@ test("owner candidate package is exact, deterministic and publication-blocked", 
   assert.equal(manifest.policy.publicVenueCardsChangedByImport, false);
 });
 
-test("owner consent is exact-image, private, same-origin and never publishes", () => {
+test("owner selection is exact-image, private, unlimited by UI and never publishes", () => {
   assert.match(route, /isTrustedSameOriginMutation\(request\)/);
   assert.match(route, /candidate_mismatch/);
   assert.match(route, /photoContentSha256\(bytes\) !== candidate\.sha256/);
-  assert.match(route, /rightsGranted: true/);
+  assert.match(route, /ownerSelected: true/);
+  assert.match(route, /rightsLicenseGranted: false/);
   assert.match(route, /publicationAllowed: false/);
-  assert.match(route, /pending_review_staged/);
+  assert.match(route, /owner_selection_saved/);
+  assert.doesNotMatch(route, /ids\.length > 3/);
+  assert.doesNotMatch(route, /body\.rightsGranted/);
   assert.doesNotMatch(route, /photo_url|published_url/);
-  assert.match(page, /Nothing appears publicly until an Other Bali operator approves it/);
-  assert.match(page, /each selected photo/);
+  assert.match(page, /You can select all of them/);
+  assert.match(page, /Save.*selected photos/);
 });

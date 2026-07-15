@@ -35,9 +35,9 @@
 ### Owner gallery
 
 - `/onboard/<token>` resolves only the token-bound venue and receives short-lived signed previews for that venue's candidates.
-- The owner can select up to three exact images, enter identity/contact, and grant the exact-image licence.
-- While 0041 is unavailable, consent is written once to the private `owner-photo-consents` bucket as `pending_operator_import`, with `publicationAllowed=false`.
-- When exact 0041 readiness becomes available, the same route automatically uses the canonical private submission/consent RPC workflow.
+- The owner sees every candidate mapped to the venue, can tick any number or use `Select all`, and saves the selection without a separate rights checkbox.
+- Each choice is written once to the private `owner-photo-consents` bucket as `owner_selected_pending_operator_review`, with `rightsLicenseGranted=false` and `publicationAllowed=false`.
+- The checkbox is deliberately a venue selection, not a fabricated legal licence. Any publication agreement remains a separate follow-up with the Other Bali team.
 - The import never writes `venues.photo_url`, `published_url`, approved submission state or any public URL.
 
 ### Cleanup and final production state
@@ -54,7 +54,8 @@
 ## Gates
 
 - Private candidates ready for owner review: **yes (814/814)**.
-- Owner exact-image consent staging: **yes**.
+- Owner photo selection staging: **yes**.
+- Owner legal licence collected by this checkbox: **no — intentionally separate**.
 - Canonical admin photo queue ready: **no — blocked on production DB access and migrations 0040/0041**.
 - Public cards changed by this run: **no**.
 - Candidate publication allowed: **no**.

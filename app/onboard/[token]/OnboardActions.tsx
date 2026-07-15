@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 import PartnerMaintenanceDrafts from "./PartnerMaintenanceDrafts";
 import type { OwnerPhotoCandidatePreview } from "@/lib/owner-photo-candidates";
 
-// Confirmation + private photo submission for the partner onboarding page.
-// The browser sends one explicitly consented image to a server-only route;
-// nothing receives a public URL or reaches the live card before operator review.
+// Listing confirmation, simple candidate selection and private owner uploads.
+// Candidate checkboxes record a venue choice only; they do not manufacture a
+// rights licence or publish anything without a later operator workflow.
 
 const MAX_MB = 4;
 const ALLOWED_PHOTO_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/avif"]);
@@ -65,7 +65,6 @@ export default function OnboardActions({
   const [photoRights, setPhotoRights] = useState(false);
   const [photoWebsite, setPhotoWebsite] = useState("");
   const [selectedCandidates, setSelectedCandidates] = useState<string[]>([]);
-  const [candidateRights, setCandidateRights] = useState(false);
   const [candidateState, setCandidateState] = useState<"idle" | "busy" | "done" | "error">("idle");
   const [candidateMsg, setCandidateMsg] = useState("");
   const photoInput = useRef<HTMLInputElement>(null);
@@ -141,15 +140,15 @@ export default function OnboardActions({
   function toggleCandidate(id: string) {
     setSelectedCandidates((current) => current.includes(id)
       ? current.filter((candidateId) => candidateId !== id)
-      : current.length < 3 ? [...current, id] : current);
+      : [...current, id]);
     setCandidateState("idle");
     setCandidateMsg("");
   }
 
   async function submitCandidates() {
-    if (selectedCandidates.length === 0 || name.trim().length < 2 || !candidateRights) {
+    if (selectedCandidates.length === 0) {
       setCandidateState("error");
-      setCandidateMsg("Select at least one photo, enter your name and confirm the rights first.");
+      setCandidateMsg("Select at least one photo first.");
       return;
     }
     setCandidateState("busy");
@@ -159,9 +158,6 @@ export default function OnboardActions({
       body: JSON.stringify({
         token,
         candidateIds: selectedCandidates,
-        submitterName: name.trim(),
-        submitterContact: photoContact.trim(),
-        rightsGranted: candidateRights,
         website: photoWebsite,
       }),
     }).catch(() => null);
@@ -169,17 +165,16 @@ export default function OnboardActions({
     if (
       res?.ok
       && result?.ok === true
-      && (result.status === "pending_review" || result.status === "pending_review_staged")
+      && result.status === "owner_selection_saved"
     ) {
       setCandidateState("done");
-      setCandidateMsg("Thank you — your selected photos are private and pending operator review.");
-      setCandidateRights(false);
+      setCandidateMsg("Saved — these photos are now marked as your choice for the listing.");
     } else if (res?.status === 202 && result?.ok === true) {
       setCandidateState("done");
       setCandidateMsg("Your selection is being reconciled. Please do not submit it again; nothing can publish during this check.");
     } else {
       setCandidateState("error");
-      setCandidateMsg("The selection was not submitted. Check the rights confirmation and try again.");
+      setCandidateMsg("The selection was not saved. Please try again.");
     }
   }
 
@@ -192,40 +187,42 @@ export default function OnboardActions({
           <div className="rounded-2xl border border-cyan-200 bg-cyan-50/40 p-4">
             <p className="font-medium">Photos we found for your review</p>
             <p className="mt-1 text-sm text-stone-600">
-              These previews are private. Select only photos you own or are authorised to license. Nothing appears publicly until an Other Bali operator approves it.
+              We found these photos for your listing. Tick every photo you want us to use, then save your selection. You can select all of them.
             </p>
-            <label className="mt-3 block text-sm font-medium text-stone-700">
-              Your name and role
-              <input
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                maxLength={120}
-                placeholder="Made, manager"
-                className="mt-1 w-full rounded-lg border border-stone-200 bg-white px-3 py-2"
-              />
-            </label>
-            <label className="mt-3 block text-sm font-medium text-stone-700">
-              Email or WhatsApp (optional)
-              <input
-                value={photoContact}
-                onChange={(event) => setPhotoContact(event.target.value)}
-                maxLength={200}
-                className="mt-1 w-full rounded-lg border border-stone-200 bg-white px-3 py-2"
-              />
-            </label>
+            <div className="mt-3 flex gap-2">
+              <button
+                type="button"
+                onClick={() => setSelectedCandidates(photoCandidates
+                  .filter((candidate) => candidate.reviewStatus === "available")
+                  .map((candidate) => candidate.id))}
+                className="rounded-lg border border-cyan-700 bg-white px-3 py-2 text-xs font-semibold text-cyan-800"
+              >
+                Select all
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCandidates([])}
+                className="rounded-lg border border-stone-300 bg-white px-3 py-2 text-xs font-semibold text-stone-700"
+              >
+                Clear selection
+              </button>
+            </div>
             <div className="mt-3 grid grid-cols-2 gap-3">
               {photoCandidates.map((candidate) => {
                 const selected = selectedCandidates.includes(candidate.id);
                 const alreadySubmitted = candidate.reviewStatus !== "available";
                 return (
-                  <button
+                  <label
                     key={candidate.id}
-                    type="button"
-                    disabled={alreadySubmitted || candidateState === "busy"}
-                    aria-pressed={selected}
-                    onClick={() => toggleCandidate(candidate.id)}
-                    className={`overflow-hidden rounded-xl border-2 bg-white text-left ${selected ? "border-cyan-700" : "border-transparent"} disabled:opacity-65`}
+                    className={`relative overflow-hidden rounded-xl border-2 bg-white text-left ${selected ? "border-cyan-700" : "border-transparent"} ${alreadySubmitted ? "opacity-65" : "cursor-pointer"}`}
                   >
+                    <input
+                      type="checkbox"
+                      checked={selected}
+                      disabled={alreadySubmitted || candidateState === "busy"}
+                      onChange={() => toggleCandidate(candidate.id)}
+                      className="absolute left-2 top-2 z-10 size-6 accent-cyan-700"
+                    />
                     <span
                       role="img"
                       aria-label="Private venue photo candidate"
@@ -235,28 +232,17 @@ export default function OnboardActions({
                     <span className="block px-2 py-2 text-xs font-medium text-stone-700">
                       {alreadySubmitted ? `${candidate.reviewStatus} review` : selected ? "Selected ✓" : "Select photo"}
                     </span>
-                  </button>
+                  </label>
                 );
               })}
             </div>
-            <label className="mt-3 flex items-start gap-2 text-sm text-stone-700">
-              <input
-                type="checkbox"
-                checked={candidateRights}
-                onChange={(event) => setCandidateRights(event.target.checked)}
-                className="mt-1 size-4 shrink-0"
-              />
-              <span>
-                I own or am authorised to license each selected photo and grant Other Bali a non-exclusive licence to display those exact images on otherbali.com. See the <a href="/terms" target="_blank" rel="noreferrer" className="font-semibold text-cyan-800 underline">terms</a>.
-              </span>
-            </label>
             <button
               type="button"
               onClick={submitCandidates}
-              disabled={candidateState === "busy" || selectedCandidates.length === 0 || !candidateRights || name.trim().length < 2}
+              disabled={candidateState === "busy" || selectedCandidates.length === 0}
               className="mt-4 min-h-11 w-full rounded-xl bg-cyan-700 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
             >
-              {candidateState === "busy" ? "Submitting privately…" : `Submit ${selectedCandidates.length || "selected"} for review`}
+              {candidateState === "busy" ? "Saving…" : `Save ${selectedCandidates.length || "selected"} selected photos`}
             </button>
             {candidateMsg ? (
               <p role={candidateState === "error" ? "alert" : "status"} className={`mt-2 text-sm ${candidateState === "error" ? "text-rose-600" : "text-emerald-700"}`}>
