@@ -29,8 +29,11 @@ this is not a Supabase Auth production snapshot.
 Migration applied:
 
 ```text
-supabase/migrations/20260715071224_partner_portal_identity.sql
+supabase/migrations/0035_partner_portal_identity.sql
 ```
+
+The migration uses the repository's four-digit `NNNN_name.sql` convention;
+the earlier timestamp filename was renamed before any hosted migration apply.
 
 Apply result: `BEGIN`, all tables/indexes/columns/grants/comments created, and
 `COMMIT` with no error.

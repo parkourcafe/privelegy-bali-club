@@ -6,7 +6,7 @@ const root = new URL("../", import.meta.url);
 const load = (path) => readFile(new URL(path, root), "utf8");
 
 test("partner identity schema is server-controlled and RLS protected", async () => {
-  const sql = await load("supabase/migrations/20260715071224_partner_portal_identity.sql");
+  const sql = await load("supabase/migrations/0035_partner_portal_identity.sql");
   assert.match(sql, /create table(?: if not exists)? public\.venue_memberships/i);
   assert.match(sql, /create table(?: if not exists)? public\.venue_onboarding_claims/i);
   assert.match(sql, /enable row level security/i);
