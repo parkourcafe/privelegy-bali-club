@@ -41,6 +41,10 @@
           state.mood = url.searchParams.get("m") || state.mood;
           state.district = url.searchParams.get("district") || state.district;
           state.days = url.searchParams.get("days") || state.days;
+          if (state.mood) {
+            state.plan = { version: 1, mood: state.mood, district: state.district, days: state.days, savedAt: new Date().toISOString() };
+            saveJson(PLAN_KEY, state.plan);
+          }
         }
         if (kind === "place") {
           var slug = url.pathname.split("/").filter(Boolean)[0]; if (slug) addFavourite(slug);
