@@ -44,8 +44,8 @@ export default async function OnboardPage({
       <h1 className="mt-1 text-2xl font-bold">Hello, {v.name}!</h1>
       <p className="mt-2 text-sm text-stone-600">
         We&apos;re building a curated Bali guide for travellers, starting with
-        Canggu. Below is how your place will appear. Review it, send any photos
-        you have the right to share for our private review, and confirm.
+        Canggu. Below is how your place will appear. Review the card, tick every
+        photo you want us to use, and confirm the listing.
       </p>
 
       <div className="mt-5">
@@ -74,7 +74,7 @@ export default async function OnboardPage({
             <li>• This draft offer remains unpublished until its own approval and operator verification are recorded.</li>
           )}
           <li>• We share aggregate visit numbers with you — never guests&apos; personal data.</li>
-          <li>• Each photo needs its own rights confirmation. It stays private and does not appear on the guide unless an Other Bali operator approves both the image and its linked consent record.</li>
+          <li>• Tick every photo you want included. This records your selection; any separate publication agreement can be completed with the Other Bali team afterwards.</li>
           <li>• You can request changes or ask us to pause the listing anytime via WhatsApp.</li>
         </ul>
       </div>
