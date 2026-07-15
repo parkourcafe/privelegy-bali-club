@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
+import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
 import { readGuestRef } from "@/lib/guest-server";
 import SaveButton from "@/components/SaveButton";
 import {
@@ -11,7 +11,6 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
-import { rankSimilar } from "@/lib/similar";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -195,14 +194,17 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
-    getVenueWithPerk(slug),
-    getPublishedVenues(),
-    getSavedSlugs(await readGuestRef()),
-    getPublicVenueDetailExtension(slug),
+  const venuePromise = getVenueWithPerk(slug);
+  const detailExtensionPromise = getPublicVenueDetailExtension(slug);
+  const savedSlugsPromise = readGuestRef().then(getSavedSlugs);
+  const venue = await venuePromise;
+  if (!venue) notFound();
+  const [similar, savedSlugs, detailExtension] = await Promise.all([
+    getSimilarVenues(venue, 3),
+    savedSlugsPromise,
+    detailExtensionPromise,
   ]);
   const content = getUluwatuContent(slug);
-  if (!venue) notFound();
   const saved = savedSlugs.includes(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
@@ -252,12 +254,6 @@ export default async function VenuePage({
 
   // Similar places: verified category/vibe/district match only — sponsored
   // status is never a ranking factor (rankSimilar scores category + tags).
-  const similar = rankSimilar(
-    venue,
-    all.filter((v) => v.slug !== slug && isPublicReadyVenue(v)),
-    3
-  );
-
   const crumbs: Crumb[] = isUluwatu
     ? [
         { name: "Home", href: "/" },

@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdminRequest } from "@/lib/admin-request-auth";
 import {
   MAX_STORED_PHOTO_BYTES,
@@ -12,6 +12,7 @@ import {
 } from "@/lib/photo-submission-policy";
 import { serviceClient } from "@/lib/supabase/service";
 import { currentSiteOrigin } from "@/lib/site-origin";
+import { PUBLIC_CACHE_TAGS } from "@/lib/data/public-cache";
 
 async function operatorClient() {
   await requireAdminRequest();
@@ -33,6 +34,7 @@ function reviewer(formData: FormData): string {
 }
 
 function refreshPhotoSurfaces() {
+  revalidateTag(PUBLIC_CACHE_TAGS.venues, "max");
   revalidatePath("/admin/photos");
   revalidatePath("/places/[slug]", "page");
   revalidatePath("/places");
