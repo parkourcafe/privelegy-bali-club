@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import {
@@ -68,9 +69,7 @@ export default function UluwatuPillarPage() {
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="uluwatu" />
         <div className="flex items-start justify-between">
-          <Link href="/" className="topline">
-            ← Other Bali
-          </Link>
+          <BrandHomeLink />
           <Link href="/places?district=uluwatu" className="quiet-link">
             All Uluwatu places →
           </Link>

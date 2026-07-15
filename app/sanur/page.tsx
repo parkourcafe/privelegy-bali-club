@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -81,9 +82,7 @@ export default async function SanurPillarPage() {
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="sanur" />
         <div className="flex items-start justify-between">
-          <Link href="/" className="topline">
-            ← Other Bali
-          </Link>
+          <BrandHomeLink />
           <Link href="/places?district=sanur" className="quiet-link">
             All Sanur places →
           </Link>
