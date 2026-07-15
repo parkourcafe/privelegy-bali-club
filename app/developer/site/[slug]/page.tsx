@@ -57,7 +57,7 @@ export default async function DeveloperVenuePhotoSite({
           </span>
         </div>
 
-        <header className="venue-masthead ob-grain has-photo">
+        <header className={`venue-masthead ob-grain${candidates[0] ? " has-photo" : ` type-cover-${venue.category}`}`}>
           {candidates[0] && (
             // Private signed URL: keep it outside the public optimizer/cache.
             // eslint-disable-next-line @next/next/no-img-element
@@ -79,7 +79,11 @@ export default async function DeveloperVenuePhotoSite({
           <div>
             <section className="guide-section" style={{ marginTop: 0 }}>
               <h2>Photos</h2>
-              <p className="guide-lede">The complete photo set prepared for this venue.</p>
+              <p className="guide-lede">
+                {candidates.length > 0
+                  ? "The complete photo set prepared for this venue."
+                  : "No candidate photo was found for this venue yet; the designed category cover remains in place."}
+              </p>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {candidates.map((candidate, index) => (
                   <figure key={candidate.id} className="overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] shadow-[var(--shadow-soft)]">

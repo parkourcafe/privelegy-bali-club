@@ -173,13 +173,25 @@ async function productionRows(client: SupabaseClient): Promise<Map<string, Recor
 export type DeveloperPhotoSiteCatalogue = {
   venues: VenueWithPerk[];
   totalCandidates: number;
+  venuesWithCandidates: number;
+  venuesWithoutCandidates: number;
   unavailableCovers: number;
 };
 
 export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSiteCatalogue> {
   await requirePhotoReviewRequest();
   const client = serviceClient();
-  if (!client) return { venues: [], totalCandidates: 814, unavailableCovers: manifestVenues.length };
+  const venuesWithCandidates = manifestVenues.filter((venue) => venue.candidates.length > 0).length;
+  const venuesWithoutCandidates = manifestVenues.length - venuesWithCandidates;
+  if (!client) {
+    return {
+      venues: [],
+      totalCandidates: 814,
+      venuesWithCandidates,
+      venuesWithoutCandidates,
+      unavailableCovers: venuesWithCandidates,
+    };
+  }
 
   const coverPaths = manifestVenues.map((venue) => venue.candidates[0]?.objectPath).filter(Boolean);
   const [rows, signedByPath] = await Promise.all([
@@ -190,12 +202,14 @@ export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSi
   const venues = manifestVenues.map((manifest) => {
     const coverPath = manifest.candidates[0]?.objectPath;
     const photoUrl = coverPath ? signedByPath.get(coverPath) : undefined;
-    if (!photoUrl) unavailableCovers += 1;
+    if (coverPath && !photoUrl) unavailableCovers += 1;
     return previewVenue(manifest, rows.get(manifest.slug), photoUrl);
   });
   return {
     venues,
     totalCandidates: manifestVenues.reduce((sum, venue) => sum + venue.candidates.length, 0),
+    venuesWithCandidates,
+    venuesWithoutCandidates,
     unavailableCovers,
   };
 }
