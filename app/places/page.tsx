@@ -84,7 +84,7 @@ export default async function PlacesPage({
         <header className="ob-grain relative -mx-5 mb-10 overflow-hidden sm:mx-0 sm:rounded-3xl sm:border sm:border-[var(--ob-line)]">
           <div className="relative min-h-[20rem] md:min-h-[24rem]">
             <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade" />
-            <HeroLoop src="/scenes/ubud-dawn-loop.mp4" />
+            <HeroLoop src="/scenes/places-coast-loop.mp4" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/85 via-[#16100c]/40 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#16100c] to-transparent" />
 
