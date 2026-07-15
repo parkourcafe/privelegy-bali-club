@@ -62,11 +62,15 @@ function logReservationClick(venueSlug: string) {
 export default function PlaceCard({
   place,
   secondaryAction = "directions",
+  detailBasePath = "/places",
+  disableTracking = false,
 }: {
   place: PlaceCardData;
   secondaryAction?: "directions" | "none";
+  detailBasePath?: string;
+  disableTracking?: boolean;
 }) {
-  const href = `/places/${place.slug}`;
+  const href = `${detailBasePath}/${place.slug}`;
   const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
     ? buildTablePilotReservationUrl(
         place.tablepilotSlug,
@@ -105,7 +109,7 @@ export default function PlaceCard({
         <h3 className="place-card-name">
           <Link
             href={href}
-            onClick={() => track("venue_card_click", { venueSlug: place.slug })}
+            onClick={disableTracking ? undefined : () => track("venue_card_click", { venueSlug: place.slug })}
           >
             {place.name}
           </Link>
@@ -156,7 +160,7 @@ export default function PlaceCard({
             <Link
               href={href}
               className="place-card-cta"
-              onClick={() => track("venue_card_click", { venueSlug: place.slug })}
+              onClick={disableTracking ? undefined : () => track("venue_card_click", { venueSlug: place.slug })}
             >
               View place →
             </Link>
