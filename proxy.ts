@@ -59,6 +59,20 @@ function photoReviewChallenge(): NextResponse {
   return basicChallenge(PHOTO_REVIEW_REALM);
 }
 
+function photoReviewLogin(req: NextRequest): NextResponse {
+  const target = req.nextUrl.clone();
+  target.pathname = "/review";
+  target.search = "";
+  return NextResponse.redirect(target, {
+    status: 307,
+    headers: {
+      "Cache-Control": "private, no-store, max-age=0",
+      "Referrer-Policy": "no-referrer",
+      "X-Robots-Tag": "noindex, nofollow, noarchive",
+    },
+  });
+}
+
 function adminNotFound(): NextResponse {
   return new NextResponse("Not found", {
     status: 404,
@@ -93,6 +107,7 @@ export function proxy(req: NextRequest) {
     );
     if (!token && !shareToken) return adminNotFound();
     if (!basicAllowed && !shareAllowed) {
+      if (shareToken) return photoReviewLogin(req);
       return photoReviewChallenge();
     }
   }
