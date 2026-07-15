@@ -24,10 +24,11 @@ export const metadata: Metadata = {
   },
   description:
     "The right place for the moment you're in. Curated Bali places, routes, and confirmed venue offers where available.",
-  manifest: "/manifest.webmanifest?v=4",
+  manifest: "/manifest.webmanifest?v=5",
   appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
   icons: {
-    apple: "/icon-192.png",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Other Bali — the right place for the moment you're in",
