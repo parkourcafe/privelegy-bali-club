@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
 import { track } from "@/lib/analytics";
+import { DISTRICT_GRADIENT } from "@/lib/districts";
 
 // Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
 // parsed price bands) so the card layer stays lean.
@@ -377,10 +378,29 @@ export default function PlacesView({
 
       {grouped.map(([slug, items]) => (
         <section key={slug} className="slot-section">
-          <div className="slot-heading">
-            <h2>{districtLabel[slug] ?? slug}</h2>
-            <p>{items.length} places</p>
-          </div>
+          {/* District divider — the same light colour wash as the homepage
+              "Around Bali" cards, so scrolling the catalogue you feel each new
+              district instead of reading a grey label. Falls back to the plain
+              heading for any district without a gradient. */}
+          {DISTRICT_GRADIENT[slug] ? (
+            <div className="relative h-20 overflow-hidden rounded-2xl">
+              <div className="absolute inset-0" style={{ background: DISTRICT_GRADIENT[slug] }} />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent" />
+              <div className="relative flex h-full flex-col justify-center px-5">
+                <h2 className="font-display text-xl font-semibold text-[var(--ob-sand)] drop-shadow-[0_1px_6px_rgba(0,0,0,0.65)]">
+                  {districtLabel[slug] ?? slug}
+                </h2>
+                <p className="text-xs font-semibold text-[var(--ob-sand)]/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]">
+                  {items.length} places
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="slot-heading">
+              <h2>{districtLabel[slug] ?? slug}</h2>
+              <p>{items.length} places</p>
+            </div>
+          )}
           {/* Editorial cards: the decision essentials only. The TablePilot
               Reserve handoff (guardrail #3) stays on the card as a secondary
               CTA wherever a venue is bookable; the full profile — offer

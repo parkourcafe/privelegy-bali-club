@@ -198,3 +198,26 @@ export const DISTRICT_GUIDE: DistrictGuideEntry[] = GUIDE.map((d) => ({
   catalogued: CATALOGUED.has(d.slug),
   guidePath: d.guidePath ?? PILLAR_PATH[d.slug],
 }));
+
+// Distinct, light-leaning colour wash per district — shared by the homepage
+// "Around Bali" cards and the /places catalogue district dividers, so a
+// district looks the same everywhere. Each hue is its own so Canggu, Ubud and
+// Lombok never read alike; warm-cohesive but never identical. Keys are DB
+// district slugs (same as DISTRICT_GUIDE).
+export const DISTRICT_GRADIENT: Record<string, string> = {
+  canggu: "linear-gradient(150deg,#2f7f88 0%,#c69a5c 55%,#2a1c12 100%)",
+  ubud: "linear-gradient(150deg,#4a7a52 0%,#cba35e 55%,#221a10 100%)",
+  seminyak: "linear-gradient(150deg,#c07184 0%,#e6bd7d 52%,#2a1a14 100%)",
+  "kuta-legian": "linear-gradient(150deg,#e6a851 0%,#f2cd8b 48%,#3a2614 100%)",
+  jimbaran: "linear-gradient(150deg,#b85a30 0%,#e6bd7d 52%,#20140f 100%)",
+  "uluwatu-bukit": "linear-gradient(150deg,#3d78b0 0%,#cba35e 55%,#20180f 100%)",
+  "nusa-dua": "linear-gradient(150deg,#2fa9a2 0%,#cbe3d2 48%,#213230 100%)",
+  sanur: "linear-gradient(150deg,#df9aa8 0%,#f2d7ac 50%,#2a2016 100%)",
+  sidemen: "linear-gradient(150deg,#63863f 0%,#cba35e 55%,#20180d 100%)",
+  amed: "linear-gradient(150deg,#2f6296 0%,#d6aa60 55%,#161b24 100%)",
+  munduk: "linear-gradient(150deg,#3f857b 0%,#b3cd92 50%,#182420 100%)",
+  lovina: "linear-gradient(150deg,#4f88a4 0%,#d0bb8c 52%,#182028 100%)",
+  "nusa-islands": "linear-gradient(150deg,#1fa6bd 0%,#9ee6dc 48%,#213238 100%)",
+  "gili-islands": "linear-gradient(150deg,#2bb8ae 0%,#cbe9d7 48%,#203030 100%)",
+  lombok: "linear-gradient(150deg,#93a447 0%,#e6bd7d 52%,#2a2415 100%)",
+};
