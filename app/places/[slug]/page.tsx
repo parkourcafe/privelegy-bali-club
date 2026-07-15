@@ -215,18 +215,21 @@ export default async function VenuePage({
   const published = isPublicReadyVenue(venue);
   if (!published) notFound();
   const name = content?.displayName ?? venue.name;
-  // Official site + Instagram: for Uluwatu, the registry is the source of truth
-  // (freshness-gated). For every other district there is no registry entry, so
-  // fall back to the DB fields — these are the venue's own neutral official
-  // links (guardrail: neutral official links are allowed in any district), and
-  // they already feed the JSON-LD sameAs. This surfaces them as visible links
-  // (and a website action) for all districts, not just Uluwatu.
-  const officialUrl = isUluwatu
-    ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
-    : venue.officialUrl ?? undefined;
-  const instagramUrl = isUluwatu
-    ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
-    : venue.instagramUrl ?? undefined;
+  // Official site + Instagram (identity links, also fed to JSON-LD sameAs).
+  // Prefer a REGISTERED Uluwatu venue's registry value (freshness-gated), then
+  // fall back to the venue's DB field. That fallback covers every other
+  // district AND Uluwatu rows the registry doesn't cover (DB-only wellness) or
+  // doesn't carry a link for. Neutral official links are allowed in any
+  // district (guardrail); unlike a menu/booking action, an identity link
+  // doesn't go stale, so the DB fallback is safe here.
+  const officialUrl =
+    (isUluwatu && content
+      ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
+      : undefined) ?? venue.officialUrl ?? undefined;
+  const instagramUrl =
+    (isUluwatu && content
+      ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
+      : undefined) ?? venue.instagramUrl ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
