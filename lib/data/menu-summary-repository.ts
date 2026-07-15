@@ -23,6 +23,14 @@ export type PublicMenuSummary = Omit<MenuRecord, "sections"> & {
   sections: PublicMenuSectionSummary[];
 };
 
+// The first section always renders inline regardless of size (it's the
+// above-the-fold content). Beyond that, only sections large enough to matter
+// for HTML weight are deferred to a client fetch on expand — a small drinks
+// or sides section (a handful of items) costs nothing to render inline and
+// gains nothing from an extra round-trip, so it stays fully server-rendered
+// and crawlable. Tune this threshold if real menus show it's off.
+const LARGE_SECTION_ITEM_THRESHOLD = 12;
+
 async function fetchPublishedMenuSummary(
   venueSlug: string,
 ): Promise<PublicMenuSummary | null> {
@@ -47,39 +55,36 @@ async function fetchPublishedMenuSummary(
       .order("position");
     if (sectionError) return null;
     const sections = (sectionRows ?? []) as DataRow[];
-    const firstSectionId = String(sections[0]?.id ?? "");
-    const [{ data: itemIndex, error: indexError }, { data: firstItems, error: itemError }] =
-      await Promise.all([
-        client.from("menu_items").select("id,section_id").eq("menu_id", menu.id),
-        firstSectionId
-          ? client
-              .from("menu_items")
-              .select(ITEM_COLUMNS)
-              .eq("menu_id", menu.id)
-              .eq("section_id", firstSectionId)
-              .order("position")
-          : Promise.resolve({ data: [] as DataRow[], error: null }),
-      ]);
-    if (indexError || itemError) return null;
-    const mapped = mapPublishedMenu(
-      menu,
-      sections,
-      (firstItems ?? []) as DataRow[],
-    );
+
+    // Fetch every item row up front. This whole call is shared across all
+    // guests via the 5-minute unstable_cache below, so the marginal Supabase
+    // cost of full item rows (vs. a lightweight id-only count) is negligible —
+    // it lets small sections stay eagerly rendered instead of guessing from a
+    // count alone.
+    const { data: itemRows, error: itemError } = await client
+      .from("menu_items")
+      .select(ITEM_COLUMNS)
+      .eq("menu_id", menu.id)
+      .order("position");
+    if (itemError) return null;
+
+    const mapped = mapPublishedMenu(menu, sections, (itemRows ?? []) as DataRow[]);
     if (!mapped) return null;
 
-    const counts = new Map<string, number>();
-    for (const row of (itemIndex ?? []) as DataRow[]) {
-      const sectionId = String(row.section_id ?? "");
-      counts.set(sectionId, (counts.get(sectionId) ?? 0) + 1);
-    }
     return {
       ...mapped,
-      sections: mapped.sections.map((section, index) => ({
-        ...section,
-        itemCount: counts.get(section.id) ?? section.items.length,
-        deferred: index > 0,
-      })),
+      sections: mapped.sections.map((section, index) => {
+        const itemCount = section.items.length;
+        const deferred = index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD;
+        return {
+          ...section,
+          itemCount,
+          deferred,
+          // Only genuinely large sections have their items withheld from the
+          // initial HTML; everything else stays fully server-rendered.
+          items: deferred ? [] : section.items,
+        };
+      }),
     };
   } catch {
     return null;

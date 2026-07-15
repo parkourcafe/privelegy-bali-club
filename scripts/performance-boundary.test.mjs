@@ -56,7 +56,9 @@ test("large menus defer closed-section items and keep publication gates", async 
   const sectionRoute = await read("app/api/public/menu-section/route.ts");
   assert.doesNotMatch(item, /^"use client";/);
   assert.match(item, /data-menu-item-id/);
-  assert.match(summaryRepository, /deferred: index > 0/);
+  assert.match(summaryRepository, /LARGE_SECTION_ITEM_THRESHOLD/);
+  assert.match(summaryRepository, /index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD/);
+  assert.match(summaryRepository, /items: deferred \? \[\] : section\.items/);
   assert.match(summaryRepository, /\.eq\("status", "published"\)/);
   assert.match(summaryRepository, /\.eq\("completeness", "full"\)/);
   assert.match(sectionRoute, /getPublishedMenuSection/);
