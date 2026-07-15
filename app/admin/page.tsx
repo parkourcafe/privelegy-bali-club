@@ -43,6 +43,14 @@ export default async function AdminIndex() {
       </Link>
 
       <Link
+        href="/admin/submissions"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-indigo-700 p-4 text-white"
+      >
+        <span className="font-semibold">→ Incoming listing requests</span>
+        <span className="text-indigo-100">intake</span>
+      </Link>
+
+      <Link
         href="/admin/phase0"
         className="mt-4 flex items-center justify-between rounded-2xl bg-cyan-700 p-4 text-white"
       >
