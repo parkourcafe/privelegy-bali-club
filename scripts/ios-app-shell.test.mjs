@@ -25,9 +25,11 @@ test("the bundled shell persists a plan, favourites, offline state and deep link
   assert.match(shell, /Plugins\.Share/);
   assert.match(shell, /navigator\.share/);
   assert.match(shell, /scrollIntoView/);
+  assert.match(shell, /id="saved-places"/);
+  assert.match(shell, /kind === "place"\) revealSavedPlaces/);
   assert.match(shell, /storedPlan && storedPlan\.district/);
   assert.match(shell, /planMood/);
-  assert.match(shell, /id="plan"><\/div><section class="step"><span class="step-label">Saved places/);
+  assert.match(shell, /id="plan"><\/div><section class="step" id="saved-places"><span class="step-label">Saved places/);
   assert.doesNotMatch(shell, /navigator\.geolocation|SUPABASE|authToken/i);
 });
 
