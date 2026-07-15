@@ -215,8 +215,18 @@ export default async function VenuePage({
   const published = isPublicReadyVenue(venue);
   if (!published) notFound();
   const name = content?.displayName ?? venue.name;
-  const officialUrl = freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl);
-  const instagramUrl = freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl);
+  // Official site + Instagram: for Uluwatu, the registry is the source of truth
+  // (freshness-gated). For every other district there is no registry entry, so
+  // fall back to the DB fields — these are the venue's own neutral official
+  // links (guardrail: neutral official links are allowed in any district), and
+  // they already feed the JSON-LD sameAs. This surfaces them as visible links
+  // (and a website action) for all districts, not just Uluwatu.
+  const officialUrl = isUluwatu
+    ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
+    : venue.officialUrl ?? undefined;
+  const instagramUrl = isUluwatu
+    ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
+    : venue.instagramUrl ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
@@ -692,7 +702,7 @@ export default async function VenuePage({
                         event="instagram_click"
                         venueSlug={venue.slug}
                       >
-                        {instagramUrl.replace("https://www.instagram.com/", "@").replace(/\/$/, "")}
+                        {instagramUrl.replace(/^https?:\/\/(www\.)?instagram\.com\//, "@").replace(/\/$/, "")}
                       </TrackedOutboundLink>
                     </dd>
                   </div>
