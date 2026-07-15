@@ -258,14 +258,28 @@ export default function PlacesView({
   return (
     <section className="scroll-mt-8">
       <div className="filter-panel">
-        <label className="min-w-[220px] flex-1">
+        <label className="min-w-[240px] flex-1">
           <span className="chip-label">Search</span>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Place, area, vibe..."
-            className="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 text-sm text-[var(--ink)] outline-none focus:border-[var(--lagoon)]"
-          />
+          <div className="relative mt-2">
+            <svg
+              className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--muted)]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Place, area, vibe…"
+              className="w-full rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] py-2.5 pl-10 pr-3 text-sm text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brass)] focus:ring-2 focus:ring-[color:rgba(198,154,92,0.28)]"
+            />
+          </div>
         </label>
         <Chips
           label="District"
