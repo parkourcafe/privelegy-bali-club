@@ -51,3 +51,19 @@
   database-backed preview measurement remains required after deployment.
 - Validation: lint passed with one pre-existing image warning; typecheck passed;
   12/12 tests passed; production build passed.
+
+### Batch 3 — responsive image delivery
+
+- Public Supabase venue photos now use responsive Next Image widths and
+  AVIF/WebP negotiation; rights-gated API delivery and unknown external hosts
+  deliberately bypass the optimizer.
+- Card, plan visual and venue hero sizes are declared separately; only the
+  venue hero receives high-priority loading.
+- Local scenes and covers now have one-day browser caching plus seven-day
+  stale-while-revalidate.
+- Live-source smoke: a 915,442-byte Supabase JPEG became a 34,180-byte 640px
+  card response (96.3% smaller) through the local production image route.
+- The same route negotiated AVIF successfully; scene headers returned the
+  configured cache policy.
+- Validation: lint passed with one unrelated partner-review image warning;
+  typecheck passed; 13/13 tests passed; production build passed.

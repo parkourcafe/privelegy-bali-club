@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Venue } from "@/lib/types";
 
 // Typographic editorial cover — the honest no-photo state. It sets type over
@@ -39,8 +40,13 @@ export default function PlaceCover({
   if (variant === "hero") {
     return (
       <div className={`type-cover type-cover-${category}`} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="type-cover-art" src={`/covers/${category}.webp`} alt="" loading="lazy" />
+        <Image
+          className="type-cover-art"
+          src={`/covers/${category}.webp`}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, 33vw"
+        />
         <p className="type-cover-category">
           {categoryWord[category] ?? "Place"}
           {microArea ? ` · ${microArea}` : ""}
@@ -57,8 +63,13 @@ export default function PlaceCover({
 
   return (
     <div className={`type-cover type-cover-${category}`} aria-hidden="true">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="type-cover-art" src={`/covers/${category}.webp`} alt="" loading="lazy" />
+      <Image
+        className="type-cover-art"
+        src={`/covers/${category}.webp`}
+        alt=""
+        fill
+        sizes="(max-width: 640px) 100vw, 33vw"
+      />
       <span />
       <div>
         <div className="type-cover-rule" />

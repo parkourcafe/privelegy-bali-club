@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import SceneArt from "./SceneArt";
 
 // Cinematic scene layer: generated photographic scene (public/scenes/*.webp,
@@ -26,13 +27,12 @@ export default function SceneImage({
     <div className={`absolute inset-0 ${className}`}>
       <SceneArt variant={variant} className="absolute inset-0 h-full w-full" />
       {!failed && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={`/scenes/${scene}.webp`}
           alt={alt}
-          loading={scene === "hero-sunset" ? "eager" : "lazy"}
-          fetchPriority={scene === "hero-sunset" ? "high" : "auto"}
-          decoding="async"
+          fill
+          sizes="100vw"
+          priority={scene === "hero-sunset"}
           onError={() => setFailed(true)}
           className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`}
         />

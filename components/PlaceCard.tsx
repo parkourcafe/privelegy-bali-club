@@ -1,5 +1,6 @@
 import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
+import VenueImage from "@/components/VenueImage";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
 import {
   TrackedDirectionLink,
@@ -67,14 +68,10 @@ export default function PlaceCard({
     <article className="place-card">
       <div className="place-card-media">
         {place.photoUrl ? (
-          // Venue-approved photo (uploaded by the owner during onboarding).
-          // Plain img with a fixed aspect box (no CLS); remote hosts vary, so
-          // next/image optimization is not safe here.
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <VenueImage
             src={place.photoUrl}
             alt={`${place.name} — ${categoryLabel[place.category] ?? place.category}`}
-            loading="lazy"
+            variant="card"
           />
         ) : (
           <PlaceCover name={place.name} category={place.category} />

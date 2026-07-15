@@ -37,3 +37,15 @@ test("catalogue renders a bounded server-side page instead of hydrating every ve
   assert.doesNotMatch(card, /^"use client";/);
   assert.match(view, /<form action="\/places" method="get"/);
 });
+
+test("public venue photos use responsive optimization without weakening consent delivery", async () => {
+  const image = await read("components/VenueImage.tsx");
+  const config = await read("next.config.ts");
+  const protectedPhotoRoute = await read("app/api/venue-photo/[id]/route.ts");
+  assert.match(image, /from "next\/image"/);
+  assert.match(image, /src\.startsWith\("\/api\/venue-photo\/"\)\) return false/);
+  assert.match(image, /sizes=\{sizesByVariant\[variant\]\}/);
+  assert.match(config, /hostname: "\*\*\.supabase\.co"/);
+  assert.match(config, /stale-while-revalidate=604800/);
+  assert.match(protectedPhotoRoute, /max-age=300, s-maxage=300/);
+});

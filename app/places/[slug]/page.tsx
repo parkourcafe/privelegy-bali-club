@@ -21,6 +21,7 @@ import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
+import VenueImage from "@/components/VenueImage";
 
 export const dynamic = "force-dynamic";
 
@@ -407,26 +408,22 @@ export default async function VenuePage({
               className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
             >
               {venue.photoUrl ? (
-                // Venue-approved photo (owner-uploaded during onboarding).
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <VenueImage
                   className="venue-masthead-photo"
                   src={venue.photoUrl}
                   alt={`${name} — ${catLabel}`}
-                  fetchPriority="high"
+                  variant="hero"
+                  priority
                 />
               ) : (
-                // Category mood art — atmospheric editorial still, decorative
-                // (alt="") and never presented as venue photography
-                // (publication rule v2). The category gradient stays beneath
-                // as the loading/fallback field.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                // Category mood art — atmospheric and decorative, never
+                // presented as venue photography.
+                <VenueImage
                   className="venue-masthead-photo venue-masthead-art"
                   src={`/covers/${venue.category}.webp`}
                   alt=""
-                  aria-hidden="true"
-                  fetchPriority="high"
+                  variant="hero"
+                  priority
                 />
               )}
               <div className="venue-masthead-inner">
