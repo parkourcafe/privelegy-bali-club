@@ -27,3 +27,27 @@
 3. Responsive image delivery and browser caching.
 4. Menu, route, plan and Uluwatu rendering improvements.
 5. Repeat the full URL audit and record before/after evidence.
+
+## Completed evidence
+
+### Batch 1 — public data cache
+
+- Added five-minute caches for published venues, menus, actions, plans and routes.
+- Kept GuestRef, saved-place, partner and admin reads outside cache scopes.
+- Deduplicated venue reads and limited Similar Places to three results from at
+  most eight ranked candidates.
+- Validation: lint passed with one pre-existing image warning; typecheck passed;
+  11/11 tests passed; production build passed.
+
+### Batch 2 — catalogue rendering
+
+- Server-side filtering and URL-driven pagination now bound `/places` to 24
+  result cards per response.
+- Top-three intent ranking still runs over the complete filtered result set
+  before pagination.
+- `PlacesView` and `PlaceCard` are Server Components; only analytics-enabled
+  links hydrate on the client.
+- Local no-database shell response: HTTP 200, 29,966 bytes, 81 ms total. A
+  database-backed preview measurement remains required after deployment.
+- Validation: lint passed with one pre-existing image warning; typecheck passed;
+  12/12 tests passed; production build passed.

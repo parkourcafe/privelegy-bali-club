@@ -1,14 +1,9 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { VenueWithPerk } from "@/lib/data";
 import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
-import { track } from "@/lib/analytics";
+import { TrackedGuideLink } from "@/components/PlaceCardActions";
 import { DISTRICT_GRADIENT } from "@/lib/districts";
 
-// Catalogue rows arrive enriched server-side (registry editorial for Uluwatu,
-// parsed price bands) so the card layer stays lean.
 export type CataloguePlace = VenueWithPerk & {
   cardLine?: string;
   cardArea?: string;
@@ -16,23 +11,21 @@ export type CataloguePlace = VenueWithPerk & {
   cardPrice?: string;
 };
 
-function toCard(v: CataloguePlace): PlaceCardData {
-  return {
-    slug: v.slug,
-    name: v.name,
-    category: v.category,
-    microArea: v.cardArea ?? v.area,
-    editorialLine: v.cardLine ?? v.whyItsHere,
-    bestFor: v.cardBestFor ?? v.bestFor,
-    priceBand: v.cardPrice,
-    photoUrl: v.photoUrl,
-    isSponsored: v.isSponsored,
-    gmapsUrl: v.gmapsUrl,
-    tablepilotSlug: undefined,
-    coverageMode: "planning_only",
-    hasOffer: Boolean(v.perk),
-  };
-}
+export type CatalogueTopPick = {
+  venue: CataloguePlace;
+  reasons: string[];
+};
+
+export type CatalogueFilters = {
+  query: string;
+  district: string;
+  category: string;
+  intentMode: boolean;
+  mission: string;
+  missionLabel?: string;
+  duration: string;
+  durationLabel?: string;
+};
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -65,323 +58,280 @@ const districtLabel: Record<string, string> = {
   lombok: "Lombok",
 };
 
-type InitialFilters = {
-  query?: string;
-  district?: string;
-  category?: string;
-  intentMode?: boolean;
-  missionLabel?: string;
-  durationLabel?: string;
-};
-
-// A place's fit against the day brief. Pure + deterministic — this is the
-// "Top 3 for your brief" ranking (master §6a.7 step 3), not an AI recommender.
-function haystack(v: VenueWithPerk): string {
-  return [
-    v.name,
-    v.area,
-    v.category,
-    ...(v.wellnessCategories ?? []),
-    v.district,
-    v.whyItsHere,
-    v.bestFor,
-    ...(v.vibeTags ?? []),
-    ...(v.practicalTags ?? []),
-    ...(v.jobs ?? []),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
+function toCard(v: CataloguePlace): PlaceCardData {
+  return {
+    slug: v.slug,
+    name: v.name,
+    category: v.category,
+    microArea: v.cardArea ?? v.area,
+    editorialLine: v.cardLine ?? v.whyItsHere,
+    bestFor: v.cardBestFor ?? v.bestFor,
+    priceBand: v.cardPrice,
+    photoUrl: v.photoUrl,
+    isSponsored: v.isSponsored,
+    gmapsUrl: v.gmapsUrl,
+    tablepilotSlug: undefined,
+    coverageMode: "planning_only",
+    hasOffer: Boolean(v.perk),
+  };
 }
 
-function prettyTag(t: string): string {
-  return t.replace(/[-_]/g, " ").trim();
+function catalogueHref(
+  filters: CatalogueFilters,
+  overrides: Partial<CatalogueFilters> & { page?: number } = {},
+): string {
+  const next = { ...filters, ...overrides };
+  const params = new URLSearchParams();
+  if (next.query) params.set("q", next.query);
+  if (next.district) params.set("district", next.district);
+  if (next.category) params.set("category", next.category);
+  if (next.intentMode) params.set("intent", "1");
+  if (next.mission) params.set("m", next.mission);
+  if (next.duration) params.set("dur", next.duration);
+  if (overrides.page && overrides.page > 1) params.set("page", String(overrides.page));
+  const query = params.toString();
+  return query ? `/places?${query}` : "/places";
 }
 
-function scoreVenue(
-  v: VenueWithPerk,
-  tokens: string[],
-  category: string | null,
-  district: string | null
-): { score: number; reasons: string[] } {
-  const hay = haystack(v);
-  const reasons: string[] = [];
-  let score = 0;
+function prettyTag(value: string): string {
+  return value.replace(/[-_]/g, " ").trim();
+}
 
-  const categoryMatched = Boolean(
-    category && (v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"]))
+function FilterChips({
+  label,
+  options,
+  selected,
+  filters,
+  render,
+  field,
+}: {
+  label: string;
+  options: readonly string[];
+  selected: string;
+  filters: CatalogueFilters;
+  render: (value: string) => string;
+  field: "district" | "category";
+}) {
+  if (options.length === 0) return null;
+  return (
+    <div className="chip-row">
+      <span className="chip-label">{label}</span>
+      {options.map((option) => {
+        const active = selected === option;
+        return (
+          <Link
+            key={option}
+            href={catalogueHref(filters, { [field]: active ? "" : option })}
+            aria-current={active ? "page" : undefined}
+            className={`chip ${active ? "chip-active" : ""}`}
+          >
+            {render(option)}
+          </Link>
+        );
+      })}
+    </div>
   );
-  if (categoryMatched) {
-    score += 3;
-    reasons.push(categoryLabel[category!] ?? category!);
-  }
-  const catWords = new Set([v.category, (categoryLabel[v.category] ?? "").toLowerCase()]);
-  for (const t of tokens) {
-    if (t && hay.includes(t)) {
-      score += 2;
-      // Don't repeat the category as a reason when it already matched
-      // ("Café · cafe" reads as noise).
-      if (!(categoryMatched && catWords.has(t))) reasons.push(prettyTag(t));
-    }
-  }
-  if (district && v.district === district) score += 1;
-  // Completeness / relationship tie-breakers — surface the most decision-ready
-  // places first without ever becoming a paid-ranking signal (guardrail #6).
-  if (v.photoUrl) score += 1;
-  if (v.bestFor) score += 1;
-  if (v.priceAnchor || v.whatToOrder) score += 1;
-  score += v.tier === "founding" ? 1 : v.tier === "launch" ? 0.5 : 0;
-
-  const seen = new Set<string>();
-  const uniqueReasons = reasons.filter((r) => {
-    const k = r.toLowerCase();
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  });
-
-  return { score, reasons: uniqueReasons.slice(0, 4) };
 }
 
 export default function PlacesView({
   venues,
-  initialFilters,
+  topPicks,
+  filters,
+  districts,
+  categories,
+  totalMatches,
+  totalVenues,
+  page,
+  totalPages,
 }: {
   venues: CataloguePlace[];
-  initialFilters?: InitialFilters;
+  topPicks: CatalogueTopPick[];
+  filters: CatalogueFilters;
+  districts: string[];
+  categories: string[];
+  totalMatches: number;
+  totalVenues: number;
+  page: number;
+  totalPages: number;
 }) {
-  const [query, setQuery] = useState(initialFilters?.query ?? "");
-  const [district, setDistrict] = useState<string | null>(
-    initialFilters?.district || null
-  );
-  const [category, setCategory] = useState<string | null>(
-    initialFilters?.category || null
-  );
-  const intentMode = initialFilters?.intentMode ?? false;
-  // Mission/duration are human labels for the brief (they don't re-rank — the
-  // matchable tags already ride in `query`). Held in state so their chips are
-  // removable like the rest of the brief.
-  const [missionLabel, setMissionLabel] = useState(initialFilters?.missionLabel);
-  const [durationLabel, setDurationLabel] = useState(initialFilters?.durationLabel);
+  const grouped = new Map<string, CataloguePlace[]>();
+  for (const venue of venues) {
+    const list = grouped.get(venue.district) ?? [];
+    list.push(venue);
+    grouped.set(venue.district, list);
+  }
 
-  const districts = useMemo(
-    () => [...new Set(venues.map((v) => v.district))].sort(),
-    [venues]
-  );
-  const categories = useMemo(
-    () => [...new Set(venues.flatMap((v) => v.wellnessCategories?.length ? v.wellnessCategories : [v.category]))].sort(),
-    [venues]
-  );
-
-  const tokens = useMemo(
-    () => query.trim().toLowerCase().split(/\s+/).filter(Boolean),
-    [query]
-  );
-
-  const filtered = useMemo(() => {
-    return venues.filter((v) => {
-      const hay = haystack(v) + " " + (v.address ?? "").toLowerCase();
-      return (
-        (!district || v.district === district) &&
-        (!category || v.category === category || v.wellnessCategories?.includes(category as VenueWithPerk["category"])) &&
-        (tokens.length === 0 ||
-          (intentMode
-            ? tokens.some((token) => hay.includes(token))
-            : tokens.every((token) => hay.includes(token))))
-      );
-    });
-  }, [venues, tokens, district, category, intentMode]);
-
-  // Top 3 for the brief — only when the traveller arrived from the day builder
-  // (intentMode) with something to match on. Everything else "widens" below.
-  const topPicks = useMemo(() => {
-    if (!intentMode || (tokens.length === 0 && !category)) return [];
-    return filtered
-      .map((v) => ({ venue: v, ...scoreVenue(v, tokens, category, district) }))
-      .filter((r) => r.score > 0)
-      .sort((a, b) => b.score - a.score || a.venue.name.localeCompare(b.venue.name))
-      .slice(0, 3);
-  }, [filtered, tokens, category, district, intentMode]);
-
-  const topSlugs = useMemo(
-    () => new Set(topPicks.map((p) => p.venue.slug)),
-    [topPicks]
-  );
-
-  const rest = useMemo(
-    () => filtered.filter((v) => !topSlugs.has(v.slug)),
-    [filtered, topSlugs]
-  );
-
-  const grouped = useMemo(() => {
-    const map = new Map<string, VenueWithPerk[]>();
-    for (const venue of rest) {
-      const list = map.get(venue.district) ?? [];
-      list.push(venue);
-      map.set(venue.district, list);
-    }
-    return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
-  }, [rest]);
-
-  const briefLabel = [missionLabel, durationLabel].filter(Boolean).join(" · ");
-
-  // The live brief, one removable chip per criterion, so nothing silently
-  // narrows the map (audit 2026-07). Each token / district / category / mission
-  // / duration the traveller carries in is visible and droppable.
-  const activeCriteria: { key: string; label: string; onRemove: () => void }[] = [
-    ...tokens.map((t) => ({
-      key: `q:${t}`,
-      label: prettyTag(t),
-      onRemove: () => setQuery(tokens.filter((x) => x !== t).join(" ")),
+  const tokens = filters.query.toLowerCase().split(/\s+/).filter(Boolean);
+  const activeCriteria: { key: string; label: string; href: string }[] = [
+    ...tokens.map((token) => ({
+      key: `q:${token}`,
+      label: prettyTag(token),
+      href: catalogueHref(filters, {
+        query: tokens.filter((item) => item !== token).join(" "),
+      }),
     })),
-    ...(district
-      ? [{ key: "district", label: districtLabel[district] ?? district, onRemove: () => setDistrict(null) }]
+    ...(filters.district
+      ? [{
+          key: "district",
+          label: districtLabel[filters.district] ?? filters.district,
+          href: catalogueHref(filters, { district: "" }),
+        }]
       : []),
-    ...(category
-      ? [{ key: "category", label: categoryLabel[category] ?? category, onRemove: () => setCategory(null) }]
+    ...(filters.category
+      ? [{
+          key: "category",
+          label: categoryLabel[filters.category] ?? filters.category,
+          href: catalogueHref(filters, { category: "" }),
+        }]
       : []),
-    ...(missionLabel
-      ? [{ key: "mission", label: missionLabel, onRemove: () => setMissionLabel(undefined) }]
+    ...(filters.missionLabel
+      ? [{
+          key: "mission",
+          label: filters.missionLabel,
+          href: catalogueHref(filters, { mission: "", missionLabel: undefined }),
+        }]
       : []),
-    ...(durationLabel
-      ? [{ key: "duration", label: durationLabel, onRemove: () => setDurationLabel(undefined) }]
+    ...(filters.durationLabel
+      ? [{
+          key: "duration",
+          label: filters.durationLabel,
+          href: catalogueHref(filters, { duration: "", durationLabel: undefined }),
+        }]
       : []),
   ];
 
-  function clearAllCriteria() {
-    setQuery("");
-    setDistrict(null);
-    setCategory(null);
-    setMissionLabel(undefined);
-    setDurationLabel(undefined);
-  }
+  const briefLabel = [filters.missionLabel, filters.durationLabel]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <section className="scroll-mt-8">
       <div className="filter-panel">
-        <label className="min-w-[240px] flex-1">
-          <span className="chip-label">Search</span>
-          <div className="relative mt-2">
-            <svg
-              className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--muted)]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Place, area, vibe…"
-              className="w-full rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] py-2.5 pl-10 pr-3 text-sm text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brass)] focus:ring-2 focus:ring-[color:rgba(198,154,92,0.28)]"
-            />
-          </div>
-        </label>
-        <Chips
+        <form action="/places" method="get" className="min-w-[240px] flex-1">
+          <label>
+            <span className="chip-label">Search</span>
+            <div className="relative mt-2 flex gap-2">
+              <svg
+                className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--muted)]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <input
+                name="q"
+                defaultValue={filters.query}
+                placeholder="Place, area, vibe…"
+                className="w-full rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] py-2.5 pl-10 pr-3 text-sm text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brass)] focus:ring-2 focus:ring-[color:rgba(198,154,92,0.28)]"
+              />
+              <button type="submit" className="chip chip-active min-h-11 px-4">
+                Search
+              </button>
+            </div>
+          </label>
+          {filters.district ? <input type="hidden" name="district" value={filters.district} /> : null}
+          {filters.category ? <input type="hidden" name="category" value={filters.category} /> : null}
+          {filters.intentMode ? <input type="hidden" name="intent" value="1" /> : null}
+          {filters.mission ? <input type="hidden" name="m" value={filters.mission} /> : null}
+          {filters.duration ? <input type="hidden" name="dur" value={filters.duration} /> : null}
+        </form>
+        <FilterChips
           label="District"
           options={districts}
-          selected={district}
-          onSelect={setDistrict}
-          render={(v) => districtLabel[v] ?? v}
+          selected={filters.district}
+          filters={filters}
+          field="district"
+          render={(value) => districtLabel[value] ?? value}
         />
-        <Chips
+        <FilterChips
           label="Type"
           options={categories}
-          selected={category}
-          onSelect={setCategory}
-          render={(v) => categoryLabel[v] ?? v}
+          selected={filters.category}
+          filters={filters}
+          field="category"
+          render={(value) => categoryLabel[value] ?? value}
         />
       </div>
 
-      {activeCriteria.length > 0 && (
-        <div className="criteria-row" aria-label="Your active brief — tap a chip to remove it">
+      {activeCriteria.length > 0 ? (
+        <div className="criteria-row" aria-label="Your active brief — choose a chip to remove it">
           <span className="chip-label">Your brief</span>
-          {activeCriteria.map((c) => (
-            <button key={c.key} type="button" className="criteria-chip" onClick={c.onRemove}>
-              <span>{c.label}</span>
+          {activeCriteria.map((criterion) => (
+            <Link key={criterion.key} href={criterion.href} className="criteria-chip">
+              <span>{criterion.label}</span>
               <span className="criteria-x" aria-hidden="true">×</span>
-              <span className="sr-only">Remove {c.label}</span>
-            </button>
+              <span className="sr-only">Remove {criterion.label}</span>
+            </Link>
           ))}
-          <button type="button" className="criteria-clear" onClick={clearAllCriteria}>
-            Clear all
-          </button>
+          <Link href="/places" className="criteria-clear">Clear all</Link>
         </div>
-      )}
+      ) : null}
 
-      {district === "uluwatu-bukit" && (
+      {filters.district === "uluwatu-bukit" ? (
         <div className="mb-6 rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] px-4 py-3 text-sm">
-          <Link
+          <TrackedGuideLink
             href="/uluwatu"
+            pageSlug="places-to-uluwatu"
             className="font-bold text-[var(--lagoon-strong)] hover:text-[var(--clay)]"
-            onClick={() => track("internal_guide_click", { pageSlug: "places-to-uluwatu" })}
           >
             New: the full Uluwatu guide →
-          </Link>{" "}
+          </TrackedGuideLink>{" "}
           <span className="text-[var(--muted)]">
             best restaurants, brunch, sunset clubs and a 48-hour plan.
           </span>
         </div>
-      )}
+      ) : null}
 
-      {topPicks.length > 0 && (
+      {topPicks.length > 0 ? (
         <section className="slot-section">
           <div className="slot-heading">
             <h2>Top picks for your brief</h2>
             <p>{briefLabel || "Best fit first — widen below for the rest."}</p>
           </div>
           <div className="pick-grid">
-            {topPicks.map((pick, i) => (
+            {topPicks.map((pick, index) => (
               <div key={pick.venue.slug}>
                 <div className="mb-2 flex items-center gap-2">
                   <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--lagoon)] text-xs font-bold text-white">
-                    {i + 1}
+                    {index + 1}
                   </span>
-                  {pick.reasons.length > 0 && (
+                  {pick.reasons.length > 0 ? (
                     <p className="text-xs text-[var(--muted)]">
                       <span className="font-semibold">Matched because:</span>{" "}
                       {pick.reasons.join(" · ")}
                     </p>
-                  )}
+                  ) : null}
                 </div>
                 <PlaceCard place={toCard(pick.venue)} />
               </div>
             ))}
           </div>
         </section>
-      )}
+      ) : null}
 
       <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
         <p>
-          {topPicks.length > 0
-            ? `Widen to all matches — ${rest.length} more place${rest.length === 1 ? "" : "s"}.`
-            : `Showing ${filtered.length} of ${venues.length} places.`}
+          Showing {venues.length + topPicks.length} of {totalMatches} matches · {totalVenues} curated places total.
         </p>
-        {/* Honest fallback signal (audit 2026-07): say so when the full brief
-            didn't yield a clean Top 3, instead of quietly showing fewer. */}
-        {intentMode && (tokens.length > 0 || category) && topPicks.length > 0 && topPicks.length < 3 && (
+        {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length > 0 && topPicks.length < 3 ? (
           <p className="mt-1">
-            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — drop a chip above to widen it.
+            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — remove a criterion to widen it.
           </p>
-        )}
-        {intentMode && (tokens.length > 0 || category) && topPicks.length === 0 && filtered.length > 0 && (
+        ) : null}
+        {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length === 0 && totalMatches > 0 ? (
           <p className="mt-1">
-            No ranked shortlist for this brief — showing everything that fits. Add a vibe or type for a Top 3.
+            No ranked shortlist for this brief — showing everything that fits.
           </p>
-        )}
+        ) : null}
       </div>
 
-      {grouped.map(([slug, items]) => (
+      {[...grouped.entries()].map(([slug, items]) => (
         <section key={slug} className="slot-section">
-          {/* District divider — the same light colour wash as the homepage
-              "Around Bali" cards, so scrolling the catalogue you feel each new
-              district instead of reading a grey label. Falls back to the plain
-              heading for any district without a gradient. */}
           {DISTRICT_GRADIENT[slug] ? (
             <div className="relative h-20 overflow-hidden rounded-2xl">
               <div className="absolute inset-0" style={{ background: DISTRICT_GRADIENT[slug] }} />
@@ -391,69 +341,45 @@ export default function PlacesView({
                   {districtLabel[slug] ?? slug}
                 </h2>
                 <p className="text-xs font-semibold text-[var(--ob-sand)]/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]">
-                  {items.length} places
+                  {items.length} on this page
                 </p>
               </div>
             </div>
           ) : (
             <div className="slot-heading">
               <h2>{districtLabel[slug] ?? slug}</h2>
-              <p>{items.length} places</p>
+              <p>{items.length} on this page</p>
             </div>
           )}
-          {/* Editorial cards: the decision essentials only. The TablePilot
-              Reserve handoff (guardrail #3) stays on the card as a secondary
-              CTA wherever a venue is bookable; the full profile — offer
-              terms, practical info, booking options — lives on the venue
-              page behind View place. */}
           <div className="pick-grid">
-            {items.map((v) => (
-              <PlaceCard key={v.slug} place={toCard(v)} />
+            {items.map((venue) => (
+              <PlaceCard key={venue.slug} place={toCard(venue)} />
             ))}
           </div>
         </section>
       ))}
 
-      {filtered.length === 0 && (
+      {totalMatches === 0 ? (
         <p className="py-10 text-center text-sm text-[var(--muted)]">
-          Nothing matches that combo yet. Clear a filter to widen the map.
+          Nothing matches that combination yet. Clear a filter to widen the map.
         </p>
-      )}
-    </section>
-  );
-}
+      ) : null}
 
-function Chips({
-  label,
-  options,
-  selected,
-  onSelect,
-  render,
-}: {
-  label: string;
-  options: readonly string[];
-  selected: string | null;
-  onSelect: (value: string | null) => void;
-  render?: (value: string) => string;
-}) {
-  if (options.length === 0) return null;
-  return (
-    <div className="chip-row">
-      <span className="chip-label">{label}</span>
-      {options.map((option) => {
-        const active = selected === option;
-        return (
-          <button
-            key={option}
-            type="button"
-            aria-pressed={active}
-            onClick={() => onSelect(active ? null : option)}
-            className={`chip ${active ? "chip-active" : ""}`}
-          >
-            {render ? render(option) : option}
-          </button>
-        );
-      })}
-    </div>
+      {totalPages > 1 ? (
+        <nav className="mt-10 flex items-center justify-center gap-3" aria-label="Catalogue pages">
+          {page > 1 ? (
+            <Link href={catalogueHref(filters, { page: page - 1 })} className="quiet-link min-h-11 px-4 py-3">
+              ← Previous
+            </Link>
+          ) : null}
+          <span className="text-sm text-[var(--muted)]">Page {page} of {totalPages}</span>
+          {page < totalPages ? (
+            <Link href={catalogueHref(filters, { page: page + 1 })} className="quiet-link min-h-11 px-4 py-3">
+              Next →
+            </Link>
+          ) : null}
+        </nav>
+      ) : null}
+    </section>
   );
 }
