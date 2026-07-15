@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  configuredPhotoReviewToken,
   configuredProxyAdminToken,
   hasProxyAdminBasicAccess,
 } from "./proxy-admin-auth";
@@ -17,6 +18,16 @@ test("proxy admin configuration retains the fail-closed token policy", () => {
   assert.equal(configuredProxyAdminToken(), "u8k0C4qPz2Vm7Ns9Lx5Wa1Rd6Ht3YbEf");
   if (previous === undefined) delete process.env.ADMIN_ACCESS_TOKEN;
   else process.env.ADMIN_ACCESS_TOKEN = previous;
+});
+
+test("photo review uses an independent strong token", () => {
+  const previous = process.env.PHOTO_REVIEW_ACCESS_TOKEN;
+  process.env.PHOTO_REVIEW_ACCESS_TOKEN = "short";
+  assert.equal(configuredPhotoReviewToken(), null);
+  process.env.PHOTO_REVIEW_ACCESS_TOKEN = "r8VQ2wLt9Hk4mNz6Xs3Pd7Yc5Fa1Bj0E";
+  assert.equal(configuredPhotoReviewToken(), "r8VQ2wLt9Hk4mNz6Xs3Pd7Yc5Fa1Bj0E");
+  if (previous === undefined) delete process.env.PHOTO_REVIEW_ACCESS_TOKEN;
+  else process.env.PHOTO_REVIEW_ACCESS_TOKEN = previous;
 });
 
 test("Web Crypto proxy Basic Auth accepts only the exact UTF-8 password", async () => {

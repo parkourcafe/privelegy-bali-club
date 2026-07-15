@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import {
+  configuredPhotoReviewToken,
   configuredProxyAdminToken,
   hasProxyAdminBasicAccess,
 } from "@/lib/proxy-admin-auth";
@@ -11,25 +12,38 @@ import {
 } from "@/lib/request-correlation";
 
 const ADMIN_REALM = "Other Bali Field Kit";
+const PHOTO_REVIEW_REALM = "Other Bali Photo Review";
 
 function isAdminPath(pathname: string): boolean {
   return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
+function isPhotoReviewPath(pathname: string): boolean {
+  return pathname === "/developer/photo-review" || pathname.startsWith("/developer/photo-review/");
+}
+
 function isSensitivePath(pathname: string): boolean {
-  return ["/admin", "/onboard", "/partner", "/me", "/v", "/list"].some(
+  return ["/admin", "/developer/photo-review", "/onboard", "/partner", "/me", "/v", "/list"].some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }
 
-function adminChallenge(): NextResponse {
+function basicChallenge(realm: string): NextResponse {
   return new NextResponse("Authentication required", {
     status: 401,
     headers: {
-      "WWW-Authenticate": `Basic realm="${ADMIN_REALM}", charset="UTF-8"`,
+      "WWW-Authenticate": `Basic realm="${realm}", charset="UTF-8"`,
       "X-Robots-Tag": "noindex, nofollow",
     },
   });
+}
+
+function adminChallenge(): NextResponse {
+  return basicChallenge(ADMIN_REALM);
+}
+
+function photoReviewChallenge(): NextResponse {
+  return basicChallenge(PHOTO_REVIEW_REALM);
 }
 
 function adminNotFound(): NextResponse {
@@ -57,6 +71,14 @@ export async function proxy(req: NextRequest) {
     if (!token) return responseWithCorrelationId(adminNotFound(), requestId);
     if (!(await hasProxyAdminBasicAccess(req.headers.get("authorization"), token))) {
       return responseWithCorrelationId(adminChallenge(), requestId);
+    }
+  }
+
+  if (isPhotoReviewPath(req.nextUrl.pathname)) {
+    const token = configuredPhotoReviewToken();
+    if (!token) return responseWithCorrelationId(adminNotFound(), requestId);
+    if (!(await hasProxyAdminBasicAccess(req.headers.get("authorization"), token))) {
+      return responseWithCorrelationId(photoReviewChallenge(), requestId);
     }
   }
 

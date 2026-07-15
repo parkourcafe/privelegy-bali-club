@@ -9,6 +9,14 @@ export function configuredProxyAdminToken(): string | null {
   return token;
 }
 
+export function configuredPhotoReviewToken(): string | null {
+  const token = process.env.PHOTO_REVIEW_ACCESS_TOKEN?.trim();
+  if (!token || token.length < 32 || /^(change-me|example|password|admin)/i.test(token)) {
+    return null;
+  }
+  return token;
+}
+
 function basicPassword(authorization: string | null): string | null {
   if (!authorization || authorization.length > MAX_AUTHORIZATION_HEADER_LENGTH) return null;
   const match = /^Basic ([A-Za-z0-9+/]+={0,2})$/i.exec(authorization);
