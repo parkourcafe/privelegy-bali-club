@@ -608,20 +608,32 @@ export async function getDistrictHubs(): Promise<DistrictHub[]> {
   if (isSupabaseConfigured()) {
     venues = [];
     perks = [];
-    const sb = anonClient()!;
-    const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
-      sb
-        .from("venues")
-        .select(PUBLIC_PLACES_VENUE_COLUMNS)
-        .eq("status", "active")
-        .eq("publication_status", "published")
-        .order("district", { ascending: true })
-        .order("name", { ascending: true }),
-      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
-    ]);
-    if (!venueError && v) {
-      venues = (v as unknown as Row[]).map(mapVenue);
-      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+    try {
+      const sb = anonClient()!;
+      const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
+        sb
+          .from("venues")
+          .select(PUBLIC_PLACES_VENUE_COLUMNS)
+          .eq("status", "active")
+          .eq("publication_status", "published")
+          .order("district", { ascending: true })
+          .order("name", { ascending: true }),
+        sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+      ]);
+      if (!venueError && v) {
+        venues = (v as unknown as Row[]).map(mapVenue);
+        perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
+      }
+    } catch (e) {
+      // A build-time fetch rejection (Supabase unreachable / paused / a network
+      // blip during `generateStaticParams`) must never fail the whole static
+      // build — that would block every deploy over a few SEO hub pages. Degrade
+      // to no hubs; they regenerate on the next successful build/revalidate.
+      console.warn(
+        `[district-hubs] public data fetch failed at build, skipping hubs: ${(e as Error)?.message ?? e}`,
+      );
+      venues = [];
+      perks = [];
     }
   }
 
