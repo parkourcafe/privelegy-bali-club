@@ -496,64 +496,77 @@ function WhatsInside() {
   );
 }
 
-/* ── 9 · Comparison (methods, not venues) ───────────────────────── */
+/* ── 9 · Where the usual tools stop (honest, not a scoreboard) ───── */
 function Comparison() {
-  const rows = [
-    ["Curated for your moment", true, false, false],
-    ["Verified in person", true, false, false],
-    ["Real offer on arrival", true, false, false],
-    ["Hands you to a booked table", true, false, false],
-    ["Free, and you're not the product", true, true, false],
-    ["No paid rankings", true, false, true],
+  // Credit each tool for what it genuinely does well, then name the gap it
+  // leaves for THIS job — picking the right place for the moment and handing
+  // you a booked table. Honest positioning, no self-serving all-✓ grid, no
+  // unsupported claims about competitors (guardrail #9). Navigation stays
+  // Google Maps' job — we say so.
+  const tools = [
+    {
+      name: "Google Maps & reviews",
+      goodFor: "Finding what exists, and the drive there.",
+      gap: "Then it's forty tabs and two hundred opinions to referee — and nothing picked for the moment you're actually in.",
+    },
+    {
+      name: "Listing & booking sites",
+      goodFor: "Booking a room and scanning a ranked list.",
+      gap: "But the top spots are sold, the lists blur together, and it's tuned for their commission — not your afternoon.",
+    },
+    {
+      name: "Asking the group chat",
+      goodFor: "One trusted tip from a friend who's been.",
+      gap: "It's hit or miss, ages fast, and doesn't stretch to a whole trip.",
+    },
   ];
-  const cols = ["Other Bali", "Maps & reviews", "Listing sites"];
   return (
     <Section id="compare" className="bg-[var(--ob-espresso)]">
       <Reveal>
-        <p className="eyebrow text-[var(--ob-brass)]">Versus the old ways</p>
+        <p className="eyebrow text-[var(--ob-brass)]">Where the usual tools stop</p>
         <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
-          Not another directory. Not another review hole.
+          The tools you use aren&rsquo;t wrong. They&rsquo;re built for a
+          different job.
         </h2>
+        <p className="mt-4 max-w-2xl text-[var(--ob-sand-dim)]">
+          Each one does its thing well. None of them picks the right place for
+          the moment you&rsquo;re in and hands you a table that&rsquo;s ready.
+          That&rsquo;s the gap.
+        </p>
       </Reveal>
-      <Reveal delay={100}>
-        <div className="mt-9 overflow-x-auto rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/40">
-          <table className="ob-compare w-full min-w-[34rem] border-collapse text-left">
-            <thead>
-              <tr className="bg-[var(--ob-espresso-2)]">
-                <th className="p-4 text-sm font-medium text-[var(--ob-stone)]">&nbsp;</th>
-                {cols.map((c, i) => (
-                  <th
-                    key={c}
-                    className={`p-4 text-sm ${
-                      i === 0
-                        ? "font-display text-base font-semibold text-[var(--ob-brass-2)]"
-                        : "font-semibold text-[var(--ob-sand-dim)]"
-                    }`}
-                  >
-                    {c}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r[0] as string}>
-                  <th scope="row" className="p-4 text-sm text-[var(--ob-sand)]">
-                    {r[0]}
-                  </th>
-                  {(r.slice(1) as boolean[]).map((v, i) => (
-                    <td key={i} className="p-4">
-                      {v ? (
-                        <span className="ob-yes">✓</span>
-                      ) : (
-                        <span className="ob-no">—</span>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+      <div className="mt-9 grid gap-4 md:grid-cols-3">
+        {tools.map((t, i) => (
+          <Reveal key={t.name} delay={i * 80}>
+            <div className="flex h-full flex-col rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] p-6">
+              <h3 className="font-display text-lg font-semibold text-[var(--ob-sand)]">
+                {t.name}
+              </h3>
+              <p className="mt-3 text-sm text-[var(--ob-sand-dim)]">
+                <span className="font-semibold text-[var(--ob-accent-2)]">
+                  Good for
+                </span>{" "}
+                {t.goodFor}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ob-sand-dim)]">
+                <span className="font-semibold text-[var(--ob-brass-2)]">
+                  Where it leaves you
+                </span>{" "}
+                {t.gap}
+              </p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={120}>
+        <div className="mt-4 rounded-3xl border border-[rgba(198,154,92,0.5)] bg-[var(--ob-espresso-3)] p-7">
+          <p className="eyebrow text-[var(--ob-accent-2)]">Other Bali</p>
+          <p className="mt-3 max-w-3xl font-display text-xl font-semibold leading-snug text-[var(--ob-sand)] sm:text-2xl">
+            We sit on top of all three: a resident&rsquo;s pick for the moment,
+            checked in person, with the offer and the booked table ready — then
+            we hand you back to Google Maps for the drive.
+          </p>
         </div>
       </Reveal>
     </Section>
