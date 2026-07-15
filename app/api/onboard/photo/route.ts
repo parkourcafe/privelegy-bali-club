@@ -1,6 +1,5 @@
-import { createHash, randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import type { SupabaseClient } from "@supabase/supabase-js";
 import { serviceClient } from "@/lib/supabase/service";
 import {
   MAX_PHOTO_BYTES,
@@ -20,6 +19,7 @@ import {
 } from "@/lib/photo-submission-reconciliation";
 import { isTrustedSameOriginMutation } from "@/lib/same-origin-mutation";
 import { exactReleaseSchemaProbe } from "@/lib/release-schema-probe";
+import { resolvePhotoOnboardingVenue } from "@/lib/photo-onboarding-token";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -64,40 +64,6 @@ function responseAfterCleanup(
     : processingResponse();
 }
 
-function tokenHash(token: string): string {
-  return createHash("sha256").update(token, "utf8").digest("base64url");
-}
-
-async function resolveVenueSlug(
-  client: SupabaseClient,
-  token: string
-): Promise<string | null> {
-  const { data: photoToken, error: photoTokenError } = await client
-    .from("venue_photo_tokens")
-    .select("venue_slug,expires_at")
-    .eq("token_hash", tokenHash(token))
-    .is("revoked_at", null)
-    .maybeSingle();
-  if (photoTokenError) return null;
-  if (photoToken) {
-    const expiry = photoToken.expires_at ? Date.parse(photoToken.expires_at) : null;
-    if (expiry === null || (Number.isFinite(expiry) && expiry > Date.now())) {
-      return String(photoToken.venue_slug);
-    }
-    return null;
-  }
-
-  // Compatibility for current partner invitation links. This is a direct,
-  // service-only lookup; it never calls or exposes operator roster/mint RPCs.
-  const { data: onboardingToken, error: onboardingError } = await client
-    .from("venue_onboard_tokens")
-    .select("venue_slug")
-    .eq("token", token)
-    .maybeSingle();
-  if (onboardingError || !onboardingToken) return null;
-  return String(onboardingToken.venue_slug);
-}
-
 export async function POST(req: Request) {
   if (!isTrustedSameOriginMutation(req)) return response("forbidden", 403);
 
@@ -136,7 +102,7 @@ export async function POST(req: Request) {
   if (schema.error || !exactReleaseSchemaProbe(schema.data, 2, "0041")) {
     return response("unavailable", 503);
   }
-  const venueSlug = await resolveVenueSlug(client, validation.token);
+  const venueSlug = await resolvePhotoOnboardingVenue(client, validation.token);
   if (!venueSlug) return response("invalid_invitation", 404);
 
   let bytes: Uint8Array;
