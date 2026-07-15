@@ -5,9 +5,9 @@
 - Branch: `loop/05-release-integration`
 - Production Supabase project: `egkdapqwkfprtyqvvnso`
 - Source package: `final-strict-current-deduplicated-review-manifest.json`
-- Source validation: 343 venues, 814 selected files, zero missing files, unsafe sources, policy failures or cross-venue duplicates.
+- Source validation: 343 venue records, 814 selected files, zero missing files, unsafe sources, policy failures or cross-venue duplicates. Of the 343 records, 299 have at least one candidate photo and 44 have no candidate photo in the package.
 - Rights state: every candidate is `awaiting_owner_consent`; every candidate has `publicationAllowed=false`.
-- Storage target: private `venue-photos` bucket, candidate namespace `owner-candidates/v1/`.
+- Storage target: private `owner-photo-candidates` bucket, candidate namespace `owner-candidates/v1/`.
 - Public-card invariant: the import does not update `venues.photo_url`, approved submissions or any public delivery URL.
 - Owner workflow: token-bound private preview → exact image selection and rights grant → private pending submission → separate operator approval.
 
@@ -40,13 +40,16 @@
 - The checkbox is deliberately a venue selection, not a fabricated legal licence. Any publication agreement remains a separate follow-up with the Other Bali team.
 - The import never writes `venues.photo_url`, `published_url`, approved submission state or any public URL.
 
-### Developer review gallery
+### Developer final-site preview
 
-- Added `/developer/photo-review` as a read-only, separately Basic-authenticated production review surface.
-- It shows the complete manifest denominator (814 photos / 343 venues), ten venues per page, with venue search, dimensions and provenance links.
-- The page creates only short-lived signed URLs from the private candidate bucket; it has no upload, update, delete, approval or publication mutation.
-- Unauthenticated production request: HTTP 401. Authenticated production request: HTTP 200, 814/343 summary present, first signed private object: HTTP 200 (`image/jpeg`, 257126 bytes).
-- Desktop browser QA: HTTP 200, 23 images on page 1, 12 loaded in the initial viewport, zero horizontal overflow.
+- Added `/developer/site` as a read-only, separately Basic-authenticated production preview of the actual Other Bali catalogue and venue layouts.
+- The catalogue renders all 343 records with the real site cards, search, district/type filters and links to `/developer/site/<slug>` detail pages.
+- 299 records render a signed candidate photo as the card cover. The remaining 44 render the designed category cover because no candidate photo exists for those records in the package; this is not a signing or upload failure.
+- Venue detail pages render a masthead and every candidate assigned to that venue. Across the detail pages the complete 814-photo package is available for review.
+- `/developer/photo-review` now redirects to `/developer/site` so the former raw gallery cannot be mistaken for the final-site preview.
+- The preview creates only short-lived signed URLs from the private candidate bucket; it has no upload, update, delete, approval or publication mutation.
+- Unauthenticated production request: HTTP 401. Authenticated catalogue and sample venue requests: HTTP 200. The catalogue response contains 343 `.place-card` elements and 299 signed photo-cover images.
+- Desktop browser QA at 1440×1100: 343 cards, sample venue masthead and 2-photo gallery rendered, all sample images loaded, zero horizontal overflow.
 
 ### Cleanup and final production state
 
@@ -56,12 +59,15 @@
 - Current production deployment: `dpl_BGRhRvsTh2KQntYvB4xoE17W9vCh`.
 - Developer gallery commit: `280f113d8826c4560179e45ec03ab8d65b4c5375`.
 - Developer gallery production deployment: `dpl_5Z3StaS6ySLt79MEbVvW4ZKFWYSc`.
+- Final-site preview implementation commit: `5ce433c`.
+- Coverage clarification commit: `b2a4f62c5b3785e4a18a2ce152a7baa2317f55f6`.
+- Current final-site preview production deployment: `dpl_B8w8PRZBXqwXCKecSMn6m3cxVmQL` (`https://www.otherbali.com/developer/site`).
 - Temporary photo import endpoint removed from the build and returns HTTP 404.
 - `PHOTO_CANDIDATE_IMPORT_TOKEN` removed from the production environment.
 - `/api/health/live`: HTTP 200.
 - `/places`: HTTP 200.
 - `/api/health/ready`: HTTP 503 because 0040/0041 remain unapplied; this is the confirmed remaining blocker.
-- Local verification: 409 tests passed; TypeScript passed; production build passed.
+- Local verification: lint passed; TypeScript passed; 411 tests passed; production build passed.
 
 ## Gates
 
