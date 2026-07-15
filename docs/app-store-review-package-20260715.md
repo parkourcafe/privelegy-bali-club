@@ -13,6 +13,7 @@ real-device/TestFlight QA and App Store Connect declarations are complete.
 | App name | Other Bali |
 | Platform | iOS |
 | Bundle ID | `com.otherbali.app` |
+| App Store Connect ID | `6791214357` |
 | SKU | `other-bali-ios` |
 | Primary category | Travel |
 | Price | Free |
@@ -138,11 +139,10 @@ real-device/TestFlight comparison passes.
 - Final archive: `/private/tmp/OtherBali-1.0-build1-final-20260715.xcarchive`.
   Final IPA SHA-256:
   `6c9d8d06e92f9d988274853fb0264aad5326cf3ebb38e42e856aab5469ea2e27`.
-- The first upload reached App Store Connect authentication and failed only
-  because the `com.otherbali.app` app record did not yet exist
-  (`missingApp(bundleId: "com.otherbali.app")`).
-- The App Store Connect creation form is prepared but has not been submitted;
-  creating the cloud record still requires explicit founder confirmation.
+- The founder confirmed creation of the `com.otherbali.app` App Store Connect
+  record; Apple assigned app ID `6791214357`.
+- Final build `1.0 (1)` uploaded successfully on 2026-07-15. App Store Connect
+  accepted the package and reported `Uploaded package is processing`.
 - Five 6.9-inch screenshots are committed at 1320 × 2868 PNG.
 - Simulator smoke checks passed for builder selection, plan persistence, three
   place deep links and the native Share Sheet.
@@ -152,11 +152,10 @@ real-device/TestFlight comparison passes.
 
 ## Founder-only sequence
 
-1. Confirm creation of the prepared iOS app record in App Store Connect.
-2. Upload the final signed build and wait for App Store processing.
-3. Test that exact build on a real iPhone through TestFlight.
-4. Compare the TestFlight flow with the committed five-shot simulator set.
-5. Complete privacy, age rating, content rights, export compliance and review
+1. Wait for App Store processing of build `1.0 (1)` to complete.
+2. Test that exact build on a real iPhone through TestFlight.
+3. Compare the TestFlight flow with the committed five-shot simulator set.
+4. Complete privacy, age rating, content rights, export compliance and review
    notes.
-6. Confirm the final App Review submission separately; do not submit merely
+5. Confirm the final App Review submission separately; do not submit merely
    because the build processed successfully.
