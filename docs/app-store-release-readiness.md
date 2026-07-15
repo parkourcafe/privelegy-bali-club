@@ -1,7 +1,9 @@
 # Other Bali - App Store Release Readiness
 
 Date: 2026-07-14
-Status: Web/PWA production deployed; Capacitor iOS wrapper scaffolded and privacy/icon launch blockers fixed; submission remains blocked on architecture, signing, App Store Connect setup, screenshots, and device QA.
+Status: Web/PWA production deployed; bundled Capacitor app shell implemented on
+`loop/10-ios-app-shell`; submission remains blocked on Apple signing, App Store
+Connect setup, screenshots, and physical-device QA.
 
 ## Current Target
 
@@ -13,11 +15,21 @@ Other Bali is a Next.js/Vercel web app, installable PWA, and now has a Capacitor
 - bundle id `com.otherbali.app`
 - native display name `Other Bali`
 
-There is still no signed archive uploaded to App Store Connect yet.
+The unsigned Release Archive now builds locally. It has not been signed or
+uploaded to App Store Connect.
 
 ## Recommended Native Path
 
-Use a thin Capacitor iOS shell only if the app keeps enough app-like utility to pass review:
+The bundled shell now provides enough app-only utility for review testing:
+
+- mood/district/duration day builder on first launch;
+- on-device plan and saved-place references;
+- last-plan offline fallback;
+- native `otherbali://` plan/place deep links;
+- native Share bridge with Web Share/copy fallback.
+
+The full catalogue remains an explicit external handoff. Keep the shell app-like
+when testing and submitting:
 
 - native display name: `Other Bali`
 - bundle id: `com.otherbali.app`
