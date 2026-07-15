@@ -27,3 +27,60 @@ test("venue detail does not load the complete catalogue for similar places", asy
   assert.doesNotMatch(source, /getPublishedVenues/);
 });
 
+test("catalogue renders a bounded server-side page instead of hydrating every venue", async () => {
+  const page = await read("app/places/page.tsx");
+  const view = await read("app/places/PlacesView.tsx");
+  const card = await read("components/PlaceCard.tsx");
+  assert.match(page, /const PAGE_SIZE = 24/);
+  assert.match(page, /paginatedMatches\.slice/);
+  assert.doesNotMatch(view, /^"use client";/);
+  assert.doesNotMatch(card, /^"use client";/);
+  assert.match(view, /<form action="\/places" method="get"/);
+});
+
+test("public venue photos use responsive optimization without weakening consent delivery", async () => {
+  const image = await read("components/VenueImage.tsx");
+  const config = await read("next.config.ts");
+  const protectedPhotoRoute = await read("app/api/venue-photo/[id]/route.ts");
+  assert.match(image, /from "next\/image"/);
+  assert.match(image, /src\.startsWith\("\/api\/venue-photo\/"\)\) return false/);
+  assert.match(image, /sizes=\{sizesByVariant\[variant\]\}/);
+  assert.match(config, /hostname: "\*\*\.supabase\.co"/);
+  assert.match(config, /stale-while-revalidate=604800/);
+  assert.match(protectedPhotoRoute, /max-age=300, s-maxage=300/);
+});
+
+test("large menus defer closed-section items and keep publication gates", async () => {
+  const item = await read("components/menu/MenuItem.tsx");
+  const summaryRepository = await read("lib/data/menu-summary-repository.ts");
+  const sectionRoute = await read("app/api/public/menu-section/route.ts");
+  assert.doesNotMatch(item, /^"use client";/);
+  assert.match(item, /data-menu-item-id/);
+  assert.match(summaryRepository, /LARGE_SECTION_ITEM_THRESHOLD/);
+  assert.match(summaryRepository, /index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD/);
+  assert.match(summaryRepository, /items: deferred \? \[\] : section\.items/);
+  assert.match(summaryRepository, /\.eq\("status", "published"\)/);
+  assert.match(summaryRepository, /\.eq\("completeness", "full"\)/);
+  assert.match(sectionRoute, /getPublishedMenuSection/);
+});
+
+test("personal save state is isolated from the cacheable venue page", async () => {
+  const venuePage = await read("app/places/[slug]/page.tsx");
+  const saveRoute = await read("app/api/save/route.ts");
+  assert.match(venuePage, /export const revalidate = 300/);
+  assert.match(venuePage, /export async function generateStaticParams\(\)/);
+  assert.doesNotMatch(venuePage, /readGuestRef|getSavedSlugs/);
+  assert.match(saveRoute, /export async function GET/);
+  assert.match(saveRoute, /private, no-store/);
+});
+
+test("routes are pre-generated and public plan and Uluwatu reads revalidate", async () => {
+  const route = await read("app/route/[slug]/page.tsx");
+  const plan = await read("app/plan/page.tsx");
+  const uluwatu = await read("app/uluwatu/layout.tsx");
+  assert.match(route, /export async function generateStaticParams/);
+  assert.match(plan, /export const revalidate = 300/);
+  assert.doesNotMatch(plan, /force-dynamic/);
+  assert.match(uluwatu, /export const revalidate = 300/);
+  assert.doesNotMatch(uluwatu, /force-dynamic/);
+});

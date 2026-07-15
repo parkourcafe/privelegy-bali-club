@@ -8,11 +8,15 @@ import {
   normalizeDistrictParam,
   ULUWATU_DB_SLUG,
 } from "@/lib/uluwatu/venues";
-import PlacesView, { type CataloguePlace } from "./PlacesView";
+import PlacesView, {
+  type CatalogueFilters,
+  type CataloguePlace,
+  type CatalogueTopPick,
+} from "./PlacesView";
 import SceneImage from "@/components/landing/SceneImage";
 import HeroLoop from "@/components/landing/HeroLoop";
 
-export const dynamic = "force-dynamic";
+const PAGE_SIZE = 24;
 
 // Canonicalize the district-filtered tool view onto its hub page so the
 // query-param surface doesn't compete with /bali/[district] for ranking
@@ -58,6 +62,80 @@ function enrichForCards(v: VenueWithPerk): CataloguePlace {
   };
 }
 
+const catalogueCategoryLabel: Record<string, string> = {
+  cafe: "café",
+  warung: "warung",
+  restaurant: "restaurant",
+  beach_club: "beach club",
+  spa: "wellness",
+  fitness: "fitness",
+  yoga: "yoga",
+  beauty: "beauty",
+  bar: "bar",
+  surf: "surf",
+};
+
+function catalogueHaystack(venue: CataloguePlace): string {
+  return [
+    venue.name,
+    venue.address,
+    venue.area,
+    venue.cardArea,
+    venue.category,
+    ...(venue.wellnessCategories ?? []),
+    venue.district,
+    venue.whyItsHere,
+    venue.cardLine,
+    venue.bestFor,
+    venue.cardBestFor,
+    ...(venue.vibeTags ?? []),
+    ...(venue.practicalTags ?? []),
+    ...(venue.jobs ?? []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function scoreCatalogueVenue(
+  venue: CataloguePlace,
+  tokens: string[],
+  category: string,
+  district: string,
+): { score: number; reasons: string[] } {
+  const haystack = catalogueHaystack(venue);
+  const reasons: string[] = [];
+  let score = 0;
+  const categoryMatched = Boolean(
+    category &&
+      (venue.category === category || venue.wellnessCategories?.includes(category as VenueWithPerk["category"])),
+  );
+  if (categoryMatched) {
+    score += 3;
+    reasons.push(catalogueCategoryLabel[category] ?? category);
+  }
+  for (const token of tokens) {
+    if (!token || !haystack.includes(token)) continue;
+    score += 2;
+    if (!(categoryMatched && token === venue.category)) reasons.push(token.replace(/[-_]/g, " "));
+  }
+  if (district && venue.district === district) score += 1;
+  if (venue.photoUrl) score += 1;
+  if (venue.bestFor) score += 1;
+  if (venue.priceAnchor || venue.whatToOrder) score += 1;
+  score += venue.tier === "founding" ? 1 : venue.tier === "launch" ? 0.5 : 0;
+
+  return {
+    score,
+    reasons: [...new Set(reasons.map((reason) => reason.trim()).filter(Boolean))].slice(0, 4),
+  };
+}
+
+function pageNumber(value: string): number {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
 export default async function PlacesPage({
   searchParams,
 }: {
@@ -68,12 +146,59 @@ export default async function PlacesPage({
     intent?: string | string[];
     m?: string | string[];
     dur?: string | string[];
+    page?: string | string[];
   }>;
 }) {
   const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
 
   const ready = tracked.filter(isPublicReadyVenue);
   const venues = ready.map(enrichForCards);
+  const filters: CatalogueFilters = {
+    query: firstParam(params.q).trim(),
+    district: normalizeDistrictParam(firstParam(params.district)),
+    category: firstParam(params.category),
+    intentMode: firstParam(params.intent) === "1",
+    mission: firstParam(params.m),
+    missionLabel: getTripMission(firstParam(params.m))?.label,
+    duration: firstParam(params.dur),
+    durationLabel: getTripDuration(firstParam(params.dur))?.label,
+  };
+  const tokens = filters.query.toLowerCase().split(/\s+/).filter(Boolean);
+  const filtered = venues.filter((venue) => {
+    const haystack = catalogueHaystack(venue);
+    return (
+      (!filters.district || venue.district === filters.district) &&
+      (!filters.category ||
+        venue.category === filters.category ||
+        venue.wellnessCategories?.includes(filters.category as VenueWithPerk["category"])) &&
+      (tokens.length === 0 ||
+        (filters.intentMode
+          ? tokens.some((token) => haystack.includes(token))
+          : tokens.every((token) => haystack.includes(token))))
+    );
+  });
+  const ranked: CatalogueTopPick[] =
+    filters.intentMode && (tokens.length > 0 || filters.category)
+      ? filtered
+          .map((venue) => ({ venue, ...scoreCatalogueVenue(venue, tokens, filters.category, filters.district) }))
+          .filter(({ score }) => score > 0)
+          .sort((a, b) => b.score - a.score || a.venue.name.localeCompare(b.venue.name))
+          .slice(0, 3)
+          .map(({ venue, reasons }) => ({ venue, reasons }))
+      : [];
+  const rankedSlugs = new Set(ranked.map(({ venue }) => venue.slug));
+  const paginatedMatches = filtered.filter((venue) => !rankedSlugs.has(venue.slug));
+  const totalPages = Math.max(1, Math.ceil(paginatedMatches.length / PAGE_SIZE));
+  const page = Math.min(pageNumber(firstParam(params.page)), totalPages);
+  const pageVenues = paginatedMatches.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const districts = [...new Set(venues.map((venue) => venue.district))].sort();
+  const categories = [
+    ...new Set(
+      venues.flatMap((venue) =>
+        venue.wellnessCategories?.length ? venue.wellnessCategories : [venue.category],
+      ),
+    ),
+  ].sort();
 
   return (
     <div className="page-dark">
@@ -114,17 +239,15 @@ export default async function PlacesPage({
         </header>
 
         <PlacesView
-          venues={venues}
-          initialFilters={{
-            query: firstParam(params.q),
-            // Public URLs may say ?district=uluwatu; data keys off the
-            // internal slug (brief §5 mapping — no duplicated rows).
-            district: normalizeDistrictParam(firstParam(params.district)),
-            category: firstParam(params.category),
-            intentMode: firstParam(params.intent) === "1",
-            missionLabel: getTripMission(firstParam(params.m))?.label,
-            durationLabel: getTripDuration(firstParam(params.dur))?.label,
-          }}
+          venues={pageVenues}
+          topPicks={page === 1 ? ranked : []}
+          filters={filters}
+          districts={districts}
+          categories={categories}
+          totalMatches={filtered.length}
+          totalVenues={venues.length}
+          page={page}
+          totalPages={totalPages}
         />
 
         <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
