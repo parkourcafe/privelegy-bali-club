@@ -148,11 +148,10 @@ real-device/TestFlight comparison passes.
 - The build-level `What to Test` instructions describe mood/district/duration,
   plan restore, place deep links, offline restore and the native Share Sheet.
 - Internal group `Founder QA` was created with automatic distribution and has
-  build `1.0 (1)` assigned. The only App Store Connect account user is the
-  Account Holder/Admin and has all-app access, but Apple currently renders that
-  user's tester checkbox disabled. No invite was fabricated or bypassed; the
-  group remains at zero testers pending Apple eligibility synchronization or a
-  second eligible App Store Connect user.
+  build `1.0 (1)` assigned. On 2026-07-15 Apple finished synchronizing the
+  existing Account Holder/Admin eligibility: `saidalarust@gmail.com` was added
+  as the single internal tester and App Store Connect reports status `Invited`.
+  No second App Store Connect user or Apple ID was created.
 - Five 6.9-inch screenshots are committed at 1320 × 2868 PNG.
 - Simulator smoke checks passed for builder selection, plan persistence, three
   place deep links and the native Share Sheet.
@@ -162,12 +161,11 @@ real-device/TestFlight comparison passes.
 
 ## Founder-only sequence
 
-1. Recheck the Account Holder eligibility in internal group `Founder QA`; if
-   Apple keeps the checkbox disabled, add a second eligible App Store Connect
-   user or contact Apple Developer Support.
-2. Test build `1.0 (1)` on a real iPhone through TestFlight.
-3. Compare the TestFlight flow with the committed five-shot simulator set.
-4. Complete privacy, age rating, content rights, export compliance and review
+1. Accept the internal TestFlight invitation for `saidalarust@gmail.com` and
+   install build `1.0 (1)` on the paired iPhone.
+2. Run the complete real-iPhone TestFlight flow and compare it with the
+   committed five-shot simulator set.
+3. Complete privacy, age rating, content rights, export compliance and review
    notes.
-5. Confirm the final App Review submission separately; do not submit merely
+4. Confirm the final App Review submission separately; do not submit merely
    because the build processed successfully.
