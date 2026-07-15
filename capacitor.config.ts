@@ -15,7 +15,6 @@ const config: CapacitorConfig = {
     allowsLinkPreview: false,
   },
   server: {
-    url: "https://www.otherbali.com",
     cleartext: false,
     errorPath: "offline.html",
   },

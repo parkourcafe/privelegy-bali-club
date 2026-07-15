@@ -1,7 +1,8 @@
 # Other Bali - iOS App Store Launch Setup
 
 Date: 2026-07-14
-Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still manual.
+Status: bundled Capacitor app shell implemented; App Store Connect account and
+Apple signing setup remain manual.
 
 ## What Is In The Repo Now
 
@@ -12,16 +13,24 @@ Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still 
 - App icon asset: 1024x1024 opaque PNG, full-square artwork; the platform applies its own mask
 - iOS app icon asset: `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png`
 - Native privacy manifest: `ios/App/App/PrivacyInfo.xcprivacy`
-- Local fallback shell: `ios-web/index.html` and `ios-web/offline.html`
-- Live app URL loaded by the wrapper: `https://www.otherbali.com`
+- Local app shell: `ios-web/index.html`, `ios-web/app-shell.js`, and `ios-web/offline.html`
+- Full catalogue handoff: `https://www.otherbali.com`
+- Custom deep-link scheme: `otherbali://`
+- Capacitor plugins: App and Share
 
 ## Important App Review Risk
 
-This first wrapper loads the live Other Bali web app because the product depends on Next.js server routes and Supabase-backed data. Capacitor supports external URL loading, but its own config docs mark `server.url` as intended for live-reload style development, not as the ideal production architecture.
+The bundled shell owns the first-run and offline experience. It hands off to the
+live Other Bali web app for current catalogue data because the public product
+depends on Next.js server routes and Supabase-backed data; Capacitor no longer
+uses `server.url` for the app launch.
 
-Before final App Store submission, review the app on device and keep the traveller flow strongly app-like:
+The bundled first screen now provides the app-only value; before final App Store
+submission, review it on device and keep the traveller flow strongly app-like:
 
-- first screen shows the day builder and curated map experience;
+- first screen shows the mood/district/duration day builder;
+- last plan and saved-place references remain available offline;
+- Share uses the native system sheet where available;
 - no "beta" language;
 - no empty catalogue state;
 - no tourist payment;

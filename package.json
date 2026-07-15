@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test scripts/partner-portal-boundary.test.mjs",
+    "test": "node --test scripts/partner-portal-boundary.test.mjs scripts/ios-app-shell.test.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "prebuild": "node scripts/fetch-scenes.mjs || true",
@@ -15,8 +15,10 @@
     "mobile:run:ios": "cap run ios"
   },
   "dependencies": {
+    "@capacitor/app": "^8.1.1",
     "@capacitor/core": "^8.4.1",
     "@capacitor/ios": "^8.4.1",
+    "@capacitor/share": "^8.0.1",
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.108.2",
     "nanoid": "^5.1.16",
