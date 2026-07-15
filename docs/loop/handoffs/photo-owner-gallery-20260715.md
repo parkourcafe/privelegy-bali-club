@@ -44,6 +44,8 @@
 
 - Implementation commit: `e990fa57291b2185215fa80c516ed40c1420a479`.
 - Permanent deployment: `dpl_CDyGynp6LJrPUf6peoYXCmosojhy`.
+- Simplified unlimited owner-selection commit: `c7d97f387d5134e3836989e1a0d657cb4d9429da`.
+- Current production deployment: `dpl_BGRhRvsTh2KQntYvB4xoE17W9vCh`.
 - Temporary photo import endpoint removed from the build and returns HTTP 404.
 - `PHOTO_CANDIDATE_IMPORT_TOKEN` removed from the production environment.
 - `/api/health/live`: HTTP 200.
