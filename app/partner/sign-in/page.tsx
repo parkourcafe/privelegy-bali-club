@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export default async function PartnerSignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ sent?: string; error?: string }>;
+  searchParams: Promise<{ sent?: string; error?: string; next?: string }>;
 }) {
   const params = await searchParams;
   const sent = params.sent === "1";
@@ -27,6 +27,7 @@ export default async function PartnerSignInPage({
         </div>
       ) : (
         <form action={requestPartnerMagicLink} className="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <input type="hidden" name="next" value={params.next?.startsWith("/") && !params.next.startsWith("//") ? params.next : "/partner"} />
           <label className="block text-sm font-medium text-stone-700">
             Venue email
             <input name="email" type="email" required autoComplete="email" className="mt-2 w-full rounded-xl border border-stone-300 px-3 py-3" placeholder="you@restaurant.com" />

@@ -13,6 +13,8 @@ function requestOrigin(requestHeaders: Headers): string {
 
 export async function requestPartnerMagicLink(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const requestedNext = String(formData.get("next") ?? "/partner");
+  const next = requestedNext.startsWith("/") && !requestedNext.startsWith("//") ? requestedNext : "/partner";
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     redirect("/partner/sign-in?error=invalid_email");
   }
@@ -23,7 +25,7 @@ export async function requestPartnerMagicLink(formData: FormData) {
   const origin = requestOrigin(await headers());
   const { error } = await client.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: `${origin}/auth/callback?next=/partner` },
+    options: { emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent(next)}` },
   });
 
   redirect(error ? "/partner/sign-in?error=send_failed" : "/partner/sign-in?sent=1");
