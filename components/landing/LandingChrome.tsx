@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BrandMark from "@/components/BrandMark";
 
 const NAV = [
   { href: "#day-builder", label: "Build a day" },
@@ -33,7 +34,8 @@ export function LandingNav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="inline-flex min-h-10 items-center gap-2">
+        <Link href="/" className="inline-flex min-h-10 items-center gap-2.5">
+          <BrandMark className="h-7 w-7 shrink-0" />
           <span className="font-display text-lg font-semibold text-[var(--ob-sand)]">
             Other Bali
           </span>
