@@ -2,6 +2,7 @@ import { getOnboardInfo } from "@/lib/data";
 import { getReleaseReadiness } from "@/lib/data/release-readiness";
 import VenueCard from "@/components/VenueCard";
 import OnboardActions from "./OnboardActions";
+import { getOwnerPhotoCandidatePreviews } from "@/lib/owner-photo-candidates";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,10 @@ export default async function OnboardPage({
 
   const v = info.venue;
   const readiness = await getReleaseReadiness();
+  const photoCandidates = await getOwnerPhotoCandidatePreviews(
+    token,
+    readiness.photoSubmissions,
+  );
 
   return (
     <main className="mx-auto w-full max-w-md px-4 py-8">
@@ -79,6 +84,7 @@ export default async function OnboardPage({
         alreadyConfirmed={info.confirmed}
         maintenanceDraftsEnabled={readiness.maintenanceDrafts}
         photoSubmissionEnabled={readiness.photoSubmissions}
+        photoCandidates={photoCandidates}
         initialJtbd={{
           bestFor: v.bestFor ?? "",
           notFor: v.notFor ?? "",

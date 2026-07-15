@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import PartnerMaintenanceDrafts from "./PartnerMaintenanceDrafts";
+import type { OwnerPhotoCandidatePreview } from "@/lib/owner-photo-candidates";
 
 // Confirmation + private photo submission for the partner onboarding page.
 // The browser sends one explicitly consented image to a server-only route;
@@ -24,12 +25,14 @@ export default function OnboardActions({
   alreadyConfirmed,
   maintenanceDraftsEnabled,
   photoSubmissionEnabled,
+  photoCandidates,
   initialJtbd,
 }: {
   token: string;
   alreadyConfirmed: boolean;
   maintenanceDraftsEnabled: boolean;
   photoSubmissionEnabled: boolean;
+  photoCandidates: OwnerPhotoCandidatePreview[];
   initialJtbd: Jtbd;
 }) {
   const [name, setName] = useState("");
@@ -61,6 +64,10 @@ export default function OnboardActions({
   const [photoContact, setPhotoContact] = useState("");
   const [photoRights, setPhotoRights] = useState(false);
   const [photoWebsite, setPhotoWebsite] = useState("");
+  const [selectedCandidates, setSelectedCandidates] = useState<string[]>([]);
+  const [candidateRights, setCandidateRights] = useState(false);
+  const [candidateState, setCandidateState] = useState<"idle" | "busy" | "done" | "error">("idle");
+  const [candidateMsg, setCandidateMsg] = useState("");
   const photoInput = useRef<HTMLInputElement>(null);
 
   async function confirm() {
@@ -109,7 +116,11 @@ export default function OnboardActions({
       body,
     }).catch(() => null);
     const result = res ? await res.json().catch(() => null) : null;
-    if (res?.ok && result?.ok === true && result.status === "pending_review") {
+    if (
+      res?.ok
+      && result?.ok === true
+      && (result.status === "pending_review" || result.status === "pending_review_staged")
+    ) {
       setPhotoState("done");
       setPhotoMsg("Thank you — your photo is private and pending review. It will appear only after approval.");
       setPhotoFile(null);
@@ -121,10 +132,134 @@ export default function OnboardActions({
     }
   }
 
+  function toggleCandidate(id: string) {
+    setSelectedCandidates((current) => current.includes(id)
+      ? current.filter((candidateId) => candidateId !== id)
+      : current.length < 3 ? [...current, id] : current);
+    setCandidateState("idle");
+    setCandidateMsg("");
+  }
+
+  async function submitCandidates() {
+    if (selectedCandidates.length === 0 || name.trim().length < 2 || !candidateRights) {
+      setCandidateState("error");
+      setCandidateMsg("Select at least one photo, enter your name and confirm the rights first.");
+      return;
+    }
+    setCandidateState("busy");
+    const res = await fetch("/api/onboard/photo-candidates", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        token,
+        candidateIds: selectedCandidates,
+        submitterName: name.trim(),
+        submitterContact: photoContact.trim(),
+        rightsGranted: candidateRights,
+        website: photoWebsite,
+      }),
+    }).catch(() => null);
+    const result = res ? await res.json().catch(() => null) : null;
+    if (
+      res?.ok
+      && result?.ok === true
+      && (result.status === "pending_review" || result.status === "pending_review_staged")
+    ) {
+      setCandidateState("done");
+      setCandidateMsg("Thank you — your selected photos are private and pending operator review.");
+      setCandidateRights(false);
+    } else if (res?.status === 202 && result?.ok === true) {
+      setCandidateState("done");
+      setCandidateMsg("Your selection is being reconciled. Please do not submit it again; nothing can publish during this check.");
+    } else {
+      setCandidateState("error");
+      setCandidateMsg("The selection was not submitted. Check the rights confirmation and try again.");
+    }
+  }
+
   return (
     <div className="mt-6 space-y-5 pb-16">
       {/* Photos */}
-      {photoSubmissionEnabled ? (
+      {photoSubmissionEnabled || photoCandidates.length > 0 ? (
+        <>
+        {photoCandidates.length > 0 ? (
+          <div className="rounded-2xl border border-cyan-200 bg-cyan-50/40 p-4">
+            <p className="font-medium">Photos we found for your review</p>
+            <p className="mt-1 text-sm text-stone-600">
+              These previews are private. Select only photos you own or are authorised to license. Nothing appears publicly until an Other Bali operator approves it.
+            </p>
+            <label className="mt-3 block text-sm font-medium text-stone-700">
+              Your name and role
+              <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                maxLength={120}
+                placeholder="Made, manager"
+                className="mt-1 w-full rounded-lg border border-stone-200 bg-white px-3 py-2"
+              />
+            </label>
+            <label className="mt-3 block text-sm font-medium text-stone-700">
+              Email or WhatsApp (optional)
+              <input
+                value={photoContact}
+                onChange={(event) => setPhotoContact(event.target.value)}
+                maxLength={200}
+                className="mt-1 w-full rounded-lg border border-stone-200 bg-white px-3 py-2"
+              />
+            </label>
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {photoCandidates.map((candidate) => {
+                const selected = selectedCandidates.includes(candidate.id);
+                const alreadySubmitted = candidate.reviewStatus !== "available";
+                return (
+                  <button
+                    key={candidate.id}
+                    type="button"
+                    disabled={alreadySubmitted || candidateState === "busy"}
+                    aria-pressed={selected}
+                    onClick={() => toggleCandidate(candidate.id)}
+                    className={`overflow-hidden rounded-xl border-2 bg-white text-left ${selected ? "border-cyan-700" : "border-transparent"} disabled:opacity-65`}
+                  >
+                    <span
+                      role="img"
+                      aria-label="Private venue photo candidate"
+                      className="block aspect-[4/3] bg-cover bg-center"
+                      style={{ backgroundImage: `url(${candidate.previewUrl})` }}
+                    />
+                    <span className="block px-2 py-2 text-xs font-medium text-stone-700">
+                      {alreadySubmitted ? `${candidate.reviewStatus} review` : selected ? "Selected ✓" : "Select photo"}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            <label className="mt-3 flex items-start gap-2 text-sm text-stone-700">
+              <input
+                type="checkbox"
+                checked={candidateRights}
+                onChange={(event) => setCandidateRights(event.target.checked)}
+                className="mt-1 size-4 shrink-0"
+              />
+              <span>
+                I own or am authorised to license each selected photo and grant Other Bali a non-exclusive licence to display those exact images on otherbali.com. See the <a href="/terms" target="_blank" rel="noreferrer" className="font-semibold text-cyan-800 underline">terms</a>.
+              </span>
+            </label>
+            <button
+              type="button"
+              onClick={submitCandidates}
+              disabled={candidateState === "busy" || selectedCandidates.length === 0 || !candidateRights || name.trim().length < 2}
+              className="mt-4 min-h-11 w-full rounded-xl bg-cyan-700 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+            >
+              {candidateState === "busy" ? "Submitting privately…" : `Submit ${selectedCandidates.length || "selected"} for review`}
+            </button>
+            {candidateMsg ? (
+              <p role={candidateState === "error" ? "alert" : "status"} className={`mt-2 text-sm ${candidateState === "error" ? "text-rose-600" : "text-emerald-700"}`}>
+                {candidateMsg}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
+        {photoSubmissionEnabled ? (
         <div className="rounded-2xl border border-stone-200 bg-white p-4">
         <p className="font-medium">Submit a photo for review</p>
         <p className="mt-1 text-sm text-stone-500">
@@ -198,6 +333,8 @@ export default function OnboardActions({
           </p>
         )}
         </div>
+        ) : null}
+        </>
       ) : (
         <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm text-stone-600">
           Photo submissions are temporarily paused while the private review

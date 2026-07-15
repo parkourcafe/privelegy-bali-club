@@ -66,7 +66,6 @@ async function cleanFailedSubmission(
     client.storage.from(PHOTO_BUCKET).remove([imagePath]),
   ]);
 }
-
 export async function POST(req: Request) {
   const fetchSite = req.headers.get("sec-fetch-site");
   if (fetchSite && !SAME_SITE_REQUESTS.has(fetchSite)) return response("forbidden", 403);
