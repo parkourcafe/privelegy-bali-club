@@ -8,6 +8,8 @@ import {
   ULUWATU_DB_SLUG,
 } from "@/lib/uluwatu/venues";
 import PlacesView, { type CataloguePlace } from "./PlacesView";
+import SceneImage from "@/components/landing/SceneImage";
+import HeroLoop from "@/components/landing/HeroLoop";
 
 export const dynamic = "force-dynamic";
 
@@ -75,28 +77,40 @@ export default async function PlacesPage({
   return (
     <div className="page-dark">
       <main className="site-shell">
-        <header className="hero-grid">
-          <div>
-            <div className="flex items-start justify-between">
-              <Link href="/" className="topline">
-                ← Other Bali
-              </Link>
-              <Link href="/plan" className="quiet-link">
-                Canggu day →
-              </Link>
+        {/* Cinematic full-width masthead: golden-hour poster (SVG art + build-
+            fetched still) with the Ubud dawn loop fading in on desktop — the
+            same performance/motion gates as the landing hero. Atmosphere only,
+            never a specific venue. Replaces the old abstract "signal" tile. */}
+        <header className="ob-grain relative -mx-5 mb-10 overflow-hidden sm:mx-0 sm:rounded-3xl sm:border sm:border-[var(--ob-line)]">
+          <div className="relative min-h-[20rem] md:min-h-[24rem]">
+            <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade" />
+            <HeroLoop src="/scenes/ubud-dawn-loop.mp4" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/85 via-[#16100c]/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#16100c] to-transparent" />
+
+            <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
+              <div className="flex items-start justify-between gap-4">
+                <Link href="/" className="topline">
+                  ← Other Bali
+                </Link>
+                <Link href="/plan" className="quiet-link">
+                  Canggu day →
+                </Link>
+              </div>
+              <div className="max-w-2xl pt-10">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(198,154,92,0.5)] bg-black/30 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#e2ba79] backdrop-blur-sm">
+                  {`${ready.length} curated places · resident-checked`}
+                </span>
+                <h1 className="hero-title mt-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                  Places across Bali
+                </h1>
+                <p className="hero-copy max-w-xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
+                  A curated map of Bali by district. Every place here is one we
+                  can stand behind — why it&apos;s worth it, who it suits, and
+                  what to expect. Offers appear only when venues confirm them.
+                </p>
+              </div>
             </div>
-            <h1 className="hero-title mt-3">Places across Bali</h1>
-            <p className="hero-copy">
-              A curated map of Bali by district. Every place here is one we can
-              stand behind — why it&apos;s worth it, who it suits, and what to
-              expect. Offers appear only when venues confirm them.
-            </p>
-          </div>
-          <div className="editorial-signal" aria-label="Bali places signal">
-            {/* Show only the publication-gated count rendered on this page. */}
-            <p className="editorial-signal-label">
-              {`${ready.length} curated places`}
-            </p>
           </div>
         </header>
 
