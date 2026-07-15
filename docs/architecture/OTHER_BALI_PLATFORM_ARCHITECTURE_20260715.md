@@ -1,9 +1,8 @@
 # Other Bali platform architecture — 2026-07-15
 
-Status: architecture checkpoint for the partner-platform loop. This document
-describes the repository/runtime state inspected on 2026-07-15 and the
-approved target boundary. It does not authorize a production migration,
-deployment, publication, or TablePilot data write.
+Status: implementation checkpoint for the partner-platform loop on
+`loop/09-partner-platform`. Production migration, publication, and TablePilot
+data writes remain separately gated.
 
 ## Executive decision
 
@@ -36,33 +35,32 @@ completion, cancellation, and floor operations.
 - The live public site currently renders at least the published KYND menu; an
   exact current count still requires a fresh production SQL snapshot.
 
-### Operator surface — implemented, but still a pilot control
+### Operator surface — role transition in progress
 
 `/admin` is an Other Bali-only Field Kit. It covers invitations, freshness and
 publication review, photo review, QR/source operations, and aggregate reports.
-It is protected by a shared Basic-auth secret (`ADMIN_ACCESS_TOKEN`), not by a
-user/role model. Keep it as a break-glass path only while role-based access is
-introduced.
+Authenticated users with server-controlled `app_metadata.role`/`roles` of
+`operator` or `admin` can pass the server gate; the shared Basic secret remains
+only as a restricted break-glass path during migration.
 
-### Restaurant surface — onboarding only
+### Restaurant surface — authenticated workspace scaffold
 
 `/onboard/[token]` is a tokenized invitation flow, not a reusable account. A
 holder can see a card preview, confirm the listing, submit a limited factual
 menu/action draft, and submit photo choices. The token proves possession of a
 link; it does not identify a person or establish a durable venue membership.
 
-`/partner/[venue]` is named as a partner report, but it currently requires the
-operator admin guard. A restaurant owner cannot sign in and cannot maintain a
-menu, actions, photos, or reporting from a persistent workspace.
+`/partner/sign-in`, `/partner/claim/[token]`, and
+`/partner/venues/[venue]/*` provide the persistent venue-scoped workspace.
+Menu and action submissions create draft records only. Photo review uses signed
+private URLs and exact-image consent recording; no partner action publishes.
+Bookings show only filtered TablePilot aggregates and a staff-dashboard link.
 
-### Review surface — not release-safe
+### Review surface — isolated deployment verified
 
-Review routes exist in the restaurateur-preview branch, but that branch is not
-merged into the current default production branch. `review.otherbali.com` has
-also been assigned to the same production deployment as `www.otherbali.com`;
-the current review routes therefore return `404` when production is redeployed.
-Review must be a separate Vercel project/environment with its own deployment,
-secrets, data target, password gate, and `noindex` policy.
+`review.otherbali.com` is aliased to the separate Vercel project
+`otherbali-site`, with its own preview deployment, password gate and `noindex`
+headers. It has no production alias or production write path.
 
 ### Data boundary — live state not yet provable from this session
 
@@ -181,18 +179,21 @@ Role data belongs in a server-controlled membership table or
 
 ### P1 — partner identity and workspace
 
-4. Add the reviewed Auth/membership migration after the live snapshot gate.
+4. Add the reviewed Auth/membership migration after the live snapshot gate
+   (implemented and rehearsed only on disposable staging in this branch).
 5. Convert `/onboard/[token]` into a one-time claim flow.
 6. Add the persistent workspace and exact public preview.
-7. Add full menu, action, and photo review/edit flows with draft-only writes.
+7. Add full menu, action, and photo review/edit flows with draft-only writes
+   (server routes and workspace controls implemented in this branch).
 8. Separate operator review, publication, owner confirmation, and photo rights.
 
 ### P2 — fulfilment and operations
 
 9. Add the Bookings workspace card with TablePilot aggregate reporting and
-   deep link to the staff dashboard.
+   deep link to the staff dashboard (implemented in this branch).
 10. Replace the shared operator Basic secret with authenticated roles, keeping
-    a restricted break-glass path during migration.
+    a restricted break-glass path during migration (server gate implemented;
+    production role assignment remains founder-controlled).
 11. Merge review features only after they run from the same release line and
     pass public, owner, operator, and TablePilot smoke checks.
 

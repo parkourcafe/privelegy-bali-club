@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getPartnerVenue } from "@/lib/partner-context";
+import MenuDraftForm from "./MenuDraftForm";
+import ActionDraftForm from "./ActionDraftForm";
+import PhotoReviewPanel from "./PhotoReviewPanel";
+import BookingsPanel from "./BookingsPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +34,11 @@ export default async function PartnerSectionPage({
       <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-cyan-700">Partner workspace</p>
       <h1 className="mt-1 text-3xl font-bold text-stone-900">{copy.title}</h1>
       <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950">{copy.body}</p>
-      <p className="mt-4 text-sm text-stone-500">This surface is intentionally fail-closed until the reviewed Auth/RLS migration and the venue-scoped editor are applied.</p>
+      <p className="mt-4 text-sm text-stone-500">Production availability depends on the reviewed Auth/RLS migration and server credentials; partner submissions remain draft-only.</p>
+      {section === "menu" && <MenuDraftForm venueSlug={slug} />}
+      {section === "actions" && <ActionDraftForm venueSlug={slug} />}
+      {section === "photos" && <PhotoReviewPanel venueSlug={slug} />}
+      {section === "bookings" && <BookingsPanel venueSlug={slug} />}
     </main>
   );
 }
