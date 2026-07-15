@@ -1,7 +1,8 @@
 # Other Bali - iOS App Store Launch Setup
 
-Date: 2026-07-14
-Status: Capacitor iOS wrapper scaffolded; App Store Connect account setup still manual.
+Date: 2026-07-15
+Status: Capacitor iOS wrapper builds and runs in Simulator; App Store archive is
+blocked only on Xcode account login/provisioning plus the remaining product QA.
 
 ## What Is In The Repo Now
 
@@ -60,22 +61,15 @@ preferences. Tracking remains `No`.
 
 ## Manual Apple Account Steps
 
-1. Free at least 35 GB, then download Xcode 26.3 from Apple Developer Downloads.
-   Xcode 26.3 is compatible with this Mac's macOS 15.6.1 and meets the current
-   Xcode 26+ App Store upload requirement.
-2. In Apple Developer, create/register App ID `com.otherbali.app`.
-3. In App Store Connect, create the iOS app record with the values above.
-4. In Xcode, open `ios/App/App.xcodeproj`.
-5. Select the `App` target, then Signing & Capabilities.
-6. Choose the Apple Developer Team.
-7. Confirm Bundle Identifier is `com.otherbali.app`.
-8. Confirm Version `1.0` and Build `1`.
-9. Run on an iPhone simulator and a real iPhone.
-10. Archive from Xcode.
-11. Upload to App Store Connect.
-12. Fill privacy labels and review notes.
-13. Attach screenshots.
-14. Submit for TestFlight first, then App Review.
+1. In Xcode 26.3, sign in under Settings > Accounts and select team
+   `K436CPPGU2`; complete owner 2FA if requested.
+2. Open `ios/App/App.xcodeproj` and allow automatic signing to create/download
+   the provisioning profile for `com.otherbali.app`.
+3. Confirm Version `1.0` and Build `1`.
+4. Create and validate the archive, then upload it to App Store Connect.
+5. Run TestFlight on a real iPhone.
+6. Fill privacy labels and review notes, attach final screenshots, and submit
+   the tested build to App Review.
 
 ## Review Notes Draft
 
@@ -93,9 +87,14 @@ npm run mobile:run:ios
 
 ## Remaining Blockers
 
-P0 - Apple Developer Team ID/signing is not configured in the repo.
+Resolved - Team ID `K436CPPGU2`, automatic signing, bundle ID, version and build
+are configured in the repo.
 
-P0 - Xcode 26.3 is not installed and current free disk space is insufficient.
+Resolved - Xcode 26.3 and iOS 26.3 Simulator are installed; the app builds and
+launches on an iPhone 17 Pro simulator.
+
+P0 - Xcode has no signed-in account for team `K436CPPGU2`, so it cannot create
+or download the provisioning profile. Owner login/2FA is required once locally.
 
 P0 - App Store Connect app record must be created manually or through App Store Connect API credentials.
 

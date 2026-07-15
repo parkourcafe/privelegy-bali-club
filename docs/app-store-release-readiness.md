@@ -1,7 +1,9 @@
 # Other Bali - App Store Release Readiness
 
-Date: 2026-07-14
-Status: Web/PWA production deployed; Capacitor iOS wrapper scaffolded and privacy/icon launch blockers fixed; submission remains blocked on architecture, signing, App Store Connect setup, screenshots, and device QA.
+Date: 2026-07-15
+Status: Web/PWA production deployed; the Capacitor iOS wrapper builds and runs in
+the iPhone Simulator; submission remains blocked on local Xcode account login,
+provisioning, architecture, archive/TestFlight, screenshots, and real-device QA.
 
 ## Current Target
 
@@ -112,12 +114,15 @@ Local production verification on 2026-07-12:
 
 ## Release Blockers
 
-P0 - Apple Developer signing team is not configured in Xcode.
+P0 - Team `K436CPPGU2` is configured in the project, but Xcode has no signed-in
+account for that team. The archive currently fails with `No Account for Team`
+and no provisioning profile for `com.otherbali.app`.
 
-P0 - App Store submissions now require Xcode 26+. This Mac can run Xcode 26.3,
-but Xcode is not installed and the current 14 GB free disk space is insufficient.
+Resolved - Xcode 26.3 and the iOS 26.3 Simulator runtime are installed. A Debug
+simulator build succeeds and the app launches on an iPhone 17 Pro simulator.
 
-P0 - App Store Connect app record for `com.otherbali.app` is not created yet.
+Owner-confirmed - the Apple Developer and App Store Connect records already
+exist. Their bundle/team association can be verified after Xcode account login.
 
 P0 - No signed archive has been uploaded to App Store Connect yet.
 
@@ -127,7 +132,8 @@ P1 - `support@otherbali.com` must be a real monitored mailbox before submission.
 
 P1 - App Store screenshots are not prepared yet.
 
-P1 - Apple Developer account, bundle id, signing team, and App Store Connect app record are not configured in repo.
+P1 - The bundle ID and team are configured in repo; Xcode account credentials
+and provisioning profiles remain local owner-controlled state.
 
 P1 - Final privacy label must be confirmed against the archived binary. Analytics, crash reporting, push notification, or advertising SDKs would change the answers.
 
