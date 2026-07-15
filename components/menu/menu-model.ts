@@ -5,7 +5,12 @@ export type MenuFreshness = "fresh" | "stale" | "unpublished" | "empty";
 export function getMenuFreshness(menu: MenuRecord, now = new Date()): MenuFreshness {
   if (menu.status !== "published") return "unpublished";
   if (menu.expiresAt && new Date(menu.expiresAt).getTime() <= now.getTime()) return "stale";
-  if (!menu.sections.some((section) => section.items.length > 0)) return "empty";
+  if (
+    !menu.sections.some((section) => {
+      const itemCount = (section as typeof section & { itemCount?: number }).itemCount;
+      return (itemCount ?? section.items.length) > 0;
+    })
+  ) return "empty";
   return "fresh";
 }
 

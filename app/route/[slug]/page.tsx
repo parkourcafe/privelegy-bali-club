@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getRoute } from "@/lib/data";
+import { getRoute, getRoutes } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // route/venue edits in Supabase surface without a redeploy. Build-safe now
 // that public reads degrade instead of throwing (lib/data.ts).
 export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return (await getRoutes()).map((route) => ({ slug: route.slug }));
+}
 
 const SITE = "https://www.otherbali.com";
 

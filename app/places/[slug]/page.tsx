@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
-import { readGuestRef } from "@/lib/guest-server";
+import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue } from "@/lib/data";
 import SaveButton from "@/components/SaveButton";
 import {
   freshVerifiedUluwatuActionUrl,
@@ -20,12 +19,30 @@ import StructuredMenu from "@/components/menu/StructuredMenu";
 import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
+import type { PublicMenuSummary } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+// Defer the 400+ venue pages to first request, then keep each generated page
+// in ISR. This avoids a database-heavy build while removing per-visitor SSR.
+export async function generateStaticParams() {
+  return [];
+}
 
 const BASE = "https://www.otherbali.com";
+
+function fixtureMenuSummary(menu: MenuRecord): PublicMenuSummary {
+  return {
+    ...menu,
+    sections: menu.sections.map((section) => ({
+      ...section,
+      itemCount: section.items.length,
+      deferred: false,
+    })),
+  };
+}
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -197,16 +214,13 @@ export default async function VenuePage({
   const { slug } = await params;
   const venuePromise = getVenueWithPerk(slug);
   const detailExtensionPromise = getPublicVenueDetailExtension(slug);
-  const savedSlugsPromise = readGuestRef().then(getSavedSlugs);
   const venue = await venuePromise;
   if (!venue) notFound();
-  const [similar, savedSlugs, detailExtension] = await Promise.all([
+  const [similar, detailExtension] = await Promise.all([
     getSimilarVenues(venue, 3),
-    savedSlugsPromise,
     detailExtensionPromise,
   ]);
   const content = getUluwatuContent(slug);
-  const saved = savedSlugs.includes(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
   const isCanggu = venue.district === "canggu";
@@ -342,10 +356,10 @@ export default async function VenuePage({
   const bookLabel = content?.bookingLabel ?? "Book direct";
   // Development fixtures override the repository only in local preview.
   const fixtureMode = process.env.NODE_ENV === "development" ? process.env.MENU_FIXTURE : undefined;
-  const menu: MenuRecord | null = fixtureMode === "fresh"
-    ? { ...menuActionFixtures.freshMenu, venueSlug: slug }
+  const menu: PublicMenuSummary | null = fixtureMode === "fresh"
+    ? fixtureMenuSummary({ ...menuActionFixtures.freshMenu, venueSlug: slug })
     : fixtureMode === "stale"
-    ? { ...menuActionFixtures.staleMenu, venueSlug: slug }
+    ? fixtureMenuSummary({ ...menuActionFixtures.staleMenu, venueSlug: slug })
     : detailExtension.menu;
   const actionSlotProps: VenueActionBarProps = {
     venueSlug: venue.slug,
@@ -440,7 +454,7 @@ export default async function VenuePage({
 
         {/* Save control (kept from mainline) sits just under the masthead. */}
         <div style={{ marginTop: 14 }}>
-          <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
+          <SaveButton venueSlug={slug} variant="detail" />
         </div>
 
         <div className="venue-detail-grid">

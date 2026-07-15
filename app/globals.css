@@ -2373,7 +2373,7 @@ html {
   border-bottom: 0;
 }
 
-.structured-menu-section summary {
+.structured-menu-section > summary {
   display: flex;
   min-height: 52px;
   cursor: pointer;
@@ -2386,16 +2386,22 @@ html {
   font-weight: 800;
 }
 
-.structured-menu-section summary::-webkit-details-marker { display: none; }
-.structured-menu-section summary::after { content: "+"; color: var(--clay); font-size: 21px; }
-.structured-menu-section[open] summary::after { content: "–"; }
-.structured-menu-section summary small { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.structured-menu-section > summary::-webkit-details-marker { display: none; }
+.structured-menu-section > summary::after { content: "+"; color: var(--clay); font-size: 21px; }
+.structured-menu-section[open] > summary::after { content: "–"; }
+.structured-menu-section > summary small { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
 
 .structured-menu-section-description {
   padding: 0 18px 12px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.55;
+}
+
+.structured-menu-section-status {
+  padding: 4px 18px 16px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .structured-menu-section ul { list-style: none; }
@@ -2405,6 +2411,13 @@ html {
   padding: 16px 18px;
 }
 
+.structured-menu-item > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.structured-menu-item > summary::-webkit-details-marker { display: none; }
+
 .structured-menu-item-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -2413,6 +2426,8 @@ html {
 }
 
 .structured-menu-item h4 { font-size: 15px; font-weight: 800; line-height: 1.35; overflow-wrap: anywhere; }
+.structured-menu-item[open] h4 span:last-child { display: none; }
+.structured-menu-item-details { padding-top: 2px; }
 .structured-menu-price { color: var(--ink); font-size: 13px; font-weight: 800; white-space: nowrap; }
 .structured-menu-description { margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.55; }
 
@@ -2442,7 +2457,7 @@ html {
 @media (max-width: 430px) {
   .structured-menu-header,
   .structured-menu-item,
-  .structured-menu-section summary,
+  .structured-menu-section > summary,
   .structured-menu-section-description,
   .structured-menu-allergen-note,
   .structured-menu-official-link { padding-left: 14px; padding-right: 14px; }
