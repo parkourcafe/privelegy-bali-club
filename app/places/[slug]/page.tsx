@@ -361,8 +361,14 @@ export default async function VenuePage({
     } : {},
   };
 
+  // Hero verdict — shown once in the masthead. "Why it's here" renders only
+  // when it adds text beyond the verdict (kills the duplicated paragraph).
+  const heroVerdict = content?.verdict ?? venue.whyItsHere;
+  const whyHereText = content?.whyHere ?? venue.whyItsHere;
+  const showWhyHere = Boolean(whyHereText && whyHereText.trim() !== heroVerdict?.trim());
+
   return (
-    <div className="venue-page-pad">
+    <div className="page-dark venue-page-pad">
       <main className="site-shell">
         {published && (
           <script
@@ -386,18 +392,31 @@ export default async function VenuePage({
           ]
             .filter(Boolean)
             .join(" · ");
-          const verdict = content?.verdict ?? venue.whyItsHere;
+          const verdict = heroVerdict;
           return (
             <header
               className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
             >
-              {venue.photoUrl && (
+              {venue.photoUrl ? (
                 // Venue-approved photo (owner-uploaded during onboarding).
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="venue-masthead-photo"
                   src={venue.photoUrl}
                   alt={`${name} — ${catLabel}`}
+                  fetchPriority="high"
+                />
+              ) : (
+                // Category mood art — atmospheric editorial still, decorative
+                // (alt="") and never presented as venue photography
+                // (publication rule v2). The category gradient stays beneath
+                // as the loading/fallback field.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  className="venue-masthead-photo venue-masthead-art"
+                  src={`/covers/${venue.category}.webp`}
+                  alt=""
+                  aria-hidden="true"
                   fetchPriority="high"
                 />
               )}
@@ -421,12 +440,13 @@ export default async function VenuePage({
         <div className="venue-detail-grid">
           {/* ── Main column ── */}
           <div>
-            {/* Why it's here — Other Bali editorial voice */}
-            {(content?.whyHere ?? venue.whyItsHere) && (
+            {/* Why it's here — Other Bali editorial voice. Skipped when it
+                would repeat the masthead verdict word for word. */}
+            {showWhyHere && (
               <section className="guide-section" style={{ marginTop: 28 }}>
                 <h2>Why it&apos;s here</h2>
                 <div className="guide-prose">
-                  <p>{content?.whyHere ?? venue.whyItsHere}</p>
+                  <p>{whyHereText}</p>
                 </div>
               </section>
             )}
@@ -457,13 +477,18 @@ export default async function VenuePage({
               </section>
             )}
 
-            <section className="guide-section" aria-labelledby="menu-heading">
-              <h2 id="menu-heading">Menu</h2>
-              <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
-              <div className="mt-4">
-                <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
-              </div>
-            </section>
+            {/* Menu — rendered only when there is something real to show
+                (verified menu or an official source). No big empty-state box
+                on the 80% of venues without menu data. */}
+            {(menu || menuUrl) && (
+              <section className="guide-section" aria-labelledby="menu-heading">
+                <h2 id="menu-heading">Menu</h2>
+                <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+                <div className="mt-4">
+                  <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
+                </div>
+              </section>
+            )}
 
             <VenueActionBar {...actionSlotProps} />
 
@@ -521,7 +546,7 @@ export default async function VenuePage({
             {similar.length > 0 && (
               <section className="guide-section">
                 <h2>Similar places nearby</h2>
-                <div className="pick-grid" style={{ marginTop: 16 }}>
+                <div className="pick-grid pick-grid-3" style={{ marginTop: 16 }}>
                   {similar.map((s) => {
                     const sc = getUluwatuContent(s.slug);
                     return (

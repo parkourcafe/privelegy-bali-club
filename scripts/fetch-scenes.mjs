@@ -24,12 +24,16 @@ const SCENES = {
   "human-dusk": ["hf_20260711_160539_124f0320-4eb3-49a9-8afb-b1e118c86255.png", 1920],
 };
 
-// One short muted hero loop (720p, silent, generated from the hero still so
-// the grade matches). Hard 3MB gate: if the file is bigger than the mobile
-// performance budget, it is NOT shipped and the hero keeps its Ken Burns
-// poster — that fallback is by design, not an error.
+// One short muted hero loop (silent). Hard 3MB gate: if the file is bigger
+// than the mobile performance budget, it is NOT shipped and the hero keeps
+// its Ken Burns poster — that fallback is by design, not an error.
+// NOTE (2026-07-14): public/scenes/hero-loop.mp4 (and ubud-dawn-loop.mp4)
+// are now committed, ffmpeg-compressed assets (~0.9MB) from the golden-hour
+// ocean generation d9e5803a — this entry is only the CDN fallback if the
+// committed file is ever deleted (the raw source below is over budget and
+// will be rejected by the gate; recompress before shipping).
 const VIDEOS = {
-  "hero-loop": ["hf_20260711_160608_090527c0-7b71-41b8-b338-7798d43211b3.mp4", 3_000_000],
+  "hero-loop": ["hf_20260714_150931_d9e5803a-59d4-44e1-9ced-7a79716ae585.mp4", 3_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });
