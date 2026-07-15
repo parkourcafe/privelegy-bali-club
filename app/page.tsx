@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "@/components/landing/Reveal";
 import HeroGlow from "@/components/landing/HeroGlow";
 import SceneImage from "@/components/landing/SceneImage";
+import DistrictCover from "@/components/landing/DistrictCover";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
 import DayIntentBuilder from "@/components/landing/DayIntentBuilder";
 import HeroLoop from "@/components/landing/HeroLoop";
@@ -571,24 +572,25 @@ function AroundBali() {
     next_deep: "In depth next",
     planning_only: "Planning notes",
   };
-  // Fallback SVG wash per district while (or if) the generated district still
-  // is unavailable — SceneImage renders /scenes/district-<slug>.webp above it.
-  const DISTRICT_VARIANT: Record<string, "sunset" | "ridge" | "surf" | "night"> = {
-    canggu: "surf",
-    ubud: "ridge",
-    seminyak: "sunset",
-    "kuta-legian": "surf",
-    jimbaran: "night",
-    "uluwatu-bukit": "sunset",
-    "nusa-dua": "sunset",
-    sanur: "sunset",
-    sidemen: "ridge",
-    amed: "sunset",
-    munduk: "ridge",
-    lovina: "sunset",
-    "nusa-islands": "sunset",
-    "gili-islands": "sunset",
-    lombok: "surf",
+  // Distinct, light-leaning colour wash per district (DistrictCover base layer).
+  // Each is its own hue so the 15 cards read as different places even before —
+  // or without — the generated still on top. Warm-cohesive but never identical.
+  const DISTRICT_GRADIENT: Record<string, string> = {
+    canggu: "linear-gradient(150deg,#2f7f88 0%,#c69a5c 55%,#2a1c12 100%)",
+    ubud: "linear-gradient(150deg,#4a7a52 0%,#cba35e 55%,#221a10 100%)",
+    seminyak: "linear-gradient(150deg,#c07184 0%,#e6bd7d 52%,#2a1a14 100%)",
+    "kuta-legian": "linear-gradient(150deg,#e6a851 0%,#f2cd8b 48%,#3a2614 100%)",
+    jimbaran: "linear-gradient(150deg,#b85a30 0%,#e6bd7d 52%,#20140f 100%)",
+    "uluwatu-bukit": "linear-gradient(150deg,#3d78b0 0%,#cba35e 55%,#20180f 100%)",
+    "nusa-dua": "linear-gradient(150deg,#2fa9a2 0%,#cbe3d2 48%,#213230 100%)",
+    sanur: "linear-gradient(150deg,#df9aa8 0%,#f2d7ac 50%,#2a2016 100%)",
+    sidemen: "linear-gradient(150deg,#63863f 0%,#cba35e 55%,#20180d 100%)",
+    amed: "linear-gradient(150deg,#2f6296 0%,#d6aa60 55%,#161b24 100%)",
+    munduk: "linear-gradient(150deg,#3f857b 0%,#b3cd92 50%,#182420 100%)",
+    lovina: "linear-gradient(150deg,#4f88a4 0%,#d0bb8c 52%,#182028 100%)",
+    "nusa-islands": "linear-gradient(150deg,#1fa6bd 0%,#9ee6dc 48%,#213238 100%)",
+    "gili-islands": "linear-gradient(150deg,#2bb8ae 0%,#cbe9d7 48%,#203030 100%)",
+    lombok: "linear-gradient(150deg,#93a447 0%,#e6bd7d 52%,#2a2415 100%)",
   };
   return (
     <Section id="bali" className="bg-[var(--ob-espresso-2)]">
@@ -614,20 +616,17 @@ function AroundBali() {
                 className={`group flex h-full flex-col overflow-hidden rounded-3xl border transition-colors ${
                   deep
                     ? "border-[rgba(198,154,92,0.5)] bg-[var(--ob-espresso-3)]"
-                    : "border-[var(--ob-line)] bg-[var(--ob-espresso)] hover:border-[rgba(198,154,92,0.4)]"
+                    : "border-[var(--ob-line)] bg-[var(--ob-espresso-2)] hover:border-[rgba(198,154,92,0.45)]"
                 }`}
               >
-                {/* District mood art (generated atmosphere, decorative — never a
-                    photo of a specific venue). SceneImage falls back to the SVG
-                    wash when the still is unavailable, so the card never goes
-                    empty. Name sits on the art so each area reads instantly. */}
-                <div className="ob-grain relative h-36 shrink-0 overflow-hidden md:h-40">
-                  <SceneImage
-                    scene={`district-${d.slug}`}
-                    variant={DISTRICT_VARIANT[d.slug] ?? "sunset"}
-                    imgClassName="ob-grade transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--ob-espresso)]/85 via-[var(--ob-espresso)]/15 to-[var(--ob-espresso)]/30" />
+                {/* District cover — a distinct light colour wash per area, with
+                    the generated mood still on top when available (decorative,
+                    never a photo of a specific venue). Only a soft bottom scrim
+                    keeps the name legible, so the card stays light and each area
+                    reads as its own place. */}
+                <div className="relative h-44 shrink-0 overflow-hidden md:h-48">
+                  <DistrictCover slug={d.slug} gradient={DISTRICT_GRADIENT[d.slug]} />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--ob-espresso-2)] via-[var(--ob-espresso-2)]/45 to-transparent" />
                   <span
                     className={`absolute right-4 top-4 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm ${
                       deep
