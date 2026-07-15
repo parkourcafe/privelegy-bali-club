@@ -1,7 +1,7 @@
 import "server-only";
 
 import candidatePackage from "@/data/photo-candidates/owner-review.json";
-import type { VenueWithPerk } from "@/lib/data";
+import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { OWNER_PHOTO_CANDIDATE_BUCKET } from "@/lib/owner-photo-candidates";
 import { requirePhotoReviewRequest } from "@/lib/photo-review-request-auth";
 import { serviceClient } from "@/lib/supabase/service";
@@ -181,29 +181,33 @@ export type DeveloperPhotoSiteCatalogue = {
 export async function getDeveloperPhotoSiteCatalogue(): Promise<DeveloperPhotoSiteCatalogue> {
   await requirePhotoReviewRequest();
   const client = serviceClient();
-  const venuesWithCandidates = manifestVenues.filter((venue) => venue.candidates.length > 0).length;
-  const venuesWithoutCandidates = manifestVenues.length - venuesWithCandidates;
+  const publishedVenues = await getPublishedVenues();
+  const manifestBySlug = new Map(manifestVenues.map((venue) => [venue.slug, venue] as const));
+  const venuesWithCandidates = publishedVenues.filter(
+    (venue) => (manifestBySlug.get(venue.slug)?.candidates.length ?? 0) > 0,
+  ).length;
+  const venuesWithoutCandidates = publishedVenues.length - venuesWithCandidates;
   if (!client) {
     return {
-      venues: [],
-      totalCandidates: 814,
+      venues: publishedVenues,
+      totalCandidates: manifestVenues.reduce((sum, venue) => sum + venue.candidates.length, 0),
       venuesWithCandidates,
       venuesWithoutCandidates,
       unavailableCovers: venuesWithCandidates,
     };
   }
 
-  const coverPaths = manifestVenues.map((venue) => venue.candidates[0]?.objectPath).filter(Boolean);
-  const [rows, signedByPath] = await Promise.all([
-    productionRows(client),
-    signedUrlsForPaths(client, coverPaths),
-  ]);
+  const coverPaths = publishedVenues
+    .map((venue) => manifestBySlug.get(venue.slug)?.candidates[0]?.objectPath)
+    .filter((path): path is string => Boolean(path));
+  const signedByPath = await signedUrlsForPaths(client, coverPaths);
   let unavailableCovers = 0;
-  const venues = manifestVenues.map((manifest) => {
-    const coverPath = manifest.candidates[0]?.objectPath;
+  const venues = publishedVenues.map((venue) => {
+    const manifest = manifestBySlug.get(venue.slug);
+    const coverPath = manifest?.candidates[0]?.objectPath;
     const photoUrl = coverPath ? signedByPath.get(coverPath) : undefined;
     if (coverPath && !photoUrl) unavailableCovers += 1;
-    return previewVenue(manifest, rows.get(manifest.slug), photoUrl);
+    return photoUrl ? { ...venue, photoUrl } : venue;
   });
   return {
     venues,

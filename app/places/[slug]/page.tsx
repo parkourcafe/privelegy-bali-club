@@ -22,6 +22,7 @@ import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
+import { getDeveloperPhotoSiteVenue } from "@/lib/developer-photo-review";
 
 export const dynamic = "force-dynamic";
 
@@ -191,15 +192,20 @@ export async function generateMetadata({
 
 export default async function VenuePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const photoReviewMode = resolvedSearchParams["photo-review"] === "1";
+  const [venue, all, savedSlugs, detailExtension, photoPreview] = await Promise.all([
     getVenueWithPerk(slug),
     getPublishedVenues(),
     getSavedSlugs(await readGuestRef()),
     getPublicVenueDetailExtension(slug),
+    photoReviewMode ? getDeveloperPhotoSiteVenue(slug) : Promise.resolve(null),
   ]);
   const content = getUluwatuContent(slug);
   if (!venue) notFound();
@@ -366,6 +372,8 @@ export default async function VenuePage({
   const heroVerdict = content?.verdict ?? venue.whyItsHere;
   const whyHereText = content?.whyHere ?? venue.whyItsHere;
   const showWhyHere = Boolean(whyHereText && whyHereText.trim() !== heroVerdict?.trim());
+  const reviewCandidates = photoPreview?.candidates ?? [];
+  const mastheadPhotoUrl = reviewCandidates[0]?.previewUrl ?? venue.photoUrl;
 
   return (
     <div className="page-dark venue-page-pad">
@@ -376,7 +384,19 @@ export default async function VenuePage({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
         )}
-        <PageViewTracker event="venue_detail_view" slug={slug} />
+        {!photoReviewMode && <PageViewTracker event="venue_detail_view" slug={slug} />}
+
+        {photoReviewMode && (
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[rgba(198,154,92,0.45)] bg-[rgba(198,154,92,0.12)] px-4 py-3 text-sm text-[var(--ob-sand)]">
+            <span>
+              <strong className="text-[var(--ob-brass-2)]">Private restaurateur preview.</strong>{" "}
+              Current production page with {reviewCandidates.length} prepared review photo{reviewCandidates.length === 1 ? "" : "s"}.
+            </span>
+            <Link href="/developer/site/places" className="font-semibold underline underline-offset-4">
+              ← Photo-complete catalogue
+            </Link>
+          </div>
+        )}
 
         <Breadcrumbs items={crumbs} />
 
@@ -395,14 +415,14 @@ export default async function VenuePage({
           const verdict = heroVerdict;
           return (
             <header
-              className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
+              className={`venue-masthead ob-grain${mastheadPhotoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
             >
-              {venue.photoUrl ? (
+              {mastheadPhotoUrl ? (
                 // Venue-approved photo (owner-uploaded during onboarding).
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="venue-masthead-photo"
-                  src={venue.photoUrl}
+                  src={mastheadPhotoUrl}
                   alt={`${name} — ${catLabel}`}
                   fetchPriority="high"
                 />
@@ -433,9 +453,41 @@ export default async function VenuePage({
         })()}
 
         {/* Save control (kept from mainline) sits just under the masthead. */}
-        <div style={{ marginTop: 14 }}>
-          <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
-        </div>
+        {!photoReviewMode && (
+          <div style={{ marginTop: 14 }}>
+            <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
+          </div>
+        )}
+
+        {photoReviewMode && (
+          <section className="guide-section" style={{ marginTop: 28 }} aria-labelledby="review-photos-heading">
+            <h2 id="review-photos-heading">Prepared photography</h2>
+            <p className="guide-lede">
+              {reviewCandidates.length > 0
+                ? "Every review candidate currently prepared for this venue. The first image is shown in the production masthead above."
+                : "No separate review candidate is available for this venue, so its current production photo or category artwork remains in place."}
+            </p>
+            {reviewCandidates.length > 0 && (
+              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {reviewCandidates.map((candidate, index) => (
+                  <figure key={candidate.id} className="overflow-hidden rounded-2xl border border-[var(--ob-line)] bg-[var(--ob-espresso-2)]">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      {/* Private short-lived signed URL; never emitted on the public page. */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={candidate.previewUrl}
+                        alt={`${name} review photo ${index + 1}`}
+                        className="size-full object-cover"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
 
         <div className="venue-detail-grid">
           {/* ── Main column ── */}

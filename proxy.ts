@@ -68,6 +68,9 @@ function adminNotFound(): NextResponse {
 // races between concurrent first calls.
 // (Next 16: this is the `proxy` file convention, formerly `middleware`.)
 export function proxy(req: NextRequest) {
+  const photoReviewRequest = isPhotoReviewPath(req.nextUrl.pathname) ||
+    req.nextUrl.searchParams.get("photo-review") === "1";
+
   if (isAdminPath(req.nextUrl.pathname)) {
     const token = configuredAdminToken();
     if (!token) return adminNotFound();
@@ -76,7 +79,7 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  if (isPhotoReviewPath(req.nextUrl.pathname)) {
+  if (photoReviewRequest) {
     const token = configuredPhotoReviewToken();
     if (!token) return adminNotFound();
     if (!hasAdminBasicAccess(req.headers.get("authorization"), token)) {
@@ -88,7 +91,7 @@ export function proxy(req: NextRequest) {
   if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
-  if (isSensitivePath(req.nextUrl.pathname)) {
+  if (isSensitivePath(req.nextUrl.pathname) || photoReviewRequest) {
     res.headers.set("Cache-Control", "private, no-store, max-age=0");
     res.headers.set("Referrer-Policy", "no-referrer");
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
