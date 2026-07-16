@@ -20,10 +20,14 @@ test("the bundled shell persists a plan, favourites, offline state and deep link
   assert.match(shell, /addEventListener\("offline"/);
   assert.match(shell, /appUrlOpen/);
   assert.match(shell, /getLaunchUrl/);
-  assert.match(shell, /otherbali:\/\/plan/);
+  assert.match(shell, /url\.protocol === "otherbali:"/);
+  assert.match(shell, /kind === "plan"/);
   assert.match(shell, /kind === "place"/);
   assert.match(shell, /Plugins\.Share/);
   assert.match(shell, /navigator\.share/);
+  assert.match(shell, /https:\/\/www\.otherbali\.com/);
+  assert.match(shell, /\/plan\/shared\?m=/);
+  assert.doesNotMatch(shell, /url:\s*"otherbali:\/\/plan/);
   assert.match(shell, /scrollIntoView/);
   assert.match(shell, /id="saved-places"/);
   assert.match(shell, /kind === "place"\) revealSavedPlaces/);
@@ -31,6 +35,14 @@ test("the bundled shell persists a plan, favourites, offline state and deep link
   assert.match(shell, /planMood/);
   assert.match(shell, /id="plan"><\/div><section class="step" id="saved-places"><span class="step-label">Saved places/);
   assert.doesNotMatch(shell, /navigator\.geolocation|SUPABASE|authToken/i);
+});
+
+test("shared iOS plans have a public web fallback for recipients without the app", async () => {
+  const page = await load("app/plan/shared/page.tsx");
+  assert.match(page, /Shared Other Bali day/);
+  assert.match(page, /robots:\s*\{\s*index:\s*false/);
+  assert.match(page, /Browse places/);
+  assert.match(page, /Open the live district guide/);
 });
 
 test("the bundled shell prevents a pinched or horizontally shifted iPhone layout", async () => {
@@ -47,5 +59,6 @@ test("the iOS target declares the bundle ID and custom deep-link scheme", async 
   const plist = await load("ios/App/App/Info.plist");
   const project = await load("ios/App/App.xcodeproj/project.pbxproj");
   assert.match(project, /PRODUCT_BUNDLE_IDENTIFIER = com\.otherbali\.app/);
+  assert.match(project, /CURRENT_PROJECT_VERSION = 2/);
   assert.match(plist, /<string>otherbali<\/string>/);
 });

@@ -34,6 +34,9 @@
     var path = plan.district === "canggu" ? "/plan?m=" + encodeURIComponent(plan.mood) : "/bali/" + encodeURIComponent(plan.district);
     return REMOTE_ORIGIN + path;
   }
+  function sharedPlanUrl(plan) {
+    return REMOTE_ORIGIN + "/plan/shared?m=" + encodeURIComponent(plan.mood) + "&district=" + encodeURIComponent(plan.district) + "&days=" + encodeURIComponent(plan.days);
+  }
   function favouriteFromUrl(url) {
     var match = url.match(/\/places\/([^/?#]+)/); return match ? decodeURIComponent(match[1]) : null;
   }
@@ -107,7 +110,7 @@
   }
   async function sharePlan(plan) {
     var planMood = moods.find(function (item) { return item[0] === plan.mood; });
-    var data = { title: "My Other Bali day", text: "'" + (planMood ? planMood[1] : "Bali day") + "' in " + title(plan.district), url: "otherbali://plan?m=" + encodeURIComponent(plan.mood) + "&district=" + encodeURIComponent(plan.district) + "&days=" + encodeURIComponent(plan.days) };
+    var data = { title: "My Other Bali day", text: "'" + (planMood ? planMood[1] : "Bali day") + "' in " + title(plan.district), url: sharedPlanUrl(plan) };
     try {
       var nativeShare = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
       if (nativeShare && nativeShare.share) { await nativeShare.share(data); return; }
