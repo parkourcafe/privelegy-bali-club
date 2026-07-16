@@ -59,7 +59,10 @@ const nextConfig: NextConfig = {
   turbopack: { root: process.cwd() },
   images: {
     formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 300,
+    // Optimized-image responses are content-addressed (the `url` + params are
+    // the cache key), so a long TTL is safe and cuts repeat-visit bytes — the
+    // PageSpeed "efficient cache lifetime" flag. 30 days.
+    minimumCacheTTL: 2592000,
     qualities: [70, 78],
     remotePatterns: [
       {

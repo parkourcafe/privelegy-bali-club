@@ -42,5 +42,14 @@
   },
   "overrides": {
     "postcss": "8.5.19"
-  }
+  },
+  "//browserslist": "Modern targets so Next/SWC stops shipping ES2022 polyfills (Array.at/flat/flatMap, Object.fromEntries/hasOwn, String.trimStart/End) — ~13.8 KB of legacy JS off every page. Floor is early-2022 browsers, which covers the tourist audience's phones.",
+  "browserslist": [
+    "chrome >= 104",
+    "edge >= 104",
+    "firefox >= 104",
+    "safari >= 15.6",
+    "ios_saf >= 15.6",
+    "not dead"
+  ]
 }
