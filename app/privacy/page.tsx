@@ -12,7 +12,7 @@ export default function PrivacyPage() {
     <div className="page-dark">
       <main className="mx-auto w-full max-w-3xl px-5 py-12">
         <Link href="/" className="quiet-link">
-          ← Other Bali
+          ← Home
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon)]">
           Privacy
