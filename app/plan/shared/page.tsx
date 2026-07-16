@@ -66,31 +66,31 @@ export default async function SharedPlan({
   return (
     <div className="page-dark min-h-screen">
       <main className="site-shell max-w-3xl py-10 sm:py-16">
-        <BrandHomeLink label="Other Bali · Shared day" />
+        <BrandHomeLink />
 
-        <section className="mt-10 rounded-[2rem] border border-[var(--ob-line)] bg-[var(--ob-espresso-2)] p-6 shadow-2xl sm:p-10">
-          <p className="topline text-[var(--ob-brass-2)]">Shared from the iPhone app</p>
-          <h1 className="mt-4 font-display text-5xl leading-none text-[var(--ob-sand)] sm:text-7xl">
+        <section className="mt-10 rounded-[2rem] border border-[var(--line)] bg-[var(--paper-soft)] p-6 shadow-2xl sm:p-10">
+          <p className="topline text-[var(--lagoon)]">Shared from the iPhone app</p>
+          <h1 className="mt-4 font-display text-5xl leading-none text-[var(--ink)] sm:text-7xl">
             {MOODS[mood]} in {DISTRICTS[district]}
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-[var(--ob-sand-dim)]">
+          <p className="mt-6 max-w-xl text-lg text-[var(--muted)]">
             {days === "1" ? "One day" : `${days} days`} saved as a starting point.
             Open the live guide for current places, menus, directions and verified
             booking or delivery actions.
           </p>
 
           <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl bg-[var(--ob-espresso-3)] p-4">
-              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--ob-stone)]">Mood</dt>
-              <dd className="mt-2 font-semibold text-[var(--ob-sand)]">{MOODS[mood]}</dd>
+            <div className="rounded-2xl bg-[var(--paper-warm)] p-4">
+              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">Mood</dt>
+              <dd className="mt-2 font-semibold text-[var(--ink)]">{MOODS[mood]}</dd>
             </div>
-            <div className="rounded-2xl bg-[var(--ob-espresso-3)] p-4">
-              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--ob-stone)]">District</dt>
-              <dd className="mt-2 font-semibold text-[var(--ob-sand)]">{DISTRICTS[district]}</dd>
+            <div className="rounded-2xl bg-[var(--paper-warm)] p-4">
+              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">District</dt>
+              <dd className="mt-2 font-semibold text-[var(--ink)]">{DISTRICTS[district]}</dd>
             </div>
-            <div className="col-span-2 rounded-2xl bg-[var(--ob-espresso-3)] p-4 sm:col-span-1">
-              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--ob-stone)]">Length</dt>
-              <dd className="mt-2 font-semibold text-[var(--ob-sand)]">
+            <div className="col-span-2 rounded-2xl bg-[var(--paper-warm)] p-4 sm:col-span-1">
+              <dt className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">Length</dt>
+              <dd className="mt-2 font-semibold text-[var(--ink)]">
                 {days === "1" ? "One day" : `${days} days`}
               </dd>
             </div>
@@ -109,7 +109,7 @@ export default async function SharedPlan({
           </div>
         </section>
 
-        <p className="mt-6 text-sm text-[var(--ob-stone)]">
+        <p className="mt-6 text-sm text-[var(--muted)]">
           Other Bali is free for travellers. Current venue actions open only through
           the official provider shown on each place page.
         </p>
