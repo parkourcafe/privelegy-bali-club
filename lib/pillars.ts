@@ -97,4 +97,14 @@ export const PILLARS: Pillar[] = [
       { path: "/jimbaran/spas-wellness", title: "Best spas & wellness in Jimbaran" },
     ],
   },
+  {
+    // Destination pillar. Its programmatic children aren't built yet (island
+    // venues are still being curated), so `children` is empty — the day-trip
+    // logistics live in the separate /nusa-penida-day-trip guide, cross-linked
+    // from the pillar rather than listed here as a pillar child.
+    slug: "nusa-penida",
+    name: "Nusa Penida",
+    tagline: "The island of cliffs and mantas: Kelingking, hidden coves and manta snorkelling off the south-east coast.",
+    children: [],
+  },
 ];

@@ -285,10 +285,10 @@ export const GUIDES: Guide[] = [
       { q: "Do you need cash in Nusa Penida?", a: "Yes — bring plenty. ATMs are few, often don't accept foreign cards and frequently run empty, and most tours, rentals and eateries are cash-only. Withdraw on mainland Bali before you cross." },
     ],
     related: [
+      { href: "/nusa-penida", title: "The Nusa Penida guide", blurb: "Who the island suits, the west and east loops, and the headline cliffs and coves." },
       { href: "/sanur", title: "The Sanur guide", blurb: "The calm base and fast-boat gateway to the Nusa islands." },
       { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
       { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Water, roads and the practical safety basics." },
-      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Boats, drivers and apps between the sights." },
     ],
   },
   {
@@ -866,6 +866,7 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   sanur: ["nusa-penida-day-trip", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["best-restaurants-in-bali", "seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  "nusa-penida": ["nusa-penida-day-trip", "how-to-get-around-bali", "how-many-days-in-bali", "where-to-stay-in-bali", "best-time-to-visit-bali"],
   jimbaran: ["best-restaurants-in-bali", "where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
