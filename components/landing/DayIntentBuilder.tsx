@@ -79,6 +79,7 @@ const districtOptions: Choice[] = [
   { value: "uluwatu", label: "Uluwatu", hint: "Cliffs, beaches, sunset", query: [], district: "uluwatu-bukit" },
   { value: "sanur", label: "Sanur", hint: "Easy, family, sunrise", query: [], district: "sanur" },
   { value: "nusa-dua", label: "Nusa Dua", hint: "Resorts and calm beaches", query: [], district: "nusa-dua" },
+  { value: "jimbaran", label: "Jimbaran", hint: "Calm bay, seafood on the sand", query: [], district: "jimbaran" },
 ];
 
 const groupOptions: Choice[] = [

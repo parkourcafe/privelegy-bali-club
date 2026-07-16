@@ -26,16 +26,75 @@ const CATEGORIES = [
   { value: "other", label: "Something else" },
 ];
 
-const DISTRICTS = [
-  { value: "", label: "Choose an area…" },
-  { value: "canggu", label: "Canggu" },
-  { value: "seminyak", label: "Seminyak" },
-  { value: "ubud", label: "Ubud" },
-  { value: "sanur", label: "Sanur" },
-  { value: "uluwatu-bukit", label: "Uluwatu / Bukit" },
-  { value: "jimbaran", label: "Jimbaran" },
-  { value: "nusa-dua", label: "Nusa Dua" },
-  { value: "other", label: "Elsewhere in Bali" },
+// Island-wide area list, grouped by region for scanning. Slugs align with the
+// canonical districts registry (lib/districts.ts) where an entry exists; the
+// extra long-tail slugs (denpasar, kintamani, bedugul, klungkung, karangasem,
+// tabanan, west-bali, kuta, legian) are intake hints an operator maps to a real
+// district when promoting the submission — venue_submissions.district is free
+// text, no FK, so a wider list never breaks the write.
+const DISTRICT_GROUPS: { region: string; areas: { value: string; label: string }[] }[] = [
+  {
+    region: "South-west & south coast",
+    areas: [
+      { value: "canggu", label: "Canggu" },
+      { value: "seminyak", label: "Seminyak" },
+      { value: "kuta", label: "Kuta" },
+      { value: "legian", label: "Legian" },
+      { value: "jimbaran", label: "Jimbaran" },
+    ],
+  },
+  {
+    region: "Bukit & south-east",
+    areas: [
+      { value: "uluwatu-bukit", label: "Uluwatu & the Bukit" },
+      { value: "nusa-dua", label: "Nusa Dua" },
+    ],
+  },
+  {
+    region: "City & south-east coast",
+    areas: [
+      { value: "denpasar", label: "Denpasar (city)" },
+      { value: "sanur", label: "Sanur" },
+    ],
+  },
+  {
+    region: "Central highlands & lakes",
+    areas: [
+      { value: "ubud", label: "Ubud" },
+      { value: "kintamani", label: "Kintamani & Lake Batur" },
+      { value: "bedugul", label: "Bedugul & the lakes" },
+      { value: "munduk", label: "Munduk & the highlands" },
+    ],
+  },
+  {
+    region: "East Bali",
+    areas: [
+      { value: "klungkung", label: "Klungkung" },
+      { value: "sidemen", label: "Sidemen" },
+      { value: "karangasem", label: "Karangasem & Candidasa" },
+      { value: "amed", label: "Amed & the east coast" },
+    ],
+  },
+  {
+    region: "North & west",
+    areas: [
+      { value: "lovina", label: "Lovina & the north" },
+      { value: "tabanan", label: "Tabanan (Tanah Lot, Jatiluwih)" },
+      { value: "west-bali", label: "West Bali (Medewi, Pemuteran)" },
+    ],
+  },
+  {
+    region: "Islands & beyond",
+    areas: [
+      { value: "nusa-islands", label: "Nusa Penida / Lembongan" },
+      { value: "gili-islands", label: "Gili Islands" },
+      { value: "lombok", label: "Lombok" },
+    ],
+  },
+  {
+    region: "Anywhere else",
+    areas: [{ value: "other", label: "Elsewhere in Bali" }],
+  },
 ];
 
 type Status =
@@ -165,8 +224,13 @@ export default function VenueSubmissionForm() {
       <label>
         <span className="field-label">Area</span>
         <select name="district" defaultValue="">
-          {DISTRICTS.map((d) => (
-            <option key={d.value} value={d.value}>{d.label}</option>
+          <option value="">Choose an area…</option>
+          {DISTRICT_GROUPS.map((group) => (
+            <optgroup key={group.region} label={group.region}>
+              {group.areas.map((d) => (
+                <option key={d.value} value={d.value}>{d.label}</option>
+              ))}
+            </optgroup>
           ))}
         </select>
       </label>
