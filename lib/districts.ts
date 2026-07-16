@@ -122,6 +122,7 @@ const GUIDE: DistrictGuideEntry[] = [
     moment: "Green valley views, quiet guesthouses, slow village days.",
     bestFor: ["quiet escapes", "rice-field walks", "photographers"],
     mapsUrl: "https://maps.google.com/?q=Sidemen,+Bali",
+    guidePath: "/sidemen",
   },
   {
     slug: "amed",
@@ -131,6 +132,7 @@ const GUIDE: DistrictGuideEntry[] = [
     moment: "Sunrise snorkelling, black-sand fishing villages.",
     bestFor: ["divers & snorkellers", "wreck dives", "low-key evenings"],
     mapsUrl: "https://maps.google.com/?q=Amed,+Bali",
+    guidePath: "/amed",
   },
   {
     slug: "munduk",
@@ -140,6 +142,7 @@ const GUIDE: DistrictGuideEntry[] = [
     moment: "Waterfalls, cool air, coffee country.",
     bestFor: ["hikers", "waterfalls", "cool climate"],
     mapsUrl: "https://maps.google.com/?q=Munduk,+Bali",
+    guidePath: "/munduk",
   },
   {
     slug: "lovina",
@@ -149,6 +152,7 @@ const GUIDE: DistrictGuideEntry[] = [
     moment: "Calm black-sand mornings, early boats on a quiet sea.",
     bestFor: ["off-the-loop travel", "calm water", "long stays"],
     mapsUrl: "https://maps.google.com/?q=Lovina,+Bali",
+    guidePath: "/lovina",
   },
   {
     slug: "nusa-islands",
@@ -191,6 +195,7 @@ const PILLAR_PATH: Record<string, string> = {
   sanur: "/sanur",
   "nusa-dua": "/nusa-dua",
   jimbaran: "/jimbaran",
+  "nusa-islands": "/nusa-penida",
 };
 
 export const DISTRICT_GUIDE: DistrictGuideEntry[] = GUIDE.map((d) => ({

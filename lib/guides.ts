@@ -867,6 +867,10 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   seminyak: ["best-restaurants-in-bali", "seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
   "nusa-penida": ["nusa-penida-day-trip", "how-to-get-around-bali", "how-many-days-in-bali", "where-to-stay-in-bali", "best-time-to-visit-bali"],
+  sidemen: ["how-to-get-around-bali", "best-time-to-visit-bali", "how-many-days-in-bali", "where-to-stay-in-bali"],
+  amed: ["how-to-get-around-bali", "best-time-to-visit-bali", "is-bali-safe", "where-to-stay-in-bali"],
+  munduk: ["best-time-to-visit-bali", "how-to-get-around-bali", "how-many-days-in-bali", "where-to-stay-in-bali"],
+  lovina: ["how-to-get-around-bali", "best-time-to-visit-bali", "where-to-stay-in-bali", "how-many-days-in-bali"],
   jimbaran: ["best-restaurants-in-bali", "where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
