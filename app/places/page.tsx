@@ -15,6 +15,8 @@ import PlacesView, {
 } from "./PlacesView";
 import SceneImage from "@/components/landing/SceneImage";
 import HeroLoop from "@/components/landing/HeroLoop";
+import { MOMENT_BY_SLUG } from "@/lib/catalogue-moments";
+import { DISTRICT_GUIDE } from "@/lib/districts";
 
 const PAGE_SIZE = 24;
 
@@ -143,6 +145,7 @@ export default async function PlacesPage({
     q?: string | string[];
     district?: string | string[];
     category?: string | string[];
+    moment?: string | string[];
     intent?: string | string[];
     m?: string | string[];
     dur?: string | string[];
@@ -153,10 +156,13 @@ export default async function PlacesPage({
 
   const ready = tracked.filter(isPublicReadyVenue);
   const venues = ready.map(enrichForCards);
+  const moment = MOMENT_BY_SLUG.get(firstParam(params.moment)) ?? null;
   const filters: CatalogueFilters = {
     query: firstParam(params.q).trim(),
     district: normalizeDistrictParam(firstParam(params.district)),
     category: firstParam(params.category),
+    moment: moment?.slug ?? "",
+    momentLabel: moment?.label,
     intentMode: firstParam(params.intent) === "1",
     mission: firstParam(params.m),
     missionLabel: getTripMission(firstParam(params.m))?.label,
@@ -164,19 +170,55 @@ export default async function PlacesPage({
     durationLabel: getTripDuration(firstParam(params.dur))?.label,
   };
   const tokens = filters.query.toLowerCase().split(/\s+/).filter(Boolean);
-  const filtered = venues.filter((venue) => {
+  // A moment chip is an honest any-match over fields editors already wrote
+  // (jobs / vibe tags / why-it's-here). No match on a venue's own record ⇒
+  // it simply doesn't appear for that moment (guardrail #10).
+  const matchesBrief = (venue: CataloguePlace, withDistrict: boolean) => {
     const haystack = catalogueHaystack(venue);
     return (
-      (!filters.district || venue.district === filters.district) &&
+      (!withDistrict || !filters.district || venue.district === filters.district) &&
       (!filters.category ||
         venue.category === filters.category ||
         venue.wellnessCategories?.includes(filters.category as VenueWithPerk["category"])) &&
+      (!moment || moment.tokens.some((token) => haystack.includes(token))) &&
       (tokens.length === 0 ||
         (filters.intentMode
           ? tokens.some((token) => haystack.includes(token))
           : tokens.every((token) => haystack.includes(token))))
     );
-  });
+  };
+  let filtered = venues.filter((venue) => matchesBrief(venue, true));
+  // Moment mode is a ranked answer, not an atlas: best fit first, the top
+  // card badged in the view. Score with the moment's own tokens.
+  if (moment) {
+    filtered = filtered
+      .map((venue) => ({
+        venue,
+        score: scoreCatalogueVenue(venue, [...moment.tokens], filters.category, filters.district).score,
+      }))
+      .sort((a, b) => b.score - a.score || a.venue.name.localeCompare(b.venue.name))
+      .map(({ venue }) => venue);
+  }
+  // "Nearby — outside <district>": the same brief matched beyond the active
+  // district. Deliberately no travel-time claims — routing/ETA belongs to
+  // Google Maps (guardrail #1); the card itself names its own district.
+  const nearby: CataloguePlace[] =
+    filters.district && (moment || filters.category || tokens.length > 0)
+      ? venues
+          .filter((venue) => venue.district !== filters.district && matchesBrief(venue, false))
+          .map((venue) => ({
+            venue,
+            score: scoreCatalogueVenue(
+              venue,
+              moment ? [...moment.tokens] : tokens,
+              filters.category,
+              "",
+            ).score,
+          }))
+          .sort((a, b) => b.score - a.score || a.venue.name.localeCompare(b.venue.name))
+          .slice(0, 3)
+          .map(({ venue }) => venue)
+      : [];
   const ranked: CatalogueTopPick[] =
     filters.intentMode && (tokens.length > 0 || filters.category)
       ? filtered
@@ -200,14 +242,19 @@ export default async function PlacesPage({
     ),
   ].sort();
 
+  const districtName = filters.district
+    ? DISTRICT_GUIDE.find((d) => d.slug === filters.district)?.name ?? null
+    : null;
+
   return (
-    <div className="page-dark">
+    <div>
       <main className="site-shell">
         {/* Cinematic full-width masthead: golden-hour poster (SVG art + build-
             fetched still) with the Ubud dawn loop fading in on desktop — the
             same performance/motion gates as the landing hero. Atmosphere only,
-            never a specific venue. Replaces the old abstract "signal" tile. */}
-        <header className="ob-grain relative -mx-5 mb-10 overflow-hidden sm:mx-0 sm:rounded-3xl sm:border sm:border-[var(--ob-line)]">
+            never a specific venue. Self-contained dark block on the light
+            editorial page (mockup design system, 2026-07-16). */}
+        <header className="places-masthead ob-grain relative -mx-4 mb-10 overflow-hidden sm:mx-0 sm:rounded-3xl sm:border sm:border-[rgba(22,16,12,0.35)]">
           <div className="relative min-h-[20rem] md:min-h-[24rem]">
             <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade" />
             <HeroLoop src="/scenes/places-coast-loop.mp4" />
@@ -225,10 +272,10 @@ export default async function PlacesPage({
                 <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(198,154,92,0.5)] bg-black/30 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#e2ba79] backdrop-blur-sm">
                   {`${ready.length} curated places · resident-checked`}
                 </span>
-                <h1 className="hero-title mt-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-                  Places across Bali
+                <h1 className="hero-title mt-4 text-[#f4ece0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                  {districtName ? `Places in ${districtName}` : "Places across Bali"}
                 </h1>
-                <p className="hero-copy max-w-xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
+                <p className="hero-copy max-w-xl text-[#cdbfa9] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
                   A curated map of Bali by district. Every place here is one we
                   can stand behind — why it&apos;s worth it, who it suits, and
                   what to expect. Offers appear only when venues confirm them.
@@ -244,6 +291,7 @@ export default async function PlacesPage({
           filters={filters}
           districts={districts}
           categories={categories}
+          nearby={nearby}
           totalMatches={filtered.length}
           totalVenues={venues.length}
           page={page}
