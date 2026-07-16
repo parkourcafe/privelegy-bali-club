@@ -139,8 +139,8 @@ export default function VenueSubmissionForm() {
         <p className="mt-1">
           We read every submission by hand and check the details before adding a
           place, so this is a request, not an instant listing. If it&apos;s a fit
-          we&apos;ll reach out. Being listed is free — travellers never pay, and
-          we never charge venues.
+          we&apos;ll reach out. Your first 3 months are a free test — no fees,
+          and travellers never pay.
         </p>
       </div>
     );
@@ -225,9 +225,9 @@ export default function VenueSubmissionForm() {
         {status.kind === "loading" ? "Sending…" : "Request a listing"}
       </button>
       <p className="text-xs text-[var(--muted)]">
-        It&apos;s free to be listed and travellers never pay. We curate by hand,
-        so a request isn&apos;t a guaranteed listing — we&apos;ll check the place
-        first.
+        First 3 months are a free test — no fees, and travellers never pay. We
+        curate by hand, so a request isn&apos;t a guaranteed listing —
+        we&apos;ll check the place first.
       </p>
     </form>
   );

@@ -15,12 +15,12 @@ import { GuideFooter } from "@/components/GuideBlocks";
 export const metadata: Metadata = {
   title: "Add your place — get listed on Other Bali",
   description:
-    "Run a café, restaurant, warung, spa, bar or studio in Bali? Request a free listing on Other Bali, the resident-curated guide. Travellers never pay and we never charge venues.",
+    "Run a café, restaurant, warung, spa, bar or studio in Bali? Get listed on Other Bali, the resident-curated guide. First 3 months are a free test — no fees, and travellers never pay.",
   alternates: { canonical: "/for-venues" },
   openGraph: {
     title: "Add your place · Other Bali",
     description:
-      "Request a free listing on Other Bali — the resident-curated Bali guide. Free for venues, free for travellers.",
+      "Get listed on Other Bali — the resident-curated Bali guide. First 3 months free, travellers never pay.",
     url: "https://www.otherbali.com/for-venues",
     type: "website",
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Add your place · Other Bali",
     description:
-      "Request a free listing on Other Bali — the resident-curated Bali guide.",
+      "Get listed on Other Bali — the resident-curated Bali guide. First 3 months free.",
   },
 };
 
@@ -68,8 +68,11 @@ export default function ForVenuesPage() {
             Other Bali is a resident-curated guide that helps travellers pick the
             right place for the moment they&apos;re in. If you run a café,
             restaurant, warung, bar, beach club, spa or studio and you&apos;re not
-            on the guide yet, request a listing below. It&apos;s free — travellers
-            never pay, and we never charge venues to be listed.
+            on the guide yet, request a listing below. Your first 3 months are a
+            free test — no fees, and travellers never pay. After that, only if
+            we&apos;re clearly bringing you guests, we&apos;d discuss a light
+            subscription or a small commission on confirmed bookings — always
+            agreed with you first, never automatic.
           </p>
         </header>
 
@@ -99,9 +102,16 @@ export default function ForVenuesPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <strong>Free, both sides.</strong> Travellers never pay to use the
-                guide, and we never charge venues to be listed. Placement is
-                editorial — you can&apos;t buy a ranking.
+                <strong>3 months free, no strings.</strong> Your first 3 months
+                are a free test — no fees, no card, nothing automatic. After
+                that, only if we&apos;re clearly bringing you guests, we&apos;d
+                talk about a light subscription or a small commission on
+                confirmed bookings — and only with your agreement.
+              </li>
+              <li>
+                <strong>Travellers never pay.</strong> The guide is free to use
+                on their side, always. Placement is editorial — you can&apos;t
+                buy a ranking.
               </li>
               <li>
                 <strong>We curate.</strong> We add places we can stand behind, so a
