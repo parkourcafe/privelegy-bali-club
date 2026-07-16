@@ -38,11 +38,33 @@ function basicPassword(authorization: string | null): string | null {
   }
 }
 
-export function hasAdminBasicAccess(
+// Generic Basic-Auth password check against a configured token. Returns false
+// when no token is configured (caller decides whether that means "open" or
+// "not found").
+export function hasBasicAccess(
   authorization: string | null,
-  configuredToken = configuredAdminToken()
+  configuredToken: string | null
 ): boolean {
   if (!configuredToken) return false;
   const password = basicPassword(authorization);
   return password !== null && timingSafeSecretEqual(password, configuredToken);
+}
+
+export function hasAdminBasicAccess(
+  authorization: string | null,
+  configuredToken = configuredAdminToken()
+): boolean {
+  return hasBasicAccess(authorization, configuredToken);
+}
+
+// Optional password for the App Review page (/review). When set, the page is
+// Basic-Auth gated (give Apple the URL + this password in Review Notes); when
+// unset, the page is simply public + noindex. Lower length bar than the admin
+// token — it guards only reviewer instructions, not operator tools.
+export function configuredReviewToken(): string | null {
+  const token = process.env.REVIEW_ACCESS_TOKEN?.trim();
+  if (!token || token.length < 16 || /^(change-me|example|password|review)/i.test(token)) {
+    return null;
+  }
+  return token;
 }

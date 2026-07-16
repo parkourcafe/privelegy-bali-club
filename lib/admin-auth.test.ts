@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   configuredAdminToken,
+  configuredReviewToken,
   hasAdminBasicAccess,
+  hasBasicAccess,
   timingSafeSecretEqual,
 } from "./admin-auth";
 import {
@@ -44,6 +46,27 @@ test("secret comparison uses exact UTF-8 values", () => {
   assert.equal(timingSafeSecretEqual("same", "same"), true);
   assert.equal(timingSafeSecretEqual("same", "different-length"), false);
   assert.equal(timingSafeSecretEqual("café", "cafe"), false);
+});
+
+test("review token rejects weak/example secrets and requires 16+ chars", () => {
+  const previous = process.env.REVIEW_ACCESS_TOKEN;
+  process.env.REVIEW_ACCESS_TOKEN = "short";
+  assert.equal(configuredReviewToken(), null);
+  process.env.REVIEW_ACCESS_TOKEN = "review-please-let-me-in";
+  assert.equal(configuredReviewToken(), null); // "review" prefix rejected
+  process.env.REVIEW_ACCESS_TOKEN = "aptbl-9Qz2Vm7Ns9Lx5";
+  assert.equal(configuredReviewToken(), "aptbl-9Qz2Vm7Ns9Lx5");
+  delete process.env.REVIEW_ACCESS_TOKEN;
+  assert.equal(configuredReviewToken(), null); // unset ⇒ page is public
+  if (previous === undefined) delete process.env.REVIEW_ACCESS_TOKEN;
+  else process.env.REVIEW_ACCESS_TOKEN = previous;
+});
+
+test("generic Basic access matches only the exact configured token", () => {
+  assert.equal(hasBasicAccess(basic("aptbl-9Qz2Vm7Ns9Lx5"), "aptbl-9Qz2Vm7Ns9Lx5"), true);
+  assert.equal(hasBasicAccess(basic("wrong"), "aptbl-9Qz2Vm7Ns9Lx5"), false);
+  assert.equal(hasBasicAccess(basic("anything"), null), false); // no token ⇒ closed
+  assert.equal(hasBasicAccess(null, "aptbl-9Qz2Vm7Ns9Lx5"), false);
 });
 
 test("verification requires the explicit review value", () => {

@@ -200,7 +200,9 @@ a reservation handoff via the web fallback.
 - [ ] **Review notes**: no login required; how to build a route; how to open the
       map; how to view a saved route **offline**; that **WhatsApp is optional**;
       that Other Bali does not confirm venues; where the **privacy controls** are
-      (`/privacy/choices`).
+      (`/privacy/choices`). Point Apple at the live review page
+      **`https://www.otherbali.com/review`** (not the `review.` subdomain). If you
+      want it private, set `REVIEW_ACCESS_TOKEN` and include the password.
 - [ ] App Store Connect: name, subtitle, description (match the real core
       experience), keywords, category, age rating, **privacy labels + URL**,
       support/marketing URL (`https://www.otherbali.com/...`), copyright,
