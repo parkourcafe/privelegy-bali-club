@@ -2,6 +2,7 @@ import { getDistrictHubs, getIntentSpokes } from "@/lib/data";
 import { PILLARS } from "@/lib/pillars";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
+import { LIGHT_DISTRICTS } from "@/lib/light-districts";
 
 export const revalidate = 3600;
 
@@ -31,6 +32,9 @@ export async function GET() {
     "## District hubs (quick)",
     `- [Where to eat & go in Bali](${BASE}/bali): index of district guides`,
     ...hubs.map((h) => `- [${h.name}](${BASE}/bali/${h.slug}): ${h.venues.length} curated places`),
+    "",
+    "## Quiet corners (planning landings)",
+    ...LIGHT_DISTRICTS.map((d) => `- [${d.name} guide](${BASE}/${d.slug}): ${d.tagline}`),
     "",
     "## Best-of by moment",
     ...spokes.map(

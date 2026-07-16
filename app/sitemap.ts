@@ -4,6 +4,7 @@ import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
+import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
 
 // Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
 // several Supabase reads, and a per-request rebuild is needless load on a hot
@@ -76,6 +77,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
       })),
     ]),
+    // Lightweight editorial landings for Bali's quiet corners (Sidemen, Amed,
+    // Munduk, Lovina). Hand-crafted planning_only pages — always emitted; they
+    // carry no venue set to gate on.
+    ...LIGHT_DISTRICT_SLUGS.map((slug) => ({
+      url: `${BASE}/${slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     // Venue detail pages — ONLY those that passed the evidence-backed
     // publication gate (review/incomplete venues stay noindex + unlisted).
     ...indexableVenueSlugs.map((slug) => ({

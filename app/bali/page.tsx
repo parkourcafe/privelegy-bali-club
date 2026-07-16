@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getDistrictHubs } from "@/lib/data";
 import { SITE_ORIGIN, categoryPhrase, topAreas } from "@/lib/hub";
 import { PILLARS } from "@/lib/pillars";
+import { LIGHT_DISTRICTS } from "@/lib/light-districts";
 
 export const revalidate = 3600;
 
@@ -117,6 +118,27 @@ export default async function BaliIndexPage() {
               </Link>
             );
           })}
+        </div>
+
+        <h2 className="section-title mt-12">Quiet corners of Bali</h2>
+        <p className="mt-1 text-sm text-[var(--muted)]">
+          Slower, further-out areas worth planning around — the valley, the
+          dive coast, the highlands and the north.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {LIGHT_DISTRICTS.map((d) => (
+            <Link
+              key={d.slug}
+              href={`/${d.slug}`}
+              className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
+            >
+              <h3 className="venue-name">{d.name}</h3>
+              <p className="mt-1 text-sm text-[var(--muted)]">{d.region}</p>
+              <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
+                The {d.name} guide →
+              </span>
+            </Link>
+          ))}
         </div>
 
         <section className="mt-12">
