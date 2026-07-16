@@ -2625,3 +2625,61 @@ html {
   background: var(--paper);
   color: var(--ink);
 }
+
+/* ── Cinematic photo interstitial (light landing) ── */
+.ob-photo-band {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(340px, 52vh, 560px);
+  overflow: hidden;
+  isolation: isolate;
+}
+.ob-band-img {
+  transform: scale(1.08);
+}
+/* Warm editorial grade + gentle always-on drift so the still feels alive. */
+.ob-photo-band .ob-band-img {
+  animation: ob-kenburns 44s ease-in-out infinite alternate;
+}
+.ob-photo-band-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(20, 14, 10, 0.1) 0%, transparent 32%),
+    linear-gradient(0deg, rgba(20, 14, 10, 0.72) 0%, rgba(20, 14, 10, 0.12) 42%, transparent 68%);
+}
+.ob-photo-band-inner {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 40px, 1120px);
+  margin: 0 auto;
+  padding: 0 0 clamp(32px, 6vw, 64px);
+}
+.ob-band-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #E7B7AE;
+}
+.ob-band-line {
+  margin-top: 12px;
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: 1.02;
+  color: #FAF6EF;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+}
+.ob-photo-band-inner.text-center .ob-band-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob-photo-band .ob-band-img {
+    animation: none;
+  }
+}

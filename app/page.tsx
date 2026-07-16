@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/landing/Reveal";
 import SceneImage from "@/components/landing/SceneImage";
+import PhotoBand from "@/components/landing/PhotoBand";
 import DistrictCover from "@/components/landing/DistrictCover";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
 import DayIntentBuilder from "@/components/landing/DayIntentBuilder";
@@ -31,10 +32,23 @@ export default function Landing() {
         <Hero />
         <ChaosToOrder />
         <Mechanism />
+        <PhotoBand
+          scene="moment-goldenhour"
+          variant="sunset"
+          kicker="Golden hour, Uluwatu"
+          line="The island rewards a plan."
+        />
         <HowItWorks />
         <Moments />
         <ProofChain />
         <TrustCards />
+        <PhotoBand
+          scene="moment-warung"
+          variant="surf"
+          kicker="A warung worth the detour"
+          line="Everything here, we walked into first."
+          align="center"
+        />
         <WhatsInside />
         <Comparison />
         <AroundBali />
