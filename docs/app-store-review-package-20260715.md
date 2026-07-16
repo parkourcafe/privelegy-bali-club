@@ -2,10 +2,11 @@
 
 Date: 2026-07-16
 Owner: Agent B (store readiness)
-Status: build `1.0 (2)` is uploaded and the 6.9-inch screenshot set, signing,
-archive and public share fallback are validated. Do not submit until build 2
-finishes App Store Connect processing, the final TestFlight binary passes the
-remaining real-device checks and the App Store Connect declarations are
+Status: build `1.0 (2)` is uploaded, processed and installed through
+TestFlight. The entire 6.9-inch screenshot set was regenerated from a clean
+build `1.0 (2)` simulator binary; signing, archive and the deployed public share
+fallback are validated. Do not submit until the final TestFlight binary passes
+the remaining real-device checks and the App Store Connect declarations are
 complete.
 
 ## Product record
@@ -123,7 +124,11 @@ or future UI.
 5. Native Share Sheet — read-only plan link handoff.
 
 The committed set is under `store-assets/screenshots/ios-6.9/`; every file is a
-1320 × 2868 portrait PNG from the exact iPhone 17 Pro Max simulator build.
+1320 × 2868 portrait PNG. On 2026-07-16 all five files were regenerated in one
+clean iPhone 17 Pro Max simulator run from `com.otherbali.app` version
+`1.0 (2)`. The embedded `public/app-shell.js` SHA-256 matched the release
+source exactly:
+`286bc004068453e6be229495084a6fdb8c6195adab804f24126894fdfbfdeb43`.
 Prepare any additional size requested by App Store Connect only after the
 real-device/TestFlight comparison passes.
 
@@ -155,8 +160,9 @@ real-device/TestFlight comparison passes.
 - Build `1.0 (2)` uploaded successfully through Xcode on 2026-07-16 at
   `09:30:53Z`. Upload identifier:
   `af6510e9-bb72-45e4-9eef-15d52f22aa7c`. Xcode reported no upload errors or
-  warnings. App Store Connect processing and group distribution still require
-  confirmation.
+  warnings. Apple processed the build and TestFlight automatically installed
+  it on the paired physical iPhone; device inspection reports version `1.0`,
+  bundle version `2`.
 - The build-level `What to Test` instructions describe mood/district/duration,
   plan restore, place deep links, offline restore and the native Share Sheet.
 - Internal group `Founder QA` was created with automatic distribution and has
@@ -164,16 +170,29 @@ real-device/TestFlight comparison passes.
   existing Account Holder/Admin eligibility: `saidalarust@gmail.com` was added
   as the single internal tester and App Store Connect reports status `Invited`.
   No second App Store Connect user or Apple ID was created.
-- Five 6.9-inch screenshots are committed at 1320 × 2868 PNG.
+- Five 6.9-inch screenshots are committed at 1320 × 2868 PNG. After the mixed
+  build-number evidence was discovered, the full set—not only the Share
+  Sheet—was recaptured from a clean build `1.0 (2)` installation:
+  - `01-home.png`:
+    `3d0f292b2a4241161f186e05bb23f60578cd130205175a0f22a3fc54738a6797`
+  - `02-builder-selection.png`:
+    `cd966a8fbbe92161b9347b30f358e034a83c8525392656216a7513350d949d35`
+  - `03-day-plan.png`:
+    `42b68125b2b7e018d8324ea99a347d5db155d682d423be639a560bee0a72c845`
+  - `04-saved-places.png`:
+    `c8c330ff2214f813835b7d74db80727383cb9a04378bbb705ce0834419a475be`
+  - `05-share-sheet.png`:
+    `d16b14d11c5815b53563c96022037ac6c80f2bc5bdd9335f7fcebd538fa5b1bd`
 - Simulator smoke checks passed for builder selection, plan persistence, three
   place deep links and the native Share Sheet. The final Share Sheet screenshot
   shows the public `otherbali.com` fallback rather than an app-only custom
   scheme.
-- A new noindex public route,
+- The noindex public route,
   `/plan/shared?m={mood}&district={district}&days={duration}`, validates every
   input against the app vocabulary and links recipients to the current district
-  guide and places catalogue. It must be merged and deployed before build 2 is
-  selected for review.
+  guide and places catalogue. It is merged in production release
+  `2e7e30d9309ed34abee6a4011eea2f618aff11c9`; the exact Golden hour / Ubud /
+  three-day URL returns HTTP 200 and a `noindex` robots directive.
 - TestFlight build `1.0 (1)` installed and launched on the paired physical
   iPhone 16. Physical-device screenshots confirm plan creation, three saved
   places and local persistence after termination and relaunch.
@@ -184,14 +203,10 @@ real-device/TestFlight comparison passes.
 
 ## Founder-only sequence
 
-1. Confirm build `1.0 (2)` has finished processing and assign it to the existing
-   internal `Founder QA` group.
-2. Install build `1.0 (2)` on the paired iPhone and run the final Share Sheet
-   and offline-restore smoke checks.
-3. Merge and deploy the `/plan/shared` release change, then verify a shared URL
-   returns HTTP 200 and remains `noindex`.
-4. Complete privacy, age rating, content rights, export compliance, support
+1. Run the final Share Sheet and offline-restore smoke checks on the installed
+   TestFlight build `1.0 (2)`.
+2. Complete privacy, age rating, content rights, export compliance, support
    contact and review notes in App Store Connect.
-5. Select build `1.0 (2)` and upload the five final screenshots.
-6. Confirm the final App Review submission separately; do not submit merely
+3. Select build `1.0 (2)` and upload the five final screenshots.
+4. Confirm the final App Review submission separately; do not submit merely
    because the build processed successfully.
