@@ -9,15 +9,15 @@ export default function TermsPage() {
         <Link href="/" className="quiet-link">
           ← Other Bali
         </Link>
-        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--ob-brass)]">
+        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon)]">
           Terms
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Terms of Use</h1>
         <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
 
-        <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
+        <div className="mt-10 space-y-8 text-[var(--muted)]">
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               What Other Bali is
             </h2>
             <p className="mt-3">
@@ -29,7 +29,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Offers and reservations
             </h2>
             <p className="mt-3">
@@ -41,7 +41,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Traveller payments
             </h2>
             <p className="mt-3">
@@ -52,7 +52,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Venue content
             </h2>
             <p className="mt-3">
@@ -65,7 +65,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Use responsibly
             </h2>
             <p className="mt-3">
@@ -76,13 +76,13 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Support
             </h2>
             <p className="mt-3">
               For help with Other Bali, contact{" "}
               <a
-                className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+                className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
                 href="mailto:support@otherbali.com"
               >
                 support@otherbali.com

@@ -30,7 +30,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
         <header className="hero-grid">
           <div>
             <div className="flex items-start justify-between">
-              <BrandHomeLink tone="dark" />
+              <BrandHomeLink />
               <Link href="/places" className="quiet-link">
                 All places →
               </Link>

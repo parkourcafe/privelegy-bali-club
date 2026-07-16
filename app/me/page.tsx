@@ -96,11 +96,11 @@ export default async function MyPerksPage() {
                   <div>
                     <p className="font-display text-lg font-semibold">{p.venueName}</p>
                     <p className="text-sm text-[var(--muted)]">{p.perkTitle}</p>
-                    <p className="mt-1 text-xs text-[var(--ob-stone)]">
+                    <p className="mt-1 text-xs text-[var(--muted)]">
                       {p.ts ? new Date(p.ts).toLocaleString() : ""}
                     </p>
                   </div>
-                  <span className="rounded-lg bg-[rgba(47,196,214,0.14)] px-2 py-1 font-mono text-sm font-bold text-[var(--ob-accent-2)]">
+                  <span className="rounded-lg bg-[var(--tint-best-bg)] px-2 py-1 font-mono text-sm font-bold text-[var(--lagoon)]">
                     {p.confirmCode}
                   </span>
                 </div>

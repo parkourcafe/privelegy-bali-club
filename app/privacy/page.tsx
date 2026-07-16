@@ -9,15 +9,15 @@ export default function PrivacyPage() {
         <Link href="/" className="quiet-link">
           ← Other Bali
         </Link>
-        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--ob-brass)]">
+        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon)]">
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy Policy</h1>
         <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
 
-        <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
+        <div className="mt-10 space-y-8 text-[var(--muted)]">
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               What we collect
             </h2>
             <p className="mt-3">
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               How we use it
             </h2>
             <p className="mt-3">
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               What we do not do
             </h2>
             <p className="mt-3">
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Services you choose to open
             </h2>
             <p className="mt-3">
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Your choices
             </h2>
             <p className="mt-3">
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
               events tied to your device reference deleted from our records,
               email us at{" "}
               <a
-                className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+                className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
                 href="mailto:support@otherbali.com"
               >
                 support@otherbali.com
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               You can also turn analytics on or off, or forget this device, on
               the{" "}
-              <Link href="/privacy/choices" className="text-[var(--ob-brass)] underline underline-offset-2">
+              <Link href="/privacy/choices" className="text-[var(--lagoon)] underline underline-offset-2">
                 privacy choices
               </Link>{" "}
               page.
@@ -107,13 +107,13 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
               Contact
             </h2>
             <p className="mt-3">
               For privacy or support questions, contact{" "}
               <a
-                className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+                className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
                 href="mailto:support@otherbali.com"
               >
                 support@otherbali.com

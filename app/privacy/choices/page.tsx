@@ -13,7 +13,7 @@ export default function PrivacyChoicesPage() {
         <Link href="/privacy" className="quiet-link">
           ← Privacy
         </Link>
-        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--ob-brass)]">
+        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon)]">
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy choices</h1>

@@ -32,7 +32,7 @@ export default async function Plan({
       <header className="hero-grid">
         <div>
           <div className="flex items-start justify-between">
-            <BrandHomeLink tone="dark" />
+            <BrandHomeLink />
             <Link href="/me" className="quiet-link">
               My offers →
             </Link>
