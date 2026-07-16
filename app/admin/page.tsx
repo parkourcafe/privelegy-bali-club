@@ -51,6 +51,14 @@ export default async function AdminIndex() {
       </Link>
 
       <Link
+        href="/admin/profile-drafts"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-violet-700 p-4 text-white"
+      >
+        <span className="font-semibold">→ Owner-filled page drafts</span>
+        <span className="text-violet-100">review</span>
+      </Link>
+
+      <Link
         href="/admin/phase0"
         className="mt-4 flex items-center justify-between rounded-2xl bg-cyan-700 p-4 text-white"
       >

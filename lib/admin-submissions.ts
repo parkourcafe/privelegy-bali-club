@@ -47,3 +47,58 @@ export async function getVenueSubmissions(): Promise<VenueSubmissionRow[]> {
     createdAt: String(row.created_at ?? ""),
   }));
 }
+
+export interface VenueProfileDraftRow {
+  id: string;
+  venueSlug: string;
+  aboutText: string;
+  signatureItems: string;
+  openingHours: string;
+  priceRange: string;
+  gmapsUrl: string;
+  instagramUrl: string;
+  websiteUrl: string;
+  videoUrl: string;
+  publishNotes: string;
+  submitterName: string;
+  submitterRole: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Operator read of owner self-fill profile drafts (migration 0036). These are
+// the owner's own words and facts, submitted via their tokenized /onboard
+// link. Editorial reviews and applies fields by hand — owner copy stays
+// attributed as owner copy and never overwrites editorial voice.
+export async function getVenueProfileDrafts(): Promise<VenueProfileDraftRow[]> {
+  await requireAdminRequest();
+  const client = serviceClient();
+  if (!client) return [];
+  const { data, error } = await client
+    .from("venue_profile_drafts")
+    .select(
+      "id,venue_slug,about_text,signature_items,opening_hours,price_range,gmaps_url,instagram_url,website_url,video_url,publish_notes,submitter_name,submitter_role,status,created_at,updated_at",
+    )
+    .order("updated_at", { ascending: false })
+    .limit(500);
+  if (error || !Array.isArray(data)) return [];
+  return (data as Record<string, unknown>[]).map((row) => ({
+    id: String(row.id ?? ""),
+    venueSlug: String(row.venue_slug ?? ""),
+    aboutText: String(row.about_text ?? ""),
+    signatureItems: String(row.signature_items ?? ""),
+    openingHours: String(row.opening_hours ?? ""),
+    priceRange: String(row.price_range ?? ""),
+    gmapsUrl: String(row.gmaps_url ?? ""),
+    instagramUrl: String(row.instagram_url ?? ""),
+    websiteUrl: String(row.website_url ?? ""),
+    videoUrl: String(row.video_url ?? ""),
+    publishNotes: String(row.publish_notes ?? ""),
+    submitterName: String(row.submitter_name ?? ""),
+    submitterRole: String(row.submitter_role ?? ""),
+    status: String(row.status ?? ""),
+    createdAt: String(row.created_at ?? ""),
+    updatedAt: String(row.updated_at ?? ""),
+  }));
+}

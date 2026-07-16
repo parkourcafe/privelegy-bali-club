@@ -2,6 +2,7 @@ import { getOnboardInfo } from "@/lib/data";
 import { getReleaseReadiness } from "@/lib/data/release-readiness";
 import VenueCard from "@/components/VenueCard";
 import OnboardActions from "./OnboardActions";
+import PartnerProfileForm from "./PartnerProfileForm";
 
 export const dynamic = "force-dynamic";
 
@@ -93,6 +94,8 @@ export default async function OnboardPage({
           ownerNote: v.ownerNote ?? "",
         }}
       />
+
+      <PartnerProfileForm token={token} />
     </main>
   );
 }
