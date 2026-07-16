@@ -1,9 +1,15 @@
+import { cache as reactCache } from "react";
+import { unstable_cache } from "next/cache";
 import type { VenueActionCapabilityRecord } from "../contracts/menu-action";
 import { mapPublishedActionCapability, sortActionCapabilities } from "../domain/actions";
 import type { DataRow } from "../domain/menu";
 import { anonClient, isSupabaseConfigured } from "../supabase/server";
+import {
+  PUBLIC_CACHE_REVALIDATE_SECONDS,
+  PUBLIC_CACHE_TAGS,
+} from "./public-cache";
 
-export async function getPublishedActionCapabilities(
+async function fetchPublishedActionCapabilities(
   venueSlug: string
 ): Promise<VenueActionCapabilityRecord[]> {
   if (!venueSlug || !isSupabaseConfigured()) return [];
@@ -26,3 +32,16 @@ export async function getPublishedActionCapabilities(
     return [];
   }
 }
+
+const getCachedPublishedActionCapabilities = unstable_cache(
+  fetchPublishedActionCapabilities,
+  ["published-action-capabilities-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.actions],
+  },
+);
+
+export const getPublishedActionCapabilities = reactCache(
+  getCachedPublishedActionCapabilities,
+);

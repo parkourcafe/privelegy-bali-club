@@ -1,3 +1,5 @@
+import { cache as reactCache } from "react";
+import { unstable_cache } from "next/cache";
 import { anonClient, isSeedFallbackAllowed, isSupabaseConfigured } from "./supabase/server";
 import { serviceClient } from "./supabase/service";
 import {
@@ -22,6 +24,10 @@ import type {
   RouteDef,
 } from "./types";
 import { SLOTS } from "./types";
+import {
+  PUBLIC_CACHE_REVALIDATE_SECONDS,
+  PUBLIC_CACHE_TAGS,
+} from "./data/public-cache";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -268,7 +274,7 @@ function warnPublicReadFailed(label: string, e: unknown): void {
 // Falls back to seed data when Supabase is not configured, so the app builds
 // and demos without a live DB. Reads are public either way.
 
-export async function getCangguPlan(): Promise<PlanBySlot[]> {
+async function fetchCangguPlan(): Promise<PlanBySlot[]> {
   const allowSeed = isSeedFallbackAllowed();
   let venues = allowSeed ? VENUES : [];
   let perks = allowSeed ? PERKS : [];
@@ -327,6 +333,17 @@ export async function getCangguPlan(): Promise<PlanBySlot[]> {
   });
 }
 
+const getCachedCangguPlan = unstable_cache(
+  fetchCangguPlan,
+  ["canggu-plan-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.plans, PUBLIC_CACHE_TAGS.venues],
+  },
+);
+
+export const getCangguPlan = reactCache(getCachedCangguPlan);
+
 // Bali-wide planning layer: the editorial area guide, with coverage status
 // (planning_only / next_deep / active_deep) overridden from the districts
 // table when a DB is configured — so flipping a district's status in the DB
@@ -358,7 +375,7 @@ export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
   });
 }
 
-export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
+async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
   const configured = isSupabaseConfigured();
   const allowSeed = isSeedFallbackAllowed();
   let venue: Venue | undefined = allowSeed ? VENUES.find((v) => v.slug === slug) : undefined;
@@ -369,21 +386,23 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
     perk = undefined;
     try {
       const sb = anonClient()!;
-      const { data: v } = await sb
-        .from("venues")
-        .select(PUBLIC_PLACES_VENUE_COLUMNS)
-        .eq("slug", slug)
-        .eq("status", "active")
-        .eq("publication_status", "published")
-        .maybeSingle();
+      const [{ data: v }, { data: p }] = await Promise.all([
+        sb
+          .from("venues")
+          .select(PUBLIC_PLACES_VENUE_COLUMNS)
+          .eq("slug", slug)
+          .eq("status", "active")
+          .eq("publication_status", "published")
+          .maybeSingle(),
+        sb
+          .from("perks")
+          .select(PUBLIC_PERK_COLUMNS)
+          .eq("venue_slug", slug)
+          .eq("active", true)
+          .limit(1)
+          .maybeSingle(),
+      ]);
       if (v) venue = mapVenue(v as unknown as Row);
-      const { data: p } = await sb
-        .from("perks")
-        .select("*")
-        .eq("venue_slug", slug)
-        .eq("active", true)
-        .limit(1)
-        .maybeSingle();
       if (p) perk = mapPublicPerk(p as Row) ?? undefined;
     } catch (e) {
       warnPublicReadFailed(`venue:${slug}`, e);
@@ -405,6 +424,17 @@ export async function getVenueWithPerk(slug: string): Promise<VenueWithPerk | nu
   const entry = allowSeed ? PLAN_ENTRIES.find((e) => e.venueSlug === slug) : undefined;
   return { ...venue, perk: perk ?? null, blurb: entry?.blurb ?? "" };
 }
+
+const getCachedVenueWithPerk = unstable_cache(
+  fetchVenueWithPerk,
+  ["public-venue-with-perk-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.venues],
+  },
+);
+
+export const getVenueWithPerk = reactCache(getCachedVenueWithPerk);
 
 // ---- Write layer (redemption, G1) ----
 // Goes through the record_redemption SECURITY DEFINER RPC (migration 0002) so
@@ -562,7 +592,7 @@ export function isPublicReadyVenue(v: Venue): boolean {
 // enforced below); planning_only rows never surface an offer. Review,
 // archived and cleanup-pending rows belong to authenticated operator
 // queues and never cross this public data boundary.
-export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
+async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
   // Seed fallback keeps the catalogue browsable (and demos honest) without a
   // configured DB, same as the /plan loaders.
   const configured = isSupabaseConfigured();
@@ -622,6 +652,138 @@ export async function getPublishedVenues(): Promise<VenueWithPerk[]> {
     }));
 }
 
+const getCachedPublishedVenues = unstable_cache(
+  fetchPublishedVenues,
+  ["published-venues-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.venues],
+  },
+);
+
+export const getPublishedVenues = reactCache(getCachedPublishedVenues);
+
+async function fetchSimilarVenues(
+  targetSlug: string,
+  district: string,
+  category: Venue["category"],
+  vibeTags: string[],
+  limit: number,
+): Promise<VenueWithPerk[]> {
+  const safeLimit = Math.max(1, Math.min(limit, 8));
+
+  if (!isSupabaseConfigured()) {
+    const all = await getPublishedVenues();
+    const targetTags = new Set(vibeTags);
+    return all
+      .filter((candidate) => candidate.slug !== targetSlug && candidate.district === district)
+      .map((candidate) => ({
+        candidate,
+        score:
+          (candidate.category === category ? 3 : 0) +
+          (candidate.vibeTags ?? []).filter((tag) => targetTags.has(tag)).length,
+      }))
+      .filter(({ score }) => score > 0)
+      .sort(
+        (a, b) =>
+          b.score - a.score || a.candidate.name.localeCompare(b.candidate.name),
+      )
+      .slice(0, safeLimit)
+      .map(({ candidate }) => candidate);
+  }
+
+  try {
+    const sb = anonClient()!;
+    const baseQuery = () =>
+      sb
+        .from("venues")
+        .select(PUBLIC_PLACES_VENUE_COLUMNS)
+        .eq("status", "active")
+        .eq("publication_status", "published")
+        .eq("district", district)
+        .neq("slug", targetSlug);
+
+    const categoryRequest = baseQuery()
+      .eq("category", category)
+      .order("name", { ascending: true })
+      .limit(8);
+    const vibeRequest = vibeTags.length
+      ? baseQuery()
+          .overlaps("vibe_tags", vibeTags)
+          .order("name", { ascending: true })
+          .limit(8)
+      : Promise.resolve({ data: [] as Row[], error: null });
+    const [categoryResult, vibeResult] = await Promise.all([
+      categoryRequest,
+      vibeRequest,
+    ]);
+    if (categoryResult.error || vibeResult.error) return [];
+
+    const targetTags = new Set(vibeTags);
+    const ranked = uniqueBy(
+      [
+        ...((categoryResult.data ?? []) as unknown as Row[]),
+        ...((vibeResult.data ?? []) as unknown as Row[]),
+      ].map(mapVenue),
+      (candidate) => candidate.slug,
+    )
+      .map((candidate) => ({
+        candidate,
+        score:
+          (candidate.category === category ? 3 : 0) +
+          (candidate.vibeTags ?? []).filter((tag) => targetTags.has(tag)).length,
+      }))
+      .filter(({ score }) => score > 0)
+      .sort(
+        (a, b) =>
+          b.score - a.score || a.candidate.name.localeCompare(b.candidate.name),
+      )
+      .slice(0, safeLimit)
+      .map(({ candidate }) => candidate);
+    const renderable = keepRenderableVenues(ranked);
+    if (renderable.length === 0) return [];
+
+    const { data: perkRows } = await sb
+      .from("perks")
+      .select(PUBLIC_PERK_COLUMNS)
+      .eq("active", true)
+      .in("venue_slug", renderable.map((candidate) => candidate.slug));
+    const perkByVenue = new Map(
+      mapPublicPerks((perkRows ?? []) as Row[]).map((perk) => [perk.venueSlug, perk]),
+    );
+    return renderable.map((candidate) => ({
+      ...candidate,
+      perk: perkByVenue.get(candidate.slug) ?? null,
+      blurb: "",
+    }));
+  } catch (e) {
+    warnPublicReadFailed(`similar-venues:${targetSlug}`, e);
+    return [];
+  }
+}
+
+const getCachedSimilarVenues = unstable_cache(
+  fetchSimilarVenues,
+  ["similar-venues-v1"],
+  {
+    revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+    tags: [PUBLIC_CACHE_TAGS.venues],
+  },
+);
+
+export function getSimilarVenues(
+  venue: VenueWithPerk,
+  limit = 3,
+): Promise<VenueWithPerk[]> {
+  return getCachedSimilarVenues(
+    venue.slug,
+    venue.district,
+    venue.category,
+    venue.vibeTags ?? [],
+    limit,
+  );
+}
+
 // ---- SEO hub surface (/bali/[district]) ----
 
 export interface DistrictHub {
@@ -644,46 +806,15 @@ const HUB_EXCLUDE_DISTRICTS = new Set(["uluwatu-bukit", "canggu", "sanur", "ubud
 // only (must exist in DISTRICT_GUIDE) so a stray district string can't mint a
 // page with no editorial identity.
 export async function getDistrictHubs(): Promise<DistrictHub[]> {
-  const allowSeed = isSeedFallbackAllowed();
-  let venues: Venue[] = allowSeed ? VENUES : [];
-  let perks: Perk[] = allowSeed ? PERKS : [];
-
-  if (isSupabaseConfigured()) {
-    venues = [];
-    perks = [];
-    try {
-      const sb = anonClient()!;
-      const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
-        sb
-          .from("venues")
-          .select(PUBLIC_PLACES_VENUE_COLUMNS)
-          .eq("status", "active")
-          .eq("publication_status", "published")
-          .order("district", { ascending: true })
-          .order("name", { ascending: true }),
-        sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
-      ]);
-      if (!venueError && v) {
-        venues = (v as unknown as Row[]).map(mapVenue);
-        perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-      }
-    } catch (e) {
-      warnPublicReadFailed("district-hubs", e);
-      venues = [];
-      perks = [];
-    }
-  }
-
-  perks = normalizePublicPerks(perks);
-  const perkByVenue = new Map(perks.map((x) => [x.venueSlug, x]));
+  const venues = await getPublishedVenues();
   const nameBySlug = new Map(DISTRICT_GUIDE.map((d) => [d.slug, d.name] as const));
 
   const byDistrict = new Map<string, VenueWithPerk[]>();
-  for (const v of uniqueBy(venues, (x) => x.slug)) {
+  for (const v of venues) {
     if (!nameBySlug.has(v.district)) continue;
     if (HUB_EXCLUDE_DISTRICTS.has(v.district)) continue;
     const list = byDistrict.get(v.district) ?? [];
-    list.push({ ...v, perk: perkByVenue.get(v.slug) ?? null, blurb: "" });
+    list.push(v);
     byDistrict.set(v.district, list);
   }
 
@@ -991,7 +1122,7 @@ function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[
 }
 
 // Route definitions from DB (if present) else seed.
-async function getRouteDefs(): Promise<RouteDef[]> {
+async function fetchRouteDefs(): Promise<RouteDef[]> {
   if (isSupabaseConfigured()) {
     try {
       const sb = anonClient()!;
@@ -1021,7 +1152,14 @@ async function getRouteDefs(): Promise<RouteDef[]> {
   return isSeedFallbackAllowed() ? [...ROUTES].sort((a, b) => a.rank - b.rank) : [];
 }
 
-export async function getRoutes(): Promise<RouteSummary[]> {
+const getCachedRouteDefs = unstable_cache(fetchRouteDefs, ["public-route-defs-v1"], {
+  revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
+  tags: [PUBLIC_CACHE_TAGS.routes],
+});
+
+const getRouteDefs = reactCache(getCachedRouteDefs);
+
+async function buildRoutes(): Promise<RouteSummary[]> {
   const defs = await getRouteDefs();
   return defs
     .map((d) => ({
@@ -1033,7 +1171,9 @@ export async function getRoutes(): Promise<RouteSummary[]> {
     .filter((d) => d.stopCount > 0);
 }
 
-export async function getRoute(slug: string): Promise<RouteDetail | null> {
+export const getRoutes = reactCache(buildRoutes);
+
+async function buildRoute(slug: string): Promise<RouteDetail | null> {
   const defs = await getRouteDefs();
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
@@ -1042,6 +1182,8 @@ export async function getRoute(slug: string): Promise<RouteDetail | null> {
   if (stops.length === 0) return null;
   return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
 }
+
+export const getRoute = reactCache(buildRoute);
 
 // ---- Traveller saves & sharing (master §6c) ----
 // Anonymous by default: guest ref = httpOnly cookie. All best-effort — if the

@@ -3,7 +3,7 @@ import BrandHomeLink from "@/components/BrandHomeLink";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata = {
   title: "Plan my Canggu day",

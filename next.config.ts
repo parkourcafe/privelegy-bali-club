@@ -57,8 +57,43 @@ const nextConfig: NextConfig = {
   // Keep Turbopack scoped to this checkout even when a developer has another
   // package-lock.json higher in the home directory.
   turbopack: { root: process.cwd() },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 300,
+    qualities: [70, 78],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+      {
+        protocol: "https",
+        hostname: "**.supabase.co",
+        pathname: "/storage/v1/render/image/public/**",
+      },
+    ],
+  },
   async headers() {
     return [
+      {
+        source: "/scenes/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/covers/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
       {
         source: "/:path*",
         headers: securityHeaders,

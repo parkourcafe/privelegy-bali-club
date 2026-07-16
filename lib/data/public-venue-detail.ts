@@ -1,13 +1,26 @@
-import type { PublicVenueDetailExtension } from "../contracts/menu-action";
+import type { VenueActionCapabilityRecord } from "../contracts/menu-action";
 import { getPublishedActionCapabilities } from "./action-repository";
-import { getPublishedMenu } from "./menu-repository";
+import {
+  getPublishedMenuSummary,
+  type PublicMenuSummary,
+} from "./menu-summary-repository";
 
-export async function getPublicVenueDetailExtension(
+export type PublicVenuePageDetailExtension = {
+  menu: PublicMenuSummary | null;
+  actionCapabilities: VenueActionCapabilityRecord[];
+};
+
+async function fetchPublicVenueDetailExtension(
   venueSlug: string
-): Promise<PublicVenueDetailExtension> {
+): Promise<PublicVenuePageDetailExtension> {
   const [menu, actionCapabilities] = await Promise.all([
-    getPublishedMenu(venueSlug),
+    getPublishedMenuSummary(venueSlug),
     getPublishedActionCapabilities(venueSlug),
   ]);
   return { menu, actionCapabilities };
 }
+
+export const getPublicVenueDetailExtension = reactCache(
+  fetchPublicVenueDetailExtension,
+);
+import { cache as reactCache } from "react";

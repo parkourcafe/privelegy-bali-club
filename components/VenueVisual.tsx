@@ -1,4 +1,5 @@
 import type { Venue } from "@/lib/types";
+import VenueImage from "@/components/VenueImage";
 
 const categoryLabel: Record<string, string> = {
   cafe: "Cafe",
@@ -25,8 +26,7 @@ export default function VenueVisual({
   if (photoUrl) {
     return (
       <figure className="venue-visual">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={photoUrl} alt={name} />
+        <VenueImage src={photoUrl} alt={name} variant="visual" />
       </figure>
     );
   }

@@ -6,7 +6,7 @@ import {
   ULUWATU_DB_SLUG,
 } from "@/lib/uluwatu/venues";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 // The prose-heavy Uluwatu guides reference the canonical static roster. If a
 // single referenced venue is no longer active+published in the database, hide

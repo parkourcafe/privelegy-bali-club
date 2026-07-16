@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getPublishedVenues, isPublicReadyVenue, getSavedSlugs } from "@/lib/data";
-import { readGuestRef } from "@/lib/guest-server";
+import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue } from "@/lib/data";
 import SaveButton from "@/components/SaveButton";
 import {
   freshVerifiedUluwatuActionUrl,
@@ -11,7 +10,6 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
-import { rankSimilar } from "@/lib/similar";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -21,11 +19,30 @@ import StructuredMenu from "@/components/menu/StructuredMenu";
 import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
+import type { PublicMenuSummary } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
+import VenueImage from "@/components/VenueImage";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+// Defer the 400+ venue pages to first request, then keep each generated page
+// in ISR. This avoids a database-heavy build while removing per-visitor SSR.
+export async function generateStaticParams() {
+  return [];
+}
 
 const BASE = "https://www.otherbali.com";
+
+function fixtureMenuSummary(menu: MenuRecord): PublicMenuSummary {
+  return {
+    ...menu,
+    sections: menu.sections.map((section) => ({
+      ...section,
+      itemCount: section.items.length,
+      deferred: false,
+    })),
+  };
+}
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -195,15 +212,15 @@ export default async function VenuePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [venue, all, savedSlugs, detailExtension] = await Promise.all([
-    getVenueWithPerk(slug),
-    getPublishedVenues(),
-    getSavedSlugs(await readGuestRef()),
-    getPublicVenueDetailExtension(slug),
+  const venuePromise = getVenueWithPerk(slug);
+  const detailExtensionPromise = getPublicVenueDetailExtension(slug);
+  const venue = await venuePromise;
+  if (!venue) notFound();
+  const [similar, detailExtension] = await Promise.all([
+    getSimilarVenues(venue, 3),
+    detailExtensionPromise,
   ]);
   const content = getUluwatuContent(slug);
-  if (!venue) notFound();
-  const saved = savedSlugs.includes(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
   const isCanggu = venue.district === "canggu";
@@ -252,12 +269,6 @@ export default async function VenuePage({
 
   // Similar places: verified category/vibe/district match only — sponsored
   // status is never a ranking factor (rankSimilar scores category + tags).
-  const similar = rankSimilar(
-    venue,
-    all.filter((v) => v.slug !== slug && isPublicReadyVenue(v)),
-    3
-  );
-
   const crumbs: Crumb[] = isUluwatu
     ? [
         { name: "Home", href: "/" },
@@ -345,10 +356,10 @@ export default async function VenuePage({
   const bookLabel = content?.bookingLabel ?? "Book direct";
   // Development fixtures override the repository only in local preview.
   const fixtureMode = process.env.NODE_ENV === "development" ? process.env.MENU_FIXTURE : undefined;
-  const menu: MenuRecord | null = fixtureMode === "fresh"
-    ? { ...menuActionFixtures.freshMenu, venueSlug: slug }
+  const menu: PublicMenuSummary | null = fixtureMode === "fresh"
+    ? fixtureMenuSummary({ ...menuActionFixtures.freshMenu, venueSlug: slug })
     : fixtureMode === "stale"
-    ? { ...menuActionFixtures.staleMenu, venueSlug: slug }
+    ? fixtureMenuSummary({ ...menuActionFixtures.staleMenu, venueSlug: slug })
     : detailExtension.menu;
   const actionSlotProps: VenueActionBarProps = {
     venueSlug: venue.slug,
@@ -411,26 +422,22 @@ export default async function VenuePage({
               className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
             >
               {venue.photoUrl ? (
-                // Venue-approved photo (owner-uploaded during onboarding).
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <VenueImage
                   className="venue-masthead-photo"
                   src={venue.photoUrl}
                   alt={`${name} — ${catLabel}`}
-                  fetchPriority="high"
+                  variant="hero"
+                  priority
                 />
               ) : (
-                // Category mood art — atmospheric editorial still, decorative
-                // (alt="") and never presented as venue photography
-                // (publication rule v2). The category gradient stays beneath
-                // as the loading/fallback field.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                // Category mood art — atmospheric and decorative, never
+                // presented as venue photography.
+                <VenueImage
                   className="venue-masthead-photo venue-masthead-art"
                   src={`/covers/${venue.category}.webp`}
                   alt=""
-                  aria-hidden="true"
-                  fetchPriority="high"
+                  variant="hero"
+                  priority
                 />
               )}
               <div className="venue-masthead-inner">
@@ -447,7 +454,7 @@ export default async function VenuePage({
 
         {/* Save control (kept from mainline) sits just under the masthead. */}
         <div style={{ marginTop: 14 }}>
-          <SaveButton venueSlug={slug} initialSaved={saved} variant="detail" />
+          <SaveButton venueSlug={slug} variant="detail" />
         </div>
 
         <div className="venue-detail-grid">

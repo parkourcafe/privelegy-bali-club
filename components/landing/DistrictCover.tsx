@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 // District card cover. A distinct, light-leaning colour wash per area is the
 // base layer (always renders — no network needed), and the generated mood
@@ -29,13 +30,12 @@ export default function DistrictCover({
         }}
       />
       {!failed && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={`/scenes/district-${slug}.webp`}
           alt=""
           aria-hidden
-          loading="lazy"
-          decoding="async"
+          fill
+          sizes="(max-width: 640px) 85vw, 320px"
           onError={() => setFailed(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />

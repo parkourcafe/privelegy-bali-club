@@ -21,7 +21,7 @@ On conflict, use this order:
 2. This file — product boundaries, domain model, system architecture, approved entities and roadmap.
 3. `CLAUDE.md` — a thin Claude Code entrypoint that imports `AGENTS.md`; it must not contain a second competing architecture.
 4. Applied database migrations and current production code — implementation truth, but not permission to violate items 1–2.
-5. `docs/money-model.md`, TablePilot integration documents and named feature handovers — focused implementation detail.
+5. `docs/money-model.md`, `docs/OTHER_BALI_PLATFORM_ARCHITECTURE_20260715.md` (approved partner-platform checkpoint), TablePilot integration documents and named feature handovers — focused implementation detail.
 6. Session plans, backlog notes and historical documents — non-authoritative unless promoted here.
 
 Rules:
@@ -1315,7 +1315,9 @@ Not yet unified in the target architecture:
 - delivery/takeaway/pre-order handoff resolver;
 - action payload analytics;
 - menu/action freshness admin queue;
-- partner menu/action maintenance workflow.
+- partner menu/action maintenance workflow;
+- partner authentication, venue membership and the persistent restaurant
+  workspace (governed by `docs/OTHER_BALI_PLATFORM_ARCHITECTURE_20260715.md`).
 
 This is an extension of the current product, not a rebuild.
 

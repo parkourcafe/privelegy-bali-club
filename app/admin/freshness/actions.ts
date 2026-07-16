@@ -1,13 +1,26 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { isPublishableActionTarget, isPublishableHttpsUrl } from "../../../components/admin/freshness-model";
 import { requireAdminRequest } from "@/lib/admin-request-auth";
 import { hasExplicitReviewConfirmation } from "@/lib/admin-review";
 import { serviceClient } from "@/lib/supabase/service";
+import { PUBLIC_CACHE_TAGS } from "@/lib/data/public-cache";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const REVIEW_TTL_MS = 60 * 24 * 60 * 60 * 1000;
+
+function refreshPublicMenu() {
+  revalidateTag(PUBLIC_CACHE_TAGS.menus, "max");
+  revalidatePath("/admin/freshness");
+  revalidatePath("/places/[slug]", "page");
+}
+
+function refreshPublicActions() {
+  revalidateTag(PUBLIC_CACHE_TAGS.actions, "max");
+  revalidatePath("/admin/freshness");
+  revalidatePath("/places/[slug]", "page");
+}
 
 async function operatorClient() {
   await requireAdminRequest();
@@ -26,7 +39,7 @@ export async function publishMenu(formData: FormData) {
   const client = await operatorClient();
   const { data, error } = await client.rpc("publish_menu_version", { p_menu_id: recordId(formData) });
   if (error || !data || data.ok !== true) throw new Error(error?.message ?? data?.error ?? "Menu failed publication checks.");
-  revalidatePath("/admin/freshness");
+  refreshPublicMenu();
 }
 
 export async function reviewMenu(formData: FormData) {
@@ -57,14 +70,14 @@ export async function reviewMenu(formData: FormData) {
     .select("id")
     .maybeSingle();
   if (updateError || !reviewed) throw new Error(updateError?.message ?? "Menu is no longer an unreviewed draft.");
-  revalidatePath("/admin/freshness");
+  refreshPublicMenu();
 }
 
 export async function archiveMenu(formData: FormData) {
   const client = await operatorClient();
   const { error } = await client.from("menus").update({ status: "archived" }).eq("id", recordId(formData)).in("status", ["draft", "review", "published"]);
   if (error) throw new Error(error.message);
-  revalidatePath("/admin/freshness");
+  refreshPublicMenu();
 }
 
 export async function confirmAction(formData: FormData) {
@@ -97,12 +110,12 @@ export async function confirmAction(formData: FormData) {
   if (error || !data || data.ok !== true) {
     throw new Error(error?.message ?? data?.error ?? "Action failed publication checks.");
   }
-  revalidatePath("/admin/freshness");
+  refreshPublicActions();
 }
 
 export async function archiveAction(formData: FormData) {
   const client = await operatorClient();
   const { error } = await client.from("venue_action_capabilities").update({ status: "archived", updated_at: new Date().toISOString() }).eq("id", recordId(formData)).in("status", ["draft", "review", "confirmed", "disabled"]);
   if (error) throw new Error(error.message);
-  revalidatePath("/admin/freshness");
+  refreshPublicActions();
 }

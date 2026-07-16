@@ -1,0 +1,14 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+type Photo = { id: string; image_url: string | null; source_url: string | null; status: string; consent_granted: boolean; owner_confirmed_at: string | null; owner_confirmation_note: string | null };
+
+export default function PhotoReviewPanel({ venueSlug }: { venueSlug: string }) {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [selected, setSelected] = useState<string[]>([]);
+  const [message, setMessage] = useState("Loading private photo candidates…");
+  useEffect(() => { fetch(`/api/partner/photos?venue=${encodeURIComponent(venueSlug)}`).then((response) => response.json()).then((data) => { if (!data.ok) throw new Error(data.error); setPhotos(data.photos ?? []); setMessage(data.photos?.length ? "" : "No photo candidates are waiting for review."); }).catch(() => setMessage("Private photo review is not available until the schema and storage are configured.")); }, [venueSlug]);
+  async function confirm() { const response = await fetch("/api/partner/photos", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ venueSlug, submissionIds: selected, confirm: true }) }); const data = await response.json().catch(() => null); setMessage(response.ok && data?.ok ? "Rights consent recorded for the selected images. Operator publication review is still required." : data?.error ?? "Consent could not be recorded."); }
+  return <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm"><p className="text-sm text-stone-600">Select the exact images you want Other Bali to consider. This logs who and when; it never publishes automatically.</p>{message && <p className="mt-4 text-sm text-stone-500">{message}</p>}<div className="mt-4 grid gap-3 sm:grid-cols-2">{photos.map((photo) => <label key={photo.id} className="rounded-xl border border-stone-200 p-3"><div className="aspect-video overflow-hidden rounded-lg bg-stone-100">{photo.image_url ? <img src={photo.image_url} alt="Private venue photo candidate" className="h-full w-full object-cover" /> : <span className="p-3 text-xs text-stone-500">Preview unavailable</span>}</div><span className="mt-2 flex items-start gap-2 text-sm"><input type="checkbox" checked={selected.includes(photo.id)} onChange={(e) => setSelected((current) => e.target.checked ? [...current, photo.id] : current.filter((id) => id !== photo.id))} /><span>{photo.owner_confirmed_at ? "Owner confirmation recorded" : "I have the rights to this exact image"}</span></span><span className="mt-1 block text-xs text-stone-500">{photo.status} · {photo.consent_granted ? "consent logged" : "consent pending"}</span></label>)}</div><button type="button" disabled={!selected.length} onClick={confirm} className="mt-4 rounded-lg bg-cyan-700 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">Confirm rights for selected photos</button></div>;
+}
