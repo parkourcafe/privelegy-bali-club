@@ -246,9 +246,53 @@ export default async function PlacesPage({
     ? DISTRICT_GUIDE.find((d) => d.slug === filters.district)?.name ?? null
     : null;
 
+  // Structured data for the catalogue. BreadcrumbList always; the ItemList only
+  // on the default, self-canonical view (no filters, page 1) so it never
+  // competes with the /bali/[district] hub canonicals a filtered view points to.
+  const PLACES_BASE = "https://www.otherbali.com";
+  const isDefaultView =
+    !filters.district &&
+    !filters.category &&
+    !filters.query &&
+    !filters.moment &&
+    !filters.mission &&
+    !filters.intentMode &&
+    page === 1;
+  const placesJsonLd: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${PLACES_BASE}/` },
+        { "@type": "ListItem", position: 2, name: "Places", item: `${PLACES_BASE}/places` },
+      ],
+    },
+  ];
+  if (isDefaultView && pageVenues.length > 0) {
+    placesJsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Curated places across Bali",
+      numberOfItems: pageVenues.length,
+      itemListElement: pageVenues.map((venue, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${PLACES_BASE}/places/${venue.slug}`,
+        name: venue.name,
+      })),
+    });
+  }
+
   return (
     <div>
       <main className="site-shell">
+        {placesJsonLd.map((node, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
+          />
+        ))}
         {/* Cinematic full-width masthead: golden-hour poster (SVG art + build-
             fetched still) with the Ubud dawn loop fading in on desktop — the
             same performance/motion gates as the landing hero. Atmosphere only,

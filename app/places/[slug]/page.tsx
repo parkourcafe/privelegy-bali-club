@@ -191,8 +191,11 @@ export async function generateMetadata({
   // back to the slug-only Uluwatu check when there's no DB row.
   const indexable = isVenueIndexable(venue);
 
+  // Category keyword in the SERP title is the most valuable disambiguator
+  // (what the place IS), e.g. "La Brisa — Beach club in Berawa, Canggu".
+  const catLabel = categoryLabel[venue?.category ?? "restaurant"];
   return {
-    title: `${name} — ${area ? `${area}, ` : ""}${district}`,
+    title: `${name} — ${catLabel} in ${area ? `${area}, ` : ""}${district}`,
     description,
     alternates: { canonical: `/places/${slug}` },
     robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
@@ -339,6 +342,9 @@ export default async function VenuePage({
     "@type": schemaType[venue.category] ?? "LocalBusiness",
     name,
     url: `${BASE}/places/${slug}`,
+    // image only from the real owner-consented photo — never the /covers/*.webp
+    // fallback art, which must not be presented as venue photography.
+    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
     address: {
       "@type": "PostalAddress",
       ...(content?.address ? { streetAddress: content.address } : {}),

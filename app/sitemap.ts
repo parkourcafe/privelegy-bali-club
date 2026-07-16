@@ -4,9 +4,11 @@ import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
-import { publishedUluwatuVenues, ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
 
-export const dynamic = "force-dynamic";
+// Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
+// several Supabase reads, and a per-request rebuild is needless load on a hot
+// endpoint. Newly published venues/districts still appear within the hour.
+export const revalidate = 3600;
 
 const BASE = "https://www.otherbali.com";
 
@@ -19,12 +21,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenueSlugs = catalogue.filter(isVenueIndexable).map((v) => v.slug);
-  const publishedUluwatuSlugs = new Set(
-    catalogue.filter((venue) => venue.district === ULUWATU_DB_SLUG).map((venue) => venue.slug),
-  );
-  const uluwatuComplete = publishedUluwatuVenues().every((venue) =>
-    publishedUluwatuSlugs.has(venue.slug),
-  );
   return [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
@@ -68,8 +64,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     // District pillars + their editorial children (driven by lib/pillars.ts so
     // the sitemap can't drift from the actual pages). The Ubud wellness guide is
-    // registered there too.
-    ...PILLARS.filter((p) => p.slug !== "uluwatu" || uluwatuComplete).flatMap((p) => [
+    // registered there too. These are stable editorial pages and are ALWAYS
+    // emitted — they must never drop out of the sitemap because a venue-set
+    // completeness check drifted (the flagship /uluwatu tree was previously
+    // gated on that and could silently vanish).
+    ...PILLARS.flatMap((p) => [
       { url: `${BASE}/${p.slug}`, changeFrequency: "weekly" as const, priority: 0.9 },
       ...p.children.map((c) => ({
         url: `${BASE}${c.path}`,

@@ -54,12 +54,53 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Sitewide brand entity: one Organization node (name/logo → knowledge panel)
+// and one WebSite node with a SearchAction (sitelinks search box → /places?q=).
+// No sameAs is emitted because no official social profile is recorded in the
+// codebase and inventing one would violate the no-invented-content guardrail.
+const ORG_ID = "https://www.otherbali.com/#organization";
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "Other Bali",
+      url: "https://www.otherbali.com",
+      logo: "https://www.otherbali.com/icon-512.png",
+      email: "support@otherbali.com",
+      description:
+        "A resident-curated guide to Bali — the right place for the moment you're in.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.otherbali.com/#website",
+      name: "Other Bali",
+      url: "https://www.otherbali.com",
+      publisher: { "@id": ORG_ID },
+      inLanguage: "en",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://www.otherbali.com/places?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}>
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
         {children}
         <SourceCapture />
         <ServiceWorkerRegister />

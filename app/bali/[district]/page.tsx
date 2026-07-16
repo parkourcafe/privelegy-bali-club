@@ -13,8 +13,12 @@ import {
 import VenueCard from "@/components/VenueCard";
 
 // SEO hub. Server-rendered + ISR so crawlers and AI fetchers see full content.
+// dynamicParams: true so a district that newly crosses the hub threshold renders
+// on first request under ISR instead of 404ing until the next redeploy — the
+// sitemap can advertise it the moment it qualifies. Slugs that don't (yet) have
+// a hub still 404 via notFound() inside the component.
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const hubs = await getDistrictHubs();
