@@ -40,47 +40,44 @@ export default function ConsentBanner() {
       {/* Mobile-only dim. On phones the tall hero puts the day-builder under
           the fixed bar, so taps land on the bar and look "dead" — a light dim
           signals "choose first", and tapping it dismisses (essential only). On
-          desktop the bar sits below the fold and blocks nothing, so no scrim:
-          dimming the whole editorial page there just looked washed out. No
-          blur anywhere — that was the "everything's fuzzy" culprit. */}
+          desktop the bar sits below the fold and blocks nothing, so no scrim. */}
       <div
         aria-hidden="true"
         onClick={() => choose("denied")}
         className="fixed inset-0 z-40 bg-[#16100c]/35 md:hidden"
       />
+      {/* Compact opt-in bar (founder request: keep it, but small enough not to
+          cover half the screen). One tight line of copy + two actions. */}
       <div
         role="dialog"
-        aria-modal="true"
         aria-label="Analytics choice"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)] px-4 py-4 shadow-[0_-16px_40px_-12px_rgba(0,0,0,0.6)] sm:px-6"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-2.5 backdrop-blur-md"
       >
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-[var(--ob-sand-dim)]">
-          We keep a first-party cookie so venue links can be measured and your
-          saved offers stay on this device. No Google Analytics, no third-party
-          or cross-app tracking.{" "}
-          <Link href="/privacy" className="text-[var(--ob-brass)] underline underline-offset-2">
-            Privacy
-          </Link>
-          .
-        </p>
-        <div className="flex shrink-0 gap-2">
-          <button
-            type="button"
-            onClick={() => choose("denied")}
-            className="min-h-11 rounded-full border border-[var(--ob-line)] px-4 py-2 text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5"
-          >
-            Essential only
-          </button>
-          <button
-            type="button"
-            onClick={() => choose("granted")}
-            className="min-h-11 rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
-          >
-            Accept
-          </button>
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs leading-snug text-[var(--ob-sand-dim)]">
+            One first-party cookie keeps your saved offers and anonymous link
+            stats — no third-party tracking.{" "}
+            <Link href="/privacy" className="text-[var(--ob-brass)] underline underline-offset-2">
+              Privacy
+            </Link>
+          </p>
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={() => choose("denied")}
+              className="min-h-10 rounded-full border border-[var(--ob-line)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5"
+            >
+              Essential only
+            </button>
+            <button
+              type="button"
+              onClick={() => choose("granted")}
+              className="min-h-10 rounded-full bg-[var(--ob-sand)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+            >
+              Accept
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
