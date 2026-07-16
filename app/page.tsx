@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "@/components/landing/Reveal";
-import HeroGlow from "@/components/landing/HeroGlow";
 import SceneImage from "@/components/landing/SceneImage";
 import DistrictCover from "@/components/landing/DistrictCover";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
@@ -24,7 +23,7 @@ export const metadata = {
 
 export default function Landing() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased">
+    <div className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased">
       <LandingNav />
       <MobileStickyCTA />
 
@@ -48,45 +47,41 @@ export default function Landing() {
   );
 }
 
-/* ── 1 · Cinematic hero ─────────────────────────────────────────── */
+/* ── 1 · Hero — Final canon: photo ≥70% of the frame, scrim bottom only,
+   kicker → Young Serif headline → one line → teal CTA "Plan my day". The
+   same Higgsfield sunset set stays (warm film, teal shadows — compatible
+   with the light frame per the migration plan §05). ─────────────── */
 function Hero() {
   return (
-    <section className="ob-grain relative flex min-h-[100svh] items-center overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden">
       <SceneImage
         scene="hero-sunset"
         variant="sunset"
-        imgClassName="ob-grade ob-kenburns opacity-90"
+        imgClassName="ob-grade ob-kenburns"
       />
       {/* one muted loop, desktop only, loaded after window load; the Ken
           Burns poster above is the permanent fallback */}
       <HeroLoop src="/scenes/hero-loop.mp4" />
-      {/* legibility scrim over the photo, warm-graded */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--ob-espresso)]/80 via-[var(--ob-espresso)]/35 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--ob-espresso)] to-transparent" />
-      <div className="ob-glow absolute inset-0" />
-      <HeroGlow />
+      {/* Final canon: legibility scrim at the bottom only. */}
+      <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[rgba(20,14,10,0.82)] via-[rgba(20,14,10,0.38)] to-transparent" />
 
-      {/* items-start on desktop: the day-builder is a tall 2-col grid now, so
-          top-align the headline with it instead of centering (which pushed
-          the title far down the page). */}
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-32 md:grid-cols-[1.15fr_0.85fr] md:items-start md:pt-28">
-        <div>
-          <p className="ob-in eyebrow text-[var(--ob-brass-2)]">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-end gap-12 px-5 pb-16 pt-36 md:grid-cols-[1.15fr_0.85fr]">
+        <div className="pb-2">
+          <p className="ob-in text-[11px] font-bold uppercase tracking-[0.24em] text-[#E7B7AE]">
             Bali planning · Canggu confirmed offers
           </p>
           <h1
-            className="ob-in mt-4 font-display text-[2.05rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl"
+            className="ob-in mt-4 font-display text-[2.05rem] font-normal leading-[1.06] tracking-tight text-[#FAF6EF] sm:text-5xl md:text-6xl"
             style={{ animationDelay: "80ms" }}
           >
             The right place for the moment you&rsquo;re in.
           </h1>
           <p
-            className="ob-in mt-5 max-w-xl text-lg leading-relaxed text-[var(--ob-sand-dim)]"
+            className="ob-in mt-5 max-w-xl text-lg leading-relaxed text-[rgba(250,246,239,0.85)]"
             style={{ animationDelay: "160ms" }}
           >
-            Tell us how you want today to feel: slow morning, beach day, date
-            night, family lunch. Other Bali turns that into a curated map of
-            places across Bali. Offers appear only where venues confirm them.
+            Tell us how you want today to feel — Other Bali turns it into a
+            curated map of places across the island.
           </p>
           <div
             className="ob-in mt-8 flex flex-wrap items-center gap-3"
@@ -94,19 +89,19 @@ function Hero() {
           >
             <Link
               href="#day-builder"
-              className="rounded-full bg-[var(--ob-sand)] px-6 py-3.5 font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+              className="rounded-full bg-[#005962] px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[#003f46]"
             >
-              Build my Bali day
+              Plan my day
             </Link>
             <Link
               href="/places"
-              className="rounded-full border border-[var(--ob-line)] px-6 py-3.5 font-medium text-[var(--ob-sand)] transition-colors hover:bg-white/5"
+              className="rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3.5 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
             >
               Browse all places
             </Link>
           </div>
           <p
-            className="ob-in mt-6 max-w-xl rounded-full border border-white/10 bg-[var(--ob-espresso)]/42 px-4 py-3 text-sm font-medium leading-relaxed text-[var(--ob-sand)] shadow-[0_16px_50px_-32px_rgba(0,0,0,0.9)] backdrop-blur-sm"
+            className="ob-in mt-6 max-w-xl text-sm font-medium leading-relaxed text-[rgba(250,246,239,0.75)]"
             style={{ animationDelay: "320ms" }}
           >
             Free to use. No account, no card. Venues pay only when a referred

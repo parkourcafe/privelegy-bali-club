@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import BrandMark from "@/components/BrandMark";
+import OtherBaliLogo from "@/components/OtherBaliLogo";
 
 const NAV = [
   { href: "#day-builder", label: "Build a day" },
@@ -34,14 +34,10 @@ export function LandingNav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/" className="inline-flex min-h-10 items-center gap-2.5">
-          <BrandMark className="h-7 w-7 shrink-0" />
-          <span className="font-display text-lg font-semibold text-[var(--ob-sand)]">
-            Other Bali
-          </span>
-          <span className="hidden text-[10px] uppercase tracking-[0.2em] text-[var(--ob-brass)] sm:inline">
-            Bali guide
-          </span>
+        <Link href="/" className="inline-flex min-h-10 items-center" aria-label="Other Bali — home">
+          {/* Rose over the hero photo (per spec: dark photography), ink once
+              the nav frosts onto paper. */}
+          <OtherBaliLogo size={22} color={solid ? "#2B1A13" : "#E7B7AE"} />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -49,14 +45,18 @@ export function LandingNav() {
             <a
               key={n.href}
               href={n.href}
-              className="text-sm text-[var(--ob-sand-dim)] transition-colors hover:text-[var(--ob-sand)]"
+              className={`text-sm transition-colors ${
+                solid
+                  ? "text-[var(--ob-sand-dim)] hover:text-[var(--ob-sand)]"
+                  : "text-[rgba(250,246,239,0.85)] hover:text-[#FAF6EF]"
+              }`}
             >
               {n.label}
             </a>
           ))}
           <Link
             href="#day-builder"
-            className="rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-[#005962] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#003f46]"
           >
             Build my day
           </Link>

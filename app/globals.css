@@ -2870,3 +2870,34 @@ html {
 .nearby-section {
   margin-top: 40px;
 }
+
+/* ── Phase 4 draft: light landing (Final canon, preview branch) ──
+   The landing is authored in --ob-* dark tokens. Remap them to the approved
+   light palette inside .ob-light so every section, card and border resolves
+   to paper/white/teal without rewriting 800 lines. Photo-overlaid bits that
+   must stay legible over imagery get explicit overrides below. Full --ob-*
+   removal happens after this draft is approved (plan §05/§06 step 4). */
+.ob-light {
+  --ob-espresso: #FAF6EF;      /* page + base sections (paper) */
+  --ob-espresso-2: #FFFFFF;    /* alternating sections + cards */
+  --ob-espresso-3: #F6FBF9;    /* emphasis cards (teal tint) */
+  --ob-sand: #2B1A13;          /* primary text (ink) */
+  --ob-sand-dim: #5c4a3c;      /* secondary text */
+  --ob-brass: #8a7a68;         /* eyebrows -> caption */
+  --ob-brass-2: #005962;       /* brass accents -> teal */
+  --ob-accent: #005962;        /* primary action */
+  --ob-accent-2: #003f46;      /* accent hover / arrows */
+  --ob-stone: #8a7a68;
+  --ob-line: #EDE4D6;
+}
+
+/* Dark radial glows read as smudges on paper — off in the light draft. */
+.ob-light .ob-glow,
+.ob-light .ob-hero-glow {
+  display: none;
+}
+
+/* Chips/labels that sit ON photography keep photo-legible ink. */
+.ob-light .ob-moment-tag {
+  color: #fffaf1;
+}
