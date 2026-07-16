@@ -28,8 +28,10 @@ Branch: `loop/12-app-store-submission`
 - Added a server-rendered, noindex shared-plan page with allow-listed mood,
   district and duration inputs. It exposes no user identity or private plan
   data and routes recipients to current public district/place content.
-- Rebuilt and tested the final simulator flow. The Share Sheet now identifies
-  `otherbali.com`, and the replacement screenshot is a 1320 × 2868 portrait PNG.
+- Rebuilt and tested the final simulator flow. After mixed build-number
+  screenshot evidence was found, all five App Store screenshots were
+  regenerated in one clean run from version `1.0 (2)`. The Share Sheet
+  identifies `otherbali.com`; every screenshot is a 1320 × 2868 portrait PNG.
 - Synchronized the Capacitor iOS bundle.
 - Archived, signed and uploaded build `1.0 (2)`.
 
@@ -51,16 +53,12 @@ Branch: `loop/12-app-store-submission`
 
 ## Remaining verification
 
-1. Confirm build `1.0 (2)` finished Apple processing and assign it to the
-   existing `Founder QA` group.
-2. Install build 2 on the paired iPhone and repeat Share Sheet and offline
-   restore. The build 1 local-persistence checks are complete, but build 2 is
+1. Repeat Share Sheet and offline restore on the installed physical TestFlight
+   build 2. The build 1 local-persistence checks are complete, but build 2 is
    the submission candidate.
-3. Merge/deploy this branch and verify the exact shared-plan HTTPS route in
-   production before selecting build 2.
-4. Verify App Store Connect privacy, age rating, content-rights, export
+2. Verify App Store Connect privacy, age rating, content-rights, export
    compliance, support/review contact and review-note fields.
-5. Keep the final App Review submission as a separately confirmed founder
+3. Keep the final App Review submission as a separately confirmed founder
    action.
 
 ## Boundaries
