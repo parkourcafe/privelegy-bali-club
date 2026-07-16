@@ -77,6 +77,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Consolidate the apex onto the canonical www host with a permanent (308)
+  // redirect. Every canonical, metadataBase, sitemap and OG URL already uses
+  // www.otherbali.com, so www is the primary host and this only fixes stray
+  // apex hits (no loop: the rule fires solely when Host is the bare apex).
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "otherbali.com" }],
+        destination: "https://www.otherbali.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

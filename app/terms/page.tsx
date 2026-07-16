@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export const metadata = { title: "Terms" };
+export const metadata = {
+  title: "Terms of Use",
+  description:
+    "The terms for using Other Bali — a free curation and trusted-handoff guide. Partners own fulfilment; we own the decision, explanation and attribution.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   return (

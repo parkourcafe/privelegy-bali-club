@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export const metadata = { title: "Privacy" };
+export const metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Other Bali handles your data: the httpOnly GuestRef model, what we do and don't store, and your choices. Travellers never need an account.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
   return (
