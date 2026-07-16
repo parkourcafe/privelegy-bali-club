@@ -3,6 +3,7 @@ import type { VenueWithPerk } from "@/lib/data";
 import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
 import { TrackedGuideLink } from "@/components/PlaceCardActions";
 import { DISTRICT_GRADIENT } from "@/lib/districts";
+import { CATALOGUE_MOMENTS } from "@/lib/catalogue-moments";
 
 export type CataloguePlace = VenueWithPerk & {
   cardLine?: string;
@@ -20,6 +21,8 @@ export type CatalogueFilters = {
   query: string;
   district: string;
   category: string;
+  moment: string;
+  momentLabel?: string;
   intentMode: boolean;
   mission: string;
   missionLabel?: string;
@@ -85,6 +88,7 @@ function catalogueHref(
   if (next.query) params.set("q", next.query);
   if (next.district) params.set("district", next.district);
   if (next.category) params.set("category", next.category);
+  if (next.moment) params.set("moment", next.moment);
   if (next.intentMode) params.set("intent", "1");
   if (next.mission) params.set("m", next.mission);
   if (next.duration) params.set("dur", next.duration);
@@ -110,7 +114,7 @@ function FilterChips({
   selected: string;
   filters: CatalogueFilters;
   render: (value: string) => string;
-  field: "district" | "category";
+  field: "district" | "category" | "moment";
 }) {
   if (options.length === 0) return null;
   return (
@@ -139,6 +143,7 @@ export default function PlacesView({
   filters,
   districts,
   categories,
+  nearby = [],
   totalMatches,
   totalVenues,
   page,
@@ -149,6 +154,7 @@ export default function PlacesView({
   filters: CatalogueFilters;
   districts: string[];
   categories: string[];
+  nearby?: CataloguePlace[];
   totalMatches: number;
   totalVenues: number;
   page: number;
@@ -182,6 +188,13 @@ export default function PlacesView({
           key: "category",
           label: categoryLabel[filters.category] ?? filters.category,
           href: catalogueHref(filters, { category: "" }),
+        }]
+      : []),
+    ...(filters.momentLabel
+      ? [{
+          key: "moment",
+          label: filters.momentLabel,
+          href: catalogueHref(filters, { moment: "", momentLabel: undefined }),
         }]
       : []),
     ...(filters.missionLabel
@@ -236,17 +249,21 @@ export default function PlacesView({
           </label>
           {filters.district ? <input type="hidden" name="district" value={filters.district} /> : null}
           {filters.category ? <input type="hidden" name="category" value={filters.category} /> : null}
+          {filters.moment ? <input type="hidden" name="moment" value={filters.moment} /> : null}
           {filters.intentMode ? <input type="hidden" name="intent" value="1" /> : null}
           {filters.mission ? <input type="hidden" name="m" value={filters.mission} /> : null}
           {filters.duration ? <input type="hidden" name="dur" value={filters.duration} /> : null}
         </form>
         <FilterChips
-          label="District"
-          options={districts}
-          selected={filters.district}
+          label="Moment"
+          options={CATALOGUE_MOMENTS.map((m) => m.slug)}
+          selected={filters.moment}
           filters={filters}
-          field="district"
-          render={(value) => districtLabel[value] ?? value}
+          field="moment"
+          render={(value) => {
+            const label = CATALOGUE_MOMENTS.find((m) => m.slug === value)?.label ?? value;
+            return filters.moment === value ? `★ ${label}` : label;
+          }}
         />
         <FilterChips
           label="Type"
@@ -255,6 +272,14 @@ export default function PlacesView({
           filters={filters}
           field="category"
           render={(value) => categoryLabel[value] ?? value}
+        />
+        <FilterChips
+          label="District"
+          options={districts}
+          selected={filters.district}
+          filters={filters}
+          field="district"
+          render={(value) => districtLabel[value] ?? value}
         />
       </div>
 
@@ -330,39 +355,83 @@ export default function PlacesView({
         ) : null}
       </div>
 
-      {[...grouped.entries()].map(([slug, items]) => (
-        <section key={slug} className="slot-section">
-          {DISTRICT_GRADIENT[slug] ? (
-            <div className="relative h-20 overflow-hidden rounded-2xl">
-              <div className="absolute inset-0" style={{ background: DISTRICT_GRADIENT[slug] }} />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent" />
-              <div className="relative flex h-full flex-col justify-center px-5">
-                <h2 className="font-display text-xl font-semibold text-[var(--ob-sand)] drop-shadow-[0_1px_6px_rgba(0,0,0,0.65)]">
-                  {districtLabel[slug] ?? slug}
-                </h2>
-                <p className="text-xs font-semibold text-[var(--ob-sand)]/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]">
-                  {items.length} on this page
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="slot-heading">
-              <h2>{districtLabel[slug] ?? slug}</h2>
-              <p>{items.length} on this page</p>
-            </div>
-          )}
+      {filters.moment && venues.length > 0 ? (
+        // Moment mode is a ranked answer, not an atlas: best fit first, the
+        // strongest match badged. Order comes pre-ranked from the server.
+        <section className="slot-section">
+          <div className="slot-heading">
+            <h2>Best fit first</h2>
+            <p>Ranked by how strongly each place&apos;s own record matches this moment.</p>
+          </div>
           <div className="pick-grid">
-            {items.map((venue) => (
-              <PlaceCard key={venue.slug} place={toCard(venue)} />
+            {venues.map((venue, index) => (
+              <div key={venue.slug} className="relative">
+                {page === 1 && index === 0 ? (
+                  <span className="moment-badge" aria-hidden="true">
+                    ★ Best for {filters.momentLabel?.toLowerCase()}
+                  </span>
+                ) : null}
+                <PlaceCard place={toCard(venue)} />
+              </div>
             ))}
           </div>
         </section>
-      ))}
+      ) : (
+        [...grouped.entries()].map(([slug, items]) => (
+          <section key={slug} className="slot-section">
+            {DISTRICT_GRADIENT[slug] ? (
+              <div className="relative h-20 overflow-hidden rounded-2xl">
+                <div className="absolute inset-0" style={{ background: DISTRICT_GRADIENT[slug] }} />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent" />
+                <div className="relative flex h-full flex-col justify-center px-5">
+                  <h2 className="font-display text-xl font-semibold text-[var(--ob-sand)] drop-shadow-[0_1px_6px_rgba(0,0,0,0.65)]">
+                    {districtLabel[slug] ?? slug}
+                  </h2>
+                  <p className="text-xs font-semibold text-[var(--ob-sand)]/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]">
+                    {items.length} on this page
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="slot-heading">
+                <h2>{districtLabel[slug] ?? slug}</h2>
+                <p>{items.length} on this page</p>
+              </div>
+            )}
+            <div className="pick-grid">
+              {items.map((venue) => (
+                <PlaceCard key={venue.slug} place={toCard(venue)} />
+              ))}
+            </div>
+          </section>
+        ))
+      )}
 
       {totalMatches === 0 ? (
         <p className="py-10 text-center text-sm text-[var(--muted)]">
-          Nothing matches that combination yet. Clear a filter to widen the map.
+          Nothing matches that combination yet{nearby.length > 0 ? " inside this district — but your brief matched nearby:" : ". Clear a filter to widen the map."}
         </p>
+      ) : null}
+
+      {nearby.length > 0 ? (
+        // The same brief matched just outside the active district. Each card
+        // names its own district; no travel-time claims — navigation and ETA
+        // belong to Google Maps (guardrail #1).
+        <section className="nearby-section" aria-label={`Nearby — outside ${districtLabel[filters.district] ?? filters.district}`}>
+          <div className="nearby-rule">
+            <span>Nearby — outside {districtLabel[filters.district] ?? filters.district}</span>
+          </div>
+          <div className="pick-grid">
+            {nearby.map((venue) => (
+              <div key={venue.slug}>
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
+                  {districtLabel[venue.district] ?? venue.district}
+                </p>
+                <PlaceCard place={toCard(venue)} />
+              </div>
+            ))}
+          </div>
+        </section>
       ) : null}
 
       {totalPages > 1 ? (
