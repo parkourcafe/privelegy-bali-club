@@ -12,7 +12,10 @@ import {
 import VenueCard from "@/components/VenueCard";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+// dynamicParams: true so a newly-qualifying district/intent spoke renders on
+// first request under ISR instead of 404ing until redeploy. Non-qualifying
+// combos still 404 via notFound() below.
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const spokes = await getIntentSpokes();

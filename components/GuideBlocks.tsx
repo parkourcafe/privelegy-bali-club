@@ -145,6 +145,9 @@ export function GuideFooter() {
         <Link href="/guides" className="quiet-link">
           Travel guides
         </Link>
+        <Link href="/for-venues" className="quiet-link">
+          List your place
+        </Link>
         <Link href="/privacy" className="quiet-link">
           Privacy
         </Link>

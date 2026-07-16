@@ -746,8 +746,21 @@ function Faq() {
     { q: "How do you choose places?", a: "Editorially, and in person. We verify vibe, price, and what's worth ordering on-site. Order is never paid for; anything sponsored is labelled." },
     { q: "Where does it work?", a: "The public planning layer covers Bali districts. Confirmed offers and reservation tracking start in Canggu, then expand as partner proof is ready." },
   ];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: qa.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
   return (
     <Section id="faq" className="bg-[var(--ob-espresso-2)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Reveal>
         <p className="eyebrow text-[var(--ob-brass)]">Questions</p>
         <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
@@ -839,6 +852,9 @@ function SiteFooter() {
           </Link>
           <Link href="/guides" className={footerLink}>
             Guides
+          </Link>
+          <Link href="/for-venues" className={footerLink}>
+            List your place
           </Link>
           <Link href="/support" className={footerLink}>
             Support
