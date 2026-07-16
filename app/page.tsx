@@ -433,7 +433,7 @@ function ProofChain() {
         </div>
       </Reveal>
       <Reveal delay={80}>
-        <p className="mt-6 text-sm text-[var(--ob-stone)]">
+        <p className="mt-6 text-sm text-[var(--ob-sand-dim)]">
           Canggu is the first deep district in 2026. We publish real numbers to partners as
           they happen &mdash; never invented ones here.
         </p>
@@ -839,7 +839,7 @@ function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-display text-xl font-semibold">Other Bali</p>
-          <p className="mt-1 text-sm text-[var(--ob-stone)]">
+          <p className="mt-1 text-sm text-[var(--ob-sand-dim)]">
             The right place for the moment you&rsquo;re in. · Bali guide
           </p>
         </div>
@@ -882,7 +882,7 @@ function SiteFooter() {
           </Link>
         </div>
       </div>
-      <p className="mx-auto mt-8 max-w-6xl text-xs text-[var(--ob-stone)]">
+      <p className="mx-auto mt-8 max-w-6xl text-xs text-[var(--ob-sand-dim)]">
         Free to use. We earn from venues only when a reservation made through us
         becomes a real seated visit — never from you.
       </p>

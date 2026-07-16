@@ -302,24 +302,30 @@ export default async function PlacesPage({
           <div className="relative min-h-[20rem] md:min-h-[24rem]">
             <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade" />
             <HeroLoop src="/scenes/places-coast-loop.mp4" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/85 via-[#16100c]/40 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#16100c] to-transparent" />
+            {/* Legibility scrim: a light left/right wash for the headline plus a
+                stronger bottom-up gradient so the body copy stays readable over
+                the bright part of the sunset (matches the landing hero). */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/85 via-[#16100c]/45 to-[#16100c]/15" />
+            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#16100c] via-[#16100c]/55 to-transparent" />
 
             <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
               <div className="flex items-start justify-between gap-4">
                 <BrandHomeLink tone="dark" />
-                <Link href="/plan" className="quiet-link">
+                <Link
+                  href="/plan"
+                  className="text-sm font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
+                >
                   Canggu day →
                 </Link>
               </div>
               <div className="max-w-2xl pt-10">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(198,154,92,0.5)] bg-black/30 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#e2ba79] backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(231,183,174,0.55)] bg-black/35 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#E7B7AE] backdrop-blur-sm">
                   {`${ready.length} curated places · resident-checked`}
                 </span>
-                <h1 className="hero-title mt-4 text-[#f4ece0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                <h1 className="hero-title mt-4 text-[#FAF6EF] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
                   {districtName ? `Places in ${districtName}` : "Places across Bali"}
                 </h1>
-                <p className="hero-copy max-w-xl text-[#cdbfa9] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
+                <p className="hero-copy max-w-xl text-[rgba(250,246,239,0.92)] drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)]">
                   A curated map of Bali by district. Every place here is one we
                   can stand behind — why it&apos;s worth it, who it suits, and
                   what to expect. Offers appear only when venues confirm them.
