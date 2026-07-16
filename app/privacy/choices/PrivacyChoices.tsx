@@ -40,14 +40,14 @@ export default function PrivacyChoices() {
     consent === "granted" ? "On" : consent === "denied" ? "Off" : "Not set";
 
   return (
-    <div className="mt-10 space-y-8 text-[var(--ob-sand-dim)]">
+    <div className="mt-10 space-y-8 text-[var(--muted)]">
       <section>
-        <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+        <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
           Analytics
         </h2>
         <p className="mt-3">
           First-party interaction analytics is currently:{" "}
-          <span className="font-semibold text-[var(--ob-sand)]">{stateLabel}</span>.
+          <span className="font-semibold text-[var(--ink)]">{stateLabel}</span>.
           We never use Google Analytics or third-party trackers.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -55,7 +55,7 @@ export default function PrivacyChoices() {
             type="button"
             aria-pressed={consent === "granted"}
             onClick={() => choose("granted")}
-            className="min-h-11 rounded-full border border-[var(--ob-line)] px-4 py-2 text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5 data-[on=true]:border-[var(--ob-brass)]"
+            className="min-h-11 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-white/5 data-[on=true]:border-[var(--lagoon)]"
             data-on={consent === "granted"}
           >
             Turn on
@@ -64,7 +64,7 @@ export default function PrivacyChoices() {
             type="button"
             aria-pressed={consent === "denied"}
             onClick={() => choose("denied")}
-            className="min-h-11 rounded-full border border-[var(--ob-line)] px-4 py-2 text-sm font-semibold text-[var(--ob-sand)] transition-colors hover:bg-white/5 data-[on=true]:border-[var(--ob-brass)]"
+            className="min-h-11 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-white/5 data-[on=true]:border-[var(--lagoon)]"
             data-on={consent === "denied"}
           >
             Turn off
@@ -73,7 +73,7 @@ export default function PrivacyChoices() {
       </section>
 
       <section>
-        <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+        <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
           Forget this device
         </h2>
         <p className="mt-3">
@@ -86,26 +86,26 @@ export default function PrivacyChoices() {
           type="button"
           onClick={forget}
           disabled={busy}
-          className="mt-4 min-h-11 rounded-full bg-[var(--ob-sand)] px-4 py-2 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+          className="mt-4 min-h-11 rounded-full bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
         >
           {busy ? "Working…" : "Forget this device"}
         </button>
         {forgotten && (
-          <p className="mt-3 text-sm text-[var(--ob-brass)]" role="status">
+          <p className="mt-3 text-sm text-[var(--lagoon)]" role="status">
             Done — this device has been unlinked.
           </p>
         )}
       </section>
 
       <section>
-        <h2 className="font-display text-2xl font-semibold text-[var(--ob-sand)]">
+        <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
           Full deletion
         </h2>
         <p className="mt-3">
           To request deletion of everything tied to your device reference,
           including retained records, email{" "}
           <a
-            className="inline-flex min-h-11 items-center text-[var(--ob-brass)]"
+            className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
             href="mailto:support@otherbali.com"
           >
             support@otherbali.com

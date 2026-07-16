@@ -49,7 +49,7 @@ export default function VenueCard({
             )}
           </h3>
           {v.isSponsored && (
-            <span className="rounded-full bg-[rgba(184,138,66,0.16)] px-2 py-0.5 text-[10px] font-bold text-[var(--clay)]">
+            <span className="rounded-full bg-[var(--tint-best-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--lagoon-strong)]">
               Sponsored
             </span>
           )}
@@ -62,7 +62,7 @@ export default function VenueCard({
         {v.vibeTags && v.vibeTags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
             {v.vibeTags.map((t) => (
-              <span key={t} className="rounded-full bg-[rgba(98,118,87,0.13)] px-2 py-0.5 text-[11px] font-semibold text-[var(--moss)]">
+              <span key={t} className="rounded-full bg-[rgba(98,118,87,0.13)] px-2 py-0.5 text-[11px] font-semibold text-[var(--tint-best-text)]">
                 {t}
               </span>
             ))}

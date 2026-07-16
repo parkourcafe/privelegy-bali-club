@@ -263,7 +263,7 @@ export default async function PlacesPage({
 
             <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
               <div className="flex items-start justify-between gap-4">
-                <BrandHomeLink />
+                <BrandHomeLink tone="dark" />
                 <Link href="/plan" className="quiet-link">
                   Canggu day →
                 </Link>

@@ -149,7 +149,7 @@ export default function WhereToStayPage() {
                 The {area.name} guide →
               </Link>
             </div>
-            <p className="text-sm font-semibold text-[var(--clay)]">{area.tag}</p>
+            <p className="text-sm font-semibold text-[var(--lagoon-strong)]">{area.tag}</p>
             <p className="mt-1 text-sm text-[var(--ink)]">
               <span className="font-semibold">Best for:</span> {area.forWho}
             </p>

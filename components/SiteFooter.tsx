@@ -1,9 +1,13 @@
 import Link from "next/link";
+import OtherBaliLogo from "@/components/OtherBaliLogo";
 
 export default function SiteFooter() {
   return (
     <footer className="ob-footer">
       <div className="site-shell ob-footer-inner">
+        <Link href="/" aria-label="Other Bali — home" className="inline-flex">
+          <OtherBaliLogo size={20} />
+        </Link>
         <p className="ob-footer-tagline">
           The right place for the moment you&apos;re in.
         </p>

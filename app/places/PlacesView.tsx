@@ -240,7 +240,7 @@ export default function PlacesView({
                 name="q"
                 defaultValue={filters.query}
                 placeholder="Place, area, vibe…"
-                className="w-full rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] py-2.5 pl-10 pr-3 text-sm text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brass)] focus:ring-2 focus:ring-[color:rgba(198,154,92,0.28)]"
+                className="w-full rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] py-2.5 pl-10 pr-3 text-sm text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--lagoon)] focus:ring-2 focus:ring-[color:rgba(198,154,92,0.28)]"
               />
               <button type="submit" className="chip chip-active min-h-11 px-4">
                 Search
@@ -302,7 +302,7 @@ export default function PlacesView({
           <TrackedGuideLink
             href="/uluwatu"
             pageSlug="places-to-uluwatu"
-            className="font-bold text-[var(--lagoon-strong)] hover:text-[var(--clay)]"
+            className="font-bold text-[var(--lagoon-strong)] hover:text-[var(--lagoon)]"
           >
             New: the full Uluwatu guide →
           </TrackedGuideLink>{" "}

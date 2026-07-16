@@ -9,11 +9,11 @@ export default function SupportPage() {
         <Link href="/" className="quiet-link">
           ← Other Bali
         </Link>
-        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--ob-brass)]">
+        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon)]">
           Support
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Support</h1>
-        <p className="mt-4 text-[var(--ob-sand-dim)]">
+        <p className="mt-4 text-[var(--muted)]">
           Need help with a place, route, offer, reservation handoff, or privacy
           question? Contact the Other Bali team.
         </p>

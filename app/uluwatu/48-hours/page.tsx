@@ -152,7 +152,7 @@ function Timeline({ stops }: { stops: Stop[] }) {
           <li key={stop.title} className="timeline-item">
             <span className="timeline-marker">{i + 1}</span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--clay)]">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--lagoon-strong)]">
                 {stop.time}
               </p>
               <h3 className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold leading-tight">
