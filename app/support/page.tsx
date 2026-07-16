@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export const metadata = { title: "Support" };
+export const metadata = {
+  title: "Support",
+  description:
+    "Need help with Other Bali? How to reach us, what we can and can't do (partners own bookings and fulfilment), and how to remove your data.",
+  alternates: { canonical: "/support" },
+};
 
 export default function SupportPage() {
   return (
