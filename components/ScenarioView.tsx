@@ -36,7 +36,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
               </Link>
             </div>
             <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: scenario.eyebrow }]} />
-            <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-[var(--clay)]">
+            <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-[var(--lagoon-strong)]">
               {scenario.eyebrow}
             </p>
             <h1 className="hero-title mt-2">{scenario.title}</h1>

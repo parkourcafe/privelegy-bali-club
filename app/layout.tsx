@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Hanken_Grotesk, Young_Serif, Gloock } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 
-// Real loaded type (not system stacks): Fraunces (editorial serif) for display,
-// Geist for body/UI. Exposed as CSS vars and consumed by --font-display /
-// --font-body in globals.css, so the cinematic landing and the tool share one
-// typographic voice.
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
+// Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
+// body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
+// Exposed as CSS vars and consumed by --font-body / --font-display in
+// globals.css, so components stay untouched.
+const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-hanken", display: "swap" });
+const young = Young_Serif({ weight: "400", subsets: ["latin"], variable: "--font-young", display: "swap" });
+const gloock = Gloock({ weight: "400", subsets: ["latin"], variable: "--font-gloock", display: "swap" });
 
 // Public launch label: Other Bali is the tourist-facing brand. "Bali Privilege"
 // remains internal/technical only.
@@ -57,7 +58,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${geist.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}>
       <body className="min-h-full flex flex-col">
         {children}
         <SourceCapture />

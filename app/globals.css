@@ -1,23 +1,35 @@
 @import "tailwindcss";
 
+/* ── Other Bali — Final (approved light system, migration plan 2026-07-16) ──
+   Light, teal-first. Hanken Grotesk (UI) · Young Serif (headings) · Gloock
+   (wordmark only). No dark/brown surfaces. Clay survives ONLY as the logo
+   dot — never as a UI accent. moss/brass are retired: vibe tags use the
+   teal tint, sponsored goes neutral. */
 :root {
-  --paper: #f4efe5;
-  --paper-soft: #fffaf1;
-  --paper-warm: #eadfce;
-  --ink: #20231e;
-  --muted: #706a5d;
-  --line: rgba(32, 35, 30, 0.16);
-  --lagoon: #00737a;
-  --lagoon-strong: #005962;
-  --moss: #627657;
-  --clay: #a7654a;
-  --brass: #b88a42;
-  --shadow-soft: 0 16px 42px rgba(42, 35, 25, 0.1);
-  --shadow-lift: 0 22px 60px rgba(42, 35, 25, 0.16);
-  /* Real loaded fonts (next/font in layout.tsx) with editorial fallbacks —
-     one typographic voice across the cinematic landing and the tool. */
-  --font-body: var(--font-geist), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --paper: #FAF6EF; /* page background */
+  --paper-soft: #FFFFFF; /* cards — clean white */
+  --paper-warm: #f3ecdf; /* soft warm panel (kept for legacy washes) */
+  --ink: #2B1A13; /* text — warm espresso ink */
+  --muted: #5c4a3c; /* secondary text (AA on paper) */
+  --caption: #8a7a68; /* captions / small labels only */
+  --line: #EDE4D6; /* card borders */
+  --line-strong: #DCD2C2; /* chips / inputs */
+  --lagoon: #005962; /* Primary: CTAs, links, active states */
+  --lagoon-strong: #003f46; /* hover / pressed */
+  --clay: #C4623F; /* logo dot ONLY — not an accent */
+  /* Best for / Not for tint plates */
+  --tint-best-bg: #F6FBF9;
+  --tint-best-line: #D8E8E3;
+  --tint-best-text: #3b4a44;
+  --tint-best-head: #005962;
+  --tint-not-bg: #FBF4EE;
+  --tint-not-line: #EDD9C8;
+  --tint-not-head: #B4552E;
+  --shadow-soft: 0 16px 42px rgba(42, 35, 25, 0.08);
+  --shadow-lift: 0 22px 60px rgba(42, 35, 25, 0.12);
+  /* Real loaded fonts (next/font in layout.tsx) with editorial fallbacks. */
+  --font-body: var(--font-hanken), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-young), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -49,9 +61,7 @@
 }
 
 body {
-  background:
-    linear-gradient(180deg, rgba(255, 250, 241, 0.9), rgba(244, 239, 229, 0.96)),
-    repeating-linear-gradient(90deg, rgba(32, 35, 30, 0.018) 0 1px, transparent 1px 7px);
+  background: var(--paper);
   color: var(--foreground);
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
@@ -105,7 +115,7 @@ html {
 }
 
 .quiet-link:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 .hero-grid {
@@ -502,7 +512,7 @@ html {
 
 .perk-strip {
   margin-top: 16px;
-  border-left: 3px solid var(--brass);
+  border-left: 3px solid var(--lagoon);
   background: rgba(0, 115, 122, 0.08);
   padding: 12px 14px;
 }
@@ -558,7 +568,7 @@ html {
 
 .button-secondary:hover {
   border-color: rgba(167, 101, 74, 0.46);
-  color: var(--clay);
+  color: var(--lagoon-strong);
   transform: translateY(-1px);
 }
 
@@ -652,7 +662,7 @@ html {
 .success-card {
   margin-top: 18px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--moss), var(--lagoon-strong));
+  background: linear-gradient(135deg, var(--tint-best-text), var(--lagoon-strong));
   padding: 24px;
   color: #fffaf1;
   text-align: center;
@@ -823,7 +833,7 @@ html {
 }
 
 .place-card:focus-within {
-  border-color: var(--brass);
+  border-color: var(--lagoon);
 }
 
 .page-dark .place-card {
@@ -892,7 +902,7 @@ html {
 }
 
 .place-card-name a:focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--lagoon);
   outline-offset: 3px;
 }
 
@@ -905,7 +915,7 @@ html {
 .place-card-fit {
   font-size: 13px;
   line-height: 1.45;
-  color: var(--moss);
+  color: var(--tint-best-text);
 }
 
 .place-card-fit strong {
@@ -949,7 +959,7 @@ html {
 }
 
 .place-card-cta:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 .sponsored-label {
@@ -957,7 +967,7 @@ html {
   border: 1px solid rgba(184, 138, 66, 0.55);
   border-radius: 999px;
   padding: 2px 9px;
-  color: var(--brass);
+  color: var(--lagoon);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1658,7 +1668,7 @@ html {
 }
 
 .fit-context .fit-best {
-  color: var(--moss);
+  color: var(--tint-best-text);
 }
 
 .fit-context .fit-not {
@@ -1667,7 +1677,7 @@ html {
 
 .why-here {
   margin-top: 12px;
-  border-left: 2px solid var(--brass);
+  border-left: 2px solid var(--lagoon);
   padding-left: 10px;
   font-size: 13px;
   font-style: italic;
@@ -1717,7 +1727,7 @@ html {
 }
 
 .breadcrumbs a:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 /* Guide pages */
@@ -1727,7 +1737,7 @@ html {
 }
 
 .guide-kicker {
-  color: var(--clay);
+  color: var(--lagoon-strong);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -1816,7 +1826,7 @@ html {
 }
 
 .guide-prose a:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 .pick-grid {
@@ -1880,7 +1890,7 @@ html {
 }
 
 .compare-table a:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 /* FAQ — native details, 44px summary targets */
@@ -1913,7 +1923,7 @@ html {
 
 .faq-item summary::after {
   content: "+";
-  color: var(--clay);
+  color: var(--lagoon-strong);
   font-family: var(--font-display);
   font-size: 22px;
   line-height: 1;
@@ -2234,7 +2244,7 @@ html {
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 .quick-block dd {
@@ -2274,12 +2284,12 @@ html {
 }
 
 .practical-list a:hover {
-  color: var(--clay);
+  color: var(--lagoon-strong);
 }
 
 .owner-voice {
   margin-top: 14px;
-  border-left: 3px solid var(--brass);
+  border-left: 3px solid var(--lagoon);
   background: rgba(184, 138, 66, 0.07);
   border-radius: 0 10px 10px 0;
   padding: 16px 18px;
@@ -2327,7 +2337,7 @@ html {
 
 .structured-menu-eyebrow,
 .menu-state-kicker {
-  color: var(--clay);
+  color: var(--lagoon-strong);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -2387,7 +2397,7 @@ html {
 }
 
 .structured-menu-section > summary::-webkit-details-marker { display: none; }
-.structured-menu-section > summary::after { content: "+"; color: var(--clay); font-size: 21px; }
+.structured-menu-section > summary::after { content: "+"; color: var(--lagoon-strong); font-size: 21px; }
 .structured-menu-section[open] > summary::after { content: "–"; }
 .structured-menu-section > summary small { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
 
@@ -2437,7 +2447,7 @@ html {
 .menu-signal-editorial { border-color: rgba(184, 138, 66, 0.55); background: rgba(184, 138, 66, 0.1); color: #704b1f; }
 .menu-signal-partner { border-style: dashed; background: transparent; color: var(--lagoon-strong); }
 .menu-tag-allergen { border-color: rgba(137, 76, 54, 0.3); color: #704536; }
-.structured-menu-editorial-note { margin-top: 10px; border-left: 2px solid var(--brass); padding-left: 10px; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
+.structured-menu-editorial-note { margin-top: 10px; border-left: 2px solid var(--lagoon); padding-left: 10px; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
 .structured-menu-availability { margin-top: 8px; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 .structured-menu-official-link { border-top: 1px solid var(--line); padding: 14px 18px; font-size: 12.5px; }
 
@@ -2569,7 +2579,7 @@ html {
 }
 
 .action-link:focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--lagoon);
   outline-offset: 2px;
 }
 
@@ -2665,7 +2675,7 @@ html {
 
 .lead-form input:focus-visible,
 .lead-form select:focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--lagoon);
   outline-offset: 1px;
 }
 
@@ -2744,7 +2754,7 @@ html {
   border-radius: 9px;
   background: rgba(167, 101, 74, 0.09);
   padding: 12px 14px;
-  color: var(--clay);
+  color: var(--lagoon-strong);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -2774,7 +2784,7 @@ html {
   position: absolute; top: 10px; left: 10px; z-index: 3;
   display: inline-flex; height: 34px; width: 34px; align-items: center;
   justify-content: center; border-radius: 999px; background: rgba(255, 250, 241, 0.92);
-  font-size: 18px; color: var(--clay); box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.5);
+  font-size: 18px; color: var(--lagoon-strong); box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.5);
 }
 .save-btn-card[data-saved="true"] { color: #c0392b; }
 .save-btn-detail {
@@ -2782,7 +2792,7 @@ html {
   border-radius: 999px; padding: 8px 16px; font-size: 0.9rem; font-weight: 600;
   color: var(--ink); background: var(--paper-soft);
 }
-.save-btn-detail[data-saved="true"] { border-color: var(--clay); color: var(--clay); }
+.save-btn-detail[data-saved="true"] { border-color: var(--lagoon-strong); color: var(--lagoon-strong); }
 .save-btn-detail span:first-child { font-size: 1.1rem; }
 
 /* ── /places catalogue redesign (mockup design system, 2026-07-16) ──

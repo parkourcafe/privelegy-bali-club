@@ -82,7 +82,7 @@ function DayBlock({ n, title, stops }: { n: number; title: string; stops: Stop[]
       <ol className="mt-3 space-y-4">
         {stops.map((s) => (
           <li key={s.title} className="flex gap-4">
-            <span className="mt-0.5 w-24 shrink-0 text-xs font-semibold uppercase tracking-wide text-[var(--clay)]">
+            <span className="mt-0.5 w-24 shrink-0 text-xs font-semibold uppercase tracking-wide text-[var(--lagoon-strong)]">
               {s.time}
             </span>
             <div>
