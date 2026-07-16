@@ -68,7 +68,7 @@ body {
 }
 
 ::selection {
-  background: rgba(184, 138, 66, 0.28);
+  background: rgba(0, 89, 98, 0.18);
 }
 
 a,
@@ -827,7 +827,7 @@ html {
 }
 
 .place-card:hover {
-  border-color: rgba(184, 138, 66, 0.5);
+  border-color: var(--line-strong);
   box-shadow: var(--shadow-lift);
   transform: translateY(-2px);
 }
@@ -964,10 +964,10 @@ html {
 
 .sponsored-label {
   flex: none;
-  border: 1px solid rgba(184, 138, 66, 0.55);
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: 2px 9px;
-  color: var(--lagoon);
+  color: var(--muted);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -986,7 +986,7 @@ html {
   justify-content: space-between;
   overflow: hidden;
   padding: 16px 18px;
-  color: var(--paper-soft);
+  color: var(--tint-best-head);
 }
 
 /* Category mood art behind the type — atmospheric editorial still, graded
@@ -1009,9 +1009,8 @@ html {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(22, 16, 12, 0.12) 0%,
-    rgba(22, 16, 12, 0.3) 55%,
-    rgba(22, 16, 12, 0.78) 100%
+    rgba(255, 255, 255, 0) 40%,
+    rgba(246, 251, 249, 0.55) 100%
   );
 }
 
@@ -1047,16 +1046,16 @@ html {
   opacity: 0.6;
 }
 
-.type-cover-cafe { background: linear-gradient(150deg, #6d5537, #443423 60%, #2b2018); }
-.type-cover-restaurant { background: linear-gradient(150deg, #56341f, #2b2018); }
-.type-cover-beach_club { background: linear-gradient(150deg, #0e5f66, #16343c 70%, #16100c); }
-.type-cover-bar { background: linear-gradient(150deg, #3a2c1c, #16100c); }
-.type-cover-warung { background: linear-gradient(150deg, #4e5a3a, #232a1a 75%, #16100c); }
-.type-cover-spa { background: linear-gradient(150deg, #5a6b52, #2b3527 75%, #16100c); }
-.type-cover-fitness { background: linear-gradient(150deg, #8a4f35, #3d2820 75%, #16100c); }
-.type-cover-yoga { background: linear-gradient(150deg, #65745b, #30392c 75%, #16100c); }
-.type-cover-beauty { background: linear-gradient(150deg, #80576d, #3c2934 75%, #16100c); }
-.type-cover-surf { background: linear-gradient(150deg, #12666e, #1a3a40 70%, #16100c); }
+.type-cover-cafe { background: linear-gradient(150deg, #F6FBF9, #E7F1ED 60%, #D8E8E3); }
+.type-cover-restaurant { background: linear-gradient(150deg, #F8FBFA, #E2EEEA 70%, #D2E4DE); }
+.type-cover-beach_club { background: linear-gradient(150deg, #EFF8F7, #DCEDEA 70%, #C9E2DD); }
+.type-cover-bar { background: linear-gradient(150deg, #F6FBF9, #E4EFEB 70%, #D5E6E0); }
+.type-cover-warung { background: linear-gradient(150deg, #F5FAF7, #E6F0E9 70%, #D7E7DE); }
+.type-cover-spa { background: linear-gradient(150deg, #F2FAF8, #DFEEE9 70%, #CFE3DC); }
+.type-cover-fitness { background: linear-gradient(150deg, #F6FBF9, #E3EFEA 70%, #D3E5DE); }
+.type-cover-yoga { background: linear-gradient(150deg, #F4FAF7, #E1EEE8 70%, #D1E4DC); }
+.type-cover-beauty { background: linear-gradient(150deg, #F8FAF9, #E7EFEC 70%, #D9E7E2); }
+.type-cover-surf { background: linear-gradient(150deg, #EFF8F8, #DAECEA 70%, #C7E0DD); }
 
 /* Editorial micro-labels */
 .eyebrow {
@@ -1618,7 +1617,7 @@ html {
 
 .moment-card:hover {
   transform: translateY(-1px);
-  border-color: rgba(184, 138, 66, 0.55);
+  border-color: var(--tint-best-line);
 }
 
 .moment-card-active {
@@ -1662,17 +1661,34 @@ html {
 .fit-context {
   margin-top: 12px;
   display: grid;
-  gap: 3px;
+  gap: 6px;
   font-size: 12.5px;
   line-height: 1.45;
 }
 
+/* Approved tint plates: Best for = teal tint, Not for = warm tint (§01). */
 .fit-context .fit-best {
+  border: 1px solid var(--tint-best-line);
+  border-radius: 10px;
+  background: var(--tint-best-bg);
+  padding: 7px 10px;
   color: var(--tint-best-text);
 }
 
+.fit-context .fit-best strong {
+  color: var(--tint-best-head);
+}
+
 .fit-context .fit-not {
+  border: 1px solid var(--tint-not-line);
+  border-radius: 10px;
+  background: var(--tint-not-bg);
+  padding: 7px 10px;
   color: var(--muted);
+}
+
+.fit-context .fit-not strong {
+  color: var(--tint-not-head);
 }
 
 .why-here {
@@ -2013,7 +2029,7 @@ html {
 }
 
 .related-guide-card:hover {
-  border-color: rgba(184, 138, 66, 0.5);
+  border-color: var(--line-strong);
   box-shadow: var(--shadow-soft);
   transform: translateY(-2px);
 }
@@ -2290,7 +2306,7 @@ html {
 .owner-voice {
   margin-top: 14px;
   border-left: 3px solid var(--lagoon);
-  background: rgba(184, 138, 66, 0.07);
+  background: var(--tint-best-bg);
   border-radius: 0 10px 10px 0;
   padding: 16px 18px;
 }
@@ -2444,7 +2460,7 @@ html {
 .structured-menu-signals { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .menu-signal,
 .menu-tag { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; color: var(--muted); font-size: 10.5px; font-weight: 750; line-height: 1.2; }
-.menu-signal-editorial { border-color: rgba(184, 138, 66, 0.55); background: rgba(184, 138, 66, 0.1); color: #704b1f; }
+.menu-signal-editorial { border-color: var(--tint-best-line); background: var(--tint-best-bg); color: var(--tint-best-head); }
 .menu-signal-partner { border-style: dashed; background: transparent; color: var(--lagoon-strong); }
 .menu-tag-allergen { border-color: rgba(137, 76, 54, 0.3); color: #704536; }
 .structured-menu-editorial-note { margin-top: 10px; border-left: 2px solid var(--lagoon); padding-left: 10px; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
@@ -2453,7 +2469,7 @@ html {
 
 .menu-state { padding: 20px; }
 .menu-state p:not(.menu-state-kicker) { margin-top: 8px; max-width: 560px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-.menu-state-stale { border-color: rgba(184, 138, 66, 0.45); }
+.menu-state-stale { border-color: var(--tint-not-line); }
 .menu-state-compact { margin-top: 16px; border-radius: 10px; background: var(--paper); padding: 14px; }
 .menu-state-compact h3 { font-size: 18px; }
 
@@ -2575,7 +2591,7 @@ html {
 }
 
 .action-link:hover {
-  border-color: rgba(184, 138, 66, 0.55);
+  border-color: var(--tint-best-line);
 }
 
 .action-link:focus-visible {
