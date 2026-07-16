@@ -935,6 +935,9 @@ html {
   overflow: hidden;
   padding: 16px 18px;
   color: var(--tint-best-head);
+  /* Size the cover name off the card width (below), not the viewport, so long
+     names stay whole in narrow 3-up cards instead of clipping. */
+  container-type: inline-size;
 }
 
 /* Category mood art behind the type — atmospheric editorial still, graded
@@ -979,7 +982,9 @@ html {
 
 .type-cover-word {
   font-family: var(--font-display);
-  font-size: clamp(34px, 6vw, 52px);
+  /* Scales with the card (cqi = 1% of the cover's inline size), so a wide hero
+     cover reads big and a narrow 3-up card shrinks the name to fit whole. */
+  font-size: clamp(24px, 17cqi, 52px);
   font-weight: 600;
   font-style: italic;
   line-height: 0.98;
