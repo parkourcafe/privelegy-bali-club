@@ -36,11 +36,23 @@ export default function ConsentBanner() {
   }
 
   return (
-    <div
-      role="dialog"
-      aria-label="Analytics choice"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-4 backdrop-blur-md sm:px-6"
-    >
+    <>
+      {/* Light scrim so the choice reads as a modal step, not a passive bar.
+          Without it the fixed bar can sit over the hero's day-builder buttons
+          and taps land on the bar — looking like "dead" buttons. The dim makes
+          it obvious a cookie choice comes first; the whole page is interactive
+          again the moment it's dismissed. */}
+      <div
+        aria-hidden="true"
+        onClick={() => choose("denied")}
+        className="fixed inset-0 z-40 bg-[#16100c]/45 backdrop-blur-[1px]"
+      />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Analytics choice"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)] px-4 py-4 shadow-[0_-16px_40px_-12px_rgba(0,0,0,0.6)] sm:px-6"
+      >
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-[var(--ob-sand-dim)]">
           We keep a first-party cookie so venue links can be measured and your
@@ -68,6 +80,7 @@ export default function ConsentBanner() {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
