@@ -198,8 +198,23 @@ real-device/TestFlight comparison passes.
   places and local persistence after termination and relaunch.
 - Physical Share Sheet and offline restore still need to be repeated with the
   distributed build `1.0 (2)`. Automated real-device control reached the signed
-  WebDriverAgent but iOS timed out before enabling automation mode; do not treat
-  simulator proof as a substitute for this final smoke check.
+  WebDriverAgent twice, but iOS timed out before enabling automation mode.
+- An independent physical-device persistence check was completed on the
+  installed TestFlight build `1.0 (2)`:
+  - `devicectl` launched the installed `com.otherbali.app`, confirmed its
+    process, terminated it, and copied its WebKit local-storage database before
+    and after the relaunch cycle;
+  - both copies have SHA-256
+    `94c680542ba9f151a08b140211208af42528bb896ee4da966d2a27dec79cf1cc`;
+  - the database contains the saved plan
+    `golden-hour / ubud / 3 days`, captured at
+    `2026-07-16T08:30:02.016Z`;
+  - it also contains three saved-place references:
+    `locavore-nxt`, `room4dessert`, and `seniman-coffee-studio`.
+- This proves physical build 2 persistence across termination and relaunch.
+  The native Share Sheet and the explicit networking-disabled restore remain
+  manual physical-device smoke checks; simulator evidence is not substituted
+  for them.
 
 ## Founder-only sequence
 

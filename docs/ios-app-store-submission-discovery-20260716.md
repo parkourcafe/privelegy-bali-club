@@ -53,9 +53,11 @@ Branch: `loop/12-app-store-submission`
 
 ## Remaining verification
 
-1. Repeat Share Sheet and offline restore on the installed physical TestFlight
-   build 2. The build 1 local-persistence checks are complete, but build 2 is
-   the submission candidate.
+1. Repeat the Share Sheet and explicit networking-disabled restore on the
+   installed physical TestFlight build 2. Build 2 local persistence across an
+   actual terminate/relaunch cycle is proven by two byte-identical app-container
+   database copies; iOS UI Automation itself still times out while enabling
+   automation mode.
 2. Verify App Store Connect privacy, age rating, content-rights, export
    compliance, support/review contact and review-note fields.
 3. Keep the final App Review submission as a separately confirmed founder

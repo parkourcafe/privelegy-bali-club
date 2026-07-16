@@ -23,6 +23,9 @@ App Store Connect ID: `6791214357`
 - The shared page validates inputs, contains no PII and is marked `noindex`.
 - Build 1 physical-iPhone evidence confirms local persistence across
   termination and relaunch.
+- Build 2 physical-iPhone evidence confirms the installed candidate is
+  `1.0 (2)` and that its saved plan and three saved-place references survive a
+  real terminate/relaunch cycle byte-for-byte.
 - The release branch is merged at
   `2e7e30d9309ed34abee6a4011eea2f618aff11c9`; the production shared-plan URL
   returns HTTP 200 with a `noindex` robots directive.
@@ -30,7 +33,9 @@ App Store Connect ID: `6791214357`
 ## Must pass before App Review submission
 
 - Physical iPhone Share Sheet opens and shows the HTTPS fallback.
-- Physical iPhone restores the latest plan with networking disabled.
+- Physical iPhone restores the latest plan with networking disabled. Local
+  persistence across termination is proven for build 2; the networking-disabled
+  part still needs the final manual smoke check.
 - Privacy, age rating, content rights, export compliance, support/review
   contact and review notes are complete in App Store Connect.
 - `support@otherbali.com` is confirmed as a working review contact, or another
