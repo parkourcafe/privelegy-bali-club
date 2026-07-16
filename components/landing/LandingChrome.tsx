@@ -29,7 +29,7 @@ export function LandingNav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         solid
-          ? "border-b border-[var(--ob-line)] bg-[var(--ob-espresso)]/85 backdrop-blur-md"
+          ? "border-b border-[var(--ob-line)] bg-[var(--ob-espresso)] shadow-[0_1px_24px_-10px_rgba(43,26,19,0.22)]"
           : "bg-transparent"
       }`}
     >
@@ -73,7 +73,7 @@ export function LandingNav() {
       </nav>
 
       {open && (
-        <div className="border-t border-[var(--ob-line)] bg-[var(--ob-espresso)]/95 px-5 py-4 backdrop-blur-md md:hidden">
+        <div className="border-t border-[var(--ob-line)] bg-[var(--ob-espresso)] px-5 py-4 shadow-[0_12px_24px_-12px_rgba(43,26,19,0.25)] md:hidden">
           <div className="flex flex-col gap-1">
             {NAV.map((n) => (
               <a
