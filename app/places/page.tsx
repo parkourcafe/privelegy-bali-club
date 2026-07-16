@@ -305,8 +305,8 @@ export default async function PlacesPage({
             {/* Legibility scrim: a light left/right wash for the headline plus a
                 stronger bottom-up gradient so the body copy stays readable over
                 the bright part of the sunset (matches the landing hero). */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/85 via-[#16100c]/45 to-[#16100c]/15" />
-            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#16100c] via-[#16100c]/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/90 via-[#16100c]/55 to-[#16100c]/25" />
+            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#16100c] via-[#16100c]/78 to-transparent" />
 
             <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
               <div className="flex items-start justify-between gap-4">
@@ -325,7 +325,7 @@ export default async function PlacesPage({
                 <h1 className="hero-title mt-4 text-[#FAF6EF] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
                   {districtName ? `Places in ${districtName}` : "Places across Bali"}
                 </h1>
-                <p className="hero-copy max-w-xl text-[rgba(250,246,239,0.92)] drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)]">
+                <p className="hero-copy max-w-xl text-[#FAF6EF] drop-shadow-[0_2px_14px_rgba(0,0,0,0.92)]">
                   A curated map of Bali by district. Every place here is one we
                   can stand behind — why it&apos;s worth it, who it suits, and
                   what to expect. Offers appear only when venues confirm them.
