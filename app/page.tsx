@@ -333,7 +333,7 @@ function Moments() {
       href: "/places?intent=1&q=sunset%20view&category=beach_club",
       tag: "Golden hour",
       pain: "You want the view — without the influencer queue.",
-      move: "A curated sunset spot with the offer ready and a table held.",
+      move: "A curated sunset spot with the offer ready and a table you can request.",
       result: "You arrive, you show the screen, you sit down.",
     },
     {
@@ -446,8 +446,7 @@ function ProofChain() {
       </Reveal>
       <Reveal delay={80}>
         <p className="mt-6 text-sm text-[var(--ob-sand-dim)]">
-          Canggu is the first deep district in 2026. We publish real numbers to partners as
-          they happen &mdash; never invented ones here.
+          We publish real numbers to partners as they happen &mdash; never invented ones here.
         </p>
       </Reveal>
     </Section>
@@ -521,7 +520,7 @@ function WhatsInside() {
 function Comparison() {
   // Credit each tool for what it genuinely does well, then name the gap it
   // leaves for THIS job — picking the right place for the moment and handing
-  // you a booked table. Honest positioning, no self-serving all-✓ grid, no
+  // you off to book. Honest positioning, no self-serving all-✓ grid, no
   // unsupported claims about competitors (guardrail #9). Navigation stays
   // Google Maps' job — we say so.
   const tools = [
@@ -551,7 +550,7 @@ function Comparison() {
         </h2>
         <p className="mt-4 max-w-2xl text-[var(--ob-sand-dim)]">
           Each one does its thing well. None of them picks the right place for
-          the moment you&rsquo;re in and hands you a table that&rsquo;s ready.
+          the moment you&rsquo;re in and hands you off to book it.
           That&rsquo;s the gap.
         </p>
       </Reveal>
@@ -585,8 +584,8 @@ function Comparison() {
           <p className="eyebrow text-[var(--ob-accent-2)]">Other Bali</p>
           <p className="mt-3 max-w-3xl font-display text-xl font-semibold leading-snug text-[var(--ob-sand)] sm:text-2xl">
             We sit on top of all three: a resident&rsquo;s pick for the moment,
-            checked in person, with the offer and the booked table ready — then
-            we hand you back to Google Maps for the drive.
+            checked in person, with the offer ready and a hand-off to book &mdash;
+            then we hand you back to Google Maps for the drive.
           </p>
         </div>
       </Reveal>

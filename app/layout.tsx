@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Other Bali — the right place for the moment you're in",
     description:
-      "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, hand off to a booked table. Travellers never pay.",
+      "A free, curated guide to Bali. Pick a place by the moment you're in, grab a confirmed offer, hand off to the venue to book. Travellers never pay.",
     url: "https://www.otherbali.com",
     siteName: "Other Bali",
     locale: "en_US",

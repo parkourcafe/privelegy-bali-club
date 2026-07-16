@@ -22,9 +22,9 @@ export default function SiteFooter() {
         </nav>
         <p className="ob-footer-note">
           Other Bali is free to use — no account, no card, no charges. We earn
-          from venues only when a table reserved through us becomes a real
-          seated visit. Sponsored placements are always labeled and never
-          change the order of recommendations.
+          from venues only when a reservation we hand off becomes a real visit.
+          Sponsored placements are always labeled and never change the order of
+          recommendations.
         </p>
       </div>
     </footer>
