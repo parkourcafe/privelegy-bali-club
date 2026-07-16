@@ -63,7 +63,17 @@ const FRANGIPANI = {
     <circle cx="256" cy="256" r="19" fill="#c58f45"/>`,
 };
 
-const VARIANTS = { golden: GOLDEN, frangipani: FRANGIPANI };
+
+// ── Variant: final — approved light system (O-ring + clay dot on paper) ──
+const FINAL = {
+  defs: `
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFBF3"/><stop offset="1" stop-color="#FAF6EF"/></linearGradient>`,
+  mark: `
+    <circle cx="256" cy="256" r="132" fill="none" stroke="#2B1A13" stroke-width="42"/>
+    <circle cx="256" cy="256" r="44" fill="#C4623F"/>`,
+};
+
+const VARIANTS = { golden: GOLDEN, frangipani: FRANGIPANI, final: FINAL };
 const NAME = process.argv[2] || process.env.ICON_VARIANT || "golden";
 const V = VARIANTS[NAME];
 if (!V) {
