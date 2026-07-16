@@ -37,15 +37,16 @@ export default function ConsentBanner() {
 
   return (
     <>
-      {/* Light scrim so the choice reads as a modal step, not a passive bar.
-          Without it the fixed bar can sit over the hero's day-builder buttons
-          and taps land on the bar — looking like "dead" buttons. The dim makes
-          it obvious a cookie choice comes first; the whole page is interactive
-          again the moment it's dismissed. */}
+      {/* Mobile-only dim. On phones the tall hero puts the day-builder under
+          the fixed bar, so taps land on the bar and look "dead" — a light dim
+          signals "choose first", and tapping it dismisses (essential only). On
+          desktop the bar sits below the fold and blocks nothing, so no scrim:
+          dimming the whole editorial page there just looked washed out. No
+          blur anywhere — that was the "everything's fuzzy" culprit. */}
       <div
         aria-hidden="true"
         onClick={() => choose("denied")}
-        className="fixed inset-0 z-40 bg-[#16100c]/45 backdrop-blur-[1px]"
+        className="fixed inset-0 z-40 bg-[#16100c]/35 md:hidden"
       />
       <div
         role="dialog"
