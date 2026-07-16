@@ -98,6 +98,20 @@ export const GUIDES: Guide[] = [
       "Where to eat cheap, authentic local food in Bali — the warungs and babi guling stalls we rate, district by district, from Canggu and Ubud to the south.",
   },
   {
+    // Bespoke, data-driven route (app/best-restaurants-in-bali) — metadata only.
+    slug: "best-restaurants-in-bali",
+    title: "The best restaurants in Bali",
+    description:
+      "Bali's best restaurants by area — Canggu's buzzy dinner scene, Seminyak fine dining, Ubud's jungle-view tables, Jimbaran seafood and clifftop Uluwatu. Sorted by district.",
+  },
+  {
+    // Bespoke, data-driven route (app/best-cafes-in-bali) — metadata only.
+    slug: "best-cafes-in-bali",
+    title: "The best cafés in Bali",
+    description:
+      "Bali's best cafés by area — Canggu's laptop-friendly brunch and specialty coffee, Ubud's health-food spots, Seminyak all-day cafés and clifftop Uluwatu. Sorted by district.",
+  },
+  {
     // Bespoke hub route (app/things-to-do-in-bali) — metadata only.
     slug: "things-to-do-in-bali",
     title: "Best things to do in Bali",
@@ -833,7 +847,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
+    slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-restaurants-in-bali", "best-cafes-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
 ];
 
@@ -845,14 +859,14 @@ export function getGuide(slug: string): Guide | undefined {
 // cross-link pillars → guides (internal-link mesh). Slugs only; the link cards
 // are built from the registry so titles/blurbs can't drift.
 const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
-  canggu: ["ubud-vs-canggu", "canggu-vs-uluwatu", "seminyak-vs-canggu", "where-to-stay-in-bali", "best-coffee-in-bali", "where-to-watch-sunset-in-bali"],
+  canggu: ["best-restaurants-in-bali", "best-cafes-in-bali", "ubud-vs-canggu", "canggu-vs-uluwatu", "where-to-stay-in-bali", "best-coffee-in-bali", "where-to-watch-sunset-in-bali"],
   uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
-  ubud: ["ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
+  ubud: ["best-cafes-in-bali", "best-restaurants-in-bali", "ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
   sanur: ["nusa-penida-day-trip", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
-  seminyak: ["seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
+  seminyak: ["best-restaurants-in-bali", "seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
   "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
-  jimbaran: ["where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  jimbaran: ["best-restaurants-in-bali", "where-to-watch-sunset-in-bali", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
 };
 
 export function guidesForDistrict(slug: string): GuideRelated[] {
