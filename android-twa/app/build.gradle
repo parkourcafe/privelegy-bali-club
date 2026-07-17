@@ -49,13 +49,24 @@ def twaManifest = [
     orientation: 'default',
 ]
 
+def releaseStoreFilePath = project.findProperty('OTHER_BALI_RELEASE_STORE_FILE') ?: System.getenv('OTHER_BALI_RELEASE_STORE_FILE')
+def releaseStorePassword = project.findProperty('OTHER_BALI_RELEASE_STORE_PASSWORD') ?: System.getenv('OTHER_BALI_RELEASE_STORE_PASSWORD')
+def releaseKeyAlias = project.findProperty('OTHER_BALI_RELEASE_KEY_ALIAS') ?: System.getenv('OTHER_BALI_RELEASE_KEY_ALIAS')
+def releaseKeyPassword = project.findProperty('OTHER_BALI_RELEASE_KEY_PASSWORD') ?: System.getenv('OTHER_BALI_RELEASE_KEY_PASSWORD')
+def releaseSigningConfigured = [
+    releaseStoreFilePath,
+    releaseStorePassword,
+    releaseKeyAlias,
+    releaseKeyPassword,
+].every { it != null && !it.toString().trim().isEmpty() }
+
 android {
     compileSdkVersion 36
     namespace "com.otherbali.app"
     defaultConfig {
         applicationId "com.otherbali.app"
         minSdkVersion 21
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0.0"
 
@@ -138,17 +149,52 @@ android {
 
 
     }
+    signingConfigs {
+        if (releaseSigningConfigured) {
+            release {
+                storeFile file(releaseStoreFilePath)
+                storePassword releaseStorePassword
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPassword
+                enableV1Signing true
+                enableV2Signing true
+                enableV3Signing true
+                enableV4Signing true
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
+            if (releaseSigningConfigured) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     lintOptions {
-        checkReleaseBuilds false
+        checkReleaseBuilds true
+        abortOnError true
+    }
+}
+
+tasks.register('verifyReleaseSigning') {
+    doLast {
+        if (!releaseSigningConfigured) {
+            throw new GradleException('Release signing is not configured. Set the four OTHER_BALI_RELEASE_* properties or environment variables.')
+        }
+        if (!file(releaseStoreFilePath).isFile()) {
+            throw new GradleException('The configured Other Bali release keystore does not exist.')
+        }
+    }
+}
+
+tasks.configureEach { task ->
+    if (task.name == 'assembleRelease' || task.name == 'bundleRelease') {
+        task.dependsOn tasks.named('verifyReleaseSigning')
     }
 }
 

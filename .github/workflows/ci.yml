@@ -12,6 +12,7 @@ on:
     branches:
       - main
       - master
+      - "release/**"
       # Development happens on claude/* branches — run CI there too so problems
       # surface before a PR is opened.
       - "claude/**"
@@ -50,3 +51,33 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  android:
+    name: Android lint · debug package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android-twa
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK 36
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Lint and assemble debug package
+        run: ./gradlew --no-daemon lint assembleDebug
+
+      - name: Confirm release signing fails closed without secrets
+        run: |
+          if ./gradlew --no-daemon verifyReleaseSigning; then
+            echo "Release signing unexpectedly passed without protected secrets."
+            exit 1
+          fi

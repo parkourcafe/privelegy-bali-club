@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "KB7VPWHTTM.com.otherbali.app"
+        ],
+        "components": [
+          {
+            "/": "/places/*",
+            "comment": "Open public venue details in Other Bali."
+          },
+          {
+            "/": "/route/*",
+            "comment": "Open curated routes in Other Bali."
+          }
+        ]
+      }
+    ]
+  }
+}

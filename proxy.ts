@@ -1,5 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { nanoid } from "nanoid";
+import { isIdentityFreePublicPath } from "@/lib/public-request-policy";
+import {
+  REQUEST_ID_HEADER,
+  createRequestCorrelationId,
+  requestHeadersWithCorrelationId,
+  responseWithCorrelationId,
+} from "@/lib/request-correlation";
 
 function setGuestCookie(req: NextRequest, res: NextResponse) {
   if (req.cookies.get("bp_guest")) return;
@@ -29,7 +36,9 @@ export function proxy(req: NextRequest) {
   // The proxy deliberately does not attempt to parse/verify Supabase sessions
   // at the edge; unauthorized requests are rendered as not-found server-side.
 
-  const res = NextResponse.next();
+  const requestId = createRequestCorrelationId(req.headers.get(REQUEST_ID_HEADER));
+  const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
+  const res = NextResponse.next({ request: { headers: requestHeaders } });
   if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
@@ -38,8 +47,8 @@ export function proxy(req: NextRequest) {
     res.headers.set("Referrer-Policy", "no-referrer");
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
-  setGuestCookie(req, res);
-  return res;
+  if (!isIdentityFreePublicPath(req.nextUrl.pathname)) setGuestCookie(req, res);
+  return responseWithCorrelationId(res, requestId);
 }
 
 export const config = {
