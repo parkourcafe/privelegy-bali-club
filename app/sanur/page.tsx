@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -90,22 +91,14 @@ export default async function SanurPillarPage() {
 
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Sanur" }]} />
 
-        <header className="guide-hero">
-          <p className="guide-kicker">Sanur · East coast</p>
-          <h1 className="guide-title">The Sanur guide</h1>
-          <p className="guide-standfirst">
-            Sanur is the anti-chaos Bali base: the island&apos;s sunrise coast,
-            flatter underfoot and far more walkable than the louder beach
-            districts, with roughly 5 km of paved beachfront path and one of
-            Bali&apos;s cleanest fast-boat gateways to the Nusa islands. It is a
-            place to settle into, not to chase. This guide covers the layers we
-            have verified — who it suits, where to stay, and what to do.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: {SANUR_REVIEW_DATE} · researched, not sponsored ·
-            no paid ranking
-          </p>
-        </header>
+        <PillarMasthead
+          posterScene="district-sanur"
+          variant="surf"
+          kicker="Sanur · East coast"
+          title="The Sanur guide"
+          copy="Sanur is the anti-chaos Bali base: the island's sunrise coast, flatter underfoot and far more walkable than the louder beach districts, with roughly 5 km of paved beachfront path and one of Bali's cleanest fast-boat gateways to the Nusa islands. It is a place to settle into, not to chase. This guide covers the layers we have verified — who it suits, where to stay, and what to do."
+          meta={`Editorial review: ${SANUR_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Sanur guides">
           {SANUR_CHIPS.map((c) => (

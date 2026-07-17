@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -92,20 +93,21 @@ export default async function SeminyakPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Seminyak · West coast</p>
-          <h1 className="hero-title mt-2">Seminyak, Bali&apos;s polished coast</h1>
-          <p className="hero-copy">
-            The island&apos;s original style strip: Eat Street dining, beachfront
-            sunset clubs along Double Six and Petitenget, boutique shopping and
-            Bali&apos;s densest spa-and-salon scene. This guide covers where to eat,
-            where to catch the sunset and where to be looked after — curated from
-            places we actually rate.
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/places?district=seminyak" className="button-secondary button-large">Browse all Seminyak places</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-seminyak"
+          variant="sunset"
+          kicker="Seminyak · West coast"
+          title="Seminyak, Bali's polished coast"
+          copy="The island's original style strip: Eat Street dining, beachfront sunset clubs along Double Six and Petitenget, boutique shopping and Bali's densest spa-and-salon scene. This guide covers where to eat, where to catch the sunset and where to be looked after — curated from places we actually rate."
+          actions={
+            <Link
+              href="/places?district=seminyak"
+              className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+            >
+              Browse all Seminyak places
+            </Link>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Seminyak guides">
           {SEMINYAK_GUIDES.map((g) => (

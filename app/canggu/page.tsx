@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -129,23 +130,31 @@ export default async function CangguPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Canggu · Other Bali beta</p>
-          <h1 className="hero-title mt-2">Canggu, sorted by the decision you&apos;re making</h1>
-          <p className="hero-copy">
-            Surf, coffee, sunset and a deep dinner scene — and enough choice to lose
-            an afternoon deciding. This guide sorts Canggu by what you&apos;re actually
-            choosing: where to eat, where to work, where to reset, where to watch the
-            sun go down. Confirmed offers and table reservations are one tap away.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: 2026-07-14 · researched, not sponsored · no paid ranking
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/plan" className="button-primary button-large">Plan your Canggu day</Link>
-            <Link href="/places?district=canggu" className="button-secondary button-large">Browse all Canggu places</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-canggu"
+          variant="surf"
+          videoSrc="/scenes/places-coast-loop.mp4"
+          kicker="Canggu · Other Bali beta"
+          title="Canggu, sorted by the decision you're making"
+          copy="Surf, coffee, sunset and a deep dinner scene — and enough choice to lose an afternoon deciding. This guide sorts Canggu by what you're actually choosing: where to eat, where to work, where to reset, where to watch the sun go down. Confirmed offers and table reservations are one tap away."
+          meta="Editorial review: 2026-07-14 · researched, not sponsored · no paid ranking"
+          actions={
+            <>
+              <Link
+                href="/plan"
+                className="inline-flex rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
+              >
+                Plan your Canggu day
+              </Link>
+              <Link
+                href="/places?district=canggu"
+                className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+              >
+                Browse all Canggu places
+              </Link>
+            </>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Canggu guides">
           {CANGGU_GUIDES.map((g) => (
