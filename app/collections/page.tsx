@@ -53,6 +53,11 @@ export default async function CollectionsHubPage() {
             places residents actually rate, sorted by area.
           </p>
           <p className="guide-meta-line">{CURATION_NOTE}</p>
+          <p style={{ marginTop: 12 }}>
+            <Link href="/my-day" className="quiet-link">
+              Prefer a whole day, planned? See My Day →
+            </Link>
+          </p>
         </header>
 
         {([

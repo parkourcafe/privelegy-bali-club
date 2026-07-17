@@ -406,6 +406,27 @@ export async function liveCollectionSlugs(): Promise<string[]> {
   return live;
 }
 
+// A small, district-spread sample from a collection — round-robins across
+// districts so a "My Day" slot doesn't show three places from one area. Empty
+// if the collection isn't live-worthy (caller can hide the slot).
+export async function getCollectionSample(slug: string, n: number): Promise<VenueWithPerk[]> {
+  const areas = await getCollectionAreas(slug);
+  const out: VenueWithPerk[] = [];
+  let i = 0;
+  while (out.length < n) {
+    const before = out.length;
+    for (const area of areas) {
+      if (area.venues[i]) {
+        out.push(area.venues[i]);
+        if (out.length >= n) break;
+      }
+    }
+    if (out.length === before) break; // exhausted
+    i += 1;
+  }
+  return out;
+}
+
 export function toCollectionPlaceCard(v: VenueWithPerk): PlaceCardData {
   return {
     slug: v.slug,
