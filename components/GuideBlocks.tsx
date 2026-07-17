@@ -142,6 +142,9 @@ export function GuideFooter() {
         <Link href="/bali" className="quiet-link">
           Bali by district
         </Link>
+        <Link href="/collections" className="quiet-link">
+          Bali by taste
+        </Link>
         <Link href="/guides" className="quiet-link">
           Travel guides
         </Link>

@@ -4,6 +4,7 @@ import { getDistrictHubs } from "@/lib/data";
 import { SITE_ORIGIN, categoryPhrase, topAreas } from "@/lib/hub";
 import { PILLARS } from "@/lib/pillars";
 import { LIGHT_DISTRICTS } from "@/lib/light-districts";
+import { COLLECTIONS, liveCollectionSlugs } from "@/lib/collections";
 
 export const revalidate = 3600;
 
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
 
 export default async function BaliIndexPage() {
   const hubs = await getDistrictHubs();
+  const liveTaste = new Set(await liveCollectionSlugs());
+  const tasteCollections = COLLECTIONS.filter((c) => liveTaste.has(c.slug));
 
   const jsonLd = [
     {
@@ -119,6 +122,25 @@ export default async function BaliIndexPage() {
             );
           })}
         </div>
+
+        {tasteCollections.length > 0 && (
+          <>
+            <div className="mt-12 flex items-baseline justify-between gap-4">
+              <h2 className="section-title">Or browse by taste</h2>
+              <Link href="/collections" className="quiet-link">All collections →</Link>
+            </div>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              Not an area — a craving. Cuisine shortlists across the whole island.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {tasteCollections.map((c) => (
+                <Link key={c.slug} href={`/collections/${c.slug}`} className="chip">
+                  {c.taste}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="section-title mt-12">Quiet corners of Bali</h2>
         <p className="mt-1 text-sm text-[var(--muted)]">

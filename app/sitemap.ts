@@ -5,6 +5,7 @@ import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
 import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
+import { liveCollectionSlugs } from "@/lib/collections";
 
 // Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
 // several Supabase reads, and a per-request rebuild is needless load on a hot
@@ -84,6 +85,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE}/${slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    // Taste Collections — cuisine hub + the collections currently past the
+    // publication gate. Held collections are omitted (they 404 until live).
+    { url: `${BASE}/collections`, changeFrequency: "weekly" as const, priority: 0.8 },
+    ...(await liveCollectionSlugs()).map((slug) => ({
+      url: `${BASE}/collections/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
     })),
     // Venue detail pages — ONLY those that passed the evidence-backed
     // publication gate (review/incomplete venues stay noindex + unlisted).
