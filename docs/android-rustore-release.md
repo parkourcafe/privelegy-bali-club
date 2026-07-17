@@ -39,12 +39,20 @@ package scripts do this automatically.
 
 ## Store signing model
 
-Two credentials are deliberately separate:
+Use two keys with different responsibilities:
 
-1. **Google Play upload key** signs the AAB uploaded to Play. Google Play App
-   Signing then signs the distributed APKs with the Play app-signing certificate.
-2. **RuStore app-signing key** signs the APK distributed by RuStore and must be
-   retained for every future RuStore update.
+1. **Shared Android app-signing key** signs every RuStore APK and is supplied to
+   Play App Signing during enrolment as Google's distribution key. Keeping the
+   same final signer permits an installed build to be updated from either store.
+2. **Google Play upload key** signs only the AAB uploaded to Play. Google verifies
+   that upload signature and then signs distributed APKs with the shared
+   app-signing key.
+
+If the owner deliberately lets Google generate a different Play app-signing
+key, Play and RuStore installations cannot update over one another. Record that
+decision before enrolment; changing it later is constrained by each store's key
+upgrade rules. The current RuStore signing inputs represent the shared
+app-signing key.
 
 No keystore, password or signing secret belongs in Git, chat, screenshots or a
 store listing. Create keys only after owner approval, store passwords in a
@@ -77,6 +85,21 @@ The Play task produces `bundlePlayRelease`; the RuStore task produces
 `assembleRustoreRelease`. Both fail closed when any protected input is absent
 or the configured keystore file does not exist.
 
+After the IPA, AAB and APK all exist, set `BUNDLETOOL_JAR` to an official
+executable `bundletool-all` JAR and run:
+
+```bash
+export BUNDLETOOL_JAR='/secure/release-tools/bundletool-all.jar'
+npm run mobile:release:verify
+```
+
+The post-build verifier requires all three artifacts together. It checks the
+Play AAB's JAR signer against `OTHER_BALI_PLAY_UPLOAD_CERT_SHA256`, the RuStore
+APK signer against `OTHER_BALI_RUSTORE_APP_SIGNING_SHA256`, package/version/SDK,
+permissions, embedded Capacitor configuration and every bundled shell file. It
+also verifies the signed IPA, then writes atomic `release-artifacts.json` and
+`SHA256SUMS` evidence tied to the exact clean Git commit and mobile source hash.
+
 ## Digital Asset Links
 
 Do not publish the debug certificate or the Google Play **upload** certificate.
@@ -85,15 +108,17 @@ The production statement must contain:
 - the final Google Play **app-signing** SHA-256 certificate from Play Console;
 - the final RuStore APK signing SHA-256 certificate.
 
-After both are known:
+Export the two **public** X.509 certificates as PEM or DER files. These files do
+not contain private keys and are safe to retain as release evidence. Then run:
 
 ```bash
-export OTHER_BALI_PLAY_APP_SIGNING_SHA256='AA:...'
-export OTHER_BALI_RUSTORE_APP_SIGNING_SHA256='BB:...'
+export OTHER_BALI_PLAY_APP_SIGNING_CERT_FILE='/secure/release-evidence/play-app-signing.der'
+export OTHER_BALI_RUSTORE_APP_SIGNING_CERT_FILE='/secure/release-evidence/rustore-app-signing.pem'
 npm run android:assetlinks
 ```
 
-The generator validates two complete SHA-256 fingerprints, deduplicates a
+The generator parses both certificates, verifies current validity, rejects an
+Android Debug subject, computes their SHA-256 fingerprints, deduplicates the
 shared signer and writes `public/.well-known/assetlinks.json`. Deploy it and
 verify HTTP 200, `application/json`, no redirect and no cookie before signed
 deep-link QA.

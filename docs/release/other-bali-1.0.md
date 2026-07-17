@@ -35,7 +35,8 @@ Verified against production source `0cca444b09c1`:
 
 Mobile/config/health requests are identity-free and do not mint `bp_guest`.
 The current release patch extends the same exact-path exemption to AASA and
-Digital Asset Links responses.
+Digital Asset Links responses. That AASA/Digital Asset Links exemption is not
+live until the release patch is merged and deployed with owner authorization.
 
 ## Implemented release boundaries
 
@@ -49,6 +50,13 @@ Digital Asset Links responses.
 - Separate fail-closed Google Play upload and RuStore app-signing inputs.
 - Fail-closed `assetlinks.json` generator requiring final Play app-signing and
   RuStore app-signing SHA-256 fingerprints; placeholders/debug fingerprints are rejected.
+- Fail-closed post-build verification requires the final IPA, Play AAB and
+  RuStore APK together; validates signatures, identities, versions, SDKs,
+  permissions, entitlements, privacy manifests and the bundled shell, then
+  writes commit/source-hash-bound `release-artifacts.json` and `SHA256SUMS`.
+- Signed iOS archive/export is implemented but action-time guarded; it refuses
+  to run without an explicit authorization phrase, a clean tree and an Apple
+  Distribution identity for team `KB7VPWHTTM`.
 - Native privacy manifest: tracking false; Coarse Location, Product Interaction,
   and Other Diagnostic Data declared as linked and used for App Functionality;
   Capacitor Preferences `UserDefaults` reason `CA92.1` retained. These
@@ -59,14 +67,19 @@ Digital Asset Links responses.
 - Node 22 / Java 21 / Gradle 8.14.3 / Android SDK 36 toolchain.
 - Gradle distribution and wrapper checksums match the official Gradle 8.14.3 checksums.
 - `npm test`, TypeScript, ESLint and Next production build are release gates.
-- Final local gate run: 86 Node tests pass; TypeScript passes; ESLint has
+- Final local gate run: 102 Node tests pass; TypeScript passes; ESLint has
   zero errors (one pre-existing Next `<img>` warning); the 95-page Next
   production build passes.
 - Unsigned iOS Release simulator build passes, including the Xcode-integrated
   release-shell and privacy-manifest preflight.
+- The optional iOS archive CI gate is manual-only, so it does not consume a
+  macOS runner until an authorized release operator explicitly starts it.
 - Android lint, unit tests, instrumented-test assembly and `assemblePlayDebug`
   pass; the final Gradle run completed 601 tasks successfully.
 - Both store signing checks fail closed when protected credentials are absent.
+- Store-asset validation passes for the final-size Apple, Google Play and
+  RuStore icons plus the Google Play 1024 x 500 feature graphic; final device
+  screenshots remain intentionally pending signed-device QA.
 - Debug APK package inspection: `com.otherbali.app`, version code 2, target 36,
   min 24, no sensitive permissions. `apksigner` confirms that this candidate
   uses only the Android Debug certificate and is not a production artifact.
@@ -75,21 +88,33 @@ Digital Asset Links responses.
   offline relaunch and online recovery passed on the final debug candidate.
   Saved place and route state also survived the in-place candidate update and
   relaunch; a fresh online catalogue refresh completed afterwards.
+- Machine-readable preliminary evidence is recorded in
+  `docs/release/device-matrix.json`: the APK pulled back from the installed app
+  exactly matched SHA-256 `3ab51166…dabf98`. The ledger explicitly marks this
+  as debug/in-place evidence and keeps all signed clean-install rows pending.
 - The old iPhone build 3 remains installed; clean-install testing of build 4 is
   pending explicit permission and a valid signed candidate.
 
 ## Remaining release gates
 
-1. With owner approval, enable Apple Associated Domains for the App ID,
+Owner-only facts and action-time permissions are consolidated in
+`docs/release/owner-release-inputs.md`; secrets and identity documents must not
+be committed.
+
+1. With owner approval, create/merge the release PR, deploy the exact release
+   commit, and reverify mobile bootstrap/config/health plus AASA on production.
+2. With owner approval, enable Apple Associated Domains for the App ID,
    regenerate profiles and obtain a valid Apple Distribution signing path.
-2. With owner approval, create and securely back up a dedicated Google Play
-   upload key and a dedicated RuStore app-signing key.
-3. Enroll in Play App Signing, record its final app-signing certificate, generate
+3. With owner approval, create and securely back up a dedicated Google Play
+   upload key and a shared Android app-signing key for RuStore distribution and
+   Play App Signing enrolment. A store-specific Play distribution key is an
+   explicit owner choice because it prevents cross-store updates.
+4. Enroll in Play App Signing, export both final public certificates, generate
    `assetlinks.json` with the Play and RuStore final fingerprints, deploy it and
    verify HTTPS 200/no redirect/no cookie.
-4. Produce signed IPA, Play AAB and RuStore APK artifacts; verify identities,
+5. Produce signed IPA, Play AAB and RuStore APK artifacts; verify identities,
    entitlements, signatures and SHA-256 checksums.
-5. Clean-install and test those exact signed artifacts on the physical iPhone
+6. Clean-install and test those exact signed artifacts on the physical iPhone
    and Samsung.
-6. Capture final screenshots from those binaries and finalize privacy/listing
+7. Capture final screenshots from those binaries and finalize privacy/listing
    declarations. Submission/publication remains a separate explicit approval.

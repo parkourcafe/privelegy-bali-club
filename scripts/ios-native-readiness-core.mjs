@@ -10,6 +10,9 @@ const REQUIRED_PLUGINS = [
   ["@capacitor/share", "native share sheet", "CapacitorShare"],
 ];
 
+export const APPLE_TEAM_ID = "KB7VPWHTTM";
+export const IOS_BUNDLE_ID = "com.otherbali.app";
+
 async function exists(file) {
   try {
     await access(file);
@@ -37,6 +40,13 @@ function add(blockers, code, message) {
 function aasaDetails(aasa) {
   const details = aasa?.applinks?.details;
   return Array.isArray(details) ? details : details && typeof details === "object" ? [details] : [];
+}
+
+export function aasaDetailsForApplication(aasa, applicationIdentifier) {
+  return aasaDetails(aasa).filter((detail) => [
+    detail?.appID,
+    ...(Array.isArray(detail?.appIDs) ? detail.appIDs : []),
+  ].includes(applicationIdentifier));
 }
 
 function aasaSupports(details, prefix) {
@@ -68,8 +78,11 @@ export async function inspectNativeReadiness({ root = process.cwd() } = {}) {
 
   const projectPath = path.join(root, "ios/App/App.xcodeproj/project.pbxproj");
   const project = await exists(projectPath) ? await readFile(projectPath, "utf8") : "";
-  if (!/DEVELOPMENT_TEAM = [A-Z0-9]{10};/.test(project)) {
-    add(blockers, "signing_team_missing", "A real 10-character Apple Developer Team ID is not configured");
+  if (!project.includes(`DEVELOPMENT_TEAM = ${APPLE_TEAM_ID};`)) {
+    add(blockers, "signing_team_mismatch", `The App target must use Apple Developer Team ${APPLE_TEAM_ID}`);
+  }
+  if (!project.includes('CODE_SIGN_IDENTITY = "Apple Distribution";')) {
+    add(blockers, "release_identity_mismatch", "The Release configuration must request Apple Distribution signing");
   }
 
   const entitlementsPath = path.join(root, "ios/App/App/App.entitlements");
@@ -87,12 +100,11 @@ export async function inspectNativeReadiness({ root = process.cwd() } = {}) {
   } else {
     try {
       const aasa = JSON.parse(await readFile(aasaPath, "utf8"));
-      const details = aasaDetails(aasa);
-      const appIds = details.flatMap((detail) => [detail?.appID, ...(Array.isArray(detail?.appIDs) ? detail.appIDs : [])]);
-      if (!appIds.some((appId) => typeof appId === "string" && /^[A-Z0-9]{10}\.com\.otherbali\.app$/.test(appId))) {
-        add(blockers, "aasa_app_id_unverified", "AASA has no verified TEAMID.com.otherbali.app application identifier");
-      }
-      if (!aasaSupports(details, "/places/") || !aasaSupports(details, "/route/")) {
+      const expectedAppId = `${APPLE_TEAM_ID}.${IOS_BUNDLE_ID}`;
+      const matchingDetails = aasaDetailsForApplication(aasa, expectedAppId);
+      if (!matchingDetails.length) {
+        add(blockers, "aasa_app_id_mismatch", `AASA must contain the exact application identifier ${expectedAppId}`);
+      } else if (!aasaSupports(matchingDetails, "/places/") || !aasaSupports(matchingDetails, "/route/")) {
         add(blockers, "aasa_routes_missing", "AASA does not cover both /places/* and /route/*");
       }
     } catch {

@@ -1,0 +1,110 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import test from "node:test";
+import { fileURLToPath } from "node:url";
+
+import { RELEASE_CONTRACT } from "./release-artifacts-core.mjs";
+import {
+  inspectStorePackage,
+  requiredManifestSectionState,
+} from "./validate-store-package.mjs";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+test("store package preflight reports every owner and signed-capture gate without claiming readiness", async () => {
+  const result = await inspectStorePackage({ root });
+  assert.equal(result.ok, true);
+  assert.equal(result.ready, false);
+  assert.ok(result.pending.includes("iphone69:01-places.png"));
+  assert.ok(result.pending.includes("androidPhone:01-places.png"));
+  assert.ok(result.pending.includes("releaseArtifactsEvidence"));
+  assert.ok(result.pending.includes("ownerInputs:appReviewContact"));
+  assert.ok(result.pending.some((item) => item.includes("APP REVIEW CONTACT")));
+  assert.ok(result.metadataLengths["Apple promotional text"] <= 170);
+  assert.ok(result.metadataLengths["Google short description"] <= 80);
+  assert.ok(result.metadataLengths["RuStore full description"] <= 4000);
+  await assert.rejects(() => inspectStorePackage({ root, strict: true }), /Store package is not ready/);
+});
+
+test("store package requires both screenshot sets and every fixed owner gate", () => {
+  const result = requiredManifestSectionState({
+    screenshots: { iphone69: {} },
+    ownerInputs: {},
+  });
+  assert.ok(result.failures.some((failure) => /iphone69, androidPhone|androidPhone, iphone69/.test(failure)));
+  assert.deepEqual(result.pending.sort(), [
+    "ownerInputs:ageAndTargetAudience",
+    "ownerInputs:androidDeveloperAndPackageVerification",
+    "ownerInputs:appReviewContact",
+    "ownerInputs:appleExportCompliance",
+    "ownerInputs:copyrightRightsHolder",
+    "ownerInputs:dsaTraderStatus",
+    "ownerInputs:googlePlayAccountTypeAndCreationDate",
+    "ownerInputs:googlePlayTestingAndDeviceVerification",
+    "ownerInputs:legalAndActualAddress",
+    "ownerInputs:privacyLawfulBasisAndConsent",
+    "ownerInputs:responsibleLegalDeveloper",
+    "ownerInputs:storePrimaryLocales",
+    "ownerInputs:supportInboxAndDeletionProcedure",
+    "ownerInputs:thirdPartyContentRightsConfirmation",
+    "ownerInputs:vercelProcessorAgreementConfirmation",
+  ]);
+});
+
+test("store package rejects a screenshot hash not present in verified release evidence", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-package-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs"), { recursive: true }),
+      mkdir(path.join(fixture, "ios-web"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "ios-web/build-manifest.json"), path.join(fixture, "ios-web/build-manifest.json")),
+    ]);
+    const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    manifest.screenshots.iphone69.signedArtifactSha256 = "0".repeat(64);
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    const shell = JSON.parse(await readFile(path.join(fixture, "ios-web/build-manifest.json"), "utf8"));
+    const commit = "a".repeat(40);
+    const artifactDefinitions = {
+      ios: ["artifacts/release/ios/OtherBali.ipa", "ipa"],
+      googlePlay: ["android/app-play-release.aab", "aab"],
+      ruStore: ["android/app-rustore-release.apk", "apk"],
+    };
+    const artifacts = {};
+    for (const [key, [relative, contents]] of Object.entries(artifactDefinitions)) {
+      const absolute = path.join(fixture, relative);
+      await mkdir(path.dirname(absolute), { recursive: true });
+      await writeFile(absolute, contents);
+      artifacts[key] = {
+        path: relative,
+        sha256: createHash("sha256").update(contents).digest("hex"),
+        gitCommit: commit,
+        sourceHash: shell.sourceHash,
+      };
+    }
+    const reportPath = path.join(fixture, manifest.evidence.releaseArtifacts);
+    await mkdir(path.dirname(reportPath), { recursive: true });
+    await writeFile(reportPath, `${JSON.stringify({
+      schemaVersion: 1,
+      verdict: "verified-release-artifacts",
+      git: { commit, clean: true },
+      releaseContract: RELEASE_CONTRACT,
+      mobileShell: { sourceHash: shell.sourceHash },
+      artifacts,
+    }, null, 2)}\n`);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /screenshot artifact SHA-256 does not match verified ios evidence/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});

@@ -467,6 +467,12 @@ async function inspectBuiltApp(root, appPath, failures) {
   }
 }
 
+export function nativeReadinessFailures(nativeReadiness) {
+  return (nativeReadiness?.blockers ?? []).map(
+    (blocker) => `native readiness ${blocker.code}: ${blocker.message}`,
+  );
+}
+
 export async function inspectIosRelease({ root = process.cwd(), appPath = null } = {}) {
   const failures = [];
   const generatedPath = path.join(root, "ios/App/App/capacitor.config.json");
@@ -483,6 +489,7 @@ export async function inspectIosRelease({ root = process.cwd(), appPath = null }
   await inspectBuiltApp(root, appPath, failures);
   const privacyEvidence = await inspectPrivacyEvidence(root, appPath, failures);
   const nativeReadiness = await inspectNativeReadiness({ root });
+  failures.push(...nativeReadinessFailures(nativeReadiness));
   return {
     ok: failures.length === 0,
     bundleId: BUNDLE_ID,

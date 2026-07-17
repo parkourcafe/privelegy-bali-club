@@ -7,6 +7,13 @@ name: CI
 # to lint, typecheck, or build.
 
 on:
+  workflow_dispatch:
+    inputs:
+      run_ios_archive:
+        description: "Run the unsigned iOS device-archive verification job (uses billed macOS minutes)"
+        required: false
+        default: false
+        type: boolean
   pull_request:
   push:
     branches:
@@ -97,3 +104,34 @@ jobs:
             exit 1
           fi
           test ! -f app/build/outputs/apk/rustore/release/app-rustore-release.apk
+
+  ios-archive:
+    name: iOS unsigned device archive · privacy · shell
+    if: github.event_name == 'workflow_dispatch' && inputs.run_ios_archive
+    runs-on: macos-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and inspect unsigned Release device archive
+        run: npm run ios:archive:dry
+
+      - name: Re-run the built-app release guard
+        run: node scripts/ci-ios-release-guard.mjs artifacts/ios/App.xcarchive/Products/Applications/App.app
+
+      - name: Upload privacy evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned-release-evidence-${{ github.sha }}
+          path: artifacts/ios/privacy-evidence.json
+          if-no-files-found: error
+          retention-days: 14

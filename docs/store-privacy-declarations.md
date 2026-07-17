@@ -26,6 +26,11 @@ native SDK is added.
 - Mobile API responses do not create `bp_guest` or another persistent identifier.
 - External Maps, official sites, and the system share sheet open only after a
   user action and operate under their own privacy terms.
+- The public policy states factually that Vercel processes operational data to
+  provide hosting, security and troubleshooting under its applicable terms.
+  Other Bali itself does not use the data for advertising or cross-service
+  tracking. Online processing is necessary for catalogue refresh;
+  already-saved material remains usable offline.
 
 ## App Store Connect
 
@@ -52,12 +57,19 @@ required-reason declaration `UserDefaults / CA92.1`.
 ## Google Play Data safety
 
 - Does the app collect data? **Yes**.
-- Does the app share data? **No**. Vercel is the contracted service provider
-  processing data on the developer's behalf.
+- Does the app share data? **Owner evidence pending.** Answer **No** only after
+  confirming that the applicable Vercel agreement/DPA qualifies Vercel as a
+  service provider processing on the developer's behalf. Otherwise obtain a
+  privacy/legal determination and update this declaration before submission.
 - Is all data encrypted in transit? **Yes**, HTTPS only.
 - Is collection optional? **No** while the user uses the online catalogue.
+- Is the data processed ephemerally? **No**. Operational logs remain accessible
+  for approximately one day rather than only in transient memory.
 - Account creation/deletion requirement: **Not applicable; the app has no
   accounts**.
+- Deletion request mechanism: the public policy directs users to
+  `support@otherbali.com`; Saved/cache data is removed in the app or by
+  uninstalling. Confirm the support inbox and response procedure before upload.
 - Advertising, cross-app tracking, or sale of data: **No**.
 
 Declare:
@@ -81,8 +93,9 @@ Use the same factual scope:
   ошибок;
 - данные обязательны только при использовании онлайн-каталога и передаются по
   HTTPS;
-- данные не продаются, не используются для рекламы и не передаются независимым
-  третьим лицам; Vercel выступает обработчиком по поручению разработчика;
+- данные не продаются и не используются Other Bali для рекламы; статус Vercel
+  как обработчика по поручению разработчика следует указывать только после
+  подтверждения применимого договора/DPA владельцем;
 - аккаунтов, платежей и рекламного идентификатора нет;
 - сохранённые места, маршруты и кеш находятся на устройстве;
 - privacy policy: `https://www.otherbali.com/privacy`.
@@ -99,7 +112,12 @@ Before answering the store questionnaires for the exact signed binaries:
    `PrivacyInfo.xcprivacy` and App Store Connect.
 4. Recheck the current hosting log fields and retention; update the public policy
    if either changes.
+   Confirm that the current Vercel agreement/DPA makes Vercel a service provider
+   processing on the developer's instructions before answering **Shared: No**.
 5. Confirm `/privacy`, `/support`, and `/terms` return HTTP 200 and that
    `support@otherbali.com` is monitored.
 6. Re-run this audit after any feature or provider change. Never answer “Data Not
    Collected” while operational request metadata is retained.
+7. Have the owner/legal reviewer confirm the applicable lawful basis and any
+   consent requirement for the selected storefronts. A privacy label is a
+   disclosure, not a substitute for required consent.

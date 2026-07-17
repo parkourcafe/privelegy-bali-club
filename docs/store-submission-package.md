@@ -16,6 +16,7 @@ approval.
 - Category: Travel
 - Price: Free
 - Current in-app language: English
+- App Store primary locale: English (U.S.)
 - Account creation or sign-in: not available and not required
 - Payments, subscriptions, in-app purchases and paid digital goods: none
 - Advertising: none
@@ -68,7 +69,7 @@ does not promise live availability, opening hours, prices or booking inventory.
 
 **Keywords**
 
-`bali,travel,guide,places,routes,cafes,restaurants,ubud,canggu,uluwatu,seminyak`
+`island,guide,places,routes,cafes,restaurants,ubud,canggu,uluwatu,seminyak,warungs`
 
 Check the final comma-separated value in App Store Connect; it must remain
 within Apple's current keyword limit.
@@ -84,9 +85,8 @@ within Apple's current keyword limit.
 The bracket is intentional: use the legal person or entity that owns the app;
 do not infer it from the brand or developer-account display name.
 
-**Version 1.0 release notes**
-
-`First release of Other Bali, with curated places, ready-made routes, on-device saves, offline access to saved summaries, native sharing and external map links.`
+There is no App Store **What's New** text for the first version. Use release
+notes only for version 1.0 updates and later.
 
 ### App Review notes
 
@@ -98,6 +98,20 @@ do not infer it from the brand or developer-account display name.
 
 Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPUT REQUIRED]`.
 
+### Required App Information answers
+
+- **Content Rights:** the app displays editorial information, names and media
+  concerning third-party venues and links to their sites. Answer that it
+  contains/accesses third-party content, then confirm submission only after the
+  rights holder verifies the legal basis and permissions for every selected
+  storefront. This is an owner/legal release gate.
+- **Export compliance:** `ITSAppUsesNonExemptEncryption=false` is present. Answer
+  that the app does not implement non-exempt encryption only after the final IPA
+  is checked and still uses only Apple/system TLS and no added cryptography.
+- **Support URL:** the page must retain a working email and phone number. Add the
+  owner-verified legal/contact address if required for the chosen storefronts
+  and DSA trader status; do not invent or infer it.
+
 ### App privacy and age rating
 
 - Use the verified answers in `docs/store-privacy-declarations.md`; do not select
@@ -105,10 +119,10 @@ Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPU
   request metadata and every third-party SDK/service must be included in the
   final assessment.
 - Select **Tracking: No** unless the shipped binary or production stack changes.
-- Answer the current age-rating questionnaire truthfully. The catalogue can
-  contain bars, beach clubs and references to alcohol, and the app opens
-  external Maps and official websites. Do not preselect or advertise a `4+`
-  rating; accept the rating calculated by App Store Connect.
+- Age-rating answers: Made for Kids, UGC, social media, messaging/chat and
+  advertising are **No**. Fixed Maps/official-site actions are not unrestricted
+  web access. Record the observed frequency of alcohol references in the exact
+  final catalogue (not a guess); let App Store Connect calculate the rating.
 
 ## Google Play
 
@@ -159,10 +173,28 @@ Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPU
 - Target audience/content rating: answer the current questionnaires using the
   actual catalogue. Include alcohol references and external links; let Google
   calculate the final rating rather than assuming a child-safe rating.
+- Target audience: the product is not designed for children. Unless the owner
+  changes that positioning and completes the additional Families obligations,
+  select **18 and over** and do not include child age groups.
 - Data safety: copy only the verified classifications from
   `docs/store-privacy-declarations.md`. Reconfirm them against the exact AAB,
   production API/log retention and Play SDK Index before submission.
 - Reviewer note: `Open Places, select a venue, save it, open Routes and select a route, then open Saved. No login or payment is required. Maps and official-site actions leave the app intentionally.`
+
+### Google Play account gates
+
+- Record whether the developer account is an **organization** or **personal**
+  account and its creation date. A personal account created after 13 November
+  2023 must complete a closed test with at least 12 opted-in testers for 14
+  continuous days, then obtain production access.
+- If Play Console requests device verification for a new personal account,
+  complete it in the owner's Play Console app on a real non-rooted Android 10+
+  device. The connected Samsung is technically eligible, but this is an owner
+  account action.
+- Because the app is distributed in Indonesia, complete Android developer
+  identity/package registration for `com.otherbali.app` by 30 September 2026.
+  Register every final distribution signing SHA-256 if the stores use different
+  signers.
 
 ## RuStore
 
@@ -205,9 +237,19 @@ The listing may be written in Russian, but it must state clearly that version
 
 `Регистрация, тестовый аккаунт и оплата не требуются. Для проверки откройте Places, выберите место и сохраните его; затем откройте Routes, выберите маршрут и перейдите в Saved. Кнопки карт и официального сайта намеренно открывают внешнее приложение или браузер. Интерфейс приложения — английский.`
 
-For the RuStore age rating, disclose references to bars/alcohol and external
-links. Do not assume the same numeric/label rating as Apple or Google; use the
-rating produced by the current RuStore questionnaire.
+### RuStore owner/legal gates
+
+Before upload, the non-resident developer must supply owner-verified legal or
+personal name, legal and actual address, country, tax/registration identifier,
+phone and email, plus the privacy policy and terms. None of these legal fields
+may be inferred from the Other Bali brand. Complete the same Android
+developer/package verification for `com.otherbali.app` and its final signing
+certificate(s).
+
+For RuStore, the current questionnaire classifies any mention of alcohol or
+drugs as **18+**. The production catalogue contains bar, wine and cocktail
+references, so select **18+** unless those references are removed from the
+exact catalogue before submission. Do not copy Apple's or Google's rating.
 
 ## Final screenshot shot list
 
@@ -234,7 +276,8 @@ opened while the app shows its genuine offline/cached state.
 For Apple, provide every screenshot family required by the enabled device
 destinations in App Store Connect. For the current iPhone marketing set, capture
 portrait screenshots at an accepted 6.9-inch size (for example `1320 x 2868`)
-and let App Store Connect scale only where it explicitly supports scaling. If
+as PNG or JPEG **without alpha/transparency**, and let App Store Connect scale
+only where it explicitly supports scaling. If
 the submitted binary supports iPad and App Store Connect requests iPad media,
 capture genuine iPad screenshots rather than enlarging phone images.
 
@@ -247,12 +290,14 @@ debug QA captures as store artwork.
 
 - Apple App Store icon: `store-assets/app-store-icon-1024.png`, `1024 x 1024`
   PNG, opaque/no alpha, and visually identical to the icon in the signed IPA.
-- Google Play icon: `store-assets/google-play-icon-512.png`, `512 x 512` PNG.
+- Google Play icon: `store-assets/google-play-icon-512.png`, `512 x 512`,
+  32-bit PNG with an alpha channel.
 - RuStore icon: `store-assets/rustore-icon-512.png`, `512 x 512` PNG; reconfirm
   the current portal format at upload.
-- Google Play feature graphic: create a `1024 x 500` PNG or JPEG using the
-  canonical Other Bali identity. Do not place store badges, pricing claims,
-  awards or unreadable screenshots in it.
+- Google Play feature graphic:
+  `store-assets/google-play-feature-graphic-1024x500.png`, `1024 x 500`, using
+  the canonical Other Bali identity. Its editable source is stored alongside
+  it. Do not add store badges, pricing claims, awards or unreadable screenshots.
 - Store screenshots: create the final iPhone and Android sets described above.
 - Support/privacy URLs: verify both return HTTPS 200 without authentication on
   the day of submission.
@@ -263,3 +308,21 @@ debug QA captures as store artwork.
 Before upload, compare every icon, version string, screenshot and declaration
 with the exact signed artifact. A metadata-ready document is not evidence that
 the binary is signed, tested, submitted or approved.
+
+## Official requirement references checked 2026-07-18
+
+- Apple: [screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/),
+  [app information](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/),
+  [platform version fields](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information),
+  [privacy details](https://developer.apple.com/app-store/app-privacy-details/),
+  [age ratings](https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions/),
+  and [export compliance](https://developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance/).
+- Google Play: [AAB requirement](https://support.google.com/googleplay/android-developer/answer/9844679?hl=en),
+  [preview assets](https://support.google.com/googleplay/android-developer/answer/9866151?hl=en),
+  [Data safety](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en),
+  [new personal-account testing](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en-GB),
+  and [app signing](https://developer.android.com/studio/publish/app-signing).
+- RuStore: [publication requirements](https://www.rustore.ru/help/developers/publishing-and-verifying-apps/app-publication),
+  [APK signature](https://www.rustore.ru/help/en/developers/publishing-and-verifying-apps/app-publication/apk-signature),
+  [age restrictions](https://www.rustore.ru/help/developers/publishing-and-verifying-apps/app-publication/new-version-app/age-restrictions),
+  and [non-resident agreement](https://www.rustore.ru/help/legal/devs/non-resident-developers-agreement).

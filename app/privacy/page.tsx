@@ -33,12 +33,22 @@ export default function PrivacyPage() {
             </p>
             <p className="mt-3">
               To load and refresh the catalogue, place details, and routes, the
-              app sends requests to www.otherbali.com. Our hosting provider,
+              app sends encrypted HTTPS requests to www.otherbali.com. Our hosting provider,
               Vercel, processes the requested path, IP address and approximate
               city or country derived from it, user agent, request identifiers,
               response status, and operational diagnostics. Runtime logs are
               currently accessible to us for up to one day so we can operate,
-              secure, and troubleshoot the service.
+              secure, and troubleshoot the service, after which they expire
+              under the current hosting retention setting.
+            </p>
+            <p className="mt-3">
+              These operational requests are necessary to deliver the online
+              catalogue. Vercel processes this information to provide hosting,
+              security, and troubleshooting under its applicable service and
+              privacy terms. Other Bali does not use this operational data for
+              advertising or cross-service tracking. If you do not want a new
+              request processed, you can avoid refreshing while online, use
+              material you already saved offline, or uninstall the app.
             </p>
             <p className="mt-3">
               Opening Maps, an official website, or the system share sheet is a
