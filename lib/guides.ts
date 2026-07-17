@@ -812,6 +812,247 @@ export const GUIDES: Guide[] = [
       { href: "/bali-for-a-month", title: "Bali for a month", blurb: "Settle in and live like a local for a while." },
     ],
   },
+
+  {
+    slug: "bali-rainy-day",
+    eyebrow: "Rainy day in Bali",
+    title: "What to do in Bali when it rains",
+    description:
+      "Rain in Bali usually comes in waves, not all day. Make it a soft day — spa, a long lunch, a café, yoga or a cooking class — and save waterfalls and beach clubs for clearer skies.",
+    lede: "Don't write the day off — rain in Bali usually arrives in short, heavy waves rather than all-day grey. The move is to make it a soft day close to where you're staying: a spa, a long lunch, a café, a yoga class or a cooking class, then an easy dinner. Save the waterfalls, cliff walks and sunset-only plans for a clearer sky.",
+    sections: [
+      {
+        heading: "First, don't panic — rain comes in waves",
+        paras: [
+          "Especially in the wet season (roughly November to March), Bali rain tends to fall as intense afternoon downpours that pass, not a solid grey day. Keep the plan loose and you can often slot the outdoor bits into the dry windows.",
+          "The mistake isn't the rain — it's forcing a waterfall marathon or a sunset beach club through it. Move those, and the day is still good.",
+        ],
+      },
+      {
+        heading: "Turn it into a soft day",
+        paras: [
+          "This is the day for the things you'd otherwise skip: a proper spa treatment, an unhurried long lunch, a café you can sit in for hours, boutique shopping, a yoga or sound-healing session, or a cooking class.",
+          "Pick things close to your base. In rain, location beats hype — a comfortable place five minutes away is worth more than a famous one across town in traffic.",
+        ],
+      },
+      {
+        heading: "By area: where to go indoors",
+        paras: [
+          "Canggu: a spa or recovery session, a long café brunch, a gym, boutique shopping, and an easy dinner. It has the deepest café-and-wellness scene for a low-effort day.",
+          "Ubud: a spa, sound healing, a cooking class, a jewellery or craft workshop, an art gallery, or a calm hotel day with a tea or coffee tasting. Ubud does the slow, restorative rainy day best.",
+          "Seminyak & Sanur: covered restaurants, spas and shopping, with short, walkable hops between them so you're not soaked getting around.",
+        ],
+      },
+      {
+        heading: "What to move to a clearer day",
+        paras: [
+          "Waterfalls (slippery paths, and the flow can turn dangerous in heavy rain), cliff and beach staircases, outdoor temples with lots of steps, long scooter rides, and anything that only works at sunset.",
+          "Beach clubs are a maybe: if you want the pool, drinks and music they still deliver, but if the point was the sunset and the sand, wait for a brighter day.",
+        ],
+      },
+      {
+        heading: "A rainy day with kids",
+        paras: [
+          "Keep it short and indoors: an early lunch, a covered pool if it's safe, a kids-friendly café, a craft or cooking activity, nap time, and an early dinner. Don't try to fill the whole day.",
+          "A mall or cinema near your base is a perfectly good rainy-afternoon answer when small children have run out of patience.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "What do you do in Bali if it rains all day?", a: "Make it a soft day close to your base: a spa, a long lunch, a café, yoga, shopping or a cooking class, then an easy dinner. All-day rain is actually uncommon — it usually comes in heavy waves you can plan around." },
+      { q: "Is the rainy season still worth visiting Bali?", a: "Yes. Rain mostly falls as short, heavy afternoon downpours, the island is at its greenest, and it's quieter and cheaper. Just keep beach and waterfall plans flexible rather than fixed." },
+      { q: "Should we cancel waterfalls if it rains?", a: "In heavy rain, postpone them. Paths get slippery and water flow can change fast. Go after stable weather, with proper shoes and ideally a driver." },
+      { q: "Are beach clubs worth it when it's cloudy?", a: "If you want the pool, drinks and music, yes. If the goal was sunset photos and beach atmosphere, save it for a clearer day." },
+      { q: "What's a good rainy-day plan with kids?", a: "Short and indoor: early lunch, a covered pool if safe, a kids-friendly café, a craft or cooking activity, nap time and an early dinner. Keep the day brief." },
+      { q: "What should we avoid planning in heavy rain?", a: "Waterfalls, cliff and beach staircases, big outdoor temples, long scooter rides and sunset-only plans. Move those to a clearer day and keep the wet hours soft and close to home." },
+    ],
+    related: [
+      { href: "/best-spas-in-bali", title: "The best spas in Bali", blurb: "Where to be looked after — the perfect rainy-day plan." },
+      { href: "/best-cafes-in-bali", title: "The best cafés in Bali", blurb: "Somewhere to settle in for a long, slow lunch." },
+      { href: "/best-time-to-visit-bali", title: "Best time to visit Bali", blurb: "Dry season, wet season and how to choose." },
+      { href: "/bali-with-kids", title: "Bali with kids", blurb: "Easy, short days that survive a downpour." },
+    ],
+  },
+
+  {
+    slug: "ubud-one-day",
+    eyebrow: "One day in Ubud",
+    title: "One day in Ubud: what to actually do",
+    description:
+      "One calm day in Ubud without rushing: go early to Monkey Forest or the rice terraces, lunch in the centre, one wellness or cultural stop, then an early dinner. Don't turn it into a marathon.",
+    lede: "With one day in Ubud, go early and keep the rest of the day soft. Do one main thing in the morning — Monkey Forest or the rice terraces — then lunch in the centre, one calm wellness or cultural stop, and an early dinner. The mistake first-timers make is cramming Monkey Forest, Tegallalang, a waterfall, a temple and shopping into a single day and leaving exhausted.",
+    sections: [
+      {
+        heading: "Start early — Ubud rewards mornings",
+        paras: [
+          "Get to the headline sights before the tour buses and the midday heat. Monkey Forest and the rice terraces are far better at 8–9am than at noon, and you'll have the light and the space to yourself.",
+          "Front-load the effort in the morning, then let the afternoon slow down. Ubud gets tiring when you try to keep the pace up all day.",
+        ],
+      },
+      {
+        heading: "A suggested one-day route",
+        paras: [
+          "Monkey Forest or the rice terraces first thing → lunch in Ubud Centre → a short walk or a market/art stop → a spa or one cultural stop → an early dinner.",
+          "That's a full, satisfying day without rushing. Leave space between stops rather than stacking them back-to-back.",
+        ],
+      },
+      {
+        heading: "Monkey Forest or rice fields?",
+        paras: [
+          "Monkey Forest is worth it if you go early, keep your belongings secure (the macaques will grab sunglasses, water bottles and loose bags) and don't mind animals close to you. It's popular and busy — that's the trade-off.",
+          "If you'd rather have greenery and calm, make the rice terraces your morning instead. You don't need to do both in one day.",
+        ],
+      },
+      {
+        heading: "Which rice fields: Tegallalang or Jatiluwih?",
+        paras: [
+          "Tegallalang is close to Ubud, easy and photogenic — but more touristy. It's the natural add-on for a single Ubud day.",
+          "Jatiluwih is bigger, calmer and more scenic, but much farther — better suited to a dedicated day with a driver than a quick morning stop. On a one-day visit, Tegallalang is the easier call.",
+        ],
+      },
+      {
+        heading: "Don't overpack it",
+        paras: [
+          "Skip the far-flung waterfall marathon unless you have a driver and real energy to spare. After sightseeing, choose your lunch and dinner by shade and comfort, not by chasing the most famous name across town.",
+          "Ubud is one of the best places in Bali for a genuinely calm day — let it be one.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "What should we do with only one day in Ubud?", a: "Start early with one main sight — Monkey Forest or the rice terraces — then lunch in the centre, one calm wellness or cultural stop, and an early dinner. Don't try to see everything in a day." },
+      { q: "Is Monkey Forest worth it or too touristy?", a: "Worth it if you go early, keep belongings secure and don't mind crowds and animals close to you. It's popular, so the experience depends heavily on timing." },
+      { q: "What should we do after Monkey Forest?", a: "Stay nearby: lunch in Ubud Centre, a short walk, a market or art stop, or a spa. If you still have energy, add the rice terraces — not a far waterfall marathon." },
+      { q: "Tegallalang or Jatiluwih rice fields?", a: "Tegallalang for a short, easy Ubud add-on (more touristy). Jatiluwih for a bigger, calmer landscape — but it's far and better as its own day. For one Ubud day, choose Tegallalang." },
+      { q: "Is Ubud good for a calm day?", a: "Very. Rice fields, a spa, yoga, a slow lunch, art and an early dinner make it one of the best areas in Bali for an unhurried day." },
+      { q: "Is Ubud good with kids?", a: "Yes, if you keep it short. Kids usually enjoy the animals, rice fields, pools and easy cafés. Avoid stacking temples, waterfalls and long drives into one day." },
+    ],
+    related: [
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
+      { href: "/ubud/things-to-do", title: "Things to do in Ubud", blurb: "The sights and stops, sorted by area." },
+      { href: "/best-cafes-in-bali", title: "The best cafés in Bali", blurb: "Where to land for a long Ubud lunch." },
+      { href: "/bali-with-kids", title: "Bali with kids", blurb: "How to pace an Ubud day for children." },
+    ],
+  },
+
+  {
+    slug: "canggu-first-day",
+    eyebrow: "First day in Canggu",
+    title: "Your first day in Canggu",
+    description:
+      "Landed in Canggu? Keep the first day easy — a brunch, a beach walk, a massage, a sunset drink and a simple dinner near your villa. Don't fight traffic trying to see all of Bali on day one.",
+    lede: "Keep your first day in Canggu easy. After a flight, the move is a brunch or lunch near your villa, a beach walk, a massage, a sunset drink and a simple dinner close by — not a far-flung tour or a race to see the whole island. Bali feels much better when day one is about settling in rather than fighting traffic.",
+    sections: [
+      {
+        heading: "Keep the first day easy",
+        paras: [
+          "Don't book a distant temple-and-waterfall tour for arrival day. Check in, eat nearby, get a massage, catch the sunset if you have the energy, and sleep early.",
+          "The rest of the trip is for exploring. Day one is for landing softly and beating the jet lag.",
+        ],
+      },
+      {
+        heading: "A relaxed first-day shape",
+        paras: [
+          "An easy brunch or lunch → a beach walk → a massage → a sunset drink → a simple dinner near where you're staying.",
+          "The night you land is not the moment to cross Canggu in traffic for a viral restaurant. Pick something close, comfortable and easy to book.",
+        ],
+      },
+      {
+        heading: "Which pocket: Berawa, Batu Bolong or Pererenan?",
+        paras: [
+          "Berawa has more beach clubs, gyms, restaurants and an expat-lifestyle feel. Batu Bolong is surf, beach access, cafés and classic Canggu energy. Pererenan is calmer and more grown-up, but still close to it all.",
+          "You don't need to move between them on day one — settle into your own pocket first and explore the others once you've found your feet.",
+        ],
+      },
+      {
+        heading: "Sunset and dinner in one area",
+        paras: [
+          "Pair your sunset spot and dinner so you're not driving far in the dark after. The beach, a beachfront bar, or the Echo Beach / Pererenan stretch all work for an easy first-night sunset.",
+          "Arrive at the sunset spot early — Canggu's beachfront fills up — and don't plan to move far right after.",
+        ],
+      },
+      {
+        heading: "Getting around without a scooter",
+        paras: [
+          "Canggu works without a scooter if you stay local: cafés, beach, gym, spa, shopping and dinner are all close, and Grab or Gojek covers the short hops. Just choose a base near where you want to be.",
+          "If you'll explore beyond Canggu — Uluwatu, Ubud day trips — a private driver for those days is easier and safer than a scooter you're not confident on.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "What should we do in Canggu on our first day?", a: "Keep it easy: a brunch or lunch near your villa, a beach walk, a massage, a sunset drink and a simple dinner close by. Don't book a far tour or try to see all of Bali on arrival day." },
+      { q: "Is Canggu too crowded now?", a: "It can be busy, especially Berawa and Batu Bolong. But it still works if you pick the right pocket, time your moves and don't expect quiet village Bali." },
+      { q: "Where should we eat the night we land in Canggu?", a: "Somewhere close to your villa, comfortable and easy to book. The first night isn't the time to cross Canggu in traffic for a famous restaurant." },
+      { q: "What's the difference between Berawa and Batu Bolong?", a: "Berawa leans beach clubs, gyms, restaurants and expat lifestyle. Batu Bolong is surf, beach access, cafés and more classic Canggu energy. Pererenan next door is calmer and more grown-up." },
+      { q: "Can we enjoy Canggu without a scooter?", a: "Yes — stay local and use Grab or Gojek for short hops. Cafés, beach, gym, spa and dinner are all close. For day trips beyond Canggu, a private driver is easier than a scooter." },
+      { q: "Where can we watch sunset in Canggu?", a: "The beach, a beachfront bar or a beach club, or the Echo Beach and Pererenan stretch. Arrive early, and pair it with a dinner nearby so you're not driving far afterward." },
+    ],
+    related: [
+      { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
+      { href: "/best-beach-clubs-in-bali", title: "The best beach clubs in Bali", blurb: "Where to take the first-night sunset." },
+      { href: "/best-restaurants-in-bali", title: "The best restaurants in Bali", blurb: "An easy dinner near where you're staying." },
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Scooter, driver or apps — and when to use which." },
+    ],
+  },
+
+  {
+    slug: "bali-with-kids",
+    eyebrow: "Bali with kids",
+    title: "Bali with kids: what to do and how to pace it",
+    description:
+      "The secret to Bali with kids is shorter days: calm beaches, pools, animals, rice fields and easy cafés — based in Sanur or Nusa Dua, with early dinners and rest through the heat.",
+    lede: "Bali is a good family destination if you keep the days short and the base calm. Sanur and Nusa Dua are the easiest bases — gentle, swimmable water and flat, walkable fronts — while Ubud adds nature for older kids. Fill the day with one main thing (a beach morning, a pool, animals, rice fields or a workshop), an early lunch, rest through the heat, and an early dinner. Don't run an adult itinerary with children.",
+    sections: [
+      {
+        heading: "Base somewhere calm",
+        paras: [
+          "Sanur and Nusa Dua are the easiest with young kids: calm, swimmable water, flat walkable fronts and short travel times. Seminyak can work; Canggu works with the right villa and a driver, but the traffic and sidewalks are less forgiving.",
+          "Ubud suits families with older kids who'll enjoy nature, rice fields and cooler air — pair it with a few calm-beach nights in Sanur.",
+        ],
+      },
+      {
+        heading: "What kids actually enjoy",
+        paras: [
+          "Short beach mornings, safe pools, animal parks, rice-field walks, easy cafés, kids' clubs, and simple cooking or craft workshops. A single calm temple or a short cultural show can work too.",
+          "Keep it to one main activity a day. Children enjoy Bali far more when the plan isn't overloaded.",
+        ],
+      },
+      {
+        heading: "A good family half-day",
+        paras: [
+          "Breakfast, one main activity, an early lunch, then pool or rest. That's genuinely enough for a good day — the rest is bonus.",
+          "Build the day around nap time and the midday heat rather than fighting them.",
+        ],
+      },
+      {
+        heading: "Beaches and water safety",
+        paras: [
+          "For calm family swimming, favour the east and south-east: Sanur and Nusa Dua's protected bay. The west and south-coast surf beaches (Canggu, Uluwatu) have strong currents and shore-break to watch closely with small children.",
+          "Always check the tide, the waves and any flags before letting kids in, and swim between the flags on patrolled beaches.",
+        ],
+      },
+      {
+        heading: "What to avoid with toddlers",
+        paras: [
+          "Long traffic days, steep beach staircases, waterfall treks, late dinners, too much midday heat and overpacked temple days. Keep it simple and close.",
+          "Temples are fine with kids if you pick one, go early or late afternoon, keep it short, bring water and dress properly — don't chain several together in the heat.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Which area of Bali is easiest with children?", a: "Sanur and Nusa Dua — calm, swimmable water, flat walkable fronts and short days. Seminyak can work; Canggu works with the right villa and a driver; Ubud is good for older kids who like nature." },
+      { q: "What can we do in Bali with kids?", a: "Short beach mornings, pools, animal parks, rice fields, easy cafés, kids' clubs and simple workshops. Keep it to one main activity a day and build in rest through the heat." },
+      { q: "Which beaches are calm and safe for kids?", a: "Sanur and Nusa Dua's protected bay are the easiest for calm family swimming. The west and south-coast surf beaches have stronger currents — watch tide, waves and flags closely." },
+      { q: "Is Ubud good with kids?", a: "Yes, for families with older kids — animals, rice fields, pools and short walks. Avoid stacking stairs, heat and long drives into one day." },
+      { q: "What should we avoid with toddlers?", a: "Long traffic days, steep beach stairs, waterfall treks, late dinners and overpacked temple days. Keep days short, close to base and built around nap time." },
+      { q: "Can we visit temples with kids?", a: "Yes — pick one, go early or late afternoon, keep it short, bring water and dress properly (covered shoulders and knees). Don't combine several temples in the midday heat." },
+    ],
+    related: [
+      { href: "/best-area-to-stay-in-bali-for-families", title: "Best area to stay for families", blurb: "Sanur, Nusa Dua and Ubud, compared for a family base." },
+      { href: "/sanur", title: "The Sanur guide", blurb: "A calm, walkable, sunrise base that suits families." },
+      { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "Calm resort beaches and easy, safe days." },
+      { href: "/bali-rainy-day", title: "Rainy day in Bali", blurb: "Short indoor plans for when the weather turns." },
+    ],
+  },
 ];
 
 // Display grouping for the /guides hub (and any nav that lists guides). Slug
@@ -849,6 +1090,11 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
     blurb: "Island-wide picks, from real places we stand behind.",
     slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-restaurants-in-bali", "best-cafes-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
+  {
+    heading: "Day plans & moments",
+    blurb: "First days, one-day routes, and what to do when the weather or the group changes.",
+    slugs: ["canggu-first-day", "ubud-one-day", "bali-rainy-day", "bali-with-kids"],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
@@ -859,13 +1105,13 @@ export function getGuide(slug: string): Guide | undefined {
 // cross-link pillars → guides (internal-link mesh). Slugs only; the link cards
 // are built from the registry so titles/blurbs can't drift.
 const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
-  canggu: ["best-restaurants-in-bali", "best-cafes-in-bali", "ubud-vs-canggu", "canggu-vs-uluwatu", "where-to-stay-in-bali", "best-coffee-in-bali", "where-to-watch-sunset-in-bali"],
+  canggu: ["canggu-first-day", "best-restaurants-in-bali", "best-cafes-in-bali", "ubud-vs-canggu", "canggu-vs-uluwatu", "where-to-stay-in-bali", "best-coffee-in-bali", "where-to-watch-sunset-in-bali"],
   uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
-  ubud: ["best-cafes-in-bali", "best-restaurants-in-bali", "ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
-  sanur: ["nusa-penida-day-trip", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
+  ubud: ["ubud-one-day", "best-cafes-in-bali", "best-restaurants-in-bali", "ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
+  sanur: ["nusa-penida-day-trip", "bali-with-kids", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["best-restaurants-in-bali", "seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
-  "nusa-dua": ["best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  "nusa-dua": ["bali-with-kids", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
   "nusa-penida": ["nusa-penida-day-trip", "how-to-get-around-bali", "how-many-days-in-bali", "where-to-stay-in-bali", "best-time-to-visit-bali"],
   sidemen: ["how-to-get-around-bali", "best-time-to-visit-bali", "how-many-days-in-bali", "where-to-stay-in-bali"],
   amed: ["how-to-get-around-bali", "best-time-to-visit-bali", "is-bali-safe", "where-to-stay-in-bali"],
