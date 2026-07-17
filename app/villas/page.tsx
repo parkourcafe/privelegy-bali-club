@@ -17,12 +17,12 @@ import { VILLAS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "For villas — partner with Other Bali",
   description:
-    "Independent villa or boutique stay in Bali? Partner with Other Bali, the resident-curated guide. We prepare your page and send travellers to you directly — completely free, a simple partnership.",
+    "Independent villa or boutique stay in Bali? Partner with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — completely free.",
   alternates: { canonical: "/villas" },
   openGraph: {
     title: "For villas · Other Bali",
     description:
-      "Partner with Other Bali — we prepare your villa page and send travellers to you directly. Completely free, a simple partnership.",
+      "Partner with Other Bali — add your own details and photos, we review and publish, and travellers reach you directly. Completely free.",
     url: "https://www.otherbali.com/villas",
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "For villas · Other Bali",
     description:
-      "Partner with Other Bali — we prepare your villa page and send travellers to you directly. Completely free.",
+      "Partner with Other Bali — you add your details and photos, we review and publish. Completely free.",
   },
 };
 
@@ -42,7 +42,7 @@ const CHIPS = [
 
 // The barter, stated symmetrically so the whole deal is visible at a glance.
 const YOU_GET = [
-  "A dedicated villa page — photos, description, amenities and your direct links (website, WhatsApp, booking page)",
+  "A dedicated villa page with your own photos, description and amenities, and direct links (website, WhatsApp, booking page)",
   "Travellers who discover you and reach you directly — no marketplace, no commission, no checkout in between",
   "A personalised guest QR: one link your guests scan for restaurants, beaches, wellness and activities picked by residents",
 ];
@@ -69,16 +69,16 @@ const WHY = [
 
 const STEPS = [
   {
-    title: "We prepare your villa page",
-    body: "Photos, description, amenities and your direct links. You send us the basics — name, area, one way to reach you.",
+    title: "You add your villa",
+    body: "Send us your details and your own photos (ones you have the rights to share) — right here on WhatsApp. You fill it in, so the page is genuinely yours.",
   },
   {
-    title: "You review and approve",
-    body: "Nothing is published without your confirmation. All the links stay yours.",
+    title: "We review and polish",
+    body: "We tidy the page — wording, layout, translation — and check everything reads right. We never invent facts or add photos you didn't send.",
   },
   {
-    title: "Travellers discover your villa",
-    body: "In relevant areas, collections and stay searches — and continue straight to your channels.",
+    title: "You approve, we publish",
+    body: "We send it back for a look. Nothing goes live until you confirm — and all your links stay yours.",
   },
   {
     title: "You share the guide with guests",
@@ -205,8 +205,8 @@ export default function VillasPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <strong>You approve before publication.</strong> We prepare the
-                page; nothing goes live until you confirm it.
+                <strong>You approve before publication.</strong> You fill it in,
+                we polish it; nothing goes live until you confirm it.
               </li>
               <li>
                 <strong>All the links belong to you.</strong> Travellers connect
@@ -233,8 +233,8 @@ export default function VillasPage() {
         <section className="guide-section" id="join">
           <h2>Join the villa partner network</h2>
           <p className="guide-lede">
-            We prepare the page, you review, and once you approve, your villa is
-            discoverable. It takes a few minutes.
+            You add your details and your own photos, we review and polish, and
+            once you approve, your villa is discoverable. It takes a few minutes.
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <a
@@ -255,8 +255,9 @@ export default function VillasPage() {
             </a>
           </div>
           <p className="mt-3 text-xs text-[var(--muted)]">
-            Send your villa name and area — we&apos;ll prepare your page and send
-            it to you for review before anything is published.
+            Send your villa details and a few of your own photos — we&apos;ll
+            polish the page and send it back for your approval before anything is
+            published.
           </p>
         </section>
 
