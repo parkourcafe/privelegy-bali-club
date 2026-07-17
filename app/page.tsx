@@ -55,6 +55,7 @@ export default function Landing() {
         <HumanMoment />
         <Faq />
         <FinalCta />
+        <ForPartners />
       </main>
       <SiteFooter />
     </div>
@@ -826,6 +827,69 @@ function FinalCta() {
             </a>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+// Quiet, clearly-separate partner band just above the footer — the two ways to
+// partner with Other Bali. Travellers get their CTA above (FinalCta); this
+// serves owners and villa managers without diluting the traveller journey.
+function ForPartners() {
+  return (
+    <section
+      id="partners"
+      className="border-y border-[rgba(43,26,19,0.08)] bg-[#F5EFE4]"
+    >
+      <div className="mx-auto max-w-5xl px-5 py-20">
+        <Reveal>
+          <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-[#a7654a]">
+            For partners
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-[#2B1A13] sm:text-4xl">
+            Run a place, or host guests? Partner with Other Bali.
+          </h2>
+          <p className="mt-4 max-w-xl text-[#5c4a3c]">
+            Get discovered by travellers who reach you directly — no marketplace,
+            no commission. Travellers never pay.
+          </p>
+        </Reveal>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <Reveal>
+            <div className="flex h-full flex-col rounded-2xl border border-[rgba(43,26,19,0.12)] bg-[#FFFBF3] p-6">
+              <h3 className="font-display text-xl font-semibold text-[#2B1A13]">
+                Cafés, restaurants &amp; studios
+              </h3>
+              <p className="mt-2 text-sm text-[#5c4a3c]">
+                Get listed on the guide — travellers book a table, order or
+                message you directly. First months free.
+              </p>
+              <Link
+                href="/for-venues"
+                className="mt-5 inline-flex w-fit items-center rounded-full bg-[#005962] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#003f46]"
+              >
+                List your place →
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="flex h-full flex-col rounded-2xl border border-[rgba(43,26,19,0.12)] bg-[#FFFBF3] p-6">
+              <h3 className="font-display text-xl font-semibold text-[#2B1A13]">
+                Villas &amp; boutique stays
+              </h3>
+              <p className="mt-2 text-sm text-[#5c4a3c]">
+                A free barter partnership — your own villa page and a guest
+                concierge; you link us, we send you travellers.
+              </p>
+              <Link
+                href="/villas"
+                className="mt-5 inline-flex w-fit items-center rounded-full bg-[#005962] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#003f46]"
+              >
+                Partner your villa →
+              </Link>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
