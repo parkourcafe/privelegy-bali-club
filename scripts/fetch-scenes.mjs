@@ -57,7 +57,8 @@ const VIDEOS = {
   // assembled with a voiceover + burned subtitles via Higgsfield explainer.
   // Click-to-play with preload="metadata", so the budget guards disk/CDN cost,
   // not page weight — bytes stream only when an owner presses play.
-  "venues-story": ["hf_20260717_114250_88d8852a-c1fb-4e99-98d6-2b0053926468.mp4", 30_000_000],
+  // v2 (2026-07-17): livelier conversational voiceover per founder feedback.
+  "venues-story": ["hf_20260717_120511_9f1a17d0-ff54-4b3e-ae18-fdf1c3bd764c.mp4", 30_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });
