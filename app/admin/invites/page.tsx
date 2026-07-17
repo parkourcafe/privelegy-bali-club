@@ -14,10 +14,10 @@ export const dynamic = "force-dynamic";
 // is "we already built your page" — literally true, the /onboard link is live.
 // No-offer: the ask is confirm + who-you're-for + photos, never a promo.
 function messageEN(venue: string, link: string): string {
-  return `Hi! I'm Selena from Other Bali — a free, locals-run Bali guide. We've already built a page for ${venue} — here's exactly how travellers will see you: ${link}\nTourists never pay, and we're not asking you to run any offer. Takes ~2 min: (1) confirm it's your place, (2) tick which moments you're best for, (3) add 1-3 photos. That's it 🙌`;
+  return `Hi! I'm Fadjri from the Other Bali team — a free, locals-run Bali guide. We've already built a page for ${venue} — here's exactly how travellers will see you: ${link}\nTourists never pay, and we're not asking you to run any offer. Takes ~2 min: (1) confirm it's your place, (2) tick which moments you're best for, (3) add 1-3 photos. That's it 🙌`;
 }
 function messageRU(venue: string, link: string): string {
-  return `Здравствуйте! Это Селена, проект Other Bali — бесплатный гид по Бали, который ведут местные. Мы уже сделали страницу для ${venue} — вот как вас увидят путешественники: ${link}\nТурист ничего не платит, и мы не просим запускать акцию. Нужно ~2 минуты: (1) подтвердите, что это ваше заведение, (2) отметьте, для каких моментов вы, (3) добавьте 1-3 фото. Всё 🙌`;
+  return `Здравствуйте! Это Fadjri из команды Other Bali — бесплатный гид по Бали, который ведут местные. Мы уже сделали страницу для ${venue} — вот как вас увидят путешественники: ${link}\nТурист ничего не платит, и мы не просим запускать акцию. Нужно ~2 минуты: (1) подтвердите, что это ваше заведение, (2) отметьте, для каких моментов вы, (3) добавьте 1-3 фото. Всё 🙌`;
 }
 
 export default async function InvitesPage() {
