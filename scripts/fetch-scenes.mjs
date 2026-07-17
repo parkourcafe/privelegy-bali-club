@@ -53,6 +53,11 @@ const SCENES = {
 // will be rejected by the gate; recompress before shipping).
 const VIDEOS = {
   "hero-loop": ["hf_20260714_150931_d9e5803a-59d4-44e1-9ced-7a79716ae585.mp4", 3_000_000],
+  // /for-venues narrated story (2026-07-17): three Seedance 2.0 b-roll blocks
+  // assembled with a voiceover + burned subtitles via Higgsfield explainer.
+  // Click-to-play with preload="metadata", so the budget guards disk/CDN cost,
+  // not page weight — bytes stream only when an owner presses play.
+  "venues-story": ["hf_20260717_114250_88d8852a-c1fb-4e99-98d6-2b0053926468.mp4", 30_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });
