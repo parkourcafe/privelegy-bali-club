@@ -54,6 +54,41 @@ const CHIPS = [
   { title: "You approve first", note: "nothing publishes without you" },
 ];
 
+// The product essence — what Other Bali actually is, and the core principle
+// that travellers are never routed through a third party (guardrail: no
+// marketplace, no tourist payments; Other Bali owns the decision, partners own
+// fulfilment).
+const WHAT_IS = [
+  {
+    title: "Curated by residents",
+    body: "Every place is chosen and explained by people who live here — not scraped reviews, not ads, and not a ranking anyone can buy.",
+  },
+  {
+    title: "Direct — never through a third party",
+    body: "Travellers reach you directly. We never put a marketplace, a checkout, a commission or a third party between a guest and your villa — and travellers never pay us.",
+  },
+  {
+    title: "We help them decide — you host",
+    body: "Other Bali owns the recommendation, the reason it fits and the trusted link. Booking, hosting, payment and the guest relationship stay entirely yours.",
+  },
+];
+
+// Why the partnership is mutually useful — stated in both directions.
+const USEFUL = [
+  {
+    dir: "You → us",
+    body: "You send us your guests and vouch for us — a link on your site, a mention on Instagram, our QR on the welcome card.",
+  },
+  {
+    dir: "Us → you",
+    body: "We send you travellers who reach you directly, and give your guests one local guide they'll actually use.",
+  },
+  {
+    dir: "Both grow",
+    body: "More direct discovery for your villa, a better stay for every guest — and no money changes hands, on either side.",
+  },
+];
+
 // The traveller action row that appears on a real villa page — shown here as
 // product proof of what a page does. Presentational only on this page.
 const EXAMPLE_ACTIONS = [
@@ -258,6 +293,29 @@ export default function VillasPage() {
           ))}
         </div>
 
+        {/* What Other Bali is — the product essence + the principle that
+            travellers are never routed through a third party. */}
+        <section className="guide-section" id="what-it-is">
+          <h2>What Other Bali is</h2>
+          <p className="guide-lede">
+            Other Bali is a resident-curated guide — it helps a traveller choose
+            the right place for the moment they&apos;re in, explains why it fits,
+            and lets them act directly: reserve, message, order or open
+            directions. Free for travellers, always.
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {WHAT_IS.map((w) => (
+              <div
+                key={w.title}
+                className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5"
+              >
+                <h3 className="text-lg font-bold">{w.title}</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* PRODUCT PROOF — this is your villa on Other Bali. An example listing
             card + the traveller action row, so an owner sees exactly what they
             receive. "Villa Kamala" is a labelled EXAMPLE, not a live listing. */}
@@ -330,10 +388,23 @@ export default function VillasPage() {
         <section className="guide-section" id="what-you-get">
           <h2>A partnership that works both ways</h2>
           <p className="guide-lede">
-            No fees, no commission, no booking-volume promises. Travellers find
-            you through us — your guests discover Bali through you. Travellers
-            never pay.
+            We&apos;re genuinely useful to each other. No fees, no commission,
+            no booking-volume promises — travellers find you through us, your
+            guests discover Bali through you, and travellers never pay.
           </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {USEFUL.map((u) => (
+              <div
+                key={u.dir}
+                className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5"
+              >
+                <p className="guide-kicker" style={{ marginBottom: 6 }}>
+                  {u.dir}
+                </p>
+                <p className="text-sm text-[var(--muted)]">{u.body}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5">
               <p className="guide-kicker" style={{ marginBottom: 6 }}>
