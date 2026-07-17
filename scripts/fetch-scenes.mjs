@@ -59,6 +59,12 @@ const VIDEOS = {
   // not page weight — bytes stream only when an owner presses play.
   // v2 (2026-07-17): livelier conversational voiceover per founder feedback.
   "venues-story": ["hf_20260717_120511_9f1a17d0-ff54-4b3e-ae18-fdf1c3bd764c.mp4", 30_000_000],
+  // /villas partnership film (2026-07-17): a 30s mixed-media collage explainer
+  // — three gemini_omni blocks locked to one style key, Maya voiceover + burned
+  // subtitles assembled via Higgsfield explainer. Same click-to-play gate as
+  // venues-story (preload="metadata"), so this budget guards disk/CDN cost, not
+  // page weight. Absent on networks that can't reach the CDN → poster fallback.
+  "villas-film": ["hf_20260717_184959_6ba8243c-0904-4762-aa9f-7e6c60d91a67.mp4", 30_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });
