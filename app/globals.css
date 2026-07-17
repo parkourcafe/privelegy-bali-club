@@ -1559,8 +1559,8 @@ html {
   max-width: 640px;
   margin-top: 10px;
   color: var(--muted);
-  font-size: 15.5px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.62;
 }
 
 .guide-prose {
@@ -1569,16 +1569,16 @@ html {
 
 .guide-prose p {
   margin-top: 12px;
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-size: 16.5px;
+  line-height: 1.66;
 }
 
 .guide-prose ul {
   margin-top: 12px;
   padding-left: 20px;
   list-style: disc;
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-size: 16.5px;
+  line-height: 1.66;
 }
 
 .guide-prose li {

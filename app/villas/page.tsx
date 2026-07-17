@@ -239,13 +239,13 @@ export default function VillasPage() {
                 <BrandHomeLink tone="dark" />
                 <Link
                   href="/"
-                  className="text-sm font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
+                  className="text-base font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
                 >
                   Back to the guide →
                 </Link>
               </div>
               <div className="max-w-2xl pt-10">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(231,183,174,0.55)] bg-black/35 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#E7B7AE] backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(231,183,174,0.55)] bg-black/35 px-3.5 py-1.5 text-sm font-semibold tracking-wide text-[#E7B7AE] backdrop-blur-sm">
                   For villas · boutique stays · villa managers
                 </span>
                 <h1 className="hero-title mt-4 text-[#FAF6EF] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
@@ -288,7 +288,7 @@ export default function VillasPage() {
               className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-4"
             >
               <p className="font-bold">{c.title}</p>
-              <p className="mt-1 text-sm text-[var(--muted)]">{c.note}</p>
+              <p className="mt-1 text-base text-[var(--muted)]">{c.note}</p>
             </div>
           ))}
         </div>
@@ -310,7 +310,7 @@ export default function VillasPage() {
                 className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5"
               >
                 <h3 className="text-lg font-bold">{w.title}</h3>
-                <p className="mt-2 text-sm text-[var(--muted)]">{w.body}</p>
+                <p className="mt-2 text-base text-[var(--muted)]">{w.body}</p>
               </div>
             ))}
           </div>
@@ -337,8 +337,8 @@ export default function VillasPage() {
               </div>
               <figcaption className="p-5">
                 <h3 className="text-lg font-bold">Villa Kamala</h3>
-                <p className="text-sm text-[var(--muted)]">Umalas · 3 BR</p>
-                <p className="mt-2 text-sm">
+                <p className="text-base text-[var(--muted)]">Umalas · 3 BR</p>
+                <p className="mt-2 text-base">
                   Staffed pool villa between the rice fields, 10 min to Berawa.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2" aria-hidden="true">
@@ -346,7 +346,7 @@ export default function VillasPage() {
                     (a) => (
                       <span
                         key={a}
-                        className="rounded-lg border border-[var(--line)] bg-[var(--paper)] px-3 py-1.5 text-xs font-bold text-[var(--ink)]"
+                        className="rounded-lg border border-[var(--line)] bg-[var(--paper)] px-3 py-1.5 text-sm font-bold text-[var(--ink)]"
                       >
                         {a}
                       </span>
@@ -361,7 +361,7 @@ export default function VillasPage() {
               <h3 className="text-lg font-bold">
                 Help travellers reach you directly
               </h3>
-              <p className="mt-1 text-sm text-[var(--muted)]">
+              <p className="mt-1 text-base text-[var(--muted)]">
                 Your page sends travellers to your channels — no marketplace
                 checkout in between.
               </p>
@@ -376,7 +376,7 @@ export default function VillasPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-3 text-xs text-[var(--muted)]">
+              <p className="mt-3 text-sm text-[var(--muted)]">
                 Other Bali provides an additional discovery channel and does not
                 guarantee booking volume. Travellers never pay.
               </p>
@@ -401,7 +401,7 @@ export default function VillasPage() {
                 <p className="guide-kicker" style={{ marginBottom: 6 }}>
                   {u.dir}
                 </p>
-                <p className="text-sm text-[var(--muted)]">{u.body}</p>
+                <p className="text-base text-[var(--muted)]">{u.body}</p>
               </div>
             ))}
           </div>
@@ -410,7 +410,7 @@ export default function VillasPage() {
               <p className="guide-kicker" style={{ marginBottom: 6 }}>
                 What you get from us
               </p>
-              <ul className="mt-2 space-y-2 text-sm">
+              <ul className="mt-2 space-y-2 text-base">
                 {YOU_GET.map((t) => (
                   <li key={t} className="flex gap-2">
                     <span aria-hidden="true" className="text-[var(--lagoon-strong)]">
@@ -425,7 +425,7 @@ export default function VillasPage() {
               <p className="guide-kicker" style={{ marginBottom: 6 }}>
                 What we ask in return
               </p>
-              <ul className="mt-2 space-y-2 text-sm">
+              <ul className="mt-2 space-y-2 text-base">
                 {WE_ASK.map((t) => (
                   <li key={t} className="flex gap-2">
                     <span aria-hidden="true" className="text-[var(--lagoon-strong)]">
@@ -435,7 +435,7 @@ export default function VillasPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 text-xs text-[var(--muted)]">
+              <p className="mt-3 text-sm text-[var(--muted)]">
                 That&apos;s the whole exchange — no fees on either side, and
                 travellers never pay.
               </p>
@@ -453,7 +453,7 @@ export default function VillasPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#16100c] via-[#16100c]/70 to-[#16100c]/30" />
               <div className="relative flex min-h-[26rem] flex-col justify-between gap-8 p-6 sm:p-9 md:min-h-[30rem]">
                 <div className="max-w-xl">
-                  <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-[#E7B7AE]">
+                  <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-[#E7B7AE]">
                     Villa film
                   </p>
                   <p
@@ -467,7 +467,7 @@ export default function VillasPage() {
                     Your villa page carries photos and a short film — not
                     paragraphs.
                   </p>
-                  <p className="mt-3 max-w-md text-sm text-[rgba(250,246,239,0.86)]">
+                  <p className="mt-3 max-w-md text-base text-[rgba(250,246,239,0.86)]">
                     A 20–30 second walkthrough and your own gallery do the work.
                     Below, a short film on how the partnership works.
                   </p>
@@ -500,7 +500,7 @@ export default function VillasPage() {
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-bold">{w.title}</h3>
-                  <p className="mt-2 text-sm text-[var(--muted)]">{w.body}</p>
+                  <p className="mt-2 text-base text-[var(--muted)]">{w.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -514,7 +514,7 @@ export default function VillasPage() {
               <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade" />
               <div className="absolute inset-0 bg-[#16100c]/72" />
               <div className="relative p-6 sm:p-9">
-                <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-[#E7B7AE]">
+                <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-[#E7B7AE]">
                   The exchange
                 </p>
                 <h2
@@ -529,17 +529,17 @@ export default function VillasPage() {
                       key={step.label}
                       className="rounded-2xl border border-[rgba(250,246,239,0.22)] bg-black/25 p-4"
                     >
-                      <span className="text-xs font-extrabold text-[#E7B7AE]">
+                      <span className="text-sm font-extrabold text-[#E7B7AE]">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <p className="mt-1 font-bold text-[#FAF6EF]">{step.label}</p>
-                      <p className="mt-1 text-xs text-[rgba(250,246,239,0.78)]">
+                      <p className="mt-1 text-sm text-[rgba(250,246,239,0.78)]">
                         {step.note}
                       </p>
                     </li>
                   ))}
                 </ol>
-                <p className="mt-5 text-sm text-[rgba(250,246,239,0.82)]">
+                <p className="mt-5 text-base text-[rgba(250,246,239,0.82)]">
                   Travellers arrive through us; your guests discover Bali through
                   you. No fees on either side.
                 </p>
@@ -563,7 +563,7 @@ export default function VillasPage() {
                 >
                   ✓
                 </span>
-                <span className="text-sm font-medium">{item}</span>
+                <span className="text-base font-medium">{item}</span>
               </div>
             ))}
             <div className="flex items-start gap-3 rounded-2xl border border-dashed border-[var(--line)] bg-[var(--paper-soft)] p-4">
@@ -573,7 +573,7 @@ export default function VillasPage() {
               >
                 ◦
               </span>
-              <span className="text-sm font-medium text-[var(--muted)]">
+              <span className="text-base font-medium text-[var(--muted)]">
                 Performance reporting{" "}
                 <span className="ml-1 rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide">
                   planned
@@ -600,18 +600,18 @@ export default function VillasPage() {
                 </span>
               </div>
               <div className="mt-3 rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-4">
-                <p className="text-sm">
+                <p className="text-base">
                   Welcome to Bali 🌴 Here&apos;s your local guide for the stay —
                   places we&apos;d send our own friends to.
                 </p>
-                <p className="mt-2 text-sm font-bold text-[var(--lagoon-strong)]">
+                <p className="mt-2 text-base font-bold text-[var(--lagoon-strong)]">
                   otherbali.com/g/villa-kamala
                 </p>
                 <p className="mt-1 text-right text-[11px] text-[var(--muted)]">
                   09:14 ✓✓
                 </p>
               </div>
-              <p className="mt-3 text-xs text-[var(--muted)]">
+              <p className="mt-3 text-sm text-[var(--muted)]">
                 A sample guest message — your real link is personalised to your
                 villa.
               </p>
@@ -622,7 +622,7 @@ export default function VillasPage() {
                 <p className="guide-kicker" style={{ marginBottom: 8 }}>
                   Where it lives
                 </p>
-                <ul className="space-y-1.5 text-sm">
+                <ul className="space-y-1.5 text-base">
                   {CONCIERGE_WHERE.map((w) => (
                     <li key={w} className="flex gap-2">
                       <span aria-hidden="true" className="text-[var(--lagoon-strong)]">
@@ -637,7 +637,7 @@ export default function VillasPage() {
                 <p className="guide-kicker" style={{ marginBottom: 8 }}>
                   Why villas do it
                 </p>
-                <ul className="space-y-1.5 text-sm">
+                <ul className="space-y-1.5 text-base">
                   {CONCIERGE_WHY.map((w) => (
                     <li key={w} className="flex gap-2">
                       <span aria-hidden="true" className="text-[var(--lagoon-strong)]">
@@ -661,11 +661,11 @@ export default function VillasPage() {
                 key={s.title}
                 className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5"
               >
-                <span className="text-xs font-extrabold uppercase tracking-wide text-[var(--lagoon-strong)]">
+                <span className="text-sm font-extrabold uppercase tracking-wide text-[var(--lagoon-strong)]">
                   Step {i + 1}
                 </span>
                 <h3 className="mt-2 text-base font-bold">{s.title}</h3>
-                <p className="mt-1 text-sm text-[var(--muted)]">{s.body}</p>
+                <p className="mt-1 text-base text-[var(--muted)]">{s.body}</p>
               </div>
             ))}
           </div>
@@ -683,7 +683,7 @@ export default function VillasPage() {
                 <span aria-hidden="true" className="mt-0.5 text-[var(--lagoon-strong)]">
                   ◆
                 </span>
-                <span className="text-sm font-medium">{w}</span>
+                <span className="text-base font-medium">{w}</span>
               </div>
             ))}
           </div>
@@ -708,7 +708,7 @@ export default function VillasPage() {
                 >
                   ✓
                 </span>
-                <span className="text-sm font-medium">{c}</span>
+                <span className="text-base font-medium">{c}</span>
               </div>
             ))}
           </div>
@@ -726,7 +726,7 @@ export default function VillasPage() {
             <p className="guide-kicker" style={{ marginBottom: 8 }}>
               What to send
             </p>
-            <ul className="space-y-1.5 text-sm">
+            <ul className="space-y-1.5 text-base">
               <li className="flex gap-2">
                 <span aria-hidden="true" className="text-[var(--lagoon-strong)]">·</span>
                 <span>Villa name &amp; area</span>
@@ -761,7 +761,7 @@ export default function VillasPage() {
               WhatsApp {WHATSAPP_NUMBER_DISPLAY}
             </a>
           </div>
-          <p className="mt-3 text-xs text-[var(--muted)]">
+          <p className="mt-3 text-sm text-[var(--muted)]">
             We&apos;ll polish the page and send it back for your approval before
             anything is published — travellers never pay, and there are no fees
             on your side.
