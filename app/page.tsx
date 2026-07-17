@@ -388,6 +388,16 @@ function Moments() {
           </Reveal>
         ))}
       </div>
+      <Reveal delay={120}>
+        <div className="mt-8">
+          <Link
+            href="/my-day"
+            className="inline-flex rounded-full border border-[rgba(198,154,92,0.4)] px-6 py-3.5 font-semibold text-[var(--ob-brass-2)] transition-colors hover:border-[rgba(198,154,92,0.7)] hover:text-[var(--ob-sand)]"
+          >
+            See all four as one plan — My Day →
+          </Link>
+        </div>
+      </Reveal>
     </Section>
   );
 }
@@ -857,6 +867,9 @@ function SiteFooter() {
           </a>
           <Link href="/places" className={footerLink}>
             Places
+          </Link>
+          <Link href="/my-day" className={footerLink}>
+            My Day
           </Link>
           <Link href="/bali" className={footerLink}>
             Bali by district
