@@ -7,6 +7,11 @@ import { inspectNativeReadiness } from "./ios-native-readiness-core.mjs";
 
 const BUNDLE_ID = "com.otherbali.app";
 const CANONICAL_ORIGIN = "https://www.otherbali.com";
+const EXPECTED_COLLECTED_DATA_TYPES = [
+  "NSPrivacyCollectedDataTypeCoarseLocation",
+  "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+  "NSPrivacyCollectedDataTypeProductInteraction",
+];
 const execFileAsync = promisify(execFile);
 
 async function exists(file) {
@@ -105,6 +110,52 @@ async function decodedPrivacyManifest(file) {
   }
 }
 
+function collectedDataEvidence(decoded, contents) {
+  if (decoded && Array.isArray(decoded.NSPrivacyCollectedDataTypes)) {
+    const declarations = decoded.NSPrivacyCollectedDataTypes;
+    const types = declarations
+      .map((entry) => entry?.NSPrivacyCollectedDataType)
+      .filter((value) => typeof value === "string")
+      .sort();
+    const declarationsValid = declarations.length === EXPECTED_COLLECTED_DATA_TYPES.length
+      && declarations.every((entry) => (
+        entry
+        && entry.NSPrivacyCollectedDataTypeLinked === true
+        && entry.NSPrivacyCollectedDataTypeTracking === false
+        && Array.isArray(entry.NSPrivacyCollectedDataTypePurposes)
+        && entry.NSPrivacyCollectedDataTypePurposes.length === 1
+        && entry.NSPrivacyCollectedDataTypePurposes[0]
+          === "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+      ));
+    return {
+      types,
+      exact: declarationsValid
+        && JSON.stringify(types) === JSON.stringify(EXPECTED_COLLECTED_DATA_TYPES),
+    };
+  }
+
+  const types = [...contents.matchAll(
+    /<key>NSPrivacyCollectedDataType<\/key>\s*<string>([^<]+)<\/string>/g,
+  )].map((match) => match[1]).sort();
+  const declarationsValid = types.length === EXPECTED_COLLECTED_DATA_TYPES.length
+    && EXPECTED_COLLECTED_DATA_TYPES.every((type) => {
+      const typeIndex = contents.indexOf(`<string>${type}</string>`);
+      if (typeIndex < 0) return false;
+      const start = contents.lastIndexOf("<dict>", typeIndex);
+      const end = contents.indexOf("</dict>", typeIndex);
+      if (start < 0 || end < 0) return false;
+      const declaration = contents.slice(start, end);
+      return /<key>NSPrivacyCollectedDataTypeLinked<\/key>\s*<true\s*\/>/.test(declaration)
+        && /<key>NSPrivacyCollectedDataTypeTracking<\/key>\s*<false\s*\/>/.test(declaration)
+        && /<key>NSPrivacyCollectedDataTypePurposes<\/key>[\s\S]*<string>NSPrivacyCollectedDataTypePurposeAppFunctionality<\/string>/.test(declaration);
+    });
+  return {
+    types,
+    exact: declarationsValid
+      && JSON.stringify(types) === JSON.stringify(EXPECTED_COLLECTED_DATA_TYPES),
+  };
+}
+
 export async function privacyManifestEvidence(file, relativePath) {
   if (!(await nonEmptyFile(file))) return null;
   const contents = await readFile(file, "utf8");
@@ -144,11 +195,14 @@ export async function privacyManifestEvidence(file, relativePath) {
       ))
     : contents.includes("NSPrivacyAccessedAPICategoryUserDefaults")
       && /<string>CA92\.1<\/string>/.test(contents);
+  const collectedData = collectedDataEvidence(decoded, contents);
   return {
     path: relativePath,
     bytes: metadata.size,
     missingKeys,
     userDefaultsReasonCA921,
+    collectedDataTypes: collectedData.types,
+    collectedDataTypesExact: collectedData.exact,
     status: missingKeys.length
       ? "invalid"
       : emptyDeclarations
@@ -166,6 +220,9 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
   if (usesPreferences && !sourceManifest?.userDefaultsReasonCA921) {
     failures.push("PrivacyInfo.xcprivacy must declare UserDefaults reason CA92.1 for @capacitor/preferences");
   }
+  if (!sourceManifest?.collectedDataTypesExact) {
+    failures.push("PrivacyInfo.xcprivacy must exactly declare linked, non-tracking Coarse Location, Product Interaction, and Other Diagnostic Data for App Functionality");
+  }
 
   let builtApp = null;
   if (appPath && await exists(appPath)) {
@@ -176,6 +233,9 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
     );
     if (usesPreferences && !appManifest?.userDefaultsReasonCA921) {
       failures.push("built app privacy manifest is missing UserDefaults reason CA92.1");
+    }
+    if (!appManifest?.collectedDataTypesExact) {
+      failures.push("built app privacy manifest does not match the approved operational request-data declarations");
     }
     const executable = path.join(appPath, "App");
     let linkedLibraries = [];
@@ -200,7 +260,7 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
   return {
     sourceManifest,
     builtApp,
-    limitation: "The declared Preferences/UserDefaults reason and empty tracking/data arrays remain provisional until the built binary, linked dependencies, SDK manifests, App Store privacy report, and real-device behavior are reviewed.",
+    limitation: "The declared Preferences/UserDefaults reason and operational request-data types must still be reconciled with the built binary, linked dependencies, SDK manifests, App Store privacy report, hosting configuration, and real-device behavior.",
   };
 }
 
@@ -273,6 +333,51 @@ async function inspectLocalShell(root, failures) {
         failures.push(`${path.relative(root, file)} contains a ${rule.label}`);
       }
     }
+  }
+}
+
+async function inspectBundledShellCopy(root, copiedRoot, label, failures) {
+  const canonicalRoot = path.join(root, "ios-web");
+  const canonicalManifestPath = path.join(canonicalRoot, "build-manifest.json");
+  const copiedManifestPath = path.join(copiedRoot, "build-manifest.json");
+  if (!(await nonEmptyFile(canonicalManifestPath))) {
+    failures.push("ios-web build manifest is missing; run npm run mobile:build");
+    return;
+  }
+  if (!(await nonEmptyFile(copiedManifestPath))) {
+    failures.push(`${label} build manifest is missing; run the platform sync command`);
+    return;
+  }
+  const [canonicalManifestText, copiedManifestText] = await Promise.all([
+    readFile(canonicalManifestPath, "utf8"),
+    readFile(copiedManifestPath, "utf8"),
+  ]);
+  if (canonicalManifestText !== copiedManifestText) {
+    failures.push(`${label} build manifest is stale relative to ios-web; run the platform sync command`);
+    return;
+  }
+  try {
+    const manifest = JSON.parse(canonicalManifestText);
+    const files = ["index.html", "offline.html", ...(manifest.assets ?? []).map((asset) => (
+      typeof asset === "string" && asset.startsWith("./") ? asset.slice(2) : ""
+    ))];
+    for (const relative of files) {
+      if (!relative) {
+        failures.push(`${label} manifest contains an invalid bundled asset`);
+        continue;
+      }
+      const canonical = path.join(canonicalRoot, relative);
+      const copied = path.join(copiedRoot, relative);
+      if (
+        !(await nonEmptyFile(canonical))
+        || !(await nonEmptyFile(copied))
+        || await sha256File(canonical) !== await sha256File(copied)
+      ) {
+        failures.push(`${label} contains a stale or missing bundled file: ${relative}`);
+      }
+    }
+  } catch {
+    failures.push(`${label} build manifest could not be verified`);
   }
 }
 
@@ -368,6 +473,12 @@ export async function inspectIosRelease({ root = process.cwd(), appPath = null }
   const generated = await json(generatedPath, failures, "generated Capacitor config");
   validateCapacitorConfig(generated, failures, "generated Capacitor config");
   await inspectLocalShell(root, failures);
+  await inspectBundledShellCopy(
+    root,
+    path.join(root, "ios/App/App/public"),
+    "generated iOS shell",
+    failures,
+  );
   await inspectXcodeProject(root, failures);
   await inspectBuiltApp(root, appPath, failures);
   const privacyEvidence = await inspectPrivacyEvidence(root, appPath, failures);

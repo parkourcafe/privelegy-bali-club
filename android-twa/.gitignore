@@ -1,9 +1,0 @@
-.gradle/
-.idea/
-local.properties
-release-key.jks
-release-signing.properties
-app/build/
-build/
-*.apk
-*.aab

@@ -13,6 +13,12 @@ const sourceManifest = path.resolve("ios/App/App/PrivacyInfo.xcprivacy");
 function assertPreferencesDeclaration(evidence) {
   assert.deepEqual(evidence?.missingKeys, []);
   assert.equal(evidence?.userDefaultsReasonCA921, true);
+  assert.deepEqual(evidence?.collectedDataTypes, [
+    "NSPrivacyCollectedDataTypeCoarseLocation",
+    "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+    "NSPrivacyCollectedDataTypeProductInteraction",
+  ]);
+  assert.equal(evidence?.collectedDataTypesExact, true);
   assert.equal(evidence?.status, "declared-values-require-review");
 }
 

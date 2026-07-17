@@ -365,12 +365,18 @@ Decided stack:
 - Supabase Storage for approved partner assets;
 - Vercel hosting;
 - PWA first;
+- Capacitor 8 for the approved bundled iOS/Android catalogue shell;
 - Google Maps deep links for navigation;
 - TablePilot for the current billable reservation loop;
 - WhatsApp prefilled links for transactional handoffs;
 - existing QR library for active-deep offer redemption.
 
-Capacitor may remain in the repository, but it is not permission for a native rewrite. Public product delivery remains web/PWA-first unless architecture is explicitly amended.
+The public website remains web/PWA-first. The approved store product is a
+bounded Capacitor shell that bundles the `Places / Routes / Saved` interface and
+uses the versioned, read-only `/api/mobile/v1` contracts. This exception is not
+permission for an unrelated native rewrite or for embedding the production
+website as a remote wrapper; any broader native scope requires another explicit
+architecture amendment.
 
 ---
 

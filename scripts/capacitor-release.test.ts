@@ -31,18 +31,32 @@ test("Capacitor development server is opt-in and private-network only", () => {
 
 test("iOS verification rejects stale source and archive command rebuilds then syncs", () => {
   const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
-  assert.match(packageJson.scripts["ios:archive:dry"], /mobile:build.*mobile:sync.*--archive/);
+  assert.match(packageJson.scripts["ios:archive:dry"], /mobile:build.*mobile:sync:ios.*--archive/);
   const buildScript = readFileSync(new URL("./build-mobile-shell.mjs", import.meta.url), "utf8");
   const releaseGuard = readFileSync(new URL("./ios-release-core.mjs", import.meta.url), "utf8");
+  const xcodeProject = readFileSync(
+    new URL("../ios/App/App.xcodeproj/project.pbxproj", import.meta.url),
+    "utf8",
+  );
+  const xcodePreflight = readFileSync(new URL("./xcode-release-preflight.sh", import.meta.url), "utf8");
   assert.match(buildScript, /sourceInputs/);
   assert.match(buildScript, /sourceHash/);
   assert.match(buildScript, /package-lock\.json/);
   assert.match(releaseGuard, /ios-web is stale relative to mobile\/shared source/);
   assert.match(releaseGuard, /built app contains a stale mobile shell manifest/);
+  assert.match(releaseGuard, /inspectBundledShellCopy/);
+  assert.match(releaseGuard, /"generated iOS shell"/);
+  assert.match(xcodeProject, /Verify Release Shell/);
+  assert.match(xcodeProject, /xcode-release-preflight\.sh/);
+  assert.match(xcodePreflight, /CONFIGURATION.*Release/);
+  assert.match(xcodePreflight, /verify-ios-release\.mjs --config-only/);
 });
 
-test("native bridge plugins are exact and Preferences has its required privacy reason", () => {
+test("native bridge plugins and privacy declarations match the approved release scope", () => {
   const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+  assert.equal(packageJson.dependencies["@capacitor/core"], "8.4.1");
+  assert.equal(packageJson.dependencies["@capacitor/ios"], "8.4.1");
+  assert.equal(packageJson.dependencies["@capacitor/android"], "8.4.1");
   assert.deepEqual(
     Object.fromEntries([
       "@capacitor/app",
@@ -64,4 +78,17 @@ test("native bridge plugins are exact and Preferences has its required privacy r
   const privacy = readFileSync(new URL("../ios/App/App/PrivacyInfo.xcprivacy", import.meta.url), "utf8");
   assert.match(privacy, /NSPrivacyAccessedAPICategoryUserDefaults/);
   assert.match(privacy, /<string>CA92\.1<\/string>/);
+  for (const type of [
+    "NSPrivacyCollectedDataTypeCoarseLocation",
+    "NSPrivacyCollectedDataTypeProductInteraction",
+    "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+  ]) {
+    assert.match(privacy, new RegExp(`<string>${type}<\\/string>`));
+  }
+  const storePrivacy = readFileSync(
+    new URL("../docs/store-privacy-declarations.md", import.meta.url),
+    "utf8",
+  );
+  assert.doesNotMatch(storePrivacy, /Does the app collect data\? \*\*No\*\*/i);
+  assert.match(storePrivacy, /Never answer[\s\S]*Data Not\s+Collected/);
 });

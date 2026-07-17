@@ -1,5 +1,10 @@
 # Other Bali Store Release Status
 
+> **SUPERSEDED — DO NOT USE FOR RELEASE.** This document describes the retired
+> TWA/day-builder candidate. The canonical 1.0 release evidence is
+> `docs/release/other-bali-1.0.md`; current listing copy is
+> `docs/store-submission-package.md`.
+
 Date: 2026-07-14
 Branch: `app/store-release-foundation`
 

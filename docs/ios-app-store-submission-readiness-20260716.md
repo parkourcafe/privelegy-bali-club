@@ -1,5 +1,9 @@
 # Other Bali iOS — App Review readiness
 
+> **SUPERSEDED — DO NOT SUBMIT.** This readiness record is for retired build 2.
+> The current candidate is iOS 1.0 (4); use
+> `docs/release/other-bali-1.0.md` and `docs/store-submission-package.md`.
+
 Date: 2026-07-16
 Candidate: `1.0 (2)`
 App Store Connect ID: `6791214357`

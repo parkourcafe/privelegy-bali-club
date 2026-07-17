@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type {
   MobileRouteDetail,
   MobileRouteSummary,
@@ -10,8 +10,10 @@ import { fetchBootstrap, fetchRouteDetail, fetchVenueDetail } from "./api";
 import type { MobileBootstrapPayload } from "./contracts";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
 import {
+  exitMobileApp,
   openControlledExternal,
   shareMobileTarget,
+  startBackButtonMonitoring,
   startDeepLinkMonitoring,
   startNetworkMonitoring,
 } from "./native-runtime";
@@ -24,6 +26,7 @@ import {
   writeSavedRouteState,
   writeSavedVenueState,
   type MobileSurface,
+  type MobileNavigationState,
   type SavedRouteSnapshot,
   type SavedVenueSnapshot,
 } from "./storage";
@@ -321,6 +324,23 @@ export default function App() {
   const persistedRouteState = useRef<PersistedRouteState>({ ids: [], snapshots: [] });
   const venuePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
   const routePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
+  const storageReadyRef = useRef(storageReady);
+  const navigationSnapshotRef = useRef<MobileNavigationState>({
+    surface,
+    selectedVenueId,
+    selectedRouteId,
+    scrollY: 0,
+  });
+
+  useLayoutEffect(() => {
+    storageReadyRef.current = storageReady;
+    navigationSnapshotRef.current = {
+      ...navigationSnapshotRef.current,
+      surface,
+      selectedVenueId,
+      selectedRouteId,
+    };
+  }, [selectedRouteId, selectedVenueId, storageReady, surface]);
 
   const enqueueVenueState = useCallback((
     transform: (current: PersistedVenueState) => PersistedVenueState,
@@ -378,6 +398,7 @@ export default function App() {
         setSelectedVenueId(state.navigation.selectedVenueId);
         setSelectedRouteId(state.navigation.selectedRouteId);
         setInitialScrollY(state.navigation.scrollY);
+        navigationSnapshotRef.current = state.navigation;
         setStorageReady(true);
       })
       .catch(() => {
@@ -458,11 +479,9 @@ export default function App() {
   }, [refresh, storageReady]);
 
   const persistNavigation = useCallback(() => writeNavigationState({
-    surface,
-    selectedVenueId,
-    selectedRouteId,
+    ...navigationSnapshotRef.current,
     scrollY: Math.max(0, window.scrollY),
-  }), [selectedRouteId, selectedVenueId, surface]);
+  }), []);
 
   useEffect(() => {
     if (!storageReady) return;
@@ -495,6 +514,50 @@ export default function App() {
     setDeepLinkFailed(false);
     setPendingDeepLink(target);
   }, []);
+
+  const handleBackButton = useCallback(() => {
+    if (!storageReadyRef.current) {
+      void exitMobileApp().catch(() => {});
+      return;
+    }
+
+    const navigation = navigationSnapshotRef.current;
+    if (navigation.selectedVenueId || navigation.selectedRouteId) {
+      const rootNavigation = {
+        ...navigation,
+        selectedVenueId: null,
+        selectedRouteId: null,
+        scrollY: 0,
+      };
+      navigationSnapshotRef.current = rootNavigation;
+      setSelectedVenueId(null);
+      setSelectedRouteId(null);
+      window.scrollTo({ top: 0, behavior: "auto" });
+      void writeNavigationState(rootNavigation).catch(() => setStorageWriteFailed(true));
+      return;
+    }
+
+    void persistNavigation()
+      .catch(() => setStorageWriteFailed(true))
+      .finally(() => void exitMobileApp().catch(() => {}));
+  }, [persistNavigation]);
+
+  useEffect(() => {
+    let disposed = false;
+    let handle: Awaited<ReturnType<typeof startBackButtonMonitoring>> = null;
+    void startBackButtonMonitoring(() => {
+      if (!disposed) handleBackButton();
+    }).then((next) => {
+      if (disposed && next) void next.remove();
+      else handle = next;
+    }).catch(() => {
+      // iOS and web have no Android hardware-back event.
+    });
+    return () => {
+      disposed = true;
+      if (handle) void handle.remove();
+    };
+  }, [handleBackButton]);
 
   useEffect(() => {
     if (!storageReady) return;

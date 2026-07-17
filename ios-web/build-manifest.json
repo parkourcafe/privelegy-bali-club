@@ -3,7 +3,7 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-FH6XH5IZ.js",
+    "./assets/app-K4J2NMO2.js",
     "./assets/app-TQJUAL7L.css"
   ],
   "sourceInputs": [
@@ -22,5 +22,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "d777506a456af88ba35f58cee92291445f8d365db3fae2be8df46f5cac3cf9f5"
+  "sourceHash": "7b914ee7623dcd263453762e4ec3ee6af2b92fddefa4a89addb42eb1bd048e85"
 }

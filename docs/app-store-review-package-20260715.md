@@ -1,5 +1,9 @@
 # Other Bali — App Store review package
 
+> **SUPERSEDED — DO NOT SUBMIT.** This package belongs to retired iOS build 2
+> and the day-builder product. Use `docs/release/other-bali-1.0.md` and
+> `docs/store-submission-package.md` for the current build 4 catalogue app.
+
 Date: 2026-07-16
 Owner: Agent B (store readiness)
 Status: build `1.0 (2)` is uploaded, processed and installed through
