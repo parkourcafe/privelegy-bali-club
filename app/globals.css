@@ -78,6 +78,8 @@ button {
 
 html {
   scroll-behavior: smooth;
+  /* keep in-page anchor targets clear of the sticky site header */
+  scroll-padding-top: 64px;
 }
 
 .site-shell {
@@ -1967,7 +1969,8 @@ html {
   }
   .venue-detail-aside {
     position: sticky;
-    top: 24px;
+    /* clear the sticky site header (≈52px) so the card isn't tucked behind it */
+    top: 76px;
   }
 }
 
@@ -2735,3 +2738,79 @@ html {
   transition: background 160ms ease, transform 160ms ease;
 }
 .ob-browse-chip:hover { background: rgba(250, 246, 239, 0.18); transform: translateY(-1px); }
+
+/* ── Persistent site header (GlobalHeader) — every inner page (2026-07) ──
+   A slim, sticky brand bar so a venue or guide page is never a dead end:
+   the logo returns home and the four section links are always reachable.
+   The cinematic homepage keeps its own overlay nav (this renders null there). */
+.ob-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  -webkit-backdrop-filter: saturate(1.1) blur(8px);
+  backdrop-filter: saturate(1.1) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.ob-site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100% - 32px, 1120px);
+  margin: 0 auto;
+  min-height: 52px;
+  padding: 8px 0;
+}
+.ob-site-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex-shrink: 0;
+}
+.ob-site-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.ob-site-nav::-webkit-scrollbar {
+  display: none;
+}
+.ob-site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--muted);
+  transition: background 150ms ease, color 150ms ease;
+}
+.ob-site-nav a:hover {
+  color: var(--ink);
+  background: var(--paper-soft);
+}
+.ob-site-nav a[data-active="true"] {
+  color: var(--lagoon-strong);
+  background: var(--paper-soft);
+}
+
+/* ── Scroll-shimmer fix for grained mastheads ──────────────────────────
+   The hero mastheads layer an feTurbulence noise grain (mix-blend) over a
+   photo. On mobile the browser re-rasterizes that grain every scroll frame,
+   which reads as the hero "trembling". Promoting each masthead to its own
+   compositor layer caches the grain raster so it scrolls as one bitmap —
+   appearance is unchanged, the shimmer is gone. */
+.venue-masthead,
+.pillar-masthead,
+.places-masthead,
+.ob-photo-band {
+  transform: translateZ(0);
+  will-change: transform;
+}
