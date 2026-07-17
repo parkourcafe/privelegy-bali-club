@@ -64,7 +64,7 @@ And if any detail is off — opening hours, a signature dish, anything — just
 reply and we'll update it the same day.
 
 Warmly,
-Selena · Other Bali
+Fadjri · Other Bali Team
 
 ## Personalisation tokens
 
