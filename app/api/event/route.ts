@@ -4,6 +4,7 @@ import { parseEventRequest } from "@/lib/actions/event-safety";
 import { asEventRpcClient } from "@/lib/actions/event-compat";
 import { storeEvent } from "@/lib/actions/event-store";
 import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
+import { getGuestSource } from "@/lib/data";
 import { serviceClient } from "@/lib/supabase/service";
 import { CONSENT_COOKIE } from "@/lib/consent";
 
@@ -37,11 +38,17 @@ export async function POST(req: Request) {
   const { ref, created } = await resolveGuestRef();
   const sb = serviceClient();
   if (sb) {
+    // Stamp the guest's first-touch acquisition source onto the event so a
+    // source breakdown reads directly off the events table (P0-1). A brand-new
+    // guest has no bound source yet; downstream events pick it up once
+    // /api/source has run.
+    const source = created ? null : await getGuestSource(ref);
     await storeEvent(asEventRpcClient(sb), {
       type: parsed.event.type,
       guestRef: ref,
       venueSlug: parsed.event.venueSlug,
       payload: parsed.event.payload,
+      source,
     });
   }
 

@@ -12,7 +12,10 @@ export type LogEventV2Args = {
   p_type: string;
   p_guest_ref: string;
   p_venue_slug: string | null;
-  p_source: null;
+  // First-touch acquisition source (villa_canggu_01, meta_au, …) or null. The
+  // deployed log_event/log_event_v2 RPCs already accept a text p_source; it was
+  // previously always null at this boundary.
+  p_source: string | null;
   p_payload: SafeEventPayload | null;
 };
 
@@ -20,7 +23,7 @@ export type LegacyLogEventArgs = {
   p_type: string;
   p_guest_ref: string;
   p_venue_slug: string | null;
-  p_source: null;
+  p_source: string | null;
 };
 
 export interface EventRpcClient {

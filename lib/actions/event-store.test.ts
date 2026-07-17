@@ -24,6 +24,7 @@ function input(): EventStoreInput {
       capabilityId: "capability-123",
       venueSlug: "fixture-venue",
     },
+    source: null,
   };
 }
 
@@ -87,6 +88,7 @@ test("sends preserved events directly to legacy so v2 cannot drop them", async (
     guestRef: "g_testguest123456",
     venueSlug: "fixture-venue",
     payload: null,
+    source: null,
   });
 
   assert.deepEqual(calls, [
@@ -140,6 +142,31 @@ test("never falls back for permission, validation, or network errors", async () 
     assert.equal(result.stored, false);
     assert.equal(result.version, "v2");
   }
+});
+
+test("stamps the guest's first-touch source onto both rpc shapes", async () => {
+  // v2 path (action event) carries the source
+  const v2 = rpcClient([{ error: null }]);
+  await storeEvent(v2.client, { ...input(), source: "villa_canggu_01" });
+  assert.equal(
+    (v2.calls[0].args as LogEventV2Args).p_source,
+    "villa_canggu_01"
+  );
+
+  // legacy path (preserved event) carries the source too
+  const legacy = rpcClient([{ error: null }]);
+  await storeEvent(legacy.client, {
+    type: "reservation_click",
+    guestRef: "g_testguest123456",
+    venueSlug: "fixture-venue",
+    payload: null,
+    source: "meta_au",
+  });
+  assert.equal(legacy.calls[0].name, "log_event");
+  assert.equal(
+    (legacy.calls[0].args as LegacyLogEventArgs).p_source,
+    "meta_au"
+  );
 });
 
 test("reports a legacy write failure without retrying", async () => {
