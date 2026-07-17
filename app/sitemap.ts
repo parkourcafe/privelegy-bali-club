@@ -88,6 +88,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    // My Day — the morning-to-night plan built from live collections.
+    { url: `${BASE}/my-day`, changeFrequency: "weekly" as const, priority: 0.8 },
     // Taste Collections — cuisine hub + the collections currently past the
     // publication gate. Held collections are omitted (they 404 until live).
     { url: `${BASE}/collections`, changeFrequency: "weekly" as const, priority: 0.8 },
