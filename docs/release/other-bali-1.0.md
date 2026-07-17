@@ -6,7 +6,7 @@ it is not a claim that signed artifacts were submitted or published.
 ## Canonical line
 
 - Branch: `release/other-bali-1.0`
-- Production integration base: `0cca444b09c1b76308d2722aca2f9ab0949ffef8`
+- Production integration base: `83a3353a535baa263d3a7d44fdc65a23838bb108`
 - Web/API origin: `https://www.otherbali.com`
 - iOS: `com.otherbali.app`, version `1.0`, build `4`, minimum iOS 15
 - Android: `com.otherbali.app`, version `1.0.0`, version code `2`, minimum API 24, target API 36
@@ -24,7 +24,10 @@ the production `venues`, `districts`, `routes`, `route_stops` and `plan_entries`
 structures already used by the website. Do not apply the old `0035`–`0041`
 migration series as part of this release.
 
-Verified against production source `0cca444b09c1`:
+The mobile API contract entered production at `0cca444b09c1`. The live endpoints
+were reverified after integrating current `main` (`83a3353a535b`); Vercel reports
+the active production deployment as `dpl_7sK57Jga4ySBsCtE5jBYqyKXYMJU`, but does
+not expose its Git commit through the available read-only CLI response:
 
 - `/api/mobile/v1/bootstrap`: HTTP 200, schema 1, 89 venues, 15 districts, 3 routes
 - `/api/mobile/v1/config`: HTTP 200
