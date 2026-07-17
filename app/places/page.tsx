@@ -19,6 +19,7 @@ import { MOMENT_BY_SLUG } from "@/lib/catalogue-moments";
 import { DISTRICT_GUIDE } from "@/lib/districts";
 
 const PAGE_SIZE = 24;
+const METADATA_BASE = "https://www.otherbali.com";
 
 // Canonicalize the district-filtered tool view onto its hub page so the
 // query-param surface doesn't compete with /bali/[district] for ranking
@@ -33,11 +34,28 @@ export async function generateMetadata({
   const district = firstParam(params.district);
   const hubs = district ? await getDistrictHubs() : [];
   const hub = hubs.find((h) => h.slug === district);
+  const canonical = hub ? `/bali/${hub.slug}` : "/places";
+  const title = "Places to eat, drink & go in Bali — by district";
+  const description =
+    "A curated, resident-checked map of Bali by district — cafés, restaurants, beach clubs, bars and wellness, with who each place suits and what to expect. Free to browse; travellers never pay.";
+  const ogTitle = "Places across Bali · Other Bali";
   return {
-    title: "Places to eat, drink & go in Bali — by district",
-    description:
-      "A curated, resident-checked map of Bali by district — cafés, restaurants, beach clubs, bars and wellness, with who each place suits and what to expect. Free to browse; travellers never pay.",
-    alternates: { canonical: hub ? `/bali/${hub.slug}` : "/places" },
+    title,
+    description,
+    alternates: { canonical },
+    // Own OG block so a shared /places (or district-filtered) link previews as
+    // the Bali map, not the home page (P0-2). og:url tracks the canonical.
+    openGraph: {
+      title: ogTitle,
+      description,
+      url: `${METADATA_BASE}${canonical}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description,
+    },
   };
 }
 

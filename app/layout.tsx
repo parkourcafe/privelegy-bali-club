@@ -33,8 +33,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Other Bali — the right place for the moment you're in",
+    // Unified positioning: planning is Bali-wide, confirmed offers are Canggu
+    // (P0-2). Keep this consistent with the Twitter card and the deep pages.
     description:
-      "A free, curated guide to Canggu. Pick a place by the moment you're in, grab a confirmed offer, hand off to a booked table. Travellers never pay.",
+      "The right place for the moment you're in. Bali-wide planning, Canggu confirmed offers — pick a place, grab a confirmed offer, hand off to a booked table. Travellers never pay.",
     url: "https://www.otherbali.com",
     siteName: "Other Bali",
     locale: "en_US",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Other Bali — the right place for the moment you're in",
     description:
-      "A free, curated guide to Bali. Tell us the day; get the places that actually fit — not another list to scroll. Travellers never pay.",
+      "The right place for the moment you're in. Bali-wide planning, Canggu confirmed offers. Travellers never pay.",
   },
 };
 

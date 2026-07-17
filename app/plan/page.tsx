@@ -5,11 +5,27 @@ import PlanView from "../PlanView";
 
 export const revalidate = 300;
 
+const BASE = "https://www.otherbali.com";
+const PLAN_DESCRIPTION =
+  "Build a Canggu day by the moment you're in — breakfast, work-friendly cafés, sunset, dinner. Curated picks with directions and confirmed offers. Free; travellers never pay.";
+
 export const metadata = {
   title: "Plan my Canggu day",
-  description:
-    "Build a Canggu day by the moment you're in — breakfast, work-friendly cafés, sunset, dinner. Curated picks with directions and confirmed offers. Free; travellers never pay.",
+  description: PLAN_DESCRIPTION,
   alternates: { canonical: "/plan" },
+  // Own OG block so a shared /plan link previews as the planner, not the home
+  // page (P0-2). og:url must equal this page's canonical.
+  openGraph: {
+    title: "Plan my Canggu day · Other Bali",
+    description: PLAN_DESCRIPTION,
+    url: `${BASE}/plan`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plan my Canggu day · Other Bali",
+    description: PLAN_DESCRIPTION,
+  },
 };
 
 // The working tourist tool. The cinematic landing at / funnels here; this page
