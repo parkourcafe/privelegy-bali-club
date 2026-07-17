@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -87,24 +88,22 @@ export default async function NusaDuaPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Nusa Dua · South-east coast</p>
-          <h1 className="hero-title mt-2">Nusa Dua, the calm resort enclave</h1>
-          <p className="hero-copy">
-            A gated, manicured enclave of beachfront five-star resorts on Bali&apos;s
-            south-east tip: calm swimmable beaches, a walkable seafront promenade,
-            resort fine dining and some of the island&apos;s biggest spas. It&apos;s
-            the low-friction, family-safe end of Bali — this guide covers who it
-            suits, its beaches, what to do, where to eat and where to be looked
-            after, curated from places we actually rate.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: {NUSA_DUA_REVIEW_DATE} · researched, not sponsored · no paid ranking
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/places?district=nusa-dua" className="button-secondary button-large">Browse all Nusa Dua places</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-nusa-dua"
+          variant="surf"
+          kicker="Nusa Dua · South-east coast"
+          title="Nusa Dua, the calm resort enclave"
+          copy="A gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip: calm swimmable beaches, a walkable seafront promenade, resort fine dining and some of the island's biggest spas. It's the low-friction, family-safe end of Bali — this guide covers who it suits, its beaches, what to do, where to eat and where to be looked after, curated from places we actually rate."
+          meta={`Editorial review: ${NUSA_DUA_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
+          actions={
+            <Link
+              href="/places?district=nusa-dua"
+              className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+            >
+              Browse all Nusa Dua places
+            </Link>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Dua guides">
           {NUSA_DUA_CHIPS.map((c) => (

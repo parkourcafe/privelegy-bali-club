@@ -4,6 +4,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import { guidesForDistrict } from "@/lib/guides";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES } from "@/lib/ubud-guides";
@@ -100,22 +101,23 @@ export default async function UbudPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Ubud · Central highlands</p>
-          <h1 className="hero-title mt-2">Ubud, the slow green heart of Bali</h1>
-          <p className="hero-copy">
-            Rice terraces, jungle mornings, yoga and long healthy dinners — Ubud is
-            the island&apos;s cultural, inland base, not a beach one. This guide covers
-            where to eat, where to drink coffee, and where to practise yoga, be
-            worked on and reset — curated from places we actually rate.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: {UBUD_REVIEW_DATE} · researched, not sponsored · no paid ranking
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/places?district=ubud" className="button-secondary button-large">Browse all Ubud places</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-ubud"
+          variant="ridge"
+          videoSrc="/scenes/ubud-dawn-loop.mp4"
+          kicker="Ubud · Central highlands"
+          title="Ubud, the slow green heart of Bali"
+          copy="Rice terraces, jungle mornings, yoga and long healthy dinners — Ubud is the island's cultural, inland base, not a beach one. This guide covers where to eat, where to drink coffee, and where to practise yoga, be worked on and reset — curated from places we actually rate."
+          meta={`Editorial review: ${UBUD_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
+          actions={
+            <Link
+              href="/places?district=ubud"
+              className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+            >
+              Browse all Ubud places
+            </Link>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Ubud guides">
           <Link href="/ubud/things-to-do" className="chip">

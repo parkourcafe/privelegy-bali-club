@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -87,25 +88,22 @@ export default async function NusaPenidaPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Nusa Penida · Off the south-east coast</p>
-          <h1 className="hero-title mt-2">Nusa Penida, the island of cliffs and mantas</h1>
-          <p className="hero-copy">
-            A rugged island a 30–45 minute fast boat off Bali&apos;s south-east
-            coast, and the source of its most-photographed view: the Kelingking
-            &ldquo;T-Rex&rdquo; cliff. It&apos;s big-landscape, adventure Bali —
-            dramatic coves, clifftop stairways and year-round manta rays over
-            comfort and polish. This guide covers who it suits, the two loops
-            (west and east), the headline sights and the water-safety that
-            genuinely matters here, curated from verified research — not sponsored.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: {NUSA_PENIDA_REVIEW_DATE} · researched, not sponsored · no paid ranking
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/nusa-penida-day-trip" className="button-secondary button-large">How to do the day trip →</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-nusa-islands"
+          variant="surf"
+          kicker="Nusa Penida · Off the south-east coast"
+          title="Nusa Penida, the island of cliffs and mantas"
+          copy={`A rugged island a 30–45 minute fast boat off Bali's south-east coast, and the source of its most-photographed view: the Kelingking “T-Rex” cliff. It's big-landscape, adventure Bali — dramatic coves, clifftop stairways and year-round manta rays over comfort and polish. This guide covers who it suits, the two loops (west and east), the headline sights and the water-safety that genuinely matters here, curated from verified research — not sponsored.`}
+          meta={`Editorial review: ${NUSA_PENIDA_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
+          actions={
+            <Link
+              href="/nusa-penida-day-trip"
+              className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+            >
+              How to do the day trip →
+            </Link>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Penida guide">
           {NUSA_PENIDA_CHIPS.map((c) => (
