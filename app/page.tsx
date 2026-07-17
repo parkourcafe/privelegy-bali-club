@@ -868,6 +868,14 @@ function SiteFooter() {
           <Link href="/support" className={footerLink}>
             Support
           </Link>
+          <a
+            href="https://wa.me/6282339630988?text=Hi%20Other%20Bali%20%F0%9F%91%8B%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={footerLink}
+          >
+            WhatsApp
+          </a>
           <a href="#trust" className={footerLink}>
             Why free
           </a>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SUPPORT_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 
 export const metadata = {
   title: "Support",
@@ -24,6 +25,24 @@ export default function SupportPage() {
         </p>
 
         <div className="mt-10 rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-6 text-[var(--ink)]">
+          <p className="text-sm font-bold uppercase tracking-widest text-[var(--muted)]">
+            WhatsApp — fastest
+          </p>
+          <a
+            href={SUPPORT_WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex min-h-11 items-center text-lg font-semibold text-[var(--lagoon-strong)]"
+          >
+            Chat on WhatsApp · {WHATSAPP_NUMBER_DISPLAY}
+          </a>
+          <p className="mt-4 text-sm text-[var(--muted)]">
+            The quickest way to reach the team — opens a chat with a short
+            message started for you.
+          </p>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-6 text-[var(--ink)]">
           <p className="text-sm font-bold uppercase tracking-widest text-[var(--muted)]">
             Email
           </p>
