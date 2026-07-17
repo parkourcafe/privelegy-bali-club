@@ -48,7 +48,7 @@ rehearsal and new forward-only timestamped migrations.
 
 ## Local evidence completed
 
-- `npm test`: 70 tests passed.
+- `npm test`: 69 tests passed.
 - `npm run typecheck`: passed.
 - `npm run lint`: no errors (one pre-existing `<img>` performance warning).
 - `npm run ios:native-readiness`: passed.

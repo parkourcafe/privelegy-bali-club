@@ -301,8 +301,12 @@ async function inspectXcodeProject(root, failures) {
   if (!(await nonEmptyFile(infoPath))) failures.push("Info.plist is missing");
   else {
     const info = await readFile(infoPath, "utf8");
-    if (/UIDesignRequiresCompatibility|<string>armv7<\/string>|UISupportedInterfaceOrientations~ipad/.test(info)) {
-      failures.push("Info.plist contains obsolete or unverified device compatibility settings");
+    // UIDesignRequiresCompatibility is an Apple-documented temporary iOS 26
+    // compatibility mode, and the inherited iPad orientation list is inert for
+    // this iPhone-only target (TARGETED_DEVICE_FAMILY = 1). Neither is a
+    // release failure. A legacy armv7 requirement would still be invalid.
+    if (/<string>armv7<\/string>/.test(info)) {
+      failures.push("Info.plist contains an obsolete armv7 device requirement");
     }
   }
   if (!(await nonEmptyFile(privacyPath))) failures.push("PrivacyInfo.xcprivacy is missing");
