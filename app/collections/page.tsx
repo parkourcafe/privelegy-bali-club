@@ -55,28 +55,39 @@ export default async function CollectionsHubPage() {
           <p className="guide-meta-line">{CURATION_NOTE}</p>
         </header>
 
-        <section className="guide-section">
-          <div className="mt-2 grid gap-4 sm:grid-cols-2">
-            {live.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/collections/${c.slug}`}
-                className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
-              >
-                <h2 className="venue-name">{c.title}</h2>
-                <p className="mt-1 text-sm text-[var(--muted)]">{c.intro}</p>
-                <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
-                  See the {c.taste.toLowerCase()} collection →
-                </span>
-              </Link>
-            ))}
-          </div>
-          {live.length === 0 && (
-            <p className="text-sm text-[var(--muted)]">
-              Collections are being curated — check back soon.
-            </p>
-          )}
-        </section>
+        {([
+          { kind: "taste" as const, heading: "By taste", note: "A craving, island-wide — cuisines across every area." },
+          { kind: "moment" as const, heading: "By moment", note: "Not what you're eating — the night you're having." },
+        ]).map((group) => {
+          const items = live.filter((c) => c.kind === group.kind);
+          if (items.length === 0) return null;
+          return (
+            <section key={group.kind} className="guide-section">
+              <h2>{group.heading}</h2>
+              <p className="text-sm text-[var(--muted)]">{group.note}</p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                {items.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/collections/${c.slug}`}
+                    className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
+                  >
+                    <h3 className="venue-name">{c.title}</h3>
+                    <p className="mt-1 text-sm text-[var(--muted)]">{c.intro}</p>
+                    <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
+                      See the {c.taste.toLowerCase()} collection →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+        {live.length === 0 && (
+          <p className="text-sm text-[var(--muted)]">
+            Collections are being curated — check back soon.
+          </p>
+        )}
 
         <GuideFooter />
       </main>

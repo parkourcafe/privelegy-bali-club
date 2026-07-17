@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default async function BaliIndexPage() {
   const hubs = await getDistrictHubs();
   const liveTaste = new Set(await liveCollectionSlugs());
-  const tasteCollections = COLLECTIONS.filter((c) => liveTaste.has(c.slug));
+  const tasteCollections = COLLECTIONS.filter((c) => c.kind === "taste" && liveTaste.has(c.slug));
 
   const jsonLd = [
     {
