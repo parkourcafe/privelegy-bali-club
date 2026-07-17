@@ -20,3 +20,7 @@ export const SUPPORT_WHATSAPP_URL = whatsappLink(
 export const VENUES_WHATSAPP_URL = whatsappLink(
   "Hi Other Bali 👋 I have a question about listing my venue: "
 );
+
+export const VILLAS_WHATSAPP_URL = whatsappLink(
+  "Hi Other Bali 👋 I'd like to add my villa to the partner network. Villa name and area: "
+);

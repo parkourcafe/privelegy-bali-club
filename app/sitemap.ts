@@ -31,6 +31,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/places`, changeFrequency: "daily", priority: 0.8 },
     // Venue self-submission intake ("add your place") — owners search for this.
     { url: `${BASE}/for-venues`, changeFrequency: "monthly", priority: 0.5 },
+    // Villa partner page — villa managers search "list my villa Bali guide".
+    { url: `${BASE}/villas`, changeFrequency: "monthly", priority: 0.5 },
     // SEO hub index + per-district hubs — the programmatic ranking surface for
     // districts without a hand-crafted pillar (Uluwatu is excluded — it has its
     // own /uluwatu pillar below).
