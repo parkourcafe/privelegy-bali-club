@@ -6,6 +6,7 @@ import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { GuideFooter } from "@/components/GuideBlocks";
+import VillaFilm from "@/components/VillaFilm";
 import SceneImage from "@/components/landing/SceneImage";
 import Reveal from "@/components/landing/Reveal";
 import { VILLAS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
@@ -212,13 +213,12 @@ const STEPS = [
 ];
 
 export default function VillasPage() {
-  // The villa film ships via the prebuild scene fetch; where the CDN is
-  // unreachable (e.g. the CI sandbox) the file is absent and the player simply
-  // doesn't render — the block keeps its cinematic poster. Checked at build
-  // time; the page is static.
-  const filmReady = existsSync(
-    path.join(process.cwd(), "public", "scenes", "villas-film.mp4")
-  );
+  // The villa film ships via the prebuild scene fetch (one cut per language);
+  // where the CDN is unreachable (e.g. the CI sandbox) the files are absent and
+  // the block keeps its cinematic poster. Checked at build time; page is static.
+  const sceneDir = path.join(process.cwd(), "public", "scenes");
+  const enReady = existsSync(path.join(sceneDir, "villas-film.mp4"));
+  const idReady = existsSync(path.join(sceneDir, "villas-film-id.mp4"));
   return (
     <div>
       <main className="site-shell">
@@ -473,37 +473,7 @@ export default function VillasPage() {
                   </p>
                 </div>
 
-                {filmReady ? (
-                  <figure className="overflow-hidden rounded-2xl border border-[rgba(250,246,239,0.25)] bg-black/30">
-                    {/* Click-to-play; subtitles are burned in so it reads muted. */}
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      src="/scenes/villas-film.mp4"
-                      poster="/scenes/moment-morning.webp"
-                      className="block w-full"
-                      aria-label="Other Bali for villas — how the partnership works"
-                    />
-                    <figcaption className="px-4 py-2 text-xs text-[rgba(250,246,239,0.72)]">
-                      How Other Bali works with villas — in under a minute. Sound
-                      on 🔊
-                    </figcaption>
-                  </figure>
-                ) : (
-                  <div className="flex items-center gap-4 rounded-2xl border border-[rgba(250,246,239,0.25)] bg-black/25 px-5 py-4">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[rgba(250,246,239,0.55)] text-lg text-[#FAF6EF]"
-                    >
-                      ▶
-                    </span>
-                    <p className="text-sm text-[rgba(250,246,239,0.86)]">
-                      A short film on how we partner with villas is on its way —
-                      it&apos;ll live right here.
-                    </p>
-                  </div>
-                )}
+                <VillaFilm enReady={enReady} idReady={idReady} />
               </div>
             </div>
           </div>
