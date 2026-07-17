@@ -8,6 +8,7 @@ const NAV = [
   { href: "#day-builder", label: "Build a day" },
   { href: "#how", label: "How it works" },
   { href: "#moments", label: "Moments" },
+  { href: "/my-day", label: "My Day" },
   { href: "#bali", label: "Around Bali" },
   { href: "/places", label: "Places" },
 ];
