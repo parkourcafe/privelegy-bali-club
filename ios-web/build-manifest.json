@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "shellVersion": "0.1.0",
+  "apiOrigin": "https://www.otherbali.com",
+  "assets": [
+    "./assets/app-FH6XH5IZ.js",
+    "./assets/app-TQJUAL7L.css"
+  ],
+  "sourceInputs": [
+    "lib/external-links.ts",
+    "lib/mobile-api/taxonomy.ts",
+    "mobile/public/offline.html",
+    "mobile/src/App.tsx",
+    "mobile/src/api.ts",
+    "mobile/src/contracts.ts",
+    "mobile/src/deep-links.ts",
+    "mobile/src/main.tsx",
+    "mobile/src/native-runtime.ts",
+    "mobile/src/storage.ts",
+    "mobile/src/styles.css",
+    "package-lock.json",
+    "package.json",
+    "scripts/build-mobile-shell.mjs"
+  ],
+  "sourceHash": "d777506a456af88ba35f58cee92291445f8d365db3fae2be8df46f5cac3cf9f5"
+}

@@ -19,10 +19,14 @@
 
 # production
 /build
+/artifacts
 
 # misc
 .DS_Store
 *.pem
+*.jks
+*.keystore
+release-signing.properties
 
 # debug
 npm-debug.log*
