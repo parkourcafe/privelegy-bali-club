@@ -24,6 +24,10 @@ export const metadata: Metadata = {
 export default async function CollectionsHubPage() {
   const liveSlugs = new Set(await liveCollectionSlugs());
   const live = COLLECTIONS.filter((c) => liveSlugs.has(c.slug));
+  // Collections that exist but haven't yet reached enough decision-ready places
+  // across enough districts. Shown as plain labels (never links) — honest
+  // signal of what's growing, no 404s, no thin pages indexed.
+  const inResearch = COLLECTIONS.filter((c) => !liveSlugs.has(c.slug));
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Collections" }];
 
@@ -92,6 +96,28 @@ export default async function CollectionsHubPage() {
           <p className="text-sm text-[var(--muted)]">
             Collections are being curated — check back soon.
           </p>
+        )}
+
+        {inResearch.length > 0 && (
+          <section className="guide-section">
+            <h2>In research</h2>
+            <p className="text-sm text-[var(--muted)]">
+              Collections we&apos;re still building — a shortlist goes live only
+              once we have enough decision-ready places across enough of the
+              island. These are on the way.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Collections in research">
+              {inResearch.map((c) => (
+                <li
+                  key={c.slug}
+                  className="chip"
+                  style={{ opacity: 0.6, cursor: "default" }}
+                >
+                  {c.taste}
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         <GuideFooter />
