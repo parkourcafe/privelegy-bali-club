@@ -17,6 +17,7 @@
 import type { VenueWithPerk } from "@/lib/data";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import { normalizeJobs } from "@/lib/intents";
 import type { PlaceCardData } from "@/components/PlaceCard";
 
 export const MIN_VENUES = 10;
@@ -39,8 +40,11 @@ export const COLLECTION_AREA_ORDER: { key: string; name: string; pillar?: string
   { key: "nusa-dua", name: "Nusa Dua", pillar: "/nusa-dua" },
 ];
 
+export type CollectionKind = "taste" | "moment";
+
 export interface Collection {
   slug: string; // route: /collections/{slug}
+  kind: CollectionKind; // grouping on the hub: By taste vs By moment
   taste: string; // short chip label
   title: string; // H1 (brief-approved copy)
   metaTitle: string;
@@ -48,10 +52,20 @@ export interface Collection {
   intro: string;
   faq: { q: string; a: string }[];
   related: string[]; // other collection slugs
-  // Membership signal over verified editorial text. Kept deliberately narrow —
-  // a collection is "where this is the point", not "anything that mentions it".
+  // Optional district allow-list. Used for the geo-bound moments (sunset is a
+  // west-coast fact — Sanur is sunrise and must never appear here).
+  districts?: string[];
+  // Membership signal. Taste collections read factual cuisine fields; moment
+  // collections read the tagged `jobs` (and price for the budget cuts). Kept
+  // deliberately narrow — "where this is the point", not "anything adjacent".
   match: (blob: string, v: VenueWithPerk) => boolean;
 }
+
+// Helpers for moment matchers.
+const hasJob = (v: VenueWithPerk, job: string) => normalizeJobs(v.jobs).includes(job);
+const priceStr = (v: VenueWithPerk) => (v.priceAnchor ?? "").trim();
+const isCheap = (v: VenueWithPerk) => /^\$(?!\$)/.test(priceStr(v)); // exactly one leading $
+const isSplurge = (v: VenueWithPerk) => /\$\$\$\$/.test(priceStr(v)); // four $ anywhere
 
 // Cuisine signal is read from FACTUAL fields only — the name, the dish list
 // (what_to_order) and vibe tags — never the editorial prose (why_its_here /
@@ -69,6 +83,7 @@ const rx = (source: string) => new RegExp(source);
 export const COLLECTIONS: Collection[] = [
   {
     slug: "balinese-and-local-food",
+    kind: "taste",
     taste: "Balinese & local",
     title: "Real Balinese food, island-wide",
     metaTitle: "Real Balinese & local food in Bali — island-wide",
@@ -91,6 +106,7 @@ export const COLLECTIONS: Collection[] = [
   },
   {
     slug: "brunch-and-breakfast",
+    kind: "taste",
     taste: "Brunch",
     title: "The Bali brunch collection",
     metaTitle: "The best brunch & breakfast in Bali — by area",
@@ -109,6 +125,7 @@ export const COLLECTIONS: Collection[] = [
   },
   {
     slug: "seafood",
+    kind: "taste",
     taste: "Seafood",
     title: "Seafood worth the trip",
     metaTitle: "The best seafood in Bali — grills, warungs & raw bars",
@@ -126,6 +143,7 @@ export const COLLECTIONS: Collection[] = [
   // ---- Held below the gate for now (auto-publish once they reach the bar) ----
   {
     slug: "japanese",
+    kind: "taste",
     taste: "Japanese",
     title: "Japanese in Bali: sushi to izakaya",
     metaTitle: "Japanese food in Bali — sushi, izakaya & ramen",
@@ -141,6 +159,7 @@ export const COLLECTIONS: Collection[] = [
   },
   {
     slug: "desserts-gelato-and-pastry",
+    kind: "taste",
     taste: "Desserts",
     title: "The sweet map of Bali",
     metaTitle: "The best desserts, gelato & pastry in Bali",
@@ -156,6 +175,7 @@ export const COLLECTIONS: Collection[] = [
   },
   {
     slug: "vegetarian-and-plant-based",
+    kind: "taste",
     taste: "Vegetarian",
     title: "Vegetarian Bali, done properly",
     metaTitle: "Vegetarian & plant-based food in Bali — done properly",
@@ -169,6 +189,172 @@ export const COLLECTIONS: Collection[] = [
     ],
     related: ["brunch-and-breakfast", "balinese-and-local-food"],
     match: (b) => rx("vegan|vegetarian|plant-based|plant based|raw food|meat-free|plant-forward").test(b),
+  },
+
+  // ---- By moment — tagged `jobs`, not cuisine (design brief "Moments") ----
+  {
+    slug: "date-night",
+    kind: "moment",
+    taste: "Date night",
+    title: "Date night in Bali",
+    metaTitle: "The best date-night restaurants in Bali",
+    metaDescription:
+      "Low light, a good bottle, a table you don't want to leave. Bali's most romantic rooms and beachfront corners, chosen for the night that matters.",
+    intro:
+      "Low light, a good bottle, a table you don't want to leave. The island's most romantic rooms and beachfront corners, chosen for the night that matters.",
+    faq: [
+      { q: "Where should I go for a romantic dinner in Bali?", a: "Uluwatu and Jimbaran for clifftop and beachfront sunsets, Seminyak and Canggu for candle-lit dining rooms, Ubud for jungle-view tables. The picks here are sorted by area." },
+    ],
+    related: ["special-occasion", "sunset-drinks"],
+    match: (_b, v) => hasJob(v, "date_night_special"),
+  },
+  {
+    slug: "group-dinners",
+    kind: "moment",
+    taste: "Group dinners",
+    title: "Big tables, good nights",
+    metaTitle: "The best group-dinner restaurants in Bali",
+    metaDescription:
+      "Sharing plates, big tables, a room that can take the noise. Where a group of eight still gets looked after — across Bali, by area.",
+    intro:
+      "Sharing plates, big tables, a room that can take the noise. Where a group of eight still gets looked after.",
+    faq: [
+      { q: "Where can a big group eat in Bali?", a: "Canggu and Seminyak have the most rooms built for sharing plates and larger tables; beach clubs work for a celebration. Booking ahead is worth it for six or more — each venue's page notes if it takes reservations." },
+    ],
+    related: ["special-occasion", "date-night"],
+    match: (_b, v) => hasJob(v, "group_dinner_share"),
+  },
+  {
+    slug: "family-easy-dinners",
+    kind: "moment",
+    taste: "Family-easy",
+    title: "Easy dinners with kids",
+    metaTitle: "Family-friendly, kid-easy restaurants in Bali",
+    metaDescription:
+      "Space to move, food that lands fast, no waiting out a tasting menu. Relaxed early dinners in Bali that actually work with children — by area.",
+    intro:
+      "Space to move, food that lands fast, and no waiting out a tasting menu. Relaxed early dinners that work with children — no fuss, no drama.",
+    faq: [
+      { q: "Which restaurants in Bali are good with kids?", a: "Casual, open-air places with room to move — many in Canggu, Sanur and Ubud. Sanur and Nusa Dua are the easiest family bases. The spots here are grouped by area." },
+    ],
+    related: ["group-dinners", "cheap-and-brilliant"],
+    match: (_b, v) => hasJob(v, "family_early_dinner"),
+  },
+  {
+    slug: "special-occasion",
+    kind: "moment",
+    taste: "Special occasion",
+    title: "For the big occasion",
+    metaTitle: "Special-occasion restaurants in Bali",
+    metaDescription:
+      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables — the rooms, the views and the kitchens worth dressing up for.",
+    intro:
+      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables — the rooms, the views and the kitchens worth dressing up for.",
+    faq: [
+      { q: "Where to celebrate a special occasion in Bali?", a: "Uluwatu for clifftop views, Seminyak and Ubud for signature dining rooms and tasting menus. Book well ahead for the headline tables — each venue's page shows whether it needs a reservation." },
+    ],
+    related: ["date-night", "worth-the-splurge"],
+    match: (_b, v) => hasJob(v, "special_occasion"),
+  },
+  {
+    slug: "work-friendly-cafes",
+    kind: "moment",
+    taste: "Work-friendly",
+    title: "Cafés that let you stay",
+    metaTitle: "Work-friendly cafés in Bali — where you can settle in",
+    metaDescription:
+      "A plug you can reach, a seat no one hurries you out of, and coffee worth staying for. The Bali cafés where people settle in to work — by area.",
+    intro:
+      "A plug you can actually reach, a seat no one hurries you out of, and coffee worth staying for. The cafés where a coffee turns into a productive morning.",
+    faq: [
+      { q: "Which cafés in Bali are good for working?", a: "Canggu and Ubud have the deepest work-café scenes, with Sanur and Uluwatu catching up. These are places where people settle in to work — comfortable seating and an unhurried welcome, rather than a promised connection speed. Check with the venue for current conditions." },
+    ],
+    related: ["brunch-and-breakfast", "local-and-calm"],
+    match: (_b, v) => hasJob(v, "quiet_work_cafe"),
+  },
+  {
+    slug: "sunset-drinks",
+    kind: "moment",
+    taste: "Sunset drinks",
+    title: "Where the sunset lands",
+    metaTitle: "The best sunset spots & bars in Bali",
+    metaDescription:
+      "The west coast does this best — cliff edges, beach sand and rooftop rails where the day signs off. Bali's sunset drinks, mapped for golden hour.",
+    intro:
+      "The west coast does this best. Cliff edges, beach sand and rooftop rails where the day signs off — timed and mapped for golden hour.",
+    faq: [
+      { q: "Where is the best sunset in Bali?", a: "The west and south-west coast: Uluwatu's cliffs, the Canggu and Seminyak beaches, and Jimbaran Bay. The east coast (Sanur) faces sunrise, so it isn't in this list. Arrive early in peak season for the front-row tables." },
+    ],
+    related: ["date-night", "special-occasion"],
+    // Geo fact: sunset is a west/south-west coast experience. Sanur (sunrise)
+    // and the east are excluded by the allow-list, not just by tagging.
+    districts: ["canggu", "uluwatu-bukit", "seminyak", "jimbaran"],
+    match: (_b, v) => hasJob(v, "sunset_drinks_view"),
+  },
+  {
+    slug: "local-and-calm",
+    kind: "moment",
+    taste: "Local & calm",
+    title: "Quiet local tables",
+    metaTitle: "Quiet, calm local restaurants in Bali",
+    metaDescription:
+      "Local food, unhurried. Family warungs and calm neighbourhood kitchens where the plate is honest, the bill is small and no one rushes you — by area.",
+    intro:
+      "Local food, unhurried. Family warungs and calm neighbourhood kitchens where the plate is honest, the bill is small and no one rushes you.",
+    faq: [
+      { q: "Where can I eat calm, local food in Bali?", a: "Away from the busiest strips — quiet warungs and neighbourhood kitchens across Ubud, Sanur, Canggu and the south. The spots here are chosen for a calm, local meal, sorted by area." },
+    ],
+    related: ["balinese-and-local-food", "cheap-and-brilliant"],
+    match: (_b, v) => hasJob(v, "local_food_calm"),
+  },
+  {
+    slug: "just-landed",
+    kind: "moment",
+    taste: "Just landed",
+    title: "Your first night in Bali",
+    metaTitle: "Where to eat your first night in Bali — easy, no-fuss",
+    metaDescription:
+      "Jet-lagged, hungry, don't want a project. Easy, nearby, no-fuss first dinners in Bali for the night you arrive — by area.",
+    intro:
+      "Jet-lagged, hungry, and you don't want a project. Easy, nearby, no-fuss first dinners for the night you arrive.",
+    faq: [
+      { q: "Where should I eat on my first night in Bali?", a: "Somewhere easy and close to where you're staying — a relaxed local kitchen or a reliable all-rounder, not a big night out. The picks here are grouped by area so you can find one near your first hotel." },
+    ],
+    related: ["local-and-calm", "cheap-and-brilliant"],
+    match: (_b, v) => hasJob(v, "just_landed_easy_dinner"),
+  },
+  // ---- By budget (price band) ----
+  {
+    slug: "cheap-and-brilliant",
+    kind: "moment",
+    taste: "Cheap & brilliant",
+    title: "Cheap eats that punch above",
+    metaTitle: "The best cheap eats in Bali — big flavour, small bills",
+    metaDescription:
+      "Small bills, big flavour. The warungs and street kitchens where a handful of rupiah still buys one of the best plates of your trip — across Bali, by area.",
+    intro:
+      "Small bills, big flavour. The warungs and street kitchens where a handful of rupiah still buys one of the best plates of your trip.",
+    faq: [
+      { q: "Where are the cheapest good eats in Bali?", a: "Local warungs, island-wide — a full plate for the price of a coffee back home. These are the budget spots we stand behind, sorted by area; each page shows its price band." },
+    ],
+    related: ["local-and-calm", "balinese-and-local-food"],
+    match: (_b, v) => isCheap(v),
+  },
+  {
+    slug: "worth-the-splurge",
+    kind: "moment",
+    taste: "Worth the splurge",
+    title: "Worth dressing up for",
+    metaTitle: "Fine dining in Bali — worth the splurge",
+    metaDescription:
+      "For the night you go all in. Tasting menus, clifftop rooms and signature kitchens in Bali where the bill is real and the evening earns it — by area.",
+    intro:
+      "For the night you go all in. Tasting menus, clifftop rooms and signature kitchens where the bill is real and the evening earns it.",
+    faq: [
+      { q: "Where is the best fine dining in Bali?", a: "Seminyak, Ubud and the Uluwatu cliffs hold most of the island's signature tasting menus and destination dining rooms. Book well ahead — each venue's page shows its price band and whether it needs a reservation." },
+    ],
+    related: ["special-occasion", "date-night"],
+    match: (_b, v) => isSplurge(v),
   },
 ];
 
@@ -189,8 +375,12 @@ export async function getCollectionAreas(slug: string): Promise<CollectionArea[]
   const collection = getCollection(slug);
   if (!collection) return [];
   const all = await getPublishedVenues();
+  const allow = collection.districts ? new Set(collection.districts) : null;
   const members = all.filter(
-    (v) => isVenueIndexable(v) && collection.match(blobOf(v), v),
+    (v) =>
+      isVenueIndexable(v) &&
+      (!allow || allow.has(v.district)) &&
+      collection.match(blobOf(v), v),
   );
   return COLLECTION_AREA_ORDER.map((area) => ({
     ...area,
