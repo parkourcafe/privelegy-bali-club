@@ -2688,3 +2688,50 @@ html {
     animation: none;
   }
 }
+
+/* ── Browse pill (Where · Taste · Moment) — homepage entry (2026-07) ── */
+.ob-browse-pill {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(250, 246, 239, 0.1);
+  border: 1px solid rgba(250, 246, 239, 0.22);
+  backdrop-filter: blur(8px);
+}
+.ob-browse-seg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 9px 8px;
+  border-radius: 999px;
+  color: rgba(250, 246, 239, 0.82);
+  transition: background 160ms ease, color 160ms ease;
+}
+.ob-browse-seg[data-active="true"] {
+  background: var(--ob-sand, #faf6ef);
+  color: var(--ob-espresso, #1a120c);
+}
+.ob-browse-seg-label { font-weight: 700; font-size: 14px; line-height: 1; }
+.ob-browse-seg-hint { font-size: 11px; opacity: 0.7; }
+.ob-browse-seg[data-active="true"] .ob-browse-seg-hint { opacity: 0.6; }
+.ob-browse-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.ob-browse-chip {
+  padding: 8px 15px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #faf6ef;
+  background: rgba(250, 246, 239, 0.08);
+  border: 1px solid rgba(250, 246, 239, 0.28);
+  transition: background 160ms ease, transform 160ms ease;
+}
+.ob-browse-chip:hover { background: rgba(250, 246, 239, 0.18); transform: translateY(-1px); }
