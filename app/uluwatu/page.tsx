@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -78,21 +79,14 @@ export default function UluwatuPillarPage() {
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Uluwatu" }]} />
 
         {/* 1. Hero + 2. short editorial answer */}
-        <header className="guide-hero">
-          <p className="guide-kicker">Uluwatu · Bukit Peninsula</p>
-          <h1 className="guide-title">The Uluwatu guide</h1>
-          <p className="guide-standfirst">
-            Uluwatu is Bali’s cliff edge: world-class surf below, golden-hour
-            venues above, and everything spread along winding peninsula roads.
-            It rewards travellers who plan by area — and punishes the ones who
-            treat it like a walkable town. This guide covers the food, drink
-            and sunset decisions we have actually verified: 24 places, checked
-            on 12 July 2026.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: 2026-07-12 · resident-curated · no paid ranking
-          </p>
-        </header>
+        <PillarMasthead
+          posterScene="district-uluwatu-bukit"
+          variant="sunset"
+          kicker="Uluwatu · Bukit Peninsula"
+          title="The Uluwatu guide"
+          copy="Uluwatu is Bali's cliff edge: world-class surf below, golden-hour venues above, and everything spread along winding peninsula roads. It rewards travellers who plan by area — and punishes the ones who treat it like a walkable town. This guide covers the food, drink and sunset decisions we have actually verified: 24 places, checked on 12 July 2026."
+          meta="Editorial review: 2026-07-12 · resident-curated · no paid ranking"
+        />
 
         {/* 3. Who it suits / 4. who it doesn't */}
         <section className="guide-section">

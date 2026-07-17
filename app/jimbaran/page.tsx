@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
@@ -90,24 +91,22 @@ export default async function JimbaranPillarPage() {
 
         <Breadcrumbs items={crumbs} />
 
-        <header style={{ marginTop: 8 }}>
-          <p className="topline">Jimbaran · South coast</p>
-          <h1 className="hero-title mt-2">Jimbaran, the seafood bay</h1>
-          <p className="hero-copy">
-            A calm, west-facing bay a short hop from the airport, famous for one
-            thing above all: grilled seafood eaten near the sand at sunset. Above
-            it, the headland holds cliff-edge sunset bars and some of Bali&apos;s
-            most serious resort spas. This guide covers who it suits, its beaches,
-            what to do, where to eat and where to be looked after — curated from
-            places we actually rate, never a directory.
-          </p>
-          <p className="guide-meta-line">
-            Editorial review: {JIMBARAN_REVIEW_DATE} · researched, not sponsored · no paid ranking
-          </p>
-          <div className="hero-actions" style={{ marginTop: 16 }}>
-            <Link href="/places?district=jimbaran" className="button-secondary button-large">Browse all Jimbaran places</Link>
-          </div>
-        </header>
+        <PillarMasthead
+          posterScene="district-jimbaran"
+          variant="sunset"
+          kicker="Jimbaran · South coast"
+          title="Jimbaran, the seafood bay"
+          copy="A calm, west-facing bay a short hop from the airport, famous for one thing above all: grilled seafood eaten near the sand at sunset. Above it, the headland holds cliff-edge sunset bars and some of Bali's most serious resort spas. This guide covers who it suits, its beaches, what to do, where to eat and where to be looked after — curated from places we actually rate, never a directory."
+          meta={`Editorial review: ${JIMBARAN_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
+          actions={
+            <Link
+              href="/places?district=jimbaran"
+              className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
+            >
+              Browse all Jimbaran places
+            </Link>
+          }
+        />
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Jimbaran guides">
           <Link href="/jimbaran/things-to-do" className="chip">Things to do</Link>
