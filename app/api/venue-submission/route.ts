@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { anonClient } from "@/lib/supabase/server";
+import { notifyOperator } from "@/lib/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -82,5 +83,27 @@ export async function POST(req: Request) {
   if (!r.ok) {
     return NextResponse.json({ ok: false, error: r.error ?? "submission_write_failed" }, { status: 400 });
   }
+
+  // Best-effort operator notification (no-ops if email isn't configured).
+  if (!r.duplicate) {
+    await notifyOperator({
+      subject: `New listing request: ${name}`,
+      lines: [
+        "A venue asked to be listed via /for-venues.",
+        "",
+        `Name:      ${name}`,
+        `Category:  ${body.category?.trim() || "—"}`,
+        `District:  ${body.district?.trim() || "—"}`,
+        `WhatsApp:  ${whatsapp || "—"}`,
+        `Email:     ${email || "—"}`,
+        `Instagram: ${instagram || "—"}`,
+        `Website:   ${websiteUrl || "—"}`,
+        ...(body.note?.trim() ? ["", `Note: ${body.note.trim()}`] : []),
+        "",
+        "Review: https://www.otherbali.com/admin/submissions",
+      ],
+    });
+  }
+
   return NextResponse.json({ ok: true, stored: true, duplicate: Boolean(r.duplicate) });
 }
