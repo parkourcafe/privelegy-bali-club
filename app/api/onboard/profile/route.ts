@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyOperator } from "@/lib/notify";
 
 import { serviceClient } from "@/lib/supabase/service";
 
@@ -135,6 +136,21 @@ export async function POST(request: Request) {
     const status = reason === "bad_token" ? 404 : 400;
     return NextResponse.json({ ok: false, error: reason }, { status });
   }
+
+  // Best-effort operator notification (no-ops if email isn't configured). Keeps
+  // PII minimal — who submitted and where to review, not the full payload.
+  await notifyOperator({
+    subject: `Owner-filled page draft: ${submitterName}`,
+    lines: [
+      "A venue owner filled in their page draft via their private /onboard link.",
+      "",
+      `Submitted by: ${submitterName}${text(body.submitterRole, 160) ? ` (${text(body.submitterRole, 160)})` : ""}`,
+      priceRange ? `Price range:  ${priceRange}` : "",
+      videoUrl ? "Includes a video link." : "",
+      "",
+      "Review: https://www.otherbali.com/admin/profile-drafts",
+    ].filter(Boolean),
+  });
 
   return NextResponse.json({ ok: true });
 }
