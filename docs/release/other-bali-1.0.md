@@ -6,7 +6,7 @@ claim that store submission or production rollout is complete.
 ## Canonical line
 
 - Branch: `release/other-bali-1.0`
-- Integration base: `origin/main` at `81542d3`
+- Integration base: `origin/main` at `d4b449f`
 - Web/API origin: `https://www.otherbali.com`
 - iOS: `com.otherbali.app`, version `1.0`, build `4`
 - Android: `com.otherbali.app`, version `1.0.0`, version code `1`
@@ -48,6 +48,8 @@ rehearsal and new forward-only timestamped migrations.
 
 ## Local evidence completed
 
+- Release candidate rebased onto the frozen `origin/main` head `d4b449f`.
+- `npm run build`: passed on the frozen integration base.
 - `npm test`: 69 tests passed.
 - `npm run typecheck`: passed.
 - `npm run lint`: no errors (one pre-existing `<img>` performance warning).
@@ -59,16 +61,15 @@ rehearsal and new forward-only timestamped migrations.
 
 ## Remaining release gates
 
-1. Rebase and rerun the full build on the frozen current `origin/main` head.
-2. Deploy the exact release candidate to production and verify HTTP 200 plus a
+1. Deploy the exact release candidate to production and verify HTTP 200 plus a
    non-empty mobile bootstrap payload.
-3. Enable Associated Domains for the Apple App ID and regenerate/download the
+2. Enable Associated Domains for the Apple App ID and regenerate/download the
    matching provisioning profile.
-4. Create and securely back up the Android app-signing and Play upload keys;
+3. Create and securely back up the Android app-signing and Play upload keys;
    publish the final certificate fingerprints in `assetlinks.json`.
-5. Produce signed IPA, AAB and APK artifacts and record their checksums.
-6. Clean-install and test the exact signed candidates on a physical iPhone and
+4. Produce signed IPA, AAB and APK artifacts and record their checksums.
+5. Clean-install and test the exact signed candidates on a physical iPhone and
    the connected Samsung.
-7. Capture screenshots from those binaries, then finalize store privacy and
+6. Capture screenshots from those binaries, then finalize store privacy and
    listing declarations. Do not submit or publish without an explicit final
    approval.
