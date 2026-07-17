@@ -11,6 +11,10 @@ export type EventStoreInput = {
   guestRef: string;
   venueSlug: string | null;
   payload: SafeEventPayload | null;
+  // First-touch acquisition source for this guest, stamped onto the event row
+  // so attribution travels with every event. Null when the guest arrived with
+  // no source tag.
+  source: string | null;
 };
 
 export type EventStoreResult = {
@@ -36,7 +40,7 @@ async function storeLegacyEvent(
     p_type: input.type,
     p_guest_ref: input.guestRef,
     p_venue_slug: input.venueSlug,
-    p_source: null,
+    p_source: input.source,
   } satisfies LegacyLogEventArgs;
 
   try {
@@ -62,7 +66,7 @@ export async function storeEvent(
     p_type: input.type,
     p_guest_ref: input.guestRef,
     p_venue_slug: input.venueSlug,
-    p_source: null,
+    p_source: input.source,
     p_payload: input.payload,
   } satisfies LogEventV2Args;
 

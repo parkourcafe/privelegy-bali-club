@@ -511,6 +511,29 @@ export async function setGuestSource(guestRef: string, source: string): Promise<
   }
 }
 
+// First-touch acquisition source bound to this guest (set via set_guest_source
+// on the first ?source=/?s= hit). Returned so the funnel logger can stamp it
+// onto every event row — attribution then travels with each event, not only
+// with the guest. Null when unknown or the backend is unreachable. This is the
+// acquisition source (villa_canggu_01, meta_au, …), never a provider name, so
+// it does not violate the analytics boundary (guardrail #12).
+export async function getGuestSource(guestRef: string): Promise<string | null> {
+  const sb = serviceClient();
+  if (!sb || !guestRef) return null;
+  try {
+    const { data, error } = await sb
+      .from("guest_refs")
+      .select("source")
+      .eq("ref", guestRef)
+      .maybeSingle();
+    if (error || !data) return null;
+    const source = (data as { source?: unknown }).source;
+    return typeof source === "string" && source.length > 0 ? source : null;
+  } catch {
+    return null;
+  }
+}
+
 // Right-to-be-forgotten (audit 2026-07): erase this device's behavioural +
 // preference data. Best-effort — no-ops safely if the RPC isn't deployed yet
 // (migration 0031, prod apply is a founder step) so the cookie unlink still works.
