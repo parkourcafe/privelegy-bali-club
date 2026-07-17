@@ -5,6 +5,7 @@ import PhotoBand from "@/components/landing/PhotoBand";
 import DistrictCover from "@/components/landing/DistrictCover";
 import { LandingNav, MobileStickyCTA } from "@/components/landing/LandingChrome";
 import DayIntentBuilder from "@/components/landing/DayIntentBuilder";
+import BrowseBar from "@/components/landing/BrowseBar";
 import HeroLoop from "@/components/landing/HeroLoop";
 import ParallaxScene from "@/components/landing/ParallaxScene";
 import DistrictMapLink from "@/components/DistrictMapLink";
@@ -30,6 +31,7 @@ export default function Landing() {
 
       <main>
         <Hero />
+        <BrowseBar />
         <ChaosToOrder />
         <Mechanism />
         <PhotoBand
