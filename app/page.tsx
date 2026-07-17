@@ -865,6 +865,9 @@ function SiteFooter() {
           <Link href="/for-venues" className={footerLink}>
             List your place
           </Link>
+          <Link href="/villas" className={footerLink}>
+            For villas
+          </Link>
           <Link href="/support" className={footerLink}>
             Support
           </Link>

@@ -19,6 +19,7 @@ export default function SiteFooter() {
           <a href="#faq">FAQ</a>
           <Link href="/me">My perks</Link>
           <Link href="/for-venues">List your place</Link>
+          <Link href="/villas">For villas</Link>
         </nav>
         <p className="ob-footer-note">
           Other Bali is free to use — no account, no card, no charges. We earn
