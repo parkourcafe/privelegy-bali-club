@@ -5,6 +5,7 @@ import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
+import GlobalHeader from "@/components/GlobalHeader";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
 // body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
@@ -101,6 +102,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
+        <GlobalHeader />
         {children}
         <SourceCapture />
         <ServiceWorkerRegister />
