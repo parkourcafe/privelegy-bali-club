@@ -490,7 +490,7 @@ export default function VillasPage() {
                 delay={i * 80}
                 className="overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)]"
               >
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-40 overflow-hidden bg-gradient-to-br from-[#2b2018] via-[#3a2415] to-[#16100c]">
                   <SceneImage
                     scene={w.scene}
                     variant={w.variant}
