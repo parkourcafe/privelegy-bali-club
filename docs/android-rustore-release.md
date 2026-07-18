@@ -2,9 +2,11 @@
 
 Date: 2026-07-18
 
-Status: Capacitor candidate implemented and debug-tested on the connected
-Samsung. Store-signed AAB/APK and verified Digital Asset Links remain blocked
-on owner-approved production key creation.
+Status: the current Play upload-key-signed AAB and RuStore app-signing-key APK
+were rebuilt from source commit `9d1e854f863354b2955a4573186ff868dee24cab`
+and passed the combined release-artifact verifier. The exact RuStore APK also
+passed clean-install Samsung QA. Digital Asset Links are deployed. Google Play
+enrolment remains blocked by the owner's pending identity appeal.
 
 ## Canonical architecture
 
@@ -57,6 +59,12 @@ app-signing key.
 No keystore, password or signing secret belongs in Git, chat, screenshots or a
 store listing. Create keys only after owner approval, store passwords in a
 password manager/macOS Keychain and keep at least two encrypted key backups.
+
+The approved shared app-signing key and separate Play upload key are stored
+outside Git with `0700` directory and `0600` file permissions; their passwords
+are stored in macOS Keychain. Only one local private-key copy of each key has
+been verified so far. An independent encrypted off-device backup is still a
+release-owner gate.
 
 Protected Google Play inputs:
 
@@ -123,21 +131,27 @@ shared signer and writes `public/.well-known/assetlinks.json`. Deploy it and
 verify HTTP 200, `application/json`, no redirect and no cookie before signed
 deep-link QA.
 
-## Current Samsung evidence
+## Samsung signed-release evidence
 
-On SM-A075F / Android 16, the current debug candidate passed:
+On SM-A075F / Android 16, the current signed RuStore release APK passed:
 
 - cold launch and production catalogue bootstrap;
 - venue detail and external Google Maps handoff;
-- route detail and opening a route stop;
+- route detail;
 - saving a detailed venue and route for offline use;
-- persistence across force-stop/relaunch and app update;
+- persistence across force-stop/relaunch;
 - native Share chooser, including normal cancellation;
 - Android hardware Back from detail and exit from root;
-- warm and cold explicit deep links;
+- warm and cold ordinary HTTPS deep links after the domain association verified;
 - offline relaunch with cached route/venue data and recovery after networking returned;
 - Privacy custom-tab handoff.
 
-This is preliminary debug evidence. Repeat the full matrix on the exact
-RuStore-signed APK and Play-distributed internal-test build after Digital Asset
-Links is deployed.
+The package was first removed and then installed from the current release APK.
+The installed base APK was pulled back from the device and matched
+`72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00`
+byte-for-byte. No app crash appeared in the crash buffer. This long-lived test
+device retained a prior user-level Disabled link preference across uninstall;
+the domain association itself was verified, then the preference was explicitly
+set to Enabled before the ordinary cold/warm HTTPS link cases. Google Play
+distributed-build QA remains pending until the owner account is verified and
+Play App Signing can be configured.

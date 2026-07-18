@@ -65,6 +65,13 @@ test("mobile shell consumes Capacitor safe-area variables with browser fallbacks
   }
 });
 
+test("large iPhones stack card actions instead of crushing route titles", () => {
+  const styles = readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8");
+  assert.match(styles, /@media\s*\(max-width:\s*520px\)/);
+  assert.match(styles, /\.card\s*\{[^}]*flex-direction:\s*column/);
+  assert.match(styles, /\.card-actions\s*\{[^}]*width:\s*100%/);
+});
+
 test("native bridge plugins and privacy declarations match the approved release scope", () => {
   const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
   assert.equal(packageJson.dependencies["@capacitor/core"], "8.4.1");

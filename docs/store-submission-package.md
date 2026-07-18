@@ -253,22 +253,32 @@ exact catalogue before submission. Do not copy Apple's or Google's rating.
 
 ## Final screenshot shot list
 
-Capture screenshots only from the exact signed, device-tested release build.
-Use real public catalogue data, a clean status bar, no debug overlays, no
-browser chrome, no test credentials, no private admin views and no claims about
-features that are not in version 1.0. Keep captions in English because the
-shipped UI is English; a Russian RuStore listing must not imply Russian UI.
+Capture screenshots only from the exact canonical release UI and bind their
+provenance to the verified release source. Signed physical-device capture is
+required where it is claimed (the current Android set); an Apple Simulator
+marketing set is acceptable only when it is recorded separately and never used
+to claim physical iPhone or TestFlight QA. Use real public catalogue data, a
+clean status bar, no debug overlays, no browser chrome, no test credentials, no
+private admin views and no claims about features that are not in version 1.0.
+Keep captions in English because the shipped UI is English; a Russian RuStore
+listing must not imply Russian UI.
 
-Capture this five-screen narrative on both iPhone and Android:
+Capture this five-screen narrative on both iPhone and Android. The crop must
+describe what is actually visible; do not claim that controls below the fold
+appear in a top-of-detail screenshot:
 
 1. **Places overview** — a populated catalogue with the app identity and useful
-   area/category controls visible.
-2. **Place detail** — a strong representative venue showing the editorial
-   summary and actions, without sensitive or unstable promotional claims.
+   area/category context visible.
+2. **Place detail** — a strong representative venue showing its identity,
+   category and stable public detail fields. The overview already demonstrates
+   the open/save actions, so they need not be duplicated in this crop.
 3. **Routes overview** — the list of available curated routes.
-4. **Route detail** — a route with its stops and save/share affordances visible.
-5. **Saved** — at least one saved place and route, demonstrating on-device
-   utility; capture online unless the visible offline state is intentional.
+4. **Route detail** — a route title and ordered stop content; the routes
+   overview already demonstrates the open/save action.
+5. **Saved** — at least one genuine saved place or route, demonstrating
+   on-device utility. Showing both is welcome when both remain legible in one
+   authentic viewport; capture online unless the visible offline state is
+   intentional.
 
 Optional sixth image, if the store slot and final UI support it: a saved item
 opened while the app shows its genuine offline/cached state.
@@ -298,7 +308,10 @@ debug QA captures as store artwork.
   `store-assets/google-play-feature-graphic-1024x500.png`, `1024 x 500`, using
   the canonical Other Bali identity. Its editable source is stored alongside
   it. Do not add store badges, pricing claims, awards or unreadable screenshots.
-- Store screenshots: create the final iPhone and Android sets described above.
+- Store screenshots: both final five-shot sets are present. The iPhone set has
+  clean-Simulator source/capture provenance; the Android set was captured from
+  the exact clean-installed, device-tested RuStore APK. Both are opaque,
+  exact-size PNGs with per-file hashes enforced by the package validator.
 - Support/privacy URLs: verify both return HTTPS 200 without authentication on
   the day of submission.
 - Legal seller/developer name, copyright holder, App Review contact and store

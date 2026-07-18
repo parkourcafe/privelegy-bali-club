@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "capturedAt": "2026-07-18T16:41:01+08:00",
+  "timezone": "Asia/Makassar",
+  "package": "com.otherbali.app",
+  "sourceCommit": "9d1e854f863354b2955a4573186ff868dee24cab",
+  "releaseArtifactSha256": "72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00",
+  "device": {
+    "manufacturer": "Samsung",
+    "model": "SM-A075F",
+    "os": "Android 16"
+  },
+  "review": {
+    "buffer": "crash",
+    "scope": "package-name-only",
+    "matchedPackageLines": 0,
+    "result": "no-package-crash-records"
+  },
+  "retention": "No raw system log was retained; only this package-scoped, non-personal result is stored."
+}

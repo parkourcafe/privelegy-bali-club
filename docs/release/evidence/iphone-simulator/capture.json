@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "sourceHash": "710595f3fcc726562b7d343d97a136295999cbad841380380824afca71165aee",
+  "captureDevice": "Apple iPhone 17 Pro Max Simulator / iOS 26.3",
+  "capturedAt": "2026-07-18T15:29:59+08:00",
+  "installationMode": "clean-install",
+  "app": {
+    "bundleId": "com.otherbali.app",
+    "version": "1.0",
+    "build": "4"
+  },
+  "installation": {
+    "existingAppRemoved": true,
+    "releaseSimulatorBuildInstalled": true,
+    "firstLaunch": "passed"
+  },
+  "cases": {
+    "catalogLoaded": "passed",
+    "routeLayout": "passed",
+    "savePersistenceAfterRelaunch": "passed"
+  },
+  "screenshotDirectory": "store-assets/screenshots/app-store/en-US/iphone-6.9",
+  "screenshotSha256": {
+    "01-places.png": "a936009c97716f25fe5a8823b3c6dd3e55e525ceff2ee347a8efee23f12d4381",
+    "02-place-detail.png": "acdbdb01164a4a92b8c089e8456c73cf30bd45ed0b044e7dd9fa5329b3e69e33",
+    "03-routes.png": "5e8493503e3888fd8fa1f9079ca790d420b0e9d49c19246d67fc1e9e3711a376",
+    "04-route-detail.png": "e06fa662ec202a3666b2051a32bd11e153d737aa7da8923e6eba7c02b4aed8d5",
+    "05-saved.png": "49900e93ad9884eb364c9c90da3734e76037f54627b617e9c5ee961bb88d19bc"
+  },
+  "evidencePointers": [
+    "store-assets/screenshots/app-store/en-US/iphone-6.9/01-places.png",
+    "store-assets/screenshots/app-store/en-US/iphone-6.9/02-place-detail.png",
+    "store-assets/screenshots/app-store/en-US/iphone-6.9/03-routes.png",
+    "store-assets/screenshots/app-store/en-US/iphone-6.9/04-route-detail.png",
+    "store-assets/screenshots/app-store/en-US/iphone-6.9/05-saved.png"
+  ]
+}

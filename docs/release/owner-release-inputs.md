@@ -53,12 +53,25 @@ Distribution-signed with the exact `applinks:www.otherbali.com` entitlement.
 
 - [x] Personal developer account; Play Console currently blocks app creation
       and publication while the owner's identity appeal is pending.
-- [ ] Account creation date.
-- [ ] Whether Play Console requires 12-testers/14-days closed testing and
-      production-access review.
+- [x] Account created 8 July 2026. As a new personal account, it requires a
+      closed test with at least 12 opted-in testers for 14 continuous days and
+      a production-access review after the account itself is unblocked.
+- [ ] Contact telephone verification. Play Console disables this step until
+      Google's identity review/appeal is approved.
 - [ ] Whether owner-device verification has been completed.
 - [ ] Android developer identity and `com.otherbali.app` package registration
       status for Indonesia's 30 September 2026 deadline.
+
+## Signing backup and console state
+
+- [ ] Create and verify at least one independent encrypted off-device backup
+      of both Android private keys. Local protected copies and Keychain
+      passwords are verified, but no independent backup is currently proven.
+- [x] RuStore contains an unpublished Other Bali draft. The exact signed APK
+      has not been uploaded, and no publication action is authorized.
+- [ ] Configure Play App Signing by importing the prepared shared app-signing
+      key and registering the separate upload certificate after Google unlocks
+      app creation. No Play app or track exists yet.
 
 ## Final content decisions
 

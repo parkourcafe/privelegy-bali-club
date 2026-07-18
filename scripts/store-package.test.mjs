@@ -18,7 +18,10 @@ test("store package preflight reports every owner and signed-capture gate withou
   const result = await inspectStorePackage({ root });
   assert.equal(result.ok, true);
   assert.equal(result.ready, false);
-  assert.ok(result.pending.includes("iphone69:01-places.png"));
+  assert.equal(result.screenshots.iphone69.length, 5);
+  assert.ok(result.screenshots.iphone69.every((shot) => shot.width === 1320 && shot.height === 2868 && shot.hasAlpha === false));
+  assert.ok(result.pending.includes("deviceEvidence:iphoneIpa"));
+  assert.ok(result.pending.includes("deviceEvidence:samsungPlayDistributedBuild"));
   assert.ok(!result.pending.some((item) => item.startsWith("androidPhone:")));
   assert.equal(result.screenshots.androidPhone.length, 5);
   assert.ok(result.screenshots.androidPhone.every((shot) => shot.width === 1080 && shot.height === 1920 && shot.hasAlpha === false));
@@ -59,7 +62,72 @@ test("store package requires both screenshot sets and every fixed owner gate", (
   ]);
 });
 
-test("store package rejects a screenshot hash not present in verified release evidence", async () => {
+test("store package freezes screenshot paths and dimensions instead of trusting manifest overrides", async () => {
+  const manifest = JSON.parse(await readFile(path.join(root, "store-assets/package-manifest.json"), "utf8"));
+  manifest.screenshots.iphone69.directory = "store-assets/screenshots/android/en-US/phone-9x16";
+  manifest.screenshots.iphone69.width = 1;
+  manifest.screenshots.iphone69.fileSha256 = {};
+  const result = requiredManifestSectionState(manifest);
+  assert.ok(result.failures.includes(
+    "iphone69: directory must equal store-assets/screenshots/app-store/en-US/iphone-6.9",
+  ));
+  assert.ok(result.failures.includes("iphone69: width must equal 1320"));
+  assert.ok(result.failures.includes(
+    "iphone69: fileSha256 must contain exactly the five canonical screenshot names",
+  ));
+});
+
+test("store package rejects a screenshot replaced after capture", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-screenshot-hash-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "store-assets/screenshots/app-store/en-US/iphone-6.9/02-place-detail.png"),
+        path.join(fixture, "store-assets/screenshots/app-store/en-US/iphone-6.9/01-places.png"),
+      ),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /screenshot SHA-256 does not match package manifest/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("passed device evidence requires complete device, time, cases and pointers", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-device-shape-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release"), { recursive: true }),
+    ]);
+    await cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md"));
+    const matrix = JSON.parse(await readFile(path.join(root, "docs/release/device-matrix.json"), "utf8"));
+    matrix.requiredSignedEvidence.samsungRustoreApk.device.os = null;
+    matrix.requiredSignedEvidence.samsungRustoreApk.testedAt = null;
+    matrix.requiredSignedEvidence.samsungRustoreApk.cases.onlineCatalogue = "pending";
+    matrix.requiredSignedEvidence.samsungRustoreApk.evidencePointers = [];
+    await writeFile(
+      path.join(fixture, "docs/release/device-matrix.json"),
+      `${JSON.stringify(matrix, null, 2)}\n`,
+    );
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /passed evidence requires manufacturer, model and OS[\s\S]*no valid testedAt[\s\S]*every required device case must be passed[\s\S]*requires evidence pointers/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("store package rejects simulator screenshots not bound to verified source", async () => {
   const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-package-"));
   try {
     await Promise.all([
@@ -75,7 +143,7 @@ test("store package rejects a screenshot hash not present in verified release ev
     ]);
     const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
     const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-    manifest.screenshots.iphone69.signedArtifactSha256 = "0".repeat(64);
+    manifest.screenshots.iphone69.sourceHash = "0".repeat(64);
     await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
     const shell = JSON.parse(await readFile(path.join(fixture, "ios-web/build-manifest.json"), "utf8"));
@@ -109,7 +177,7 @@ test("store package rejects a screenshot hash not present in verified release ev
     }, null, 2)}\n`);
     await assert.rejects(
       () => inspectStorePackage({ root: fixture }),
-      /screenshot artifact SHA-256 does not match verified ios evidence/,
+      /screenshot source hash does not match verified mobile-shell evidence/,
     );
   } finally {
     await rm(fixture, { recursive: true, force: true });
@@ -129,6 +197,7 @@ test("store package rejects Android screenshots tied to a stale device-tested AP
     ]);
     const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
     const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    manifest.screenshots.androidPhone.status = "ready";
     manifest.screenshots.androidPhone.signedArtifactSha256 = "0".repeat(64);
     await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
@@ -149,6 +218,108 @@ test("store package rejects Android screenshots tied to a stale device-tested AP
     await assert.rejects(
       () => inspectStorePackage({ root: fixture }),
       /source commit does not match the device-matrix release/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("store package rejects Android screenshots not bound to their signed-device capture record", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-android-capture-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "docs/release/evidence/samsung-rustore"),
+        path.join(fixture, "docs/release/evidence/samsung-rustore"),
+        { recursive: true },
+      ),
+    ]);
+    const capturePath = path.join(
+      fixture,
+      "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    );
+    const capture = JSON.parse(await readFile(capturePath, "utf8"));
+    capture.screenshotSha256["01-places.png"] = "0".repeat(64);
+    await writeFile(capturePath, `${JSON.stringify(capture, null, 2)}\n`);
+
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture evidence does not match the exact screenshot files/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("Android capture evidence must match the passed device, chronology and display mode", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-android-session-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "docs/release/evidence/samsung-rustore"),
+        path.join(fixture, "docs/release/evidence/samsung-rustore"),
+        { recursive: true },
+      ),
+    ]);
+    const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
+    const capturePath = path.join(
+      fixture,
+      "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    );
+    const originalManifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    const originalCapture = JSON.parse(await readFile(capturePath, "utf8"));
+
+    const wrongDeviceManifest = structuredClone(originalManifest);
+    const wrongDeviceCapture = structuredClone(originalCapture);
+    wrongDeviceManifest.screenshots.androidPhone.captureDevice = "Different Device / Android 1";
+    wrongDeviceCapture.captureDevice = "Different Device / Android 1";
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(wrongDeviceManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(wrongDeviceCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture device does not match passed samsungRustoreApk device evidence/,
+    );
+
+    const staleManifest = structuredClone(originalManifest);
+    const staleCapture = structuredClone(originalCapture);
+    staleManifest.screenshots.androidPhone.capturedAt = "2020-01-01T00:00:00Z";
+    staleCapture.capturedAt = "2020-01-01T00:00:00Z";
+    staleCapture.captureWindow = {
+      startedAt: "2020-01-01T00:00:00Z",
+      completedAt: "2020-01-01T00:00:00Z",
+    };
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(staleManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(staleCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture session predates the signed install or completed device test/,
+    );
+
+    const wrongDisplayCapture = structuredClone(originalCapture);
+    wrongDisplayCapture.captureDisplay.densityDpi = 420;
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(originalManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(wrongDisplayCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture evidence does not match the frozen display configuration/,
     );
   } finally {
     await rm(fixture, { recursive: true, force: true });
