@@ -37,11 +37,21 @@
         "04-route-detail.png",
         "05-saved.png"
       ],
+      "fileSha256": {
+        "01-places.png": "a936009c97716f25fe5a8823b3c6dd3e55e525ceff2ee347a8efee23f12d4381",
+        "02-place-detail.png": "acdbdb01164a4a92b8c089e8456c73cf30bd45ed0b044e7dd9fa5329b3e69e33",
+        "03-routes.png": "5e8493503e3888fd8fa1f9079ca790d420b0e9d49c19246d67fc1e9e3711a376",
+        "04-route-detail.png": "e06fa662ec202a3666b2051a32bd11e153d737aa7da8923e6eba7c02b4aed8d5",
+        "05-saved.png": "49900e93ad9884eb364c9c90da3734e76037f54627b617e9c5ee961bb88d19bc"
+      },
       "captureArtifact": "ios",
+      "captureMode": "simulator-source",
+      "sourceHash": "710595f3fcc726562b7d343d97a136295999cbad841380380824afca71165aee",
       "signedArtifactSha256": null,
-      "captureDevice": null,
-      "capturedAt": null,
-      "status": "pending-signed-capture"
+      "captureDevice": "Apple iPhone 17 Pro Max Simulator / iOS 26.3",
+      "capturedAt": "2026-07-18T15:29:59+08:00",
+      "captureEvidence": "docs/release/evidence/iphone-simulator/capture.json",
+      "status": "ready"
     },
     "androidPhone": {
       "directory": "store-assets/screenshots/android/en-US/phone-9x16",
@@ -55,11 +65,20 @@
         "04-route-detail.png",
         "05-saved.png"
       ],
+      "fileSha256": {
+        "01-places.png": null,
+        "02-place-detail.png": null,
+        "03-routes.png": null,
+        "04-route-detail.png": null,
+        "05-saved.png": null
+      },
       "captureArtifact": "ruStore",
-      "signedArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
+      "captureMode": "signed-device-artifact",
+      "sourceHash": null,
+      "signedArtifactSha256": null,
       "captureDevice": "Samsung SM-A075F / Android 16",
-      "capturedAt": "2026-07-18T13:13:39+08:00",
-      "status": "ready"
+      "capturedAt": null,
+      "status": "pending-signed-capture"
     }
   },
   "ownerInputs": {
@@ -69,7 +88,7 @@
     "responsibleLegalDeveloper": "pending",
     "legalAndActualAddress": "pending",
     "dsaTraderStatus": "pending",
-    "googlePlayAccountTypeAndCreationDate": "pending",
+    "googlePlayAccountTypeAndCreationDate": "complete",
     "googlePlayTestingAndDeviceVerification": "pending",
     "vercelProcessorAgreementConfirmation": "pending",
     "supportInboxAndDeletionProcedure": "pending",

@@ -18,19 +18,22 @@ evidence for the listing package.
 `npm run store:package:verify` during preparation; it lists every pending signed
 screenshot and owner/legal field without failing. Run
 `npm run store:package:verify:strict` only as the final upload gate. It cannot
-pass until both screenshot sets are tied to exact signed-artifact SHA-256 values
-that match `artifacts/release/evidence/release-artifacts.json`, every referenced
-artifact is still present with the same hash, and every owner input is marked
-complete. The iPhone set is tied to the IPA; the shared Android listing set is
-tied to the signed RuStore APK. The release-artifact report independently proves
-that the Play AAB contains the same canonical shell.
+pass until screenshots have explicit provenance, required device evidence is
+complete, every referenced artifact is still present with the same hash, and
+every owner input is marked complete. The iPhone marketing set is captured in
+the 6.9-inch Simulator and tied to the verified canonical mobile-shell source
+hash; it does not claim physical-device or IPA provenance. The Android listing
+set must be recaptured and rebound after every new signed RuStore APK. The
+release-artifact report independently proves when the IPA, Play AAB and RuStore
+APK contain the same canonical shell.
 
-The five Android screenshots are final-size captures from the exact signed and
-device-tested RuStore APK recorded in `package-manifest.json` and
-`docs/release/device-matrix.json`. The five iPhone screenshots remain pending a
-clean install of the final signed iOS 1.0 (4) IPA. Follow
-`docs/store-submission-package.md`; never substitute debug QA screenshots as
-listing artwork.
+The current Android screenshots are historical until the newly signed APK is
+clean-installed and recaptured; `package-manifest.json` therefore keeps that
+set pending. The five iPhone screenshots are final-size
+captures from a clean iPhone 17 Pro Max Simulator install of the same verified
+release source. Physical iPhone/TestFlight QA remains a separate gate and is
+not implied by these marketing images. Follow `docs/store-submission-package.md`;
+never substitute unrelated or stale debug QA screenshots as listing artwork.
 
 `archive/ios-build-2-day-builder/` contains historical screenshots from the
 retired build 2/day-builder product. They are retained only as audit evidence

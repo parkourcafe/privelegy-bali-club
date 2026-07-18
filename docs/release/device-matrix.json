@@ -2,7 +2,8 @@
   "schemaVersion": 2,
   "release": {
     "branch": "release/other-bali-1.0",
-    "commit": "9a54657ab75d6de98ec4186366dece5f532005e4"
+    "commit": "9a54657ab75d6de98ec4186366dece5f532005e4",
+    "verifiedAgainstCommit": "b287fea91b11e15fccd056b268b419eef7c6ebbb"
   },
   "preliminaryDebugEvidence": {
     "status": "passed-debug-only",

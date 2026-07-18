@@ -79,7 +79,7 @@ footer { margin-top: 54px; border-top: 1px solid var(--line); padding: 24px 4px 
 .detail-actions { display: grid; gap: 10px; margin-top: 22px; }
 .footer-links button { min-height: 44px; border: 0; background: transparent; color: var(--paper); padding: 0; text-decoration: underline; text-underline-offset: 4px; }
 
-@media (max-width: 430px) {
+@media (max-width: 520px) {
   .app-shell { padding-right: 14px; padding-left: 14px; }
   .card { align-items: flex-start; flex-direction: column; }
   .card-actions { width: 100%; }

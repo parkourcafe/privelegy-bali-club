@@ -6,7 +6,7 @@ it is not a claim that signed artifacts were submitted or published.
 ## Canonical line
 
 - Branch: `release/other-bali-1.0`
-- Last independently verified production integration: `7aa58bf93087c999f332ef0dfd2b8f42a78723d1`
+- Last merged production integration: `b287fea91b11e15fccd056b268b419eef7c6ebbb`
 - Web/API origin: `https://www.otherbali.com`
 - iOS: `com.otherbali.app`, version `1.0`, build `4`, minimum iOS 15
 - Android: `com.otherbali.app`, version `1.0.0`, version code `2`, minimum API 24, target API 36
@@ -70,9 +70,9 @@ cookies.
 - Node 22 / Java 21 / Gradle 8.14.3 / Android SDK 36 toolchain.
 - Gradle distribution and wrapper checksums match the official Gradle 8.14.3 checksums.
 - `npm test`, TypeScript, ESLint and Next production build are release gates.
-- Final local gate run: 105 Node tests pass; TypeScript passes; ESLint has
-  zero errors (one pre-existing Next `<img>` warning); the 99-page Next
-  production build passes.
+- The previous full gate run passed 105 Node tests, TypeScript, Android and the
+  99-page Next production build; the current layout revision must repeat the
+  combined final gate after its signed rebuild.
 - Unsigned iOS Release simulator build passes, including the Xcode-integrated
   release-shell and privacy-manifest preflight.
 - The optional iOS archive CI gate is manual-only, so it does not consume a
@@ -81,27 +81,33 @@ cookies.
   pass; the final Gradle run completed 601 tasks successfully.
 - Both store signing checks fail closed when protected credentials are absent.
 - A separate Play upload key and a shared Android app-signing/RuStore key are
-  stored outside Git with passwords in macOS Keychain. The signed Play AAB is
-  SHA-256 `460ab8ae…abb8f2`; the signed RuStore APK is
-  `7934db53…60a7d7`. Their signatures, embedded release configuration,
-  package, versions and SDK contract pass.
+  stored outside Git with passwords in macOS Keychain. The prior signed AAB
+  (`460ab8ae…abb8f2`) and APK (`7934db53…60a7d7`) are historical after the
+  layout change and must not be submitted.
 - Store-asset validation passes for the final-size Apple, Google Play and
-  RuStore icons plus the Google Play 1024 x 500 feature graphic. Five Android
-  1080 x 1920 screenshots were captured from the exact signed RuStore APK on
-  the Samsung and contain no alpha channel. iPhone screenshots remain pending.
-- Connected Samsung SM-A075F / Android 16: catalogue, place details, routes,
+  RuStore icons plus the Google Play 1024 x 500 feature graphic. The Android
+  screenshot set is pending repeat capture from the newly signed APK.
+- Historical Samsung SM-A075F / Android 16 evidence: catalogue, place details, routes,
   saves, persistence, warm/cold deep links, Share, Back, Google Maps, Privacy,
   offline relaunch and online recovery passed after a clean install of the
-  exact signed RuStore APK. The APK pulled back from the device matched
+  previous signed RuStore APK. The APK pulled back from the device matched
   `7934db53…60a7d7`; machine-readable evidence is in
-  `docs/release/device-matrix.json`.
-- Xcode automatic signing has already proven the local archive/export path with
-  an Apple Distribution-signed build-4 IPA, `get-task-allow=false` and exact
-  `applinks:www.otherbali.com`. That temporary artifact predates the final
-  mobile-shell patch; the canonical guarded script must reproduce it from the
-  clean merged commit under `artifacts/release/ios`.
-- No physical iPhone is currently connected, so destructive clean-install QA
-  and the five 6.9-inch screenshots remain pending.
+  `docs/release/device-matrix.json`; the new APK still requires repeat QA.
+- The prior build-4 Apple Distribution IPA is superseded by the layout change.
+  A new build-4 IPA must be archived, exported and passed through the combined
+  verifier before it can be treated as the release artifact.
+- A physical iPhone 16 Pro Max / iOS 26.5.2 was connected. Build 3 was removed,
+  and the Release app from the same final archive was clean-installed with an
+  Apple Development profile and launched successfully as build 4. This proves
+  clean installation and launch of the final product tree, but it is not the
+  Apple Distribution IPA and must not be recorded as exact store-IPA QA.
+  Full physical-device visual cases remain pending.
+- Five App Store marketing screenshots were captured from a clean install of
+  the same verified release shell in an iPhone 17 Pro Max / iOS 26.3
+  Simulator. They are exact `1320 x 2868`, opaque 8-bit RGB PNGs and pass the
+  store-package validator. Save-state persistence also passed a terminate and
+  relaunch check. This simulator evidence is recorded separately and does not
+  mark the Apple Distribution IPA as device-tested.
 
 ## Remaining release gates
 
@@ -109,13 +115,15 @@ Owner-only facts and action-time permissions are consolidated in
 `docs/release/owner-release-inputs.md`; secrets and identity documents must not
 be committed.
 
-1. Merge the signing/screenshot evidence PR, deploy that exact commit and
-   reverify production health/bootstrap/config plus AASA and Digital Asset Links.
-2. Run the authorized guarded iOS build from the clean merged commit and pass
-   the combined IPA/AAB/APK release verifier.
-3. Connect the physical iPhone, remove any old `com.otherbali.app` installation,
-   clean-install build 4, run the full device matrix and capture the five exact
-   App Store screenshots.
+1. Previous baseline `b287fea…` is deployed and its production
+   health/bootstrap/config plus AASA and Digital Asset Links passed. Deploy and
+   repeat those checks after merging the current layout revision.
+2. Run the authorized guarded iOS and Android rebuilds and pass the combined
+   IPA/AAB/APK release verifier for the new source hash.
+3. Complete the remaining visual iPhone device matrix. The five App Store
+   screenshots are ready from the verified Simulator source, but development-
+   signed physical-device QA must remain distinct from the Apple Distribution
+   IPA unless a TestFlight upload is separately authorized and tested.
 4. Wait for Google to unblock owner verification. Only then create the Play app,
    configure Play App Signing with the prepared upload/distribution keys and
    complete any required device verification or 12-tester/14-day closed test.

@@ -13,10 +13,37 @@ const EXPECTED_SCREENSHOT_FILES = [
   "04-route-detail.png",
   "05-saved.png",
 ];
-const EXPECTED_CAPTURE_ARTIFACT = Object.freeze({ iphone69: "ios", androidPhone: "ruStore" });
-const EXPECTED_DEVICE_EVIDENCE = Object.freeze({
-  iphone69: "iphoneIpa",
-  androidPhone: "samsungRustoreApk",
+const EXPECTED_SCREENSHOT_PROVENANCE = Object.freeze({
+  iphone69: {
+    artifact: "ios",
+    mode: "simulator-source",
+    deviceEvidence: null,
+    directory: "store-assets/screenshots/app-store/en-US/iphone-6.9",
+    width: 1320,
+    height: 2868,
+    alpha: "forbidden",
+    captureEvidence: "docs/release/evidence/iphone-simulator/capture.json",
+  },
+  androidPhone: {
+    artifact: "ruStore",
+    mode: "signed-device-artifact",
+    deviceEvidence: "samsungRustoreApk",
+    directory: "store-assets/screenshots/android/en-US/phone-9x16",
+    width: 1080,
+    height: 1920,
+    alpha: "forbidden",
+    captureEvidence: null,
+  },
+});
+const REQUIRED_DEVICE_EVIDENCE = Object.freeze([
+  "iphoneIpa",
+  "samsungPlayDistributedBuild",
+  "samsungRustoreApk",
+]);
+const DEVICE_EVIDENCE_ARTIFACT = Object.freeze({
+  iphoneIpa: "ios",
+  samsungPlayDistributedBuild: "googlePlay",
+  samsungRustoreApk: "ruStore",
 });
 const ARTIFACT_KEYS = ["ios", "googlePlay", "ruStore"];
 export const REQUIRED_OWNER_INPUTS = Object.freeze([
@@ -41,9 +68,32 @@ export function requiredManifestSectionState(manifest) {
   const failures = [];
   const pending = [];
   const screenshotKeys = Object.keys(manifest.screenshots ?? {}).sort();
-  const expectedScreenshotKeys = Object.keys(EXPECTED_CAPTURE_ARTIFACT).sort();
+  const expectedScreenshotKeys = Object.keys(EXPECTED_SCREENSHOT_PROVENANCE).sort();
   if (JSON.stringify(screenshotKeys) !== JSON.stringify(expectedScreenshotKeys)) {
     failures.push(`package manifest must contain exactly these screenshot sets: ${expectedScreenshotKeys.join(", ")}`);
+  }
+  for (const key of expectedScreenshotKeys) {
+    const set = manifest.screenshots?.[key];
+    if (!set) continue;
+    const provenance = EXPECTED_SCREENSHOT_PROVENANCE[key];
+    const expectedFields = {
+      directory: provenance.directory,
+      width: provenance.width,
+      height: provenance.height,
+      alpha: provenance.alpha,
+      captureArtifact: provenance.artifact,
+      captureMode: provenance.mode,
+    };
+    for (const [field, expected] of Object.entries(expectedFields)) {
+      if (set[field] !== expected) failures.push(`${key}: ${field} must equal ${expected}`);
+    }
+    if (JSON.stringify(set.files) !== JSON.stringify(EXPECTED_SCREENSHOT_FILES)) {
+      failures.push(`${key}: the five canonical screenshot names are required in order`);
+    }
+    const recordedHashKeys = Object.keys(set.fileSha256 ?? {}).sort();
+    if (JSON.stringify(recordedHashKeys) !== JSON.stringify([...EXPECTED_SCREENSHOT_FILES].sort())) {
+      failures.push(`${key}: fileSha256 must contain exactly the five canonical screenshot names`);
+    }
   }
   const ownerKeys = Object.keys(manifest.ownerInputs ?? {});
   const unexpectedOwnerKeys = ownerKeys.filter((key) => !REQUIRED_OWNER_INPUTS.includes(key));
@@ -70,6 +120,18 @@ function repositoryPath(root, relative, label) {
 
 function sha256(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
+}
+
+function isSha256(value) {
+  return /^[a-f0-9]{64}$/.test(value ?? "");
+}
+
+function isCommit(value) {
+  return /^[a-f0-9]{40}$/.test(value ?? "");
+}
+
+function isTimestamp(value) {
+  return typeof value === "string" && !Number.isNaN(Date.parse(value));
 }
 
 function inspectReleaseDeclaration(release, failures) {
@@ -256,10 +318,154 @@ async function deviceEvidence({ root, manifest, failures }) {
   try {
     const report = JSON.parse(bytes.toString("utf8"));
     if (report.schemaVersion !== 2) failures.push("device-matrix evidence has an unsupported schema");
+    if (!isCommit(report.release?.commit)) failures.push("device-matrix release has no source commit");
+    if (report.release?.verifiedAgainstCommit != null && !isCommit(report.release.verifiedAgainstCommit)) {
+      failures.push("device-matrix verifiedAgainstCommit must be a full commit SHA when present");
+    }
     return report;
   } catch {
     failures.push("device-matrix evidence is not valid JSON");
     return null;
+  }
+}
+
+async function validateSimulatorCaptureEvidence({
+  root,
+  key,
+  set,
+  provenance,
+  actualHashes,
+  failures,
+  pending,
+}) {
+  if (set.captureEvidence !== provenance.captureEvidence) {
+    failures.push(`${key}: captureEvidence must equal ${provenance.captureEvidence}`);
+    return;
+  }
+  let evidencePath;
+  try {
+    evidencePath = repositoryPath(root, set.captureEvidence, `${key} capture-evidence path`);
+  } catch (error) {
+    failures.push(error.message);
+    return;
+  }
+  const bytes = await fileBufferOrNull(evidencePath);
+  if (!bytes) {
+    pending.push(`${key}:captureEvidence`);
+    return;
+  }
+  let evidence;
+  try {
+    evidence = JSON.parse(bytes.toString("utf8"));
+  } catch {
+    failures.push(`${key}: capture evidence is not valid JSON`);
+    return;
+  }
+  if (evidence.schemaVersion !== 1 || evidence.status !== "passed") {
+    failures.push(`${key}: capture evidence has no passed verdict`);
+  }
+  if (evidence.sourceHash !== set.sourceHash) {
+    failures.push(`${key}: capture evidence source hash does not match the screenshot set`);
+  }
+  if (evidence.captureDevice !== set.captureDevice || evidence.capturedAt !== set.capturedAt) {
+    failures.push(`${key}: capture evidence device/time does not match the screenshot set`);
+  }
+  if (evidence.installationMode !== "clean-install") {
+    failures.push(`${key}: Simulator capture evidence must come from a clean install`);
+  }
+  const expectedApp = {
+    bundleId: RELEASE_CONTRACT.appId,
+    version: RELEASE_CONTRACT.iosVersion,
+    build: RELEASE_CONTRACT.iosBuild,
+  };
+  if (JSON.stringify(evidence.app) !== JSON.stringify(expectedApp)) {
+    failures.push(`${key}: Simulator capture evidence has the wrong app identity/version`);
+  }
+  if (evidence.installation?.existingAppRemoved !== true
+    || evidence.installation?.releaseSimulatorBuildInstalled !== true
+    || evidence.installation?.firstLaunch !== "passed") {
+    failures.push(`${key}: Simulator capture evidence has no complete installation record`);
+  }
+  const requiredCases = ["catalogLoaded", "routeLayout", "savePersistenceAfterRelaunch"];
+  if (requiredCases.some((caseName) => evidence.cases?.[caseName] !== "passed")) {
+    failures.push(`${key}: Simulator capture evidence is missing required passed cases`);
+  }
+  if (evidence.screenshotDirectory !== provenance.directory
+    || JSON.stringify(evidence.screenshotSha256) !== JSON.stringify(actualHashes)) {
+    failures.push(`${key}: capture evidence does not match the exact screenshot files`);
+  }
+  const expectedPointers = EXPECTED_SCREENSHOT_FILES.map((file) => path.join(provenance.directory, file));
+  if (JSON.stringify(evidence.evidencePointers) !== JSON.stringify(expectedPointers)) {
+    failures.push(`${key}: Simulator capture evidence must point to all five screenshot files`);
+  }
+}
+
+async function validateRequiredDeviceEvidence({ root, deviceReport, artifactReport, failures, pending }) {
+  if (!deviceReport) {
+    for (const evidenceKey of REQUIRED_DEVICE_EVIDENCE) pending.push(`deviceEvidence:${evidenceKey}`);
+    return;
+  }
+  if (artifactReport && deviceReport.release?.commit !== artifactReport.git?.commit) {
+    failures.push("device-matrix source commit does not match release-artifact evidence");
+  }
+  for (const evidenceKey of REQUIRED_DEVICE_EVIDENCE) {
+    const entry = deviceReport.requiredSignedEvidence?.[evidenceKey];
+    if (entry?.status !== "passed") {
+      pending.push(`deviceEvidence:${evidenceKey}`);
+      continue;
+    }
+    const artifactKey = DEVICE_EVIDENCE_ARTIFACT[evidenceKey];
+    const artifact = entry.artifact ?? {};
+    if (artifact.releaseEvidenceKey !== artifactKey) {
+      failures.push(`${evidenceKey}: releaseEvidenceKey must equal ${artifactKey}`);
+    }
+    if (!isSha256(artifact.releaseArtifactSha256)) {
+      failures.push(`${evidenceKey}: passed evidence has no release artifact SHA-256`);
+    } else if (artifactReport
+      && artifactReport.artifacts?.[artifactKey]?.sha256 !== artifact.releaseArtifactSha256) {
+      failures.push(`${evidenceKey}: passed artifact SHA-256 does not match release evidence`);
+    }
+    if (!isCommit(artifact.sourceCommit)) {
+      failures.push(`${evidenceKey}: passed evidence has no source commit`);
+    } else {
+      if (artifact.sourceCommit !== deviceReport.release?.commit) {
+        failures.push(`${evidenceKey}: source commit does not match the device-matrix release source`);
+      }
+      if (artifactReport && artifact.sourceCommit !== artifactReport.git?.commit) {
+        failures.push(`${evidenceKey}: source commit does not match release-artifact evidence`);
+      }
+    }
+    if (evidenceKey !== "iphoneIpa") {
+      if (!isSha256(artifact.installedArtifactSha256)
+        || artifact.installedArtifactSha256 !== artifact.releaseArtifactSha256) {
+        failures.push(`${evidenceKey}: installed artifact hash does not match the release artifact`);
+      }
+    }
+    if (!entry.device?.manufacturer || !entry.device?.model || !entry.device?.os) {
+      failures.push(`${evidenceKey}: passed evidence requires manufacturer, model and OS`);
+    }
+    if (!isTimestamp(entry.testedAt)) failures.push(`${evidenceKey}: passed evidence has no valid testedAt`);
+    if (typeof entry.installationMode !== "string" || !entry.installationMode.startsWith("clean-install")) {
+      failures.push(`${evidenceKey}: passed evidence must come from a clean install`);
+    }
+    const cases = Object.values(entry.cases ?? {});
+    if (!cases.length || cases.some((result) => result !== "passed")) {
+      failures.push(`${evidenceKey}: every required device case must be passed`);
+    }
+    if (!Array.isArray(entry.evidencePointers) || entry.evidencePointers.length === 0) {
+      failures.push(`${evidenceKey}: passed evidence requires evidence pointers`);
+    } else {
+      for (const pointer of entry.evidencePointers) {
+        let pointerPath;
+        try {
+          pointerPath = repositoryPath(root, pointer, `${evidenceKey} evidence pointer`);
+        } catch (error) {
+          failures.push(error.message);
+          continue;
+        }
+        if (!await fileBufferOrNull(pointerPath)) failures.push(`${evidenceKey}: evidence pointer is missing: ${pointer}`);
+      }
+    }
   }
 }
 
@@ -283,17 +489,21 @@ export async function inspectStorePackage({ root, strict = false }) {
   );
   const metadataLengths = inspectMetadata(metadataMarkdown, failures, pending);
   const screenshots = {};
-  for (const key of Object.keys(EXPECTED_CAPTURE_ARTIFACT)) {
+  for (const key of Object.keys(EXPECTED_SCREENSHOT_PROVENANCE)) {
     const set = manifest.screenshots?.[key];
     if (!set) continue;
-    if (set.captureArtifact !== EXPECTED_CAPTURE_ARTIFACT[key]) {
-      failures.push(`${key}: captureArtifact must equal ${EXPECTED_CAPTURE_ARTIFACT[key] ?? "a known signed artifact"}`);
+    const provenance = EXPECTED_SCREENSHOT_PROVENANCE[key];
+    if (set.captureArtifact !== provenance.artifact) {
+      failures.push(`${key}: captureArtifact must equal ${provenance.artifact}`);
+    }
+    if (set.captureMode !== provenance.mode) {
+      failures.push(`${key}: captureMode must equal ${provenance.mode}`);
     }
     if (JSON.stringify(set.files) !== JSON.stringify(EXPECTED_SCREENSHOT_FILES)) {
-      failures.push(`${key}: the five canonical screenshot names are required in order`);
       continue;
     }
     const files = [];
+    const actualHashes = {};
     for (const file of set.files) {
       let relativeScreenshot;
       let absoluteScreenshot;
@@ -314,10 +524,36 @@ export async function inspectStorePackage({ root, strict = false }) {
         failures.push(`${relativeScreenshot}: expected ${set.width}x${set.height}, found ${png.width}x${png.height}`);
       }
       if (set.alpha === "forbidden" && png.hasAlpha) failures.push(`${relativeScreenshot}: alpha/transparency is forbidden`);
-      files.push({ file, width: png.width, height: png.height, hasAlpha: png.hasAlpha, sha256: sha256(bytes) });
+      const actualSha256 = sha256(bytes);
+      actualHashes[file] = actualSha256;
+      if (!isSha256(set.fileSha256?.[file])) {
+        if (set.status === "ready") failures.push(`${relativeScreenshot}: ready screenshot has no recorded SHA-256`);
+        else pending.push(`${key}:${file}:sha256`);
+      } else if (set.fileSha256[file] !== actualSha256) {
+        failures.push(`${relativeScreenshot}: screenshot SHA-256 does not match package manifest`);
+      }
+      files.push({ file, width: png.width, height: png.height, hasAlpha: png.hasAlpha, sha256: actualSha256 });
     }
     if (set.status !== "ready") pending.push(`${key}:status`);
-    if (!/^[a-f0-9]{64}$/.test(set.signedArtifactSha256 ?? "")) {
+    if (!/^[a-f0-9]{64}$/.test(set.sourceHash ?? "")) {
+      pending.push(`${key}:sourceHash`);
+    } else if (artifactReport && set.sourceHash !== artifactReport.mobileShell?.sourceHash) {
+      failures.push(`${key}: screenshot source hash does not match verified mobile-shell evidence`);
+    }
+    if (provenance.mode === "simulator-source") {
+      if (set.signedArtifactSha256 !== null) {
+        failures.push(`${key}: simulator screenshots must not claim a signed device artifact SHA-256`);
+      }
+      await validateSimulatorCaptureEvidence({
+        root,
+        key,
+        set,
+        provenance,
+        actualHashes,
+        failures,
+        pending,
+      });
+    } else if (!/^[a-f0-9]{64}$/.test(set.signedArtifactSha256 ?? "")) {
       pending.push(`${key}:signedArtifactSha256`);
     } else if (artifactReport) {
       const expectedHash = artifactReport.artifacts?.[set.captureArtifact]?.sha256;
@@ -327,8 +563,8 @@ export async function inspectStorePackage({ root, strict = false }) {
     }
     if (!set.captureDevice) pending.push(`${key}:captureDevice`);
     if (!set.capturedAt || Number.isNaN(Date.parse(set.capturedAt))) pending.push(`${key}:capturedAt`);
-    if (set.status === "ready") {
-      const evidenceKey = EXPECTED_DEVICE_EVIDENCE[key];
+    if (set.status === "ready" && provenance.deviceEvidence) {
+      const evidenceKey = provenance.deviceEvidence;
       const deviceEntry = deviceReport?.requiredSignedEvidence?.[evidenceKey];
       if (deviceEntry?.status !== "passed") {
         failures.push(`${key}: ready screenshots require passed ${evidenceKey} device evidence`);
@@ -340,7 +576,7 @@ export async function inspectStorePackage({ root, strict = false }) {
         if (deviceEntry.installationMode !== "clean-install") {
           failures.push(`${key}: passed ${evidenceKey} evidence must come from a clean install`);
         }
-        if (!/^[a-f0-9]{40}$/.test(deviceEntry.artifact?.sourceCommit ?? "")) {
+        if (!isCommit(deviceEntry.artifact?.sourceCommit)) {
           failures.push(`${key}: passed ${evidenceKey} evidence has no source commit`);
         } else if (deviceEntry.artifact.sourceCommit !== deviceReport?.release?.commit) {
           failures.push(`${key}: passed ${evidenceKey} source commit does not match the device-matrix release`);
@@ -352,6 +588,8 @@ export async function inspectStorePackage({ root, strict = false }) {
     }
     screenshots[key] = files;
   }
+
+  await validateRequiredDeviceEvidence({ root, deviceReport, artifactReport, failures, pending });
 
   for (const key of REQUIRED_OWNER_INPUTS) {
     if (manifest.ownerInputs?.[key] !== "complete" && !pending.includes(`ownerInputs:${key}`)) {

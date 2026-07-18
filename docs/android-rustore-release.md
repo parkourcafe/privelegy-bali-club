@@ -2,9 +2,10 @@
 
 Date: 2026-07-18
 
-Status: Capacitor candidate implemented and debug-tested on the connected
-Samsung. Store-signed AAB/APK and verified Digital Asset Links remain blocked
-on owner-approved production key creation.
+Status: signing inputs are prepared, but the previous upload-key-signed Play
+AAB and RuStore-signed APK were superseded by the large-phone layout fix and
+must be rebuilt and retested. Digital Asset Links are deployed. Google Play
+enrolment remains blocked by the owner's pending identity appeal.
 
 ## Canonical architecture
 
@@ -57,6 +58,12 @@ app-signing key.
 No keystore, password or signing secret belongs in Git, chat, screenshots or a
 store listing. Create keys only after owner approval, store passwords in a
 password manager/macOS Keychain and keep at least two encrypted key backups.
+
+The approved shared app-signing key and separate Play upload key are stored
+outside Git with `0700` directory and `0600` file permissions; their passwords
+are stored in macOS Keychain. Only one local private-key copy of each key has
+been verified so far. An independent encrypted off-device backup is still a
+release-owner gate.
 
 Protected Google Play inputs:
 
@@ -123,9 +130,9 @@ shared signer and writes `public/.well-known/assetlinks.json`. Deploy it and
 verify HTTP 200, `application/json`, no redirect and no cookie before signed
 deep-link QA.
 
-## Current Samsung evidence
+## Previous Samsung evidence requiring repeat
 
-On SM-A075F / Android 16, the current debug candidate passed:
+On SM-A075F / Android 16, the previously signed RuStore release APK passed:
 
 - cold launch and production catalogue bootstrap;
 - venue detail and external Google Maps handoff;
@@ -138,6 +145,8 @@ On SM-A075F / Android 16, the current debug candidate passed:
 - offline relaunch with cached route/venue data and recovery after networking returned;
 - Privacy custom-tab handoff.
 
-This is preliminary debug evidence. Repeat the full matrix on the exact
-RuStore-signed APK and Play-distributed internal-test build after Digital Asset
-Links is deployed.
+The installed APK was pulled back from the device and matched that verified
+release artifact byte-for-byte. This evidence remains historical; the new
+layout source requires a new signed APK, clean installation and repeat QA.
+Google Play distributed-build QA remains pending until the owner account is
+verified and Play App Signing can be configured.
