@@ -81,8 +81,10 @@ export async function inspectNativeReadiness({ root = process.cwd() } = {}) {
   if (!project.includes(`DEVELOPMENT_TEAM = ${APPLE_TEAM_ID};`)) {
     add(blockers, "signing_team_mismatch", `The App target must use Apple Developer Team ${APPLE_TEAM_ID}`);
   }
-  if (!project.includes('CODE_SIGN_IDENTITY = "Apple Distribution";')) {
-    add(blockers, "release_identity_mismatch", "The Release configuration must request Apple Distribution signing");
+  const automaticReleaseIdentity = /\/\* Release \*\/ = \{[^}]*buildSettings = \{[^}]*CODE_SIGN_IDENTITY = "Apple Development";[^}]*\};\s*name = Release;\s*\};/.test(project)
+    && !project.includes('CODE_SIGN_IDENTITY = "Apple Distribution";');
+  if (!automaticReleaseIdentity) {
+    add(blockers, "release_identity_mismatch", "The Release project configuration must use Apple Development so Automatic signing can archive before App Store Connect export");
   }
 
   const entitlementsPath = path.join(root, "ios/App/App/App.entitlements");

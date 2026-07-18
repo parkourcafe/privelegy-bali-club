@@ -217,14 +217,27 @@ test("fingerprints are normalized and malformed values fail closed", () => {
   assert.throws(() => normalizeFingerprint("debug"), /must be a SHA-256 fingerprint/);
 });
 
-test("signed iOS build command is action-time guarded and export is App Store-only", async () => {
+test("signed iOS build command uses cloud-managed distribution signing and a local App Store export", async () => {
   const [script, exportOptions] = await Promise.all([
     readFile(new URL("./build-ios-release.sh", import.meta.url), "utf8"),
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
-  assert.match(script, /Apple Distribution/);
-  assert.doesNotMatch(script, /allowProvisioningUpdates|upload-app|notarytool/);
+  const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
+  const provisioningIndex = script.indexOf("xcodebuild \\");
+  assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);
+  assert.match(script, /CODE_SIGN_STYLE=Automatic/);
+  assert.match(script, /CODE_SIGN_IDENTITY=Apple Development/);
+  assert.doesNotMatch(script, /CODE_SIGN_IDENTITY=Apple Distribution/);
+  const realisticIdentityFixture = '  1) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "Apple Development: Release Operator (A1B2C3D4E5)"';
+  const identityMarker = script.match(/grep -F '([^']+)'/)?.[1];
+  assert.equal(identityMarker, '"Apple Development:');
+  assert.equal(realisticIdentityFixture.includes(identityMarker), true);
+  assert.equal(realisticIdentityFixture.includes("(KB7VPWHTTM)"), false);
+  assert.equal(script.match(/-allowProvisioningUpdates/g)?.length, 2);
+  assert.doesNotMatch(script, /upload-app|notarytool|altool|iTMSTransporter/);
+  assert.match(exportOptions, /<key>destination<\/key>\s*<string>export<\/string>/);
+  assert.doesNotMatch(exportOptions, /<key>destination<\/key>\s*<string>upload<\/string>/);
   assert.match(exportOptions, /<string>app-store-connect<\/string>/);
   assert.match(exportOptions, /<string>KB7VPWHTTM<\/string>/);
   assert.match(exportOptions, /<string>com\.otherbali\.app<\/string>/);

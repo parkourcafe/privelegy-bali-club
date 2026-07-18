@@ -40,8 +40,8 @@ if [[ "${node_major}" != "22" ]]; then
 fi
 
 if ! security find-identity -v -p codesigning \
-  | grep -E '"Apple Distribution: .+ \(KB7VPWHTTM\)"' >/dev/null; then
-  echo "A valid Apple Distribution identity for team ${TEAM_ID} is not available in the keychain." >&2
+  | grep -F '"Apple Development:' >/dev/null; then
+  echo "A valid Apple Development identity is not available in the keychain. Xcode will enforce team ${TEAM_ID} during archive." >&2
   exit 1
 fi
 
@@ -83,14 +83,16 @@ xcodebuild \
   MARKETING_VERSION="${VERSION}" \
   CURRENT_PROJECT_VERSION="${BUILD_NUMBER}" \
   CODE_SIGN_STYLE=Automatic \
-  'CODE_SIGN_IDENTITY=Apple Distribution' \
+  'CODE_SIGN_IDENTITY=Apple Development' \
+  -allowProvisioningUpdates \
   archive
 
 xcodebuild \
   -exportArchive \
   -archivePath "${archive_path}" \
   -exportPath "${export_path}" \
-  -exportOptionsPlist "${export_options}"
+  -exportOptionsPlist "${export_options}" \
+  -allowProvisioningUpdates
 
 exported_ipas=()
 for candidate in "${export_path}"/*.ipa; do

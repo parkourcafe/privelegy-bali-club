@@ -45,7 +45,8 @@ test("the iOS target and AASA have the exact production identity and next build 
   assert.match(project, /PRODUCT_BUNDLE_IDENTIFIER = com\.otherbali\.app/);
   assert.match(project, /CURRENT_PROJECT_VERSION = 4/);
   assert.match(project, /DEVELOPMENT_TEAM = KB7VPWHTTM/);
-  assert.match(project, /CODE_SIGN_IDENTITY = "Apple Distribution"/);
+  assert.match(project, /\/\* Release \*\/ = \{[^}]*buildSettings = \{[^}]*CODE_SIGN_IDENTITY = "Apple Development";[^}]*\};\s*name = Release;\s*\};/);
+  assert.doesNotMatch(project, /CODE_SIGN_IDENTITY = "Apple Distribution"/);
   assert.match(plist, /<string>otherbali<\/string>/);
   assert.match(entitlements, /applinks:www\.otherbali\.com/);
   const aasa = JSON.parse(aasaText);

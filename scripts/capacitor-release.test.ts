@@ -8,6 +8,7 @@ test("Capacitor Release uses only the bundled local shell with logging disabled"
   assert.equal(config.webDir, "ios-web");
   assert.equal(config.loggingBehavior, "none");
   assert.equal(config.server, undefined);
+  assert.deepEqual(config.plugins?.SystemBars, { style: "DARK" });
 });
 
 test("Capacitor development server is opt-in and private-network only", () => {
