@@ -78,6 +78,7 @@ const PLAN_VENUE_COLUMNS = [
   "owner_note",
   "publication_status",
   "wellness_categories",
+  "tablepilot_slug",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -108,6 +109,11 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "owner_note",
   "publication_status",
   "wellness_categories",
+  // Stable routing key (not a legacy action field): when set, the venue is
+  // bookable through TablePilot and the action gateway builds a fresh
+  // /book/<slug> reservation URL from it. The reservation action itself is
+  // still built fresh at resolve time, never surfaced raw from this column.
+  "tablepilot_slug",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -188,7 +194,9 @@ const mapVenue = (r: Row): Venue => {
     whatToOrder: (r.what_to_order as string) ?? undefined,
     photoUrl: (r.photo_url as string) ?? undefined,
     whatsapp: undefined,
-    tablepilotSlug: undefined,
+    // Bookable-through-us routing key. When present, the action gateway routes
+    // Reserve through TablePilot and suppresses external reserve providers.
+    tablepilotSlug: (r.tablepilot_slug as string) ?? undefined,
     area: (r.area as string) ?? undefined,
     whyItsHere: (r.why_its_here as string) ?? undefined,
     bestFor: (r.best_for as string) ?? undefined,

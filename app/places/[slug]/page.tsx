@@ -383,7 +383,11 @@ export default async function VenuePage({
       configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
     }),
     fallbacks: published ? {
-      tablepilotSlug: undefined,
+      // Route Reserve through TablePilot wherever a venue carries a booking
+      // slug (founder decision 2026-07-18: reserve-through-us in every
+      // district, not only active_deep). The resolver builds a fresh
+      // /book/<slug> URL and suppresses external reserve providers.
+      tablepilotSlug: venue.tablepilotSlug ?? undefined,
       whatsapp: undefined,
       officialMenuUrl: menuUrl,
       websiteUrl: officialUrl,

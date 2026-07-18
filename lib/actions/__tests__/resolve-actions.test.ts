@@ -88,27 +88,52 @@ test("rebuilds TablePilot URLs and discards untrusted query parameters", () => {
   );
 });
 
-test("uses a validated legacy TablePilot slug only in active-deep coverage", () => {
+test("uses a validated TablePilot slug in every coverage mode", () => {
+  // Founder decision 2026-07-18: reserve-through-us in every district, not
+  // only active_deep. A booking slug builds the reservation everywhere.
   const base = props({
     capabilities: [],
     fallbacks: { tablepilotSlug: "actual-external-slug" },
   });
 
-  const active = resolve(base, { tablepilotBaseUrl: TABLEPILOT_TEST_BASE });
-  const planning = resolve({ ...base, coverageMode: "planning_only" }, {
-    tablepilotBaseUrl: TABLEPILOT_TEST_BASE,
-  });
-  const nextDeep = resolve({ ...base, coverageMode: "next_deep" }, {
-    tablepilotBaseUrl: TABLEPILOT_TEST_BASE,
-  });
+  for (const coverageMode of ["active_deep", "next_deep", "planning_only"] as const) {
+    const result = resolve(
+      { ...base, coverageMode },
+      { tablepilotBaseUrl: TABLEPILOT_TEST_BASE }
+    );
+    assert.equal(
+      result.primary?.href,
+      "https://tablepilot.example/book/actual-external-slug?source=bali_privilege",
+      coverageMode
+    );
+    assert.equal(result.primary?.source, "fallback", coverageMode);
+  }
+});
 
-  assert.equal(
-    active.primary?.href,
-    "https://tablepilot.example/book/actual-external-slug?source=bali_privilege"
+test("suppresses external reserve providers when a TablePilot reserve is present", () => {
+  const official = capability({
+    id: "official-reserve",
+    provider: "official",
+    kind: "reserve",
+    url: "https://book.venue-bali.com/reserve",
+    sourceUrl: "https://venue-bali.com/book",
+    priority: 0,
+  });
+  const result = resolve(
+    props({
+      coverageMode: "planning_only",
+      capabilities: [official],
+      fallbacks: { tablepilotSlug: "venue-tp-slug" },
+    }),
+    { tablepilotBaseUrl: TABLEPILOT_TEST_BASE }
   );
-  assert.equal(active.primary?.source, "fallback");
-  assert.equal(planning.primary, null);
-  assert.equal(nextDeep.primary, null);
+
+  // Only the TablePilot reserve survives; the venue's own reserve is hidden.
+  assert.equal(result.primary?.provider, "tablepilot");
+  assert.equal(result.primary?.kind, "reserve");
+  const reserves = result.all.filter((action) => action.kind === "reserve");
+  assert.equal(reserves.length, 1);
+  assert.equal(reserves[0]?.provider, "tablepilot");
 });
 
 test("allows a verified official reservation outside active-deep coverage", () => {

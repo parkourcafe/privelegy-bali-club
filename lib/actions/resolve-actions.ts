@@ -163,7 +163,9 @@ function resolveCapability(
 
   let href: string | null = null;
   if (provider === "tablepilot") {
-    if (record.kind !== "reserve" || props.coverageMode !== "active_deep") return null;
+    // Reserve-through-us is available in every district (founder decision
+    // 2026-07-18), no longer gated to active_deep coverage.
+    if (record.kind !== "reserve") return null;
     const slug = tablePilotSlugFromUrl(record.url, options.tablepilotBaseUrl);
     href = slug
       ? buildTablePilotReservationUrl(slug, options.tablepilotBaseUrl)
@@ -249,7 +251,8 @@ export function resolveVenueActions(
     actions.some((action) => action.kind === kind && (!provider || action.provider === provider));
 
   if (
-    props.coverageMode === "active_deep" &&
+    // A venue booking slug routes Reserve through us in every district
+    // (founder decision 2026-07-18) — no active_deep gate.
     props.fallbacks.tablepilotSlug &&
     !has("reserve", "tablepilot")
   ) {
@@ -334,7 +337,19 @@ export function resolveVenueActions(
     } else rejected.push({ id: "fallback-google-maps", reason: "invalid_maps_fallback" });
   }
 
-  const sorted = uniqueActions(actions.sort(compareActions));
+  // Reserve-through-us: when a TablePilot reserve exists (our own handled
+  // booking), suppress every other reserve action so the guest books through
+  // us, never the venue's own external channel (founder decision 2026-07-18).
+  const hasTablePilotReserve = actions.some(
+    (action) => action.kind === "reserve" && action.provider === "tablepilot"
+  );
+  const gated = hasTablePilotReserve
+    ? actions.filter(
+        (action) => action.kind !== "reserve" || action.provider === "tablepilot"
+      )
+    : actions;
+
+  const sorted = uniqueActions(gated.sort(compareActions));
   const maps = sorted.find((action) => action.kind === "maps") ?? null;
   const nonMaps = sorted.filter((action) => action.kind !== "maps");
   const primary =
