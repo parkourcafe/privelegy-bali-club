@@ -293,8 +293,7 @@ export function assertIosMetadata({ info, entitlements, profile, codesign, now =
     && profileAssociatedDomains !== "*") {
     fail("embedded profile does not authorize the exact associated domain");
   }
-  if ((Array.isArray(profile.ProvisionedDevices) && profile.ProvisionedDevices.length)
-    || profile.ProvisionsAllDevices === true) {
+  if (Object.hasOwn(profile, "ProvisionedDevices") || Object.hasOwn(profile, "ProvisionsAllDevices")) {
     fail("embedded profile is a development/ad-hoc/enterprise profile, not App Store distribution");
   }
   const expiration = new Date(profile.ExpirationDate);

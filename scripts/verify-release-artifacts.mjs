@@ -273,12 +273,28 @@ async function provisioningProfileMetadata(source, temporaryDirectory) {
       `IPA provisioning profile ${key} decoding`,
     );
   };
-  const [teamIdentifier, entitlements, expirationDate, uuid, name] = await Promise.all([
+  const hasKey = async (key) => {
+    try {
+      await command(
+        "/usr/bin/plutil",
+        ["-extract", key, "xml1", "-o", "-", input],
+        `IPA provisioning profile ${key} presence check`,
+      );
+      return true;
+    } catch (error) {
+      const absentMarker = `No value at that key path or invalid key path: ${key}`;
+      if (error instanceof Error && error.message.includes(absentMarker)) return false;
+      throw error;
+    }
+  };
+  const [teamIdentifier, entitlements, expirationDate, uuid, name, hasDevices, provisionsAllDevices] = await Promise.all([
     structured("TeamIdentifier", "team"),
     structured("Entitlements", "entitlements"),
     raw("ExpirationDate"),
     raw("UUID"),
     raw("Name"),
+    hasKey("ProvisionedDevices"),
+    hasKey("ProvisionsAllDevices"),
   ]);
   const profile = {
     TeamIdentifier: teamIdentifier,
@@ -287,14 +303,8 @@ async function provisioningProfileMetadata(source, temporaryDirectory) {
     UUID: uuid,
     Name: name,
   };
-  if (source.includes("<key>ProvisionedDevices</key>")) {
-    profile.ProvisionedDevices = await structured("ProvisionedDevices", "devices");
-  }
-  if (source.includes("<key>ProvisionsAllDevices</key>")) {
-    const value = await raw("ProvisionsAllDevices");
-    if (value !== "true" && value !== "false") fail("IPA provisioning profile ProvisionsAllDevices is malformed");
-    profile.ProvisionsAllDevices = value === "true";
-  }
+  if (hasDevices) profile.ProvisionedDevices = true;
+  if (provisionsAllDevices) profile.ProvisionsAllDevices = true;
   return profile;
 }
 

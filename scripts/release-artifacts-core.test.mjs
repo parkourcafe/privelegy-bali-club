@@ -240,6 +240,14 @@ Signature size=9999
   const expiredProfile = validIosEvidence();
   expiredProfile.profile.ExpirationDate = new Date("2028-01-01T00:00:00.000Z");
   assert.throws(() => assertIosMetadata(expiredProfile), /expired or invalid/);
+
+  const emptyDeviceList = validIosEvidence();
+  emptyDeviceList.profile.ProvisionedDevices = [];
+  assert.throws(() => assertIosMetadata(emptyDeviceList), /not App Store distribution/);
+
+  const enterpriseFlag = validIosEvidence();
+  enterpriseFlag.profile.ProvisionsAllDevices = false;
+  assert.throws(() => assertIosMetadata(enterpriseFlag), /not App Store distribution/);
 });
 
 test("fingerprints are normalized and malformed values fail closed", () => {
