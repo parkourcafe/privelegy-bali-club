@@ -217,6 +217,9 @@ Signature size=9999
   const wildcardProfileGrant = validIosEvidence();
   wildcardProfileGrant.profile.Entitlements["com.apple.developer.associated-domains"] = ["*"];
   assert.equal(assertIosMetadata(wildcardProfileGrant), true);
+  const managedWildcardProfileGrant = validIosEvidence();
+  managedWildcardProfileGrant.profile.Entitlements["com.apple.developer.associated-domains"] = "*";
+  assert.equal(assertIosMetadata(managedWildcardProfileGrant), true);
 
   const debug = validIosEvidence();
   debug.entitlements["get-task-allow"] = true;
@@ -233,6 +236,10 @@ Signature size=9999
   const wrongDomain = validIosEvidence();
   wrongDomain.profile.Entitlements["com.apple.developer.associated-domains"] = ["applinks:preview.example"];
   assert.throws(() => assertIosMetadata(wrongDomain), /does not authorize the exact associated domain/);
+
+  const expiredProfile = validIosEvidence();
+  expiredProfile.profile.ExpirationDate = new Date("2028-01-01T00:00:00.000Z");
+  assert.throws(() => assertIosMetadata(expiredProfile), /expired or invalid/);
 });
 
 test("fingerprints are normalized and malformed values fail closed", () => {

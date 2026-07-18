@@ -247,6 +247,57 @@ async function plistJson(source, temporaryDirectory, name, label) {
   }
 }
 
+async function provisioningProfileMetadata(source, temporaryDirectory) {
+  const input = path.join(temporaryDirectory, "ipa-profile.plist");
+  await writeFile(input, source, { mode: 0o600 });
+  const raw = async (key) => {
+    const { stdout } = await command(
+      "/usr/bin/plutil",
+      ["-extract", key, "raw", "-o", "-", input],
+      `IPA provisioning profile ${key} extraction`,
+    );
+    const value = stdout.trim();
+    if (!value) fail(`IPA provisioning profile ${key} is empty`);
+    return value;
+  };
+  const structured = async (key, name) => {
+    const { stdout } = await command(
+      "/usr/bin/plutil",
+      ["-extract", key, "xml1", "-o", "-", input],
+      `IPA provisioning profile ${key} extraction`,
+    );
+    return plistJson(
+      stdout,
+      temporaryDirectory,
+      `ipa-profile-${name}`,
+      `IPA provisioning profile ${key} decoding`,
+    );
+  };
+  const [teamIdentifier, entitlements, expirationDate, uuid, name] = await Promise.all([
+    structured("TeamIdentifier", "team"),
+    structured("Entitlements", "entitlements"),
+    raw("ExpirationDate"),
+    raw("UUID"),
+    raw("Name"),
+  ]);
+  const profile = {
+    TeamIdentifier: teamIdentifier,
+    Entitlements: entitlements,
+    ExpirationDate: expirationDate,
+    UUID: uuid,
+    Name: name,
+  };
+  if (source.includes("<key>ProvisionedDevices</key>")) {
+    profile.ProvisionedDevices = await structured("ProvisionedDevices", "devices");
+  }
+  if (source.includes("<key>ProvisionsAllDevices</key>")) {
+    const value = await raw("ProvisionsAllDevices");
+    if (value !== "true" && value !== "false") fail("IPA provisioning profile ProvisionsAllDevices is malformed");
+    profile.ProvisionsAllDevices = value === "true";
+  }
+  return profile;
+}
+
 function plistPayload(output, label) {
   const start = output.indexOf("<?xml");
   const end = output.lastIndexOf("</plist>");
@@ -295,11 +346,9 @@ async function verifyIpa({ root, file, metadata, shell, temporaryDirectory }) {
     ["cms", "-D", "-i", profilePath],
     "IPA provisioning profile verification",
   );
-  const profile = await plistJson(
+  const profile = await provisioningProfileMetadata(
     plistPayload(profileResult.combined, "IPA provisioning profile verification"),
     temporaryDirectory,
-    "ipa-profile",
-    "IPA provisioning profile decoding",
   );
   assertIosMetadata({ info, entitlements, profile, codesign });
 
