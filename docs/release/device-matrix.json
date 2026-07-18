@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "release": {
-    "branch": "release/other-bali-1.0",
-    "commit": "ed64c0a9a804a422acc11f211e8813d1130f8a78"
+    "branch": "main",
+    "commit": "7366b5afcb2f2067f137f25677370caa3ab1289f"
   },
   "preliminaryDebugEvidence": {
     "status": "passed-debug-only",
@@ -111,33 +111,43 @@
       "evidencePointers": []
     },
     "samsungRustoreApk": {
-      "status": "pending",
+      "status": "passed",
       "requiresCleanInstall": true,
       "artifact": {
         "releaseEvidenceKey": "ruStore",
-        "releaseArtifactSha256": null,
-        "installedArtifactSha256": null,
-        "sourceCommit": null,
-        "signingCertificateSha256": null
+        "releaseArtifactSha256": "a3d7412c3109908476a87edeb04b8772f483d329ac6ff9209b4eea605da10740",
+        "installedArtifactSha256": "a3d7412c3109908476a87edeb04b8772f483d329ac6ff9209b4eea605da10740",
+        "sourceCommit": "7366b5afcb2f2067f137f25677370caa3ab1289f",
+        "signingCertificateSha256": "78de94bb31d543f746be27d84a512f5403951511f18510186d7a3699eea6a6ba"
       },
       "device": {
         "manufacturer": "Samsung",
         "model": "SM-A075F",
-        "os": null,
+        "os": "Android 16",
         "serialStored": false
       },
-      "testedAt": null,
+      "testedAt": "2026-07-18T11:19:49+08:00",
       "installationMode": "clean-install",
       "cases": {
-        "installAndFirstLaunch": "pending",
-        "coldAndWarmLaunch": "pending",
-        "onlineCatalogue": "pending",
-        "placeRoutesAndSaved": "pending",
-        "deepLinksAndExternalHandoffs": "pending",
-        "offlineAndRecovery": "pending",
-        "privacyAndCrashLogReview": "pending"
+        "installAndFirstLaunch": "passed",
+        "coldAndWarmLaunch": "passed",
+        "onlineCatalogue": "passed",
+        "placeRoutesAndSaved": "passed",
+        "deepLinksAndExternalHandoffs": "passed",
+        "offlineAndRecovery": "passed",
+        "privacyAndCrashLogReview": "passed"
       },
-      "evidencePointers": []
+      "evidencePointers": [
+        "docs/release/evidence/samsung-rustore/otherbali-first-launch.png",
+        "docs/release/evidence/samsung-rustore/otherbali-place-detail.png",
+        "docs/release/evidence/samsung-rustore/otherbali-route-detail.png",
+        "docs/release/evidence/samsung-rustore/otherbali-saved-persistent.png",
+        "docs/release/evidence/samsung-rustore/otherbali-warm-deeplink.png",
+        "docs/release/evidence/samsung-rustore/otherbali-cold-deeplink.png",
+        "docs/release/evidence/samsung-rustore/otherbali-offline.png",
+        "docs/release/evidence/samsung-rustore/otherbali-online-recovery.png",
+        "docs/release/evidence/samsung-rustore/otherbali-privacy-handoff.png"
+      ]
     }
   }
 }
