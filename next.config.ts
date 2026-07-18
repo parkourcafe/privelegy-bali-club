@@ -101,6 +101,11 @@ const nextConfig: NextConfig = {
       { source: "/ubud-or-canggu", destination: "/ubud-vs-canggu", permanent: true },
       { source: "/seminyak-or-canggu", destination: "/seminyak-vs-canggu", permanent: true },
       { source: "/uluwatu-or-canggu", destination: "/canggu-vs-uluwatu", permanent: true },
+      // Common legal aliases people (and reviewers) type — point them at the
+      // real pages instead of a 404 (audit 2026-07).
+      { source: "/privacy-policy", destination: "/privacy", permanent: true },
+      { source: "/terms-of-service", destination: "/terms", permanent: true },
+      { source: "/cookie-policy", destination: "/privacy", permanent: true },
     ];
   },
   async headers() {

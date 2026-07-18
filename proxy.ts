@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { nanoid } from "nanoid";
+import { configuredReviewToken, hasBasicAccess } from "@/lib/admin-auth";
 import { isIdentityFreePublicPath } from "@/lib/public-request-policy";
 import {
   REQUEST_ID_HEADER,
@@ -7,6 +8,8 @@ import {
   requestHeadersWithCorrelationId,
   responseWithCorrelationId,
 } from "@/lib/request-correlation";
+
+const REVIEW_REALM = "Other Bali App Review";
 
 function setGuestCookie(req: NextRequest, res: NextResponse) {
   if (req.cookies.get("bp_guest")) return;
@@ -19,10 +22,27 @@ function setGuestCookie(req: NextRequest, res: NextResponse) {
   });
 }
 
+function isReviewPath(pathname: string): boolean {
+  return pathname === "/review" || pathname.startsWith("/review/");
+}
+
 function isSensitivePath(pathname: string): boolean {
-  return ["/admin", "/onboard", "/partner", "/me", "/v", "/list"].some(
+  // /review is noindex (reviewer instructions), but not no-store — it's fine to
+  // cache the static page; it is listed here only for the noindex/no-referrer
+  // treatment below.
+  return ["/admin", "/onboard", "/partner", "/me", "/v", "/list", "/review"].some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
+}
+
+function reviewChallenge(): NextResponse {
+  return new NextResponse("Authentication required", {
+    status: 401,
+    headers: {
+      "WWW-Authenticate": `Basic realm="${REVIEW_REALM}", charset="UTF-8"`,
+      "X-Robots-Tag": "noindex, nofollow",
+    },
+  });
 }
 
 // Guardrail #10: the anonymous GuestRef lives in a server-set httpOnly cookie,
@@ -35,6 +55,16 @@ export function proxy(req: NextRequest) {
   // Supabase operator roles and the restricted break-glass Basic secret work.
   // The proxy deliberately does not attempt to parse/verify Supabase sessions
   // at the edge; unauthorized requests are rendered as not-found server-side.
+
+  // /review is public by default (Apple prefers no login barrier). If a
+  // REVIEW_ACCESS_TOKEN is configured, gate it with Basic Auth — hand the URL +
+  // that password to Apple in Review Notes.
+  if (isReviewPath(req.nextUrl.pathname)) {
+    const reviewToken = configuredReviewToken();
+    if (reviewToken && !hasBasicAccess(req.headers.get("authorization"), reviewToken)) {
+      return reviewChallenge();
+    }
+  }
 
   const requestId = createRequestCorrelationId(req.headers.get(REQUEST_ID_HEADER));
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);

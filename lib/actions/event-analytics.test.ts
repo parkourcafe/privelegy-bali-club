@@ -3,6 +3,13 @@ import assert from "node:assert/strict";
 import type { SafeActionEventPayload } from "../contracts/menu-action";
 import type { SafeEventPayload } from "./event-payload";
 
+// These tests exercise the tracking path, which is opt-in since the consent gate
+// (audit 2026-07): analyticsAllowed() reads document.cookie, absent under node,
+// so grant consent up front to test the "tracking active" behaviour.
+(globalThis as { document?: { cookie: string } }).document = {
+  cookie: "bp_consent=granted",
+};
+
 const analytics = (await import(
   new URL("../analytics.ts", import.meta.url).href
 )) as typeof import("../analytics");

@@ -34,7 +34,7 @@ export default async function MyPerksPage() {
     <div className="page-dark">
       <main className="mx-auto w-full max-w-md px-4 py-10">
         <Link href="/" className="quiet-link">
-          ← Other Bali
+          ← Home
         </Link>
 
         <h1 className="mt-3 font-display text-3xl font-bold">My list</h1>
