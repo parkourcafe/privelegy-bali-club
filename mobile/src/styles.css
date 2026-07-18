@@ -22,7 +22,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--brass); outline
   width: min(100%, 720px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: max(28px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+  padding: max(28px, var(--safe-area-inset-top, env(safe-area-inset-top))) 18px max(28px, var(--safe-area-inset-bottom, env(safe-area-inset-bottom)));
 }
 
 .hero { padding: 18px 4px 28px; }
@@ -37,7 +37,7 @@ h1 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 15vw, 5.5rem); font-weig
 .status.offline::before { background: var(--brass); }
 .notice { margin: 16px 0 0; border-left: 2px solid var(--brass); padding-left: 12px; color: var(--muted); line-height: 1.5; }
 
-.tabs { position: sticky; z-index: 2; top: max(8px, env(safe-area-inset-top)); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0 -2px 32px; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(32, 22, 15, 0.92); backdrop-filter: blur(16px); }
+.tabs { position: sticky; z-index: 2; top: max(8px, var(--safe-area-inset-top, env(safe-area-inset-top))); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0 -2px 32px; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(32, 22, 15, 0.92); backdrop-filter: blur(16px); }
 .tabs button { min-height: 48px; border: 0; border-radius: 13px; background: transparent; color: var(--muted); font-weight: 700; }
 .tabs button[aria-pressed="true"] { background: var(--paper); color: var(--ink); }
 

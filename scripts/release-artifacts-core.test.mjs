@@ -5,6 +5,7 @@ import {
   RELEASE_CONTRACT,
   assertAndroidMetadata,
   assertIosMetadata,
+  assertReleaseCapacitorConfig,
   assertReleaseCertificate,
   normalizeFingerprint,
   parseAaptBadging,
@@ -95,6 +96,7 @@ test("release contract pins all store identities, versions, SDKs, and permission
     iosBuild: "4",
     iosMinimumVersion: "15.0",
     associatedDomains: ["applinks:www.otherbali.com"],
+    systemBarsStyle: "DARK",
     androidVersion: "1.0.0",
     androidVersionCode: "2",
     androidMinSdk: "24",
@@ -106,6 +108,27 @@ test("release contract pins all store identities, versions, SDKs, and permission
       "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
     ],
   });
+});
+
+test("embedded Capacitor release config pins the dark system-bar style", () => {
+  const config = {
+    appId: "com.otherbali.app",
+    webDir: "ios-web",
+    loggingBehavior: "none",
+    plugins: { SystemBars: { style: "DARK" } },
+  };
+  assert.equal(assertReleaseCapacitorConfig(config, "fixture config"), true);
+  assert.throws(
+    () => assertReleaseCapacitorConfig({ ...config, plugins: {} }, "fixture config"),
+    /SystemBars\.style=DARK/,
+  );
+  assert.throws(
+    () => assertReleaseCapacitorConfig({
+      ...config,
+      plugins: { SystemBars: { style: "LIGHT" } },
+    }, "fixture config"),
+    /SystemBars\.style=DARK/,
+  );
 });
 
 test("aapt2 parsers accept only the pinned non-debug RuStore contract", () => {

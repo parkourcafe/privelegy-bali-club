@@ -4,6 +4,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import path from "node:path";
 import { inspectNativeReadiness } from "./ios-native-readiness-core.mjs";
+import { assertReleaseCapacitorConfig } from "./release-artifacts-core.mjs";
 
 const BUNDLE_ID = "com.otherbali.app";
 const CANONICAL_ORIGIN = "https://www.otherbali.com";
@@ -265,14 +266,10 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
 }
 
 function validateCapacitorConfig(config, failures, label) {
-  if (!config || typeof config !== "object") return;
-  if (config.appId !== BUNDLE_ID) failures.push(`${label} has unexpected appId`);
-  if (config.webDir !== "ios-web") failures.push(`${label} must use ios-web`);
-  if (typeof config.server?.url === "string" && config.server.url.trim()) {
-    failures.push(`${label} contains server.url`);
-  }
-  if (config.loggingBehavior !== "none") {
-    failures.push(`${label} loggingBehavior must be none for Release`);
+  try {
+    assertReleaseCapacitorConfig(config, label);
+  } catch (error) {
+    failures.push(error instanceof Error ? error.message : `${label} is invalid`);
   }
 }
 

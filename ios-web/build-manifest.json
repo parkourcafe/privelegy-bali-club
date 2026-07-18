@@ -4,9 +4,10 @@
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
     "./assets/app-K4J2NMO2.js",
-    "./assets/app-TQJUAL7L.css"
+    "./assets/app-UPFG4HXG.css"
   ],
   "sourceInputs": [
+    "capacitor.config.ts",
     "lib/external-links.ts",
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
@@ -22,5 +23,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "33262f37b3490676a84f32a416e0b95f16c37b31302b9b86b592fd4fd94742ae"
+  "sourceHash": "227fef3ae9da986b7b31207c5a5b7e6189116755eed7fe08b2c0f15fd15b926c"
 }

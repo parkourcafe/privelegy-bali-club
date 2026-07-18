@@ -22,6 +22,7 @@ import {
   RELEASE_CONTRACT,
   assertAndroidMetadata,
   assertIosMetadata,
+  assertReleaseCapacitorConfig,
   assertReleaseCertificate,
   normalizeFingerprint,
   parseAaptBadging,
@@ -232,13 +233,7 @@ async function verifyEmbeddedAndroidConfig(archive, entry, entries, label) {
   } catch {
     fail(`${label} embedded Capacitor config is malformed`);
   }
-  if (config.appId !== RELEASE_CONTRACT.appId || config.webDir !== "ios-web") {
-    fail(`${label} embedded Capacitor identity is incorrect`);
-  }
-  if (config.loggingBehavior !== "none") fail(`${label} embedded logging must be disabled`);
-  if (typeof config.server?.url === "string" && config.server.url.trim()) {
-    fail(`${label} embeds a forbidden remote server.url`);
-  }
+  assertReleaseCapacitorConfig(config, label);
 }
 
 async function plistJson(source, temporaryDirectory, name, label) {

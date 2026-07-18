@@ -64,6 +64,7 @@ const sourceInputs = [...new Set([
       && !entry.includes("/node_modules/")
     )),
   "mobile/public/offline.html",
+  "capacitor.config.ts",
   "package.json",
   "package-lock.json",
   "scripts/build-mobile-shell.mjs",
