@@ -89,6 +89,13 @@ const nextConfig: NextConfig = {
         destination: "https://www.otherbali.com/:path*",
         permanent: true,
       },
+      // Search-intent aliases → the canonical guide that already covers the
+      // query. These slugs get typed/linked, so a 308 keeps the ranking signal
+      // on one page instead of splitting it across near-duplicates.
+      { source: "/bali-without-scooter", destination: "/how-to-get-around-bali", permanent: true },
+      { source: "/local-food-in-bali", destination: "/best-warungs-in-bali", permanent: true },
+      { source: "/beach-clubs-by-mood", destination: "/best-beach-clubs-in-bali", permanent: true },
+      { source: "/uluwatu-sunset", destination: "/where-to-watch-sunset-in-bali", permanent: true },
     ];
   },
   async headers() {
