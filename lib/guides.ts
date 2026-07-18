@@ -1053,6 +1053,180 @@ export const GUIDES: Guide[] = [
       { href: "/bali-rainy-day", title: "Rainy day in Bali", blurb: "Short indoor plans for when the weather turns." },
     ],
   },
+
+  {
+    slug: "sanur-or-nusa-dua",
+    eyebrow: "Sanur vs Nusa Dua",
+    title: "Sanur or Nusa Dua: which should you choose?",
+    description:
+      "Both are calm, family-easy south-east bases. Sanur is a walkable town with local texture and island day-trips; Nusa Dua is hands-off resort comfort. How to pick.",
+    lede: "Both are the calm, easy side of Bali — the opposite of Canggu's buzz — so it comes down to feel. Choose Sanur for a real, walkable town with local texture, a long flat beach path and the fast boats to the Nusa islands. Choose Nusa Dua for a gated, hands-off resort enclave with reef-protected beaches and everything on site. Sanur has more soul; Nusa Dua has more polish.",
+    sections: [
+      {
+        heading: "Choose Sanur if…",
+        paras: [
+          "You want a low-key coastal town, not a resort bubble: a roughly 5 km flat, paved beachfront path made for walking, cycling and strollers, calm swimmable water on the sunrise coast, and local warungs and cafés with a genuine neighbourhood feel.",
+          "It's also the main fast-boat gateway to Nusa Penida and Lembongan, so it doubles as a springboard for island day-trips. Best for travellers who want calm plus a bit of real Bali texture.",
+        ],
+      },
+      {
+        heading: "Choose Nusa Dua if…",
+        paras: [
+          "You want resort-easy and secure: a gated enclave of big five-star resorts, manicured reef-protected beaches, resort fine dining and large spas, with a walkable seafront promenade tying it together.",
+          "It's the most hands-off, low-friction base in Bali — safe, clean and effortless. The trade-off is that it feels more like a resort zone than a Balinese town.",
+        ],
+      },
+      {
+        heading: "For families",
+        paras: [
+          "Both are among the easiest family bases in Bali thanks to calm, swimmable water and flat, walkable fronts. Nusa Dua leans further into resort facilities and security; Sanur is gentler on the wallet and easier to step out into a real town for dinner.",
+          "Either way, favour these two over the surf coasts if you're travelling with small kids — the water is calmer and the days are simpler.",
+        ],
+      },
+      {
+        heading: "Getting around and day trips",
+        paras: [
+          "Both are calm to move around, with short local hops by Grab, Gojek or a driver. Sanur's flat path makes it genuinely walkable end to end; Nusa Dua's promenade links the resort strip.",
+          "For anything beyond your base — Uluwatu, Ubud, the Nusa islands — a driver for the day is the easy call from either. Sanur has the edge if the islands are on your list.",
+        ],
+      },
+      {
+        heading: "Can you do both?",
+        paras: [
+          "You rarely need to — they're close and similar in pace, so most people pick one and pair it with a livelier area (Canggu, Seminyak or Ubud) for contrast rather than splitting between two calm bases.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Sanur or Nusa Dua better?", a: "Both are calm and family-easy. Sanur is a walkable town with local texture and fast boats to the Nusa islands; Nusa Dua is a gated resort enclave with reef-protected beaches and everything on site. Pick by whether you want soul or polish." },
+      { q: "Which is better for families, Sanur or Nusa Dua?", a: "Both are excellent for families — calm, swimmable water and flat, walkable fronts. Nusa Dua leans into resort facilities and security; Sanur is gentler on budget and easier to step into a real town." },
+      { q: "Is Sanur boring?", a: "It's calm, not boring — a walkable beach town for people who want gentle days, sunrise, cycling and easy restaurants rather than nightlife or beach-club energy." },
+      { q: "Is Nusa Dua too resort-only?", a: "It is very resort-focused — that's the point. It suits families, honeymooners and older travellers who want clean beaches, security and effortless service over local street life." },
+      { q: "Which is closer to Nusa Penida?", a: "Sanur — it's the main fast-boat harbour for Nusa Penida and Lembongan, which makes it the better base if island day-trips are on your plan." },
+    ],
+    related: [
+      { href: "/sanur", title: "The Sanur guide", blurb: "A calm, walkable, sunrise base and the fast-boat gateway to the islands." },
+      { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "Calm resort beaches, fine dining and big resort spas." },
+      { href: "/best-area-to-stay-in-bali-for-families", title: "Best area to stay for families", blurb: "The calm, easy bases compared for a family trip." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All the first-timer areas, side by side." },
+    ],
+  },
+
+  {
+    slug: "jimbaran-seafood",
+    eyebrow: "Jimbaran seafood",
+    title: "Jimbaran seafood: grilled fish on the sand at sunset",
+    description:
+      "Jimbaran Bay's signature night: fresh grilled seafood at tables on the sand as the sun sets over a calm, west-facing bay. When to go, what to expect, how to do it well.",
+    lede: "Jimbaran's signature experience is simple and hard to beat: fresh grilled seafood eaten at a table set right on the sand while the sun goes down over the calm, west-facing bay. Arrive before sunset for a beach table at golden hour, confirm the price up front (seafood is usually sold by weight), and treat the bare-bones setting as part of the charm.",
+    sections: [
+      {
+        heading: "What the experience is",
+        paras: [
+          "Along Jimbaran Bay, clusters of seafood restaurants and warungs set tables out on the beach and grill the day's fish, prawns and squid over coconut husk, served with rice, sambal and vegetables.",
+          "The draw isn't fine dining — it's the setting: your feet in the sand, the grill smoke, and the sun dropping into the bay. That combination is the whole point.",
+        ],
+      },
+      {
+        heading: "When to go",
+        paras: [
+          "Sunset is the moment. Aim to arrive a little before it so you get a table on the sand for golden hour rather than in the back once the front rows fill.",
+          "It's calm and west-facing, so the light is the show. Weekends and peak season are busier — earlier is better.",
+        ],
+      },
+      {
+        heading: "The three clusters",
+        paras: [
+          "The seafood grills gather in a few stretches along the bay — the Muaya beach area, the Kelan end nearer the airport, and the Kedonganan side. They offer much the same experience, so pick by which is closest to where you're staying rather than agonising over the choice.",
+        ],
+      },
+      {
+        heading: "How to do it well",
+        paras: [
+          "Seafood is typically priced by weight, so confirm the weight and the price before it goes on the grill — that one step avoids the only common surprise. It's a relaxed, hands-on meal, not a polished restaurant.",
+          "The bay is calm and swimmable earlier in the day, and Jimbaran sits close to the airport — which makes this a great first-night or last-night dinner. Bring a little mosquito repellent for dusk.",
+        ],
+      },
+      {
+        heading: "Who it suits",
+        paras: [
+          "It's made for a memorable sunset dinner — couples, groups and anyone who wants the toes-in-the-sand version of a Bali evening.",
+          "If you're after a slick, air-conditioned fine-dining room, this isn't that: expect plastic chairs, simple settings and a bit of grill smoke. That's the trade for the setting, and most people find it more than worth it.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "What is Jimbaran famous for?", a: "Grilled seafood eaten at tables set on the sand at sunset, along its calm, west-facing bay. It's one of Bali's classic evenings — the setting is as much the draw as the food." },
+      { q: "When should you go to Jimbaran for seafood?", a: "Around sunset — arrive a little before it to get a table on the sand for golden hour before the front rows fill. Earlier is better on weekends and in peak season." },
+      { q: "How is the seafood priced in Jimbaran?", a: "Usually by weight. Confirm the weight and the price before your fish goes on the grill — that single step avoids the only common surprise." },
+      { q: "Is Jimbaran good for a special dinner?", a: "Yes — it's a favourite for a memorable sunset dinner for couples and groups. Just set expectations: it's a relaxed, feet-in-the-sand meal, not a polished dining room." },
+      { q: "Is Jimbaran near the airport?", a: "Yes, it's close to the airport, which makes a Jimbaran seafood dinner a good first-night or last-night plan. The bay is also calm and swimmable earlier in the day." },
+    ],
+    related: [
+      { href: "/jimbaran", title: "The Jimbaran guide", blurb: "The seafood bay — who it suits, beaches and what to do." },
+      { href: "/jimbaran/best-restaurants", title: "Best restaurants in Jimbaran", blurb: "Beyond the beach grills — where else to eat in the bay." },
+      { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, by area." },
+      { href: "/best-restaurants-in-bali", title: "The best restaurants in Bali", blurb: "The island's dinner scene, sorted by district." },
+    ],
+  },
+
+  {
+    slug: "bali-temples-which-one",
+    eyebrow: "Which Bali temple",
+    title: "Which Bali temple should you visit?",
+    description:
+      "You don't need to see them all. Pick a Bali temple by what you want — sunset, ceremony, scenery or the photo — and go early or late. Plus the etiquette that matters.",
+    lede: "You don't need to visit every temple — pick one or two by what you actually want. For sunset and a show, Uluwatu or Tanah Lot; for a ceremony and holy water, Tirta Empul; for scale and significance, Besakih; for the famous photo, Lempuyang; for serene highland calm, Ulun Danu Beratan. Whichever you choose, dress respectfully and go early or late to dodge the heat and crowds.",
+    sections: [
+      {
+        heading: "For sunset and a show: Uluwatu or Tanah Lot",
+        paras: [
+          "Pura Luhur Uluwatu sits on the southern cliffs and pairs a dramatic clifftop setting with the evening Kecak fire dance — the classic sunset-and-spectacle combination.",
+          "Tanah Lot is the much-photographed temple on an offshore rock, another sunset favourite. Both are popular and busy at golden hour, so arrive with time to spare and lower your expectations of solitude.",
+        ],
+      },
+      {
+        heading: "For ceremony and holy water: Tirta Empul",
+        paras: [
+          "Tirta Empul, near Ubud, is a working temple built around sacred spring pools where Balinese come for melukat, a purification ritual. Visitors can often take part respectfully — go with a calm, unhurried mindset rather than treating it as a photo stop.",
+        ],
+      },
+      {
+        heading: "For scale and significance: Besakih",
+        paras: [
+          "Besakih, on the slopes of Mount Agung, is Bali's largest and most important temple complex — the \"mother temple.\" It's a bigger, more of-the-day trip up into the highlands, best paired with the drive out east rather than squeezed onto a busy south-Bali day.",
+        ],
+      },
+      {
+        heading: "For the photo and the highlands: Lempuyang and Ulun Danu Beratan",
+        paras: [
+          "Lempuyang, in the far east, is the \"Gates of Heaven\" shot — stunning, but expect a long queue for the photo and a real trip to reach it. Go for the view and the journey, not a quick tick.",
+          "Ulun Danu Beratan sits on a lake in the cool Bedugul highlands and is the serene, mist-and-water counterpoint to the coastal sunset temples — a calm, scenic half-day if you're heading north.",
+        ],
+      },
+      {
+        heading: "Temple etiquette (this matters)",
+        paras: [
+          "Cover up: a sarong plus covered shoulders and knees are expected, and sarongs are usually available to borrow or rent at the entrance. Be quiet and respectful, don't climb on sacred structures, and follow any signs about where you may and may not go.",
+          "Practically: go early morning or late afternoon to avoid the heat and the biggest crowds, carry water, and pick temples that fit your route rather than chaining several across the island in one hot day.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Which temple in Bali is worth visiting?", a: "It depends what you want: Uluwatu or Tanah Lot for sunset and a show, Tirta Empul for a purification ceremony, Besakih for scale, Lempuyang for the famous 'Gates of Heaven' photo, and Ulun Danu Beratan for serene highland calm." },
+      { q: "What is the best temple for sunset in Bali?", a: "Uluwatu (clifftop, plus the evening Kecak dance) and Tanah Lot (an offshore rock temple) are the classic sunset temples. Both are busy at golden hour, so arrive early." },
+      { q: "What should you wear to a Bali temple?", a: "A sarong with covered shoulders and knees. Sarongs are usually available to borrow or rent at the entrance. Be quiet and respectful, and don't climb on sacred structures." },
+      { q: "How many temples should I visit?", a: "One or two is plenty for most trips. Pick by what you want and by your route rather than chaining several across the island in the midday heat." },
+      { q: "What is the 'Gates of Heaven' temple?", a: "That's Lempuyang, in far-east Bali — famous for the framed shot between two gates. It's stunning but involves a real trip and often a long queue for the photo, so go for the view and the journey." },
+      { q: "Can tourists enter Bali temples?", a: "Generally yes, with respectful dress (a sarong, covered shoulders and knees) and behaviour. Follow the signs and any guidance about where you may go, and note that some inner areas are for worshippers only." },
+    ],
+    related: [
+      { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and world-class sunsets." },
+      { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, temples included." },
+      { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Practical basics, including temple etiquette and monkeys." },
+    ],
+  },
 ];
 
 // Display grouping for the /guides hub (and any nav that lists guides). Slug
@@ -1082,13 +1256,14 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
       "canggu-vs-uluwatu",
       "seminyak-vs-canggu",
       "ubud-vs-canggu",
+      "sanur-or-nusa-dua",
       "bali-for-digital-nomads",
     ],
   },
   {
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
-    slugs: ["things-to-do-in-bali", "nusa-penida-day-trip", "best-restaurants-in-bali", "best-cafes-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
+    slugs: ["things-to-do-in-bali", "bali-temples-which-one", "nusa-penida-day-trip", "best-restaurants-in-bali", "jimbaran-seafood", "best-cafes-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
   },
   {
     heading: "Day plans & moments",
@@ -1109,9 +1284,9 @@ const DISTRICT_GUIDE_SLUGS: Record<string, string[]> = {
   uluwatu: ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   "uluwatu-bukit": ["canggu-vs-uluwatu", "best-beach-clubs-in-bali", "where-to-watch-sunset-in-bali", "where-to-stay-in-bali"],
   ubud: ["ubud-one-day", "best-cafes-in-bali", "best-restaurants-in-bali", "ubud-vs-canggu", "where-to-stay-in-bali", "best-spas-in-bali", "how-many-days-in-bali", "bali-for-digital-nomads"],
-  sanur: ["nusa-penida-day-trip", "bali-with-kids", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
+  sanur: ["sanur-or-nusa-dua", "nusa-penida-day-trip", "bali-with-kids", "best-area-to-stay-in-bali-for-families", "where-to-stay-in-bali", "best-spas-in-bali", "how-to-get-around-bali"],
   seminyak: ["best-restaurants-in-bali", "seminyak-vs-canggu", "best-beach-clubs-in-bali", "best-spas-in-bali", "where-to-stay-in-bali", "best-coffee-in-bali"],
-  "nusa-dua": ["bali-with-kids", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
+  "nusa-dua": ["sanur-or-nusa-dua", "bali-with-kids", "best-area-to-stay-in-bali-for-families", "best-spas-in-bali", "where-to-stay-in-bali", "best-beach-clubs-in-bali"],
   "nusa-penida": ["nusa-penida-day-trip", "how-to-get-around-bali", "how-many-days-in-bali", "where-to-stay-in-bali", "best-time-to-visit-bali"],
   sidemen: ["how-to-get-around-bali", "best-time-to-visit-bali", "how-many-days-in-bali", "where-to-stay-in-bali"],
   amed: ["how-to-get-around-bali", "best-time-to-visit-bali", "is-bali-safe", "where-to-stay-in-bali"],

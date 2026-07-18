@@ -96,6 +96,11 @@ const nextConfig: NextConfig = {
       { source: "/local-food-in-bali", destination: "/best-warungs-in-bali", permanent: true },
       { source: "/beach-clubs-by-mood", destination: "/best-beach-clubs-in-bali", permanent: true },
       { source: "/uluwatu-sunset", destination: "/where-to-watch-sunset-in-bali", permanent: true },
+      // "X-or-Y" phrasing → the canonical "X-vs-Y" decision guide.
+      { source: "/canggu-or-ubud", destination: "/ubud-vs-canggu", permanent: true },
+      { source: "/ubud-or-canggu", destination: "/ubud-vs-canggu", permanent: true },
+      { source: "/seminyak-or-canggu", destination: "/seminyak-vs-canggu", permanent: true },
+      { source: "/uluwatu-or-canggu", destination: "/canggu-vs-uluwatu", permanent: true },
     ];
   },
   async headers() {
