@@ -8,18 +8,25 @@ keystores, passwords, private keys or tax documents to Git.
 
 ## Action-time permissions
 
-- [ ] Allow Apple App ID/certificate/profile changes for Associated Domains and
+- [x] Allow Apple App ID/certificate/profile changes for Associated Domains and
       Apple Distribution.
-- [ ] Approve creation and secure backup of one shared Android app-signing key
+- [x] Approve creation and secure backup of one shared Android app-signing key
       plus one separate Google Play upload key.
-- [ ] Allow uninstalling build 3 from the iPhone for a clean build-4 test.
-- [ ] Allow creation/merge of the release PR and production deployment.
+- [x] Allow uninstalling build 3 from the iPhone for a clean build-4 test.
+- [x] Allow creation/merge of the release PR and production deployment.
 - [ ] Decide whether the accidental duplicate Vercel project may be deleted.
-- [ ] Store submission/publication remains a separate permission.
+- [ ] Store submission/publication is explicitly **not authorized** in the
+      current task and remains a separate permission.
 
 Once Apple signing is configured, the authorized local build command is
 `OTHER_BALI_ALLOW_SIGNING=YES_I_HAVE_ACTION_TIME_AUTHORIZATION npm run ios:release:signed`.
 Do not set that guard before the corresponding action-time permission is given.
+The script uses Xcode Automatic signing with an Apple Development identity for
+the archive, then Apple's cloud-managed distribution certificate during the
+local `app-store-connect` export.
+It allows Xcode to update provisioning for both steps but never uploads the
+result. The exported IPA must still pass the release verifier as Apple
+Distribution-signed with the exact `applinks:www.otherbali.com` entitlement.
 
 ## Store identity and contacts
 
@@ -44,7 +51,8 @@ Do not set that guard before the corresponding action-time permission is given.
 
 ## Google Play account facts
 
-- [ ] Organization or personal developer account.
+- [x] Personal developer account; Play Console currently blocks app creation
+      and publication while the owner's identity appeal is pending.
 - [ ] Account creation date.
 - [ ] Whether Play Console requires 12-testers/14-days closed testing and
       production-access review.

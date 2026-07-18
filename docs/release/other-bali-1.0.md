@@ -6,7 +6,7 @@ it is not a claim that signed artifacts were submitted or published.
 ## Canonical line
 
 - Branch: `release/other-bali-1.0`
-- Production integration base: `83a3353a535baa263d3a7d44fdc65a23838bb108`
+- Last independently verified production integration: `7aa58bf93087c999f332ef0dfd2b8f42a78723d1`
 - Web/API origin: `https://www.otherbali.com`
 - iOS: `com.otherbali.app`, version `1.0`, build `4`, minimum iOS 15
 - Android: `com.otherbali.app`, version `1.0.0`, version code `2`, minimum API 24, target API 36
@@ -25,21 +25,20 @@ structures already used by the website. Do not apply the old `0035`–`0041`
 migration series as part of this release.
 
 The mobile API contract entered production at `0cca444b09c1`. The live endpoints
-were reverified after integrating current `main` (`83a3353a535b`); Vercel reports
-the active production deployment as `dpl_7sK57Jga4ySBsCtE5jBYqyKXYMJU`, but does
-not expose its Git commit through the available read-only CLI response:
+were reverified on 18 July 2026 at `7aa58bf93087`; both health endpoints
+identified that exact production release during the verification:
 
 - `/api/mobile/v1/bootstrap`: HTTP 200, schema 1, 89 venues, 15 districts, 3 routes
 - `/api/mobile/v1/config`: HTTP 200
 - `/api/health/live`: HTTP 200
 - `/api/health/ready`: HTTP 200
 - `/.well-known/apple-app-site-association`: HTTP 200 JSON
-- `/.well-known/assetlinks.json`: intentionally absent until final store signing certificates exist
+- `/.well-known/assetlinks.json`: HTTP 200 JSON with the shared Android
+  app-signing fingerprint `78:DE:94:…:A6:BA`
 
 Mobile/config/health requests are identity-free and do not mint `bp_guest`.
-The current release patch extends the same exact-path exemption to AASA and
-Digital Asset Links responses. That AASA/Digital Asset Links exemption is not
-live until the release patch is merged and deployed with owner authorization.
+AASA and Digital Asset Links are also live on exact paths without redirects or
+cookies.
 
 ## Implemented release boundaries
 
@@ -58,8 +57,9 @@ live until the release patch is merged and deployed with owner authorization.
   permissions, entitlements, privacy manifests and the bundled shell, then
   writes commit/source-hash-bound `release-artifacts.json` and `SHA256SUMS`.
 - Signed iOS archive/export is implemented but action-time guarded; it refuses
-  to run without an explicit authorization phrase, a clean tree and an Apple
-  Distribution identity for team `KB7VPWHTTM`.
+  to run without an explicit authorization phrase, a clean tree and a valid
+  Apple Development identity. Xcode enforces team `KB7VPWHTTM` during archive,
+  and the final verifier requires an Apple Distribution-signed IPA for that team.
 - Native privacy manifest: tracking false; Coarse Location, Product Interaction,
   and Other Diagnostic Data declared as linked and used for App Functionality;
   Capacitor Preferences `UserDefaults` reason `CA92.1` retained. These
@@ -70,8 +70,8 @@ live until the release patch is merged and deployed with owner authorization.
 - Node 22 / Java 21 / Gradle 8.14.3 / Android SDK 36 toolchain.
 - Gradle distribution and wrapper checksums match the official Gradle 8.14.3 checksums.
 - `npm test`, TypeScript, ESLint and Next production build are release gates.
-- Final local gate run: 102 Node tests pass; TypeScript passes; ESLint has
-  zero errors (one pre-existing Next `<img>` warning); the 95-page Next
+- Final local gate run: 105 Node tests pass; TypeScript passes; ESLint has
+  zero errors (one pre-existing Next `<img>` warning); the 99-page Next
   production build passes.
 - Unsigned iOS Release simulator build passes, including the Xcode-integrated
   release-shell and privacy-manifest preflight.
@@ -80,23 +80,28 @@ live until the release patch is merged and deployed with owner authorization.
 - Android lint, unit tests, instrumented-test assembly and `assemblePlayDebug`
   pass; the final Gradle run completed 601 tasks successfully.
 - Both store signing checks fail closed when protected credentials are absent.
+- A separate Play upload key and a shared Android app-signing/RuStore key are
+  stored outside Git with passwords in macOS Keychain. The signed Play AAB is
+  SHA-256 `460ab8ae…abb8f2`; the signed RuStore APK is
+  `7934db53…60a7d7`. Their signatures, embedded release configuration,
+  package, versions and SDK contract pass.
 - Store-asset validation passes for the final-size Apple, Google Play and
-  RuStore icons plus the Google Play 1024 x 500 feature graphic; final device
-  screenshots remain intentionally pending signed-device QA.
-- Debug APK package inspection: `com.otherbali.app`, version code 2, target 36,
-  min 24, no sensitive permissions. `apksigner` confirms that this candidate
-  uses only the Android Debug certificate and is not a production artifact.
+  RuStore icons plus the Google Play 1024 x 500 feature graphic. Five Android
+  1080 x 1920 screenshots were captured from the exact signed RuStore APK on
+  the Samsung and contain no alpha channel. iPhone screenshots remain pending.
 - Connected Samsung SM-A075F / Android 16: catalogue, place details, routes,
   saves, persistence, warm/cold deep links, Share, Back, Google Maps, Privacy,
-  offline relaunch and online recovery passed on the final debug candidate.
-  Saved place and route state also survived the in-place candidate update and
-  relaunch; a fresh online catalogue refresh completed afterwards.
-- Machine-readable preliminary evidence is recorded in
-  `docs/release/device-matrix.json`: the APK pulled back from the installed app
-  exactly matched SHA-256 `3ab51166…dabf98`. The ledger explicitly marks this
-  as debug/in-place evidence and keeps all signed clean-install rows pending.
-- The old iPhone build 3 remains installed; clean-install testing of build 4 is
-  pending explicit permission and a valid signed candidate.
+  offline relaunch and online recovery passed after a clean install of the
+  exact signed RuStore APK. The APK pulled back from the device matched
+  `7934db53…60a7d7`; machine-readable evidence is in
+  `docs/release/device-matrix.json`.
+- Xcode automatic signing has already proven the local archive/export path with
+  an Apple Distribution-signed build-4 IPA, `get-task-allow=false` and exact
+  `applinks:www.otherbali.com`. That temporary artifact predates the final
+  mobile-shell patch; the canonical guarded script must reproduce it from the
+  clean merged commit under `artifacts/release/ios`.
+- No physical iPhone is currently connected, so destructive clean-install QA
+  and the five 6.9-inch screenshots remain pending.
 
 ## Remaining release gates
 
@@ -104,20 +109,16 @@ Owner-only facts and action-time permissions are consolidated in
 `docs/release/owner-release-inputs.md`; secrets and identity documents must not
 be committed.
 
-1. With owner approval, create/merge the release PR, deploy the exact release
-   commit, and reverify mobile bootstrap/config/health plus AASA on production.
-2. With owner approval, enable Apple Associated Domains for the App ID,
-   regenerate profiles and obtain a valid Apple Distribution signing path.
-3. With owner approval, create and securely back up a dedicated Google Play
-   upload key and a shared Android app-signing key for RuStore distribution and
-   Play App Signing enrolment. A store-specific Play distribution key is an
-   explicit owner choice because it prevents cross-store updates.
-4. Enroll in Play App Signing, export both final public certificates, generate
-   `assetlinks.json` with the Play and RuStore final fingerprints, deploy it and
-   verify HTTPS 200/no redirect/no cookie.
-5. Produce signed IPA, Play AAB and RuStore APK artifacts; verify identities,
-   entitlements, signatures and SHA-256 checksums.
-6. Clean-install and test those exact signed artifacts on the physical iPhone
-   and Samsung.
-7. Capture final screenshots from those binaries and finalize privacy/listing
-   declarations. Submission/publication remains a separate explicit approval.
+1. Merge the signing/screenshot evidence PR, deploy that exact commit and
+   reverify production health/bootstrap/config plus AASA and Digital Asset Links.
+2. Run the authorized guarded iOS build from the clean merged commit and pass
+   the combined IPA/AAB/APK release verifier.
+3. Connect the physical iPhone, remove any old `com.otherbali.app` installation,
+   clean-install build 4, run the full device matrix and capture the five exact
+   App Store screenshots.
+4. Wait for Google to unblock owner verification. Only then create the Play app,
+   configure Play App Signing with the prepared upload/distribution keys and
+   complete any required device verification or 12-tester/14-day closed test.
+5. Complete the owner-verified legal, privacy, age-rating and contact fields in
+   `docs/release/owner-release-inputs.md`. Submission/publication remains a
+   separate explicit approval and is not part of this release-preparation run.

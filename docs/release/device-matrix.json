@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "release": {
-    "branch": "main",
-    "commit": "7366b5afcb2f2067f137f25677370caa3ab1289f"
+    "branch": "release/other-bali-1.0",
+    "commit": "9a54657ab75d6de98ec4186366dece5f532005e4"
   },
   "preliminaryDebugEvidence": {
     "status": "passed-debug-only",
@@ -115,9 +115,9 @@
       "requiresCleanInstall": true,
       "artifact": {
         "releaseEvidenceKey": "ruStore",
-        "releaseArtifactSha256": "a3d7412c3109908476a87edeb04b8772f483d329ac6ff9209b4eea605da10740",
-        "installedArtifactSha256": "a3d7412c3109908476a87edeb04b8772f483d329ac6ff9209b4eea605da10740",
-        "sourceCommit": "7366b5afcb2f2067f137f25677370caa3ab1289f",
+        "releaseArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
+        "installedArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
+        "sourceCommit": "9a54657ab75d6de98ec4186366dece5f532005e4",
         "signingCertificateSha256": "78de94bb31d543f746be27d84a512f5403951511f18510186d7a3699eea6a6ba"
       },
       "device": {
@@ -126,7 +126,7 @@
         "os": "Android 16",
         "serialStored": false
       },
-      "testedAt": "2026-07-18T11:19:49+08:00",
+      "testedAt": "2026-07-18T12:35:06+08:00",
       "installationMode": "clean-install",
       "cases": {
         "installAndFirstLaunch": "passed",
