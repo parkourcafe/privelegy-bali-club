@@ -59,6 +59,15 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke editorial route (app/is-airbnb-banned-in-bali) — topical explainer
+    // on Bali's villa/OTA licensing; registry entry is metadata-only for the
+    // sitemap + guides hub.
+    slug: "is-airbnb-banned-in-bali",
+    title: "Is Airbnb being banned in Bali?",
+    description:
+      "Bali is tightening villa and booking-platform rules, not banning trips. What's confirmed, what's rumour, and what it means for travellers — as of July 2026.",
+  },
+  {
     // Bespoke, data-driven route (app/best-beach-clubs-in-bali) — registry
     // entry is metadata-only so the sitemap enumerates it.
     slug: "best-beach-clubs-in-bali",
@@ -828,6 +837,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
       "best-time-to-visit-bali",
       "how-to-get-around-bali",
       "is-bali-safe",
+      "is-airbnb-banned-in-bali",
       "bali-on-a-budget",
     ],
   },
