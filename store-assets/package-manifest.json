@@ -21,7 +21,8 @@
     "shippedInterfaceLocales": ["en"]
   },
   "evidence": {
-    "releaseArtifacts": "artifacts/release/evidence/release-artifacts.json"
+    "releaseArtifacts": "artifacts/release/evidence/release-artifacts.json",
+    "deviceMatrix": "docs/release/device-matrix.json"
   },
   "screenshots": {
     "iphone69": {
@@ -55,10 +56,10 @@
         "05-saved.png"
       ],
       "captureArtifact": "ruStore",
-      "signedArtifactSha256": null,
-      "captureDevice": null,
-      "capturedAt": null,
-      "status": "pending-signed-capture"
+      "signedArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
+      "captureDevice": "Samsung SM-A075F / Android 16",
+      "capturedAt": "2026-07-18T13:13:39+08:00",
+      "status": "ready"
     }
   },
   "ownerInputs": {

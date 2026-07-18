@@ -47,6 +47,11 @@ export function createCapacitorConfig(
       preferredContentMode: "mobile",
       allowsLinkPreview: false,
     },
+    plugins: {
+      SystemBars: {
+        style: "DARK",
+      },
+    },
     ...(devServerUrl ? { server: developmentServer(devServerUrl) } : {}),
   };
 }

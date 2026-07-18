@@ -8,6 +8,7 @@ test("Capacitor Release uses only the bundled local shell with logging disabled"
   assert.equal(config.webDir, "ios-web");
   assert.equal(config.loggingBehavior, "none");
   assert.equal(config.server, undefined);
+  assert.deepEqual(config.plugins?.SystemBars, { style: "DARK" });
 });
 
 test("Capacitor development server is opt-in and private-network only", () => {
@@ -41,6 +42,7 @@ test("iOS verification rejects stale source and archive command rebuilds then sy
   const xcodePreflight = readFileSync(new URL("./xcode-release-preflight.sh", import.meta.url), "utf8");
   assert.match(buildScript, /sourceInputs/);
   assert.match(buildScript, /sourceHash/);
+  assert.match(buildScript, /capacitor\.config\.ts/);
   assert.match(buildScript, /package-lock\.json/);
   assert.match(releaseGuard, /ios-web is stale relative to mobile\/shared source/);
   assert.match(releaseGuard, /built app contains a stale mobile shell manifest/);
@@ -50,6 +52,17 @@ test("iOS verification rejects stale source and archive command rebuilds then sy
   assert.match(xcodeProject, /xcode-release-preflight\.sh/);
   assert.match(xcodePreflight, /CONFIGURATION.*Release/);
   assert.match(xcodePreflight, /verify-ios-release\.mjs --config-only/);
+});
+
+test("mobile shell consumes Capacitor safe-area variables with browser fallbacks", () => {
+  const [styles, offline] = [
+    readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8"),
+    readFileSync(new URL("../mobile/public/offline.html", import.meta.url), "utf8"),
+  ];
+  for (const source of [styles, offline]) {
+    assert.match(source, /var\(--safe-area-inset-top,\s*env\(safe-area-inset-top\)\)/);
+    assert.match(source, /var\(--safe-area-inset-bottom,\s*env\(safe-area-inset-bottom\)\)/);
+  }
 });
 
 test("native bridge plugins and privacy declarations match the approved release scope", () => {

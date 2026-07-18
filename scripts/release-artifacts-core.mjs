@@ -11,6 +11,7 @@ export const RELEASE_CONTRACT = Object.freeze({
   iosBuild: "4",
   iosMinimumVersion: "15.0",
   associatedDomains: ["applinks:www.otherbali.com"],
+  systemBarsStyle: "DARK",
   androidVersion: "1.0.0",
   androidVersionCode: "2",
   androidMinSdk: "24",
@@ -57,6 +58,23 @@ export function normalizeFingerprint(value, label = "certificate fingerprint") {
   const normalized = value.replaceAll(/[^0-9A-Fa-f]/g, "").toUpperCase();
   if (!/^[0-9A-F]{64}$/.test(normalized)) fail(`${label} must be a SHA-256 fingerprint`);
   return normalized;
+}
+
+export function assertReleaseCapacitorConfig(config, label = "Capacitor config") {
+  if (!config || typeof config !== "object" || Array.isArray(config)) {
+    fail(`${label} is missing or malformed`);
+  }
+  if (config.appId !== RELEASE_CONTRACT.appId || config.webDir !== "ios-web") {
+    fail(`${label} embedded identity is incorrect`);
+  }
+  if (config.loggingBehavior !== "none") fail(`${label} embedded logging must be disabled`);
+  if (typeof config.server?.url === "string" && config.server.url.trim()) {
+    fail(`${label} embeds a forbidden remote server.url`);
+  }
+  if (config.plugins?.SystemBars?.style !== RELEASE_CONTRACT.systemBarsStyle) {
+    fail(`${label} must embed SystemBars.style=${RELEASE_CONTRACT.systemBarsStyle}`);
+  }
+  return true;
 }
 
 export function parseAaptBadging(output) {

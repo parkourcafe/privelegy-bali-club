@@ -25,10 +25,12 @@ complete. The iPhone set is tied to the IPA; the shared Android listing set is
 tied to the signed RuStore APK. The release-artifact report independently proves
 that the Play AAB contains the same canonical shell.
 
-Final screenshots do not exist yet. Capture them only from the exact signed and
-device-tested iOS 1.0 (4) and Android 1.0.0 (2) artifacts, following
-`docs/store-submission-package.md`. Do not use debug QA screenshots as listing
-artwork.
+The five Android screenshots are final-size captures from the exact signed and
+device-tested RuStore APK recorded in `package-manifest.json` and
+`docs/release/device-matrix.json`. The five iPhone screenshots remain pending a
+clean install of the final signed iOS 1.0 (4) IPA. Follow
+`docs/store-submission-package.md`; never substitute debug QA screenshots as
+listing artwork.
 
 `archive/ios-build-2-day-builder/` contains historical screenshots from the
 retired build 2/day-builder product. They are retained only as audit evidence

@@ -19,7 +19,9 @@ test("store package preflight reports every owner and signed-capture gate withou
   assert.equal(result.ok, true);
   assert.equal(result.ready, false);
   assert.ok(result.pending.includes("iphone69:01-places.png"));
-  assert.ok(result.pending.includes("androidPhone:01-places.png"));
+  assert.ok(!result.pending.some((item) => item.startsWith("androidPhone:")));
+  assert.equal(result.screenshots.androidPhone.length, 5);
+  assert.ok(result.screenshots.androidPhone.every((shot) => shot.width === 1080 && shot.height === 1920 && shot.hasAlpha === false));
   assert.ok(result.pending.includes("releaseArtifactsEvidence"));
   assert.ok(result.pending.includes("ownerInputs:appReviewContact"));
   assert.ok(result.pending.some((item) => item.includes("APP REVIEW CONTACT")));
@@ -60,10 +62,12 @@ test("store package rejects a screenshot hash not present in verified release ev
     await Promise.all([
       cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
       mkdir(path.join(fixture, "docs"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release"), { recursive: true }),
       mkdir(path.join(fixture, "ios-web"), { recursive: true }),
     ]);
     await Promise.all([
       cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
       cp(path.join(root, "ios-web/build-manifest.json"), path.join(fixture, "ios-web/build-manifest.json")),
     ]);
     const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
@@ -103,6 +107,45 @@ test("store package rejects a screenshot hash not present in verified release ev
     await assert.rejects(
       () => inspectStorePackage({ root: fixture }),
       /screenshot artifact SHA-256 does not match verified ios evidence/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("store package rejects Android screenshots tied to a stale device-tested APK", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-device-evidence-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+    ]);
+    const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    manifest.screenshots.androidPhone.signedArtifactSha256 = "0".repeat(64);
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /screenshot artifact SHA-256 does not match passed samsungRustoreApk device evidence/,
+    );
+
+    const matrixPath = path.join(fixture, "docs/release/device-matrix.json");
+    const matrix = JSON.parse(await readFile(matrixPath, "utf8"));
+    manifest.screenshots.androidPhone.signedArtifactSha256 = matrix.requiredSignedEvidence
+      .samsungRustoreApk.artifact.releaseArtifactSha256;
+    matrix.requiredSignedEvidence.samsungRustoreApk.artifact.sourceCommit = "b".repeat(40);
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`),
+      writeFile(matrixPath, `${JSON.stringify(matrix, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /source commit does not match the device-matrix release/,
     );
   } finally {
     await rm(fixture, { recursive: true, force: true });

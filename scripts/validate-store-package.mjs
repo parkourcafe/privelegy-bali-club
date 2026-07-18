@@ -14,6 +14,10 @@ const EXPECTED_SCREENSHOT_FILES = [
   "05-saved.png",
 ];
 const EXPECTED_CAPTURE_ARTIFACT = Object.freeze({ iphone69: "ios", androidPhone: "ruStore" });
+const EXPECTED_DEVICE_EVIDENCE = Object.freeze({
+  iphone69: "iphoneIpa",
+  androidPhone: "samsungRustoreApk",
+});
 const ARTIFACT_KEYS = ["ios", "googlePlay", "ruStore"];
 export const REQUIRED_OWNER_INPUTS = Object.freeze([
   "copyrightRightsHolder",
@@ -231,6 +235,34 @@ async function releaseEvidence({ root, manifest, failures, pending }) {
   return report;
 }
 
+async function deviceEvidence({ root, manifest, failures }) {
+  const relative = manifest.evidence?.deviceMatrix;
+  if (!relative) {
+    failures.push("package manifest has no device-matrix evidence path");
+    return null;
+  }
+  let evidencePath;
+  try {
+    evidencePath = repositoryPath(root, relative, "device-matrix evidence path");
+  } catch (error) {
+    failures.push(error.message);
+    return null;
+  }
+  const bytes = await fileBufferOrNull(evidencePath);
+  if (!bytes) {
+    failures.push("device-matrix evidence is missing");
+    return null;
+  }
+  try {
+    const report = JSON.parse(bytes.toString("utf8"));
+    if (report.schemaVersion !== 2) failures.push("device-matrix evidence has an unsupported schema");
+    return report;
+  } catch {
+    failures.push("device-matrix evidence is not valid JSON");
+    return null;
+  }
+}
+
 export async function inspectStorePackage({ root, strict = false }) {
   const manifestPath = path.join(root, "store-assets/package-manifest.json");
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
@@ -244,6 +276,7 @@ export async function inspectStorePackage({ root, strict = false }) {
   pending.push(...requiredSections.pending);
   inspectReleaseDeclaration(manifest.release, failures);
   const artifactReport = await releaseEvidence({ root, manifest, failures, pending });
+  const deviceReport = await deviceEvidence({ root, manifest, failures });
   const metadataMarkdown = await readFile(
     repositoryPath(root, manifest.metadata.canonicalDocument, "canonical metadata document"),
     "utf8",
@@ -294,6 +327,29 @@ export async function inspectStorePackage({ root, strict = false }) {
     }
     if (!set.captureDevice) pending.push(`${key}:captureDevice`);
     if (!set.capturedAt || Number.isNaN(Date.parse(set.capturedAt))) pending.push(`${key}:capturedAt`);
+    if (set.status === "ready") {
+      const evidenceKey = EXPECTED_DEVICE_EVIDENCE[key];
+      const deviceEntry = deviceReport?.requiredSignedEvidence?.[evidenceKey];
+      if (deviceEntry?.status !== "passed") {
+        failures.push(`${key}: ready screenshots require passed ${evidenceKey} device evidence`);
+      } else {
+        const testedHash = deviceEntry.artifact?.releaseArtifactSha256;
+        if (set.signedArtifactSha256 !== testedHash) {
+          failures.push(`${key}: screenshot artifact SHA-256 does not match passed ${evidenceKey} device evidence`);
+        }
+        if (deviceEntry.installationMode !== "clean-install") {
+          failures.push(`${key}: passed ${evidenceKey} evidence must come from a clean install`);
+        }
+        if (!/^[a-f0-9]{40}$/.test(deviceEntry.artifact?.sourceCommit ?? "")) {
+          failures.push(`${key}: passed ${evidenceKey} evidence has no source commit`);
+        } else if (deviceEntry.artifact.sourceCommit !== deviceReport?.release?.commit) {
+          failures.push(`${key}: passed ${evidenceKey} source commit does not match the device-matrix release`);
+        }
+        if (key === "androidPhone" && deviceEntry.artifact?.installedArtifactSha256 !== testedHash) {
+          failures.push(`${key}: installed APK hash does not match passed ${evidenceKey} release artifact`);
+        }
+      }
+    }
     screenshots[key] = files;
   }
 
