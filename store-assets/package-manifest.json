@@ -66,19 +66,20 @@
         "05-saved.png"
       ],
       "fileSha256": {
-        "01-places.png": null,
-        "02-place-detail.png": null,
-        "03-routes.png": null,
-        "04-route-detail.png": null,
-        "05-saved.png": null
+        "01-places.png": "d76e26bdde9647bb2da7b7136891e4b1b1deb0a49019aa924d3e285631000df0",
+        "02-place-detail.png": "6a20e0b4e69c216742949f6fb669899e774ccd1467217394046621feea1745b8",
+        "03-routes.png": "6cbeab3101ddac0617480acd426bc2e16865d6fd06e4ba9f0da302ed428eebcb",
+        "04-route-detail.png": "3c72b6386281243e80c9b3d49e8daefd1f303208f9b9a809daf64728e1c3db06",
+        "05-saved.png": "22a906ebac9eec7bc215698aea3892789691000bcb0b798a6918c30404a95356"
       },
       "captureArtifact": "ruStore",
       "captureMode": "signed-device-artifact",
-      "sourceHash": null,
-      "signedArtifactSha256": null,
+      "sourceHash": "710595f3fcc726562b7d343d97a136295999cbad841380380824afca71165aee",
+      "signedArtifactSha256": "72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00",
       "captureDevice": "Samsung SM-A075F / Android 16",
-      "capturedAt": null,
-      "status": "pending-signed-capture"
+      "capturedAt": "2026-07-18T16:39:23+08:00",
+      "captureEvidence": "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+      "status": "ready"
     }
   },
   "ownerInputs": {

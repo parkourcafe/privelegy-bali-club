@@ -27,13 +27,20 @@ set must be recaptured and rebound after every new signed RuStore APK. The
 release-artifact report independently proves when the IPA, Play AAB and RuStore
 APK contain the same canonical shell.
 
-The current Android screenshots are historical until the newly signed APK is
-clean-installed and recaptured; `package-manifest.json` therefore keeps that
-set pending. The five iPhone screenshots are final-size
-captures from a clean iPhone 17 Pro Max Simulator install of the same verified
-release source. Physical iPhone/TestFlight QA remains a separate gate and is
-not implied by these marketing images. Follow `docs/store-submission-package.md`;
-never substitute unrelated or stale debug QA screenshots as listing artwork.
+The current Android screenshots are exact `1080 x 1920`, opaque captures from
+the clean-installed and device-tested RuStore APK; the manifest binds them to
+that APK and to the verified source hash. The signed-device capture sidecar at
+`docs/release/evidence/samsung-rustore/store-screenshot-capture.json` freezes
+the device, source commit, artifact hash, capture window, `1080 x 1920` / 450 dpi
+display override, hidden system UI and all five image hashes. The phone was
+returned to its physical `720 x 1600` / 300 dpi display and normal system UI
+immediately after capture.
+The five iPhone screenshots are
+final-size captures from a clean iPhone 17 Pro Max Simulator install of the
+same verified release source. Physical iPhone/TestFlight QA remains a separate
+gate and is not implied by these marketing images. Follow
+`docs/store-submission-package.md`; never substitute unrelated or stale debug
+QA screenshots as listing artwork.
 
 `archive/ios-build-2-day-builder/` contains historical screenshots from the
 retired build 2/day-builder product. They are retained only as audit evidence

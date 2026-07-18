@@ -308,9 +308,10 @@ debug QA captures as store artwork.
   `store-assets/google-play-feature-graphic-1024x500.png`, `1024 x 500`, using
   the canonical Other Bali identity. Its editable source is stored alongside
   it. Do not add store badges, pricing claims, awards or unreadable screenshots.
-- Store screenshots: the final iPhone set is present with source/capture
-  provenance. The Android set must be recaptured from the newly signed and
-  device-tested RuStore APK before the package validator can mark it ready.
+- Store screenshots: both final five-shot sets are present. The iPhone set has
+  clean-Simulator source/capture provenance; the Android set was captured from
+  the exact clean-installed, device-tested RuStore APK. Both are opaque,
+  exact-size PNGs with per-file hashes enforced by the package validator.
 - Support/privacy URLs: verify both return HTTPS 200 without authentication on
   the day of submission.
 - Legal seller/developer name, copyright holder, App Review contact and store

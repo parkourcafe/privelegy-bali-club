@@ -32,7 +32,19 @@ const EXPECTED_SCREENSHOT_PROVENANCE = Object.freeze({
     width: 1080,
     height: 1920,
     alpha: "forbidden",
-    captureEvidence: null,
+    captureEvidence: "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    captureDisplay: {
+      width: 1080,
+      height: 1920,
+      densityDpi: 450,
+      orientation: "portrait",
+    },
+    captureSystemUi: {
+      statusBar: "hidden",
+      navigationBar: "hidden",
+      mode: "immersive-full",
+      restoredAfterCapture: true,
+    },
   },
 });
 const REQUIRED_DEVICE_EVIDENCE = Object.freeze([
@@ -400,6 +412,130 @@ async function validateSimulatorCaptureEvidence({
   }
 }
 
+async function validateSignedDeviceCaptureEvidence({
+  root,
+  key,
+  set,
+  provenance,
+  actualHashes,
+  artifactReport,
+  deviceReport,
+  manifest,
+  failures,
+  pending,
+}) {
+  if (set.captureEvidence !== provenance.captureEvidence) {
+    failures.push(`${key}: captureEvidence must equal ${provenance.captureEvidence}`);
+    return;
+  }
+  let evidencePath;
+  try {
+    evidencePath = repositoryPath(root, set.captureEvidence, `${key} capture-evidence path`);
+  } catch (error) {
+    failures.push(error.message);
+    return;
+  }
+  const bytes = await fileBufferOrNull(evidencePath);
+  if (!bytes) {
+    pending.push(`${key}:captureEvidence`);
+    return;
+  }
+  let evidence;
+  try {
+    evidence = JSON.parse(bytes.toString("utf8"));
+  } catch {
+    failures.push(`${key}: capture evidence is not valid JSON`);
+    return;
+  }
+  if (evidence.schemaVersion !== 1 || evidence.status !== "passed") {
+    failures.push(`${key}: capture evidence has no passed verdict`);
+  }
+  if (evidence.captureArtifact !== provenance.artifact || evidence.captureMode !== provenance.mode) {
+    failures.push(`${key}: capture evidence has the wrong artifact or capture mode`);
+  }
+  if (evidence.sourceHash !== set.sourceHash) {
+    failures.push(`${key}: capture evidence source hash does not match the screenshot set`);
+  }
+  if (!isCommit(evidence.sourceCommit)) {
+    failures.push(`${key}: capture evidence has no source commit`);
+  } else {
+    if (artifactReport && evidence.sourceCommit !== artifactReport.git?.commit) {
+      failures.push(`${key}: capture evidence source commit does not match release-artifact evidence`);
+    }
+    if (deviceReport && evidence.sourceCommit !== deviceReport.release?.commit) {
+      failures.push(`${key}: capture evidence source commit does not match device evidence`);
+    }
+  }
+  if (evidence.signedArtifactSha256 !== set.signedArtifactSha256) {
+    failures.push(`${key}: capture evidence artifact SHA-256 does not match the screenshot set`);
+  }
+  if (evidence.captureDevice !== set.captureDevice || evidence.capturedAt !== set.capturedAt) {
+    failures.push(`${key}: capture evidence device/time does not match the screenshot set`);
+  }
+  if (JSON.stringify(evidence.captureDisplay) !== JSON.stringify(provenance.captureDisplay)) {
+    failures.push(`${key}: capture evidence does not match the frozen display configuration`);
+  }
+  if (JSON.stringify(evidence.captureSystemUi) !== JSON.stringify(provenance.captureSystemUi)) {
+    failures.push(`${key}: capture evidence does not match the frozen system-UI configuration`);
+  }
+  const captureStartedAt = Date.parse(evidence.captureWindow?.startedAt ?? "");
+  const captureCompletedAt = Date.parse(evidence.captureWindow?.completedAt ?? "");
+  const capturedAt = Date.parse(evidence.capturedAt ?? "");
+  if (Number.isNaN(captureStartedAt) || Number.isNaN(captureCompletedAt)
+    || captureStartedAt > captureCompletedAt || captureCompletedAt !== capturedAt) {
+    failures.push(`${key}: capture evidence has no valid ordered capture window`);
+  }
+  if (evidence.installationMode !== "clean-install") {
+    failures.push(`${key}: signed-device capture evidence must come from a clean install`);
+  }
+  const expectedApp = {
+    applicationId: RELEASE_CONTRACT.appId,
+    versionName: RELEASE_CONTRACT.androidVersion,
+    versionCode: Number(RELEASE_CONTRACT.androidVersionCode),
+  };
+  if (JSON.stringify(evidence.app) !== JSON.stringify(expectedApp)) {
+    failures.push(`${key}: signed-device capture evidence has the wrong app identity/version`);
+  }
+  if (evidence.installation?.previousPackageRemoved !== true
+    || evidence.installation?.signedReleaseApkInstalled !== true
+    || evidence.installation?.installedArtifactHashMatched !== true) {
+    failures.push(`${key}: signed-device capture evidence has no complete installation record`);
+  }
+  const requiredCases = ["catalogLoaded", "placeDetail", "routeLayout", "savePersistenceAfterRelaunch"];
+  if (requiredCases.some((caseName) => evidence.cases?.[caseName] !== "passed")) {
+    failures.push(`${key}: signed-device capture evidence is missing required passed cases`);
+  }
+  if (evidence.deviceQaEvidence !== manifest.evidence?.deviceMatrix) {
+    failures.push(`${key}: capture evidence does not reference the canonical device matrix`);
+  }
+  const deviceEntry = deviceReport?.requiredSignedEvidence?.[provenance.deviceEvidence];
+  if (deviceEntry?.status !== "passed") {
+    failures.push(`${key}: capture evidence requires passed ${provenance.deviceEvidence} device evidence`);
+  } else {
+    const expectedDevice = `${deviceEntry.device?.manufacturer} ${deviceEntry.device?.model} / ${deviceEntry.device?.os}`;
+    if (set.captureDevice !== expectedDevice || evidence.captureDevice !== expectedDevice) {
+      failures.push(`${key}: capture device does not match passed ${provenance.deviceEvidence} device evidence`);
+    }
+    if (evidence.signedArtifactSha256 !== deviceEntry.artifact?.releaseArtifactSha256) {
+      failures.push(`${key}: capture evidence artifact does not match passed ${provenance.deviceEvidence} evidence`);
+    }
+    const installedAt = Date.parse(deviceEntry.installation?.firstInstallTime ?? "");
+    const testedAt = Date.parse(deviceEntry.testedAt ?? "");
+    if (Number.isNaN(installedAt) || Number.isNaN(testedAt)
+      || Number.isNaN(captureStartedAt) || captureStartedAt < installedAt || captureStartedAt < testedAt) {
+      failures.push(`${key}: capture session predates the signed install or completed device test`);
+    }
+  }
+  if (evidence.screenshotDirectory !== provenance.directory
+    || JSON.stringify(evidence.screenshotSha256) !== JSON.stringify(actualHashes)) {
+    failures.push(`${key}: capture evidence does not match the exact screenshot files`);
+  }
+  const expectedPointers = EXPECTED_SCREENSHOT_FILES.map((file) => path.join(provenance.directory, file));
+  if (JSON.stringify(evidence.evidencePointers) !== JSON.stringify(expectedPointers)) {
+    failures.push(`${key}: signed-device capture evidence must point to all five screenshot files`);
+  }
+}
+
 async function validateRequiredDeviceEvidence({ root, deviceReport, artifactReport, failures, pending }) {
   if (!deviceReport) {
     for (const evidenceKey of REQUIRED_DEVICE_EVIDENCE) pending.push(`deviceEvidence:${evidenceKey}`);
@@ -553,13 +689,27 @@ export async function inspectStorePackage({ root, strict = false }) {
         failures,
         pending,
       });
-    } else if (!/^[a-f0-9]{64}$/.test(set.signedArtifactSha256 ?? "")) {
-      pending.push(`${key}:signedArtifactSha256`);
-    } else if (artifactReport) {
-      const expectedHash = artifactReport.artifacts?.[set.captureArtifact]?.sha256;
-      if (set.signedArtifactSha256 !== expectedHash) {
-        failures.push(`${key}: screenshot artifact SHA-256 does not match verified ${set.captureArtifact} evidence`);
+    } else {
+      if (!/^[a-f0-9]{64}$/.test(set.signedArtifactSha256 ?? "")) {
+        pending.push(`${key}:signedArtifactSha256`);
+      } else if (artifactReport) {
+        const expectedHash = artifactReport.artifacts?.[set.captureArtifact]?.sha256;
+        if (set.signedArtifactSha256 !== expectedHash) {
+          failures.push(`${key}: screenshot artifact SHA-256 does not match verified ${set.captureArtifact} evidence`);
+        }
       }
+      await validateSignedDeviceCaptureEvidence({
+        root,
+        key,
+        set,
+        provenance,
+        actualHashes,
+        artifactReport,
+        deviceReport,
+        manifest,
+        failures,
+        pending,
+      });
     }
     if (!set.captureDevice) pending.push(`${key}:captureDevice`);
     if (!set.capturedAt || Number.isNaN(Date.parse(set.capturedAt))) pending.push(`${key}:capturedAt`);

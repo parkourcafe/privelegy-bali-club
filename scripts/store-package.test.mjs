@@ -223,3 +223,105 @@ test("store package rejects Android screenshots tied to a stale device-tested AP
     await rm(fixture, { recursive: true, force: true });
   }
 });
+
+test("store package rejects Android screenshots not bound to their signed-device capture record", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-android-capture-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "docs/release/evidence/samsung-rustore"),
+        path.join(fixture, "docs/release/evidence/samsung-rustore"),
+        { recursive: true },
+      ),
+    ]);
+    const capturePath = path.join(
+      fixture,
+      "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    );
+    const capture = JSON.parse(await readFile(capturePath, "utf8"));
+    capture.screenshotSha256["01-places.png"] = "0".repeat(64);
+    await writeFile(capturePath, `${JSON.stringify(capture, null, 2)}\n`);
+
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture evidence does not match the exact screenshot files/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});
+
+test("Android capture evidence must match the passed device, chronology and display mode", async () => {
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-android-session-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "docs/release/evidence/samsung-rustore"),
+        path.join(fixture, "docs/release/evidence/samsung-rustore"),
+        { recursive: true },
+      ),
+    ]);
+    const manifestPath = path.join(fixture, "store-assets/package-manifest.json");
+    const capturePath = path.join(
+      fixture,
+      "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    );
+    const originalManifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    const originalCapture = JSON.parse(await readFile(capturePath, "utf8"));
+
+    const wrongDeviceManifest = structuredClone(originalManifest);
+    const wrongDeviceCapture = structuredClone(originalCapture);
+    wrongDeviceManifest.screenshots.androidPhone.captureDevice = "Different Device / Android 1";
+    wrongDeviceCapture.captureDevice = "Different Device / Android 1";
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(wrongDeviceManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(wrongDeviceCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture device does not match passed samsungRustoreApk device evidence/,
+    );
+
+    const staleManifest = structuredClone(originalManifest);
+    const staleCapture = structuredClone(originalCapture);
+    staleManifest.screenshots.androidPhone.capturedAt = "2020-01-01T00:00:00Z";
+    staleCapture.capturedAt = "2020-01-01T00:00:00Z";
+    staleCapture.captureWindow = {
+      startedAt: "2020-01-01T00:00:00Z",
+      completedAt: "2020-01-01T00:00:00Z",
+    };
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(staleManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(staleCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture session predates the signed install or completed device test/,
+    );
+
+    const wrongDisplayCapture = structuredClone(originalCapture);
+    wrongDisplayCapture.captureDisplay.densityDpi = 420;
+    await Promise.all([
+      writeFile(manifestPath, `${JSON.stringify(originalManifest, null, 2)}\n`),
+      writeFile(capturePath, `${JSON.stringify(wrongDisplayCapture, null, 2)}\n`),
+    ]);
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      /capture evidence does not match the frozen display configuration/,
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
+});

@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "release": {
     "branch": "release/other-bali-1.0",
-    "commit": "9a54657ab75d6de98ec4186366dece5f532005e4",
-    "verifiedAgainstCommit": "b287fea91b11e15fccd056b268b419eef7c6ebbb"
+    "commit": "9d1e854f863354b2955a4573186ff868dee24cab",
+    "verifiedAgainstCommit": null
   },
   "preliminaryDebugEvidence": {
     "status": "passed-debug-only",
@@ -116,9 +116,9 @@
       "requiresCleanInstall": true,
       "artifact": {
         "releaseEvidenceKey": "ruStore",
-        "releaseArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
-        "installedArtifactSha256": "7934db53ce5477ae98a7d3a1a187006a8e290fa3697d85fa6945925b8e60a7d7",
-        "sourceCommit": "9a54657ab75d6de98ec4186366dece5f532005e4",
+        "releaseArtifactSha256": "72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00",
+        "installedArtifactSha256": "72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00",
+        "sourceCommit": "9d1e854f863354b2955a4573186ff868dee24cab",
         "signingCertificateSha256": "78de94bb31d543f746be27d84a512f5403951511f18510186d7a3699eea6a6ba"
       },
       "device": {
@@ -127,8 +127,14 @@
         "os": "Android 16",
         "serialStored": false
       },
-      "testedAt": "2026-07-18T12:35:06+08:00",
+      "testedAt": "2026-07-18T15:54:02+08:00",
       "installationMode": "clean-install",
+      "installation": {
+        "previousPackageRemoved": true,
+        "firstInstallTime": "2026-07-18T15:42:47+08:00",
+        "installedBaseApkPulledBack": true,
+        "installedHashMatchedReleaseArtifact": true
+      },
       "cases": {
         "installAndFirstLaunch": "passed",
         "coldAndWarmLaunch": "passed",
@@ -138,6 +144,7 @@
         "offlineAndRecovery": "passed",
         "privacyAndCrashLogReview": "passed"
       },
+      "deviceStateNote": "The domain association itself was verified. This long-lived QA device retained a prior user-level Disabled link preference across uninstall, so the preference was explicitly set to Enabled before ordinary HTTPS deep-link cases; cold and warm links then passed without an explicit component.",
       "evidencePointers": [
         "docs/release/evidence/samsung-rustore/otherbali-first-launch.png",
         "docs/release/evidence/samsung-rustore/otherbali-place-detail.png",
@@ -147,7 +154,8 @@
         "docs/release/evidence/samsung-rustore/otherbali-cold-deeplink.png",
         "docs/release/evidence/samsung-rustore/otherbali-offline.png",
         "docs/release/evidence/samsung-rustore/otherbali-online-recovery.png",
-        "docs/release/evidence/samsung-rustore/otherbali-privacy-handoff.png"
+        "docs/release/evidence/samsung-rustore/otherbali-privacy-handoff.png",
+        "docs/release/evidence/samsung-rustore/crash-buffer-review.json"
       ]
     }
   }

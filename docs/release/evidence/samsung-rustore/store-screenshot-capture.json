@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "captureArtifact": "ruStore",
+  "captureMode": "signed-device-artifact",
+  "sourceHash": "710595f3fcc726562b7d343d97a136295999cbad841380380824afca71165aee",
+  "sourceCommit": "9d1e854f863354b2955a4573186ff868dee24cab",
+  "signedArtifactSha256": "72982a07956cf88c60dc66930b7329ccf667e8acbaaba4315c450d26bf7d8c00",
+  "captureDevice": "Samsung SM-A075F / Android 16",
+  "capturedAt": "2026-07-18T16:39:23+08:00",
+  "captureWindow": {
+    "startedAt": "2026-07-18T16:37:01+08:00",
+    "completedAt": "2026-07-18T16:39:23+08:00"
+  },
+  "captureDisplay": {
+    "width": 1080,
+    "height": 1920,
+    "densityDpi": 450,
+    "orientation": "portrait"
+  },
+  "captureSystemUi": {
+    "statusBar": "hidden",
+    "navigationBar": "hidden",
+    "mode": "immersive-full",
+    "restoredAfterCapture": true
+  },
+  "installationMode": "clean-install",
+  "app": {
+    "applicationId": "com.otherbali.app",
+    "versionName": "1.0.0",
+    "versionCode": 2
+  },
+  "installation": {
+    "previousPackageRemoved": true,
+    "signedReleaseApkInstalled": true,
+    "installedArtifactHashMatched": true
+  },
+  "cases": {
+    "catalogLoaded": "passed",
+    "placeDetail": "passed",
+    "routeLayout": "passed",
+    "savePersistenceAfterRelaunch": "passed"
+  },
+  "deviceQaEvidence": "docs/release/device-matrix.json",
+  "screenshotDirectory": "store-assets/screenshots/android/en-US/phone-9x16",
+  "screenshotSha256": {
+    "01-places.png": "d76e26bdde9647bb2da7b7136891e4b1b1deb0a49019aa924d3e285631000df0",
+    "02-place-detail.png": "6a20e0b4e69c216742949f6fb669899e774ccd1467217394046621feea1745b8",
+    "03-routes.png": "6cbeab3101ddac0617480acd426bc2e16865d6fd06e4ba9f0da302ed428eebcb",
+    "04-route-detail.png": "3c72b6386281243e80c9b3d49e8daefd1f303208f9b9a809daf64728e1c3db06",
+    "05-saved.png": "22a906ebac9eec7bc215698aea3892789691000bcb0b798a6918c30404a95356"
+  },
+  "evidencePointers": [
+    "store-assets/screenshots/android/en-US/phone-9x16/01-places.png",
+    "store-assets/screenshots/android/en-US/phone-9x16/02-place-detail.png",
+    "store-assets/screenshots/android/en-US/phone-9x16/03-routes.png",
+    "store-assets/screenshots/android/en-US/phone-9x16/04-route-detail.png",
+    "store-assets/screenshots/android/en-US/phone-9x16/05-saved.png"
+  ]
+}
