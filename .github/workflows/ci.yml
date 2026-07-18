@@ -48,5 +48,11 @@ jobs:
       - name: Partner portal boundary tests
         run: npm test
 
+      # Registry ↔ DB consistency (Uluwatu all-or-nothing publication gate).
+      # Skips without Supabase secrets — enforced on the Vercel prod build via
+      # prebuild, and here too if the workflow is granted DB env later.
+      - name: Registry ↔ DB consistency
+        run: npm run check:registry
+
       - name: Build
         run: npm run build

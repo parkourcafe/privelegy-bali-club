@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test scripts/partner-portal-boundary.test.mjs scripts/ios-app-shell.test.mjs scripts/performance-boundary.test.mjs",
+    "test": "node --test scripts/partner-portal-boundary.test.mjs scripts/ios-app-shell.test.mjs scripts/performance-boundary.test.mjs scripts/check-registry-db.test.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "prebuild": "node scripts/fetch-scenes.mjs || true",
+    "check:registry": "node scripts/check-registry-db.mjs",
+    "prebuild": "node scripts/fetch-scenes.mjs || true; node scripts/check-registry-db.mjs",
     "mobile:sync": "cap sync ios",
     "mobile:open:ios": "cap open ios",
     "mobile:run:ios": "cap run ios"
