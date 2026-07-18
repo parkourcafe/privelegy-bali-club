@@ -22,7 +22,10 @@ test("store package preflight reports every owner and signed-capture gate withou
   assert.ok(!result.pending.some((item) => item.startsWith("androidPhone:")));
   assert.equal(result.screenshots.androidPhone.length, 5);
   assert.ok(result.screenshots.androidPhone.every((shot) => shot.width === 1080 && shot.height === 1920 && shot.hasAlpha === false));
-  assert.ok(result.pending.includes("releaseArtifactsEvidence"));
+  assert.equal(
+    result.pending.includes("releaseArtifactsEvidence"),
+    result.releaseEvidence === null,
+  );
   assert.ok(result.pending.includes("ownerInputs:appReviewContact"));
   assert.ok(result.pending.some((item) => item.includes("APP REVIEW CONTACT")));
   assert.ok(result.metadataLengths["Apple promotional text"] <= 170);
