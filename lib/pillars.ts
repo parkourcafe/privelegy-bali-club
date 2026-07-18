@@ -21,6 +21,7 @@ export const PILLARS: Pillar[] = [
     name: "Canggu",
     tagline: "Surf mornings, café work, sunset beach clubs — the deep guide.",
     children: [
+      { path: "/canggu/3-perfect-days", title: "3 perfect days in Canggu" },
       { path: "/canggu/best-restaurants", title: "Best restaurants in Canggu" },
       { path: "/canggu/best-brunch", title: "Best brunch in Canggu" },
       { path: "/canggu/best-warungs", title: "Best warungs & local food in Canggu" },
