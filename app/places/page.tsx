@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import { getPublishedVenues, getDistrictHubs, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import { getTripMission, getTripDuration } from "@/lib/trip-missions";
@@ -17,8 +18,20 @@ import SceneImage from "@/components/landing/SceneImage";
 import HeroLoop from "@/components/landing/HeroLoop";
 import { MOMENT_BY_SLUG } from "@/lib/catalogue-moments";
 import { DISTRICT_GUIDE } from "@/lib/districts";
+import { parsePlacesPageNumber, placesCanonical } from "@/lib/seo/places-indexing";
 
 const PAGE_SIZE = 24;
+
+type PlacesSearchParams = {
+  q?: string | string[];
+  district?: string | string[];
+  category?: string | string[];
+  moment?: string | string[];
+  intent?: string | string[];
+  m?: string | string[];
+  dur?: string | string[];
+  page?: string | string[];
+};
 
 // Canonicalize the district-filtered tool view onto its hub page so the
 // query-param surface doesn't compete with /bali/[district] for ranking
@@ -27,17 +40,47 @@ const PAGE_SIZE = 24;
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: Promise<{ district?: string | string[] }>;
+  searchParams: Promise<PlacesSearchParams>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const district = firstParam(params.district);
+  const district = normalizeDistrictParam(firstParam(params.district));
   const hubs = district ? await getDistrictHubs() : [];
   const hub = hubs.find((h) => h.slug === district);
+  const rawPage = firstParam(params.page).trim();
+  const parsedPage = parsePlacesPageNumber(rawPage);
+  const requestedPage = parsedPage ?? 1;
+  const hasFilters = [
+    params.q,
+    params.district,
+    params.category,
+    params.moment,
+    params.intent,
+    params.m,
+    params.dur,
+  ].some((value) => firstParam(value).trim().length > 0);
+  const canonical = placesCanonical({
+    hasFilters,
+    hubPath: hub ? `/bali/${hub.slug}` : undefined,
+    requestedPage,
+  });
+  const title = !hasFilters && requestedPage > 1
+    ? `Places to eat, drink & go in Bali — page ${requestedPage}`
+    : "Places to eat, drink & go in Bali — by district";
   return {
-    title: "Places to eat, drink & go in Bali — by district",
+    title,
     description:
       "A curated, resident-checked map of Bali by district — cafés, restaurants, beach clubs, bars and wellness, with who each place suits and what to expect. Free to browse; travellers never pay.",
-    alternates: { canonical: hub ? `/bali/${hub.slug}` : "/places" },
+    alternates: { canonical },
+    robots: hasFilters || parsedPage === null
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
+    openGraph: {
+      title,
+      description:
+        "A resident-checked map of Bali by district, with clear fit notes and practical actions.",
+      url: `https://www.otherbali.com${canonical}`,
+      type: "website",
+    },
   };
 }
 
@@ -133,24 +176,10 @@ function scoreCatalogueVenue(
   };
 }
 
-function pageNumber(value: string): number {
-  const parsed = Number.parseInt(value, 10);
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
-}
-
 export default async function PlacesPage({
   searchParams,
 }: {
-  searchParams: Promise<{
-    q?: string | string[];
-    district?: string | string[];
-    category?: string | string[];
-    moment?: string | string[];
-    intent?: string | string[];
-    m?: string | string[];
-    dur?: string | string[];
-    page?: string | string[];
-  }>;
+  searchParams: Promise<PlacesSearchParams>;
 }) {
   const [tracked, params] = await Promise.all([getPublishedVenues(), searchParams]);
 
@@ -231,7 +260,9 @@ export default async function PlacesPage({
   const rankedSlugs = new Set(ranked.map(({ venue }) => venue.slug));
   const paginatedMatches = filtered.filter((venue) => !rankedSlugs.has(venue.slug));
   const totalPages = Math.max(1, Math.ceil(paginatedMatches.length / PAGE_SIZE));
-  const page = Math.min(pageNumber(firstParam(params.page)), totalPages);
+  const requestedPage = parsePlacesPageNumber(firstParam(params.page).trim());
+  if (requestedPage === null || requestedPage > totalPages) notFound();
+  const page = requestedPage;
   const pageVenues = paginatedMatches.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const districts = [...new Set(venues.map((venue) => venue.district))].sort();
   const categories = [

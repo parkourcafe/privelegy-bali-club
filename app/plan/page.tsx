@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import { getCangguPlan, getRoutes } from "@/lib/data";
@@ -5,11 +6,18 @@ import PlanView from "../PlanView";
 
 export const revalidate = 300;
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Plan my Canggu day",
   description:
     "Build a Canggu day by the moment you're in — breakfast, work-friendly cafés, sunset, dinner. Curated picks with directions and confirmed offers. Free; travellers never pay.",
   alternates: { canonical: "/plan" },
+  openGraph: {
+    title: "Plan my Canggu day · Other Bali",
+    description:
+      "Build a Canggu day around your moment, with curated places, routes and practical handoffs.",
+    url: "https://www.otherbali.com/plan",
+    type: "website",
+  },
 };
 
 // The working tourist tool. The cinematic landing at / funnels here; this page

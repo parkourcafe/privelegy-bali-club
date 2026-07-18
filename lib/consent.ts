@@ -14,6 +14,7 @@
 // Those mint the functional bp_guest reference; general analytics does not.
 
 export const CONSENT_COOKIE = "bp_consent";
+export const CONSENT_CHANGE_EVENT = "otherbali:consent-change";
 export type ConsentValue = "granted" | "denied";
 
 /** Parse the consent choice out of a raw Cookie header (server or client). */
@@ -40,4 +41,7 @@ export function setConsent(value: ConsentValue): void {
   const maxAge = 60 * 60 * 24 * 365;
   const secure = typeof location !== "undefined" && location.protocol === "https:" ? "; Secure" : "";
   document.cookie = `${CONSENT_COOKIE}=${value}; Max-Age=${maxAge}; Path=/; SameSite=Lax${secure}`;
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent<ConsentValue>(CONSENT_CHANGE_EVENT, { detail: value }));
+  }
 }

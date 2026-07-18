@@ -65,6 +65,9 @@ export interface Venue {
   ownerNote?: string;
   publicationStatus?: "published" | "review";
   wellnessCategories?: VenueCategory[];
+  // Evidence freshness for sitemap lastmod. This is the existing
+  // venues.last_verified_at value, not a synthetic build/deploy timestamp.
+  lastVerifiedAt?: string;
 }
 
 export interface Perk {

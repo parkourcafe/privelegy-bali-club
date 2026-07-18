@@ -78,6 +78,7 @@ const PLAN_VENUE_COLUMNS = [
   "owner_note",
   "publication_status",
   "wellness_categories",
+  "last_verified_at",
 ].join(",");
 
 const PUBLIC_PLACES_VENUE_COLUMNS = [
@@ -108,6 +109,7 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "owner_note",
   "publication_status",
   "wellness_categories",
+  "last_verified_at",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -198,6 +200,7 @@ const mapVenue = (r: Row): Venue => {
     ownerNote: (r.owner_note as string) ?? undefined,
     publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
     wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
+    lastVerifiedAt: (r.last_verified_at as string) ?? undefined,
   };
 };
 // Public tourist mapping: proposed / partner-negotiation offers are treated as

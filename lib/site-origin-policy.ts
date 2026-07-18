@@ -3,6 +3,37 @@ const PRODUCTION_ORIGINS = new Set([
   "https://www.otherbali.com",
 ]);
 
+export const CANONICAL_SITE_ORIGIN = "https://www.otherbali.com";
+
+function normalizedHostname(value: string | null | undefined): string {
+  const host = (value ?? "").split(",", 1)[0].trim().toLowerCase();
+  if (!host || /[\s/@\\]/.test(host)) return "";
+  try {
+    return new URL(`https://${host}`).hostname;
+  } catch {
+    return "";
+  }
+}
+
+export function isCanonicalProductionHost(value: string | null | undefined): boolean {
+  const hostname = normalizedHostname(value);
+  return hostname === "www.otherbali.com" || hostname === "otherbali.com";
+}
+
+export function isVercelDeploymentHost(value: string | null | undefined): boolean {
+  const hostname = normalizedHostname(value);
+  return Boolean(hostname && hostname.endsWith(".vercel.app"));
+}
+
+export function shouldNoindexHost(input: {
+  host?: string | null;
+  vercelEnv?: string;
+}): boolean {
+  if (!input.vercelEnv) return false;
+  if (input.vercelEnv !== "production") return true;
+  return !isCanonicalProductionHost(input.host);
+}
+
 function httpsOrigin(value: string | null | undefined): string | null {
   const candidate = value?.trim();
   if (!candidate) return null;
@@ -43,10 +74,7 @@ export function resolveSiteOrigin(input: {
   forwardedProto?: string | null;
 }): string | null {
   if (input.vercelEnv === "production") {
-    const configured = httpsOrigin(input.configuredSiteUrl);
-    return configured && PRODUCTION_ORIGINS.has(configured)
-      ? configured
-      : "https://otherbali.com";
+    return CANONICAL_SITE_ORIGIN;
   }
 
   const current = requestOrigin(input);

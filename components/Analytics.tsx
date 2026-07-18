@@ -3,14 +3,15 @@ import AnalyticsClient from "./AnalyticsClient";
 // Google Analytics 4 (gtag.js), delegated to <AnalyticsClient/> for the actual
 // script injection + SPA page_view tracking.
 //
-// DISABLED by default (audit 2026-07, privacy P0). No third-party analytics
-// ships until a real consent flow exists — loading GA before consent was the
-// core App Store 5.1.1 / privacy-label risk. GA now loads ONLY when BOTH:
+// DISABLED by default (audit 2026-07, privacy P0). Loading GA before consent was
+// the core App Store 5.1.1 / privacy-label risk. AnalyticsClient now enforces
+// the consent gate; the deployment flag remains a separate founder gate. GA
+// loads ONLY when BOTH:
 //   1. the build is production, AND
 //   2. NEXT_PUBLIC_ENABLE_ANALYTICS === "1" is set in the environment.
 // The first App Store build ships with the flag unset, so no Google script is
-// injected and no data reaches Google. To turn it back on later: wire consent
-// first, THEN set the env var — do not just flip this line.
+// injected and no data reaches Google. To turn it on later: confirm the public
+// privacy disclosure, then set the env var and run the action smoke test.
 const GA_ID = "G-F3TEVWTWX4";
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "1";
 
