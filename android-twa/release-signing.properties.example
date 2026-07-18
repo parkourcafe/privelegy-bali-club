@@ -1,6 +1,0 @@
-# Copy this file outside the repository and pass it with Gradle properties.
-# Never commit the real keystore path or passwords.
-OTHER_BALI_RELEASE_STORE_FILE=/secure/path/other-bali-release.jks
-OTHER_BALI_RELEASE_STORE_PASSWORD=replace-me
-OTHER_BALI_RELEASE_KEY_ALIAS=other-bali-release
-OTHER_BALI_RELEASE_KEY_PASSWORD=replace-me

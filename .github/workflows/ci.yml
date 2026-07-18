@@ -7,6 +7,13 @@ name: CI
 # to lint, typecheck, or build.
 
 on:
+  workflow_dispatch:
+    inputs:
+      run_ios_archive:
+        description: "Run the unsigned iOS device-archive verification job (uses billed macOS minutes)"
+        required: false
+        default: false
+        type: boolean
   pull_request:
   push:
     branches:
@@ -34,7 +41,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -53,18 +60,20 @@ jobs:
         run: npm run build
 
   android:
-    name: Android lint · debug package
+    name: Capacitor Android lint · tests · debug package
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: android-twa
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "21"
           cache: gradle
 
       - uses: android-actions/setup-android@v3
@@ -72,12 +81,57 @@ jobs:
       - name: Install Android SDK 36
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
+      - name: Install dependencies and sync the bundled mobile shell
+        run: |
+          npm ci
+          npm run mobile:build
+          npm run mobile:sync:android
+
       - name: Lint and assemble debug package
-        run: ./gradlew --no-daemon lint assembleDebug
+        working-directory: android
+        run: ./gradlew --no-daemon lint test assemblePlayDebug
 
       - name: Confirm release signing fails closed without secrets
+        working-directory: android
         run: |
-          if ./gradlew --no-daemon verifyReleaseSigning; then
-            echo "Release signing unexpectedly passed without protected secrets."
+          if ./gradlew --no-daemon bundlePlayRelease; then
+            echo "Google Play upload signing unexpectedly passed without protected secrets."
             exit 1
           fi
+          test ! -f app/build/outputs/bundle/playRelease/app-play-release.aab
+          if ./gradlew --no-daemon assembleRustoreRelease; then
+            echo "RuStore signing unexpectedly passed without protected secrets."
+            exit 1
+          fi
+          test ! -f app/build/outputs/apk/rustore/release/app-rustore-release.apk
+
+  ios-archive:
+    name: iOS unsigned device archive · privacy · shell
+    if: github.event_name == 'workflow_dispatch' && inputs.run_ios_archive
+    runs-on: macos-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and inspect unsigned Release device archive
+        run: npm run ios:archive:dry
+
+      - name: Re-run the built-app release guard
+        run: node scripts/ci-ios-release-guard.mjs artifacts/ios/App.xcarchive/Products/Applications/App.app
+
+      - name: Upload privacy evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned-release-evidence-${{ github.sha }}
+          path: artifacts/ios/privacy-evidence.json
+          if-no-files-found: error
+          retention-days: 14

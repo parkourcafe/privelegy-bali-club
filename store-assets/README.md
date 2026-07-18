@@ -1,17 +1,35 @@
-# Store Assets
+# Other Bali store assets
 
-Committed assets:
+Canonical listing assets for release 1.0:
 
-- `app-icon-1024.png`: opaque App Store icon source.
-- `rustore-icon-512.png`: opaque RuStore listing icon.
-- `screenshots/ios-6.9/01-home.png`: native day-builder home.
-- `screenshots/ios-6.9/02-builder-selection.png`: selected Golden hour mood.
-- `screenshots/ios-6.9/03-day-plan.png`: persisted Ubud three-day plan.
-- `screenshots/ios-6.9/04-saved-places.png`: three locally saved place links.
-- `screenshots/ios-6.9/05-share-sheet.png`: native iOS Share Sheet.
+- `app-store-icon-1024.png`: Apple App Store icon, 1024 × 1024.
+- `app-icon-1024.png`: canonical high-resolution icon source.
+- `google-play-icon-512.png`: Google Play listing icon, 512 × 512, 32-bit
+  RGBA PNG with an alpha channel.
+- `google-play-feature-graphic-1024x500.png`: Google Play feature graphic,
+  1024 × 500; generated from the adjacent canonical SVG source.
+- `rustore-icon-512.png`: RuStore listing icon, 512 × 512.
 
-The iOS screenshots were captured from the release-candidate app on the iPhone
-17 Pro Max simulator. All five are portrait PNG files at 1320 × 2868. They must
-be compared with the uploaded TestFlight build on a real iPhone before App
-Review submission. Current release evidence and the exact shot list are in
-`docs/app-store-review-package-20260715.md`.
+Run `npm run store:assets:verify` before upload. The validator checks exact PNG
+dimensions, enforces each store's alpha-channel rule and prints SHA-256
+evidence for the listing package.
+
+`package-manifest.json` is the canonical readiness inventory. Run
+`npm run store:package:verify` during preparation; it lists every pending signed
+screenshot and owner/legal field without failing. Run
+`npm run store:package:verify:strict` only as the final upload gate. It cannot
+pass until both screenshot sets are tied to exact signed-artifact SHA-256 values
+that match `artifacts/release/evidence/release-artifacts.json`, every referenced
+artifact is still present with the same hash, and every owner input is marked
+complete. The iPhone set is tied to the IPA; the shared Android listing set is
+tied to the signed RuStore APK. The release-artifact report independently proves
+that the Play AAB contains the same canonical shell.
+
+Final screenshots do not exist yet. Capture them only from the exact signed and
+device-tested iOS 1.0 (4) and Android 1.0.0 (2) artifacts, following
+`docs/store-submission-package.md`. Do not use debug QA screenshots as listing
+artwork.
+
+`archive/ios-build-2-day-builder/` contains historical screenshots from the
+retired build 2/day-builder product. They are retained only as audit evidence
+and must never be uploaded for the current Places / Routes / Saved release.

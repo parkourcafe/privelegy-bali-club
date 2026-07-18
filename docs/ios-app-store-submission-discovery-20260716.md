@@ -1,5 +1,8 @@
 # iOS App Store submission discovery — 2026-07-16
 
+> **HISTORICAL / SUPERSEDED.** Branch, build and product conclusions below do
+> not describe the current release. See `docs/release/other-bali-1.0.md`.
+
 Branch: `loop/12-app-store-submission`
 
 ## Durable starting state

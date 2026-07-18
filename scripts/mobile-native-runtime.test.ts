@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  exitMobileApp,
   openControlledExternal,
   shareMobileTarget,
+  startBackButtonMonitoring,
   startNetworkMonitoring,
   type MobileNativeBridge,
 } from "../mobile/src/native-runtime";
@@ -10,8 +12,11 @@ import {
 function bridge(overrides: Partial<MobileNativeBridge> = {}): MobileNativeBridge {
   return {
     isNative: () => true,
+    isAndroid: () => true,
     getLaunchUrl: async () => null,
     addAppUrlListener: async () => ({ remove: async () => undefined }),
+    addBackButtonListener: async () => ({ remove: async () => undefined }),
+    exitApp: async () => undefined,
     getNetworkConnected: async () => true,
     addNetworkListener: async () => ({ remove: async () => undefined }),
     launchUrl: async () => true,
@@ -125,4 +130,46 @@ test("Share receives only a canonical bounded place or route URL", async () => {
   }]);
   assert.equal(await shareMobileTarget({ kind: "place", slug: "../unsafe" }, "Unsafe", runtime), false);
   assert.equal(shares.length, 1);
+});
+
+test("dismissing a native share chooser is not reported as an unavailable device capability", async () => {
+  assert.equal(await shareMobileTarget(
+    { kind: "place", slug: "sample-cafe" },
+    "Sample Cafe",
+    bridge({
+      async share() { throw new Error("Share canceled"); },
+    }),
+  ), true);
+
+  assert.equal(await shareMobileTarget(
+    { kind: "place", slug: "sample-cafe" },
+    "Sample Cafe",
+    bridge({
+      async share() { throw new Error("Native share bridge failed"); },
+    }),
+  ), false);
+});
+
+test("Android hardware-back monitoring is removable and root exit stays native-only", async () => {
+  const calls: string[] = [];
+  let listener: (() => void) | null = null;
+  const runtime = bridge({
+    async addBackButtonListener(next) {
+      listener = next;
+      return { remove: async () => { calls.push("removed"); } };
+    },
+    async exitApp() { calls.push("exit"); },
+  });
+  const handle = await startBackButtonMonitoring(() => calls.push("back"), runtime);
+  assert.ok(handle);
+  assert.ok(listener);
+  (listener as () => void)();
+  await handle.remove();
+  await exitMobileApp(runtime);
+  assert.deepEqual(calls, ["back", "removed", "exit"]);
+
+  const iosRuntime = bridge({ isAndroid: () => false });
+  assert.equal(await startBackButtonMonitoring(() => calls.push("unexpected"), iosRuntime), null);
+  await exitMobileApp(iosRuntime);
+  assert.deepEqual(calls, ["back", "removed", "exit"]);
 });

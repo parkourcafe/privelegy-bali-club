@@ -1,5 +1,10 @@
 # Other Bali - App Store Release Readiness
 
+> **SUPERSEDED — historical audit only.** This document describes the retired
+> build-2/day-builder shell and must not be used for release 1.0 (4). The
+> canonical current product, evidence and store copy are in
+> `docs/release/other-bali-1.0.md` and `docs/store-submission-package.md`.
+
 Date: 2026-07-14
 Status: Web/PWA production deployed; bundled Capacitor app shell implemented on
 `loop/10-ios-app-shell`; submission remains blocked on Apple signing, App Store

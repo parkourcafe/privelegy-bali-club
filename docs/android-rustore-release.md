@@ -1,71 +1,143 @@
-# Other Bali Android / RuStore Release
+# Other Bali Android release
 
-Date: 2026-07-14
-Status: TWA wrapper scaffolded; debug and unsigned release builds pass; store
-release blocked on offline/native value, production signing, physical-device QA
-and RuStore Console access.
+Date: 2026-07-18
 
-## Architecture
+Status: Capacitor candidate implemented and debug-tested on the connected
+Samsung. Store-signed AAB/APK and verified Digital Asset Links remain blocked
+on owner-approved production key creation.
 
-The Android project is in `android-twa/` and follows the master architecture's
-PWA-first path. It uses a Trusted Web Activity for
-`https://www.otherbali.com/`, package ID `com.otherbali.app`, min SDK 21 and no
-payments, notifications, geolocation or sensitive Android permissions.
+## Canonical architecture
 
-The wrapper is not yet ready for store submission. RuStore says a simple online
-site wrapper is likely to fail moderation and expects independent/offline value
-or a meaningful native capability. Other Bali's service worker is currently an
-intentional cache-purge kill switch after a previous stale-cache incident.
-Reintroducing versioned, tested offline access is a product/release requirement,
-not a packaging checkbox.
+- Source project: `android/`
+- Bundled shell: `ios-web/`, generated from `mobile/`
+- Package: `com.otherbali.app`
+- Version: `1.0.0` (`versionCode 2`)
+- Minimum/target: API 24 / API 36
+- Runtime: Capacitor Android 8.4.1
+- Product: `Places / Routes / Saved`, identical to the iOS mobile shell
 
-## Local Toolchain
+The superseded `android-twa/` experiment was removed from the canonical release
+branch so it cannot be built or uploaded accidentally.
+The current app has independent native/offline value and does not open the
+website as its main interface.
 
-- Android Studio: installed in `/Applications/Android Studio.app`.
-- JDK: Homebrew OpenJDK 17 at `/opt/homebrew/opt/openjdk@17`.
-- Android SDK: `/Users/msnigmatullaeva/Library/Android/sdk`.
-- Installed SDK components: Platform 36, Build Tools 36.0.0, Platform Tools.
+## Toolchain and debug build
 
-For command-line builds:
+- Node 22 or newer (`.nvmrc` and `package.json#engines`)
+- Java 21 (Android Studio JBR is supported)
+- Android SDK/target 36
+- Gradle 8.14.3; distribution and wrapper checksums are pinned
 
 ```bash
-export JAVA_HOME=/opt/homebrew/opt/openjdk@17
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$PATH"
-cd android-twa
-./gradlew assembleDebug
+npm ci
+npm run android:debug
 ```
 
-## Release Signing
+The copied web assets and generated Capacitor configuration are gitignored.
+Always run `mobile:build` and `cap sync android` before Gradle packaging; the
+package scripts do this automatically.
 
-The production keystore must never be committed. The project expects:
+## Store signing model
 
-- local file: `android-twa/release-key.jks` (gitignored);
-- alias: `other-bali-release`;
-- passwords held by the owner in a password manager, not in Git or chat.
+Use two keys with different responsibilities:
 
-Create it in Android Studio with **Build > Generate Signed Bundle / APK >
-Create new**, then make at least two encrypted backups. Use the same certificate
-for every RuStore update.
+1. **Shared Android app-signing key** signs every RuStore APK and is supplied to
+   Play App Signing during enrolment as Google's distribution key. Keeping the
+   same final signer permits an installed build to be updated from either store.
+2. **Google Play upload key** signs only the AAB uploaded to Play. Google verifies
+   that upload signature and then signs distributed APKs with the shared
+   app-signing key.
 
-After the release certificate exists:
+If the owner deliberately lets Google generate a different Play app-signing
+key, Play and RuStore installations cannot update over one another. Record that
+decision before enrolment; changing it later is constrained by each store's key
+upgrade rules. The current RuStore signing inputs represent the shared
+app-signing key.
 
-1. Export its SHA-256 fingerprint.
-2. Add a production `public/.well-known/assetlinks.json` for
-   `com.otherbali.app` and that release fingerprint.
-3. Deploy and verify the Digital Asset Links endpoint over HTTPS.
-4. Build the signed AAB/APK and verify its certificate matches the asset link.
+No keystore, password or signing secret belongs in Git, chat, screenshots or a
+store listing. Create keys only after owner approval, store passwords in a
+password manager/macOS Keychain and keep at least two encrypted key backups.
 
-Do not publish a debug fingerprint in the production asset-links file.
+Protected Google Play inputs:
 
-## Remaining QA
+- `OTHER_BALI_PLAY_UPLOAD_STORE_FILE`
+- `OTHER_BALI_PLAY_UPLOAD_STORE_PASSWORD`
+- `OTHER_BALI_PLAY_UPLOAD_KEY_ALIAS`
+- `OTHER_BALI_PLAY_UPLOAD_KEY_PASSWORD`
+- `OTHER_BALI_PLAY_UPLOAD_CERT_SHA256`
 
-- Define and ship the approved offline/native value before moderation.
-- Test TWA verification, cold launch, offline state, back navigation, external
-  Maps/WhatsApp handoffs, file picker, privacy choices, saves and sharing on a
-  physical Android device.
-- Inspect the merged release manifest for permissions.
-- Produce a signed AAB/APK; Android lint and the unsigned release build already
-  pass locally.
-- Create the RuStore developer/app record, privacy declaration, screenshots and
-  Russian listing metadata.
+Protected RuStore inputs:
+
+- `OTHER_BALI_RUSTORE_STORE_FILE`
+- `OTHER_BALI_RUSTORE_STORE_PASSWORD`
+- `OTHER_BALI_RUSTORE_KEY_ALIAS`
+- `OTHER_BALI_RUSTORE_KEY_PASSWORD`
+- `OTHER_BALI_RUSTORE_APP_SIGNING_SHA256`
+
+Build commands:
+
+```bash
+npm run android:release:play
+npm run android:release:rustore
+```
+
+The Play task produces `bundlePlayRelease`; the RuStore task produces
+`assembleRustoreRelease`. Both fail closed when any protected input is absent
+or the configured keystore file does not exist.
+
+After the IPA, AAB and APK all exist, set `BUNDLETOOL_JAR` to an official
+executable `bundletool-all` JAR and run:
+
+```bash
+export BUNDLETOOL_JAR='/secure/release-tools/bundletool-all.jar'
+npm run mobile:release:verify
+```
+
+The post-build verifier requires all three artifacts together. It checks the
+Play AAB's JAR signer against `OTHER_BALI_PLAY_UPLOAD_CERT_SHA256`, the RuStore
+APK signer against `OTHER_BALI_RUSTORE_APP_SIGNING_SHA256`, package/version/SDK,
+permissions, embedded Capacitor configuration and every bundled shell file. It
+also verifies the signed IPA, then writes atomic `release-artifacts.json` and
+`SHA256SUMS` evidence tied to the exact clean Git commit and mobile source hash.
+
+## Digital Asset Links
+
+Do not publish the debug certificate or the Google Play **upload** certificate.
+The production statement must contain:
+
+- the final Google Play **app-signing** SHA-256 certificate from Play Console;
+- the final RuStore APK signing SHA-256 certificate.
+
+Export the two **public** X.509 certificates as PEM or DER files. These files do
+not contain private keys and are safe to retain as release evidence. Then run:
+
+```bash
+export OTHER_BALI_PLAY_APP_SIGNING_CERT_FILE='/secure/release-evidence/play-app-signing.der'
+export OTHER_BALI_RUSTORE_APP_SIGNING_CERT_FILE='/secure/release-evidence/rustore-app-signing.pem'
+npm run android:assetlinks
+```
+
+The generator parses both certificates, verifies current validity, rejects an
+Android Debug subject, computes their SHA-256 fingerprints, deduplicates the
+shared signer and writes `public/.well-known/assetlinks.json`. Deploy it and
+verify HTTP 200, `application/json`, no redirect and no cookie before signed
+deep-link QA.
+
+## Current Samsung evidence
+
+On SM-A075F / Android 16, the current debug candidate passed:
+
+- cold launch and production catalogue bootstrap;
+- venue detail and external Google Maps handoff;
+- route detail and opening a route stop;
+- saving a detailed venue and route for offline use;
+- persistence across force-stop/relaunch and app update;
+- native Share chooser, including normal cancellation;
+- Android hardware Back from detail and exit from root;
+- warm and cold explicit deep links;
+- offline relaunch with cached route/venue data and recovery after networking returned;
+- Privacy custom-tab handoff.
+
+This is preliminary debug evidence. Repeat the full matrix on the exact
+RuStore-signed APK and Play-distributed internal-test build after Digital Asset
+Links is deployed.

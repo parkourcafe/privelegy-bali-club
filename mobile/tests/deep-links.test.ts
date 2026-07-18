@@ -9,8 +9,11 @@ import {
 function bridge(overrides: Partial<MobileNativeBridge> = {}): MobileNativeBridge {
   return {
     isNative: () => true,
+    isAndroid: () => true,
     getLaunchUrl: async () => null,
     addAppUrlListener: async () => ({ remove: async () => undefined }),
+    addBackButtonListener: async () => ({ remove: async () => undefined }),
+    exitApp: async () => undefined,
     getNetworkConnected: async () => true,
     addNetworkListener: async () => ({ remove: async () => undefined }),
     launchUrl: async () => true,

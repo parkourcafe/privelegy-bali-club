@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "release": {
+    "branch": "release/other-bali-1.0",
+    "commit": "ed64c0a9a804a422acc11f211e8813d1130f8a78"
+  },
+  "preliminaryDebugEvidence": {
+    "status": "passed-debug-only",
+    "observedDate": "2026-07-18",
+    "timezone": "Asia/Makassar",
+    "device": {
+      "manufacturer": "Samsung",
+      "model": "SM-A075F",
+      "os": "Android 16",
+      "serialStored": false
+    },
+    "artifact": {
+      "kind": "apk",
+      "variant": "playDebug",
+      "repositoryPath": "android/app/build/outputs/apk/play/debug/app-play-debug.apk",
+      "sha256": "3ab51166c0a13cedbeefc0893b1e5e00de1edf7d558fdfa7fc2ca5ed54dabf98",
+      "bytes": 4847130,
+      "package": "com.otherbali.app",
+      "versionName": "1.0.0",
+      "versionCode": 2,
+      "signing": {
+        "class": "android-debug",
+        "certificateSha256": "c28686998069d9df65418efc8ab1a1ee6940edcfdd531b252dd3208bbabb127b"
+      }
+    },
+    "installation": {
+      "mode": "in-place-update",
+      "cleanInstall": false,
+      "firstInstallTime": "2026-07-18T03:29:13+08:00",
+      "lastUpdateTime": "2026-07-18T04:18:16+08:00",
+      "installedBaseApkPulledBack": true,
+      "installedHashMatchedSourceApk": true
+    },
+    "cases": {
+      "coldOnlineCatalogue": "passed",
+      "placeDetail": "passed",
+      "routes": "passed",
+      "savePlaceAndRoute": "passed",
+      "persistenceAfterUpdateAndRelaunch": "passed",
+      "warmAndColdDeepLinks": "passed",
+      "nativeShareAndCancel": "passed",
+      "hardwareBack": "passed",
+      "externalMaps": "passed",
+      "privacyHandoff": "passed",
+      "offlineRelaunch": "passed",
+      "onlineRecovery": "passed"
+    },
+    "limitation": "This proves behavior of the exact debug APK only. It is not store-signing or clean-install evidence."
+  },
+  "requiredSignedEvidence": {
+    "iphoneIpa": {
+      "status": "pending",
+      "requiresCleanInstall": true,
+      "artifact": {
+        "releaseEvidenceKey": "ios",
+        "releaseArtifactSha256": null,
+        "sourceCommit": null,
+        "signingIdentity": null
+      },
+      "device": {
+        "manufacturer": "Apple",
+        "model": null,
+        "os": null,
+        "serialStored": false
+      },
+      "testedAt": null,
+      "installationMode": "clean-install",
+      "cases": {
+        "installAndFirstLaunch": "pending",
+        "coldAndWarmLaunch": "pending",
+        "onlineCatalogue": "pending",
+        "placeRoutesAndSaved": "pending",
+        "deepLinksAndExternalHandoffs": "pending",
+        "offlineAndRecovery": "pending",
+        "privacyAndCrashLogReview": "pending"
+      },
+      "evidencePointers": []
+    },
+    "samsungPlayDistributedBuild": {
+      "status": "pending",
+      "requiresCleanInstall": true,
+      "artifact": {
+        "releaseEvidenceKey": "googlePlay",
+        "releaseArtifactSha256": null,
+        "installedArtifactSha256": null,
+        "sourceCommit": null,
+        "signingCertificateSha256": null
+      },
+      "device": {
+        "manufacturer": "Samsung",
+        "model": "SM-A075F",
+        "os": null,
+        "serialStored": false
+      },
+      "testedAt": null,
+      "installationMode": "clean-install-from-play-test-track",
+      "cases": {
+        "installAndFirstLaunch": "pending",
+        "coldAndWarmLaunch": "pending",
+        "onlineCatalogue": "pending",
+        "placeRoutesAndSaved": "pending",
+        "deepLinksAndExternalHandoffs": "pending",
+        "offlineAndRecovery": "pending",
+        "privacyAndCrashLogReview": "pending"
+      },
+      "evidencePointers": []
+    },
+    "samsungRustoreApk": {
+      "status": "pending",
+      "requiresCleanInstall": true,
+      "artifact": {
+        "releaseEvidenceKey": "ruStore",
+        "releaseArtifactSha256": null,
+        "installedArtifactSha256": null,
+        "sourceCommit": null,
+        "signingCertificateSha256": null
+      },
+      "device": {
+        "manufacturer": "Samsung",
+        "model": "SM-A075F",
+        "os": null,
+        "serialStored": false
+      },
+      "testedAt": null,
+      "installationMode": "clean-install",
+      "cases": {
+        "installAndFirstLaunch": "pending",
+        "coldAndWarmLaunch": "pending",
+        "onlineCatalogue": "pending",
+        "placeRoutesAndSaved": "pending",
+        "deepLinksAndExternalHandoffs": "pending",
+        "offlineAndRecovery": "pending",
+        "privacyAndCrashLogReview": "pending"
+      },
+      "evidencePointers": []
+    }
+  }
+}

@@ -18,12 +18,51 @@ export default function PrivacyPage() {
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy Policy</h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 14, 2026</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 18, 2026</p>
 
         <div className="mt-10 space-y-8 text-[var(--muted)]">
           <section>
             <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
-              What we collect
+              Mobile app
+            </h2>
+            <p className="mt-3">
+              The Other Bali mobile app stores the catalogue cache, your Saved
+              places and routes, and navigation state on your device. It does not
+              require an account and does not include advertising, cross-app
+              tracking, or third-party analytics SDKs.
+            </p>
+            <p className="mt-3">
+              To load and refresh the catalogue, place details, and routes, the
+              app sends encrypted HTTPS requests to www.otherbali.com. Our hosting provider,
+              Vercel, processes the requested path, IP address and approximate
+              city or country derived from it, user agent, request identifiers,
+              response status, and operational diagnostics. Runtime logs are
+              currently accessible to us for up to one day so we can operate,
+              secure, and troubleshoot the service, after which they expire
+              under the current hosting retention setting.
+            </p>
+            <p className="mt-3">
+              These operational requests are necessary to deliver the online
+              catalogue. Vercel processes this information to provide hosting,
+              security, and troubleshooting under its applicable service and
+              privacy terms. Other Bali does not use this operational data for
+              advertising or cross-service tracking. If you do not want a new
+              request processed, you can avoid refreshing while online, use
+              material you already saved offline, or uninstall the app.
+            </p>
+            <p className="mt-3">
+              Opening Maps, an official website, or the system share sheet is a
+              user-initiated handoff. Those destinations handle information
+              under their own policies. You can remove individual Saved items
+              inside the app; uninstalling it removes its remaining local data.
+              The privacy choices page below controls the browser website only,
+              not the mobile app&apos;s on-device Saved data.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
+              Website data
             </h2>
             <p className="mt-3">
               Other Bali uses an anonymous browser cookie to keep your redeemed
@@ -102,8 +141,8 @@ export default function PrivacyPage() {
               and we will remove them.
             </p>
             <p className="mt-3">
-              You can also turn analytics on or off, or forget this device, on
-              the{" "}
+              On the browser website, you can also turn analytics on or off, or
+              forget the browser&apos;s device reference, on the{" "}
               <Link href="/privacy/choices" className="text-[var(--lagoon)] underline underline-offset-2">
                 privacy choices
               </Link>{" "}

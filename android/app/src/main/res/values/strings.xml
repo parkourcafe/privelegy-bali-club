@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Other Bali</string>
+    <string name="title_activity_main">Other Bali</string>
+    <string name="package_name">com.otherbali.app</string>
+    <string name="custom_url_scheme">com.otherbali.app</string>
+</resources>

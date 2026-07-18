@@ -1,0 +1,255 @@
+import java.security.KeyStore
+import java.security.MessageDigest
+import java.security.PrivateKey
+
+apply plugin: 'com.android.application'
+
+def signingValue = { name ->
+    def environmentValue = System.getenv(name)
+    def projectValue = project.findProperty(name)
+    if (environmentValue != null && projectValue != null && environmentValue.toString() != projectValue.toString()) {
+        throw new GradleException("Conflicting protected signing values for ${name}; remove the stale Gradle property or environment variable.")
+    }
+    environmentValue ?: projectValue
+}
+def signingComplete = { values -> values.every { it != null && !it.toString().trim().isEmpty() } }
+
+def repositoryRoot = rootProject.projectDir.parentFile
+def releaseShellVerifier = new File(repositoryRoot, 'scripts/verify-android-release-shell.mjs')
+def releaseShellVerified = false
+def nodeExecutable = {
+    def configured = System.getenv('NODE_BINARY')
+    if (configured != null && !configured.toString().trim().isEmpty()) return configured.toString()
+    def absoluteCandidates = [
+        new File(System.getProperty('user.home'), '.local/bin/node'),
+        new File('/opt/homebrew/bin/node'),
+        new File('/usr/local/bin/node'),
+    ]
+    def available = absoluteCandidates.find { it.isFile() && it.canExecute() }
+    available?.absolutePath ?: 'node'
+}
+def verifyReleaseShell = {
+    if (releaseShellVerified) return
+    if (!releaseShellVerifier.isFile()) {
+        throw new GradleException('Android Release shell verifier is missing.')
+    }
+    try {
+        def execution = providers.exec {
+            workingDir repositoryRoot
+            commandLine nodeExecutable(), releaseShellVerifier.absolutePath
+            ignoreExitValue = true
+        }
+        def result = execution.result.get()
+        if (result.exitValue != 0) {
+            def details = execution.standardError.asText.get().trim()
+            throw new GradleException(details ?: 'Android Release shell preflight failed.')
+        }
+    } catch (GradleException error) {
+        throw error
+    } catch (Exception error) {
+        throw new GradleException('Android Release shell preflight could not run. Install Node.js or set NODE_BINARY.', error)
+    }
+    releaseShellVerified = true
+}
+
+def playUpload = [
+    storeFile: signingValue('OTHER_BALI_PLAY_UPLOAD_STORE_FILE'),
+    storePassword: signingValue('OTHER_BALI_PLAY_UPLOAD_STORE_PASSWORD'),
+    keyAlias: signingValue('OTHER_BALI_PLAY_UPLOAD_KEY_ALIAS'),
+    keyPassword: signingValue('OTHER_BALI_PLAY_UPLOAD_KEY_PASSWORD'),
+    certSha256: signingValue('OTHER_BALI_PLAY_UPLOAD_CERT_SHA256'),
+]
+def rustoreRelease = [
+    storeFile: signingValue('OTHER_BALI_RUSTORE_STORE_FILE'),
+    storePassword: signingValue('OTHER_BALI_RUSTORE_STORE_PASSWORD'),
+    keyAlias: signingValue('OTHER_BALI_RUSTORE_KEY_ALIAS'),
+    keyPassword: signingValue('OTHER_BALI_RUSTORE_KEY_PASSWORD'),
+    certSha256: signingValue('OTHER_BALI_RUSTORE_APP_SIGNING_SHA256'),
+]
+
+android {
+    namespace = "com.otherbali.app"
+    compileSdk = rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.otherbali.app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        // Code 1 belonged to the superseded TWA candidate. Start the native
+        // Capacitor line at 2 so a previously uploaded test package cannot
+        // collide with the store candidate.
+        versionCode 2
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    signingConfigs {
+        if (signingComplete(playUpload.values())) {
+            playUploadRelease {
+                storeFile file(playUpload.storeFile)
+                storePassword playUpload.storePassword
+                keyAlias playUpload.keyAlias
+                keyPassword playUpload.keyPassword
+                enableV1Signing true
+                enableV2Signing true
+                enableV3Signing true
+                enableV4Signing true
+            }
+        }
+        if (signingComplete(rustoreRelease.values())) {
+            rustoreAppRelease {
+                storeFile file(rustoreRelease.storeFile)
+                storePassword rustoreRelease.storePassword
+                keyAlias rustoreRelease.keyAlias
+                keyPassword rustoreRelease.keyPassword
+                enableV1Signing true
+                enableV2Signing true
+                enableV3Signing true
+                enableV4Signing true
+            }
+        }
+    }
+    flavorDimensions += "store"
+    productFlavors {
+        play {
+            dimension "store"
+            if (signingComplete(playUpload.values())) signingConfig signingConfigs.playUploadRelease
+        }
+        rustore {
+            dimension "store"
+            if (signingComplete(rustoreRelease.values())) signingConfig signingConfigs.rustoreAppRelease
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+}
+
+def verifySigning = { values, label ->
+    if (!signingComplete(values.values())) {
+        throw new GradleException("${label} signing is not configured. Set its five protected OTHER_BALI_* properties or environment variables.")
+    }
+    if (!file(values.storeFile).isFile()) {
+        throw new GradleException("The configured ${label} keystore does not exist.")
+    }
+    def expectedFingerprint = values.certSha256.toString().replaceAll('[^0-9A-Fa-f]', '').toUpperCase()
+    if (expectedFingerprint.length() != 64) {
+        throw new GradleException("The configured ${label} SHA-256 fingerprint is invalid.")
+    }
+
+    KeyStore keyStore = null
+    Exception lastLoadFailure = null
+    for (String type : ['PKCS12', 'JKS']) {
+        try {
+            def candidate = KeyStore.getInstance(type)
+            file(values.storeFile).withInputStream { stream ->
+                candidate.load(stream, values.storePassword.toString().toCharArray())
+            }
+            keyStore = candidate
+            break
+        } catch (Exception error) {
+            lastLoadFailure = error
+        }
+    }
+    if (keyStore == null) {
+        throw new GradleException("The configured ${label} keystore could not be opened.", lastLoadFailure)
+    }
+    if (!keyStore.isKeyEntry(values.keyAlias.toString())) {
+        throw new GradleException("The configured ${label} alias is not a private-key entry.")
+    }
+    def privateKey = keyStore.getKey(values.keyAlias.toString(), values.keyPassword.toString().toCharArray())
+    if (!(privateKey instanceof PrivateKey)) {
+        throw new GradleException("The configured ${label} key password does not unlock a private key.")
+    }
+    def certificate = keyStore.getCertificate(values.keyAlias.toString())
+    certificate.checkValidity()
+    def certificateSubject = certificate.getSubjectX500Principal().getName()
+    if (values.keyAlias.toString().equalsIgnoreCase('androiddebugkey') || certificateSubject.contains('CN=Android Debug')) {
+        throw new GradleException("The Android debug certificate is forbidden for ${label} signing.")
+    }
+    def actualFingerprint = MessageDigest.getInstance('SHA-256')
+        .digest(certificate.getEncoded())
+        .collect { String.format('%02X', it & 0xff) }
+        .join('')
+    if (actualFingerprint != expectedFingerprint) {
+        throw new GradleException("The configured ${label} certificate does not match its approved SHA-256 fingerprint.")
+    }
+}
+
+tasks.register('verifyPlayUploadSigning') {
+    doLast {
+        verifySigning(playUpload, 'Google Play upload')
+    }
+}
+
+tasks.register('verifyRuStoreReleaseSigning') {
+    doLast {
+        verifySigning(rustoreRelease, 'RuStore release')
+    }
+}
+
+tasks.register('verifyAndroidReleaseShell') {
+    group = 'verification'
+    description = 'Fails closed when the generated Android Release shell is remote, verbose, missing, malformed, or stale.'
+    doLast {
+        verifyReleaseShell()
+    }
+}
+
+tasks.configureEach { task ->
+    if (task.name in ['packagePlayRelease', 'packagePlayReleaseBundle', 'signPlayReleaseBundle', 'bundlePlayRelease', 'assemblePlayRelease']) {
+        task.dependsOn tasks.named('verifyAndroidReleaseShell')
+        task.dependsOn tasks.named('verifyPlayUploadSigning')
+    }
+    if (task.name in ['packageRustoreRelease', 'packageRustoreReleaseBundle', 'signRustoreReleaseBundle', 'assembleRustoreRelease', 'bundleRustoreRelease']) {
+        task.dependsOn tasks.named('verifyAndroidReleaseShell')
+        task.dependsOn tasks.named('verifyRuStoreReleaseSigning')
+    }
+}
+
+gradle.taskGraph.whenReady { graph ->
+    def requestedAppTasks = graph.allTasks.findAll { task -> task.project == project }*.name
+    def playReleaseRequested = requestedAppTasks.any { it in ['packagePlayRelease', 'packagePlayReleaseBundle', 'signPlayReleaseBundle', 'bundlePlayRelease', 'assemblePlayRelease'] }
+    def rustoreReleaseRequested = requestedAppTasks.any { it in ['packageRustoreRelease', 'packageRustoreReleaseBundle', 'signRustoreReleaseBundle', 'assembleRustoreRelease', 'bundleRustoreRelease'] }
+    if (playReleaseRequested || rustoreReleaseRequested) {
+        // Run during graph finalization so a direct Gradle/Android Studio Release
+        // invocation fails before any build, lint, packaging, or signing task starts.
+        verifyReleaseShell()
+    }
+    if (playReleaseRequested) {
+        verifySigning(playUpload, 'Google Play upload')
+    }
+    if (rustoreReleaseRequested) {
+        verifySigning(rustoreRelease, 'RuStore release')
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'

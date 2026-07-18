@@ -17,8 +17,11 @@ export interface NativeListenerHandle {
 
 export interface MobileNativeBridge {
   isNative(): boolean;
+  isAndroid(): boolean;
   getLaunchUrl(): Promise<string | null>;
   addAppUrlListener(listener: (url: string) => void): Promise<NativeListenerHandle>;
+  addBackButtonListener(listener: () => void): Promise<NativeListenerHandle>;
+  exitApp(): Promise<void>;
   getNetworkConnected(): Promise<boolean>;
   addNetworkListener(listener: (connected: boolean) => void): Promise<NativeListenerHandle>;
   launchUrl(url: string): Promise<boolean>;
@@ -29,11 +32,18 @@ export interface MobileNativeBridge {
 
 const capacitorBridge: MobileNativeBridge = {
   isNative: () => Capacitor.isNativePlatform(),
+  isAndroid: () => Capacitor.getPlatform() === "android",
   async getLaunchUrl() {
     return (await CapacitorApp.getLaunchUrl())?.url ?? null;
   },
   addAppUrlListener(listener) {
     return CapacitorApp.addListener("appUrlOpen", ({ url }) => listener(url));
+  },
+  addBackButtonListener(listener) {
+    return CapacitorApp.addListener("backButton", listener);
+  },
+  async exitApp() {
+    await CapacitorApp.exitApp();
   },
   async getNetworkConnected() {
     return (await Network.getStatus()).connected;
@@ -126,6 +136,27 @@ export async function startDeepLinkMonitoring(
   return handle;
 }
 
+export async function startBackButtonMonitoring(
+  listener: () => void,
+  bridge: MobileNativeBridge = capacitorBridge,
+): Promise<NativeListenerHandle | null> {
+  if (!bridge.isAndroid()) return null;
+  return bridge.addBackButtonListener(listener);
+}
+
+export async function exitMobileApp(
+  bridge: MobileNativeBridge = capacitorBridge,
+): Promise<void> {
+  if (!bridge.isAndroid()) return;
+  await bridge.exitApp();
+}
+
+function isCanceledShare(error: unknown): boolean {
+  if (error instanceof DOMException && error.name === "AbortError") return true;
+  if (!(error instanceof Error)) return false;
+  return error.name === "AbortError" || error.message.trim().toLowerCase() === "share canceled";
+}
+
 export async function shareMobileTarget(
   target: MobileDeepLinkTarget,
   title: string,
@@ -139,7 +170,10 @@ export async function shareMobileTarget(
       dialogTitle: "Share from Other Bali",
     });
     return true;
-  } catch {
+  } catch (error) {
+    // Capacitor Android rejects when the chooser was opened and the user
+    // dismissed it. Cancellation is not an unavailable share capability.
+    if (isCanceledShare(error)) return true;
     return false;
   }
 }
