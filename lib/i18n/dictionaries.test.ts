@@ -1,4 +1,4 @@
-// UI-chrome dictionary gates (Multi-locale public UI rule v1, AGENTS.md
+// UI-chrome dictionary gates (Multi-locale public UI rule v2, AGENTS.md
 // 2026-07-20). t() must never surface a blank/undefined label, and every
 // public locale's dictionary must stay in sync with the strings the chrome
 // actually renders — this catches a new nav entry shipping untranslated

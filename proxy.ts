@@ -95,13 +95,11 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  // Locale resolution (Multi-locale public UI rule v1, AGENTS.md 2026-07-20).
+  // Locale resolution (Multi-locale public UI rule v2, AGENTS.md 2026-07-20).
   // Priority: explicit cookie (set by LocaleSwitcher) > Accept-Language >
   // English default. Stamped as a request header so Server Components see the
   // right locale via lib/i18n/server.ts's getLocale() even on the very first
-  // request, before any cookie exists. Never resolves to the partner-only
-  // `id` locale on public pages — matchAcceptLanguage() only returns public
-  // locales.
+  // request, before any cookie exists.
   const cookieLocale = req.cookies.get(LOCALE_COOKIE)?.value;
   const locale = isPublicLocale(cookieLocale)
     ? cookieLocale

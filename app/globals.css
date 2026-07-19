@@ -2986,7 +2986,13 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
   flex: 1;
   justify-content: center;
 }
-@media (min-width: 900px) { .ob-mega-nav { display: flex; } }
+/* 1360px, not the usual 900px tablet breakpoint: the mega-nav's six category
+   labels plus the header actions need real room once translated — Russian
+   and Indonesian overflow the header well past 900px (measured up to
+   ~1340px at the header's own 1120px design width). Below 1360px, MobileNav's
+   bottom tabs + Explore sheet already cover every destination here, so
+   nothing is lost — the header just stays compact for longer. */
+@media (min-width: 1360px) { .ob-mega-nav { display: flex; } }
 .ob-mega { position: relative; }
 .ob-mega-summary {
   display: inline-flex;
@@ -3036,18 +3042,78 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
 .ob-mega-link:hover { background: rgba(0, 89, 98, 0.07); color: var(--lagoon-strong); }
 .ob-mega-link[aria-current="page"] { color: var(--lagoon-strong); }
 .ob-site-actions { display: flex; align-items: center; gap: 4px; }
-.ob-site-actions a {
+/* Explore/Saved duplicate MobileNav's bottom tabs (same hrefs) below the
+   1360px mega-nav breakpoint — keep them out of the header there so a long
+   translated label (e.g. Russian "Сохранённое", Indonesian "Bahasa
+   Indonesia" in the switcher next to it) can't force the header row past the
+   viewport width. The locale switcher stays visible at every width. */
+.ob-site-actions a { display: none; }
+@media (min-width: 1360px) {
+  .ob-site-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 11px;
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+}
+.ob-site-actions a:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
+.ob-site-actions a[data-active="true"] { color: var(--lagoon-strong); }
+
+/* Locale switcher (Multi-locale public UI rule v2) — mirrors the .ob-mega
+   summary/panel pattern but the trigger stays compact (native name only,
+   no English gloss) and the dropdown right-aligns since it's the last item
+   in the header instead of centered under a mega-nav column. */
+.ob-locale-switcher { position: relative; flex-shrink: 0; }
+.ob-locale-trigger {
   display: inline-flex;
   align-items: center;
+  gap: 5px;
   min-height: 44px;
   padding: 8px 11px;
   border-radius: 10px;
   color: var(--muted);
   font-size: 13.5px;
   font-weight: 700;
+  white-space: nowrap;
 }
-.ob-site-actions a:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
-.ob-site-actions a[data-active="true"] { color: var(--lagoon-strong); }
+.ob-locale-trigger:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
+.ob-locale-trigger:focus-visible { outline: 2px solid var(--lagoon); outline-offset: 2px; }
+.ob-locale-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 60;
+  min-width: 200px;
+  max-height: min(70vh, 420px);
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow-lift);
+  list-style: none;
+}
+.ob-locale-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ob-locale-option:hover { background: rgba(0, 89, 98, 0.07); color: var(--lagoon-strong); }
+.ob-locale-option[aria-selected="true"] { color: var(--lagoon-strong); }
+.ob-locale-option-en { color: var(--muted); font-size: 12px; font-weight: 500; }
 
 /* Legacy flat nav replaced by the mega nav; keep the class harmless if any
    cached markup references it. */
@@ -3067,8 +3133,10 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
   backdrop-filter: saturate(1.1) blur(10px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-@media (min-width: 900px) { .ob-mobile-nav { display: none; } }
-@media (max-width: 899.98px) { body { padding-bottom: 64px; } }
+/* Matches the .ob-mega-nav/.ob-site-actions breakpoint above — MobileNav
+   stays the primary nav until there's real room for the desktop chrome. */
+@media (min-width: 1360px) { .ob-mobile-nav { display: none; } }
+@media (max-width: 1359.98px) { body { padding-bottom: 64px; } }
 .ob-mobile-tab {
   display: flex;
   flex-direction: column;

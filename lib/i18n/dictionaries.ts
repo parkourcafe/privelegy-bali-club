@@ -1,4 +1,4 @@
-// UI-chrome dictionaries (Multi-locale public UI rule v1, AGENTS.md
+// UI-chrome dictionaries (Multi-locale public UI rule v2, AGENTS.md
 // 2026-07-20). Phase A scope only: navigation, actions and other short chrome
 // strings — NOT long-form editorial content (guides, venue copy), which stays
 // English until translated and reviewed page by page (Phase B).
@@ -17,8 +17,12 @@
 // (Чангу, Убуд, Семиньяк…) are so uniformly standardized in existing Russian
 // Bali travel writing that using them carries negligible invention risk, and
 // the founder's Russian-market rationale is specifically about that
-// resident/long-stay audience. Re-evaluate zh/ko/fr place-name translation in
-// Phase B once destination pages themselves are localized.
+// resident/long-stay audience. Indonesian needs no such exception or
+// exclusion — Bali's district names (Canggu, Ubud, Seminyak, …) are already
+// Indonesian place names, spelled identically in both languages, so the
+// English source string is already correct Indonesian. Re-evaluate zh/ko/fr
+// place-name translation in Phase B once destination pages themselves are
+// localized.
 //
 // Guardrail: this file is UI chrome only. No prices, hours, "open to
 // non-guests" or other trust-bearing facts belong here — those follow the
@@ -27,6 +31,61 @@
 import type { PublicLocale } from "./locales";
 
 type Dictionary = Record<string, string>;
+
+const id: Dictionary = {
+  "All areas": "Semua area",
+  "All guides": "Semua panduan",
+  Areas: "Area",
+  "Bali Travel Guide": "Panduan Wisata Bali",
+  "Bali with Kids": "Bali bersama Anak",
+  "Bars & Sunset Drinks": "Bar & Minuman Sunset",
+  "Beach & Pool": "Pantai & Kolam Renang",
+  "Beach Clubs": "Beach Club",
+  "Beach clubs, day passes, sunset": "Beach club, day pass, sunset",
+  "Best Things to Do": "Aktivitas Terbaik",
+  "Brunches & Buffets": "Brunch & Prasmanan",
+  "Budget & Money": "Anggaran & Uang",
+  "Cafés & Breakfast": "Kafe & Sarapan",
+  "Canggu to Nusa Penida — pick your base": "Dari Canggu ke Nusa Penida — pilih basis Anda",
+  Close: "Tutup",
+  "Curated Lists": "Daftar Pilihan",
+  "Eat & Drink": "Makan & Minum",
+  Explore: "Jelajahi",
+  "Explore Bali categories": "Jelajahi kategori Bali",
+  "Explore by area": "Jelajahi berdasarkan area",
+  "First Time in Bali": "Pertama Kali ke Bali",
+  "Free Beach Clubs": "Beach Club Gratis",
+  "Hotel Day Passes": "Day Pass Hotel",
+  "How Many Days": "Berapa Lama di Bali",
+  "Icons, day trips, area days": "Ikon, wisata sehari, jelajah per area",
+  Itineraries: "Itinerary",
+  "Nusa Penida Day Trip": "Wisata Sehari Nusa Penida",
+  Plan: "Rencana",
+  "Plan Bali": "Rencanakan Bali",
+  Primary: "Navigasi utama",
+  Restaurants: "Restoran",
+  "Restaurants, warungs, cafés, brunches": "Restoran, warung, kafe, brunch",
+  "Safety & Essentials": "Keamanan & Hal Penting",
+  Saved: "Tersimpan",
+  Search: "Cari",
+  "Spas & Massage": "Spa & Pijat",
+  "Spas, massage, yoga": "Spa, pijat, yoga",
+  "Specialty Coffee": "Kopi Spesial",
+  "Sunset Clubs": "Sunset Club",
+  "Things to Do": "Hal yang Bisa Dilakukan",
+  "Things to Do in Jimbaran": "Hal yang Bisa Dilakukan di Jimbaran",
+  "Things to Do in Nusa Dua": "Hal yang Bisa Dilakukan di Nusa Dua",
+  "Things to Do in Sanur": "Hal yang Bisa Dilakukan di Sanur",
+  "Things to Do in Ubud": "Hal yang Bisa Dilakukan di Ubud",
+  "Transport & Getting Around": "Transportasi & Cara Berkeliling",
+  "Warungs & Local Food": "Warung & Makanan Lokal",
+  "Weather & Seasons": "Cuaca & Musim",
+  Wellness: "Wellness",
+  "What are you looking for?": "Sedang mencari apa?",
+  "When to go, where to stay, itineraries": "Kapan berangkat, di mana menginap, itinerary",
+  "Where to Stay": "Tempat Menginap",
+  "Yoga & Wellness (Ubud)": "Yoga & Wellness (Ubud)",
+};
 
 const zh: Dictionary = {
   "All areas": "所有地区",
@@ -248,7 +307,7 @@ const ru: Dictionary = {
   "Yoga & Wellness (Ubud)": "Йога и велнес (Убуд)",
 };
 
-export const DICTIONARIES: Partial<Record<PublicLocale, Dictionary>> = { zh, ko, fr, ru };
+export const DICTIONARIES: Partial<Record<PublicLocale, Dictionary>> = { id, zh, ko, fr, ru };
 
 /** Translate a UI-chrome string. Falls back to the English source (`en`) for
  * the default locale, and for any string a locale hasn't translated yet —
