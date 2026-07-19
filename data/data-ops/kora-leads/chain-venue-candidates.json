@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "purpose": "Provenance + decision record for the confirmed-Bali F&B CHAIN outlets from the KORA prospects list. Staging only — NOT ingested by the data-ops compiler (kept outside data/data-ops/batches/).",
+    "research_pass": "2026-07-19 (web research via WebSearch, two parallel passes)",
+    "publish_mechanism": "migrations 0041 (insert @review) + 0042 (flip @published), applied manually to prod Supabase by the founder",
+    "guardrails": "no invented content; addresses web-verified; official/instagram links left null where a handle could not be verified; chains framed honestly as reliable/everyday, not hidden finds; jobs from the canonical set; prices as bands"
+  },
+  "included": [
+    {
+      "slug": "toko-kopi-tuku",
+      "name": "Toko Kopi Tuku",
+      "category": "cafe",
+      "district": "denpasar",
+      "address": "Jl. Raya Puputan No. 10, Renon, Denpasar Selatan, Kota Denpasar, Bali 80234",
+      "confidence": "high",
+      "source": "Kompas 2025-10-09 (Tuku's first Bali store, 65th outlet nationally, Renon); corroborated by Bali Portal News + on-the-ground Threads post",
+      "notes": "Cult Jakarta neighbourhood coffee brand; signature Es Kopi Susu Tetangga."
+    },
+    {
+      "slug": "gildak-renon",
+      "name": "Gildak",
+      "category": "restaurant",
+      "district": "denpasar",
+      "address": "Jl. Tukad Gangga No. 10X, Renon, Denpasar Selatan, Kota Denpasar, Bali 80226",
+      "confidence": "high",
+      "source": "PatroliPost (4th Bali Gildak outlet); active official Facebook 'Gildak Tukad Gangga Renon'",
+      "notes": "Nikmat Group Korean street food (corndogs, tteokbokki)."
+    },
+    {
+      "slug": "sate-khas-senayan-beachwalk",
+      "name": "Sate Khas Senayan",
+      "category": "restaurant",
+      "district": "kuta-legian",
+      "address": "Beachwalk Shopping Center, Level 1 #E-22, Jl. Pantai Kuta, Kuta, Kabupaten Badung, Bali 80361",
+      "confidence": "high",
+      "source": "Beachwalk official mall directory (unit L1 #E-22); GoFood; Tripadvisor",
+      "notes": "Sarirasa Group; one of several Bali outlets, this is the confirmable flagship."
+    },
+    {
+      "slug": "bakso-boedjangan-jimbaran",
+      "name": "Bakso Boedjangan",
+      "category": "restaurant",
+      "district": "jimbaran",
+      "address": "Jl. Raya Kampus Unud, Jimbaran, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "confidence": "high",
+      "source": "baksoboedjangan.id store locator + RadarBali/JawaPos (national outlet #61, opened 2025-05-30)",
+      "notes": "CRP Group. Chose the Jimbaran outlet over the Kuta (Bypass Ngurah Rai No. 11H) one, which one aggregator flagged possibly-closed; a Denpasar outlet at Jl. Imam Bonjol No. 440 also exists."
+    },
+    {
+      "slug": "fore-coffee-jimbaran",
+      "name": "Fore Coffee",
+      "category": "cafe",
+      "district": "jimbaran",
+      "address": "Jl. Raya Kampus Unud No. 18-109, Jimbaran, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "confidence": "high",
+      "source": "Multiple Bali directory/news sources; other confirmed Bali outlets: Icon Bali Mall (Sanur), Simpang Enam & Sesetan (Denpasar), Mahendradata",
+      "notes": "Large active Indonesian specialty-coffee chain; signature Aren (palm sugar) Latte."
+    }
+  ],
+  "held": [
+    {
+      "brand": "Dailybox",
+      "reason": "needs_verification",
+      "detail": "Delivery-focused rice-box outlet (Canggu, Jl. Bantan Kangin No. 8). Live on GoFood/GrabFood but directory data is 2022-23; 2026 dine-in operating status not independently reconfirmed. Weak fit for a decision/moment guide.",
+      "confidence": "medium"
+    },
+    {
+      "brand": "Bittersweet by Najla",
+      "reason": "needs_verification",
+      "detail": "Dessert-box brand, Denpasar (Jl. Mahendradatta No. 78C), opened 2021. Listing + social persist but 2026 status not reconfirmed; delivery/dessert-box orientation.",
+      "confidence": "medium"
+    },
+    {
+      "brand": "Hangry (Moon Chicken / San Gyu)",
+      "reason": "needs_verification",
+      "detail": "Delivery-only cloud kitchens, not dine-in venues. No source firmly confirms a specific Bali kitchen actively operating in 2026 after outlet consolidation; delivery-app listings can persist after closure. Also fails the 'right place for the moment' dine-in premise.",
+      "confidence": "low"
+    },
+    {
+      "brand": "Kurasu",
+      "reason": "needs_verification",
+      "detail": "Permanent Pererenan location reported (Le Bajo, Jl. Babadan No. 89) via Tripadvisor + @kurasubali IG, distinct from the Tanah Gajah Ubud resort pop-up ending ~2026-05-08. Some 2025 sources called it a summer pop-up, so permanence still carries slight ambiguity — hold until reconfirmed, then can be added under district 'canggu' (Pererenan).",
+      "confidence": "medium"
+    }
+  ]
+}
