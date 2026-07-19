@@ -4,7 +4,10 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import OtherBaliLogo from "@/components/OtherBaliLogo";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { NAV_GROUPS, NAV_ACTIONS } from "@/lib/navigation";
+import { t } from "@/lib/i18n/dictionaries";
+import type { PublicLocale } from "@/lib/i18n/locales";
 
 // Persistent site header for every inner page (IA spec v1 §5.1). Six category
 // groups from the shared navigation registry render as <details> mega-menus —
@@ -13,7 +16,7 @@ import { NAV_GROUPS, NAV_ACTIONS } from "@/lib/navigation";
 // overlay nav (LandingChrome), so this returns null there. On small screens
 // the groups hide and the bottom bar (components/MobileNav) takes over; the
 // header keeps brand + Explore/Saved.
-export default function GlobalHeader() {
+export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
   const pathname = usePathname();
   const rootRef = useRef<HTMLElement>(null);
 
@@ -72,12 +75,12 @@ export default function GlobalHeader() {
                   className="ob-mega-summary"
                   data-active={active ? "true" : "false"}
                 >
-                  {g.label}
+                  {t(locale, g.label)}
                   <svg className="ob-mega-caret" viewBox="0 0 12 12" aria-hidden="true">
                     <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                   </svg>
                 </summary>
-                <div className="ob-mega-panel" role="group" aria-label={g.label}>
+                <div className="ob-mega-panel" role="group" aria-label={t(locale, g.label)}>
                   {g.links.map((l) => (
                     <Link
                       key={l.href}
@@ -85,7 +88,7 @@ export default function GlobalHeader() {
                       className="ob-mega-link"
                       aria-current={pathname === l.href ? "page" : undefined}
                     >
-                      {l.label}
+                      {t(locale, l.label)}
                     </Link>
                   ))}
                 </div>
@@ -102,9 +105,10 @@ export default function GlobalHeader() {
               aria-current={pathname === a.href || pathname.startsWith(`${a.href}/`) ? "page" : undefined}
               data-active={pathname === a.href || pathname.startsWith(`${a.href}/`) ? "true" : "false"}
             >
-              {a.label}
+              {t(locale, a.label)}
             </Link>
           ))}
+          <LocaleSwitcher locale={locale} />
         </nav>
       </div>
     </header>

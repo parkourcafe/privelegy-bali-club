@@ -13,6 +13,9 @@ import DistrictMapLink from "@/components/DistrictMapLink";
 import { DISTRICT_GUIDE, DISTRICT_GRADIENT } from "@/lib/districts";
 import ArtCard from "@/components/ArtCard";
 import { GATEWAY_PRIMARY, GATEWAY_SECONDARY } from "@/lib/navigation";
+import { t } from "@/lib/i18n/dictionaries";
+import { getLocale } from "@/lib/i18n/server";
+import type { PublicLocale } from "@/lib/i18n/locales";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-intent tool now lives in the hero and deep-links into /places. The Canggu
@@ -71,7 +74,8 @@ const BRAND_JSON_LD = {
   ],
 };
 
-export default function Landing() {
+export default async function Landing() {
+  const locale = await getLocale();
   return (
     <div
       data-page-shell="landing"
@@ -86,7 +90,7 @@ export default function Landing() {
 
       <main>
         <Hero />
-        <CategoryGateway />
+        <CategoryGateway locale={locale} />
         <BrowseBar />
         <ChaosToOrder />
         <Mechanism />
@@ -198,11 +202,11 @@ function Hero() {
 /* ── 1b · CategoryGateway (IA spec v1 §6): the permanent category entrances,
    straight after the hero. Cards come from the shared navigation registry, so
    the homepage and the header can never disagree about the taxonomy. ── */
-function CategoryGateway() {
+function CategoryGateway({ locale }: { locale: PublicLocale }) {
   return (
     <section className="ob-gateway" aria-labelledby="gateway-title">
       <h2 id="gateway-title" className="ob-gateway-title">
-        What are you looking for?
+        {t(locale, "What are you looking for?")}
       </h2>
       <div className="ob-gateway-grid">
         {GATEWAY_PRIMARY.map((c) => (
@@ -210,16 +214,16 @@ function CategoryGateway() {
             key={c.group}
             href={c.href}
             art={c.art}
-            title={c.label}
-            blurb={c.blurb}
+            title={t(locale, c.label)}
+            blurb={t(locale, c.blurb)}
           />
         ))}
       </div>
       <div className="ob-gateway-secondary">
         {GATEWAY_SECONDARY.map((l) => (
           <Link key={l.href} href={l.href} className="ob-gateway-wide">
-            <b>{l.label}</b>
-            <span>{l.blurb} →</span>
+            <b>{t(locale, l.label)}</b>
+            <span>{t(locale, l.blurb ?? "")} →</span>
           </Link>
         ))}
       </div>

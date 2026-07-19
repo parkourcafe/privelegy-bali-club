@@ -14,6 +14,7 @@ import {
   isVercelDeploymentHost,
   shouldNoindexHost,
 } from "@/lib/site-origin-policy";
+import { LOCALE_COOKIE, LOCALE_HEADER, isPublicLocale, matchAcceptLanguage } from "@/lib/i18n/locales";
 
 const REVIEW_REALM = "Other Bali App Review";
 
@@ -94,8 +95,28 @@ export function proxy(req: NextRequest) {
     }
   }
 
+  // Locale resolution (Multi-locale public UI rule v1, AGENTS.md 2026-07-20).
+  // Priority: explicit cookie (set by LocaleSwitcher) > Accept-Language >
+  // English default. Stamped as a request header so Server Components see the
+  // right locale via lib/i18n/server.ts's getLocale() even on the very first
+  // request, before any cookie exists. Never resolves to the partner-only
+  // `id` locale on public pages — matchAcceptLanguage() only returns public
+  // locales.
+  const cookieLocale = req.cookies.get(LOCALE_COOKIE)?.value;
+  const locale = isPublicLocale(cookieLocale)
+    ? cookieLocale
+    : matchAcceptLanguage(req.headers.get("accept-language"));
+
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
+  requestHeaders.set(LOCALE_HEADER, locale);
   const res = NextResponse.next({ request: { headers: requestHeaders } });
+  if (!isPublicLocale(cookieLocale)) {
+    res.cookies.set(LOCALE_COOKIE, locale, {
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+      path: "/",
+    });
+  }
   if (shouldNoindexHost({ host, vercelEnv })) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }

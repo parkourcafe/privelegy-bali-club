@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_GROUPS } from "@/lib/navigation";
+import { t } from "@/lib/i18n/dictionaries";
+import type { PublicLocale } from "@/lib/i18n/locales";
 
 // Mobile bottom navigation (IA spec v1 §5.2): Explore · Search · Saved · Plan.
 // Explore opens a full category sheet built from the shared navigation
@@ -45,7 +47,7 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-export default function MobileNav() {
+export default function MobileNav({ locale }: { locale: PublicLocale }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -79,17 +81,17 @@ export default function MobileNav() {
             className="ob-sheet"
             role="dialog"
             aria-modal="true"
-            aria-label="Explore Bali categories"
+            aria-label={t(locale, "Explore Bali categories")}
             ref={sheetRef}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="ob-sheet-head">
-              <p className="ob-sheet-title">Explore</p>
+              <p className="ob-sheet-title">{t(locale, "Explore")}</p>
               <button
                 type="button"
                 className="ob-sheet-close"
                 onClick={() => setOpen(false)}
-                aria-label="Close"
+                aria-label={t(locale, "Close")}
               >
                 ✕
               </button>
@@ -97,12 +99,12 @@ export default function MobileNav() {
             <div className="ob-sheet-groups">
               {NAV_GROUPS.map((g) => (
                 <section key={g.key} className="ob-sheet-group">
-                  <h2>{g.label}</h2>
+                  <h2>{t(locale, g.label)}</h2>
                   <ul>
                     {g.links.map((l) => (
                       <li key={l.href}>
                         <Link href={l.href} onClick={() => setOpen(false)}>
-                          {l.label}
+                          {t(locale, l.label)}
                         </Link>
                       </li>
                     ))}
@@ -114,33 +116,33 @@ export default function MobileNav() {
         </div>
       ) : null}
 
-      <nav className="ob-mobile-nav" aria-label="Primary">
-        {TABS.map((t) => {
-          if (t.href === null) {
+      <nav className="ob-mobile-nav" aria-label={t(locale, "Primary")}>
+        {TABS.map((tab) => {
+          if (tab.href === null) {
             return (
               <button
-                key={t.key}
+                key={tab.key}
                 type="button"
                 className="ob-mobile-tab"
                 aria-expanded={open}
                 onClick={() => setOpen((v) => !v)}
               >
-                {ICONS[t.key]}
-                <span>{t.label}</span>
+                {ICONS[tab.key]}
+                <span>{t(locale, tab.label)}</span>
               </button>
             );
           }
-          const active = pathname === t.href || pathname.startsWith(`${t.href}/`);
+          const active = pathname === tab.href || pathname.startsWith(`${tab.href}/`);
           return (
             <Link
-              key={t.key}
-              href={t.href}
+              key={tab.key}
+              href={tab.href}
               className="ob-mobile-tab"
               aria-current={active ? "page" : undefined}
               data-active={active ? "true" : "false"}
             >
-              {ICONS[t.key]}
-              <span>{t.label}</span>
+              {ICONS[tab.key]}
+              <span>{t(locale, tab.label)}</span>
             </Link>
           );
         })}

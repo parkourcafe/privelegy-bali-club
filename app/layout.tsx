@@ -7,6 +7,8 @@ import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
 import MobileNav from "@/components/MobileNav";
+import { getLocale } from "@/lib/i18n/server";
+import { LOCALE_META } from "@/lib/i18n/locales";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
 // body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
@@ -97,19 +99,23 @@ const siteJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en" className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}>
+    <html
+      lang={LOCALE_META[locale].htmlLang}
+      className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}
+    >
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <GlobalHeader />
+        <GlobalHeader locale={locale} />
         {children}
-        <MobileNav />
+        <MobileNav locale={locale} />
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />
