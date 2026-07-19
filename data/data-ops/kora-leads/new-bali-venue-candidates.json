@@ -71,7 +71,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Canggu/Berawa branch; also Bingin/Uluwatu branch.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "alma-tapas-bar",
+        "area": "Jl. Pantai Berawa, Canggu (Berawa)",
+        "why_its_here": "A neighbourhood Spanish tapas bar in Berawa built around shared plates, wine, sangria and vermouth in a rustic, Mediterranean-styled room. The menu spans land, sea and garden small plates meant to be ordered across the table.",
+        "best_for": "shared plates with wine; casual date over tapas; small group grazing; unhurried evening in canggu",
+        "not_for": "anyone wanting a fast solo bite or a single large main course",
+        "what_to_order": "patatas bravas; chorizo al vino; pulpo a la gallega (octopus); tortilla española; grilled prawns; sangria or vermouth",
+        "price_anchor": "$$$",
+        "jobs": [
+          "group_dinner_share",
+          "date_night_special"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0034",
@@ -112,7 +125,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "betutugilimanuk brand Renon/Merdeka branch; do not confuse with Ayam Betutu Ibu Nia (Jl. Merdeka No.1).",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "ayam-betutu-khas-gilimanuk",
+        "area": "Renon, Jl. Merdeka, Denpasar",
+        "why_its_here": "A long-running Denpasar specialist in ayam betutu, the Gilimanuk-style chicken slow-cooked in Balinese spice paste until it falls off the bone. It is a focused, no-frills local kitchen where the betutu and the sambals are the whole point.",
+        "best_for": "trying a genuine balinese classic; a spice-forward local lunch; eating where residents eat away from the tourist strip",
+        "not_for": "people avoiding chilli or wanting mild flavours; anyone after a western menu, cocktails or a scenic view",
+        "what_to_order": "ayam betutu; nasi campur ayam betutu; plecing kangkung; sambal matah",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0025",
@@ -152,7 +178,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Ubud flagship, Jl. Hanoman.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "bebek-bengil",
+        "area": "Jl. Hanoman, Padang Tegal, Ubud",
+        "why_its_here": "The Ubud restaurant that popularised Balinese-style crispy duck, open since 1990, set among rice-paddy garden pavilions. The duck is steamed in Indonesian spices then deep-fried until the skin crackles while the meat stays tender.",
+        "best_for": "first taste of balinese crispy duck; rice-paddy garden dinner; groups sharing regional dishes; visitors near monkey forest",
+        "not_for": "diners who want a quiet hidden local warung; vegetarians, since the menu centres on duck and meat",
+        "what_to_order": "crispy duck (bebek bengil); duck satay; smoked duck (order a day ahead)",
+        "price_anchor": "$$",
+        "jobs": [
+          "family_early_dinner",
+          "group_dinner_share"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0006",
@@ -192,7 +231,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Seminyak flagship, Jl. Kayu Cendana.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "bossman-burgers",
+        "area": "Seminyak (Jl. Kayu Cendana)",
+        "why_its_here": "A Seminyak burger joint built on Australian-beef smash and gourmet patties with house-made sauces and freshly baked buns. It runs late, serving until roughly 5am, which makes it a reliable post-night-out stop.",
+        "best_for": "late-night cravings; casual meat-forward meals; after a night out; quick group bite",
+        "not_for": "a quiet, refined sit-down dinner; anyone avoiding meat-heavy fare",
+        "what_to_order": "Original Gangster; Al Capone; Lucky Pig; smash burger; chicken sando",
+        "price_anchor": "$$",
+        "jobs": [
+          "just_landed_easy_dinner",
+          "group_dinner_share"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0050",
@@ -273,7 +325,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Uluwatu (Pecatu), Jl. Labuansait.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "drifter-surf-cafe",
+        "area": "Uluwatu (Jl. Labuansait), Bukit",
+        "why_its_here": "A healthy all-day cafe built inside Drifter's surf-lifestyle store, open since 2008 and set in an open-air Javanese limasan with rotating art. The kitchen leans clean and local, from plant-based to pescatarian, alongside specialty coffee from Sumatra.",
+        "best_for": "post-surf refuel; healthy breakfast; specialty coffee; browsing surf gear over a long lunch",
+        "not_for": "travellers wanting a traditional Balinese warung experience; anyone after a quiet fine-dining setting rather than a busy surf-shop cafe",
+        "what_to_order": "smoothie bowls; brekkie burrito; toasts; cold-pressed juices; Mandailing coffee",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0043",
@@ -313,7 +378,19 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Petitenget/Seminyak flagship brew bar.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "expat-roasters",
+        "area": "Seminyak (Petitenget)",
+        "why_its_here": "A specialty coffee roastery and cafe that sources and roasts its own beans, working directly with Indonesian producers including farms near the roastery. Single-origin Indonesian brews like Bali Kintamani sit alongside a small menu of light bites.",
+        "best_for": "serious coffee lovers; single-origin tasting; laptop-friendly morning work; buying beans and brew gear",
+        "not_for": "a full sit-down meal; a lively bar or nightlife scene; anyone after a beach or view setting",
+        "what_to_order": "single-origin Bali Kintamani; espresso and macchiato; tuna toastie; ham and cheese toastie",
+        "price_anchor": "$$",
+        "jobs": [
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0021",
@@ -353,7 +430,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Original Jl. Mertanadi, Kerobokan (near Seminyak).",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "gusto-gelato",
+        "area": "Jl. Mertanadi, Kerobokan (Seminyak)",
+        "why_its_here": "An artisan gelateria and caffe turning out house-made gelato in a wide flavour range, from classic fior di latte to local twists like lemongrass, ginger and sesame. It also pours proper coffee in a calm sit-down space.",
+        "best_for": "afternoon dessert stop; cooling off in the heat; family treat with kids; coffee-and-gelato pause",
+        "not_for": "anyone looking for a full sit-down meal or dinner service",
+        "what_to_order": "fior di latte; gianduia; pistachio; seasonal local flavours (lemongrass, ginger, sesame); espresso alongside",
+        "price_anchor": "$ · small cup/cone ~40K, medium ~70K",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0037",
@@ -390,7 +480,21 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Pererenan (Canggu). Real place link.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "home-by-chef-wayan",
+        "area": "Pererenan, Canggu",
+        "why_its_here": "Modern Balinese cooking from Chef Wayan Kresna Yasa in a seaside Pererenan setting, reworking family and island recipes with contemporary technique. The kitchen is spice- and produce-driven and keeps a full vegan section alongside its seafood and traditional dishes.",
+        "best_for": "a considered balinese dinner; introducing someone to indonesian flavours done well; a table mixing meat, seafood and vegan diners",
+        "not_for": "travellers wanting a cheap warung price point; anyone after generic western comfort food",
+        "what_to_order": "bebek betutu; babi guling; ayam srosop; braised lettuce with tempe crumble",
+        "price_anchor": "$$$",
+        "jobs": [
+          "date_night_special",
+          "special_occasion",
+          "local_food_calm"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0054",
@@ -429,7 +533,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Tibubeneng/Canggu; street naming varies.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "hungry-bird-coffee",
+        "area": "Tibubeneng, Canggu",
+        "why_its_here": "A specialty coffee roastery that has roasted its own beans since 2013, working directly with local farms, paired with an all-day brunch kitchen. The house blends and single origins are the reason to come, with a laptop-friendly room to linger in.",
+        "best_for": "coffee-led brunch; laptop work and long stays; post-surf breakfast; buying house-roasted beans",
+        "not_for": "late-night plans, as the kitchen closes in the afternoon; a big shared sit-down dinner",
+        "what_to_order": "house-roasted espresso and filter coffee; banana pancakes; naughty monkey bowl",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0012",
@@ -469,7 +586,21 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Jl. Raya Goa Gajah near Goa Gajah; closed Mon & Tue.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "kilig-bali",
+        "area": "Ubud (Jl. Raya Goa Gajah, Peliatan)",
+        "why_its_here": "A Filipino warung in Peliatan set in a bamboo hut with rice-field views, cooking home-style Filipino comfort food. It stands out as a dedicated Filipino kitchen in an area dominated by Balinese and Western menus.",
+        "best_for": "filipino comfort food; calm rice-field setting; shared table meals; family dinner",
+        "not_for": "a quick central-Ubud stop given the Peliatan location; anyone avoiding rich, pork-forward dishes",
+        "what_to_order": "adobo; sisig; lechon belly roll; sinigang; kinilaw; halo-halo; leche flan",
+        "price_anchor": "$$",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner",
+          "group_dinner_share"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0019",
@@ -553,7 +684,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Jl. Gootama.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "melting-wok-warung",
+        "area": "Ubud (Jl. Gootama)",
+        "why_its_here": "A tiny eight-table warung run by a French-Laotian couple, serving fragrant coconut curries, stir-fries and crepes off a short blackboard menu that changes daily. The Laotian herbs and French dessert touches make it distinct from standard Ubud warungs.",
+        "best_for": "an intimate dinner; herb-forward coconut curries; a short curated menu; foodies after fusion flavour",
+        "not_for": "large groups; walk-ins without a booking; anyone needing a wide menu or fast turnover",
+        "what_to_order": "tempeh coconut curry with rice noodles; coconut curries; dumplings; chicken crepe; coco crepe with brown sugar and coconut cream",
+        "price_anchor": "$$",
+        "jobs": [
+          "date_night_special",
+          "local_food_calm"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0044",
@@ -591,7 +735,21 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Muaya Beach, Jimbaran; informal street addressing; district resolved.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "menega-cafe",
+        "area": "Jimbaran (Muaya Beach)",
+        "why_its_here": "A long-running Jimbaran Bay seafood cafe where you pick fresh seafood by weight from the display and it is grilled over coconut-husk fires. Tables sit directly on Muaya Beach for toes-in-the-sand dining at sunset.",
+        "best_for": "beachfront seafood dinner; sunset over the bay; groups sharing a seafood spread; special evening out",
+        "not_for": "budget quick bites; vegetarians seeking variety; anyone wanting a quiet or air-conditioned room",
+        "what_to_order": "grilled red snapper; butter prawns; crab in Padang sauce; grilled lobster",
+        "price_anchor": "$$$",
+        "jobs": [
+          "sunset_drinks_view",
+          "group_dinner_share",
+          "special_occasion"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0042",
@@ -631,7 +789,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Flagship Jl. Kayu Jati, Petitenget.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "motel-mexicola",
+        "area": "Jl. Kayu Jati, Petitenget (Seminyak)",
+        "why_its_here": "A high-energy Mexican cantina in Petitenget known for sharing-style street food, a big tequila and mezcal list, and a colourful, music-driven room that turns into a party as the night goes on. Food and drinks are built for a lively group table.",
+        "best_for": "group night out; birthdays and celebrations; loud and social dinner; cocktails and dancing",
+        "not_for": "anyone after a quiet, low-key or romantic meal",
+        "what_to_order": "pork al pastor tacos; beer-battered fish tacos; ceviche; chargrilled corn; margaritas; mezcal cocktails",
+        "price_anchor": "$$$",
+        "jobs": [
+          "group_dinner_share",
+          "sunset_drinks_view"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0008",
@@ -672,7 +843,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Seminyak original, Jl. Drupadi; multiple outlets exist.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "nalu-bowls",
+        "area": "Jl. Drupadi, Seminyak",
+        "why_its_here": "A compact smoothie-bowl specialist whose bowls are each named after a famous surf break and built from tropical fruit, house granola and simple toppings. It is a grab-and-go healthy breakfast spot rather than a sit-down cafe.",
+        "best_for": "a fast healthy breakfast; a post-beach refuel; a light fruit-based bite on the go",
+        "not_for": "anyone wanting a full cooked brunch, a long laptop session or a large dining room",
+        "what_to_order": "uluwatu bowl; pina colada bowl; strawberry banana smoothie",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "local_food_calm"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0058",
@@ -713,7 +897,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Petitenget; still operating per 2026 listings; use FB page, .com domain lapsed.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "saigon-street",
+        "area": "Jl. Petitenget, Seminyak",
+        "why_its_here": "A design-forward Vietnamese restaurant in the Petitenget dining strip, serving modern takes on classic and regional dishes alongside a late cocktail bar. Plates are built for sharing in a vivid, colourful interior.",
+        "best_for": "shared plates with cocktails; lively date night; group dinner out; a design-led dinner setting",
+        "not_for": "a quiet, low-key intimate meal; travellers after the cheapest street-food price point",
+        "what_to_order": "pho bo with wagyu beef; steamed bao buns; dumplings; fresh rolls and wraps",
+        "price_anchor": "$$$",
+        "jobs": [
+          "date_night_special",
+          "group_dinner_share"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0028",
@@ -750,7 +947,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Jl. Sukma Kesuma, Peliatan.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "sayuri-healing-food",
+        "area": "Ubud (Peliatan)",
+        "why_its_here": "A raw-vegan and plant-based cafe in central Ubud focused on living-food cooking, cold-pressed juices and a rotating case of raw desserts, with an attached plant-based academy. The kitchen leans into raw preparation rather than standard cooked vegan fare.",
+        "best_for": "plant-based and raw eating; relaxed daytime meals; wellness-minded visitors; long cafe sits",
+        "not_for": "committed meat-eaters; anyone wanting a fast, familiar hearty meal",
+        "what_to_order": "raw lasagna; Life is a Blessing cake; smoothie bowls; raw cheesecake; cold-pressed juices",
+        "price_anchor": "$$",
+        "jobs": [
+          "local_food_calm",
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0038",
@@ -790,7 +1000,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Jl. Tanah Barak; Berawa branch also exists.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "secret-spot-bali",
+        "area": "Canggu (Jl. Tanah Barak)",
+        "why_its_here": "A fully plant-based cafe serving vegan breakfast through dinner, with vegan croissants, bowls, curries and ramen, plus coffee roasted weekly on the island. Extras like Monday pasta nights with live jazz and a chicory coffee alternative round out the character.",
+        "best_for": "vegan breakfast and brunch; plant-based croissants and pastries; island-roasted coffee; relaxed all-day dining",
+        "not_for": "diners set on meat or seafood dishes; anyone wanting a fast grab-and-go stop",
+        "what_to_order": "vegan croissants; pesto and cheeze croissant; pancakes; full English breakfast; vegan bowls and curries; chicory coffee",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0005",
@@ -830,7 +1053,20 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Berawa/Canggu branch.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "sushimi-bali",
+        "area": "Canggu (Berawa)",
+        "why_its_here": "A sushi-train restaurant on Jl. Pantai Berawa serving classic and creative sushi and maki plus an izakaya-style a la carte range. The menu extends to poke bowls, donburi, sushi burritos and sushi donuts, with gluten-free, vegan and vegetarian options.",
+        "best_for": "casual sushi with friends; interactive sushi-train dining; solo diners; mixed dietary groups",
+        "not_for": "a formal or high-end omakase occasion; a quiet intimate dinner; anyone wanting a sea view",
+        "what_to_order": "sushi-train plates; maki rolls; poke bowls; donburi; sushi burrito",
+        "price_anchor": "$$",
+        "jobs": [
+          "group_dinner_share",
+          "just_landed_easy_dinner"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0045",
@@ -869,7 +1105,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Google Maps place listing; Jl. Pantai Bingin.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "the-cashew-tree",
+        "area": "Bingin, Uluwatu (Bukit)",
+        "why_its_here": "A relaxed, vegetarian-leaning cafe set in a leafy open-air space near Bingin, serving wholesome all-day plates and hosting weekly live-music nights. It doubles as a social hub with regular Thursday music and a fitness/yoga community on site.",
+        "best_for": "post-surf brunch near bingin; healthy plant-forward meal; laid-back live-music night; casual group hang",
+        "not_for": "anyone wanting a formal, fine-dining or meat-forward dinner",
+        "what_to_order": "the soul bowl; corn fritters; quesadillas; fresh juices and smoothies; vegan cakes and desserts",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "group_dinner_share"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0031",
@@ -909,7 +1158,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Batu Bolong, Canggu. Real place URL.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "the-loft-bali",
+        "area": "Batu Bolong, Canggu",
+        "why_its_here": "A Bondi-inspired all-day brunch cafe on Batu Bolong with specialty coffee and a large plant-based selection. It leans to healthy breakfast staples, bowls and toasts in a relaxed Canggu setting.",
+        "best_for": "a slow brunch after the beach; specialty coffee and a laptop; plant-based and healthy breakfast eaters",
+        "not_for": "anyone seeking a quiet non-touristy local spot or a traditional balinese meal",
+        "what_to_order": "dragon fruit smoothie bowl; coconut pancakes; avocado on toast with poached eggs; matcha latte",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0001",
@@ -950,7 +1212,19 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Main branch Jl. Monkey Forest No.15.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "tukies-coconut-shop",
+        "area": "Jl. Monkey Forest, Ubud",
+        "why_its_here": "A coconut-focused dessert and drinks shop where everything is built around fresh coconut, including vegan coconut ice cream served in the shell with roasted coconut curls. A quick, cooling stop in central Ubud.",
+        "best_for": "a cooling coconut treat while walking ubud; vegan dessert; quick sweet break; fresh coconut drinks",
+        "not_for": "a full sit-down meal or savoury dinner; anyone avoiding coconut",
+        "what_to_order": "coconut ice cream in the shell; coconut affogato; fresh coconut water",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0036",
@@ -989,7 +1263,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Inside Kanvaz Village Resort, Jl. Petitenget 188.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "vincent-nigita",
+        "area": "Seminyak (Jl. Petitenget, Kanvaz resort)",
+        "why_its_here": "A French patisserie inside Kanvaz resort from Bordeaux-trained pastry chef Vincent Nigita, pairing classical French technique with Indonesian flavours. Classic pastries sit alongside a weekend tea-room experience of plated desserts.",
+        "best_for": "afternoon pastry and tea; a sweet treat with care; a calm indulgent pause; a special sweet moment",
+        "not_for": "a full savoury meal or a budget-casual bite; those after a quick grab-and-go snack",
+        "what_to_order": "Paris-Brest; Saint Honore; chocolate eclair; Japanese fan creations; weekend tea-room dessert experience",
+        "price_anchor": "$$$",
+        "jobs": [
+          "special_occasion",
+          "date_night_special"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0020",
@@ -1030,7 +1317,20 @@
       "addressConfidence": "high",
       "addressResearchNotes": "Jl. Goutama, Ubud. Real place URL.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "warung-biah-biah",
+        "area": "Ubud (Jl. Gootama)",
+        "why_its_here": "A long-running home-style Balinese warung open since 2002, serving authentic nasi campur and local classics at warung prices. Known for its house chili sauce and a spread of Balinese sides.",
+        "best_for": "authentic Balinese food; budget local dining; nasi campur; a casual central Ubud meal",
+        "not_for": "diners wanting a quiet or upscale setting; groups needing lots of space during busy peak hours",
+        "what_to_order": "nasi campur; balinese tapas; mie goreng; soto ayam; nasi goreng",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm",
+          "just_landed_easy_dinner"
+        ]
+      }
     },
     {
       "leadId": "KORA-L-0033",
@@ -1070,7 +1370,19 @@
       "addressConfidence": "medium",
       "addressResearchNotes": "Denpasar original, Jl. Yudistira No.2; Kuta branch exists.",
       "addressCapturedAt": "2026-07-19T00:00:00Z",
-      "readyToPublish": true
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "warung-wardani",
+        "area": "Denpasar (Jl. Yudistira)",
+        "why_its_here": "A decades-old Denpasar warung known for nasi campur Bali, plated with items such as satay, dendeng and vegetables over rice. It is a longtime local institution also recognised for serving halal Balinese food, open daytime only.",
+        "best_for": "authentic Balinese nasi campur; quick local lunch; halal Balinese food; solo or budget dining",
+        "not_for": "dinner or late-night meals; alcohol and a bar scene; an upscale or scenic setting",
+        "what_to_order": "nasi campur Bali; nasi kare; gado-gado; soto ayam; soto daging",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm"
+        ]
+      }
     }
   ],
   "addressResearch": {

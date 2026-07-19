@@ -16,8 +16,12 @@ A parallel web-research pass added a street **address + Google Maps link + sourc
 candidate (see `address*` fields and the `addressResearch` block in the JSON). Result:
 
 - **24 ready to load** → `supabase/migrations/0039_publish_kora_new_venues.sql` inserts them
-  at the repo's `publication_status = 'review'` default (in the catalogue, **not yet public**;
-  an operator flips them to `published` to go live). Editorial copy is still null.
+  as **decision-ready rows** — address + Google Maps **and** editorial (`why_its_here`,
+  `best_for`, `not_for`, `what_to_order`, `price_anchor`, `area`, canonical `jobs`), written
+  in the Other Bali voice (no ratings/review counts; downsides only as fit-context; prices as
+  bands). Inserted at the `publication_status = 'review'` default (in the catalogue, **not yet
+  public**; an operator flips them to `published` to go live). Per-venue editorial is stored
+  under each candidate's `editorial` key in the JSON.
 - **2 held `needs_verification`** (not inserted): `kurasu-bali` (Ubud presence is an
   unconfirmed Tanah Gajah pop-up, may have ended May 2026) and `dapur-bali-mula` (Les village,
   North Bali — outside the guide's districts).
