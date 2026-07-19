@@ -54,6 +54,9 @@ def sanitize_html(s):
     # repoint deferred sunset links (either quote style)
     for a, b in LINK_REWRITE.items():
         s = s.replace(f'href="{a}"', f'href="{b}"').replace(f"href='{a}'", f"href='{b}'")
+    # normalise the provenance pill class to a single owned utility, strip the rest
+    s = s.replace('class="tag"', 'class="ob-badge"').replace("class='tag'", 'class="ob-badge"')
+    s = re.sub(r"""\sclass=(?!"ob-badge")(?:"[^"]*"|'[^']*')""", "", s)
     return s.strip()
 
 
@@ -95,9 +98,9 @@ def extract(path):
     cards = []
     for c in re.findall(r'<div class="card">(.*?)</div>\s*(?=<div class="card">|<h2|<p class="note">)', h, re.S):
         card = {
-            "h3": first(r"<h3>(.*?)</h3>", c),
-            "meta": first(r'<div class="meta">(.*?)</div>', c),
-            "body": first(r"</div>\s*<p>(.*?)</p>", c) or first(r"<p>(.*?)</p>", c),
+            "h3": sanitize_html(first(r"<h3>(.*?)</h3>", c)),
+            "meta": sanitize_html(first(r'<div class="meta">(.*?)</div>', c)),
+            "body": sanitize_html(first(r"</div>\s*<p>(.*?)</p>", c) or first(r"<p>(.*?)</p>", c)),
             "kv": [[dt.strip(), sanitize_html(dd)] for dt, dd in
                    re.findall(r"<dt>(.*?)</dt><dd>(.*?)</dd>", c, re.S)],
         }

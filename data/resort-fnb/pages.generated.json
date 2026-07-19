@@ -8,8 +8,8 @@
   "description": "Which Bali beach clubs you can walk into without a ticket — and why &#39;free entry&#39; still means a seat minimum-spend. Honest guide: Potato Head, FINNS, Single Fin, Kempinski Reef. Checked July 2026.",
   "breadcrumbLabel": "Free beach clubs",
   "h1": "Free beach clubs in Bali",
-  "sub": "Where you can walk in for free — and where &#39;free entry&#39; quietly means a daybed minimum spend. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
-  "answer": "&#39;Free&#39; almost never means a free day in Bali — and it rarely means a free swim. The honest pattern: <strong>commercial beach clubs</strong> (Potato Head, FINNS, Single Fin, WooBar) let you <strong>walk in without a ticket</strong>, but any daybed or table carries a <strong>minimum spend</strong> (roughly IDR 300,000–1,000,000) you redeem against food and drink — so you only pay if you claim a seat, and a bar stool or general beanbag can cost just a drink. <strong>Hotel pools are different:</strong> most five-star resorts do <em>not</em> let you simply walk in and swim — you book ahead and pay a day-pass or minimum spend. The Apurva Kempinski&#39;s Reef Beach Club is the closest to an exception (it dropped its day-pass <em>fee</em> back in 2021), but you still reserve ahead and seating carries a minimum — <strong>confirm the current policy before you rely on it</strong>.",
+  "sub": "Where you can walk in for free — and where &#39;free entry&#39; quietly means a daybed minimum spend. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "answer": "&#39;Free&#39; almost never means a free day in Bali — and it rarely means a free swim. The honest pattern: <strong>commercial beach clubs</strong> (Potato Head, FINNS, Single Fin, WooBar) let you <strong>walk in without a ticket</strong>, but any daybed or table carries a <strong>minimum spend</strong> (roughly IDR 300,000–1,000,000) you redeem against food and drink — so you only pay if you claim a seat, and a bar stool or general beanbag can cost just a drink. <strong>Hotel pools are different:</strong> most five-star resorts do <em>not</em> let you simply walk in and swim — you book ahead and pay a day-pass or minimum spend. The only ones we could confirm as genuinely free are <strong>Segara Village&#39;s Byrd House</strong> in Sanur (free, no minimum) and <strong>The Apurva Kempinski&#39;s Reef Beach Club</strong> (free entry and free pool — but you now book ahead). Everywhere else, read &#39;free&#39; as <em>free to enter, pay for a seat</em>.",
   "callout": "<strong>&#39;Free entry&#39; ≠ free swim.</strong> A hotel pool you can walk into and use for nothing is rare — nearly every venue below charges a seat minimum-spend, and hotel pools need a booking. Read every &#39;free&#39; here as <em>free to enter, pay for a seat</em>, and confirm the current policy with the venue before promising it to a guest — these terms change.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
   "tableHead": [
@@ -21,96 +21,96 @@
   ],
   "tableRows": [
    [
-    "Apurva Kempinski · Reef",
-    "Free entry <span class='tag'>verify</span>",
-    "Nusa Dua",
-    "Reserve ahead; pool/beach seat carries min-spend/deposit. Dropped day-pass fee in 2021 — confirm 2026 terms",
-    "Closest to a free hotel pool"
-   ],
-   [
     "Segara Village · Byrd House",
-    "Free entry <span class='tag'>verify</span>",
+    "Free entry",
     "Sanur",
-    "Reported free with no minimum (blog-sourced) — confirm; it&#39;s a beach club, not a hotel pool",
-    "Quiet-side, low-key"
+    "No minimum — order à la carte; small towel fee for the pool. Confirmed free (Jul 2026)",
+    "Genuinely free, quiet-side"
    ],
    [
-    "FINNS Beach Club",
-    "FREE",
-    "Canggu",
-    "No official minimum; daybed packages priced separately",
-    "The big one, free to enter"
+    "Apurva Kempinski · Reef",
+    "Free entry*",
+    "Nusa Dua",
+    "Free pool &amp; loungers, no minimum — but *advance reservation now required; premium cabanas may carry a minimum/deposit",
+    "Free 5-star pool (book ahead)"
    ],
    [
     "Single Fin",
-    "FREE",
+    "Free entry",
     "Uluwatu",
-    "No entry; seat minimum, busiest at Sunday sunset",
+    "Bar &amp; general seating no minimum; only premium seats/daybeds carry one. Come early for Sunday sunset",
     "Iconic free sunset view"
    ],
    [
     "Potato Head",
-    "FREE (day)",
+    "Free (day)",
     "Seminyak",
-    "Free most of day; IDR 200k sunset cover 16:00–18:30 (redeemable)",
+    "Free most of day; IDR 200,000 redeemable cover 16:00–18:30; daybeds have a separate minimum",
     "Design icon, free daytime"
    ],
    [
-    "W Bali · WooBar / WET",
-    "FREE",
-    "Seminyak",
-    "Daybed min-spend ~IDR 1,000,000; bar &amp; pool edge free",
-    "Party pool, drink at the bar"
-   ],
-   [
-    "Hotel Indigo · SugarSand",
-    "FREE",
-    "Seminyak",
-    "Walk-in pool free; daybed min-spend",
-    "Low-floor beach-club vibe"
-   ],
-   [
-    "Sofitel · Manarai Beach House",
-    "FREE",
-    "Nusa Dua",
-    "Free entry; daybeds carry F&amp;B minimum",
-    "Beachfront, general seating"
-   ],
-   [
     "La Brisa",
-    "FREE",
+    "Free entry",
     "Canggu",
-    "No entry; premium tables carry a minimum",
-    "Rustic-chic, free to browse"
+    "Free first-come tables; premium reserved tables carry a minimum from ~IDR 700,000 (redeemable)",
+    "Rustic-chic, free to walk in"
    ],
    [
     "The Lawn",
-    "FREE",
+    "Free entry",
     "Canggu",
-    "No entry; chairs/beanbags carry a minimum",
+    "Free social/lounge seating; reserved chairs/beanbags ~IDR 350,000, daybeds ~2.5M (redeemable)",
     "Sunset lawn, free to stand"
    ],
    [
+    "FINNS Beach Club",
+    "Free entry",
+    "Canggu",
+    "Walk-in &amp; general seating no minimum; reserved daybeds/cabanas carry a minimum (~IDR 1.1M+, redeemable)",
+    "The big one, free to walk in"
+   ],
+   [
+    "Sofitel · Manarai Beach House",
+    "Free entry",
+    "Nusa Dua",
+    "Generally no minimum (rare for Bali) — but event days are ticketed; confirm any daybed minimum when booking",
+    "Free beachfront seating"
+   ],
+   [
     "Cocoon",
-    "FREE",
+    "Free entry",
     "Seminyak",
-    "Free entry; no published daybed minimum",
-    "Pool party, free entry"
+    "Free bar/restaurant/garden seating; pool daybeds carry a published minimum from IDR 500,000 (redeemable)",
+    "Free entry, pay for a daybed"
+   ],
+   [
+    "Hotel Indigo · SugarSand",
+    "Free entry",
+    "Seminyak",
+    "No entry fee, but pool use needs a purchase (towel/F&amp;B); poolside daybed minimum IDR 400,000",
+    "Low-floor hotel pool"
+   ],
+   [
+    "W Bali · WooBar / WET",
+    "Free entry",
+    "Seminyak",
+    "Bar walk-in, no minimum; pool daybeds/sofas from ~IDR 2,000,000++ (hotel pool)",
+    "Bar &amp; pool edge for a drink"
    ],
    [
     "El Kabron",
-    "FREE",
+    "Entry free*",
     "Uluwatu",
-    "Free entry; cliff seat carries a minimum",
-    "Free clifftop Mediterranean"
+    "*Free only technically: seating is reservation-only with a minimum ~IDR 400k/pax (restaurant) to ~850k–1M/pax (sunset cliff); pool +350k",
+    "Least &#39;free&#39; — book + minimum"
    ]
   ],
   "cards": [],
   "faq": [
    {
     "q_text": "Which Bali beach clubs are actually free?",
-    "a_html": "No Bali venue is reliably &#39;walk in and swim for nothing.&#39; Commercial beach clubs — Potato Head, FINNS, WooBar, Single Fin — are free to <em>enter</em>, but a seat carries a minimum spend. The Apurva Kempinski&#39;s Reef Beach Club dropped its day-pass fee in 2021 and is the closest to free, but you reserve ahead and seating has a minimum. Hotel pools generally need a booking and minimum spend — confirm current terms.",
-    "a_text": "No Bali venue is reliably 'walk in and swim for nothing.' Commercial beach clubs — Potato Head, FINNS, WooBar, Single Fin — are free to enter, but a seat carries a minimum spend. The Apurva Kempinski's Reef Beach Club dropped its day-pass fee in 2021 and is the closest to free, but you reserve ahead and seating has a minimum. Hotel pools generally need a booking and minimum spend — confirm current terms."
+    "a_html": "Two we could confirm as genuinely free with no minimum: Segara Village&#39;s Byrd House in Sanur, and The Apurva Kempinski&#39;s Reef Beach Club (free entry and pool — but you now book ahead). The big commercial clubs — Potato Head, FINNS, Single Fin, La Brisa, The Lawn — are free to <em>enter</em>, but any daybed or table carries a minimum spend. Most hotel pools need a booking and a minimum. Always confirm current terms.",
+    "a_text": "Two we could confirm as genuinely free with no minimum: Segara Village's Byrd House in Sanur, and The Apurva Kempinski's Reef Beach Club (free entry and pool — but you now book ahead). The big commercial clubs — Potato Head, FINNS, Single Fin, La Brisa, The Lawn — are free to enter, but any daybed or table carries a minimum spend. Most hotel pools need a booking and a minimum. Always confirm current terms."
    },
    {
     "q_text": "Does 'free entry' mean a free day at the beach club?",
@@ -294,7 +294,7 @@
   "description": "The complete Bali hotel Sunday-brunch guide: beachfront and jungle resort brunches by district, prices per adult, and what&#39;s included. All areas. Checked July 2026.",
   "breadcrumbLabel": "Bali hotel brunches",
   "h1": "Bali hotel Sunday brunches, by district",
-  "sub": "The island&#39;s resort Sunday brunches — price per adult, what&#39;s included, and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "The island&#39;s resort Sunday brunches — price per adult, what&#39;s included, and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "A Bali resort Sunday brunch is a whole afternoon — buffet or à la carte, usually with pool or beach access, from about <strong>IDR 400,000 per adult</strong> (COMO Uma in Ubud) to the grand seafood spreads at <strong>St Regis and Mulia in Nusa Dua (IDR 1.1–1.65M)</strong>. Free-flow tiers push higher. Below is every district with a brunch scene; open a guide for the full priced list. Most take outside guests by reservation and run roughly Sunday 12:00–15:30.",
   "callout": "<strong>Reserve by Thursday.</strong> The popular resort brunches — St Regis, Kempinski, W Bali, Four Seasons Sundara — sell out for Sunday, especially in high season. Book mid-week and ask what&#39;s non-alcoholic vs free-flow, since that&#39;s the biggest price swing.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -525,7 +525,7 @@
   "description": "The complete Bali resort day-pass guide: pool and beach-club passes by district, starting prices, and which resorts to book direct instead of Klook. All 7 areas. Checked July 2026.",
   "breadcrumbLabel": "Bali resort day passes",
   "h1": "Bali resort day passes, by district",
-  "sub": "Use a five-star pool or beach club for a day — every district, starting prices, and where to book direct. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Use a five-star pool or beach club for a day — every district, starting prices, and where to book direct. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "You don&#39;t need to stay at a Bali resort to use its pool or beach — most sell a <strong>day pass</strong>, and much of the price often comes back as food-and-drink credit. Passes start around <strong>IDR 150,000</strong> (Ayodya in Nusa Dua, Westin in Ubud) and climb to a IDR 1.7M room-included day at Hilton or Bulgari&#39;s luxury day in Uluwatu. Below is every district; open a guide for the full priced list. One rule island-wide: in <strong>Sanur and parts of Nusa Dua the best passes are direct-only</strong> — not on Klook or the DayPass app — so booking direct avoids markup.",
   "callout": "<strong>Coverage, not commission.</strong> We list day passes so you can plan a pool day in one place; we don&#39;t take a cut of them. Prices are checked to the date shown and change seasonally — always confirm the current rate and F&amp;B credit at booking.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -548,7 +548,7 @@
     "Nusa Dua",
     "9",
     "IDR 150,000",
-    "Club Med all-inclusive day; free Kempinski Reef",
+    "Club Med all-inclusive day; free Kempinski Reef (book ahead)",
     "<a href='/nusa-dua/resort-day-passes'>Nusa Dua passes →</a>"
    ],
    [
@@ -802,10 +802,10 @@
   "description": "Bali&#39;s best sunset clubs and dinners, by area — Uluwatu cliffs, Jimbaran seafood, Seminyak & Canggu beach clubs. Prices, minimum spends and how to book. Sanur is sunrise, not sunset. Checked July 2026.",
   "breadcrumbLabel": "Bali sunset clubs",
   "h1": "Bali&#39;s best sunset clubs, by area",
-  "sub": "The whole west coast, ranked and explained — with prices, minimum spends and where to book. (Sanur faces east — that&#39;s sunrise.) <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "The whole west coast, ranked and explained — with prices, minimum spends and where to book. (Sanur faces east — that&#39;s sunrise.) <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Bali&#39;s <strong>west coast is the sunset coast</strong>: Uluwatu&#39;s cliffs, Jimbaran&#39;s seafood beach, and Seminyak &amp; Canggu&#39;s beach clubs. Nearly all are <strong>free (or cheap) to enter with a redeemable seat minimum spend</strong> — roughly <strong>IDR 150,000–400,000 per person at a table, more for a daybed</strong>. For the view it&#39;s <strong>One Eighty&#39;s glass cliff-pool</strong> (Uluwatu); for atmosphere <strong>Single Fin</strong> (Uluwatu) and <strong>Potato Head</strong> (Seminyak); for a beach it&#39;s <strong>Sundays</strong> (Uluwatu) or Jimbaran&#39;s seafood sand. <strong>Sanur faces east, so it&#39;s sunrise, not sunset.</strong>",
   "callout": "<b>The sunset rule, island-wide.</b> Book a front-row seat or daybed 1–7 days ahead (more for weekends and full moon), arrive by ~16:30, and check each venue&#39;s seat minimum spend — it&#39;s redeemable on F&amp;B, not an entry fee. Traffic to the Bukit (Uluwatu/Jimbaran) is heavy at sunset — leave early.",
-  "checkedNote": "Minimum spends are redeemable on food &amp; drink, not entry fees. ++ = ~21% tax &amp; service. <span class=\"tag\">verify</span> = press-sourced/unpublished — confirm at booking.",
+  "checkedNote": "Minimum spends are redeemable on food &amp; drink, not entry fees. ++ = ~21% tax &amp; service. <span class=\"ob-badge\">verify</span> = press-sourced/unpublished — confirm at booking.",
   "tableHead": [
    "Spot",
    "Area",
@@ -1154,7 +1154,7 @@
   "description": "Canggu hotel beach-club and pool day passes compared: adult price, F&amp;B credit and how to book. COMO Uma, Vue, Swarga. Plus the free-entry beach clubs. Checked July 2026.",
   "breadcrumbLabel": "Beach-club &amp; pool passes",
   "h1": "Canggu beach-club &amp; pool day passes",
-  "sub": "Hotel beach clubs and pools by the day — price, credit and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Hotel beach clubs and pools by the day — price, credit and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Canggu&#39;s hotel day passes run from about <strong>IDR 175,000 to 800,000 per adult</strong>. The value pick is <strong>Vue Beach Club (~IDR 175,000)</strong>; the boutique pick is <strong>Swarga Berawa (IDR 350,000 net)</strong>; the luxury one is <strong>COMO Uma&#39;s beach club (IDR 500,000) or full-resort pass (IDR 800,000)</strong>. Note Canggu&#39;s giant beach clubs — FINNS, Atlas, Vue — mostly run their own entry/daybed systems rather than a hotel pass.",
   "callout": "<strong>Hotel pass vs beach-club daybed:</strong> COMO Uma and Swarga sell a true hotel day pass (fixed price, often creditable). The mega beach clubs (FINNS, Atlas Beach Fest) use their own ticketing and daybed minimums — different product, booked on their own engines or Klook.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -1388,7 +1388,7 @@
   "description": "Jimbaran resort Sunday brunches compared: price per adult, pool access and how to book. Four Seasons Sundara, InterContinental, Movenpick. Checked July 2026.",
   "breadcrumbLabel": "Hotel brunches",
   "h1": "Jimbaran hotel Sunday brunches",
-  "sub": "Resort brunches on the bay — price, pool access and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Resort brunches on the bay — price, pool access and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Jimbaran&#39;s resort Sunday brunches run from about <strong>IDR 650,000 to 1,250,000 per adult</strong>, and most bundle pool or jacuzzi access. The value pick is <strong>InterContinental&#39;s tiered Sunday brunch + pool (from IDR 650,000)</strong> or <strong>Movenpick&#39;s (IDR 700,000, with pool &amp; jacuzzi)</strong>; the flagship is <strong>Four Seasons&#39; Sundara “Pink” beach brunch (IDR 1,250,000)</strong>.",
   "callout": null,
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -1405,7 +1405,7 @@
     "from IDR 650,000++ (Silver→Platinum 1,195k)",
     "Brunch + pool access; higher tiers add free-flow",
     "Sun 12:00–16:00",
-    "Direct <span class='tag'>verify</span>"
+    "Direct <span class=\"ob-badge\">verify</span>"
    ],
    [
     "Movenpick Jimbaran · Anarasa",
@@ -1571,7 +1571,7 @@
   "description": "Jimbaran bay resort day passes compared: adult price, F&amp;B credit and how to book. Four Seasons Sundara, InterContinental, Le Meridien, Vivara. Checked July 2026.",
   "breadcrumbLabel": "Resort day passes",
   "h1": "Jimbaran resort day passes",
-  "sub": "Bay-front resort pools &amp; beaches by the day — every priced pass and what the credit covers. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Bay-front resort pools &amp; beaches by the day — every priced pass and what the credit covers. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Jimbaran resort day passes run from about <strong>IDR 211,750 to 2,500,000 per adult</strong> (the top figure is Sundara&#39;s daybed for two). The value entry is <strong>Vivara Bali (from IDR 211,750)</strong> or <strong>Le Meridien (about US$20)</strong>; the mid pick is <strong>InterContinental (IDR 500,000, half back as credit)</strong>; the flagship is <strong>Four Seasons&#39; Sundara beach club</strong>. Note <strong>AYANA sells no day pass</strong> — its pools are for in-house guests and restaurant bookings only.",
   "callout": "<strong>AYANA has no day pass:</strong> the only way onto AYANA/RIMBA grounds for the day is a restaurant or Rock Bar reservation, not a pool pass — a common tourist mix-up. For a pool day, use InterContinental, Le Meridien or Sundara.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -1601,7 +1601,7 @@
     "InterContinental Bali Resort",
     "IDR 500,000",
     "Pool &amp; beach; incl 250k F&amp;B/spa credit",
-    "Direct <span class='tag'>verify</span>",
+    "Direct <span class=\"ob-badge\">verify</span>",
     "Big garden &amp; beach"
    ],
    [
@@ -1803,10 +1803,10 @@
   "description": "Jimbaran grilled-seafood-on-the-sand sunset dinners compared: set prices, front-row scarcity, plus AYANA Rock Bar and Sundara. Checked July 2026.",
   "breadcrumbLabel": "Sunset seafood",
   "h1": "Jimbaran sunset seafood",
-  "sub": "Grilled seafood on the sand as the sun goes down — set prices, where to sit and how to get a front-row table. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Grilled seafood on the sand as the sun goes down — set prices, where to sit and how to get a front-row table. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Jimbaran&#39;s sunset is <strong>grilled seafood eaten at tables on the sand</strong>. Set dinners run roughly <strong>IDR 120,000–500,000 per person</strong> at the beach warungs (Teba, Bawang Merah, Menega), with 2-person sets to IDR 1.5–2.6M. Above the beach, <strong>AYANA&#39;s Rock Bar</strong> is the cliff sunset icon (seat minimum spend from IDR 300,000) and <strong>Sundara</strong> at Four Seasons is the polished beach club. Front-row sand tables at sunset are scarce — arrive by 16:30 or WhatsApp ahead.",
   "callout": "<b>The sunset rule.</b> The seafood warungs are walk-in but front-row tables on the sand go fast around 16:30–17:00 — WhatsApp to hold one. AYANA keeps 16:00–17:00 at Rock Bar for hotel guests; non-guests are seated from 19:30, so for the actual sunset drink book early or pick a beach warung.",
-  "checkedNote": "Minimum spends are redeemable on food &amp; drink, not entry fees. ++ = ~21% tax &amp; service. <span class=\"tag\">verify</span> = press-sourced/unpublished — confirm at booking.",
+  "checkedNote": "Minimum spends are redeemable on food &amp; drink, not entry fees. ++ = ~21% tax &amp; service. <span class=\"ob-badge\">verify</span> = press-sourced/unpublished — confirm at booking.",
   "tableHead": [
    "Venue",
    "Price / per person",
@@ -1819,42 +1819,42 @@
     "Teba Cafe",
     "Silver US$12.67 / Gold (lobster) US$26.02",
     "Seafood set on Muaya sand",
-    "<span class='sunset'>Cheapest bookable set; arrive early</span>",
+    "<span>Cheapest bookable set; arrive early</span>",
     "Pelago / WhatsApp"
    ],
    [
     "Bawang Merah",
     "Sets from IDR 280,000; 2-pax 1.15–2.6M",
     "Beachfront seafood packages",
-    "<span class='sunset'>Front-row before 17:30</span>",
+    "<span>Front-row before 17:30</span>",
     "WhatsApp / Chope"
    ],
    [
     "Menega Cafe",
-    "≈ IDR 200,000–500,000/pax <span class='tag'>verify</span>",
+    "≈ IDR 200,000–500,000/pax <span class=\"ob-badge\">verify</span>",
     "The original Jimbaran seafood joint",
-    "<span class='sunset'>Arrive 16:30–17:00</span>",
+    "<span>Arrive 16:30–17:00</span>",
     "WhatsApp / walk-in"
    ],
    [
     "Kampoeng Seafood",
-    "≈ IDR 250,000–500,000/pax <span class='tag'>verify</span>",
+    "≈ IDR 250,000–500,000/pax <span class=\"ob-badge\">verify</span>",
     "Larger Kedonganan-beach venue",
-    "<span class='sunset'>Groups; walk-in early</span>",
+    "<span>Groups; walk-in early</span>",
     "WhatsApp"
    ],
    [
     "Rock Bar — AYANA",
     "Seat min-spend IDR 300k tapas / 550k dinner",
     "Clifftop bar 14 m above the sea",
-    "<span class='sunset'>Sunset 16–17 = guests only; non-guests 19:30+</span>",
+    "<span>Sunset 16–17 = guests only; non-guests 19:30+</span>",
     "TableCheck"
    ],
    [
     "Sundara — Four Seasons",
     "Daybed IDR 2,500,000/2pax; Pink Brunch 1.25M",
     "Beach club + 57 m pool",
-    "<span class='sunset'>Book direct; dining-led</span>",
+    "<span>Book direct; dining-led</span>",
     "Hotel / Klook"
    ]
   ],
@@ -2069,7 +2069,7 @@
   "description": "Every Sunday brunch at Nusa Dua's 5-star resorts, compared: price per adult, what's included, pool access, hours and how to book. Prices checked July 2026.",
   "breadcrumbLabel": "Hotel Sunday brunches",
   "h1": "Nusa Dua hotel Sunday brunches",
-  "sub": "Every 5-star Sunday brunch in Nusa Dua, compared — price, what's included, pool access &amp; how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Every 5-star Sunday brunch in Nusa Dua, compared — price, what's included, pool access &amp; how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Nusa Dua's hotel Sunday brunches run from about <strong>IDR 650,000 to 1,650,000 per adult</strong> (non-alcoholic; free-flow alcohol adds roughly IDR 450,000–1,100,000). The best value is <strong>Apurva Kempinski's Brunchcation at IDR 798,000++</strong> — it bundles the buffet <em>plus</em> pool, waterslide and beach access, so it doubles as a day pass. For the highest-end spread, <strong>Kayuputi at The St. Regis</strong> is the marquee (from IDR 1,250,000). Kids are typically half price and under-6 free. Most brunches run Sunday 11:00–15:00 and require a reservation.",
   "callout": null,
   "checkedNote": null,
@@ -2131,7 +2131,7 @@
     "Highest-end / occasion"
    ],
    [
-    "The Ritz-Carlton · Sunday brunch <span class=\"tag\">verify</span>",
+    "The Ritz-Carlton · Sunday brunch <span class=\"ob-badge\">verify</span>",
     "Price on request",
     "Sunday brunch referenced by guests; current venue &amp; price to confirm",
     "Sun",
@@ -2141,13 +2141,13 @@
   ],
   "cards": [
    {
-    "h3": "Apurva Kempinski — Brunchcation at Pala <span class=\"tag\">best value</span>",
+    "h3": "Apurva Kempinski — Brunchcation at Pala <span class=\"ob-badge\">best value</span>",
     "meta": "Rooftop + buffet · Sun 12:00–15:30",
     "body": "The only Nusa Dua brunch that is also a day pass: your IDR 798,000++ covers the buffet <em>and</em> pool, waterslide and beach access, so a family can make a full day of it. Free-flow soft drinks included; alcohol package extra.",
     "kv": [
      [
       "Adult",
-      "IDR 798,000++ <span class=\"tag\">official</span>"
+      "IDR 798,000++ <span class=\"ob-badge\">official</span>"
      ],
      [
       "Child 6–12",
@@ -2165,13 +2165,13 @@
     "book": null
    },
    {
-    "h3": "The St. Regis — Kayuputi <span class=\"tag\">occasion</span>",
+    "h3": "The St. Regis — Kayuputi <span class=\"ob-badge\">occasion</span>",
     "meta": "Beachfront à-la-carte brunch · Sat &amp; Sun 11:00–15:00",
     "body": "Nusa Dua's marquee luxury brunch — pass-around à la carte rather than a buffet, on St. Regis's beachfront. Sunday (“Astor”) from IDR 1,650,000 food-only; Saturday from IDR 1,250,000. Beverage and champagne tiers add on top.",
     "kv": [
      [
       "Sunday",
-      "from IDR 1,650,000 net food <span class=\"tag\">official</span>"
+      "from IDR 1,650,000 net food <span class=\"ob-badge\">official</span>"
      ],
      [
       "+ Beverage",
@@ -2191,7 +2191,7 @@
     "kv": [
      [
       "Adult",
-      "≈ IDR 1,136,190 <span class=\"tag\">reported</span>"
+      "≈ IDR 1,136,190 <span class=\"ob-badge\">reported</span>"
      ],
      [
       "Child 6–11",
@@ -2406,8 +2406,8 @@
   "description": "Every Nusa Dua resort day pass compared: adult price, F&amp;B credit, pool vs beach, and which to book direct (not on Klook). Ayodya, Merusaka, Club Med, Hilton. Checked July 2026.",
   "breadcrumbLabel": "Resort day passes",
   "h1": "Nusa Dua resort day passes",
-  "sub": "Use a five-star pool &amp; beach for the day — every priced pass, and the ones you must book direct. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
-  "answer": "Nusa Dua resort day passes run from about <strong>IDR 150,000 to 1,700,000 per adult</strong>. The cheapest real pass is <strong>Ayodya (IDR 150,000 net)</strong>; the best-value pool day is <strong>Merusaka (IDR 200,000 net)</strong>; the most-searched is <strong>Club Med&#39;s all-inclusive day (from ~AUD 128)</strong>. Note: <strong>The Apurva Kempinski&#39;s Reef Beach Club is now free to enter</strong> (pay only for food/drinks), and <strong>Ayodya, Merusaka, Nusa Dua Beach Hotel and Hilton sell direct only</strong> — they are not on Klook or the DayPass app.",
+  "sub": "Use a five-star pool &amp; beach for the day — every priced pass, and the ones you must book direct. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "answer": "Nusa Dua resort day passes run from about <strong>IDR 150,000 to 1,700,000 per adult</strong>. The cheapest real pass is <strong>Ayodya (IDR 150,000 net)</strong>; the best-value pool day is <strong>Merusaka (IDR 200,000 net)</strong>; the most-searched is <strong>Club Med&#39;s all-inclusive day (from ~AUD 128)</strong>. Note: <strong>The Apurva Kempinski&#39;s Reef Beach Club is free to enter (book ahead)</strong>, and <strong>Ayodya, Merusaka, Nusa Dua Beach Hotel and Hilton sell direct only</strong> — they are not on Klook or the DayPass app.",
   "callout": "<strong>Book these direct, not on an app:</strong> Ayodya, Merusaka, Nusa Dua Beach Hotel and Hilton take day-pass bookings only by WhatsApp or their own site — no aggregator markup. Sofitel, Westin and Club Med are aggregator-listed; compare the direct price before booking.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
   "tableHead": [
@@ -2441,28 +2441,28 @@
    ],
    [
     "Paradisus by Melia (ex-Melia)",
-    "IDR 500,000 <span class='tag'>verify</span>",
+    "IDR 500,000 <span class=\"ob-badge\">verify</span>",
     "All-in F&amp;B credit = pass value; kids reduced",
     "DayPass app",
     "All-inclusive feel"
    ],
    [
     "Sofitel · Day Escape → Serenity",
-    "IDR 350k / 550k / 800k / 1.3M <span class='tag'>reported</span>",
+    "IDR 350k / 550k / 800k / 1.3M <span class=\"ob-badge\">reported</span>",
     "Tiered pool + F&amp;B credit; beach club",
     "DayPass app",
     "Tiered options"
    ],
    [
     "Apurva Kempinski · Reef Beach Club",
-    "FREE entry",
-    "No min-spend to enter; pay for F&amp;B; cabanas extra",
+    "Free (book ahead)",
+    "Free pool &amp; loungers, no minimum; advance reservation now required; cabanas may carry a minimum",
     "TableCheck",
-    "Free entry, premium setting"
+    "Free 5-star pool"
    ],
    [
     "Westin · Wellness Day",
-    "IDR 600,000 <span class='tag'>reported</span>",
+    "IDR 600,000 <span class=\"ob-badge\">reported</span>",
     "Pool + wellness + F&amp;B credit",
     "DayPass app",
     "Wellness angle"
@@ -2496,8 +2496,8 @@
    },
    {
     "q_text": "Is the Apurva Kempinski beach club free?",
-    "a_html": "Yes — the Reef Beach Club is now free to enter with no minimum spend; you pay only for food and drinks, and cabanas are extra.",
-    "a_text": "Yes — the Reef Beach Club is now free to enter with no minimum spend; you pay only for food and drinks, and cabanas are extra."
+    "a_html": "Yes — the Reef Beach Club has free entry and free use of the pool and loungers with no minimum spend, confirmed for 2026. The catch is you now need to reserve in advance, and premium cabanas may carry a minimum or deposit.",
+    "a_text": "Yes — the Reef Beach Club has free entry and free use of the pool and loungers with no minimum spend, confirmed for 2026. The catch is you now need to reserve in advance, and premium cabanas may carry a minimum or deposit."
    },
    {
     "q_text": "Which is cheapest?",
@@ -2682,7 +2682,7 @@
   "description": "Sanur beachfront hotel Sunday brunches compared: price per adult, what&#39;s included, hours and how to book. The Meru, Andaz, Hyatt & more. Checked July 2026.",
   "breadcrumbLabel": "Hotel brunches",
   "h1": "Sanur hotel Sunday brunches",
-  "sub": "The quiet side&#39;s beachfront brunches — price, what&#39;s included and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "The quiet side&#39;s beachfront brunches — price, what&#39;s included and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Sanur&#39;s hotel Sunday brunches run from about <strong>IDR 490,000 to 1,250,000 per adult</strong>. The newest flagship is <strong>The Meru&#39;s family brunch at Arunika (IDR 550,000)</strong>; the design-led beachfront option is <strong>Andaz&#39;s at Fisherman&#39;s Club (IDR 590,000)</strong>. Most run Sunday around 12:00–15:00 and take outside guests by reservation. (Mercure runs a themed all-you-can-eat <em>dinner</em> buffet from IDR 198,000 — not a Sunday brunch, but the cheapest hotel buffet in Sanur.)",
   "callout": null,
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -2713,11 +2713,11 @@
     "IDR 590,000++",
     "Italian + intl, seafood, pizza; kids playground",
     "Sun 12:00–15:00",
-    "Direct <span class='tag'>verify</span>"
+    "Direct <span class=\"ob-badge\">verify</span>"
    ],
    [
     "InterContinental Sanur · Lobster Brunch",
-    "from IDR 490,000 <span class='tag'>verify</span>",
+    "from IDR 490,000 <span class=\"ob-badge\">verify</span>",
     "À-la-carte lobster, raw bar, live entertainment",
     "Sun 12:00–15:00",
     "Hotel"
@@ -2894,7 +2894,7 @@
   "description": "Every Sanur 4-5 star resort day pass compared: entry price, F&B credit, pool & beach access, hours and how to book. Prices checked July 2026. Book direct — none are on Klook.",
   "breadcrumbLabel": "Resort day passes",
   "h1": "Sanur resort day passes",
-  "sub": "Every 4–5 star day pass in Sanur, compared — entry price, F&amp;B credit, pool &amp; beach access and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Every 4–5 star day pass in Sanur, compared — entry price, F&amp;B credit, pool &amp; beach access and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Sanur's resort day passes range from <strong>free entry (pay only for food &amp; drink) to about IDR 700,000 per adult</strong> — but most bundle an F&amp;B credit that offsets the entry, so the real spend is lower. The smartest value is <strong>Griya Santrian at IDR 500,000</strong>, of which <strong>IDR 475,000 comes back as a food-and-drink credit</strong> — a net ~IDR 25,000 for a beachfront pool day. For zero entry, <strong>Byrd House Beach Club (Segara Village)</strong> is free — you just spend on F&amp;B. Kids are typically half price and under-6 free.",
   "callout": "<b>Book these direct.</b> Unlike Nusa Dua, none of Sanur's resort day passes are sold on Klook or the DayPass app — you reserve them straight with the hotel (WhatsApp, phone or website), usually a day ahead. Prices below are what the hotels quote.",
   "checkedNote": null,
@@ -2909,15 +2909,15 @@
   "tableRows": [
    [
     "Segara Village · Byrd House Beach Club",
-    "Free entry<span class=\"net\">pay F&amp;B only</span>",
+    "Free entry<span>pay F&amp;B only</span>",
     "Infinity pool + in-pool bar, beach, towel; pay-as-you-go food",
     "Pool + beach",
     "Walk-in",
     "Free day, couples/expats"
    ],
    [
-    "Griya Santrian · Fun Under the Sun <span class=\"tag\">best value</span>",
-    "IDR 500,000<span class=\"net\">≈ 25,000 net (475k F&amp;B credit)</span>",
+    "Griya Santrian · Fun Under the Sun <span class=\"ob-badge\">best value</span>",
+    "IDR 500,000<span>≈ 25,000 net (475k F&amp;B credit)</span>",
     "Pool, gym, beach daybeds, towel, WiFi + IDR 475k credit at Starfish Beach Lounge",
     "Pool + beach",
     "Website / WhatsApp",
@@ -2925,30 +2925,30 @@
    ],
    [
     "Hyatt Regency Bali · Resort Day Pass",
-    "IDR 250,000<span class=\"net\">≈ 50,000 net (200k credit)</span>",
+    "IDR 250,000<span>≈ 50,000 net (200k credit)</span>",
     "Access to 3 pools + towel; IDR 200k F&amp;B credit",
     "3 pools",
-    "Direct <span class=\"tag\">verify</span>",
+    "Direct <span class=\"ob-badge\">verify</span>",
     "Pools, families"
    ],
    [
     "Prama Sanur Beach · Pool Day Pass",
-    "from IDR 150,000<span class=\"net\">min-spend, redeemable</span>",
+    "from IDR 150,000<span>min-spend, redeemable</span>",
     "Pool + water slides; min-spend on F&amp;B",
     "Pool",
-    "Website <span class=\"tag\">verify</span>",
+    "Website <span class=\"ob-badge\">verify</span>",
     "Kids &amp; water slides"
    ],
    [
     "Andaz Bali · Day Pass (Fisherman's Club)",
-    "IDR 700,000++<span class=\"net\">≈ 350,000 net (350k credit)</span>",
+    "IDR 700,000++<span>≈ 350,000 net (350k credit)</span>",
     "Pool + beach, towel, IDR 350k F&amp;B credit; child 6-12 IDR 350k++",
     "Pool + beach",
     "Hotel / TableCheck",
     "Design-led beachfront"
    ],
    [
-    "InterContinental Bali Sanur · Pool Day Pass <span class=\"tag\">verify</span>",
+    "InterContinental Bali Sanur · Pool Day Pass <span class=\"ob-badge\">verify</span>",
     "Price on request",
     "Beachfront pool; price not published — call to confirm",
     "Pool + beach",
@@ -2958,13 +2958,13 @@
   ],
   "cards": [
    {
-    "h3": "Griya Santrian — Fun Under the Sun <span class=\"tag\">best value</span>",
+    "h3": "Griya Santrian — Fun Under the Sun <span class=\"ob-badge\">best value</span>",
     "meta": "Beachfront pool day · direct booking, 1 day ahead",
     "body": "The smartest-value day pass in Sanur: IDR 500,000 sounds mid-range, but IDR 475,000 comes straight back as an F&amp;B credit at the beachfront Starfish lounge — so a full pool-and-beach day nets out around IDR 25,000 once you've eaten and drunk. Beach daybeds, gym and towels included.",
     "kv": [
      [
       "Entry",
-      "IDR 500,000 nett <span class=\"tag\">official</span>"
+      "IDR 500,000 nett <span class=\"ob-badge\">official</span>"
      ],
      [
       "F&amp;B credit",
@@ -2988,7 +2988,7 @@
     "kv": [
      [
       "Entry",
-      "Free <span class=\"tag\">reported</span>"
+      "Free <span class=\"ob-badge\">reported</span>"
      ],
      [
       "Includes",
@@ -3008,7 +3008,7 @@
     "kv": [
      [
       "Entry",
-      "IDR 700,000++ <span class=\"tag\">official</span>"
+      "IDR 700,000++ <span class=\"ob-badge\">official</span>"
      ],
      [
       "F&amp;B credit",
@@ -3213,7 +3213,7 @@
   "description": "Seminyak hotel pool and beach-club day passes compared: entry, daybed min-spend and how to book. W Bali, Hotel Indigo SugarSand, Peppers, U Paasha. Checked July 2026.",
   "breadcrumbLabel": "Pool &amp; beach-club passes",
   "h1": "Seminyak pool &amp; beach-club day passes",
-  "sub": "Hotel pools and beach clubs by the day — entry, daybed minimums and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Hotel pools and beach clubs by the day — entry, daybed minimums and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Seminyak splits two ways. Hotel <strong>pool day passes</strong> are cheap and fixed — from about <strong>IDR 250,000 (Peppers, U Paasha)</strong>. The big <strong>beach clubs</strong> (W Bali&#39;s WooBar, Hotel Indigo&#39;s SugarSand) mostly use a <strong>free-entry, daybed-minimum-spend</strong> model rather than a ticket, so your cost depends on the seat you pick. Grand Seminyak sells a pool + afternoon-tea pass (~US$31).",
   "callout": "<strong>Two pricing models:</strong> a fixed <em>pool pass</em> (Peppers, U Paasha, Grand Seminyak) has one price you pay whatever you order; a <em>beach-club daybed</em> (W, SugarSand) is free to enter but the seat carries a minimum spend. Pick by how much you plan to eat and drink.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -3438,7 +3438,7 @@
   "description": "Seminyak beachfront hotel Sunday brunches compared: price per adult, free-flow tiers and how to book. W Bali, Alila Seasalt, Grand Seminyak. Checked July 2026.",
   "breadcrumbLabel": "Hotel brunches",
   "h1": "Seminyak hotel Sunday brunches",
-  "sub": "Beachfront resort brunches — price, free-flow tiers and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Beachfront resort brunches — price, free-flow tiers and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Seminyak&#39;s hotel Sunday brunches run from about <strong>IDR 650,000 to 950,000 per adult</strong> (non-alcoholic), with champagne tiers up to ~IDR 3,200,000. The value pick is <strong>Alila&#39;s Seasalt coastal brunch (IDR 650,000)</strong>; the party one is <strong>W Bali&#39;s Starfish Bloo (IDR 950,000)</strong>. (Courtyard runs a Saturday BBQ from IDR 425,000 — not a Sunday brunch.)",
   "callout": null,
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -3620,7 +3620,7 @@
   "description": "Ubud jungle-resort Sunday brunches compared: price per adult, what&#39;s included and how to book. Mandapa, COMO, Four Seasons Sayan. Checked July 2026.",
   "breadcrumbLabel": "Hotel brunches",
   "h1": "Ubud hotel Sunday brunches",
-  "sub": "Valley- and river-view resort brunches — price, what&#39;s included and how to book. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Valley- and river-view resort brunches — price, what&#39;s included and how to book. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Ubud&#39;s resort Sunday brunches run from about <strong>IDR 400,000 to 850,000 per adult</strong>. The best value is <strong>COMO Uma&#39;s Italian brunch at Uma Cucina (IDR 400,000)</strong>; the wellness pick is <strong>COMO Shambhala&#39;s organic “Glow” brunch (IDR 650,000)</strong>; the grand one is <strong>Mandapa&#39;s Royal Brunch on the Ayung valley (IDR 850,000)</strong>. Four Seasons Sayan runs a riverside farmer&#39;s brunch (price on request).",
   "callout": null,
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -3825,7 +3825,7 @@
   "description": "Ubud jungle-pool day passes compared: adult price, redeemable F&amp;B credit and how to book. Alila, Padma, Kayon, Bambu Indah, Westin. Checked July 2026.",
   "breadcrumbLabel": "Jungle pool day passes",
   "h1": "Ubud jungle pool day passes",
-  "sub": "Swim over the rainforest for the day — every priced pass and what the credit covers. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Swim over the rainforest for the day — every priced pass and what the credit covers. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Ubud jungle-pool day passes run from about <strong>IDR 150,000 to 1,028,500 per adult</strong>, and most prices are redeemable as F&amp;B credit, so the real cost is close to what you&#39;d eat anyway. The cheapest five-star pass is <strong>The Westin Ubud (IDR 150,000, fully creditable)</strong>; the icon is <strong>Alila Ubud&#39;s green pool (IDR 350,000)</strong>; the design flagship is <strong>Bambu Indah (from IDR 1,028,500)</strong>.",
   "callout": "<strong>“Net cost” tip:</strong> where the pass is fully redeemable as F&amp;B credit (Westin Ubud, Kappa Senses, Kayon Jungle), a lunch-and-drinks day costs you little more than the food itself — the pool comes effectively free.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -3846,7 +3846,7 @@
    ],
    [
     "Athaya Ubud",
-    "IDR 300,000 <span class='tag'>reported</span>",
+    "IDR 300,000 <span class=\"ob-badge\">reported</span>",
     "Central Ubud pool; budget tier",
     "Hotel / WhatsApp",
     "Budget, central"
@@ -4147,7 +4147,7 @@
   "description": "Uluwatu clifftop infinity-pool day passes compared: adult price, F&amp;B credit and how to book. The Edge Oneeighty, Six Senses, Anantara, Alila. Checked July 2026.",
   "breadcrumbLabel": "Resort pool day passes",
   "h1": "Uluwatu clifftop pool day passes",
-  "sub": "Cliff-edge infinity pools by the day — every priced pass and what the credit covers. <span class=\"checked\">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
+  "sub": "Cliff-edge infinity pools by the day — every priced pass and what the credit covers. <span>Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span>",
   "answer": "Uluwatu clifftop resort pool day passes run from about <strong>IDR 300,000 to 750,000 per adult</strong> (with Bulgari a separate luxury tier at IDR 5,000,000++ per couple). The best-value cliff pool is <strong>Six Senses (IDR 300,000++, most redeemable)</strong>; the icon is <strong>The Edge&#39;s Oneeighty glass sky-pool (IDR 700,000)</strong>; the only one live on the DayPass app is <strong>Anantara (IDR 500,000)</strong>. These are pool passes — for the sunset-bar side of Uluwatu see the sunset-clubs guide.",
   "callout": "<strong>Cliff pools sell out:</strong> Oneeighty&#39;s glass sky-pool and Alila&#39;s edge pool cap daily numbers and often reserve out on weekends — book a day or two ahead, and confirm how much of the price returns as F&amp;B credit.",
   "checkedNote": "Prices marked reported come from recent press — confirm at booking. ++ = ~21% tax &amp; service; “net” = price minus redeemable F&amp;B credit.",
@@ -4168,7 +4168,7 @@
    ],
    [
     "Renaissance Bali Uluwatu",
-    "~IDR 350,000 <span class='tag'>verify</span>",
+    "~IDR 350,000 <span class=\"ob-badge\">verify</span>",
     "Infinity pool; Klook listing (price not rendering)",
     "Klook",
     "Central Uluwatu"
