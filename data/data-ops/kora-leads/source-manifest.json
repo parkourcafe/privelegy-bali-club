@@ -1,0 +1,161 @@
+{
+  "artifactId": "kora-leads-verified-new",
+  "generatedAt": "2026-07-19T00:00:00Z",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-bebek-bengil-instagram",
+      "label": "Bebek Bengil official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/bebekbengilrestaurant/",
+      "venueSlug": "bebek-bengil",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-bebek-bengil-website",
+      "label": "Bebek Bengil official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "https://www.bebekbengil.co.id/en",
+      "venueSlug": "bebek-bengil",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-bossman-burgers-instagram",
+      "label": "BO$$MAN official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/bossmanbali/",
+      "venueSlug": "bossman-burgers",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-bossman-burgers-website",
+      "label": "BO$$MAN official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "https://bossmanbali.com/",
+      "venueSlug": "bossman-burgers",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-kilig-bali-instagram",
+      "label": "Kilig Bali official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/kiligbali/",
+      "venueSlug": "kilig-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-kilig-bali-website",
+      "label": "Kilig Bali official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "https://kiligbali.com",
+      "venueSlug": "kilig-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-nalu-bowls-instagram",
+      "label": "Nalu Bowls official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/nalubowls/",
+      "venueSlug": "nalu-bowls",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-nalu-bowls-website",
+      "label": "Nalu Bowls official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "https://nalubowls.com/",
+      "venueSlug": "nalu-bowls",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-sayuri-healing-food-instagram",
+      "label": "Sayuri Healing Food official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/sayuri_healing_food/",
+      "venueSlug": "sayuri-healing-food",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-sayuri-healing-food-website",
+      "label": "Sayuri Healing Food official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "https://sayurihealingfood.com/",
+      "venueSlug": "sayuri-healing-food",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-sushimi-bali-instagram",
+      "label": "Sushimi Bali official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/sushimibali/",
+      "venueSlug": "sushimi-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-sushimi-bali-website",
+      "label": "Sushimi Bali official website",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_website",
+      "url": "http://www.sushimibali.com/",
+      "venueSlug": "sushimi-bali",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-tukies-coconut-shop-instagram",
+      "label": "Tukies Coconut Shop official Instagram",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.instagram.com/tukiescoconutshop/",
+      "venueSlug": "tukies-coconut-shop",
+      "verifiedAt": null
+    },
+    {
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "id": "src-tukies-coconut-shop-website",
+      "label": "Tukies Coconut Shop official social profile",
+      "officialControl": "venue",
+      "outcome": "reference_only",
+      "sourceType": "official_social",
+      "url": "https://www.facebook.com/tukies.online/",
+      "venueSlug": "tukies-coconut-shop",
+      "verifiedAt": null
+    }
+  ]
+}
