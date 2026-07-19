@@ -1,61 +1,81 @@
-# Content briefs — district-food страницы (первая волна)
+# District-food integration plan (обновлено после аудита кода)
 
-Исполнение раздела 3 SEO-стратегии (`docs/SEO_STRATEGY.md`). Пять страниц закрывают самый
-выигрышный контент-гэп: district-специфичная еда, где TripAdvisor/крепостей в топе нет.
-Каждая наполняется нашими **decision-ready** venue (миграции 0039/0040) + добором из каталога.
+> **Поправка к первой версии.** Аудит показал: district-food страницы **уже построены** и
+> тянут published venue автоматически. Строить новые `/best-restaurants-in-canggu` НЕ нужно —
+> работа в том, чтобы наши 24 venue корректно **попали** на существующие страницы и гайды
+> были не тонкими. Schema (`ItemList` + `FAQPage`) на этих страницах **уже есть**.
 
-**Общие правила (гарды):**
-- Публичный EN; без Google-рейтингов/отзывов; «минусы» — только fit-контекст.
-- Каждая карточка venue: 1-строчный «why», «Best for», price band, действие (reserve/whatsapp/directions).
-- `ItemList` + `BreadcrumbList` schema на страницу; `Restaurant`/`LocalBusiness` на venue. Без `aggregateRating`.
-- Индексация — только когда страница decision-ready (`lib/publication.ts`): ≥6–8 наполненных карточек, свежесть-дата.
-- Prices as of `<date>`. Внутренние ссылки: district hub ↔ эта страница ↔ venue ↔ related «best X».
+## Как это реально работает
 
----
+- Каждый район имеет spoke-страницы: `app/<district>/best-restaurants`, и т.д. Рендер — через
+  `*GuideView` из курируемого объекта `guide` (`lib/<district>-guides.ts`).
+- Venue берутся из `getCangguVenues()` / `getPublishedVenues()` и фильтруются предикатами
+  гайда (`guide.base` + группы `g.match`). Никакого ручного pick-list — **published venue
+  появляется сам**.
+- Индексация: `isVenueIndexable = decisionReadyEditorial (whyItsHere + bestFor) && status=active
+  && publication_status=published` (`lib/publication.ts`). Наши 24 это имеют (0039 добавил
+  editorial, 0040 публикует) → они станут indexable и попадут в списки после наката на прод.
+- Schema уже отдаётся: `ItemList` (guide-view + island-wide `best-X-in-bali`) и `FAQPage`
+  (общий `FaqBlock`). Плюс на главной теперь `Organization`+`WebSite`/`SearchAction` (P0-фикс).
 
-## 1. best-restaurants-in-canggu  _(NEW)_
-- **Target:** `best restaurants in canggu` · intent: shortlist · difficulty **medium** (TripAdvisor НЕ в топе — реально пробиться).
-- **Beat:** midnightblueelephant.com, johnnyafrica.com, willflyforfood.net (стареющие блог-листиклы).
-- **Title/H1:** «Best Restaurants in Canggu (2026) — where residents actually eat» · **meta:** decision-first, freshness-2026, action.
-- **URL:** `/best-restaurants-in-canggu`
-- **Наши venue:** `alma-tapas-bar` (Spanish tapas), `home-by-chef-wayan` (modern Balinese, Pererenan), `sushimi-bali` (Japanese/sushi train) + добор из каталога (canggu, category=restaurant).
-- **Структура (H2):** intro (кто и для какого момента) → «By moment» (date night / group share / late-night / healthy) → карточки по под-районам (Berawa / Batu Bolong / Pererenan) → FAQ.
-- **PAA/FAQ:** «Where do locals eat in Canggu?», «Canggu restaurants for dinner with a view?», «Cheap eats in Canggu?»
-- **Рычаг:** 2026-openings freshness + action layer + линки из `canggu` hub.
+## Существующие spoke-страницы по районам
 
-## 2. best-cafes-in-canggu  _(NEW)_
-- **Target:** `best cafes in canggu` · intent: shortlist/WFH · difficulty **medium** (Honeycombers/TripAdvisor, но geo-ниша).
-- **Title/H1:** «Best Cafes in Canggu — laptop-friendly, specialty coffee, brunch» · **URL:** `/best-cafes-in-canggu`
-- **Наши venue:** `secret-spot-bali` (plant-based), `hungry-bird-coffee` (roastery), `the-loft-bali` (brunch) + добор (canggu, cafe).
-- **Структура:** «For working (wifi/power/laptop-policy)» / «For brunch» / «For specialty coffee» → под-районы → FAQ.
-- **PAA/FAQ:** «Best cafes to work from in Canggu?», «Canggu cafes with fast wifi?»
-- **Рычаг:** hyper-local (WFH-пригодность, часы, наличие розеток, no-reservation) — чего тонкие блоги не дают. Пересечение с `digital-nomad-bali-cafes`.
+| Район | best-restaurants | cafes | warungs | прочее |
+|---|---|---|---|---|
+| canggu | ✅ | ✅ work-friendly-cafes | ✅ | best-brunch, best-spas, beach-clubs-sunset |
+| ubud | ✅ | ✅ best-cafes-coffee | ✅ | best-yoga-wellness, itinerary, things-to-do |
+| seminyak | ✅ | ✅ cafes-coffee | — | beach-clubs-sunset, spas-salons-wellness |
+| sanur | ✅ | ✅ cafes-and-bars | — | best-hotels, spas-wellness, things-to-do |
+| uluwatu | ✅ | — _(нет cafe-страницы)_ | — | best-brunch, date-night-restaurants, 48-hours |
+| jimbaran | ✅ | — | — | spas-wellness, things-to-do |
+| nusa-dua | ✅ | — | — | spas-wellness, things-to-do |
+| **denpasar** | — | — | — | **spoke-страниц нет вообще** |
 
-## 3. best-restaurants-in-seminyak  _(NEW)_
-- **Target:** `best restaurants in seminyak` · intent: shortlist · difficulty **medium** (map pack + mid-blogs).
-- **Title/H1:** «Best Restaurants in Seminyak (2026) — by the moment you're in» · **URL:** `/best-restaurants-in-seminyak`
-- **Наши venue:** `bossman-burgers` (late-night burgers), `motel-mexicola` (Mexican cantina/party), `saigon-street` (Vietnamese), `vincent-nigita` (patisserie/dessert), `gusto-gelato` (gelato) + добор (seminyak, restaurant).
-- **Структура:** «By moment» (group night out / date / late-night / dessert) → Petitenget vs Kayu Aya → FAQ.
-- **PAA/FAQ:** «Best fine dining Seminyak?», «Where to eat late night in Seminyak?»
-- **Рычаг:** verified action layer (reserve/menu/directions) + which-moment framing над статичными списками.
+## Куда попадают наши 24 venue
 
-## 4. where-to-eat-in-ubud  _(усилить/новая под intent)_
-- **Target:** `where to eat in ubud` · intent: informational/PAA · difficulty **medium** (PAA-heavy, нет доминанта).
-- **Title/H1:** «Where to Eat in Ubud — from warungs to fine dining» · **URL:** `/where-to-eat-in-ubud`
-- **Наши venue:** `warung-biah-biah` (Balinese), `bebek-bengil` (crispy duck), `kilig-bali` (Filipino), `melting-wok-warung` (fusion), `sayuri-healing-food` (raw vegan), `tukies-coconut-shop` (dessert) + добор (ubud).
-- **Структура:** прямой ответ на intent → сегменты «Authentic warung» / «Fine dining» / «Healthy/vegan» / «Sweet stop» → PAA-заголовки как H2 → FAQ.
-- **PAA/FAQ:** «Where do locals eat in Ubud?», «Best budget food in Ubud?», «Vegan restaurants Ubud?»
-- **Рычаг:** буквальный ответ на intent + сегментация + PAA-таргетинг + резидентские пики.
+| Venue | Категория | Целевая существующая страница |
+|---|---|---|
+| alma-tapas-bar, home-by-chef-wayan, sushimi-bali | restaurant · canggu | `/canggu/best-restaurants` |
+| hungry-bird-coffee, secret-spot-bali, the-loft-bali | cafe · canggu | `/canggu/work-friendly-cafes` |
+| bebek-bengil, kilig-bali, melting-wok-warung | restaurant · ubud | `/ubud/best-restaurants` |
+| warung-biah-biah | warung · ubud | `/ubud/best-warungs` |
+| sayuri-healing-food, tukies-coconut-shop | cafe · ubud | `/ubud/best-cafes-coffee` |
+| bossman-burgers, motel-mexicola, saigon-street | restaurant · seminyak | `/seminyak/best-restaurants` |
+| vincent-nigita, gusto-gelato, expat-roasters, nalu-bowls | cafe · seminyak | `/seminyak/cafes-coffee` |
+| menega-cafe | restaurant · jimbaran | `/jimbaran/best-restaurants` |
+| drifter-surf-cafe, the-cashew-tree | cafe · uluwatu-bukit | **микро-гэп: у uluwatu нет cafe-страницы** → пока только island-wide |
+| ayam-betutu-khas-gilimanuk, warung-wardani | restaurant/warung · denpasar | **микро-гэп: у denpasar нет spoke-страниц** → пока только island-wide |
 
-## 5. best-restaurants-in-ubud  _(NEW — отд. от where-to-eat)_
-- **Target:** `best restaurants in ubud` · intent: shortlist «best» · difficulty **medium**.
-- **Title/H1:** «Best Restaurants in Ubud (2026)» · **URL:** `/best-restaurants-in-ubud`
-- **Наши venue:** `bebek-bengil`, `kilig-bali`, `melting-wok-warung` + добор (ubud, restaurant; fine dining из каталога).
-- **Структура:** сегменты «Fine dining» / «Authentic Balinese» / «Global/fusion» / «Healthy» → FAQ. Кросс-линк на `where-to-eat-in-ubud` (разный intent, не каннибализировать — разное H1/angle).
-- **Рычаг:** intent-сегментация + menu/reserve actions + freshness.
+## Что реально сделать (в порядке приоритета)
 
----
+1. **Накатить 0039 + 0040 на прод** — без этого venue не появятся нигде.
+2. **Проверить предикаты гайдов** (`guide.base` + `g.match` в `lib/<district>-guides.ts`): попадает
+   ли каждый наш venue в нужную группу. Если группировка идёт по тегам, а у venue тегов нет —
+   он окажется в пуле, но может не попасть в группу. При необходимости — добавить теги/поля
+   (это единственная возможная доработка данных).
+3. **Island-wide покрытие — проверено:** `AREA_ORDER` в island-wide `best-X-in-bali` уже
+   включает canggu/seminyak/ubud/**uluwatu-bukit**/**jimbaran**/sanur/nusa-dua, но **НЕ
+   denpasar**. Значит menega (jimbaran) и drifter/cashew (uluwatu) покажутся island-wide, а
+   **ayam-betutu и warung-wardani (denpasar) — нигде** (ни district, ни island-wide). Решение
+   по denpasar — за основателем: (i) добавить `denpasar` в `AREA_ORDER` этих страниц, или
+   (ii) оставить denpasar вне туристического «best restaurants in Bali» (он не туристический
+   район). Мелкий локальный фикс, не блокер.
+4. **Закрыть микро-гэпы маршрутов** (низкий приоритет):
+   - `/uluwatu/best-cafes` (или добавить cafe-группу в существующую uluwatu-страницу) — для drifter, cashew tree.
+   - Решение по **denpasar**: либо создать spoke-страницы (`/denpasar/best-warungs`,
+     `/denpasar/best-restaurants`), либо оставить denpasar только island-wide. Denpasar —
+     не туристический район, поэтому это осознанно низкий приоритет.
+5. **Enrichment**: где district-гайд тонкий (мало venue в группе) — наши 24 как раз добавляют
+   плотности; при желании дописать вводные абзацы/FAQ под PAA.
 
-### Порядок запуска
-1. `best-restaurants-in-canggu` (самый лёгкий break-in) → 2. `where-to-eat-in-ubud` → 3. `best-cafes-in-canggu` → 4. `best-restaurants-in-seminyak` → 5. `best-restaurants-in-ubud`.
-Публиковать страницу только когда ≥6–8 карточек decision-ready; иначе `noindex` до наполнения.
+## Schema — статус (задача «b»)
+
+Ничего добавлять не нужно, всё уже есть:
+- `ItemList` — в `*GuideView` и island-wide `best-X-in-bali`.
+- `FAQPage` — через общий `components/GuideBlocks.tsx → FaqBlock` (используется всеми гайдами).
+- `Organization` + `WebSite`/`SearchAction` — добавлено на главную (`app/page.tsx`, P0).
+- `BreadcrumbList` — через `components/Breadcrumbs.tsx`.
+- Гард: нигде нет `aggregateRating` (не републикуем Google-рейтинги) — сохранить.
+
+Единственный возможный schema-апгрейд на будущее: `Restaurant`/`LocalBusiness` per-venue на
+страницах `/places/[slug]` (если ещё не отдаётся) — проверить отдельно.
