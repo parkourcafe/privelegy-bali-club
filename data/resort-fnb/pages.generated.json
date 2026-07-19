@@ -336,9 +336,9 @@
    ],
    [
     "Nusa Dua",
-    "14",
-    "IDR 650,000",
-    "Kempinski Brunchcation; St Regis Kayuputi",
+    "18",
+    "IDR 528,000",
+    "Kempinski Dim Sum &amp; Brunchcation; St Regis Kayuputi",
     "<a href='/nusa-dua/hotel-brunches'>Nusa Dua brunches →</a>"
    ]
   ],
@@ -2084,8 +2084,8 @@
   "tableRows": [
    [
     "The Laguna · Arwana Beach &amp; BBQ Brunch",
-    "from IDR 650,000",
-    "Seafood/BBQ buffet, oysters, mocktails, live music; kids 3-12 IDR 500k++",
+    "IDR 650k–788k <span class=\"ob-badge\">official sources conflict</span>",
+    "Seafood/BBQ buffet, live music; kids 3–12 reduced. <em>Two official pages disagree (Marriott 650k net incl. pool day pass vs Arwana site 788k net food + 500k beverage) — confirm price and pool inclusion by phone</em>",
     "Sun 12:00–15:00",
     "Chope",
     "Beachfront BBQ, families"
@@ -2099,12 +2099,36 @@
     "Families (pool + kids)"
    ],
    [
+    "The Westin · Prego Monthly Brunch",
+    "from IDR 690,000++ <span class=\"ob-badge\">official</span>",
+    "Italian family brunch; under-6 free. <em>Monthly, not weekly — last Sunday of the month; check the date</em>",
+    "Last Sun of month",
+    "Prego direct",
+    "Italian, family, monthly"
+   ],
+   [
     "Apurva Kempinski · Brunchcation (Pala)",
     "IDR 798,000++",
-    "<strong>+ pool, waterslide &amp; beach access</strong>, welcome drink, free-flow soft; rooftop entertainment; kids 6-12 IDR 400k++",
+    "Welcome drink, free-flow soft drinks, rooftop entertainment; kids 6–12 IDR 400k++. <em>Pool access is not confirmed on the current official page — ask when booking before promising a swim</em>",
     "Sun 12:00–15:30",
     "Concierge / Chope",
     "Best value · brunch + day pass"
+   ],
+   [
+    "Apurva Kempinski · Dim Sum Brunch (Bai Yun)",
+    "IDR 528,000++ <span class=\"ob-badge\">official</span>",
+    "28 dim sum dishes + free-flow iced/jasmine tea and chilled juices; child 9–12 IDR 188k++, under-9 free",
+    "Sat–Sun 12:00–16:00",
+    "Hotel direct",
+    "Cheapest 5-star brunch"
+   ],
+   [
+    "Apurva Kempinski · Izakaya Journey (OKU)",
+    "IDR 580,000++ <span class=\"ob-badge\">official</span>",
+    "18 Japanese dishes, unlimited-to-order format",
+    "Sat–Sun 12:00–16:00",
+    "Hotel direct",
+    "Non-buffet alternative"
    ],
    [
     "Sofitel · Cucina Sunday Brunch",
@@ -2116,19 +2140,35 @@
    ],
    [
     "The Mulia · Soleil Sunday Brunch",
-    "IDR 1,136,190",
-    "Mediterranean/Pan-Asian buffet, live grill, seafood bar; free-flow soft; kids 6-11 IDR 482k",
+    "IDR 889,000++ soft / 1,499,000++ alcohol <span class=\"ob-badge\">reported</span>",
+    "Buffet + à la carte service, live grill, seafood; child 6–11 IDR 482,790 net, under-6 free. <em>2026 prices from a secondary source — confirm with the hotel</em>",
     "Sun 11:00–15:00",
     "EatApp",
     "The famous spread"
    ],
    [
-    "The St. Regis · Kayuputi Sunday (Astor)",
-    "from IDR 1,650,000",
+    "The St. Regis · Astor Sunday Brunch (Kayuputi)",
+    "IDR 1,650,000 net <span class=\"ob-badge\">official</span>",
     "À-la-carte pass-around brunch; +beverage IDR 1,750k / +champagne 2,850k",
     "Sun 11:00–15:00",
     "SevenRooms",
     "Highest-end / occasion"
+   ],
+   [
+    "The St. Regis · Saturday Brunch (Kayuputi)",
+    "IDR 1,250,000 net <span class=\"ob-badge\">official</span>",
+    "Saturday beachfront brunch; +beverage IDR 1,750k / +premium 2,850k",
+    "Sat 11:00–15:00",
+    "Direct",
+    "Same kitchen, Saturday"
+   ],
+   [
+    "The St. Regis · Boneka Sunday Brunch",
+    "IDR 950,000 net <span class=\"ob-badge\">official</span>",
+    "Family-friendlier St. Regis brunch; child 3–12 IDR 475k net; beverage package IDR 1,350k net",
+    "Sun — confirm hours",
+    "SevenRooms",
+    "St. Regis, family price"
    ],
    [
     "The Ritz-Carlton · Sunday brunch <span class=\"ob-badge\">verify</span>",
@@ -2143,7 +2183,7 @@
    {
     "h3": "Apurva Kempinski — Brunchcation at Pala <span class=\"ob-badge\">best value</span>",
     "meta": "Rooftop + buffet · Sun 12:00–15:30",
-    "body": "The only Nusa Dua brunch that is also a day pass: your IDR 798,000++ covers the buffet <em>and</em> pool, waterslide and beach access, so a family can make a full day of it. Free-flow soft drinks included; alcohol package extra.",
+    "body": "Rooftop Sunday brunch at Pala with a transparent IDR 798,000++ price. Earlier listings bundled pool, waterslide and beach access — the current official page no longer confirms this, so ask when booking before planning a full pool day. Free-flow soft drinks included; alcohol package extra.",
     "kv": [
      [
       "Adult",
@@ -2155,7 +2195,7 @@
      ],
      [
       "Includes",
-      "Buffet + à la carte, welcome drink, free-flow soft, pool/waterslide/beach, rooftop entertainment"
+      "Buffet + à la carte, welcome drink, free-flow soft drinks, rooftop entertainment; pool access — confirm at booking"
      ],
      [
       "Book",
@@ -2434,8 +2474,8 @@
    ],
    [
     "Nusa Dua Beach Hotel (Handwritten)",
-    "IDR 450,000 net",
-    "Beach &amp; pool; child 6+ reduced",
+    "IDR 450,000 net <span class=\"ob-badge\">domestic/KITAS only</span>",
+    "IDR 300k F&amp;B credit + IDR 150k spa/recreation credit, ice cream, pool &amp; beach; child 6–12 50%. <em>Official offer is for domestic residents/KITAS holders — not open to foreign tourists</em>",
     "Direct / WhatsApp",
     "Garden &amp; lagoon pools"
    ],
@@ -2448,14 +2488,14 @@
    ],
    [
     "Sofitel · Day Escape → Serenity",
-    "IDR 350k / 550k / 800k / 1.3M <span class=\"ob-badge\">reported</span>",
-    "Tiered pool + F&amp;B credit; beach club",
+    "Listing unavailable <span class=\"ob-badge\">verify</span>",
+    "DayPass listing currently shows Unavailable and hides price/hours — earlier tier prices (350k–1.3M) withdrawn; ask the hotel directly",
     "DayPass app",
     "Tiered options"
    ],
    [
     "Apurva Kempinski · Reef Beach Club",
-    "Free (book ahead)",
+    "Free entry (book ahead) <span class=\"ob-badge\">confirm terms</span>",
     "Free pool &amp; loungers, no minimum; advance reservation now required; cabanas may carry a minimum",
     "TableCheck",
     "Free 5-star pool"
@@ -2466,6 +2506,20 @@
     "Pool + wellness + F&amp;B credit",
     "DayPass app",
     "Wellness angle"
+   ],
+   [
+    "Westin · Ultimate Dine &amp; Dive",
+    "from IDR 968,000 <span class=\"ob-badge\">official</span>",
+    "Resort amenities day-use via DayPass; product-specific inclusions confirmed at checkout",
+    "DayPass app",
+    "Full-day resort feel"
+   ],
+   [
+    "Samabe · A Day at Beach Cabanas",
+    "IDR 6,000,000 /couple <span class=\"ob-badge\">official</span>",
+    "Private cabana (tub, hammock), wine, 3-course lunch, afternoon tea for two, two 30-min foot massages, non-motorised watersports; 11:00–16:00",
+    "Direct hotel",
+    "Ultra-premium couples"
    ],
    [
     "Hilton Bali · A Day in Paradise",
