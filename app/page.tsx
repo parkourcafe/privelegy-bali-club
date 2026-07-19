@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/landing/Reveal";
 import SceneImage from "@/components/landing/SceneImage";
@@ -16,16 +17,28 @@ import { DISTRICT_GUIDE, DISTRICT_GRADIENT } from "@/lib/districts";
 // /plan surface remains the deeper monetized Canggu layer where confirmed venue offers
 // can appear. landing_open is emitted globally by <SourceCapture/> in layout.
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Other Bali — the right place for the moment you're in",
   description:
     "A curated Bali guide that turns how you want to spend the day into a working map of places across the island.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Other Bali — the right place for the moment you're in",
+    description:
+      "A curated Bali guide that turns how you want to spend the day into a working map of places across the island.",
+    url: "https://www.otherbali.com/",
+    siteName: "Other Bali",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function Landing() {
   return (
-    <div className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased">
+    <div
+      data-page-shell="landing"
+      className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased"
+    >
       <LandingNav />
       <MobileStickyCTA />
 

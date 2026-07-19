@@ -8,6 +8,11 @@ import {
   requestHeadersWithCorrelationId,
   responseWithCorrelationId,
 } from "@/lib/request-correlation";
+import {
+  CANONICAL_SITE_ORIGIN,
+  isVercelDeploymentHost,
+  shouldNoindexHost,
+} from "@/lib/site-origin-policy";
 
 const REVIEW_REALM = "Other Bali App Review";
 
@@ -56,6 +61,18 @@ export function proxy(req: NextRequest) {
   // The proxy deliberately does not attempt to parse/verify Supabase sessions
   // at the edge; unauthorized requests are rendered as not-found server-side.
 
+  const requestId = createRequestCorrelationId(req.headers.get(REQUEST_ID_HEADER));
+  const host = req.headers.get("x-forwarded-host") ?? req.headers.get("host");
+  const vercelEnv = process.env.VERCEL_ENV;
+
+  // Production deployment aliases are duplicate public origins. Preserve the
+  // path/query and consolidate them onto www. Preview deployments remain
+  // directly usable for QA and are handled by the noindex rule below.
+  if (vercelEnv === "production" && isVercelDeploymentHost(host)) {
+    const destination = new URL(`${req.nextUrl.pathname}${req.nextUrl.search}`, CANONICAL_SITE_ORIGIN);
+    return responseWithCorrelationId(NextResponse.redirect(destination, 308), requestId);
+  }
+
   // /review is public by default (Apple prefers no login barrier). If a
   // REVIEW_ACCESS_TOKEN is configured, gate it with Basic Auth — hand the URL +
   // that password to Apple in Review Notes.
@@ -66,10 +83,9 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  const requestId = createRequestCorrelationId(req.headers.get(REQUEST_ID_HEADER));
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
   const res = NextResponse.next({ request: { headers: requestHeaders } });
-  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
+  if (shouldNoindexHost({ host, vercelEnv })) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
   if (isSensitivePath(req.nextUrl.pathname)) {

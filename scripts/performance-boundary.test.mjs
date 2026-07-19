@@ -84,3 +84,15 @@ test("routes are pre-generated and public plan and Uluwatu reads revalidate", as
   assert.match(uluwatu, /export const revalidate = 300/);
   assert.doesNotMatch(uluwatu, /force-dynamic/);
 });
+
+test("homepage suppresses the inner-page header before hydration", async () => {
+  const landing = await read("app/page.tsx");
+  const globalHeader = await read("components/GlobalHeader.tsx");
+  const styles = await read("app/globals.css");
+  assert.match(landing, /data-page-shell="landing"/);
+  assert.match(globalHeader, /if \(!pathname \|\| pathname === "\/"\) return null/);
+  assert.match(
+    styles,
+    /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header\s*\{\s*display: none;/,
+  );
+});

@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import type { SafeActionEventPayload } from "../contracts/menu-action";
 import type { SafeEventPayload } from "./event-payload";
+import { trackMenuItemOpen, trackMenuOpen, trackVenueAction } from "../analytics";
 
 // These tests exercise the tracking path, which is opt-in since the consent gate
 // (audit 2026-07): analyticsAllowed() reads document.cookie, absent under node,
@@ -9,11 +10,6 @@ import type { SafeEventPayload } from "./event-payload";
 (globalThis as { document?: { cookie: string } }).document = {
   cookie: "bp_consent=granted",
 };
-
-const analytics = (await import(
-  new URL("../analytics.ts", import.meta.url).href
-)) as typeof import("../analytics");
-const { trackMenuItemOpen, trackMenuOpen, trackVenueAction } = analytics;
 
 type PostedEvent = {
   type: string;
@@ -62,7 +58,7 @@ async function withTrackingSinks(
   }
 }
 
-test("emits a generic handoff and keeps TablePilot reservation clicks internal", async () => {
+test("emits acquisition booking and keeps TablePilot reservation proof internal", async () => {
   await withTrackingSinks(({ posts, gaEvents }) => {
     const runtimePayload: SafeActionEventPayload & { url: string } = {
       action: "reserve",
@@ -85,10 +81,11 @@ test("emits a generic handoff and keeps TablePilot reservation clicks internal",
         },
       },
       { type: "reservation_click", venueSlug: "fixture-venue" },
+      { type: "booking_click", venueSlug: "fixture-venue" },
     ]);
     assert.deepEqual(
       gaEvents.map((entry) => entry[1]),
-      ["action_handoff"]
+      ["action_handoff", "booking_click"]
     );
   });
 });

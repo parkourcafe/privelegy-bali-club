@@ -14,7 +14,8 @@ import { isSafeActionEventPayload } from "./actions/event-payload";
 //   no-ops. Re-enabling GA is a consent-gated env change, not a code edit here.
 //
 // Partner-proof events never go to GA4. trackVenueAction keeps TablePilot's
-// reservation_click on the internal leg only.
+// reservation_click on the internal leg only and emits the non-proof
+// booking_click to GA4 for acquisition analysis.
 
 import { analyticsAllowed } from "./consent";
 
@@ -155,9 +156,10 @@ export function trackVenueAction(payload: SafeActionEventPayload): void {
     case "reserve":
       if (safePayload.provider === "tablepilot") {
         postInternal("reservation_click", safePayload.venueSlug);
-      } else {
-        emitGrowthEvent("booking_click", params);
       }
+      // booking_click is the PII-free acquisition event. TablePilot's separate
+      // reservation_click stays internal as partner proof.
+      emitGrowthEvent("booking_click", params);
       break;
     case "whatsapp":
       emitGrowthEvent("booking_click", params);

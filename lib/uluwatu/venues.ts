@@ -1356,6 +1356,7 @@ export function uluwatuAsVenue(c: UluwatuVenueContent) {
     whatToOrder: c.whatToOrder?.join("; "),
     priceAnchor: c.priceBand ? `Price band: ${c.priceBand}` : undefined,
     publicationStatus: c.publication,
+    lastVerifiedAt: c.lastVerifiedAt,
   };
 }
 

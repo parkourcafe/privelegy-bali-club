@@ -6,6 +6,7 @@ import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
 import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
 import { liveCollectionSlugs } from "@/lib/collections";
+import { staticLastModified, validLastModified } from "@/lib/seo/sitemap-last-modified";
 
 // Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
 // several Supabase reads, and a per-request rebuild is needless load on a hot
@@ -22,8 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getPublishedVenues(),
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
-  const indexableVenueSlugs = catalogue.filter(isVenueIndexable).map((v) => v.slug);
-  return [
+  const indexableVenues = catalogue.filter(isVenueIndexable);
+  const entries: MetadataRoute.Sitemap = [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
     { url: `${BASE}/plan`, changeFrequency: "daily", priority: 0.9 },
@@ -100,10 +101,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     // Venue detail pages — ONLY those that passed the evidence-backed
     // publication gate (review/incomplete venues stay noindex + unlisted).
-    ...indexableVenueSlugs.map((slug) => ({
-      url: `${BASE}/places/${slug}`,
+    ...indexableVenues.map((venue) => ({
+      url: `${BASE}/places/${venue.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.7,
+      ...(validLastModified(venue.lastVerifiedAt)
+        ? { lastModified: venue.lastVerifiedAt }
+        : {}),
     })),
   ];
+
+  // Add static dates only where a significant content review is recorded.
+  // Missing is safer than a synthetic "today" value that lies to crawlers.
+  return entries.map((entry) => {
+    const pathname = new URL(entry.url).pathname;
+    const lastModified = staticLastModified(pathname);
+    return lastModified && !entry.lastModified
+      ? { ...entry, lastModified }
+      : entry;
+  });
 }
