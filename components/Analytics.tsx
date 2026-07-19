@@ -9,9 +9,9 @@ import AnalyticsClient from "./AnalyticsClient";
 // loads ONLY when BOTH:
 //   1. the build is production, AND
 //   2. NEXT_PUBLIC_ENABLE_ANALYTICS === "1" is set in the environment.
-// The first App Store build ships with the flag unset, so no Google script is
-// injected and no data reaches Google. To turn it on later: confirm the public
-// privacy disclosure, then set the env var and run the action smoke test.
+// The native App Store shell is a separate local bundle and contains no GA SDK.
+// For the website, enable this only after the public disclosure is live, then
+// run the consent and action-event smoke tests.
 const GA_ID = "G-F3TEVWTWX4";
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "1";
 

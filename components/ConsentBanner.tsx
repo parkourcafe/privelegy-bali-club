@@ -55,8 +55,8 @@ export default function ConsentBanner() {
       >
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-snug text-[var(--ob-sand-dim)]">
-            One first-party cookie keeps your saved offers and anonymous link
-            stats — no third-party tracking.{" "}
+            Essential cookies keep saved offers. Optional Google Analytics
+            loads only if you accept; it is never used for advertising.{" "}
             <Link href="/privacy" className="text-[var(--ob-brass)] underline underline-offset-2">
               Privacy
             </Link>
