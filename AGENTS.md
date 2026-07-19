@@ -398,8 +398,19 @@ Stop and document rather than guessing when:
 
 Use the handoff template. A precise blocker is useful; confident improvisation is not.
 
-## Content publication rule (v2, 2026-07-13)
+## Content publication rule (v3, 2026-07-19 — founder amendment)
 
-- Venue photos must NEVER be published without a logged owner consent record (who / when / content version / channel, including photo-rights confirmation). Fallback art must not be presented as venue photography.
+- **Interim pre-launch policy (explicit founder decision, 2026-07-19):** while the
+  product is in owner-outreach mode (not promoted to tourists), a venue's own
+  public marketing photo MAY be displayed on its OWN listing before a consent
+  record exists. Conditions: photo shows the venue itself (never another
+  venue's photo on its card); immediate takedown on any owner request; the
+  consent pipeline keeps running and an approved owner submission replaces the
+  interim photo. Implemented by migration 0043 (restores the 0033-quarantined
+  URLs; reversible — quarantine rows are kept).
+- **At the public-launch gate this reverts to v2 strictness:** venue photos
+  without a logged owner consent record (who / when / content version /
+  channel, incl. photo-rights confirmation) are re-quarantined.
+- Fallback art must not be presented as venue photography (unchanged).
 - Menu facts captured from official sources may be published before owner approval, but only with source attribution and a captured-at date; UI must communicate "prices as of <date>".
 - Full workflow: `docs/DATA_OPS_TRACK.md`.
