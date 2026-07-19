@@ -1,0 +1,11 @@
+{
+  "input": "data/resort-fnb/verified/Bali_Nusa_Dua_FnB_DayUse_20260719.csv",
+  "dryRun": false,
+  "accepted": {
+    "properties": 35,
+    "venues": 53,
+    "offers": 20
+  },
+  "rejected": [],
+  "warnings": []
+}
