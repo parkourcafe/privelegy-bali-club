@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Best brunch in Uluwatu — coffee, post-surf plates & quiet mornings",
   description:
-    "Seven verified Uluwatu breakfast and brunch spots: 6 a.m. bakery starts, post-surf plates, plant-based gardens and the cafés that tolerate a laptop.",
+    "Nine verified Uluwatu breakfast and brunch spots: 6 a.m. bakery starts, post-surf plates, plant-based gardens and the cafés that tolerate a laptop.",
   alternates: { canonical: "/uluwatu/best-brunch" },
   openGraph: {
     title: "Best brunch in Uluwatu · Other Bali",
@@ -45,6 +45,8 @@ const ALL_BRUNCH = [
   "seed-bingin",
   "artisan-uluwatu",
   "gooseberry-french-restaurant-uluwatu",
+  "drifter-surf-cafe",
+  "the-cashew-tree",
 ];
 
 const FAQ = [
@@ -118,7 +120,7 @@ export default function BestBrunchPage() {
           <p className="guide-lede">
             Real plates near the breaks — earned calories, short scooter rides.
           </p>
-          <VenuePicks slugs={["suka-espresso", "artisan-uluwatu", "seed-bingin"]} columns={3} />
+          <VenuePicks slugs={["suka-espresso", "artisan-uluwatu", "drifter-surf-cafe"]} columns={3} />
         </section>
 
         <section className="guide-section">
@@ -126,7 +128,7 @@ export default function BestBrunchPage() {
           <p className="guide-lede">
             Gardens over queues: the slow-start options.
           </p>
-          <VenuePicks slugs={["alchemy-uluwatu", "seed-bingin", "son-of-a-baker"]} columns={3} />
+          <VenuePicks slugs={["alchemy-uluwatu", "the-cashew-tree", "son-of-a-baker"]} columns={3} />
         </section>
 
         <section className="guide-section">
