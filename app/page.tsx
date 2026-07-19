@@ -33,12 +33,52 @@ export const metadata: Metadata = {
   },
 };
 
+// Brand-entity graph for the homepage: teaches Google that "Other Bali" is a
+// distinct Organization/WebSite (not the generic phrase "other Bali"), and wires
+// the sitelinks search box to the working /places?q= surface. No aggregateRating
+// (guardrail: never republish Google ratings).
+const BRAND_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.otherbali.com/#organization",
+      name: "Other Bali",
+      url: "https://www.otherbali.com/",
+      logo: "https://www.otherbali.com/icon-512.png",
+      description:
+        "A resident-curated Bali guide that helps travellers choose the right place for the moment they're in, explains why it fits, and hands off a verified action.",
+      sameAs: ["https://www.instagram.com/otherbali/"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.otherbali.com/#website",
+      url: "https://www.otherbali.com/",
+      name: "Other Bali",
+      inLanguage: "en",
+      publisher: { "@id": "https://www.otherbali.com/#organization" },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://www.otherbali.com/places?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
+};
+
 export default function Landing() {
   return (
     <div
       data-page-shell="landing"
       className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BRAND_JSON_LD) }}
+      />
       <LandingNav />
       <MobileStickyCTA />
 

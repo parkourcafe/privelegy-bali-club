@@ -1,0 +1,1397 @@
+{
+  "artifactId": "kora-new-bali-venues",
+  "generatedAt": "2026-07-19T00:00:00Z",
+  "schemaVersion": 1,
+  "provenance": "Derived from the KORA food-hall prospects list (koraprospectsFULL.csv). Staged here are the leads that are (a) NOT already in the venues catalogue and (b) located in a Bali district. Verification level varies and is preserved per venue; nothing is published.",
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "excludesPii": true,
+  "piiPolicy": "Contact-person names, phone/WA numbers, emails and links are omitted or redacted from free-text; the internal per-lead verification log was not imported (AGENTS.md guardrails 12 and 14).",
+  "selection": {
+    "newBaliDistrict": 26,
+    "excludedAlreadyInCatalogue": 23,
+    "excludedJakartaSingaporeChains": "held for a specific-outlet decision (uncertain/multi-outlet Bali presence): Toko Kopi Tuku, Sate Khas Senayan, Bakso Boedjangan, Gildak, Dailybox, Bittersweet, Fore, Hangry",
+    "excludedNoBaliPresence": [
+      "Encik Tan",
+      "En Yeoh's Bak Kut Teh",
+      "Haus!",
+      "Mangkokku",
+      "Padang Merdeka",
+      "Mata Karanjang"
+    ],
+    "excludedRejected": [
+      "Kelly's Warung (venue demolished July 2025)"
+    ]
+  },
+  "notes": [
+    "These are venue CANDIDATES, not published venues. verifiedAt stays null until an official-source check + operator/owner verification.",
+    "'leadVerificationStatus' is the tracker's own status and is NOT Other Bali publication verification.",
+    "districtNeedsConfirmation=true means the tracker only gave 'Other Bali' as the area; a specific district must be set before promotion.",
+    "Kept outside data/data-ops/batches/ on purpose: no menu/action content, must not enter the batch compiler until promoted."
+  ],
+  "venues": [
+    {
+      "leadId": "KORA-L-0030",
+      "slug": "alma-tapas-bar",
+      "name": "Alma Tapas Bar",
+      "proposedCategory": "restaurant",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Spanish tapas & wine",
+      "currentLocations": "2: Berawa (Jl. Pantai Berawa 90, Canggu) and Bingin, Uluwatu (Jl. Pantai Bingin 4)",
+      "officialUrl": "https://almatapasbar.com/",
+      "instagramUrl": "https://www.instagram.com/almatapasbar/",
+      "sourceManifestIds": [
+        "src-alma-tapas-bar-website",
+        "src-alma-tapas-bar-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.chope.co/bali-restaurants/restaurant/alma-tapas-bar-uluwatu?lang=en_US",
+        "https://www.tripadvisor.com/Restaurant_Review-g1380108-d28296774-Reviews-Alma_Tapas_Bar_Uluwatu-Pecatu_Bukit_Peninsula_Bali.html"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No public email/phone found (site blocked direct fetch, bookings run through Chope); founder name not publicly verifiable."
+      ],
+      "address": "Jl. Pantai Berawa No.89C, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Alma%20Tapas%20Bar%20Canggu%20Berawa%20Bali",
+      "addressSource": "https://us.trip.com/travel-guide/foods/bali-438-restaurant/alma-tapas-bar-136324934",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Canggu/Berawa branch; also Bingin/Uluwatu branch.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "alma-tapas-bar",
+        "area": "Jl. Pantai Berawa, Canggu (Berawa)",
+        "why_its_here": "A neighbourhood Spanish tapas bar in Berawa built around shared plates, wine, sangria and vermouth in a rustic, Mediterranean-styled room. The menu spans land, sea and garden small plates meant to be ordered across the table.",
+        "best_for": "shared plates with wine; casual date over tapas; small group grazing; unhurried evening in canggu",
+        "not_for": "anyone wanting a fast solo bite or a single large main course",
+        "what_to_order": "patatas bravas; chorizo al vino; pulpo a la gallega (octopus); tortilla española; grilled prawns; sangria or vermouth",
+        "price_anchor": "$$$",
+        "jobs": [
+          "group_dinner_share",
+          "date_night_special"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0034",
+      "slug": "ayam-betutu-khas-gilimanuk",
+      "name": "Ayam Betutu Khas Gilimanuk",
+      "proposedCategory": "restaurant",
+      "district": "denpasar",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Balinese — ayam betutu, plecing, sambal matah",
+      "currentLocations": "Multi-branch chain across South Bali, incl. Renon/Denpasar (Jl. Merdeka No. 5) and Tuban/Kuta (Jl. Raya Tuban No. 2X); brand origin Gilimanuk bus station, 1978",
+      "officialUrl": "http://betutugilimanuk.com/",
+      "instagramUrl": "https://www.instagram.com/ayambetutugilimanuk_/",
+      "sourceManifestIds": [
+        "src-ayam-betutu-khas-gilimanuk-website",
+        "src-ayam-betutu-khas-gilimanuk-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://willmeyrick.com/journal/food-culture/the-betutu-story/",
+        "https://www.tripadvisor.com/Restaurant_Review-g297694-d7028158-Reviews-Ayam_Betutu_Khas_Gilimanuk-Denpasar_Bali.html",
+        "https://my.trip.com/restaurant/indonesia/bali/detail/ayam-betutu-khas-gilimanuk-19727540/"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Founder was 'Men Tempeh' (1978); the branch brand was built out by a family member known publicly as 'Oka' (per Will Meyrick's article) but no full legal name is published — verify current owner before naming. Multiple published branch phones; [number removed] (Renon) is mobile."
+      ],
+      "address": "Jl. Merdeka No. 88, Renon, Denpasar Timur, Kota Denpasar, Bali 80235",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Ayam%20Betutu%20Khas%20Gilimanuk%20Merdeka%20Renon%20Denpasar%20Bali",
+      "addressSource": "https://idalamat.com/alamat/288061/ayam-betutu-khas-gilimanuk-jalan-merdeka-no-88-denpasar-bali",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "betutugilimanuk brand Renon/Merdeka branch; do not confuse with Ayam Betutu Ibu Nia (Jl. Merdeka No.1).",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "ayam-betutu-khas-gilimanuk",
+        "area": "Renon, Jl. Merdeka, Denpasar",
+        "why_its_here": "A long-running Denpasar specialist in ayam betutu, the Gilimanuk-style chicken slow-cooked in Balinese spice paste until it falls off the bone. It is a focused, no-frills local kitchen where the betutu and the sambals are the whole point.",
+        "best_for": "trying a genuine balinese classic; a spice-forward local lunch; eating where residents eat away from the tourist strip",
+        "not_for": "people avoiding chilli or wanting mild flavours; anyone after a western menu, cocktails or a scenic view",
+        "what_to_order": "ayam betutu; nasi campur ayam betutu; plecing kangkung; sambal matah",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0025",
+      "slug": "bebek-bengil",
+      "name": "Bebek Bengil",
+      "proposedCategory": "restaurant",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Balinese crispy duck",
+      "currentLocations": "Original Ubud (Jl. Hanoman, since 1990) + Nusa Dua (The Bay), Jimbaran, and Jakarta outlets at BSD, Plaza Indonesia, Aloha PIK2, Kelapa [name removed]ng",
+      "officialUrl": "https://www.bebekbengil.co.id/en",
+      "instagramUrl": "https://www.instagram.com/bebekbengilrestaurant/",
+      "sourceManifestIds": [
+        "src-bebek-bengil-website",
+        "src-bebek-bengil-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://bebekbengil.co.id/en/outlet/bebek-bengil-ubud-bali",
+        "https://bebekbengil.co.id/en/faq"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Corporate/leasing decision-maker not published; om.ubud@ address is the outlet reservation email - ask to be routed to business development."
+      ],
+      "address": "Jl. Hanoman, Padang Tegal, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Bebek%20Bengil%20Dirty%20Duck%20Diner%20Padang%20Tegal%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d991554-Reviews-Bebek_Bengil_Ubud-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Ubud flagship, Jl. Hanoman.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "bebek-bengil",
+        "area": "Jl. Hanoman, Padang Tegal, Ubud",
+        "why_its_here": "The Ubud restaurant that popularised Balinese-style crispy duck, open since 1990, set among rice-paddy garden pavilions. The duck is steamed in Indonesian spices then deep-fried until the skin crackles while the meat stays tender.",
+        "best_for": "first taste of balinese crispy duck; rice-paddy garden dinner; groups sharing regional dishes; visitors near monkey forest",
+        "not_for": "diners who want a quiet hidden local warung; vegetarians, since the menu centres on duck and meat",
+        "what_to_order": "crispy duck (bebek bengil); duck satay; smoked duck (order a day ahead)",
+        "price_anchor": "$$",
+        "jobs": [
+          "family_early_dinner",
+          "group_dinner_share"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0006",
+      "slug": "bossman-burgers",
+      "name": "BO$$MAN",
+      "proposedCategory": "restaurant",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Smash/gourmet burgers, late-night",
+      "currentLocations": "2 locations: Seminyak (Jl. Kayu Cendana No.8B) and Canggu (Jl. Pantai Batu Bolong No.69); same ownership as Sisterfields (Project Black)",
+      "officialUrl": "https://bossmanbali.com/",
+      "instagramUrl": "https://www.instagram.com/bossmanbali/",
+      "sourceManifestIds": [
+        "src-bossman-burgers-website",
+        "src-bossman-burgers-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://bossmanbali.com/locations/",
+        "https://bali.com/places/bossman/"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No named individual owner publicly verifiable; only group social email published."
+      ],
+      "address": "Jl. Kayu Cendana No. 8B, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=BOSSMAN%20Burgers%20Kayu%20Cendana%20Seminyak%20Bali",
+      "addressSource": "https://www.bossmanbali.com/seminyak",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Seminyak flagship, Jl. Kayu Cendana.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "bossman-burgers",
+        "area": "Seminyak (Jl. Kayu Cendana)",
+        "why_its_here": "A Seminyak burger joint built on Australian-beef smash and gourmet patties with house-made sauces and freshly baked buns. It runs late, serving until roughly 5am, which makes it a reliable post-night-out stop.",
+        "best_for": "late-night cravings; casual meat-forward meals; after a night out; quick group bite",
+        "not_for": "a quiet, refined sit-down dinner; anyone avoiding meat-heavy fare",
+        "what_to_order": "Original Gangster; Al Capone; Lucky Pig; smash burger; chicken sando",
+        "price_anchor": "$$",
+        "jobs": [
+          "just_landed_easy_dinner",
+          "group_dinner_share"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0050",
+      "slug": "dapur-bali-mula",
+      "name": "Dapur Bali Mula",
+      "proposedCategory": "restaurant",
+      "district": null,
+      "districtNeedsConfirmation": true,
+      "cuisine": "Balinese heritage / Bali Mula (wood-fire, clay-stove North Bali cooking, base genep)",
+      "currentLocations": "1 location: Dapur Bali Mula, Les village, Tejakula, Buleleng (North Bali)",
+      "officialUrl": "https://www.indonesia.travel/gb/en/travel-ideas/gastronomy/dapur-bali-mula/",
+      "instagramUrl": "https://www.instagram.com/dapurbalimula/",
+      "sourceManifestIds": [
+        "src-dapur-bali-mula-website",
+        "src-dapur-bali-mula-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://trippin.world/spot/dapur-bali-mula",
+        "https://wigobali.com/the-place-that-not-only-fills-your-tummy-but-also-feeds-your-soul/"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "independent-chef",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No published email/phone found (reservations via Instagram DM only); unclear if he would leave/duplicate the village model — pitch may need a mentored-team format; donation-based pricing may need adapting to commercial rent + revenue share.",
+        "Located in Les village, North Bali (Buleleng) — outside the guide's districts."
+      ],
+      "address": "Desa Les, Tejakula, Buleleng Regency, Bali 81173, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Dapur%20Bali%20Mula%20Les%20Tejakula%20Bali",
+      "addressSource": "https://lokasibali.com/lokasi/dapur-bali-mula",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Les village, Tejakula, North Bali (Buleleng) — OUTSIDE guide districts; district null; cannot publish.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": false
+    },
+    {
+      "leadId": "KORA-L-0059",
+      "slug": "drifter-surf-cafe",
+      "name": "Drifter Surf Shop & Cafe",
+      "proposedCategory": "cafe",
+      "district": "uluwatu-bukit",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Healthy cafe + coffee (surf-lifestyle retail hybrid)",
+      "currentLocations": "2 locations: Uluwatu flagship shop/cafe/gallery (Jl. Labuansait No. 52, since 2008-09) and Seminyak shop",
+      "officialUrl": "https://driftersurf.com/pages/cafe",
+      "instagramUrl": "https://www.instagram.com/driftersurfshop/",
+      "sourceManifestIds": [
+        "src-drifter-surf-cafe-website",
+        "src-drifter-surf-cafe-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://driftersurf.com/pages/about-drifter",
+        "https://surfcareers.com/blog/the-drifter-surf-shop-and-cafe-story/"
+      ],
+      "leadPriority": "P2",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Confirm whether the cafe operates as a separable F&B unit from the retail business."
+      ],
+      "address": "Jl. Labuansait No.52, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Drifter%20Surf%20Shop%20Cafe%20Uluwatu%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g1380108-d12689863-Reviews-Drifter_Surf_Shop_Cafe_Uluwatu-Pecatu_Bukit_Peninsula_Bali.html",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Uluwatu (Pecatu), Jl. Labuansait.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "drifter-surf-cafe",
+        "area": "Uluwatu (Jl. Labuansait), Bukit",
+        "why_its_here": "A healthy all-day cafe built inside Drifter's surf-lifestyle store, open since 2008 and set in an open-air Javanese limasan with rotating art. The kitchen leans clean and local, from plant-based to pescatarian, alongside specialty coffee from Sumatra.",
+        "best_for": "post-surf refuel; healthy breakfast; specialty coffee; browsing surf gear over a long lunch",
+        "not_for": "travellers wanting a traditional Balinese warung experience; anyone after a quiet fine-dining setting rather than a busy surf-shop cafe",
+        "what_to_order": "smoothie bowls; brekkie burrito; toasts; cold-pressed juices; Mandailing coffee",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0043",
+      "slug": "expat-roasters",
+      "name": "Expat. Roasters",
+      "proposedCategory": "cafe",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Specialty coffee (roastery and cafes)",
+      "currentLocations": "Roastery/HQ in Kerobokan-Denpasar area; cafes at Jl. Petitenget No.1A and Beachwalk Kuta; outlets and wholesale across Bali, Jakarta, Surabaya, Makassar",
+      "officialUrl": "https://expatroasters.com/",
+      "instagramUrl": null,
+      "sourceManifestIds": [
+        "src-expat-roasters-website"
+      ],
+      "additionalReferenceUrls": [
+        "https://expatroasters.com/pages/our-story",
+        "https://expatroasters.com/pages/contact-us",
+        "https://ouryearinbali.com/expat-roasters-coffee-business-in-bali/"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No public email found (contact page is a web form, page blocked for direct fetch); some guides mention an Ubud cafe - verify whether they currently operate in Ubud before pitching exclusivity."
+      ],
+      "address": "Jl. Petitenget No. 1A, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Expat%20Roasters%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://www.balirca.id/member/expat-roasters-petitenget/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Petitenget/Seminyak flagship brew bar.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "expat-roasters",
+        "area": "Seminyak (Petitenget)",
+        "why_its_here": "A specialty coffee roastery and cafe that sources and roasts its own beans, working directly with Indonesian producers including farms near the roastery. Single-origin Indonesian brews like Bali Kintamani sit alongside a small menu of light bites.",
+        "best_for": "serious coffee lovers; single-origin tasting; laptop-friendly morning work; buying beans and brew gear",
+        "not_for": "a full sit-down meal; a lively bar or nightlife scene; anyone after a beach or view setting",
+        "what_to_order": "single-origin Bali Kintamani; espresso and macchiato; tuna toastie; ham and cheese toastie",
+        "price_anchor": "$$",
+        "jobs": [
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0021",
+      "slug": "gusto-gelato",
+      "name": "Gusto Gelato & Caffe",
+      "proposedCategory": "cafe",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Artisan gelato and desserts",
+      "currentLocations": "3 locations: Kerobokan (Jl. Mertanadi No.46B, flagship), Seminyak, and Renon/Denpasar (Jl. Merdeka No.14, opened 2020)",
+      "officialUrl": "https://gusto-gelateria.com/",
+      "instagramUrl": "https://www.instagram.com/gustogelatocaffe/",
+      "sourceManifestIds": [
+        "src-gusto-gelato-website",
+        "src-gusto-gelato-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://gusto-gelateria.com/contact/",
+        "https://finnsbeachclub.com/guides/best-gelato-bali/"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "partially-verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Founder/owner name not publicly verifiable from sources found; published email is the Renon branch Gmail - confirm HQ contact."
+      ],
+      "address": "Jl. Mertanadi No.46B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Gusto%20Gelato%20Caffe%20Mertanadi%20Kerobokan%20Bali",
+      "addressSource": "https://www.google.com/maps/place/data=!4m2!3m1!1s0x2dd2476ef002304d:0x50ae7b5dce63774",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Original Jl. Mertanadi, Kerobokan (near Seminyak).",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "gusto-gelato",
+        "area": "Jl. Mertanadi, Kerobokan (Seminyak)",
+        "why_its_here": "An artisan gelateria and caffe turning out house-made gelato in a wide flavour range, from classic fior di latte to local twists like lemongrass, ginger and sesame. It also pours proper coffee in a calm sit-down space.",
+        "best_for": "afternoon dessert stop; cooling off in the heat; family treat with kids; coffee-and-gelato pause",
+        "not_for": "anyone looking for a full sit-down meal or dinner service",
+        "what_to_order": "fior di latte; gianduia; pistachio; seasonal local flavours (lemongrass, ginger, sesame); espresso alongside",
+        "price_anchor": "$ · small cup/cone ~40K, medium ~70K",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0037",
+      "slug": "home-by-chef-wayan",
+      "name": "HOME by Chef Wayan",
+      "proposedCategory": "restaurant",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Modern Indonesian / Balinese, ocean-inspired (seafood, mother's-recipe Balinese, vegan menu)",
+      "currentLocations": "1 location: HOME by Chef [name removed], Jl. Pantai Pererenan No.92, Pererenan (Canggu side)",
+      "officialUrl": "https://bychefwayan.com/",
+      "instagramUrl": "https://www.instagram.com/home.by.chefwayan/",
+      "sourceManifestIds": [
+        "src-home-by-chef-wayan-website",
+        "src-home-by-chef-wayan-instagram"
+      ],
+      "additionalReferenceUrls": [],
+      "leadPriority": "P1",
+      "leadProfile": "independent-chef",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No published email/WhatsApp number captured from public pages seen (reservations stated as via WhatsApp/Instagram; number not shown in results). Confirm his consulting workload allows a second site."
+      ],
+      "address": "Jl. Pantai Pererenan No. 92, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+      "gmapsUrl": "https://maps.app.goo.gl/mET5aM7JhTn8TbwW8",
+      "addressSource": "https://bychefwayan.com/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Pererenan (Canggu). Real place link.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "home-by-chef-wayan",
+        "area": "Pererenan, Canggu",
+        "why_its_here": "Modern Balinese cooking from Chef Wayan Kresna Yasa in a seaside Pererenan setting, reworking family and island recipes with contemporary technique. The kitchen is spice- and produce-driven and keeps a full vegan section alongside its seafood and traditional dishes.",
+        "best_for": "a considered balinese dinner; introducing someone to indonesian flavours done well; a table mixing meat, seafood and vegan diners",
+        "not_for": "travellers wanting a cheap warung price point; anyone after generic western comfort food",
+        "what_to_order": "bebek betutu; babi guling; ayam srosop; braised lettuce with tempe crumble",
+        "price_anchor": "$$$",
+        "jobs": [
+          "date_night_special",
+          "special_occasion",
+          "local_food_calm"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0054",
+      "slug": "hungry-bird-coffee",
+      "name": "Hungry Bird Coffee Roaster",
+      "proposedCategory": "cafe",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Specialty coffee roastery & brunch",
+      "currentLocations": "1 cafe/roastery: Jl. Raya Semat / Segara Perancak 86, Tibubeneng, Canggu (roasting since 2013); wholesale supply to cafes across Bali and Indonesia",
+      "officialUrl": "https://www.coffeeinsurrection.com/hungry-bird-coffee-roaster.html",
+      "instagramUrl": "https://www.instagram.com/hungrybirdcoffee/",
+      "sourceManifestIds": [
+        "src-hungry-bird-coffee-website",
+        "src-hungry-bird-coffee-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.corner.inc/place/pAzM5VFFGayM"
+      ],
+      "leadPriority": "P2",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Official website/email not found in search results; owner name (roaster/founder) not publicly verified. Confirm via IG DM."
+      ],
+      "address": "Jl. Segara Perancak No.86, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hungry%20Bird%20Coffee%20Roaster%20Canggu%20Bali",
+      "addressSource": "https://www.corner.inc/place/pAzM5VFFGayM",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Tibubeneng/Canggu; street naming varies.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "hungry-bird-coffee",
+        "area": "Tibubeneng, Canggu",
+        "why_its_here": "A specialty coffee roastery that has roasted its own beans since 2013, working directly with local farms, paired with an all-day brunch kitchen. The house blends and single origins are the reason to come, with a laptop-friendly room to linger in.",
+        "best_for": "coffee-led brunch; laptop work and long stays; post-surf breakfast; buying house-roasted beans",
+        "not_for": "late-night plans, as the kitchen closes in the afternoon; a big shared sit-down dinner",
+        "what_to_order": "house-roasted espresso and filter coffee; banana pancakes; naughty monkey bowl",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0012",
+      "slug": "kilig-bali",
+      "name": "Kilig Bali",
+      "proposedCategory": "restaurant",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Filipino (adobo, lechon belly sisig, kinilaw, halo-halo)",
+      "currentLocations": "1 location: Kilig Filipino Warung, Jl. Raya Goa Gajah 94, Peliatan, Ubud; plus Kilig Bali Catering / private-chef services",
+      "officialUrl": "https://kiligbali.com",
+      "instagramUrl": "https://www.instagram.com/kiligbali/",
+      "sourceManifestIds": [
+        "src-kilig-bali-website",
+        "src-kilig-bali-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://kiligbali.com/",
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d28557698-Reviews-Kilig_Filipino_Warung-Ubud_Gianyar_Regency_Bali.html"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "independent-chef",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Confirm whether he prefers WhatsApp or email for business enquiries; catering arm capacity vs. second fixed location."
+      ],
+      "address": "Jl. Raya Goa Gajah No.94, Peliatan, Ubud, Kec. Ubud, Kabupaten Gianyar, Bali 80582",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kilig%20Filipino%20Warung%20Ubud%20Bali",
+      "addressSource": "https://kiligbali.com/",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Jl. Raya Goa Gajah near Goa Gajah; closed Mon & Tue.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "kilig-bali",
+        "area": "Ubud (Jl. Raya Goa Gajah, Peliatan)",
+        "why_its_here": "A Filipino warung in Peliatan set in a bamboo hut with rice-field views, cooking home-style Filipino comfort food. It stands out as a dedicated Filipino kitchen in an area dominated by Balinese and Western menus.",
+        "best_for": "filipino comfort food; calm rice-field setting; shared table meals; family dinner",
+        "not_for": "a quick central-Ubud stop given the Peliatan location; anyone avoiding rich, pork-forward dishes",
+        "what_to_order": "adobo; sisig; lechon belly roll; sinigang; kinilaw; halo-halo; leche flan",
+        "price_anchor": "$$",
+        "jobs": [
+          "local_food_calm",
+          "family_early_dinner",
+          "group_dinner_share"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0019",
+      "slug": "kurasu-bali",
+      "name": "Kurasu",
+      "proposedCategory": "cafe",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Japanese specialty coffee, ceremonial matcha, hojicha drinks",
+      "currentLocations": "Kyoto (multiple stands/roastery), plus international outposts; Bali presence was the Tanah Gajah Ubud pop-up (Nov 2025 – 8 May 2026)",
+      "officialUrl": "https://kurasu.kyoto",
+      "instagramUrl": "https://www.instagram.com/kurasubali/",
+      "sourceManifestIds": [
+        "src-kurasu-bali-website",
+        "src-kurasu-bali-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.nowbali.co.id/kurasu-ubud-tanah-gajah-bali/",
+        "https://resident.com/press-releases/2026/01/25/tanah-gajah-and-kurasu-unite-for-a-mindful-coffee-and-matcha-experience-in-bali",
+        "https://kurasu.kyoto/pages/about-us",
+        "https://typica.coffee/en/narratives/roasters/kurasu/"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "international-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "partially-verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No published business-development email verified ([link removed] site has contact channels — verify before emailing); whether the Bali entity/partner from the Tanah Gajah collaboration continues post-pop-up. | Ubud pop-up stated to end 8 May 2026 — re-verify current presence before outreach.",
+        "Ubud presence is an unconfirmed pop-up (Tanah Gajah, stated to end ~May 2026); not central Ubud."
+      ],
+      "address": "Tanah Gajah Resort, Jl. Raya Goa Gajah, Kemenuh, Ubud area, Gianyar, Bali",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kurasu%20Tanah%20Gajah%20Ubud%20Bali",
+      "addressSource": "https://www.nowbali.co.id/kurasu-ubud-tanah-gajah-bali/",
+      "addressConfidence": "low",
+      "addressResearchNotes": "PERMANENCE UNCONFIRMED — pop-up inside Tanah Gajah resort, stated to run until ~8 May 2026; not central Ubud (Kemenuh/Sukawati). Do NOT publish; needs_verification.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": false
+    },
+    {
+      "leadId": "KORA-L-0052",
+      "slug": "melting-wok-warung",
+      "name": "Melting Wok Warung",
+      "proposedCategory": "restaurant",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "French-Laotian / Southeast Asian fusion (curries, wok, crepes)",
+      "currentLocations": "2 in Ubud: Melting Wok Warung (Jl. Gootama, 8 tables) and La Brasserie by Melting Wok",
+      "officialUrl": "https://www.instagram.com/melting_wok_warung/",
+      "instagramUrl": "https://www.instagram.com/melting_wok_warung/",
+      "sourceManifestIds": [
+        "src-melting-wok-warung-website",
+        "src-melting-wok-warung-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d2364236-Reviews-Melting_Wok_Warung-Ubud_Gianyar_Regency_Bali.html",
+        "https://www.tripadvisor.co.uk/ShowUserReviews-g297701-d2364236-r437654047-Melting_Wok_Warung-Ubud_Gianyar_Regency_Bali.html",
+        "https://bali.live/places/la-brasserie-by-melting-wok"
+      ],
+      "leadPriority": "P2",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Owners' surnames and any email/phone not publicly published - reach via Instagram DM or in person at the warung."
+      ],
+      "address": "Jl. Gootama No.13, Ubud, Kec. Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Melting%20Wok%20Warung%20Jalan%20Gootama%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d2364236-Reviews-Melting_Wok_Warung-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Gootama.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "melting-wok-warung",
+        "area": "Ubud (Jl. Gootama)",
+        "why_its_here": "A tiny eight-table warung run by a French-Laotian couple, serving fragrant coconut curries, stir-fries and crepes off a short blackboard menu that changes daily. The Laotian herbs and French dessert touches make it distinct from standard Ubud warungs.",
+        "best_for": "an intimate dinner; herb-forward coconut curries; a short curated menu; foodies after fusion flavour",
+        "not_for": "large groups; walk-ins without a booking; anyone needing a wide menu or fast turnover",
+        "what_to_order": "tempeh coconut curry with rice noodles; coconut curries; dumplings; chicken crepe; coco crepe with brown sugar and coconut cream",
+        "price_anchor": "$$",
+        "jobs": [
+          "date_night_special",
+          "local_food_calm"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0044",
+      "slug": "menega-cafe",
+      "name": "Menega Cafe",
+      "proposedCategory": "restaurant",
+      "district": "jimbaran",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Jimbaran-style grilled seafood (coconut-husk BBQ)",
+      "currentLocations": "Menega Cafe, Jl. Four Seasons, Muaya Beach, Jimbaran (flagship); also manages sister venue Warung Sakura Seafood, Jimbaran",
+      "officialUrl": null,
+      "instagramUrl": null,
+      "sourceManifestIds": [],
+      "additionalReferenceUrls": [
+        "https://bali.com/places/menega-cafe/",
+        "https://danielfooddiary.com/2019/10/15/menegacafe/",
+        "https://www.tripadvisor.com/Restaurant_Review-g297696-d1948466-Reviews-Menega_Cafe-Jimbaran_South_Kuta_Bali.html"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No official website or verified Instagram handle found; owner name not published. Published number is a landline, so first approach should be a visit or call, not WhatsApp. Risk to probe: whether the brand works without the beachfront setting."
+      ],
+      "address": "Muaya Beach (Pantai Muaya), Jimbaran, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Menega%20Cafe%20Muaya%20Beach%20Jimbaran%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297696-d1948466-Reviews-Menega_Cafe-Jimbaran_South_Kuta_Bali.html",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Muaya Beach, Jimbaran; informal street addressing; district resolved.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "menega-cafe",
+        "area": "Jimbaran (Muaya Beach)",
+        "why_its_here": "A long-running Jimbaran Bay seafood cafe where you pick fresh seafood by weight from the display and it is grilled over coconut-husk fires. Tables sit directly on Muaya Beach for toes-in-the-sand dining at sunset.",
+        "best_for": "beachfront seafood dinner; sunset over the bay; groups sharing a seafood spread; special evening out",
+        "not_for": "budget quick bites; vegetarians seeking variety; anyone wanting a quiet or air-conditioned room",
+        "what_to_order": "grilled red snapper; butter prawns; crab in Padang sauce; grilled lobster",
+        "price_anchor": "$$$",
+        "jobs": [
+          "sunset_drinks_view",
+          "group_dinner_share",
+          "special_occasion"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0042",
+      "slug": "motel-mexicola",
+      "name": "Motel Mexicola",
+      "proposedCategory": "restaurant",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Mexican (tacos, cantina)",
+      "currentLocations": "2 open: Seminyak (Jl. Kayu Jati No.9X, est. 2013) and Canggu; third venue announced for Uluwatu in 2026",
+      "officialUrl": "https://motelmexicola.info/",
+      "instagramUrl": "https://www.instagram.com/motelmexicola/",
+      "sourceManifestIds": [
+        "src-motel-mexicola-website",
+        "src-motel-mexicola-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://motelmexicola.info/seminyak/",
+        "https://thehoneycombers.com/bali/motel-mexicola-seminyak/"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Founder/owner name not publicly verifiable in sources found; their signature format is large-venue party dining - needs framing as a compact taqueria."
+      ],
+      "address": "Jl. Kayu Jati No.9, Petitenget, Seminyak, Kuta, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Motel%20Mexicola%20Seminyak%20Bali",
+      "addressSource": "https://motelmexicola.info/seminyak/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Flagship Jl. Kayu Jati, Petitenget.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "motel-mexicola",
+        "area": "Jl. Kayu Jati, Petitenget (Seminyak)",
+        "why_its_here": "A high-energy Mexican cantina in Petitenget known for sharing-style street food, a big tequila and mezcal list, and a colourful, music-driven room that turns into a party as the night goes on. Food and drinks are built for a lively group table.",
+        "best_for": "group night out; birthdays and celebrations; loud and social dinner; cocktails and dancing",
+        "not_for": "anyone after a quiet, low-key or romantic meal",
+        "what_to_order": "pork al pastor tacos; beer-battered fish tacos; ceviche; chargrilled corn; margaritas; mezcal cocktails",
+        "price_anchor": "$$$",
+        "jobs": [
+          "group_dinner_share",
+          "sunset_drinks_view"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0008",
+      "slug": "nalu-bowls",
+      "name": "Nalu Bowls",
+      "proposedCategory": "cafe",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Smoothie bowls / healthy breakfast",
+      "currentLocations": "5 Bali locations (Seminyak/Shelter at Jl. Drupadi 1 No.2A, Kuta, Canggu, Berawa, Uluwatu) plus franchises in Jakarta and Portugal",
+      "officialUrl": "https://nalubowls.com/",
+      "instagramUrl": "https://www.instagram.com/nalubowls/",
+      "sourceManifestIds": [
+        "src-nalu-bowls-website",
+        "src-nalu-bowls-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://bali.com/places/nalu-bowls/",
+        "https://www.tripadvisor.com/Restaurant_Review-g469404-d7937166-Reviews-Nalu_Bowls_Shelter_Bali-Seminyak_Kuta_District_Bali.html",
+        "https://www.thebalibible.com/details/nalu-bowls-shelter-bali-17308"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Founder name not publicly verifiable from sources found; confirm which entity handles new-location decisions (Bali HQ vs franchisor)."
+      ],
+      "address": "Jl. Drupadi 1 No.2A, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Nalu%20Bowls%20Seminyak%20Drupadi%20Bali",
+      "addressSource": "https://eaten.io/p/Nalu-Bowls-Jl-Drupadi-1-No2A-Seminyak-45691c",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Seminyak original, Jl. Drupadi; multiple outlets exist.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "nalu-bowls",
+        "area": "Jl. Drupadi, Seminyak",
+        "why_its_here": "A compact smoothie-bowl specialist whose bowls are each named after a famous surf break and built from tropical fruit, house granola and simple toppings. It is a grab-and-go healthy breakfast spot rather than a sit-down cafe.",
+        "best_for": "a fast healthy breakfast; a post-beach refuel; a light fruit-based bite on the go",
+        "not_for": "anyone wanting a full cooked brunch, a long laptop session or a large dining room",
+        "what_to_order": "uluwatu bowl; pina colada bowl; strawberry banana smoothie",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "local_food_calm"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0058",
+      "slug": "saigon-street",
+      "name": "Saigon Street",
+      "proposedCategory": "restaurant",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Vietnamese (modern street food)",
+      "currentLocations": "1 Bali venue (Jl. Petitenget Raya No.77X, since 2015); previously expanded the concept to Sydney as Saigon Lane",
+      "officialUrl": "https://www.facebook.com/saigonstreetbali/",
+      "instagramUrl": null,
+      "sourceManifestIds": [
+        "src-saigon-street-website"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.qraved.com/bali/saigon-street-seminyak",
+        "https://www.firsttable.co.id/bali/seminyak/saigon-street",
+        "https://www.hospitalitymagazine.com.au/balis-saigon-street-to-open-saigon-lane-in-sydney/",
+        "https://coconuts.co/bali/food-drink/we-went-balis-much-buzzed-about-vietnamese-resto-saigon-street-check-if-its-worth-hype/"
+      ],
+      "leadPriority": "P2",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "low",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "[link removed] domain now serves gambling spam (likely lapsed) so info@ email may be dead - verify current operation on-site or via Facebook before outreach; directory listings (Qraved, FirstTable) still show it open as of 2026."
+      ],
+      "address": "Jl. Petitenget No. 77X, Kerobokan, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Saigon%20Street%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://foursquare.com/v/saigon-street/558f444f498e84b2d73f4c97",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Petitenget; still operating per 2026 listings; use FB page, .com domain lapsed.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "saigon-street",
+        "area": "Jl. Petitenget, Seminyak",
+        "why_its_here": "A design-forward Vietnamese restaurant in the Petitenget dining strip, serving modern takes on classic and regional dishes alongside a late cocktail bar. Plates are built for sharing in a vivid, colourful interior.",
+        "best_for": "shared plates with cocktails; lively date night; group dinner out; a design-led dinner setting",
+        "not_for": "a quiet, low-key intimate meal; travellers after the cheapest street-food price point",
+        "what_to_order": "pho bo with wagyu beef; steamed bao buns; dumplings; fresh rolls and wraps",
+        "price_anchor": "$$$",
+        "jobs": [
+          "date_night_special",
+          "group_dinner_share"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0028",
+      "slug": "sayuri-healing-food",
+      "name": "Sayuri Healing Food",
+      "proposedCategory": "cafe",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Raw vegan / plant-based cafe & desserts",
+      "currentLocations": "1 cafe + academy, Peliatan, Ubud (since 2016)",
+      "officialUrl": "https://sayurihealingfood.com/",
+      "instagramUrl": "https://www.instagram.com/sayuri_healing_food/",
+      "sourceManifestIds": [
+        "src-sayuri-healing-food-website",
+        "src-sayuri-healing-food-instagram"
+      ],
+      "additionalReferenceUrls": [],
+      "leadPriority": "P1",
+      "leadProfile": "independent-chef",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Email address was redacted in search results - confirm via [link removed] or Linktree; WhatsApp from their published Linktree/site snippet."
+      ],
+      "address": "Jl. Sukma Kesuma No.2, Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sayuri%20Healing%20Food%20Peliatan%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g3932211-d11890521-Reviews-Sayuri_Healing_Food-Peliatan_Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Sukma Kesuma, Peliatan.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "sayuri-healing-food",
+        "area": "Ubud (Peliatan)",
+        "why_its_here": "A raw-vegan and plant-based cafe in central Ubud focused on living-food cooking, cold-pressed juices and a rotating case of raw desserts, with an attached plant-based academy. The kitchen leans into raw preparation rather than standard cooked vegan fare.",
+        "best_for": "plant-based and raw eating; relaxed daytime meals; wellness-minded visitors; long cafe sits",
+        "not_for": "committed meat-eaters; anyone wanting a fast, familiar hearty meal",
+        "what_to_order": "raw lasagna; Life is a Blessing cake; smoothie bowls; raw cheesecake; cold-pressed juices",
+        "price_anchor": "$$",
+        "jobs": [
+          "local_food_calm",
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0038",
+      "slug": "secret-spot-bali",
+      "name": "Secret Spot",
+      "proposedCategory": "cafe",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "100% plant-based cafe (vegan breakfast-dinner, vegan croissants, house-roasted coffee)",
+      "currentLocations": "2: Berawa (opened 2017) and Canggu (Jl. Tanah Barak 7, opened 2019)",
+      "officialUrl": "https://www.instagram.com/secretspot.bali/",
+      "instagramUrl": "https://www.instagram.com/secretspot.bali/",
+      "sourceManifestIds": [
+        "src-secret-spot-bali-website",
+        "src-secret-spot-bali-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.yogitimes.com/review/secret-spot-cafe-coffee-vegan-healthy-restaurants-canggu-bali",
+        "https://www.tripadvisor.com/Restaurant_Review-g311298-d12928910-Reviews-Secret_Spot_Canggu-Canggu_North_Kuta_Bali.html"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No official website found (only SEO clone sites carrying unverified phone numbers - do not use those); owner name not publicly verifiable. Verify best IG handle (@secretspot.bali vs @secretspotbali) before DM."
+      ],
+      "address": "Jl. Tanah Barak No. 7, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Secret%20Spot%20Canggu%20Tanah%20Barak%20Bali",
+      "addressSource": "https://secret-spot-canggu.wheree.com/",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Jl. Tanah Barak; Berawa branch also exists.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "secret-spot-bali",
+        "area": "Canggu (Jl. Tanah Barak)",
+        "why_its_here": "A fully plant-based cafe serving vegan breakfast through dinner, with vegan croissants, bowls, curries and ramen, plus coffee roasted weekly on the island. Extras like Monday pasta nights with live jazz and a chicory coffee alternative round out the character.",
+        "best_for": "vegan breakfast and brunch; plant-based croissants and pastries; island-roasted coffee; relaxed all-day dining",
+        "not_for": "diners set on meat or seafood dishes; anyone wanting a fast grab-and-go stop",
+        "what_to_order": "vegan croissants; pesto and cheeze croissant; pancakes; full English breakfast; vegan bowls and curries; chicory coffee",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0005",
+      "slug": "sushimi-bali",
+      "name": "Sushimi Bali",
+      "proposedCategory": "restaurant",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Sushi train, maki, poke bowls, izakaya-style Japanese",
+      "currentLocations": "3: Berawa (Jl. Pantai Berawa 101c), Seminyak, Uluwatu",
+      "officialUrl": "http://www.sushimibali.com/",
+      "instagramUrl": "https://www.instagram.com/sushimibali/",
+      "sourceManifestIds": [
+        "src-sushimi-bali-website",
+        "src-sushimi-bali-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://bali.com/balicard/sushimi-bali/",
+        "https://www.tripadvisor.com/Restaurant_Review-g297697-d23304073-Reviews-Sushimi_Berawa-Kuta_Kuta_District_Bali.html"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Founder/owner name not publicly verifiable in sources found."
+      ],
+      "address": "Jl. Pantai Berawa No.101C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sushimi%20Berawa%20Canggu%20Bali",
+      "addressSource": "https://wanderlog.com/place/details/2070616/sushimi-berawa-bali",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Berawa/Canggu branch.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "sushimi-bali",
+        "area": "Canggu (Berawa)",
+        "why_its_here": "A sushi-train restaurant on Jl. Pantai Berawa serving classic and creative sushi and maki plus an izakaya-style a la carte range. The menu extends to poke bowls, donburi, sushi burritos and sushi donuts, with gluten-free, vegan and vegetarian options.",
+        "best_for": "casual sushi with friends; interactive sushi-train dining; solo diners; mixed dietary groups",
+        "not_for": "a formal or high-end omakase occasion; a quiet intimate dinner; anyone wanting a sea view",
+        "what_to_order": "sushi-train plates; maki rolls; poke bowls; donburi; sushi burrito",
+        "price_anchor": "$$",
+        "jobs": [
+          "group_dinner_share",
+          "just_landed_easy_dinner"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0045",
+      "slug": "the-cashew-tree",
+      "name": "The Cashew Tree",
+      "proposedCategory": "cafe",
+      "district": "uluwatu-bukit",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Healthy / vegetarian-leaning cafe — organic bowls, live-music nights",
+      "currentLocations": "1 location: Jl. Pantai Bingin No. 9, Pecatu (upper Bingin lane — not part of the demolished beachfront row)",
+      "officialUrl": null,
+      "instagramUrl": "https://www.instagram.com/thecashewtree.collective/",
+      "sourceManifestIds": [
+        "src-the-cashew-tree-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.yogitimes.com/review/the-cashew-tree-vegetarian-restaurants-bali-uluwatu-bukit",
+        "https://www.tripadvisor.com/Restaurant_Review-g1380108-d7915018-Reviews-The_Cashew_Tree-Pecatu_Bukit_Peninsula_Bali.html"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Family owners' names not published. Verify the venue's current trading status post-Bingin-demolition (its lane location suggests it was not demolished, but foot traffic impact unknown)."
+      ],
+      "address": "Jl. Pantai Bingin No.9, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/place/The+Cashew+Tree/@-8.8084415,115.112652,17z/data=!4m6!3m5!1s0x2dd245479b8f1853:0xc76fa2acc632056a!8m2!3d-8.8069026!4d115.1170434!16s/g/11byck_jvr",
+      "addressSource": "https://www.google.com/maps/place/The+Cashew+Tree",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Google Maps place listing; Jl. Pantai Bingin.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "the-cashew-tree",
+        "area": "Bingin, Uluwatu (Bukit)",
+        "why_its_here": "A relaxed, vegetarian-leaning cafe set in a leafy open-air space near Bingin, serving wholesome all-day plates and hosting weekly live-music nights. It doubles as a social hub with regular Thursday music and a fitness/yoga community on site.",
+        "best_for": "post-surf brunch near bingin; healthy plant-forward meal; laid-back live-music night; casual group hang",
+        "not_for": "anyone wanting a formal, fine-dining or meat-forward dinner",
+        "what_to_order": "the soul bowl; corn fritters; quesadillas; fresh juices and smoothies; vegan cakes and desserts",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "group_dinner_share"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0031",
+      "slug": "the-loft-bali",
+      "name": "The Loft",
+      "proposedCategory": "cafe",
+      "district": "canggu",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Healthy brunch cafe, specialty coffee, smoothie bowls",
+      "currentLocations": "2: Canggu (Jl. Pantai Batu Bolong 50A) and Uluwatu (Jl. Labuansait 52)",
+      "officialUrl": "https://linktr.ee/theloftbali",
+      "instagramUrl": "https://www.instagram.com/theloftbali/",
+      "sourceManifestIds": [
+        "src-the-loft-bali-website",
+        "src-the-loft-bali-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.facebook.com/theloftbali/about",
+        "https://www.chope.co/bali-restaurants/restaurant/the-loft-uluwatu?lang=en_US"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Owner/founder name not publicly verifiable in sources found; email/phone from Facebook about page and directories - reconfirm."
+      ],
+      "address": "Jl. Pantai Batu Bolong No. 50A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/place/The+Loft+Canggu/@-8.6509484,115.1334429,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd2387eacbd2f6d:0xa70ea493a2c5a8d0!8m2!3d-8.6509484!4d115.1356316",
+      "addressSource": "https://www.google.com/maps/place/The+Loft+Canggu/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Batu Bolong, Canggu. Real place URL.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "the-loft-bali",
+        "area": "Batu Bolong, Canggu",
+        "why_its_here": "A Bondi-inspired all-day brunch cafe on Batu Bolong with specialty coffee and a large plant-based selection. It leans to healthy breakfast staples, bowls and toasts in a relaxed Canggu setting.",
+        "best_for": "a slow brunch after the beach; specialty coffee and a laptop; plant-based and healthy breakfast eaters",
+        "not_for": "anyone seeking a quiet non-touristy local spot or a traditional balinese meal",
+        "what_to_order": "dragon fruit smoothie bowl; coconut pancakes; avocado on toast with poached eggs; matcha latte",
+        "price_anchor": "$$",
+        "jobs": [
+          "brunch_after_surf",
+          "quiet_work_cafe"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0001",
+      "slug": "tukies-coconut-shop",
+      "name": "Tukies Coconut Shop",
+      "proposedCategory": "cafe",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Coconut ice cream & coconut desserts",
+      "currentLocations": "4 outlets: Jl. Raya Ubud 14, Jl. Monkey Forest 15, Jl. Raya Pengosekan (all Ubud) + Beachwalk Shopping Center Kuta",
+      "officialUrl": "https://www.facebook.com/tukies.online/",
+      "instagramUrl": "https://www.instagram.com/tukiescoconutshop/",
+      "sourceManifestIds": [
+        "src-tukies-coconut-shop-website",
+        "src-tukies-coconut-shop-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d15745280-Reviews-Tukies_Coconut_Shop-Ubud_Gianyar_Regency_Bali.html",
+        "https://beachwalkbali.com/directory/tukies-coconut-shop",
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d6848815-Reviews-Tukies_Coconut_Shop-Ubud_Gianyar_Regency_Bali.html"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "growing-operator",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No public email or phone found; no founder/owner name published. IMPORTANT: Tripadvisor lists a Tukies outlet at Jl. Monkey Forest No.15 - the same address as the KORA site; verify the relationship before outreach."
+      ],
+      "address": "Jl. Monkey Forest No.15, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Tukies%20Coconut%20Shop%20Monkey%20Forest%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d15745280-Reviews-Tukies_Coconut_Shop-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Main branch Jl. Monkey Forest No.15.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "tukies-coconut-shop",
+        "area": "Jl. Monkey Forest, Ubud",
+        "why_its_here": "A coconut-focused dessert and drinks shop where everything is built around fresh coconut, including vegan coconut ice cream served in the shell with roasted coconut curls. A quick, cooling stop in central Ubud.",
+        "best_for": "a cooling coconut treat while walking ubud; vegan dessert; quick sweet break; fresh coconut drinks",
+        "not_for": "a full sit-down meal or savoury dinner; anyone avoiding coconut",
+        "what_to_order": "coconut ice cream in the shell; coconut affogato; fresh coconut water",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0036",
+      "slug": "vincent-nigita",
+      "name": "Vincent Nigita",
+      "proposedCategory": "cafe",
+      "district": "seminyak",
+      "districtNeedsConfirmation": false,
+      "cuisine": "French pâtisserie & plated desserts with Indonesian flavours",
+      "currentLocations": "1-2 outlets: Kanvaz Pâtisserie by [name removed] [name removed], Jl. Petitenget 188 Seminyak (boutique + dessert bar)",
+      "officialUrl": "https://vincentnigita.com/",
+      "instagramUrl": "https://www.instagram.com/kanvazpatisserievincentnigita/",
+      "sourceManifestIds": [
+        "src-vincent-nigita-website",
+        "src-vincent-nigita-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.kanvazhotelbali.com/eat/kanvaz-patisserie/"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "independent-chef",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No published direct email/phone found on public pages seen; nature of tie-up with Kanvaz Resort (whether brand can expand independently) needs clarifying on first call."
+      ],
+      "address": "Kanvaz Village Resort, Jl. Petitenget No. 188, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kanvaz%20Patisserie%20Vincent%20Nigita%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://www.kanvazhotelbali.com/eat/kanvaz-patisserie/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Inside Kanvaz Village Resort, Jl. Petitenget 188.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "vincent-nigita",
+        "area": "Seminyak (Jl. Petitenget, Kanvaz resort)",
+        "why_its_here": "A French patisserie inside Kanvaz resort from Bordeaux-trained pastry chef Vincent Nigita, pairing classical French technique with Indonesian flavours. Classic pastries sit alongside a weekend tea-room experience of plated desserts.",
+        "best_for": "afternoon pastry and tea; a sweet treat with care; a calm indulgent pause; a special sweet moment",
+        "not_for": "a full savoury meal or a budget-casual bite; those after a quick grab-and-go snack",
+        "what_to_order": "Paris-Brest; Saint Honore; chocolate eclair; Japanese fan creations; weekend tea-room dessert experience",
+        "price_anchor": "$$$",
+        "jobs": [
+          "special_occasion",
+          "date_night_special"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0020",
+      "slug": "warung-biah-biah",
+      "name": "Warung Biah Biah",
+      "proposedCategory": "warung",
+      "district": "ubud",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Traditional Balinese (nasi campur, home-style)",
+      "currentLocations": "2 in Ubud: Warung Biah Biah (Jl. Goutama 13, since 2002) and Biahbiah+ Balinese Food & Dining",
+      "officialUrl": "https://www.facebook.com/warungbiahbiah/",
+      "instagramUrl": "https://www.instagram.com/warung_biahbiah/",
+      "sourceManifestIds": [
+        "src-warung-biah-biah-website",
+        "src-warung-biah-biah-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d2506136-Reviews-or45-Warung_Biahbiah-Ubud_Gianyar_Regency_Bali.html",
+        "https://www.tripadvisor.com/Restaurant_Review-g297701-d3831426-Reviews-Biahbiah_Balinese_Food_Dining-Ubud_Gianyar_Regency_Bali.html",
+        "https://gofood.co.id/en/bali/restaurant/warung-biah-biah-gootama-ubud-6fd0f081-7fe6-45ba-9023-ab14973b80ba"
+      ],
+      "leadPriority": "P0",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "high",
+      "leadVerificationStatus": "partially-verified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Owner/founder name not published - ask via WhatsApp; email sourced from a public directory snippet, verify on first contact."
+      ],
+      "address": "Jl. Goutama Sel. No.13, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/place/Warung+Biah+Biah/@-8.5093263,115.2620118,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd23d6bba632509:0x6d31d114697259f4!8m2!3d-8.5093401!4d115.2642563",
+      "addressSource": "https://www.google.com/maps/place/Warung+Biah+Biah",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Goutama, Ubud. Real place URL.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "warung-biah-biah",
+        "area": "Ubud (Jl. Gootama)",
+        "why_its_here": "A long-running home-style Balinese warung open since 2002, serving authentic nasi campur and local classics at warung prices. Known for its house chili sauce and a spread of Balinese sides.",
+        "best_for": "authentic Balinese food; budget local dining; nasi campur; a casual central Ubud meal",
+        "not_for": "diners wanting a quiet or upscale setting; groups needing lots of space during busy peak hours",
+        "what_to_order": "nasi campur; balinese tapas; mie goreng; soto ayam; nasi goreng",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm",
+          "just_landed_easy_dinner"
+        ]
+      }
+    },
+    {
+      "leadId": "KORA-L-0033",
+      "slug": "warung-wardani",
+      "name": "Warung Wardani",
+      "proposedCategory": "warung",
+      "district": "denpasar",
+      "districtNeedsConfirmation": false,
+      "cuisine": "Balinese — nasi campur Bali, soto, gado-gado",
+      "currentLocations": "Original at Jl. Yudistira No. 2, Denpasar (since the 1980s); branch at Jl. Waringin No. 3, Kuta/Tuban; branch at Transmart Cempaka Putih, Jakarta",
+      "officialUrl": null,
+      "instagramUrl": "https://www.instagram.com/warungwardanibali/",
+      "sourceManifestIds": [
+        "src-warung-wardani-instagram"
+      ],
+      "additionalReferenceUrls": [
+        "https://denpasartourism.com/id/article/warung-wardani",
+        "https://food.detik.com/berita-boga/d-4344130/nasi-campur-bali-warung-wardani-kini-bisa-dicicipi-di-jakarta",
+        "https://www.tripadvisor.com/Restaurant_Review-g297694-d3973988-Reviews-or30-Warung_Wardani_Denpasar-Denpasar_Bali.html"
+      ],
+      "leadPriority": "P1",
+      "leadProfile": "established-bali-brand",
+      "leadConfidence": "medium",
+      "leadVerificationStatus": "unverified",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "needsHumanReview": true,
+      "forbiddenToPublish": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Current owner/family decision-maker name not publicly documented. Catering WhatsApp [number removed] also published on Instagram per search results."
+      ],
+      "address": "Jl. Yudistira No.2, Dangin Puri Kauh, Kec. Denpasar Utara, Kota Denpasar, Bali 80232",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Warung%20Wardani%20Yudistira%20Denpasar%20Bali",
+      "addressSource": "https://id.foursquare.com/v/warung-wardani/4c0c4e78768bb7135a0b9014",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Denpasar original, Jl. Yudistira No.2; Kuta branch exists.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true,
+      "editorial": {
+        "slug": "warung-wardani",
+        "area": "Denpasar (Jl. Yudistira)",
+        "why_its_here": "A decades-old Denpasar warung known for nasi campur Bali, plated with items such as satay, dendeng and vegetables over rice. It is a longtime local institution also recognised for serving halal Balinese food, open daytime only.",
+        "best_for": "authentic Balinese nasi campur; quick local lunch; halal Balinese food; solo or budget dining",
+        "not_for": "dinner or late-night meals; alcohol and a bar scene; an upscale or scenic setting",
+        "what_to_order": "nasi campur Bali; nasi kare; gado-gado; soto ayam; soto daging",
+        "price_anchor": "$",
+        "jobs": [
+          "local_food_calm"
+        ]
+      }
+    }
+  ],
+  "addressResearch": {
+    "capturedAt": "2026-07-19T00:00:00Z",
+    "method": "parallel web research (official sites, Google Maps, Tripadvisor/Chope/Foursquare directories)",
+    "readyToPublish": 24,
+    "heldNeedsVerification": [
+      "dapur-bali-mula",
+      "kurasu-bali"
+    ]
+  }
+}

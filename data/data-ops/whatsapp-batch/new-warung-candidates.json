@@ -1,0 +1,178 @@
+{
+  "artifactId": "whatsapp-batch-new-candidates",
+  "generatedAt": "2026-07-19T00:00:00Z",
+  "schemaVersion": 1,
+  "provenance": "New venue candidates surfaced by the WhatsApp lookup batch (ALL_RESTAURANTS_CAFES_FOUND) that are NOT already in the catalogue. Deduped against supabase/migrations + canonical-venue-registry. Held here as needs_verification because their existence/identity/district could not be confirmed from an official source; the 63 already-existing venues were enriched directly in migration 0038.",
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "whatsappNote": "Numbers are candidate venue business contacts for the wa.me action gateway, not personal PII; they remain unpublished until the venue is verified.",
+  "notes": [
+    "Kept outside data/data-ops/batches/ so the batch compiler does not ingest it until promoted.",
+    "Promotion: confirm the venue is real, distinct and correctly located (address + Google Maps), set final district/category, then insert via a migration."
+  ],
+  "venues": [
+    {
+      "slug": "d-buchu",
+      "name": "D'Buchu",
+      "proposedDistrict": "ubud",
+      "districtTagged": "ubud",
+      "proposedCategory": "restaurant",
+      "instagramUrl": "https://www.instagram.com/dbuchu.ubud/",
+      "whatsapp": "6281337141300",
+      "whatsappSource": "Instagram profile of @d_buchuu (https://www.instagram.com/d_buchuu/)",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Contact from a differently-spelled Instagram account (@d_buchuu vs dbuchu.ubud); confirm the account and venue identity."
+      ]
+    },
+    {
+      "slug": "warung-biah",
+      "name": "Warung Biah",
+      "proposedDistrict": "seminyak",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungbiah/",
+      "whatsapp": "6287761556688",
+      "whatsappSource": "Instagram reel: https://www.instagram.com/reel/DZ54ZE-T6Qm/",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Possible outlet/duplicate of existing 'Warung Biah Biah' (Ubud) — the related Canggu row's source is the warungbiahbiah Facebook page. Confirm it is a distinct venue before inserting."
+      ]
+    },
+    {
+      "slug": "warung-biah-canggu",
+      "name": "Warung Biah Canggu",
+      "proposedDistrict": "canggu",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungbiahcanggu/",
+      "whatsapp": "6281999526413",
+      "whatsappSource": "Facebook post: https://www.facebook.com/warungbiahbiah/posts/were-open12noon-1130pmwarungbiahbiah-ubud-balifood-bali-balivibes/1606333224832181/",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Source is a Facebook post on the warungbiahbiah page mentioning Ubud+Canggu; confirm a distinct Canggu outlet vs the Ubud original."
+      ]
+    },
+    {
+      "slug": "warung-ceria",
+      "name": "Warung Ceria",
+      "proposedDistrict": "seminyak",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungceria/",
+      "whatsapp": "6281239565984",
+      "whatsappSource": "https://warungceria.restaurants-info.com/",
+      "leadConfidence": "medium",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "WhatsApp from a third-party directory (restaurants-info.com, 'Call Anytime'), medium confidence; base 'Warung Ceria' has no confirmed single location."
+      ]
+    },
+    {
+      "slug": "warung-ceria-jimbaran",
+      "name": "Warung Ceria Jimbaran",
+      "proposedDistrict": "jimbaran",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungceriajimbaran/",
+      "whatsapp": "6282124118383",
+      "whatsappSource": "Google Maps: https://maps.app.goo.gl/KSJrkjpCbbLbYFoKA?g_st=ic",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Only a Google Maps short link; confirm it is a real, distinct venue and its address."
+      ]
+    },
+    {
+      "slug": "warung-ceria-ubud",
+      "name": "Warung Ceria Ubud",
+      "proposedDistrict": "ubud",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungceriaubud/",
+      "whatsapp": "6281916404351",
+      "whatsappSource": "Google Maps: https://www.google.com/maps/search/Warung+Ceria+Ubud, Verified on WhatsApp: https://wa.me/6281916404351",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "Plausible (number verified on wa.me) but venue existence/address not confirmed from an official source."
+      ]
+    },
+    {
+      "slug": "warung-ceria-uluwatu",
+      "name": "Warung Ceria Uluwatu",
+      "proposedDistrict": "uluwatu-bukit",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungceriauluwatu/",
+      "whatsapp": "6287878267676",
+      "whatsappSource": "Instagram bio: https://www.instagram.com/ceriahouseuluwatu/",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "WhatsApp taken from a fuzzily-matched account (ceriahouseuluwatu) — may be a different venue; verify identity."
+      ]
+    },
+    {
+      "slug": "warung-cerita-canggu",
+      "name": "Warung Cerita Canggu",
+      "proposedDistrict": "canggu",
+      "districtTagged": "seminyak",
+      "proposedCategory": "warung",
+      "instagramUrl": "https://www.instagram.com/warungceritacanggu/",
+      "whatsapp": "6285191383559",
+      "whatsappSource": "Instagram post: https://www.instagram.com/reel/DPNXjBAAdy5/",
+      "leadConfidence": "high",
+      "verificationStatus": "needs_verification",
+      "publicationAllowed": false,
+      "forbiddenToPublish": true,
+      "needsHumanReview": true,
+      "capturedAt": "2026-07-19T00:00:00Z",
+      "verifiedAt": null,
+      "reviewNotes": [
+        "No official website; identity/address unconfirmed beyond an Instagram reel."
+      ]
+    }
+  ]
+}
