@@ -29,6 +29,7 @@ const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[]
   { key: "jimbaran", name: "Jimbaran", note: "Beachside ikan bakar (grilled-fish) warungs.", pillar: undefined },
   { key: "nusa-dua", name: "Nusa Dua", note: "Bualu-village babi guling and local plates outside the resort gates.", pillar: "/nusa-dua" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Village warungs inland from the surf beaches.", pillar: "/uluwatu" },
+  { key: "denpasar", name: "Denpasar", note: "The capital's everyday nasi campur Bali and local institutions — where the city actually eats.", pillar: undefined },
 ];
 
 const FAQ = [

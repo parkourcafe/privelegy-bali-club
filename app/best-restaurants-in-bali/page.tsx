@@ -22,6 +22,7 @@ const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[]
   { key: "jimbaran", name: "Jimbaran", note: "Grilled seafood on the sand — the classic Jimbaran Bay dinner as the sun goes down.", pillar: "/jimbaran" },
   { key: "sanur", name: "Sanur", note: "Easy-going seafront dining on the calm, unhurried east coast.", pillar: "/sanur" },
   { key: "nusa-dua", name: "Nusa Dua", note: "Resort fine dining and signature restaurants in the gated south.", pillar: "/nusa-dua" },
+  { key: "denpasar", name: "Denpasar", note: "The city's own tables — where residents eat, from Balinese ayam betutu specialists to long-running local institutions off the tourist strip.", pillar: undefined },
 ];
 
 const FAQ = [

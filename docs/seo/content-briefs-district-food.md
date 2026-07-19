@@ -78,4 +78,37 @@
 - Гард: нигде нет `aggregateRating` (не републикуем Google-рейтинги) — сохранить.
 
 Единственный возможный schema-апгрейд на будущее: `Restaurant`/`LocalBusiness` per-venue на
-страницах `/places/[slug]` (если ещё не отдаётся) — проверить отдельно.
+страницах `/places/[slug]` — **уже отдаётся** (маппинг `restaurant → "Restaurant"`).
+
+---
+
+## Проверка предикатов «в» — результат: тегов никому не нужно
+
+Прошёл `guide.base` + `g.match` по каждому из 24 venue:
+
+- **Job-матчинг работает:** гайды матчат jobs через дефисы (`date-night-special`), наши venue
+  хранят их через подчёркивания (`date_night_special`), но `venueHasJob` прогоняет обе стороны
+  через `normalizeJobs` → совпадает. Значит editorial-jobs из 0039 корректно ловятся.
+- **Ubud / Seminyak / Jimbaran гайды — без групп** (плоский список по `base` = category). Все
+  наши restaurant/cafe/warung там проходят по category. Никакого group-риска.
+- **Canggu — с группами**, но все наши canggu-venue попадают:
+  - `/canggu/best-restaurants` (группы date/groups/family/occasion): alma (date+groups), home
+    (date+occasion), sushimi (groups) — ✓ все.
+  - `/canggu/work-friendly-cafes` (группа coffee = `category==="cafe"`): hungry-bird, secret-spot,
+    the-loft — ✓ все.
+- **Тегов (`vibeTags`/`practicalTags`) добавлять не требуется** — они используются только как
+  необязательное уточнение внутри групп, всегда в `OR` с job/category, которые уже ловят наши venue.
+- ⚠️ На будущее (не про наши 24): у `/canggu/best-restaurants` нет catch-all группы — будущий
+  canggu-ресторан без job'ов date/groups/family/occasion станет невидимым. Стоит добавить
+  fallback-группу «остальные» когда-нибудь.
+
+## Микро-фикс «г» — сделано частично
+
+- ✅ **Denpasar добавлен в island-wide** `best-restaurants-in-bali` и `best-warungs-in-bali`
+  (`AREA_ORDER`, `pillar: undefined` — роута `/denpasar` нет). Теперь `ayam-betutu` и
+  `warung-wardani` появятся island-wide после наката. Typecheck/lint/build — зелёные.
+- ⚠️ **Uluwatu cafe-группа — НЕ микро-фикс.** Uluwatu district-страницы берут venue из отдельного
+  реестра `lib/uluwatu/venues.ts`, а не из БД, поэтому наши `drifter` / `the-cashew-tree` (БД)
+  туда не попадут добавлением группы — их надо заводить через реестр (отдельная задача). При этом
+  они **уже видны island-wide**: в `best-cafes-in-bali` `AREA_ORDER` есть `uluwatu-bukit`. Так что
+  срочности нет; отдельную `/uluwatu/best-cafes` можно сделать позже в рамках uluwatu-реестра.
