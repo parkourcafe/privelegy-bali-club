@@ -108,6 +108,7 @@ function FilterChips({
   filters,
   render,
   field,
+  allLabel,
 }: {
   label: string;
   options: readonly string[];
@@ -115,11 +116,24 @@ function FilterChips({
   filters: CatalogueFilters;
   render: (value: string) => string;
   field: "district" | "category" | "moment";
+  // Leading "everything" chip — an always-visible exit from a scoped view
+  // (e.g. arriving on /places?district=canggu from a district page), so the
+  // unfiltered catalogue is one obvious tap away, not hidden in "Clear all".
+  allLabel?: string;
 }) {
   if (options.length === 0) return null;
   return (
     <div className="chip-row">
       <span className="chip-label">{label}</span>
+      {allLabel ? (
+        <Link
+          href={catalogueHref(filters, { [field]: "" })}
+          aria-current={selected === "" ? "page" : undefined}
+          className={`chip ${selected === "" ? "chip-active" : ""}`}
+        >
+          {allLabel}
+        </Link>
+      ) : null}
       {options.map((option) => {
         const active = selected === option;
         return (
@@ -280,6 +294,7 @@ export default function PlacesView({
           filters={filters}
           field="district"
           render={(value) => districtLabel[value] ?? value}
+          allLabel="All Bali"
         />
       </div>
 

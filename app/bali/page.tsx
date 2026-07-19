@@ -5,6 +5,7 @@ import { SITE_ORIGIN, categoryPhrase, topAreas } from "@/lib/hub";
 import { PILLARS } from "@/lib/pillars";
 import { LIGHT_DISTRICTS } from "@/lib/light-districts";
 import { COLLECTIONS, liveCollectionSlugs } from "@/lib/collections";
+import ArtCard, { districtArt } from "@/components/ArtCard";
 
 export const revalidate = 3600;
 
@@ -83,17 +84,16 @@ export default async function BaliIndexPage() {
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {PILLARS.map((p) => (
-              <Link
+              <ArtCard
                 key={p.slug}
                 href={`/${p.slug}`}
-                className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
-              >
-                <h3 className="venue-name">{p.name}</h3>
-                <p className="mt-1 text-sm text-[var(--muted)]">{p.tagline}</p>
-                <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
-                  The {p.name} guide →
-                </span>
-              </Link>
+                art={districtArt(p.slug)}
+                eyebrow="Deep guide"
+                title={p.name}
+                blurb={p.tagline}
+                cta={`The ${p.name} guide`}
+                tall
+              />
             ))}
           </div>
         </section>
@@ -103,22 +103,15 @@ export default async function BaliIndexPage() {
           {hubs.map((h) => {
             const areas = topAreas(h.venues, 3);
             return (
-              <Link
+              <ArtCard
                 key={h.slug}
                 href={`/bali/${h.slug}`}
-                className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
-              >
-                <h2 className="venue-name">{h.name}</h2>
-                <p className="mt-1 text-sm text-[var(--muted)]">
-                  {h.venues.length} places · {categoryPhrase(h.venues)}
-                </p>
-                {areas.length > 0 && (
-                  <p className="mt-2 text-xs text-[var(--muted)]">{areas.join(" · ")}</p>
-                )}
-                <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
-                  Explore {h.name} →
-                </span>
-              </Link>
+                art={districtArt(h.slug)}
+                eyebrow={`${h.venues.length} places`}
+                title={h.name}
+                blurb={[categoryPhrase(h.venues), areas.join(" · ")].filter(Boolean).join(" — ")}
+                cta={`Explore ${h.name}`}
+              />
             );
           })}
         </div>
@@ -149,17 +142,15 @@ export default async function BaliIndexPage() {
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {LIGHT_DISTRICTS.map((d) => (
-            <Link
+            <ArtCard
               key={d.slug}
               href={`/${d.slug}`}
-              className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
-            >
-              <h3 className="venue-name">{d.name}</h3>
-              <p className="mt-1 text-sm text-[var(--muted)]">{d.region}</p>
-              <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
-                The {d.name} guide →
-              </span>
-            </Link>
+              art={districtArt(d.slug)}
+              eyebrow="Quiet corner"
+              title={d.name}
+              blurb={d.region}
+              cta={`The ${d.name} guide`}
+            />
           ))}
         </div>
 

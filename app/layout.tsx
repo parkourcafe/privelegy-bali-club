@@ -52,6 +52,11 @@ export const viewport: Viewport = {
   themeColor: "#005962",
   width: "device-width",
   initialScale: 1,
+  // The palette is a designed light system with hand-tuned contrast. Declaring
+  // it stops Android Chrome's forced auto-dark from recolouring backgrounds
+  // while leaving ink variables dark — which rendered as "black text on black"
+  // for users with system dark mode.
+  colorScheme: "light",
 };
 
 // Sitewide brand entity: one Organization node (name/logo → knowledge panel)
