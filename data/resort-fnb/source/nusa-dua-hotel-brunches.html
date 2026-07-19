@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+  OTHER BALI — HUB PAGE TEMPLATE  ·  cluster: Resort day-use & hotel dining  ·  type: hotel-brunch district hub
+  Example: /nusa-dua/hotel-brunches   ·   built 2026-07-19 from OTHER_BALI_RESORT_FNB_MASTER.csv
+  ------------------------------------------------------------------------------------------------
+  HOW TO CLONE FOR OTHER DISTRICTS/TYPES:
+   1) Swap the district name, H1, intro sentence, breadcrumb, canonical URL.
+   2) Replace the <tbody> rows + venue cards from the matching MASTER.csv rows.
+   3) In JSON-LD: include `priceSpecification` ONLY for rows tagged [OFFICIAL].
+      Blog-sourced/[NO DATA] prices: show in the visible table with a "reported"/"on request"
+      note, but DO NOT emit a schema price (rule: an absent field beats a false one).
+   4) Update "Prices checked" date after each re-verification.
+   5) Editorial-independence line stays verbatim on every page.
+  DATA-QUALITY TAGS (HTML comments in each row): OFFICIAL = hotel/booking-engine; BLOG = press/aggregator; NODATA = unpublished.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nusa Dua Hotel Sunday Brunches: 2026 Prices & What's Included | Other Bali</title>
+<meta name="description" content="Every Sunday brunch at Nusa Dua's 5-star resorts, compared: price per adult, what's included, pool access, hours and how to book. Prices checked July 2026.">
+<link rel="canonical" href="https://www.otherbali.com/nusa-dua/hotel-brunches">
+<style>
+  :root{--bg:#fbfaf7;--fg:#1c1a17;--muted:#6b6459;--line:#e7e2d8;--card:#fff;--accent:#0f6d5f;--chip:#eef4f2}
+  @media(prefers-color-scheme:dark){:root{--bg:#141311;--fg:#ece7dd;--muted:#a49b8c;--line:#2c2925;--card:#1c1a17;--accent:#5fd6c0;--chip:#1e2a27}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:920px;margin:0 auto;padding:20px}
+  nav.bc{font-size:13px;color:var(--muted);margin:8px 0 18px}
+  nav.bc a{color:var(--muted);text-decoration:none} nav.bc a:hover{text-decoration:underline}
+  h1{font-size:30px;line-height:1.2;margin:.2em 0 .1em}
+  .sub{color:var(--muted);font-size:15px;margin-bottom:20px}
+  .answer{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 24px;font-size:16px}
+  .answer strong{color:var(--accent)}
+  h2{font-size:22px;margin:34px 0 12px;border-top:1px solid var(--line);padding-top:26px}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 6px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  td.price{font-weight:600;white-space:nowrap}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:20px;background:var(--chip);color:var(--muted);margin-left:4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .card h3{margin:0 0 4px;font-size:18px}
+  .card .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+  .kv{display:grid;grid-template-columns:130px 1fr;gap:2px 10px;font-size:14px;margin-top:8px}
+  .kv dt{color:var(--muted)} .kv dd{margin:0}
+  .book{display:inline-block;margin-top:10px;font-size:14px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid var(--accent);padding:6px 12px;border-radius:8px}
+  .note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:30px;padding-top:16px}
+  .links a{color:var(--accent)}
+  details{border-bottom:1px solid var(--line);padding:12px 0}
+  summary{font-weight:600;cursor:pointer}
+  .checked{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="bc" aria-label="Breadcrumb">
+  <a href="/">Other Bali</a> › <a href="/nusa-dua">Nusa Dua</a> › Hotel Sunday brunches
+</nav>
+
+<h1>Nusa Dua hotel Sunday brunches</h1>
+<p class="sub">Every 5-star Sunday brunch in Nusa Dua, compared — price, what's included, pool access &amp; how to book. <span class="checked">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span></p>
+
+<!-- ANSWER-FIRST BLOCK: this paragraph is what ChatGPT / Google AI quotes. Lead with the range + the value pick. -->
+<div class="answer">
+  Nusa Dua's hotel Sunday brunches run from about <strong>IDR 650,000 to 1,650,000 per adult</strong> (non-alcoholic; free-flow alcohol adds roughly IDR 450,000–1,100,000). The best value is <strong>Apurva Kempinski's Brunchcation at IDR 798,000++</strong> — it bundles the buffet <em>plus</em> pool, waterslide and beach access, so it doubles as a day pass. For the highest-end spread, <strong>Kayuputi at The St. Regis</strong> is the marquee (from IDR 1,250,000). Kids are typically half price and under-6 free. Most brunches run Sunday 11:00–15:00 and require a reservation.
+</div>
+
+<h2>Compare all Nusa Dua Sunday brunches</h2>
+<table>
+  <thead>
+    <tr><th>Resort · venue</th><th>Adult price</th><th>Includes</th><th>Hours</th><th>Book</th><th>Best for</th></tr>
+  </thead>
+  <tbody>
+    <!-- BLOG: price press-sourced (The Laguna / Bali Buddies) -> visible price, NO schema price -->
+    <tr><td>The Laguna · Arwana Beach &amp; BBQ Brunch</td><td class="price">from IDR 650,000</td><td>Seafood/BBQ buffet, oysters, mocktails, live music; kids 3-12 IDR 500k++</td><td>Sun 12:00–15:00</td><td><a href="/places/arwana-laguna">Chope</a></td><td>Beachfront BBQ, families</td></tr>
+    <!-- BLOG -->
+    <tr><td>The Westin · Ikan Sunday Brunch</td><td class="price">IDR 695,000</td><td>Welcome drink, beach &amp; pool access, live entertainment, kids space, unlimited bites; under-6 free</td><td>Sun 12:00–16:00</td><td><a href="/places/ikan-westin">Chope</a></td><td>Families (pool + kids)</td></tr>
+    <!-- OFFICIAL: emit schema price -->
+    <tr><td>Apurva Kempinski · Brunchcation (Pala)</td><td class="price">IDR 798,000++</td><td><strong>+ pool, waterslide &amp; beach access</strong>, welcome drink, free-flow soft; rooftop entertainment; kids 6-12 IDR 400k++</td><td>Sun 12:00–15:30</td><td><a href="/places/pala-brunchcation-kempinski">Concierge / Chope</a></td><td>Best value · brunch + day pass</td></tr>
+    <!-- OFFICIAL -->
+    <tr><td>Sofitel · Cucina Sunday Brunch</td><td class="price">IDR 888,000++</td><td>Fusion buffet (IT/ES/FR/Asian ateliers), cheese &amp; dessert, pool access; kids 6-12 IDR 388k++</td><td>Sun 11:00–15:00</td><td><a href="/places/cucina-sofitel">ResDiary</a></td><td>Buffet variety</td></tr>
+    <!-- BLOG: marquee but press-sourced price -> visible, NO schema price -->
+    <tr><td>The Mulia · Soleil Sunday Brunch</td><td class="price">IDR 1,136,190</td><td>Mediterranean/Pan-Asian buffet, live grill, seafood bar; free-flow soft; kids 6-11 IDR 482k</td><td>Sun 11:00–15:00</td><td><a href="/places/soleil-mulia">EatApp</a></td><td>The famous spread</td></tr>
+    <!-- OFFICIAL -->
+    <tr><td>The St. Regis · Kayuputi Sunday (Astor)</td><td class="price">from IDR 1,650,000</td><td>À-la-carte pass-around brunch; +beverage IDR 1,750k / +champagne 2,850k</td><td>Sun 11:00–15:00</td><td><a href="/places/kayuputi-st-regis">SevenRooms</a></td><td>Highest-end / occasion</td></tr>
+    <!-- NODATA: price unpublished -> "on request", NO schema price -->
+    <tr><td>The Ritz-Carlton · Sunday brunch <span class="tag">verify</span></td><td class="price">Price on request</td><td>Sunday brunch referenced by guests; current venue &amp; price to confirm</td><td>Sun</td><td><a href="/places/ritz-carlton-bali">Enquire</a></td><td>Cliff-side luxury</td></tr>
+  </tbody>
+</table>
+<p class="checked">“from” = starting/food-only rate; ++ = subject to ~21% tax &amp; service. Saturday option: St. Regis Kayuputi also runs a Saturday brunch from IDR 1,250,000 (official).</p>
+
+<h2>The brunches in detail</h2>
+
+<div class="card">
+  <h3>Apurva Kempinski — Brunchcation at Pala <span class="tag">best value</span></h3>
+  <div class="meta">Rooftop + buffet · Sun 12:00–15:30</div>
+  <p>The only Nusa Dua brunch that is also a day pass: your IDR 798,000++ covers the buffet <em>and</em> pool, waterslide and beach access, so a family can make a full day of it. Free-flow soft drinks included; alcohol package extra.</p>
+  <dl class="kv">
+    <dt>Adult</dt><dd>IDR 798,000++ <span class="tag">official</span></dd>
+    <dt>Child 6–12</dt><dd>IDR 400,000++ · under-6 free</dd>
+    <dt>Includes</dt><dd>Buffet + à la carte, welcome drink, free-flow soft, pool/waterslide/beach, rooftop entertainment</dd>
+    <dt>Book</dt><dd>Culinary concierge / Chope</dd>
+  </dl>
+  <a class="book" href="/places/pala-brunchcation-kempinski">See venue &amp; reserve →</a>
+</div>
+
+<div class="card">
+  <h3>The St. Regis — Kayuputi <span class="tag">occasion</span></h3>
+  <div class="meta">Beachfront à-la-carte brunch · Sat &amp; Sun 11:00–15:00</div>
+  <p>Nusa Dua's marquee luxury brunch — pass-around à la carte rather than a buffet, on St. Regis's beachfront. Sunday (“Astor”) from IDR 1,650,000 food-only; Saturday from IDR 1,250,000. Beverage and champagne tiers add on top.</p>
+  <dl class="kv">
+    <dt>Sunday</dt><dd>from IDR 1,650,000 net food <span class="tag">official</span></dd>
+    <dt>+ Beverage</dt><dd>IDR 1,750,000 · + Champagne IDR 2,850,000</dd>
+    <dt>Book</dt><dd>SevenRooms</dd>
+  </dl>
+  <a class="book" href="/places/kayuputi-st-regis">See venue &amp; reserve →</a>
+</div>
+
+<div class="card">
+  <h3>The Mulia — Soleil</h3>
+  <div class="meta">Beachfront buffet · Sun 11:00–15:00</div>
+  <p>The best-known Sunday brunch on the island: a vast Mediterranean and Pan-Asian buffet with a live grill and seafood bar. Reported around IDR 1,136,000 per adult (confirm live on EatApp — the resort doesn't publish the figure).</p>
+  <dl class="kv">
+    <dt>Adult</dt><dd>≈ IDR 1,136,190 <span class="tag">reported</span></dd>
+    <dt>Child 6–11</dt><dd>≈ IDR 482,790 · under-6 free</dd>
+    <dt>Book</dt><dd>EatApp</dd>
+  </dl>
+  <a class="book" href="/places/soleil-mulia">See venue &amp; reserve →</a>
+</div>
+
+<!-- Clone the card block above for Sofitel Cucina, Westin Ikan, Laguna Arwana as needed. -->
+
+<h2>Frequently asked</h2>
+<!-- Visible FAQ helps AEO/LLM answers. Do NOT rely on FAQPage rich result (Google removed it May 2026). -->
+<details><summary>How much is Sunday brunch in Nusa Dua?</summary><p>From about IDR 650,000 to 1,650,000 per adult for the food; free-flow alcohol adds roughly IDR 450,000–1,100,000. Children are usually half price and under-6 free.</p></details>
+<details><summary>Which Nusa Dua brunch includes pool access?</summary><p>Apurva Kempinski's Brunchcation (IDR 798,000++) explicitly includes pool, waterslide and beach access. The Westin Ikan brunch includes pool &amp; beach access too.</p></details>
+<details><summary>Do I need to book, and can non-hotel-guests come?</summary><p>Yes on both — these brunches are open to outside guests and are reservation-only, especially in peak season. Book via the channel listed for each venue.</p></details>
+<details><summary>What's the most luxurious option?</summary><p>Kayuputi at The St. Regis (from IDR 1,650,000 Sunday) is the highest-end, beachfront à-la-carte brunch.</p></details>
+
+<h2>Keep planning Nusa Dua</h2>
+<p class="links">
+  → <a href="/nusa-dua/resort-day-passes">Nusa Dua resort &amp; pool day passes (with prices)</a><br>
+  → <a href="/bali-hotel-brunches">All Bali hotel Sunday brunches</a><br>
+  → <a href="/bali-free-beach-clubs">Bali's free-entry beach clubs</a><br>
+  → <a href="/nusa-dua">Nusa Dua area guide — is it right for your trip?</a>
+</p>
+
+<p class="note">
+  <strong>How we choose &amp; verify.</strong> Placement in this list can't be bought — venues are ordered by price and fit, not by any payment. Prices are checked from official hotel and booking-engine sources where possible (marked <em>official</em>); figures marked <em>reported</em> come from recent press and should be confirmed at booking; <em>price on request</em> means the venue doesn't publish it. Prices last checked 19 July 2026 and change seasonally.
+</p>
+
+</div>
+
+<!-- ============ STRUCTURED DATA ============ -->
+<!-- BreadcrumbList -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Other Bali","item":"https://www.otherbali.com/"},
+ {"@type":"ListItem","position":2,"name":"Nusa Dua","item":"https://www.otherbali.com/nusa-dua"},
+ {"@type":"ListItem","position":3,"name":"Hotel Sunday brunches","item":"https://www.otherbali.com/nusa-dua/hotel-brunches"}
+]}
+</script>
+<!-- Article -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"Nusa Dua hotel Sunday brunches: 2026 prices & what's included",
+ "author":{"@type":"Organization","name":"Other Bali"},
+ "publisher":{"@type":"Organization","name":"Other Bali","logo":{"@type":"ImageObject","url":"https://www.otherbali.com/logo.png"}},
+ "dateModified":"2026-07-19","datePublished":"2026-07-19",
+ "mainEntityOfPage":"https://www.otherbali.com/nusa-dua/hotel-brunches"}
+</script>
+<!-- ItemList: emit `price` ONLY for OFFICIAL-verified venues (Kempinski, Sofitel, St Regis). Others: name+url, no price. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"Nusa Dua hotel Sunday brunches","itemListOrder":"https://schema.org/ItemListOrderAscending",
+ "itemListElement":[
+  {"@type":"ListItem","position":1,"item":{"@type":"Restaurant","name":"Arwana — The Laguna","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/arwana-laguna","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":2,"item":{"@type":"Restaurant","name":"Ikan — The Westin","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/ikan-westin","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":3,"item":{"@type":"Restaurant","name":"Pala Brunchcation — Apurva Kempinski","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/pala-brunchcation-kempinski","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"},"makesOffer":{"@type":"Offer","name":"Sunday Brunchcation (adult)","price":"798000","priceCurrency":"IDR","category":"Sunday brunch","url":"https://www.otherbali.com/places/pala-brunchcation-kempinski","priceValidUntil":"2026-12-31"}}},
+  {"@type":"ListItem","position":4,"item":{"@type":"Restaurant","name":"Cucina — Sofitel","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/cucina-sofitel","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"},"makesOffer":{"@type":"Offer","name":"Cucina Sunday Brunch (adult)","price":"888000","priceCurrency":"IDR","category":"Sunday brunch","url":"https://www.otherbali.com/places/cucina-sofitel","priceValidUntil":"2026-12-31"}}},
+  {"@type":"ListItem","position":5,"item":{"@type":"Restaurant","name":"Soleil — The Mulia","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/soleil-mulia","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":6,"item":{"@type":"Restaurant","name":"Kayuputi — The St. Regis","servesCuisine":"Brunch","url":"https://www.otherbali.com/places/kayuputi-st-regis","address":{"@type":"PostalAddress","addressLocality":"Nusa Dua","addressRegion":"Bali","addressCountry":"ID"},"makesOffer":{"@type":"Offer","name":"Kayuputi Sunday Brunch (adult, food)","price":"1650000","priceCurrency":"IDR","category":"Sunday brunch","url":"https://www.otherbali.com/places/kayuputi-st-regis","priceValidUntil":"2026-12-31"}}}
+ ]}
+</script>
+</body>
+</html>
