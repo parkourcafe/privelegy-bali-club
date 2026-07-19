@@ -72,6 +72,7 @@ export default function PlaceCard({
             src={place.photoUrl}
             alt={`${place.name} — ${categoryLabel[place.category] ?? place.category}`}
             variant="card"
+            fallback={<PlaceCover name={place.name} category={place.category} />}
           />
         ) : (
           <PlaceCover name={place.name} category={place.category} />

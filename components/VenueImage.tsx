@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 type VenueImageVariant = "card" | "visual" | "hero";
@@ -24,19 +27,28 @@ function canUseNextImage(src: string): boolean {
   }
 }
 
+// Photo Policy v3 §3: a failed image load must fall back seamlessly — no
+// broken-image icon, no empty box. On error this renders the provided
+// `fallback` (the caller's designed fallback, e.g. <PlaceCover/>) or nothing,
+// letting the styled container behind it show through.
 export default function VenueImage({
   src,
   alt,
   variant,
   className,
   priority = false,
+  fallback = null,
 }: {
   src: string;
   alt: string;
   variant: VenueImageVariant;
   className?: string;
   priority?: boolean;
+  fallback?: React.ReactNode;
 }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <>{fallback}</>;
+
   if (canUseNextImage(src)) {
     return (
       <Image
@@ -47,6 +59,7 @@ export default function VenueImage({
         quality={variant === "hero" ? 78 : 70}
         priority={priority}
         className={className}
+        onError={() => setFailed(true)}
       />
     );
   }
@@ -62,6 +75,7 @@ export default function VenueImage({
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"
+      onError={() => setFailed(true)}
     />
   );
 }

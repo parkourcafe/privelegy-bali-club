@@ -23,5 +23,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "2cdf423ea319c2dd8e9dfc4f8bc14ea924f2cd434d53945404586453878e4d25"
+  "sourceHash": "4a270fff2c9867f060faca4ab9d020654f8bb5aa2f091abcc8686f614d4e8ebc"
 }
