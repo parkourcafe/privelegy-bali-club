@@ -16,6 +16,13 @@
 
 begin;
 
+-- Denpasar is introduced as a catalogue district by these venues but was never
+-- in the districts seed (cf. 0015) — seed it first so the venues.district FK
+-- (venues_district_fkey) resolves. Idempotent; planning_only (no money loop).
+insert into districts (slug, name, is_deep, status, monetization_enabled, qr_enabled)
+values ($ob$denpasar$ob$, $ob$Denpasar$ob$, false, $ob$planning_only$ob$, false, false)
+on conflict (slug) do nothing;
+
 -- ---------- canggu (6) ----------
 insert into venues (id, slug, name, category, district, area, address, gmaps_url, official_url, instagram_url, why_its_here, best_for, not_for, what_to_order, price_anchor, jobs)
 select gen_random_uuid()::text, $ob$alma-tapas-bar$ob$, $ob$Alma Tapas Bar$ob$, $ob$restaurant$ob$, $ob$canggu$ob$, $ob$Jl. Pantai Berawa, Canggu (Berawa)$ob$, $ob$Jl. Pantai Berawa No.89C, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361$ob$, $ob$https://www.google.com/maps/search/?api=1&query=Alma%20Tapas%20Bar%20Canggu%20Berawa%20Bali$ob$, $ob$https://almatapasbar.com/$ob$, $ob$https://www.instagram.com/almatapasbar/$ob$, $ob$A neighbourhood Spanish tapas bar in Berawa built around shared plates, wine, sangria and vermouth in a rustic, Mediterranean-styled room. The menu spans land, sea and garden small plates meant to be ordered across the table.$ob$, $ob$shared plates with wine; casual date over tapas; small group grazing; unhurried evening in canggu$ob$, $ob$anyone wanting a fast solo bite or a single large main course$ob$, $ob$patatas bravas; chorizo al vino; pulpo a la gallega (octopus); tortilla española; grilled prawns; sangria or vermouth$ob$, $ob$$$$$ob$, array['group_dinner_share','date_night_special']::text[]
