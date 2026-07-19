@@ -10,6 +10,18 @@ for the 12-corner food hall on Jl. Monkey Forest, Ubud, opening December 2026).
 and is kept **outside** `data/data-ops/batches/` so the batch compiler does not ingest it
 until a human promotes each candidate.
 
+## Status — address research done (2026-07-19)
+
+A parallel web-research pass added a street **address + Google Maps link + source** to each
+candidate (see `address*` fields and the `addressResearch` block in the JSON). Result:
+
+- **24 ready to load** → `supabase/migrations/0039_publish_kora_new_venues.sql` inserts them
+  at the repo's `publication_status = 'review'` default (in the catalogue, **not yet public**;
+  an operator flips them to `published` to go live). Editorial copy is still null.
+- **2 held `needs_verification`** (not inserted): `kurasu-bali` (Ubud presence is an
+  unconfirmed Tanah Gajah pop-up, may have ended May 2026) and `dapur-bali-mula` (Les village,
+  North Bali — outside the guide's districts).
+
 ## Selection rule
 
 Every one of the 64 prospects was classified. A lead is staged here only if it is **both**:

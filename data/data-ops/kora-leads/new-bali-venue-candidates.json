@@ -64,7 +64,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No public email/phone found (site blocked direct fetch, bookings run through Chope); founder name not publicly verifiable."
-      ]
+      ],
+      "address": "Jl. Pantai Berawa No.89C, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Alma%20Tapas%20Bar%20Canggu%20Berawa%20Bali",
+      "addressSource": "https://us.trip.com/travel-guide/foods/bali-438-restaurant/alma-tapas-bar-136324934",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Canggu/Berawa branch; also Bingin/Uluwatu branch.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0034",
@@ -98,7 +105,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Founder was 'Men Tempeh' (1978); the branch brand was built out by a family member known publicly as 'Oka' (per Will Meyrick's article) but no full legal name is published — verify current owner before naming. Multiple published branch phones; [number removed] (Renon) is mobile."
-      ]
+      ],
+      "address": "Jl. Merdeka No. 88, Renon, Denpasar Timur, Kota Denpasar, Bali 80235",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Ayam%20Betutu%20Khas%20Gilimanuk%20Merdeka%20Renon%20Denpasar%20Bali",
+      "addressSource": "https://idalamat.com/alamat/288061/ayam-betutu-khas-gilimanuk-jalan-merdeka-no-88-denpasar-bali",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "betutugilimanuk brand Renon/Merdeka branch; do not confuse with Ayam Betutu Ibu Nia (Jl. Merdeka No.1).",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0025",
@@ -131,7 +145,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Corporate/leasing decision-maker not published; om.ubud@ address is the outlet reservation email - ask to be routed to business development."
-      ]
+      ],
+      "address": "Jl. Hanoman, Padang Tegal, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Bebek%20Bengil%20Dirty%20Duck%20Diner%20Padang%20Tegal%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d991554-Reviews-Bebek_Bengil_Ubud-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Ubud flagship, Jl. Hanoman.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0006",
@@ -164,7 +185,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No named individual owner publicly verifiable; only group social email published."
-      ]
+      ],
+      "address": "Jl. Kayu Cendana No. 8B, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=BOSSMAN%20Burgers%20Kayu%20Cendana%20Seminyak%20Bali",
+      "addressSource": "https://www.bossmanbali.com/seminyak",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Seminyak flagship, Jl. Kayu Cendana.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0050",
@@ -196,8 +224,16 @@
       "capturedAt": "2026-07-19T00:00:00Z",
       "verifiedAt": null,
       "reviewNotes": [
-        "No published email/phone found (reservations via Instagram DM only); unclear if he would leave/duplicate the village model — pitch may need a mentored-team format; donation-based pricing may need adapting to commercial rent + revenue share."
-      ]
+        "No published email/phone found (reservations via Instagram DM only); unclear if he would leave/duplicate the village model — pitch may need a mentored-team format; donation-based pricing may need adapting to commercial rent + revenue share.",
+        "Located in Les village, North Bali (Buleleng) — outside the guide's districts."
+      ],
+      "address": "Desa Les, Tejakula, Buleleng Regency, Bali 81173, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Dapur%20Bali%20Mula%20Les%20Tejakula%20Bali",
+      "addressSource": "https://lokasibali.com/lokasi/dapur-bali-mula",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Les village, Tejakula, North Bali (Buleleng) — OUTSIDE guide districts; district null; cannot publish.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": false
     },
     {
       "leadId": "KORA-L-0059",
@@ -230,7 +266,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Confirm whether the cafe operates as a separable F&B unit from the retail business."
-      ]
+      ],
+      "address": "Jl. Labuansait No.52, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Drifter%20Surf%20Shop%20Cafe%20Uluwatu%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g1380108-d12689863-Reviews-Drifter_Surf_Shop_Cafe_Uluwatu-Pecatu_Bukit_Peninsula_Bali.html",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Uluwatu (Pecatu), Jl. Labuansait.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0043",
@@ -263,7 +306,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No public email found (contact page is a web form, page blocked for direct fetch); some guides mention an Ubud cafe - verify whether they currently operate in Ubud before pitching exclusivity."
-      ]
+      ],
+      "address": "Jl. Petitenget No. 1A, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Expat%20Roasters%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://www.balirca.id/member/expat-roasters-petitenget/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Petitenget/Seminyak flagship brew bar.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0021",
@@ -296,7 +346,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Founder/owner name not publicly verifiable from sources found; published email is the Renon branch Gmail - confirm HQ contact."
-      ]
+      ],
+      "address": "Jl. Mertanadi No.46B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Gusto%20Gelato%20Caffe%20Mertanadi%20Kerobokan%20Bali",
+      "addressSource": "https://www.google.com/maps/place/data=!4m2!3m1!1s0x2dd2476ef002304d:0x50ae7b5dce63774",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Original Jl. Mertanadi, Kerobokan (near Seminyak).",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0037",
@@ -326,7 +383,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No published email/WhatsApp number captured from public pages seen (reservations stated as via WhatsApp/Instagram; number not shown in results). Confirm his consulting workload allows a second site."
-      ]
+      ],
+      "address": "Jl. Pantai Pererenan No. 92, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+      "gmapsUrl": "https://maps.app.goo.gl/mET5aM7JhTn8TbwW8",
+      "addressSource": "https://bychefwayan.com/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Pererenan (Canggu). Real place link.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0054",
@@ -358,7 +422,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Official website/email not found in search results; owner name (roaster/founder) not publicly verified. Confirm via IG DM."
-      ]
+      ],
+      "address": "Jl. Segara Perancak No.86, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hungry%20Bird%20Coffee%20Roaster%20Canggu%20Bali",
+      "addressSource": "https://www.corner.inc/place/pAzM5VFFGayM",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Tibubeneng/Canggu; street naming varies.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0012",
@@ -391,7 +462,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Confirm whether he prefers WhatsApp or email for business enquiries; catering arm capacity vs. second fixed location."
-      ]
+      ],
+      "address": "Jl. Raya Goa Gajah No.94, Peliatan, Ubud, Kec. Ubud, Kabupaten Gianyar, Bali 80582",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kilig%20Filipino%20Warung%20Ubud%20Bali",
+      "addressSource": "https://kiligbali.com/",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Jl. Raya Goa Gajah near Goa Gajah; closed Mon & Tue.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0019",
@@ -425,8 +503,16 @@
       "capturedAt": "2026-07-19T00:00:00Z",
       "verifiedAt": null,
       "reviewNotes": [
-        "No published business-development email verified ([link removed] site has contact channels — verify before emailing); whether the Bali entity/partner from the Tanah Gajah collaboration continues post-pop-up. | Ubud pop-up stated to end 8 May 2026 — re-verify current presence before outreach."
-      ]
+        "No published business-development email verified ([link removed] site has contact channels — verify before emailing); whether the Bali entity/partner from the Tanah Gajah collaboration continues post-pop-up. | Ubud pop-up stated to end 8 May 2026 — re-verify current presence before outreach.",
+        "Ubud presence is an unconfirmed pop-up (Tanah Gajah, stated to end ~May 2026); not central Ubud."
+      ],
+      "address": "Tanah Gajah Resort, Jl. Raya Goa Gajah, Kemenuh, Ubud area, Gianyar, Bali",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kurasu%20Tanah%20Gajah%20Ubud%20Bali",
+      "addressSource": "https://www.nowbali.co.id/kurasu-ubud-tanah-gajah-bali/",
+      "addressConfidence": "low",
+      "addressResearchNotes": "PERMANENCE UNCONFIRMED — pop-up inside Tanah Gajah resort, stated to run until ~8 May 2026; not central Ubud (Kemenuh/Sukawati). Do NOT publish; needs_verification.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": false
     },
     {
       "leadId": "KORA-L-0052",
@@ -460,15 +546,22 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Owners' surnames and any email/phone not publicly published - reach via Instagram DM or in person at the warung."
-      ]
+      ],
+      "address": "Jl. Gootama No.13, Ubud, Kec. Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Melting%20Wok%20Warung%20Jalan%20Gootama%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d2364236-Reviews-Melting_Wok_Warung-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Gootama.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0044",
       "slug": "menega-cafe",
       "name": "Menega Cafe",
       "proposedCategory": "restaurant",
-      "district": null,
-      "districtNeedsConfirmation": true,
+      "district": "jimbaran",
+      "districtNeedsConfirmation": false,
       "cuisine": "Jimbaran-style grilled seafood (coconut-husk BBQ)",
       "currentLocations": "Menega Cafe, Jl. Four Seasons, Muaya Beach, Jimbaran (flagship); also manages sister venue Warung Sakura Seafood, Jimbaran",
       "officialUrl": null,
@@ -491,7 +584,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No official website or verified Instagram handle found; owner name not published. Published number is a landline, so first approach should be a visit or call, not WhatsApp. Risk to probe: whether the brand works without the beachfront setting."
-      ]
+      ],
+      "address": "Muaya Beach (Pantai Muaya), Jimbaran, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Menega%20Cafe%20Muaya%20Beach%20Jimbaran%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297696-d1948466-Reviews-Menega_Cafe-Jimbaran_South_Kuta_Bali.html",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Muaya Beach, Jimbaran; informal street addressing; district resolved.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0042",
@@ -524,7 +624,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Founder/owner name not publicly verifiable in sources found; their signature format is large-venue party dining - needs framing as a compact taqueria."
-      ]
+      ],
+      "address": "Jl. Kayu Jati No.9, Petitenget, Seminyak, Kuta, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Motel%20Mexicola%20Seminyak%20Bali",
+      "addressSource": "https://motelmexicola.info/seminyak/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Flagship Jl. Kayu Jati, Petitenget.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0008",
@@ -558,7 +665,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Founder name not publicly verifiable from sources found; confirm which entity handles new-location decisions (Bali HQ vs franchisor)."
-      ]
+      ],
+      "address": "Jl. Drupadi 1 No.2A, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Nalu%20Bowls%20Seminyak%20Drupadi%20Bali",
+      "addressSource": "https://eaten.io/p/Nalu-Bowls-Jl-Drupadi-1-No2A-Seminyak-45691c",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Seminyak original, Jl. Drupadi; multiple outlets exist.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0058",
@@ -592,7 +706,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "[link removed] domain now serves gambling spam (likely lapsed) so info@ email may be dead - verify current operation on-site or via Facebook before outreach; directory listings (Qraved, FirstTable) still show it open as of 2026."
-      ]
+      ],
+      "address": "Jl. Petitenget No. 77X, Kerobokan, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Saigon%20Street%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://foursquare.com/v/saigon-street/558f444f498e84b2d73f4c97",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Petitenget; still operating per 2026 listings; use FB page, .com domain lapsed.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0028",
@@ -622,7 +743,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Email address was redacted in search results - confirm via [link removed] or Linktree; WhatsApp from their published Linktree/site snippet."
-      ]
+      ],
+      "address": "Jl. Sukma Kesuma No.2, Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sayuri%20Healing%20Food%20Peliatan%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g3932211-d11890521-Reviews-Sayuri_Healing_Food-Peliatan_Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Sukma Kesuma, Peliatan.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0038",
@@ -655,7 +783,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No official website found (only SEO clone sites carrying unverified phone numbers - do not use those); owner name not publicly verifiable. Verify best IG handle (@secretspot.bali vs @secretspotbali) before DM."
-      ]
+      ],
+      "address": "Jl. Tanah Barak No. 7, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Secret%20Spot%20Canggu%20Tanah%20Barak%20Bali",
+      "addressSource": "https://secret-spot-canggu.wheree.com/",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Jl. Tanah Barak; Berawa branch also exists.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0005",
@@ -688,7 +823,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Founder/owner name not publicly verifiable in sources found."
-      ]
+      ],
+      "address": "Jl. Pantai Berawa No.101C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sushimi%20Berawa%20Canggu%20Bali",
+      "addressSource": "https://wanderlog.com/place/details/2070616/sushimi-berawa-bali",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Berawa/Canggu branch.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0045",
@@ -720,7 +862,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Family owners' names not published. Verify the venue's current trading status post-Bingin-demolition (its lane location suggests it was not demolished, but foot traffic impact unknown)."
-      ]
+      ],
+      "address": "Jl. Pantai Bingin No.9, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/place/The+Cashew+Tree/@-8.8084415,115.112652,17z/data=!4m6!3m5!1s0x2dd245479b8f1853:0xc76fa2acc632056a!8m2!3d-8.8069026!4d115.1170434!16s/g/11byck_jvr",
+      "addressSource": "https://www.google.com/maps/place/The+Cashew+Tree",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Google Maps place listing; Jl. Pantai Bingin.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0031",
@@ -753,7 +902,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Owner/founder name not publicly verifiable in sources found; email/phone from Facebook about page and directories - reconfirm."
-      ]
+      ],
+      "address": "Jl. Pantai Batu Bolong No. 50A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/place/The+Loft+Canggu/@-8.6509484,115.1334429,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd2387eacbd2f6d:0xa70ea493a2c5a8d0!8m2!3d-8.6509484!4d115.1356316",
+      "addressSource": "https://www.google.com/maps/place/The+Loft+Canggu/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Batu Bolong, Canggu. Real place URL.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0001",
@@ -787,7 +943,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No public email or phone found; no founder/owner name published. IMPORTANT: Tripadvisor lists a Tukies outlet at Jl. Monkey Forest No.15 - the same address as the KORA site; verify the relationship before outreach."
-      ]
+      ],
+      "address": "Jl. Monkey Forest No.15, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Tukies%20Coconut%20Shop%20Monkey%20Forest%20Ubud%20Bali",
+      "addressSource": "https://www.tripadvisor.com/Restaurant_Review-g297701-d15745280-Reviews-Tukies_Coconut_Shop-Ubud_Gianyar_Regency_Bali.html",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Main branch Jl. Monkey Forest No.15.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0036",
@@ -819,7 +982,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "No published direct email/phone found on public pages seen; nature of tie-up with Kanvaz Resort (whether brand can expand independently) needs clarifying on first call."
-      ]
+      ],
+      "address": "Kanvaz Village Resort, Jl. Petitenget No. 188, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kanvaz%20Patisserie%20Vincent%20Nigita%20Petitenget%20Seminyak%20Bali",
+      "addressSource": "https://www.kanvazhotelbali.com/eat/kanvaz-patisserie/",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Inside Kanvaz Village Resort, Jl. Petitenget 188.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0020",
@@ -853,7 +1023,14 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Owner/founder name not published - ask via WhatsApp; email sourced from a public directory snippet, verify on first contact."
-      ]
+      ],
+      "address": "Jl. Goutama Sel. No.13, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "gmapsUrl": "https://www.google.com/maps/place/Warung+Biah+Biah/@-8.5093263,115.2620118,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd23d6bba632509:0x6d31d114697259f4!8m2!3d-8.5093401!4d115.2642563",
+      "addressSource": "https://www.google.com/maps/place/Warung+Biah+Biah",
+      "addressConfidence": "high",
+      "addressResearchNotes": "Jl. Goutama, Ubud. Real place URL.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     },
     {
       "leadId": "KORA-L-0033",
@@ -886,7 +1063,23 @@
       "verifiedAt": null,
       "reviewNotes": [
         "Current owner/family decision-maker name not publicly documented. Catering WhatsApp [number removed] also published on Instagram per search results."
-      ]
+      ],
+      "address": "Jl. Yudistira No.2, Dangin Puri Kauh, Kec. Denpasar Utara, Kota Denpasar, Bali 80232",
+      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Warung%20Wardani%20Yudistira%20Denpasar%20Bali",
+      "addressSource": "https://id.foursquare.com/v/warung-wardani/4c0c4e78768bb7135a0b9014",
+      "addressConfidence": "medium",
+      "addressResearchNotes": "Denpasar original, Jl. Yudistira No.2; Kuta branch exists.",
+      "addressCapturedAt": "2026-07-19T00:00:00Z",
+      "readyToPublish": true
     }
-  ]
+  ],
+  "addressResearch": {
+    "capturedAt": "2026-07-19T00:00:00Z",
+    "method": "parallel web research (official sites, Google Maps, Tripadvisor/Chope/Foursquare directories)",
+    "readyToPublish": 24,
+    "heldNeedsVerification": [
+      "dapur-bali-mula",
+      "kurasu-bali"
+    ]
+  }
 }
