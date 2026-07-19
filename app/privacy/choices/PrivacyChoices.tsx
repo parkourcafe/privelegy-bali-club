@@ -46,9 +46,10 @@ export default function PrivacyChoices() {
           Analytics
         </h2>
         <p className="mt-3">
-          First-party interaction analytics is currently:{" "}
+          Optional, privacy-limited analytics is currently:{" "}
           <span className="font-semibold text-[var(--ink)]">{stateLabel}</span>.
-          We never use Google Analytics or third-party trackers.
+          Google Analytics loads only when this setting is On. Advertising and
+          cross-app tracking remain disabled.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           <button

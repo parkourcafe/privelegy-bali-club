@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   isCanonicalProductionHost,
+  isReviewHost,
   isVercelDeploymentHost,
   resolveSiteOrigin,
   shouldNoindexHost,
@@ -45,6 +46,8 @@ test("production always resolves metadata to the canonical www origin", () => {
 test("host policy consolidates production Vercel aliases and noindexes review", () => {
   assert.equal(isCanonicalProductionHost("www.otherbali.com"), true);
   assert.equal(isCanonicalProductionHost("otherbali.com:443"), true);
+  assert.equal(isReviewHost("review.otherbali.com:443"), true);
+  assert.equal(isReviewHost("www.otherbali.com"), false);
   assert.equal(isVercelDeploymentHost("otherbali-site.vercel.app"), true);
   assert.equal(shouldNoindexHost({
     host: "review.otherbali.com",

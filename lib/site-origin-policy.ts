@@ -25,6 +25,10 @@ export function isVercelDeploymentHost(value: string | null | undefined): boolea
   return Boolean(hostname && hostname.endsWith(".vercel.app"));
 }
 
+export function isReviewHost(value: string | null | undefined): boolean {
+  return normalizedHostname(value) === "review.otherbali.com";
+}
+
 export function shouldNoindexHost(input: {
   host?: string | null;
   vercelEnv?: string;

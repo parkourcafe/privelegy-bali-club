@@ -10,6 +10,7 @@ import {
 } from "@/lib/request-correlation";
 import {
   CANONICAL_SITE_ORIGIN,
+  isReviewHost,
   isVercelDeploymentHost,
   shouldNoindexHost,
 } from "@/lib/site-origin-policy";
@@ -71,6 +72,16 @@ export function proxy(req: NextRequest) {
   if (vercelEnv === "production" && isVercelDeploymentHost(host)) {
     const destination = new URL(`${req.nextUrl.pathname}${req.nextUrl.search}`, CANONICAL_SITE_ORIGIN);
     return responseWithCorrelationId(NextResponse.redirect(destination, 308), requestId);
+  }
+
+  // The review hostname is a separate, non-production-write deployment. Fail
+  // closed when its password is missing or invalid so moving the custom domain
+  // can never expose a public clone during configuration or redeployment.
+  if (isReviewHost(host)) {
+    const reviewToken = configuredReviewToken();
+    if (!reviewToken || !hasBasicAccess(req.headers.get("authorization"), reviewToken)) {
+      return responseWithCorrelationId(reviewChallenge(), requestId);
+    }
   }
 
   // /review is public by default (Apple prefers no login barrier). If a

@@ -96,3 +96,14 @@ test("homepage suppresses the inner-page header before hydration", async () => {
     /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header\s*\{\s*display: none;/,
   );
 });
+
+test("isolated review host fails closed and analytics disclosure matches the consent gate", async () => {
+  const proxy = await read("proxy.ts");
+  const privacy = await read("app/privacy/page.tsx");
+  const choices = await read("app/privacy/choices/PrivacyChoices.tsx");
+  assert.match(proxy, /if \(isReviewHost\(host\)\)/);
+  assert.match(proxy, /if \(!reviewToken \|\| !hasBasicAccess/);
+  assert.match(privacy, /Google Analytics 4 is off until you choose Accept/);
+  assert.match(privacy, /Advertising storage, ad personalization, and cross-app tracking/);
+  assert.match(choices, /Google Analytics loads only when this setting is On/);
+});

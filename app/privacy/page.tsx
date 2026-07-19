@@ -101,13 +101,22 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
-              What we do not do
+              Optional analytics
             </h2>
             <p className="mt-3">
-              We do not use Google Analytics or any third-party analytics or
-              advertising trackers, and we do not track you across other apps or
-              websites. The only analytics is the first-party interaction record
-              described above, kept to run the guide and venue attribution.
+              Google Analytics 4 is off until you choose Accept. If you accept,
+              Google processes page views and privacy-limited interaction events
+              such as Maps, menu, reservation, WhatsApp, and delivery handoffs.
+              Those events use page or venue references, not names, email
+              addresses, phone numbers, payment details, or reservation details.
+              Advertising storage, ad personalization, and cross-app tracking
+              remain disabled.
+            </p>
+            <p className="mt-3">
+              Choosing Essential only keeps Google Analytics unloaded. You can
+              change or withdraw your choice at any time on the privacy choices
+              page. Other Bali still uses the strictly necessary operational and
+              attribution records described above to deliver requested features.
             </p>
           </section>
 
