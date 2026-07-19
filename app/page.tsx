@@ -11,6 +11,8 @@ import HeroLoop from "@/components/landing/HeroLoop";
 import ParallaxScene from "@/components/landing/ParallaxScene";
 import DistrictMapLink from "@/components/DistrictMapLink";
 import { DISTRICT_GUIDE, DISTRICT_GRADIENT } from "@/lib/districts";
+import ArtCard from "@/components/ArtCard";
+import { GATEWAY_PRIMARY, GATEWAY_SECONDARY } from "@/lib/navigation";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-intent tool now lives in the hero and deep-links into /places. The Canggu
@@ -84,6 +86,7 @@ export default function Landing() {
 
       <main>
         <Hero />
+        <CategoryGateway />
         <BrowseBar />
         <ChaosToOrder />
         <Mechanism />
@@ -187,6 +190,38 @@ function Hero() {
         >
           <DayIntentBuilder />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 1b · CategoryGateway (IA spec v1 §6): the permanent category entrances,
+   straight after the hero. Cards come from the shared navigation registry, so
+   the homepage and the header can never disagree about the taxonomy. ── */
+function CategoryGateway() {
+  return (
+    <section className="ob-gateway" aria-labelledby="gateway-title">
+      <h2 id="gateway-title" className="ob-gateway-title">
+        What are you looking for?
+      </h2>
+      <div className="ob-gateway-grid">
+        {GATEWAY_PRIMARY.map((c) => (
+          <ArtCard
+            key={c.group}
+            href={c.href}
+            art={c.art}
+            title={c.label}
+            blurb={c.blurb}
+          />
+        ))}
+      </div>
+      <div className="ob-gateway-secondary">
+        {GATEWAY_SECONDARY.map((l) => (
+          <Link key={l.href} href={l.href} className="ob-gateway-wide">
+            <b>{l.label}</b>
+            <span>{l.blurb} →</span>
+          </Link>
+        ))}
       </div>
     </section>
   );
@@ -918,10 +953,10 @@ function SiteFooter() {
             How it works
           </a>
           <Link href="/places" className={footerLink}>
-            Places
+            Explore Bali
           </Link>
           <Link href="/my-day" className={footerLink}>
-            My Day
+            A Bali Day
           </Link>
           <Link href="/bali" className={footerLink}>
             Bali by district

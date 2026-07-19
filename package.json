@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "pretest": "npm run mobile:build",
-    "test": "node --import tsx --test lib/health.test.ts lib/mobile-api.test.ts lib/external-links.test.ts lib/public-request-policy.test.ts lib/request-correlation.test.ts lib/site-origin-policy.test.ts lib/consent.test.ts lib/seo/places-indexing.test.ts lib/seo/sitemap-last-modified.test.ts lib/actions/event-analytics.test.ts mobile/tests/*.test.ts scripts/mobile-native-runtime.test.ts scripts/mobile-shell-contract.test.ts scripts/mobile-storage.test.ts scripts/capacitor-release.test.ts scripts/android-release.test.ts scripts/assetlinks-generator.test.mjs scripts/device-evidence.test.mjs scripts/ios-app-shell.test.mjs scripts/ios-release-core.test.mjs scripts/partner-portal-boundary.test.mjs scripts/performance-boundary.test.mjs scripts/release-artifacts-core.test.mjs scripts/store-assets.test.mjs scripts/store-package.test.mjs",
+    "test": "node --import tsx --test lib/health.test.ts lib/navigation.test.ts lib/mobile-api.test.ts lib/external-links.test.ts lib/public-request-policy.test.ts lib/request-correlation.test.ts lib/site-origin-policy.test.ts lib/consent.test.ts lib/seo/places-indexing.test.ts lib/seo/sitemap-last-modified.test.ts lib/actions/event-analytics.test.ts mobile/tests/*.test.ts scripts/mobile-native-runtime.test.ts scripts/mobile-shell-contract.test.ts scripts/mobile-storage.test.ts scripts/capacitor-release.test.ts scripts/android-release.test.ts scripts/assetlinks-generator.test.mjs scripts/device-evidence.test.mjs scripts/ios-app-shell.test.mjs scripts/ios-release-core.test.mjs scripts/partner-portal-boundary.test.mjs scripts/performance-boundary.test.mjs scripts/release-artifacts-core.test.mjs scripts/store-assets.test.mjs scripts/store-package.test.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "prebuild": "node scripts/fetch-scenes.mjs || true",
@@ -72,7 +72,7 @@
   "overrides": {
     "postcss": "8.5.19"
   },
-  "//browserslist": "Modern targets so Next/SWC stops shipping ES2022 polyfills (Array.at/flat/flatMap, Object.fromEntries/hasOwn, String.trimStart/End) — ~13.8 KB of legacy JS off every page. Floor is early-2022 browsers, which covers the tourist audience's phones.",
+  "//browserslist": "Modern targets so Next/SWC stops shipping ES2022 polyfills (Array.at/flat/flatMap, Object.fromEntries/hasOwn, String.trimStart/End) \u2014 ~13.8 KB of legacy JS off every page. Floor is early-2022 browsers, which covers the tourist audience's phones.",
   "browserslist": [
     "chrome >= 104",
     "edge >= 104",
