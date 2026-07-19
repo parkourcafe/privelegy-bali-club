@@ -2752,6 +2752,14 @@ html {
   backdrop-filter: saturate(1.1) blur(8px);
   border-bottom: 1px solid var(--line);
 }
+
+/* The root layout owns the inner-page header while the homepage owns its own
+   cinematic overlay navigation. The page marker is present in server HTML, so
+   this prevents both headers from painting before usePathname hydrates (Next
+   warns that pathname-dependent markup can mismatch when Proxy is present). */
+body:has(> [data-page-shell="landing"]) > .ob-site-header {
+  display: none;
+}
 .ob-site-header-inner {
   display: flex;
   align-items: center;

@@ -35,7 +35,10 @@ export const metadata: Metadata = {
 
 export default function Landing() {
   return (
-    <div className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased">
+    <div
+      data-page-shell="landing"
+      className="ob-light min-h-screen overflow-x-hidden bg-[var(--ob-espresso)] font-sans text-[var(--ob-sand)] antialiased"
+    >
       <LandingNav />
       <MobileStickyCTA />
 

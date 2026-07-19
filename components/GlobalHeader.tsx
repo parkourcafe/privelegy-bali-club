@@ -17,8 +17,9 @@ const LINKS: { href: string; label: string }[] = [
 
 export default function GlobalHeader() {
   const pathname = usePathname();
-  // Homepage owns its own overlay header.
-  if (pathname === "/") return null;
+  // Homepage owns its own overlay header. A null fallback is also hidden: with
+  // a statically rendered route plus Proxy, Next can defer the client pathname.
+  if (!pathname || pathname === "/") return null;
 
   return (
     <header className="ob-site-header">
