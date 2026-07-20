@@ -72,7 +72,7 @@ const isSplurge = (v: VenueWithPerk) => /\$\$\$\$/.test(priceStr(v)); // four $ 
 // best_for). Prose mentions many things in passing ("a refined alternative to
 // the beachfront seafood warungs"), which produced false positives; the factual
 // fields describe what a place actually serves.
-function blobOf(v: VenueWithPerk): string {
+export function blobOf(v: VenueWithPerk): string {
   return [v.name, v.whatToOrder ?? "", (v.vibeTags ?? []).join(" ")]
     .join(" ")
     .toLowerCase();

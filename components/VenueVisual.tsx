@@ -12,6 +12,10 @@ const categoryLabel: Record<string, string> = {
   beauty: "Beauty",
   bar: "Nightcap",
   surf: "Surf",
+  hotel: "Stay",
+  resort: "Stay",
+  attraction: "Explore",
+  activity: "Adventure",
 };
 
 export default function VenueVisual({
@@ -36,7 +40,7 @@ export default function VenueVisual({
       className={`venue-visual scene-${category}`}
       aria-label={`${name} editorial scene`}
     >
-      <span className="venue-visual-label">{categoryLabel[category] ?? "Canggu"}</span>
+      <span className="venue-visual-label">{categoryLabel[category] ?? ""}</span>
     </figure>
   );
 }

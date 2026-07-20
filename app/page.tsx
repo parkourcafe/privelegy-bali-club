@@ -935,7 +935,6 @@ function FinalCta() {
   );
 }
 
-
 /* Shared section shell */
 function Section({
   id,

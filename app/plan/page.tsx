@@ -29,11 +29,14 @@ export default async function Plan({
 }: {
   searchParams: Promise<{ m?: string }>;
 }) {
-  const [{ m }, plan, routes] = await Promise.all([
+  const [{ m }, plan, allRoutes] = await Promise.all([
     searchParams,
     getCangguPlan(),
     getRoutes(),
   ]);
+  // This page is the Canggu day-builder specifically; getRoutes() now spans
+  // every district (routes/excursions elsewhere on the site), so scope here.
+  const routes = allRoutes.filter((r) => r.district === "canggu");
 
   return (
     <div className="page-dark">

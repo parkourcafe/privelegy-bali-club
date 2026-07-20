@@ -1,9 +1,27 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
-import { getPublishedVenues } from "@/lib/data";
+import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
+import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
+
+// Taste sub-groups within each area (same reorg as best-restaurants-in-bali,
+// 2026-07-20): group by what a café is actually known for, not A-Z. Excludes
+// "brunch-and-breakfast" -- its match() includes category==='cafe' as a
+// blanket clause (correct for the standalone /collections page, where cafes
+// ARE the point) which would swallow every single item on THIS page into one
+// tautological bucket. The remaining taste collections (desserts, vegetarian)
+// still meaningfully split a café list; anything matching neither lands in
+// "More cafés" rather than being force-fit.
+const TASTE_COLLECTIONS = COLLECTIONS.filter(
+  (c) => c.kind === "taste" && c.slug !== "brunch-and-breakfast",
+);
+function tasteGroupFor(v: VenueWithPerk): string | null {
+  const blob = blobOf(v);
+  const hit = TASTE_COLLECTIONS.find((c) => c.match(blob, v));
+  return hit?.slug ?? null;
+}
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // venue/publication edits in Supabase surface without a redeploy. Build-safe
@@ -32,12 +50,35 @@ const FAQ = [
 ];
 
 export default async function BestCafesPage() {
-  const all = await getPublishedVenues();
+  const [all, liveSlugs] = await Promise.all([getPublishedVenues(), liveCollectionSlugs()]);
+  const liveSet = new Set(liveSlugs);
   const cafes = all.filter((v) => v.category === "cafe" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => ({
-    ...area,
-    venues: cafes.filter((v) => v.district === area.key).sort((a, b) => a.name.localeCompare(b.name)),
-  })).filter((a) => a.venues.length > 0);
+  const byArea = AREA_ORDER.map((area) => {
+    const venues = cafes
+      .filter((v) => v.district === area.key)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const groups = new Map<string, VenueWithPerk[]>();
+    const more: VenueWithPerk[] = [];
+    for (const v of venues) {
+      const slug = tasteGroupFor(v);
+      if (!slug) {
+        more.push(v);
+        continue;
+      }
+      const list = groups.get(slug) ?? [];
+      list.push(v);
+      groups.set(slug, list);
+    }
+    const tasteGroups = TASTE_COLLECTIONS.filter((c) => groups.has(c.slug)).map((c) => ({
+      slug: c.slug,
+      label: c.taste,
+      href: liveSet.has(c.slug) ? `/collections/${c.slug}` : null,
+      venues: groups.get(c.slug)!,
+    }));
+
+    return { ...area, venues, tasteGroups, more };
+  }).filter((a) => a.venues.length > 0);
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best cafés in Bali" }];
 
@@ -88,18 +129,58 @@ export default async function BestCafesPage() {
               ) : null}
             </div>
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <ul className="mt-3 space-y-2 text-sm">
-              {area.venues.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                    {v.name}
-                  </Link>
-                  {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                </li>
-              ))}
-            </ul>
+
+            {area.tasteGroups.map((group) => (
+              <div key={group.slug} className="mt-4">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
+                    {group.label}
+                  </h3>
+                  {group.href ? (
+                    <Link href={group.href} className="quiet-link text-xs">
+                      See all {group.label} →
+                    </Link>
+                  ) : null}
+                </div>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {group.venues.map((v) => (
+                    <li key={v.slug}>
+                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
+                        {v.name}
+                      </Link>
+                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {area.more.length > 0 && (
+              <div className="mt-4">
+                <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
+                  More cafés
+                </h3>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {area.more.map((v) => (
+                    <li key={v.slug}>
+                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
+                        {v.name}
+                      </Link>
+                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
         ))}
+
+        <p className="text-sm text-[var(--muted)]">
+          Working from a café rather than choosing by taste? See{" "}
+          <Link href="/canggu/work-friendly-cafes" className="quiet-link">
+            work-friendly cafés in Canggu →
+          </Link>
+        </p>
 
         <FaqBlock items={FAQ} heading="Good to know" />
 

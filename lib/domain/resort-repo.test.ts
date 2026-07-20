@@ -1,6 +1,6 @@
-// Resort repository gates (IA spec §13, §19.6, §19.10-12): empty whitelist →
-// nothing public / nothing in sitemap; hub gate thresholds; the same property
-// carries multiple offers without duplicating the property; a hypothetically
+// Resort repository gates (IA spec §13, §19.6, §19.10-12): only whitelisted +
+// gated offers are public; hub gate thresholds; the same property carries
+// multiple offers without duplicating the property; a hypothetically
 // whitelisted+gated offer becomes public.
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
@@ -17,11 +17,16 @@ import {
 import { RESORT_PUBLISH_WHITELIST } from "./resort-publication.ts";
 import { HUB_GATES } from "./resort.ts";
 
-test("publish whitelist is empty by default → nothing public (§10.3)", () => {
-  assert.equal(RESORT_PUBLISH_WHITELIST.size, 0);
-  assert.equal(publicOfferSlugs().length, 0);
-  assert.equal(offersByType("day_pass", "public").length, 0);
-  assert.equal(hotelRestaurants("public").length, 0);
+test("only whitelisted + gated offers are public (§10.3)", () => {
+  // Every published slug is exactly the (English-copy-reviewed) whitelist --
+  // nothing the importer produces is ever auto-public, and nothing on the
+  // whitelist is silently dropped by the gate.
+  assert.deepEqual(new Set(publicOfferSlugs()), RESORT_PUBLISH_WHITELIST);
+  assert.equal(hotelRestaurants("public").length, 0); // no hotel-restaurant venue reviewed/whitelisted yet
+  // A held-back offer (source conflict, unconfirmed price, or an access
+  // restriction the schema can't yet express) stays hidden even though it's
+  // in the same imported dataset.
+  assert.equal(isOfferPublishable(getOffer("the-mulia-bali--soleil-sunday-brunch")!), false);
 });
 
 test("preview scope still exposes imported rows (owner-only surface)", () => {

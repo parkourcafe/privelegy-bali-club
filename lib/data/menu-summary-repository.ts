@@ -1,6 +1,6 @@
 import { cache as reactCache } from "react";
 import { unstable_cache } from "next/cache";
-import type { MenuRecord, MenuSectionRecord } from "../contracts/menu-action";
+import type { MenuKind, MenuRecord, MenuSectionRecord } from "../contracts/menu-action";
 import { mapPublishedMenu, type DataRow } from "../domain/menu";
 import { anonClient, isSupabaseConfigured } from "../supabase/server";
 import {
@@ -9,7 +9,7 @@ import {
 } from "./public-cache";
 
 const MENU_COLUMNS =
-  "id,venue_slug,title,version,status,completeness,source_url,source_label,captured_at,verified_at,expires_at";
+  "id,venue_slug,title,version,status,completeness,kind,source_url,source_label,captured_at,verified_at,expires_at";
 const SECTION_COLUMNS = "id,menu_id,name,description,position";
 const ITEM_COLUMNS =
   "id,section_id,name,description,price_minor,currency,price_text,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position";
@@ -33,6 +33,7 @@ const LARGE_SECTION_ITEM_THRESHOLD = 12;
 
 async function fetchPublishedMenuSummary(
   venueSlug: string,
+  kind: MenuKind = "food",
 ): Promise<PublicMenuSummary | null> {
   if (!venueSlug || !isSupabaseConfigured()) return null;
   const client = anonClient();
@@ -42,6 +43,7 @@ async function fetchPublishedMenuSummary(
       .from("menus")
       .select(MENU_COLUMNS)
       .eq("venue_slug", venueSlug)
+      .eq("kind", kind)
       .eq("status", "published")
       .eq("completeness", "full")
       .order("version", { ascending: false })
@@ -103,6 +105,30 @@ const getCachedPublishedMenuSummary = unstable_cache(
 export const getPublishedMenuSummary = reactCache(
   getCachedPublishedMenuSummary,
 );
+
+// A hotel/resort venue may carry several published menus at once (rooms,
+// dining, spa, day pass) -- fetched in parallel, one per kind, reusing the
+// exact same cached/gated reader as the single-menu case (migration 0051).
+export type HotelMenusByKind = {
+  rooms: PublicMenuSummary | null;
+  dining: PublicMenuSummary | null;
+  spa: PublicMenuSummary | null;
+  dayPass: PublicMenuSummary | null;
+};
+
+async function fetchPublishedMenusForVenue(
+  venueSlug: string,
+): Promise<HotelMenusByKind> {
+  const [dining, rooms, spa, dayPass] = await Promise.all([
+    getCachedPublishedMenuSummary(venueSlug, "food"),
+    getCachedPublishedMenuSummary(venueSlug, "rooms"),
+    getCachedPublishedMenuSummary(venueSlug, "spa"),
+    getCachedPublishedMenuSummary(venueSlug, "day_pass"),
+  ]);
+  return { rooms, dining, spa, dayPass };
+}
+
+export const getPublishedMenusForVenue = reactCache(fetchPublishedMenusForVenue);
 
 async function fetchPublishedMenuSection(
   venueSlug: string,

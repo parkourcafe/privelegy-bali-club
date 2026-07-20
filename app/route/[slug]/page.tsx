@@ -2,6 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getRoute, getRoutes } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
+import { DISTRICT_GUIDE } from "@/lib/districts";
+
+// Canggu's route back-link/breadcrumb predates the multi-district routes
+// registry and points at the interactive day-builder (/plan), not a generic
+// district guide page — preserved verbatim. Every other district falls back
+// to its DISTRICT_GUIDE entry (name + guidePath); districts without one (e.g.
+// a brand-new regency) fall back to the island-wide guide rather than 404.
+const DISTRICT_BACK_OVERRIDE: Record<string, { label: string; crumbLabel: string; href: string }> = {
+  canggu: { label: "Your Canggu day", crumbLabel: "Canggu day", href: "/plan" },
+};
+
+function backLinkFor(district: string): { label: string; crumbLabel: string; href: string } {
+  const override = DISTRICT_BACK_OVERRIDE[district];
+  if (override) return override;
+  const entry = DISTRICT_GUIDE.find((d) => d.slug === district);
+  const label = entry ? `${entry.name} guide` : "the Bali guide";
+  return { label, crumbLabel: label, href: entry?.guidePath ?? "/bali" };
+}
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // route/venue edits in Supabase surface without a redeploy. Build-safe now
@@ -28,6 +46,10 @@ const SCHEMA_TYPE_BY_CATEGORY: Record<string, string> = {
   fitness: "SportsActivityLocation",
   yoga: "SportsActivityLocation",
   surf: "SportsActivityLocation",
+  hotel: "Hotel",
+  resort: "Resort",
+  attraction: "TouristAttraction",
+  activity: "TouristAttraction",
 };
 function schemaTypeForCategory(category?: string): string {
   return (category && SCHEMA_TYPE_BY_CATEGORY[category]) || "LocalBusiness";
@@ -41,9 +63,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const route = await getRoute(slug);
   if (!route) return { title: "Route not found", robots: { index: false, follow: false } };
+  const districtName = DISTRICT_GUIDE.find((d) => d.slug === route.district)?.name ?? "Bali";
   const description =
-    route.subtitle ||
-    `A ${route.stops.length}-stop Canggu route — a clean line from first coffee to the last table.`;
+    route.subtitle || `A ${route.stops.length}-stop day in ${districtName}.`;
   return {
     title: route.title,
     description: description.slice(0, 158),
@@ -78,11 +100,13 @@ export default async function RoutePage({
     );
   }
 
+  const back = backLinkFor(route.district);
+
   return (
     <div className="page-dark">
     <main className="site-shell-narrow">
-      <Link href="/plan" className="quiet-link">
-        ← Your Canggu day
+      <Link href={back.href} className="quiet-link">
+        ← {back.label}
       </Link>
       <header className="route-hero">
         <div>
@@ -92,9 +116,7 @@ export default async function RoutePage({
         </div>
         <div className="route-summary">
           <p className="text-sm font-bold text-[var(--ink)]">{route.stops.length} stops</p>
-          <p className="mt-2 text-sm">
-            A clean line from first coffee to the last table.
-          </p>
+          <p className="mt-2 text-sm">A clean line through the day.</p>
         </div>
       </header>
 
@@ -117,7 +139,7 @@ export default async function RoutePage({
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-                { "@type": "ListItem", position: 2, name: "Canggu day", item: `${SITE}/plan` },
+                { "@type": "ListItem", position: 2, name: back.crumbLabel, item: `${SITE}${back.href}` },
                 { "@type": "ListItem", position: 3, name: route.title, item: `${SITE}/route/${slug}` },
               ],
             },

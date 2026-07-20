@@ -30,7 +30,9 @@ export type VenueCategory =
   | "bar"
   | "surf"
   | "hotel"
-  | "resort";
+  | "resort"
+  | "attraction"
+  | "activity";
 
 export interface Venue {
   id: string;
@@ -93,6 +95,7 @@ export interface RouteStopDef {
 }
 export interface RouteDef {
   slug: string;
+  district: string;
   title: string;
   subtitle?: string;
   rank: number;

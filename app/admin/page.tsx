@@ -66,6 +66,14 @@ export default async function AdminIndex() {
         <span className="text-cyan-100">v0.3</span>
       </Link>
 
+      <Link
+        href="/admin/coverage"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-stone-800 p-4 text-white"
+      >
+        <span className="font-semibold">→ Data coverage by district &amp; category</span>
+        <span className="text-stone-300">gaps</span>
+      </Link>
+
       <h2 className="mt-8 text-sm font-semibold uppercase tracking-wide text-stone-500">
         Venues ({venues.length}) · {confirmed} confirmed
       </h2>

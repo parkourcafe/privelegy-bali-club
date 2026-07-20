@@ -512,6 +512,25 @@ html {
     linear-gradient(120deg, #20231e 0 46%, #a7654a 46% 72%, #b88a42 72% 100%);
 }
 
+.scene-hotel,
+.scene-resort {
+  background:
+    linear-gradient(145deg, rgba(32, 35, 30, 0.12), rgba(32, 35, 30, 0)),
+    linear-gradient(120deg, #005962 0 32%, #eadfce 32% 60%, #627657 60% 100%);
+}
+
+.scene-attraction {
+  background:
+    linear-gradient(145deg, rgba(32, 35, 30, 0.1), rgba(32, 35, 30, 0)),
+    linear-gradient(120deg, #a7654a 0 30%, #eadfce 30% 58%, #cfb27b 58% 100%);
+}
+
+.scene-activity {
+  background:
+    linear-gradient(145deg, rgba(32, 35, 30, 0.1), rgba(32, 35, 30, 0)),
+    linear-gradient(120deg, #627657 0 32%, #c9d0bd 32% 60%, #00737a 60% 100%);
+}
+
 .perk-strip {
   margin-top: 16px;
   border-left: 3px solid var(--lagoon);
@@ -1040,6 +1059,8 @@ html {
 .type-cover-yoga { background: linear-gradient(150deg, #F4FAF7, #E1EEE8 70%, #D1E4DC); }
 .type-cover-beauty { background: linear-gradient(150deg, #F8FAF9, #E7EFEC 70%, #D9E7E2); }
 .type-cover-surf { background: linear-gradient(150deg, #EFF8F8, #DAECEA 70%, #C7E0DD); }
+.type-cover-attraction { background: linear-gradient(150deg, #FAF7F1, #EFE6D6 70%, #E2D3B8); }
+.type-cover-activity { background: linear-gradient(150deg, #F5F9F1, #E5EEDA 70%, #D2E2BF); }
 
 /* Editorial micro-labels */
 .eyebrow {
