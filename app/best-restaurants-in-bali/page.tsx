@@ -1,9 +1,25 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
-import { getPublishedVenues } from "@/lib/data";
+import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
+import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
+
+// Taste sub-groups within each area (design feedback, 2026-07-20): a flat
+// alphabetical wall of restaurant names doesn't help anyone choose — group by
+// what a place actually serves first. Reuses the EXISTING, already-verified
+// Taste Collections match signal (name/what_to_order/vibe tags — never
+// invented) so no new categorisation logic is introduced; a place matching no
+// taste collection lands in a residual "More kitchens" group rather than
+// being dropped or force-fit.
+const TASTE_COLLECTIONS = COLLECTIONS.filter((c) => c.kind === "taste");
+
+function tasteGroupFor(v: VenueWithPerk): string | null {
+  const blob = blobOf(v);
+  const hit = TASTE_COLLECTIONS.find((c) => c.match(blob, v));
+  return hit?.slug ?? null;
+}
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // venue/publication edits in Supabase surface without a redeploy. Build-safe
@@ -33,12 +49,38 @@ const FAQ = [
 ];
 
 export default async function BestRestaurantsPage() {
-  const all = await getPublishedVenues();
+  const [all, liveSlugs] = await Promise.all([getPublishedVenues(), liveCollectionSlugs()]);
+  const liveSet = new Set(liveSlugs);
   const restaurants = all.filter((v) => v.category === "restaurant" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => ({
-    ...area,
-    venues: restaurants.filter((v) => v.district === area.key).sort((a, b) => a.name.localeCompare(b.name)),
-  })).filter((a) => a.venues.length > 0);
+  const byArea = AREA_ORDER.map((area) => {
+    const venues = restaurants
+      .filter((v) => v.district === area.key)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    // Sub-group by the first matching taste collection; a residual "More
+    // kitchens" bucket holds anything that matches no defined cuisine —
+    // never force-fit, never dropped.
+    const groups = new Map<string, VenueWithPerk[]>();
+    const more: VenueWithPerk[] = [];
+    for (const v of venues) {
+      const slug = tasteGroupFor(v);
+      if (!slug) {
+        more.push(v);
+        continue;
+      }
+      const list = groups.get(slug) ?? [];
+      list.push(v);
+      groups.set(slug, list);
+    }
+    const tasteGroups = TASTE_COLLECTIONS.filter((c) => groups.has(c.slug)).map((c) => ({
+      slug: c.slug,
+      label: c.taste,
+      href: liveSet.has(c.slug) ? `/collections/${c.slug}` : null,
+      venues: groups.get(c.slug)!,
+    }));
+
+    return { ...area, venues, tasteGroups, more };
+  }).filter((a) => a.venues.length > 0);
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best restaurants in Bali" }];
 
@@ -89,18 +131,59 @@ export default async function BestRestaurantsPage() {
               ) : null}
             </div>
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <ul className="mt-3 space-y-2 text-sm">
-              {area.venues.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                    {v.name}
-                  </Link>
-                  {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                </li>
-              ))}
-            </ul>
+
+            {area.tasteGroups.map((group) => (
+              <div key={group.slug} className="mt-4">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
+                    {group.label}
+                  </h3>
+                  {group.href ? (
+                    <Link href={group.href} className="quiet-link text-xs">
+                      See all {group.label} →
+                    </Link>
+                  ) : null}
+                </div>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {group.venues.map((v) => (
+                    <li key={v.slug}>
+                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
+                        {v.name}
+                      </Link>
+                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {area.more.length > 0 && (
+              <div className="mt-4">
+                <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
+                  More kitchens
+                </h3>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {area.more.map((v) => (
+                    <li key={v.slug}>
+                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
+                        {v.name}
+                      </Link>
+                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
         ))}
+
+        <p className="text-sm text-[var(--muted)]">
+          Looking for a mood rather than a cuisine — date night, a big group
+          table, somewhere work-friendly? See{" "}
+          <Link href="/collections" className="quiet-link">
+            Bali by taste and moment →
+          </Link>
+        </p>
 
         <FaqBlock items={FAQ} heading="Good to know" />
 
