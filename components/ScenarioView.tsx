@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { GuideFooter } from "@/components/GuideBlocks";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
 
 const SITE = "https://www.otherbali.com";
@@ -111,21 +112,12 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
           </div>
         </section>
 
-        <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          <p>
-            You do not pay us. Venues pay Other Bali only when a reservation made
-            through us becomes a real seated visit.
-          </p>
-          <div className="mt-3 flex gap-4">
-            <Link href="/privacy" className="quiet-link">
-              Privacy
-            </Link>
-            <Link href="/terms" className="quiet-link">
-              Terms
-            </Link>
-          </div>
-        </footer>
+        <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+          You do not pay us. Venues pay Other Bali only when a reservation made
+          through us becomes a real seated visit.
+        </p>
       </main>
+      <GuideFooter />
 
       <script
         type="application/ld+json"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BrandHomeLink from "@/components/BrandHomeLink";
+import { GuideFooter } from "@/components/GuideBlocks";
 import { getPublishedVenues, getDistrictHubs, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import { getTripMission, getTripDuration } from "@/lib/trip-missions";
 import {
@@ -424,24 +425,12 @@ export default async function PlacesPage({
           totalPages={totalPages}
         />
 
-        <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          <p>
-            Planning-only districts do not have QR redemption, paid placement,
-            or reservation monetization.
-          </p>
-          <div className="mt-3 flex gap-4">
-            <Link href="/privacy" className="quiet-link">
-              Privacy
-            </Link>
-            <Link href="/terms" className="quiet-link">
-              Terms
-            </Link>
-            <Link href="/support" className="quiet-link">
-              Support
-            </Link>
-          </div>
-        </footer>
+        <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+          Planning-only districts do not have QR redemption, paid placement,
+          or reservation monetization.
+        </p>
       </main>
+      <GuideFooter />
     </div>
   );
 }
