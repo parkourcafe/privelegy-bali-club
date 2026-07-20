@@ -13,6 +13,7 @@ import PlacesView, {
   type CatalogueFilters,
   type CataloguePlace,
   type CatalogueTopPick,
+  type DistrictDirectorySection,
 } from "./PlacesView";
 import SceneImage from "@/components/landing/SceneImage";
 import HeroLoop from "@/components/landing/HeroLoop";
@@ -259,12 +260,50 @@ export default async function PlacesPage({
       : [];
   const rankedSlugs = new Set(ranked.map(({ venue }) => venue.slug));
   const paginatedMatches = filtered.filter((venue) => !rankedSlugs.has(venue.slug));
-  const totalPages = Math.max(1, Math.ceil(paginatedMatches.length / PAGE_SIZE));
+  const hasAnyFilter = Boolean(
+    filters.district ||
+      filters.category ||
+      filters.moment ||
+      filters.mission ||
+      filters.intentMode ||
+      tokens.length > 0,
+  );
+  // A filtered view answers a brief — it shows every match at once instead of
+  // an arbitrary 24-card slice the visitor has to page through. The flat
+  // PAGE_SIZE pagination survives only for the already-indexed unfiltered
+  // ?page=N URLs (the SEO crawl path), which page 1 still links into.
+  const pageSize = hasAnyFilter ? Number.MAX_SAFE_INTEGER : PAGE_SIZE;
+  const totalPages = Math.max(1, Math.ceil(paginatedMatches.length / pageSize));
   const requestedPage = parsePlacesPageNumber(firstParam(params.page).trim());
   if (requestedPage === null || requestedPage > totalPages) notFound();
   const page = requestedPage;
-  const pageVenues = paginatedMatches.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  // Default landing (no filters, page 1) renders as an island directory —
+  // every district visible at once with a scored preview — because the old
+  // flat page 1 was, alphabetically, just "all Canggu", which read as a bug.
+  const isDirectory = !hasAnyFilter && page === 1;
+  const pageVenues = isDirectory
+    ? []
+    : paginatedMatches.slice((page - 1) * pageSize, page * pageSize);
   const districts = [...new Set(venues.map((venue) => venue.district))].sort();
+  const directory: DistrictDirectorySection[] | undefined = isDirectory
+    ? (() => {
+        const order = new Map(DISTRICT_GUIDE.map((d, i) => [d.slug, i] as const));
+        return [...new Set(venues.map((v) => v.district))]
+          .sort(
+            (a, b) =>
+              (order.get(a) ?? 99) - (order.get(b) ?? 99) || a.localeCompare(b),
+          )
+          .map((slug) => {
+            const all = venues.filter((v) => v.district === slug);
+            const items = all
+              .map((v) => ({ v, s: scoreCatalogueVenue(v, [], "", "").score }))
+              .sort((a, b) => b.s - a.s || a.v.name.localeCompare(b.v.name))
+              .slice(0, 6)
+              .map(({ v }) => v);
+            return { slug, total: all.length, items };
+          });
+      })()
+    : undefined;
   const categories = [
     ...new Set(
       venues.flatMap((venue) =>
@@ -299,13 +338,14 @@ export default async function PlacesPage({
       ],
     },
   ];
-  if (isDefaultView && pageVenues.length > 0) {
+  const defaultListVenues = directory ? directory.flatMap((d) => d.items) : pageVenues;
+  if (isDefaultView && defaultListVenues.length > 0) {
     placesJsonLd.push({
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Curated places across Bali",
-      numberOfItems: pageVenues.length,
-      itemListElement: pageVenues.map((venue, i) => ({
+      numberOfItems: defaultListVenues.length,
+      itemListElement: defaultListVenues.map((venue, i) => ({
         "@type": "ListItem",
         position: i + 1,
         url: `${PLACES_BASE}/places/${venue.slug}`,
@@ -336,8 +376,8 @@ export default async function PlacesPage({
             {/* Legibility scrim: a light left/right wash for the headline plus a
                 stronger bottom-up gradient so the body copy stays readable over
                 the bright part of the sunset (matches the landing hero). */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/90 via-[#16100c]/55 to-[#16100c]/25" />
-            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#16100c] via-[#16100c]/78 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#16100c]/95 via-[#16100c]/65 to-[#16100c]/30" />
+            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#16100c] via-[#16100c]/88 to-transparent" />
 
             <div className="relative flex min-h-[20rem] flex-col justify-between p-6 sm:p-9 md:min-h-[24rem]">
               <div className="flex items-start justify-between gap-4">
@@ -373,6 +413,7 @@ export default async function PlacesPage({
           districts={districts}
           categories={categories}
           nearby={nearby}
+          directory={directory}
           totalMatches={filtered.length}
           totalVenues={venues.length}
           page={page}

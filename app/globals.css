@@ -236,6 +236,31 @@ html {
   padding: 18px 18px 20px;
 }
 
+/* Catalogue masthead sits on a dark photo; the shared .hero-copy tone
+   (var(--muted)) is tuned for light paper and goes near-invisible there.
+   Scope a full-contrast override to the masthead only. */
+.places-masthead .hero-title { color: #faf6ef; }
+.places-masthead .hero-copy {
+  color: #faf6ef;
+  font-weight: 500;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.92);
+}
+
+/* Inside the filter panel the three axes (Moment / Type / District) are the
+   whole mental model of the page — give each its own titled row instead of a
+   64px side-label that reads as decoration. */
+.filter-panel .chip-row { row-gap: 8px; }
+.filter-panel .chip-label {
+  width: 100%;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--lagoon-strong);
+}
+.filter-panel .chip-row + .chip-row {
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+}
+
 .chip-row {
   display: flex;
   flex-wrap: wrap;
