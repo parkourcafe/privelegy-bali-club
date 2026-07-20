@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { anonClient } from "@/lib/supabase/server";
 import { notifyOperator } from "@/lib/notify";
+import { mintMediaToken } from "@/lib/submission-media-policy";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -83,12 +84,20 @@ export async function POST(req: Request) {
     ok?: boolean;
     error?: string;
     duplicate?: boolean;
+    id?: string;
     reference?: string;
     status?: string;
   };
   if (!r.ok) {
     return NextResponse.json({ ok: false, error: r.error ?? "submission_write_failed" }, { status: 400 });
   }
+
+  // Mint a short-lived, submission-scoped token so the just-submitting browser
+  // may attach media (photos/video) to THIS submission — and no other. Absent
+  // (e.g. the RPC predates the id return, or the secret is unset) => the client
+  // simply won't show the uploader; the request still succeeded.
+  const submissionId = typeof r.id === "string" ? r.id : null;
+  const mediaToken = submissionId ? mintMediaToken(submissionId, Date.now()) : null;
 
   // Best-effort operator notification (no-ops if email isn't configured).
   if (!r.duplicate) {
@@ -117,5 +126,7 @@ export async function POST(req: Request) {
     duplicate: Boolean(r.duplicate),
     reference: r.reference ?? null,
     status: r.status ?? null,
+    submissionId: mediaToken ? submissionId : null,
+    mediaToken,
   });
 }
