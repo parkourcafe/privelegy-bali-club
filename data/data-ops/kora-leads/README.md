@@ -61,6 +61,23 @@ Result: **26 candidates**. Verification level varies and is preserved per venue 
 - **Tracker "verified" ≠ Other Bali published-verified.** `verificationStatus` is
   `needs_verification`; the tracker's own status is preserved as `leadVerificationStatus`.
 
+## Finalizing owner-outreach.csv / .md (real tokens)
+
+`owner-outreach.csv` and `owner-outreach.md` are generated with a `{TOKEN}`
+placeholder in every onboarding link/WhatsApp message — minting a real token
+requires the live `invite_roster()` RPC against production Supabase, which
+this dev/CI environment cannot reach. Run, against the real project:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=... NEXT_PUBLIC_SUPABASE_ANON_KEY=... \
+  node scripts/finalize-owner-outreach.mjs
+```
+
+Writes `owner-outreach.final.csv` / `owner-outreach.final.md` next to these
+files, with `{TOKEN}` replaced by each venue's real token. Reports any slug
+with no live token (venue not yet in `venues`, or migration 0039/0040 not
+applied). Re-run any time — the `.csv`/`.md` templates are untouched.
+
 ## Promotion path (to make a candidate a live venue)
 
 1. Verify the venue's official **address** and **Google Maps URL** from an official source.
