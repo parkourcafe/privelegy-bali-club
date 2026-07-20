@@ -2,12 +2,13 @@ import Link from "next/link";
 import OtherBaliLogo from "@/components/OtherBaliLogo";
 import { SUPPORT_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 
-// Site-wide footer (2026-07-20 redesign, v2). One shared component in two
-// tones so the footer matches the page it sits on: `dark` for the cinematic
-// homepage, `light` for the cream editorial/catalogue pages (GuideFooter
-// renders this with tone="light"). A design or link change here reaches the
-// whole site at once. Homepage anchor links use a leading "/" (e.g. "/#how")
-// since this renders on every route, not only "/".
+// Site-wide footer (2026-07-20 redesign, v2). One shared component, rendered
+// in the light tone everywhere (founder decision, 2026-07-20) — the cream
+// footer is the site standard on both the editorial/catalogue pages and the
+// homepage. The dark tone is kept as an option (tone="dark") but is not
+// currently used anywhere. A design or link change here reaches the whole
+// site at once. Homepage anchor links use a leading "/" (e.g. "/#how") since
+// this renders on every route, not only "/".
 
 type Tone = "light" | "dark";
 
@@ -236,7 +237,7 @@ function GroupButtons({
   );
 }
 
-export default function SiteFooter({ tone = "dark" }: { tone?: Tone }) {
+export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
   const c = PALETTE[tone];
   const year = new Date().getFullYear();
 
