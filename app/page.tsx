@@ -971,6 +971,12 @@ function SiteFooter() {
           <Link href="/for-venues" className={footerLink}>
             List your place
           </Link>
+          <Link href="/villas" className={footerLink}>
+            For villas
+          </Link>
+          <Link href="/hotels" className={footerLink}>
+            For hotels
+          </Link>
           <Link href="/support" className={footerLink}>
             Support
           </Link>
