@@ -202,4 +202,27 @@ export const ROUTES: RouteDef[] = [
       { venueSlug: "bebek-bengil", note: "Lunch: the Ubud restaurant that popularised Balinese crispy duck." },
     ],
   },
+  // cf. supabase/migrations/0049 — two more excursions, same pattern.
+  {
+    slug: "bangli-temple-village-day",
+    district: "bangli",
+    title: "A Bangli temple & village day",
+    subtitle: "State temple, then Bali's tidiest village",
+    rank: 10,
+    stops: [
+      { venueSlug: "pura-kehen", note: "Bangli's state temple — a quieter start away from the south-Bali circuit." },
+      { venueSlug: "desa-wisata-penglipuran", note: "A short drive on: the bamboo-roofed, car-free village." },
+    ],
+  },
+  {
+    slug: "east-bali-heritage-day",
+    district: "karangasem",
+    title: "An East Bali heritage day",
+    subtitle: "Bali's holiest temple, then a Bali Aga weaving village",
+    rank: 10,
+    stops: [
+      { venueSlug: "desa-wisata-besakih", note: "Start at Bali's largest temple complex — go early for the managed route up to the gate." },
+      { venueSlug: "desa-wisata-tenganan", note: "Head on toward the coast: a Bali Aga village known for double-ikat weaving." },
+    ],
+  },
 ];
