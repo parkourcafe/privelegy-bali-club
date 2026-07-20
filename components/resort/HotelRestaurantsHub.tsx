@@ -1,5 +1,5 @@
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
-import { FaqBlock } from "@/components/GuideBlocks";
+import { FaqBlock, GuideFooter } from "@/components/GuideBlocks";
 import {
   hotelRestaurants,
   districtHubPasses,
@@ -151,13 +151,12 @@ export default function HotelRestaurantsHub({
           ]}
         />
 
-        <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          <p>
-            Resident-curated · no paid ranking. Prices and access are from each
-            venue&apos;s official source; confirm current terms at booking.
-          </p>
-        </footer>
+        <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+          Resident-curated · no paid ranking. Prices and access are from each
+          venue&apos;s official source; confirm current terms at booking.
+        </p>
       </main>
+      <GuideFooter />
     </div>
   );
 }

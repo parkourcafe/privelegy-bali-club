@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
+import { GuideFooter } from "@/components/GuideBlocks";
 import type { OfferView } from "@/lib/domain/resort-repo";
 import { publicPriceFallback, isPriceFresh } from "@/lib/domain/resort";
 
@@ -102,10 +103,11 @@ export default function OfferDetail({ offer }: { offer: OfferView }) {
           </div>
         </section>
 
-        <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          <p>Resident-curated · no paid ranking. Prices from the venue&apos;s official source; confirm at booking.</p>
-        </footer>
+        <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+          Resident-curated · no paid ranking. Prices from the venue&apos;s official source; confirm at booking.
+        </p>
       </main>
+      <GuideFooter />
     </div>
   );
 }

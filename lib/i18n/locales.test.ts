@@ -1,8 +1,7 @@
 // Locale-resolution gates (Multi-locale public UI rule v2, AGENTS.md
-// 2026-07-20). matchAcceptLanguage() is the sole thing standing between a
-// visitor's browser header and which of the six public locales they land
-// on — get the q-value ranking or the fallback wrong and every first-time
-// visitor silently gets the wrong language.
+// 2026-07-20; Accept-Language auto-detect removed same day per founder
+// decision — every visitor now lands on DEFAULT_LOCALE and switches
+// explicitly via LocaleSwitcher).
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 import {
@@ -11,7 +10,6 @@ import {
   PUBLIC_LOCALES,
   LOCALE_META,
   isPublicLocale,
-  matchAcceptLanguage,
   setLocaleCookie,
 } from "./locales.ts";
 
@@ -38,43 +36,6 @@ test("isPublicLocale accepts every public locale and rejects junk input", () => 
   for (const code of PUBLIC_LOCALES) {
     assert.ok(isPublicLocale(code));
   }
-});
-
-test("matchAcceptLanguage falls back to English when the header is absent or empty", () => {
-  assert.equal(matchAcceptLanguage(null), DEFAULT_LOCALE);
-  assert.equal(matchAcceptLanguage(undefined), DEFAULT_LOCALE);
-  assert.equal(matchAcceptLanguage(""), DEFAULT_LOCALE);
-});
-
-test("matchAcceptLanguage falls back to English when nothing matches a public locale", () => {
-  assert.equal(matchAcceptLanguage("es-ES,es;q=0.9,tr;q=0.8"), DEFAULT_LOCALE);
-});
-
-test("matchAcceptLanguage picks a direct primary-tag match", () => {
-  assert.equal(matchAcceptLanguage("fr-FR,fr;q=0.9,en;q=0.8"), "fr");
-  assert.equal(matchAcceptLanguage("ko"), "ko");
-  assert.equal(matchAcceptLanguage("ru-RU"), "ru");
-  assert.equal(matchAcceptLanguage("id-ID,id;q=0.9"), "id");
-});
-
-test("matchAcceptLanguage respects q-value ranking over header order", () => {
-  assert.equal(matchAcceptLanguage("es;q=0.9,ru;q=0.95"), "ru");
-  assert.equal(matchAcceptLanguage("fr;q=0.5,ko;q=0.9,en;q=0.8"), "ko");
-  assert.equal(matchAcceptLanguage("en;q=0.8,id;q=0.9"), "id");
-});
-
-test("matchAcceptLanguage treats a missing q as 1.0 (highest)", () => {
-  assert.equal(matchAcceptLanguage("en;q=0.5,fr"), "fr");
-});
-
-test("matchAcceptLanguage folds every zh-* variant onto the single zh dictionary", () => {
-  for (const tag of ["zh-CN", "zh-TW", "zh-HK", "zh-Hant", "zh-Hans-SG"]) {
-    assert.equal(matchAcceptLanguage(tag), "zh", `expected "${tag}" to resolve to zh`);
-  }
-});
-
-test("matchAcceptLanguage skips an unsupported first choice and falls through to a supported one", () => {
-  assert.equal(matchAcceptLanguage("tr-TR;q=1.0,zh;q=0.5"), "zh");
 });
 
 test("setLocaleCookie is a no-op outside the browser (no document global)", () => {

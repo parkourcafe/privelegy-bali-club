@@ -128,56 +128,8 @@ export async function PlaceLink({ slug, children }: { slug: string; children?: R
   );
 }
 
-export function GuideFooter() {
-  return (
-    <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-      <p>
-        Other Bali is free for travellers. Recommendations are editorial —
-        sponsored placements are always labeled and never change the order.
-      </p>
-      <div className="mt-3 flex flex-wrap gap-4">
-        <Link href="/places" className="quiet-link">
-          All places
-        </Link>
-        <Link href="/bali" className="quiet-link">
-          Bali by district
-        </Link>
-        <Link href="/collections" className="quiet-link">
-          Bali by taste
-        </Link>
-        <Link href="/my-day" className="quiet-link">
-          My Day
-        </Link>
-        <Link href="/guides" className="quiet-link">
-          Travel guides
-        </Link>
-        <Link href="/for-venues" className="quiet-link">
-          List your place
-        </Link>
-        <Link href="/villas" className="quiet-link">
-          For villas
-        </Link>
-        <Link href="/hotels" className="quiet-link">
-          For hotels
-        </Link>
-        <a
-          href="https://wa.me/6282339630988?text=Hi%20Other%20Bali%20%F0%9F%91%8B%20"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="quiet-link"
-        >
-          WhatsApp
-        </a>
-        <Link href="/privacy" className="quiet-link">
-          Privacy
-        </Link>
-        <Link href="/terms" className="quiet-link">
-          Terms
-        </Link>
-        <Link href="/support" className="quiet-link">
-          Support
-        </Link>
-      </div>
-    </footer>
-  );
-}
+// Re-exports the shared site footer (components/SiteFooter.tsx) under its
+// existing call sites' name — every guide/district/catalogue page that
+// already renders <GuideFooter /> picks up the current site-wide footer
+// design without a per-file change.
+export { default as GuideFooter } from "@/components/SiteFooter";
