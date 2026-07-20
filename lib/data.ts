@@ -10,6 +10,7 @@ import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { getPublicationStatus } from "./publication";
+import { venuePhotoUrlForDisplay } from "./photo-policy";
 import { keepRenderableVenues } from "./venue-validation";
 import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
@@ -188,7 +189,8 @@ const mapVenue = (r: Row): Venue => {
     vibeTags: (r.vibe_tags as string[]) ?? undefined,
     priceAnchor: (r.price_anchor as string) ?? undefined,
     whatToOrder: (r.what_to_order as string) ?? undefined,
-    photoUrl: (r.photo_url as string) ?? undefined,
+    // Photo Policy v3: photo_url is provisional-by-default (see lib/photo-policy).
+    photoUrl: venuePhotoUrlForDisplay(r.photo_url as string | null),
     whatsapp: undefined,
     tablepilotSlug: undefined,
     area: (r.area as string) ?? undefined,

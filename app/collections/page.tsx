@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { GuideFooter } from "@/components/GuideBlocks";
 import { COLLECTIONS, CURATION_NOTE, liveCollectionSlugs } from "@/lib/collections";
+import ArtCard, { collectionArt } from "@/components/ArtCard";
 
 export const revalidate = 300;
 
@@ -76,17 +77,16 @@ export default async function CollectionsHubPage() {
               <p className="text-sm text-[var(--muted)]">{group.note}</p>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {items.map((c) => (
-                  <Link
+                  <ArtCard
                     key={c.slug}
                     href={`/collections/${c.slug}`}
-                    className="venue-card block p-5 transition-transform hover:-translate-y-0.5"
-                  >
-                    <h3 className="venue-name">{c.title}</h3>
-                    <p className="mt-1 text-sm text-[var(--muted)]">{c.intro}</p>
-                    <span className="mt-3 inline-block text-sm font-semibold text-[var(--lagoon-strong)]">
-                      See the {c.taste.toLowerCase()} collection →
-                    </span>
-                  </Link>
+                    art={collectionArt(c.slug)}
+                    eyebrow={group.kind === "taste" ? "By taste" : "By moment"}
+                    title={c.title}
+                    blurb={c.intro}
+                    cta={`See the ${c.taste.toLowerCase()} collection`}
+                    tall
+                  />
                 ))}
               </div>
             </section>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+  OTHER BALI — HUB PAGE TEMPLATE #3  ·  cluster: Resort day-use & hotel dining  ·  type: SUNSET clubs / dinners (moment hub)
+  Example: /uluwatu/cliff-clubs-sunset   ·   built 2026-07-19 from OTHER_BALI_RESORT_FNB_MASTER.csv
+  ------------------------------------------------------------------------------------------------
+  WHY THIS IS A THIRD SUBTYPE (not day-pass, not brunch):
+   • The product is a FRONT-ROW SUNSET SEAT, sold as a redeemable minimum spend by seat tier — not a flat ticket.
+   • The decisive info is the SUNSET BOOKING RULE: book far ahead, arrive-by time, and slot quirks
+     (e.g. Rock Bar keeps 16:00-17:00 for hotel guests; non-guests get 19:30+).
+   • So the table has a "Seat & minimum spend" column + a "Sunset booking note" column.
+   • Monetize: mixed — beach/cliff-club dining is SEATED (feeds reservation intent); pure pool access is COVERAGE.
+
+  CLONE ACROSS DISTRICTS (this moment repeats island-wide — see the CLONE MAP block near the bottom):
+   • /jimbaran/sunset-seafood   → Rock Bar (AYANA), Sundara, + beachfront seafood-on-sand (Menega, Bawang Merah, Teba)
+   • /seminyak/sunset-beach-clubs → Potato Head, Ku De Ta, La Plancha, Cafe del Mar, Mari, Mano
+   • /canggu/sunset-beach-clubs   → La Brisa, The Lawn, Finns, COMO Beach Club, Atlas
+   • /bali-sunset-clubs (island pillar) → best 8-10 across all west-coast districts
+   • SANUR = SUNRISE, not sunset (east coast) — do NOT build a Sanur sunset hub; build /sanur/sunrise-beach instead. (honesty)
+  SCHEMA: emit `price` only for [OFFICIAL] rows (One Eighty, Sundays). Min-spends that are blog-sourced -> visible only.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uluwatu Sunset Clubs: Prices, Minimum Spend & How to Book a Front-Row Table | Other Bali</title>
+<meta name="description" content="Every Uluwatu clifftop sunset club compared: entry, seat minimum spend, the sunset booking rule and how far ahead to reserve. Single Fin, One Eighty, Savaya, Sundays & more. Checked July 2026.">
+<link rel="canonical" href="https://www.otherbali.com/uluwatu/cliff-clubs-sunset">
+<style>
+  :root{--bg:#fbfaf7;--fg:#1c1a17;--muted:#6b6459;--line:#e7e2d8;--card:#fff;--accent:#0f6d5f;--chip:#eef4f2}
+  @media(prefers-color-scheme:dark){:root{--bg:#141311;--fg:#ece7dd;--muted:#a49b8c;--line:#2c2925;--card:#1c1a17;--accent:#5fd6c0;--chip:#1e2a27}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:20px}
+  nav.bc{font-size:13px;color:var(--muted);margin:8px 0 18px}
+  nav.bc a{color:var(--muted);text-decoration:none} nav.bc a:hover{text-decoration:underline}
+  h1{font-size:30px;line-height:1.2;margin:.2em 0 .1em}
+  .sub{color:var(--muted);font-size:15px;margin-bottom:20px}
+  .answer{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 16px;font-size:16px}
+  .answer strong{color:var(--accent)}
+  .callout{border:1px dashed var(--line);border-radius:10px;padding:12px 16px;margin:0 0 24px;font-size:14px;color:var(--muted)}
+  .callout b{color:var(--fg)}
+  h2{font-size:22px;margin:34px 0 12px;border-top:1px solid var(--line);padding-top:26px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 6px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  td.price{font-weight:600}
+  .sunset{color:var(--accent);font-weight:600;font-size:12.5px}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:20px;background:var(--chip);color:var(--muted);margin-left:4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .card h3{margin:0 0 4px;font-size:18px}
+  .card .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+  .kv{display:grid;grid-template-columns:150px 1fr;gap:2px 10px;font-size:14px;margin-top:8px}
+  .kv dt{color:var(--muted)} .kv dd{margin:0}
+  .book{display:inline-block;margin-top:10px;font-size:14px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid var(--accent);padding:6px 12px;border-radius:8px}
+  .note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:30px;padding-top:16px}
+  .links a{color:var(--accent)}
+  details{border-bottom:1px solid var(--line);padding:12px 0}
+  summary{font-weight:600;cursor:pointer}
+  .checked{font-size:12px;color:var(--muted)}
+  .clonemap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:14px}
+  .clonemap li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="bc" aria-label="Breadcrumb">
+  <a href="/">Other Bali</a> › <a href="/uluwatu">Uluwatu</a> › Cliff clubs at sunset
+</nav>
+
+<h1>Uluwatu sunset clubs</h1>
+<p class="sub">Every clifftop sunset club on the Bukit, compared — entry, seat minimum spend, and exactly how far ahead to book a front-row table. <span class="checked">Prices checked 19 Jul 2026 · resident-curated, no paid placement.</span></p>
+
+<!-- ANSWER-FIRST — sunset framing: most are free entry with a redeemable seat minimum spend; front-row = book ahead. -->
+<div class="answer">
+  Uluwatu's cliff clubs are mostly <strong>free (or cheap) to enter, but charge a redeemable minimum spend by seat</strong> — roughly <strong>IDR 400,000 per person at a table up to IDR 1.5–10 million for a sunset daybed or cabana</strong>, all spent on food and drinks. The icon is <strong>Single Fin</strong> (Suluban, legendary Sunday sessions); the show-stopper is <strong>One Eighty at The Edge</strong> (glass sky-pool 162 m above the sea); the white-sand cove is <strong>Sundays Beach Club</strong>. The one rule that matters: for a front-row sunset seat, book days ahead and arrive by ~16:30.
+</div>
+
+<!-- SUNSET BOOKING RULE callout — the decisive, differentiating info -->
+<div class="callout">
+  <b>The sunset rule.</b> Front-row seats sell out and many clubs stop same-day bookings by mid-afternoon. Reserve 2–7 days ahead for weekends and full-moon dates, arrive by 16:30–17:00, and check the seat minimum spend before you go — it's redeemable on F&amp;B, not an entry fee. Adults-only at several (Savaya, El Kabron, Ulu Cliffhouse).
+</div>
+
+<h2>Compare Uluwatu's sunset clubs</h2>
+<table>
+  <thead>
+    <tr><th>Club</th><th>Entry / seat minimum spend</th><th>The spot</th><th>Sunset booking note</th><th>Book</th></tr>
+  </thead>
+  <tbody>
+    <!-- BLOG -->
+    <tr><td>Palmilla (Melasti)</td><td class="price">Entry IDR 100,000 (voucher); VIP sunbed 1M / sofa 2.5M</td><td>Infinity pool + sunbeds on Melasti Beach</td><td class="sunset">Cheapest entry; walk-in early for sunset</td><td><a href="/places/palmilla">Walk-in / online</a></td></tr>
+    <!-- BLOG: no fixed min-spend published; cheapest to just show up + eat -->
+    <tr><td>Single Fin (Suluban) <span class="tag">icon</span></td><td class="price">No entry; food from ~145k; VIP booth min-spend varies</td><td>Clifftop bar over the Uluwatu break; legendary Sun &amp; Wed sessions</td><td class="sunset">Book far ahead for sunset (SevenRooms); Sunday is a party</td><td><a href="/places/single-fin">SevenRooms / WhatsApp</a></td></tr>
+    <!-- BLOG -->
+    <tr><td>El Kabron (Pecatu)</td><td class="price">Reservation-only; seat min-spend ~IDR 400k/pax (restaurant) → ~850k–1M/pax (sunset cliff); pool +350k</td><td>Adults-only Spanish/Med cliff club + Sunset Theater</td><td class="sunset">Reserve a Sunset Theater seat ahead; adults only</td><td><a href="/places/el-kabron">WhatsApp / site</a></td></tr>
+    <!-- BLOG -->
+    <tr><td>Ulu Cliffhouse (Padang Padang)</td><td class="price">Seat min-spend (varies by date) <span class="tag">verify</span></td><td>Adults-only cliff pool club, live music</td><td class="sunset">Min-spend shown per date at booking; adults only</td><td><a href="/places/ulu-cliffhouse">ResDiary / WhatsApp</a></td></tr>
+    <!-- OFFICIAL: emit schema price -->
+    <tr><td>One Eighty at The Edge <span class="tag">the view</span></td><td class="price">Skypool GA IDR 700,000 (600k F&amp;B credit); VIP bed 3M</td><td>Cantilevered glass sky-pool, 162 m above the sea</td><td class="sunset">Sells online, non-refundable; up to 4 hrs</td><td><a href="/places/oneeighty-the-edge">Chope</a></td></tr>
+    <!-- OFFICIAL: emit schema price -->
+    <tr><td>Sundays Beach Club (Ungasan)</td><td class="price">IDR 800,000 incl 500k credit; kids 5-11 400k</td><td>White-sand cove via inclinator; sunset bonfire 18:30</td><td class="sunset">Walk-in FCFS; arrive early; family-friendly</td><td><a href="/places/sundays-beach-club">Walk-in / WhatsApp</a></td></tr>
+    <!-- BLOG -->
+    <tr><td>Karma Beach (Ungasan)</td><td class="price">IDR 800,000 incl 500k credit; beds 800k-1.6M</td><td>Private beach via cable-car; secluded</td><td class="sunset">Reserve beds ahead; figures vary by source</td><td><a href="/places/karma-beach">Concierge</a></td></tr>
+    <!-- BLOG: 21+ party, high min-spend -->
+    <tr><td>Savaya (Pecatu)</td><td class="price">Ticketed ~IDR 300,000–900,000 by event (from ~150k off-peak); VIP tables min-spend 1.5M/4pax → 10M/15pax</td><td>21+ cliff day-to-night club, headliner DJs</td><td class="sunset">Book seats well ahead for events; strictly 21+</td><td><a href="/places/savaya">Website / WhatsApp</a></td></tr>
+  </tbody>
+</table>
+<p class="checked">Minimum spends are redeemable on food &amp; drink, not entry fees. ++ where noted = ~21% tax &amp; service. <span class="tag">verify</span> / non-official figures come from recent press — confirm at booking.</p>
+
+<h2>The clubs in detail</h2>
+
+<div class="card">
+  <h3>One Eighty at The Edge <span class="tag">the view</span></h3>
+  <div class="meta">Glass sky-pool, 162 m above the sea · Pecatu</div>
+  <p>The most photographed sunset spot on the Bukit: a cantilevered glass-bottom pool over the cliff. General admission is IDR 700,000, of which IDR 600,000 comes back as an F&amp;B credit; VIP beds and cabanas go up from IDR 3,000,000. Sold online (non-refundable), so lock a sunset slot in advance.</p>
+  <dl class="kv">
+    <dt>Skypool (GA)</dt><dd>IDR 700,000 · 600k F&amp;B credit <span class="tag">official</span></dd>
+    <dt>VIP bed</dt><dd>from IDR 3,000,000</dd>
+    <dt>Sunset</dt><dd>Book ahead; up to 4 hrs; kids 4-11 IDR 200k</dd>
+    <dt>Book</dt><dd>Chope</dd>
+  </dl>
+  <a class="book" href="/places/oneeighty-the-edge">See venue &amp; details →</a>
+</div>
+
+<div class="card">
+  <h3>Single Fin <span class="tag">icon</span></h3>
+  <div class="meta">Clifftop bar over the Uluwatu break · Suluban</div>
+  <p>The original Uluwatu sunset bar, hanging over the surf break. No entry fee — just order (pizzas from ~IDR 145k); VIP booth minimum spends vary by date. Sunday and Wednesday are legendary party sessions that book out; for a sunset table any night, reserve ahead on SevenRooms.</p>
+  <dl class="kv">
+    <dt>Entry</dt><dd>Free; food from ~IDR 145,000</dd>
+    <dt>Sunset</dt><dd>Book far ahead; Sun &amp; Wed = party nights</dd>
+    <dt>Book</dt><dd>SevenRooms / WhatsApp same-day</dd>
+  </dl>
+  <a class="book" href="/places/single-fin">See venue &amp; details →</a>
+</div>
+
+<div class="card">
+  <h3>Sundays Beach Club</h3>
+  <div class="meta">White-sand cove + sunset bonfire · Ungasan (The Ungasan Clifftop)</div>
+  <p>A rare white-sand beach on the Bukit, reached by inclinator. IDR 800,000 includes a IDR 500,000 F&amp;B credit, kayaks, SUPs and a nightly sunset bonfire at 18:30 — the most family-friendly sunset on this list. Walk-in, first-come; arrive early on weekends.</p>
+  <dl class="kv">
+    <dt>Adult</dt><dd>IDR 800,000 · 500k F&amp;B credit <span class="tag">official</span></dd>
+    <dt>Child 5–11</dt><dd>IDR 400,000 · under-5 free</dd>
+    <dt>Includes</dt><dd>Inclinator, welcome drink, kayak/SUP/snorkel, bonfire</dd>
+    <dt>Book</dt><dd>Walk-in / WhatsApp for VIP</dd>
+  </dl>
+  <a class="book" href="/places/sundays-beach-club">See venue &amp; details →</a>
+</div>
+
+<!-- Clone the card above for El Kabron, Savaya, Ulu Cliffhouse, Karma, Palmilla as needed. -->
+
+<h2>Frequently asked</h2>
+<details><summary>How much does an Uluwatu sunset club cost?</summary><p>Most are free or cheap to enter but charge a redeemable minimum spend by seat — roughly IDR 400,000 per person at a table, up to IDR 1.5–10 million for a sunset daybed or cabana, all spent on food and drinks. Sundays and Karma are IDR 800,000 including a IDR 500,000 credit.</p></details>
+<details><summary>Which is the best Uluwatu sunset spot?</summary><p>For the view, One Eighty's glass sky-pool at The Edge; for atmosphere, Single Fin; for a beach, Sundays Beach Club's white-sand cove with its 18:30 bonfire.</p></details>
+<details><summary>Do I need to book, and how far ahead?</summary><p>Yes for a front-row sunset seat — reserve 2–7 days ahead for weekends and full-moon dates, and arrive by 16:30–17:00. Several clubs stop same-day bookings by mid-afternoon.</p></details>
+<details><summary>Are Uluwatu sunset clubs family-friendly?</summary><p>Sundays Beach Club and Palmilla are; Savaya, El Kabron and Ulu Cliffhouse are adults-only.</p></details>
+
+<h2>Sunset across the rest of Bali</h2>
+<!-- CLONE MAP: this moment repeats island-wide; each links to (or seeds) a sister hub built from the same template. -->
+<div class="clonemap">
+  <ul>
+    <li><b>Jimbaran</b> — beachfront seafood on the sand at sunset + AYANA's Rock Bar → <a href="/jimbaran/sunset-seafood">Jimbaran sunset seafood</a></li>
+    <li><b>Seminyak</b> — Potato Head, Ku De Ta, La Plancha, Café del Mar, Mari, Mano → <a href="/seminyak/sunset-beach-clubs">Seminyak sunset beach clubs</a></li>
+    <li><b>Canggu</b> — La Brisa, The Lawn, Finns, COMO Beach Club, Atlas → <a href="/canggu/sunset-beach-clubs">Canggu sunset beach clubs</a></li>
+    <li><b>Island-wide</b> — the best 8–10 sunset spots across the west coast → <a href="/bali-sunset-clubs">Bali's best sunset clubs</a></li>
+    <li><b>Sanur</b> — faces east, so it's <em>sunrise</em>, not sunset → <a href="/sanur/sunrise-beach">Sanur sunrise &amp; the boardwalk</a></li>
+  </ul>
+</div>
+
+<h2>Keep planning Uluwatu</h2>
+<p class="links">
+  → <a href="/uluwatu/resort-pool-day-passes">Uluwatu clifftop pool day passes (with prices)</a><br>
+  → <a href="/uluwatu/best-restaurants">Where to eat in Uluwatu</a><br>
+  → <a href="/uluwatu">Uluwatu area guide — surf, cliffs &amp; who it's for</a>
+</p>
+
+<p class="note">
+  <strong>How we choose &amp; verify.</strong> Placement can't be bought — clubs are ordered by access and fit, not by any payment. Prices marked <em>official</em> are from the venue or its booking engine; unmarked minimum spends come from recent press and should be confirmed at booking, as they change by date, season and event. Prices last checked 19 July 2026.
+</p>
+
+</div>
+
+<!-- ============ STRUCTURED DATA ============ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Other Bali","item":"https://www.otherbali.com/"},
+ {"@type":"ListItem","position":2,"name":"Uluwatu","item":"https://www.otherbali.com/uluwatu"},
+ {"@type":"ListItem","position":3,"name":"Cliff clubs at sunset","item":"https://www.otherbali.com/uluwatu/cliff-clubs-sunset"}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"Uluwatu sunset clubs: prices, minimum spend & how to book a front-row table",
+ "author":{"@type":"Organization","name":"Other Bali"},
+ "publisher":{"@type":"Organization","name":"Other Bali","logo":{"@type":"ImageObject","url":"https://www.otherbali.com/logo.png"}},
+ "dateModified":"2026-07-19","datePublished":"2026-07-19",
+ "mainEntityOfPage":"https://www.otherbali.com/uluwatu/cliff-clubs-sunset"}
+</script>
+<!-- ItemList: price ONLY for OFFICIAL rows (One Eighty, Sundays). Blog min-spends: name+url only. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"Uluwatu sunset clubs","itemListOrder":"https://schema.org/ItemListUnordered",
+ "itemListElement":[
+  {"@type":"ListItem","position":1,"item":{"@type":"BarOrPub","name":"Single Fin","url":"https://www.otherbali.com/places/single-fin","address":{"@type":"PostalAddress","addressLocality":"Uluwatu","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":2,"item":{"@type":"Restaurant","name":"One Eighty at The Edge","url":"https://www.otherbali.com/places/oneeighty-the-edge","servesCuisine":"International","address":{"@type":"PostalAddress","addressLocality":"Pecatu, Uluwatu","addressRegion":"Bali","addressCountry":"ID"},"makesOffer":{"@type":"Offer","name":"Skypool day pass (general admission)","price":"700000","priceCurrency":"IDR","category":"Cliff club / sunset","url":"https://www.otherbali.com/places/oneeighty-the-edge","priceValidUntil":"2026-12-31"}}},
+  {"@type":"ListItem","position":3,"item":{"@type":"Restaurant","name":"Sundays Beach Club","url":"https://www.otherbali.com/places/sundays-beach-club","servesCuisine":"International","address":{"@type":"PostalAddress","addressLocality":"Ungasan, Uluwatu","addressRegion":"Bali","addressCountry":"ID"},"makesOffer":{"@type":"Offer","name":"Daily beach pass (adult)","price":"800000","priceCurrency":"IDR","category":"Beach club / sunset","url":"https://www.otherbali.com/places/sundays-beach-club","priceValidUntil":"2026-12-31"}}},
+  {"@type":"ListItem","position":4,"item":{"@type":"Restaurant","name":"El Kabron","url":"https://www.otherbali.com/places/el-kabron","servesCuisine":"Mediterranean","address":{"@type":"PostalAddress","addressLocality":"Pecatu, Uluwatu","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":5,"item":{"@type":"NightClub","name":"Savaya Bali","url":"https://www.otherbali.com/places/savaya","address":{"@type":"PostalAddress","addressLocality":"Pecatu, Uluwatu","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":6,"item":{"@type":"Restaurant","name":"Ulu Cliffhouse","url":"https://www.otherbali.com/places/ulu-cliffhouse","address":{"@type":"PostalAddress","addressLocality":"Padang Padang, Uluwatu","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":7,"item":{"@type":"Restaurant","name":"Karma Beach","url":"https://www.otherbali.com/places/karma-beach","address":{"@type":"PostalAddress","addressLocality":"Ungasan, Uluwatu","addressRegion":"Bali","addressCountry":"ID"}}},
+  {"@type":"ListItem","position":8,"item":{"@type":"Restaurant","name":"Palmilla Beach Club","url":"https://www.otherbali.com/places/palmilla","address":{"@type":"PostalAddress","addressLocality":"Melasti, Ungasan","addressRegion":"Bali","addressCountry":"ID"}}}
+ ]}
+</script>
+</body>
+</html>

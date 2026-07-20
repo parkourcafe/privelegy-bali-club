@@ -6,6 +6,9 @@ import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
+import MobileNav from "@/components/MobileNav";
+import { getLocale } from "@/lib/i18n/server";
+import { LOCALE_META } from "@/lib/i18n/locales";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
 // body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
@@ -52,6 +55,11 @@ export const viewport: Viewport = {
   themeColor: "#005962",
   width: "device-width",
   initialScale: 1,
+  // The palette is a designed light system with hand-tuned contrast. Declaring
+  // it stops Android Chrome's forced auto-dark from recolouring backgrounds
+  // while leaving ink variables dark — which rendered as "black text on black"
+  // for users with system dark mode.
+  colorScheme: "light",
 };
 
 // Sitewide brand entity: one Organization node (name/logo → knowledge panel)
@@ -91,18 +99,23 @@ const siteJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en" className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}>
+    <html
+      lang={LOCALE_META[locale].htmlLang}
+      className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}
+    >
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <GlobalHeader />
+        <GlobalHeader locale={locale} />
         {children}
+        <MobileNav locale={locale} />
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />

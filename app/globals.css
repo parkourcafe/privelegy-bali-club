@@ -6,6 +6,8 @@
    dot — never as a UI accent. moss/brass are retired: vibe tags use the
    teal tint, sponsored goes neutral. */
 :root {
+  /* Designed light system — block UA forced-dark recolouring (see layout viewport). */
+  color-scheme: light;
   --paper: #FAF6EF; /* page background */
   --paper-soft: #FFFFFF; /* cards — clean white */
   --paper-warm: #f3ecdf; /* soft warm panel (kept for legacy washes) */
@@ -242,9 +244,9 @@ html {
 }
 
 .chip-label {
-  width: 54px;
-  color: var(--muted);
-  font-size: 10px;
+  width: 64px;
+  color: var(--ink);
+  font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -252,12 +254,12 @@ html {
 
 .chip {
   min-height: 40px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 250, 241, 0.78);
-  padding: 8px 13px;
-  color: var(--muted);
-  font-size: 12px;
+  background: rgba(255, 250, 241, 0.9);
+  padding: 8px 14px;
+  color: var(--ink);
+  font-size: 13px;
   font-weight: 700;
   transition: transform 160ms ease, color 160ms ease, border-color 160ms ease, background 160ms ease;
 }
@@ -2822,3 +2824,437 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
   transform: translateZ(0);
   will-change: transform;
 }
+
+/* Resort-F&B hub pages (components/ResortFnbHub) — AEO answer block, priced
+   comparison table (scrolls on mobile), detail cards, provenance badges. Uses
+   existing CSS tokens (--chip/--line/--muted/--ink/--lagoon-strong). */
+.fnb-answer {
+  background: var(--chip, rgba(0, 0, 0, 0.04));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.fnb-callout {
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 16px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.fnb-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.fnb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  min-width: 640px;
+}
+.fnb-table th,
+.fnb-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.fnb-table th {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.fnb-checked {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.ob-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 20px;
+  background: var(--chip, rgba(0, 0, 0, 0.06));
+  color: var(--muted);
+  margin-left: 4px;
+  white-space: nowrap;
+}
+.fnb-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 14px 0;
+}
+.fnb-card h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.fnb-card-meta { color: var(--muted); font-size: 0.82rem; margin-bottom: 8px; }
+.fnb-kv { margin-top: 8px; font-size: 0.875rem; }
+.fnb-kv-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 2px 10px;
+}
+.fnb-kv-row dt { color: var(--muted); }
+.fnb-kv-row dd { margin: 0; }
+.fnb-book {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--lagoon-strong, var(--ink));
+  border: 1px solid currentColor;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.fnb-faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
+.fnb-faq summary { font-weight: 600; cursor: pointer; }
+
+/* ── Cinematic art cards (/bali, /collections index) ──
+   Category mood art + bottom scrim + sand type. Whole card is the link;
+   min-height keeps tap targets generous (>=44px rule). */
+.art-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 200px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 16, 12, 0.28);
+  isolation: isolate;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.art-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.art-card-tall { min-height: 260px; }
+.art-card-img {
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.04);
+  transition: transform 700ms ease;
+}
+.art-card:hover .art-card-img { transform: scale(1.09); }
+.art-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(20, 14, 10, 0.16) 0%, transparent 34%),
+    linear-gradient(0deg, rgba(20, 14, 10, 0.86) 0%, rgba(20, 14, 10, 0.42) 46%, transparent 72%);
+}
+.art-card-body { position: relative; z-index: 2; width: 100%; padding: 18px 18px 16px; }
+.art-card-eyebrow {
+  color: #e2ba79;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.art-card-title {
+  margin-top: 4px;
+  color: #fffaf1;
+  font-family: var(--font-display, inherit);
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+.art-card-blurb {
+  margin-top: 6px;
+  color: rgba(244, 236, 224, 0.85);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.art-card-cta {
+  display: inline-block;
+  margin-top: 10px;
+  color: #e2ba79;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* De-clone the shared category art: deterministic per-venue variants shift
+   crop + grade so repeats of the same still don't read as copy-paste. */
+.type-cover-alt-1 .type-cover-art { object-position: 20% 35%; filter: saturate(1.12) brightness(1.04) hue-rotate(-6deg); }
+.type-cover-alt-2 .type-cover-art { object-position: 80% 60%; filter: saturate(0.9) brightness(0.97) sepia(0.12); }
+.type-cover-alt-3 .type-cover-art { object-position: 55% 20%; filter: saturate(1.05) contrast(1.05) hue-rotate(5deg); }
+
+/* ── IA v1: desktop mega-menu (GlobalHeader) ── */
+.ob-mega-nav {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  justify-content: center;
+}
+/* 1360px, not the usual 900px tablet breakpoint: the mega-nav's six category
+   labels plus the header actions need real room once translated — Russian
+   and Indonesian overflow the header well past 900px (measured up to
+   ~1340px at the header's own 1120px design width). Below 1360px, MobileNav's
+   bottom tabs + Explore sheet already cover every destination here, so
+   nothing is lost — the header just stays compact for longer. */
+@media (min-width: 1360px) { .ob-mega-nav { display: flex; } }
+.ob-mega { position: relative; }
+.ob-mega-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ob-mega-summary::-webkit-details-marker { display: none; }
+.ob-mega-summary:hover { background: rgba(0, 89, 98, 0.07); }
+.ob-mega-summary[data-active="true"] { color: var(--lagoon-strong); }
+.ob-mega-summary:focus-visible { outline: 2px solid var(--lagoon); outline-offset: 2px; }
+.ob-mega-caret { width: 11px; height: 11px; opacity: 0.55; transition: transform 160ms ease; }
+.ob-mega[open] .ob-mega-caret { transform: rotate(180deg); }
+.ob-mega-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  min-width: 230px;
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow-lift);
+}
+.ob-mega-link {
+  display: block;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ob-mega-link:hover { background: rgba(0, 89, 98, 0.07); color: var(--lagoon-strong); }
+.ob-mega-link[aria-current="page"] { color: var(--lagoon-strong); }
+.ob-site-actions { display: flex; align-items: center; gap: 4px; }
+/* Explore/Saved duplicate MobileNav's bottom tabs (same hrefs) below the
+   1360px mega-nav breakpoint — keep them out of the header there so a long
+   translated label (e.g. Russian "Сохранённое", Indonesian "Bahasa
+   Indonesia" in the switcher next to it) can't force the header row past the
+   viewport width. The locale switcher stays visible at every width. */
+.ob-site-actions a { display: none; }
+@media (min-width: 1360px) {
+  .ob-site-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 11px;
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+}
+.ob-site-actions a:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
+.ob-site-actions a[data-active="true"] { color: var(--lagoon-strong); }
+
+/* Locale switcher (Multi-locale public UI rule v2) — mirrors the .ob-mega
+   summary/panel pattern but the trigger stays compact (native name only,
+   no English gloss) and the dropdown right-aligns since it's the last item
+   in the header instead of centered under a mega-nav column. */
+.ob-locale-switcher { position: relative; flex-shrink: 0; }
+.ob-locale-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ob-locale-trigger:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
+.ob-locale-trigger:focus-visible { outline: 2px solid var(--lagoon); outline-offset: 2px; }
+.ob-locale-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 60;
+  min-width: 200px;
+  max-height: min(70vh, 420px);
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow-lift);
+  list-style: none;
+}
+.ob-locale-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ob-locale-option:hover { background: rgba(0, 89, 98, 0.07); color: var(--lagoon-strong); }
+.ob-locale-option[aria-selected="true"] { color: var(--lagoon-strong); }
+.ob-locale-option-en { color: var(--muted); font-size: 12px; font-weight: 500; }
+
+/* Legacy flat nav replaced by the mega nav; keep the class harmless if any
+   cached markup references it. */
+.ob-site-nav { display: none; }
+
+/* ── IA v1: mobile bottom navigation + Explore sheet ── */
+.ob-mobile-nav {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 70;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  backdrop-filter: saturate(1.1) blur(10px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+/* Matches the .ob-mega-nav/.ob-site-actions breakpoint above — MobileNav
+   stays the primary nav until there's real room for the desktop chrome. */
+@media (min-width: 1360px) { .ob-mobile-nav { display: none; } }
+@media (max-width: 1359.98px) { body { padding-bottom: 64px; } }
+.ob-mobile-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 56px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.ob-mobile-tab svg { width: 21px; height: 21px; }
+.ob-mobile-tab[data-active="true"], .ob-mobile-tab[aria-expanded="true"] { color: var(--lagoon-strong); }
+.ob-mobile-tab:focus-visible { outline: 2px solid var(--lagoon); outline-offset: -2px; }
+
+.ob-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(22, 16, 12, 0.45);
+}
+.ob-sheet {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  max-height: 82vh;
+  overflow-y: auto;
+  border-radius: 20px 20px 0 0;
+  background: var(--paper);
+  padding: 14px 18px calc(20px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -18px 50px rgba(42, 35, 25, 0.25);
+}
+.ob-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.ob-sheet-title { font-size: 1.1rem; font-weight: 800; color: var(--ink); }
+.ob-sheet-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper-soft);
+  color: var(--ink);
+  font-size: 15px;
+  cursor: pointer;
+}
+.ob-sheet-groups { display: grid; gap: 14px; }
+.ob-sheet-group h2 {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.ob-sheet-group ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.ob-sheet-group a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper-soft);
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.ob-sheet-group a:active { background: rgba(0, 89, 98, 0.09); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ob-sheet { animation: ob-sheet-up 220ms ease; }
+  @keyframes ob-sheet-up { from { transform: translateY(24px); opacity: 0.6; } }
+}
+
+/* ── IA v1: homepage CategoryGateway ── */
+.ob-gateway { width: min(100% - 40px, 1120px); margin: 0 auto; padding: 44px 0 8px; }
+.ob-gateway-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  color: var(--ob-sand, #f4ece0);
+}
+.ob-gateway-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 760px) { .ob-gateway-grid { grid-template-columns: repeat(4, 1fr); } }
+.ob-gateway-secondary {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) { .ob-gateway-secondary { grid-template-columns: repeat(2, 1fr); } }
+.ob-gateway-wide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+  padding: 14px 18px;
+  border: 1px solid rgba(198, 154, 92, 0.35);
+  border-radius: 16px;
+  color: var(--ob-sand, #f4ece0);
+  background: rgba(255, 250, 241, 0.04);
+  transition: border-color 160ms ease, background 160ms ease;
+}
+.ob-gateway-wide:hover { border-color: rgba(198, 154, 92, 0.65); background: rgba(255, 250, 241, 0.07); }
+.ob-gateway-wide b { font-size: 1rem; }
+.ob-gateway-wide span { color: var(--ob-sand-dim, rgba(244, 236, 224, 0.72)); font-size: 0.85rem; }

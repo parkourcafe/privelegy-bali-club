@@ -80,7 +80,7 @@ Never violate these without an explicit architecture amendment from Selena.
 12. **No unnecessary PII.** Provider handoffs must not be copied into Other Bali storage by default.
 13. **No new domain entity without master approval.** Approved new entities are exactly `Menu`, `MenuSection`, `MenuItem`, `VenueActionCapability`.
 14. **No big-bang rewrite.** Extend the current product and preserve compatible paths.
-15. **No public Russian strings.** Public UI is English; Russian is founder/admin-only.
+15. **No public Russian strings.** Public UI is English; Russian is founder/admin-only. ~~**Superseded 2026-07-20 for public locale English/Bahasa Indonesia/中文/한국어/Français/Русский — see "Multi-locale public UI rule" below.**~~
 
 ---
 
@@ -398,8 +398,68 @@ Stop and document rather than guessing when:
 
 Use the handoff template. A precise blocker is useful; confident improvisation is not.
 
-## Content publication rule (v2, 2026-07-13)
+## Content publication rule (v3, 2026-07-19 — founder amendment)
 
-- Venue photos must NEVER be published without a logged owner consent record (who / when / content version / channel, including photo-rights confirmation). Fallback art must not be presented as venue photography.
+- **Interim pre-launch policy (explicit founder decision, 2026-07-19):** while the
+  product is in owner-outreach mode (not promoted to tourists), a venue's own
+  public marketing photo MAY be displayed on its OWN listing before a consent
+  record exists. Conditions: photo shows the venue itself (never another
+  venue's photo on its card); immediate takedown on any owner request; the
+  consent pipeline keeps running and an approved owner submission replaces the
+  interim photo. Implemented by migration 0043 (restores the 0033-quarantined
+  URLs; reversible — quarantine rows are kept).
+- **At the public-launch gate this reverts to v2 strictness:** venue photos
+  without a logged owner consent record (who / when / content version /
+  channel, incl. photo-rights confirmation) are re-quarantined.
+- Fallback art must not be presented as venue photography (unchanged).
 - Menu facts captured from official sources may be published before owner approval, but only with source attribution and a captured-at date; UI must communicate "prices as of <date>".
 - Full workflow: `docs/DATA_OPS_TRACK.md`.
+
+## Multi-locale public UI rule (v2, 2026-07-20 — founder amendment, corrected same day)
+
+**Supersedes guardrail #15 ("No public Russian strings").** Founder decision,
+2026-07-20, made against the real BPS 2025 top-10 Bali source-market data
+already on file (`docs/gtm/BALI_PRIVILEGE_SOURCE_MARKET_SCORECARD.csv`).
+**v2 correction, same day:** v1 had kept Bahasa Indonesia partner/admin-only;
+the founder overrode that hours later — Indonesian is now a full public
+tourist-facing locale too. Everything else in v1 (Chinese/Korean/French/
+Russian selection and rationale, the phased rollout path, the machine-
+translation caution) is unchanged.
+
+- **Public tourist-facing locales:** English (default/fallback), **Bahasa
+  Indonesia** (Indonesian — added in this v2 correction; rationale is
+  domestic Indonesian tourism, specifically Jakarta-origin travellers, which
+  the founder identifies as a growing volume segment, plus the SEO value of
+  a fully Indonesian-language site for that traffic — not part of the
+  original BPS international-arrivals analysis, an explicit founder override
+  the same way Russian was), 中文 (Chinese), 한국어 (Korean), Français
+  (French), **Русский** (Russian — added by explicit founder decision despite
+  Russia not appearing in the 2025 top-10 arrivals table; rationale is the
+  founder's personal industry network and the Russian-speaking resident/
+  long-stay population concentrated in Canggu, not tourist-arrival volume).
+  Español and Türkçe were considered and explicitly **declined** — neither
+  market appears in the top-10 and no override reason was given for them the
+  way one was for Russian and Indonesian.
+- **Bahasa Indonesia is now dual-purpose:** it remains the language of the
+  existing partner/owner-outreach scripts (EN+ID, unchanged) *and* is now
+  also served as a public tourist-facing locale via the same
+  routing/detection/switcher infrastructure as the other four. This reverses
+  v1's "partner/admin-only, never a tourist-facing `/id` site experience"
+  line — that line no longer applies.
+- **Rollout path (explicit founder choice — "framework now, content in
+  phases"):** build the locale-routing/detection/switcher infrastructure and
+  translate the UI chrome (nav, actions, common strings) across all six
+  public locales first; long-form editorial content (guides, venue
+  `why_its_here`/`best_for` copy, F&B hub prose) is translated incrementally
+  by priority, locale by locale — untranslated content pages fall back to the
+  English original rather than serving a thin or machine-translated page.
+- **Machine translation of trust-bearing facts (prices, "open to non-guests",
+  honest caveats) without native-speaker review is explicitly out of scope** —
+  this is a trust product; a mistranslated price or access claim is a worse
+  outcome than showing the English original. Any AI-assisted draft translation
+  of factual content must be reviewed before publishing, same evidentiary bar
+  as guardrail #10 (no invented content). This applies to Indonesian exactly
+  as it does to the other five locales.
+- This amendment does not change guardrail #15's original logic for any
+  locale not listed above — it is not a blanket "translate everything"
+  license.

@@ -4,6 +4,9 @@ import { isVenueIndexable } from "@/lib/publication";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { PILLARS } from "@/lib/pillars";
+import { RESORT_FNB_PAGES } from "@/lib/resort-fnb";
+import { publicOfferSlugs } from "@/lib/domain/resort-repo";
+import { hotelRestaurantsHubIndexable } from "@/components/resort/HotelRestaurantsHub";
 import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
 import { liveCollectionSlugs } from "@/lib/collections";
 import { staticLastModified, validLastModified } from "@/lib/seo/sitemap-last-modified";
@@ -89,6 +92,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    // Resort-F&B hubs (resort day passes · hotel brunches · sunset · free beach
+    // clubs) — price-verified editorial hubs, driven by the generated registry so
+    // the sitemap can't drift from the actual pages.
+    ...RESORT_FNB_PAGES.map((p) => ({
+      url: `${BASE}${p.url}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    // Resort vertical (IA v1 Phase 3): only offers/hubs past the operator
+    // whitelist + publication gate. Empty whitelist → nothing emitted (the
+    // hotel-restaurant hubs and offer details stay noindex until published).
+    ...publicOfferSlugs("day_pass").map((slug) => ({
+      url: `${BASE}/day-passes/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+    ...publicOfferSlugs("brunch").map((slug) => ({
+      url: `${BASE}/brunches/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+    ...(hotelRestaurantsHubIndexable(null)
+      ? [{ url: `${BASE}/hotel-restaurants`, changeFrequency: "weekly" as const, priority: 0.8 }]
+      : []),
+    ...(hotelRestaurantsHubIndexable("nusa-dua")
+      ? [{ url: `${BASE}/nusa-dua/hotel-restaurants`, changeFrequency: "weekly" as const, priority: 0.8 }]
+      : []),
     // My Day — the morning-to-night plan built from live collections.
     { url: `${BASE}/my-day`, changeFrequency: "weekly" as const, priority: 0.8 },
     // Taste Collections — cuisine hub + the collections currently past the

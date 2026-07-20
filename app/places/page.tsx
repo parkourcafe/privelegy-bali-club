@@ -64,8 +64,8 @@ export async function generateMetadata({
     requestedPage,
   });
   const title = !hasFilters && requestedPage > 1
-    ? `Places to eat, drink & go in Bali — page ${requestedPage}`
-    : "Places to eat, drink & go in Bali — by district";
+    ? `Explore Bali — places to eat, drink & go, page ${requestedPage}`
+    : "Explore Bali — places to eat, drink & go, by district";
   return {
     title,
     description:
@@ -354,7 +354,7 @@ export default async function PlacesPage({
                   {`${ready.length} curated places · resident-checked`}
                 </span>
                 <h1 className="hero-title mt-4 text-[#FAF6EF] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-                  {districtName ? `Places in ${districtName}` : "Places across Bali"}
+                  {districtName ? `Explore ${districtName}` : "Explore Bali"}
                 </h1>
                 <p className="hero-copy max-w-xl text-[#FAF6EF] drop-shadow-[0_2px_14px_rgba(0,0,0,0.92)]">
                   A curated map of Bali by district. Every place here is one we

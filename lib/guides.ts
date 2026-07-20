@@ -52,6 +52,16 @@ const PILLAR_LINKS: GuideRelated[] = [
 
 export const GUIDES: Guide[] = [
   {
+    // Bespoke top-level pillar hub (app/bali-travel-guide) — the "bali travel
+    // guide" head-term entry point that links out to every cluster (plan, stay,
+    // eat, do, districts, moments). Registry entry is metadata-only for the sitemap.
+    slug: "bali-travel-guide",
+    title: "Bali travel guide",
+    description:
+      "A resident-curated Bali travel guide: how long to go and when, where to stay, how to get around, what to do, and where to eat — the whole trip, planned by area.",
+  },
+
+  {
     slug: "where-to-stay-in-bali",
     title: "Where to stay in Bali for the first time",
     description:

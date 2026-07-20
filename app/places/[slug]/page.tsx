@@ -342,9 +342,9 @@ export default async function VenuePage({
     "@type": schemaType[venue.category] ?? "LocalBusiness",
     name,
     url: `${BASE}/places/${slug}`,
-    // image only from the real owner-consented photo — never the /covers/*.webp
-    // fallback art, which must not be presented as venue photography.
-    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
+    // Photo Policy v3 §4/§8: schema/OG image must be owner-approved or licensed —
+    // photo_url is provisional-by-default post-0043, so no image is emitted here
+    // until per-photo statuses exist.
     address: {
       "@type": "PostalAddress",
       ...(content?.address ? { streetAddress: content.address } : {}),
