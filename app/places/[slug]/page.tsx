@@ -59,6 +59,8 @@ const categoryLabel: Record<string, string> = {
   surf: "Surf",
   hotel: "Hotel",
   resort: "Resort",
+  attraction: "Attraction",
+  activity: "Activity",
 };
 
 // Which Uluwatu guide a category belongs to (breadcrumb + related links).
@@ -169,6 +171,8 @@ const schemaType: Record<string, string> = {
   surf: "SportsActivityLocation",
   hotel: "Hotel",
   resort: "Resort",
+  attraction: "TouristAttraction",
+  activity: "TouristAttraction",
 };
 
 export async function generateMetadata({

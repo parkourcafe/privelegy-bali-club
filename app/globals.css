@@ -1040,6 +1040,8 @@ html {
 .type-cover-yoga { background: linear-gradient(150deg, #F4FAF7, #E1EEE8 70%, #D1E4DC); }
 .type-cover-beauty { background: linear-gradient(150deg, #F8FAF9, #E7EFEC 70%, #D9E7E2); }
 .type-cover-surf { background: linear-gradient(150deg, #EFF8F8, #DAECEA 70%, #C7E0DD); }
+.type-cover-attraction { background: linear-gradient(150deg, #FAF7F1, #EFE6D6 70%, #E2D3B8); }
+.type-cover-activity { background: linear-gradient(150deg, #F5F9F1, #E5EEDA 70%, #D2E2BF); }
 
 /* Editorial micro-labels */
 .eyebrow {

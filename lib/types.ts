@@ -30,7 +30,9 @@ export type VenueCategory =
   | "bar"
   | "surf"
   | "hotel"
-  | "resort";
+  | "resort"
+  | "attraction"
+  | "activity";
 
 export interface Venue {
   id: string;

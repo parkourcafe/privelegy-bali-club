@@ -36,6 +36,8 @@ export const VENUE_CATEGORIES = [
   "surf",
   "hotel",
   "resort",
+  "attraction",
+  "activity",
 ] as const satisfies readonly VenueCategory[];
 
 const CATEGORY_SET: ReadonlySet<string> = new Set(VENUE_CATEGORIES);
