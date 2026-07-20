@@ -24,3 +24,7 @@ export const VENUES_WHATSAPP_URL = whatsappLink(
 export const VILLAS_WHATSAPP_URL = whatsappLink(
   "Hi Other Bali 👋 I'd like to add my villa. Here are the details:\n\nVilla name:\nArea:\nShort description:\nLinks (website / booking / Instagram):\n\n(I'll also send a few of my own photos here 📷)"
 );
+
+export const HOTELS_WHATSAPP_URL = whatsappLink(
+  "Hi Other Bali 👋 I'd like to add my hotel. Here are the details:\n\nName:\nType (hotel / resort / boutique):\nArea:\nShort description:\nLinks (website / booking / Instagram):\n\n(I'll also send a few of my own photos here 📷)"
+);

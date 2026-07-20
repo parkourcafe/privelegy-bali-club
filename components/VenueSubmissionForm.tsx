@@ -23,6 +23,8 @@ const CATEGORIES = [
   { value: "yoga", label: "Yoga" },
   { value: "fitness", label: "Fitness" },
   { value: "surf", label: "Surf" },
+  { value: "hotel", label: "Hotel / resort" },
+  { value: "villa", label: "Villa" },
   { value: "other", label: "Something else" },
 ];
 
