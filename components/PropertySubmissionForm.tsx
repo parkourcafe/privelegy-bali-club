@@ -51,7 +51,7 @@ const PREFERRED_BUTTONS = [
 type Status =
   | { kind: "idle" }
   | { kind: "loading" }
-  | { kind: "success"; duplicate: boolean }
+  | { kind: "success"; duplicate: boolean; reference: string | null }
   | { kind: "error"; message: string };
 
 const ERROR_COPY: Record<string, string> = {
@@ -171,7 +171,12 @@ export default function PropertySubmissionForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json()) as { ok?: boolean; error?: string; duplicate?: boolean };
+      const data = (await res.json()) as {
+        ok?: boolean;
+        error?: string;
+        duplicate?: boolean;
+        reference?: string | null;
+      };
       if (!res.ok || !data.ok) {
         setStatus({
           kind: "error",
@@ -180,7 +185,7 @@ export default function PropertySubmissionForm({
         return;
       }
       track("venue_submission_submitted", { pageSlug: "list-your-property" });
-      setStatus({ kind: "success", duplicate: Boolean(data.duplicate) });
+      setStatus({ kind: "success", duplicate: Boolean(data.duplicate), reference: data.reference ?? null });
     } catch {
       setStatus({ kind: "error", message: ERROR_COPY.submission_write_failed });
     }
@@ -197,6 +202,13 @@ export default function PropertySubmissionForm({
         <p className="mt-3 text-sm font-semibold text-[var(--lagoon-strong)]">
           Status: In review — we curate by hand
         </p>
+        {status.reference && (
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Reference:{" "}
+            <span className="font-mono font-bold text-[var(--ink)]">{status.reference}</span>{" "}
+            — quote it if you reply to us.
+          </p>
+        )}
         <ul className="mt-2 space-y-1 text-sm text-[var(--muted)]">
           <li>We reply on WhatsApp or email, usually within a couple of days.</li>
           <li>Want to add more photos? Just reply to our message.</li>

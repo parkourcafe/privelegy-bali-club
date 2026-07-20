@@ -79,7 +79,13 @@ export async function POST(req: Request) {
   if (error) {
     return NextResponse.json({ ok: false, error: "submission_write_failed" }, { status: 502 });
   }
-  const r = (data ?? {}) as { ok?: boolean; error?: string; duplicate?: boolean };
+  const r = (data ?? {}) as {
+    ok?: boolean;
+    error?: string;
+    duplicate?: boolean;
+    reference?: string;
+    status?: string;
+  };
   if (!r.ok) {
     return NextResponse.json({ ok: false, error: r.error ?? "submission_write_failed" }, { status: 400 });
   }
@@ -105,5 +111,11 @@ export async function POST(req: Request) {
     });
   }
 
-  return NextResponse.json({ ok: true, stored: true, duplicate: Boolean(r.duplicate) });
+  return NextResponse.json({
+    ok: true,
+    stored: true,
+    duplicate: Boolean(r.duplicate),
+    reference: r.reference ?? null,
+    status: r.status ?? null,
+  });
 }
