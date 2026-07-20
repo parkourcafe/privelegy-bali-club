@@ -64,7 +64,7 @@ type Status =
 const ERROR_COPY: Record<string, string> = {
   consent_required: "Please tick both boxes so we're allowed to keep your details and publish once you approve.",
   name_required: "Add your property's name so we know what to look up.",
-  contact_required: "Add at least one way to reach you — WhatsApp, email, Instagram or a website.",
+  contact_required: "Please add all four: website, Instagram, WhatsApp and email.",
   bad_email: "That email doesn't look complete — check it and try again.",
   bad_whatsapp: "That WhatsApp number doesn't look right — digits only, with country code.",
   submission_storage_unconfigured:
@@ -165,8 +165,20 @@ export default function PropertySubmissionForm({
       setStatus({ kind: "error", message: ERROR_COPY.consent_required });
       return;
     }
-    if (!payload.whatsapp && !payload.email && !payload.instagram && !payload.websiteUrl) {
-      setStatus({ kind: "error", message: ERROR_COPY.contact_required });
+    const missing = [
+      !payload.websiteUrl && "website",
+      !payload.instagram && "Instagram",
+      !payload.whatsapp && "WhatsApp",
+      !payload.email && "email",
+    ].filter(Boolean) as string[];
+    if (missing.length) {
+      setStatus({
+        kind: "error",
+        message:
+          missing.length === 4
+            ? ERROR_COPY.contact_required
+            : `Please also add your ${missing.join(", ")} — all four are required.`,
+      });
       return;
     }
 
@@ -229,11 +241,14 @@ export default function PropertySubmissionForm({
           <li>Nothing goes live until you approve the draft — no fees, and travellers never pay.</li>
         </ul>
         {status.submissionId && status.mediaToken && (
-          <div className="mt-5 border-t border-[var(--line)] pt-4">
-            <p className="font-bold text-[var(--ink)]">Add your photos &amp; video now (optional)</p>
+          <div className="mt-5 rounded-2xl border-2 border-[var(--lagoon-strong)] bg-[var(--tint-best-bg)] p-4">
+            <p className="text-base font-extrabold text-[var(--ink)]">
+              📸 Add your photos &amp; video — this is what makes your page
+            </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              The request is already with us — you can add your own photos here, or
-              just send them when we reply.
+              Add up to <strong>20 photos and a short video</strong>, straight from
+              your phone — drag them in or tap to browse. No Dropbox or Drive link
+              needed. A property with real photos gets far more interest.
             </p>
             <PropertyMediaUploader submissionId={status.submissionId} mediaToken={status.mediaToken} />
           </div>
@@ -340,23 +355,23 @@ export default function PropertySubmissionForm({
         {/* 3 · Where guests reach you */}
         <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
           <legend className={SECTION_LABEL}>
-            {kind === "hotel" ? "3" : "2"} · Where guests reach you (at least one)
+            {kind === "hotel" ? "3" : "2"} · Where guests reach you
           </legend>
           <label style={{ marginTop: 8, display: "block" }}>
-            <span className="field-label">Website</span>
-            <input type="url" name="websiteUrl" maxLength={300} inputMode="url" placeholder="https://" />
+            <span className="field-label">Website (required)</span>
+            <input type="url" name="websiteUrl" required maxLength={300} inputMode="url" placeholder="https://" />
           </label>
           <label style={{ marginTop: 10, display: "block" }}>
             <span className="field-label">Direct booking link (optional)</span>
             <input type="url" name="booking" maxLength={300} inputMode="url" placeholder="https://" />
           </label>
           <label style={{ marginTop: 10, display: "block" }}>
-            <span className="field-label">WhatsApp (with country code)</span>
-            <input type="tel" name="whatsapp" maxLength={20} autoComplete="tel" inputMode="tel" placeholder="628123456789" />
+            <span className="field-label">WhatsApp with country code (required)</span>
+            <input type="tel" name="whatsapp" required maxLength={20} autoComplete="tel" inputMode="tel" placeholder="628123456789" />
           </label>
           <label style={{ marginTop: 10, display: "block" }}>
-            <span className="field-label">Instagram (link or @handle)</span>
-            <input type="text" name="instagram" maxLength={300} placeholder={`@your${noun}`} />
+            <span className="field-label">Instagram — link or @handle (required)</span>
+            <input type="text" name="instagram" required maxLength={300} placeholder={`@your${noun}`} />
           </label>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             <label style={{ display: "block" }}>
@@ -427,8 +442,8 @@ export default function PropertySubmissionForm({
             </label>
           </div>
           <label style={{ marginTop: 10, display: "block" }}>
-            <span className="field-label">Email</span>
-            <input type="email" name="email" maxLength={200} autoComplete="email" inputMode="email" />
+            <span className="field-label">Email (required)</span>
+            <input type="email" name="email" required maxLength={200} autoComplete="email" inputMode="email" />
           </label>
         </fieldset>
 
