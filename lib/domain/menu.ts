@@ -1,4 +1,9 @@
-import type { MenuItemRecord, MenuRecord, MenuSectionRecord } from "../contracts/menu-action";
+import type { MenuItemRecord, MenuKind, MenuRecord, MenuSectionRecord } from "../contracts/menu-action";
+
+const MENU_KINDS: readonly MenuKind[] = ["food", "rooms", "spa", "day_pass"];
+function menuKind(value: unknown): MenuKind {
+  return (MENU_KINDS as readonly unknown[]).includes(value) ? (value as MenuKind) : "food";
+}
 import { validatePublicEvidenceUrl } from "../integrations/external-ordering";
 
 export type DataRow = Record<string, unknown>;
@@ -71,6 +76,7 @@ export function mapPublishedMenu(
     version: number(row.version, 1),
     status: "published",
     completeness: "full",
+    kind: menuKind(row.kind),
     sourceUrl,
     sourceLabel: text(row.source_label),
     capturedAt: text(row.captured_at),

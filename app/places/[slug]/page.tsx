@@ -21,7 +21,7 @@ import { hotelFixture } from "@/lib/contracts/hotel-fixture";
 import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
-import type { PublicMenuSummary } from "@/lib/data/menu-summary-repository";
+import { getPublishedMenusForVenue, type PublicMenuSummary } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 
@@ -385,7 +385,8 @@ export default async function VenuePage({
   // rooms/spa/day-pass menus arrive in a later, migration-bearing stage.
   const hotelFixtureMode =
     process.env.NODE_ENV === "development" && process.env.HOTEL_FIXTURE === "on";
-  const isHotel = venue.category === "hotel" || venue.category === "resort" || hotelFixtureMode;
+  const isRealHotel = venue.category === "hotel" || venue.category === "resort";
+  const isHotel = isRealHotel || hotelFixtureMode;
   const hotelMenus = hotelFixtureMode
     ? {
         rooms: fixtureMenuSummary({ ...hotelFixture.rooms, venueSlug: slug }),
@@ -394,6 +395,18 @@ export default async function VenuePage({
         dayPass: fixtureMenuSummary({ ...hotelFixture.dayPass, venueSlug: slug }),
         bookHref: hotelFixture.bookHref as string | null,
         dayPassHref: hotelFixture.dayPassHref as string | null,
+      }
+    : isRealHotel
+    ? {
+        // Real hotel/resort venue: read actual published rooms/dining/spa/
+        // day-pass menus (migration 0051). bookHref/dayPassHref stay null —
+        // the venue's real "reserve"/"website" official actions already
+        // render correctly via the unmodified <VenueActionBar/> below, which
+        // goes through the full confirmed/verified/fresh capability gate;
+        // duplicating that here without the same validation would be unsafe.
+        ...(await getPublishedMenusForVenue(slug)),
+        bookHref: null,
+        dayPassHref: null,
       }
     : null;
   const actionSlotProps: VenueActionBarProps = {

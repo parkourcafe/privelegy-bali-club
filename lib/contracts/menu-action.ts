@@ -1,5 +1,9 @@
 export type MenuStatus = "draft" | "review" | "published" | "archived";
 export type MenuCompleteness = "full" | "partial";
+// A venue may carry more than one published menu, distinguished by kind (a
+// hotel's rooms/dining/spa/day-pass menus, for instance) -- see migration
+// 0051. "food" is the default/original kind (every menu before this had none).
+export type MenuKind = "food" | "rooms" | "spa" | "day_pass";
 export type ActionStatus = "draft" | "review" | "confirmed" | "disabled" | "archived";
 export type ActionKind =
   | "reserve"
@@ -50,6 +54,8 @@ export type MenuRecord = Evidence & {
   completeness: MenuCompleteness;
   expiresAt: string | null;
   sections: MenuSectionRecord[];
+  // Optional/additive: constructors and fixtures that omit it are "food".
+  kind?: MenuKind;
 };
 
 export type VenueActionCapabilityRecord = Evidence & {
