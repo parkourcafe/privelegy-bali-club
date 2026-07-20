@@ -16,10 +16,10 @@ import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 // facilities, external links, preferred action, description) are composed into
 // the submission `note`; `category` is the free-text "villa"/"hotel".
 //
-// Phase 1: no real media upload — photos are collected after the draft is
-// built (as the "what happens next" flow states). A "link to your photos"
-// field lets owners share a folder now; drag-drop upload to Supabase Storage
-// is a separate phase.
+// Photos/video are collected after the draft is built: the success panel
+// below renders PropertyMediaUploader, a real drag-drop upload straight to
+// Supabase Storage (up to 20 photos + one video) — no Dropbox/Drive link
+// required.
 
 type Kind = "villa" | "hotel";
 
@@ -138,7 +138,6 @@ export default function PropertySubmissionForm({
     }
     const preferredLabel = PREFERRED_BUTTONS.find((b) => b.value === get("preferred"))?.label;
     if (preferredLabel) noteParts.push(`Preferred main button: ${preferredLabel}`);
-    if (get("photosLink")) noteParts.push(`Photos/video link: ${get("photosLink")}`);
     if (get("description")) noteParts.push(`About: ${get("description")}`);
     if (get("amenities")) noteParts.push(`Main amenities: ${get("amenities")}`);
     if (get("bestGuest")) noteParts.push(`Best guest type: ${get("bestGuest")}`);
@@ -391,25 +390,9 @@ export default function PropertySubmissionForm({
           </label>
         </fieldset>
 
-        {/* 4 · Photos & video — Phase 1: link only, no upload yet */}
+        {/* 4 · Describe it */}
         <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-          <legend className={SECTION_LABEL}>
-            {kind === "hotel" ? "4" : "3"} · Your photos &amp; video
-          </legend>
-          <label style={{ marginTop: 8, display: "block" }}>
-            <span className="field-label">Link to your photos / video (optional)</span>
-            <input type="url" name="photosLink" maxLength={500} inputMode="url" placeholder="Google Drive / Dropbox link" />
-          </label>
-          <p className="mt-2 text-xs text-[var(--muted)]">
-            You can share a folder now, or just send your own photos when we reply —
-            we build the draft first. We only publish photos you send and confirm
-            are yours to share; we never add our own.
-          </p>
-        </fieldset>
-
-        {/* 5 · Describe it */}
-        <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-          <legend className={SECTION_LABEL}>{kind === "hotel" ? "5" : "4"} · Describe it</legend>
+          <legend className={SECTION_LABEL}>{kind === "hotel" ? "4" : "3"} · Describe it</legend>
           <label style={{ marginTop: 8, display: "block" }}>
             <span className="field-label">Short description</span>
             <textarea
@@ -430,9 +413,9 @@ export default function PropertySubmissionForm({
           </label>
         </fieldset>
 
-        {/* 6 · You */}
+        {/* 5 · You */}
         <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-          <legend className={SECTION_LABEL}>{kind === "hotel" ? "6" : "5"} · You</legend>
+          <legend className={SECTION_LABEL}>{kind === "hotel" ? "5" : "4"} · You</legend>
           <div className="mt-2 grid gap-3 sm:grid-cols-2">
             <label style={{ display: "block" }}>
               <span className="field-label">Contact name</span>
