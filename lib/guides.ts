@@ -284,6 +284,19 @@ export const GUIDES: Guide[] = [
           "Three or four days lets you add relaxed beach time and see everything without racing the ferry clock. If you can spare even one night, it converts a stressful car-bound day into two calm ones.",
         ],
       },
+      {
+        heading: "Which starting area works best",
+        paras: [
+          "Sanur is easiest — it's the main departure harbour, so a day trip from here loses the least time to transfers. Seminyak and Kuta work fine with enough buffer before the boat. Nusa Dua and Jimbaran are workable depending on which port your boat uses.",
+          "Canggu needs more caution during heavy traffic to Sanur; Ubud, Uluwatu, Amed and Lovina are the furthest from the harbour and make an already-long day longer — an overnight on the island is worth considering from any of these.",
+        ],
+      },
+      {
+        heading: "Before you book, ask the operator",
+        paras: [
+          "Which Bali port and which Nusa Penida port does the boat use? Is hotel pickup included or separate? What's the plan if sea conditions change or boats are disrupted? How much time is spent driving on the island once you land? Are entrance, parking, shuttle or local fees separate from the boat ticket? Are any swim stops conditional on tide or sea conditions on the day?",
+        ],
+      },
     ],
     faq: [
       { q: "Can you do Nusa Penida as a day trip from Bali?", a: "Yes — it's a 30–45 minute fast boat from Sanur, and a day trip is what most people do. But it's a long, rushed day on rough roads, so you'll realistically see just one side (usually the west). An overnight lets you see both sides comfortably and avoid the crowds." },
@@ -295,6 +308,7 @@ export const GUIDES: Guide[] = [
       { q: "Do you need cash in Nusa Penida?", a: "Yes — bring plenty. ATMs are few, often don't accept foreign cards and frequently run empty, and most tours, rentals and eateries are cash-only. Withdraw on mainland Bali before you cross." },
     ],
     related: [
+      { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
       { href: "/nusa-penida", title: "The Nusa Penida guide", blurb: "Who the island suits, the west and east loops, and the headline cliffs and coves." },
       { href: "/sanur", title: "The Sanur guide", blurb: "The calm base and fast-boat gateway to the Nusa islands." },
       { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
@@ -1235,6 +1249,296 @@ export const GUIDES: Guide[] = [
       { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and world-class sunsets." },
       { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, temples included." },
       { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Practical basics, including temple etiquette and monkeys." },
+      { href: "/uluwatu-sunset-kecak", title: "Uluwatu sunset & Kecak day trip", blurb: "Picked your temple — here's whether the whole day around it fits." },
+      { href: "/east-bali-temples-water-palaces", title: "East Bali temples & water palaces", blurb: "Planning a Lempuyang or Tirta Gangga day? The long-drive reality check." },
+    ],
+  },
+
+  // Bali day trip ideas — a route-fit decision layer, not a tour marketplace.
+  // Each page below is deliberately hedged: no prices, no exact durations, no
+  // safety guarantees, no "best tour" claims and no operator endorsement
+  // (guardrails #9, #10, #11) — a route stays a "route idea, not a verified
+  // itinerary" until Other Bali has actually checked stops, access, costs,
+  // hours and risks. Distinct from bali-temples-which-one just above: that
+  // page helps pick ONE temple; these help judge whether a WHOLE day/route
+  // built around one fits a traveller's base, timing and risk tolerance —
+  // cross-linked both ways so the two don't compete for the same intent.
+  {
+    slug: "bali-day-trips",
+    eyebrow: "Bali day trips",
+    title: "Bali day trip ideas: choose the right route before you book",
+    description:
+      "Compare Bali day trip ideas by region, travel style and starting area. See what usually fits, what needs checking, and which routes may be too packed.",
+    lede: "Most Bali tour pages show the same beautiful stops. What they rarely explain is whether the day actually works from your hotel area, with your energy level, traffic, queues, walking distance, weather and return timing. Other Bali is not a tour marketplace — we help you decide whether a route fits before you book it with a driver or operator.",
+    sections: [
+      {
+        heading: "How to use this guide",
+        paras: [
+          "Start with the kind of day you want, then check the practical risks: how far the route is from your starting area, whether the day is overloaded, what needs an early start, what depends on weather, sea conditions or volcanic status, whether the stops involve stairs, cliffs, boat transfers or dress codes, and what to verify with the operator before paying.",
+          "A route idea becomes a verified Other Bali itinerary only after we check the stops, access, costs, opening hours, logistics and fallback options — until then, each guide below is a route idea under verification, not a finished plan.",
+        ],
+      },
+      {
+        heading: "Popular Bali day trip ideas",
+        paras: [
+          "Ubud culture, rice terraces and waterfalls — a classic central Bali day for culture, greenery and light nature; best for first-time visitors and photos; watch out for traffic, waterfall stairs and stacking too many stops.",
+          "Uluwatu sunset and Kecak — a South Bali route built around cliffs, sunset and a cultural performance; best for a sunset-focused evening; watch out for crowds, temple rules, performance tickets and return traffic.",
+          "East Bali temples and water palaces — a long-drive day for Lempuyang, Tirta Gangga and East Bali scenery; watch out for early departure, queues and distance from South Bali.",
+          "Nusa Penida day trip — a high-demand island day usually built around the west-coast loop (Kelingking, Angel's Billabong, Broken Beach, Crystal Bay); watch out for boat timing, road time and overpacked schedules.",
+          "Mount Batur sunrise jeep and hot spring — an early-morning volcano-area experience, often paired with a hot spring; watch out for wake-up time, weather, terrain and volcanic status.",
+        ],
+      },
+      {
+        heading: "The Other Bali rule",
+        paras: [
+          "We do not recommend a route just because it is popular on tour marketplaces. We check whether it actually works from your starting area, with realistic timing, access, safety notes and backup options.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Are these bookable tours?", a: "No. These are route ideas and planning guides. Other Bali helps you decide what fits before you book with a driver or operator." },
+      { q: "Why are some details missing?", a: "Because prices, opening hours, schedules and safety rules change. We only publish those details once they're verified from reliable sources." },
+      { q: "Can a popular route still be a bad choice?", a: "Yes. A route can be popular and still be wrong for your base, group, walking ability, weather window or available time." },
+      { q: "What does \"under verification\" mean?", a: "It means the route pattern is common, but it hasn't yet passed Other Bali's full checks for stops, access, costs, timing, safety and fallback options." },
+    ],
+    related: [
+      { href: "/ubud-culture-rice-terraces-waterfalls", title: "Ubud culture, rice terraces & waterfalls", blurb: "A classic central Bali day — who it suits and what to check first." },
+      { href: "/uluwatu-sunset-kecak", title: "Uluwatu sunset & Kecak", blurb: "Cliffs, sunset and a performance — the timing that makes or breaks it." },
+      { href: "/east-bali-temples-water-palaces", title: "East Bali temples & water palaces", blurb: "Lempuyang and Tirta Gangga, and the long-drive reality check." },
+      { href: "/nusa-penida-day-trip", title: "Nusa Penida day trip", blurb: "The fast boat, the west-coast loop, and whether to stay overnight." },
+      { href: "/mount-batur-sunrise-jeep-hot-spring", title: "Mount Batur sunrise jeep & hot spring", blurb: "Who an early volcano morning actually fits." },
+      { href: "/bali-temples-which-one", title: "Which Bali temple should you visit?", blurb: "Pick a single temple by what you want, rather than a whole day." },
+    ],
+  },
+
+  {
+    slug: "ubud-culture-rice-terraces-waterfalls",
+    eyebrow: "Ubud day trip idea",
+    title: "Ubud day trip idea: culture, rice terraces and waterfalls",
+    description:
+      "A practical Ubud day trip guide for culture, rice terraces and waterfalls — with route-fit notes, access questions and what to verify before booking.",
+    lede: "This is one of the most common Bali day trip patterns: a central Bali route combining culture, greenery and a light nature stop. Many versions include Ubud-area cultural stops, a rice terrace, a waterfall and sometimes a Kintamani volcano viewpoint. This page is not a finished itinerary yet — use it to understand whether this kind of day fits your trip before you book a driver or tour.",
+    sections: [
+      {
+        heading: "What this route usually includes",
+        paras: [
+          "Common stop types are an Ubud cultural or village stop, the Monkey Forest or a temple stop, a rice terrace, a waterfall, and sometimes Tirta Empul or a Kintamani viewpoint. The exact route should depend on your starting area, walking ability, interest in temples, and how much time you want at each stop.",
+        ],
+      },
+      {
+        heading: "Who this day can fit",
+        paras: [
+          "It can work well for a first-time Bali overview, a mix of culture and nature, photogenic landscapes without a full hiking day, a day that starts or ends around Ubud, or flexible private-driver routing rather than a fixed group schedule.",
+        ],
+      },
+      {
+        heading: "What to watch out for",
+        paras: [
+          "The main risk is trying to fit too much into one day. A route that looks easy on a map can become tiring once you add traffic, parking, walking, queues, meals and photo stops. Before booking, check which waterfall is included, how many stairs or slippery sections are involved, whether temple dress is required, whether the rice terrace is a quick viewpoint or a longer walk, whether Kintamani is included and what gets removed to make space for it, and exactly where pickup and drop-off happen.",
+        ],
+      },
+      {
+        heading: "Best starting areas",
+        paras: [
+          "Likely easier from Ubud, Sanur, or parts of Canggu, Seminyak and Kuta with enough buffer. Needs more caution from Uluwatu, Nusa Dua/Jimbaran, Lovina or Amed. These are planning notes, not calculated drive times — final route timing should be checked separately.",
+        ],
+      },
+      {
+        heading: "How Other Bali would make this route better",
+        paras: [
+          "A good version of this day should have a clear priority — culture, nature, photos or easy family pacing — rather than simply stacking every famous Ubud-area stop into one long day. A resident-curated version would choose fewer stops and give more time to the ones that actually match the traveller.",
+        ],
+      },
+      {
+        heading: "Before you book, ask the operator",
+        paras: [
+          "What are the exact stops, in order? What time is pickup from my area? Which costs are excluded — entrance, parking, guide, lunch, sarong or donations? How much walking is involved at each stop? Are there toilets and food stops? What happens if it rains?",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is this the best Ubud day trip?", a: "Not automatically. It's a common route pattern, but the best version depends on your starting area, interests, mobility and available time." },
+      { q: "Should I add Kintamani to an Ubud day?", a: "Only if you're comfortable with a longer day and fewer slow stops — adding Kintamani changes the whole rhythm of the route." },
+      { q: "Is this route suitable for children?", a: "Maybe, but it depends on the waterfall, walking distance, heat and pacing — check these specifics before booking." },
+    ],
+    related: [
+      { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
+      { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
+      { href: "/bali-temples-which-one", title: "Which Bali temple should you visit?", blurb: "Pick a temple by what you want, not the whole island's list." },
+      { href: "/how-many-days-in-bali", title: "How many days in Bali", blurb: "Where a day trip like this fits into a longer plan." },
+    ],
+  },
+
+  {
+    slug: "uluwatu-sunset-kecak",
+    eyebrow: "Uluwatu day trip idea",
+    title: "Uluwatu sunset and Kecak: is this Bali day trip right for you?",
+    description:
+      "Plan an Uluwatu sunset and Kecak route with realistic checks for timing, crowds, temple rules, cliff access and starting area.",
+    lede: "An Uluwatu sunset route is one of the clearest South Bali day trip ideas: cliffs, ocean views, temple atmosphere and a Kecak performance. It can be a strong afternoon-to-evening plan, but it needs careful timing. This page is a route-fit guide, not a verified itinerary or ticketing page.",
+    sections: [
+      {
+        heading: "What this route usually includes",
+        paras: [
+          "Common stop types are Garuda Wisnu Kencana or another South Bali cultural stop, Uluwatu Temple, sunset viewpoint time, a Kecak or fire dance performance, and sometimes beaches or cliff stops.",
+        ],
+      },
+      {
+        heading: "Who this day can fit",
+        paras: [
+          "It can work well for a sunset-focused plan, South Bali scenery, a cultural performance, a route that doesn't require starting before dawn, or a strong option from Uluwatu, Jimbaran or Nusa Dua.",
+        ],
+      },
+      {
+        heading: "What to watch out for",
+        paras: [
+          "The risk isn't distance alone — it's timing. Sunset, temple access, performance tickets, crowds, traffic and return travel all sit in the same narrow window. Before booking, check whether the Kecak ticket is included or separate, what time the performance starts on your date, how early you need to arrive, what dress code or temple rules apply, whether the route includes risky cliff or beach access, and what the return plan is after the performance.",
+        ],
+      },
+      {
+        heading: "Best starting areas",
+        paras: [
+          "Likely easier from Uluwatu, Jimbaran, Nusa Dua, or Kuta/Seminyak with enough buffer. Needs more caution from Ubud, Canggu during heavy traffic periods, or Sanur if combined with many daytime stops.",
+        ],
+      },
+      {
+        heading: "How Other Bali would make this route better",
+        paras: [
+          "The strongest version isn't the one with the most stops — it's the one that protects the sunset and performance window and avoids a rushed cliff-to-temple-to-ticket sequence. A better route may remove a daytime stop so the evening feels calm instead of chaotic.",
+        ],
+      },
+      {
+        heading: "Before you book, ask the operator",
+        paras: [
+          "What time do we need to leave my hotel? Is the performance ticket included? Is temple entry separate? What should I wear? Are there stairs, uneven paths or monkey-risk areas? What happens if it rains or tickets sell out?",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Uluwatu better at sunset?", a: "Many visitors choose Uluwatu for sunset, but that also makes timing and crowd management more important." },
+      { q: "Can I combine Uluwatu with a full South Bali beach day?", a: "Sometimes — but the route should protect enough time for temple entry, sunset and the performance." },
+      { q: "Is the Kecak performance included in all Uluwatu tours?", a: "No. Verify whether the ticket is included, separate, or subject to availability." },
+    ],
+    related: [
+      { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and world-class sunsets." },
+      { href: "/bali-temples-which-one", title: "Which Bali temple should you visit?", blurb: "Uluwatu vs Tanah Lot vs Tirta Empul vs Lempuyang — pick by what you want." },
+      { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, temples included." },
+    ],
+  },
+
+  {
+    slug: "east-bali-temples-water-palaces",
+    eyebrow: "East Bali day trip idea",
+    title: "East Bali day trip idea: temples, water palaces and the long-drive reality check",
+    description:
+      "A practical East Bali route-fit guide covering common temple and water-palace combinations, queue risks and what to verify before booking.",
+    lede: "East Bali is often sold as a photo-friendly temple and water-palace day. The common pattern includes Lempuyang, Tirta Gangga and sometimes additional temples, waterfalls or scenic stops. The appeal is obvious — the practical question is whether the route makes sense from your starting area and on your travel date.",
+    sections: [
+      {
+        heading: "What this route usually includes",
+        paras: [
+          "Common stop types are Lempuyang Temple or the \"Gate of Heaven\" viewpoint, Tirta Gangga Water Palace, another East Bali temple or water palace, a waterfall or scenic stop in some versions, and long road transfers from South or Central Bali.",
+        ],
+      },
+      {
+        heading: "Who this day can fit",
+        paras: [
+          "It can work for temple scenery, East Bali landscapes, a photography-heavy day, a private-driver route with an early start, or a trip that prioritises one region rather than mixing too many parts of Bali.",
+        ],
+      },
+      {
+        heading: "What to watch out for",
+        paras: [
+          "The main risks are distance, queues and unrealistic stop stacking — if the route starts far away and includes too many famous places, the day can become mostly car time. Before booking, check the pickup time, how long is expected at Lempuyang, whether photo queues are built into the plan, what temple dress code applies, which fees are included and which are separate, and whether any stops were added only because they're popular online.",
+        ],
+      },
+      {
+        heading: "Best starting areas",
+        paras: [
+          "Likely easier from Amed, Candidasa, Sidemen, or Ubud with an early start. Needs more caution from Canggu, Seminyak/Kuta, Uluwatu, or Nusa Dua/Jimbaran.",
+        ],
+      },
+      {
+        heading: "How Other Bali would make this route better",
+        paras: [
+          "A better East Bali route should choose a clear focus — temple etiquette, water-palace beauty, mountain scenery or photography — rather than pretending every famous East Bali stop can fit comfortably into one relaxed day from any hotel area.",
+        ],
+      },
+      {
+        heading: "Before you book, ask the operator",
+        paras: [
+          "What is the realistic pickup time from my area? How many total hours are expected in the car? Are entrance fees, parking and local guide fees separate? What is the dress code? What happens if a queue is too long? Is there a shorter version of the route?",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is East Bali possible as a day trip?", a: "Yes, but it's often a long day, especially from South Bali — the route should be planned around realistic travel time." },
+      { q: "Is Lempuyang only about the photo?", a: "No. It's a working temple site, so dress code, etiquette and visitor rules matter — photo expectations shouldn't override respectful behaviour." },
+      { q: "Should I combine East Bali with Ubud in one day?", a: "Usually only with a very selective route — combining too many regions can make the day inefficient." },
+    ],
+    related: [
+      { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
+      { href: "/bali-temples-which-one", title: "Which Bali temple should you visit?", blurb: "Besakih, Lempuyang and the etiquette that matters." },
+      { href: "/sidemen", title: "The Sidemen guide", blurb: "Quiet valley base closer to the East Bali temple route." },
+      { href: "/how-many-days-in-bali", title: "How many days in Bali", blurb: "Where a long East Bali day fits into a longer trip." },
+    ],
+  },
+
+  {
+    slug: "mount-batur-sunrise-jeep-hot-spring",
+    eyebrow: "Mount Batur day trip idea",
+    title: "Mount Batur sunrise jeep and hot spring: who this Bali trip fits",
+    description:
+      "A route-fit guide for Mount Batur sunrise jeep and hot spring trips, with practical checks for wake-up time, terrain, weather and volcanic status.",
+    lede: "Mount Batur sunrise experiences are popular because they promise volcanic scenery without spending a normal sightseeing day in the car. Jeep versions are often positioned as an alternative to hiking, sometimes combined with black lava areas and a hot spring. This page is a route-fit guide, not a verified operator recommendation.",
+    sections: [
+      {
+        heading: "What this route usually includes",
+        paras: [
+          "Common elements are a very early pickup, sunrise viewpoint time around the Mount Batur/Kintamani area, a jeep route over volcanic terrain or black lava areas, a hot spring stop in some versions, and a breakfast or coffee stop in some versions. Exact access, terrain, restrictions and safety status must be verified before booking.",
+        ],
+      },
+      {
+        heading: "Who this day can fit",
+        paras: [
+          "It can work for sunrise scenery, a highland or volcano landscape, an adventure-feeling route without committing to a full hike, or a trip that finishes earlier than many full-day sightseeing routes.",
+        ],
+      },
+      {
+        heading: "What to watch out for",
+        paras: [
+          "The main risks are wake-up time, weather, operator quality, terrain, comfort and volcanic status — a jeep route isn't automatically easy for every traveller. Before booking, check the pickup time from your area, what vehicle is used, what terrain is covered, whether age, pregnancy, back/neck or mobility restrictions apply, what happens in bad weather, whether volcanic status is checked against official sources, and whether the hot spring is included or optional.",
+        ],
+      },
+      {
+        heading: "Best starting areas",
+        paras: [
+          "Likely easier from Ubud, Kintamani, Amed or Sidemen depending on the route, or Sanur with an early pickup. Needs more caution from Uluwatu, Nusa Dua/Jimbaran, or Canggu/Seminyak if you dislike very early transfers.",
+        ],
+      },
+      {
+        heading: "How Other Bali would make this route better",
+        paras: [
+          "A better Mount Batur page shouldn't sell sunrise as universally magical — it should explain the cost: early pickup, cold morning conditions, weather uncertainty, terrain and safety checks. For some travellers, a daytime Kintamani route may be a better fit.",
+        ],
+      },
+      {
+        heading: "Before you book, ask the operator",
+        paras: [
+          "Is this a jeep route, a hike, or a mixed route? What time is pickup and return? What's included — hot spring, breakfast, entrance, parking, guide, equipment? What safety rules apply? What official source is used for volcanic status? What's the fallback if visibility is poor?",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is Mount Batur sunrise jeep easier than hiking?", a: "It may involve less walking, but it's still an early-morning adventure route with terrain, weather and comfort considerations." },
+      { q: "Is sunrise guaranteed?", a: "No. Visibility depends on weather — treat any operator guarantee with caution." },
+      { q: "Is Mount Batur safe to visit?", a: "Indonesia's volcanic activity is monitored by PVMBG, the national volcanology agency. Check the current alert level before a Kintamani-area trip, and follow your driver or operator's guidance on the day — access can change quickly if conditions shift." },
+    ],
+    related: [
+      { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
+      { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons, Mount Batur included." },
+      { href: "/best-time-to-visit-bali", title: "Best time to visit Bali", blurb: "Weather patterns that affect a sunrise trip." },
     ],
   },
 ];
@@ -1274,6 +1578,11 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
     heading: "Best of Bali",
     blurb: "Island-wide picks, from real places we stand behind.",
     slugs: ["things-to-do-in-bali", "bali-temples-which-one", "nusa-penida-day-trip", "best-restaurants-in-bali", "jimbaran-seafood", "best-cafes-in-bali", "best-beach-clubs-in-bali", "best-coffee-in-bali", "best-spas-in-bali", "where-to-watch-sunset-in-bali", "best-warungs-in-bali"],
+  },
+  {
+    heading: "Bali day trip ideas",
+    blurb: "Route ideas by region — a decision layer before you book a driver or tour, not a marketplace.",
+    slugs: ["bali-day-trips", "ubud-culture-rice-terraces-waterfalls", "uluwatu-sunset-kecak", "east-bali-temples-water-palaces", "nusa-penida-day-trip", "mount-batur-sunrise-jeep-hot-spring"],
   },
   {
     heading: "Day plans & moments",
