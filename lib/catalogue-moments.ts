@@ -30,6 +30,31 @@ export const CATALOGUE_MOMENTS: readonly CatalogueMoment[] = [
     label: "After dark",
     tokens: ["night", "cocktail", "bar", "live music"],
   },
+  // Situational moments (not time-of-day). Same honest any-match rule: a venue
+  // appears only where its own editorial record already carries the signal, so
+  // an empty match just means the place isn't tagged for it (guardrail #10).
+  // Tokens verified against the live tag/job vocabulary (families, laptop,
+  // wifi, work, surf, yoga, divers, hikers, date_night, couples).
+  {
+    slug: "date-night",
+    label: "Date night",
+    tokens: ["date night", "date_night", "romantic", "couples"],
+  },
+  {
+    slug: "with-family",
+    label: "With family",
+    tokens: ["famil", "kids", "children"],
+  },
+  {
+    slug: "work-friendly",
+    label: "Work-friendly",
+    tokens: ["work", "laptop", "wifi"],
+  },
+  {
+    slug: "active-day",
+    label: "Active day",
+    tokens: ["surf", "yoga", "hiker", "diver", "snorkel", "fitness", "gym"],
+  },
 ] as const;
 
 export const MOMENT_BY_SLUG = new Map(
