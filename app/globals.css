@@ -1030,6 +1030,8 @@ html {
 
 .type-cover-cafe { background: linear-gradient(150deg, #F6FBF9, #E7F1ED 60%, #D8E8E3); }
 .type-cover-restaurant { background: linear-gradient(150deg, #F8FBFA, #E2EEEA 70%, #D2E4DE); }
+.type-cover-hotel { background: linear-gradient(150deg, #F4F9FA, #DEEBEC 70%, #CCE0E2); }
+.type-cover-resort { background: linear-gradient(150deg, #F1F8F6, #DCEDE7 70%, #C9E2D9); }
 .type-cover-beach_club { background: linear-gradient(150deg, #EFF8F7, #DCEDEA 70%, #C9E2DD); }
 .type-cover-bar { background: linear-gradient(150deg, #F6FBF9, #E4EFEB 70%, #D5E6E0); }
 .type-cover-warung { background: linear-gradient(150deg, #F5FAF7, #E6F0E9 70%, #D7E7DE); }

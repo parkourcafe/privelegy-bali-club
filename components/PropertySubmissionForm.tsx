@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
+import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 
 // Unified villa/hotel property submission form (mockup "Add your property").
 // A partner fills in what they can + their own links, and sends a review
@@ -51,7 +52,13 @@ const PREFERRED_BUTTONS = [
 type Status =
   | { kind: "idle" }
   | { kind: "loading" }
-  | { kind: "success"; duplicate: boolean }
+  | {
+      kind: "success";
+      duplicate: boolean;
+      reference: string | null;
+      submissionId: string | null;
+      mediaToken: string | null;
+    }
   | { kind: "error"; message: string };
 
 const ERROR_COPY: Record<string, string> = {
@@ -171,7 +178,14 @@ export default function PropertySubmissionForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json()) as { ok?: boolean; error?: string; duplicate?: boolean };
+      const data = (await res.json()) as {
+        ok?: boolean;
+        error?: string;
+        duplicate?: boolean;
+        reference?: string | null;
+        submissionId?: string | null;
+        mediaToken?: string | null;
+      };
       if (!res.ok || !data.ok) {
         setStatus({
           kind: "error",
@@ -180,7 +194,13 @@ export default function PropertySubmissionForm({
         return;
       }
       track("venue_submission_submitted", { pageSlug: "list-your-property" });
-      setStatus({ kind: "success", duplicate: Boolean(data.duplicate) });
+      setStatus({
+        kind: "success",
+        duplicate: Boolean(data.duplicate),
+        reference: data.reference ?? null,
+        submissionId: data.submissionId ?? null,
+        mediaToken: data.mediaToken ?? null,
+      });
     } catch {
       setStatus({ kind: "error", message: ERROR_COPY.submission_write_failed });
     }
@@ -197,11 +217,29 @@ export default function PropertySubmissionForm({
         <p className="mt-3 text-sm font-semibold text-[var(--lagoon-strong)]">
           Status: In review — we curate by hand
         </p>
+        {status.reference && (
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Reference:{" "}
+            <span className="font-mono font-bold text-[var(--ink)]">{status.reference}</span>{" "}
+            — quote it if you reply to us.
+          </p>
+        )}
         <ul className="mt-2 space-y-1 text-sm text-[var(--muted)]">
           <li>We reply on WhatsApp or email, usually within a couple of days.</li>
           <li>Want to add more photos? Just reply to our message.</li>
           <li>Nothing goes live until you approve the draft — no fees, and travellers never pay.</li>
         </ul>
+        {status.submissionId && status.mediaToken && (
+          <div className="mt-5 border-t border-[var(--line)] pt-4">
+            <p className="font-bold text-[var(--ink)]">Add your photos &amp; video now (optional)</p>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              The request is already with us — you can add your own photos here, or
+              just send them when we reply.
+            </p>
+            <PropertyMediaUploader submissionId={status.submissionId} mediaToken={status.mediaToken} />
+          </div>
+        )}
+
         <Link href="/" className="mt-4 inline-block font-bold text-[var(--lagoon-strong)]">
           Back to Other Bali →
         </Link>
