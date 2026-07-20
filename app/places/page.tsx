@@ -284,15 +284,19 @@ export default async function PlacesPage({
   const pageVenues = isDirectory
     ? []
     : paginatedMatches.slice((page - 1) * pageSize, page * pageSize);
-  const districts = [...new Set(venues.map((venue) => venue.district))].sort();
+  // District chips and the directory below share one order: by DISTRICT_GUIDE
+  // (curated coverage / popularity — Canggu, Ubud, Seminyak…), not alphabetical,
+  // so the row never leads with a fringe area like "Amed". Slugs missing from
+  // the guide (e.g. denpasar) fall to the end, then alphabetical among them.
+  const districtOrder = new Map(DISTRICT_GUIDE.map((d, i) => [d.slug, i] as const));
+  const orderDistricts = (slugs: string[]): string[] =>
+    [...slugs].sort(
+      (a, b) => (districtOrder.get(a) ?? 99) - (districtOrder.get(b) ?? 99) || a.localeCompare(b),
+    );
+  const districts = orderDistricts([...new Set(venues.map((venue) => venue.district))]);
   const directory: DistrictDirectorySection[] | undefined = isDirectory
     ? (() => {
-        const order = new Map(DISTRICT_GUIDE.map((d, i) => [d.slug, i] as const));
-        return [...new Set(venues.map((v) => v.district))]
-          .sort(
-            (a, b) =>
-              (order.get(a) ?? 99) - (order.get(b) ?? 99) || a.localeCompare(b),
-          )
+        return orderDistricts([...new Set(venues.map((v) => v.district))])
           .map((slug) => {
             const all = venues.filter((v) => v.district === slug);
             const items = all

@@ -60,6 +60,7 @@ const districtLabel: Record<string, string> = {
   "uluwatu-bukit": "Uluwatu & the Bukit",
   "nusa-dua": "Nusa Dua",
   sanur: "Sanur",
+  denpasar: "Denpasar",
   sidemen: "Sidemen",
   amed: "Amed & the east coast",
   munduk: "Munduk & the highlands",
