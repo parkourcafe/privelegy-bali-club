@@ -4,7 +4,6 @@ import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
-import HotelSubmissionForm from "@/components/HotelSubmissionForm";
 import { GuideFooter } from "@/components/GuideBlocks";
 import { HOTELS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 
@@ -151,9 +150,9 @@ export default function HotelsPage() {
             Bali experience. Completely free, as a simple partnership.
           </p>
           <div className="hero-actions" style={{ marginTop: 18 }}>
-            <a href="#add" className="button-primary button-large">
+            <Link href="/list-your-property?type=hotel" className="button-primary button-large">
               Add your hotel — it&apos;s free
-            </a>
+            </Link>
             <a href="#how" className="button-secondary button-large">
               See how it works
             </a>
@@ -355,9 +354,9 @@ export default function HotelsPage() {
           </div>
         </section>
 
-        {/* Primary "join" path is this real intake form — NOT WhatsApp. The
-            form posts a review request (reuses /api/venue-submission); WhatsApp
-            stays only as the secondary "prefer to chat first?" link below. */}
+        {/* Primary "join" path is the property intake form at /list-your-property
+            — NOT WhatsApp. WhatsApp stays only as the secondary "prefer to ask a
+            question first?" link below. */}
         <section className="guide-section" id="add">
           <h2>Add your hotel</h2>
           <p className="guide-lede">
@@ -365,8 +364,10 @@ export default function HotelsPage() {
             review and polish the page, and nothing goes live until you approve
             it. It takes a few minutes — no fees, and travellers never pay.
           </p>
-          <div style={{ marginTop: 16, maxWidth: 520 }}>
-            <HotelSubmissionForm />
+          <div className="hero-actions" style={{ marginTop: 16 }}>
+            <Link href="/list-your-property?type=hotel" className="button-primary button-large">
+              Add your hotel — it&apos;s free
+            </Link>
           </div>
           {/* "View an example hotel page →" intentionally omitted until a real
               hotel /places/[slug] exists (ticket §3: link it once one ships,
