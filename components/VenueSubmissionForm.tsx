@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { track } from "@/lib/analytics";
+import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 
 // Public venue self-submission form (migration 0035 / /api/venue-submission).
 // - consent is NOT preselected;
@@ -102,7 +103,12 @@ const DISTRICT_GROUPS: { region: string; areas: { value: string; label: string }
 type Status =
   | { kind: "idle" }
   | { kind: "loading" }
-  | { kind: "success"; duplicate: boolean }
+  | {
+      kind: "success";
+      duplicate: boolean;
+      submissionId: string | null;
+      mediaToken: string | null;
+    }
   | { kind: "error"; message: string };
 
 const ERROR_COPY: Record<string, string> = {
@@ -173,7 +179,13 @@ export default function VenueSubmissionForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json()) as { ok?: boolean; error?: string; duplicate?: boolean };
+      const data = (await res.json()) as {
+        ok?: boolean;
+        error?: string;
+        duplicate?: boolean;
+        submissionId?: string | null;
+        mediaToken?: string | null;
+      };
       if (!res.ok || !data.ok) {
         setStatus({
           kind: "error",
@@ -182,7 +194,12 @@ export default function VenueSubmissionForm() {
         return;
       }
       track("venue_submission_submitted", { pageSlug: "for-venues" });
-      setStatus({ kind: "success", duplicate: Boolean(data.duplicate) });
+      setStatus({
+        kind: "success",
+        duplicate: Boolean(data.duplicate),
+        submissionId: data.submissionId ?? null,
+        mediaToken: data.mediaToken ?? null,
+      });
       form.reset();
     } catch {
       setStatus({ kind: "error", message: ERROR_COPY.submission_write_failed });
@@ -203,6 +220,16 @@ export default function VenueSubmissionForm() {
           we&apos;ll reach out. Your first 2 months are a free test — no fees,
           and travellers never pay.
         </p>
+        {status.submissionId && status.mediaToken && (
+          <div className="mt-5 border-t border-[var(--line)] pt-4">
+            <p className="font-bold text-[var(--ink)]">Add your photos &amp; video now (optional)</p>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              The request is already with us — you can add your own photos here, no
+              Dropbox or Drive link needed, or just send them when we reply.
+            </p>
+            <PropertyMediaUploader submissionId={status.submissionId} mediaToken={status.mediaToken} />
+          </div>
+        )}
       </div>
     );
   }
