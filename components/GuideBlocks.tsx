@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cache } from "react";
+import SiteFooter from "@/components/SiteFooter";
 import PlaceCard from "@/components/PlaceCard";
 import { getUluwatuContent, toPlaceCard } from "@/lib/uluwatu/venues";
 import { getPublishedVenues } from "@/lib/data";
@@ -128,8 +129,10 @@ export async function PlaceLink({ slug, children }: { slug: string; children?: R
   );
 }
 
-// Re-exports the shared site footer (components/SiteFooter.tsx) under its
-// existing call sites' name — every guide/district/catalogue page that
-// already renders <GuideFooter /> picks up the current site-wide footer
-// design without a per-file change.
-export { default as GuideFooter } from "@/components/SiteFooter";
+// The shared site footer, in its light tone — the guide/district/catalogue
+// pages that render <GuideFooter /> are the cream editorial surfaces, so the
+// footer matches them. The dark homepage renders <SiteFooter tone="dark" />
+// directly. One component, two tones (components/SiteFooter.tsx).
+export function GuideFooter() {
+  return <SiteFooter tone="light" />;
+}
