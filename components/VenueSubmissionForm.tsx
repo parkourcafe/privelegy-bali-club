@@ -6,7 +6,8 @@ import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 
 // Public venue self-submission form (migration 0035 / /api/venue-submission).
 // - consent is NOT preselected;
-// - at least one contact channel is required (WhatsApp / email / Instagram / site);
+// - all four contact channels are required (website + Instagram + WhatsApp +
+//   email) — founder decision 2026-07-20, enforced here and server-side;
 // - honeypot field ("website") for spam;
 // - duplicate submissions are handled server-side (update, not multiply);
 // - honest success copy: a submission is a REQUEST — we review by hand and
@@ -114,7 +115,7 @@ type Status =
 const ERROR_COPY: Record<string, string> = {
   consent_required: "Please tick the consent box so we're allowed to keep your details.",
   name_required: "Add the name of your place so we know what to look up.",
-  contact_required: "Add at least one way to reach you — WhatsApp, email, Instagram or a website.",
+  contact_required: "Please add all four: website, Instagram, WhatsApp and email.",
   bad_email: "That email doesn't look complete — check it and try again.",
   bad_whatsapp: "That WhatsApp number doesn't look right — digits only, with country code.",
   submission_storage_unconfigured:
@@ -167,8 +168,20 @@ export default function VenueSubmissionForm() {
       setStatus({ kind: "error", message: ERROR_COPY.consent_required });
       return;
     }
-    if (!payload.whatsapp && !payload.email && !payload.instagram && !payload.websiteUrl) {
-      setStatus({ kind: "error", message: ERROR_COPY.contact_required });
+    const missing = [
+      !payload.websiteUrl.trim() && "website",
+      !payload.instagram.trim() && "Instagram",
+      !payload.whatsapp.trim() && "WhatsApp",
+      !payload.email.trim() && "email",
+    ].filter(Boolean) as string[];
+    if (missing.length) {
+      setStatus({
+        kind: "error",
+        message:
+          missing.length === 4
+            ? ERROR_COPY.contact_required
+            : `Please also add your ${missing.join(", ")} — all four are required.`,
+      });
       return;
     }
 
@@ -221,11 +234,14 @@ export default function VenueSubmissionForm() {
           and travellers never pay.
         </p>
         {status.submissionId && status.mediaToken && (
-          <div className="mt-5 border-t border-[var(--line)] pt-4">
-            <p className="font-bold text-[var(--ink)]">Add your photos &amp; video now (optional)</p>
+          <div className="mt-5 rounded-2xl border-2 border-[var(--lagoon-strong)] bg-[var(--tint-best-bg)] p-4">
+            <p className="text-base font-extrabold text-[var(--ink)]">
+              📸 Add your photos &amp; video — this is what makes your page
+            </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              The request is already with us — you can add your own photos here, no
-              Dropbox or Drive link needed, or just send them when we reply.
+              Add up to <strong>20 photos and a short video</strong>, straight from
+              your phone — drag them in or tap to browse. No Dropbox or Drive link
+              needed. Places with real photos get far more interest.
             </p>
             <PropertyMediaUploader submissionId={status.submissionId} mediaToken={status.mediaToken} />
           </div>
@@ -266,23 +282,23 @@ export default function VenueSubmissionForm() {
 
       <div>
         <span style={{ display: "block", marginBottom: 6, fontSize: 12, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
-          How can we reach you? (at least one)
+          How can we reach you? (all four required)
         </span>
         <label>
           <span className="field-label">WhatsApp (with country code)</span>
-          <input type="tel" name="whatsapp" maxLength={20} autoComplete="tel" inputMode="tel" placeholder="628123456789" />
+          <input type="tel" name="whatsapp" required maxLength={20} autoComplete="tel" inputMode="tel" placeholder="628123456789" />
         </label>
         <label style={{ marginTop: 10, display: "block" }}>
           <span className="field-label">Email</span>
-          <input type="email" name="email" maxLength={200} autoComplete="email" inputMode="email" />
+          <input type="email" name="email" required maxLength={200} autoComplete="email" inputMode="email" />
         </label>
         <label style={{ marginTop: 10, display: "block" }}>
           <span className="field-label">Instagram (link or @handle)</span>
-          <input type="text" name="instagram" maxLength={300} placeholder="@yourplace" />
+          <input type="text" name="instagram" required maxLength={300} placeholder="@yourplace" />
         </label>
         <label style={{ marginTop: 10, display: "block" }}>
-          <span className="field-label">Website (optional)</span>
-          <input type="url" name="websiteUrl" maxLength={300} inputMode="url" placeholder="https://" />
+          <span className="field-label">Website</span>
+          <input type="url" name="websiteUrl" required maxLength={300} inputMode="url" placeholder="https://" />
         </label>
       </div>
 

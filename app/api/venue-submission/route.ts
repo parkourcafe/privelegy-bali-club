@@ -53,7 +53,11 @@ export async function POST(req: Request) {
   if (!name) {
     return NextResponse.json({ ok: false, error: "name_required" }, { status: 400 });
   }
-  if (!whatsapp && !email && !instagram && !websiteUrl) {
+  // Founder decision (2026-07-20): a listing request must carry all four contact
+  // channels — website, Instagram, WhatsApp and email — not just one, so every
+  // submission is verifiable and reachable. Enforced server-side too, not only
+  // in the form, so the API can't be bypassed with a partial payload.
+  if (!websiteUrl || !instagram || !whatsapp || !email) {
     return NextResponse.json({ ok: false, error: "contact_required" }, { status: 400 });
   }
 
