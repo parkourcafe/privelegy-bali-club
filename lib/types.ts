@@ -28,7 +28,9 @@ export type VenueCategory =
   | "spa"
   | "beauty"
   | "bar"
-  | "surf";
+  | "surf"
+  | "hotel"
+  | "resort";
 
 export interface Venue {
   id: string;
