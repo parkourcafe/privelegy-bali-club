@@ -95,6 +95,7 @@ export interface RouteStopDef {
 }
 export interface RouteDef {
   slug: string;
+  district: string;
   title: string;
   subtitle?: string;
   rank: number;

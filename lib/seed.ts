@@ -152,6 +152,7 @@ export const PLAN_ENTRIES: PlanEntry[] = [
 export const ROUTES: RouteDef[] = [
   {
     slug: "first-day",
+    district: "canggu",
     title: "First day in Canggu",
     subtitle: "Land, settle, eat well",
     rank: 10,
@@ -164,6 +165,7 @@ export const ROUTES: RouteDef[] = [
   },
   {
     slug: "cafe-work",
+    district: "canggu",
     title: "Café & work day",
     subtitle: "Good wifi, good coffee",
     rank: 20,
@@ -175,6 +177,7 @@ export const ROUTES: RouteDef[] = [
   },
   {
     slug: "sunset-run",
+    district: "canggu",
     title: "Sunset run",
     subtitle: "Golden hour to nightcap",
     rank: 30,
@@ -182,6 +185,21 @@ export const ROUTES: RouteDef[] = [
       { venueSlug: "dusk-beach-club", note: "Get there by 17:00." },
       { venueSlug: "ember-dinner", note: "Dinner as the light goes." },
       { venueSlug: "neon-bar", note: "Records and cocktails to close." },
+    ],
+  },
+  // First "excursion" example (cf. supabase/migrations/0048): a non-Canggu,
+  // multi-district route, mirrored here so offline/Supabase-unconfigured
+  // environments (local dev, previews) can still render it.
+  {
+    slug: "ubud-culture-day",
+    district: "ubud",
+    title: "An Ubud culture day",
+    subtitle: "Holy spring, waterfall, crispy duck",
+    rank: 10,
+    stops: [
+      { venueSlug: "tirta-empul", note: "Start at the holy spring for melukat — go early, before the tour buses." },
+      { venueSlug: "air-terjun-tegenungan", note: "An easy waterfall stop on the way into Ubud — no trek required." },
+      { venueSlug: "bebek-bengil", note: "Lunch: the Ubud restaurant that popularised Balinese crispy duck." },
     ],
   },
 ];

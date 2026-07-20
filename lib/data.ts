@@ -1020,12 +1020,14 @@ export async function getPartnerNotes(venueSlug: string): Promise<PartnerNotes |
 // ---- Routes (§8) ----
 export interface RouteSummary {
   slug: string;
+  district: string;
   title: string;
   subtitle?: string;
   stopCount: number;
 }
 export interface RouteDetail {
   slug: string;
+  district: string;
   title: string;
   subtitle?: string;
   stops: VenueWithPerk[];
@@ -1134,13 +1136,13 @@ async function fetchRouteDefs(): Promise<RouteDef[]> {
       const { data: routes } = await sb
         .from("routes")
         .select("*")
-        .eq("district", "canggu")
         .order("rank");
       if (routes?.length) {
         const { data: stops } = await sb.from("route_stops").select("*").order("rank");
         const rows = (stops ?? []) as Row[];
         return (routes as Row[]).map((r) => ({
           slug: r.slug as string,
+          district: r.district as string,
           title: r.title as string,
           subtitle: (r.subtitle as string) ?? undefined,
           rank: (r.rank as number) ?? 100,
@@ -1169,6 +1171,7 @@ async function buildRoutes(): Promise<RouteSummary[]> {
   return defs
     .map((d) => ({
       slug: d.slug,
+      district: d.district,
       title: d.title,
       subtitle: d.subtitle,
       stopCount: d.stops.length || routeFallbackCount(d.slug),
@@ -1185,7 +1188,7 @@ async function buildRoute(slug: string): Promise<RouteDetail | null> {
   const all = await getVenuesList();
   const stops = resolveRouteStops(d, all);
   if (stops.length === 0) return null;
-  return { slug: d.slug, title: d.title, subtitle: d.subtitle, stops };
+  return { slug: d.slug, district: d.district, title: d.title, subtitle: d.subtitle, stops };
 }
 
 export const getRoute = reactCache(buildRoute);
