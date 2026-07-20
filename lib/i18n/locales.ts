@@ -54,25 +54,3 @@ export function setLocaleCookie(next: PublicLocale): void {
   document.cookie = `${LOCALE_COOKIE}=${next}; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
 }
 
-/** Parse an Accept-Language header and return the best-matching public
- * locale, or the default (en) if nothing matches. */
-export function matchAcceptLanguage(header: string | null | undefined): PublicLocale {
-  if (!header) return DEFAULT_LOCALE;
-  const ranked = header
-    .split(",")
-    .map((part) => {
-      const [tag, ...params] = part.trim().split(";");
-      const q = params.find((p) => p.trim().startsWith("q="));
-      const quality = q ? parseFloat(q.trim().slice(2)) : 1;
-      return { tag: tag.trim().toLowerCase(), quality: Number.isFinite(quality) ? quality : 1 };
-    })
-    .sort((a, b) => b.quality - a.quality);
-
-  for (const { tag } of ranked) {
-    const primary = tag.split("-")[0];
-    if (isPublicLocale(primary)) return primary;
-    // zh-Hant/zh-TW/zh-HK etc. all resolve to our single zh dictionary.
-    if (primary === "zh") return "zh";
-  }
-  return DEFAULT_LOCALE;
-}

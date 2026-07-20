@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
+import { GuideFooter } from "@/components/GuideBlocks";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
@@ -96,24 +97,12 @@ export default async function Plan({
         <PlanView plan={plan} initialMoment={m} />
       </section>
 
-      <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-        <p>
-          You do not pay us. Venues pay Other Bali only when a reservation made
-          through us becomes a real seated visit.
-        </p>
-        <div className="mt-3 flex gap-4">
-          <Link href="/privacy" className="quiet-link">
-            Privacy
-          </Link>
-          <Link href="/terms" className="quiet-link">
-            Terms
-          </Link>
-          <Link href="/support" className="quiet-link">
-            Support
-          </Link>
-        </div>
-      </footer>
+      <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+        You do not pay us. Venues pay Other Bali only when a reservation made
+        through us becomes a real seated visit.
+      </p>
     </main>
+    <GuideFooter />
     </div>
   );
 }

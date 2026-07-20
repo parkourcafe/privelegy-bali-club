@@ -14,7 +14,7 @@ import {
   isVercelDeploymentHost,
   shouldNoindexHost,
 } from "@/lib/site-origin-policy";
-import { LOCALE_COOKIE, LOCALE_HEADER, isPublicLocale, matchAcceptLanguage } from "@/lib/i18n/locales";
+import { DEFAULT_LOCALE, LOCALE_COOKIE, LOCALE_HEADER, isPublicLocale } from "@/lib/i18n/locales";
 
 const REVIEW_REALM = "Other Bali App Review";
 
@@ -95,15 +95,15 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  // Locale resolution (Multi-locale public UI rule v2, AGENTS.md 2026-07-20).
-  // Priority: explicit cookie (set by LocaleSwitcher) > Accept-Language >
-  // English default. Stamped as a request header so Server Components see the
-  // right locale via lib/i18n/server.ts's getLocale() even on the very first
-  // request, before any cookie exists.
+  // Locale resolution (Multi-locale public UI rule v2, AGENTS.md 2026-07-20;
+  // Accept-Language auto-detect removed 2026-07-20 per founder decision — a
+  // visitor always lands on English and switches locale explicitly via
+  // LocaleSwitcher, which writes LOCALE_COOKIE directly). Stamped as a
+  // request header so Server Components see the right locale via
+  // lib/i18n/server.ts's getLocale() even on the very first request, before
+  // any cookie exists.
   const cookieLocale = req.cookies.get(LOCALE_COOKIE)?.value;
-  const locale = isPublicLocale(cookieLocale)
-    ? cookieLocale
-    : matchAcceptLanguage(req.headers.get("accept-language"));
+  const locale = isPublicLocale(cookieLocale) ? cookieLocale : DEFAULT_LOCALE;
 
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
   requestHeaders.set(LOCALE_HEADER, locale);

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/landing/Reveal";
 import SceneImage from "@/components/landing/SceneImage";
 import PhotoBand from "@/components/landing/PhotoBand";
@@ -931,82 +932,6 @@ function FinalCta() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-function SiteFooter() {
-  const footerLink = "inline-flex min-h-10 min-w-10 items-center hover:text-[var(--ob-sand)]";
-
-  return (
-    <footer className="border-t border-[var(--ob-line)] bg-[var(--ob-espresso)] px-5 py-12">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="font-display text-xl font-semibold">Other Bali</p>
-          <p className="mt-1 text-sm text-[var(--ob-sand-dim)]">
-            The right place for the moment you&rsquo;re in. · Bali guide
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--ob-sand-dim)]">
-          <a href="#day-builder" className={footerLink}>
-            Build my day
-          </a>
-          <Link href="/plan" className={footerLink}>
-            Canggu guide
-          </Link>
-          <a href="#how" className={footerLink}>
-            How it works
-          </a>
-          <Link href="/places" className={footerLink}>
-            Explore Bali
-          </Link>
-          <Link href="/my-day" className={footerLink}>
-            A Bali Day
-          </Link>
-          <Link href="/bali" className={footerLink}>
-            Bali by district
-          </Link>
-          <Link href="/guides" className={footerLink}>
-            Guides
-          </Link>
-          <Link href="/for-venues" className={footerLink}>
-            List your place
-          </Link>
-          <Link href="/villas" className={footerLink}>
-            For villas
-          </Link>
-          <Link href="/hotels" className={footerLink}>
-            For hotels
-          </Link>
-          <Link href="/support" className={footerLink}>
-            Support
-          </Link>
-          <a
-            href="https://wa.me/6282339630988?text=Hi%20Other%20Bali%20%F0%9F%91%8B%20"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={footerLink}
-          >
-            WhatsApp
-          </a>
-          <a href="#trust" className={footerLink}>
-            Why free
-          </a>
-          <a href="#faq" className={footerLink}>
-            FAQ
-          </a>
-          <Link href="/privacy" className={footerLink}>
-            Privacy
-          </Link>
-          <Link href="/terms" className={footerLink}>
-            Terms
-          </Link>
-        </div>
-      </div>
-      <p className="mx-auto mt-8 max-w-6xl text-xs text-[var(--ob-sand-dim)]">
-        Free to use. We earn from venues only when a reservation made through us
-        becomes a real seated visit — never from you.
-      </p>
-    </footer>
   );
 }
 

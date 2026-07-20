@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
+import { GuideFooter } from "@/components/GuideBlocks";
 import type { FnbPage } from "@/lib/resort-fnb";
 
 // Server component. Renders a resort-F&B hub page from its generated config
@@ -142,15 +143,14 @@ export default function ResortFnbHub({ page }: { page: FnbPage }) {
           </section>
         ) : null}
 
-        <footer className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          <p>
-            <strong>How we choose &amp; verify.</strong> Placement can&apos;t be bought — venues are
-            ordered by price/value and fit, not by any payment. Prices marked <em>official</em> are
-            from the venue or its booking engine; others are press-sourced and change seasonally.
-            Confirm the current price at booking.
-          </p>
-        </footer>
+        <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
+          <strong>How we choose &amp; verify.</strong> Placement can&apos;t be bought — venues are
+          ordered by price/value and fit, not by any payment. Prices marked <em>official</em> are
+          from the venue or its booking engine; others are press-sourced and change seasonally.
+          Confirm the current price at booking.
+        </p>
       </main>
+      <GuideFooter />
     </div>
   );
 }

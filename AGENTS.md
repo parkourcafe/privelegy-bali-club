@@ -463,3 +463,13 @@ translation caution) is unchanged.
 - This amendment does not change guardrail #15's original logic for any
   locale not listed above — it is not a blanket "translate everything"
   license.
+
+**Default-locale correction (2026-07-20, same-day founder decision):** the
+initial rollout auto-detected locale from the browser's `Accept-Language`
+header on a visitor's first request (e.g. a `ru-RU` browser landed directly
+on the Russian UI). The founder reversed this: every first-time visitor now
+lands on English regardless of browser language, and reaches another locale
+only by an explicit tap on the locale switcher. `Accept-Language` detection
+was removed from `proxy.ts`; `lib/i18n/locales.ts` no longer exports a
+matching function. The six public locales and the switcher itself are
+unchanged.
