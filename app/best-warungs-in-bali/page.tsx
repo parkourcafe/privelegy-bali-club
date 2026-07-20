@@ -91,7 +91,12 @@ export default async function BestWarungsPage() {
               <h2>{area.name}</h2>
               {area.pillar ? (
                 <Link href={area.pillar} className="quiet-link">
-                  {area.pillar.includes("best-warungs") ? "All local food →" : "Area guide →"}
+                  {/* Name the district in the link — two sections both saying
+                      "All local food →" read as a duplicate and hide where
+                      each one actually goes. */}
+                  {area.pillar.includes("best-warungs")
+                    ? `All ${area.name} warungs →`
+                    : `${area.name} guide →`}
                 </Link>
               ) : null}
             </div>
@@ -103,6 +108,14 @@ export default async function BestWarungsPage() {
                     {v.name}
                   </Link>
                   {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+                  {/* One editorial line of concept — what this warung is actually
+                      about — pulled from the consensus-checked what-to-order field
+                      (guardrail #10: DB fact, never invented here). */}
+                  {v.whatToOrder ? (
+                    <span className="block text-[13px] leading-snug text-[var(--muted)]">
+                      {v.whatToOrder.charAt(0).toUpperCase() + v.whatToOrder.slice(1).replace(/;\s*/g, ", ")}
+                    </span>
+                  ) : null}
                 </li>
               ))}
             </ul>

@@ -17,6 +17,14 @@ export type CatalogueTopPick = {
   reasons: string[];
 };
 
+// One district row of the default-view island directory: a scored preview of
+// its strongest cards plus the count behind the "all places" link.
+export type DistrictDirectorySection = {
+  slug: string;
+  total: number;
+  items: CataloguePlace[];
+};
+
 export type CatalogueFilters = {
   query: string;
   district: string;
@@ -158,6 +166,7 @@ export default function PlacesView({
   districts,
   categories,
   nearby = [],
+  directory,
   totalMatches,
   totalVenues,
   page,
@@ -169,6 +178,7 @@ export default function PlacesView({
   districts: string[];
   categories: string[];
   nearby?: CataloguePlace[];
+  directory?: DistrictDirectorySection[];
   totalMatches: number;
   totalVenues: number;
   page: number;
@@ -356,7 +366,9 @@ export default function PlacesView({
 
       <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
         <p>
-          Showing {venues.length + topPicks.length} of {totalMatches} matches · {totalVenues} curated places total.
+          {directory
+            ? `${directory.length} districts · ${totalVenues} curated places — every district below, strongest cards first. Pick a district or narrow with the filters above.`
+            : `Showing ${venues.length + topPicks.length} of ${totalMatches} matches · ${totalVenues} curated places total.`}
         </p>
         {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length > 0 && topPicks.length < 3 ? (
           <p className="mt-1">
@@ -370,7 +382,56 @@ export default function PlacesView({
         ) : null}
       </div>
 
-      {filters.moment && venues.length > 0 ? (
+      {directory ? (
+        // Island directory (default view): every district on one screen, its
+        // strongest cards previewed, the full set one tap away. Replaces the
+        // old flat page 1, which was alphabetically all-Canggu.
+        directory.map((section) => (
+          <section key={section.slug} className="slot-section">
+            {DISTRICT_GRADIENT[section.slug] ? (
+              <div className="relative h-20 overflow-hidden rounded-2xl">
+                <div className="absolute inset-0" style={{ background: DISTRICT_GRADIENT[section.slug] }} />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent" />
+                <div className="relative flex h-full items-center justify-between px-5">
+                  <div>
+                    <h2 className="font-display text-xl font-semibold text-[var(--ob-sand)] drop-shadow-[0_1px_6px_rgba(0,0,0,0.65)]">
+                      {districtLabel[section.slug] ?? section.slug}
+                    </h2>
+                    <p className="text-xs font-semibold text-[var(--ob-sand)]/85 drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]">
+                      {section.total} places
+                    </p>
+                  </div>
+                  {section.total > section.items.length ? (
+                    <Link
+                      href={catalogueHref(filters, { district: section.slug })}
+                      className="rounded-full border border-[rgba(250,246,239,0.5)] bg-black/25 px-4 py-2 text-xs font-bold text-[var(--ob-sand)] backdrop-blur-sm transition-colors hover:bg-black/45"
+                    >
+                      All {section.total} →
+                    </Link>
+                  ) : null}
+                </div>
+              </div>
+            ) : (
+              <div className="slot-heading">
+                <h2>{districtLabel[section.slug] ?? section.slug}</h2>
+                <p>{section.total} places</p>
+              </div>
+            )}
+            <div className="pick-grid">
+              {section.items.map((venue) => (
+                <PlaceCard key={venue.slug} place={toCard(venue)} />
+              ))}
+            </div>
+            {section.total > section.items.length ? (
+              <div className="mt-3">
+                <Link href={catalogueHref(filters, { district: section.slug })} className="chip">
+                  All {section.total} places in {districtLabel[section.slug] ?? section.slug} →
+                </Link>
+              </div>
+            ) : null}
+          </section>
+        ))
+      ) : filters.moment && venues.length > 0 ? (
         // Moment mode is a ranked answer, not an atlas: best fit first, the
         // strongest match badged. Order comes pre-ranked from the server.
         <section className="slot-section">
