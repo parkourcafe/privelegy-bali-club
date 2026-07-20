@@ -112,7 +112,7 @@
       "districtNeedsConfirmation": false,
       "area": "Berawa / south Canggu edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/paradisepadelbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Paradise%20Padel%20Bali%20Berawa%20%2F%20south%20Canggu%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P1",
@@ -128,7 +128,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://playtomic.com/clubs/paradise-padel-bali",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-004",
@@ -160,7 +164,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://app.playtomic.com/tenant/4b52e8ac-646c-4e33-998e-57b0633948f5",
+      "publicContactStatus": "booking_only",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-005",
@@ -175,8 +183,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Berawa / FINNS area",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://finnslifestylevillage.com/",
+      "instagramUrl": "https://www.instagram.com/finnsrecclub/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Canggu%20Club%20Tennis%20Centre%20Berawa%20%2F%20FINNS%20area%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P1",
@@ -192,7 +200,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/finnsbali/",
+      "publicContactStatus": "renamed_current_social",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено + интерпретировано"
     },
     {
       "leadId": "CGSPORT-006",
@@ -244,7 +256,7 @@
       "districtNeedsConfirmation": false,
       "area": "Batu Bolong / Tugu area",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/popular/tugu-tennis-court/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Tugu%20Tennis%20Court%20Batu%20Bolong%20%2F%20Tugu%20area%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -260,7 +272,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "phone_verified_directory",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-008",
@@ -292,7 +307,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "no_public_contact_found",
+      "outreachAction": "local_check_no_reliable_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-009",
@@ -614,8 +632,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://canggu.fitnessplusindonesia.co.id/",
+      "instagramUrl": "https://www.instagram.com/fitnessplus.canggu/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Fitness%20Plus%20Canggu%20Canggu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -631,7 +649,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/p/Fitness-Plus-Canggu-100063804961657/",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-019",
@@ -648,7 +670,7 @@
       "districtNeedsConfirmation": false,
       "area": "Canggu / Pererenan side",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/victoryfitnessclub/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Victory%20Fitness%20Club%20Canggu%20%2F%20Pererenan%20side%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -664,7 +686,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/victoryfitclub/",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-020",
@@ -680,8 +706,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Near Obsidian / Pererenan",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.suryagymbali.com/",
+      "instagramUrl": "https://www.instagram.com/suryagymbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Surya%20Fitness%20Gym%20Near%20Obsidian%20%2F%20Pererenan%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -697,7 +723,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-021",
@@ -713,8 +742,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu / Tibubeneng edge",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://brother-gym-canggu.pages.dev/",
+      "instagramUrl": "https://www.instagram.com/brother_gym_canggu_bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Brother%20Gym%20Canggu%20%2F%20Tibubeneng%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -730,7 +759,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-022",
@@ -746,10 +778,10 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu / Batu Bolong edge",
-      "officialUrl": null,
-      "instagramUrl": null,
-      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Top%20Gym%20Canggu%20%2F%20Batu%20Bolong%20edge%20Bali",
-      "gmapsUrlType": "search_query_unverified",
+      "officialUrl": "https://topgym.id/canggu",
+      "instagramUrl": "https://www.instagram.com/topgym.bali/",
+      "gmapsUrl": "https://maps.app.goo.gl/GUoRP8ULyY1k4YbR8",
+      "gmapsUrlType": "verified_official_link",
       "leadPriority": "P2",
       "leadSource": "OpenStreetMap around Obsidian, 1.7km",
       "cowworkStatus": "verify",
@@ -763,7 +795,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-023",
@@ -779,8 +814,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Tibubeneng / Canggu edge",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://flexgym.co.id/",
+      "instagramUrl": "https://www.instagram.com/flexgym.id/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Flex%20Gym%20Bali%20Tibubeneng%20%2F%20Canggu%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -796,7 +831,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_social_web",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-024",
@@ -813,7 +851,7 @@
       "districtNeedsConfirmation": false,
       "area": "Jl Raya Canggu / Tibubeneng",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/274786509/jaya-gymcanggu/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Jaya%20Gym%20Jalan%20Raya%20Canggu%20Jl%20Raya%20Canggu%20%2F%20Tibubeneng%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -829,7 +867,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/pages/JAYA-GYMcanggu/211743822221994",
+      "publicContactStatus": "social_place_only",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-025",
@@ -846,7 +888,7 @@
       "districtNeedsConfirmation": false,
       "area": "Tibubeneng / Canggu edge",
       "officialUrl": "https://nirvanalife.com/bali/",
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/nirvanalifebali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Nirvana%20Strength%20Tibubeneng%20Tibubeneng%20%2F%20Canggu%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -862,7 +904,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "renamed_verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено + интерпретировано"
     },
     {
       "leadId": "CGSPORT-026",
@@ -895,7 +940,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-027",
@@ -946,7 +994,7 @@
       "districtNeedsConfirmation": true,
       "area": "Canggu/nearby edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/556021411511922/dojo-aora-martial-art/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Dojo%20Aora%20Canggu%2Fnearby%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -962,7 +1010,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "duplicate_legacy_unverified",
+      "outreachAction": "merge_or_exclude_duplicate",
+      "contactBasis": "интерпретировано",
+      "likelyDuplicate": true
     },
     {
       "leadId": "CGSPORT-029",
@@ -979,7 +1031,7 @@
       "districtNeedsConfirmation": true,
       "area": "Dalung / Canggu edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/rivasjhkim_bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=JM%20Taekwondo%20Bali%20Dalung%20%2F%20Canggu%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -995,7 +1047,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/balitaekwondo/",
+      "publicContactStatus": "possible_match_needs_confirmation",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "интерпретировано"
     },
     {
       "leadId": "CGSPORT-030",
@@ -1044,7 +1100,7 @@
       "districtNeedsConfirmation": false,
       "area": "Canggu",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/prettypoison___/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Pretty%20Poison%20Bowl%20Canggu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -1060,7 +1116,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "closed",
+      "outreachAction": "exclude_closed",
+      "contactBasis": "извлечено",
+      "closed": true
     },
     {
       "leadId": "CGSPORT-032",
@@ -1109,7 +1169,7 @@
       "districtNeedsConfirmation": true,
       "area": "Dalung / Canggu edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/1029503333/global-futsal-sport-dalung/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Global%20Futsal%20Dalung%20Dalung%20%2F%20Canggu%20edge%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -1125,7 +1185,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/493092740878241",
+      "publicContactStatus": "verified_phone",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено + интерпретировано"
     },
     {
       "leadId": "CGSPORT-034",
@@ -1158,7 +1222,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "brand_contact_verified",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-035",
@@ -1371,8 +1438,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu / Berawa side",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://luna-solpilates.com/",
+      "instagramUrl": "https://www.instagram.com/lunaandsol_bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Luna%20%26%20Sol%20Pilates%20-%20Yoga%20Canggu%20%2F%20Berawa%20side%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P1",
@@ -1388,7 +1455,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-042",
@@ -1503,8 +1573,8 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu / Berawa side",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.matrabali.com/pranava-yoga",
+      "instagramUrl": "https://www.instagram.com/yoga_pranava/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Pranava%20Yoga%20Canggu%20%2F%20Berawa%20side%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadPriority": "P2",
@@ -1520,7 +1590,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "parent_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено + интерпретировано"
     },
     {
       "leadId": "CGSPORT-046",
@@ -1536,10 +1609,10 @@
       "district": "canggu",
       "districtNeedsConfirmation": false,
       "area": "Canggu / near Batu Bolong",
-      "officialUrl": null,
-      "instagramUrl": null,
-      "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Adda%20Yoga%20Canggu%20%2F%20near%20Batu%20Bolong%20Bali",
-      "gmapsUrlType": "search_query_unverified",
+      "officialUrl": "https://addayogabali.com/",
+      "instagramUrl": "https://www.instagram.com/addayogacanggu/",
+      "gmapsUrl": "https://maps.app.goo.gl/b9zTiKjThF9YJZwFA",
+      "gmapsUrlType": "verified_official_link",
       "leadPriority": "P2",
       "leadSource": "OpenStreetMap around Obsidian, 1.4km",
       "cowworkStatus": "verify",
@@ -1553,7 +1626,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "CGSPORT-047",
@@ -1619,7 +1695,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     }
   ]
 }

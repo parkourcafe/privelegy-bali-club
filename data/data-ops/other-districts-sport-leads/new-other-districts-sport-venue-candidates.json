@@ -473,7 +473,7 @@
       "districtNeedsConfirmation": true,
       "area": "Seminyak / Petitenget edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/olopiyengaryoga/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Olop%20Iyengar%20Yoga%20Seminyak%20%2F%20Petitenget%20edge%20Seminyak%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_wellness_beauty_ENRICHED_215_2026-07-13.csv",
@@ -488,7 +488,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/pages/Olop-Iyengar-yoga/448317115329706",
+      "publicContactStatus": "social_and_phone",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-015",
@@ -936,7 +940,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/432163547580717",
+      "publicContactStatus": "place_page_only",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-029",
@@ -1945,7 +1953,7 @@
       "districtNeedsConfirmation": false,
       "area": "Pecatu",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/hotel.together.bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Together%20Bali%20Pecatu%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -1960,7 +1968,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://classpass.com/studios/hotel-together-bali",
+      "publicContactStatus": "social_booking_only",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-061",
@@ -2201,7 +2213,7 @@
       "districtNeedsConfirmation": false,
       "area": "Ungasan",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/zando_fight_camp/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Zando%20Fight%20Camp%20Uluwatu%20Ungasan%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -2216,7 +2228,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://classpass.com/studios/zando-bali",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-069",
@@ -2297,7 +2313,7 @@
       "districtNeedsConfirmation": false,
       "area": "Pecatu",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/hotel.together.bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Together%20Bali%20Pilates%20Pecatu%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -2312,7 +2328,12 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://classpass.com/studios/hotel-together-bali",
+      "publicContactStatus": "duplicate_service_row",
+      "outreachAction": "merge_or_exclude_duplicate",
+      "contactBasis": "интерпретировано",
+      "likelyDuplicate": true
     },
     {
       "leadId": "OBSPORT-072",
@@ -2328,8 +2349,8 @@
       "districtRaw": "Uluwatu",
       "districtNeedsConfirmation": false,
       "area": "Pecatu",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://momence.com/u/studio-naya",
+      "instagramUrl": "https://www.instagram.com/nayapilatesbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=NAYA%20Uluwatu%20Pecatu%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -2344,7 +2365,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "bookingUrl": "https://momence.com/u/studio-naya",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-073",
@@ -2392,8 +2417,8 @@
       "districtRaw": "Uluwatu",
       "districtNeedsConfirmation": false,
       "area": "Pecatu",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.reformpilatesbali.com/reformplus",
+      "instagramUrl": "https://www.instagram.com/reformpilatesbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Reform%2B%20Uluwatu%20Pecatu%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -2408,7 +2433,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-075",
@@ -2520,8 +2548,8 @@
       "districtRaw": "Uluwatu",
       "districtNeedsConfirmation": false,
       "area": "Pecatu",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.alchemyyogacenter.com/uluwatu-aymc-schedule",
+      "instagramUrl": "https://www.instagram.com/alchemyyogauluwatu/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Yoga%20%26%20Meditation%20Center%20Uluwatu%20Pecatu%20Uluwatu%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OtherBali_ULUWATU_wellness_venues_60_2026-07-12.csv",
@@ -2536,7 +2564,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-079",
@@ -2808,8 +2839,8 @@
       "districtRaw": "Sanur",
       "districtNeedsConfirmation": false,
       "area": "OSM 1.8km from Sanur center",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://fitnessplusindonesia.co.id/branch/FPSNR",
+      "instagramUrl": "https://www.instagram.com/fitnessplus.sanur/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Fitness%20plus%20OSM%201.8km%20from%20Sanur%20center%20Sanur%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap radius 6000m",
@@ -2824,7 +2855,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "corporate_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-088",
@@ -2840,8 +2874,8 @@
       "districtRaw": "Sanur",
       "districtNeedsConfirmation": false,
       "area": "OSM 3.8km from Sanur center",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "http://hawagym.com/",
+      "instagramUrl": "https://www.instagram.com/hawagym_renon/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hawa%20Gym%20Tukad%20Yeh%20Aya%20OSM%203.8km%20from%20Sanur%20center%20Sanur%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap radius 6000m",
@@ -2856,7 +2890,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_phone_conflict",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-089",
@@ -2952,7 +2989,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "closed",
+      "outreachAction": "exclude_closed",
+      "contactBasis": "извлечено",
+      "closed": true
     },
     {
       "leadId": "OBSPORT-092",
@@ -2984,7 +3025,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/p/Sanur-Volley-Ball-Club-100063996062498/",
+      "publicContactStatus": "community_no_public_contact",
+      "outreachAction": "local_check_no_reliable_contact",
+      "contactBasis": "интерпретировано"
     },
     {
       "leadId": "OBSPORT-093",
@@ -3162,7 +3207,7 @@
       "districtNeedsConfirmation": false,
       "area": "OSM 4.0km from Sanur center",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/168745422/bedugul-futsal/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Bedugul%20Futsal%20OSM%204.0km%20from%20Sanur%20center%20Sanur%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap radius 6000m",
@@ -3177,7 +3222,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "directory_phone_conflict",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-099",
@@ -3210,7 +3258,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "likely_inactive_no_contact",
+      "outreachAction": "local_check_no_reliable_contact",
+      "contactBasis": "интерпретировано"
     },
     {
       "leadId": "OBSPORT-100",
@@ -3258,8 +3309,8 @@
       "districtRaw": "Sanur",
       "districtNeedsConfirmation": false,
       "area": "OSM 2.3km from Sanur center",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.sanursurf.com/",
+      "instagramUrl": "https://www.instagram.com/sanursurf/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sanur%20Surf%20School%20OSM%202.3km%20from%20Sanur%20center%20Sanur%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap radius 6000m",
@@ -3274,7 +3325,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-102",
@@ -3306,7 +3360,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "ambiguous_entity_no_contact",
+      "outreachAction": "local_check_no_reliable_contact",
+      "contactBasis": "интерпретировано"
     },
     {
       "leadId": "OBSPORT-103",
@@ -3434,7 +3491,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-107",
@@ -4010,7 +4070,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/167212276634189",
+      "publicContactStatus": "no_public_contact_found",
+      "outreachAction": "local_check_no_reliable_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-125",
@@ -4028,7 +4092,7 @@
       "districtNeedsConfirmation": false,
       "area": "Kuta / Legian catchment",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/556021411511922/dojo-aora-martial-art/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Dojo%20Aora%20Kuta%20%2F%20Legian%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4043,7 +4107,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "legacy_unverified",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-126",
@@ -4059,8 +4126,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": true,
       "area": "Seminyak/Legian edge",
-      "officialUrl": "https://crossfitseminyak.com/",
-      "instagramUrl": null,
+      "officialUrl": "https://www.crossfit-seminyak.com/",
+      "instagramUrl": "https://www.instagram.com/crossfit_seminyak_bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Crossfit%20Seminyak%20Seminyak%2FLegian%20edge%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4075,7 +4142,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-127",
@@ -4092,7 +4162,7 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Kuta / Seminyak-Legian catchment",
-      "officialUrl": null,
+      "officialUrl": "http://www.polestudiobali.com/",
       "instagramUrl": null,
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Pole%20Studio%20Bali%20Kuta%20%2F%20Seminyak-Legian%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
@@ -4108,7 +4178,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "legacy_unverified",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-128",
@@ -4125,8 +4198,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": true,
       "area": "Kuta / Denpasar edge",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "http://arjunafutsalbali.com/",
+      "instagramUrl": "https://www.instagram.com/futsalarjuna.bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Arjuna%20Futsal%20Kuta%20%2F%20Denpasar%20edge%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4141,7 +4214,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-129",
@@ -4159,7 +4235,7 @@
       "districtNeedsConfirmation": true,
       "area": "Kuta / Denpasar edge",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/explore/locations/437921375/dgol-futsal/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=D'Gol%20Futsal%20Kuta%20%2F%20Denpasar%20edge%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4174,7 +4250,11 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/pages/DGOL-Futsal/283848008312836",
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-130",
@@ -4191,8 +4271,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Kuta",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "http://arjunafutsalbali.com/",
+      "instagramUrl": "https://www.instagram.com/futsalarjuna.bali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kuta%20Futsal%20Kuta%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4207,7 +4287,12 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "facebookUrl": "https://www.facebook.com/pages/Kuta-Futsal/107025179368103",
+      "publicContactStatus": "probable_duplicate_legacy_name",
+      "outreachAction": "merge_or_exclude_duplicate",
+      "contactBasis": "интерпретировано",
+      "likelyDuplicate": true
     },
     {
       "leadId": "OBSPORT-131",
@@ -4224,7 +4309,7 @@
       "districtNeedsConfirmation": false,
       "area": "Kuta / Legian catchment",
       "officialUrl": null,
-      "instagramUrl": null,
+      "instagramUrl": "https://www.instagram.com/anika_fitness_club/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Anika%20Gym%20Kuta%20%2F%20Legian%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4239,7 +4324,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_social_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-132",
@@ -4255,8 +4343,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Kuta / Legian catchment",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.villabaliasri.com/",
+      "instagramUrl": "https://www.instagram.com/villabaliasriseminyak/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Bali%20Asri%20Gym%20Kuta%20%2F%20Legian%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4271,7 +4359,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "parent_hotel_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено + интерпретировано"
     },
     {
       "leadId": "OBSPORT-133",
@@ -4351,8 +4442,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Kuta / Legian catchment",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://hammerheadgymbali.com/",
+      "instagramUrl": "https://www.instagram.com/hammerheadgymbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Hammerhead%20Fitness%20Kuta%20%2F%20Legian%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4367,7 +4458,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_social_web_phone_format_check",
+      "outreachAction": "manual_verify_before_contact",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-136",
@@ -4415,8 +4509,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Legian / Kuta",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://sunsetpilatesbali.com/legian-studio/",
+      "instagramUrl": "https://www.instagram.com/sunsetpilatesbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Sunset%20Pilates%20Legian%20Legian%20%2F%20Kuta%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4431,7 +4525,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-138",
@@ -4528,7 +4625,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "brand_contact_verified",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-141",
@@ -4561,7 +4661,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-142",
@@ -4577,8 +4680,8 @@
       "districtRaw": "Kuta",
       "districtNeedsConfirmation": false,
       "area": "Kuta / south Bali catchment",
-      "officialUrl": null,
-      "instagramUrl": null,
+      "officialUrl": "https://www.krostennisbali.com/",
+      "instagramUrl": "https://www.instagram.com/krostennisbali/",
       "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Kros%20Tennis%20Bali%20Kuta%20%2F%20south%20Bali%20catchment%20Kuta%20Bali",
       "gmapsUrlType": "search_query_unverified",
       "leadSource": "OpenStreetMap Kuta radius 5km",
@@ -4593,7 +4696,10 @@
       "needsHumanReview": true,
       "forbiddenToPublish": true,
       "capturedAt": "2026-07-20T00:00:00Z",
-      "verifiedAt": null
+      "verifiedAt": null,
+      "publicContactStatus": "verified_contact",
+      "outreachAction": "contact_now",
+      "contactBasis": "извлечено"
     },
     {
       "leadId": "OBSPORT-143",
