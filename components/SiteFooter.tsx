@@ -2,41 +2,132 @@ import Link from "next/link";
 import OtherBaliLogo from "@/components/OtherBaliLogo";
 import { SUPPORT_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 
-// Site-wide dark footer (2026-07-20 redesign). Single shared component —
-// every page footer on the site renders this (via GuideFooter's re-export
-// in components/GuideBlocks.tsx and the direct <SiteFooter /> uses below),
-// so a design or link change here reaches the whole site at once. Anchor
-// links into the homepage sections use a leading "/" (e.g. "/#how") rather
-// than a bare "#how", since this footer renders on every route, not just "/".
+// Site-wide footer (2026-07-20 redesign, v2). One shared component, rendered
+// in the light tone everywhere (founder decision, 2026-07-20) — the cream
+// footer is the site standard on both the editorial/catalogue pages and the
+// homepage. The dark tone is kept as an option (tone="dark") but is not
+// currently used anywhere. A design or link change here reaches the whole
+// site at once. Homepage anchor links use a leading "/" (e.g. "/#how") since
+// this renders on every route, not only "/".
+
+type Tone = "light" | "dark";
+
+interface Palette {
+  bg: string;
+  logoColor: string;
+  logoDot: string;
+  heading: string;
+  body: string;
+  eyebrow: string;
+  accentEyebrow: string;
+  link: string;
+  cardBg: string;
+  cardBorder: string;
+  ghostBorder: string;
+  ghostText: string;
+  clayBg: string;
+  clayText: string;
+  iconBg: string;
+  iconColor: string;
+  contactLabel: string;
+  divider: string;
+  barBorder: string;
+  cardShadow: string;
+}
+
+// Palette per tone — kept in one place so the two variants can't drift.
+// Light values track the design-system tokens (--paper, --lagoon #005962,
+// --ink, --clay); dark values are the deep-teal footer canvas from the
+// handoff. Clay is the shared CTA accent across both tones, per the mockup.
+const PALETTE: Record<Tone, Palette> = {
+  light: {
+    bg: "#F3ECDF",
+    logoColor: "#005962",
+    logoDot: "#C4623F",
+    heading: "#2B1A13",
+    body: "#5c4a3c",
+    eyebrow: "#8a7a68",
+    accentEyebrow: "#005962",
+    link: "#2B1A13",
+    cardBg: "#FFFFFF",
+    cardBorder: "#EDE4D6",
+    ghostBorder: "#DCD2C2",
+    ghostText: "#005962",
+    clayBg: "#E08A5E",
+    clayText: "#2B1A13",
+    iconBg: "rgba(0,89,98,0.1)",
+    iconColor: "#005962",
+    contactLabel: "#2B1A13",
+    divider: "#DCD2C2",
+    barBorder: "#E1D8C7",
+    cardShadow: "0 12px 30px rgba(43,26,19,0.08)",
+  },
+  dark: {
+    bg: "#00343B",
+    logoColor: "#FAF6EF",
+    logoDot: "#E8A97D",
+    heading: "#FAF6EF",
+    body: "rgba(250,246,239,0.65)",
+    eyebrow: "rgba(250,246,239,0.5)",
+    accentEyebrow: "#E8A97D",
+    link: "rgba(250,246,239,0.85)",
+    cardBg: "rgba(250,246,239,0.03)",
+    cardBorder: "rgba(250,246,239,0.18)",
+    ghostBorder: "rgba(250,246,239,0.3)",
+    ghostText: "#FAF6EF",
+    clayBg: "#E8A97D",
+    clayText: "#00343B",
+    iconBg: "rgba(232,169,125,0.14)",
+    iconColor: "#E8A97D",
+    contactLabel: "#FAF6EF",
+    divider: "rgba(250,246,239,0.14)",
+    barBorder: "rgba(250,246,239,0.14)",
+    cardShadow: "none",
+  },
+};
+
+const EYEBROW = "text-[11px] font-bold uppercase tracking-[0.14em]";
+
 const EXPLORE_LINKS = [
   { href: "/my-day", label: "Build my day" },
   { href: "/places", label: "Explore Bali" },
   { href: "/bali", label: "Bali by district" },
   { href: "/guides", label: "Guides & collections" },
 ];
-
 const ABOUT_LINKS = [
   { href: "/#how", label: "How it works" },
   { href: "/#trust", label: "Why it's free" },
   { href: "/#faq", label: "FAQ" },
   { href: "/support", label: "Support" },
 ];
-
 const LEGAL_LINKS = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];
 
+// The partner card's two labelled groups. Stays have their own dedicated
+// landing pages; restaurants/cafés/spas all onboard through the same
+// /for-venues flow (that page literally covers "Restaurants, cafés & spas"),
+// so both of those buttons point there — the split just signals coverage.
+const STAYS = [
+  { href: "/villas", label: "For villas" },
+  { href: "/hotels", label: "For hotels" },
+];
+const VENUES = [
+  { href: "/for-venues", label: "For restaurants" },
+  { href: "/for-venues", label: "For spas" },
+];
+
 function ChatIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
     </svg>
   );
 }
 function MailIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 6-10 7L2 6" />
     </svg>
@@ -44,7 +135,7 @@ function MailIcon() {
 }
 function InstagramIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="2" y="2" width="20" height="20" rx="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <path d="M17.5 6.5h.01" />
@@ -52,48 +143,27 @@ function InstagramIcon() {
   );
 }
 
-function ContactRow({
-  icon,
-  href,
-  label,
-  note,
-}: {
-  icon: React.ReactNode;
-  href: string;
-  label: string;
-  note: string;
-}) {
-  return (
-    <a href={href} className="group flex items-start gap-3 py-1.5">
-      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgba(230,138,94,0.14)] text-[#E8A97D] transition-colors group-hover:bg-[rgba(230,138,94,0.24)]">
-        {icon}
-      </span>
-      <span>
-        <span className="block text-sm font-semibold text-[#FAF6EF]">{label}</span>
-        <span className="block text-xs text-[rgba(250,246,239,0.6)]">{note}</span>
-      </span>
-    </a>
-  );
-}
-
-function FooterLinkList({
+function LinkColumn({
+  c,
   eyebrow,
   links,
 }: {
+  c: Palette;
   eyebrow: string;
   links: { href: string; label: string }[];
 }) {
   return (
     <div>
-      <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[rgba(250,246,239,0.5)]">
+      <p className={EYEBROW} style={{ color: c.eyebrow }}>
         {eyebrow}
       </p>
       <ul className="mt-3 space-y-2.5">
-        {links.map((l) => (
-          <li key={l.href}>
+        {links.map((l, i) => (
+          <li key={`${l.href}-${i}`}>
             <Link
               href={l.href}
-              className="text-sm text-[rgba(250,246,239,0.85)] transition-colors hover:text-[#FAF6EF]"
+              className="text-sm transition-opacity hover:opacity-70"
+              style={{ color: c.link }}
             >
               {l.label}
             </Link>
@@ -104,80 +174,141 @@ function FooterLinkList({
   );
 }
 
-export default function SiteFooter() {
-  const year = new Date().getFullYear();
+function ContactRow({
+  c,
+  icon,
+  href,
+  label,
+  note,
+}: {
+  c: Palette;
+  icon: React.ReactNode;
+  href: string;
+  label: string;
+  note: string;
+}) {
   return (
-    <footer className="bg-[#00343B] px-5 py-14 text-[#FAF6EF] sm:py-16">
+    <a href={href} className="flex items-start gap-3 py-1.5">
+      <span
+        className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+        style={{ background: c.iconBg, color: c.iconColor }}
+      >
+        {icon}
+      </span>
+      <span>
+        <span className="block text-sm font-semibold" style={{ color: c.contactLabel }}>
+          {label}
+        </span>
+        <span className="block text-xs" style={{ color: c.body }}>
+          {note}
+        </span>
+      </span>
+    </a>
+  );
+}
+
+function GroupButtons({
+  c,
+  label,
+  items,
+}: {
+  c: Palette;
+  label: string;
+  items: { href: string; label: string }[];
+}) {
+  return (
+    <>
+      <p className={`${EYEBROW} mt-4`} style={{ color: c.eyebrow }}>
+        {label}
+      </p>
+      <div className="mt-2 grid grid-cols-2 gap-2">
+        {items.map((b, i) => (
+          <Link
+            key={`${b.href}-${i}`}
+            href={b.href}
+            className="rounded-full px-4 py-2 text-center text-sm font-semibold transition-opacity hover:opacity-80"
+            style={{ border: `1px solid ${c.ghostBorder}`, color: c.ghostText }}
+          >
+            {b.label}
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
+  const c = PALETTE[tone];
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="px-5 py-14 sm:py-16" style={{ background: c.bg }}>
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
             <Link href="/" aria-label="Other Bali — home" className="inline-flex">
-              <OtherBaliLogo size={22} color="#FAF6EF" dot="#E8A97D" />
+              <OtherBaliLogo size={22} color={c.logoColor} dot={c.logoDot} />
             </Link>
-            <p className="mt-4 font-display text-xl font-semibold leading-snug sm:text-2xl">
+            <p
+              className="mt-4 font-display text-xl font-semibold leading-snug sm:text-2xl"
+              style={{ color: c.heading }}
+            >
               The right place for the moment you&apos;re in.
             </p>
-            <p className="mt-3 text-sm text-[rgba(250,246,239,0.65)]">
+            <p className="mt-3 text-sm" style={{ color: c.body }}>
               Resident-curated Bali discovery. Free to use — travellers never pay.
             </p>
           </div>
 
-          <div className="w-full max-w-sm rounded-2xl border border-[rgba(250,246,239,0.18)] bg-[rgba(250,246,239,0.03)] p-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#E8A97D]">
+          <div
+            className="w-full max-w-sm rounded-2xl p-6"
+            style={{
+              background: c.cardBg,
+              border: `1px solid ${c.cardBorder}`,
+              boxShadow: c.cardShadow,
+            }}
+          >
+            <p className={EYEBROW} style={{ color: c.accentEyebrow }}>
               Partner with us — free
             </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Link
-                href="/villas"
-                className="rounded-full border border-[rgba(250,246,239,0.3)] px-4 py-2 text-sm font-semibold text-[#FAF6EF] transition-colors hover:border-[rgba(250,246,239,0.55)]"
-              >
-                For villas
-              </Link>
-              <Link
-                href="/hotels"
-                className="rounded-full border border-[rgba(250,246,239,0.3)] px-4 py-2 text-sm font-semibold text-[#FAF6EF] transition-colors hover:border-[rgba(250,246,239,0.55)]"
-              >
-                For hotels
-              </Link>
-            </div>
+            <GroupButtons c={c} label="Stays" items={STAYS} />
+            <GroupButtons c={c} label="Restaurants, cafés & spas" items={VENUES} />
             <Link
               href="/list-your-property"
-              className="mt-3 flex items-center justify-center rounded-full bg-[#E8A97D] px-5 py-3 text-sm font-bold text-[#00343B] transition-colors hover:bg-[#F0BC98]"
+              className="mt-4 flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition-opacity hover:opacity-90"
+              style={{ background: c.clayBg, color: c.clayText }}
             >
               List your place →
             </Link>
-            <p className="mt-3 text-xs text-[rgba(250,246,239,0.6)]">
-              Restaurants, cafés &amp; spas —{" "}
-              <Link href="/for-venues" className="underline underline-offset-2 hover:text-[#FAF6EF]">
-                for venues
-              </Link>
-            </p>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-[rgba(250,246,239,0.14)] pt-10">
+        <div className="mt-10 border-t pt-10" style={{ borderColor: c.divider }}>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-            <FooterLinkList eyebrow="Explore" links={EXPLORE_LINKS} />
-            <FooterLinkList eyebrow="About" links={ABOUT_LINKS} />
-            <FooterLinkList eyebrow="Legal" links={LEGAL_LINKS} />
+            <LinkColumn c={c} eyebrow="Explore" links={EXPLORE_LINKS} />
+            <LinkColumn c={c} eyebrow="About" links={ABOUT_LINKS} />
+            <LinkColumn c={c} eyebrow="Legal" links={LEGAL_LINKS} />
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[rgba(250,246,239,0.5)]">
+              <p className={EYEBROW} style={{ color: c.eyebrow }}>
                 Talk to us
               </p>
               <div className="mt-2">
                 <ContactRow
+                  c={c}
                   icon={<ChatIcon />}
                   href={SUPPORT_WHATSAPP_URL}
                   label={WHATSAPP_NUMBER_DISPLAY}
                   note="WhatsApp — fastest reply"
                 />
                 <ContactRow
+                  c={c}
                   icon={<MailIcon />}
                   href="mailto:hello@otherbali.com"
                   label="hello@otherbali.com"
                   note="Partnerships & press"
                 />
                 <ContactRow
+                  c={c}
                   icon={<InstagramIcon />}
                   href="https://www.instagram.com/otherbali/"
                   label="@otherbali"
@@ -188,7 +319,10 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-[rgba(250,246,239,0.14)] pt-6 text-xs text-[rgba(250,246,239,0.55)] sm:flex-row sm:items-center sm:justify-between">
+        <div
+          className="mt-10 flex flex-col gap-3 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
+          style={{ borderColor: c.barBorder, color: c.body }}
+        >
           <p className="max-w-xl">
             Free to use. We earn from venues only when a reservation made through
             us becomes a real seated visit — never from you.
