@@ -19,6 +19,6 @@ where status = 'active'
   and district = 'uluwatu-bukit'
   and publication_status = 'review'
   and category = 'cafe'
-  and name = $ob$ULU ARTISAN — Ungasan$ob$
+  and name ilike 'ULU ARTISAN%'
   and coalesce(trim(why_its_here), '') <> ''
   and coalesce(trim(best_for), '') <> '';
