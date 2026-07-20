@@ -110,14 +110,9 @@ export default function VillasPage() {
             Completely free, as a simple partnership.
           </p>
           <div className="hero-actions" style={{ marginTop: 18 }}>
-            <a
-              href={VILLAS_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-primary button-large"
-            >
+            <Link href="/list-your-property?type=villa" className="button-primary button-large">
               Add your villa — it&apos;s free
-            </a>
+            </Link>
             <a href="#how" className="button-secondary button-large">
               See how it works
             </a>
@@ -237,14 +232,9 @@ export default function VillasPage() {
             once you approve, your villa is discoverable. It takes a few minutes.
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
-            <a
-              href={VILLAS_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-primary button-large"
-            >
-              Add your villa on WhatsApp
-            </a>
+            <Link href="/list-your-property?type=villa" className="button-primary button-large">
+              Add your villa — it&apos;s free
+            </Link>
             <a
               href={VILLAS_WHATSAPP_URL}
               target="_blank"

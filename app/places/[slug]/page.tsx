@@ -16,6 +16,8 @@ import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
 import VenueActionBar from "@/components/VenueActionBar";
 import StructuredMenu from "@/components/menu/StructuredMenu";
+import HotelSections from "@/components/venue/HotelSections";
+import { hotelFixture } from "@/lib/contracts/hotel-fixture";
 import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
 import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
@@ -55,6 +57,8 @@ const categoryLabel: Record<string, string> = {
   yoga: "Yoga",
   bar: "Bar",
   surf: "Surf",
+  hotel: "Hotel",
+  resort: "Resort",
 };
 
 // Which Uluwatu guide a category belongs to (breadcrumb + related links).
@@ -163,6 +167,8 @@ const schemaType: Record<string, string> = {
   fitness: "ExerciseGym",
   yoga: "SportsActivityLocation",
   surf: "SportsActivityLocation",
+  hotel: "Hotel",
+  resort: "Resort",
 };
 
 export async function generateMetadata({
@@ -367,6 +373,25 @@ export default async function VenuePage({
     : fixtureMode === "stale"
     ? fixtureMenuSummary({ ...menuActionFixtures.staleMenu, venueSlug: slug })
     : detailExtension.menu;
+
+  // Hotel profile branch. Renders for real hotel/resort venues, and — in local
+  // dev only, gated by HOTEL_FIXTURE=on — from a fixture so the layout is
+  // reviewable without a real hotel row (mirrors MENU_FIXTURE). Prod never reads
+  // the fixture, so no invented content is published (guardrail #10). Real hotel
+  // rooms/spa/day-pass menus arrive in a later, migration-bearing stage.
+  const hotelFixtureMode =
+    process.env.NODE_ENV === "development" && process.env.HOTEL_FIXTURE === "on";
+  const isHotel = venue.category === "hotel" || venue.category === "resort" || hotelFixtureMode;
+  const hotelMenus = hotelFixtureMode
+    ? {
+        rooms: fixtureMenuSummary({ ...hotelFixture.rooms, venueSlug: slug }),
+        dining: fixtureMenuSummary({ ...hotelFixture.dining, venueSlug: slug }),
+        spa: fixtureMenuSummary({ ...hotelFixture.spa, venueSlug: slug }),
+        dayPass: fixtureMenuSummary({ ...hotelFixture.dayPass, venueSlug: slug }),
+        bookHref: hotelFixture.bookHref as string | null,
+        dayPassHref: hotelFixture.dayPassHref as string | null,
+      }
+    : null;
   const actionSlotProps: VenueActionBarProps = {
     venueSlug: venue.slug,
     venueName: name,
@@ -503,10 +528,25 @@ export default async function VenuePage({
               </section>
             )}
 
+            {/* Hotel profile: rooms · restaurant · spa · day pass (reuses the
+                Menu entity + outbound official links). Renders for hotel/resort
+                venues; the full layout is exercised by the dev fixture. */}
+            {isHotel && hotelMenus && (
+              <HotelSections
+                venueSlug={venue.slug}
+                rooms={hotelMenus.rooms}
+                dining={hotelMenus.dining}
+                spa={hotelMenus.spa}
+                dayPass={hotelMenus.dayPass}
+                bookHref={hotelMenus.bookHref}
+                dayPassHref={hotelMenus.dayPassHref}
+              />
+            )}
+
             {/* Menu — rendered only when there is something real to show
                 (verified menu or an official source). No big empty-state box
                 on the 80% of venues without menu data. */}
-            {(menu || menuUrl) && (
+            {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
                 <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>

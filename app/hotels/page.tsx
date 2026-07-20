@@ -67,7 +67,7 @@ const WE_ASK = [
 const STEPS = [
   {
     title: "You add your hotel",
-    body: "Send us your details and your own photos (ones you have the rights to share) — right here on WhatsApp. You fill it in, so the page is genuinely yours.",
+    body: "Fill the short form on this page with your details and your own photos (ones you have the rights to share). You fill it in, so the page is genuinely yours.",
   },
   {
     title: "We review and polish",
@@ -150,14 +150,9 @@ export default function HotelsPage() {
             Bali experience. Completely free, as a simple partnership.
           </p>
           <div className="hero-actions" style={{ marginTop: 18 }}>
-            <TrackedOutboundLink
-              href={HOTELS_WHATSAPP_URL}
-              event="whatsapp_guide_click"
-              label="hotels_hero"
-              className="button-primary button-large"
-            >
+            <Link href="/list-your-property?type=hotel" className="button-primary button-large">
               Add your hotel — it&apos;s free
-            </TrackedOutboundLink>
+            </Link>
             <a href="#how" className="button-secondary button-large">
               See how it works
             </a>
@@ -359,42 +354,39 @@ export default function HotelsPage() {
           </div>
         </section>
 
-        <section className="guide-section" id="join">
-          <h2>Join the Other Bali hotel partner network</h2>
+        {/* Primary "join" path is the property intake form at /list-your-property
+            — NOT WhatsApp. WhatsApp stays only as the secondary "prefer to ask a
+            question first?" link below. */}
+        <section className="guide-section" id="add">
+          <h2>Add your hotel</h2>
           <p className="guide-lede">
-            You send your details and your own photos, we review and polish, and
-            once you approve, your hotel goes live. It takes a few minutes.
+            Tell us about your hotel — rooms, facilities and your own links. We
+            review and polish the page, and nothing goes live until you approve
+            it. It takes a few minutes — no fees, and travellers never pay.
           </p>
           <div className="hero-actions" style={{ marginTop: 16 }}>
-            <TrackedOutboundLink
-              href={HOTELS_WHATSAPP_URL}
-              event="whatsapp_guide_click"
-              label="hotels_closing"
-              className="button-primary button-large"
-            >
+            <Link href="/list-your-property?type=hotel" className="button-primary button-large">
               Add your hotel — it&apos;s free
-            </TrackedOutboundLink>
-            <TrackedOutboundLink
-              href={HOTELS_WHATSAPP_URL}
-              event="whatsapp_guide_click"
-              label="hotels_closing_number"
-              className="button-secondary button-large"
-            >
-              WhatsApp {WHATSAPP_NUMBER_DISPLAY}
-            </TrackedOutboundLink>
+            </Link>
           </div>
           {/* "View an example hotel page →" intentionally omitted until a real
               hotel /places/[slug] exists (ticket §3: link it once one ships,
               otherwise omit — never link a 404). */}
-          <p className="mt-3 text-sm text-[var(--muted)]">
+          <p className="mt-4 text-sm text-[var(--muted)]">
             Other Bali provides an additional discovery channel and does not
             guarantee booking volume.
           </p>
-          <p className="mt-2 text-xs text-[var(--muted)]">
-            Send your hotel details and a few of your own photos — name, type
-            (hotel / resort / boutique), area, a short description and your links
-            (website / booking / Instagram). We&apos;ll polish the page and send it
-            back for your approval before anything is published.
+          <p className="mt-3 text-sm text-[var(--muted)]">
+            Prefer to ask a question first?{" "}
+            <TrackedOutboundLink
+              href={HOTELS_WHATSAPP_URL}
+              event="whatsapp_guide_click"
+              label="hotels_secondary_whatsapp"
+              className="font-bold text-[var(--lagoon-strong)]"
+            >
+              Message us on WhatsApp {WHATSAPP_NUMBER_DISPLAY}
+            </TrackedOutboundLink>
+            .
           </p>
         </section>
 
