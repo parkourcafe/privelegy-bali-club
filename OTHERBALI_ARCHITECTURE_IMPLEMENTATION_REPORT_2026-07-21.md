@@ -1,6 +1,6 @@
 # Other Bali Architecture Implementation Report — 2026-07-21
 
-Final update: 2026-07-22 01:30 Asia/Makassar
+Final update: 2026-07-22 02:05 Asia/Makassar
 Repository: `parkourcafe/privelegy-bali-club`
 Production site: `https://www.otherbali.com`
 Production Supabase project: `bali-privilege` / `egkdapqwkfprtyqvvnso`
@@ -20,9 +20,9 @@ Completed:
 - PRs #184, #187 and #188 merged and deployed.
 - Chope staged-candidates mapping and dry-run guard with `publishable=0`.
 
-Not completed because the required input is absent or explicitly deferred:
+Not completed because explicitly deferred or outside this implementation path:
 
-- Full Chope-607 dry run: the complete 607-row source file was not found in the repository or inspected Downloads paths. A controlled sample dry run exists and proves the guard behavior.
+- Production Chope import: not performed. The 607-row file was processed as dry-run only; every row remains non-publishable until DB-aware dedup, factual verification, editorial QA, SEO QA, partner checks and photo-rights checks are complete.
 - PR #178: unrelated legacy PR remains unmerged/failing and needs separate triage. It is not part of Wave 1–3 completion.
 - Long-term GSC monitoring: T0 engineering acceptance is closed, but Google indexing/impressions remain a monitoring activity.
 
@@ -56,7 +56,7 @@ Primary discovery artifact: `OTHERBALI_REPOSITORY_REALITY_MAP_2026-07-21.md`.
 | T4 must not infer booking difficulty | Audit corrections V1.1 | `lib/quick-decision.ts`, Wave 2 tests | confirmed | Render only verified fields | Done |
 | “Best right now” must become “Fits this moment” | Audit corrections V1.1 | `components/CangguNow.tsx`, Wave 3 test rejects `Open now` | confirmed | No current-open claim without verified hours | Done |
 | Paid placement must not launch before Sept 21 2026 | Money model freeze / user brief | No paid-ranking changes in PRs #184/#187/#188 | confirmed | Reserved only; organic order not payment-based | Done |
-| Chope source found is not import-ready/publish-ready | User brief / Chope audit | `CHOPE_607_PIPELINE_MAPPING.md`, dry-run output | confirmed | Separate candidate, verification, editorial, SEO, partner, photo axes | Sample done; full 607 blocked by missing source |
+| Chope source found is not import-ready/publish-ready | User brief / Chope audit | `CHOPE_607_PIPELINE_MAPPING.md`, `data/data-ops/chope-607/dry-run-output-full.json` | confirmed | Separate candidate, verification, editorial, SEO, partner, photo axes | Full 607 dry-run done; production import deferred |
 | Downloaded `insert_chope_candidates.sql` can be used directly | Downloads artifact | SQL inserts into `venues` directly | contradicted | Staged pipeline only | Not applied |
 
 ## 4. T0 root cause
@@ -95,8 +95,8 @@ Acceptance status: closed.
 | T7 Product/content hygiene | Needed broken/empty/CTA/claim cleanup | Wave 2 discovery/report | Fixed verified hygiene gaps only | Existing functionality preserved | PR #187, `npm run build`, `npm test` |
 | T8 Canggu Now | `/canggu` lacked scenario-first “now” entry | `app/canggu/page.tsx` | Added `components/CangguNow.tsx` | 12 entries live; uses `Fits this moment`; no `Open now` | PR #188, `scripts/wave3-product-boundary.test.mjs`, live `/canggu` |
 | T9 Add to trip | Needed extension of Save, not parallel system | `app/api/trip/route.ts`, `TripPlanner`, tests | Extended Save/trip mechanics | Add/remove/reorder/share/maps supported within existing model | PR #184, Wave 1 tests |
-| T10 Plan nav/content | Desktop lacked single-tap Plan; missing 3/5-day and Canggu no-scooter pages; missing food/rainy routes | `lib/navigation.ts`, `lib/guides.ts`, `app/route/[slug]/page.tsx`, `lib/data.ts` | Added Plan action, pages, route records, fixed route resolution to published catalogue | New pages/routes live; no new route engine | PR #188, migration `0059`, live URL checks |
-| Chope-607 | No full source in repo/Downloads; only 12-row SQL draft | `CHOPE_607_PIPELINE_MAPPING.md`, `CHOPE_607_DRY_RUN_REPORT.md` | Built staged mapping and sample dry run; did not apply direct SQL | Sample output: 5 rows, `publishable=0` | `node scripts/chope-607-dry-run.mjs`, Wave 3 report |
+| T10 Plan nav/content | Desktop lacked single-tap Plan; missing 3/5-day and Canggu no-scooter pages; missing food/rainy routes | `lib/navigation.ts`, `lib/guides.ts`, `app/route/[slug]/page.tsx`, `lib/data.ts` | Added Plan action, pages, route records, preserved existing route engine and standalone editorial stops | New pages/routes live; no new route engine; draft/unpublished venues stay out of public venue-backed stops | PR #188, migration `0059`, live URL checks |
+| Chope-607 | Full CSV later supplied in Downloads; prior 12-row SQL/approved-import naming was misleading because verification was still required | `CHOPE_607_PIPELINE_MAPPING.md`, `CHOPE_607_DRY_RUN_REPORT.md`, `data/data-ops/chope-607/dry-run-output-full.json` | Ran full 607-row staged dry-run; no DB writes; no direct SQL; no descriptions/photos/ratings imported as public content | 607 processed, 607 draft insertable, 0 publishable | `node scripts/chope-607-dry-run.mjs /Users/msnigmatullaeva/Downloads/chope_bali_venues_full.csv data/data-ops/chope-607/dry-run-output-full.json`, Wave 3 test |
 
 ## 7. Implemented changes
 
@@ -135,6 +135,20 @@ Main Wave 3 files:
 - `scripts/chope-607-dry-run.mjs`
 - `scripts/wave3-product-boundary.test.mjs`
 
+## 7.1 Acceptance criteria closure
+
+| Area | Acceptance criterion | Status | Evidence |
+|---|---|---|---|
+| T8 CTA destinations | Each Canggu Now scenario points to an existing planning/search/route surface | done | `components/CangguNow.tsx`, live `/canggu` |
+| T8 mobile/desktop | Compact scenario block renders above existing Canggu content without replacing it | done | `app/canggu/page.tsx`, Wave 3 smoke checks |
+| Time claims | No `Open now`, waiting-time or inferred booking claims are shown | done | `scripts/wave3-product-boundary.test.mjs` |
+| Analytics | Scenario links use existing navigable surfaces; deeper event taxonomy remains analytics follow-up | partially confirmed | existing analytics/event infra; no new paid/event dependency |
+| T10 SEO | New pages have canonical App Router metadata through existing page patterns and internal links via guides/navigation | done | `lib/guides.ts`, new app pages, sitemap/build checks |
+| Content duplication | Existing sunset route preserved instead of duplicated; 3/5-day pages are itinerary shells over existing route/guide model | done | `lib/guides.ts`, `app/route/[slug]/page.tsx` |
+| Route resolution | Published venue-backed stops and standalone editorial stops are both supported; draft venues do not become public stops | done | `lib/data.ts`, `supabase/migrations/0059_wave3_canggu_routes.sql` |
+| Chope dry-run | Full 607-row CSV processed with `publishable=0` | done | `data/data-ops/chope-607/dry-run-output-full.json` |
+| Publication gate | Candidate publication guard exists in generated data, not only prose | done | `publication_guard.can_publish=false` for all 607 rows |
+
 ## 8. Existing functionality intentionally preserved
 
 - Full Bali-wide venue cards remain allowed and are not restricted to Canggu.
@@ -157,26 +171,36 @@ Artifacts:
 - `data/data-ops/chope-607/sample-candidates.json`
 - `data/data-ops/chope-607/dry-run-output.json`
 
-Dry-run command:
+Full dry-run command:
 
 ```bash
-node scripts/chope-607-dry-run.mjs
+node scripts/chope-607-dry-run.mjs /Users/msnigmatullaeva/Downloads/chope_bali_venues_full.csv data/data-ops/chope-607/dry-run-output-full.json
 ```
 
 Result:
 
 | Metric | Count |
 |---|---:|
-| Input rows processed | 5 |
+| CSV lines including header | 608 |
+| Input venue rows processed | 607 |
+| Insertable as draft | 607 |
 | Publishable rows | 0 |
-| `dedup_pending` rows | 5 |
-| `draft` publication rows | 5 |
+| `dedup_pending` rows | 607 |
+| `draft` publication rows | 607 |
+| `verification_pending` rows | 607 |
+| `editorial_pending` rows | 607 |
+| `seo_status=hold` rows | 607 |
+| `photo_permission_status=not_granted` rows | 607 |
 
-Limitations:
+The DB-aware dedup rollup into `matched / possible_match / new_candidate / rejected / needs_review` remains the next step. This report does not invent those outcomes before comparing candidates against the live venue catalogue.
 
-- Full 607-row source file was not found.
-- Available Downloads artifact `insert_chope_candidates.sql` has 12 direct `venues` inserts and was not applied.
-- Full Chope-607 dry run remains blocked until the actual source file is provided or located.
+Guardrails preserved:
+
+- No Chope row was inserted into production Supabase.
+- No Chope row was published.
+- Chope descriptions, photos, ratings and review counts were excluded from public venue content.
+- Chope URL was retained only as source evidence, not as official website.
+- The misleading 12-row direct-insert artifact was not applied.
 
 ## 10. Tests and commands
 
@@ -212,7 +236,7 @@ Production smoke after merge/deploy:
 
 - PR #178 remains separate, unmerged and failing checks in GitHub UI. It is not part of the T0/Wave 1/Wave 2/Wave 3 implementation path and should be triaged separately.
 - Lint warning: `app/partner/venues/[venue]/[section]/PhotoReviewPanel.tsx` uses `<img>`; warning existed outside Wave 3 scope and does not block lint.
-- Full Chope-607 source is absent, so full 607 dry-run counts cannot be claimed.
+- The earlier Chope source limitation is resolved: `/Users/msnigmatullaeva/Downloads/chope_bali_venues_full.csv` was processed as a dry-run only. Actual DB-aware dedup/import remains deferred.
 
 ## 12. Remaining content work
 
@@ -233,8 +257,8 @@ Recommended editorial follow-up:
 
 | Decision | Status | Reason |
 |---|---|---|
-| Full Chope-607 processing | deferred | full source file not found |
-| Chope candidate import to DB | deferred | staging only; no auto-publication allowed |
+| Full Chope-607 dry-run | done | 607 processed locally with `publishable=0` |
+| Chope candidate import to DB | deferred | requires DB-aware dedup and explicit production-data approval |
 | Paid ranking / featured placement | deferred until after 2026-09-21 | money model freeze |
 | Open-now / verified hours | deferred | structured verified hours model is not complete |
 | PR #178 | separate triage | unrelated failing PR; not part of Wave 1–3 |
@@ -255,8 +279,8 @@ Recommended editorial follow-up:
 | Live T8 `/canggu` | done | HTTP 200, content contains Canggu Now / Fits this moment |
 | Live T10 new pages | done | HTTP 200 |
 | Live T10 new routes | done | HTTP 200 after `0059` |
-| Chope auto-publication guard | done for sample | dry-run `publishable=0` |
-| Full Chope-607 import | not done | no full source file |
+| Chope auto-publication guard | done for full file | 607-row dry-run `publishable=0` |
+| Full Chope-607 import | not done | intentionally deferred; no production writes |
 | Production secrets exposure | no change | no secrets added |
 | Production data destructive changes | none | migration only inserted two route rows idempotently |
 
