@@ -33,7 +33,14 @@ import type { VenueWithPerk } from "@/lib/data";
 // venues. It invents nothing — a slot only renders when its collection has places
 // for the chosen area (else it widens island-wide and says so, or drops out).
 
-export const revalidate = 300;
+// The root layout resolves the explicit locale cookie through a request
+// header, and this page itself reads `searchParams` (the answers) — both are
+// request-dependent. Combined with `revalidate` (attempted ISR), Next.js
+// throws DYNAMIC_SERVER_USAGE on uncached hits (the exact class of bug that
+// took down /places/[slug] in production on 2026-07-20/21 — same fix here,
+// applied proactively before it repeats). The venue/collection reads
+// underneath keep their own bounded five-minute data caches.
+export const dynamic = "force-dynamic";
 
 const BASE = "https://www.otherbali.com";
 const PER_SLOT = 3;
