@@ -80,6 +80,11 @@ guards intentionally return 404 rather than connect to production Supabase.
 | Local HTTP `/` and `/me` | 200 with expected Wave 1 content |
 | Invalid Save and trip-day requests | 400 |
 | Narrow-window visual/mobile smoke | `/` and `/me` passed on rebuilt preview; consent actions visible and dismissible; no horizontal overflow |
+| Merge CI | merge commit `a394ed57b7619db03d25d9d22104f14af99c309e`: web lint/typecheck/build and Android checks passed; iOS correctly skipped |
+| Production release | Vercel production health reported release `a394ed57b761`; homepage returned the six Wave 1 starts and monetization-freeze copy |
+| Production venue route | `/places/big-dragon-villas-ubud` returned HTTP 200, self-canonical HTML, no `noindex`, venue content and Add to trip |
+| Production route smoke | Save → Day 1 → trip read → shared trip passed; shared page returned the venue and day |
+| Production smoke cleanup | privacy cleanup succeeded; direct Supabase read confirmed 0 shared rows and 0 recent matching saved rows retained |
 
 The build downloaded `public/scenes/venues-story.mp4` and regenerated
 `ios-web/build-manifest.json`; both generated changes were removed from the
@@ -113,17 +118,26 @@ Wave 1 diff.
    native controls, consent dismissal and bottom-navigation coexistence passed.
    Venue detail remains a route-level post-deploy check because preview data
    isolation intentionally returns 404.
-7. Deploy the application only after steps 3-6 pass.
-8. Monitor API error rates and keep the legacy shared-list fallback during the
-   rolling deployment.
+7. **Complete:** PR #184 and the mobile-consent follow-up PR #185 were merged.
+   Vercel promoted merge commit `a394ed57b7619db03d25d9d22104f14af99c309e`
+   to production and `/api/health/ready` reported release `a394ed57b761`.
+8. **Complete:** direct production route smoke passed Save, Day 1 assignment,
+   trip read and shared-trip rendering. Cleanup ran through the privacy route;
+   a read-only database query confirmed no smoke-test saved/shared rows remain.
+9. Continue monitoring API error rates and keep the legacy shared-list fallback
+   during the rolling deployment.
 
 ## Deferred and not claimed
 
 - Login recovery/merge is not implemented because the repository has no
   tourist-auth architecture. Anonymous state recovery after clearing cookies
   remains impossible by design.
-- Migrations 0056 and 0057 are present in the target Supabase project. The
-  complete rollback-only smoke left no test data and Supabase Advisors were
-  reviewed. Route-level production smoke remains a post-deploy gate.
-- No production deployment was performed.
+- Migrations 0056 and 0057 are present in the target Supabase project. Both the
+  rollback-only database smoke and the route-level production smoke left no
+  saved/shared test data, and Supabase Advisors were reviewed.
+- The production deployment and Wave 1 route-level verification are complete.
+- A pre-existing HTTP semantics issue was observed outside the Wave 1 scope:
+  after the shared row was deleted, `/list/<deleted-id>` rendered the correct
+  not-found UI but returned HTTP 200 instead of 404. It was documented and not
+  changed silently.
 - T4-T10 and the Chope pipeline were not started.
