@@ -15,8 +15,10 @@ active-deep district, and no paid product was activated.
 
 Application code, focused tests, the complete existing test suite, lint,
 typecheck and a production build pass. Migration 0056 has not been applied to
-production. Browser-based visual QA could not be completed because the local
-browser-control runtime was unavailable; HTTP production-render and
+production, but it compiles and passes behavior and permission assertions in
+an isolated PostgreSQL 17 container. All three Vercel branch deployments
+completed successfully. Browser-based visual QA could not be completed because
+the local browser-control runtime was unavailable; HTTP production-render and
 keyboard-native control contracts were checked instead. This is a documented
 pre-deployment gate, not a claimed pass.
 
@@ -59,6 +61,8 @@ pre-deployment gate, not a claimed pass.
 | `npm run typecheck` | passed |
 | `npm run lint` | passed with one pre-existing `no-img-element` warning in partner photo review |
 | `npm run build` | passed; 148 pages generated; `/api/trip` present |
+| `npm run test:wave1:db` | passed against disposable PostgreSQL 17; migration, grants, publication status, retry order, reorder and both share formats verified |
+| Vercel branch checks | all three deployments completed successfully |
 | `git diff --check` | passed |
 | Local HTTP `/` and `/me` | 200 with expected Wave 1 content |
 | Invalid Save and trip-day requests | 400 |
@@ -99,7 +103,8 @@ Wave 1 diff.
 - Login recovery/merge is not implemented because the repository has no
   tourist-auth architecture. Anonymous state recovery after clearing cookies
   remains impossible by design.
-- Migration 0056 has not been executed against local or production Supabase in
-  this session, so live SQL behavior and advisors remain a deployment gate.
+- Migration 0056 has not been executed against the target Supabase project.
+  Isolated PostgreSQL behavior is verified; target-project migration history
+  and Supabase Database Advisors remain deployment gates.
 - No production deployment was performed.
 - T4-T10 and the Chope pipeline were not started.
