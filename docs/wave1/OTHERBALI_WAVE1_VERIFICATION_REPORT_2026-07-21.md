@@ -20,10 +20,12 @@ separate `extensions` search path for `gen_random_bytes`; migration 0057 fixed
 the share-ID generator without widening the SECURITY DEFINER search path.
 After separate approval, 0057 was applied and the complete rollback-only
 production smoke passed. All three Vercel branch deployments completed
-successfully. Browser-based visual QA could not be completed because
-the local browser-control runtime was unavailable; HTTP production-render and
-keyboard-native control contracts were checked instead. This is a documented
-pre-deployment gate, not a claimed pass.
+successfully. Narrow-window visual QA of `/` and `/me` found that the higher-z
+mobile navigation covered the consent actions. The banner now sits above the
+navigation until the shared 1360 px desktop breakpoint; both actions were
+visible and `Essential only` dismissed the dialog on the rebuilt preview.
+Venue-detail interaction remains a post-deploy check because preview data
+guards intentionally return 404 rather than connect to production Supabase.
 
 ## Task verification
 
@@ -57,12 +59,14 @@ pre-deployment gate, not a claimed pass.
 - Google Maps remains the navigation owner through the existing tracked link.
 - Save and route additions emit consent-gated, bounded, PII-free growth events;
   analytics failure never blocks the functional mutation.
+- Mobile consent actions remain visible above the persistent bottom navigation
+  and retain native button interaction.
 
 ## Tests and commands
 
 | Check | Result |
 |---|---|
-| `npm run test:wave1` | 44/44 passed |
+| `npm run test:wave1` | 45/45 passed |
 | Existing `npm test` suite | 220/220 passed |
 | `npm run typecheck` | passed |
 | `npm run lint` | passed with one pre-existing `no-img-element` warning in partner photo review |
@@ -75,7 +79,7 @@ pre-deployment gate, not a claimed pass.
 | `git diff --check` | passed |
 | Local HTTP `/` and `/me` | 200 with expected Wave 1 content |
 | Invalid Save and trip-day requests | 400 |
-| Browser visual/mobile smoke | blocked by unavailable browser-control runtime |
+| Narrow-window visual/mobile smoke | `/` and `/me` passed on rebuilt preview; consent actions visible and dismissible; no horizontal overflow |
 
 The build downloaded `public/scenes/venues-story.mp4` and regenerated
 `ios-web/build-manifest.json`; both generated changes were removed from the
@@ -105,7 +109,10 @@ Wave 1 diff.
    day, retry, reorder and sharing in production inside a rolled-back
    transaction. Route-level smoke remains post-deploy because preview service
    clients intentionally reject production credentials.
-6. Complete mobile-width (320/375/430 px) and keyboard/accessibility visual QA.
+6. **Complete for preview-accessible routes:** narrow-window `/` and `/me`,
+   native controls, consent dismissal and bottom-navigation coexistence passed.
+   Venue detail remains a route-level post-deploy check because preview data
+   isolation intentionally returns 404.
 7. Deploy the application only after steps 3-6 pass.
 8. Monitor API error rates and keep the legacy shared-list fallback during the
    rolling deployment.
