@@ -23,6 +23,11 @@ const gloock = Gloock({ weight: "400", subsets: ["latin"], variable: "--font-glo
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.otherbali.com"),
   referrer: "origin",
+  // Google Search Console ownership verification. Emits
+  // <meta name="google-site-verification" ...> in <head> on every page.
+  verification: {
+    google: "H29WFsXupvBPxTgrs_jjH9oIa_Zi_yIdIcrj0t8oXSo",
+  },
   title: {
     default: "Other Bali — the right place for the moment you're in",
     template: "%s · Other Bali",
