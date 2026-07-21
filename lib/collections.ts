@@ -427,6 +427,27 @@ export async function getCollectionSample(slug: string, n: number): Promise<Venu
   return out;
 }
 
+// A sample from a collection restricted to one district, for the interactive
+// "My Day" builder. When the chosen area has no decision-ready venue for this
+// collection, it widens island-wide and reports `widened: true` so the UI can
+// say so honestly instead of silently pretending the pick is local (or showing
+// an empty slot). `district = null` means all Bali (never widened).
+export async function getCollectionSampleInArea(
+  slug: string,
+  n: number,
+  district: string | null,
+): Promise<{ venues: VenueWithPerk[]; widened: boolean }> {
+  if (!district) {
+    return { venues: await getCollectionSample(slug, n), widened: false };
+  }
+  const areas = await getCollectionAreas(slug);
+  const local = areas.find((a) => a.key === district)?.venues ?? [];
+  if (local.length > 0) {
+    return { venues: local.slice(0, n), widened: false };
+  }
+  return { venues: await getCollectionSample(slug, n), widened: true };
+}
+
 export function toCollectionPlaceCard(v: VenueWithPerk): PlaceCardData {
   return {
     slug: v.slug,
