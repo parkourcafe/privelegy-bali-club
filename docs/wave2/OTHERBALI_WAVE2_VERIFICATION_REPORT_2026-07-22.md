@@ -62,9 +62,10 @@ The warning is pre-existing raw `<img>` use in
 ## Preview boundary and release sequence
 
 Local HTTP smoke was limited by missing published district data, and the in-app
-browser runtime failed to start; no screenshot-based result is claimed. After
-push, Vercel preview must be checked for T4, all five T5 pages and T6 on desktop,
-mobile and keyboard navigation.
+browser runtime failed to start; no screenshot-based result is claimed. All three
+Vercel previews deployed successfully, but deployment protection redirects the
+preview URLs to Vercel login, so unauthenticated visual and keyboard smoke cannot
+be claimed before merge.
 
 1. Push branch and obtain green CI/preview checks.
 2. Complete preview smoke.
