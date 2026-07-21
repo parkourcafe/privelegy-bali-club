@@ -83,3 +83,19 @@ test("Chope dry-run cannot publish candidates", () => {
 test("Full Chope-607 dry-run cannot publish candidates", () => {
   assertChopeOutputIsNonPublishable(JSON.parse(read("data/data-ops/chope-607/dry-run-output-full.json")), 607);
 });
+
+
+test("Chope public-snapshot dedup keeps every candidate non-publishable", () => {
+  const output = JSON.parse(read("data/data-ops/chope-607/db-aware-dedup-output-public.json"));
+  assert.equal(output.counts.total, 607);
+  assert.equal(output.counts.publishable, 0);
+  assert.ok(output.counts.by_dedup_bucket.matched >= 1);
+  for (const row of output.classified) {
+    assert.equal(row.publication_status, "draft");
+    assert.equal(row.verification_status, "verification_pending");
+    assert.equal(row.editorial_status, "editorial_pending");
+    assert.equal(row.seo_status, "hold");
+    assert.equal(row.photo_permission_status, "not_granted");
+    assert.equal(row.can_publish, false);
+  }
+});
