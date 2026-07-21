@@ -9,7 +9,7 @@ import {
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
-import { getPublicationStatus } from "./publication";
+import { isVenueIndexable } from "./publication";
 import { venuePhotoUrlForDisplay } from "./photo-policy";
 import { keepRenderableVenues } from "./venue-validation";
 import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
@@ -589,7 +589,7 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
 // gate for Uluwatu plus explicit active/published state for every district.
 // Sparse or held rows remain available only in authenticated operator queues.
 export function isPublicReadyVenue(v: Venue): boolean {
-  return getPublicationStatus(v) === "published";
+  return isVenueIndexable(v);
 }
 
 // Public planning catalogue: explicitly active, published venue rows only.
