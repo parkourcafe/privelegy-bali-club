@@ -42,7 +42,7 @@ try {
     { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
     { width: 1440, height: 1000, deviceScaleFactor: 1 },
   ]) {
-    for (const path of ["/", "/places", "/bali"]) {
+    for (const path of ["/", "/places", "/bali", "/uluwatu"]) {
       await inspect(path, viewport);
     }
   }
@@ -51,7 +51,6 @@ try {
   for (const path of [
     "/bali/reddit-recommendations",
     "/bali/where-to-stay",
-    "/uluwatu",
     "/places/nonexistent-release-audit",
   ]) {
     const response = await routePage.goto(new URL(path, baseUrl), { waitUntil: "domcontentloaded" });

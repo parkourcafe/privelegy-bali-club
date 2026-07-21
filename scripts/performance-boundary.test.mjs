@@ -44,6 +44,8 @@ test("public venue photos use responsive optimization without weakening consent 
   const protectedPhotoRoute = await read("app/api/venue-photo/[id]/route.ts");
   assert.match(image, /from "next\/image"/);
   assert.match(image, /src\.startsWith\("\/api\/venue-photo\/"\)\) return false/);
+  assert.match(image, /\/storage\/v1\/object\/public\/venue-photos\/draft\//);
+  assert.match(image, /if \(isDraftVenuePhoto\(src\)\) return <>\{fallback\}<\/>/);
   assert.match(image, /sizes=\{sizesByVariant\[variant\]\}/);
   assert.match(config, /hostname: "\*\*\.supabase\.co"/);
   assert.match(config, /stale-while-revalidate=604800/);
