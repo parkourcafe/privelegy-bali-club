@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { createSharedList, getSavedSlugs } from "@/lib/data";
+import { createSharedList, createSharedTrip, getSavedSlugs, getVenuesBySlugs } from "@/lib/data";
 import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
+import { normalizeVenueSlug } from "@/lib/trip";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,11 +18,17 @@ export async function POST(req: Request) {
 
   const { ref, created } = await resolveGuestRef();
   const provided = Array.isArray(body.slugs)
-    ? body.slugs.filter((s) => typeof s === "string" && s.length > 0).slice(0, 200)
+    ? [...new Set(body.slugs.map(normalizeVenueSlug).filter((slug): slug is string => Boolean(slug)))].slice(0, 200)
     : [];
-  const slugs = provided.length > 0 ? provided : await getSavedSlugs(ref);
+  const published = provided.length > 0 ? await getVenuesBySlugs(provided) : [];
+  const publishedSlugs = new Set(published.map((venue) => venue.slug));
+  const slugs = provided.length > 0
+    ? provided.filter((slug) => publishedSlugs.has(slug))
+    : await getSavedSlugs(ref);
 
-  const id = slugs.length > 0 ? await createSharedList(ref, slugs) : null;
+  const id = provided.length > 0
+    ? await createSharedList(ref, slugs)
+    : await createSharedTrip(ref);
 
   const res = NextResponse.json({ ok: Boolean(id), id });
   if (created) res.cookies.set(GUEST_COOKIE, ref, guestCookieOptions());

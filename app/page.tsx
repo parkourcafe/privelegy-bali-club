@@ -20,8 +20,8 @@ import type { PublicLocale } from "@/lib/i18n/locales";
 
 // Other Bali — cinematic launch surface (otherbali.com). The functional
 // day-intent tool now lives in the hero and deep-links into /places. The Canggu
-// /plan surface remains the deeper monetized Canggu layer where confirmed venue offers
-// can appear. landing_open is emitted globally by <SourceCapture/> in layout.
+// /plan remains the deeper Canggu planning layer. landing_open is emitted
+// globally by <SourceCapture/> in layout.
 
 export const metadata: Metadata = {
   title: "Other Bali — the right place for the moment you're in",
@@ -91,6 +91,7 @@ export default async function Landing() {
 
       <main>
         <Hero />
+        <PrimaryEntrances />
         <CategoryGateway locale={locale} />
         <BrowseBar />
         <ChaosToOrder />
@@ -103,7 +104,6 @@ export default async function Landing() {
         />
         <HowItWorks />
         <Moments />
-        <ProofChain />
         <TrustCards />
         <PhotoBand
           scene="moment-warung"
@@ -145,7 +145,7 @@ function Hero() {
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-end gap-12 px-5 pb-16 pt-36 md:grid-cols-[1.15fr_0.85fr]">
         <div className="pb-2">
           <p className="ob-in text-[11px] font-bold uppercase tracking-[0.24em] text-[#E7B7AE]">
-            Bali planning · Canggu confirmed offers
+            Bali-wide planning · Canggu-deep guidance
           </p>
           <h1
             className="ob-in mt-4 font-display text-[2.05rem] font-normal leading-[1.06] tracking-tight text-[#FAF6EF] sm:text-5xl md:text-6xl"
@@ -181,8 +181,7 @@ function Hero() {
             className="ob-in mt-6 max-w-xl text-sm font-medium leading-relaxed text-[rgba(250,246,239,0.75)]"
             style={{ animationDelay: "320ms" }}
           >
-            Free to use. No account, no card. Venues pay only when a referred
-            guest actually shows up.
+            Free to use. No account and no card required.
           </p>
         </div>
 
@@ -195,6 +194,59 @@ function Hero() {
         >
           <DayIntentBuilder />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 1a · Product entrances ───────────────────────────────────────
+   Keep the traveller's two jobs primary. The venue route is intentionally a
+   quiet text link: useful and findable, but it must not compete with the
+   product's decision and planning promise. */
+function PrimaryEntrances() {
+  return (
+    <section
+      aria-labelledby="start-here-title"
+      className="border-b border-[var(--ob-line)] bg-[var(--ob-espresso-2)]"
+    >
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:py-12">
+        <p className="eyebrow text-[var(--ob-brass)]">Start here</p>
+        <h2 id="start-here-title" className="mt-2 font-display text-2xl font-semibold sm:text-3xl">
+          Plan before the trip, or decide while you&rsquo;re here.
+        </h2>
+        <div className="mt-6 grid gap-3 md:grid-cols-2">
+          <Link
+            href="/plan"
+            className="group min-h-28 rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso)] p-5 transition-colors hover:border-[rgba(198,154,92,0.6)]"
+          >
+            <span className="eyebrow text-[var(--ob-brass-2)]">Before the trip</span>
+            <span className="mt-2 flex items-center justify-between gap-4 font-display text-xl font-semibold">
+              Plan your Bali days <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+            <span className="mt-2 block text-sm text-[var(--ob-sand-dim)]">
+              Start with a route, area, or trip length and build a useful shortlist.
+            </span>
+          </Link>
+          <Link
+            href="/places"
+            className="group min-h-28 rounded-3xl border border-[var(--ob-line)] bg-[var(--ob-espresso)] p-5 transition-colors hover:border-[rgba(198,154,92,0.6)]"
+          >
+            <span className="eyebrow text-[var(--ob-brass-2)]">In Bali now</span>
+            <span className="mt-2 flex items-center justify-between gap-4 font-display text-xl font-semibold">
+              Choose a place for this moment <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+            <span className="mt-2 block text-sm text-[var(--ob-sand-dim)]">
+              Compare verified places, then save one or open the right handoff.
+            </span>
+          </Link>
+        </div>
+        <p className="mt-5 text-sm text-[var(--ob-sand-dim)]">
+          Run a venue?{" "}
+          <Link href="/for-venues" className="underline underline-offset-4 transition-colors hover:text-[var(--ob-sand)]">
+            Confirm or update your information
+          </Link>
+          . The pilot is free and nothing is charged automatically.
+        </p>
       </div>
     </section>
   );
@@ -307,9 +359,9 @@ function Mechanism() {
       d: "Use directions, check what to order, and keep the day moving without another round of tabs.",
     },
     {
-      k: "Seated",
-      t: "Venues pay only for real guests",
-      d: "Where reservation tracking is active, a venue pays only when a referred guest becomes a real seated visit. You never pay Other Bali.",
+      k: "Keep",
+      t: "Save it for the trip",
+      d: "Keep a place in My Bali so the useful choices are still there when the group is ready to move.",
     },
   ];
   return (
@@ -322,8 +374,8 @@ function Mechanism() {
               How Other Bali actually works, end to end.
             </h2>
             <p className="mt-4 text-[var(--ob-sand-dim)]">
-              One quiet flywheel: the traveller finds the right place, the venue
-              gets a guest who shows up. Everything else is in service of that.
+              One quiet loop: find the right place, understand why it fits, and
+              keep the next action close. Everything else is in service of that.
             </p>
           </Reveal>
         </div>
@@ -354,7 +406,7 @@ function HowItWorks() {
     { t: "Open the guide", d: "No signup. Start with how you want the day to feel." },
     { t: "Pick your context", d: "Choose mood, area, group, and the way the day should end." },
     { t: "Get the map", d: "The Bali places layer opens already filtered for that brief." },
-    { t: "Go wider or deeper", d: "Browse all places, or use the Canggu guide where confirmed offers exist." },
+    { t: "Go wider or deeper", d: "Browse all places, or use the deeper Canggu guide." },
   ];
   return (
     <Section id="how" className="bg-[var(--ob-espresso-2)]">
@@ -426,8 +478,8 @@ function Moments() {
       href: "/places?intent=1&q=sunset%20view&category=beach_club",
       tag: "Golden hour",
       pain: "You want the view — without the influencer queue.",
-      move: "A curated sunset spot with the offer ready and a table you can request.",
-      result: "You arrive, you show the screen, you sit down.",
+      move: "A curated sunset spot with the practical details and next action ready.",
+      result: "You arrive knowing why this place fits.",
     },
     {
       variant: "night",
@@ -495,71 +547,20 @@ function Moments() {
   );
 }
 
-/* ── 6 · Proof chain (honest — mechanism, not numbers) ──────────── */
-function ProofChain() {
-  const chain = [
-    { t: "Found here", d: "You discover the venue in Other Bali." },
-    { t: "Reserved through us", d: "You hand off to a booking tagged to us." },
-    { t: "Confirmed", d: "The venue confirms the table." },
-    { t: "Seated", d: "You actually arrive and sit down." },
-    { t: "Reported", d: "That seated visit is what the venue pays for." },
-  ];
-  return (
-    <Section id="proof" className="bg-[var(--ob-espresso-2)]">
-      <Reveal>
-        <p className="eyebrow text-[var(--ob-brass)]">Proof, not vanity</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
-          A venue only pays for a guest who genuinely showed up.
-        </h2>
-        <p className="mt-4 max-w-2xl text-[var(--ob-sand-dim)]">
-          We don&rsquo;t sell clicks, listings, or &ldquo;exposure.&rdquo; The
-          chain below is the whole business model &mdash; and every step has to
-          be real for it to count.
-        </p>
-      </Reveal>
-      <Reveal className="ob-chain relative mt-9">
-        <div className="ob-chain-thread hidden lg:block" aria-hidden="true" />
-        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {chain.map((c, i) => (
-            <div
-              key={c.t}
-              className="ob-chain-step flex h-full flex-col rounded-2xl border border-[var(--ob-line)] bg-[var(--ob-espresso)] p-5"
-            >
-              <span className="flex items-center gap-2">
-                <span className="ob-chain-dot" aria-hidden="true" />
-                <span className="font-display text-2xl font-semibold text-[var(--ob-brass)]">
-                  {i + 1}
-                </span>
-              </span>
-              <span className="mt-2 font-semibold">{c.t}</span>
-              <span className="mt-1 text-sm text-[var(--ob-sand-dim)]">{c.d}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-      <Reveal delay={80}>
-        <p className="mt-6 text-sm text-[var(--ob-sand-dim)]">
-          We publish real numbers to partners as they happen &mdash; never invented ones here.
-        </p>
-      </Reveal>
-    </Section>
-  );
-}
-
 /* ── 7 · Trust / why free ───────────────────────────────────────── */
 function TrustCards() {
   const cards = [
-    { t: "You never pay", d: "No tourist fees, ever. Not for the guide, not for an offer, not for a table." },
-    { t: "Venues pay for arrivals", d: "A fixed fee per confirmed seated guest — not a cut of your bill, not a deposit." },
-    { t: "No paid rankings", d: "Order is editorial. Anything sponsored is always labelled as such." },
+    { t: "Free for travellers", d: "No fee for the guide, the shortlist, or saving places for later." },
+    { t: "Free partner pilot", d: "Partner monetization is reserved during the pilot. Nothing is charged automatically." },
+    { t: "No paid rankings", d: "Organic order is editorial and never depends on payment." },
     { t: "Your data stays yours", d: "Partners see aggregates. Nothing identifying leaves you without your say-so." },
   ];
   return (
     <Section id="trust" className="bg-[var(--ob-espresso)]">
       <Reveal>
-        <p className="eyebrow text-[var(--ob-brass)]">Why it&rsquo;s free</p>
+        <p className="eyebrow text-[var(--ob-brass)]">What stays simple</p>
         <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
-          If you&rsquo;re not paying, you should know who is.
+          Clear choices, no checkout, no paid organic order.
         </h2>
       </Reveal>
       <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -584,7 +585,7 @@ function WhatsInside() {
     { t: "Verified vibe tags", d: "Quiet, lively, view, work-friendly — checked in person." },
     { t: "Honest price anchors", d: "Roughly what you'll pay, before you sit down." },
     { t: "What to order", d: "The dish worth getting, per place." },
-    { t: "Real offers", d: "A genuine offer you show on arrival — confirmed by the venue." },
+    { t: "Verified next steps", d: "Open Maps or a confirmed provider handoff without another search." },
   ];
   return (
     <Section id="inside" className="bg-[var(--ob-espresso-2)]">
@@ -852,12 +853,12 @@ function HumanMoment() {
 /* ── FAQ (structured by fears) ──────────────────────────────────── */
 function Faq() {
   const qa = [
-    { q: "Is it really free?", a: "Yes. Travellers never pay — no fee for the guide, the offer, or a table. Venues pay only when a booking through us becomes a real seated guest." },
-    { q: "Do I need an account or a card?", a: "No. Open it, pick a place, show the offer on arrival. Nothing to sign up for, nothing to buy." },
-    { q: "What's the catch with the offers?", a: "There isn't one. An offer is a real incentive you show on arrival, confirmed by the venue. It's separate from anything a venue pays — it just proves you actually came." },
-    { q: "Do you take a cut of my bill?", a: "Never. No percentage of your cheque, no deposit, no markup. The venue pays a fixed fee for a seated guest — that's the entire model." },
-    { q: "How do you choose places?", a: "Editorially, and in person. We verify vibe, price, and what's worth ordering on-site. Order is never paid for; anything sponsored is labelled." },
-    { q: "Where does it work?", a: "The public planning layer covers Bali districts. Confirmed offers and reservation tracking start in Canggu, then expand as partner proof is ready." },
+    { q: "Is it really free?", a: "Yes. Travellers can use the guide, shortlist places, and plan without a fee." },
+    { q: "Do I need an account or a card?", a: "No. Open the guide, pick a place, and save it without a card or a mandatory account." },
+    { q: "Can venues pay to rank higher?", a: "No. Organic order is editorial and does not depend on payment. Partner monetization remains reserved during the free pilot." },
+    { q: "Do you take a cut of my bill?", a: "No. Other Bali does not run traveller checkout, take a percentage of your bill, or charge a card automatically." },
+    { q: "How do you choose places?", a: "Editorially, and in person. We verify the practical facts and explain why a place fits. Unknown information stays hidden until it is confirmed." },
+    { q: "Where does it work?", a: "The public planning layer covers Bali districts, with the deepest active guide and partner operations currently in Canggu." },
   ];
   const faqJsonLd = {
     "@context": "https://schema.org",

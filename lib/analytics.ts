@@ -45,7 +45,9 @@ export type TrackedEvent =
   | "venue_submission_started"
   | "venue_submission_submitted"
   | "whatsapp_guide_click"
-  | "internal_guide_click";
+  | "internal_guide_click"
+  | "save"
+  | "route_add";
 
 type ActionTrackedEvent =
   | "action_handoff"

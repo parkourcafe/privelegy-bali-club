@@ -29,6 +29,7 @@ import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
 } from "./data/public-cache";
+import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -1221,6 +1222,96 @@ export async function toggleSavedPlace(
   return { ok: Boolean(r.ok), saved: Boolean(r.saved) };
 }
 
+export async function setSavedPlace(
+  guestRef: string,
+  venueSlug: string,
+  saved: boolean,
+): Promise<{ ok: boolean; saved: boolean; error?: string }> {
+  const sb = serviceClient();
+  if (!sb) return { ok: false, saved: false, error: "unavailable" };
+  const { data, error } = await sb.rpc("set_saved_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_saved: saved,
+  });
+  if (error || !data) return { ok: false, saved: false, error: "unavailable" };
+  const result = data as Record<string, unknown>;
+  return {
+    ok: Boolean(result.ok),
+    saved: Boolean(result.saved),
+    error: typeof result.error === "string" ? result.error : undefined,
+  };
+}
+
+export interface TripVenueEntry extends TripEntry {
+  venue: VenueWithPerk;
+}
+
+export async function getSavedTrip(guestRef: string | null): Promise<TripEntry[]> {
+  const sb = serviceClient();
+  if (!sb || !guestRef) return [];
+  const { data, error } = await sb.rpc("saved_trip_for", { p_guest_ref: guestRef });
+  if (!error) return parseTripEntries(data);
+  return (await getSavedSlugs(guestRef)).map((venueSlug, index) => ({
+    venueSlug,
+    day: null,
+    position: index + 1,
+  }));
+}
+
+export async function getSavedTripVenues(guestRef: string | null): Promise<TripVenueEntry[]> {
+  const entries = await getSavedTrip(guestRef);
+  const venues = await getVenuesBySlugs(entries.map((entry) => entry.venueSlug));
+  const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  return entries.flatMap((entry) => {
+    const venue = bySlug.get(entry.venueSlug);
+    return venue ? [{ ...entry, venue }] : [];
+  });
+}
+
+async function tripMutation(
+  rpc: "upsert_trip_place" | "move_trip_place" | "reorder_trip_place",
+  params: Record<string, unknown>,
+): Promise<{ ok: boolean; error?: string }> {
+  const sb = serviceClient();
+  if (!sb) return { ok: false, error: "unavailable" };
+  const { data, error } = await sb.rpc(rpc, params);
+  if (error || !data) return { ok: false, error: "unavailable" };
+  const result = data as Record<string, unknown>;
+  return {
+    ok: Boolean(result.ok),
+    error: typeof result.error === "string" ? result.error : undefined,
+  };
+}
+
+export function addTripPlace(guestRef: string, venueSlug: string, day: number) {
+  return tripMutation("upsert_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_day_number: day,
+  });
+}
+
+export function moveTripPlace(guestRef: string, venueSlug: string, day: number) {
+  return tripMutation("move_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_day_number: day,
+  });
+}
+
+export function reorderTripPlace(
+  guestRef: string,
+  venueSlug: string,
+  direction: "up" | "down",
+) {
+  return tripMutation("reorder_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_direction: direction,
+  });
+}
+
 export async function getVenuesBySlugs(slugs: string[]): Promise<VenueWithPerk[]> {
   if (slugs.length === 0) return [];
   const all = await getPublishedVenues();
@@ -1254,5 +1345,30 @@ export async function getSharedListSlugs(id: string): Promise<string[]> {
   const { data, error } = await sb.rpc("shared_list_slugs", { p_id: id });
   if (error || !Array.isArray(data)) return [];
   return data as string[];
+}
+
+export async function createSharedTrip(guestRef: string | null): Promise<string | null> {
+  const sb = serviceClient();
+  if (!sb || !guestRef) return null;
+  const { data, error } = await sb.rpc("create_shared_trip", { p_guest_ref: guestRef });
+  return error || typeof data !== "string" ? null : data;
+}
+
+export async function getSharedTrip(id: string): Promise<TripEntry[]> {
+  const sb = serviceClient();
+  if (!sb || !id) return [];
+  const { data, error } = await sb.rpc("shared_list_trip", { p_id: id });
+  if (!error) return parseSharedTripEntries(data, []);
+  return parseSharedTripEntries(null, await getSharedListSlugs(id));
+}
+
+export async function getSharedTripVenues(id: string): Promise<TripVenueEntry[]> {
+  const entries = await getSharedTrip(id);
+  const venues = await getVenuesBySlugs(entries.map((entry) => entry.venueSlug));
+  const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  return entries.flatMap((entry) => {
+    const venue = bySlug.get(entry.venueSlug);
+    return venue ? [{ ...entry, venue }] : [];
+  });
 }
 // (Rung 3 opt-in contact lives in #26's guide_leads / GuideLeadForm — not duplicated here.)

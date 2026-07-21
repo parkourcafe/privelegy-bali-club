@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getSharedListSlugs, getVenuesBySlugs } from "@/lib/data";
+import { getSharedTripVenues } from "@/lib/data";
+import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,8 @@ export default async function SharedListPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const venues = await getVenuesBySlugs(await getSharedListSlugs(slug));
+  const entries = await getSharedTripVenues(slug);
+  const days = [...new Set(entries.map((entry) => entry.day))];
 
   return (
     <div className="page-dark">
@@ -39,7 +41,7 @@ export default async function SharedListPage({
           Places someone saved on Other Bali and shared with you.
         </p>
 
-        {venues.length === 0 ? (
+        {entries.length === 0 ? (
           <div className="mt-8 rounded-xl border border-dashed border-[var(--line)] p-8 text-center text-sm text-[var(--muted)]">
             This list is empty or the link has expired.
             <div className="mt-4">
@@ -47,19 +49,27 @@ export default async function SharedListPage({
             </div>
           </div>
         ) : (
-          <ul className="mt-6 space-y-2">
-            {venues.map((v) => (
-              <li key={v.slug} className="rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] p-3">
-                <Link href={`/places/${v.slug}`} className="flex items-center justify-between gap-3">
-                  <span className="font-semibold text-[var(--ink)]">{v.name}</span>
-                  <span className="text-xs text-[var(--muted)]">
-                    {categoryLabel[v.category] ?? v.category}
-                    {v.area ? ` · ${v.area}` : ""}
-                  </span>
-                </Link>
-              </li>
+          <div className="mt-6 space-y-6">
+            {days.map((day) => (
+              <section key={day ?? "saved"}>
+                <h2 className="font-display text-xl font-bold">{day ? `Day ${day}` : "Saved for later"}</h2>
+                <ol className="mt-2 space-y-2">
+                  {entries.filter((entry) => entry.day === day).map((entry) => (
+                    <li key={entry.venueSlug} className="rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] p-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <Link href={`/places/${entry.venueSlug}`} className="font-semibold text-[var(--ink)]">{entry.venue.name}</Link>
+                        <TrackedDirectionsLink href={entry.venue.gmapsUrl} venueSlug={entry.venueSlug} className="quiet-link">Maps</TrackedDirectionsLink>
+                      </div>
+                      <p className="text-xs text-[var(--muted)]">
+                        {categoryLabel[entry.venue.category] ?? entry.venue.category}
+                        {entry.venue.area ? ` · ${entry.venue.area}` : ""}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
             ))}
-          </ul>
+          </div>
         )}
 
         <div className="mt-8">

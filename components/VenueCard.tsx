@@ -4,6 +4,9 @@ import ReserveButton from "@/components/ReserveButton";
 import SimilarPlaces from "@/components/SimilarPlaces";
 import VenueVisual from "@/components/VenueVisual";
 import TrackedDirectionsLink from "@/components/TrackedDirectionsLink";
+import SaveButton from "@/components/SaveButton";
+import AddToTripButton from "@/components/AddToTripButton";
+import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 
 // Presentational venue card — shared by the planning grid and route pages.
 
@@ -33,6 +36,12 @@ export default function VenueCard({
   linkToPage?: boolean;
 }) {
   const resolvedActionMode = showActions ? actionMode ?? "full" : "none";
+  const whatToOrderItems = publicWhatToOrderItems({
+    whatToOrder: v.whatToOrder,
+    hasCurrentStructuredMenu: false,
+    officialMenuUrl: null,
+  });
+  const verifiedAt = publicVenueVerifiedAt({ venueVerifiedAt: v.lastVerifiedAt });
 
   return (
     <article className="venue-card">
@@ -117,12 +126,17 @@ export default function VenueCard({
           </div>
         )}
 
-        {v.whatToOrder && (
+        {whatToOrderItems.length > 0 && (
           <p className="mt-2 text-sm text-[var(--muted)]">
-            <span className="font-medium">What to order:</span> {v.whatToOrder}
+            <span className="font-medium">What to order:</span> {whatToOrderItems.join(", ")}
           </p>
         )}
         {v.priceAnchor && <p className="mt-1 text-xs text-[var(--muted)]">{v.priceAnchor}</p>}
+        {verifiedAt && (
+          <p className="mt-1 text-xs text-[var(--muted)]">
+            Verified {new Date(verifiedAt).toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" })}
+          </p>
+        )}
 
         {v.perk && (
           <div className="perk-strip">
@@ -133,6 +147,8 @@ export default function VenueCard({
 
         {resolvedActionMode !== "none" && (
           <div className="action-row">
+            <SaveButton venueSlug={v.slug} />
+            <AddToTripButton venueSlug={v.slug} />
             <TrackedDirectionsLink
               href={v.gmapsUrl}
               venueSlug={v.slug}
