@@ -8,7 +8,8 @@
 - **T0 regression commit:** `38c34ee` (`test: add T0 indexability regression coverage`)
 - **Verification-report commit on the T0 branch:** `62e0193` (`docs: verify T0 recovery and handoff`)
 - **Merged production commit:** `bf52fb762c243961a574251e6138a67266c4204e` (PR #180)
-- **Production deployment:** `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv`
+- **Initial T0 production deployment:** `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv`
+- **Current production deployment:** `dpl_8WV4wC6vsLix3DNYnLyNsQUiZ5nc` (`0fbe220`, includes T0 merge as an ancestor)
 - **Production origin:** `https://www.otherbali.com`
 - **Scope:** T0 venue-detail rendering and indexability consistency only
 
@@ -36,6 +37,7 @@ The two HTTP acceptance runs are intentionally separate:
 - **Production baseline:** current deployed `www.otherbali.com`; checked at `2026-07-21T08:55:37.134Z`; it does not contain this branch's villa-boundary changes.
 - **Branch/local:** commit `38c34ee` served at transport `http://127.0.0.1:3100` with `VERCEL_ENV=production`; the audit's custom fetch changed transport only, retained the logical origin `https://www.otherbali.com`, and sent `X-Forwarded-Host: www.otherbali.com`. This preserves the production canonical, robots, and proxy assertions while exercising local branch code. The final clean-build run was checked at `2026-07-21T09:09:28.133Z` and is not a public deployment.
 - **Production after merge:** merge commit `bf52fb762c243961a574251e6138a67266c4204e`, Vercel deployment `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv`, Ready and aliased to `www.otherbali.com`; expanded audit checked at `2026-07-21T13:31:16.436Z`.
+- **Current production successor:** unrelated dependency-remediation commit `0fbe220` includes `bf52fb7` as an ancestor and deployed as `dpl_8WV4wC6vsLix3DNYnLyNsQUiZ5nc`; the expanded audit was repeated against its active `www.otherbali.com` alias at `2026-07-21T13:37:29.251Z` with the same 13-positive/1-negative, sitemap-668, zero-violation result.
 
 The historical diagnosis and production source/deployment evidence are recorded in `OTHERBALI_T0_INDEXABILITY_DIAGNOSIS.md`. The pre-change repository and counter snapshot are recorded in `OTHERBALI_REPOSITORY_REALITY_MAP_2026-07-21.md`.
 
@@ -146,7 +148,7 @@ The final local server HTML for `/places?district=ubud` also contained a direct 
 
 ### 6.3 Production after merge — `2026-07-21T13:31:16.436Z`
 
-**FACT — production.** PR #180 was merged as `bf52fb762c243961a574251e6138a67266c4204e`. Vercel production deployment `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv` reached Ready and received the `www.otherbali.com`, `otherbali.com`, and `privelegy-bali-club.vercel.app` aliases.
+**FACT — production.** PR #180 was merged as `bf52fb762c243961a574251e6138a67266c4204e`. Vercel production deployment `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv` reached Ready and received the `www.otherbali.com`, `otherbali.com`, and `privelegy-bali-club.vercel.app` aliases. The later unrelated dependency-remediation commit `0fbe220` retained the T0 merge and became the current production deployment `dpl_8WV4wC6vsLix3DNYnLyNsQUiZ5nc`; the full audit was repeated after that alias switch and also passed with zero violations.
 
 The expanded public audit passed with zero violations:
 
@@ -187,7 +189,7 @@ Two discarded diagnostic reruns used a build artifact generated without the requ
 | Lint | `npm run lint` | **PASS — 0 errors; one pre-existing warning** |
 | Production build | `npm run build` | **PASS — `/places/[slug]` classified Dynamic** |
 | Branch deployed to production | PR #180 merge `bf52fb7`; Vercel `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv` Ready on `www.otherbali.com` | **PASS** |
-| Post-deploy 13-positive/1-negative production audit | 42 page fetches, sitemap 668, zero violations at `2026-07-21T13:31:16.436Z` | **PASS** |
+| Post-deploy 13-positive/1-negative production audit | Initial T0 deploy passed at `13:31:16Z`; current successor deploy passed again at `13:37:29Z`, each with 42 page fetches, sitemap 668, and zero violations | **PASS** |
 | GSC Live URL Test | Authenticated GSC evidence unavailable | **UNVERIFIED / PENDING** |
 
 ## 8. Commands and verification results
