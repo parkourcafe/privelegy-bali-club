@@ -9,19 +9,19 @@
 - **Verification-report commit on the T0 branch:** `62e0193` (`docs: verify T0 recovery and handoff`)
 - **Merged production commit:** `bf52fb762c243961a574251e6138a67266c4204e` (PR #180)
 - **Initial T0 production deployment:** `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv`
-- **Current production deployment:** `dpl_8WV4wC6vsLix3DNYnLyNsQUiZ5nc` (`0fbe220`, includes T0 merge as an ancestor)
+- **Production successor audited after T0:** `dpl_8WV4wC6vsLix3DNYnLyNsQUiZ5nc` (`0fbe220`, includes T0 merge as an ancestor)
 - **Production origin:** `https://www.otherbali.com`
 - **Scope:** T0 venue-detail rendering and indexability consistency only
 
 ## 1. Executive verdict
 
-**Production engineering acceptance passes; authenticated GSC confirmation is still pending.**
+**T0 is operationally closed: repository, production HTTP, and authenticated GSC acceptance all pass.**
 
 The already-deployed request-rendering recovery for `/places/[slug]` remains the demonstrated fix for the historical cold-render HTTP 500 incident. This branch does not replace or broaden that recovery. It closes the separately proven 518-route/517-sitemap consistency gap by admitting the valid `villa` category at the structural boundary, applying the same structural-plus-publication predicate to the detail and catalogue paths, and providing safe venue presentation and metadata for that category.
 
 The production baseline audit passed for the existing 12 positive samples plus one negative control. The local canonical-host branch audit then passed for those samples plus `big-dragon-villas-ubud`. After PR #180 was merged and production deployment `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv` became Ready, the same expanded audit passed against `https://www.otherbali.com`: HTTP 200, useful server HTML, expected H1, defined title, unique self-canonical, explicit `index,follow`, three-user-agent byte-identical HTML, crawler allowance, sitemap inclusion, and zero violations. The held `adda-yoga` control remained 404/noindex and absent from the sitemap.
 
-The full production sitemap now contains **668** unique locations, and the previously missing villa is both included there and linked from the server-rendered Ubud catalogue. The dated pre-deployment SQL reconciliation projected **518** acceptance-complete venue URLs; the HTTP/sitemap outcome is consistent with that projection, but a fresh post-deployment SQL recount was not performed and is not represented as a new database fact. Google Search Console (GSC) Live URL inspection remains unverified because the authenticated browser-control runtime failed to start. Therefore the repository and production HTTP work are complete, while final operational closure still requires recording the GSC Live URL result.
+The full production sitemap now contains **668** unique locations, and the previously missing villa is both included there and linked from the server-rendered Ubud catalogue. The dated pre-deployment SQL reconciliation projected **518** acceptance-complete venue URLs; the HTTP/sitemap outcome is consistent with that projection, but a fresh post-deployment SQL recount was not performed and is not represented as a new database fact. At `2026-07-21 21:51 WITA`, an authenticated Google Search Console Live URL Test for Big Dragon reported `URL доступен Google` and `Эту страницу можно проиндексировать`; the live report also found one breadcrumb item with no errors. Together with the separate indexed-version result, this closes the final external T0 gate.
 
 ## 2. Evidence rules and environments
 
@@ -164,7 +164,17 @@ The expanded public audit passed with zero violations:
 
 All three agents received byte-identical HTML for every sample. Big Dragon returned HTTP 200 with H1 `Big Dragon Villas Ubud`, title `Big Dragon Villas Ubud — Villa in Pejeng, near Ubud, Ubud · Other Bali`, self-canonical `https://www.otherbali.com/places/big-dragon-villas-ubud`, explicit `index,follow`, and sitemap inclusion. The server HTML for `/places?district=ubud` contains the direct link `href="/places/big-dragon-villas-ubud"`. The negative control returned HTTP 404 and remained outside the sitemap for all agents.
 
-### 6.4 One-off initial local 404
+### 6.4 Authenticated GSC acceptance — `2026-07-21 21:51 WITA`
+
+**FACT — user-provided GSC evidence.** Google Search Console's live published-version tab for `https://www.otherbali.com/places/big-dragon-villas-ubud` reported:
+
+- `URL доступен Google`;
+- `Эту страницу можно проиндексировать`;
+- one breadcrumb item detected with no errors.
+
+The preceding indexed-version screen separately reported `URL есть в индексе Google`, `Эта страница проиндексирована`, HTTPS delivery, and one breadcrumb item without errors. These screenshots prove both the current Google index state and the required live fetch/indexability result. They do not establish future ranking or guarantee that Google will retain the same canonical/index state indefinitely.
+
+### 6.5 One-off initial local 404
 
 An initial one-off local request for Big Dragon returned 404. Follow-up evidence showed that response came from a stale negative result in the venue-detail data cache, whose bounded revalidation period is 300 seconds (`lib/data/public-cache.ts:1`, `lib/data.ts:433-442`, and `scripts/performance-boundary.test.mjs:7-10`). The subsequent canonical-host branch run passed the full contract for the page under all three user agents.
 
@@ -190,7 +200,7 @@ Two discarded diagnostic reruns used a build artifact generated without the requ
 | Production build | `npm run build` | **PASS — `/places/[slug]` classified Dynamic** |
 | Branch deployed to production | PR #180 merge `bf52fb7`; Vercel `dpl_8rGPJyZB74xbZwpT8M8fpHTWEryv` Ready on `www.otherbali.com` | **PASS** |
 | Post-deploy 13-positive/1-negative production audit | Initial T0 deploy passed at `13:31:16Z`; current successor deploy passed again at `13:37:29Z`, each with 42 page fetches, sitemap 668, and zero violations | **PASS** |
-| GSC Live URL Test | Authenticated GSC evidence unavailable | **UNVERIFIED / PENDING** |
+| GSC Live URL Test | Authenticated published-version test at `2026-07-21 21:51 WITA`: URL available to Google, page indexable, breadcrumb valid | **PASS** |
 
 ## 8. Commands and verification results
 
@@ -222,7 +232,7 @@ Deliberately deferred:
 - T1-T10 product work, including the confirmed T7 broken-link set on `/bali/kuta-legian`;
 - Chope/candidate imports, migrations, production data edits, publication widening, photo publication, and monetization changes;
 - sitewide canonical-collision or internal-link exhaustiveness claims beyond the audited sample;
-- GSC indexing claims. HTTP eligibility is not proof that Google has crawled or indexed a URL.
+- future ranking, traffic, or permanent-index-retention claims; the dated GSC result is a verification snapshot, not a guarantee.
 
 ## 10. Deployment, monitoring, and rollback
 
@@ -233,7 +243,7 @@ Deliberately deferred:
 3. **Complete:** CI production build passed; the venue route's Dynamic contract remains covered by regression tests and the deployed route serves request-rendered HTML.
 4. **Complete:** expanded production audit returned 13 positive + 1 negative, 42 page fetches, three-UA equivalence, robots 200, sitemap 668, and zero violations.
 5. **Complete:** Big Dragon's HTTP 200, H1, title, self-canonical, `index,follow`, sitemap membership, and direct Ubud catalogue link were verified in production.
-6. **Pending external authentication:** run GSC Live URL inspection for Big Dragon and at least one established positive control. Record crawl allowance, fetched status/render, declared canonical, Google-selected canonical, and any indexing blocker; request indexing only after the live inspection passes.
+6. **Complete:** authenticated GSC indexed-version and Live URL checks for Big Dragon passed. The indexed-version screen reports the URL in Google's index; the live published-version screen reports the URL available to Google and indexable, with breadcrumb validation passing.
 
 ### Monitoring
 
@@ -248,4 +258,4 @@ If the deployment causes a systemic route, catalogue, sitemap, or metadata regre
 
 ## 11. Final status
 
-Phase 0 and the T0 repository/code/deployment recovery are **implemented and production-verified**. Focused and full suites, typecheck, lint, production build, three-user-agent production HTTP acceptance, robots, sitemap, canonical, negative control, and internal discoverability all pass. The only remaining acceptance artifact is an authenticated GSC Live URL inspection; no claim about Google's selected canonical or index state is made until that evidence is recorded.
+Phase 0 and T0 are **complete and operationally closed**. Repository reality and conflicts are documented; the historical 500 root cause is proven; the targeted consistency fix and regression coverage are merged; production build and three-user-agent HTTP acceptance pass; robots, sitemap, canonical, negative control, and internal discoverability pass; and authenticated GSC indexed-version plus Live URL checks pass. T1–T10 were not changed during this phase.
