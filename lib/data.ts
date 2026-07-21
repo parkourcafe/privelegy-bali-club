@@ -1057,6 +1057,16 @@ const ROUTE_FALLBACK_STAGES: Record<string, RouteFallbackStage[]> = {
     { note: "Dinner as the light goes.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
     { note: "Close with a drink nearby.", categories: ["bar", "beach_club"], terms: ["cocktail", "night", "drinks"] },
   ],
+  "canggu-food-route": [
+    { note: "Start with a Canggu café or brunch base.", categories: ["cafe"], terms: ["breakfast", "brunch", "coffee"] },
+    { note: "Move to a proper local or casual lunch stop.", categories: ["warung", "restaurant"], terms: ["local", "lunch", "casual"] },
+    { note: "End with the dinner room worth planning around.", categories: ["restaurant"], terms: ["dinner", "date", "group"] },
+  ],
+  "canggu-rainy-day": [
+    { note: "Begin with a covered café or breakfast stop.", categories: ["cafe"], terms: ["breakfast", "coffee", "covered"] },
+    { note: "Use the wet-weather window for a reset.", categories: ["spa", "beauty", "yoga"], terms: ["spa", "massage", "reset"] },
+    { note: "Stay close for a low-friction dinner.", categories: ["restaurant", "warung"], terms: ["dinner", "comfort", "easy"] },
+  ],
 };
 
 function routeFallbackCount(slug: string): number {
@@ -1117,7 +1127,8 @@ function fallbackRouteStops(slug: string, venues: VenueWithPerk[]): VenueWithPer
 }
 
 function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[] {
-  const bySlug = new Map(venues.map((v) => [v.slug, v]));
+  const routeVenues = venues.filter((v) => v.district === d.district);
+  const bySlug = new Map(routeVenues.map((v) => [v.slug, v]));
   const explicit = d.stops
     .map((s) => {
       const v = bySlug.get(s.venueSlug);
@@ -1126,7 +1137,7 @@ function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[
     })
     .filter((x): x is VenueWithPerk => x !== null);
 
-  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, venues);
+  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, routeVenues);
 }
 
 // Route definitions from DB (if present) else seed.
@@ -1186,7 +1197,12 @@ async function buildRoute(slug: string): Promise<RouteDetail | null> {
   const defs = await getRouteDefs();
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
-  const all = await getVenuesList();
+  // Route pages are a Bali-wide planning surface. Resolving explicit route
+  // stops from the Canggu Field Kit list made DB-backed routes fragile: any
+  // published venue outside that curated plan could exist in `route_stops` but
+  // still render as a 404. Use the public catalogue instead; the publication
+  // gate is still enforced by `getPublishedVenues()`.
+  const all = await getPublishedVenues();
   const stops = resolveRouteStops(d, all);
   if (stops.length === 0) return null;
   return { slug: d.slug, district: d.district, title: d.title, subtitle: d.subtitle, stops };

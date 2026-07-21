@@ -5,6 +5,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import CangguNow from "@/components/CangguNow";
 import { guidesForDistrict } from "@/lib/guides";
 import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
 import { CANGGU_GUIDES } from "@/lib/canggu-guides";
@@ -165,6 +166,8 @@ export default async function CangguPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <CangguNow />
 
         <StartYourShortlist district="Canggu" items={buildStartShortlist(venues)} />
 
