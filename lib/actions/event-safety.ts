@@ -33,6 +33,7 @@ export const ALLOWED_EVENT_TYPES = [
   "preorder_click",
   "save",
   "route_add",
+  "shortlist_generated",
 ] as const;
 
 export type AllowedEventType = (typeof ALLOWED_EVENT_TYPES)[number];

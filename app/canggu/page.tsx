@@ -9,6 +9,8 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
 import { CANGGU_GUIDES } from "@/lib/canggu-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 const BASE = "https://www.otherbali.com";
 
@@ -163,6 +165,8 @@ export default async function CangguPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <StartYourShortlist district="Canggu" items={buildStartShortlist(venues)} />
 
         <section className="guide-section">
           <h2>Who Canggu suits — and who it frustrates</h2>

@@ -47,7 +47,8 @@ export type TrackedEvent =
   | "whatsapp_guide_click"
   | "internal_guide_click"
   | "save"
-  | "route_add";
+  | "route_add"
+  | "shortlist_generated";
 
 type ActionTrackedEvent =
   | "action_handoff"

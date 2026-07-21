@@ -12,6 +12,9 @@ import {
   VenuePicks,
 } from "@/components/GuideBlocks";
 import { guidesForDistrict } from "@/lib/guides";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { getUluwatuContent } from "@/lib/uluwatu/venues";
+import type { StartShortlistItem } from "@/lib/start-shortlist";
 
 // Uluwatu pillar page (ContentPage type district_guide, master §6a.3).
 // Search intent: "uluwatu bali guide / where to eat in uluwatu / what is
@@ -64,6 +67,22 @@ const FAQ = [
   },
 ];
 
+const ULUWATU_SHORTLIST: StartShortlistItem[] = [
+    "single-fin",
+    "sundays-beach-club",
+    "suka-espresso",
+  ]
+  .map((slug) => getUluwatuContent(slug))
+  .filter((content): content is NonNullable<typeof content> => Boolean(content?.publication === "published"))
+  .map((content) => ({
+    slug: content.slug,
+    name: content.displayName,
+    whyThisPlace: content.whyHere,
+    bestMoment: content.visitContext ?? content.atmosphere ?? content.bestFor,
+    bestAudience: content.bestFor,
+    primaryAction: { label: "View place", href: `/places/${content.slug}` },
+  }));
+
 export default function UluwatuPillarPage() {
   return (
     <div>
@@ -87,6 +106,8 @@ export default function UluwatuPillarPage() {
           copy="Uluwatu is Bali's cliff edge: world-class surf below, golden-hour venues above, and everything spread along winding peninsula roads. It rewards travellers who plan by area — and punishes the ones who treat it like a walkable town. This guide covers the food, drink and sunset decisions we have actually verified: 24 places, checked on 12 July 2026."
           meta="Editorial review: 2026-07-12 · resident-curated · no paid ranking"
         />
+
+        <StartYourShortlist district="Uluwatu" items={ULUWATU_SHORTLIST} />
 
         {/* 3. Who it suits / 4. who it doesn't */}
         <section className="guide-section">

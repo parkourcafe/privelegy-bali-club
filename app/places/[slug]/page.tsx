@@ -32,6 +32,7 @@ import {
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
+import { quickDecisionRows } from "@/lib/quick-decision";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -438,10 +439,17 @@ export default async function VenuePage({
     .filter((tag, index, tags) => Boolean(tag) && tags.indexOf(tag) === index);
   const quickBestFor = content?.bestFor ?? venue.bestFor;
   const quickNotFor = content?.notFor ?? venue.notFor;
-  const hasQuickRead = Boolean(
-    quickBestFor || quickNotFor || content?.atmosphere || content?.visitContext ||
-    content?.reservation || (bookHref && !venue.tablepilotSlug),
-  );
+  const quickDecision = quickDecisionRows({
+    bestFor: quickBestFor,
+    notFor: quickNotFor,
+    whyGo: whyHereText ?? heroVerdict,
+    whatToOrder: whatToOrderItems,
+    practicalNote: content?.visitContext ?? (practicalTags.length ? practicalTags.join(" · ") : null),
+    // An explicit evidence-registry field only. Never infer reservation need
+    // from the presence of a booking button.
+    reservationNote: content?.reservation,
+  });
+  const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
   const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
     content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
   );
@@ -674,39 +682,15 @@ export default async function VenuePage({
 
           {/* ── Aside: quick decision block + practical info ── */}
           <aside className="venue-detail-aside">
-            {hasQuickRead && <div className="quick-block">
-              <h2>The quick read</h2>
+            {hasQuickDecision && <div className="quick-block">
+              <h2>Quick decision</h2>
               <dl>
-                {quickBestFor && (
-                  <div>
-                    <dt>Best for</dt>
-                    <dd>{quickBestFor}</dd>
+                {quickDecision.map((row) => (
+                  <div key={row.label}>
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
                   </div>
-                )}
-                {quickNotFor && (
-                  <div>
-                    <dt>Not for</dt>
-                    <dd>{quickNotFor}</dd>
-                  </div>
-                )}
-                {content?.atmosphere && (
-                  <div>
-                    <dt>Atmosphere</dt>
-                    <dd>{content.atmosphere}</dd>
-                  </div>
-                )}
-                {content?.visitContext && (
-                  <div>
-                    <dt>Good to know</dt>
-                    <dd>{content.visitContext}</dd>
-                  </div>
-                )}
-                {content?.reservation && (
-                  <div>
-                    <dt>Reservations</dt>
-                    <dd>{content.reservation}</dd>
-                  </div>
-                )}
+                ))}
               </dl>
 
               {bookHref && !venue.tablepilotSlug && (
