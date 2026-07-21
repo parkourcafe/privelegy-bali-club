@@ -16,10 +16,10 @@ active-deep district, and no paid product was activated.
 Application code, focused tests, the complete existing test suite, lint,
 typecheck and a production build pass. Migration 0056 was applied to production
 after explicit approval. A rollback-only production smoke exposed Supabase's
-separate `extensions` search path for `gen_random_bytes`; migration 0057 fixes
-the share-ID generator without widening the SECURITY DEFINER search path and
-passes a Supabase-shaped PostgreSQL 17 smoke test. Applying 0057 remains an
-explicit production gate. All three Vercel branch deployments completed
+separate `extensions` search path for `gen_random_bytes`; migration 0057 fixed
+the share-ID generator without widening the SECURITY DEFINER search path.
+After separate approval, 0057 was applied and the complete rollback-only
+production smoke passed. All three Vercel branch deployments completed
 successfully. Browser-based visual QA could not be completed because
 the local browser-control runtime was unavailable; HTTP production-render and
 keyboard-native control contracts were checked instead. This is a documented
@@ -69,6 +69,9 @@ pre-deployment gate, not a claimed pass.
 | `npm run build` | passed; 148 pages generated; `/api/trip` present |
 | `npm run test:wave1:db` | passed against disposable PostgreSQL 17; migration, grants, publication status, retry order, reorder and both share formats verified |
 | Vercel branch checks | all three deployments completed successfully |
+| Production migrations | 0056 and 0057 applied to `bali-privilege`; migration history verified |
+| Production transaction smoke | passed Save, day assignment, retry position, reorder and share snapshot; rolled back with no retained test data |
+| Supabase Advisors | no Wave 1 security WARN; fail-closed RLS and two non-blocking performance INFO notices documented |
 | `git diff --check` | passed |
 | Local HTTP `/` and `/me` | 200 with expected Wave 1 content |
 | Invalid Save and trip-day requests | 400 |
@@ -96,10 +99,12 @@ Wave 1 diff.
 1. Review the Wave 1 commits without deploying.
 2. Back up and verify the target Supabase project and migration history.
 3. **Complete:** apply `0056_saved_place_trip_extension.sql` before rollout.
-4. Apply `0057_shared_trip_id_portability.sql`, then verify all RPC grants:
-   only `service_role` may execute them.
-5. Smoke-test desired-state Save, add to day, move, reorder, delete and sharing
-   on a preview deployment with real published venues.
+4. **Complete:** apply `0057_shared_trip_id_portability.sql` and verify all RPC
+   grants: only `service_role` may execute them.
+5. **Complete at the database boundary:** smoke-test desired-state Save, add to
+   day, retry, reorder and sharing in production inside a rolled-back
+   transaction. Route-level smoke remains post-deploy because preview service
+   clients intentionally reject production credentials.
 6. Complete mobile-width (320/375/430 px) and keyboard/accessibility visual QA.
 7. Deploy the application only after steps 3-6 pass.
 8. Monitor API error rates and keep the legacy shared-list fallback during the
@@ -110,9 +115,8 @@ Wave 1 diff.
 - Login recovery/merge is not implemented because the repository has no
   tourist-auth architecture. Anonymous state recovery after clearing cookies
   remains impossible by design.
-- Migration 0056 is present in the target Supabase project. Its rollback-only
-  smoke left no test data, and exposed the documented share-ID portability
-  defect. Migration 0057, the complete production smoke and Supabase Database
-  Advisors remain deployment gates.
+- Migrations 0056 and 0057 are present in the target Supabase project. The
+  complete rollback-only smoke left no test data and Supabase Advisors were
+  reviewed. Route-level production smoke remains a post-deploy gate.
 - No production deployment was performed.
 - T4-T10 and the Chope pipeline were not started.
