@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue } from "@/lib/data";
+import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import SaveButton from "@/components/SaveButton";
 import {
   freshVerifiedUluwatuActionUrl,
@@ -20,8 +20,8 @@ import HotelSections from "@/components/venue/HotelSections";
 import { hotelFixture } from "@/lib/contracts/hotel-fixture";
 import { menuActionFixtures } from "@/lib/contracts/menu-action.fixtures";
 import type { MenuRecord, VenueActionBarProps } from "@/lib/contracts/menu-action";
-import { getPublicVenueDetailExtension } from "@/lib/data/public-venue-detail";
-import { getPublishedMenusForVenue, type PublicMenuSummary } from "@/lib/data/menu-summary-repository";
+import { getPublicVenueDetailExtension, type PublicVenuePageDetailExtension } from "@/lib/data/public-venue-detail";
+import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKind } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 
@@ -229,10 +229,22 @@ export default async function VenuePage({
   const detailExtensionPromise = getPublicVenueDetailExtension(slug);
   const venue = await venuePromise;
   if (!venue) notFound();
-  const [similar, detailExtension] = await Promise.all([
-    getSimilarVenues(venue, 3),
-    detailExtensionPromise,
-  ]);
+  // Secondary, enhancement-only reads (similar places · menu · action
+  // capabilities). These must NEVER 500 the whole page: a server error here
+  // deindexes the venue from Google entirely (audit T0, 2026-07-20). The inner
+  // repositories already try/catch their own queries, but a failure at Next's
+  // cache/serialization layer surfaces as a rejected promise here — so we catch
+  // it too and degrade to a reduced-but-valid page instead of a 500.
+  let similar: VenueWithPerk[] = [];
+  let detailExtension: PublicVenuePageDetailExtension = { menu: null, actionCapabilities: [] };
+  try {
+    [similar, detailExtension] = await Promise.all([
+      getSimilarVenues(venue, 3),
+      detailExtensionPromise,
+    ]);
+  } catch (error) {
+    console.error(`venue-detail-secondary-read-failed:${slug}`, error);
+  }
   const content = getUluwatuContent(slug);
 
   const isUluwatu = venue.district === ULUWATU_DB_SLUG;
@@ -404,7 +416,12 @@ export default async function VenuePage({
         // render correctly via the unmodified <VenueActionBar/> below, which
         // goes through the full confirmed/verified/fresh capability gate;
         // duplicating that here without the same validation would be unsafe.
-        ...(await getPublishedMenusForVenue(slug)),
+        // Same resilience rule as the secondary reads above: a cache-layer
+        // failure here must degrade the hotel sections, never 500 the page.
+        ...(await getPublishedMenusForVenue(slug).catch((error): HotelMenusByKind => {
+          console.error(`venue-detail-hotel-menus-failed:${slug}`, error);
+          return { rooms: null, dining: null, spa: null, dayPass: null };
+        })),
         bookHref: null,
         dayPassHref: null,
       }
