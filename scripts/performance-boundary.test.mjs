@@ -64,11 +64,11 @@ test("large menus defer closed-section items and keep publication gates", async 
   assert.match(sectionRoute, /getPublishedMenuSection/);
 });
 
-test("personal save state is isolated from the cacheable venue page", async () => {
+test("venue detail uses request rendering for locale while public data stays cached", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
   const saveRoute = await read("app/api/save/route.ts");
-  assert.match(venuePage, /export const revalidate = 300/);
-  assert.match(venuePage, /export async function generateStaticParams\(\)/);
+  assert.match(venuePage, /export const dynamic = "force-dynamic"/);
+  assert.doesNotMatch(venuePage, /export async function generateStaticParams\(\)/);
   assert.doesNotMatch(venuePage, /readGuestRef|getSavedSlugs/);
   assert.match(saveRoute, /export async function GET/);
   assert.match(saveRoute, /private, no-store/);

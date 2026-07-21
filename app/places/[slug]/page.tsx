@@ -25,13 +25,12 @@ import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKin
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 
-export const revalidate = 300;
-
-// Defer the 400+ venue pages to first request, then keep each generated page
-// in ISR. This avoids a database-heavy build while removing per-visitor SSR.
-export async function generateStaticParams() {
-  return [];
-}
+// The root layout resolves the explicit locale cookie through a request header.
+// This route therefore cannot use on-demand ISR: Next.js would try to prerender
+// it without request context and fail with DYNAMIC_SERVER_USAGE. Keep the HTML
+// request-rendered while the venue, menu, action and similar-place repositories
+// retain their bounded five-minute data caches.
+export const dynamic = "force-dynamic";
 
 const BASE = "https://www.otherbali.com";
 
