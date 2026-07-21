@@ -5,7 +5,9 @@ Scope: staged-candidates preparation only. No automatic publication.
 
 ## Input availability
 
-The full 607-row Chope source file was not found in the repository or inspected Downloads paths during Wave 3. The available Chope artifact is `/Users/msnigmatullaeva/Downloads/insert_chope_candidates.sql`, a 12-row candidate insert draft. That SQL is not used as an importer because it writes directly to `venues`.
+The full 607-row Chope source file is available at `/Users/msnigmatullaeva/Downloads/chope_bali_venues_full.csv` and was processed by the full local dry-run on 2026-07-22. The CSV is treated as an external source artifact and is not committed into the repository.
+
+A separate downloaded 12-row artifact named like an approved import (`insert_chope_candidates.sql` / `approved_import_ready.csv` in prior handoff language) is intentionally not used as an importer because its candidates still require manual verification and direct `venues` inserts would bypass the staged-candidate gate.
 
 ## Source-to-candidate mapping
 
@@ -18,7 +20,7 @@ The full 607-row Chope source file was not found in the repository or inspected 
 | coordinates | dedup_signals.coordinates | Dedup/proximity check, not displayed until verified | draft only |
 | official website | dedup_signals.official_url | HTTPS only; evidence source | draft only |
 | Instagram | dedup_signals.instagram_url | HTTPS only; identity signal | draft only |
-| Chope URL | source evidence / action candidate | Booking-provider evidence only after venue-endorsed verification | not publish-ready |
+| Chope URL | source evidence / action candidate | Retain as Chope source evidence; do not treat as official website | not publish-ready |
 | Chope description/photos/ratings | not imported | Excluded by product guardrail | forbidden |
 
 ## Candidate states
@@ -71,3 +73,12 @@ Allowed dedup actions: `create_new`, `update_existing`, `create_branch`, `attach
 `photo_publish_ready` requires documented rights. A candidate may be import-ready without a photo.
 
 No Chope-derived row may automatically set `status='active'` or `publication_status='published'`.
+
+
+## Full dry-run status
+
+The full 607-row dry-run output is `data/data-ops/chope-607/dry-run-output-full.json`. Result: 607 processed, 607 draft insertable, 0 publishable. All rows remain `dedup_pending`, `verification_pending`, `editorial_pending`, `seo_status=hold`, `partner_status=not_contacted`, and `photo_permission_status=not_granted`.
+
+## Route/content boundary note
+
+Chope venue candidates are separate from editorial route stops. Route resolution must support both published venue-backed stops via `venue_id` and standalone editorial `RouteStop` entries such as beaches, temples and viewpoints. Draft or unpublished venues must not render as public venue-backed route stops, but absence of a venue card must not delete a valid standalone editorial stop.

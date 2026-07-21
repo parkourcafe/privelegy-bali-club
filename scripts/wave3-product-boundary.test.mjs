@@ -58,13 +58,28 @@ test("Canggu food and rainy-day routes extend the existing route engine", () => 
   assert.match(data, /const all = await getPublishedVenues\(\)/);
 });
 
-test("Chope dry-run cannot publish candidates", () => {
-  const output = JSON.parse(read("data/data-ops/chope-607/dry-run-output.json"));
+function assertChopeOutputIsNonPublishable(output, expectedTotal = null) {
+  if (expectedTotal !== null) {
+    assert.equal(output.counts.total, expectedTotal);
+    assert.equal(output.staged.length, expectedTotal);
+  }
   assert.equal(output.counts.publishable, 0);
   assert.ok(output.staged.length > 0);
   for (const row of output.staged) {
     assert.equal(row.publication_status, "draft");
-    assert.equal(row.publication_guard.can_publish, false);
+    assert.equal(row.candidate_state, "dedup_pending");
+    assert.equal(row.verification_status, "verification_pending");
+    assert.equal(row.editorial_status, "editorial_pending");
+    assert.equal(row.seo_status, "hold");
     assert.equal(row.photo_permission_status, "not_granted");
+    assert.equal(row.publication_guard.can_publish, false);
   }
+}
+
+test("Chope dry-run cannot publish candidates", () => {
+  assertChopeOutputIsNonPublishable(JSON.parse(read("data/data-ops/chope-607/dry-run-output.json")));
+});
+
+test("Full Chope-607 dry-run cannot publish candidates", () => {
+  assertChopeOutputIsNonPublishable(JSON.parse(read("data/data-ops/chope-607/dry-run-output-full.json")), 607);
 });
