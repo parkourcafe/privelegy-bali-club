@@ -361,6 +361,142 @@ export const GUIDES: Guide[] = [
     related: PILLAR_LINKS,
   },
 
+
+  {
+    slug: "bali-itinerary-3-days",
+    eyebrow: "3-day Bali itinerary",
+    title: "Bali itinerary: 3 days without rushing",
+    description:
+      "A practical 3-day Bali itinerary for a short first trip: one base, one inland day, one coast day and no overpacked transfer schedule.",
+    lede: "Three days in Bali is short, so the winning move is restraint: choose one base, keep each day to one main area, and avoid pretending you can see the whole island. This plan gives you a soft landing, one culture or nature day, and one coast/sunset day without turning the trip into traffic.",
+    sections: [
+      {
+        heading: "Day 1: land, settle, stay local",
+        paras: [
+          "Pick a base that matches the trip: Canggu or Seminyak for food and sunset, Ubud for jungle and culture, Sanur for a calmer family start, or Uluwatu for cliffs and surf.",
+          "Do not cross the island after landing unless your accommodation requires it. Eat close to where you sleep, save one nearby place, and leave the evening flexible.",
+        ],
+      },
+      {
+        heading: "Day 2: one proper Bali day",
+        paras: [
+          "If you are based inland, make this the rice terrace, temple, waterfall or workshop day. If you are based on the coast, book one driver-led Ubud or Bukit day instead of trying to stitch three districts together.",
+          "Start early and finish before traffic turns the return into the main event. One strong day beats five half-seen stops.",
+        ],
+      },
+      {
+        heading: "Day 3: coast, spa, sunset, easy exit",
+        paras: [
+          "Keep the last day close to your base: breakfast, beach or pool, a spa/reset stop, then a sunset and dinner nearby if your flight allows it.",
+          "If you fly out late, build the airport transfer into the plan. Bali traffic is not a detail you add at the end.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is 3 days enough for Bali?", a: "Enough for one base and a clear taste of the island, not enough for a full Bali loop. Pick either coast plus one inland day, or Ubud plus one coast/sunset day." },
+      { q: "Where should I stay for 3 days?", a: "Canggu, Seminyak, Sanur or Ubud are the easiest first-trip bases. Choose by pace: food/sunset, polished dining, calm family logistics, or jungle/culture." },
+      { q: "Should I visit Nusa Penida on a 3-day trip?", a: "Only if the island viewpoint is the main reason for your trip. Otherwise it eats too much time for a short first visit." },
+    ],
+    related: [
+      { href: "/bali-itinerary-5-days", title: "Bali itinerary: 5 days", blurb: "A little more room without adding too many bases." },
+      { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "Choose the base before you choose the stops." },
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Plan by time, not distance." },
+    ],
+  },
+
+  {
+    slug: "bali-itinerary-5-days",
+    eyebrow: "5-day Bali itinerary",
+    title: "Bali itinerary: 5 days for a first trip",
+    description:
+      "A realistic 5-day Bali itinerary: one main base, one inland day, one coast day, one flex day and no forced island loop.",
+    lede: "Five days is enough for one area done well, plus one or two deliberate day trips. It is not enough for every famous stop on the island. Keep one main base, add a driver day when it earns its place, and leave one flexible day for weather, traffic or the place you want to repeat.",
+    sections: [
+      {
+        heading: "Day 1: arrive and choose your pocket",
+        paras: [
+          "Land, check in and stay within your area. Use the first evening to understand your base: where breakfast is, where sunset works, and how long short rides actually take.",
+        ],
+      },
+      {
+        heading: "Day 2: local rhythm",
+        paras: [
+          "Do the version of Bali your base is good at: Canggu for surf, cafés and sunset; Ubud for rice fields and culture; Sanur for calm beach logistics; Uluwatu for cliffs and beach time.",
+        ],
+      },
+      {
+        heading: "Day 3: one driver-led day",
+        paras: [
+          "Add one bigger day outside your base — Ubud from the coast, the Bukit from Canggu/Seminyak, or East Bali if you are already positioned well. Keep stops tight and sequenced.",
+        ],
+      },
+      {
+        heading: "Day 4: reset or repeat",
+        paras: [
+          "Use this as a lower-friction day: spa, beach club, long lunch, shopping, or the guide/route you saved after learning your own pace. This is where the trip starts to feel personal instead of scheduled.",
+        ],
+      },
+      {
+        heading: "Day 5: easy final day",
+        paras: [
+          "Stay close, book only what you can reach comfortably, and leave a real airport buffer. If you have a late flight, choose a final meal or spa on the airport side of your route.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Is 5 days enough for Bali?", a: "Yes for one base plus one or two day trips. It is too short for Ubud, Canggu, Uluwatu, Nusa Penida and East Bali in one comfortable trip." },
+      { q: "Should I split hotels on a 5-day trip?", a: "Usually no. One base is calmer. Split only if you strongly want two different paces, such as Ubud plus the coast." },
+      { q: "What should I book ahead?", a: "Book accommodation, airport transfer, any driver day, and the few meals or sunset spots that matter. Leave cafés and casual meals flexible." },
+    ],
+    related: [
+      { href: "/bali-itinerary-3-days", title: "Bali itinerary: 3 days", blurb: "The tighter version for a short stopover." },
+      { href: "/bali-itinerary-7-days", title: "Bali itinerary: 7 days", blurb: "The more comfortable first-timer route." },
+      { href: "/how-many-days-in-bali", title: "How many days in Bali", blurb: "Choose the trip length before the route." },
+    ],
+  },
+
+  {
+    slug: "canggu-without-a-scooter",
+    eyebrow: "Canggu without a scooter",
+    title: "Canggu without a scooter: where to stay and how to move",
+    description:
+      "How to do Canggu without a scooter: choose a walkable pocket, use ride apps for short hops, and avoid traffic-heavy cross-Canggu days.",
+    lede: "You can enjoy Canggu without a scooter if you design the day around one pocket at a time. The mistake is booking a villa far from the places you actually want, then trying to cross Berawa, Batu Bolong and Pererenan every few hours.",
+    sections: [
+      {
+        heading: "Choose the pocket first",
+        paras: [
+          "Batu Bolong is the easiest for a first-timer who wants beach, cafés and dinner close together. Berawa works for beach clubs, gyms and polished restaurants. Pererenan is calmer, but you will rely more on ride apps for some moves.",
+          "Walkability in Canggu means within a pocket, not across all of Canggu. Treat each pocket like its own small day plan.",
+        ],
+      },
+      {
+        heading: "Use short hops, not constant crossing",
+        paras: [
+          "Grab and Gojek cover many short rides, but pickup friction and traffic rise around sunset and dinner. Pair stops by area: brunch and spa in one pocket, sunset and dinner in another.",
+          "For Ubud, Uluwatu or airport moves, use a private driver instead of stitching together ride-app hops.",
+        ],
+      },
+      {
+        heading: "Best Canggu days without a scooter",
+        paras: [
+          "A good no-scooter day is compact: breakfast near your stay, one beach or pool stop, a massage or café reset, then sunset and dinner in the same area.",
+          "Avoid plans that require three cross-Canggu moves. The distances look small on a map; the friction is in roads, parking and timing.",
+        ],
+      },
+    ],
+    faq: [
+      { q: "Can I stay in Canggu without driving a scooter?", a: "Yes. Stay in Batu Bolong, Berawa or Pererenan based on your main daily rhythm, then use ride apps or a driver for bigger moves." },
+      { q: "Is Canggu walkable?", a: "Within small pockets, yes. Across Canggu, no — traffic, narrow roads and heat make it unrealistic as a single walking area." },
+      { q: "Where should I stay without a scooter?", a: "Batu Bolong is the easiest first choice. Berawa works if beach clubs, gyms and restaurants are the priority. Pererenan is calmer but less frictionless." },
+    ],
+    related: [
+      { href: "/canggu", title: "The Canggu guide", blurb: "Choose the pocket before the day." },
+      { href: "/route/first-day", title: "Canggu first-day route", blurb: "A compact soft landing." },
+      { href: "/route/cafe-work", title: "Canggu café work route", blurb: "A low-friction remote-work day." },
+      { href: "/how-to-get-around-bali", title: "Getting around Bali", blurb: "Drivers, ride apps and when not to scooter." },
+    ],
+  },
   {
     slug: "bali-itinerary-7-days",
     eyebrow: "7-day Bali itinerary",

@@ -49,7 +49,7 @@ export default async function MyPerksPage() {
           </>
         )}
 
-        <h2 className="mt-10 font-display text-2xl font-bold">My offers</h2>
+        <h2 id="offers" className="mt-10 font-display text-2xl font-bold">My offers</h2>
         <p className="mt-1 text-xs text-[var(--muted)]">
           Venue offers you have redeemed on this device.
         </p>

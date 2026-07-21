@@ -110,6 +110,7 @@ export const NAV_GROUPS: NavGroup[] = [
 // Explore catalogue; Saved is the /me surface relabelled.
 export const NAV_ACTIONS: NavLink[] = [
   { href: "/places", label: "Explore" },
+  { href: "/plan", label: "Plan" },
   { href: "/me", label: "Saved" },
 ];
 
