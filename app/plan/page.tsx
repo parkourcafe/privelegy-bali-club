@@ -5,7 +5,12 @@ import { GuideFooter } from "@/components/GuideBlocks";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
-export const revalidate = 300;
+// Same DYNAMIC_SERVER_USAGE class fixed on /places/[slug] and /my-day
+// (2026-07-20/21): this page reads searchParams, and the root layout resolves
+// locale from a request header — both request-dependent, which conflicts with
+// an attempted `revalidate`/ISR render. Keep the HTML request-rendered; the
+// data reads below keep their own bounded caches.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Plan my Canggu day",
