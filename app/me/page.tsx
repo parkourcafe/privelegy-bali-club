@@ -1,17 +1,8 @@
 import Link from "next/link";
 import { readGuestRef } from "@/lib/guest-server";
-import { getMyRedemptions, getSavedVenues } from "@/lib/data";
+import { getMyRedemptions, getSavedTripVenues } from "@/lib/data";
 import ShareButton from "@/components/ShareButton";
-
-const categoryLabel: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  bar: "Bar",
-  surf: "Surf",
-};
+import TripPlanner from "@/components/TripPlanner";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +18,7 @@ export const metadata = {
 export default async function MyPerksPage() {
   const ref = await readGuestRef();
   const [perks, saved] = ref
-    ? await Promise.all([getMyRedemptions(ref), getSavedVenues(ref)])
+    ? await Promise.all([getMyRedemptions(ref), getSavedTripVenues(ref)])
     : [[], []];
 
   return (
@@ -39,7 +30,7 @@ export default async function MyPerksPage() {
 
         <h1 className="mt-3 font-display text-3xl font-bold">My list</h1>
         <p className="mt-1 text-xs text-[var(--muted)]">
-          Places you saved on this device. No account — clear cookies and it resets.
+          Your private shortlist and trip, saved anonymously on this device.
         </p>
 
         {saved.length === 0 ? (
@@ -51,19 +42,7 @@ export default async function MyPerksPage() {
           </div>
         ) : (
           <>
-            <ul className="mt-6 space-y-2">
-              {saved.map((v) => (
-                <li key={v.slug} className="rounded-xl border border-[var(--line)] bg-[var(--paper-soft)] p-3">
-                  <Link href={`/places/${v.slug}`} className="flex items-center justify-between gap-3">
-                    <span className="font-semibold text-[var(--ink)]">{v.name}</span>
-                    <span className="text-xs text-[var(--muted)]">
-                      {categoryLabel[v.category] ?? v.category}
-                      {v.area ? ` · ${v.area}` : ""}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <TripPlanner entries={saved} />
             <div className="mt-4">
               <ShareButton />
             </div>

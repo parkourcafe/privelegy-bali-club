@@ -31,6 +31,8 @@ export const ALLOWED_EVENT_TYPES = [
   "delivery_click",
   "takeaway_click",
   "preorder_click",
+  "save",
+  "route_add",
 ] as const;
 
 export type AllowedEventType = (typeof ALLOWED_EVENT_TYPES)[number];

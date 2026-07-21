@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import SaveButton from "@/components/SaveButton";
+import AddToTripButton from "@/components/AddToTripButton";
 import {
   freshVerifiedUluwatuActionUrl,
   getUluwatuContent,
@@ -30,6 +31,7 @@ import {
   venueSchemaType,
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
+import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -421,6 +423,28 @@ export default async function VenuePage({
   const heroVerdict = content?.verdict ?? venue.whyItsHere;
   const whyHereText = content?.whyHere ?? venue.whyItsHere;
   const showWhyHere = Boolean(whyHereText && whyHereText.trim() !== heroVerdict?.trim());
+  const whatToOrderItems = publicWhatToOrderItems({
+    whatToOrder: content?.whatToOrder ?? venue.whatToOrder,
+    hasCurrentStructuredMenu: Boolean(menu),
+    officialMenuUrl: menuUrl ?? menu?.sourceUrl,
+  });
+  const verifiedAt = publicVenueVerifiedAt({
+    contentVerifiedAt: content?.lastVerifiedAt,
+    venueVerifiedAt: venue.lastVerifiedAt,
+  });
+  const spend = content?.priceBand?.trim() || venue.priceAnchor?.trim() || null;
+  const practicalTags = (venue.practicalTags ?? [])
+    .map((tag) => tag.trim())
+    .filter((tag, index, tags) => Boolean(tag) && tags.indexOf(tag) === index);
+  const quickBestFor = content?.bestFor ?? venue.bestFor;
+  const quickNotFor = content?.notFor ?? venue.notFor;
+  const hasQuickRead = Boolean(
+    quickBestFor || quickNotFor || content?.atmosphere || content?.visitContext ||
+    content?.reservation || (bookHref && !venue.tablepilotSlug),
+  );
+  const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
+    content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+  );
 
   return (
     <div className="page-dark venue-page-pad">
@@ -484,8 +508,9 @@ export default async function VenuePage({
         })()}
 
         {/* Save control (kept from mainline) sits just under the masthead. */}
-        <div style={{ marginTop: 14 }}>
+        <div className="flex flex-wrap items-center gap-3" style={{ marginTop: 14 }}>
           <SaveButton venueSlug={slug} variant="detail" />
+          <AddToTripButton venueSlug={slug} />
         </div>
 
         <div className="venue-detail-grid">
@@ -513,14 +538,12 @@ export default async function VenuePage({
             )}
 
             {/* What to order — research-sourced items, no invented signatures */}
-            {(content?.whatToOrder?.length || venue.whatToOrder) && (
+            {whatToOrderItems.length > 0 && (
               <section className="guide-section">
                 <h2>What to order</h2>
                 <div className="guide-prose">
                   <ul>
-                    {(content?.whatToOrder ?? venue.whatToOrder?.split(";").map((s) => s.trim()) ?? [])
-                      .filter(Boolean)
-                      .map((item) => (
+                    {whatToOrderItems.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                   </ul>
@@ -641,9 +664,9 @@ export default async function VenuePage({
             )}
 
             {/* Verification note */}
-            {content?.lastVerifiedAt && (
+            {verifiedAt && (
               <p className="verification-note">
-                Information last checked: {content.lastVerifiedAt}. Details like
+                Information last checked: {verifiedAt}. Details like
                 hours and menus change — confirm big plans with the venue.
               </p>
             )}
@@ -651,19 +674,19 @@ export default async function VenuePage({
 
           {/* ── Aside: quick decision block + practical info ── */}
           <aside className="venue-detail-aside">
-            <div className="quick-block">
+            {hasQuickRead && <div className="quick-block">
               <h2>The quick read</h2>
               <dl>
-                {(content?.bestFor ?? venue.bestFor) && (
+                {quickBestFor && (
                   <div>
                     <dt>Best for</dt>
-                    <dd>{content?.bestFor ?? venue.bestFor}</dd>
+                    <dd>{quickBestFor}</dd>
                   </div>
                 )}
-                {(content?.notFor ?? venue.notFor) && (
+                {quickNotFor && (
                   <div>
                     <dt>Not for</dt>
-                    <dd>{content?.notFor ?? venue.notFor}</dd>
+                    <dd>{quickNotFor}</dd>
                   </div>
                 )}
                 {content?.atmosphere && (
@@ -698,9 +721,9 @@ export default async function VenuePage({
                   </TrackedOutboundLink>
                 </div>
               )}
-            </div>
+            </div>}
 
-            <div className="quick-block mt-4">
+            {hasPractical && <div className="quick-block mt-4">
               <h2>Practical</h2>
               <dl className="practical-list">
                 {(content?.address ?? venue.address) && (
@@ -715,10 +738,16 @@ export default async function VenuePage({
                     <dd>{content.openingHours}</dd>
                   </div>
                 )}
-                {content?.priceBand && (
+                {spend && (
                   <div>
                     <dt>Spend</dt>
-                    <dd>{content.priceBand} — relative to the area</dd>
+                    <dd>{spend}{content?.priceBand ? " — relative to the area" : ""}</dd>
+                  </div>
+                )}
+                {practicalTags.length > 0 && (
+                  <div>
+                    <dt>Good to know</dt>
+                    <dd>{practicalTags.join(" · ")}</dd>
                   </div>
                 )}
                 {officialUrl && (
@@ -764,7 +793,7 @@ export default async function VenuePage({
                   </div>
                 )}
               </dl>
-            </div>
+            </div>}
           </aside>
         </div>
       </main>

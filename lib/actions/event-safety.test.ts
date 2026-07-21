@@ -1,13 +1,6 @@
-import test from "node:test";
 import assert from "node:assert/strict";
-
-const eventSafety = (await import(
-  new URL("./event-safety.ts", import.meta.url).href
-)) as typeof import("./event-safety");
-const {
-  ALLOWED_EVENT_TYPES,
-  parseEventRequest,
-} = eventSafety;
+import test from "node:test";
+import { ALLOWED_EVENT_TYPES, parseEventRequest } from "./event-safety";
 
 const EXISTING_EVENTS = [
   "landing_open",
@@ -39,10 +32,20 @@ const ADDITIVE_EVENTS = [
   "delivery_click",
   "takeaway_click",
   "preorder_click",
+  "save",
+  "route_add",
 ];
 
-test("preserves every existing event and adds the six approved events", () => {
+test("preserves every existing event and adds the approved bounded events", () => {
   assert.deepEqual(ALLOWED_EVENT_TYPES, [...EXISTING_EVENTS, ...ADDITIVE_EVENTS]);
+});
+
+test("accepts save and route additions only with a bounded venue slug and no payload", () => {
+  for (const type of ["save", "route_add"]) {
+    assert.equal(parseEventRequest({ type, venueSlug: "fixture-venue" }).ok, true);
+    assert.equal(parseEventRequest({ type, venueSlug: "Bad Venue" }).ok, false);
+    assert.equal(parseEventRequest({ type, venueSlug: "fixture-venue", payload: { day: 1 } }).ok, false);
+  }
 });
 
 test("accepts an existing event without action metadata", () => {
