@@ -20,7 +20,7 @@ const [
   read("lib/data.ts"),
   read("lib/supabase/service.ts"),
   read("lib/supabase/server.ts"),
-  read("app/admin/freshness/actions.ts"),
+  read("app/admin/(protected)/freshness/actions.ts"),
   read("app/onboard/[token]/OnboardActions.tsx"),
   read("app/api/onboard/photo/route.ts"),
   read("lib/data/release-readiness.ts"),

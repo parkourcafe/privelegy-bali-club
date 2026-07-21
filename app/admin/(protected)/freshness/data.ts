@@ -3,7 +3,7 @@ import { serviceClient } from "@/lib/supabase/service";
 import {
   evaluateActions, evaluateMenus, evaluateVenues, sortFreshnessIssues,
   type AdminActionRow, type AdminMenuRow, type AdminVenueRow, type FreshnessIssue,
-} from "../../../components/admin/freshness-model";
+} from "@/components/admin/freshness-model";
 
 export type AdminMenuItemReview = {
   id: string;
