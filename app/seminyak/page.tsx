@@ -9,6 +9,8 @@ import { guidesForDistrict } from "@/lib/guides";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 const BASE = "https://www.otherbali.com";
 
@@ -116,6 +118,8 @@ export default async function SeminyakPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <StartYourShortlist district="Seminyak" items={buildStartShortlist(venues)} />
 
         <TopPicks title="Best restaurants" note="Eat Street rooms, sharing tables and honest warungs." venues={restaurants} href="/seminyak/best-restaurants" />
         <TopPicks title="Beach clubs & sunset" note="Where to be for golden hour on the sand." venues={beachClubs} href="/seminyak/beach-clubs-sunset" />

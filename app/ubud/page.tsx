@@ -10,6 +10,8 @@ import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES } from "@/lib/ubud-guides";
 import { UBUD_REVIEW_DATE, UBUD_THINGS_TO_DO, UBUD_ZONES } from "@/lib/ubud-things";
 import type { VenueWithPerk } from "@/lib/data";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 const BASE = "https://www.otherbali.com";
 
@@ -132,6 +134,8 @@ export default async function UbudPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <StartYourShortlist district="Ubud" items={buildStartShortlist(venues)} />
 
         <section className="guide-section">
           <h2>Who Ubud suits — and who it frustrates</h2>

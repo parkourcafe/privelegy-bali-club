@@ -34,6 +34,7 @@ const ADDITIVE_EVENTS = [
   "preorder_click",
   "save",
   "route_add",
+  "shortlist_generated",
 ];
 
 test("preserves every existing event and adds the approved bounded events", () => {
@@ -70,6 +71,18 @@ test("preserves safe slash-separated page slugs used by existing trackers", () =
       },
     }
   );
+});
+
+test("accepts a bounded shortlist pilot subject without payload", () => {
+  assert.equal(parseEventRequest({
+    type: "shortlist_generated",
+    venueSlug: "start-shortlist/canggu",
+  }).ok, true);
+  assert.equal(parseEventRequest({
+    type: "shortlist_generated",
+    venueSlug: "start-shortlist/canggu",
+    payload: { venues: ["private"] },
+  }).ok, false);
 });
 
 test("reconstructs only safe action payload keys", () => {

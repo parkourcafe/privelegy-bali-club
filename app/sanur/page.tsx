@@ -16,6 +16,8 @@ import {
 } from "@/lib/sanur/content";
 import { getSanurVenues, toSanurPlaceCard } from "@/lib/sanur";
 import type { VenueWithPerk } from "@/lib/data";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 // Sanur pillar page (ContentPage type district_guide). Sanur is the calm,
 // sunrise-facing, walkable east-coast base. Coverage this release: destination
@@ -107,6 +109,8 @@ export default async function SanurPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <StartYourShortlist district="Sanur" items={buildStartShortlist(venues)} />
 
         <section className="guide-section">
           <h2>Who Sanur suits — and who it frustrates</h2>
