@@ -4,10 +4,14 @@ import test from "node:test";
 
 const homePath = new URL("../app/page.tsx", import.meta.url);
 const builderPath = new URL("../components/landing/DayIntentBuilder.tsx", import.meta.url);
+const consentPath = new URL("../components/ConsentBanner.tsx", import.meta.url);
+const mobileNavCssPath = new URL("../app/globals.css", import.meta.url);
 
-const [homeSource, builderSource] = await Promise.all([
+const [homeSource, builderSource, consentSource, mobileNavCss] = await Promise.all([
   readFile(homePath, "utf8"),
   readFile(builderPath, "utf8"),
+  readFile(consentPath, "utf8"),
+  readFile(mobileNavCssPath, "utf8"),
 ]);
 
 test("homepage preserves the product promise and presents traveller entrances first", () => {
@@ -56,4 +60,10 @@ test("homepage does not advertise the frozen paid-arrival model", () => {
   assert.match(homeSource, /Partner monetization is reserved during the pilot/);
   assert.match(homeSource, /nothing is charged automatically/i);
   assert.match(homeSource, /Organic order is editorial and never depends on payment/);
+});
+
+test("mobile consent actions stay above the persistent bottom navigation", () => {
+  assert.match(mobileNavCss, /@media \(min-width: 1360px\) \{ \.ob-mobile-nav \{ display: none; \} \}/);
+  assert.match(consentSource, /bottom-\[calc\(56px\+env\(safe-area-inset-bottom,0px\)\)\]/);
+  assert.match(consentSource, /min-\[1360px\]:bottom-0/);
 });
