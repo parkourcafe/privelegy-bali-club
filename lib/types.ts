@@ -31,6 +31,7 @@ export type VenueCategory =
   | "surf"
   | "hotel"
   | "resort"
+  | "villa"
   | "attraction"
   | "activity";
 

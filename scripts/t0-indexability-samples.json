@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "samples": [
+    { "slug": "monkey-bar-bali", "expectation": "indexable", "expectedH1": "The Monkey Bar" },
+    { "slug": "desa-wisata-penglipuran", "expectation": "indexable", "expectedH1": "Desa Wisata Penglipuran" },
+    { "slug": "amo-spa-canggu-canggu", "expectation": "indexable", "expectedH1": "AMO Spa Canggu" },
+    { "slug": "atlas-beach-club", "expectation": "indexable", "expectedH1": "Atlas Beach Club" },
+    { "slug": "baked-pererenan", "expectation": "indexable", "expectedH1": "BAKED Pererenan" },
+    { "slug": "donna-ubud", "expectation": "indexable", "expectedH1": "Donna Ubud" },
+    { "slug": "pantai-lovina", "expectation": "indexable", "expectedH1": "Pantai Lovina" },
+    { "slug": "nusa-dua-beach-grill", "expectation": "indexable", "expectedH1": "Nusa Dua Beach Grill" },
+    { "slug": "crumb-and-coaster-kuta", "expectation": "indexable", "expectedH1": "Crumb & Coaster" },
+    { "slug": "alchemy-uluwatu", "expectation": "indexable", "expectedH1": "Alchemy Uluwatu" },
+    { "slug": "koa-shala-sanur", "expectation": "indexable", "expectedH1": "Koa Shala" },
+    { "slug": "kilo-kitchen-bali-seminyak", "expectation": "indexable", "expectedH1": "Kilo Kitchen Bali - Seminyak" },
+    { "slug": "adda-yoga", "expectation": "not_found" }
+  ],
+  "branchTargets": [
+    { "slug": "big-dragon-villas-ubud", "expectation": "indexable", "expectedH1": "Big Dragon Villas Ubud" }
+  ]
+}

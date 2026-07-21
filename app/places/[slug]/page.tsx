@@ -24,6 +24,12 @@ import { getPublicVenueDetailExtension, type PublicVenuePageDetailExtension } fr
 import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKind } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
+import {
+  venueCategoryLabel,
+  venueCoverAssetCategory,
+  venueSchemaType,
+} from "@/lib/venue-presentation";
+import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -44,23 +50,6 @@ function fixtureMenuSummary(menu: MenuRecord): PublicMenuSummary {
     })),
   };
 }
-
-const categoryLabel: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  beauty: "Beauty & salon",
-  fitness: "Fitness",
-  yoga: "Yoga",
-  bar: "Bar",
-  surf: "Surf",
-  hotel: "Hotel",
-  resort: "Resort",
-  attraction: "Attraction",
-  activity: "Activity",
-};
 
 // Which Uluwatu guide a category belongs to (breadcrumb + related links).
 const categoryGuide: Record<string, { href: string; label: string }> = {
@@ -157,23 +146,6 @@ const SCHEMA_HOURS: Record<string, string> = {
   "papi-sapi": "Mo-Su 16:00-23:30",
 };
 
-const schemaType: Record<string, string> = {
-  restaurant: "Restaurant",
-  cafe: "CafeOrCoffeeShop",
-  bar: "BarOrPub",
-  beach_club: "LocalBusiness",
-  warung: "Restaurant",
-  spa: "HealthAndBeautyBusiness",
-  beauty: "HealthAndBeautyBusiness",
-  fitness: "ExerciseGym",
-  yoga: "SportsActivityLocation",
-  surf: "SportsActivityLocation",
-  hotel: "Hotel",
-  resort: "Resort",
-  attraction: "TouristAttraction",
-  activity: "TouristAttraction",
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -193,7 +165,7 @@ export async function generateMetadata({
   const area = content?.microArea ?? venue?.area;
   const district = districtLabel[venue?.district ?? ULUWATU_DB_SLUG] ?? "Bali";
   const description = (content?.verdict ?? venue?.whyItsHere ??
-    `${name} — ${categoryLabel[venue?.category ?? "restaurant"]} in ${district}, Bali.`)
+    `${name} — ${venueCategoryLabel(venue?.category ?? "restaurant")} in ${district}, Bali.`)
     .slice(0, 158);
   // Index every venue whose page passes the publication bar — the Uluwatu
   // registry, or the decision-ready editorial bar for other districts. Falls
@@ -202,20 +174,15 @@ export async function generateMetadata({
 
   // Category keyword in the SERP title is the most valuable disambiguator
   // (what the place IS), e.g. "La Brisa — Beach club in Berawa, Canggu".
-  const catLabel = categoryLabel[venue?.category ?? "restaurant"];
-  return {
-    title: `${name} — ${catLabel} in ${area ? `${area}, ` : ""}${district}`,
+  return buildVenueMetadata({
+    slug,
+    name,
+    category: venue.category,
+    district,
+    area,
     description,
-    alternates: { canonical: `/places/${slug}` },
-    robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
-    openGraph: {
-      title: `${name} · Other Bali`,
-      description,
-      url: `${BASE}/places/${slug}`,
-      type: "article",
-    },
-    twitter: { card: "summary_large_image", title: `${name} · Other Bali`, description },
-  };
+    indexable,
+  });
 }
 
 export default async function VenuePage({
@@ -274,7 +241,7 @@ export default async function VenuePage({
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
-  const catLabel = categoryLabel[venue.category] ?? venue.category;
+  const catLabel = venueCategoryLabel(venue.category);
   const guide = isUluwatu
     ? categoryGuide[venue.category]
     : isCanggu
@@ -360,7 +327,7 @@ export default async function VenuePage({
   // hours/prices (brief §15).
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": schemaType[venue.category] ?? "LocalBusiness",
+    "@type": venueSchemaType(venue.category),
     name,
     url: `${BASE}/places/${slug}`,
     // Photo Policy v3 §4/§8: schema/OG image must be owner-approved or licensed —
@@ -498,7 +465,7 @@ export default async function VenuePage({
                 // presented as venue photography.
                 <VenueImage
                   className="venue-masthead-photo venue-masthead-art"
-                  src={`/covers/${venue.category}.webp`}
+                  src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
                   alt=""
                   variant="hero"
                   priority
