@@ -14,10 +14,13 @@ read-only, Bali-wide venue coverage remains intact, Canggu remains the
 active-deep district, and no paid product was activated.
 
 Application code, focused tests, the complete existing test suite, lint,
-typecheck and a production build pass. Migration 0056 has not been applied to
-production, but it compiles and passes behavior and permission assertions in
-an isolated PostgreSQL 17 container. All three Vercel branch deployments
-completed successfully. Browser-based visual QA could not be completed because
+typecheck and a production build pass. Migration 0056 was applied to production
+after explicit approval. A rollback-only production smoke exposed Supabase's
+separate `extensions` search path for `gen_random_bytes`; migration 0057 fixes
+the share-ID generator without widening the SECURITY DEFINER search path and
+passes a Supabase-shaped PostgreSQL 17 smoke test. Applying 0057 remains an
+explicit production gate. All three Vercel branch deployments completed
+successfully. Browser-based visual QA could not be completed because
 the local browser-control runtime was unavailable; HTTP production-render and
 keyboard-native control contracts were checked instead. This is a documented
 pre-deployment gate, not a claimed pass.
@@ -39,6 +42,9 @@ pre-deployment gate, not a claimed pass.
 - Migration 0056 only adds `day_number` and `position` to
   `saved_places`, plus an ordered `trip_entries` snapshot to
   `shared_lists`.
+- Migration 0057 replaces the extension-dependent shared-list ID generator
+  with PostgreSQL's built-in `gen_random_uuid()` while preserving the fixed
+  SECURITY DEFINER search path and service-role-only grant.
 - Trip mutations validate venue slug, active status and published status.
 - Advisory transaction locks serialize mutations for one guest.
 - All seven new `SECURITY DEFINER` RPCs set a fixed `search_path`, revoke
@@ -56,7 +62,7 @@ pre-deployment gate, not a claimed pass.
 
 | Check | Result |
 |---|---|
-| `npm run test:wave1` | 43/43 passed |
+| `npm run test:wave1` | 44/44 passed |
 | Existing `npm test` suite | 220/220 passed |
 | `npm run typecheck` | passed |
 | `npm run lint` | passed with one pre-existing `no-img-element` warning in partner photo review |
@@ -87,10 +93,11 @@ Wave 1 diff.
 
 ## Deployment sequence
 
-1. Review and merge the Wave 1 commits without deploying.
+1. Review the Wave 1 commits without deploying.
 2. Back up and verify the target Supabase project and migration history.
-3. Apply `0056_saved_place_trip_extension.sql` before application rollout.
-4. Verify the seven RPC grants: only `service_role` may execute them.
+3. **Complete:** apply `0056_saved_place_trip_extension.sql` before rollout.
+4. Apply `0057_shared_trip_id_portability.sql`, then verify all RPC grants:
+   only `service_role` may execute them.
 5. Smoke-test desired-state Save, add to day, move, reorder, delete and sharing
    on a preview deployment with real published venues.
 6. Complete mobile-width (320/375/430 px) and keyboard/accessibility visual QA.
@@ -103,8 +110,9 @@ Wave 1 diff.
 - Login recovery/merge is not implemented because the repository has no
   tourist-auth architecture. Anonymous state recovery after clearing cookies
   remains impossible by design.
-- Migration 0056 has not been executed against the target Supabase project.
-  Isolated PostgreSQL behavior is verified; target-project migration history
-  and Supabase Database Advisors remain deployment gates.
+- Migration 0056 is present in the target Supabase project. Its rollback-only
+  smoke left no test data, and exposed the documented share-ID portability
+  defect. Migration 0057, the complete production smoke and Supabase Database
+  Advisors remain deployment gates.
 - No production deployment was performed.
 - T4-T10 and the Chope pipeline were not started.

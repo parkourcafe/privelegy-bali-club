@@ -8,6 +8,7 @@ command -v docker >/dev/null 2>&1 || {
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 migration="$repo_root/supabase/migrations/0056_saved_place_trip_extension.sql"
+portability_migration="$repo_root/supabase/migrations/0057_shared_trip_id_portability.sql"
 container="otherbali-wave1-trip-smoke-${$}-$(date +%s)"
 
 cleanup() {
@@ -32,7 +33,8 @@ docker exec -i "$container" psql -v ON_ERROR_STOP=1 -U postgres -d otherbali_smo
 create role anon nologin;
 create role authenticated nologin;
 create role service_role nologin;
-create extension if not exists pgcrypto;
+create schema extensions;
+create extension if not exists pgcrypto with schema extensions;
 
 create table public.venues (
   id text primary key,
@@ -73,6 +75,7 @@ create table public.events (
 SQL
 
 docker exec -i "$container" psql -v ON_ERROR_STOP=1 -U postgres -d otherbali_smoke < "$migration"
+docker exec -i "$container" psql -v ON_ERROR_STOP=1 -U postgres -d otherbali_smoke < "$portability_migration"
 
 docker exec -i "$container" psql -v ON_ERROR_STOP=1 -U postgres -d otherbali_smoke <<'SQL'
 insert into public.venues(id, slug, name, status, publication_status) values

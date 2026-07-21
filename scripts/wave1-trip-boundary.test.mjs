@@ -6,6 +6,10 @@ const migration = await readFile(
   new URL("../supabase/migrations/0056_saved_place_trip_extension.sql", import.meta.url),
   "utf8",
 );
+const portabilityMigration = await readFile(
+  new URL("../supabase/migrations/0057_shared_trip_id_portability.sql", import.meta.url),
+  "utf8",
+);
 const saveRoute = await readFile(new URL("../app/api/save/route.ts", import.meta.url), "utf8");
 const tripRoute = await readFile(new URL("../app/api/trip/route.ts", import.meta.url), "utf8");
 const planner = await readFile(new URL("../components/TripPlanner.tsx", import.meta.url), "utf8");
@@ -50,6 +54,15 @@ test("every trip RPC is revoked from browser roles and granted only to service r
 test("shared reader explicitly supports old slug-only rows", () => {
   assert.match(migration, /coalesce\(sl\.trip_entries/i);
   assert.match(migration, /unnest\(sl\.venue_slugs\) with ordinality/i);
+});
+
+test("shared trip IDs do not depend on Supabase's extensions search path", () => {
+  assert.match(portabilityMigration, /create or replace function public\.create_shared_trip/);
+  assert.match(portabilityMigration, /gen_random_uuid\(\)/);
+  assert.doesNotMatch(portabilityMigration, /v_id\s*:=.*gen_random_bytes/);
+  assert.match(portabilityMigration, /set search_path = public, pg_temp/);
+  assert.match(portabilityMigration, /revoke all on function public\.create_shared_trip\(text\) from public, anon, authenticated/);
+  assert.match(portabilityMigration, /grant execute on function public\.create_shared_trip\(text\) to service_role/);
 });
 
 test("all identity and private-link inputs are format guarded", () => {
