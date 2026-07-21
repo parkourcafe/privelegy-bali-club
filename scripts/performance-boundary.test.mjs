@@ -66,12 +66,30 @@ test("large menus defer closed-section items and keep publication gates", async 
 
 test("venue detail uses request rendering for locale while public data stays cached", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
+  const rootLayout = await read("app/layout.tsx");
+  const localeServer = await read("lib/i18n/server.ts");
   const saveRoute = await read("app/api/save/route.ts");
   assert.match(venuePage, /export const dynamic = "force-dynamic"/);
   assert.doesNotMatch(venuePage, /export async function generateStaticParams\(\)/);
+  assert.doesNotMatch(venuePage, /export const revalidate\s*=/);
+  assert.match(rootLayout, /await getLocale\(\)/);
+  assert.match(localeServer, /await headers\(\)/);
+  assert.match(venuePage, /buildVenueMetadata\(\{/);
   assert.doesNotMatch(venuePage, /readGuestRef|getSavedSlugs/);
   assert.match(saveRoute, /export async function GET/);
   assert.match(saveRoute, /private, no-store/);
+});
+
+test("venue detail and sitemap retain one publication boundary", async () => {
+  const venuePage = await read("app/places/[slug]/page.tsx");
+  const sitemap = await read("app/sitemap.ts");
+  const data = await read("lib/data.ts");
+  const validation = await read("lib/venue-validation.ts");
+  assert.match(venuePage, /isVenueIndexable\(venue\)/);
+  assert.match(sitemap, /getPublishedVenues\(\)/);
+  assert.match(sitemap, /catalogue\.filter\(isVenueIndexable\)/);
+  assert.match(data, /keepRenderableVenues/);
+  assert.match(validation, /"villa"/);
 });
 
 test("routes are pre-generated and public plan and Uluwatu reads revalidate", async () => {
