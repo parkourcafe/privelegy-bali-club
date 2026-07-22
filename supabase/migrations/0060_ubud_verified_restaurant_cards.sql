@@ -13,7 +13,7 @@ insert into venues (
 select gen_random_uuid()::text, v.slug, v.name, 'restaurant', 'ubud', v.area,
   v.address, v.gmaps_url, v.official_url, 'editorial_seed', 'active',
   'review', v.price_anchor, v.opening_hours, v.why_its_here, v.best_for,
-  v.not_for, v.what_to_order, v.jobs, date '2026-07-23'
+  v.not_for, v.what_to_order, array[v.jobs]::text[], date '2026-07-23'
 from (values
   ('akar-ubud','Akar Ubud','Tegallalang / Kedisan','Cebok Main Road, Kedisan, Tegallalang, Ubud, Gianyar 80561','https://www.google.com/maps/search/?api=1&query=Akar+Ubud','https://www.akarubud.com/','$$$','Breakfast 07:00-11:00; dinner 17:00-00:00 daily','A jungle-setting restaurant north of Ubud with a clear breakfast-and-dinner decision and a special-occasion atmosphere.','Travellers looking for jungle views and a destination dinner.','People wanting a central Ubud walk-in lunch.','Chef-led dinner menu and breakfast','special_occasion'),
   ('mori-ubud','Mori Ubud','Bisma','Jalan Bisma No.68, Ubud, Gianyar 80571','https://www.google.com/maps/search/?api=1&query=Mori+Ubud','https://www.moriubud.com/','$$$$','18:00 until finish daily','Japanese fine dining and teppanyaki in central Ubud, with local produce and Japanese proteins.','Special-occasion diners choosing Japanese fine dining in Ubud.','Budget diners or people seeking a quick daytime meal.','Teppanyaki set menu','special_occasion'),
