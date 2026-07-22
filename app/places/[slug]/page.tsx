@@ -33,6 +33,7 @@ import {
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 import { quickDecisionRows } from "@/lib/quick-decision";
+import { normalizeInstagramProfileUrl } from "@/lib/external-links";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -237,10 +238,11 @@ export default async function VenuePage({
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
       : undefined) ?? venue.officialUrl ?? undefined;
-  const instagramUrl =
+  const instagramUrl = normalizeInstagramProfileUrl(
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
-      : undefined) ?? venue.instagramUrl ?? undefined;
+      : undefined) ?? venue.instagramUrl,
+  ) ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
@@ -320,7 +322,7 @@ export default async function VenuePage({
   // page is about that exact venue (branded-query relevance).
   const schemaSameAs = [
     content?.officialUrl ?? venue.officialUrl,
-    content?.instagramUrl ?? venue.instagramUrl,
+    instagramUrl,
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =

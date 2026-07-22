@@ -80,6 +80,21 @@ export function validateInstagramUrl(value: unknown): string | null {
   return url.toString();
 }
 
+/**
+ * Normalize the two representations present in the venue registry: a complete
+ * Instagram profile URL or an explicit @handle. Bare relative paths are never
+ * accepted. Without this boundary, browsers resolve `@handle` against the
+ * current venue route and create a public `/places/@handle` 404.
+ */
+export function normalizeInstagramProfileUrl(value: unknown): string | null {
+  const validated = validateInstagramUrl(value);
+  if (validated) return validated;
+  if (typeof value !== "string") return null;
+  const handle = value.trim().replace(/^@/, "");
+  if (!/^[A-Za-z0-9._]{1,30}$/.test(handle)) return null;
+  return `https://www.instagram.com/${handle}/`;
+}
+
 export function validateGoogleMapsUrl(value: unknown): string | null {
   const url = parseSafeHttpsUrl(value);
   if (!url) return null;
