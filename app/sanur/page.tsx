@@ -3,8 +3,11 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import StartYourShortlist from "@/components/StartYourShortlist";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { getSanurVenues } from "@/lib/sanur";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 const canonicalUrl = "https://www.otherbali.com/sanur";
 const reviewDate = "2026-07-22";
@@ -39,7 +42,9 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "Other Bali" },
 };
 
-export default function SanurPillarPage() {
+export default async function SanurPillarPage() {
+  const venues = await getSanurVenues();
+
   return (
     <main className="site-shell">
       <PageViewTracker event="district_page_view" slug="sanur" />
@@ -65,6 +70,8 @@ export default function SanurPillarPage() {
         <Link href="/sanur/things-to-do" className="chip">Things to do</Link>
         <Link href="/sanur/best-restaurants" className="chip">Restaurants</Link>
       </nav>
+
+      <StartYourShortlist district="Sanur" items={buildStartShortlist(venues)} />
 
       <section className="guide-section">
         <h2>Choose Sanur if a slower base matters</h2>

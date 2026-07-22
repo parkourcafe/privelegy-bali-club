@@ -368,8 +368,8 @@ export default function PlacesView({
       <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
         <p>
           {directory
-            ? `${directory.length} districts · ${totalVenues} curated places — every district below, strongest cards first. Pick a district or narrow with the filters above.`
-            : `Showing ${venues.length + topPicks.length} of ${totalMatches} matches · ${totalVenues} curated places total.`}
+            ? `${directory.length} districts · ${totalVenues} published places — every district below, strongest cards first. Pick a district or narrow with the filters above.`
+            : `Showing ${venues.length + topPicks.length} of ${totalMatches} matches · ${totalVenues} published places total.`}
         </p>
         {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length > 0 && topPicks.length < 3 ? (
           <p className="mt-1">

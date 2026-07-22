@@ -40,21 +40,21 @@ const BASE = "https://www.otherbali.com";
 const PER_SLOT = 3;
 
 export const metadata: Metadata = {
-  title: "Build my day in Bali — a plan for the moment you're in | Other Bali",
+  title: "Today in Bali — find a place for the moment you're in | Other Bali",
   description:
-    "Answer a few quick questions — where you are, who you're with, the vibe — and get a resident-curated day in Bali, morning to night. Never paid placement.",
+    "Answer a few quick questions and get a short, practical Bali shortlist for today. Never paid placement.",
   alternates: { canonical: "/my-day" },
   openGraph: {
-    title: "Build my day in Bali · Other Bali",
+    title: "Today in Bali · Other Bali",
     description:
-      "A day built around you — breakfast, a calm midday, golden hour and a dinner worth staying up for.",
+      "A short, practical shortlist for the moment you're in now.",
     url: `${BASE}/my-day`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Build my day in Bali · Other Bali",
-    description: "A resident-curated day in Bali, morning to night — built around you.",
+    title: "Today in Bali · Other Bali",
+    description: "Find a place or day shape for the moment you're in now.",
   },
 };
 
@@ -100,7 +100,7 @@ export default async function MyDayPage({
 
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
-    { name: "My Day" },
+    { name: "Today" },
   ];
 
   const jsonLd = [
@@ -117,7 +117,7 @@ export default async function MyDayPage({
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: "My Day in Bali",
+      name: "Today in Bali",
       itemListElement: active
         .flatMap((f) => f.venues)
         .map((v: VenueWithPerk, i: number) => ({
@@ -140,13 +140,13 @@ export default async function MyDayPage({
 
         <header className="guide-hero">
           <Breadcrumbs items={crumbs} />
-          <p className="topline">Island-wide · A day, built around you</p>
-          <h1 className="hero-title mt-2">Build my day in Bali</h1>
+          <p className="topline">Today · Shortlist for the moment you are in</p>
+          <h1 className="hero-title mt-2">Find a place for today in Bali</h1>
           <p className="guide-standfirst">
-            Tell us where you are and what today&apos;s about — we&apos;ll shape a
-            day from our resident-curated places: a slow breakfast, a calm midday,
-            golden hour and a dinner worth staying up for. Swap any stop; it&apos;s
-            a starting shape, not a schedule.
+            Use this when you are already here and need a decision. Tell us the
+            area, company and mood; we turn published collections into a short
+            shortlist you can open, save or send to Maps. For future itineraries,
+            use Plan.
           </p>
           <p className="guide-meta-line">{CURATION_NOTE}</p>
           <GuideHeroMedia seed="my day bali shortlist morning sunset dinner" />
@@ -220,28 +220,33 @@ export default async function MyDayPage({
         </div>
 
         <section className="guide-section">
-          <h2>How this is built</h2>
+          <h2>How Today is built</h2>
           <GuideSectionMedia seed="my day how this is built" index={9} />
           <div className="guide-prose">
             <p>
               Every stop is drawn from our resident-curated collections — the same
-              places, arranged as a day instead of a directory. Your answers just
-              choose which collection fills each slot; nothing here is a paid slot,
-              and we don&apos;t publish negative call-outs. A place we can&apos;t
-              stand behind simply isn&apos;t in the day. Times are a suggestion; the
-              point is the shape. Your location, if you share it, is used once to
-              find your area and never stored.
+              places, arranged as a short today-list instead of a directory. Your
+              answers choose which collection fills each slot; nothing here is a
+              paid slot, and we don&apos;t publish negative call-outs. A place
+              that has not passed the publication gate simply is not in the day.
+              Times are a suggestion; the point is the shape. Your location, if
+              you share it, is used once to find your area and never stored.
             </p>
           </div>
         </section>
 
         <RelatedGuides
-          heading="Keep planning"
+          heading="If this is for later"
           links={[
             {
+              href: "/plan",
+              title: "Plan your Bali trip",
+              blurb: "Use trip-length guides and ready-made routes.",
+            },
+            {
               href: "/collections",
-              title: "Browse by taste & moment",
-              blurb: "The full set of collections, à la carte.",
+              title: "Browse curated collections",
+              blurb: "Theme-based shortlists when you want to compare options.",
             },
             {
               href: "/bali",

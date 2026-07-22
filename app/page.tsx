@@ -69,10 +69,10 @@ const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" 
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
   first_trip: { scene: "moment-morning", variant: "ridge" },
-  three_days: { scene: "hero-sunset", variant: "sunset" },
-  five_days: { scene: "moment-goldenhour", variant: "sunset" },
-  seven_days: { scene: "moment-warung", variant: "surf" },
-  no_scooter: { scene: "moment-morning", variant: "ridge" },
+  bali_3_days: { scene: "hero-sunset", variant: "sunset" },
+  bali_5_days: { scene: "moment-goldenhour", variant: "sunset" },
+  without_scooter: { scene: "moment-morning", variant: "ridge" },
+  with_kids_plan: { scene: "moment-warung", variant: "surf" },
 };
 
 const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {

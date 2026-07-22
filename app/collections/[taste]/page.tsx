@@ -5,6 +5,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia } from "@/components/GuideMedia";
 import {
   CURATION_NOTE,
   getCollection,
@@ -109,10 +110,11 @@ export default async function CollectionPage({
 
         <header className="guide-hero">
           <Breadcrumbs items={crumbs} />
-          <p className="topline">Island-wide · Curated by residents</p>
+          <p className="topline">Collection · Focused shortlist</p>
           <h1 className="hero-title mt-2">{collection.title}</h1>
           <p className="guide-standfirst">{collection.intro}</p>
           <p className="guide-meta-line">{CURATION_NOTE}</p>
+          <GuideHeroMedia seed={`collection ${collection.slug} ${collection.title}`} />
         </header>
 
         {/* Quick jump to a district — mobile-first taste browsing. */}
@@ -141,15 +143,13 @@ export default async function CollectionPage({
         ))}
 
         <section className="guide-section">
-          <h2>How we choose</h2>
+          <h2>How this collection works</h2>
           <div className="guide-prose">
             <p>
-              Every place here was picked for fit by people who live on the
-              island — resident knowledge cross-checked against official and
-              first-party sources, not star ratings or review counts. We
-              don&apos;t run paid placements, and we don&apos;t publish negative
-              call-outs: a place we can&apos;t stand behind simply isn&apos;t on
-              the list.
+              This is a themed shortlist, not the full catalogue and not an
+              ordered route. Each linked place has to pass the publication gate,
+              and the grouping uses stored collection rules rather than star
+              ratings, review counts or paid placement.
             </p>
           </div>
         </section>
@@ -171,11 +171,11 @@ export default async function CollectionPage({
         )}
 
         <RelatedGuides
-          heading="Keep planning"
+          heading="Other ways to choose"
           links={[
+            { href: "/places", title: "Explore all published places", blurb: "Search and filter the full catalogue." },
+            { href: "/my-day", title: "Find a place for today", blurb: "Turn your current moment into a short shortlist." },
             { href: "/best-restaurants-in-bali", title: "The best restaurants in Bali", blurb: "The island's dinner scene, area by area." },
-            { href: "/bali", title: "Bali by district", blurb: "Deep guides to every area." },
-            { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All the first-timer areas, compared." },
           ]}
         />
 

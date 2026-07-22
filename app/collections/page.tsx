@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia } from "@/components/GuideMedia";
 import { COLLECTIONS, CURATION_NOTE, liveCollectionSlugs } from "@/lib/collections";
 import ArtCard, { collectionArt } from "@/components/ArtCard";
 
@@ -10,13 +11,13 @@ export const revalidate = 300;
 const BASE = "https://www.otherbali.com";
 
 export const metadata: Metadata = {
-  title: "Bali by taste — cuisine collections",
+  title: "Curated Bali collections — shortlists by theme",
   description:
-    "Browse Bali by what you're craving, not just by area: Balinese & local food, brunch, seafood and more — resident-curated shortlists across the whole island.",
+    "Browse published Bali shortlists by taste and moment. Use collections when you want a theme, not the full places catalogue or a generated day.",
   alternates: { canonical: "/collections" },
   openGraph: {
-    title: "Bali by taste · Other Bali",
-    description: "Resident-curated cuisine collections across Bali — pick a taste, not just an area.",
+    title: "Curated Bali collections · Other Bali",
+    description: "Published shortlists by taste and moment — a focused Explore surface.",
     url: `${BASE}/collections`,
     type: "website",
   },
@@ -50,24 +51,25 @@ export default async function CollectionsHubPage() {
 
         <header className="guide-hero">
           <Breadcrumbs items={crumbs} />
-          <p className="topline">Island-wide · Curated by residents</p>
-          <h1 className="hero-title mt-2">Bali by taste</h1>
+          <p className="topline">Explore · Editorial shortlists</p>
+          <h1 className="hero-title mt-2">Curated Bali collections</h1>
           <p className="guide-standfirst">
-            Sometimes you don&apos;t want an area — you want a craving. These are
-            cuisine collections across the whole island: pick a taste, get the
-            places residents actually rate, sorted by area.
+            Use collections when you want a focused theme: a cuisine, a kind of
+            night, a budget mood or a work-friendly list. For every published
+            place at once, use Explore; for a generated day, use Today.
           </p>
           <p className="guide-meta-line">{CURATION_NOTE}</p>
+          <GuideHeroMedia seed="collections bali editorial shortlists taste moment" />
           <p style={{ marginTop: 12 }}>
             <Link href="/my-day" className="quiet-link">
-              Prefer a whole day, planned? See My Day →
+              Need a decision for today? Open Today →
             </Link>
           </p>
         </header>
 
         {([
-          { kind: "taste" as const, heading: "By taste", note: "A craving, island-wide — cuisines across every area." },
-          { kind: "moment" as const, heading: "By moment", note: "Not what you're eating — the night you're having." },
+          { kind: "taste" as const, heading: "Taste collections", note: "Use these when the craving matters more than the area." },
+          { kind: "moment" as const, heading: "Moment collections", note: "Use these when the kind of night matters more than the category." },
         ]).map((group) => {
           const items = live.filter((c) => c.kind === group.kind);
           if (items.length === 0) return null;

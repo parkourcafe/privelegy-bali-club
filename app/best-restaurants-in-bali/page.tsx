@@ -184,7 +184,7 @@ export default async function BestRestaurantsPage() {
           Looking for a mood rather than a cuisine — date night, a big group
           table, somewhere work-friendly? See{" "}
           <Link href="/collections" className="quiet-link">
-            Bali by taste and moment →
+            curated collections →
           </Link>
         </p>
 
