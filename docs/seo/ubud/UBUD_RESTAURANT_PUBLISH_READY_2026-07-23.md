@@ -2,17 +2,17 @@
 
 Это технический handoff, а не публикация. В него попадают только записи, где официальный сайт дал адрес/часы и существует отдельная Maps-поисковая ссылка. Перед SQL/import всё равно требуется проверить конкретный Maps entity и отсутствие дубля в `venues`.
 
+## Уже существующие карточки — не создавать дубликаты
+
+В repository/page registry уже присутствуют: `/places/casa-luna`, `/places/hujan-locale`, `/places/locavore-nxt`, `/places/mozaic` и `/places/sayuri-healing-food`. Для них нужен UPDATE/evidence refresh, а не новый Ubud slug.
+
 ## Предварительно publish-ready (после Maps entity check)
 
-- Hujan Locale — `/places/hujan-locale-ubud`
 - Nusantara by Locavore — `/places/nusantara-by-locavore-ubud`
 - Akar Ubud — `/places/akar-ubud`
 - Mori Ubud — `/places/mori-ubud`
 - Room 4 Dessert — `/places/room-4-dessert-ubud`
-- Casa Luna — `/places/casa-luna-ubud`
-- Mozaic — `/places/mozaic-ubud`
 - Moksa — `/places/moksa-ubud`
-- Sayuri Healing Food — `/places/sayuri-healing-food-ubud`
 - Herb Library — `/places/herb-library-ubud`
 - Wild Vegan — `/places/wild-vegan-ubud`
 - Bella by Sage — `/places/bella-by-sage-ubud`
