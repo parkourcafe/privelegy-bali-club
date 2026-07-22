@@ -18,7 +18,7 @@ const TABS = [
   { key: "explore", label: "Explore", href: null },
   { key: "search", label: "Search", href: "/places" },
   { key: "saved", label: "Saved", href: "/me" },
-  { key: "plan", label: "Plan", href: "/guides" },
+  { key: "plan", label: "Plan", href: "/plan" },
 ] as const;
 
 const ICONS: Record<string, React.ReactNode> = {

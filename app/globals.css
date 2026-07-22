@@ -79,6 +79,19 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid var(--lagoon);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(0, 89, 98, 0.18);
+}
+
 html {
   scroll-behavior: smooth;
   /* keep in-page anchor targets clear of the sticky site header */

@@ -30,7 +30,7 @@ test("Canggu Now contains the required scenario entries without current-open cla
 
 test("desktop navigation exposes Plan and mobile Plan is preserved", () => {
   assert.match(read("lib/navigation.ts"), /href: "\/plan", label: "Plan"/);
-  assert.match(read("components/MobileNav.tsx"), /key: "plan"[\s\S]*href: "\/guides"/);
+  assert.match(read("components/MobileNav.tsx"), /key: "plan"[\s\S]*href: "\/plan"/);
 });
 
 test("T10 missing editorial pages now exist", () => {
