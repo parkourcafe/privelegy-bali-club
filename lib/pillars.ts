@@ -32,7 +32,7 @@ export const PILLARS: Pillar[] = [
   {
     slug: "uluwatu",
     name: "Uluwatu",
-    tagline: "Cliff-edge sunsets, world-class surf, dinners with a view.",
+    tagline: "A practical guide to verified anchors in Pecatu and nearby Ungasan.",
     children: [
       { path: "/uluwatu/best-restaurants", title: "Best restaurants in Uluwatu" },
       { path: "/uluwatu/best-brunch", title: "Best brunch & coffee in Uluwatu" },
@@ -59,6 +59,7 @@ export const PILLARS: Pillar[] = [
     name: "Sanur",
     tagline: "A calm, walkable, sunrise base with easy island connections.",
     children: [
+      { path: "/sanur/where-to-stay", title: "Where to stay in Sanur" },
       { path: "/sanur/best-hotels", title: "Best hotels in Sanur" },
       { path: "/sanur/things-to-do", title: "Best things to do in Sanur" },
       { path: "/sanur/best-restaurants", title: "Best restaurants in Sanur" },
