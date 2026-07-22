@@ -1,12 +1,12 @@
 # AGENTS.md — Other Bali repository operating contract
 
-**Applies to:** every human or AI agent working in this repository  
-**Version:** 1.0  
-**Date:** 2026-07-13  
-**Public product:** Other Bali  
+**Applies to:** every human or AI agent working in this repository
+**Version:** 3.1-aligned
+**Date:** 2026-07-22
+**Public product:** Other Bali
 **Legacy repository name:** Bali Privilege / `privelegy-bali-club`
 
-This file contains hard operating rules. The canonical product and technical architecture is `Other_Bali_Master_Architecture.md`.
+This file contains hard repository operating rules. The canonical product and technical architecture is `Other_Bali_Master_Architecture.md` (**V3.1 CORRECTED**). Repository code and older focused docs describe AS-IS implementation; they do not override V3.1 TARGET decisions.
 
 ---
 
@@ -20,24 +20,25 @@ Before non-trivial work, read:
 4. the focused docs named by the task;
 5. relevant code and applied migrations.
 
-Authority order:
+Authority is split by concern:
 
 ```txt
-AGENTS.md
-→ Other_Bali_Master_Architecture.md
-→ thin CLAUDE.md entrypoint
-→ focused canonical docs
-→ code/migrations as implementation truth
+Product truth: approved live-canon decisions → Master V3.1 Corrected
+→ approved Data Dictionary / Taxonomy / Migration Map
+→ approved focused specs
+
+Repository process: AGENTS.md → thin CLAUDE.md entrypoint
+→ code/migrations as AS-IS implementation truth
 → session handoffs/backlog/history
 ```
 
-If any source conflicts with a higher source, stop and record the conflict. Do not improvise a compromise in code.
+AGENTS.md may constrain how work is performed but may not redefine Master product truth. If code or an older focused document conflicts with V3.1, separate AS-IS from TARGET, record the conflict and do not normalize it silently.
 
 ---
 
 ## 2. Product in one paragraph
 
-Other Bali is a resident-curated decision and action layer for Bali. It helps a traveller choose the right place or service for the moment they are in, explains why it fits, and lets them reserve, order, request takeaway/pre-order, open Google Maps or save through verified handoffs. Other Bali owns the decision, explanation, trust, action interface and attribution. Partners own fulfilment. Google Maps owns navigation.
+Other Bali is one Bali-wide digital product for choosing and planning a trip. It serves four public modes: **Today**, **Explore**, **Plan** and **My Bali**. It helps a traveller choose the right place, activity or route for the moment they are in and take the next verified action. Territory is data, filter and context—not a separate product. Privileges are an optional contextual Offer layer, never primary navigation or the basis of usefulness.
 
 Public tagline:
 
@@ -68,19 +69,19 @@ Never violate these without an explicit architecture amendment from Selena.
 
 1. **No Google Maps clone.** Use verified Google Maps handoffs. Do not build routing, traffic, ETA or turn-by-turn navigation.
 2. **No Google review scraping or republishing.** Do not copy review prose, ratings or review-derived claims into public content.
-3. **No tourist AI chatbot.** Structured moment flows are allowed. Freeform AI recommendations are not.
-4. **No internal booking engine.** TablePilot or verified venue systems own booking fulfilment.
+3. **No ungrounded tourist AI chatbot.** Structured decision flows are allowed. Any later natural-language interface must operate only on verified structured data.
+4. **No broad marketplace booking engine.** Only the narrow owned confirmed seated-booking rail allowed by V3.1 may be implemented; external providers continue to own fulfilment, payment, cancellation, refund and support.
 5. **No delivery fleet or fulfilment platform.** Other Bali may route to a verified restaurant/provider; it does not own drivers, refunds or support.
 6. **No tourist-side payments.** Do not add checkout, deposits, wallet, cash balance or real-money cashback.
-7. **No paid organic ranking.** Sponsored content is separate and labeled.
-8. **No monetized partner loop outside `active_deep`.** Neutral official links are allowed; TablePilot billable attribution, perks and QR remain coverage-gated.
+7. **No sponsored placement, paid visibility or pay-to-rank.** These are reserved/disabled/out of scope in runtime, schema, API, UI, admin, partner portal and sales. Organic selection cannot be bought.
+8. **Canonical money model only.** The sole paid product is a fixed fee for a confirmed seated-booking through the owned rail. A Maps, Instagram, WhatsApp or outbound booking click is Intent, never a booking or billable Outcome.
 9. **No public anti-lists or unsupported quality warnings.** Fit context is allowed; invented or copied negative claims are not.
 10. **No invented content.** Unknown means `null`, hidden or `needs_verification`.
 11. **No identity in localStorage/sessionStorage.** Use the httpOnly `GuestRef` model.
 12. **No unnecessary PII.** Provider handoffs must not be copied into Other Bali storage by default.
-13. **No new domain entity without master approval.** Approved new entities are exactly `Menu`, `MenuSection`, `MenuItem`, `VenueActionCapability`.
+13. **Respect V3.1 entity boundaries.** Organization, Place, Experience, Experience Offering, Event, Offer, Route, Collection and Area are distinct. Implementation additions such as Menu and VenueActionCapability must map through the approved Data Dictionary; no new canonical entity may be invented without an architecture decision.
 14. **No big-bang rewrite.** Extend the current product and preserve compatible paths.
-15. **No public Russian strings.** Public UI is English; Russian is founder/admin-only. ~~**Superseded 2026-07-20 for public locale English/Bahasa Indonesia/中文/한국어/Français/Русский — see "Multi-locale public UI rule" below.**~~
+15. **Canonical public source language is English.** Internal documentation and QA are Russian. Existing translated UI chrome is AS-IS preservation, not permission to generate or publish unreviewed translations; Social Media OS public output remains English unless a later approved channel spec says otherwise.
 
 ---
 
@@ -88,7 +89,8 @@ Never violate these without an explicit architecture amendment from Selena.
 
 ```txt
 Other Bali:
-decision · explanation · menus · action interface · attribution · My Bali · trust
+selection · editorial verdict · Best for / Not ideal for · warnings · organic rank
+decision · explanation · trusted action interface · attribution · My Bali
 
 Partners/providers:
 availability · confirmation · fulfilment · payment · cancellation · refund · support
@@ -98,6 +100,7 @@ routing · traffic · ETA · turn-by-turn navigation
 ```
 
 Never label a request or outbound click as confirmed fulfilment.
+Partners may supply and correct facts, but may not control editorial verdict, Best for, Not ideal for, warnings or organic rank.
 
 ---
 
@@ -114,7 +117,7 @@ Never label a request or outbound click as confirmed fulfilment.
 - Google Maps deep links;
 - TablePilot reservation handoff;
 - WhatsApp prefilled transactional links;
-- existing QR library for active-deep redemption.
+- existing QR library for legacy redemption AS-IS; any future use must comply with V3.1 Offer and confirmed-outcome rules.
 
 Do not add a framework, state library, ORM or UI kit merely because it is familiar.
 
@@ -137,13 +140,15 @@ Do not add a framework, state library, ORM or UI kit merely because it is famili
 
 ## 8. Domain and data rules
 
-### 8.1 Existing canonical concepts
+### 8.1 V3.1 canonical concepts
 
 ```txt
-Venue · VenueProductEnrollment · District · ContentPage · RouteStop · Offer/Perk
-Redemption · Event · User/Role · GuestRef · ConsentLog · VenueReservationConfig
-SavedPlace · SharedList · GuideLead
+Organization · Place · Experience · Experience Offering · Event · Offer
+Route · RouteStop · Collection · Area · MediaAsset · Source · Verification
+Trip · InteractionEvent · PartnerAccount
 ```
+
+Legacy implementation types such as `Venue`, `District`, `Perk`, `ContentPage`, `SavedPlace` and `SharedList` are AS-IS and require explicit Current-to-Target mapping. Do not rename or collapse them blindly.
 
 ### 8.2 Approved additions
 
@@ -254,7 +259,7 @@ Every factual public claim must come from:
 
 Use `null` or hide when unknown.
 
-Organic recommendation copy remains Other Bali editorial voice. Owner copy is attributed as owner copy. Sponsored status never masquerades as editorial quality.
+Organic recommendation copy remains Other Bali editorial voice. Owner copy is attributed as owner copy. Sponsored placement and paid visibility are not active concepts and may not enter content metadata or ranking.
 
 ---
 
@@ -350,7 +355,7 @@ Required checks for menu/action work:
 - stale menu is suppressed or clearly downgraded;
 - place without menu remains valid;
 - reserve/delivery/takeaway/preorder actions hide when absent;
-- planning-only district does not enter active-deep money loop;
+- no district status or partner relationship changes organic rank or creates an unauthorized money loop;
 - TablePilot flow remains intact;
 - Google Maps opens externally;
 - event payload contains no PII;
@@ -391,7 +396,7 @@ Stop and document rather than guessing when:
 - a source cannot verify menu/action data;
 - a change would collect new PII;
 - a change would add tourist payment;
-- a change would monetize outside active-deep;
+- a change would monetize anything other than a confirmed seated-booking through the approved owned rail;
 - production migration status is unknown;
 - another session owns the required file;
 - required tests cannot be run.
@@ -415,61 +420,17 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
 - Menu facts captured from official sources may be published before owner approval, but only with source attribution and a captured-at date; UI must communicate "prices as of <date>".
 - Full workflow: `docs/DATA_OPS_TRACK.md`.
 
-## Multi-locale public UI rule (v2, 2026-07-20 — founder amendment, corrected same day)
+## Locale implementation preservation note (AS-IS, reconciled 2026-07-22)
 
-**Supersedes guardrail #15 ("No public Russian strings").** Founder decision,
-2026-07-20, made against the real BPS 2025 top-10 Bali source-market data
-already on file (`docs/gtm/BALI_PRIVILEGE_SOURCE_MARKET_SCORECARD.csv`).
-**v2 correction, same day:** v1 had kept Bahasa Indonesia partner/admin-only;
-the founder overrode that hours later — Indonesian is now a full public
-tourist-facing locale too. Everything else in v1 (Chinese/Korean/French/
-Russian selection and rationale, the phased rollout path, the machine-
-translation caution) is unchanged.
+The repository currently contains UI-chrome support for English, Bahasa
+Indonesia, Chinese, Korean, French and Russian, with English as the first-visit
+default and explicit user switching. This is an AS-IS implementation fact and
+must not be removed incidentally during V3.1 migration.
 
-- **Public tourist-facing locales:** English (default/fallback), **Bahasa
-  Indonesia** (Indonesian — added in this v2 correction; rationale is
-  domestic Indonesian tourism, specifically Jakarta-origin travellers, which
-  the founder identifies as a growing volume segment, plus the SEO value of
-  a fully Indonesian-language site for that traffic — not part of the
-  original BPS international-arrivals analysis, an explicit founder override
-  the same way Russian was), 中文 (Chinese), 한국어 (Korean), Français
-  (French), **Русский** (Russian — added by explicit founder decision despite
-  Russia not appearing in the 2025 top-10 arrivals table; rationale is the
-  founder's personal industry network and the Russian-speaking resident/
-  long-stay population concentrated in Canggu, not tourist-arrival volume).
-  Español and Türkçe were considered and explicitly **declined** — neither
-  market appears in the top-10 and no override reason was given for them the
-  way one was for Russian and Indonesian.
-- **Bahasa Indonesia is now dual-purpose:** it remains the language of the
-  existing partner/owner-outreach scripts (EN+ID, unchanged) *and* is now
-  also served as a public tourist-facing locale via the same
-  routing/detection/switcher infrastructure as the other four. This reverses
-  v1's "partner/admin-only, never a tourist-facing `/id` site experience"
-  line — that line no longer applies.
-- **Rollout path (explicit founder choice — "framework now, content in
-  phases"):** build the locale-routing/detection/switcher infrastructure and
-  translate the UI chrome (nav, actions, common strings) across all six
-  public locales first; long-form editorial content (guides, venue
-  `why_its_here`/`best_for` copy, F&B hub prose) is translated incrementally
-  by priority, locale by locale — untranslated content pages fall back to the
-  English original rather than serving a thin or machine-translated page.
-- **Machine translation of trust-bearing facts (prices, "open to non-guests",
-  honest caveats) without native-speaker review is explicitly out of scope** —
-  this is a trust product; a mistranslated price or access claim is a worse
-  outcome than showing the English original. Any AI-assisted draft translation
-  of factual content must be reviewed before publishing, same evidentiary bar
-  as guardrail #10 (no invented content). This applies to Indonesian exactly
-  as it does to the other five locales.
-- This amendment does not change guardrail #15's original logic for any
-  locale not listed above — it is not a blanket "translate everything"
-  license.
-
-**Default-locale correction (2026-07-20, same-day founder decision):** the
-initial rollout auto-detected locale from the browser's `Accept-Language`
-header on a visitor's first request (e.g. a `ru-RU` browser landed directly
-on the Russian UI). The founder reversed this: every first-time visitor now
-lands on English regardless of browser language, and reaches another locale
-only by an explicit tap on the locale switcher. `Accept-Language` detection
-was removed from `proxy.ts`; `lib/i18n/locales.ts` no longer exports a
-matching function. The six public locales and the switcher itself are
-unchanged.
+V3.1 establishes English as the canonical public product and social-content
+source language; internal documentation and QA are Russian. Existing translated
+chrome does not authorize machine translation of prices, access rules, warnings,
+offers or other trust-bearing facts. Any non-English public factual content
+requires the same evidence, freshness and human review as English. A future
+locale expansion or contraction requires an approved focused specification and
+preservation review rather than an implicit architecture amendment in code.

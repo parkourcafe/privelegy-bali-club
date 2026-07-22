@@ -1,1396 +1,1286 @@
-# Other Bali — Master Product & Technical Architecture
+# Other Bali — целевая продуктовая, информационная и техническая архитектура
 
-**Repository legacy name:** Bali Privilege  
-**Public product:** Other Bali  
-**Version:** 1.0-current  
-**Date:** 2026-07-13  
-**Status:** Canonical product and technical architecture  
-**Public category:** Resident-curated decision guide for Bali  
-**Internal architecture:** Resident-curated decision and action layer  
-**Core promise:** The right place for the moment you’re in.
+**Версия:** 3.1 CORRECTED
+**Дата:** 22 июля 2026
+**Статус:** единый исправленный master; заменяет V3.0, V2.0, V1.x и Bali Privilege/Canggu drafts
+**Владелец решения:** Selena
+**Публичный язык продукта:** English
+**Рабочий язык команды и документации:** Russian
 
-> **Русское резюме.** Other Bali владеет выбором, объяснением, интерфейсом действий, доверием и атрибуцией. Заведения и внешние провайдеры владеют наличием, исполнением, оплатой, отменами и поддержкой. Google Maps владеет маршрутизацией, трафиком, ETA и пошаговой навигацией. Продукт помогает решить, куда идти и почему, затем передаёт действие правильной системе.
+**Статусы утверждений:** архитектурные нормы в этом документе — `[DECISION]`; наблюдения о production должны быть подтверждены как `[LIVE]`; неизвестное помечается `[VERIFY]`; будущая отключённая возможность — `[RESERVED]`. Документ не превращает предположение о live-системе в факт.
 
 ---
 
-## 0. Authority and conflict resolution
+## 0. Решение в одном абзаце
 
-On conflict, use this order:
-
-1. `AGENTS.md` — hard operating rules for every coding agent.
-2. This file — product boundaries, domain model, system architecture, approved entities and roadmap.
-3. `CLAUDE.md` — a thin Claude Code entrypoint that imports `AGENTS.md`; it must not contain a second competing architecture.
-4. Applied database migrations and current production code — implementation truth, but not permission to violate items 1–2.
-5. `docs/money-model.md`, `docs/OTHER_BALI_PLATFORM_ARCHITECTURE_20260715.md` (approved partner-platform checkpoint), TablePilot integration documents and named feature handovers — focused implementation detail.
-6. Session plans, backlog notes and historical documents — non-authoritative unless promoted here.
-
-Rules:
-
-- Historical Bali Privilege architecture is provenance, not live canon.
-- If code contradicts this file, stop, document the mismatch and reconcile deliberately.
-- If a proposed feature requires a new product boundary, entity, billing event or privacy model, amend this file before implementation.
-- Missing implementation is not permission to invent behaviour.
+Other Bali — единый цифровой продукт для выбора и планирования поездки по всему Бали. Он помогает туристу решить четыре непересекающиеся задачи: **принять решение на месте через Today**, **исследовать варианты через Explore**, **спланировать будущую поездку через Plan**, **сохранить и использовать личные выборы через My Bali**. Территория — данные, фильтр и контекст, а не отдельная версия продукта. Privileges — необязательный коммерческий слой внутри релевантной карточки; он не является режимом навигации, не влияет на органическое ранжирование и не нужен для базовой полезности продукта.
 
 ---
 
-## 1. Product thesis
+# 1. Что мы строим
 
-### 1.1 Public definition
+## 1.1. Продуктовая формула
 
-> **Other Bali is a resident-curated decision guide for Bali.**
+> **Other Bali helps travellers choose the right place, activity or route for the moment they are in — and take the next action.**
 
-It helps a traveller or resident choose the right place or service for the moment they are in, based on:
+Продукт отвечает не на вопрос «что существует на Бали?», а на вопросы:
 
-- situation;
-- area;
-- company;
+- что подходит именно мне;
+- куда пойти сейчас;
+- что выбрать из похожих вариантов;
+- как собрать день или поездку;
+- что нужно знать до визита;
+- какое действие сделать дальше.
+
+## 1.2. Четыре публичных режима
+
+| Режим | Ситуация туриста | Главный результат |
+|---|---|---|
+| **Today** | Уже на Бали, решение нужно сейчас | Короткий объяснимый shortlist и быстрое действие |
+| **Explore** | Хочет самостоятельно исследовать | Сравнение мест, experiences, events, areas и collections |
+| **Plan** | Планирует будущий день или поездку | Готовый или персональный план по дням |
+| **My Bali** | Уже сохранял места и маршруты | Saved, personal trips, навигация и повторный доступ |
+
+## 1.3. Что является модулем, а не отдельным продуктом
+
+- **Privileges** — дополнительное предложение партнёра внутри места или активности; отдельная публичная витрина в V3.1 не запускается.
+- **Booking links** — выход к официальной брони или партнёру.
+- **Maps** — навигационная подложка, не конкурентная карта Other Bali.
+- **Partner portal** — источник фактических обновлений и отчётности.
+- **Editorial CMS** — редакционная система принятия решений.
+
+## 1.4. Что мы сознательно не строим
+
+- ещё один Google Maps;
+- справочник всех компаний Бали;
+- систему пользовательских отзывов на старте;
+- полноценный marketplace booking engine; допускается только узкий seated-booking rail, необходимый текущей money model;
+- скидочную карту как главный продукт;
+- отдельные продукты для web и PWA;
+- отдельную архитектуру для каждого района.
+
+---
+
+# 2. Финальная архитектура одним листом
+
+```mermaid
+flowchart TD
+    T["Турист: место · время · компания · задача"] --> UX["Today · Explore · Plan · My Bali"]
+
+    P["Партнёр: часы · цены · контакты · медиа · offers"] --> Q["Проверка · источники · publication gate"]
+    E["Other Bali: отбор · verdict · Best for · warnings"] --> Q
+
+    Q --> DATA["Единое ядро: Places · Experiences · Offerings · Events · Routes · Offers"]
+    DATA --> DEC["Search · Filters · Decision engine"]
+    UX --> DEC
+
+    DEC --> OUT["Подходящие решения с объяснением"]
+    OUT --> ACT["Save · Trip · Maps · Instagram · WhatsApp · Booking · Privilege"]
+
+    ACT --> ANA["Discovery · Intent · Confirmed outcome"]
+    ANA --> REP["Product · Content · Partner reports"]
+    REP --> Q
+```
+
+Главный принцип: **турист получает объяснимое решение; партнёр поставляет факты; редакция контролирует рекомендацию; система измеряет поведение и возвращает результаты в контур качества.**
+
+Эта схема является первой страницей master-ТЗ и выигрывает при конфликте с более старыми архитектурными материалами.
+
+---
+
+# 3. Информационная архитектура сайта
+
+## 3.1. Основная навигация
+
+| Раздел | Задача | Основные страницы |
+|---|---|---|
+| **Home** | Выбрать travel-context | Две основные двери: In Bali now / Planning a trip; partner-вход вторичный |
+| **Today** | Решить, что делать на месте | Launch shortcuts, contextual shortlist, карта/список |
+| **Explore** | Самостоятельно исследовать | Places, Experiences, Events, Areas, Collections |
+| **Plan** | Подготовить будущий день/поездку | Day trips, 3/5/7 days, editable itineraries |
+| **Areas** | Понять территорию | Province → regency/city → destination → locality |
+| **My Bali** | Управлять личным планом | Saved, trip days, routes, recently viewed |
+| **Search** | Найти по названию или задаче | Full-text + intent + filters |
+
+**Privileges не входит в primary navigation V3.1.** Активный Offer показывается контекстно внутри подходящей карточки. Отдельный `/privileges` может появиться только по новому решению владельца и при достаточном полезном наполнении; это не текущий scope.
+
+## 3.2. Публичные типы страниц
+
+1. Главная.
+2. Результаты поиска.
+3. Категория.
+4. Landing для утверждённого intent/scenario или launch shortcut.
+5. Территория.
+6. Карточка физического места.
+7. Карточка активности или экскурсии.
+8. Карточка события.
+9. Карточка маршрута.
+10. Редакционная подборка.
+11. Мои сохранения.
+12. Моя поездка.
+13. Partner claim / update flow.
+
+## 3.3. URL-модель
+
+```text
+/
+/explore
+/places/[slug]
+/experiences/[slug]
+/events/[slug]
+/route/[slug]
+/areas/[slug]
+/collections/[slug]
+/scenarios/[slug]
+/search
+/today
+/plan
+/my-bali
+/my-bali/trips/[trip-id]
+/partner/[organization-id]
+```
+
+Категория и район не должны кодироваться в URL карточки объекта. Если ресторан меняет категорию или административная таксономия уточняется, постоянный URL не ломается. Существующие live-URLs не переименовываются автоматически: `/route/[slug]` сохраняется как canonical live-route; любой redirect требует preservation review.
+
+---
+
+# 4. Пользовательские пути
+
+## 4.1. Today
+
+```text
+Где вы / near me
+→ что хотите сделать
+→ когда
+→ 1–3 уточнения
+→ 3–8 вариантов
+→ сравнение
+→ карточка
+→ Maps / WhatsApp / Booking / Save / Privilege
+```
+
+Минимальные вводы:
+
+- текущее место или выбранная территория;
+- задача: eat, swim, relax, explore, work, shop, nightlife;
+- время: now, morning, afternoon, sunset, evening;
+- при необходимости: с кем, бюджет, транспорт, дождь.
+
+### Launch shortcuts, а не финальная taxonomy
+
+Кнопки Today — продуктовые входы, которые помогают быстро начать выбор. До утверждения Taxonomy V1 они называются **launch shortcuts**, а не canonical `Scenario`.
+
+- В один shortcut нельзя молча смешивать category, audience, constraint, location modifier и scenario как одинаковые значения.
+- `Warung` остаётся category/type; `Solo` — audience/context; `Without scooter` — transport constraint; `Near me` — location modifier.
+- Ровно шесть launch shortcuts выбираются только после Taxonomy V1 и редакционной проверки спроса.
+- Новые shortcut labels меняются конфигурацией и контентом, а не миграцией схемы.
+
+## 4.2. Plan
+
+```text
+Даты и база проживания
+→ состав группы
+→ интересы и темп
+→ обязательные места
+→ ограничения
+→ предложенный план по дням
+→ замена остановок
+→ сохранение
+```
+
+## 4.3. Explore
+
+```text
+Google / social / direct
+→ landing/category/area
+→ список
+→ фильтр
+→ карточка
+→ следующая карточка или действие
+```
+
+## 4.4. My Bali
+
+```text
+Возврат на сайт/PWA
+→ My Bali
+→ сегодняшний день
+→ открыть следующую остановку
+→ Maps
+→ отметить посещённым / изменить план
+```
+
+---
+
+# 5. Что вводит турист
+
+Не анкета при входе, а progressive profiling: вопрос появляется только тогда, когда влияет на ответ.
+
+| Группа | Поля | Обязательность |
+|---|---|---|
+| Контекст | current location, hotel/base area, dates | По ситуации |
+| Намерение | task/intent, category, scenario | Обязательно одно |
+| Время | now/date/daypart, available duration | По ситуации |
+| Компания | solo, couple, family, friends, group | Опционально |
+| Ограничения | children ages, mobility, dietary, weather | Только если релевантно |
+| Бюджет | budget band или дневной бюджет | Опционально |
+| Транспорт | walking, scooter, car, driver, boat | По маршруту |
+| Предпочтения | quiet, social, romantic, local, premium | Опционально |
+| Действия | saves, trip changes, dismissed items | Автоматически |
+
+Система не просит пользователя повторять то, что уже видно из контекста или предыдущего поведения.
+
+---
+
+# 6. Доменная модель: какие сущности существуют
+
+## 6.1. Основные сущности
+
+| Сущность | Что это | Пример |
+|---|---|---|
+| **Organization** | Компания, бренд, оператор или государственный управляющий | Potato Head, tour operator |
+| **Place** | Физическая точка, куда можно приехать | ресторан, пляж, храм, SPA |
+| **Experience** | Деятельность или продукт, который можно совершить/купить | cooking class, day pass, dive trip |
+| **Experience Offering** | Конкретный продаваемый вариант Experience у определённого оператора | shared dive trip at 08:00, private tour with pickup |
+| **Event** | Активность с конкретной датой/расписанием | Sunday brunch, festival, workshop |
+| **Offer** | Дополнительная выгода или промоусловие поверх обычного продукта | privilege, inclusion, limited package |
+| **Route** | Упорядоченный план перемещения | Uluwatu Sunset Day |
+| **Collection** | Редакционная подборка без обязательного порядка | Rainy-day places in Ubud |
+| **Area** | Территориальная иерархия | Bali → Gianyar → Ubud |
+| **Media asset** | Фото, видео, меню или документ с правами | hero image, menu PDF |
+| **Source** | Основание для конкретного факта | official website, venue confirmation |
+| **Verification** | Кто, когда и что подтвердил | hours verified 2026-07-15 |
+| **Trip** | Личный пользовательский план | Selena’s Bali trip |
+| **Interaction event** | Действие пользователя | maps_click, save_item |
+| **Partner account** | Доступ организации к своим объектам | manager of a venue group |
+
+## 6.2. Почему нельзя смешивать сущности
+
+- Hotel — Place; afternoon tea — Experience; предложение «IDR 350k» — Offer; Sunday brunch 26 July — Event.
+- Nusa Penida — Area; Kelingking Beach — Place; Nusa Penida West Tour — Experience; готовый день — Route.
+- Restaurant brand — Organization; конкретный outlet — Place.
+
+Если всё это хранить как «place», невозможно корректно управлять расписанием, ценой, операторами, несколькими филиалами, SEO и аналитикой.
+
+## 6.3. Связи
+
+```mermaid
+erDiagram
+    ORGANIZATION ||--o{ PLACE : operates
+    ORGANIZATION ||--o{ EXPERIENCE : provides
+    EXPERIENCE ||--o{ EXPERIENCE_OFFERING : sold_as
+    ORGANIZATION ||--o{ EXPERIENCE_OFFERING : operates
+    PLACE ||--o{ EXPERIENCE_OFFERING : starts_or_hosts
+    PLACE ||--o{ EXPERIENCE : hosts
+    PLACE ||--o{ EVENT : hosts
+    EXPERIENCE ||--o{ OFFER : has
+    PLACE ||--o{ OFFER : has
+    ROUTE ||--o{ ROUTE_STOP : contains
+    ROUTE_STOP }o--|| PLACE : references
+    ROUTE_STOP }o--o| EXPERIENCE : may_reference
+    AREA ||--o{ PLACE : contains
+```
+
+---
+
+# 7. Структура данных физического места
+
+## 7.1. Идентичность
+
+- internal id;
+- canonical slug;
+- official name;
+- alternate names;
+- organization id;
+- primary type;
+- secondary categories;
+- publication status;
+- operational status;
+- claim status;
+- created/updated/published timestamps.
+
+## 7.2. География
+
+- area hierarchy;
+- formatted address;
+- latitude/longitude;
+- Google place id;
+- map URL;
+- entrance/pickup point;
+- service radius, если применимо;
+- near-airport / island / boat-access flags;
+- transport notes;
+- parking details.
+
+## 7.3. Редакционный decision layer
+
+Это данные Other Bali, партнёр не редактирует их напрямую:
+
+- one-line verdict;
+- why choose it;
+- best for;
+- not ideal for;
+- audience fit;
 - mood;
-- appetite or service need;
-- budget;
-- dietary constraints;
-- practical constraints;
-- trip duration;
-- the kind of day they want.
-
-### 1.2 Internal product definition
-
-> **Other Bali is the resident-curated decision and action layer for Bali hospitality and lifestyle.**
-
-It does three things:
-
-1. **Decide:** narrow a messy market into a small, context-fit shortlist.
-2. **Explain:** show why each option fits, what to expect, what to order or do, and the practical trade-offs.
-3. **Act:** let the user reserve, order, request takeaway or pre-order, open Google Maps, or save the choice through trusted handoffs.
-
-### 1.3 Canonical sentence
-
-> **Other Bali helps you decide where to go and why. Google Maps gets you there.**
-
-### 1.4 Product entry model
-
-The user-facing mental model is **moments**, not database categories.
-
-```txt
-User moment / need
-→ constraints
-→ curated shortlist
-→ why each option fits
-→ menu and practical details
-→ Reserve | Order | Takeaway | Open in Google Maps | Save
-→ trusted provider fulfils the action
-```
-
-Categories remain necessary for data, filtering and operations. They are not the primary home-screen proposition.
-
-### 1.5 Geographic model
-
-Other Bali retains two product layers:
-
-- **Bali-wide planning and decision layer:** district guides, scenarios, places, verified menus and neutral action handoffs.
-- **Active-deep commercial layer:** partner proof, TablePilot billable attribution, confirmed perks, QR redemption and commercial reporting in one active district at a time.
-
-Current active-deep district: `canggu`.
-
-Planning and utility are allowed outside Canggu. Commercial activation remains gated by district status.
-
----
-
-## 2. Ownership boundaries
-
-### 2.1 Other Bali owns
-
-- moment and mission taxonomy;
-- resident/editorial selection;
-- recommendation logic;
-- `Why it fits`, `Best for`, `Not for` and practical intelligence;
-- verified structured venue facts;
-- verified menus and menu freshness state;
-- editorial `What to order` guidance;
-- routes, district guides and scenario pages;
-- the action-selection interface;
-- provider handoff links and labels;
-- saved places, shared lists and My Bali;
-- anonymous attribution and aggregate reporting;
-- publication, provenance and freshness gates;
-- partner-facing content maintenance surfaces;
-- explicit separation of organic and sponsored content.
-
-### 2.2 Venues and specialist providers own
-
-- live table inventory;
-- booking confirmation, modification, cancellation and no-show handling;
-- actual menu availability;
-- kitchen operations;
-- order acceptance;
-- preparation time;
-- delivery zones, drivers, timing and delivery fees;
-- payments, refunds, disputes and operational support;
-- actual delivery of hospitality, wellness, activity or other services.
-
-### 2.3 Google Maps owns
-
-- turn-by-turn navigation;
-- route calculation;
-- live traffic;
-- ETA;
-- road closures and navigation conditions;
-- navigation-mode choice;
-- global place coverage.
-
-Other Bali stores or resolves a verified Google Maps handoff and tracks the outbound navigation action. It does not reproduce Google Maps.
-
-### 2.4 Integration transparency
-
-The user can have a coherent Other Bali experience without being misled about fulfilment.
-
-Use small, clear handoff language where relevant:
-
-- `Continues on TablePilot`;
-- `Order on Grab`;
-- `Order via the restaurant`;
-- `Opens Google Maps`.
-
-A seamless handoff is desirable. Pretending an external system is owned by Other Bali is not.
-
----
-
-## 3. Hard non-goals
-
-Other Bali is not and must not quietly become:
-
-- a Google Maps clone;
-- a global place database competing on quantity;
-- a Tripadvisor clone;
-- a Google review scraper or republisher;
-- a public star-rating product;
-- a generic directory or Yellow Pages for Bali;
-- a tourist-side payment product;
-- a wallet, cash balance or real-money cashback product by default;
-- an internally owned booking engine;
-- a delivery fleet or courier operator;
-- a full order-fulfilment, refund or support platform;
-- an AI travel chatbot in the tourist product;
-- a paid organic-ranking marketplace;
-- a native-app rewrite undertaken before the web/PWA product requires it.
-
-AI may later become a natural-language interface over verified structured data. It may not invent recommendations, facts, availability or fulfilment states.
-
----
-
-## 4. Product surfaces
-
-### 4.1 Public home
-
-Primary question:
-
-> What kind of Bali moment are you in?
-
-Inputs can include:
-
-- area;
-- now / later;
-- duration;
-- company;
-- mood;
-- budget;
-- dietary needs;
-- practical constraints;
-- desired action.
-
-Output:
-
-- Top 3 decision-ready matches first;
-- a short `Matched because…` explanation;
-- an option to widen the result set.
-
-This remains deterministic and structured, not a freeform chatbot.
-
-### 4.2 Scenario and district pages
-
-Use the existing `ContentPage` concept for:
-
-- `scenario`;
-- `district_guide`;
-- editorial dish guides;
-- route guides.
-
-Every page must help make a real decision and funnel into relevant places or actions. Thin programmatic pages are forbidden.
-
-### 4.3 Places catalogue
-
-The catalogue is a secondary discovery surface, not the product thesis.
-
-It supports:
-
-- district;
-- area;
-- category;
-- moment/job;
-- price;
-- practical tags;
-- menu/dietary fit;
-- available actions;
-- publication/freshness filters internally.
-
-Public pages show only decision-ready records.
-
-### 4.4 Place detail page
-
-Canonical order:
-
-1. venue/service identity and editorial verdict;
-2. `Why it fits`;
-3. `Best for` / `Not for`;
-4. practical information;
-5. `What to order` or `What to do`;
-6. structured menu where available;
-7. action panel;
-8. confirmed offer where allowed;
-9. owner voice, clearly attributed;
-10. similar places and related routes;
-11. verification timestamp.
-
-Primary actions:
-
-```txt
-Reserve
-Order delivery
-Takeaway
-Pre-order request
-Open in Google Maps
-Save
-```
-
-Only verified and currently published actions appear.
-
-### 4.5 Dining and menu experience
-
-A menu is not merely a PDF link. The target product supports:
-
-- current menu sections;
-- item name and description;
-- price or price text;
-- dietary tags;
-- allergen tags where verified;
-- availability note;
-- image where approved;
-- partner recommendation;
-- separate Other Bali editorial pick;
-- source and verification date;
-- official-menu fallback link.
-
-The existing `whatToOrder` editorial field remains valid and may reference menu items without becoming partner-controlled copy.
-
-### 4.6 My Bali
-
-No mandatory account for core use.
-
-Supported layers:
-
-- anonymous saved places via `GuestRef` httpOnly cookie;
-- shared read-only lists;
-- saved routes and moments when implemented on the same identity model;
-- optional contact only with explicit consent;
-- reservation/order references only when a provider safely returns them and a later architecture amendment adopts storage.
-
-No `localStorage` or `sessionStorage` identity hacks.
-
-### 4.7 Partner and operator surfaces
-
-Partner capabilities:
-
-- confirm ownership/onboarding;
-- upload approved photos;
-- maintain official menu data or menu source;
-- maintain action links and capabilities;
-- see freshness warnings;
-- see aggregate attributable demand;
-- confirm perks where active-deep policy allows.
-
-Operator capabilities:
-
-- review publication readiness;
-- review stale menus and links;
-- review source evidence;
-- review broken provider handoffs;
-- approve editorial fields;
-- audit organic/sponsored separation;
-- view growth vs partner-proof analytics separately.
-
----
-
-## 5. System context
-
-```txt
-                         ┌───────────────────────────┐
-                         │ Traveller / Resident      │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-┌───────────────────────────────────────────────────────────────────┐
-│ Other Bali — Next.js web/PWA                                     │
-│                                                                   │
-│ Moments · District guides · Places · Menus · Actions · My Bali    │
-│ Editorial trust · Capability resolution · Attribution             │
-└──────────┬──────────────────┬──────────────────┬──────────────────┘
-           │                  │                  │
-           ▼                  ▼                  ▼
-┌──────────────────┐  ┌──────────────────┐  ┌──────────────────────┐
-│ Supabase         │  │ Google Maps      │  │ External fulfilment │
-│ Postgres + RLS   │  │ navigation       │  │ systems             │
-│ RPCs + Storage   │  │ traffic + ETA    │  │                      │
-└──────────────────┘  └──────────────────┘  │ TablePilot           │
-                                            │ Venue website        │
-                                            │ WhatsApp             │
-                                            │ GrabFood / GoFood    │
-                                            │ ShopeeFood / other   │
-                                            └──────────────────────┘
-```
-
-Other Bali never proxies a provider merely to conceal that it is external. Server-side mediation is used only when needed for security, attribution or a supported provider API.
-
----
-
-## 6. Technology stack
-
-Decided stack:
-
-- Next.js 16 App Router;
-- React 19;
-- TypeScript;
-- Tailwind CSS 4 and the existing token system;
-- Supabase Postgres;
-- Supabase SSR and Auth where required;
-- RLS and `SECURITY DEFINER` RPCs for controlled writes;
-- Supabase Storage for approved partner assets;
-- Vercel hosting;
-- PWA first;
-- Capacitor 8 for the approved bundled iOS/Android catalogue shell;
-- Google Maps deep links for navigation;
-- TablePilot for the current billable reservation loop;
-- WhatsApp prefilled links for transactional handoffs;
-- existing QR library for active-deep offer redemption.
-
-The public website remains web/PWA-first. The approved store product is a
-bounded Capacitor shell that bundles the `Places / Routes / Saved` interface and
-uses the versioned, read-only `/api/mobile/v1` contracts. This exception is not
-permission for an unrelated native rewrite or for embedding the production
-website as a remote wrapper; any broader native scope requires another explicit
-architecture amendment.
-
----
-
-## 7. Architectural layers
-
-### 7.1 Presentation layer
-
-- Server Components for data-heavy public pages by default.
-- Client Components only for interaction, local selection state, tracking and progressive enhancement.
-- Mobile-first action targets and safe-area support.
-- Public UI English only.
-- Admin/founder surfaces may include Russian.
-
-### 7.2 Application layer
-
-Responsible for:
-
-- recommendation queries;
-- publication filtering;
-- action-capability resolution;
-- menu rendering contracts;
-- anonymous identity resolution;
-- event logging;
-- provider handoff construction;
-- aggregate report reads.
-
-### 7.3 Domain layer
-
-Contains stable business types and rules. It must not depend on React.
-
-Recommended modules:
-
-```txt
-lib/domain/venue.ts
-lib/domain/menu.ts
-lib/domain/actions.ts
-lib/domain/moments.ts
-lib/domain/coverage.ts
-lib/domain/publication.ts
-```
-
-Existing thinner files may be migrated incrementally. Do not perform a repository-wide rename merely for aesthetics.
-
-### 7.4 Data-access layer
-
-Maps snake_case database rows to camelCase domain objects at one boundary.
-
-Requirements:
-
-- explicit selected columns on public reads;
-- no service-role key in tourist runtime;
-- seed/static fallback only where intentionally supported;
-- public queries return published/verified data only;
-- internal review paths must be explicit, never accidental query parameters exposed as product features.
-
-### 7.5 Integration layer
-
-Provider adapters resolve a common action contract. They do not own provider operations.
-
-```txt
-lib/integrations/tablepilot.ts
-lib/integrations/google-maps.ts
-lib/integrations/whatsapp.ts
-lib/integrations/external-ordering.ts
-```
-
-Adapters may be small link builders. Do not invent a large service abstraction where a typed pure function is enough.
-
----
-
-## 8. Canonical domain model
-
-### 8.1 Existing core concepts retained
-
-```txt
-Venue
-VenueProductEnrollment
-District
-ContentPage
-RouteStop
-Offer / Perk
-Redemption
-Event
-User / Role
-GuestRef
-ConsentLog
-VenueReservationConfig
-SavedPlace
-SharedList
-GuideLead
-```
-
-Current TypeScript names such as `Venue`, `Perk`, `PlanEntry`, `RouteDef` and `RouteStopDef` remain implementation types. Reconcile deliberately; do not rename blindly.
-
-### 8.2 Newly adopted concepts
-
-The following concepts are approved by this architecture:
-
-```txt
-Menu
-MenuSection
-MenuItem
-VenueActionCapability
-```
-
-No `Order`, `Cart`, `Delivery`, `Reservation`, `Courier`, `Payment`, `Refund` or `Wallet` entity is adopted for Other Bali at this stage. Those states belong to external fulfilment systems.
-
-### 8.3 Why only four new concepts
-
-They are sufficient to support:
-
-- verified structured menus;
-- menu browsing and dish discovery;
-- reserve/delivery/takeaway/pre-order handoffs;
-- provider-aware UI;
-- freshness and evidence;
-- action attribution.
-
-Anything more should be earned by a real integration requirement, not by diagram enthusiasm.
-
----
-
-## 9. Data model
-
-All schema changes are additive, nullable where possible, idempotent and delivered through new migrations. Never edit an applied migration.
-
-### 9.1 `menus`
-
-Purpose: versioned, source-backed menu publication for one venue.
-
-Recommended fields:
-
-```txt
-id                  uuid primary key
-venue_slug          text not null references venues(slug)
-version             integer not null
-name                text not null default 'Main menu'
-currency            text not null default 'IDR'
-source_type         text not null  -- partner | official_url | editorial_capture
-source_url          text
-status              text not null  -- draft | review | published | stale | archived
-verified_at         timestamptz
-expires_at          timestamptz
-published_at        timestamptz
-superseded_at       timestamptz
-created_at          timestamptz not null
-updated_at          timestamptz not null
-```
-
-Constraints:
-
-- unique `(venue_slug, version)`;
-- at most one `published` non-superseded menu per named menu for a venue;
-- public read requires `status = published` and not expired;
-- a stale menu is not silently presented as current.
-
-### 9.2 `menu_sections`
-
-```txt
-id                  uuid primary key
-menu_id             uuid not null references menus(id) on delete cascade
-name                text not null
-description         text
-availability_text   text
-sort_order          integer not null default 0
-created_at          timestamptz not null
-updated_at          timestamptz not null
-```
-
-### 9.3 `menu_items`
-
-```txt
-id                  uuid primary key
-menu_section_id     uuid not null references menu_sections(id) on delete cascade
-slug                text not null
-name                text not null
-description         text
-price_amount        numeric
-price_text          text
-image_url           text
-dietary_tags        text[]
-allergen_tags       text[]
-availability_text   text
-is_available        boolean not null default true
-partner_recommended boolean not null default false
-editorial_pick      boolean not null default false
-editorial_note      text
-sort_order          integer not null default 0
-created_at          timestamptz not null
-updated_at          timestamptz not null
-```
-
-Rules:
-
-- `partner_recommended` and `editorial_pick` are distinct.
-- Partner write paths may not set Other Bali editorial fields.
-- Allergen data is shown only when explicitly verified; absence means unknown, not allergen-free.
-- `price_text` supports ranges, market price and variants without false precision.
-
-### 9.4 `venue_action_capabilities`
-
-Purpose: one source of truth for verified actions a user can take with a venue.
-
-```txt
-id                    uuid primary key
-venue_slug            text not null references venues(slug)
-action_type            text not null
-provider               text not null
-label                  text
-handoff_url            text not null
-status                 text not null
-priority               integer not null default 100
-source_type            text not null
-source_url             text
-verified_at            timestamptz
-expires_at             timestamptz
-confirmation_required  boolean not null default false
-service_area_text      text
-minimum_order_text     text
-fee_text                text
-availability_text      text
-metadata                jsonb not null default '{}'
-created_at              timestamptz not null
-updated_at              timestamptz not null
-```
-
-Allowed `action_type` values:
-
-```txt
-reserve
-delivery
-takeaway
-preorder
-website
-whatsapp
-```
-
-Navigation remains on the existing verified `venues.gmaps_url` during the first implementation. It can later be represented by the same capability model after a deliberate migration; do not duplicate it immediately.
-
-Initial provider vocabulary:
-
-```txt
-tablepilot
-venue_website
-venue_whatsapp
-grabfood
-gofood
-shopeefood
-other_official
-```
-
-Rules:
-
-- unique active capability per `(venue_slug, action_type, provider, handoff_url)`;
-- public only when `status = published`, URL is valid, and freshness is acceptable;
-- provider names are configuration, not a reason to hard-code provider-specific UI throughout the app;
-- `metadata` may store non-sensitive provider hints, never PII or secrets.
-
-### 9.5 Event extension
-
-Retain the existing `events` table and acquisition `source` meaning.
-
-Add a nullable safe payload:
-
-```txt
-payload jsonb
-```
-
-Introduce a backwards-compatible `log_event_v2` RPC rather than breaking the current `log_event` signature.
-
-Safe payload examples:
-
-```json
-{
-  "actionType": "delivery",
-  "provider": "grabfood",
-  "capabilityId": "uuid",
-  "menuItemId": "uuid"
-}
-```
-
-Forbidden payload:
-
-- user name;
+- best time/daypart;
+- typical duration;
+- price band;
+- estimated spend range;
+- booking difficulty;
+- weather fit;
+- transport fit;
+- crowd pattern;
+- noise level;
+- editorial warnings;
+- comparison notes;
+- confidence score.
+
+## 7.4. Практические факты
+
+- weekly opening hours;
+- seasonal/holiday exceptions;
 - phone;
-- address;
-- message body;
-- order contents that can identify a person;
-- payment details;
-- provider tokens.
+- WhatsApp;
+- Instagram;
+- official website;
+- official booking URL;
+- menu URL;
+- delivery/takeaway URLs;
+- accepted payment methods;
+- reservation policy;
+- dress code;
+- minimum spend;
+- age policy;
+- cancellation policy;
+- accessibility;
+- languages;
+- facilities and amenities.
 
-### 9.6 Existing venue fields
+## 7.5. Требования по типам мест
 
-Retain during migration:
+Общая таблица не должна содержать сотню пустых колонок. Специфические данные живут в профильных таблицах.
 
-```txt
-gmaps_url
-tablepilot_slug
-whatsapp
-what_to_order
-price_anchor
-why_its_here
-best_for
-not_for
-practical_tags
-jobs
-owner_note
-```
-
-Compatibility rules:
-
-- `tablepilot_slug` may be resolved into a generated `reserve` capability without deleting the field.
-- `whatsapp` may be resolved into a generated fallback capability.
-- existing verified external `menuUrl` registries may render until their menus are imported.
-- no big-bang data rewrite.
-
----
-
-## 10. Coverage policy
-
-District statuses:
-
-```txt
-planning_only
-next_deep
-active_deep
-```
-
-### 10.1 Allowed in every published district
-
-- editorial place pages;
-- district/scenario content;
-- verified menus;
-- official website links;
-- neutral official booking links;
-- neutral delivery/takeaway links;
-- Google Maps handoff;
-- saves and sharing;
-- growth analytics.
-
-### 10.2 Allowed only in `active_deep`
-
-- TablePilot billable attribution;
-- partner money-loop reporting;
-- confirmed perks;
-- QR redemption;
-- commercial campaigns explicitly approved by the money model;
-- any venue-facing claim that Other Bali is an active acquisition partner.
-
-### 10.3 Database enforcement
-
-Coverage remains data-enforced for monetization and QR. UI hiding alone is insufficient.
-
-A planning-only venue may have an official booking or delivery link, but it must not enter Canggu’s billable partner loop merely because a button exists.
+| Профиль | Дополнительные поля |
+|---|---|
+| Food & drink | cuisines, meal periods, alcohol, dietary options, average spend |
+| SPA & wellness | treatments, duration, therapist policy, facilities, advance booking |
+| Beach club/day use | pool access, minimum spend, bed policy, towel, children, sunset |
+| Beach/nature | swim safety, tide, lifeguard, access difficulty, entrance fee |
+| Temple/culture | etiquette, sarong, opening rules, ceremony impact, guide rules |
+| Shopping | product types, local brands, shipping, custom orders |
+| Family | age suitability, changing facilities, stroller access, supervision |
+| Accommodation-linked | guest/non-guest access, day-use conditions, facility scope |
 
 ---
 
-## 11. Menu provenance and freshness
+# 8. Данные активности, события, предложения и маршрута
 
-### 11.1 Accepted sources
+## 8.1. Experience
 
-- venue/partner submission;
-- official venue website;
-- official venue ordering page;
-- editorial capture from a real menu with recorded evidence;
-- approved partner file import.
+- official title;
+- canonical concept and possible host place;
+- experience type;
+- summary and editorial verdict;
+- duration;
+- requirements;
+- age/fitness/swimming constraints;
+- weather/tide dependency;
+- safety notes;
+- verification dates.
 
-### 11.2 Rejected sources
+Experience описывает саму активность как единый редакционный объект. Цена, оператор, доступность и booking link не хранятся здесь, если у активности может быть больше одного продаваемого варианта.
 
-- copied Google review text;
-- scraped third-party review prose;
-- guessed dishes or prices;
-- unattributed screenshots;
-- unofficial aggregator menus treated as current fact;
-- AI-generated descriptions presented as venue facts.
+## 8.2. Experience Offering / Booking Option
 
-### 11.3 Freshness rules
+Каждая конкретная комбинация оператора, формата, расписания и условий бронирования хранится отдельно:
 
-Default operational targets:
+- experience id;
+- operator organization id;
+- host/start place;
+- private/shared format;
+- fixed departure or availability rule;
+- start time and duration override;
+- meeting point and pickup zones;
+- capacity and minimum group size;
+- languages;
+- inclusions and exclusions;
+- price, currency, unit and tax status;
+- child/group/resident price variants;
+- deposit and payment terms;
+- cancellation and rescheduling rules;
+- official booking URL or booking channel;
+- availability source and last checked time;
+- operational status and verification.
 
-- action handoff URL: re-check every 30 days;
-- menu price/item set: re-check every 45–60 days;
-- temporary menu or event menu: hard expiry;
-- opening-hours-sensitive action: re-check every 30 days;
-- perk: explicit start/end date and active-deep confirmation.
+Один Experience может иметь несколько Offerings. Пользователь сравнивает варианты, но редакционная страница активности остаётся единой и не дублируется под каждого оператора.
 
-Exact intervals may be adjusted by category, but every public record needs a freshness state.
+## 8.3. Event
 
-### 11.4 Stale behaviour
+- title;
+- host/organizer;
+- start/end datetime with Bali timezone;
+- recurrence rule;
+- doors/arrival time;
+- venue;
+- ticket/free status;
+- capacity;
+- booking URL;
+- age restrictions;
+- cancellation/postponement state;
+- last verified time.
 
-When structured menu data is stale:
+## 8.4. Offer / Privilege
 
-1. stop presenting it as current;
-2. keep the official menu link if it still resolves and is clearly labeled;
-3. show a restrained verification note;
-4. add it to the admin freshness queue.
+- offer type: privilege, discount, inclusion;
+- headline shown to tourist;
+- exact benefit;
+- eligibility;
+- required purchase;
+- valid dates and weekdays;
+- valid time window;
+- blackout dates;
+- inventory/usage limit;
+- per-person/account limit;
+- redemption method;
+- partner terms version;
+- active/paused/expired status;
+- verification owner and date.
 
-Do not leave old prices on the page because deleting them felt emotionally difficult.
+Offer не заменяет Package, TicketOption, PriceOption или BookingOption. Он хранит только дополнительную выгоду и условия её применения. Цена Offer публикуется только из официального подтверждённого источника; иначе поле остаётся пустым.
 
----
+### Sponsored — reserved, disabled, out of scope
 
-## 12. Action gateway
+В V3.1 нет продаваемого sponsored placement или visibility tier. `SponsorshipCampaign`, sponsored result blocks, paid-rank controls и их публичные страницы:
 
-### 12.1 Common action contract
+- **RESERVED** в namespace/Decision Log для возможного будущего решения;
+- **DISABLED** в runtime, admin и partner portal;
+- **OUT OF SCOPE** для текущей схемы, миграций, API, UI и продаж.
 
-```ts
-export type VenueActionType =
-  | "reserve"
-  | "delivery"
-  | "takeaway"
-  | "preorder"
-  | "website"
-  | "whatsapp"
-  | "directions";
+Их нельзя реализовывать «на будущее» или выводить из старых Bali Privilege документов. Включение требует явного изменения money-model канона, отдельной спецификации disclosure и нового решения Селены.
 
-export interface ResolvedVenueAction {
-  id: string;
-  type: VenueActionType;
-  provider: string;
-  label: string;
-  href: string;
-  external: true;
-  confirmationRequired: boolean;
-  availabilityText?: string;
-  serviceAreaText?: string;
-  minimumOrderText?: string;
-  feeText?: string;
-  verifiedAt?: string;
-}
-```
+## 8.5. Route
 
-### 12.2 Resolution algorithm
-
-For a venue and action type:
-
-1. load published, non-expired capabilities;
-2. apply district/commercial policy;
-3. validate URL and provider configuration;
-4. order by configured priority;
-5. return the strongest primary action plus optional alternatives;
-6. show no action when evidence is insufficient.
-
-### 12.3 Reservation
-
-Priority in active-deep Canggu:
-
-1. TablePilot when `tablepilot_slug` is configured and the commercial gate permits it;
-2. verified venue booking system;
-3. verified WhatsApp request.
-
-Outside active-deep:
-
-- verified official booking handoff only;
-- no billable Other Bali reservation claim unless district status and contract are explicitly activated.
-
-### 12.4 Delivery
-
-Possible providers:
-
-- direct restaurant ordering page;
-- restaurant WhatsApp;
-- GrabFood;
-- GoFood;
-- ShopeeFood;
-- another official provider.
-
-Other Bali does not claim:
-
-- live delivery coverage;
-- live stock;
-- exact fee;
-- exact ETA;
-- confirmed order state;
-
-unless a provider API actually supplies it.
-
-### 12.5 Takeaway
-
-Use a verified direct provider, restaurant form or WhatsApp request. A request is not confirmed until the restaurant/provider confirms it.
-
-### 12.6 Pre-order
-
-`preorder` always defaults to `confirmation_required = true`.
-
-Allowed flow:
-
-```txt
-Select intended items
-→ create a prefilled provider request
-→ hand off
-→ provider/venue confirms
-```
-
-Other Bali must not display `Confirmed` merely because the message was generated.
-
-### 12.7 Assisted item selection
-
-A user may select menu items in memory and send them into a provider handoff when technically supported.
-
-Constraints:
-
-- no persistent Other Bali cart by default;
-- no Other Bali order number;
-- no payment capture;
-- no promise that provider pricing equals displayed pricing;
-- item mapping to provider SKUs only when verified.
-
-### 12.8 Directions
-
-Canonical behaviour:
-
-- build or use a verified Google Maps deep link;
-- log `direction_click`;
-- open externally;
-- do not implement route calculation or turn-by-turn UI.
+- title and promise;
+- target audience;
+- start area and optional end area;
+- duration and recommended start;
+- pace;
+- transport mode;
+- season/weather fit;
+- total estimated cost;
+- ordered stops;
+- arrival and dwell time per stop;
+- travel time between stops;
+- reason for each stop;
+- bookings required;
+- contingency and rain alternative;
+- safety/etiquette notes;
+- route freshness date;
+- editorial owner.
 
 ---
 
-## 13. User experience flows
+# 9. Таксономия и фильтры
 
-### 13.1 Moment to visit
+Таксономия — централизованный справочник, а не произвольные теги редакторов.
 
-```txt
-Choose moment
-→ Top 3 matches
-→ open place
-→ understand fit
-→ inspect menu / what to order
-→ reserve or open Google Maps
-→ provider fulfils
+## 9.1. Территории
+
+```text
+Bali province
+→ 8 regencies + Denpasar city
+→ destination / island cluster
+→ locality / village / neighbourhood
 ```
 
-### 13.2 Moment to delivery
+Все девять административных единиц поддерживаются с первого дня модели данных. Наполнение может идти неравномерно, но код и схема не должны знать понятия «главный район».
 
-```txt
-Choose “food at the villa” / delivery need
-→ matches with published delivery capability
-→ inspect menu
-→ choose delivery action
-→ see provider disclosure
-→ hand off
-→ provider fulfils
-```
+## 9.2. Контролируемые словари
 
-### 13.3 Takeaway
+- object types;
+- categories and subcategories;
+- intents;
+- scenarios;
+- audiences;
+- moods;
+- dayparts;
+- duration bands;
+- budget bands;
+- transport modes;
+- weather fit;
+- amenities;
+- accessibility;
+- dietary attributes;
+- safety and etiquette warnings;
+- commercial and editorial labels.
 
-```txt
-Choose place or dish
-→ inspect menu
-→ request takeaway
-→ venue/provider confirms
-→ Google Maps handles pickup navigation
-```
+## 9.3. Правила
 
-### 13.4 Save and continue later
-
-```txt
-Save place
-→ GuestRef-backed My Bali
-→ share list or reopen
-→ action remains freshness-checked at time of use
-```
+- один canonical key на понятие;
+- публичный label отделён от внутреннего key;
+- синонимы поиска не создают новые категории;
+- изменения версионируются;
+- удаление термина не ломает старые данные;
+- для каждого фильтра описано, кто и на основании чего его ставит.
 
 ---
 
-## 14. Public data contracts
+# 10. Recommendation / Decision Engine
 
-Recommended view model:
+## 10.1. Порядок отбора
 
-```ts
-export interface PublicVenueDetail {
-  venue: Venue;
-  menu: PublishedMenu | null;
-  actions: ResolvedVenueAction[];
-  editorial: {
-    whyItsHere?: string;
-    bestFor?: string;
-    notFor?: string;
-    whatToOrder?: string;
-  };
-  verification: {
-    venueVerifiedAt?: string;
-    menuVerifiedAt?: string;
-    actionsVerifiedAt?: string;
-  };
-}
+1. **Hard constraints:** operational status, подтверждённый schedule, location, age, weather и availability — только если эти факты реально известны.
+2. **Intent fit:** насколько объект решает выбранную задачу.
+3. **Editorial quality:** completeness, confidence, freshness, decision readiness.
+4. **Context fit:** расстояние, доступное время, транспорт, компания, бюджет.
+5. **Diversity:** не выдавать восемь одинаковых мест.
+6. **Personal signal:** сохранения, отказы, прошлые действия — только при достаточном согласии и данных.
+
+Пример базового score:
+
+```text
+35% intent/scenario fit
+20% editorial quality
+15% freshness and verification
+15% location/time feasibility
+10% audience/preferences fit
+5% behavioural usefulness
 ```
 
-### 14.1 Read strategy
+Вес — конфигурация и гипотеза, не вечная истина.
 
-Prefer server-side aggregation in a data-access function such as:
+## 10.2. Коммерческое влияние
 
-```txt
-getPublicVenueDetail(slug)
-```
+- партнёрский статус не повышает органический editorial score;
+- privilege может быть фильтром или дополнительным сигналом, но не превращает плохое совпадение в рекомендацию;
+- paid visibility и sponsored placement отсутствуют в V3.1;
+- fee за подтверждённую seated-booking не влияет на порядок органической выдачи.
 
-The place page should not independently know how to query every table and provider.
+## 10.3. Объяснимость
 
-### 14.2 API strategy
+Пользователь должен видеть причину:
 
-Use route handlers only when needed for:
-
-- writes;
-- client interaction;
-- event logging;
-- provider API mediation;
-- permission boundaries.
-
-Do not turn every server read into an internal HTTP call.
+> Recommended because it is rain-safe, 12 minutes away, suitable with children and available this afternoon.
 
 ---
 
-## 15. Analytics and attribution
+# 11. Поиск
 
-### 15.1 Separate metric families
+Поиск должен понимать:
 
-**Growth / product health**
+- официальные и альтернативные названия;
+- опечатки;
+- территории;
+- категории;
+- естественные запросы: `quiet breakfast near Ubud`, `waterfall easy with kids`;
+- популярные синонимы на английском;
+- отсутствие результата и следующий лучший вариант.
 
-- moment started;
-- shortlist generated;
-- venue detail viewed;
-- menu opened;
-- menu item opened;
-- save;
-- share;
-- direction click;
-- neutral external action click.
+Обязательные данные поиска:
 
-**Partner-proof / money loop**
+- raw query;
+- normalized query;
+- detected intent/area/category;
+- result count;
+- shown item ids and ranks;
+- clicked item;
+- reformulation;
+- zero-result flag;
+- exit action.
 
-- TablePilot `reservation_click` with Other Bali source;
-- TablePilot confirmed reservation;
-- TablePilot `arrived` / `completed` billable result;
-- externally attributed QR redemption as supporting proof;
-- any future provider-confirmed order only after an explicit integration and architecture amendment.
-
-### 15.2 Event vocabulary
-
-Approved additions:
-
-```txt
-menu_open
-menu_item_open
-action_handoff
-delivery_click
-takeaway_click
-preorder_click
-```
-
-Retain:
-
-```txt
-direction_click
-reservation_click
-booking_click
-menu_click
-venue_detail_view
-save/share events
-```
-
-### 15.3 Attribution rules
-
-- acquisition source remains first-touch and must not be overwritten by provider name;
-- provider/action details belong in safe event payload;
-- partners see aggregate reports by default;
-- click is intent, not fulfilment;
-- only externally confirmed outcomes may become billable proof.
+Zero-result запросы — прямой список того, чего не хватает продукту или словарю.
 
 ---
 
-## 16. Identity, privacy and security
+# 12. Аналитика поведения
 
-### 16.1 Identity
+## 12.1. Три уровня доказательства
 
-- anonymous `GuestRef` via httpOnly cookie;
-- no mandatory tourist account;
-- no localStorage/sessionStorage identity;
-- optional contact only with explicit consent;
-- no PII copied from provider handoffs.
+| Уровень | Примеры | Что можно честно утверждать |
+|---|---|---|
+| **Discovery** | search, filter, view, compare | Что человек искал и смотрел |
+| **Intent** | save, Maps, WhatsApp, Instagram, booking | Какое следующее действие выбрал |
+| **Outcome** | confirmed booking, privilege redemption, verified visit | Подтверждённый результат |
 
-### 16.2 Database security
+Maps click нельзя называть посещением. Instagram click нельзя называть подпиской или бронью.
 
-- RLS enabled on all new tables;
-- public can read only published menu and capability data through safe policies/views;
-- partner writes constrained to owned venues and non-editorial fields;
-- editorial fields admin-only;
-- tourist writes through controlled RPCs or narrowly scoped routes;
-- no service-role secret in browser or public runtime.
+## 12.2. Обязательные события
 
-### 16.3 URL safety
+### Acquisition
 
-Every external URL must be:
+- session_started;
+- landing_viewed;
+- campaign_or_qr_opened;
+- consent_updated.
 
-- `https` except explicitly approved schemes such as `whatsapp:`/`wa.me`;
-- normalized;
-- restricted to expected provider/domain patterns where possible;
-- rendered with safe `target`/`rel` handling;
-- checked before publication.
+### Discovery
 
-### 16.4 Secrets
+- search_submitted;
+- search_zero_results;
+- filter_applied;
+- result_impression;
+- item_compared;
+- place_viewed;
+- experience_viewed;
+- route_viewed;
+- collection_viewed.
 
-Provider tokens live in server environment variables only. Public provider URLs may be stored; secret API keys may not.
+### Intent/action
+
+- menu_opened;
+- instagram_clicked;
+- maps_clicked;
+- whatsapp_clicked;
+- website_clicked;
+- booking_clicked;
+- phone_clicked;
+- item_saved;
+- item_unsaved;
+- trip_created;
+- item_added_to_trip;
+- item_removed_from_trip;
+- trip_stop_reordered;
+- route_opened_in_maps;
+- share_clicked.
+
+### Privilege/outcome
+
+- offer_viewed;
+- offer_claimed;
+- redemption_started;
+- redemption_confirmed;
+- redemption_rejected;
+- booking_confirmed, только при реальном callback/подтверждении.
+
+## 12.3. Общий event envelope
+
+Каждое событие содержит:
+
+- event_id;
+- occurred_at;
+- anonymous_id;
+- authenticated_user_id, если есть;
+- session_id;
+- event_name and schema_version;
+- page and referrer;
+- acquisition source/campaign/QR partner;
+- object_type and object_id;
+- position/rank/list context;
+- area and user mode;
+- device, locale and app surface;
+- experiment variant;
+- consent state;
+- properties JSON по строгой схеме.
+
+## 12.4. Ключевые воронки
+
+1. Landing → search → result → card → external action.
+2. Area/category → card → save → return → Maps.
+3. Route view → save → edit → navigation.
+4. Partner QR → place/collection → action → confirmed outcome.
+5. Offer view → claim → redemption.
+
+## 12.5. Основные отчёты
+
+- что люди ищут;
+- какие запросы остаются без ответа;
+- какие места сравнивают;
+- какие карточки приводят к действиям;
+- по каким каналам приходят;
+- как planning превращается в on-island action;
+- где пользователь выходит;
+- какие маршруты сохраняют и используют;
+- фактический вклад по партнёрам;
+- качество и свежесть контента.
 
 ---
 
-## 17. Editorial trust and publication
+# 13. Контент, источники и доверие
 
-### 17.1 Organic vs sponsored
+## 13.1. Разделение ответственности
 
-- Organic selection cannot be bought.
-- Sponsored visibility is separate and clearly labeled.
-- Sponsor state never enters recommendation ranking as quality.
+| Слой | Кто владеет |
+|---|---|
+| Официальные факты | Партнёр + редакционная проверка |
+| Editorial verdict | Только Other Bali |
+| Best for / Not ideal for | Только Other Bali |
+| Цены и условия | Источник + дата проверки |
+| Фото/видео | Правообладатель + лицензия |
+| Автоматическая аналитика | Система |
 
-### 17.2 Decision-ready publication gate
+## 13.2. Каждое изменяемое утверждение должно иметь
 
-A public venue needs:
+- source type;
+- source URL/reference;
+- extracted value;
+- verified_at;
+- verified_by;
+- confidence;
+- next_review_at;
+- status: verified, needs verification, disputed, stale.
+
+## 13.3. Publication gate
+
+Карточка публикуется только если есть:
+
+- корректная идентичность и география;
+- рабочее основное действие;
+- минимум decision-ready редакционных данных;
+- одна разрешённая качественная фотография;
+- дата проверки;
+- отсутствие критического конфликта источников.
+
+Index,follow получает только карточка, которая дополнительно имеет уникальную ценность, достаточную полноту и внутренние ссылки. Публикация и SEO-индексация — разные решения.
+
+## 13.4. Lifecycle
+
+```text
+candidate → research → draft → partner/fact check → editorial review
+→ published → monitored → stale → reverified / unpublished / closed
+```
+
+Закрытые места не удаляются молча: сохраняется статус, редирект и релевантная альтернатива, если это уместно.
+
+---
+
+# 14. Кабинет партнёра
+
+## 14.1. Партнёр может
+
+- claim organization/place;
+- приглашать сотрудников;
+- предложить исправление фактов;
+- менять часы, контакты, меню, цены и booking links;
+- загружать медиа с подтверждением прав;
+- создавать draft offer;
+- видеть проверенную статистику своих объектов;
+- отвечать на запросы редакции.
+
+## 14.2. Партнёр не может
+
+- менять редакционный verdict;
+- самостоятельно назначать Best for;
+- скрывать Not ideal for или предупреждения;
+- покупать органический ранг;
+- публиковать claims без проверки;
+- видеть персональные данные туристов.
+
+## 14.3. Workflow изменения
+
+```text
+Partner submits change
+→ system validates format
+→ change request stores old/new value and evidence
+→ editor approves/rejects
+→ published record updates
+→ verification history retained
+```
+
+## 14.4. Money model — канон
+
+- Единственный платный продукт V3.1 — фиксированный fee за **подтверждённую seated-booking** через собственный rail.
+- Outbound booking click, Maps click или WhatsApp click не считаются подтверждённой бронью.
+- Coverage-слой (включая day passes и editorial pillars) работает без комиссии.
+- Privilege/Offer не обязателен для работы продукта и не повышает органический rank.
+- Платный visibility tier, sponsored placement и pay-to-rank запрещены текущим каноном.
+- Изменение этой модели возможно только через датированное решение Селены в Decision Log.
+
+---
+
+# 15. Админка и операционная работа
+
+## 15.1. Рабочие очереди
+
+- new candidates;
+- missing critical data;
+- stale data;
+- partner changes;
+- media rights issues;
+- reported closures/errors;
+- duplicate candidates;
+- zero-result demand;
+- high-traffic low-conversion cards;
+- expiring offerings/offers/events.
+
+## 15.2. Роли
+
+| Роль | Права |
+|---|---|
+| Owner/admin | Полный контроль, роли, коммерция |
+| Managing editor | Публикация и редакционные правила |
+| Researcher | Источники и draft facts |
+| Partner manager | Организации, claims, offers |
+| Media editor | Assets and rights |
+| Analyst | Read-only reports and experiments |
+| Partner owner/manager/staff | Только разрешённые объекты и действия |
+
+Все чувствительные изменения имеют audit log.
+
+---
+
+# 16. Целевая техническая архитектура
+
+## 16.1. Логические компоненты
+
+```mermaid
+flowchart TB
+    W["Next.js web/PWA"] --> API["Application services"]
+    ADM["Admin & partner portal"] --> API
+    API --> DB["PostgreSQL / Supabase"]
+    API --> ST["Media storage + CDN"]
+    API --> SR["Search index"]
+    W --> AN["Product analytics"]
+    API --> EV["Business event store"]
+    EV --> BI["Reports and dashboards"]
+    CMS["Editorial workflow"] --> DB
+    EXT["Maps · WhatsApp · booking · social"] <--> API
+```
+
+## 16.2. Практический стек для текущего продукта
+
+- Next.js App Router для web/PWA и server-rendered public pages;
+- Supabase Postgres как canonical operational database;
+- Supabase Auth с RLS для пользователей, партнёров и команды;
+- Supabase Storage или отдельный media pipeline с CDN;
+- Postgres full-text на старте; отдельный search service только при доказанном лимите;
+- product analytics для поведенческих последовательностей;
+- GA4 + Search Console для acquisition/SEO;
+- отдельная таблица business-critical events для redemptions, bookings и partner reporting;
+- background jobs для freshness, expiry, imports и notifications;
+- feature flags для экспериментов.
+
+Принцип: **один источник фактов, несколько специализированных систем наблюдения.** Аналитическая платформа не является источником правды для денег или подтверждённых redemptions.
+
+## 16.3. Модули кода
+
+```text
+catalog
+geography
+taxonomy
+editorial
+search
+recommendations
+trips
+offers
+partners
+publishing
+analytics
+media
+identity-access
+integrations
+```
+
+Модули имеют явные контракты. UI не обращается напрямую к случайным таблицам.
+
+## 16.4. API/read models
+
+Публичный UI получает не сырые строки БД, а подготовленные read models:
+
+- PlaceCard;
+- PlaceDetail;
+- ExperienceDetail;
+- ExperienceOfferingDetail;
+- SearchResult;
+- RecommendationSet;
+- RouteDetail;
+- PartnerPerformanceSummary.
+
+Это позволяет менять внутреннюю схему без переписывания каждой страницы.
+
+---
+
+# 17. База данных: группы таблиц
+
+## 17.1. Catalog
+
+- organizations;
+- places;
+- place_profiles_*;
+- experiences;
+- experience_offerings;
+- events;
+- routes;
+- route_stops;
+- collections;
+- collection_items.
+
+## 17.2. Pricing, schedule, booking and policies
+
+- price_options;
+- schedules;
+- schedule_exceptions;
+- availability_snapshots;
+- booking_options;
+- policies;
+- packages;
+- package_items;
+- ticket_options;
+
+### Запрет слабой полиморфной ссылки
+
+Canonical schema **не использует** пару `(owner_type, owner_id)`: она не даёт нормальных foreign keys, усложняет RLS и позволяет ссылаться на несуществующий объект.
+
+Для общих коммерческих таблиц используются типизированные nullable FK, например:
+
+```sql
+place_id uuid references places(id),
+experience_offering_id uuid references experience_offerings(id),
+event_id uuid references events(id),
+check (num_nonnulls(place_id, experience_offering_id, event_id) = 1)
+```
+
+Если семантика сущности специфична, применяется отдельная типизированная таблица: например, `ticket_options.event_id NOT NULL`. RLS строится через конкретный FK и membership организации. Решение между nullable-FK и отдельной таблицей фиксируется в Data Dictionary; generic JSON owner запрещён.
+
+## 17.3. Taxonomy and geography
+
+- areas;
+- area_relations/path;
+- taxonomy_terms;
+- taxonomy_synonyms;
+- entity_terms;
+- amenities;
+- entity_amenities.
+
+## 17.4. Content and trust
+
+- editorial_profiles;
+- content_blocks;
+- sources;
+- field_evidence;
+- verifications;
+- publication_states;
+- change_requests;
+- media_assets;
+- media_links;
+- licenses;
+- redirects;
+- duplicate_clusters.
+
+## 17.5. Users and trips
+
+- profiles;
+- saved_items;
+- trips;
+- trip_days;
+- trip_items;
+- preference_signals;
+- shares.
+
+## 17.6. Partners and commerce
+
+- partner_memberships;
+- organization_claims;
+- offers;
+- offer_terms;
+- offer_inventory;
+- redemptions;
+- partner_contracts;
+- attribution_links.
+
+`sponsorship_campaigns` не входит в реализуемую схему V3.1. Название может быть зарезервировано только в Decision Log; таблицу, API и UI не создавать.
+
+## 17.7. Analytics and operations
+
+- interaction_events or delivery queue;
+- business_events;
+- experiment_assignments;
+- data_quality_issues;
+- audit_log;
+- job_runs;
+- notification_log.
+
+---
+
+# 18. Нефункциональные требования
+
+## 18.1. Performance
+
+- public pages server-rendered/cached;
+- images transformed and responsive;
+- card payloads do not include full detail;
+- slow external integrations never block page rendering;
+- graceful use on weak mobile internet;
+- offline access for saved essentials as later PWA enhancement.
+
+## 18.2. SEO
+
+- canonical URLs;
+- unique titles/descriptions;
+- structured data only when facts support it;
+- sitemap segmented by entity type;
+- publication gate separate from indexation gate;
+- entity relations create useful internal linking;
+- no mass thin pages from filter combinations.
+
+## 18.3. Security and privacy
+
+- least-privilege roles and RLS;
+- no public write access to canonical content;
+- rate limits and bot protection on forms/actions;
+- consent-aware analytics;
+- minimization of precise location history;
+- retention policy for anonymous and authenticated events;
+- audit log for partner, editorial and commercial changes;
+- secrets only in managed environment storage;
+- media upload validation and rights declaration.
+
+## 18.4. Reliability
+
+- database migrations reviewed and reversible;
+- backups and recovery tested;
+- idempotent webhooks and redemptions;
+- monitoring for broken external links;
+- error tracking by release;
+- data-quality checks before publication.
+
+---
+
+# 19. Восемь рабочих источников правды
+
+Не создаём двадцать документов заранее. Для проектирования, миграции и первого вертикального среза достаточно восьми управляемых источников правды.
+
+| # | Документ | Что фиксирует | Владелец |
+|---|---|---|---|
+| 1 | **Master Product Architecture** | Принципы, journeys, IA, domain model и технические границы | Founder/Product + Engineering |
+| 2 | **Data Dictionary** | Каждое поле, тип, entity, owner, source, обязательность, freshness и publication rule | Data/Engineering |
+| 3 | **Taxonomy v1** | Категории, сценарии, территории, аудитории, фильтры и warnings | Editorial/Product |
+| 4 | **Analytics Tracking Plan** | События, свойства, consent, identity, воронки и определения метрик | Product/Data |
+| 5 | **Content, Sources & Publication Policy** | Editorial rules, evidence, verification, media rights, publish/index gates | Editorial/SEO |
+| 6 | **Partner & Privileges Specification** | Claim flow, permissions, change requests, offers, redemption и reporting | B2B/Product + Engineering |
+| 7 | **Current-to-Target Migration Map** | Текущее поле → целевая сущность/поле → transform → keep/split/merge/deprecate | Engineering/Data |
+| 8 | **Implementation Roadmap + Decision Log** | Вертикальные срезы, acceptance gates, ADRs, открытые решения и порядок работ | Product/Engineering |
+
+Отдельные спецификации поиска, рекомендаций, безопасности, QA и API создаются внутри соответствующего этапа, когда появляется реализация. Они не блокируют фиксацию базовой модели.
+
+Каждый источник правды имеет version, status, owner, approver, last updated и список открытых решений. При конфликте действует более узкий утверждённый документ; архитектурные изменения обязательно отражаются в Decision Log.
+
+---
+
+# 20. Как строить без очередного бесконечного аудита
+
+## Gate 0. Единственный первый инженерный таск — T0
+
+До продуктовых волн команда диагностирует и исправляет подтверждённый риск `/places/[slug]`: detail-страница должна отдавать HTTP 200 и валидный HTML для browser, generic crawler и Googlebot UA; иметь корректный canonical, не содержать случайный `noindex`, входить в sitemap и internal-link graph.
+
+Порядок неизменяем:
+
+```text
+diagnose → measure scope → document → fix → accept → CI regression + 5xx alert
+```
+
+Scope измеряется stratified 3-UA sitemap sample и доступными причинами GSC Page Indexing. Google indexing — мониторинг, а не критерий приёмки. До документированной диагностики T0 архитектурные миграции, редизайн и массовое изменение маршрутов не начинаются.
+
+## Этап 1. Утвердить продуктовую модель
+
+Результат:
+
+- четыре режима продукта: Today, Explore, Plan, My Bali;
+- сущности;
+- навигация;
+- ownership партнёра и редакции;
+- правила коммерческого влияния.
+
+**Gate:** нет противоречий между продуктом, контентом и данными.
+
+## Этап 2. Зафиксировать Data Dictionary и Taxonomy
+
+Результат:
+
+- таблица всех полей;
+- типы и обязательность;
+- источники;
+- словари;
+- publication rules.
+
+**Gate:** любой объект можно создать без произвольных догадок.
+
+## Этап 3. Сделать migration mapping
+
+Для каждого текущего поля:
+
+```text
+current table.field
+→ target entity.field
+→ transform rule
+→ data quality issue
+→ keep / split / merge / deprecate
+```
+
+**Gate:** существующие карточки, URL и медиа не теряются.
+
+## Этап 4. Построить вертикальный срез
+
+Не весь сайт сразу. Один полностью работающий путь на данных из разных районов:
+
+```text
+Search/scenario
+→ results
+→ place + experience
+→ save/add to trip
+→ Maps/Instagram/WhatsApp
+→ analytics event
+→ admin report
+```
+
+Объекты специально берутся из нескольких районов. Это доказывает, что архитектура действительно Bali-wide.
+
+## Этап 5. Перенести контент и включить quality gates
+
+- автоматическая проверка структуры;
+- редакционная очередь;
+- freshness;
+- дубликаты;
+- SEO gate;
+- broken-link monitoring.
+
+## Этап 6. Добавить partner и privilege modules
+
+Только поверх уже работающего каталога и поведения:
+
+- claim;
+- fact changes;
+- offers;
+- redemption;
+- partner reports.
+
+## Этап 7. Оптимизировать по поведению
+
+Решения принимаются по:
+
+- search demand;
+- zero results;
+- comparison paths;
+- saves and trip use;
+- external actions;
+- confirmed outcomes;
+- data freshness and coverage quality.
+
+Не по количеству карточек и не по одному выбранному району.
+
+---
+
+# 21. Приоритет данных
+
+## Tier A — карточка помогает принять решение
 
 - identity and location;
-- `whyItsHere`;
-- `bestFor`;
-- a price or offering anchor;
-- source-backed practical facts;
-- a verified map link;
-- no internal draft language.
+- category/type;
+- one-line verdict;
+- best for / not ideal for;
+- price band;
+- hours/status;
+- primary action;
+- key warnings;
+- hero media with rights;
+- verification date.
 
-A menu additionally needs:
+## Tier B — карточка помогает действовать уверенно
 
-- official/partner/editorial source;
-- verification timestamp;
-- published state;
-- non-expired state;
-- at least one section and item.
+- deeper practical facts;
+- booking rules;
+- facilities;
+- audience/weather/transport fit;
+- menu/tickets;
+- multiple media types;
+- comparisons and nearby fit.
 
-An action additionally needs:
+## Tier C — коммерческий и персональный слой
 
-- verified provider;
-- valid handoff URL;
-- published state;
-- freshness state;
-- accurate confirmation semantics.
+- offers;
+- confirmed outcomes;
+- partner reporting;
+- personalization signals;
+- inventory and availability integrations.
 
-### 17.3 Language rules
-
-Allowed:
-
-- fit context;
-- logistics;
-- who/when it suits;
-- honest limitations relevant to a moment.
-
-Forbidden:
-
-- copied review text;
-- invented facts;
-- unsupported “best” claims;
-- public anti-lists;
-- fake availability;
-- unconfirmed partnership language.
+Лучше 300 decision-ready объектов по всему Бали, чем 2 000 пустых карточек. Но это правило качества, не искусственный лимит по району.
 
 ---
 
-## 18. Partner and admin operations
+# 22. Миграция без потерь и live-preservation
 
-### 18.1 Partner menu workflow
+До структурной реализации обязательны: Route Inventory, Page Preservation Map, Component Inventory, Media Asset Inventory & Reuse Registry, Current-to-Target Field Map, Internal Link Graph, Sitemap/HTTP Status Matrix, Analytics Current-to-Target Map и Redirect Proposal Register.
 
-```txt
-Partner submits or updates menu
-→ draft version
-→ validation
-→ operator/editorial review where needed
-→ publish
-→ previous version superseded
-→ freshness timer starts
-```
+`origin/main` и production определяют **as-is reality**, но не целевую архитектуру. Существующее не объявляется правильным только потому, что оно уже реализовано.
 
-### 18.2 Partner action workflow
+Обязательные live-решения:
 
-```txt
-Partner submits action URL/provider
-→ domain/provider validation
-→ test handoff
-→ operator approval
-→ publish
-→ scheduled re-check
-```
+| Live surface | Решение V3.1 |
+|---|---|
+| `/plan` | KEEP & REVISE; только future planning |
+| `/my-day` | REVISE; redirect к `/today` только после проверки links/SEO/analytics |
+| `/places`, `/places/[slug]` | KEEP; T0-fix обязателен |
+| `/route/[slug]` | KEEP как canonical; не переименовывать в `/routes` или `/trips` |
+| `/collections`, `/guides` | KEEP как Explore surfaces |
+| `/bali/[district]/[intent]` | KEEP; thin combinations получают noindex по index gate |
+| `/canggu` | KEEP как area/content layer, не product core |
+| `/for-venues`, `/villas`, `/hotels`, `/list-your-property` | KEEP; copy сверить с money-model каноном |
+| `/partner/*` | KEEP существующий partner portal |
+| Existing media | KEEP до реестра прав, качества и target usage |
 
-### 18.3 Admin queues
-
-Required queues:
-
-- stale menus;
-- broken menu source;
-- broken action URL;
-- capability expiring soon;
-- venue missing map verification;
-- menu with missing prices/sections;
-- unconfirmed perk visible;
-- place below publication gate;
-- external provider click spike with no verified capability;
-- pending partner review.
-
-### 18.4 Manual-first is acceptable
-
-A focused admin checklist is better than an elaborate CMS that does not protect data quality. Build automation where repeated operator work justifies it.
+Нельзя удалять routes, content, data или media во время discovery; выводить booking policy из наличия booking-ссылки; выводить Best for из Not ideal for; создавать redirect без owner review; смешивать repair-коммиты с архитектурной миграцией. Каждая миграция обратима и проверяется на реальных published-записях.
 
 ---
 
-## 19. SEO and content architecture
+# 23. Критерии готовности архитектуры
 
-### 19.1 Place pages
+Архитектура принимается, когда:
 
-Index only decision-ready pages. Structured menus can strengthen a page but do not automatically make it indexable.
-
-### 19.2 Dish discovery
-
-Menu items are structured data, not automatic SEO pages.
-
-Create a public dish guide only when it adds editorial value, such as:
-
-- ramen for a specific moment/area;
-- family pizza in Sanur;
-- vegan brunch in Ubud;
-- breakfast under a useful budget;
-- dishes worth sharing for a group dinner.
-
-Do not generate thousands of thin item pages.
-
-### 19.3 Schema markup
-
-Use verified facts only. Do not add ratings, reviews, opening hours, prices or menu schema that the source cannot support.
+1. Ни одна сущность и ни один публичный режим не зависят от выбранного стартового района.
+2. Ресторан, храм, экскурсия, событие, offer и маршрут моделируются без подмены типов.
+3. Любое публичное утверждение имеет owner/source/freshness.
+4. Партнёрские данные отделены от редакционного мнения.
+5. Органическое ранжирование отделено от коммерции.
+6. Поиск и аналитика фиксируют не только страницы, но и намерение/контекст.
+7. Текущие данные имеют явный migration path.
+8. Публичные страницы, admin и partner portal используют общую canonical model.
+9. Продукт работает без Privileges; Privileges усиливает, а не удерживает его конструкцию.
+10. Today shortcuts не смешиваются с canonical taxonomy; шесть launch shortcuts выбираются после Taxonomy V1.
+11. Sponsored/visibility tier отсутствует в runtime, схеме, API, UI и продажах.
+12. Общие коммерческие записи имеют типизированные FK и constraint одного владельца; `(owner_type, owner_id)` отсутствует.
+13. Existing routes, URLs, content и media имеют preservation-решение; detail pages проходят T0.
+14. Discovery, intent и confirmed outcome различаются аналитически.
+15. Команда может назвать canonical source для каждого типа данных.
 
 ---
 
-## 20. Error and fallback behaviour
+# 24. Governance и зафиксированные решения владельца
 
-- Missing menu: show `What to order` and verified official menu link if available.
-- Stale menu: hide structured prices/items, retain verified official link with note.
-- Missing reserve capability: show no reserve button; WhatsApp only when verified.
-- Missing delivery capability: do not infer one from the venue category.
-- Broken provider URL: suppress action and alert admin.
-- TablePilot unavailable: use verified fallback only; do not fabricate a reservation.
-- Google Maps URL invalid: use a safe search URL from venue name/address while flagging verification.
-- Analytics failure: never block the user’s action.
+## 24.1. Порядок источников правды
 
----
+1. Live-canon: money model, утверждённые audit corrections, T0 и honesty rules.
+2. Этот Master V3.1 — target product, public IA, domain boundaries и порядок реализации.
+3. Data Dictionary V1 → Taxonomy V1 → Migration Map V1.
+4. Утверждённые постраничные specs и acceptance matrices.
+5. Bali Privilege / Canggu документы — historical hypotheses, read-only.
 
-## 21. Migration and rollout strategy
+При конфликте побеждает более высокий или более узкий утверждённый источник. Архитектурное изменение требует датированной записи в Decision Log.
 
-### 21.1 Principles
+## 24.2. Решения, закрытые в V3.1
 
-- additive changes;
-- backward compatibility;
-- no edits to applied migrations;
-- one schema owner during parallel work;
-- idempotent backfills;
-- production migration apply remains an explicit founder/operator step;
-- feature remains hidden until data and UI are both ready.
+- Отдельная публичная витрина `/privileges`: **нет в текущем scope**; Offers показываются в карточках.
+- Sponsored/paid visibility tier: **нет**; reserved/disabled/out of scope.
+- Today: shortcuts выбираются после Taxonomy V1; до этого не объявляются canonical scenarios.
+- Canonical commercial ownership: typed FK + integrity constraint; weak polymorphic owner запрещён.
+- `origin/main`: источник as-is фактов, не target truth.
 
-### 21.2 Rollout order
+## 24.3. Требуют проверки, а не архитектурного угадывания
 
-1. schema and typed contracts;
-2. public read layer;
-3. action resolver and tracking;
-4. menu and action UI;
-5. partner/admin maintenance;
-6. verified data import;
-7. full QA;
-8. controlled publish.
-
-### 21.3 Backfill
-
-- generate reserve capability from `tablepilot_slug` where allowed;
-- generate WhatsApp fallback from verified `whatsapp`;
-- retain existing `gmaps_url`;
-- import verified external menu URLs as menu sources, not invented structured items;
-- do not publish empty menus.
+- реальные counts total/published/indexable берутся запросами к БД, а не из старых SEO-доков;
+- `/my-day` → `/today` redirect — только после preservation review;
+- price, schedule, booking policy, open-now и availability — только из подтверждённого поля с freshness.
 
 ---
 
-## 22. Quality and verification
+# 25. Финальное решение
 
-Every merged slice must pass:
+1. **Other Bali** — основное имя продукта и единый интерфейс.
+2. **Today** решает immediate decision; **Explore** — самостоятельное исследование; **Plan** — future planning; **My Bali** — сохранение и активация личных выборов.
+3. Home fork содержит две travel-двери: In Bali now / Planning a trip; partner entry вторичный.
+4. **Privileges** — необязательный контекстный слой внутри Other Bali, не режим навигации.
+5. География охватывает весь Бали на уровне модели данных с первого дня.
+6. Приоритет наполнения определяется спросом, качеством и стратегическими сценариями, а не догмой одного района.
+7. Editorial trust выше коммерции; единственный платный продукт — fee за подтверждённую seated-booking.
+8. Существующие страницы, данные и media сохраняются через явный mapping; T0 выполняется первым.
+9. Следующие обязательные документы — **Data Dictionary V1** и **Taxonomy V1**, затем **Current-to-Target Migration Map V1**.
 
-```txt
-npm run lint
-npm run build
-```
-
-Add focused tests for:
-
-- action resolution;
-- expired/stale suppression;
-- active-deep coverage;
-- URL validation;
-- menu publication mapping;
-- partner/editorial write separation;
-- event payload sanitization;
-- mobile action rendering;
-- no-action fallbacks.
-
-Browser QA must cover:
-
-- mobile home to shortlist;
-- published place with menu and all actions;
-- published place with external menu only;
-- place with no menu;
-- planning-only district place;
-- active-deep TablePilot place;
-- delivery provider handoff;
-- takeaway/pre-order request semantics;
-- Google Maps handoff;
-- save/share;
-- stale menu suppression;
-- keyboard and screen-reader basics;
-- no horizontal overflow.
-
----
-
-## 23. Current implementation baseline
-
-As of the architecture date, the repository already contains:
-
-- Other Bali public rebrand;
-- moment/day-intent home surface;
-- district and scenario pages;
-- decision-ready publication gate;
-- place detail pages;
-- Google Maps navigation links;
-- TablePilot reservation handoff and aggregate billable reporting;
-- WhatsApp fallback;
-- external verified menu links for a limited subset;
-- anonymous saves and shared lists;
-- partner onboarding and operator surfaces;
-- active-deep perk/QR flow;
-- evidence-backed venue enrichment across several districts.
-
-Not yet unified in the target architecture:
-
-- structured versioned menu tables;
-- menu-section/item UI across venues;
-- central action-capability registry;
-- delivery/takeaway/pre-order handoff resolver;
-- action payload analytics;
-- menu/action freshness admin queue;
-- partner menu/action maintenance workflow;
-- partner authentication, venue membership and the persistent restaurant
-  workspace (governed by `docs/OTHER_BALI_PLATFORM_ARCHITECTURE_20260715.md`).
-
-This is an extension of the current product, not a rebuild.
-
----
-
-## 24. Release acceptance criteria
-
-The action/menu architecture is complete when:
-
-1. a published venue can expose a verified structured menu;
-2. stale menu data is not represented as current;
-3. the place page clearly separates editorial picks from partner facts;
-4. reserve, delivery, takeaway, pre-order, Maps and save actions are capability-driven;
-5. no button appears without verified backing data;
-6. external fulfilment is disclosed accurately;
-7. Google Maps remains the navigation handoff;
-8. planning-only districts do not enter the billable/QR loop;
-9. action clicks are tracked without corrupting acquisition source or collecting PII;
-10. partner/admin users can maintain menu and action freshness;
-11. all new tables have RLS and tested write boundaries;
-12. lint, build, focused tests and mobile browser QA pass;
-13. documentation, migrations and handoff notes match the code.
-
----
-
-## 25. Locked decisions
-
-```txt
-Moments are the primary product entry.
-Categories remain data structure and secondary navigation.
-
-Menus — yes.
-Structured versioned menus — yes.
-Editorial “What to order” — yes, separate from partner content.
-Dish discovery — yes when curated and decision-useful.
-Automatic thin dish SEO pages — no.
-
-Reservations — yes through a gateway/handoff.
-Other Bali-owned booking engine — no.
-
-Delivery — yes through verified restaurant/provider handoffs.
-Other Bali-owned courier network — no.
-
-Takeaway — yes.
-Pre-order — yes only as a confirmation-required partner capability.
-Other Bali-owned order fulfilment/payment/refund system — no.
-
-Google Maps — yes as navigation infrastructure.
-Other Bali-owned navigation/traffic/ETA engine — no.
-
-My Bali / Saved — yes.
-Perks — optional supporting layer, active-deep only.
-Tourist-side payment product — no.
-Wallet / real-money cashback — not base architecture.
-AI concierge — only later as an interface over verified structured data.
-“Travel Operating System” — internal ambition at most, not public positioning.
-```
-
-### Final ownership rule
-
-```txt
-Other Bali owns:
-decision · explanation · trusted action interface · attribution · relationship
-
-Partners own:
-inventory · fulfilment · payment · cancellation · refund · operational support
-
-Google Maps owns:
-routing · traffic · ETA · turn-by-turn navigation
-```
+Это единственная исправленная целевая архитектура. Коммерческие пилоты, GTM, цены и региональные приоритеты ведутся отдельно и не меняют её без утверждённого решения в Decision Log.
