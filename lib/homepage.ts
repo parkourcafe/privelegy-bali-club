@@ -22,7 +22,7 @@ export interface HomeLinkItem {
 
 export const HOME_HERO = {
   eyebrow: "Curated across Bali",
-  h1: "The right Bali for the moment you’re in.",
+  h1: "The right place for the moment you’re in.",
   body: "Find places, routes and practical plans for your day or trip — with clear guidance, not endless lists.",
   primaryCta: { id: "hero_now", label: "Find a place now", href: "/my-day" },
   secondaryCta: { id: "hero_plan", label: "Plan my trip", href: "/plan" },

@@ -9,22 +9,45 @@ import PlanView from "../PlanView";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Plan my Canggu day",
+  title: "Plan your Bali trip",
   description:
-    "Build a Canggu day by the moment you're in — breakfast, work-friendly cafés, sunset, dinner. Curated picks with directions and confirmed offers. Free; travellers never pay.",
+    "Start a Bali trip plan from published itineraries, ready-made routes and the Canggu day-builder pilot. Free; travellers never pay.",
   alternates: { canonical: "/plan" },
   openGraph: {
-    title: "Plan my Canggu day · Other Bali",
+    title: "Plan your Bali trip · Other Bali",
     description:
-      "Build a Canggu day around your moment, with curated places, routes and practical handoffs.",
+      "Future-trip planning for Bali: itineraries, ready-made routes and a Canggu day-builder pilot.",
     url: "https://www.otherbali.com/plan",
     type: "website",
   },
 };
 
-// The working tourist tool. The cinematic landing at / funnels here; this page
-// stays fast and one-handed. ?m=<moment> preselects a day scenario (static
-// config, lib/moments.ts) so landing cards can deep-link into a filtered day.
+const TRIP_GUIDES = [
+  {
+    href: "/bali-itinerary-3-days",
+    title: "Bali in 3 days",
+    body: "A short trip without trying to see everything.",
+  },
+  {
+    href: "/bali-itinerary-5-days",
+    title: "Bali in 5 days",
+    body: "Choose a base, add one or two realistic day trips.",
+  },
+  {
+    href: "/bali-itinerary-7-days",
+    title: "Bali in 7 days",
+    body: "A fuller first-trip plan with enough room to slow down.",
+  },
+  {
+    href: "/where-to-stay-in-bali",
+    title: "Choose your base",
+    body: "Compare areas before you lock the shape of the trip.",
+  },
+];
+
+// Future planning surface. It shows published trip guides and route records
+// first. The current interactive planner underneath is explicitly framed as a
+// Canggu active-deep pilot so it no longer competes with /my-day (Today).
 export default async function Plan({
   searchParams,
 }: {
@@ -35,9 +58,7 @@ export default async function Plan({
     getCangguPlan(),
     getRoutes(),
   ]);
-  // This page is the Canggu day-builder specifically; getRoutes() now spans
-  // every district (routes/excursions elsewhere on the site), so scope here.
-  const routes = allRoutes.filter((r) => r.district === "canggu");
+  const routes = allRoutes;
 
   return (
     <div className="page-dark">
@@ -47,39 +68,56 @@ export default async function Plan({
           <div className="flex items-start justify-between">
             <BrandHomeLink />
             <Link href="/me" className="quiet-link">
-              My offers →
+              My Bali →
             </Link>
           </div>
-          <h1 className="hero-title mt-3">Your Canggu day</h1>
+          <p className="topline mt-3">Plan · Future trip planning</p>
+          <h1 className="hero-title mt-2">Plan your Bali trip</h1>
           <p className="hero-copy">
-            The right place for the moment you&apos;re in. Hand-picked places,
-            routes, and confirmed venue offers.
+            Use this when you are planning ahead: choose an itinerary, compare
+            areas, then save routes or places into one trip. If you need a
+            decision for right now, use Today instead.
           </p>
           <div className="hero-actions">
-            <Link href="#routes" className="button-primary button-large">
-              Pick a route
+            <Link href="#trip-guides" className="button-primary button-large">
+              Start with trip length
             </Link>
-            <Link href="#guide" className="button-secondary button-large">
-              Browse places
+            <Link href="#routes" className="button-secondary button-large">
+              Browse ready-made routes
             </Link>
-            <Link href="/places" className="button-secondary button-large">
-              All Bali places
+            <Link href="/my-day" className="button-secondary button-large">
+              Need today instead?
             </Link>
-            <p className="hero-note">No signup. Offers appear only where venues confirm them.</p>
+            <p className="hero-note">No signup. Planning stays separate from paid placement.</p>
           </div>
         </div>
-        <div className="editorial-signal" aria-label="Canggu route collage">
-          <p className="editorial-signal-label">From coffee to dinner, picked for the kind of day you&apos;re having.</p>
+        <div className="editorial-signal" aria-label="Plan page role">
+          <p className="editorial-signal-label">
+            Future trip → itinerary → routes → saved plan.
+          </p>
         </div>
         <div className="lg:col-span-2">
-          <GuideHeroMedia seed="plan canggu day routes" />
+          <GuideHeroMedia seed="plan bali trip itineraries routes" />
         </div>
       </header>
+
+      <section id="trip-guides" className="scroll-mt-8">
+        <h2 className="topline">Trip planning starters</h2>
+        <GuideSectionMedia seed="plan bali trip length guides" index={0} />
+        <div className="related-guides mt-4">
+          {TRIP_GUIDES.map((guide) => (
+            <Link key={guide.href} href={guide.href} className="related-guide-card">
+              <h3>{guide.title}</h3>
+              <p>{guide.body}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {routes.length > 0 && (
         <section id="routes" className="scroll-mt-8">
           <h2 className="topline">Ready-made routes</h2>
-          <GuideSectionMedia seed="plan ready made routes canggu" index={0} />
+          <GuideSectionMedia seed="plan ready made routes bali" index={1} />
           <div className="route-strip">
             {routes.map((r) => (
               <Link
@@ -98,13 +136,20 @@ export default async function Plan({
         </section>
       )}
 
-      <section id="guide" className="scroll-mt-8">
-        <GuideSectionMedia seed="plan guide canggu places" index={1} />
+      <section id="canggu-day-builder" className="scroll-mt-8">
+        <p className="topline">Canggu active-deep pilot</p>
+        <h2 className="section-title mt-2">Build a Canggu day</h2>
+        <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
+          Canggu currently has the deepest operational coverage. This module is
+          a pilot for arranging a day there; it does not mean the rest of Bali is
+          missing from Explore or future planning.
+        </p>
+        <GuideSectionMedia seed="plan guide canggu places pilot" index={2} />
         <PlanView plan={plan} initialMoment={m} />
       </section>
 
       <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-        Free to use. Offers appear only where venues confirm them.
+        Free to use. Organic planning order is not paid placement.
       </p>
     </main>
     <GuideFooter />

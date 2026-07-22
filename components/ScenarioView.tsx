@@ -49,7 +49,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
                 {scenario.ctaLabel}
               </Link>
               <Link href="/plan" className="button-secondary button-large">
-                Plan a Canggu day
+                Plan your Bali trip
               </Link>
               <p className="hero-note">
                 Free to use. Offers appear only where venues confirm them.

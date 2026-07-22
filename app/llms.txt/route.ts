@@ -49,7 +49,8 @@ export async function GET() {
     ...GUIDES.map((g) => `- [${g.title}](${BASE}/${g.slug}): ${g.description}`),
     "",
     "## Tools",
-    `- [Plan a Canggu day](${BASE}/plan)`,
+    `- [Plan your Bali trip](${BASE}/plan)`,
+    `- [Build a Canggu day](${BASE}/plan#canggu-day-builder)`,
     `- [Browse all places](${BASE}/places)`,
     "",
   ];

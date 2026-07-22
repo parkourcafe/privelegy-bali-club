@@ -3,8 +3,12 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import StartYourShortlist from "@/components/StartYourShortlist";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { getPublishedVenues } from "@/lib/data";
+import { buildStartShortlist } from "@/lib/start-shortlist";
+import { ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
 
 const canonicalUrl = "https://www.otherbali.com/uluwatu";
 const reviewDate = "2026-07-23";
@@ -47,7 +51,10 @@ const guideLinks = [
   { href: "/uluwatu/48-hours", label: "48 hours" },
 ];
 
-export default function UluwatuPillarPage() {
+export default async function UluwatuPillarPage() {
+  const venues = (await getPublishedVenues())
+    .filter((venue) => venue.district === ULUWATU_DB_SLUG);
+
   return (
     <main className="site-shell">
       <PageViewTracker event="district_page_view" slug="uluwatu" />
@@ -70,6 +77,8 @@ export default function UluwatuPillarPage() {
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Uluwatu planning guides">
         {guideLinks.map((item) => <Link key={item.href} href={item.href} className="chip">{item.label}</Link>)}
       </nav>
+
+      <StartYourShortlist district="Uluwatu" items={buildStartShortlist(venues)} />
 
       <section className="guide-section">
         <h2>Start with the planning label</h2>

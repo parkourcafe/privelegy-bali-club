@@ -19,7 +19,7 @@ function escapeRegExp(value) {
 }
 
 test("homepage preserves the Wave 4 product promise and traveller journey", () => {
-  assert.match(homepageConfigSource, /The right Bali for the moment you’re in\./);
+  assert.match(homepageConfigSource, /The right place for the moment you’re in\./);
   assert.match(homepageConfigSource, /Find a place now/);
   assert.match(homepageConfigSource, /Plan my trip/);
   assert.match(homeSource, /id="moments-title"/);

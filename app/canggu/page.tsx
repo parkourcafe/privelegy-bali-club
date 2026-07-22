@@ -146,10 +146,10 @@ export default async function CangguPillarPage() {
           actions={
             <>
               <Link
-                href="/plan"
+                href="/plan#canggu-day-builder"
                 className="inline-flex rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
               >
-                Plan your Canggu day
+                Open the Canggu day builder
               </Link>
               <Link
                 href="/places?district=canggu"
@@ -260,19 +260,19 @@ export default async function CangguPillarPage() {
           links={[
             { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliffs, surf and the island's best sunsets." },
             { href: "/first-time-in-bali", title: "First time in Bali", blurb: "Your first day without the rookie mistakes." },
-            { href: "/plan", title: "Plan a Canggu day", blurb: "Build a day by the moment you're in." },
+            { href: "/plan#canggu-day-builder", title: "Canggu day builder", blurb: "Use the active-deep pilot for a Canggu day." },
           ]}
         />
 
         <div className="cta-band">
-          <h2>Plan your Canggu day</h2>
+          <h2>Use the Canggu day builder</h2>
           <p>
             Surf or café in the morning, reset in the afternoon, a table or a
             beach club for sunset — build it around the moment you&apos;re in, with
-            reservations a tap away.
+            published Canggu places and confirmed actions where available.
           </p>
-          <Link href="/plan" className="cta-band-action">
-            Build your Canggu day →
+          <Link href="/plan#canggu-day-builder" className="cta-band-action">
+            Open the Canggu builder →
           </Link>
         </div>
 

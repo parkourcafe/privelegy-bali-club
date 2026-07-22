@@ -24,9 +24,9 @@ export const MIN_VENUES = 10;
 export const MIN_DISTRICTS = 3;
 
 // Shared curation line — our no-ratings honesty as a feature. Identical across
-// every collection (brief §4.3, mandatory element).
+// every collection, and limited to rules enforced by the current catalogue.
 export const CURATION_NOTE =
-  "No ratings, no paid placements — every place here was chosen for fit by people who live on the island.";
+  "No ratings, no paid placements — every linked place must pass the publication gate before it appears.";
 
 // The district order collections render in; empty districts are dropped. Same
 // spine as the best-of guides so the taste pages read as sister pages.
