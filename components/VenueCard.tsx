@@ -153,9 +153,7 @@ export default function VenueCard({
               href={v.gmapsUrl}
               venueSlug={v.slug}
               className="button-secondary"
-            >
-              Directions
-            </TrackedDirectionsLink>
+            />
             {resolvedActionMode === "full" && (
               <>
                 <ReserveButton

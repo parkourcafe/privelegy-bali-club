@@ -8,6 +8,7 @@ import {
   TrackedReservationLink,
 } from "@/components/PlaceCardActions";
 import { venueCategoryLabel } from "@/lib/venue-presentation";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -119,7 +120,7 @@ export default function PlaceCard({
                   venueSlug={place.slug}
                   className="place-card-cta"
                 >
-                  Directions
+                  {googleMapsHandoffLabel(place.gmapsUrl) ?? "Open in Maps"}
                 </TrackedDirectionLink>
               )
             )}
