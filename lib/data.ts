@@ -30,6 +30,7 @@ import {
   PUBLIC_CACHE_TAGS,
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
+import { normalizeInstagramProfileUrl } from "./external-links";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -183,7 +184,7 @@ const mapVenue = (r: Row): Venue => {
     address: (r.address as string) ?? "",
     gmapsUrl: publicDirectionsUrl(r),
     officialUrl: (r.official_url as string) ?? undefined,
-    instagramUrl: (r.instagram_url as string) ?? undefined,
+    instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
@@ -730,13 +731,14 @@ async function fetchSimilarVenues(
     if (categoryResult.error || vibeResult.error) return [];
 
     const targetTags = new Set(vibeTags);
-    const ranked = uniqueBy(
+    const candidates = keepRenderableVenues(uniqueBy(
       [
         ...((categoryResult.data ?? []) as unknown as Row[]),
         ...((vibeResult.data ?? []) as unknown as Row[]),
       ].map(mapVenue),
       (candidate) => candidate.slug,
-    )
+    )).filter(isPublicReadyVenue);
+    const ranked = candidates
       .map((candidate) => ({
         candidate,
         score:
@@ -750,7 +752,7 @@ async function fetchSimilarVenues(
       )
       .slice(0, safeLimit)
       .map(({ candidate }) => candidate);
-    const renderable = keepRenderableVenues(ranked);
+    const renderable = ranked;
     if (renderable.length === 0) return [];
 
     const { data: perkRows } = await sb
@@ -774,7 +776,7 @@ async function fetchSimilarVenues(
 
 const getCachedSimilarVenues = unstable_cache(
   fetchSimilarVenues,
-  ["similar-venues-v1"],
+  ["similar-venues-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
