@@ -74,7 +74,7 @@ export const NAV_GROUPS: NavGroup[] = [
     links: [
       { href: "/canggu", label: "Canggu" },
       { href: "/seminyak", label: "Seminyak" },
-      { href: "/uluwatu-sunset-kecak", label: "Uluwatu & the Bukit" },
+      { href: "/uluwatu", label: "Uluwatu & the Bukit" },
       { href: "/jimbaran", label: "Jimbaran" },
       { href: "/nusa-dua", label: "Nusa Dua" },
       { href: "/sanur", label: "Sanur" },

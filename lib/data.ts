@@ -648,8 +648,12 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
   // unknown category before they reach sort/uniqueBy/display. A bad active row
   // (bulk import, partial migration) is logged and excluded, never rendered.
   const renderable = keepRenderableVenues([...venues, ...uluwatuFallback]);
+  // Apply the same editorial publication policy used by /places/[slug]. Without
+  // this shared gate, a sparse DB row can appear on a public hub card while its
+  // detail route correctly returns 404, creating a broken internal link.
+  const publicReady = renderable.filter(isPublicReadyVenue);
 
-  return uniqueBy(renderable, (v) => v.slug)
+  return uniqueBy(publicReady, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,

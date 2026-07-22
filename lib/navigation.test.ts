@@ -60,3 +60,12 @@ test("gateway art assets exist", () => {
     );
   }
 });
+
+test("broad area labels route to district pillars", () => {
+  const areas = NAV_GROUPS.find((group) => group.key === "areas");
+  assert.ok(areas, "missing Areas navigation group");
+  assert.equal(
+    areas.links.find((link) => link.label === "Uluwatu & the Bukit")?.href,
+    "/uluwatu",
+  );
+});

@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 function logDirectionClick(venueSlug: string) {
   fetch("/api/event", {
@@ -15,13 +16,15 @@ export default function TrackedDirectionsLink({
   href,
   venueSlug,
   className,
-  children = "Directions",
+  children,
 }: {
   href: string;
   venueSlug: string;
   className?: string;
   children?: ReactNode;
 }) {
+  const label = children ?? googleMapsHandoffLabel(href) ?? "Open in Maps";
+
   return (
     <a
       href={href}
@@ -30,7 +33,7 @@ export default function TrackedDirectionsLink({
       onClick={() => logDirectionClick(venueSlug)}
       className={className}
     >
-      {children}
+      {label}
     </a>
   );
 }
