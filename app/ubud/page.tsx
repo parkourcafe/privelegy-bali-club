@@ -40,10 +40,42 @@ const articleJsonLd = {
 };
 
 const placeLinks = [
-  { href: "/places/bali-buda-ubud", label: "Bali Buda Ubud" },
-  { href: "/places/anomali-coffee-ubud", label: "Anomali Coffee Ubud" },
-  { href: "/places/maya-ubud-yoga-ubud", label: "Maya Ubud Yoga" },
-  { href: "/places/suka-espresso-ubud", label: "Suka Espresso Ubud" },
+  { href: "/places/alchemy-yoga-and-meditation-center-ubud", label: "Alchemy Yoga and Meditation Center", category: "Yoga & wellness" },
+  { href: "/places/anomali-coffee-ubud", label: "Anomali Coffee Ubud", category: "Cafés" },
+  { href: "/places/bali-buda-ubud", label: "Bali Buda Ubud", category: "Cafés" },
+  { href: "/places/big-dragon-villas-ubud", label: "Big Dragon Villas Ubud", category: "Stay" },
+  { href: "/places/coco-nails-ubud", label: "Coco Nails Ubud", category: "Beauty" },
+  { href: "/places/como-shambhala-at-como-uma-ubud-yoga-ubud", label: "COMO Shambhala at COMO Uma Ubud Yoga", category: "Yoga & wellness" },
+  { href: "/places/dala-spa-at-alaya-resort-ubud", label: "DaLa Spa at Alaya Resort Ubud", category: "Wellness" },
+  { href: "/places/dala-spa-beauty-at-alaya-ubud-ubud", label: "DaLa Spa Beauty at Alaya Ubud", category: "Beauty" },
+  { href: "/places/donna-ubud", label: "Donna Ubud", category: "Restaurants" },
+  { href: "/places/gelato-secrets-ubud", label: "Gelato Secrets Ubud", category: "Cafés" },
+  { href: "/places/jaens-spa-ubud-ubud", label: "Jaens Spa Ubud", category: "Wellness" },
+  { href: "/places/mandapa-spa-ubud", label: "Mandapa Spa", category: "Wellness" },
+  { href: "/places/maya-ubud-fitness-centre-ubud", label: "Maya Ubud Fitness Centre", category: "Fitness" },
+  { href: "/places/maya-ubud-spa-ubud", label: "Maya Ubud Spa", category: "Wellness" },
+  { href: "/places/maya-ubud-yoga-ubud", label: "Maya Ubud Yoga", category: "Yoga & wellness" },
+  { href: "/places/milk-and-madu-ubud", label: "Milk & Madu Ubud", category: "Cafés" },
+  { href: "/places/sacred-river-spa-at-four-seasons-sayan-ubud", label: "Sacred River Spa at Four Seasons Sayan", category: "Wellness" },
+  { href: "/places/spring-spa-ubud", label: "Spring Spa Ubud", category: "Wellness" },
+  { href: "/places/suka-espresso-ubud", label: "Suka Espresso Ubud", category: "Cafés" },
+  { href: "/places/svaha-spa-beauty-ubud-ubud", label: "Svaha Spa Beauty Ubud", category: "Beauty" },
+  { href: "/places/svaha-spa-bisma-ubud", label: "Svaha Spa Bisma", category: "Wellness" },
+  { href: "/places/taksu-spa-ubud", label: "Taksu Spa", category: "Wellness" },
+  { href: "/places/taksu-spa-beauty-ubud", label: "Taksu Spa Beauty", category: "Beauty" },
+  { href: "/places/taksu-yoga-ubud", label: "Taksu Yoga & Wellness Center", category: "Yoga & wellness" },
+  { href: "/places/titi-batu-ubud-club-ubud", label: "Titi Batu Ubud Club", category: "Fitness" },
+  { href: "/places/ubud-beauty-salon", label: "Ubud Beauty Salon", category: "Beauty" },
+  { href: "/places/ubud-fitness-center", label: "Ubud Fitness Center", category: "Fitness" },
+  { href: "/places/ubud-gym", label: "Ubud Gym", category: "Fitness" },
+  { href: "/places/ubud-pilates", label: "Ubud Pilates", category: "Fitness" },
+  { href: "/places/ubud-sari-health-resort", label: "Ubud Sari Health Resort", category: "Wellness" },
+  { href: "/places/ubud-traditional-spa", label: "Ubud Traditional Spa", category: "Wellness" },
+  { href: "/places/ubud-yoga-centre", label: "Ubud Yoga Centre", category: "Yoga & wellness" },
+  { href: "/places/ubud-yoga-house", label: "Ubud Yoga House", category: "Yoga & wellness" },
+  { href: "/places/watercress-ubud", label: "Watercress Ubud", category: "Cafés" },
+  { href: "/places/zest-ubud", label: "Zest Ubud", category: "Restaurants" },
+  { href: "/places/zuna-yoga-ubud", label: "Zuna Yoga", category: "Yoga & wellness" },
 ];
 
 export default function UbudPillarPage() {
@@ -120,12 +152,12 @@ export default function UbudPillarPage() {
       </section>
 
       <section className="guide-section">
-        <h2>More verified place pages</h2>
+        <h2>Verified Ubud places</h2>
         <div className="related-guides">
           {placeLinks.map((place) => (
             <Link key={place.href} href={place.href} className="related-guide-card">
               <h3>{place.label}</h3>
-              <p>Open the specific place profile.</p>
+              <p>{place.category} · Open the specific place profile.</p>
             </Link>
           ))}
         </div>

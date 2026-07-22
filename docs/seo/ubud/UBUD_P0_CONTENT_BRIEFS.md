@@ -10,6 +10,6 @@
 - Sections: verified snapshot; choose Ubud if; reconsider if coast is primary; centre-versus-away planning question; handoffs to things to do, itinerary, food, coffee and wellness.
 - Allowed claims: `P0-UBUD-PILLAR-001` through `006`.
 - Prohibited: rankings, exact times/distances, walkability promises, current schedules/prices, named best zones, family/accessibility conclusions.
-- Internal links: direct place profiles only — Bali Buda Ubud, Anomali Coffee Ubud, Maya Ubud Yoga and Suka Espresso Ubud. Generic district guides are not CTA targets on this pillar.
+- Internal links: direct place profiles only; use the full audited Ubud place set in `UBUD_PLACE_LINK_AUDIT_2026-07-23.md`. Generic district guides are not CTA targets on this pillar.
 - Schema: `Article`, `TravelGuide`, `BreadcrumbList`.
 - Gate: source, editorial, technical, independent review and preview must pass.
