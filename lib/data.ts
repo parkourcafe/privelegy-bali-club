@@ -419,7 +419,7 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
 
   // Registry fallback: Uluwatu venues render from lib/uluwatu/venues.ts when
   // the DB row is missing (seed mode / prod migration lag).
-  if (allowSeed && !venue) {
+  if (!venue) {
     const content = getUluwatuContent(slug);
     if (content?.publication === "published") venue = uluwatuAsVenue(content) as Venue;
   }
@@ -640,9 +640,7 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
   // Uluwatu registry venues ride along as a resilience layer: when the DB is
   // unreachable (seed mode) or a prod migration lags the repo, the district
   // product still renders. uniqueBy keeps the DB row when both exist.
-  const uluwatuFallback = allowSeed
-    ? publishedUluwatuVenues().map(uluwatuAsVenue) as Venue[]
-    : [];
+  const uluwatuFallback = publishedUluwatuVenues().map(uluwatuAsVenue) as Venue[];
 
   // Guard the trust boundary: drop rows missing slug/name/district or with an
   // unknown category before they reach sort/uniqueBy/display. A bad active row
