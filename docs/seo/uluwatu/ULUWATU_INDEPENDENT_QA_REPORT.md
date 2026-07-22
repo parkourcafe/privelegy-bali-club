@@ -13,9 +13,9 @@
 
 Internal SEO ownership language was replaced with traveller-facing copy.
 
-## Preview blocker to verify
+## Runtime blocker resolution
 
-Local production SSR without the configured catalogue returns 404/noindex because `app/uluwatu/layout.tsx` requires the complete legacy venue roster. A configured Vercel preview must prove HTTP 200, one canonical, no noindex, schema, sitemap membership, internal links and mobile rendering. If preview also returns 404, the preview is not release-ready and the shared layout requires a separate architecture fix.
+The shared layout 404 finding was confirmed on the first preview. The venue-completeness gate was then moved to nested layouts for existing venue-dependent child guides, leaving the evidence-backed pillar independent. A replacement preview must still prove HTTP 200, one canonical, no noindex, schema, sitemap membership, internal links and mobile rendering.
 
 ## Follow-up backlog
 

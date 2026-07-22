@@ -32,6 +32,6 @@ The pillar owns base fit and planning-label scope. Existing children retain food
 - Typecheck: pass.
 - Production build: pass.
 
-## Known technical risk
+## Runtime gate repair
 
-`app/uluwatu/layout.tsx` still couples every Uluwatu editorial page to completeness of the legacy published venue roster. Local production SSR without the production catalogue returns 404 for `/uluwatu`; this task does not alter the shared subtree gate. Preview must confirm HTTP 200 with its configured data environment before release readiness.
+The venue-roster completeness gate moved from the shared `/uluwatu` layout to nested layouts on the six existing venue-dependent child guides. The evidence-backed pillar no longer returns 404 when unrelated venue data is incomplete; child publication protection remains unchanged.
