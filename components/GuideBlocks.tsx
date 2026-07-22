@@ -121,12 +121,13 @@ export function RelatedGuides({ links, heading = "Keep planning" }: { links: Gui
 // Inline venue link for prose — always the internal place page.
 export async function PlaceLink({ slug, children }: { slug: string; children?: React.ReactNode }) {
   const content = getUluwatuContent(slug);
-  if (!(await publicVenueSlugs()).has(slug)) {
-    return <span>{children ?? content?.displayName ?? slug}</span>;
+  // Editorial Uluwatu pages are backed by the reviewed registry. A preview
+  // database can lag that registry, but it must not downgrade a valid venue
+  // reference into dead plain text.
+  if (content?.publication === "published") {
+    return <Link href={`/places/${slug}`}>{children ?? content.displayName}</Link>;
   }
-  return (
-    <Link href={`/places/${slug}`}>{children ?? content?.displayName ?? slug}</Link>
-  );
+  return <span>{children ?? content?.displayName ?? slug}</span>;
 }
 
 // The shared site footer, in its light tone — the guide/district/catalogue
