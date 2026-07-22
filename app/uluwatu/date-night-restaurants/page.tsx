@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import {
   FaqBlock,
   GuideFooter,
@@ -104,8 +105,10 @@ export default function DateNightPage() {
             8 places · verified 2026-07-12 · editorial order, no paid ranking
           </p>
         </header>
+        <GuideHeroMedia seed="uluwatu date night sunset dinner" />
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu romantic dinner" index={0} />
           <h2>Quiet conversation</h2>
           <p className="guide-lede">
             The talk-across-the-table rooms.
@@ -114,6 +117,7 @@ export default function DateNightPage() {
         </section>
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu special occasion" index={1} />
           <h2>The view does half the work</h2>
           <p className="guide-lede">
             Book golden hour, let the cliff carry the evening.

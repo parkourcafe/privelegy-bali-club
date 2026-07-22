@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import {
   FaqBlock,
   GuideFooter,
@@ -108,8 +109,10 @@ export default function BeachClubsSunsetPage() {
             7 places · verified 2026-07-12 · editorial order, no paid ranking
           </p>
         </header>
+        <GuideHeroMedia seed="uluwatu beach clubs sunset coast" />
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu golden hour coast" index={0} />
           <h2>The honest comparison</h2>
           <div className="compare-table-wrap">
             <table className="compare-table">

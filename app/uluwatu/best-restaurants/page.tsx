@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import {
   FaqBlock,
   GuideFooter,
@@ -110,8 +111,10 @@ export default function BestRestaurantsPage() {
             12 places · verified 2026-07-12 · editorial order, no paid ranking
           </p>
         </header>
+        <GuideHeroMedia seed="uluwatu restaurants dinner" />
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu dinner by area" index={0} />
           <h2>Date night</h2>
           <p className="guide-lede">
             Rooms where the food and the mood both hold up. For the full
@@ -125,6 +128,7 @@ export default function BestRestaurantsPage() {
         </section>
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu occasion dining" index={1} />
           <h2>Groups</h2>
           <p className="guide-lede">
             Sharing formats and rooms that absorb eight people without losing

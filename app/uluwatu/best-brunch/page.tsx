@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import {
   FaqBlock,
   GuideFooter,
@@ -106,8 +107,10 @@ export default function BestBrunchPage() {
             7 places · verified 2026-07-12 · editorial order, no paid ranking
           </p>
         </header>
+        <GuideHeroMedia seed="uluwatu brunch coffee morning" />
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu coffee first" index={0} />
           <h2>Coffee first</h2>
           <p className="guide-lede">
             When the flat white matters more than the plate.
@@ -116,6 +119,7 @@ export default function BestBrunchPage() {
         </section>
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu post surf breakfast" index={1} />
           <h2>Post-surf breakfast</h2>
           <p className="guide-lede">
             Real plates near the breaks — earned calories, short scooter rides.

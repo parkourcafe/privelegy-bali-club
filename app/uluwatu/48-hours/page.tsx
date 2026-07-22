@@ -11,6 +11,7 @@ import {
 } from "@/components/GuideBlocks";
 import { getUluwatuContent } from "@/lib/uluwatu/venues";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 
 // Search intent: "48 hours in uluwatu / uluwatu itinerary / 2 days uluwatu".
 // Primary keyword: "48 hours in Uluwatu"; secondary: "Uluwatu itinerary",
@@ -217,8 +218,10 @@ export default function FortyEightHoursPage() {
             Verified 2026-07-12 · food, drink & sunset scope · works by scooter or driver
           </p>
         </header>
+        <GuideHeroMedia seed="uluwatu 48 hours itinerary" />
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu morning surf" index={0} />
           <h2>Day 1 — the west cliffs</h2>
           <p className="guide-lede">
             Suluban, Labuan Sait and Padang Padang: the postcard day.
@@ -227,6 +230,7 @@ export default function FortyEightHoursPage() {
         </section>
 
         <section className="guide-section">
+          <GuideSectionMedia seed="uluwatu cliffs lunch" index={1} />
           <h2>Day 2 — Bingin, then the south side</h2>
           <p className="guide-lede">
             A slow Bingin morning, one ride south, and an afternoon that ends
