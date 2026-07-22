@@ -67,6 +67,21 @@ const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" 
   trip_lengths: { scene: "hero-sunset", variant: "sunset" },
 };
 
+const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
+  first_trip: { scene: "moment-morning", variant: "ridge" },
+  three_days: { scene: "hero-sunset", variant: "sunset" },
+  five_days: { scene: "moment-goldenhour", variant: "sunset" },
+  seven_days: { scene: "moment-warung", variant: "surf" },
+  no_scooter: { scene: "moment-morning", variant: "ridge" },
+};
+
+const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
+  eat_drink: { scene: "moment-warung", variant: "surf" },
+  beach_pool: { scene: "moment-goldenhour", variant: "sunset" },
+  wellness: { scene: "moment-morning", variant: "ridge" },
+  things_to_do: { scene: "hero-sunset", variant: "sunset" },
+};
+
 function CardGrid({ items }: { items: HomeLinkItem[] }) {
   return (
     <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -113,19 +128,26 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
 function CompactLinkGrid({ items }: { items: HomeLinkItem[] }) {
   return (
     <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-      {items.map((item, index) => (
-        <HomeAnalyticsLink
-          key={item.id}
-          href={item.href}
-          sectionId={item.sectionId}
-          itemId={item.id}
-          itemKind={item.kind}
-          position={index + 1}
-          className="rounded-2xl border border-[#e4d8c8] bg-white px-4 py-3 text-sm font-semibold text-[#2b1a13] transition hover:border-[#005962]/40 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-        >
-          {item.label}
-        </HomeAnalyticsLink>
-      ))}
+      {items.map((item, index) => {
+        const scene = CATEGORY_SCENE[item.id] ?? MOMENT_SCENE[item.id] ?? { scene: "hero-sunset", variant: "sunset" as const };
+        return (
+          <HomeAnalyticsLink
+            key={item.id}
+            href={item.href}
+            sectionId={item.sectionId}
+            itemId={item.id}
+            itemKind={item.kind}
+            position={index + 1}
+            className="group overflow-hidden rounded-2xl border border-[#e4d8c8] bg-white text-sm font-semibold text-[#2b1a13] transition hover:border-[#005962]/40 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+          >
+            <span className="relative block min-h-20 overflow-hidden bg-[#2b1a13]">
+              <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="transition duration-700 group-hover:scale-105" />
+              <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+            </span>
+            <span className="block px-4 py-3">{item.label}</span>
+          </HomeAnalyticsLink>
+        );
+      })}
     </div>
   );
 }
@@ -258,9 +280,21 @@ export default function HomePage() {
                       itemId={plan.id}
                       itemKind={plan.kind}
                       position={index + 1}
-                      className="rounded-3xl border border-[#e4d8c8] bg-white p-5 transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+                      className="group overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
                     >
-                      <span className="flex items-start justify-between gap-3">
+                      <span className="relative block min-h-24 overflow-hidden bg-[#2b1a13]">
+                        {PLAN_SCENE[plan.id] ? (
+                          <SceneImage
+                            scene={PLAN_SCENE[plan.id].scene}
+                            variant={PLAN_SCENE[plan.id].variant}
+                            imgClassName="transition duration-700 group-hover:scale-105"
+                          />
+                        ) : (
+                          <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
+                        )}
+                        <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+                      </span>
+                      <span className="flex items-start justify-between gap-3 p-5">
                         <span>
                           <span className="block font-display text-xl">{plan.label}</span>
                           <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{plan.body}</span>
@@ -345,39 +379,52 @@ export default function HomePage() {
               Start with your moment, area or trip plan, then open the guide that fits.
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
-              {HOME_TRUST_PRINCIPLES.map((principle) => (
-                <li key={principle} className="rounded-3xl border border-[#e4d8c8] bg-white p-5 text-sm font-semibold">
-                  {principle}
-                </li>
-              ))}
+              {HOME_TRUST_PRINCIPLES.map((principle, index) => {
+                const scene = [MOMENT_SCENE.first_day, CATEGORY_SCENE.beach_pool, CATEGORY_SCENE.things_to_do][index] ?? MOMENT_SCENE.first_day;
+                return (
+                  <li key={principle} className="overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white text-sm font-semibold">
+                    <span className="relative block min-h-20 overflow-hidden bg-[#2b1a13]">
+                      <SceneImage scene={scene.scene} variant={scene.variant} />
+                      <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+                    </span>
+                    <span className="block p-5">{principle}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
-          <div className="rounded-[2rem] bg-[#005962] p-6 text-white sm:p-8">
-            <h3 className="font-display text-3xl leading-tight">Keep your Bali shortlist in one place.</h3>
-            <p className="mt-4 leading-relaxed text-white">
-              Save places and plans so they’re easy to find when you need them.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <HomeAnalyticsLink
-                href="/places"
-                sectionId="home_trust_save"
-                itemId="save_start"
-                itemKind="cta"
-                position={1}
-                className="inline-flex min-h-12 items-center rounded-full bg-white px-5 font-semibold text-[#005962] transition hover:bg-[#f3ecdf] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              >
-                Build my shortlist
-              </HomeAnalyticsLink>
-              <HomeAnalyticsLink
-                href="/me"
-                sectionId="home_trust_save"
-                itemId="saved_open"
-                itemKind="cta"
-                position={2}
-                className="inline-flex min-h-12 items-center rounded-full border border-white/50 px-5 font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              >
-                View my shortlist
-              </HomeAnalyticsLink>
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#005962] p-6 text-white sm:p-8">
+            <div className="absolute inset-0 opacity-25" aria-hidden="true">
+              <SceneImage scene="moment-dinner" variant="night" imgClassName="ob-grade" />
+            </div>
+            <div className="absolute inset-0 bg-[#005962]/80" aria-hidden="true" />
+            <div className="relative">
+              <h3 className="font-display text-3xl leading-tight">Keep your Bali shortlist in one place.</h3>
+              <p className="mt-4 leading-relaxed text-white">
+                Save places and plans so they’re easy to find when you need them.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <HomeAnalyticsLink
+                  href="/places"
+                  sectionId="home_trust_save"
+                  itemId="save_start"
+                  itemKind="cta"
+                  position={1}
+                  className="inline-flex min-h-12 items-center rounded-full bg-white px-5 font-semibold text-[#005962] transition hover:bg-[#f3ecdf] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  Build my shortlist
+                </HomeAnalyticsLink>
+                <HomeAnalyticsLink
+                  href="/me"
+                  sectionId="home_trust_save"
+                  itemId="saved_open"
+                  itemKind="cta"
+                  position={2}
+                  className="inline-flex min-h-12 items-center rounded-full border border-white/50 px-5 font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  View my shortlist
+                </HomeAnalyticsLink>
+              </div>
             </div>
           </div>
         </section>

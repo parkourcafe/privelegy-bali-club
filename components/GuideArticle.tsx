@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import type { Guide } from "@/lib/guides";
 
 const BASE = "https://www.otherbali.com";
@@ -38,11 +39,13 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           {guide.lede ? <p className="guide-lede">{guide.lede}</p> : null}
+          <GuideHeroMedia seed={`${guide.slug} ${guide.title}`} />
         </header>
 
-        {(guide.sections ?? []).map((section) => (
+        {(guide.sections ?? []).map((section, index) => (
           <section key={section.heading} className="guide-section">
             <h2>{section.heading}</h2>
+            <GuideSectionMedia seed={`${guide.slug} ${section.heading}`} index={index} />
             {section.paras.map((p, i) => (
               <p
                 key={i}
