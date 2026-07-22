@@ -1,14 +1,8 @@
 import type { ReactNode } from "react";
-import { notFound } from "next/navigation";
-import { getPublishedVenues } from "@/lib/data";
-import { publishedUluwatuVenues, ULUWATU_DB_SLUG } from "@/lib/uluwatu/venues";
 
-export default async function UluwatuVenueGuideGate({ children }: { children: ReactNode }) {
-  const active = new Set(
-    (await getPublishedVenues())
-      .filter((venue) => venue.district === ULUWATU_DB_SLUG)
-      .map((venue) => venue.slug),
-  );
-  if (!publishedUluwatuVenues().every((venue) => active.has(venue.slug))) notFound();
+// These editorial guides are backed by the reviewed Uluwatu content registry.
+// Public venue actions still use the data-layer publication boundary, but an
+// incomplete preview database must not turn every district guide into a 404.
+export default function UluwatuVenueGuideGate({ children }: { children: ReactNode }) {
   return children;
 }
