@@ -62,9 +62,9 @@ const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" 
   first_day: { scene: "moment-morning", variant: "ridge" },
   sunset: { scene: "moment-goldenhour", variant: "sunset" },
   with_kids: { scene: "moment-warung", variant: "surf" },
-  rainy_day: { scene: "moment-morning", variant: "ridge" },
+  rainy_day: { scene: "human-dusk", variant: "night" },
   romantic: { scene: "moment-dinner", variant: "night" },
-  trip_lengths: { scene: "hero-sunset", variant: "sunset" },
+  trip_lengths: { scene: "district-ubud", variant: "ridge" },
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
@@ -72,7 +72,7 @@ const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | 
   three_days: { scene: "hero-sunset", variant: "sunset" },
   five_days: { scene: "moment-goldenhour", variant: "sunset" },
   seven_days: { scene: "moment-warung", variant: "surf" },
-  no_scooter: { scene: "moment-morning", variant: "ridge" },
+  no_scooter: { scene: "district-sanur", variant: "sunset" },
 };
 
 const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
