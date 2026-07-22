@@ -10,7 +10,7 @@
 - [x] Full SEO OS, lint, typecheck and production build pass.
 - [x] Independent claim and cannibalization review complete.
 - [x] Mobile QA complete at 390×844 with no horizontal overflow.
-- [ ] Preview deployment and authenticated SSR check complete.
+- [x] Preview deployment and authenticated SSR check complete.
 
 ## HOLD pages
 

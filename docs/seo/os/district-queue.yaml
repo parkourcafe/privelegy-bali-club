@@ -33,7 +33,7 @@ districts:
     last_updated: 2026-07-23
   - district: Ubud
     priority: 2
-    status: in_progress
+    status: preview_ready
     repo_inventory: complete
     serp_research: complete
     evidence: complete
@@ -42,7 +42,7 @@ districts:
     drafts: complete
     implementation: complete
     qa: complete
-    preview: not_started
+    preview: complete
     production: not_started
     blockers: [gsc_review_unavailable, field_and_maps_checks_open]
     last_updated: 2026-07-23

@@ -30,6 +30,6 @@ Discovery note: the clean branch starts at production merge `d79aaba`. The repos
 - [completed] Phase 6: implement only `READY_FOR_CODEX_DRAFT` P0 work.
 - [completed] Phase 7: technical SEO QA, full checks and mobile rendering.
 - [completed] Phase 8: independent claim and cannibalization review.
-- [pending] Phase 9: focused commit, push and preview; no merge or production without new authority.
+- [completed] Phase 9: focused commit, push, draft PR and protected preview; no merge or production without new authority.
 
 Constraints: no invented claims; no HOLD route; no automatic merge, redirect, retirement or production deployment.
