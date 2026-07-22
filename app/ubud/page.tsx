@@ -4,7 +4,7 @@ import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PillarMasthead from "@/components/landing/PillarMasthead";
-import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { GuideFooter } from "@/components/GuideBlocks";
 
 const canonicalUrl = "https://www.otherbali.com/ubud";
 const reviewDate = "2026-07-23";
@@ -39,12 +39,11 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "Other Bali" },
 };
 
-const guideLinks = [
-  { href: "/ubud/things-to-do", label: "Things to do" },
-  { href: "/ubud/itinerary", label: "2–3 day itinerary" },
-  { href: "/ubud/best-restaurants", label: "Restaurants" },
-  { href: "/ubud/best-cafes-coffee", label: "Cafés & coffee" },
-  { href: "/ubud/best-yoga-wellness", label: "Yoga & wellness" },
+const placeLinks = [
+  { href: "/places/bali-buda-ubud", label: "Bali Buda Ubud" },
+  { href: "/places/anomali-coffee-ubud", label: "Anomali Coffee Ubud" },
+  { href: "/places/maya-ubud-yoga-ubud", label: "Maya Ubud Yoga" },
+  { href: "/places/suka-espresso-ubud", label: "Suka Espresso Ubud" },
 ];
 
 export default function UbudPillarPage() {
@@ -53,7 +52,7 @@ export default function UbudPillarPage() {
       <PageViewTracker event="district_page_view" slug="ubud" />
       <div className="flex items-start justify-between gap-4">
         <BrandHomeLink />
-        <Link href="/places?district=ubud" className="quiet-link">All Ubud places →</Link>
+        <Link href="/places/bali-buda-ubud" className="quiet-link">Open Bali Buda Ubud →</Link>
       </div>
 
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Ubud" }]} />
@@ -69,7 +68,7 @@ export default function UbudPillarPage() {
       />
 
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Ubud planning guides">
-        {guideLinks.map((item) => <Link key={item.href} href={item.href} className="chip">{item.label}</Link>)}
+        {placeLinks.map((item) => <Link key={item.href} href={item.href} className="chip">{item.label}</Link>)}
       </nav>
 
       <section className="guide-section">
@@ -97,17 +96,16 @@ export default function UbudPillarPage() {
       </section>
 
       <section className="guide-section">
-        <h2>Choose the narrower decision next</h2>
-        <p className="guide-lede">Use the existing focused guide that matches the decision you are making now.</p>
+        <h2>Open a specific Ubud place</h2>
+        <p className="guide-lede">These links go directly to place pages, not another generic Ubud article.</p>
         <div className="compare-table-wrap">
           <table className="compare-table">
-            <thead><tr><th scope="col">Your next decision</th><th scope="col">Use this guide</th></tr></thead>
+            <thead><tr><th scope="col">Your next decision</th><th scope="col">Open this place</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Compare activities</th><td><Link href="/ubud/things-to-do">Things to do in Ubud</Link></td></tr>
-              <tr><th scope="row">Sequence two or three days</th><td><Link href="/ubud/itinerary">Ubud itinerary</Link></td></tr>
-              <tr><th scope="row">Choose a meal</th><td><Link href="/ubud/best-restaurants">Restaurants in Ubud</Link></td></tr>
-              <tr><th scope="row">Choose coffee or a café</th><td><Link href="/ubud/best-cafes-coffee">Cafés &amp; coffee in Ubud</Link></td></tr>
-              <tr><th scope="row">Choose a wellness stop</th><td><Link href="/ubud/best-yoga-wellness">Yoga &amp; wellness in Ubud</Link></td></tr>
+              <tr><th scope="row">Choose a health-food stop</th><td><Link href="/places/bali-buda-ubud">Bali Buda Ubud</Link></td></tr>
+              <tr><th scope="row">Choose a coffee stop</th><td><Link href="/places/anomali-coffee-ubud">Anomali Coffee Ubud</Link></td></tr>
+              <tr><th scope="row">Choose a yoga stop</th><td><Link href="/places/maya-ubud-yoga-ubud">Maya Ubud Yoga</Link></td></tr>
+              <tr><th scope="row">Choose an espresso stop</th><td><Link href="/places/suka-espresso-ubud">Suka Espresso Ubud</Link></td></tr>
             </tbody>
           </table>
         </div>
@@ -121,11 +119,17 @@ export default function UbudPillarPage() {
         </div>
       </section>
 
-      <RelatedGuides links={[
-        { href: "/ubud-one-day", title: "One day in Ubud", blurb: "Use the existing one-day owner for a shorter sequence." },
-        { href: "/ubud-vs-canggu", title: "Ubud or Canggu?", blurb: "Compare these two Bali bases directly." },
-        { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "Compare Ubud with other Bali areas before narrowing the trip." },
-      ]} />
+      <section className="guide-section">
+        <h2>More verified place pages</h2>
+        <div className="related-guides">
+          {placeLinks.map((place) => (
+            <Link key={place.href} href={place.href} className="related-guide-card">
+              <h3>{place.label}</h3>
+              <p>Open the specific place profile.</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <GuideFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />

@@ -27,3 +27,4 @@ Public copy uses only `P0-UBUD-PILLAR-001` through `006`. The pillar owns area b
 - Production build: pass.
 - Mobile 390×844: main content visible, canonical correct, no `noindex`, three JSON-LD blocks and no horizontal overflow.
 - Protected preview: `https://privelegy-bali-club-git-seo-ubud-autonomous-cluster-yulaboober.vercel.app/ubud`; authenticated SSR returned HTTP 200, the sitemap contained `/ubud` once, and canonical/schema/internal-link checks passed.
+- Link audit: all Ubud pillar CTAs now point to four existing concrete place profiles; generic district-guide CTAs were removed. Each place target returned HTTP 200 with a self-canonical.

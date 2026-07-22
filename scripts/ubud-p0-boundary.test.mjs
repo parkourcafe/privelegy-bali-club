@@ -7,12 +7,16 @@ const page = await readFile(new URL("../app/ubud/page.tsx", import.meta.url), "u
 test("Ubud pillar owns base fit and routes narrower decisions", () => {
   assert.match(page, /Is Ubud the right Bali base for you\?/);
   for (const href of [
-    "/ubud/things-to-do",
-    "/ubud/itinerary",
-    "/ubud/best-restaurants",
-    "/ubud/best-cafes-coffee",
-    "/ubud/best-yoga-wellness",
+    "/places/bali-buda-ubud",
+    "/places/anomali-coffee-ubud",
+    "/places/maya-ubud-yoga-ubud",
+    "/places/suka-espresso-ubud",
   ]) assert.match(page, new RegExp(href));
+});
+
+test("Ubud pillar place CTAs do not point to generic district guides", () => {
+  assert.doesNotMatch(page, /href="\/ubud\/(things-to-do|itinerary|best-restaurants|best-cafes-coffee|best-yoga-wellness)"/);
+  assert.doesNotMatch(page, /href="\/places\?district=ubud"/);
 });
 
 test("Ubud pillar uses supported SEO contracts", () => {
