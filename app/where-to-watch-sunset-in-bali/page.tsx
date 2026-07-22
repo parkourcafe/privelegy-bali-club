@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
@@ -91,10 +92,12 @@ export default async function SunsetPage() {
             faces east — that&apos;s the sunrise coast.) Here are the sunset spots
             we stand behind, by area.
           </p>
+          <GuideHeroMedia seed="where to watch sunset in bali golden hour coast" />
         </header>
 
         <section className="guide-section">
           <h2>When to be there</h2>
+          <GuideSectionMedia seed="sunset bali when to be there" index={0} />
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             This close to the equator, sunset barely moves through the year —
             roughly just before 6 to about 6:40pm. Golden hour opens 30–45
@@ -114,7 +117,7 @@ export default async function SunsetPage() {
           </p>
         </section>
 
-        {byArea.map((area) => (
+        {byArea.map((area, index) => (
           <section key={area.key} className="guide-section">
             <div className="flex items-baseline justify-between gap-4">
               <h2>{area.name}</h2>
@@ -124,6 +127,7 @@ export default async function SunsetPage() {
                 </Link>
               ) : null}
             </div>
+            <GuideSectionMedia seed={`sunset bali ${area.key} ${area.name}`} index={index + 1} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
             <ul className="mt-3 space-y-2 text-sm">
               {area.venues.map((v) => (

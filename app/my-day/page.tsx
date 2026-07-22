@@ -5,6 +5,7 @@ import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
 import DayBuilderForm from "@/components/my-day/DayBuilderForm";
 import { RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import {
   CURATION_NOTE,
   getCollection,
@@ -148,10 +149,12 @@ export default async function MyDayPage({
             a starting shape, not a schedule.
           </p>
           <p className="guide-meta-line">{CURATION_NOTE}</p>
+          <GuideHeroMedia seed="my day bali shortlist morning sunset dinner" />
         </header>
 
         {/* The questions. */}
         <section className="guide-section" aria-label="Build your day">
+          <GuideSectionMedia seed="my day questions bali plan" index={0} />
           <DayBuilderForm initial={answers} />
         </section>
 
@@ -190,6 +193,7 @@ export default async function MyDayPage({
             <section key={f.slot.key} id={f.slot.key} className="guide-section">
               <p className="topline">{f.slot.time}</p>
               <h2 className="mt-1">{f.slot.title}</h2>
+              <GuideSectionMedia seed={`my day ${f.slot.key} ${f.slot.title}`} index={active.indexOf(f) + 1} />
               <p className="guide-standfirst" style={{ marginTop: 8 }}>
                 {f.slot.line}
               </p>
@@ -217,6 +221,7 @@ export default async function MyDayPage({
 
         <section className="guide-section">
           <h2>How this is built</h2>
+          <GuideSectionMedia seed="my day how this is built" index={9} />
           <div className="guide-prose">
             <p>
               Every stop is drawn from our resident-curated collections — the same

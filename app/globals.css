@@ -63,6 +63,7 @@
 }
 
 body {
+  margin: 0;
   background: var(--paper);
   color: var(--foreground);
   font-family: var(--font-body);
@@ -1554,6 +1555,27 @@ html {
 .guide-hero {
   padding: 18px 0 26px;
   border-bottom: 1px solid var(--line);
+}
+
+.guide-media {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  box-shadow: var(--shadow-soft);
+}
+
+.guide-media-hero {
+  min-height: clamp(220px, 42vw, 420px);
+  margin-top: 24px;
+  border-radius: 30px;
+}
+
+.guide-media-inline {
+  min-height: clamp(150px, 30vw, 260px);
+  margin: 18px 0 10px;
+  border-radius: 24px;
 }
 
 .guide-kicker {

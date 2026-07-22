@@ -2,6 +2,7 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { guidesForDistrict } from "@/lib/guides";
 import { getLightDistrict, LIGHT_DISTRICT_REVIEW_DATE } from "@/lib/light-districts";
 
@@ -52,10 +53,12 @@ export default function LightDistrictLanding({ slug }: { slug: string }) {
           <div className="hero-actions" style={{ marginTop: 16 }}>
             <Link href="/bali" className="button-secondary button-large">Explore more of Bali by district →</Link>
           </div>
+          <GuideHeroMedia seed={`${slug} ${d.title}`} />
         </header>
 
         <section className="guide-section">
           <h2>Who {d.name} suits — and who it frustrates</h2>
+          <GuideSectionMedia seed={`${slug} suits frustrates`} index={0} />
           <div className="guide-prose">
             <p>
               <strong>It suits</strong> {d.suits}
@@ -68,6 +71,7 @@ export default function LightDistrictLanding({ slug }: { slug: string }) {
 
         <section className="guide-section">
           <h2>What {d.name} is known for</h2>
+          <GuideSectionMedia seed={`${slug} known for`} index={1} />
           <ul className="guide-prose">
             {d.knownFor.map((t) => (
               <li key={t.title}>
@@ -87,6 +91,7 @@ export default function LightDistrictLanding({ slug }: { slug: string }) {
 
         <section className="guide-section">
           <h2>Practical notes (read before you plan)</h2>
+          <GuideSectionMedia seed={`${slug} practical notes`} index={2} />
           <div className="guide-prose">
             <ul>
               {d.practical.map((p) => (
