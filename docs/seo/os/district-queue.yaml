@@ -18,7 +18,7 @@ districts:
     last_updated: 2026-07-23
   - district: Uluwatu
     priority: 1
-    status: in_progress
+    status: preview_ready
     repo_inventory: complete
     serp_research: complete
     evidence: complete
@@ -26,8 +26,8 @@ districts:
     briefs: complete
     drafts: complete
     implementation: complete
-    qa: source_checks_complete_preview_runtime_pending
-    preview: not_started
+    qa: complete
+    preview: complete
     production: not_authorized
     blockers: [gsc_review_unavailable, field_and_maps_checks_open]
     last_updated: 2026-07-23

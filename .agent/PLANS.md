@@ -9,8 +9,8 @@ Goal: create the reusable district SEO skill and take Uluwatu from inventory thr
 - [completed] Phase 4: resolve canonical unified cluster decision.
 - [completed] Phase 5: create P0 briefs and claim ledger for evidence-ready pages only.
 - [completed] Phase 6: implement only `READY_FOR_CODEX_DRAFT` P0 pages.
-- [completed] Phase 7: run source-level technical SEO QA; rendered preview checks remain in Phase 9.
+- [completed] Phase 7: run source-level technical SEO QA and rendered mobile checks.
 - [completed] Phase 8: independent claim/cannibalization review.
-- [pending] Phase 9: focused commit, push and preview.
+- [completed] Phase 9: focused commit, push and protected Vercel preview.
 
 Constraints: do not modify unrelated districts; do not merge or deploy production; HOLD blocked topics and continue.

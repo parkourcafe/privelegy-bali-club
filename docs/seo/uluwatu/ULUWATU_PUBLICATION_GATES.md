@@ -7,8 +7,8 @@
 - [x] Used claims are `READY_FOR_CODEX_DRAFT` with valid sources.
 - [x] No required owner, field or Maps dependency for allowed wording.
 - [x] Source-level technical QA complete.
-- [x] Independent review complete; runtime 404 gate must be rechecked on configured preview.
-- [ ] Preview complete.
+- [x] Independent review complete; runtime 404 gate passed on configured preview.
+- [x] Preview complete, including 390×844 mobile rendering with no horizontal overflow.
 
 ## HOLD pages
 

@@ -35,3 +35,13 @@ The pillar owns base fit and planning-label scope. Existing children retain food
 ## Runtime gate repair
 
 The venue-roster completeness gate moved from the shared `/uluwatu` layout to nested layouts on the six existing venue-dependent child guides. The evidence-backed pillar no longer returns 404 when unrelated venue data is incomplete; child publication protection remains unchanged.
+
+## Preview QA
+
+- Protected Vercel preview: `https://privelegy-bali-club-ca7qg46ns-yulaboober.vercel.app/uluwatu`.
+- Authenticated preview response: HTTP 200.
+- Canonical: `https://www.otherbali.com/uluwatu`.
+- Robots: no `noindex` directive.
+- Sitemap: `/uluwatu` occurs exactly once.
+- Structured data and an existing child-page internal link are present.
+- Mobile viewport 390×844: main content visible and `scrollWidth` equals `clientWidth` (390 px).
