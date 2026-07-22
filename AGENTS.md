@@ -403,6 +403,19 @@ Stop and document rather than guessing when:
 
 Use the handoff template. A precise blocker is useful; confident improvisation is not.
 
+## 21. District SEO pipeline
+
+For every district SEO task, use `.agents/skills/otherbali-district-seo-pipeline/SKILL.md` and maintain an ExecPlan for a full pipeline.
+
+- One URL owns one primary intent.
+- AI output is not evidence.
+- Do not create thin district clones.
+- Do not create a URL before repository inventory and cannibalization checks.
+- Do not publish a factual claim without claim-ledger approval.
+- Put blocked topics on `HOLD`; do not block the rest of the district.
+- Do not deploy to production until every required publication gate passes.
+- Do not modify unrelated districts.
+
 ## Content publication rule (v3, 2026-07-19 — founder amendment)
 
 - **Interim pre-launch policy (explicit founder decision, 2026-07-19):** while the

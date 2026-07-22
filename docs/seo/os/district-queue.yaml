@@ -1,0 +1,184 @@
+schema_version: 1
+updated_at: 2026-07-23
+concurrency_policy: one_architecture_mutating_district_at_a_time
+districts:
+  - district: Sanur
+    priority: 0
+    status: pilot_complete_or_current_state
+    repo_inventory: complete
+    serp_research: complete
+    evidence: partial
+    architecture: complete
+    briefs: partial
+    drafts: partial
+    implementation: current_state
+    qa: current_state
+    preview: current_state
+    production: current_state
+    blockers: "Full Sanur artifact set is not committed on origin/main."
+    last_updated: 2026-07-23
+  - district: Uluwatu
+    priority: 1
+    status: in_progress
+    repo_inventory: complete
+    serp_research: complete
+    evidence: partial
+    architecture: complete
+    briefs: in_progress
+    drafts: in_progress
+    implementation: in_progress
+    qa: pending
+    preview: pending
+    production: forbidden
+    blockers: "Operational, Maps, owner and field claims remain HOLD."
+    last_updated: 2026-07-23
+  - district: Canggu
+    priority: 2
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Seminyak
+    priority: 3
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Ubud
+    priority: 4
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Nusa Dua
+    priority: 5
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Jimbaran
+    priority: 6
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Kuta and Legian
+    priority: 7
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Sidemen
+    priority: 8
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Amed
+    priority: 9
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Munduk
+    priority: 10
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23
+  - district: Lovina
+    priority: 11
+    status: queued
+    repo_inventory: pending
+    serp_research: pending
+    evidence: pending
+    architecture: pending
+    briefs: pending
+    drafts: pending
+    implementation: pending
+    qa: pending
+    preview: pending
+    production: pending
+    blockers: ""
+    last_updated: 2026-07-23

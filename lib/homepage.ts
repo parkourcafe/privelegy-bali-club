@@ -41,7 +41,7 @@ export const HOME_AREAS: HomeLinkItem[] = [
   { id: "ubud", label: "Ubud", body: "Culture, nature and slower days", href: "/ubud", sectionId: "home_plan", kind: "area", required: true },
   { id: "canggu", label: "Canggu", body: "Cafés, social energy and sunsets", href: "/canggu", sectionId: "home_plan", kind: "area", required: true },
   { id: "sanur", label: "Sanur", body: "Calm beach days and an easy pace", href: "/sanur", sectionId: "home_plan", kind: "area", required: true },
-  { id: "uluwatu", label: "Uluwatu", body: "Cliffs, surf and dramatic views", href: "/uluwatu-sunset-kecak", sectionId: "home_plan", kind: "area", required: true },
+  { id: "uluwatu", label: "Uluwatu", body: "Cliffs, surf and dramatic views", href: "/uluwatu", sectionId: "home_plan", kind: "area", required: true },
   { id: "seminyak", label: "Seminyak", body: "Dining, shopping and late nights", href: "/seminyak", sectionId: "home_plan", kind: "area", required: true },
   { id: "nusa_dua", label: "Nusa Dua", body: "Resorts and easy beach time", href: "/nusa-dua", sectionId: "home_plan", kind: "area", required: true },
 ];

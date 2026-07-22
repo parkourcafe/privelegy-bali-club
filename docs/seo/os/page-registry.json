@@ -682,10 +682,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-temple-kecak",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Operational claims remain HOLD pending owner, field and Maps verification."
     },
     {
       "sitemap_url": "https://www.otherbali.com/east-bali-temples-water-palaces",
@@ -916,10 +916,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-district-guide",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Intent owner confirmed; public page draft HOLD pending full retained-claim audit."
     },
     {
       "sitemap_url": "https://www.otherbali.com/uluwatu/best-restaurants",
@@ -929,10 +929,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-best-restaurants",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Intent owner confirmed; new copy awaits claim refresh."
     },
     {
       "sitemap_url": "https://www.otherbali.com/uluwatu/best-brunch",
@@ -942,10 +942,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-best-brunch",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Intent owner confirmed; new copy awaits claim refresh."
     },
     {
       "sitemap_url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
@@ -968,10 +968,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-date-night-restaurants",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Narrow occasion intent; new copy awaits claim refresh."
     },
     {
       "sitemap_url": "https://www.otherbali.com/uluwatu/48-hours",
@@ -981,10 +981,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "uluwatu-48-hours",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "Intent owner confirmed; route and access claims await field refresh."
     },
     {
       "sitemap_url": "https://www.otherbali.com/ubud",
@@ -1604,11 +1604,11 @@
       "sitemap_included": true,
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
-      "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "os_gate_status": "blocked",
+      "intent_id": "uluwatu-resort-pool-day-passes",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "HOLD: owner confirmation, current terms and Maps identities required."
     },
     {
       "sitemap_url": "https://www.otherbali.com/day-passes/holiday-inn-resort-bali-nusa-dua--fun-day-pass",

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali District SEO Pipeline"
+  short_description: "Evidence-gated district SEO from audit to preview"
+  default_prompt: "Use $otherbali-district-seo-pipeline to run a complete evidence-gated SEO workflow for one Other Bali district."
