@@ -18,7 +18,7 @@ districts:
     last_updated: 2026-07-23
   - district: Uluwatu
     priority: 1
-    status: preview_ready
+    status: production_complete
     repo_inventory: complete
     serp_research: complete
     evidence: complete
@@ -28,23 +28,23 @@ districts:
     implementation: complete
     qa: complete
     preview: complete
-    production: not_authorized
+    production: complete
     blockers: [gsc_review_unavailable, field_and_maps_checks_open]
     last_updated: 2026-07-23
   - district: Ubud
     priority: 2
-    status: queued
-    repo_inventory: not_started
-    serp_research: not_started
-    evidence: not_started
-    architecture: not_started
-    briefs: not_started
-    drafts: not_started
-    implementation: not_started
-    qa: not_started
+    status: in_progress
+    repo_inventory: complete
+    serp_research: complete
+    evidence: complete
+    architecture: complete
+    briefs: complete
+    drafts: complete
+    implementation: complete
+    qa: complete
     preview: not_started
     production: not_started
-    blockers: []
+    blockers: [gsc_review_unavailable, field_and_maps_checks_open]
     last_updated: 2026-07-23
   - district: Canggu
     priority: 3

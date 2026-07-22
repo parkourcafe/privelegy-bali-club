@@ -1,0 +1,3 @@
+entity_id,entity_type,name,official_url,maps_url,place_id,district,subarea,identity_state,source_ids,notes
+UBUD-AREA-001,Area,Ubud,https://www.indonesia.travel/sg/en/destination/bali-nusa-tenggara/bali/ubud,,,Ubud,,VERIFIED,UBUD-S0-001;UBUD-S0-002,Maps fields do not apply to the broad area
+UBUD-PLACE-001,Place,Sacred Monkey Forest Sanctuary,https://monkeyforestubud.com/visit/,,,Ubud,Padangtegal,VERIFIED,UBUD-S1-001;UBUD-S1-002,Maps URL and Place ID require manual confirmation

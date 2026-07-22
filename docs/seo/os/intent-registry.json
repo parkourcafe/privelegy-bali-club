@@ -14,6 +14,31 @@
   },
   "entries": [
     {
+      "intent_id": "ubud-area-base-fit",
+      "intent_key": "tourist_area:ubud|evaluate|area-base|trip-base|general|trip-planning",
+      "user_job": "Decide whether Ubud is the right Bali base for the trip.",
+      "decision_output": "A conservative base-fit orientation with handoffs to existing activity, itinerary, food and wellness owners.",
+      "geo_scope": "tourist_area:ubud",
+      "subject": "area-base",
+      "scenario": "trip-base",
+      "audience": "general",
+      "time_horizon": "trip-planning",
+      "primary_query_cluster": "Ubud Bali guide",
+      "owner_url": "https://www.otherbali.com/ubud",
+      "nearest_competing_urls": [
+        "https://www.otherbali.com/where-to-stay-in-bali",
+        "https://www.otherbali.com/ubud/things-to-do",
+        "https://www.otherbali.com/ubud/itinerary",
+        "https://www.otherbali.com/ubud-one-day"
+      ],
+      "differentiation_note": "Owns whether Ubud is the right base and high-level planning labels; existing specialist pages own attractions, itineraries and venue decisions.",
+      "conflict_status": "needs_gsc_review",
+      "verification_state": "editorial_hypothesis",
+      "status": "active",
+      "indexable": true,
+      "publication_permission": "existing_url_only"
+    },
+    {
       "intent_id": "uluwatu-area-base-fit",
       "intent_key": "tourist_area:uluwatu|evaluate|area-base|trip-base|general|trip-planning",
       "user_job": "Decide whether Uluwatu is the right Bali base for the trip.",
