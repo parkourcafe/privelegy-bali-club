@@ -4,9 +4,9 @@
   "generated_at": "2026-07-21T19:10:45.156Z",
   "source_sitemap": "https://www.otherbali.com/sitemap.xml",
   "counts": {
-    "total": 673,
+    "total": 674,
     "by_route_type": {
-      "area_collection": 45,
+      "area_collection": 46,
       "area_directory": 1,
       "area_hub": 12,
       "catalogue": 1,
@@ -1085,10 +1085,23 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "sanur-area-base-fit",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-22",
+      "notes": "P0_UPDATE approved in Sanur unified cluster decision; GSC review remains required."
+    },
+    {
+      "sitemap_url": "https://www.otherbali.com/sanur/where-to-stay",
+      "pathname": "/sanur/where-to-stay",
+      "route_type": "area_collection",
+      "sitemap_included": true,
+      "declared_index_intent": "indexable",
+      "observed_index_state": "unknown",
+      "os_gate_status": "shadow_unreviewed",
+      "intent_id": "sanur-where-to-stay",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-22",
+      "notes": "P0_CREATE and production deployment human-approved on 2026-07-23; technical QA recorded in the Sanur implementation report."
     },
     {
       "sitemap_url": "https://www.otherbali.com/sanur/best-hotels",
