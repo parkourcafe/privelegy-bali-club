@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 // One short, muted, looping hero clip — layered above the Ken Burns poster
-// and faded in only once it can actually play. Hard performance gates:
-// never on phones (4G budget), never with reduced motion or Save-Data, and
+// and faded in only once it can actually play. Performance gates:
+// never with reduced motion or Save-Data, and
 // loading starts only after the window load event, so it can't touch LCP.
 // If the file is missing (fetch-scenes gate) or errors, the poster simply
 // stays — the hero never goes empty.
@@ -15,7 +15,6 @@ export default function HeroLoop({ src }: { src: string }) {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (!window.matchMedia("(min-width: 768px)").matches) return;
     const conn = (navigator as { connection?: { saveData?: boolean } }).connection;
     if (conn?.saveData) return;
 

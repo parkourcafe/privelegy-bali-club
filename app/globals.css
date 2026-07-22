@@ -1591,6 +1591,48 @@ html {
   border-radius: 24px;
 }
 
+@media (max-width: 640px) {
+  .guide-media-hero {
+    min-height: 210px;
+    margin-top: 18px;
+    border-radius: 20px;
+  }
+
+  .guide-media-inline {
+    min-height: 170px;
+    margin: 16px 0 12px;
+    border-radius: 18px;
+  }
+
+  .guide-title {
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 1.04;
+    overflow-wrap: anywhere;
+  }
+
+  .guide-standfirst {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .compare-table-wrap {
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 8px;
+  }
+
+  .compare-table {
+    min-width: 540px;
+    font-size: 13px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 10px 12px 10px 0;
+  }
+}
+
 .guide-kicker {
   color: var(--lagoon-strong);
   font-size: 12px;
