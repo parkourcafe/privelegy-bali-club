@@ -46,7 +46,7 @@ const PALETTE: Record<Tone, Palette> = {
     logoDot: "#C4623F",
     heading: "#2B1A13",
     body: "#5c4a3c",
-    eyebrow: "#8a7a68",
+    eyebrow: "#5c4a3c",
     accentEyebrow: "#005962",
     link: "#2B1A13",
     cardBg: "#FFFFFF",
@@ -162,7 +162,7 @@ function LinkColumn({
           <li key={`${l.href}-${i}`}>
             <Link
               href={l.href}
-              className="text-sm transition-opacity hover:opacity-70"
+              className="text-sm transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
               style={{ color: c.link }}
             >
               {l.label}
@@ -188,7 +188,7 @@ function ContactRow({
   note: string;
 }) {
   return (
-    <a href={href} className="flex items-start gap-3 py-1.5">
+    <a href={href} className="flex items-start gap-3 py-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
       <span
         className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
         style={{ background: c.iconBg, color: c.iconColor }}
@@ -226,7 +226,7 @@ function GroupButtons({
           <Link
             key={`${b.href}-${i}`}
             href={b.href}
-            className="rounded-full px-4 py-2 text-center text-sm font-semibold transition-opacity hover:opacity-80"
+            className="rounded-full px-4 py-2 text-center text-sm font-semibold transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{ border: `1px solid ${c.ghostBorder}`, color: c.ghostText }}
           >
             {b.label}
@@ -246,7 +246,7 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
-            <Link href="/" aria-label="Other Bali — home" className="inline-flex">
+            <Link href="/" aria-label="Other Bali — home" className="inline-flex focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
               <OtherBaliLogo size={22} color={c.logoColor} dot={c.logoDot} />
             </Link>
             <p
