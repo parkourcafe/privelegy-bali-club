@@ -51,16 +51,14 @@ export function FaqBlock({ items, heading = "Good to know" }: { items: FaqItem[]
 // ItemList JSON-LD for editorial venue lists — order is editorial, never paid
 // (guardrail #6).
 export async function VenueItemListSchema({ name, slugs }: { name: string; slugs: string[] }) {
-  const allowed = await publicVenueSlugs();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name,
     itemListElement: slugs
-      .filter((slug) => allowed.has(slug))
       .map((slug, i) => {
         const content = getUluwatuContent(slug);
-        if (!content) return null;
+        if (!content || content.publication !== "published") return null;
         return {
           "@type": "ListItem",
           position: i + 1,
@@ -81,9 +79,7 @@ export async function VenueItemListSchema({ name, slugs }: { name: string; slugs
 // A grid of registry-driven place cards for a list of slugs. Unknown or
 // unpublished slugs are silently skipped — the gate holds everywhere.
 export async function VenuePicks({ slugs, columns = 2 }: { slugs: string[]; columns?: 2 | 3 }) {
-  const allowed = await publicVenueSlugs();
   const places = slugs
-    .filter((slug) => allowed.has(slug))
     .map((slug) => getUluwatuContent(slug))
     .filter((c): c is NonNullable<typeof c> => Boolean(c && c.publication === "published"));
   if (places.length === 0) return null;
