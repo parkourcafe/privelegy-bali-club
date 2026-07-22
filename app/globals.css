@@ -84,6 +84,18 @@ html {
   scroll-padding-top: 64px;
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--lagoon);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
 .site-shell {
   width: min(100% - 32px, 1120px);
   margin: 0 auto;

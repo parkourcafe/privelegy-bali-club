@@ -25,6 +25,7 @@ function backLinkFor(district: string): { label: string; crumbLabel: string; hre
 // route/venue edits in Supabase surface without a redeploy. Build-safe now
 // that public reads degrade instead of throwing (lib/data.ts).
 export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   return (await getRoutes()).map((route) => ({ slug: route.slug }));

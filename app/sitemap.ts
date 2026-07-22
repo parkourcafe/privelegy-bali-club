@@ -19,11 +19,12 @@ export const revalidate = 3600;
 const BASE = "https://www.otherbali.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [routes, hubs, spokes, catalogue] = await Promise.all([
+  const [routes, hubs, spokes, catalogue, collectionSlugs] = await Promise.all([
     getRoutes(),
     getDistrictHubs(),
     getIntentSpokes(),
     getPublishedVenues(),
+    liveCollectionSlugs(),
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenues = catalogue.filter(isVenueIndexable);
@@ -126,10 +127,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       : []),
     // My Day — the morning-to-night plan built from live collections.
     { url: `${BASE}/my-day`, changeFrequency: "weekly" as const, priority: 0.8 },
-    // Taste Collections — cuisine hub + the collections currently past the
-    // publication gate. Held collections are omitted (they 404 until live).
-    { url: `${BASE}/collections`, changeFrequency: "weekly" as const, priority: 0.8 },
-    ...(await liveCollectionSlugs()).map((slug) => ({
+    // Taste Collections — include the hub only when at least one collection is
+    // past the publication gate. The URL itself remains available, but empty
+    // collection inventory should not be promoted from public crawl surfaces.
+    ...(collectionSlugs.length > 0
+      ? [{ url: `${BASE}/collections`, changeFrequency: "weekly" as const, priority: 0.8 }]
+      : []),
+    ...collectionSlugs.map((slug) => ({
       url: `${BASE}/collections/${slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
