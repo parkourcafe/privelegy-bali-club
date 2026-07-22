@@ -63,6 +63,7 @@
 }
 
 body {
+  margin: 0;
   background: var(--paper);
   color: var(--foreground);
   font-family: var(--font-body);
