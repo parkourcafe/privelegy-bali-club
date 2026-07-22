@@ -1,0 +1,8 @@
+entity_id,canonical_name,maps_url,google_place_id,name_match,address_match,alias_risk,status,notes
+ENT-ULU-POI-001,Pura Luhur Uluwatu,,null,UNVERIFIED,UNVERIFIED,medium,NEEDS_MANUAL_MAPS_CONFIRMATION,"Capture official Google Maps share URL and Place ID."
+ENT-ULU-BEACH-001,Padang Padang / Labuan Sait,,null,UNVERIFIED,UNVERIFIED,high,HOLD_IDENTITY_RECONCILE,"Resolve alias entrance and beach entity."
+ENT-ULU-BEACH-002,Suluban Beach / Uluwatu surf area,,null,UNVERIFIED,UNVERIFIED,high,NEEDS_MANUAL_MAPS_CONFIRMATION,"Confirm public entrance rather than broad surf pin."
+ENT-ULU-BEACH-003,Bingin Beach,,null,UNVERIFIED,UNVERIFIED,medium,NEEDS_MANUAL_MAPS_CONFIRMATION,"Confirm access point after current field check."
+ENT-ULU-BEACH-004,Nyang Nyang Beach,,null,UNVERIFIED,UNVERIFIED,medium,NEEDS_MANUAL_MAPS_CONFIRMATION,"Confirm current public entrance and parking pin."
+ENT-ULU-BEACH-005,Melasti Beach,,null,UNVERIFIED,UNVERIFIED,medium,NEEDS_MANUAL_MAPS_CONFIRMATION,"Confirm public beach entity separately from clubs."
+ENT-ULU-EVENT-001,Uluwatu Kecak performance,,null,UNVERIFIED,UNVERIFIED,high,NEEDS_MANUAL_MAPS_CONFIRMATION,"Confirm performance entity versus temple complex."
