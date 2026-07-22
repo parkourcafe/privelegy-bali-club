@@ -111,7 +111,7 @@ export default async function CollectionsHubPage() {
                 <li
                   key={c.slug}
                   className="chip"
-                  style={{ opacity: 0.6, cursor: "default" }}
+                  style={{ cursor: "default" }}
                 >
                   {c.taste}
                 </li>
