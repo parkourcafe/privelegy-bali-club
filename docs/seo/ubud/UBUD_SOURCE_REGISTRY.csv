@@ -1,0 +1,5 @@
+source_id,source_type,source_name,source_url,publisher,accessed_at,applies_to,verification_state,notes
+UBUD-S0-001,government_tourism,Find Serenity in Ubud Bali,https://www.indonesia.travel/sg/en/destination/bali-nusa-tenggara/bali/ubud,Ministry of Tourism Republic of Indonesia,2026-07-23,pillar identity and broad planning labels,VERIFIED,Official destination page
+UBUD-S0-002,government_tourism,Explore Bali Province,https://www.indonesia.travel/us/en/destination/bali-nusa-tenggara/bali,Ministry of Tourism Republic of Indonesia,2026-07-23,Ubud culture art and rice terraces,VERIFIED,Official province page
+UBUD-S1-001,official_attraction,Monkey Forest visit information,https://monkeyforestubud.com/visit/,Sacred Monkey Forest Sanctuary,2026-07-23,attraction identity and location,VERIFIED,Volatile hours and prices excluded from P0
+UBUD-S1-002,official_attraction,Monkey Forest guidelines and FAQ,https://monkeyforestubud.com/guidelines-faq/,Sacred Monkey Forest Sanctuary,2026-07-23,safety handoff and attraction scope,VERIFIED,Use official guidance link rather than paraphrased medical claims

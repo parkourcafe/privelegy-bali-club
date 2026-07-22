@@ -1,0 +1,2 @@
+entity_id,name,maps_url,place_id,status,required_action
+UBUD-PLACE-001,Sacred Monkey Forest Sanctuary,,,NEEDS_MANUAL_MAPS_CONFIRMATION,Confirm the official Google Maps entity and Place ID manually

@@ -994,10 +994,10 @@
       "declared_index_intent": "indexable",
       "observed_index_state": "unknown",
       "os_gate_status": "shadow_unreviewed",
-      "intent_id": null,
-      "owner": null,
-      "review_due_at": null,
-      "notes": null
+      "intent_id": "ubud-area-base-fit",
+      "owner": "SEO/Product Owner",
+      "review_due_at": "2026-08-23",
+      "notes": "P0_UPDATE approved by Ubud unified cluster decision; current GSC review remains required."
     },
     {
       "sitemap_url": "https://www.otherbali.com/ubud/things-to-do",
