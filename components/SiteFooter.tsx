@@ -46,7 +46,7 @@ const PALETTE: Record<Tone, Palette> = {
     logoDot: "#C4623F",
     heading: "#2B1A13",
     body: "#5c4a3c",
-    eyebrow: "#8a7a68",
+    eyebrow: "#5c4a3c",
     accentEyebrow: "#005962",
     link: "#2B1A13",
     cardBg: "#FFFFFF",
@@ -95,27 +95,12 @@ const EXPLORE_LINKS = [
   { href: "/guides", label: "Guides & collections" },
 ];
 const ABOUT_LINKS = [
-  { href: "/#how", label: "How it works" },
-  { href: "/#trust", label: "Why it's free" },
-  { href: "/#faq", label: "FAQ" },
   { href: "/support", label: "Support" },
+  { href: "/for-venues", label: "For businesses" },
 ];
 const LEGAL_LINKS = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
-];
-
-// The partner card's two labelled groups. Stays have their own dedicated
-// landing pages; restaurants/cafés/spas all onboard through the same
-// /for-venues flow (that page literally covers "Restaurants, cafés & spas"),
-// so both of those buttons point there — the split just signals coverage.
-const STAYS = [
-  { href: "/villas", label: "For villas" },
-  { href: "/hotels", label: "For hotels" },
-];
-const VENUES = [
-  { href: "/for-venues", label: "For restaurants" },
-  { href: "/for-venues", label: "For spas" },
 ];
 
 function ChatIcon() {
@@ -162,7 +147,7 @@ function LinkColumn({
           <li key={`${l.href}-${i}`}>
             <Link
               href={l.href}
-              className="text-sm transition-opacity hover:opacity-70"
+              className="text-sm transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
               style={{ color: c.link }}
             >
               {l.label}
@@ -188,7 +173,7 @@ function ContactRow({
   note: string;
 }) {
   return (
-    <a href={href} className="flex items-start gap-3 py-1.5">
+    <a href={href} className="flex items-start gap-3 py-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
       <span
         className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
         style={{ background: c.iconBg, color: c.iconColor }}
@@ -207,36 +192,6 @@ function ContactRow({
   );
 }
 
-function GroupButtons({
-  c,
-  label,
-  items,
-}: {
-  c: Palette;
-  label: string;
-  items: { href: string; label: string }[];
-}) {
-  return (
-    <>
-      <p className={`${EYEBROW} mt-4`} style={{ color: c.eyebrow }}>
-        {label}
-      </p>
-      <div className="mt-2 grid grid-cols-2 gap-2">
-        {items.map((b, i) => (
-          <Link
-            key={`${b.href}-${i}`}
-            href={b.href}
-            className="rounded-full px-4 py-2 text-center text-sm font-semibold transition-opacity hover:opacity-80"
-            style={{ border: `1px solid ${c.ghostBorder}`, color: c.ghostText }}
-          >
-            {b.label}
-          </Link>
-        ))}
-      </div>
-    </>
-  );
-}
-
 export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
   const c = PALETTE[tone];
   const year = new Date().getFullYear();
@@ -246,7 +201,7 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
-            <Link href="/" aria-label="Other Bali — home" className="inline-flex">
+            <Link href="/" aria-label="Other Bali — home" className="inline-flex focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
               <OtherBaliLogo size={22} color={c.logoColor} dot={c.logoDot} />
             </Link>
             <p
@@ -256,35 +211,13 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
               The right place for the moment you&apos;re in.
             </p>
             <p className="mt-3 text-sm" style={{ color: c.body }}>
-              Resident-curated Bali discovery. Free to use — travellers never pay.
+              Bali discovery for moments, areas and trip plans.
             </p>
-          </div>
-
-          <div
-            className="w-full max-w-sm rounded-2xl p-6"
-            style={{
-              background: c.cardBg,
-              border: `1px solid ${c.cardBorder}`,
-              boxShadow: c.cardShadow,
-            }}
-          >
-            <p className={EYEBROW} style={{ color: c.accentEyebrow }}>
-              Partner with us — free
-            </p>
-            <GroupButtons c={c} label="Stays" items={STAYS} />
-            <GroupButtons c={c} label="Restaurants, cafés & spas" items={VENUES} />
-            <Link
-              href="/list-your-property"
-              className="mt-4 flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition-opacity hover:opacity-90"
-              style={{ background: c.clayBg, color: c.clayText }}
-            >
-              List your place →
-            </Link>
           </div>
         </div>
 
         <div className="mt-10 border-t pt-10" style={{ borderColor: c.divider }}>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="grid gap-8 min-[430px]:grid-cols-2 min-[900px]:grid-cols-4">
             <LinkColumn c={c} eyebrow="Explore" links={EXPLORE_LINKS} />
             <LinkColumn c={c} eyebrow="About" links={ABOUT_LINKS} />
             <LinkColumn c={c} eyebrow="Legal" links={LEGAL_LINKS} />
@@ -323,10 +256,7 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
           className="mt-10 flex flex-col gap-3 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
           style={{ borderColor: c.barBorder, color: c.body }}
         >
-          <p className="max-w-xl">
-            Free to use. We earn from venues only when a reservation made through
-            us becomes a real seated visit — never from you.
-          </p>
+          <p className="max-w-xl">Free to use.</p>
           <p className="shrink-0">© {year} Other Bali · otherbali.com</p>
         </div>
       </div>
