@@ -19,12 +19,12 @@ import {
 export const metadata: Metadata = {
   title: "Best restaurants in Uluwatu — chosen by decision, not by list",
   description:
-    "The 12 verified restaurants worth your Uluwatu dinners: date night, groups, families, special occasions and sunset tables — with booking notes for each.",
+    "42 verified Uluwatu restaurants for date night, groups, families, brunch, special occasions and sunset tables — checked against official sources.",
   alternates: { canonical: "/uluwatu/best-restaurants" },
   openGraph: {
     title: "Best restaurants in Uluwatu · Other Bali",
     description:
-      "Twelve verified dinner rooms sorted by the decision you're making — date night, groups, family, occasion.",
+      "42 verified restaurants sorted by the decision you're making — date night, groups, family, brunch and occasion.",
     url: "https://www.otherbali.com/uluwatu/best-restaurants",
     type: "article",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Best restaurants in Uluwatu · Other Bali",
     description:
-      "Twelve verified dinner rooms sorted by decision — date night, groups, family, occasion.",
+      "42 verified restaurants sorted by decision — date night, groups, family, brunch and occasion.",
   },
 };
 
@@ -49,7 +49,18 @@ const ALL_RESTAURANTS = [
   "ulu-garden",
   "seed-bingin",
   "laggas-uluwatu",
+  "ours-bali", "bartolo-bali", "avli-bali", "bb52-burgers-uluwatu",
+  "hidden-gem-uluwatu", "abracadabra-at-mu", "tacos-aqui-uluwatu",
+  "la-baracca-uluwatu", "tabu-bali", "lolas-cantina-uluwatu",
+  "shaka-riki-uluwatu", "the-cave-bali", "cire-alila-uluwatu",
+  "di-mare-karma-kandara", "double-ikat", "filini-uluwatu", "botol-biru",
+  "ulu-cliffhouse", "the-beach-by-ours", "mood-by-ours", "analog-uluwatu",
+  "baked-uluwatu", "tanah-uluwatu", "milk-and-madu-uluwatu",
+  "tarabelle-uluwatu", "lands-end-cafe", "bukit-cafe",
+  "oliverra-umana-bali", "il-ristorante-niko-romito", "malini-uluwatu",
 ];
+
+const NEW_RESTAURANTS = ALL_RESTAURANTS.slice(12);
 
 const FAQ = [
   {
@@ -103,13 +114,24 @@ export default function BestRestaurantsPage() {
             <PlaceLink slug="the-warung-at-alila-villas-uluwatu">
               The Warung at Alila
             </PlaceLink>{" "}
-            for the one big occasion. Below, all twelve verified dinner rooms —
+            for the one big occasion. Below, 42 verified restaurants —
             sorted by the decision you’re making, not by anyone’s ad budget.
           </p>
           <p className="guide-meta-line">
-            12 places · verified 2026-07-12 · editorial order, no paid ranking
+            42 places · expanded 2026-07-23 · editorial order, no paid ranking
           </p>
         </header>
+
+        <section className="guide-section">
+          <h2>30 more Uluwatu restaurants, newly verified</h2>
+          <p className="guide-lede">
+            The expanded set spans Pecatu, Bingin, Suluban and Ungasan — from
+            casual tacos and bakery breakfasts to resort dining and tasting
+            menus. Each listing is tied to an official venue or hotel source;
+            ratings and review quotes are never copied into this guide.
+          </p>
+          <VenuePicks slugs={NEW_RESTAURANTS} />
+        </section>
 
         <section className="guide-section">
           <h2>Date night</h2>

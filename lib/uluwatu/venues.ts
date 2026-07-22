@@ -162,6 +162,74 @@ const researchEv = (field: string, note?: string): FactEvidence =>
     RESEARCH
   );
 
+const EXPANSION_CHECKED = "2026-07-23";
+
+function officialRestaurant(input: {
+  slug: string;
+  displayName: string;
+  microArea: string;
+  officialUrl: string;
+  positioning: string;
+  bestFor: string;
+  mapQuery: string;
+  openingHours?: string;
+  menuUrl?: string;
+  bookingUrl?: string;
+  priceBand?: "$" | "$$" | "$$$";
+}): UluwatuVenueContent {
+  const identitySource: SourceType = input.officialUrl.includes("instagram.com")
+    ? "official_instagram"
+    : "official_website";
+  const evidence: FactEvidence[] = [
+    ev(
+      "identity_and_location",
+      identitySource,
+      input.officialUrl,
+      "VERIFIED",
+      "Official venue or parent-resort page identifies this restaurant and its Uluwatu/Bukit branch.",
+      EXPANSION_CHECKED
+    ),
+    ev(
+      "official_url",
+      identitySource,
+      input.officialUrl,
+      "VERIFIED",
+      undefined,
+      EXPANSION_CHECKED
+    ),
+  ];
+  if (input.openingHours) {
+    evidence.push(ev("opening_hours", "official_website", input.officialUrl, "VERIFIED", undefined, EXPANSION_CHECKED));
+  }
+  if (input.menuUrl) {
+    evidence.push(ev("menu_url", "official_website", input.menuUrl, "VERIFIED", undefined, EXPANSION_CHECKED));
+  }
+  if (input.bookingUrl) {
+    evidence.push(ev("booking_url", "official_booking_page", input.bookingUrl, "VERIFIED", undefined, EXPANSION_CHECKED));
+  }
+
+  return {
+    slug: input.slug,
+    displayName: input.displayName,
+    category: "restaurant",
+    microArea: input.microArea,
+    publication: "published",
+    verdict: input.positioning,
+    whyHere: `${input.displayName} adds a distinct, officially documented dining format to the Bukit shortlist.`,
+    whatToExpect: input.positioning,
+    bestFor: input.bestFor,
+    priceBand: input.priceBand ?? null,
+    openingHours: input.openingHours ?? null,
+    officialUrl: input.officialUrl,
+    menuUrl: input.menuUrl ?? null,
+    bookingUrl: input.bookingUrl ?? null,
+    bookingLabel: input.bookingUrl ? "Book direct" : undefined,
+    gmapsUrl: maps(input.mapQuery),
+    lastVerifiedAt: EXPANSION_CHECKED,
+    evidence,
+  };
+}
+
 function maps(query: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
@@ -480,6 +548,36 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
   },
 
   // ── Restaurants ───────────────────────────────────────────────────────
+  officialRestaurant({ slug: "ours-bali", displayName: "Ours Bali", microArea: "Pecatu (Jl. Labuansait)", officialUrl: "https://oursbali.com/", positioning: "An all-day Uluwatu restaurant pairing Mediterranean-leaning food with a relaxed open-air room.", bestFor: "breakfast through dinner; mixed groups; an easy first meal in Pecatu", mapQuery: "Ours Bali Uluwatu", openingHours: "Daily 08:00–23:00", priceBand: "$$" }),
+  officialRestaurant({ slug: "bartolo-bali", displayName: "Bartolo", microArea: "Pecatu (Jl. Melasti Labuan Sait)", officialUrl: "https://www.bartolobali.com/", positioning: "A French-Italian neighbourhood bistro and cocktail bar built for dinner and aperitivo.", bestFor: "date night; cocktails; European bistro cooking", mapQuery: "Bartolo Uluwatu Bali", openingHours: "Daily 17:00–late", menuUrl: "https://www.bartolobali.com/menu", bookingUrl: "https://www.bartolobali.com/book-a-table", priceBand: "$$$" }),
+  officialRestaurant({ slug: "avli-bali", displayName: "AVLI", microArea: "Pecatu", officialUrl: "https://avlibali.com/", positioning: "A modern Greek courtyard restaurant centred on sharing plates, grills and Mediterranean hospitality.", bestFor: "Greek sharing plates; group dinners; a polished evening meal", mapQuery: "AVLI Bali Pecatu", openingHours: "Daily 17:00–late", menuUrl: "https://avlibali.com/menu/", priceBand: "$$$" }),
+  officialRestaurant({ slug: "bb52-burgers-uluwatu", displayName: "BB52 Burgers Uluwatu", microArea: "Pecatu (Jl. Labuan Sait)", officialUrl: "https://bb52burgers.com/", positioning: "A late-opening burger restaurant on the Labuan Sait strip.", bestFor: "burgers; late dinner; casual groups", mapQuery: "BB52 Burgers Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "hidden-gem-uluwatu", displayName: "Hidden Gem Uluwatu", microArea: "Pecatu (Hidden Hills Villas)", officialUrl: "https://www.hiddengemuluwatu.com/", positioning: "A hilltop restaurant and wine lounge with an ocean-facing pool setting.", bestFor: "sunset wine; occasion dinners; visitors staying around Pecatu", mapQuery: "Hidden Gem Uluwatu Restaurant Wine Lounge", openingHours: "Daily 07:30–23:00", priceBand: "$$$" }),
+  officialRestaurant({ slug: "abracadabra-at-mu", displayName: "Abracadabra at Mu", microArea: "Bingin", officialUrl: "https://mu-bali.com/", positioning: "Mu Bali’s all-day restaurant, with an on-site bakery and a menu spanning breakfast through dinner.", bestFor: "a long Bingin meal; house-made bakery items; sunset dinner", mapQuery: "Abracadabra Restaurant Mu Bali Bingin", openingHours: "Kitchen daily 07:30–21:45", menuUrl: "https://mu-bali.com/wp-content/uploads/2025/06/Diner-Menu-Mu-Bali.pdf", priceBand: "$$$" }),
+  officialRestaurant({ slug: "tacos-aqui-uluwatu", displayName: "Tacos Aqui Uluwatu", microArea: "Pecatu (Jl. Labuansait)", officialUrl: "https://tacosaquibali.com/about-us", positioning: "A colourful evening taqueria combining Mexican food with music-led nights.", bestFor: "tacos and margaritas; casual groups; an energetic dinner", mapQuery: "Tacos Aqui Uluwatu", openingHours: "Daily 16:00–23:00", priceBand: "$$" }),
+  officialRestaurant({ slug: "la-baracca-uluwatu", displayName: "La Baracca Uluwatu", microArea: "Pecatu", officialUrl: "https://www.labaraccabali.com/", positioning: "The Uluwatu branch of a Bali Italian restaurant group focused on pizza, pasta and casual dining.", bestFor: "pizza and pasta; families; uncomplicated group dinners", mapQuery: "La Baracca Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "tabu-bali", displayName: "Tabu Bali", microArea: "Pecatu", officialUrl: "https://tabubali.com/", positioning: "A dinner-to-late venue combining Japanese-Mexican food, cocktails and music.", bestFor: "lively group dinners; cocktails; staying out late", mapQuery: "Tabu Bali Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "lolas-cantina-uluwatu", displayName: "Lola’s Cantina Uluwatu", microArea: "Pecatu", officialUrl: "https://www.lolascantina.com/", positioning: "A casual Mexican cantina branch serving tacos, burritos and cocktails.", bestFor: "casual Mexican food; groups; an easy dinner", mapQuery: "Lola's Cantina Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "shaka-riki-uluwatu", displayName: "Shaka Riki Uluwatu", microArea: "Pecatu", officialUrl: "https://www.shakariki432.com/", positioning: "A compact Japanese restaurant and sake-bar concept in Uluwatu.", bestFor: "Japanese comfort food; sake; a low-key dinner", mapQuery: "Shaka Riki Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "the-cave-bali", displayName: "The Cave", microArea: "Pecatu (The edge)", officialUrl: "https://www.theedgebali.com/en/gastronomy/cave/", positioning: "A 22-seat subterranean tasting-menu restaurant inside The edge resort.", bestFor: "a destination tasting menu; celebrations; advance-planned dinner", mapQuery: "The Cave by Chef Ryan Clift Bali", bookingUrl: "https://www.theedgebali.com/en/gastronomy/cave/", priceBand: "$$$" }),
+  officialRestaurant({ slug: "cire-alila-uluwatu", displayName: "CIRE", microArea: "Pecatu (Alila Villas Uluwatu)", officialUrl: "https://www.alilahotels.com/uluwatu/dining/", positioning: "Alila Villas Uluwatu’s contemporary resort restaurant overlooking the Indian Ocean.", bestFor: "resort dining; special occasions; ocean-view lunch or dinner", mapQuery: "CIRE Alila Villas Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "di-mare-karma-kandara", displayName: "di Mare", microArea: "Ungasan (Karma Kandara)", officialUrl: "https://karmagroup.com/find-destination/karma-resorts/karma-kandara/", positioning: "Karma Kandara’s cliffside Italian restaurant with wide Indian Ocean views.", bestFor: "occasion dining; Italian food; a cliff-view meal", mapQuery: "di Mare Restaurant Karma Kandara", priceBand: "$$$" }),
+  officialRestaurant({ slug: "double-ikat", displayName: "Double Ikat", microArea: "Ungasan (Renaissance Bali Uluwatu)", officialUrl: "https://www.marriott.com/en-us/hotels/dpsuw-renaissance-bali-uluwatu-resort-and-spa/dining/", positioning: "An Indonesian restaurant inside Renaissance Bali Uluwatu, built around regional dishes and sharing menus.", bestFor: "Indonesian dinner; resort guests; family-style sharing", mapQuery: "Double Ikat Renaissance Bali Uluwatu", openingHours: "Daily 18:00–23:00", priceBand: "$$$" }),
+  officialRestaurant({ slug: "filini-uluwatu", displayName: "Filini", microArea: "Pecatu (Radisson Blu Bali Uluwatu)", officialUrl: "https://www.radissonhotels.com/en-us/hotels/radisson-blu-bali-uluwatu/restaurant-bar", positioning: "Radisson Blu Uluwatu’s Italian restaurant, serving dinner in a resort setting.", bestFor: "Italian dinner; hotel guests; a quieter resort meal", mapQuery: "Filini Radisson Blu Bali Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "botol-biru", displayName: "Botol Biru Bar & Grill", microArea: "Pecatu (Anantara Uluwatu)", officialUrl: "https://www.anantara.com/en/uluwatu-bali/restaurants", positioning: "Anantara Uluwatu’s open-air grill overlooking the coast.", bestFor: "sunset drinks; grilled food; resort dining", mapQuery: "Botol Biru Bar Grill Anantara Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "ulu-cliffhouse", displayName: "Ulu Cliffhouse", microArea: "Suluban, Pecatu", officialUrl: "https://ulucliffhouse.com/", positioning: "A clifftop pool club with a restaurant, bar and sunset programming.", bestFor: "a long lunch; sunset; groups combining food and pool time", mapQuery: "Ulu Cliffhouse Bali", priceBand: "$$$" }),
+  officialRestaurant({ slug: "the-beach-by-ours", displayName: "The Beach by Ours", microArea: "Thomas Beach, Pecatu", officialUrl: "https://thebeachbyours.com/", positioning: "A beach-level Ours Group restaurant for Mediterranean-leaning food by the sand.", bestFor: "beach lunch; sunset; barefoot group meals", mapQuery: "The Beach By Ours Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "mood-by-ours", displayName: "Mood by Ours", microArea: "Pecatu", officialUrl: "https://moodbyours.com/", positioning: "An Ours Group dining and nightlife venue in the Uluwatu area.", bestFor: "dinner that continues into drinks; groups; a late evening", mapQuery: "Mood by Ours Uluwatu", priceBand: "$$$" }),
+  officialRestaurant({ slug: "analog-uluwatu", displayName: "Analog Uluwatu", microArea: "Pecatu", officialUrl: "https://www.instagram.com/analog_uluwatu/", positioning: "A Pecatu café-restaurant with a compact all-day format.", bestFor: "coffee; brunch; a casual daytime stop", mapQuery: "Analog Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "baked-uluwatu", displayName: "BAKED. Uluwatu", microArea: "Pecatu", officialUrl: "https://bakedindonesia.com/", positioning: "The Uluwatu branch of Bali’s bakery-café group, centred on bread, pastries and brunch.", bestFor: "pastries; brunch; coffee before the beach", mapQuery: "BAKED Uluwatu Bali", priceBand: "$$" }),
+  officialRestaurant({ slug: "tanah-uluwatu", displayName: "Tanah Uluwatu", microArea: "Pecatu", officialUrl: "https://www.instagram.com/tanahuluwatu/", positioning: "A Uluwatu bakery and grill serving from the daytime into dinner.", bestFor: "bakery breakfast; brunch; casual grills", mapQuery: "Tanah Uluwatu Bakery Grill", priceBand: "$$" }),
+  officialRestaurant({ slug: "milk-and-madu-uluwatu", displayName: "Milk & Madu Uluwatu", microArea: "Pecatu", officialUrl: "https://milkandmadu.com/", positioning: "A family-friendly all-day café branch with breakfast, pizza and broad group appeal.", bestFor: "families; brunch; groups with different appetites", mapQuery: "Milk Madu Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "tarabelle-uluwatu", displayName: "Tarabelle Uluwatu", microArea: "Ungasan", officialUrl: "https://tarabelle.com/", positioning: "An all-day neighbourhood café and bakery in the Bukit.", bestFor: "breakfast; pastries; working over coffee", mapQuery: "Tarabelle Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "lands-end-cafe", displayName: "Lands End Cafe", microArea: "Pecatu", officialUrl: "https://www.instagram.com/landsendbali/", positioning: "A health-focused Uluwatu café geared to breakfast, bowls and post-surf meals.", bestFor: "healthy breakfast; smoothies; a post-surf stop", mapQuery: "Lands End Cafe Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "bukit-cafe", displayName: "Bukit Cafe", microArea: "Pecatu (Labuan Sait)", officialUrl: "https://www.bukitcafe.com/", positioning: "A long-running all-day café on the Labuan Sait corridor.", bestFor: "breakfast; lunch; mixed-diet groups", mapQuery: "Bukit Cafe Uluwatu", priceBand: "$$" }),
+  officialRestaurant({ slug: "oliverra-umana-bali", displayName: "Oliverra", microArea: "Ungasan (Umana Bali)", officialUrl: "https://www.hilton.com/en-gb/hotels/dpsolol-umana-bali-resort/dining/oliverra/", positioning: "Umana Bali’s Mediterranean restaurant set above the southern Bukit coast.", bestFor: "special occasions; resort dining; sunset-facing dinner", mapQuery: "Oliverra Umana Bali", openingHours: "Daily 12:00–22:00", priceBand: "$$$" }),
+  officialRestaurant({ slug: "il-ristorante-niko-romito", displayName: "Il Ristorante — Niko Romito", microArea: "Pecatu (Bulgari Resort Bali)", officialUrl: "https://www.bulgarihotels.com/en_US/bali/dining/il-ristorante-niko-romito", positioning: "Bulgari Resort Bali’s formal Italian dining room, reserved for an occasion-led meal.", bestFor: "fine dining; celebrations; a planned resort evening", mapQuery: "Il Ristorante Niko Romito Bulgari Bali", openingHours: "Daily 18:00–22:00; last order 21:00", priceBand: "$$$" }),
+  officialRestaurant({ slug: "malini-uluwatu", displayName: "Malini Uluwatu", microArea: "Pecatu (Uluwatu Temple cliffs)", officialUrl: "https://www.instagram.com/maliniuluwatubali/", positioning: "A cliff-edge restaurant near Uluwatu Temple with a strong sunset orientation.", bestFor: "sunset; a meal near the temple; dramatic coastal views", mapQuery: "Malini Uluwatu Bali", priceBand: "$$$" }),
   {
     slug: "the-warung-at-alila-villas-uluwatu",
     displayName: "The Warung at Alila Villas",
