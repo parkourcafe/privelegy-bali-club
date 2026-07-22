@@ -5,6 +5,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideSectionMedia } from "@/components/GuideMedia";
 import CangguNow from "@/components/CangguNow";
 import { guidesForDistrict } from "@/lib/guides";
 import { getCangguVenues, toCangguPlaceCard, venueHasJob } from "@/lib/canggu";
@@ -95,6 +96,7 @@ function TopPicks({ title, note, venues, href }: { title: string; note: string; 
         <h2>{title}</h2>
         <Link href={href} className="quiet-link">See all →</Link>
       </div>
+      <GuideSectionMedia seed={`canggu ${title}`} index={0} />
       <p className="text-sm text-[var(--muted)]">{note}</p>
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (

@@ -2,6 +2,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES, type UbudGuide } from "@/lib/ubud-guides";
 
@@ -62,10 +63,12 @@ export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
           <p className="topline">Ubud</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <GuideHeroMedia seed={`ubud ${guide.slug} ${guide.h1}`} />
         </header>
 
         <section className="guide-section">
           <h2>{guide.sectionHeading}</h2>
+          <GuideSectionMedia seed={`ubud ${guide.slug} ${guide.sectionHeading}`} index={0} />
           <p className="text-sm text-[var(--muted)]">{guide.sectionNote}</p>
           {venues.length === 0 ? (
             <p className="mt-4 text-sm text-[var(--muted)]">

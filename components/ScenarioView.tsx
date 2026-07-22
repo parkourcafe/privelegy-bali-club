@@ -2,6 +2,7 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { SCENARIOS, scenarioBriefHref, type Scenario } from "@/lib/scenarios";
 
 const SITE = "https://www.otherbali.com";
@@ -63,9 +64,13 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
               {scenario.fear}
             </p>
           </div>
+          <div className="lg:col-span-2">
+            <GuideHeroMedia seed={`${scenario.slug} ${scenario.title}`} />
+          </div>
         </header>
 
         <section className="slot-section">
+          <GuideSectionMedia seed={`${scenario.slug} plan sections`} index={0} />
           <ol className="mt-2 space-y-6">
             {scenario.sections.map((s, i) => (
               <li key={s.heading} className="flex gap-4">
@@ -92,6 +97,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
         </section>
 
         <section className="slot-section">
+          <GuideSectionMedia seed={`${scenario.slug} other trips`} index={1} />
           <div className="slot-heading">
             <h2>Other kinds of trip</h2>
             <p>Pick the Bali that fits you.</p>

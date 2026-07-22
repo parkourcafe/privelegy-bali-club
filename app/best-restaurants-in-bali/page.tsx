@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
@@ -118,9 +119,10 @@ export default async function BestRestaurantsPage() {
             and Jimbaran the classic grilled seafood on the sand. Here are the
             restaurants we stand behind, by area — tap any for the details.
           </p>
+          <GuideHeroMedia seed="best restaurants in bali dinner warung" />
         </header>
 
-        {byArea.map((area) => (
+        {byArea.map((area, index) => (
           <section key={area.key} className="guide-section">
             <div className="flex items-baseline justify-between gap-4">
               <h2>{area.name}</h2>
@@ -130,6 +132,7 @@ export default async function BestRestaurantsPage() {
                 </Link>
               ) : null}
             </div>
+            <GuideSectionMedia seed={`best restaurants ${area.key} ${area.name}`} index={index} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
 
             {area.tasteGroups.map((group) => (

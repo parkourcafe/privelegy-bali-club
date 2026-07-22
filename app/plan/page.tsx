@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import { GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
@@ -70,11 +71,15 @@ export default async function Plan({
         <div className="editorial-signal" aria-label="Canggu route collage">
           <p className="editorial-signal-label">From coffee to dinner, picked for the kind of day you&apos;re having.</p>
         </div>
+        <div className="lg:col-span-2">
+          <GuideHeroMedia seed="plan canggu day routes" />
+        </div>
       </header>
 
       {routes.length > 0 && (
         <section id="routes" className="scroll-mt-8">
           <h2 className="topline">Ready-made routes</h2>
+          <GuideSectionMedia seed="plan ready made routes canggu" index={0} />
           <div className="route-strip">
             {routes.map((r) => (
               <Link
@@ -94,6 +99,7 @@ export default async function Plan({
       )}
 
       <section id="guide" className="scroll-mt-8">
+        <GuideSectionMedia seed="plan guide canggu places" index={1} />
         <PlanView plan={plan} initialMoment={m} />
       </section>
 

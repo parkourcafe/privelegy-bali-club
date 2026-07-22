@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getGuide, guideMetadata } from "@/lib/guides";
 import {
   BALI_ICONS,
@@ -76,14 +77,16 @@ export default function ThingsToDoInBaliPage() {
           <p className="guide-meta-line">
             Editorial review: {BALI_THINGS_REVIEW_DATE} · researched, not sponsored · no paid ranking
           </p>
+          <GuideHeroMedia seed="things to do in bali temples waterfalls sunrise" />
         </header>
 
-        {BALI_THING_GROUPS.map((group) => {
+        {BALI_THING_GROUPS.map((group, index) => {
           const items = BALI_ICONS.filter((t) => t.group === group.key);
           if (items.length === 0) return null;
           return (
             <section key={group.key} className="guide-section">
               <h2>{group.heading}</h2>
+              <GuideSectionMedia seed={`things to do ${group.key} ${group.heading}`} index={index} />
               <p className="text-sm leading-relaxed text-[var(--muted)]">{group.note}</p>
               <div className="guide-prose">
                 {items.map((t) => (
@@ -108,6 +111,7 @@ export default function ThingsToDoInBaliPage() {
 
         <section className="guide-section">
           <h2>Things to do by area</h2>
+          <GuideSectionMedia seed="things to do by area bali" index={8} />
           <p className="guide-lede">
             Wherever you base, there&apos;s a day or two of things to do on the
             doorstep. Pick your area:
@@ -126,6 +130,7 @@ export default function ThingsToDoInBaliPage() {
 
         <section className="guide-section">
           <h2>Practical notes (read before you plan)</h2>
+          <GuideSectionMedia seed="things to do practical notes bali" index={9} />
           <div className="guide-prose">
             <ul>
               <li>
