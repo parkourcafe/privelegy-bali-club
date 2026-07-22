@@ -113,8 +113,7 @@ export default function ScenarioView({ scenario }: { scenario: Scenario }) {
         </section>
 
         <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
-          You do not pay us. Venues pay Other Bali only when a reservation made
-          through us becomes a real seated visit.
+          Free to use. Offers appear only where venues confirm them.
         </p>
       </main>
       <GuideFooter />

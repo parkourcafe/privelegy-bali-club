@@ -84,7 +84,7 @@ const siteJsonLd = {
       logo: "https://www.otherbali.com/icon-512.png",
       email: "support@otherbali.com",
       description:
-        "A resident-curated guide to Bali — the right place for the moment you're in.",
+        "A Bali guide for moments, areas and trip plans.",
     },
     {
       "@type": "WebSite",

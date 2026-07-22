@@ -35,22 +35,22 @@ test("Wave 4 homepage renders the approved section hierarchy", () => {
   assert.match(appSource, /What do you want to do\?/);
   assert.match(appSource, /Plan your Bali trip/);
   assert.match(appSource, /Explore Bali by category/);
+  assert.match(appSource, /Canggu has the deepest active guidance right now\./);
   assert.match(appSource, /Keep your Bali shortlist in one place\./);
 
   const moments = appSource.indexOf('id="moments"');
   const plan = appSource.indexOf('id="plan-title"');
   const categories = appSource.indexOf('id="categories-title"');
+  const canggu = appSource.indexOf('id="canggu-title"');
   const trust = appSource.indexOf('id="trust-title"');
-  assert.ok(moments > 0 && plan > moments && categories > plan && trust > categories);
+  assert.ok(moments > 0 && plan > moments && categories > plan && canggu > categories && trust > canggu);
 });
 
 test("Wave 4 homepage removes old Canggu-centre and directory-first messaging", () => {
   for (const forbidden of [
     "Canggu-deep",
-    "deepest active guide",
     "right now that’s Canggu",
     "right now that&rsquo;s Canggu",
-    "Open the Canggu guide",
     "Browse all places",
     "Partner monetization is reserved during the pilot",
     "Partner with us — free",
@@ -60,12 +60,12 @@ test("Wave 4 homepage removes old Canggu-centre and directory-first messaging", 
 });
 
 test("approved homepage config has valid cardinality and existing required targets", () => {
-  assert.equal(countItems(extractSection("HOME_MOMENTS")), 8);
+  assert.equal(countItems(extractSection("HOME_MOMENTS")), 6);
   assert.equal(countItems(extractSection("HOME_AREAS")), 6);
   const planCount = countItems(extractSection("HOME_PLANS"));
   assert.ok(planCount >= 3 && planCount <= 6);
   const categoryCount = countItems(extractSection("HOME_CATEGORIES"));
-  assert.ok(categoryCount >= 6 && categoryCount <= 10);
+  assert.equal(categoryCount, 4);
   for (const href of [
     ...hrefs(extractSection("HOME_MOMENTS")),
     ...hrefs(extractSection("HOME_AREAS")),
@@ -81,7 +81,8 @@ test("homepage does not introduce unsupported factual or paid claims", () => {
     "Open now",
     "Top-rated",
     "Popular",
-    "sponsored",
+    "sponsored homepage placement",
+    "sponsored inventory",
     "paid placement",
     "travel time",
     "booking difficulty",

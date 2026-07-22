@@ -4,6 +4,7 @@ export type HomeSectionId =
   | "home_plan"
   | "home_picks"
   | "home_categories"
+  | "home_canggu"
   | "home_trust_save";
 
 export type HomeItemKind = "scenario" | "area" | "plan" | "category" | "cta";
@@ -12,6 +13,7 @@ export interface HomeLinkItem {
   id: string;
   label: string;
   body?: string;
+  ctaLabel?: string;
   href: string;
   sectionId: HomeSectionId;
   kind: HomeItemKind;
@@ -22,19 +24,17 @@ export const HOME_HERO = {
   eyebrow: "Curated across Bali",
   h1: "The right Bali for the moment you’re in.",
   body: "Find places, routes and practical plans for your day or trip — with clear guidance, not endless lists.",
-  primaryCta: { id: "hero_now", label: "Choose what to do", href: "#moments" },
+  primaryCta: { id: "hero_now", label: "Find a place now", href: "/my-day" },
   secondaryCta: { id: "hero_plan", label: "Plan my trip", href: "/plan" },
 } as const;
 
 export const HOME_MOMENTS: HomeLinkItem[] = [
-  { id: "eat_special", label: "Eat somewhere special", body: "Date night, celebration or one meal you want to remember.", href: "/best-restaurants-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "sunset", label: "Watch the sunset", body: "Pick the right coast, view and setting before golden hour.", href: "/where-to-watch-sunset-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "rainy_day", label: "Make the most of a rainy day", body: "Useful indoor and low-friction plans when the weather turns.", href: "/bali-rainy-day", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "romantic", label: "Plan a romantic evening", body: "Places and routes that make sense for two.", href: "/romantic-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "with_kids", label: "Explore Bali with kids", body: "Lower-friction family choices and easier areas.", href: "/bali-with-kids", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "temple_day", label: "Plan a temple day", body: "Choose a temple route with practical context, not a rushed checklist.", href: "/bali-temples-which-one", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "day_trip", label: "Take a day trip", body: "A practical way to spend a day beyond your base.", href: "/bali-day-trips", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "beaches", label: "Explore Bali beaches", body: "Beach and pool ideas without claiming live conditions.", href: "/best-beach-clubs-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "first_day", label: "First day in Bali", body: "Land, settle in and make the day easy.", ctaLabel: "Open the first-day guide", href: "/first-time-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "sunset", label: "Sunset", body: "Choose the right coast, view and setting before golden hour.", ctaLabel: "Open the sunset guide", href: "/where-to-watch-sunset-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "with_kids", label: "With kids", body: "Lower-friction family choices and easier areas.", ctaLabel: "Open the family guide", href: "/bali-with-kids", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "rainy_day", label: "Rainy day", body: "Useful indoor and low-friction plans when the weather turns.", ctaLabel: "Open the rainy-day guide", href: "/bali-rainy-day", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "romantic", label: "Romantic", body: "Places and routes that make sense for two.", ctaLabel: "Open the romantic guide", href: "/romantic-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "trip_lengths", label: "Plan 3 / 5 / 7 days", body: "Start from the length of your trip and choose the right route.", ctaLabel: "Open trip plans", href: "/plan", sectionId: "home_moments", kind: "scenario", required: true },
 ];
 
 export const HOME_AREAS: HomeLinkItem[] = [
@@ -55,22 +55,16 @@ export const HOME_PLANS: HomeLinkItem[] = [
 ];
 
 export const HOME_CATEGORIES: HomeLinkItem[] = [
-  { id: "restaurants", label: "Restaurants", href: "/best-restaurants-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "warungs", label: "Warungs", href: "/best-warungs-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "beach_clubs", label: "Beach clubs", href: "/best-beach-clubs-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "hotel_day_passes", label: "Hotel day passes", href: "/bali-resort-day-passes", sectionId: "home_categories", kind: "category", required: true },
-  { id: "spa_wellness", label: "Spa & wellness", href: "/best-spas-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "hotel_restaurants", label: "Hotel restaurants", href: "/hotel-restaurants", sectionId: "home_categories", kind: "category", required: false },
-  { id: "activities", label: "Activities", href: "/things-to-do-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "tours_day_trips", label: "Tours & day trips", href: "/bali-day-trips", sectionId: "home_categories", kind: "category", required: true },
-  { id: "beaches", label: "Beaches", href: "/best-beach-clubs-in-bali", sectionId: "home_categories", kind: "category", required: true },
-  { id: "temples_culture", label: "Temples & culture", href: "/bali-temples-which-one", sectionId: "home_categories", kind: "category", required: true },
+  { id: "eat_drink", label: "Eat & Drink", body: "Restaurants, warungs, cafés and hotel dining.", href: "/best-restaurants-in-bali", sectionId: "home_categories", kind: "category", required: true },
+  { id: "beach_pool", label: "Beach & Pool", body: "Beach clubs, resort pools and day passes.", href: "/best-beach-clubs-in-bali", sectionId: "home_categories", kind: "category", required: true },
+  { id: "wellness", label: "Wellness", body: "Spas, massage and slower reset days.", href: "/best-spas-in-bali", sectionId: "home_categories", kind: "category", required: true },
+  { id: "things_to_do", label: "Things to Do", body: "Activities, temples, routes and day trips.", href: "/things-to-do-in-bali", sectionId: "home_categories", kind: "category", required: true },
 ];
 
 export const HOME_TRUST_PRINCIPLES = [
   "Selected, not exhaustive",
-  "Editorial ranking is not for sale",
-  "Information is reviewed and date-stamped",
+  "No sponsored homepage ranking",
+  "Clear routes to the next step",
 ] as const;
 
 export const HOME_REQUIRED_LINKS = [

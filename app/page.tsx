@@ -63,7 +63,7 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
             {item.body ? <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{item.body}</span> : null}
           </span>
           <span className="mt-5 text-sm font-semibold text-[#005962]" aria-hidden="true">
-            Open →
+            {item.ctaLabel ?? `View ${item.label}`} →
           </span>
         </HomeAnalyticsLink>
       ))}
@@ -98,25 +98,25 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(HOME_JSON_LD) }}
       />
-      <main className="bg-[#f7f0e7] text-[#2b1a13]">
+      <main className="bg-[#f7f0e7] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] text-[#2b1a13] min-[1360px]:pb-0">
         <section className="relative overflow-hidden border-b border-[#e4d8c8] bg-[#f3ecdf]">
-          <div className="mx-auto grid min-h-[76svh] max-w-6xl items-center gap-10 px-5 py-20 sm:py-24 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 pb-14 pt-8 sm:gap-10 sm:py-16 lg:min-h-[68svh] lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#005962]">{HOME_HERO.eyebrow}</p>
-              <h1 className="mt-5 max-w-3xl font-display text-5xl font-normal leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 max-w-3xl font-display text-3xl font-normal leading-[1.05] tracking-tight sm:text-6xl lg:mt-5 lg:text-7xl">
                 {HOME_HERO.h1}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#44352b] sm:text-xl">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#44352b] sm:mt-6 sm:text-xl">
                 {HOME_HERO.body}
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
                 <HomeAnalyticsLink
                   href={HOME_HERO.primaryCta.href}
                   sectionId="home_hero"
                   itemId={HOME_HERO.primaryCta.id}
                   itemKind="cta"
                   position={1}
-                  className="inline-flex min-h-12 items-center rounded-full bg-[#005962] px-6 font-semibold text-white transition hover:bg-[#003f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+                  className="inline-flex min-h-12 items-center rounded-full bg-[#005962] px-5 text-sm font-semibold text-white transition hover:bg-[#003f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:px-6 sm:text-base"
                 >
                   {HOME_HERO.primaryCta.label}
                 </HomeAnalyticsLink>
@@ -126,13 +126,13 @@ export default function HomePage() {
                   itemId={HOME_HERO.secondaryCta.id}
                   itemKind="cta"
                   position={2}
-                  className="inline-flex min-h-12 items-center rounded-full border border-[#cdbfab] px-6 font-semibold text-[#2b1a13] transition hover:border-[#005962]/50 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+                  className="inline-flex min-h-12 items-center rounded-full border border-[#cdbfab] px-5 text-sm font-semibold text-[#2b1a13] transition hover:border-[#005962]/50 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:px-6 sm:text-base"
                 >
                   {HOME_HERO.secondaryCta.label}
                 </HomeAnalyticsLink>
               </div>
             </div>
-            <div className="rounded-[2rem] border border-[#e1d4c2] bg-white/80 p-5 shadow-xl shadow-[#2b1a13]/5 backdrop-blur">
+            <div className="hidden rounded-[2rem] border border-[#e1d4c2] bg-white/80 p-5 shadow-xl shadow-[#2b1a13]/5 backdrop-blur sm:block">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8a6b3e]">Start with your situation</p>
               <h2 className="mt-3 font-display text-3xl leading-tight">A short choice beats an endless list.</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#4d4036]">
@@ -239,14 +239,50 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section aria-labelledby="trust-title" className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:py-20 lg:grid-cols-[1fr_0.9fr]">
+        <section aria-labelledby="canggu-title" className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:py-20 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Canggu deep guide</p>
+            <h2 id="canggu-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
+              Canggu has the deepest active guidance right now.
+            </h2>
+          </div>
+          <div className="rounded-[2rem] border border-[#e4d8c8] bg-white p-6 shadow-sm sm:p-8">
+            <p className="text-base leading-relaxed text-[#44352b]">
+              Use Canggu for denser local scenarios, routes, decision-ready places and confirmed venue actions. The rest of Bali still keeps useful planning pages and published venue cards where the data passes the current rules.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <HomeAnalyticsLink
+                href="/canggu"
+                sectionId="home_canggu"
+                itemId="canggu_deep"
+                itemKind="cta"
+                position={1}
+                className="inline-flex min-h-12 items-center rounded-full bg-[#005962] px-5 font-semibold text-white transition hover:bg-[#003f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+              >
+                Open the Canggu guide
+              </HomeAnalyticsLink>
+              <HomeAnalyticsLink
+                href="/canggu-first-day"
+                sectionId="home_canggu"
+                itemId="canggu_first_day"
+                itemKind="cta"
+                position={2}
+                className="inline-flex min-h-12 items-center rounded-full border border-[#cdbfab] px-5 font-semibold text-[#2b1a13] transition hover:border-[#005962]/50 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+              >
+                Start with Canggu now
+              </HomeAnalyticsLink>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="trust-title" className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:py-20 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Trust</p>
             <h2 id="trust-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-              Curated by people who live here.
+              Built to make choosing Bali simpler.
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#44352b]">
-              We explain who a place or plan is for, why it may be worth your time and what to know before you go.
+              Start with your moment, area or trip plan, then open the guide that fits.
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
               {HOME_TRUST_PRINCIPLES.map((principle) => (

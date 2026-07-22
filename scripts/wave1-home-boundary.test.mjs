@@ -20,7 +20,7 @@ function escapeRegExp(value) {
 
 test("homepage preserves the Wave 4 product promise and traveller journey", () => {
   assert.match(homepageConfigSource, /The right Bali for the moment you’re in\./);
-  assert.match(homepageConfigSource, /Choose what to do/);
+  assert.match(homepageConfigSource, /Find a place now/);
   assert.match(homepageConfigSource, /Plan my trip/);
   assert.match(homeSource, /id="moments-title"/);
   assert.match(homeSource, /id="plan-title"/);
@@ -33,14 +33,12 @@ test("homepage preserves the Wave 4 product promise and traveller journey", () =
 
 test("homepage exposes approved scenario routes without creating a parallel system", () => {
   const required = [
-    ["Eat somewhere special", "/best-restaurants-in-bali"],
-    ["Watch the sunset", "/where-to-watch-sunset-in-bali"],
-    ["Make the most of a rainy day", "/bali-rainy-day"],
-    ["Plan a romantic evening", "/romantic-bali"],
-    ["Explore Bali with kids", "/bali-with-kids"],
-    ["Plan a temple day", "/bali-temples-which-one"],
-    ["Take a day trip", "/bali-day-trips"],
-    ["Explore Bali beaches", "/best-beach-clubs-in-bali"],
+    ["First day in Bali", "/first-time-in-bali"],
+    ["Sunset", "/where-to-watch-sunset-in-bali"],
+    ["With kids", "/bali-with-kids"],
+    ["Rainy day", "/bali-rainy-day"],
+    ["Romantic", "/romantic-bali"],
+    ["Plan 3 / 5 / 7 days", "/plan"],
   ];
 
   for (const [label, href] of required) {
@@ -59,7 +57,6 @@ test("homepage does not advertise the frozen paid-arrival model or Canggu-first 
     "That seated visit",
     "Partner monetization is reserved during the pilot",
     "Canggu-deep",
-    "Open the Canggu guide",
     "right now that’s Canggu",
   ];
 
@@ -67,7 +64,7 @@ test("homepage does not advertise the frozen paid-arrival model or Canggu-first 
     assert.ok(!homeSource.toLowerCase().includes(claim.toLowerCase()), `remove frozen/global-centre claim: ${claim}`);
   }
 
-  assert.match(homepageConfigSource, /Editorial ranking is not for sale/);
+  assert.match(homepageConfigSource, /No sponsored homepage ranking/);
 });
 
 test("mobile consent actions stay above the persistent bottom navigation", () => {
