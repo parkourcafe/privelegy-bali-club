@@ -9,6 +9,7 @@ import GlobalHeader from "@/components/GlobalHeader";
 import MobileNav from "@/components/MobileNav";
 import { getLocale } from "@/lib/i18n/server";
 import { LOCALE_META } from "@/lib/i18n/locales";
+import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
 // body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
@@ -116,7 +117,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
         <GlobalHeader locale={locale} />
         {children}
