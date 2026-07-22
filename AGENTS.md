@@ -261,6 +261,10 @@ Use `null` or hide when unknown.
 
 Organic recommendation copy remains Other Bali editorial voice. Owner copy is attributed as owner copy. Sponsored placement and paid visibility are not active concepts and may not enter content metadata or ranking.
 
+### District SEO workflow
+
+For every district SEO task, use `.agents/skills/otherbali-district-seo-pipeline/SKILL.md` and maintain an ExecPlan. One URL owns one primary intent. AI output is not evidence. Do not create thin district clones or approve a new URL before repository and cannibalization checks. No public claim may ship without claim-ledger approval. Evidence, owner, field or Maps blockers make the affected topic `HOLD` without blocking independent topics. Do not production-deploy before all required gates pass, and do not modify unrelated districts.
+
 ---
 
 ## 14. Security and privacy
