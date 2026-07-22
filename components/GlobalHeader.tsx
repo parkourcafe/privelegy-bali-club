@@ -55,7 +55,7 @@ export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
       .forEach((d) => (d.open = false));
   }, [pathname]);
 
-  if (!pathname) return null;
+  if (!pathname || pathname === "/") return null;
 
   return (
     <header className="ob-site-header" ref={rootRef}>
