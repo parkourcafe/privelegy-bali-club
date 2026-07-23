@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
+import { isCurrentAdminRequestAuthorized } from "@/lib/admin-request-auth";
 import { serviceClient } from "@/lib/supabase/service";
 import {
   SUBMISSION_MEDIA_BUCKET,
@@ -69,7 +70,11 @@ export async function POST(req: Request) {
     .maybeSingle();
   if (rowErr) return err("lookup_failed", 502);
   if (!row) return err("not_found", 404);
-  if (!["needs_verification", "reviewing"].includes(String(row.status))) return err("closed", 409);
+  const status = String(row.status);
+  const pendingUpload = ["needs_verification", "reviewing"].includes(status);
+  const acceptedOperatorPreview =
+    status === "accepted" && (await isCurrentAdminRequestAuthorized());
+  if (!pendingUpload && !acceptedOperatorPreview) return err("closed", 409);
 
   // Quota counts reserved+uploaded only (rejected files must not lock the owner out).
   const media: SubmissionMediaEntry[] = Array.isArray(row.media) ? (row.media as SubmissionMediaEntry[]) : [];

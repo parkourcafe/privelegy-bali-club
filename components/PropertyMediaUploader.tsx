@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 // Stage B client uploader, shown in the /list-your-property success panel once a
@@ -32,10 +33,19 @@ const ERR_COPY: Record<string, string> = {
 export default function PropertyMediaUploader({
   submissionId,
   mediaToken,
+  mode = "owner",
+  existingPhotoCount = 0,
+  existingVideoCount = 0,
+  refreshOnComplete = false,
 }: {
   submissionId: string;
   mediaToken: string;
+  mode?: "owner" | "operator-preview";
+  existingPhotoCount?: number;
+  existingVideoCount?: number;
+  refreshOnComplete?: boolean;
 }) {
+  const router = useRouter();
   const [rights, setRights] = useState(false);
   const [items, setItems] = useState<Item[]>([]);
   const [busy, setBusy] = useState(false);
@@ -84,8 +94,12 @@ export default function PropertyMediaUploader({
   async function handleFiles(files: FileList | null) {
     if (!files || !rights || busy) return;
     setBusy(true);
-    let photos = items.filter((i) => i.kind === "photo" && i.state !== "rejected" && i.state !== "error").length;
-    let videos = items.filter((i) => i.kind === "video" && i.state !== "rejected" && i.state !== "error").length;
+    let photos =
+      existingPhotoCount +
+      items.filter((i) => i.kind === "photo" && i.state !== "rejected" && i.state !== "error").length;
+    let videos =
+      existingVideoCount +
+      items.filter((i) => i.kind === "video" && i.state !== "rejected" && i.state !== "error").length;
 
     for (const file of Array.from(files)) {
       const kind: "photo" | "video" = file.type.startsWith("video/") ? "video" : "photo";
@@ -106,6 +120,7 @@ export default function PropertyMediaUploader({
 
     setBusy(false);
     if (inputRef.current) inputRef.current.value = "";
+    if (refreshOnComplete) router.refresh();
   }
 
   return (
@@ -113,8 +128,9 @@ export default function PropertyMediaUploader({
       <label className="consent-row">
         <input type="checkbox" checked={rights} onChange={(e) => setRights(e.target.checked)} />
         <span>
-          These photos/video are mine to share, and I&apos;m happy for Other Bali
-          to use them on my page once I approve the draft.
+          {mode === "operator-preview"
+            ? "I confirm this media belongs to this venue and is authorised for the protected owner preview."
+            : "These photos/video are mine to share, and I’m happy for Other Bali to use them on my page once I approve the draft."}
         </span>
       </label>
 
@@ -146,8 +162,9 @@ export default function PropertyMediaUploader({
           onChange={(e) => handleFiles(e.target.files)}
         />
         <p className="mt-2 text-xs text-[var(--muted)]">
-          Up to 20 photos (JPG/PNG) + one short video (MP4, 15–30s). Your own
-          photos only — we never add ours.
+          {mode === "operator-preview"
+            ? "Up to 20 photos (JPG/PNG) + one short video (MP4). Stored privately for operator and owner review."
+            : "Up to 20 photos (JPG/PNG) + one short video (MP4, 15–30s). Your own photos only — we never add ours."}
         </p>
       </div>
 

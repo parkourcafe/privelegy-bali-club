@@ -51,6 +51,14 @@ export default async function AdminIndex() {
       </Link>
 
       <Link
+        href="/admin/venue-preview"
+        className="mt-4 flex items-center justify-between rounded-2xl bg-sky-800 p-4 text-white"
+      >
+        <span className="font-semibold">→ Protected venue demo catalogue</span>
+        <span className="text-sky-100">30 candidates · media</span>
+      </Link>
+
+      <Link
         href="/admin/profile-drafts"
         className="mt-4 flex items-center justify-between rounded-2xl bg-violet-700 p-4 text-white"
       >
