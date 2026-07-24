@@ -23,6 +23,14 @@ export type PhotoUsageStatus =
   | "designed_fallback"
   | "revoked";
 
+export type VenuePhotoStatus =
+  | "missing"
+  | "needs_verification"
+  | "approved_no_photo"
+  | "approved"
+  | "published"
+  | "rejected";
+
 export interface PhotoCandidate {
   src: string;
   usageStatus: PhotoUsageStatus;
@@ -87,8 +95,19 @@ export function publicImageForSchema(candidates: PhotoCandidate[]): string | nul
  * tourist_public mode until per-photo statuses are joined into venue reads. */
 export function venuePhotoUrlForDisplay(
   photoUrl: string | null | undefined,
-  mode: AudienceMode = audienceMode(),
+  options:
+    | AudienceMode
+    | {
+        photoStatus?: VenuePhotoStatus | string | null;
+        mode?: AudienceMode;
+      } = {},
 ): string | undefined {
   if (!photoUrl) return undefined;
+  if (typeof options !== "string" && (
+    options.photoStatus === "approved" || options.photoStatus === "published"
+  )) {
+    return photoUrl;
+  }
+  const mode = typeof options === "string" ? options : (options.mode ?? audienceMode());
   return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
 }

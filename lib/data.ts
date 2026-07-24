@@ -72,6 +72,7 @@ const PLAN_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  "photo_status",
   "area",
   "why_its_here",
   "best_for",
@@ -101,6 +102,7 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  "photo_status",
   // Legacy action fields are deliberately excluded. Public actions may
   // surface only through the fresh, confirmed capability store.
   "area",
@@ -191,8 +193,11 @@ const mapVenue = (r: Row): Venue => {
     vibeTags: (r.vibe_tags as string[]) ?? undefined,
     priceAnchor: (r.price_anchor as string) ?? undefined,
     whatToOrder: (r.what_to_order as string) ?? undefined,
-    // Photo Policy v3: photo_url is provisional-by-default (see lib/photo-policy).
-    photoUrl: venuePhotoUrlForDisplay(r.photo_url as string | null),
+    // Photo Policy v3: an explicitly approved/published exact file is public;
+    // every other legacy photo_url remains provisional and fail-closed.
+    photoUrl: venuePhotoUrlForDisplay(r.photo_url as string | null, {
+      photoStatus: r.photo_status as string | null,
+    }),
     whatsapp: undefined,
     tablepilotSlug: undefined,
     area: (r.area as string) ?? undefined,

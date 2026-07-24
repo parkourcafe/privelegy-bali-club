@@ -58,3 +58,34 @@ test("interim venue photo_url bridge is mode-gated", () => {
   assert.equal(venuePhotoUrlForDisplay("x.jpg", "tourist_public"), undefined);
   assert.equal(venuePhotoUrlForDisplay(null, "owner_prelaunch"), undefined);
 });
+
+test("exact owner-approved venue photo is public without opening provisional media", () => {
+  assert.equal(
+    venuePhotoUrlForDisplay("approved.jpg", {
+      photoStatus: "approved",
+      mode: "tourist_public",
+    }),
+    "approved.jpg",
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("published.jpg", {
+      photoStatus: "published",
+      mode: "tourist_public",
+    }),
+    "published.jpg",
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("candidate.jpg", {
+      photoStatus: "needs_verification",
+      mode: "tourist_public",
+    }),
+    undefined,
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("candidate.jpg", {
+      photoStatus: "needs_verification",
+      mode: "owner_prelaunch",
+    }),
+    "candidate.jpg",
+  );
+});
