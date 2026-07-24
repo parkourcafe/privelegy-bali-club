@@ -1,6 +1,6 @@
 # Other Bali — MEDIA-PUBLISH-ALL Execution Status
 
-Status: `BLOCKED BEFORE INVENTORY`  
+Status: `PARTIAL INVENTORY / WRITE BLOCKED`  
 Recorded: 2026-07-25, Asia/Makassar  
 Approved contract: `MEDIA-002` / `OTHER_BALI_MEDIA_CONTRACT_V1.md`
 
@@ -22,19 +22,21 @@ The credentials available in `/Users/msnigmatullaeva/.env.local` resolve to a di
 jenldxisjyhabzhtkhni
 ```
 
-The target Storage list endpoint was tested without credentials and returned HTTP 400 requiring an authorization header. No target-project query was executed with the wrong-project credentials.
+The target public API was queried read-only. It exposed venue rows and current public photo references, but `venue_photo_submissions` is denied to `anon` and the public list of `owner-photo-candidates` returned zero objects. That response cannot establish the inventory of a restricted bucket.
+
+Partial evidence is recorded in `OTHER_BALI_MEDIA_PUBLISH_ALL_INVENTORY_REPORT.md`: 627 venues, 419 photo references, 328 available target-project images, 91 unavailable legacy-project URLs and 208 venues without a photo.
 
 ## No mutation performed
 
 - no storage object was read, copied, deleted or made public;
-- no database row was read or changed in the target project;
+- no database row was changed in the target project;
 - no bucket visibility was changed;
 - no runtime dependency or production page was changed;
 - no image was discarded.
 
 ## Required unblock
 
-Provide or place a read-only-capable credential pair for `egkdapqwkfprtyqvvnso` in the approved local environment. Once the project reference matches, the next execution will inventory:
+Provide or place a read-only-capable credential pair for `egkdapqwkfprtyqvvnso` in the approved local environment. Once the project reference matches, the next execution will complete the service-read inventory:
 
 1. all `owner-photo-candidates` objects;
 2. all `venue_photo_submissions` rows;
