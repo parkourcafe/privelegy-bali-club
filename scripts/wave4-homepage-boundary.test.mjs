@@ -29,6 +29,12 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function assertWebp(path) {
+  const bytes = readFileSync(path);
+  assert.equal(bytes.subarray(0, 4).toString("ascii"), "RIFF", `${path} is not RIFF`);
+  assert.equal(bytes.subarray(8, 12).toString("ascii"), "WEBP", `${path} is not WebP`);
+}
+
 test("Wave 4 homepage renders the approved section hierarchy", () => {
   assert.match(configSource, /h1: "The right place for the moment you’re in\."/);
   assert.match(appSource, /id="moments"/);
@@ -101,6 +107,19 @@ test("homepage moments use the approved Bali scenario media with visible disclos
     assert.doesNotMatch(appSource, new RegExp(`scene: "${scene}"`));
   }
   assert.match(appSource, /Illustrative scenario/);
+});
+
+test("approved homepage scenario assets are decodable WebP containers", () => {
+  for (const scene of [
+    "home-bali-first-day",
+    "home-bali-sunset",
+    "home-bali-with-kids",
+    "home-bali-rainy-day",
+    "home-bali-romantic",
+    "home-bali-trip-lengths",
+  ]) {
+    assertWebp(join(process.cwd(), "public", "scenes", `${scene}.webp`));
+  }
 });
 
 test("homepage does not introduce unsupported factual or paid claims", () => {

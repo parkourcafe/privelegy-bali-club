@@ -1,0 +1,41 @@
+{
+  "generatedAtUtc": "2026-07-24T19:18:58Z/2026-07-24T19:27:04Z",
+  "model": "gpt_image_2",
+  "aspectRatio": "4:3",
+  "resolution": "2k",
+  "classification": "AI_ILLUSTRATIVE_ALLOWED",
+  "publicDisclosures": ["Illustrative scenario", "Illustrative route"],
+  "accountBalanceBefore": 617.69,
+  "accountBalanceAfter": 533.69,
+  "sourceUrlRetention": "omitted because the CDN path contains an account-scoped segment; source filenames retain the generation IDs",
+  "delivery": {
+    "format": "webp",
+    "width": 1200,
+    "height": 896,
+    "quality": 72,
+    "encoderEffort": 6,
+    "review": "eleven unique source PNGs reviewed in contact sheets and individually where needed; all fourteen shipped WebPs passed Sharp decoder metadata checks"
+  },
+  "rejected": [
+    {
+      "sourceFile": "hf_20260724_191858_2c4d15ac-7c74-4ed4-9e0e-c3b4b4ef26a6.png",
+      "reason": "black/empty first-day frame; not shipped"
+    }
+  ],
+  "assets": [
+    {"sceneId":"home-bali-first-day","sourceFile":"hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png","purpose":"arrival at a generic Bali guesthouse and rice-terrace setting","output":"public/scenes/home-bali-first-day.webp","bytes":124866},
+    {"sceneId":"home-bali-sunset","sourceFile":"hf_20260724_191859_e19f93a8-8210-4685-959a-342631c631e4.png","purpose":"generic Uluwatu-style ocean sunset","output":"public/scenes/home-bali-sunset.webp","bytes":75924},
+    {"sceneId":"home-bali-with-kids","sourceFile":"hf_20260724_191900_24be8e07-722a-4397-916b-a3dacd2e3e4c.png","purpose":"family at a calm generic Sanur-style beach","output":"public/scenes/home-bali-with-kids.webp","bytes":65622},
+    {"sceneId":"home-bali-rainy-day","sourceFile":"hf_20260724_191916_31415caf-e939-4436-bf68-63c5d65db1c1.png","purpose":"sheltered tropical cafe during rain","output":"public/scenes/home-bali-rainy-day.webp","bytes":116416},
+    {"sceneId":"home-bali-romantic","sourceFile":"hf_20260724_191916_dc5fd083-99f6-480b-bd9a-35729656c1e6.png","purpose":"generic cliffside evening for two","output":"public/scenes/home-bali-romantic.webp","bytes":42346},
+    {"sceneId":"home-bali-trip-lengths","sourceFile":"hf_20260724_191918_7e4d06d5-9689-441f-9369-453568481551.png","purpose":"trip planning over Ubud-style rice terraces","output":"public/scenes/home-bali-trip-lengths.webp","bytes":87882},
+    {"sceneId":"plan-route-first-day","sourceFile":"hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png","purpose":"first-day arrival route","output":"public/scenes/plan-route-first-day.webp","bytes":124866,"reuseOf":"home-bali-first-day"},
+    {"sceneId":"plan-route-ubud-culture","sourceFile":"hf_20260724_192645_829d6721-3cb8-425b-9196-22f501fdc0f1.png","purpose":"generic Ubud culture atmosphere","output":"public/scenes/plan-route-ubud-culture.webp","bytes":135300},
+    {"sceneId":"plan-route-bangli-temple-village","sourceFile":"hf_20260724_192645_19d497a2-e284-4ec8-adf7-650113353459.png","purpose":"generic Bangli village lane and gateway","output":"public/scenes/plan-route-bangli-temple-village.webp","bytes":109496},
+    {"sceneId":"plan-route-east-bali-heritage","sourceFile":"hf_20260724_192702_449fbb00-81fd-4db9-aecc-144a868abea8.png","purpose":"generic East Bali landscape and weaving","output":"public/scenes/plan-route-east-bali-heritage.webp","bytes":85592},
+    {"sceneId":"plan-route-canggu-food","sourceFile":"hf_20260724_192703_fd0d58e5-88cb-4b3e-9ba9-869b25531c3d.png","purpose":"fictional Canggu food-day setting","output":"public/scenes/plan-route-canggu-food.webp","bytes":86750},
+    {"sceneId":"plan-route-canggu-rain","sourceFile":"hf_20260724_191916_31415caf-e939-4436-bf68-63c5d65db1c1.png","purpose":"Canggu rainy-day route","output":"public/scenes/plan-route-canggu-rain.webp","bytes":116416,"reuseOf":"home-bali-rainy-day"},
+    {"sceneId":"plan-route-cafe-work","sourceFile":"hf_20260724_192704_955ccd43-a345-45fc-bd35-75caa0260a64.png","purpose":"fictional tropical cafe work session","output":"public/scenes/plan-route-cafe-work.webp","bytes":93304},
+    {"sceneId":"plan-route-sunset-run","sourceFile":"hf_20260724_191859_e19f93a8-8210-4685-959a-342631c631e4.png","purpose":"sunset route mood","output":"public/scenes/plan-route-sunset-run.webp","bytes":75924,"reuseOf":"home-bali-sunset"}
+  ]
+}

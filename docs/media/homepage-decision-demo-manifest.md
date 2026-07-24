@@ -76,12 +76,12 @@ Premium Bali-specific editorial scenario imagery rather than documentary place p
 ## Generation and delivery record
 
 - The original Nano Banana collage pilot remains recorded in `docs/media/higgsfield-homepage-batch.json` for audit history.
-- Bali-specific replacement model: Higgsfield `gpt_image_2`, generated 2026-07-24.
-- Replacement cost: 42.72 credits; balance moved from 716.41 to 673.69.
-- Six replacement source PNGs were visually reviewed for Bali specificity, scenario clarity, text, logos, identifiable businesses, factual-place claims, anatomy and crop safety.
-- Six approved files are reproduced by the prebuild media pipeline as 1200 × 1607 WebP at quality 66 with encoder effort 6.
-- Final file sizes: 87,130–192,640 bytes. Five are below 146 KB; the family scene is 192,640 bytes and retains extra detail to avoid visible compression artifacts around people.
-- Exact replacement prompts, job IDs and source filenames are recorded in `docs/media/higgsfield-homepage-bali-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
+- The first Bali replacement batch remains in `docs/media/higgsfield-homepage-bali-batch.json` as audit history, but is marked superseded: its pinned 60 KB WebPs failed decoding and returned HTTP 400 through `next/image` after deployment.
+- Site-readiness recovery model: Higgsfield `gpt_image_2`, generated 2026-07-24 UTC. One black first-day frame was rejected and regenerated.
+- Six approved source PNGs were visually reviewed together and individually for Bali specificity, scenario clarity, text, logos, identifiable businesses, factual-place claims, anatomy and crop safety.
+- Six shipped files are 1200 × 896 WebP at quality 72 with encoder effort 6; all passed Sharp decoder metadata checks.
+- Final homepage file sizes are 42,346–124,866 bytes.
+- Exact reviewed source filenames, the rejected frame and delivery mappings are recorded in `docs/media/higgsfield-site-readiness-recovery-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
 
 ## Implemented ratio evidence
 
