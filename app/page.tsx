@@ -260,26 +260,27 @@ export default function HomePage() {
                       itemId={plan.id}
                       itemKind={plan.kind}
                       position={index + 1}
-                      className="group overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+                      className="group relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-white transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:aspect-[4/3]"
                     >
-                      <span className="relative block min-h-24 overflow-hidden bg-[#2b1a13]">
-                        {PLAN_SCENE[plan.id] ? (
-                          <SceneImage
-                            scene={PLAN_SCENE[plan.id].scene}
-                            variant={PLAN_SCENE[plan.id].variant}
-                            imgClassName="transition duration-700 group-hover:scale-105"
-                          />
-                        ) : (
-                          <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
-                        )}
-                        <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+                      {PLAN_SCENE[plan.id] ? (
+                        <SceneImage
+                          scene={PLAN_SCENE[plan.id].scene}
+                          variant={PLAN_SCENE[plan.id].variant}
+                          imgClassName="transition duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
+                      )}
+                      <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/20 to-transparent" />
+                      <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white">
+                        Illustrative route
                       </span>
-                      <span className="flex items-start justify-between gap-3 p-5">
-                        <span>
-                          <span className="block font-display text-xl">{plan.label}</span>
-                          <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{plan.body}</span>
+                      <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                        <span className="min-w-0">
+                          <span className="block font-display text-xl leading-tight">{plan.label}</span>
+                          <span className="mt-1 block text-sm leading-snug text-white/85">{plan.body}</span>
                         </span>
-                        <span className="text-[#005962]" aria-hidden="true">→</span>
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-black/20 text-white" aria-hidden="true">→</span>
                       </span>
                     </HomeAnalyticsLink>
                   ))}

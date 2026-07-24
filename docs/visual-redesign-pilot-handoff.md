@@ -168,3 +168,29 @@ Local browser smoke:
 1. Vercel preview must confirm the clean prebuild downloads all six remote sources in the deployment network.
 2. The rest of the homepage still mixes older low-media cards with the new premium DecisionDemo; address those sections incrementally rather than expanding this loop.
 3. Continue `/places` and `/canggu` only with real approved factual media or the existing `Media pending` treatment.
+
+## Loop 3 — Ready-made plans 80/20 correction
+
+### What changed
+
+- Replaced the `Ready-made Bali plans` cards' short image plus separate white copy panel, which rendered visually near 50/50.
+- Each plan now uses one full-card illustrative route image with a compact bottom HTML overlay, one short supporting line and one 44 px arrow target.
+- Added a high-contrast `Illustrative route` disclosure because these existing atmosphere assets are not factual route or venue proof.
+- Shortened the five supporting lines before reducing type so the copy footprint remains consistent at narrow widths.
+
+### Deterministic ratio and browser QA
+
+- Desktop 1440 px: each plan card renders 536 × 402 px; copy region 80 px = 20%, conservative media share = 80%.
+- Mobile 390 px: each plan card renders 350 × 438 px; copy region 80 px = 18%, conservative media share = 82%.
+- Horizontal overflow at 390 px: 0 px.
+- Desktop and mobile crops were visually reviewed; text, disclosure and arrow remain readable over the controlled bottom gradient.
+
+### Verification
+
+- `npm run typecheck` — PASS.
+- `npm run lint` — PASS with 0 errors and the same pre-existing `PhotoReviewPanel.tsx` raw `<img>` warning.
+- Homepage boundary tests — PASS, 10 tests.
+- `npm run test:t0:unit` — PASS, 48 tests.
+- `npm run build` — PASS, 153 static pages generated.
+- Files changed: `app/page.tsx`, `lib/homepage.ts`, `docs/visual-redesign-pilot-handoff.md`.
+- No URLs, canonical/indexability behaviour, data model, ranking or factual media were changed.
