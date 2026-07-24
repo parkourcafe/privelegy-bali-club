@@ -46,6 +46,18 @@ not receive the later route/mobile-readiness tables after migration failure.
 This does not invalidate the bounded media QA, but the branch is not a complete
 application staging database and must not be promoted or merged.
 
+## Owner visual acceptance
+
+On 2026-07-25 the project owner completed the final visual acceptance and
+confirmed:
+
+> Preview принимаю
+
+This closes the bounded acceptance gate for the 10 venue-photo objects listed
+in `MEDIA_PUBLICATION_POLICY_PREVIEW_BRANCH_RESULTS.csv`. It does not approve a
+production deployment, production writes, branch promotion/merge or deletion
+of the paid preview branch.
+
 ## Verdict
 
 PREVIEW_BRANCH_CREATED: PASS  
@@ -65,4 +77,10 @@ PRODUCTION_DATABASE_CHANGED: NO
 PRODUCTION_STORAGE_CHANGED: NO  
 SERVICE_ROLE_USED_IN_PREVIEW: NO  
 MEDIA_PUBLICATION_POLICY_10_OBJECT_ACCEPTANCE: PASS  
+OWNER_VISUAL_ACCEPTANCE: PASS
+
+PRODUCTION_RELEASE_AUTHORIZED: NO
+
+PREVIEW_BRANCH_DELETION_AUTHORIZED: NO
+
 FULL_STAGING_READINESS: BLOCKED (migration history drift)

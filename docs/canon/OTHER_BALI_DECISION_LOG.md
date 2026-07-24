@@ -99,3 +99,20 @@ Owner approval received:
 > Утверждаю Media Contract V1 и разрешаю отдельный запуск MEDIA-PUBLISH-ALL.
 
 The approval authorizes a separate `MEDIA-PUBLISH-ALL` execution task governed by the approved Media Contract. It does not authorize unrelated product, route, money, schema or navigation work. Execution must begin with a read-only inventory and preserve a remediation queue; no image may be silently discarded.
+
+## 2026-07-25 — MEDIA-002 PREVIEW ACCEPTANCE
+
+Owner visual acceptance received:
+
+> Preview принимаю
+
+Decision: the bounded MEDIA-002 preview sample is accepted. The acceptance
+covers the 10 venue-photo routes recorded in
+`MEDIA_PUBLICATION_POLICY_PREVIEW_BRANCH_RESULTS.csv`, including their desktop
+and mobile rendering, image optimization and alt text. It does not authorize a
+production deployment, production data or Storage writes, promotion or merge of
+the Supabase preview branch, or deletion of that branch. Those remain separate
+explicitly authorized operations.
+
+The known full-staging blocker remains open: the preview branch is not a
+complete staging database because its inherited migration history failed.
