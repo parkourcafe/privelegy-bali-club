@@ -1,6 +1,6 @@
 # Other Bali — Media Contract V1
 
-Status: `CONTRACTS_ONLY / DRAFT FOR APPROVAL`  
+Status: `APPROVED FOR SEPARATE MEDIA-PUBLISH-ALL EXECUTION`  
 Recorded: 2026-07-25, Asia/Makassar  
 Owner decision: `MEDIA-002`  
 Supabase project: `egkdapqwkfprtyqvvnso`  

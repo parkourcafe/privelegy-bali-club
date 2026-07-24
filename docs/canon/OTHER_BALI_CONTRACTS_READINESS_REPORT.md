@@ -1,6 +1,6 @@
 # Other Bali — Contracts Readiness Report
 
-Status: `CONTRACTS_ONLY` draft assessment; contracts created, approval pending  
+Status: `CONTRACTS_ONLY` approved for separate `MEDIA-PUBLISH-ALL` execution  
 Recorded: 2026-07-25, Asia/Makassar
 
 ## Gate assessment
@@ -9,7 +9,7 @@ Recorded: 2026-07-25, Asia/Makassar
 |---|---|---|
 | Technical baseline | PASS | T0 unit 48/48; live smoke 12 positive + 1 negative; 690 sitemap URLs; 0 safety violations; build and typecheck pass |
 | Canonical governance | PASS | V3.1 corrected is target master; owner decisions are dated; absent v3.2 is not used |
-| Data contracts | DRAFT / PENDING APPROVAL | Data Dictionary V1, Taxonomy V1 and Migration Map V1 now exist as docs-only drafts |
+| Data contracts | APPROVED FOR MEDIA EXECUTION | Media Contract V1 is approved; unrelated contracts remain implementation-gated |
 | Implementation readiness | NO | Route, freshness, media, issue, offer and money conflicts remain deferred; no product implementation is authorized |
 
 ## Next allowed work
@@ -61,4 +61,4 @@ LEGACY_BOUNDARIES: PASS
 READY_FOR_CONTRACTS_ONLY: YES
 ```
 
-The three drafts are ready for owner/editorial/data review. This is not authorization for P0, P1, P2, migrations, redirects, deploy or production changes. `READY_FOR_P0_IMPLEMENTATION` is intentionally not set.
+Media Contract V1 is approved for the separate `MEDIA-PUBLISH-ALL` task. This is not authorization for P0, P1, P2, route migrations, redirects, deploy or unrelated production changes. `READY_FOR_P0_IMPLEMENTATION` is intentionally not set.

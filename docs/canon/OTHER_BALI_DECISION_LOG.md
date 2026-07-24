@@ -90,3 +90,11 @@ PUBLICATION_INTENT: PUBLISH_ALL_VALID_MEDIA
 ```
 
 Missing consent/token rows, a null `owner_confirmed_by`, admin upload, a shared confirmation timestamp and the current candidate bucket are not blockers for this existing inventory. Only the technical blockers listed in `OTHER_BALI_MEDIA_CONTRACT_V1.md` may temporarily block an item. No data or storage is modified in `CONTRACTS_ONLY`.
+
+## 2026-07-25 — MEDIA-002 APPROVAL
+
+Owner approval received:
+
+> Утверждаю Media Contract V1 и разрешаю отдельный запуск MEDIA-PUBLISH-ALL.
+
+The approval authorizes a separate `MEDIA-PUBLISH-ALL` execution task governed by the approved Media Contract. It does not authorize unrelated product, route, money, schema or navigation work. Execution must begin with a read-only inventory and preserve a remediation queue; no image may be silently discarded.
