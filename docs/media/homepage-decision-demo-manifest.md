@@ -43,12 +43,12 @@ The visual remains dominant. Text is limited to one short headline, one supporti
 
 | ID | Target | Purpose | Class | Aspect | Content restriction | Status |
 |---|---|---|---|---|---|---|
-| `home-bali-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 3:4 | No real venue, airport, hotel or landmark | approved Bali replacement |
-| `home-bali-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 3:4 | No named beach or documentary coast claim | approved Bali replacement |
-| `home-bali-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 3:4 | No identifiable venue or facility claim | approved Bali replacement |
-| `home-bali-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 3:4 | No live weather or real location implication | approved Bali replacement |
-| `home-bali-romantic` | `/` moment card | Quiet route for two | AI illustrative | 3:4 | No named restaurant, villa or beach | approved Bali replacement |
-| `home-bali-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 3:4 | Illustrative planning map; not navigation | approved Bali replacement |
+| `home-bali-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 4:3 source → 4:5 card crop | No real venue, airport, hotel or landmark | approved Bali replacement |
+| `home-bali-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 4:3 source → 4:5 card crop | No named beach or documentary coast claim | approved Bali replacement |
+| `home-bali-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 4:3 source → 4:5 card crop | No identifiable venue or facility claim | approved Bali replacement |
+| `home-bali-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 4:3 source → 4:5 card crop | No live weather or real location implication | approved Bali replacement |
+| `home-bali-romantic` | `/` moment card | Quiet route for two | AI illustrative | 4:3 source → 4:5 card crop | No named restaurant, villa or beach | approved Bali replacement |
+| `home-bali-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 4:3 source → 4:5 card crop | Illustrative planning map; not navigation | approved Bali replacement |
 
 ## Shared art direction
 
@@ -65,7 +65,7 @@ Premium Bali-specific editorial scenario imagery rather than documentary place p
 
 ## Web delivery targets
 
-- Source generation: portrait `3:4`, high-quality still.
+- Source generation: landscape `4:3`, high-quality still; responsive `object-fit: cover` supplies the reviewed portrait `4:5` card crop.
 - Shipped format: optimized WebP or AVIF.
 - Target width: 1200 px for the current card slots.
 - Target weight: preferably under 180 KB per card after visual review.

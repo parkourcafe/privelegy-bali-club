@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
+import sharp from "sharp";
 const read = (path) => readFileSync(path, "utf8");
 const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
@@ -29,10 +30,14 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function assertWebp(path) {
-  const bytes = readFileSync(path);
-  assert.equal(bytes.subarray(0, 4).toString("ascii"), "RIFF", `${path} is not RIFF`);
-  assert.equal(bytes.subarray(8, 12).toString("ascii"), "WEBP", `${path} is not WebP`);
+async function assertDecodableWebp(path) {
+  const image = sharp(path);
+  const metadata = await image.metadata();
+  assert.equal(metadata.format, "webp", `${path} is not WebP`);
+  assert.equal(metadata.width, 1200, `${path} has the wrong width`);
+  assert.equal(metadata.height, 896, `${path} has the wrong height`);
+  const pixels = await image.clone().raw().toBuffer();
+  assert.ok(pixels.length > 0, `${path} did not decode to pixels`);
 }
 
 test("Wave 4 homepage renders the approved section hierarchy", () => {
@@ -109,7 +114,7 @@ test("homepage moments use the approved Bali scenario media with visible disclos
   assert.match(appSource, /Illustrative scenario/);
 });
 
-test("approved homepage scenario assets are decodable WebP containers", () => {
+test("approved homepage scenario assets fully decode at the reviewed dimensions", async () => {
   for (const scene of [
     "home-bali-first-day",
     "home-bali-sunset",
@@ -118,7 +123,7 @@ test("approved homepage scenario assets are decodable WebP containers", () => {
     "home-bali-romantic",
     "home-bali-trip-lengths",
   ]) {
-    assertWebp(join(process.cwd(), "public", "scenes", `${scene}.webp`));
+    await assertDecodableWebp(join(process.cwd(), "public", "scenes", `${scene}.webp`));
   }
 });
 

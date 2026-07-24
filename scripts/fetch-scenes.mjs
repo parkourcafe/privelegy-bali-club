@@ -103,7 +103,7 @@ for (const [name, [file, width]] of Object.entries(SCENES)) {
     const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    const quality = name.startsWith("home-") ? 66 : name.startsWith("plan-route-") ? 68 : 78;
+    const quality = name.startsWith("home-") || name.startsWith("plan-route-") ? 72 : 78;
     await sharp(buf)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality, effort: 6 })

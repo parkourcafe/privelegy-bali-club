@@ -1,13 +1,18 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import sharp from "sharp";
 
 const planSource = readFileSync("app/plan/page.tsx", "utf8");
 
-function assertWebp(path) {
-  const bytes = readFileSync(path);
-  assert.equal(bytes.subarray(0, 4).toString("ascii"), "RIFF", `${path} is not RIFF`);
-  assert.equal(bytes.subarray(8, 12).toString("ascii"), "WEBP", `${path} is not WebP`);
+async function assertDecodableWebp(path) {
+  const image = sharp(path);
+  const metadata = await image.metadata();
+  assert.equal(metadata.format, "webp", `${path} is not WebP`);
+  assert.equal(metadata.width, 1200, `${path} has the wrong width`);
+  assert.equal(metadata.height, 896, `${path} has the wrong height`);
+  const pixels = await image.clone().raw().toBuffer();
+  assert.ok(pixels.length > 0, `${path} did not decode to pixels`);
 }
 
 test("Plan separates published routes into Bali-wide and Canggu practical choices", () => {
@@ -84,7 +89,7 @@ test("Every plan route scene has reproducible AI-illustrative provenance", () =>
   assert.match(manifest, /must not be used as factual place proof/);
 });
 
-test("Every plan route scene is a decodable WebP container", () => {
+test("Every plan route scene fully decodes at the reviewed dimensions", async () => {
   for (const scene of [
     "plan-route-first-day",
     "plan-route-ubud-culture",
@@ -95,6 +100,6 @@ test("Every plan route scene is a decodable WebP container", () => {
     "plan-route-cafe-work",
     "plan-route-sunset-run",
   ]) {
-    assertWebp(`public/scenes/${scene}.webp`);
+    await assertDecodableWebp(`public/scenes/${scene}.webp`);
   }
 });
