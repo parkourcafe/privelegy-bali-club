@@ -1,6 +1,6 @@
 # Other Bali — MEDIA-PUBLISH-ALL Execution Status
 
-Status: `PARTIAL INVENTORY / WRITE BLOCKED`  
+Status: `READ-ONLY INVENTORY COMPLETE / WRITE BLOCKED`  
 Recorded: 2026-07-25, Asia/Makassar  
 Approved contract: `MEDIA-002` / `OTHER_BALI_MEDIA_CONTRACT_V1.md`
 
@@ -22,9 +22,7 @@ The credentials available in `/Users/msnigmatullaeva/.env.local` resolve to a di
 jenldxisjyhabzhtkhni
 ```
 
-The target public API was queried read-only. It exposed venue rows and current public photo references, but `venue_photo_submissions` is denied to `anon` and the public list of `owner-photo-candidates` returned zero objects. That response cannot establish the inventory of a restricted bucket.
-
-Partial evidence is recorded in `OTHER_BALI_MEDIA_PUBLISH_ALL_INVENTORY_REPORT.md`: 627 venues, 419 photo references, 328 available target-project images, 91 unavailable legacy-project URLs and 208 venues without a photo.
+The target service API was queried read-only. Recursive storage inventory and technical validation are complete: 1,089 objects, 101 submissions and 838 venues. Evidence is recorded in `OTHER_BALI_MEDIA_PUBLISH_ALL_INVENTORY_REPORT.md`.
 
 ## No mutation performed
 
@@ -36,7 +34,7 @@ Partial evidence is recorded in `OTHER_BALI_MEDIA_PUBLISH_ALL_INVENTORY_REPORT.m
 
 ## Required unblock
 
-Provide or place a read-only-capable credential pair for `egkdapqwkfprtyqvvnso` in the approved local environment. Once the project reference matches, the next execution will complete the service-read inventory:
+The service-read inventory is complete. The next execution may begin the separately authorized write phase only after confirming remediation handling for the legacy URLs and the one slug mismatch:
 
 1. all `owner-photo-candidates` objects;
 2. all `venue_photo_submissions` rows;
