@@ -4,10 +4,10 @@
 // quietly and the landing falls back to its SVG scene art, so this never
 // breaks a build.
 //
-// These are generated atmospheric scenes (no people, no text). Editorial rule:
-// they are mood imagery and must never be presented as photos of a specific
-// real venue. One shared warm film grade across the set — the site should
-// read as if shot as one film.
+// These are generated atmospheric or explicitly illustrative scenario scenes.
+// The original mood set contains no people or text; later scenario collages may
+// contain faceless graphic silhouettes, but never identifiable people or baked
+// text. They must never be presented as photos of a specific real venue.
 import { existsSync, mkdirSync, statSync, writeFileSync } from "fs";
 import path from "path";
 
@@ -22,6 +22,15 @@ const SCENES = {
   "moment-goldenhour": ["hf_20260711_160531_33959ad1-f6ca-48e3-be60-9b09df36ed7e.png", 1200],
   "moment-dinner": ["hf_20260711_160538_4118293a-66fa-4ff6-a81f-9947ddfd07dc.png", 1200],
   "human-dusk": ["hf_20260711_160539_124f0320-4eb3-49a9-8afb-b1e118c86255.png", 1920],
+  // Homepage DecisionDemo editorial collages (Higgsfield Nano Banana Pro,
+  // 2026-07-24). These are explicitly labelled as illustrative scenarios in
+  // the UI and must never be reused as factual venue or district photography.
+  "home-first-day": ["hf_20260724_061745_ac5c6e1f-efa4-4d3f-a802-06733591a584.png", 1440],
+  "home-sunset": ["hf_20260724_061851_5173ca20-ac62-4e93-809f-7b7afb043bd6.png", 1440],
+  "home-with-kids": ["hf_20260724_061853_ef37af54-d33a-4d1b-9843-2ce514989add.png", 1440],
+  "home-rainy-day": ["hf_20260724_061855_939211e7-fcba-4b82-bde9-7d25aefc406e.png", 1440],
+  "home-romantic": ["hf_20260724_061857_eb9525ef-e7c8-436a-a140-0dd0634b0e23.png", 1440],
+  "home-trip-lengths": ["hf_20260724_061858_4a22f700-0b40-46b7-933d-0266c0f40c81.png", 1440],
   // District mood stills (Higgsfield soul_cinematic, 2026-07-15 pass) for the
   // "Around Bali" cards — one distinct atmospheric scene per district, same
   // warm film grade as the rest of the set. Mood imagery of the AREA only;
@@ -83,7 +92,11 @@ for (const [name, [file, width]] of Object.entries(SCENES)) {
     const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    await sharp(buf).resize({ width, withoutEnlargement: true }).webp({ quality: 78 }).toFile(target);
+    const quality = name.startsWith("home-") ? 72 : 78;
+    await sharp(buf)
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality, effort: 6 })
+      .toFile(target);
     ok++;
     console.log(`scenes: fetched ${name}.webp`);
   } catch (e) {

@@ -30,7 +30,7 @@ function escapeRegExp(value) {
 }
 
 test("Wave 4 homepage renders the approved section hierarchy", () => {
-  assert.match(configSource, /h1: "The right Bali for the moment you’re in\."/);
+  assert.match(configSource, /h1: "The right place for the moment you’re in\."/);
   assert.match(appSource, /id="moments"/);
   assert.match(appSource, /What do you want to do\?/);
   assert.match(appSource, /Plan your Bali trip/);
