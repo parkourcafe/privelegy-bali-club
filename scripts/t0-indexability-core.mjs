@@ -499,3 +499,13 @@ export async function runT0IndexabilityAudit({
     violations,
   };
 }
+
+// Shared primitives for route-agnostic SEO release checks. Keep the parser and
+// content fingerprint identical to the production T0 venue audit so newer
+// governance tooling cannot silently weaken the original acceptance gate.
+export {
+  analyzeHtml as analyzeSeoHtml,
+  contentFingerprint as seoContentFingerprint,
+  normalizeComparableUrl as normalizeSeoUrl,
+  sha256 as hashSeoFingerprint,
+};

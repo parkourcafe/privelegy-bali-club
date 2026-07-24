@@ -89,10 +89,11 @@ const PALETTE: Record<Tone, Palette> = {
 const EYEBROW = "text-[11px] font-bold uppercase tracking-[0.14em]";
 
 const EXPLORE_LINKS = [
-  { href: "/my-day", label: "Build my day" },
-  { href: "/places", label: "Explore Bali" },
+  { href: "/my-day", label: "Today: find a place" },
+  { href: "/places", label: "Explore places" },
+  { href: "/plan", label: "Plan your trip" },
   { href: "/bali", label: "Bali by district" },
-  { href: "/guides", label: "Guides & collections" },
+  { href: "/collections", label: "Curated collections" },
 ];
 const ABOUT_LINKS = [
   { href: "/support", label: "Support" },

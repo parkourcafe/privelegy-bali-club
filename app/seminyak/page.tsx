@@ -5,6 +5,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideSectionMedia } from "@/components/GuideMedia";
 import { guidesForDistrict } from "@/lib/guides";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
@@ -55,6 +56,7 @@ function TopPicks({ title, note, venues, href }: { title: string; note: string; 
         <h2>{title}</h2>
         <Link href={href} className="quiet-link">See all →</Link>
       </div>
+      <GuideSectionMedia seed={`seminyak ${title}`} index={0} />
       <p className="text-sm text-[var(--muted)]">{note}</p>
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (

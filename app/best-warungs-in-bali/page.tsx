@@ -200,7 +200,7 @@ export default async function BestWarungsPage() {
           Looking for a mood rather than a dish — a quiet local table, easy on
           the budget? See{" "}
           <Link href="/collections" className="quiet-link">
-            Bali by taste and moment →
+            curated collections →
           </Link>
         </p>
 

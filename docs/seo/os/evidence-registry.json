@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "mode": "pilot",
+  "updated_at": "2026-07-22",
+  "source_tiers": {
+    "S0": "Government, regulator, official transport or attraction authority.",
+    "S1": "Official venue website, current menu, booking page or official channel.",
+    "S1D": "Direct visit, call, WhatsApp or email confirmation with date and verifier.",
+    "S2": "GBP, major booking platform or authoritative publication; corroboration only.",
+    "S3": "Reviews, third-party social posts or aggregators; discovery only.",
+    "S4": "AI output; never a source and never sufficient for verification."
+  },
+  "required_fields": [
+    "claim_id",
+    "page_url",
+    "field_name",
+    "claim_value",
+    "fact_or_interpretation",
+    "volatility",
+    "source_tier",
+    "source_url_or_source_ref",
+    "source_date",
+    "verified_at",
+    "verified_by",
+    "valid_until",
+    "verification_method",
+    "claim_status"
+  ],
+  "publication_rule": "A factual claim cannot pass facts_verified unless its source and verification fields are complete. AI may draft wording but cannot create evidence.",
+  "page_reviews": [],
+  "entries": []
+}

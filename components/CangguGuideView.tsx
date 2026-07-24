@@ -2,6 +2,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getCangguVenues, toCangguPlaceCard } from "@/lib/canggu";
 import { CANGGU_GUIDES, type CangguGuide } from "@/lib/canggu-guides";
 
@@ -65,6 +66,7 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
           <p className="topline">Canggu</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <GuideHeroMedia seed={`canggu ${guide.slug} ${guide.h1}`} />
         </header>
 
         {groups.length > 1 && (
@@ -81,9 +83,10 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
             <a href="/canggu" className="quiet-link">Canggu guide</a>.
           </p>
         ) : (
-          groups.map(({ g, items }) => (
+          groups.map(({ g, items }, index) => (
             <section key={g.key} id={g.key} className="guide-section scroll-mt-8">
               <h2>{g.heading}</h2>
+              <GuideSectionMedia seed={`canggu ${guide.slug} ${g.heading}`} index={index} />
               <p className="text-sm text-[var(--muted)]">{g.note}</p>
               <div className="pick-grid" style={{ marginTop: 16 }}>
                 {items.map((v) => (

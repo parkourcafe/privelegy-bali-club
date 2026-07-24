@@ -33,6 +33,7 @@ import {
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 import { quickDecisionRows } from "@/lib/quick-decision";
+import { normalizeInstagramProfileUrl } from "@/lib/external-links";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -237,10 +238,11 @@ export default async function VenuePage({
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
       : undefined) ?? venue.officialUrl ?? undefined;
-  const instagramUrl =
+  const instagramUrl = normalizeInstagramProfileUrl(
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
-      : undefined) ?? venue.instagramUrl ?? undefined;
+      : undefined) ?? venue.instagramUrl,
+  ) ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
@@ -320,7 +322,7 @@ export default async function VenuePage({
   // page is about that exact venue (branded-query relevance).
   const schemaSameAs = [
     content?.officialUrl ?? venue.officialUrl,
-    content?.instagramUrl ?? venue.instagramUrl,
+    instagramUrl,
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
@@ -495,13 +497,16 @@ export default async function VenuePage({
               ) : (
                 // Category mood art — atmospheric and decorative, never
                 // presented as venue photography.
-                <VenueImage
-                  className="venue-masthead-photo venue-masthead-art"
-                  src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
-                  alt=""
-                  variant="hero"
-                  priority
-                />
+                <>
+                  <VenueImage
+                    className="venue-masthead-photo venue-masthead-art"
+                    src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
+                    alt=""
+                    variant="hero"
+                    priority
+                  />
+                  <span className="venue-media-disclosure">Media pending · verified details only</span>
+                </>
               )}
               <div className="venue-masthead-inner">
                 <p className="venue-masthead-kicker">
@@ -574,9 +579,14 @@ export default async function VenuePage({
               />
             )}
 
+            {/* Provider handoff belongs before deep details: choose → act →
+                read menu only if needed. */}
+            <VenueActionBar {...actionSlotProps} />
+
             {/* Menu — rendered only when there is something real to show
-                (verified menu or an official source). No big empty-state box
-                on the 80% of venues without menu data. */}
+                (verified menu or an official source). It is intentionally after
+                quick decision/practical/action so the place page stays a
+                micro-decision, not a menu database first. */}
             {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
@@ -586,8 +596,6 @@ export default async function VenuePage({
                 </div>
               </section>
             )}
-
-            <VenueActionBar {...actionSlotProps} />
 
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (

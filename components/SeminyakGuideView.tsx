@@ -2,6 +2,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES, type SeminyakGuide } from "@/lib/seminyak-guides";
 
@@ -62,10 +63,12 @@ export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuid
           <p className="topline">Seminyak</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <GuideHeroMedia seed={`seminyak ${guide.slug} ${guide.h1}`} />
         </header>
 
         <section className="guide-section">
           <h2>{guide.sectionHeading}</h2>
+          <GuideSectionMedia seed={`seminyak ${guide.slug} ${guide.sectionHeading}`} index={0} />
           <p className="text-sm text-[var(--muted)]">{guide.sectionNote}</p>
           {venues.length === 0 ? (
             <p className="mt-4 text-sm text-[var(--muted)]">
