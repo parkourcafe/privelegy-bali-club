@@ -38,12 +38,13 @@ test("homepage exposes approved scenario routes without creating a parallel syst
     ["With kids", "/bali-with-kids"],
     ["Rainy day", "/bali-rainy-day"],
     ["Romantic", "/romantic-bali"],
-    ["Plan 3 / 5 / 7 days", "/plan"],
+    ["Plan 3 / 5 / 7 days", "/how-many-days-in-bali"],
   ];
 
   for (const [label, href] of required) {
     assert.match(homepageConfigSource, new RegExp(`label: "${escapeRegExp(label)}"[\\s\\S]{0,220}href: "${escapeRegExp(href)}"`));
   }
+  assert.match(homepageConfigSource, /secondaryCta: \{ id: "hero_plan", label: "Plan my trip", href: "\/plan" \}/);
   assert.doesNotMatch(homeSource, /DayIntentBuilder/);
 });
 

@@ -42,9 +42,11 @@ export interface PlaceCardData {
 export default function PlaceCard({
   place,
   secondaryAction = "directions",
+  visualFirst = false,
 }: {
   place: PlaceCardData;
   secondaryAction?: "directions" | "none";
+  visualFirst?: boolean;
 }) {
   const href = `/places/${place.slug}`;
   const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
@@ -55,23 +57,34 @@ export default function PlaceCard({
     : null;
 
   return (
-    <article className="place-card">
-      <div className="place-card-media">
-        {place.photoUrl ? (
-          <VenueImage
-            src={place.photoUrl}
-            alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
-            variant="card"
-            rightsApproved={place.photoRightsApproved}
-            fallback={<PlaceCover name={place.name} category={place.category} />}
-          />
-        ) : (
-          <>
-            <PlaceCover name={place.name} category={place.category} />
-            <span className="media-pending-badge">Media pending · verified details below</span>
-          </>
-        )}
-      </div>
+    <article
+      className={`place-card${
+        visualFirst
+          ? place.photoUrl
+            ? " place-card-visual-first"
+            : " place-card-no-media"
+          : ""
+      }`}
+      data-media-led={visualFirst && Boolean(place.photoUrl) ? "true" : undefined}
+    >
+      {(!visualFirst || place.photoUrl) && (
+        <div className="place-card-media">
+          {place.photoUrl ? (
+            <VenueImage
+              src={place.photoUrl}
+              alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
+              variant="card"
+              rightsApproved={place.photoRightsApproved}
+              fallback={<PlaceCover name={place.name} category={place.category} />}
+            />
+          ) : (
+            <>
+              <PlaceCover name={place.name} category={place.category} />
+              <span className="media-pending-badge">Media pending · verified details below</span>
+            </>
+          )}
+        </div>
+      )}
 
       <div className="place-card-body">
         <p className="place-card-eyebrow">
@@ -91,15 +104,19 @@ export default function PlaceCard({
           </TrackedPlaceLink>
         </h3>
 
-        {place.editorialLine && (
+        {!visualFirst && place.editorialLine && (
           <p className="place-card-line">{place.editorialLine}</p>
         )}
 
-        {place.bestFor && (
+        {!visualFirst && place.bestFor && (
           <p className="place-card-fit">
             <strong>Best for:</strong> {place.bestFor}
           </p>
         )}
+
+        {visualFirst && (place.bestFor || place.editorialLine) ? (
+          <p className="place-card-line">{place.bestFor || place.editorialLine}</p>
+        ) : null}
 
         <div className="place-card-foot">
           <span className="place-card-price">

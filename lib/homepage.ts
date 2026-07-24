@@ -34,7 +34,7 @@ export const HOME_MOMENTS: HomeLinkItem[] = [
   { id: "with_kids", label: "With kids", body: "An easier family day.", ctaLabel: "Open the family guide", href: "/bali-with-kids", sectionId: "home_moments", kind: "scenario", required: true },
   { id: "rainy_day", label: "Rainy day", body: "Flexible plans when weather changes.", ctaLabel: "Open the rainy-day guide", href: "/bali-rainy-day", sectionId: "home_moments", kind: "scenario", required: true },
   { id: "romantic", label: "Romantic", body: "A quieter route for two.", ctaLabel: "Open the romantic guide", href: "/romantic-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "trip_lengths", label: "Plan 3 / 5 / 7 days", body: "Start with the time you have.", ctaLabel: "Open trip plans", href: "/plan", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "trip_lengths", label: "Plan 3 / 5 / 7 days", body: "Start with the time you have.", ctaLabel: "Open trip plans", href: "/how-many-days-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
 ];
 
 export const HOME_AREAS: HomeLinkItem[] = [
@@ -50,7 +50,7 @@ export const HOME_PLANS: HomeLinkItem[] = [
   { id: "first_trip", label: "Your first trip to Bali", body: "Start with the essentials.", href: "/first-time-in-bali", sectionId: "home_plan", kind: "plan", required: true },
   { id: "bali_3_days", label: "Bali in 3 days", body: "A focused short trip.", href: "/bali-itinerary-3-days", sectionId: "home_plan", kind: "plan", required: true },
   { id: "bali_5_days", label: "Bali in 5 days", body: "Balance bases and driving.", href: "/bali-itinerary-5-days", sectionId: "home_plan", kind: "plan", required: true },
-  { id: "without_scooter", label: "Bali without a scooter", body: "Choose easier transport.", href: "/canggu-without-a-scooter", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "without_scooter", label: "Bali without a scooter", body: "Choose easier transport.", href: "/how-to-get-around-bali", sectionId: "home_plan", kind: "plan", required: true },
   { id: "with_kids_plan", label: "Bali with kids", body: "Make family days easier.", href: "/bali-with-kids", sectionId: "home_plan", kind: "plan", required: true },
 ];
 

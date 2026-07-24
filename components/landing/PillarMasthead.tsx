@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SceneImage from "./SceneImage";
 import HeroLoop from "./HeroLoop";
 
@@ -11,27 +12,42 @@ import HeroLoop from "./HeroLoop";
 // venue photo (content guardrail).
 export default function PillarMasthead({
   posterScene,
+  imageSrc,
   variant,
   videoSrc,
   kicker,
   title,
   copy,
   meta,
+  mediaDisclosure,
   actions,
 }: {
   posterScene: string;
+  imageSrc?: string;
   variant: "sunset" | "ridge" | "surf" | "night";
   videoSrc?: string;
   kicker: string;
   title: string;
   copy: string;
   meta?: string;
+  mediaDisclosure?: string;
   actions?: React.ReactNode;
 }) {
   return (
     <header className="pillar-masthead ob-grain relative -mx-4 mb-9 overflow-hidden sm:mx-0 sm:rounded-3xl sm:border sm:border-[rgba(22,16,12,0.35)]">
       <div className="relative min-h-[19rem] md:min-h-[23rem]">
-        <SceneImage scene={posterScene} variant={variant} imgClassName="ob-grade" />
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt=""
+            fill
+            preload
+            sizes="(max-width: 639px) 100vw, (max-width: 1280px) calc(100vw - 2rem), 1120px"
+            className="object-cover ob-grade"
+          />
+        ) : (
+          <SceneImage scene={posterScene} variant={variant} imgClassName="ob-grade" />
+        )}
         {videoSrc ? <HeroLoop src={videoSrc} /> : null}
         {/* Legibility scrims: left→right wash for the copy column plus a strong
             bottom-up gradient, matching the landing and /places heroes. */}
@@ -53,6 +69,11 @@ export default function PillarMasthead({
               <p className="mt-3 text-xs text-[rgba(250,246,239,0.72)]">{meta}</p>
             ) : null}
             {actions ? <div className="mt-5 flex flex-wrap gap-3">{actions}</div> : null}
+            {mediaDisclosure ? (
+              <p className="mt-4 text-[11px] font-medium text-[rgba(250,246,239,0.72)]">
+                {mediaDisclosure}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
