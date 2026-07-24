@@ -106,9 +106,6 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
               />
             ) : null}
             <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/5" />
-            <span className="absolute left-5 top-5 rounded-full border border-white/35 bg-[#211913]/80 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-              Illustrative scenario
-            </span>
             <span className="absolute inset-x-0 bottom-0 flex min-h-[20%] items-end justify-between gap-4 p-4 sm:p-5">
               <span className="max-w-[84%]">
                 <span className="block font-display text-2xl leading-none">{item.label}</span>
@@ -329,9 +326,6 @@ export default function HomePage() {
               sizes="(max-width: 640px) calc(100vw - 2.5rem), 1120px"
             />
             <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
-            <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white sm:left-6 sm:top-6">
-              Illustrative area
-            </span>
             <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="min-w-0">
                 <span className="block font-display text-2xl leading-tight">Open Canggu</span>
