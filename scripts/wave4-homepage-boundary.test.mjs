@@ -7,6 +7,7 @@ const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
 const trackerSource = read("components/HomeAnalyticsLink.tsx");
 const configSource = read("lib/homepage.ts");
+const sceneFetcherSource = read("scripts/fetch-scenes.mjs");
 
 function extractSection(name) {
   const marker = `export const ${name}`;
@@ -90,6 +91,16 @@ test("homepage does not introduce unsupported factual or paid claims", () => {
     assert.doesNotMatch(appSource, new RegExp(forbidden, "i"));
     assert.doesNotMatch(configSource, new RegExp(forbidden, "i"));
   }
+});
+
+test("homepage uses cache-busted Bali scenario media with an illustrative disclosure", () => {
+  for (const scene of ["first-day", "sunset", "with-kids", "rainy-day", "romantic", "trip-lengths"]) {
+    const versionedScene = `home-bali-${scene}`;
+    assert.match(appSource, new RegExp(versionedScene));
+    assert.match(sceneFetcherSource, new RegExp(`\\"${versionedScene}\\"`));
+  }
+  assert.match(appSource, /Illustrative scenario/);
+  assert.doesNotMatch(appSource, /scene: "home-(?!bali-)/);
 });
 
 test("homepage JSON-LD uses the safe serializer and does not duplicate WebSite schema", () => {

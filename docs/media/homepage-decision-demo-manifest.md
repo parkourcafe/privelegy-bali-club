@@ -43,31 +43,31 @@ The visual remains dominant. Text is limited to one short headline, one supporti
 
 | ID | Target | Purpose | Class | Aspect | Content restriction | Status |
 |---|---|---|---|---|---|---|
-| `home-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 4:5 | No real venue, airport, hotel or landmark | approved pilot |
-| `home-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 4:5 | No named beach or documentary coast claim | approved pilot |
-| `home-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 4:5 | No identifiable child, venue or facility claim | approved pilot |
-| `home-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 4:5 | No live weather or real location implication | approved pilot |
-| `home-romantic` | `/` moment card | Quiet route for two | AI illustrative | 4:5 | No named restaurant, villa or beach | approved pilot |
-| `home-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 4:5 | Abstract route/planning scene only | approved pilot |
+| `home-bali-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 3:4 | No real venue, airport, hotel or landmark | approved Bali replacement |
+| `home-bali-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 3:4 | No named beach or documentary coast claim | approved Bali replacement |
+| `home-bali-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 3:4 | No identifiable venue or facility claim | approved Bali replacement |
+| `home-bali-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 3:4 | No live weather or real location implication | approved Bali replacement |
+| `home-bali-romantic` | `/` moment card | Quiet route for two | AI illustrative | 3:4 | No named restaurant, villa or beach | approved Bali replacement |
+| `home-bali-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 3:4 | Illustrative planning map; not navigation | approved Bali replacement |
 
 ## Shared art direction
 
-Premium editorial travel collage rather than documentary photography:
+Premium Bali-specific editorial scenario imagery rather than documentary place proof:
 
-- restrained warm sand, deep lagoon, oxidized coral and ink palette;
-- analog film grain, paper texture and subtle route-line graphics;
-- one clear subject and generous negative space;
+- realistic editorial lighting with restrained warm, deep green and ocean tones;
+- subtle analog film grain and calm premium travel-magazine grade;
+- one clear scenario and a dark, visually quiet lower overlay zone;
 - no text baked into the asset;
 - no logos, watermarks, branded products or identifiable businesses;
-- no copied landmark composition;
+- no named venue or copied venue/landmark composition;
 - consistent grade across all six assets;
 - mobile-safe central subject and edge-safe crop.
 
 ## Web delivery targets
 
-- Source generation: portrait `4:5`, high-quality still.
+- Source generation: portrait `3:4`, high-quality still.
 - Shipped format: optimized WebP or AVIF.
-- Target width: 1200–1600 px.
+- Target width: 1200 px for the current card slots.
 - Target weight: preferably under 180 KB per card after visual review.
 - `next/image` with explicit responsive `sizes`.
 - Decorative/illustrative alt handling must not repeat visible card text.
@@ -75,13 +75,13 @@ Premium editorial travel collage rather than documentary photography:
 
 ## Generation and delivery record
 
-- Requested Higgsfield model: `nano_banana_pro`; completed jobs report the backend model status as `nano_banana_2`.
-- Generated: 2026-07-24.
-- Cost: 12 credits total; balance moved from 728.41 to 716.41.
-- Six source PNGs were visually reviewed for text, logos, identifiable faces, place claims and crop safety.
-- Six approved files are reproduced by the prebuild media pipeline as 1440 × 1788 WebP at quality 72 with encoder effort 6.
-- Final file sizes: 72,658–140,820 bytes; every card asset is under the 180 KB target.
-- Exact prompts and job IDs are recorded in `docs/media/higgsfield-homepage-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
+- The original Nano Banana collage pilot remains recorded in `docs/media/higgsfield-homepage-batch.json` for audit history.
+- Bali-specific replacement model: Higgsfield `gpt_image_2`, generated 2026-07-24.
+- Replacement cost: 42.72 credits; balance moved from 716.41 to 673.69.
+- Six replacement source PNGs were visually reviewed for Bali specificity, scenario clarity, text, logos, identifiable businesses, factual-place claims, anatomy and crop safety.
+- Six approved files are reproduced by the prebuild media pipeline as 1200 × 1607 WebP at quality 66 with encoder effort 6.
+- Final file sizes: 87,130–192,640 bytes. Five are below 146 KB; the family scene is 192,640 bytes and retains extra detail to avoid visible compression artifacts around people.
+- Exact replacement prompts, job IDs and source filenames are recorded in `docs/media/higgsfield-homepage-bali-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
 
 ## Implemented ratio evidence
 

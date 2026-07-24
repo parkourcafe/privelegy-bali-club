@@ -11,16 +11,56 @@
 import type { VenueWithPerk } from "@/lib/data";
 import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
 import { normalizeJobs } from "@/lib/intents";
+import { anonClient, isSupabaseConfigured } from "@/lib/supabase/server";
 import type { PlaceCardData } from "@/components/PlaceCard";
 
 export const CANGGU_SLUG = "canggu";
 
+function isReachableProjectPhoto(photoUrl: string): boolean {
+  const projectUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "");
+  return Boolean(projectUrl && photoUrl.startsWith(`${projectUrl}/storage/`));
+}
+
+async function getCangguApprovedPhotoUrls(): Promise<Map<string, string>> {
+  if (!isSupabaseConfigured()) return new Map();
+
+  try {
+    const { data, error } = await anonClient()!
+      .from("venues")
+      .select("slug,photo_url")
+      .eq("district", CANGGU_SLUG)
+      .eq("status", "active")
+      .eq("publication_status", "published")
+      .not("photo_url", "is", null);
+
+    if (error || !data) return new Map();
+    return new Map(
+      data.flatMap((row) =>
+        typeof row.slug === "string" &&
+        typeof row.photo_url === "string" &&
+        isReachableProjectPhoto(row.photo_url)
+          ? [[row.slug, row.photo_url] as const]
+          : [],
+      ),
+    );
+  } catch {
+    return new Map();
+  }
+}
+
 // Canggu already uses its public name as the DB slug — no URL/DB mapping needed
 // (unlike Uluwatu's uluwatu ↔ uluwatu-bukit).
 export async function getCangguVenues(): Promise<VenueWithPerk[]> {
-  const all = await getPublishedVenues();
+  const [all, approvedPhotoUrls] = await Promise.all([
+    getPublishedVenues(),
+    getCangguApprovedPhotoUrls(),
+  ]);
   return all
     .filter((v) => v.district === CANGGU_SLUG && isPublicReadyVenue(v))
+    .map((v) => ({
+      ...v,
+      photoUrl: approvedPhotoUrls.get(v.slug) ?? v.photoUrl,
+    }))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
