@@ -54,6 +54,9 @@ Vercel configuration:
 - `OTHER_BALI_PROTECTED_PREVIEW_PRODUCTION_SUBMISSION_MEDIA_WRITE` is stored as
   a sensitive Preview variable scoped only to
   `codex/protected-venue-preview-2026-07-23`.
+- `ADMIN_ACCESS_TOKEN` has a separate sensitive override for the same branch,
+  giving the protected catalogue a second application-level access gate without
+  rotating or exposing the production admin secret.
 - The general Preview service client remains disabled against the production
   Supabase ref.
 
