@@ -59,12 +59,12 @@ const AREA_DISTRICT_SLUG: Record<string, string> = {
 };
 
 const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_day: { scene: "home-first-day", variant: "ridge" },
-  sunset: { scene: "home-sunset", variant: "sunset" },
-  with_kids: { scene: "home-with-kids", variant: "surf" },
-  rainy_day: { scene: "home-rainy-day", variant: "ridge" },
-  romantic: { scene: "home-romantic", variant: "night" },
-  trip_lengths: { scene: "home-trip-lengths", variant: "sunset" },
+  first_day: { scene: "home-bali-first-day", variant: "ridge" },
+  sunset: { scene: "home-bali-sunset", variant: "sunset" },
+  with_kids: { scene: "home-bali-with-kids", variant: "surf" },
+  rainy_day: { scene: "home-bali-rainy-day", variant: "ridge" },
+  romantic: { scene: "home-bali-romantic", variant: "night" },
+  trip_lengths: { scene: "home-bali-trip-lengths", variant: "sunset" },
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
@@ -106,6 +106,9 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
               />
             ) : null}
             <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/5" />
+            <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white">
+              Illustrative scenario
+            </span>
             <span className="absolute inset-x-0 bottom-0 flex min-h-[20%] items-end justify-between gap-4 p-4 sm:p-5">
               <span className="max-w-[84%]">
                 <span className="block font-display text-2xl leading-none">{item.label}</span>
