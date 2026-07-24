@@ -240,120 +240,6 @@ html {
   font-size: 13px;
 }
 
-.plan-route-group {
-  margin-top: 24px;
-}
-
-.plan-route-group + .plan-route-group {
-  margin-top: 34px;
-}
-
-.plan-route-group-title {
-  font-family: var(--font-display);
-  font-size: clamp(26px, 4vw, 34px);
-  line-height: 1.05;
-}
-
-.plan-route-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
-  margin-top: 14px;
-}
-
-.plan-route-card {
-  position: relative;
-  display: block;
-  aspect-ratio: 4 / 3;
-  min-height: 250px;
-  overflow: hidden;
-  isolation: isolate;
-  border: 1px solid rgba(22, 16, 12, 0.24);
-  border-radius: 20px;
-  background: var(--ob-espresso-2);
-  color: #fffaf1;
-  box-shadow: var(--shadow-soft);
-  text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.plan-route-card:hover {
-  box-shadow: var(--shadow-lift);
-  transform: translateY(-3px);
-}
-
-.plan-route-card-shade {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(18, 12, 8, 0.18) 0%, transparent 34%),
-    linear-gradient(0deg, rgba(18, 12, 8, 0.94) 0%, rgba(18, 12, 8, 0.54) 46%, transparent 78%);
-}
-
-.plan-route-disclosure {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  border: 1px solid rgba(255, 250, 241, 0.42);
-  border-radius: 999px;
-  background: rgba(24, 17, 12, 0.74);
-  padding: 7px 11px;
-  color: #fffaf1;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
-  backdrop-filter: blur(6px);
-}
-
-.plan-route-copy {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 2;
-  padding: 20px 20px 14px;
-}
-
-.plan-route-district {
-  color: var(--ob-brass-2);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.plan-route-copy h4 {
-  margin-top: 5px;
-  color: #fffaf1;
-  font-family: var(--font-display);
-  font-size: clamp(23px, 3vw, 29px);
-  line-height: 1.02;
-}
-
-.plan-route-summary {
-  display: -webkit-box;
-  margin-top: 6px;
-  overflow: hidden;
-  color: rgba(255, 250, 241, 0.82);
-  font-size: 13px;
-  line-height: 1.35;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.plan-route-meta {
-  display: flex;
-  min-height: 44px;
-  align-items: end;
-  justify-content: space-between;
-  gap: 12px;
-  color: #fffaf1;
-  font-size: 12px;
-  font-weight: 800;
-}
-
 .filter-panel {
   display: grid;
   gap: 14px;
@@ -972,10 +858,6 @@ html {
   }
 
   .route-strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .plan-route-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
