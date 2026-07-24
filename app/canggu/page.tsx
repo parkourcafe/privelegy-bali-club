@@ -88,19 +88,35 @@ const FAQ = [
   },
 ];
 
-function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
+function TopPicks({
+  title,
+  note,
+  venues,
+  href,
+  mediaSrc,
+}: {
+  title: string;
+  note: string;
+  venues: VenueWithPerk[];
+  href: string;
+  mediaSrc: string;
+}) {
   if (venues.length === 0) return null;
   return (
     <section className="guide-section">
-      <div className="flex items-baseline justify-between gap-4">
-        <h2>{title}</h2>
-        <Link href={href} className="quiet-link">See all →</Link>
-      </div>
-      <GuideSectionMedia seed={`canggu ${title}`} index={0} />
-      <p className="text-sm text-[var(--muted)]">{note}</p>
+      <GuideSectionMedia
+        seed={`canggu ${title}`}
+        index={0}
+        src={mediaSrc}
+        heading={title}
+        support={note}
+        actionHref={href}
+        actionLabel="See all picks"
+        disclosure="Illustrative atmosphere · generated with Higgsfield · not a specific venue"
+      />
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (
-          <PlaceCard key={v.slug} place={toCangguPlaceCard(v)} />
+          <PlaceCard key={v.slug} place={toCangguPlaceCard(v)} visualFirst />
         ))}
       </div>
     </section>
@@ -137,29 +153,29 @@ export default async function CangguPillarPage() {
 
         <PillarMasthead
           posterScene="district-canggu"
+          imageSrc="/scenes/canggu-hero-illustrative.webp"
           variant="surf"
-          videoSrc="/scenes/places-coast-loop.mp4"
           kicker="Canggu · Other Bali beta"
-          title="Canggu, sorted by the decision you're making"
-          copy="Surf, coffee, sunset and a deep dinner scene — and enough choice to lose an afternoon deciding. This guide sorts Canggu by what you're actually choosing: where to eat, where to work, where to reset, where to watch the sun go down. Confirmed offers and table reservations are one tap away."
-          meta="Editorial review: 2026-07-14 · researched, not sponsored · no paid ranking"
+          title="Choose your Canggu day"
+          copy="Eat, work, reset or catch sunset — start with the decision you are making now."
+          mediaDisclosure="Illustrative Canggu atmosphere · generated with Higgsfield · not evidence of a specific place"
           actions={
-            <>
-              <Link
-                href="/plan#canggu-day-builder"
-                className="inline-flex rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
-              >
-                Open the Canggu day builder
-              </Link>
-              <Link
-                href="/places?district=canggu"
-                className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
-              >
-                Browse all Canggu places
-              </Link>
-            </>
+            <Link
+              href="/plan#canggu-day-builder"
+              className="inline-flex min-h-11 items-center rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
+            >
+              Plan your Canggu day
+            </Link>
           }
         />
+
+        <div className="district-trust-strip">
+          <p>
+            <strong>Resident-curated.</strong> Editorial review: 2026-07-14 ·
+            researched, not sponsored · no paid ranking.
+          </p>
+          <Link href="/places?district=canggu">Browse all Canggu places →</Link>
+        </div>
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Canggu guides">
           {CANGGU_GUIDES.map((g) => (
@@ -220,10 +236,10 @@ export default async function CangguPillarPage() {
           </div>
         </section>
 
-        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurants} href="/canggu/best-restaurants" />
-        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafes} href="/canggu/work-friendly-cafes" />
-        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spas} href="/canggu/best-spas" />
-        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunset} href="/canggu/beach-clubs-sunset" />
+        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurants} href="/canggu/best-restaurants" mediaSrc="/scenes/canggu-restaurants-illustrative.webp" />
+        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafes} href="/canggu/work-friendly-cafes" mediaSrc="/scenes/canggu-cafes-illustrative.webp" />
+        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spas} href="/canggu/best-spas" mediaSrc="/scenes/canggu-spas-illustrative.webp" />
+        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunset} href="/canggu/beach-clubs-sunset" mediaSrc="/scenes/canggu-sunset-illustrative.webp" />
 
         <section className="guide-section">
           <h2>Practical notes (read before you plan)</h2>
