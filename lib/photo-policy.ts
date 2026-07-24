@@ -37,6 +37,23 @@ export interface PhotoCandidate {
   expiresAt?: string | null;
 }
 
+// This legacy project no longer serves its public venue-photos bucket
+// (verified 2026-07-25: Storage returns `Bucket not found`). Keep the exact
+// approved rows in the consent ledger, but fail closed in public rendering
+// until the same file is migrated or a new owner-approved file replaces it.
+const DECOMMISSIONED_PHOTO_HOSTS = new Set([
+  "xvhxyohqkkpaynrgrvvb.supabase.co",
+]);
+
+function isDecommissionedPhotoSource(src: string): boolean {
+  try {
+    const url = new URL(src, "https://www.otherbali.com");
+    return DECOMMISSIONED_PHOTO_HOSTS.has(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 export function parseAudienceMode(raw: string | undefined | null): AudienceMode {
   return raw === "owner_prelaunch" ? "owner_prelaunch" : "tourist_public";
 }
@@ -99,6 +116,7 @@ export function venuePhotoUrlForDisplay(
       } = {},
 ): string | undefined {
   if (!photoUrl) return undefined;
+  if (isDecommissionedPhotoSource(photoUrl)) return undefined;
   // Legacy callers passed only the audience mode after the owner-approved
   // publication decision. Preserve that contract; new data reads pass the
   // object form below so unapproved statuses still fail closed.
@@ -121,6 +139,7 @@ export function venuePhotoSourceAllowed(
 ): boolean {
   try {
     const url = new URL(src, "https://www.otherbali.com");
+    if (DECOMMISSIONED_PHOTO_HOSTS.has(url.hostname)) return false;
     const legacyDraft = url.pathname.includes(
       "/storage/v1/object/public/venue-photos/draft/",
     );

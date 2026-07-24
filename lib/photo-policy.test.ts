@@ -101,3 +101,17 @@ test("legacy draft object path requires exact-file rights approval", () => {
   assert.equal(venuePhotoSourceAllowed(approved, false), true);
   assert.equal(venuePhotoSourceAllowed("not a URL", false), true);
 });
+
+test("decommissioned legacy storage never renders even when rights were approved", () => {
+  const unavailable =
+    "https://xvhxyohqkkpaynrgrvvb.supabase.co/storage/v1/object/public/venue-photos/draft/place/photo.jpg";
+
+  assert.equal(
+    venuePhotoUrlForDisplay(unavailable, {
+      photoStatus: "published",
+      mode: "tourist_public",
+    }),
+    undefined,
+  );
+  assert.equal(venuePhotoSourceAllowed(unavailable, true), false);
+});

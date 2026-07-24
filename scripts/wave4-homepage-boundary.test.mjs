@@ -76,6 +76,33 @@ test("approved homepage config has valid cardinality and existing required targe
   }
 });
 
+test("homepage moments use the approved Bali scenario media with visible disclosure", () => {
+  const approvedScenes = [
+    "home-bali-first-day",
+    "home-bali-sunset",
+    "home-bali-with-kids",
+    "home-bali-rainy-day",
+    "home-bali-romantic",
+    "home-bali-trip-lengths",
+  ];
+  const supersededScenes = [
+    "home-first-day",
+    "home-sunset",
+    "home-with-kids",
+    "home-rainy-day",
+    "home-romantic",
+    "home-trip-lengths",
+  ];
+
+  for (const scene of approvedScenes) {
+    assert.match(appSource, new RegExp(`scene: "${scene}"`));
+  }
+  for (const scene of supersededScenes) {
+    assert.doesNotMatch(appSource, new RegExp(`scene: "${scene}"`));
+  }
+  assert.match(appSource, /Illustrative scenario/);
+});
+
 test("homepage does not introduce unsupported factual or paid claims", () => {
   for (const forbidden of [
     "Open now",
