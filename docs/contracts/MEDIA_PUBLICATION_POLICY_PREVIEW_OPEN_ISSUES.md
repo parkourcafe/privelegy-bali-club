@@ -1,16 +1,16 @@
 # Preview open issues
 
-## PREVIEW-BLOCKER-001 — Vercel Deployment Protection
+## PREVIEW-BLOCKER-001 — Venue-photos positive sample unavailable
 
-The deployment is Ready, but the public deployment URL serves the Vercel login
-page. The Next.js application and its public Supabase reads are never reached.
-This prevents the required 20-venue positive sample, negative browser sample,
-desktop/mobile visual checks, Next Image network checks, and screenshot
-acceptance.
+The explicit preview deployment is public and the application is reachable.
+However, six migrated `venue-photos` slugs tested directly return the app's 404
+state, and no `venue-photos` object appears in the sampled published cards. The
+required 10-object sample (including six `/draft/` objects) cannot be accepted
+without changing publication/data state.
 
-Resolution: owner-approved preview access or a preview deployment with
-Deployment Protection disabled. Do not bypass with secrets, service role, or
-fixture data.
+Resolution: reconcile which active + published venues should carry the existing
+current-project `venue-photos` URLs, then rerun this QA. Do not bypass policy,
+activate 404 slugs, or use fixture data in preview.
 
 `vercel env ls` also reports no project environment variables. Once the
 deployment is publicly reachable, the preview must receive only the approved
