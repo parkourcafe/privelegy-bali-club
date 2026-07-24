@@ -35,7 +35,6 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/bali-hotel-brunches", label: "Brunches & Buffets" },
       { href: "/best-coffee-in-bali", label: "Specialty Coffee" },
       { href: "/where-to-watch-sunset-in-bali", label: "Bars & Sunset Drinks" },
-      { href: "/collections", label: "Curated Lists" },
     ],
   },
   {
