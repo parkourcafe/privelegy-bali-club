@@ -61,4 +61,4 @@ For duplicates, retain the authorized canonical asset, prevent duplicate renderi
 - no production page depends on an unavailable legacy project;
 - `owner-photo-candidates` visibility changes only after runtime dependencies have migrated.
 
-This contract is a draft. It authorizes inventory and migration planning only, not data mutation, storage changes, public bucket changes or runtime implementation.
+This contract is approved for the separately authorized `MEDIA-PUBLISH-ALL` task. The current `CONTRACTS_ONLY / DRY_RUN_ONLY` phase authorizes inventory and manifest generation only, not data mutation, storage changes, public bucket changes or runtime implementation.

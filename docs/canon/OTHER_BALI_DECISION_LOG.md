@@ -87,6 +87,7 @@ SUPABASE_PROJECT: egkdapqwkfprtyqvvnso
 STORAGE_SOURCE: owner-photo-candidates
 RIGHTS_BASIS: PROJECT_OWNER_GLOBAL_PUBLICATION_AUTHORIZATION
 PUBLICATION_INTENT: PUBLISH_ALL_VALID_MEDIA
+DASHBOARD_REFERENCE: https://supabase.com/dashboard/project/egkdapqwkfprtyqvvnso/storage/buckets/owner-photo-candidates
 ```
 
 Missing consent/token rows, a null `owner_confirmed_by`, admin upload, a shared confirmation timestamp and the current candidate bucket are not blockers for this existing inventory. Only the technical blockers listed in `OTHER_BALI_MEDIA_CONTRACT_V1.md` may temporarily block an item. No data or storage is modified in `CONTRACTS_ONLY`.
