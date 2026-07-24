@@ -5,9 +5,9 @@
 //  - Audience mode is a SERVER-side switch (env OTHER_BALI_AUDIENCE_MODE).
 //    Missing/invalid values fail CLOSED to "tourist_public" (§9) — provisional
 //    imagery can never be enabled from the client or by a query param.
-//  - Provisional (official-source, not yet owner-approved) photos may render
-//    on open pages only in "owner_prelaunch" mode; in tourist mode only
-//    owner_approved / editorial_licensed / designed_fallback render (§8).
+//  - Existing venue photo_url values are owner-approved for public display per
+//    the current owner publication instruction. They may render on open pages
+//    in either audience mode. Schema/OG selection remains status-aware.
 //  - Provisional photos are NEVER eligible for Open Graph, JSON-LD or sitemap
 //    image fields, in any mode (§4) — publicImageForSchema() below.
 //  - Selection priority (§3): owner_approved → editorial_licensed →
@@ -37,8 +37,7 @@ export function audienceMode(): AudienceMode {
   return parseAudienceMode(process.env.OTHER_BALI_AUDIENCE_MODE);
 }
 
-/** May provisional (not-yet-approved official-source) photos render on open
- * public surfaces right now? Server-side answer only. */
+/** Retained for compatibility with the pre-launch policy and preview tooling. */
 export function provisionalPhotosAllowed(mode: AudienceMode = audienceMode()): boolean {
   return mode === "owner_prelaunch";
 }
@@ -78,17 +77,14 @@ export function publicImageForSchema(candidates: PhotoCandidate[]): string | nul
   return choosePhotoSrc(candidates, { allowProvisional: false });
 }
 
-/** Interim bridge while venues carry a single photo_url column with no
- * per-photo status: every photo_url restored by migration 0043 is provisional
- * by definition (it exists precisely because no consent record covers it), so
- * catalogue/detail rendering treats photo_url as an official_provisional_preview
- * candidate. Known limitation, documented in AGENTS.md: an owner-approved
- * photo published through the consent pipeline is also suppressed in
- * tourist_public mode until per-photo statuses are joined into venue reads. */
+/** Public display bridge for the legacy single-photo venue column. The owner
+ * has confirmed publication rights for the existing photo catalogue, so every
+ * non-empty URL is displayable on public cards and detail pages. Keep schema
+ * selection separate because it requires an explicit rights-state candidate. */
 export function venuePhotoUrlForDisplay(
   photoUrl: string | null | undefined,
-  mode: AudienceMode = audienceMode(),
+  _mode: AudienceMode = audienceMode(),
 ): string | undefined {
   if (!photoUrl) return undefined;
-  return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
+  return photoUrl;
 }

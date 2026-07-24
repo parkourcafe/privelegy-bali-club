@@ -53,8 +53,8 @@ test("schema/OG image never uses provisional, in any mode (§4)", () => {
   assert.equal(publicImageForSchema([provisional, approved]), "a.webp");
 });
 
-test("interim venue photo_url bridge is mode-gated", () => {
+test("owner-approved venue photo_url bridge is public in every audience mode", () => {
   assert.equal(venuePhotoUrlForDisplay("x.jpg", "owner_prelaunch"), "x.jpg");
-  assert.equal(venuePhotoUrlForDisplay("x.jpg", "tourist_public"), undefined);
+  assert.equal(venuePhotoUrlForDisplay("x.jpg", "tourist_public"), "x.jpg");
   assert.equal(venuePhotoUrlForDisplay(null, "owner_prelaunch"), undefined);
 });
