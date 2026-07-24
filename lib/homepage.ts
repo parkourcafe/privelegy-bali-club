@@ -47,11 +47,11 @@ export const HOME_AREAS: HomeLinkItem[] = [
 ];
 
 export const HOME_PLANS: HomeLinkItem[] = [
-  { id: "first_trip", label: "Your first trip to Bali", body: "A practical starting point if this is your first visit.", href: "/first-time-in-bali", sectionId: "home_plan", kind: "plan", required: true },
-  { id: "bali_3_days", label: "Bali in 3 days", body: "A short trip without trying to see everything.", href: "/bali-itinerary-3-days", sectionId: "home_plan", kind: "plan", required: true },
-  { id: "bali_5_days", label: "Bali in 5 days", body: "Enough structure to choose bases and avoid wasted driving.", href: "/bali-itinerary-5-days", sectionId: "home_plan", kind: "plan", required: true },
-  { id: "without_scooter", label: "Bali without a scooter", body: "Plan around taxis, walking areas and lower-friction days.", href: "/canggu-without-a-scooter", sectionId: "home_plan", kind: "plan", required: true },
-  { id: "with_kids_plan", label: "Bali with kids", body: "Family-friendly areas, timing and easier choices.", href: "/bali-with-kids", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "first_trip", label: "Your first trip to Bali", body: "Start with the essentials.", href: "/first-time-in-bali", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "bali_3_days", label: "Bali in 3 days", body: "A focused short trip.", href: "/bali-itinerary-3-days", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "bali_5_days", label: "Bali in 5 days", body: "Balance bases and driving.", href: "/bali-itinerary-5-days", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "without_scooter", label: "Bali without a scooter", body: "Choose easier transport.", href: "/canggu-without-a-scooter", sectionId: "home_plan", kind: "plan", required: true },
+  { id: "with_kids_plan", label: "Bali with kids", body: "Make family days easier.", href: "/bali-with-kids", sectionId: "home_plan", kind: "plan", required: true },
 ];
 
 export const HOME_CATEGORIES: HomeLinkItem[] = [
