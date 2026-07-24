@@ -64,7 +64,7 @@ test("homepage does not advertise the frozen paid-arrival model or Canggu-first 
     assert.ok(!homeSource.toLowerCase().includes(claim.toLowerCase()), `remove frozen/global-centre claim: ${claim}`);
   }
 
-  assert.match(homepageConfigSource, /No sponsored homepage ranking/);
+  assert.match(homepageConfigSource, /No paid ranking/);
 });
 
 test("mobile consent actions stay above the persistent bottom navigation", () => {

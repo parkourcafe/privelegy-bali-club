@@ -308,45 +308,52 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section aria-labelledby="canggu-title" className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:py-20 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
+        <section aria-labelledby="canggu-title" className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
+          <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Canggu deep guide</p>
             <h2 id="canggu-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
               Canggu has the deepest active guidance right now.
             </h2>
           </div>
-          <div className="overflow-hidden rounded-[2rem] border border-[#e4d8c8] bg-white shadow-sm">
-            <div className="relative min-h-52 overflow-hidden bg-[#2b1a13]">
-              <DistrictCover slug="canggu" gradient={DISTRICT_GRADIENT.canggu} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-            </div>
-            <div className="p-6 sm:p-8">
-              <p className="text-base leading-relaxed text-[#44352b]">
-                Use Canggu for denser local scenarios, routes, decision-ready places and confirmed venue actions. The rest of Bali still keeps useful planning pages and published venue cards where the data passes the current rules.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-              <HomeAnalyticsLink
-                href="/canggu"
-                sectionId="home_canggu"
-                itemId="canggu_deep"
-                itemKind="cta"
-                position={1}
-                className="inline-flex min-h-12 items-center rounded-full bg-[#005962] px-5 font-semibold text-white transition hover:bg-[#003f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-              >
-                Open the Canggu guide
-              </HomeAnalyticsLink>
-              <HomeAnalyticsLink
-                href="/canggu-first-day"
-                sectionId="home_canggu"
-                itemId="canggu_first_day"
-                itemKind="cta"
-                position={2}
-                className="inline-flex min-h-12 items-center rounded-full border border-[#cdbfab] px-5 font-semibold text-[#2b1a13] transition hover:border-[#005962]/50 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-              >
-                Start with Canggu now
-              </HomeAnalyticsLink>
-              </div>
-            </div>
+          <HomeAnalyticsLink
+            href="/canggu"
+            sectionId="home_canggu"
+            itemId="canggu_deep"
+            itemKind="cta"
+            position={1}
+            className="group relative mt-8 block aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#e4d8c8] bg-[#2b1a13] text-white shadow-sm transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:aspect-video lg:aspect-[5/2]"
+          >
+            <DistrictCover
+              slug="canggu"
+              gradient={DISTRICT_GRADIENT.canggu}
+              sizes="(max-width: 640px) calc(100vw - 2.5rem), 1120px"
+            />
+            <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
+            <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white sm:left-6 sm:top-6">
+              Illustrative area
+            </span>
+            <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+              <span className="min-w-0">
+                <span className="block font-display text-2xl leading-tight">Open Canggu</span>
+                <span className="mt-1 block text-sm leading-snug text-white/85">Routes, places and verified actions.</span>
+              </span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-black/20 text-white" aria-hidden="true">→</span>
+            </span>
+          </HomeAnalyticsLink>
+          <div className="mt-4 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+            <p className="max-w-3xl text-sm leading-relaxed text-[#44352b]">
+              Canggu has the densest local guidance; the rest of Bali remains available where published data passes the same rules.
+            </p>
+            <HomeAnalyticsLink
+              href="/canggu-first-day"
+              sectionId="home_canggu"
+              itemId="canggu_first_day"
+              itemKind="cta"
+              position={2}
+              className="inline-flex min-h-11 shrink-0 items-center font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+            >
+              Start with Canggu now →
+            </HomeAnalyticsLink>
           </div>
         </section>
 
@@ -363,12 +370,17 @@ export default function HomePage() {
               {HOME_TRUST_PRINCIPLES.map((principle, index) => {
                 const scene = [MOMENT_SCENE.first_day, CATEGORY_SCENE.beach_pool, CATEGORY_SCENE.things_to_do][index] ?? MOMENT_SCENE.first_day;
                 return (
-                  <li key={principle} className="overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white text-sm font-semibold">
-                    <span className="relative block min-h-20 overflow-hidden bg-[#2b1a13]">
-                      <SceneImage scene={scene.scene} variant={scene.variant} />
-                      <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+                  <li key={principle} className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-sm font-semibold text-white sm:aspect-[4/5]">
+                    <SceneImage
+                      scene={scene.scene}
+                      variant={scene.variant}
+                      sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) 33vw, 181px"
+                    />
+                    <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
+                    <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-[#211913]/80 px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.12em] text-white">
+                      Illustrative principle
                     </span>
-                    <span className="block p-5">{principle}</span>
+                    <span data-media-copy className="absolute inset-x-0 bottom-0 block p-3 text-xs">{principle}</span>
                   </li>
                 );
               })}
@@ -376,7 +388,12 @@ export default function HomePage() {
           </div>
           <div className="relative overflow-hidden rounded-[2rem] bg-[#005962] p-6 text-white sm:p-8">
             <div className="absolute inset-0 opacity-25" aria-hidden="true">
-              <SceneImage scene="moment-dinner" variant="night" imgClassName="ob-grade" />
+              <SceneImage
+                scene="moment-dinner"
+                variant="night"
+                sizes="(max-width: 1023px) calc(100vw - 2.5rem), 512px"
+                imgClassName="ob-grade"
+              />
             </div>
             <div className="absolute inset-0 bg-[#005962]/80" aria-hidden="true" />
             <div className="relative">

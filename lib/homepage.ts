@@ -63,8 +63,8 @@ export const HOME_CATEGORIES: HomeLinkItem[] = [
 
 export const HOME_TRUST_PRINCIPLES = [
   "Selected, not exhaustive",
-  "No sponsored homepage ranking",
-  "Clear routes to the next step",
+  "No paid ranking",
+  "Clear next steps",
 ] as const;
 
 export const HOME_REQUIRED_LINKS = [
