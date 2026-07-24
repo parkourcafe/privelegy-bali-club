@@ -54,7 +54,12 @@ export default async function RedeemPage({
       </Link>
 
       <div className="redeem-card mt-5">
-        <VenueVisual name={venue.name} category={venue.category} photoUrl={venue.photoUrl} />
+        <VenueVisual
+          name={venue.name}
+          category={venue.category}
+          photoUrl={venue.photoUrl}
+          photoRightsApproved={venue.photoRightsApproved}
+        />
         <div className="redeem-card-body">
           <h1 className="venue-name">{venue.name}</h1>
           <p className="venue-meta">{venue.address}</p>

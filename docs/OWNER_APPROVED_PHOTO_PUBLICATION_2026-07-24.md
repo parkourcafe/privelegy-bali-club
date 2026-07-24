@@ -18,6 +18,10 @@
   the 14 target venue rows to `photo_status = 'published'`.
 - Public reads now select `photo_status` and render a `photo_url` in tourist
   mode only when the status is `approved` or `published`.
+- Four approved files still use a legacy Storage object path containing
+  `/venue-photos/draft/`. The image component accepts that path only when the
+  server-side row also carries the exact-file approved/published flag; an
+  unapproved legacy draft URL remains blocked.
 - Preview mode remains unchanged.
 - Every other provisional, missing, rejected or unverified image remains
   hidden in tourist mode.

@@ -111,3 +111,21 @@ export function venuePhotoUrlForDisplay(
   const mode = typeof options === "string" ? options : (options.mode ?? audienceMode());
   return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
 }
+
+/** Defense-in-depth for legacy object paths. A `/venue-photos/draft/` URL may
+ * render only after the data boundary has confirmed the exact file's rights
+ * state. Normal approved bucket URLs are unaffected. */
+export function venuePhotoSourceAllowed(
+  src: string,
+  rightsApproved: boolean,
+): boolean {
+  try {
+    const url = new URL(src, "https://www.otherbali.com");
+    const legacyDraft = url.pathname.includes(
+      "/storage/v1/object/public/venue-photos/draft/",
+    );
+    return !legacyDraft || rightsApproved;
+  } catch {
+    return false;
+  }
+}

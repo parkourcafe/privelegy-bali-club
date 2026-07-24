@@ -28,6 +28,7 @@ export interface PlaceCardData {
   bestFor?: string;
   priceBand?: string;
   photoUrl?: string;
+  photoRightsApproved?: boolean;
   isSponsored?: boolean;
   gmapsUrl?: string;
   // Canggu money loop: when set, the card keeps a Reserve secondary CTA —
@@ -61,6 +62,7 @@ export default function PlaceCard({
             src={place.photoUrl}
             alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
             variant="card"
+            rightsApproved={place.photoRightsApproved}
             fallback={<PlaceCover name={place.name} category={place.category} />}
           />
         ) : (

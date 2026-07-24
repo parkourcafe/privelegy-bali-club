@@ -8,6 +8,7 @@ import {
   provisionalPhotosAllowed,
   choosePhotoSrc,
   publicImageForSchema,
+  venuePhotoSourceAllowed,
   venuePhotoUrlForDisplay,
   type PhotoCandidate,
 } from "./photo-policy.ts";
@@ -88,4 +89,15 @@ test("exact owner-approved venue photo is public without opening provisional med
     }),
     "candidate.jpg",
   );
+});
+
+test("legacy draft object path requires exact-file rights approval", () => {
+  const draft =
+    "https://example.supabase.co/storage/v1/object/public/venue-photos/draft/place/photo.jpg";
+  const approved =
+    "https://example.supabase.co/storage/v1/object/public/owner-photo-candidates/owner-approved/place/photo.jpg";
+  assert.equal(venuePhotoSourceAllowed(draft, false), false);
+  assert.equal(venuePhotoSourceAllowed(draft, true), true);
+  assert.equal(venuePhotoSourceAllowed(approved, false), true);
+  assert.equal(venuePhotoSourceAllowed("not a URL", false), true);
 });

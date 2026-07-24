@@ -135,7 +135,12 @@ export default function PlanView({
               {decisionPicks.map(({ block, best, backup, contrast }) => (
                 <article key={block.slot} className="result-triptych-card">
                   <div className="result-triptych-media">
-                    <VenueVisual name={best.name} category={best.category} photoUrl={best.photoUrl} />
+                    <VenueVisual
+                      name={best.name}
+                      category={best.category}
+                      photoUrl={best.photoUrl}
+                      photoRightsApproved={best.photoRightsApproved}
+                    />
                   </div>
                   <div className="result-triptych-body">
                     <p className="result-triptych-slot">{block.label}</p>

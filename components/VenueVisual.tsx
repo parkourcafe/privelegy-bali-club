@@ -22,15 +22,22 @@ export default function VenueVisual({
   name,
   category,
   photoUrl,
+  photoRightsApproved,
 }: {
   name: string;
   category: Venue["category"];
   photoUrl?: string;
+  photoRightsApproved?: boolean;
 }) {
   if (photoUrl) {
     return (
       <figure className="venue-visual">
-        <VenueImage src={photoUrl} alt={name} variant="visual" />
+        <VenueImage
+          src={photoUrl}
+          alt={name}
+          variant="visual"
+          rightsApproved={photoRightsApproved}
+        />
       </figure>
     );
   }

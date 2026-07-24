@@ -80,6 +80,7 @@ function toCard(v: CataloguePlace): PlaceCardData {
     bestFor: v.cardBestFor ?? v.bestFor,
     priceBand: v.cardPrice,
     photoUrl: v.photoUrl,
+    photoRightsApproved: v.photoRightsApproved,
     isSponsored: v.isSponsored,
     gmapsUrl: v.gmapsUrl,
     tablepilotSlug: undefined,
