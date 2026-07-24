@@ -77,3 +77,16 @@ The first `CONTRACTS_ONLY` draft set was created:
 - `OTHER_BALI_MIGRATION_MAP_V1.md`.
 
 This records document creation only. Approval is pending; no schema, migration, route, UI, event or money implementation is authorized.
+
+## 2026-07-25 — MEDIA-002
+
+The project owner confirms global publication permission for all valid images in the current project media inventory:
+
+```text
+SUPABASE_PROJECT: egkdapqwkfprtyqvvnso
+STORAGE_SOURCE: owner-photo-candidates
+RIGHTS_BASIS: PROJECT_OWNER_GLOBAL_PUBLICATION_AUTHORIZATION
+PUBLICATION_INTENT: PUBLISH_ALL_VALID_MEDIA
+```
+
+Missing consent/token rows, a null `owner_confirmed_by`, admin upload, a shared confirmation timestamp and the current candidate bucket are not blockers for this existing inventory. Only the technical blockers listed in `OTHER_BALI_MEDIA_CONTRACT_V1.md` may temporarily block an item. No data or storage is modified in `CONTRACTS_ONLY`.

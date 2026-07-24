@@ -31,6 +31,33 @@ Every row requires a preservation review, owner approval, reversible rollout and
 | `is_sponsored` / `isSponsored` | no canonical field | remove influence from read/rank/render only after approved deprecation migration | deprecate; MONEY-001 gate |
 | `last_verified_at` | Verification + field freshness | split field-specific status/date/by/method | map; do not infer from `updated_at` |
 
+## MEDIA-PUBLISH-ALL inventory
+
+The implementation task must inventory every item before changing storage or public rendering. The inventory is a docs/data extract only in this stage and must include:
+
+| Inventory source | Required capture | Target mapping |
+|---|---|---|
+| all objects in Supabase bucket `owner-photo-candidates` (`egkdapqwkfprtyqvvnso`) | object path, MIME, bytes, dimensions, hash, existence/access result | canonical MediaAsset |
+| all `venue_photo_submissions` rows | submission id, venue slug, image path, source URL, status, consent/confirmation fields, timestamps | MediaAsset + remediation status |
+| all `venues.photo_url` references | venue slug/id, URL, object locator, current page consumers | primary/gallery candidate |
+| all legacy external-project URLs | URL, response/accessibility, source/provenance and hash where retrievable | MediaAsset or remediation queue |
+| all duplicate content hashes | hash, candidate records, mapped entities, scope | one canonical asset; explicit cross-entity scope |
+| all unmatched venue slugs | source slug, proposed entity match, confidence, reviewer, blocker | unresolved mapping queue |
+
+No item may be silently dropped. Each item must end in `ready`, `published`, `blocked` or `remediation` with a reason.
+
+## Media migration sequence
+
+1. Read-only inventory and technical validation.
+2. Resolve venue/property/brand mapping and assign `media_scope`.
+3. Create canonical records with rights basis `PROJECT_OWNER_GLOBAL_PUBLICATION_AUTHORIZATION` and reference `MEDIA-002`.
+4. Migrate valid objects and verify public availability without changing candidate-bucket visibility.
+5. Assign exactly one primary per venue; render remaining authorized assets as gallery items without duplicates.
+6. Migrate runtime dependencies away from legacy external projects.
+7. Only then evaluate candidate-bucket visibility and execute a reversible storage change.
+
+The later implementation task is named `MEDIA-PUBLISH-ALL`. Its acceptance state is defined in `OTHER_BALI_MEDIA_CONTRACT_V1.md`; this map does not execute any step.
+
 ## Event and attribution map
 
 | Current event family | Target contract | Rule |

@@ -51,6 +51,7 @@ The four T0 artifacts are evidence, not target architecture:
 - The only paid product is a fixed fee per confirmed seated reservation through supported attribution.
 - Sponsored visibility, paid organic ranking, Featured placement, paid route placement and category sponsorship are forbidden implementation authorities.
 - Unknown facts remain explicit; `verified`, `open now`, counts and official actions require evidence.
+- Current project media is governed by MEDIA-002: publish all valid authorized inventory items through the Media Contract; technical blockers are explicit and queued, not silently discarded.
 
 ## Required next stage
 

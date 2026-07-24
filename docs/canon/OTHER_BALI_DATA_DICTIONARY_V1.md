@@ -5,6 +5,8 @@ Recorded: 2026-07-25, Asia/Makassar
 Authority: V3.1 target master + dated Decision Log  
 Implementation: none; this document does not authorize schema or migration changes
 
+Media-specific requirements are normatively expanded in `OTHER_BALI_MEDIA_CONTRACT_V1.md` under `MEDIA-002`.
+
 ## Contract rules
 
 - Canonical entities remain distinct: Organization, Place, Experience, Experience Offering, Event, Offer, Route, RouteStop, Collection, Area, MediaAsset, Source, Verification, Trip, InteractionEvent and PartnerAccount.

@@ -16,7 +16,7 @@ Legacy boundary for every historical carrier: `HISTORICAL / READ-ONLY / NOT IMPL
 | C-07: money/sponsored/trial language | MONEY-001 | Registered, no code change | Reconcile in money/data contracts |
 | C-08: confirmed extras incomplete | MONEY-001 + TRUTH-001 | Open | Define evidence and status fields |
 | C-09: issue reporting absent | TRUTH-001 | Open | Define contract only |
-| C-10: media provenance partial | TRUTH-001 | Open | Define source/status/date contract |
+| C-10: media provenance partial | TRUTH-001 + MEDIA-002 | Decided/deferred | Use Media Contract V1; inventory before migration |
 | C-11: freshness incomplete | TRUTH-001 | Open | Define freshness contract |
 | C-12: event vocabulary mismatch | Truth and attribution boundaries | Open | Map existing events in contracts |
 | C-13: duplicate migration prefixes | Migration Map V1 required | Open | Register deterministic migration policy |

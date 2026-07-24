@@ -30,6 +30,7 @@ That work must remain docs-only. It must not change product code, routes, redire
 - dated route, truth and money decisions;
 - existing publication states and analytics events;
 - existing media, official-action and reservation-attribution carriers.
+- `MEDIA-002` owner authorization and the draft `OTHER_BALI_MEDIA_CONTRACT_V1.md`.
 
 ## Contract blockers to resolve
 
@@ -44,6 +45,10 @@ Define Today dimensions, shortcuts, district keys, labels, synonyms, evidence re
 ### Migration Map V1
 
 Map `/my-day` → `/today`, `/me` → `/my-bali`, state/query/analytics preservation, duplicate migration prefixes, Sponsored fields/code, media, saved/trip state and rollback evidence.
+
+### Media contract
+
+`MEDIA-002` adds a media-specific contract and the `MEDIA-PUBLISH-ALL` inventory/migration task. It authorizes publication planning for all valid current-inventory images, not storage or data mutation.
 
 ## Final verdict
 
