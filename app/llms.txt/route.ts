@@ -50,7 +50,7 @@ export async function GET() {
     "",
     "## Tools",
     `- [Plan your Bali trip](${BASE}/plan)`,
-    `- [Build a Canggu day](${BASE}/plan#canggu-day-builder)`,
+    `- [Build a day in Canggu](${BASE}/plan#canggu-day-builder)`,
     `- [Browse all places](${BASE}/places)`,
     "",
   ];

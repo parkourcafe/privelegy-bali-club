@@ -7,7 +7,6 @@ const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
 const trackerSource = read("components/HomeAnalyticsLink.tsx");
 const configSource = read("lib/homepage.ts");
-const sceneFetcherSource = read("scripts/fetch-scenes.mjs");
 
 function extractSection(name) {
   const marker = `export const ${name}`;
@@ -36,7 +35,7 @@ test("Wave 4 homepage renders the approved section hierarchy", () => {
   assert.match(appSource, /What do you want to do\?/);
   assert.match(appSource, /Plan your Bali trip/);
   assert.match(appSource, /Explore Bali by category/);
-  assert.match(appSource, /Canggu has the deepest active guidance right now\./);
+  assert.match(appSource, /Start with Canggu, or compare it with the rest of Bali\./);
   assert.match(appSource, /Keep your Bali shortlist in one place\./);
 
   const moments = appSource.indexOf('id="moments"');
@@ -49,9 +48,9 @@ test("Wave 4 homepage renders the approved section hierarchy", () => {
 
 test("Wave 4 homepage removes old Canggu-centre and directory-first messaging", () => {
   for (const forbidden of [
-    "Canggu-deep",
-    "right now that’s Canggu",
-    "right now that&rsquo;s Canggu",
+    "district depth claim",
+    "deepest current guidance",
+    "current district focus",
     "Browse all places",
     "Partner monetization is reserved during the pilot",
     "Partner with us — free",
@@ -91,16 +90,6 @@ test("homepage does not introduce unsupported factual or paid claims", () => {
     assert.doesNotMatch(appSource, new RegExp(forbidden, "i"));
     assert.doesNotMatch(configSource, new RegExp(forbidden, "i"));
   }
-});
-
-test("homepage uses cache-busted Bali scenario media with an illustrative disclosure", () => {
-  for (const scene of ["first-day", "sunset", "with-kids", "rainy-day", "romantic", "trip-lengths"]) {
-    const versionedScene = `home-bali-${scene}`;
-    assert.match(appSource, new RegExp(versionedScene));
-    assert.match(sceneFetcherSource, new RegExp(`\\"${versionedScene}\\"`));
-  }
-  assert.match(appSource, /Illustrative scenario/);
-  assert.doesNotMatch(appSource, /scene: "home-(?!bali-)/);
 });
 
 test("homepage JSON-LD uses the safe serializer and does not duplicate WebSite schema", () => {

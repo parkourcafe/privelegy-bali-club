@@ -59,12 +59,12 @@ const AREA_DISTRICT_SLUG: Record<string, string> = {
 };
 
 const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_day: { scene: "home-bali-first-day", variant: "ridge" },
-  sunset: { scene: "home-bali-sunset", variant: "sunset" },
-  with_kids: { scene: "home-bali-with-kids", variant: "surf" },
-  rainy_day: { scene: "home-bali-rainy-day", variant: "ridge" },
-  romantic: { scene: "home-bali-romantic", variant: "night" },
-  trip_lengths: { scene: "home-bali-trip-lengths", variant: "sunset" },
+  first_day: { scene: "home-first-day", variant: "ridge" },
+  sunset: { scene: "home-sunset", variant: "sunset" },
+  with_kids: { scene: "home-with-kids", variant: "surf" },
+  rainy_day: { scene: "home-rainy-day", variant: "ridge" },
+  romantic: { scene: "home-romantic", variant: "night" },
+  trip_lengths: { scene: "home-trip-lengths", variant: "sunset" },
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
@@ -310,9 +310,9 @@ export default function HomePage() {
 
         <section aria-labelledby="canggu-title" className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Canggu deep guide</p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Explore an area</p>
             <h2 id="canggu-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-              Canggu has the deepest active guidance right now.
+              Start with Canggu, or compare it with the rest of Bali.
             </h2>
           </div>
           <HomeAnalyticsLink
