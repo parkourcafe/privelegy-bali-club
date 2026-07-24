@@ -31,6 +31,17 @@ const SCENES = {
   "home-bali-rainy-day": ["hf_20260724_141000_617dcb30-ff91-4e41-8e1a-5d2cdeb7a05c.png", 1200],
   "home-bali-romantic": ["hf_20260724_141000_fd4b6487-4277-453d-8c57-1f2e52605b23.png", 1200],
   "home-bali-trip-lengths": ["hf_20260724_141000_400f3194-355e-401f-b81e-5a97c38fd2ab.png", 1200],
+  // /plan route cards (Higgsfield GPT Image 2, 2026-07-24). Composite
+  // planning scenes only: the UI labels them "Illustrative route" and they
+  // must never be treated as evidence of a named temple, venue or district.
+  "plan-route-first-day": ["hf_20260724_165322_a776f77a-2d40-49f7-969f-4c60e951da90.png", 1200],
+  "plan-route-ubud-culture": ["hf_20260724_165322_7faea485-72c1-4aef-8721-03d9a8a9354b.png", 1200],
+  "plan-route-bangli-temple-village": ["hf_20260724_165322_9132cbbc-8f39-4791-891c-a35d1468988f.png", 1200],
+  "plan-route-east-bali-heritage": ["hf_20260724_165322_f5632d14-1954-4c12-a1a0-aad1d8d692a9.png", 1200],
+  "plan-route-canggu-food": ["hf_20260724_165550_2ed05562-420f-4849-8502-9e7a7b342221.png", 1200],
+  "plan-route-canggu-rain": ["hf_20260724_165614_52baccef-3389-46e9-992d-5a9edf6c0b71.png", 1200],
+  "plan-route-cafe-work": ["hf_20260724_165620_ce8c5de5-9333-4280-8f1f-1cbb3f77c441.png", 1200],
+  "plan-route-sunset-run": ["hf_20260724_165624_4829b252-54ff-472d-989c-466833e22182.png", 1200],
   // District mood stills (Higgsfield soul_cinematic, 2026-07-15 pass) for the
   // "Around Bali" cards — one distinct atmospheric scene per district, same
   // warm film grade as the rest of the set. Mood imagery of the AREA only;
@@ -92,7 +103,7 @@ for (const [name, [file, width]] of Object.entries(SCENES)) {
     const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    const quality = name.startsWith("home-") ? 66 : 78;
+    const quality = name.startsWith("home-") ? 66 : name.startsWith("plan-route-") ? 68 : 78;
     await sharp(buf)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality, effort: 6 })
