@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { serviceClient } from "@/lib/supabase/service";
+import { PROTECTED_PREVIEW_SUBMISSION_SOURCE } from "@/lib/supabase/protected-preview-media-policy";
+import {
+  isProductionSubmissionMediaPreviewBridgeActive,
+  submissionMediaServiceClient,
+} from "@/lib/supabase/service";
 import {
   SUBMISSION_MEDIA_BUCKET,
   detectMediaMime,
@@ -41,16 +45,22 @@ export async function POST(req: Request) {
   if (!verifyMediaToken(submissionId, token, Date.now())) return err("unauthorized", 401);
   if (!mediaId) return err("bad_request", 400);
 
-  const sb = serviceClient();
+  const sb = submissionMediaServiceClient();
   if (!sb) return err("storage_unconfigured", 503);
 
   const { data: row, error: rowErr } = await sb
     .from("venue_submissions")
-    .select("id,media")
+    .select("id,source,media")
     .eq("id", submissionId)
     .maybeSingle();
   if (rowErr) return err("lookup_failed", 502);
   if (!row) return err("not_found", 404);
+  if (
+    isProductionSubmissionMediaPreviewBridgeActive() &&
+    row.source !== PROTECTED_PREVIEW_SUBMISSION_SOURCE
+  ) {
+    return err("forbidden", 403);
+  }
 
   const media: SubmissionMediaEntry[] = Array.isArray(row.media) ? (row.media as SubmissionMediaEntry[]) : [];
   const entry = media.find((m) => m.id === mediaId && m.status === "reserved");

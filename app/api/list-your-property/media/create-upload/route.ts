@@ -1,7 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { isCurrentAdminRequestAuthorized } from "@/lib/admin-request-auth";
-import { serviceClient } from "@/lib/supabase/service";
+import { PROTECTED_PREVIEW_SUBMISSION_SOURCE } from "@/lib/supabase/protected-preview-media-policy";
+import {
+  isProductionSubmissionMediaPreviewBridgeActive,
+  submissionMediaServiceClient,
+} from "@/lib/supabase/service";
 import {
   SUBMISSION_MEDIA_BUCKET,
   SUBMISSION_MEDIA_RIGHTS_VERSION,
@@ -60,16 +64,22 @@ export async function POST(req: Request) {
   if (!Number.isFinite(size) || size < 1 || size > maxBytesForKind(kind)) return err("file_too_large", 413);
   if (!rightsGranted) return err("rights_required", 400);
 
-  const sb = serviceClient();
+  const sb = submissionMediaServiceClient();
   if (!sb) return err("storage_unconfigured", 503);
 
   const { data: row, error: rowErr } = await sb
     .from("venue_submissions")
-    .select("id,status,media")
+    .select("id,status,source,media")
     .eq("id", submissionId)
     .maybeSingle();
   if (rowErr) return err("lookup_failed", 502);
   if (!row) return err("not_found", 404);
+  if (
+    isProductionSubmissionMediaPreviewBridgeActive() &&
+    row.source !== PROTECTED_PREVIEW_SUBMISSION_SOURCE
+  ) {
+    return err("forbidden", 403);
+  }
   const status = String(row.status);
   const pendingUpload = ["needs_verification", "reviewing"].includes(status);
   const acceptedOperatorPreview =

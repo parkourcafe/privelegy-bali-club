@@ -61,9 +61,9 @@ export default async function ProtectedVenuePreviewPage() {
               key={submission.id}
               className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm"
             >
-              <div className="grid min-h-64 grid-cols-2 gap-1 bg-stone-100">
+              <div className="grid max-h-[42rem] min-h-64 grid-cols-2 gap-1 overflow-y-auto bg-stone-100">
                 {uploadedMedia.length ? (
-                  uploadedMedia.slice(0, 4).map((media) => (
+                  uploadedMedia.map((media) => (
                     <MediaPreview
                       key={media.id}
                       name={submission.name}
@@ -94,7 +94,7 @@ export default async function ProtectedVenuePreviewPage() {
 
                 <div className="mt-4 flex flex-wrap gap-2 text-xs text-stone-600">
                   <span className="rounded-full border border-stone-200 px-2 py-1">
-                    {photoCount}/20 photos
+                    {photoCount}/50 photos
                   </span>
                   <span className="rounded-full border border-stone-200 px-2 py-1">
                     {videoCount}/1 video

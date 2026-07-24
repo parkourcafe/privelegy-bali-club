@@ -22,7 +22,7 @@ import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 export const SUBMISSION_MEDIA_BUCKET = "submission-media";
 export const SUBMISSION_MEDIA_RIGHTS_VERSION = "submission-media-rights-v1-2026-07-20";
 
-export const MAX_SUBMISSION_PHOTOS = 20;
+export const MAX_SUBMISSION_PHOTOS = 50;
 export const MAX_SUBMISSION_VIDEOS = 1;
 export const MAX_SUBMISSION_PHOTO_BYTES = 12 * 1024 * 1024; // 12 MiB
 export const MAX_SUBMISSION_VIDEO_BYTES = 50 * 1024 * 1024; // 50 MiB

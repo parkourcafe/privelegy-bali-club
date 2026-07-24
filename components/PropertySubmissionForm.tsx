@@ -18,7 +18,7 @@ import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 //
 // Photos/video are collected after the draft is built: the success panel
 // below renders PropertyMediaUploader, a real drag-drop upload straight to
-// Supabase Storage (up to 20 photos + one video) — no Dropbox/Drive link
+// Supabase Storage (up to 50 photos + one video) — no Dropbox/Drive link
 // required.
 
 type Kind = "villa" | "hotel";
@@ -246,7 +246,7 @@ export default function PropertySubmissionForm({
               📸 Add your photos &amp; video — this is what makes your page
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Add up to <strong>20 photos and a short video</strong>, straight from
+              Add up to <strong>50 photos and a short video</strong>, straight from
               your phone — drag them in or tap to browse. No Dropbox or Drive link
               needed. A property with real photos gets far more interest.
             </p>

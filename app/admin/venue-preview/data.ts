@@ -1,14 +1,15 @@
 import "server-only";
 
 import { requireAdminRequest } from "@/lib/admin-request-auth";
+import { PROTECTED_PREVIEW_SUBMISSION_SOURCE } from "@/lib/supabase/protected-preview-media-policy";
 import {
   SUBMISSION_MEDIA_BUCKET,
   mintMediaToken,
   type SubmissionMediaEntry,
 } from "@/lib/submission-media-policy";
-import { serviceClient } from "@/lib/supabase/service";
+import { submissionMediaServiceClient } from "@/lib/supabase/service";
 
-export const DEMO_PREVIEW_SOURCE = "otherbali-research-2026-07-23";
+export const DEMO_PREVIEW_SOURCE = PROTECTED_PREVIEW_SUBMISSION_SOURCE;
 
 export type DemoPreviewMedia = {
   id: string;
@@ -40,7 +41,7 @@ export type DemoPreviewResult = {
 
 export async function getDemoVenuePreviews(): Promise<DemoPreviewResult> {
   await requireAdminRequest();
-  const client = serviceClient();
+  const client = submissionMediaServiceClient();
   if (!client) return { configured: false, error: null, submissions: [] };
 
   const { data, error } = await client

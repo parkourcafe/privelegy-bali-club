@@ -12,7 +12,7 @@ import { useRef, useState } from "react";
 
 const PHOTO_MIME = ["image/jpeg", "image/png"];
 const VIDEO_MIME = ["video/mp4"];
-const MAX_PHOTOS = 20;
+const MAX_PHOTOS = 50;
 const MAX_VIDEOS = 1;
 const MAX_PHOTO_BYTES = 12 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 50 * 1024 * 1024;
@@ -109,7 +109,7 @@ export default function PropertyMediaUploader({
 
       if (kind === "photo" && !PHOTO_MIME.includes(file.type)) { reject("Only JPG or PNG."); continue; }
       if (kind === "video" && !VIDEO_MIME.includes(file.type)) { reject("Only MP4."); continue; }
-      if (kind === "photo" && photos >= MAX_PHOTOS) { reject("Up to 20 photos."); continue; }
+      if (kind === "photo" && photos >= MAX_PHOTOS) { reject("Up to 50 photos."); continue; }
       if (kind === "video" && videos >= MAX_VIDEOS) { reject("One video only."); continue; }
       if (file.size > (kind === "video" ? MAX_VIDEO_BYTES : MAX_PHOTO_BYTES)) { reject("That file is too large."); continue; }
 
@@ -163,8 +163,8 @@ export default function PropertyMediaUploader({
         />
         <p className="mt-2 text-xs text-[var(--muted)]">
           {mode === "operator-preview"
-            ? "Up to 20 photos (JPG/PNG) + one short video (MP4). Stored privately for operator and owner review."
-            : "Up to 20 photos (JPG/PNG) + one short video (MP4, 15–30s). Your own photos only — we never add ours."}
+            ? "Up to 50 photos (JPG/PNG) + one short video (MP4). Stored privately for operator and owner review."
+            : "Up to 50 photos (JPG/PNG) + one short video (MP4, 15–30s). Your own photos only — we never add ours."}
         </p>
       </div>
 

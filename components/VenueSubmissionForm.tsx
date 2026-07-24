@@ -239,7 +239,7 @@ export default function VenueSubmissionForm() {
               📸 Add your photos &amp; video — this is what makes your page
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Add up to <strong>20 photos and a short video</strong>, straight from
+              Add up to <strong>50 photos and a short video</strong>, straight from
               your phone — drag them in or tap to browse. No Dropbox or Drive link
               needed. Places with real photos get far more interest.
             </p>
