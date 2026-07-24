@@ -29,6 +29,12 @@ The preview is now reachable, but the required positive sample of 10
 published runtime. This is a data-coverage blocker, not a reason to relax the
 policy, activate 404 slugs, or mock data.
 
+Subsequent read-only reconciliation found that all 91 production rows are
+already active + published with exact Storage/submission mappings. The blocker
+is specifically preview environment isolation: the preview has no separate
+Supabase public-data configuration and the server guard correctly refuses the
+known production project during `VERCEL_ENV=preview`.
+
 ## Final fields
 
 PREVIEW_DEPLOYMENT: PASS  
