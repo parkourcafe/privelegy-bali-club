@@ -16,7 +16,7 @@ Every migration requires: migration ID, current state, target state, owner decis
 | ROUTE-VILLAS-MAP | current `/villas` → preserved target carrier | Source of Truth | current route/SEO/links | route snapshot + rollback | `ROUTE-VILLAS-PRESERVE` | BLOCKED |
 | MONEY-001-MAP | legacy Sponsored fields/contracts → quarantined non-ranking legacy state | MONEY-001 | inventory read model/UI/admin/sales consumers | historical data preserved; assert no rank influence | `MONEY-SPONSORED-QUARANTINE` | BLOCKED |
 | TODAY-001-MAP | long-list/island-wide fill → best/backup/contrast district-honest result | TODAY-001 | taxonomy, fit evidence, area key, freshness | district empty/partial regression; old carrier rollback | `TODAY-TRIPTYCH` | BLOCKED |
-| MEDIA-PUBLISH-ALL | current authorized media → canonical `venue_photos` registry/public objects | MEDIA-002 | dry-run manifest, mapping/remediation review, target registry and rollback | object/hash/count parity; no deletion; legacy recovery queue | `MEDIA-PUBLISH-ALL` | DRY-RUN COMPLETE / WRITE BLOCKED |
+| MEDIA-PUBLISH-ALL | current authorized media → canonical `venue_photos` registry/public objects | MEDIA-002 | dry-run manifest, mapping/remediation review, target registry and rollback | object/hash/count parity; no deletion; legacy recovery queue | `MEDIA-PUBLISH-ALL` | REMEDIATION REVIEW COMPLETE / WRITE BLOCKED |
 | TRUTH-001-MAP | hardcoded/weak freshness claims → field evidence/status/date | TRUTH-001 | Data Dictionary + taxonomy + source inventory | copy regression; unknown remains explicit | `TRUTH-EVIDENCE-REVIEW` | BLOCKED |
 
 ## MEDIA-PUBLISH-ALL dry-run contract
