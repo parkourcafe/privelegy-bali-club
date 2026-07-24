@@ -59,12 +59,12 @@ const AREA_DISTRICT_SLUG: Record<string, string> = {
 };
 
 const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_day: { scene: "moment-morning", variant: "ridge" },
-  sunset: { scene: "moment-goldenhour", variant: "sunset" },
-  with_kids: { scene: "moment-warung", variant: "surf" },
-  rainy_day: { scene: "moment-morning", variant: "ridge" },
-  romantic: { scene: "moment-dinner", variant: "night" },
-  trip_lengths: { scene: "hero-sunset", variant: "sunset" },
+  first_day: { scene: "home-first-day", variant: "ridge" },
+  sunset: { scene: "home-sunset", variant: "sunset" },
+  with_kids: { scene: "home-with-kids", variant: "surf" },
+  rainy_day: { scene: "home-rainy-day", variant: "ridge" },
+  romantic: { scene: "home-romantic", variant: "night" },
+  trip_lengths: { scene: "home-trip-lengths", variant: "sunset" },
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
@@ -84,7 +84,7 @@ const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge
 
 function CardGrid({ items }: { items: HomeLinkItem[] }) {
   return (
-    <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, index) => {
         const scene = MOMENT_SCENE[item.id];
         return (
@@ -95,27 +95,27 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
             itemId={item.id}
             itemKind={item.kind}
             position={index + 1}
-            className="group flex min-h-64 overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white text-[#2b1a13] shadow-sm transition hover:-translate-y-0.5 hover:border-[#005962]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+            className="group relative aspect-[4/5] min-h-[26rem] overflow-hidden rounded-[2rem] border border-[#d8c7b0] bg-[#2b1a13] text-white shadow-[0_18px_55px_rgba(43,26,19,0.12)] transition duration-500 hover:-translate-y-1 hover:border-[#f1c987]/70 hover:shadow-[0_24px_70px_rgba(43,26,19,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
           >
-            <span className="flex w-full flex-col">
-              <span className="relative block min-h-32 overflow-hidden bg-[#2b1a13]">
-                {scene ? (
-                  <SceneImage
-                    scene={scene.scene}
-                    variant={scene.variant}
-                    imgClassName="transition duration-700 group-hover:scale-105"
-                  />
-                ) : null}
-                <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+            {scene ? (
+              <SceneImage
+                scene={scene.scene}
+                variant={scene.variant}
+                sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) 50vw, 33vw"
+                imgClassName="ob-grade transition duration-1000 group-hover:scale-[1.035]"
+              />
+            ) : null}
+            <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/5" />
+            <span className="absolute left-5 top-5 rounded-full border border-white/35 bg-[#211913]/80 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
+              Illustrative scenario
+            </span>
+            <span className="absolute inset-x-0 bottom-0 flex min-h-[20%] items-end justify-between gap-4 p-4 sm:p-5">
+              <span className="max-w-[84%]">
+                <span className="block font-display text-2xl leading-none">{item.label}</span>
+                {item.body ? <span className="mt-2 block text-sm leading-snug text-white/82">{item.body}</span> : null}
               </span>
-              <span className="flex flex-1 flex-col justify-between p-5">
-                <span>
-                  <span className="block font-display text-xl leading-tight">{item.label}</span>
-                  {item.body ? <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{item.body}</span> : null}
-                </span>
-                <span className="mt-5 text-sm font-semibold text-[#005962]" aria-hidden="true">
-                  {item.ctaLabel ?? `View ${item.label}`} →
-                </span>
+              <span className="mb-1 grid size-11 shrink-0 place-items-center rounded-full border border-white/45 bg-white/10 text-lg transition group-hover:border-white group-hover:bg-white group-hover:text-[#2b1a13]" aria-hidden="true">
+                →
               </span>
             </span>
           </HomeAnalyticsLink>
@@ -160,18 +160,18 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(HOME_JSON_LD) }}
       />
       <main data-page-shell="landing" className="bg-[#f7f0e7] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] text-[#2b1a13] min-[1360px]:pb-0">
-        <section className="relative overflow-hidden border-b border-[#e4d8c8] bg-[#2b1a13] text-white">
+        <section className="relative min-h-[72svh] overflow-hidden border-b border-[#e4d8c8] bg-[#2b1a13] text-white">
           <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade ob-kenburns" />
           <HeroLoop src="/scenes/hero-loop.mp4" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#2b1a13]/85 to-transparent" />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 pb-14 pt-8 sm:gap-10 sm:py-16 lg:min-h-[68svh] lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
-            <div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/24 to-black/5" />
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#2b1a13]/88 via-[#2b1a13]/20 to-transparent" />
+          <div className="relative mx-auto flex min-h-[72svh] max-w-6xl items-end px-5 pb-14 pt-24 sm:pb-16 lg:pb-20">
+            <div className="max-w-[46rem]">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#f1c987]">{HOME_HERO.eyebrow}</p>
-              <h1 className="mt-4 max-w-3xl font-display text-3xl font-normal leading-[1.05] tracking-tight sm:text-6xl lg:mt-5 lg:text-7xl">
+              <h1 className="mt-4 font-display text-4xl font-normal leading-[0.98] tracking-tight sm:text-6xl lg:mt-5 lg:text-7xl">
                 {HOME_HERO.h1}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-white/88 sm:mt-6 sm:text-xl">
                 {HOME_HERO.body}
               </p>
               <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
@@ -197,30 +197,10 @@ export default function HomePage() {
                 </HomeAnalyticsLink>
               </div>
             </div>
-            <div className="hidden rounded-[2rem] border border-white/25 bg-white/90 p-5 text-[#2b1a13] shadow-xl shadow-[#2b1a13]/20 backdrop-blur sm:block">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8a6b3e]">Start with your situation</p>
-              <h2 className="mt-3 font-display text-3xl leading-tight">A short choice beats an endless list.</h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#4d4036]">
-                Pick the kind of day or trip you need. Other Bali points you to a useful page, route or category that already exists.
-              </p>
-              <div className="mt-5 grid gap-2">
-                {HOME_MOMENTS.slice(0, 3).map((item, index) => (
-                  <HomeAnalyticsLink
-                    key={item.id}
-                    href={item.href}
-                    sectionId={item.sectionId}
-                    itemId={item.id}
-                    itemKind={item.kind}
-                    position={index + 1}
-                    className="flex min-h-12 items-center justify-between rounded-2xl border border-[#e4d8c8] bg-[#faf7f1] px-4 text-sm font-semibold transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-                  >
-                    <span>{item.label}</span>
-                    <span aria-hidden="true">→</span>
-                  </HomeAnalyticsLink>
-                ))}
-              </div>
-            </div>
           </div>
+          <p className="absolute bottom-5 right-5 rounded-full border border-white/35 bg-[#211913]/75 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md sm:bottom-6 sm:right-6">
+            Illustrative atmosphere
+          </p>
         </section>
 
         <section id="moments" aria-labelledby="moments-title" className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
@@ -228,7 +208,7 @@ export default function HomePage() {
           <h2 id="moments-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
             What do you want to do?
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#44352b]">Start with the kind of day you want.</p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#44352b]">Choose your situation. Open one useful route, guide or plan.</p>
           <CardGrid items={HOME_MOMENTS} />
         </section>
 
