@@ -1,0 +1,18 @@
+{
+  "generatedAtUtc": "2026-07-24T19:26:44Z/2026-07-24T19:27:04Z",
+  "model": "gpt_image_2",
+  "aspectRatio": "4:3",
+  "resolution": "2k",
+  "recoveryRecord": "docs/media/higgsfield-site-readiness-recovery-batch.json",
+  "supersedesInvalidSourceSetFromCommit": "81e99b1",
+  "assets": [
+    {"sceneId":"plan-route-first-day","routeSlug":"first-day","sourceFile":"hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png","review":"approved","reuseOf":"home-bali-first-day"},
+    {"sceneId":"plan-route-ubud-culture","routeSlug":"ubud-culture-day","sourceFile":"hf_20260724_192645_829d6721-3cb8-425b-9196-22f501fdc0f1.png","review":"approved"},
+    {"sceneId":"plan-route-bangli-temple-village","routeSlug":"bangli-temple-village-day","sourceFile":"hf_20260724_192645_19d497a2-e284-4ec8-adf7-650113353459.png","review":"approved"},
+    {"sceneId":"plan-route-east-bali-heritage","routeSlug":"east-bali-heritage-day","sourceFile":"hf_20260724_192702_449fbb00-81fd-4db9-aecc-144a868abea8.png","review":"approved"},
+    {"sceneId":"plan-route-canggu-food","routeSlug":"canggu-food-route","sourceFile":"hf_20260724_192703_fd0d58e5-88cb-4b3e-9ba9-869b25531c3d.png","review":"approved"},
+    {"sceneId":"plan-route-canggu-rain","routeSlug":"canggu-rainy-day","sourceFile":"hf_20260724_191916_31415caf-e939-4436-bf68-63c5d65db1c1.png","review":"approved","reuseOf":"home-bali-rainy-day"},
+    {"sceneId":"plan-route-cafe-work","routeSlug":"cafe-work","sourceFile":"hf_20260724_192704_955ccd43-a345-45fc-bd35-75caa0260a64.png","review":"approved"},
+    {"sceneId":"plan-route-sunset-run","routeSlug":"sunset-run","sourceFile":"hf_20260724_191859_e19f93a8-8210-4685-959a-342631c631e4.png","review":"approved","reuseOf":"home-bali-sunset"}
+  ]
+}

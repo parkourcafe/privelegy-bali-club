@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
+import sharp from "sharp";
 const read = (path) => readFileSync(path, "utf8");
 const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
@@ -27,6 +28,16 @@ function routeExists(href) {
 }
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+async function assertDecodableWebp(path) {
+  const image = sharp(path);
+  const metadata = await image.metadata();
+  assert.equal(metadata.format, "webp", `${path} is not WebP`);
+  assert.equal(metadata.width, 1200, `${path} has the wrong width`);
+  assert.equal(metadata.height, 896, `${path} has the wrong height`);
+  const pixels = await image.clone().raw().toBuffer();
+  assert.ok(pixels.length > 0, `${path} did not decode to pixels`);
 }
 
 test("Wave 4 homepage renders the approved section hierarchy", () => {
@@ -101,6 +112,19 @@ test("homepage moments use the approved Bali scenario media with visible disclos
     assert.doesNotMatch(appSource, new RegExp(`scene: "${scene}"`));
   }
   assert.match(appSource, /Illustrative scenario/);
+});
+
+test("approved homepage scenario assets fully decode at the reviewed dimensions", async () => {
+  for (const scene of [
+    "home-bali-first-day",
+    "home-bali-sunset",
+    "home-bali-with-kids",
+    "home-bali-rainy-day",
+    "home-bali-romantic",
+    "home-bali-trip-lengths",
+  ]) {
+    await assertDecodableWebp(join(process.cwd(), "public", "scenes", `${scene}.webp`));
+  }
 });
 
 test("homepage does not introduce unsupported factual or paid claims", () => {

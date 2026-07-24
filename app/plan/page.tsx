@@ -3,6 +3,7 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import { GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
+import PlanRouteCard from "@/components/PlanRouteCard";
 import { getCangguPlan, getRoutes } from "@/lib/data";
 import PlanView from "../PlanView";
 
@@ -59,6 +60,8 @@ export default async function Plan({
     getRoutes(),
   ]);
   const routes = allRoutes;
+  const baliWideRoutes = routes.filter((route) => route.district !== "canggu");
+  const cangguRoutes = routes.filter((route) => route.district === "canggu");
 
   return (
     <div className="page-dark">
@@ -102,8 +105,11 @@ export default async function Plan({
       </header>
 
       <section id="trip-guides" className="scroll-mt-8">
-        <h2 className="topline">Trip planning starters</h2>
-        <GuideSectionMedia seed="plan bali trip length guides" index={0} />
+        <p className="topline">Start with trip length</p>
+        <h2 className="section-title mt-2">Choose the shape of your trip</h2>
+        <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
+          Set the number of days or compare bases before choosing individual routes.
+        </p>
         <div className="related-guides mt-4">
           {TRIP_GUIDES.map((guide) => (
             <Link key={guide.href} href={guide.href} className="related-guide-card">
@@ -116,23 +122,37 @@ export default async function Plan({
 
       {routes.length > 0 && (
         <section id="routes" className="scroll-mt-8">
-          <h2 className="topline">Ready-made routes</h2>
-          <GuideSectionMedia seed="plan ready made routes bali" index={1} />
-          <div className="route-strip">
-            {routes.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/route/${r.slug}`}
-                className="route-card"
-              >
-                <p className="route-card-title">{r.title}</p>
-                {r.subtitle && <p className="route-card-meta">{r.subtitle}</p>}
-                <p className="mt-5 text-sm font-bold text-[var(--lagoon-strong)]">
-                  {r.stopCount} stops →
-                </p>
-              </Link>
-            ))}
-          </div>
+          <p className="topline">Ready-made routes</p>
+          <h2 className="section-title mt-2">Pick one complete day</h2>
+          <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
+            Start with the area and pace that fit. Open the route to see its ordered stops.
+          </p>
+          {baliWideRoutes.length > 0 && (
+            <div className="plan-route-group">
+              <h3 className="plan-route-group-title">Bali-wide day routes</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Across Bali, with a clear area and a realistic number of stops.
+              </p>
+              <div className="plan-route-grid">
+                {baliWideRoutes.map((route) => (
+                  <PlanRouteCard key={route.slug} route={route} />
+                ))}
+              </div>
+            </div>
+          )}
+          {cangguRoutes.length > 0 && (
+            <div className="plan-route-group">
+              <h3 className="plan-route-group-title">Canggu practical routes</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Lower-friction days using the area with the deepest active guidance.
+              </p>
+              <div className="plan-route-grid">
+                {cangguRoutes.map((route) => (
+                  <PlanRouteCard key={route.slug} route={route} />
+                ))}
+              </div>
+            </div>
+          )}
         </section>
       )}
 

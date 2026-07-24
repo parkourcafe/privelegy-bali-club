@@ -43,12 +43,12 @@ The visual remains dominant. Text is limited to one short headline, one supporti
 
 | ID | Target | Purpose | Class | Aspect | Content restriction | Status |
 |---|---|---|---|---|---|---|
-| `home-bali-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 3:4 | No real venue, airport, hotel or landmark | approved Bali replacement |
-| `home-bali-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 3:4 | No named beach or documentary coast claim | approved Bali replacement |
-| `home-bali-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 3:4 | No identifiable venue or facility claim | approved Bali replacement |
-| `home-bali-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 3:4 | No live weather or real location implication | approved Bali replacement |
-| `home-bali-romantic` | `/` moment card | Quiet route for two | AI illustrative | 3:4 | No named restaurant, villa or beach | approved Bali replacement |
-| `home-bali-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 3:4 | Illustrative planning map; not navigation | approved Bali replacement |
+| `home-bali-first-day` | `/` moment card | Low-friction arrival scenario | AI illustrative | 4:3 source → 4:5 card crop | No real venue, airport, hotel or landmark | approved Bali replacement |
+| `home-bali-sunset` | `/` moment card | Choose a sunset mood before golden hour | AI illustrative | 4:3 source → 4:5 card crop | No named beach or documentary coast claim | approved Bali replacement |
+| `home-bali-with-kids` | `/` moment card | Calm family day with low friction | AI illustrative | 4:3 source → 4:5 card crop | No identifiable venue or facility claim | approved Bali replacement |
+| `home-bali-rainy-day` | `/` moment card | Covered-plan decision when weather turns | AI illustrative | 4:3 source → 4:5 card crop | No live weather or real location implication | approved Bali replacement |
+| `home-bali-romantic` | `/` moment card | Quiet route for two | AI illustrative | 4:3 source → 4:5 card crop | No named restaurant, villa or beach | approved Bali replacement |
+| `home-bali-trip-lengths` | `/` moment card | Visual planning across three, five or seven days | AI illustrative | 4:3 source → 4:5 card crop | Illustrative planning map; not navigation | approved Bali replacement |
 
 ## Shared art direction
 
@@ -65,7 +65,7 @@ Premium Bali-specific editorial scenario imagery rather than documentary place p
 
 ## Web delivery targets
 
-- Source generation: portrait `3:4`, high-quality still.
+- Source generation: landscape `4:3`, high-quality still; responsive `object-fit: cover` supplies the reviewed portrait `4:5` card crop.
 - Shipped format: optimized WebP or AVIF.
 - Target width: 1200 px for the current card slots.
 - Target weight: preferably under 180 KB per card after visual review.
@@ -76,12 +76,12 @@ Premium Bali-specific editorial scenario imagery rather than documentary place p
 ## Generation and delivery record
 
 - The original Nano Banana collage pilot remains recorded in `docs/media/higgsfield-homepage-batch.json` for audit history.
-- Bali-specific replacement model: Higgsfield `gpt_image_2`, generated 2026-07-24.
-- Replacement cost: 42.72 credits; balance moved from 716.41 to 673.69.
-- Six replacement source PNGs were visually reviewed for Bali specificity, scenario clarity, text, logos, identifiable businesses, factual-place claims, anatomy and crop safety.
-- Six approved files are reproduced by the prebuild media pipeline as 1200 × 1607 WebP at quality 66 with encoder effort 6.
-- Final file sizes: 87,130–192,640 bytes. Five are below 146 KB; the family scene is 192,640 bytes and retains extra detail to avoid visible compression artifacts around people.
-- Exact replacement prompts, job IDs and source filenames are recorded in `docs/media/higgsfield-homepage-bali-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
+- The first Bali replacement batch remains in `docs/media/higgsfield-homepage-bali-batch.json` as audit history, but is marked superseded: its pinned 60 KB WebPs failed decoding and returned HTTP 400 through `next/image` after deployment.
+- Site-readiness recovery model: Higgsfield `gpt_image_2`, generated 2026-07-24 UTC. One black first-day frame was rejected and regenerated.
+- Six approved source PNGs were visually reviewed together and individually for Bali specificity, scenario clarity, text, logos, identifiable businesses, factual-place claims, anatomy and crop safety.
+- Six shipped files are 1200 × 896 WebP at quality 72 with encoder effort 6; all passed Sharp decoder metadata checks.
+- Final homepage file sizes are 42,346–124,866 bytes.
+- Exact reviewed source filenames, the rejected frame and delivery mappings are recorded in `docs/media/higgsfield-site-readiness-recovery-batch.json`. Ephemeral source URLs are intentionally omitted because their CDN paths contain an account-scoped segment.
 
 ## Implemented ratio evidence
 
