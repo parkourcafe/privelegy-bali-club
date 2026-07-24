@@ -129,6 +129,21 @@ export default async function CangguPillarPage() {
   const cafes = venues.filter((v) => v.category === "cafe" || venueHasJob(v, ["quiet-work-cafe", "brunch-after-surf"]));
   const spas = venues.filter((v) => v.category === "spa");
   const sunset = venues.filter((v) => v.category === "beach_club" || v.category === "bar" || venueHasJob(v, ["sunset-drinks-view"]));
+  const usedTopPickSlugs = new Set<string>();
+  const uniqueTopPicks = (items: VenueWithPerk[]) => {
+    const picks: VenueWithPerk[] = [];
+    for (const venue of items) {
+      if (picks.length === 3) break;
+      if (usedTopPickSlugs.has(venue.slug)) continue;
+      usedTopPickSlugs.add(venue.slug);
+      picks.push(venue);
+    }
+    return picks;
+  };
+  const restaurantPicks = uniqueTopPicks(restaurants);
+  const cafePicks = uniqueTopPicks(cafes);
+  const spaPicks = uniqueTopPicks(spas);
+  const sunsetPicks = uniqueTopPicks(sunset);
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Canggu" }];
 
@@ -236,10 +251,10 @@ export default async function CangguPillarPage() {
           </div>
         </section>
 
-        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurants} href="/canggu/best-restaurants" mediaSrc="/scenes/canggu-restaurants-illustrative.webp" />
-        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafes} href="/canggu/work-friendly-cafes" mediaSrc="/scenes/canggu-cafes-illustrative.webp" />
-        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spas} href="/canggu/best-spas" mediaSrc="/scenes/canggu-spas-illustrative.webp" />
-        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunset} href="/canggu/beach-clubs-sunset" mediaSrc="/scenes/canggu-sunset-illustrative.webp" />
+        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurantPicks} href="/canggu/best-restaurants" mediaSrc="/scenes/canggu-restaurants-illustrative.webp" />
+        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafePicks} href="/canggu/work-friendly-cafes" mediaSrc="/scenes/canggu-cafes-illustrative.webp" />
+        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spaPicks} href="/canggu/best-spas" mediaSrc="/scenes/canggu-spas-illustrative.webp" />
+        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunsetPicks} href="/canggu/beach-clubs-sunset" mediaSrc="/scenes/canggu-sunset-illustrative.webp" />
 
         <section className="guide-section">
           <h2>Practical notes (read before you plan)</h2>

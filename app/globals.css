@@ -1917,7 +1917,7 @@ html {
 }
 
 .place-card-visual-first .place-card-media {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 5 / 8;
 }
 
 .place-card-visual-first .place-card-body {
@@ -1955,7 +1955,7 @@ html {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .place-card-visual-first .place-card-media {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 1;
   }
 }
 
