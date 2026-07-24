@@ -29,12 +29,12 @@ export const HOME_HERO = {
 } as const;
 
 export const HOME_MOMENTS: HomeLinkItem[] = [
-  { id: "first_day", label: "First day in Bali", body: "Land, settle in and make the day easy.", ctaLabel: "Open the first-day guide", href: "/first-time-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "sunset", label: "Sunset", body: "Choose the right coast, view and setting before golden hour.", ctaLabel: "Open the sunset guide", href: "/where-to-watch-sunset-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "with_kids", label: "With kids", body: "Lower-friction family choices and easier areas.", ctaLabel: "Open the family guide", href: "/bali-with-kids", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "rainy_day", label: "Rainy day", body: "Useful indoor and low-friction plans when the weather turns.", ctaLabel: "Open the rainy-day guide", href: "/bali-rainy-day", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "romantic", label: "Romantic", body: "Places and routes that make sense for two.", ctaLabel: "Open the romantic guide", href: "/romantic-bali", sectionId: "home_moments", kind: "scenario", required: true },
-  { id: "trip_lengths", label: "Plan 3 / 5 / 7 days", body: "Start from the length of your trip and choose the right route.", ctaLabel: "Open trip plans", href: "/plan", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "first_day", label: "First day in Bali", body: "A softer landing with fewer decisions.", ctaLabel: "Open the first-day guide", href: "/first-time-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "sunset", label: "Sunset", body: "Choose before golden hour.", ctaLabel: "Open the sunset guide", href: "/where-to-watch-sunset-in-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "with_kids", label: "With kids", body: "An easier family day.", ctaLabel: "Open the family guide", href: "/bali-with-kids", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "rainy_day", label: "Rainy day", body: "Flexible plans when weather changes.", ctaLabel: "Open the rainy-day guide", href: "/bali-rainy-day", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "romantic", label: "Romantic", body: "A quieter route for two.", ctaLabel: "Open the romantic guide", href: "/romantic-bali", sectionId: "home_moments", kind: "scenario", required: true },
+  { id: "trip_lengths", label: "Plan 3 / 5 / 7 days", body: "Start with the time you have.", ctaLabel: "Open trip plans", href: "/plan", sectionId: "home_moments", kind: "scenario", required: true },
 ];
 
 export const HOME_AREAS: HomeLinkItem[] = [

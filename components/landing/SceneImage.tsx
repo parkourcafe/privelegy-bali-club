@@ -14,12 +14,14 @@ export default function SceneImage({
   alt = "",
   className = "",
   imgClassName = "",
+  sizes = "100vw",
 }: {
   scene: string;
   variant: "sunset" | "ridge" | "surf" | "night";
   alt?: string;
   className?: string;
   imgClassName?: string;
+  sizes?: string;
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -31,7 +33,7 @@ export default function SceneImage({
           src={`/scenes/${scene}.webp`}
           alt={alt}
           fill
-          sizes="100vw"
+          sizes={sizes}
           priority={scene === "hero-sunset"}
           onError={() => setFailed(true)}
           className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`}
