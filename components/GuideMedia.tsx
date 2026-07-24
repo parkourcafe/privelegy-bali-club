@@ -33,11 +33,12 @@ function videoFor(seed: string) {
 export function GuideHeroMedia({ seed }: { seed: string }) {
   const scene = sceneFor(seed);
   return (
-    <div className="guide-media guide-media-hero" aria-hidden="true">
+    <figure className="guide-media guide-media-hero">
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="ob-grade ob-kenburns" />
       <HeroLoop src={videoFor(seed)} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-    </div>
+      <figcaption className="guide-media-disclosure">Illustrative atmosphere · generated with Higgsfield · not evidence of a specific place</figcaption>
+    </figure>
   );
 }
 
@@ -83,9 +84,10 @@ export function GuideSectionMedia({
     );
   }
   return (
-    <div className="guide-media guide-media-inline" aria-hidden="true">
+    <figure className="guide-media guide-media-inline">
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="transition duration-700" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-    </div>
+      <figcaption className="guide-media-disclosure">Illustrative atmosphere · generated with Higgsfield · not evidence of a specific place</figcaption>
+    </figure>
   );
 }
