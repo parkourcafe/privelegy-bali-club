@@ -22,12 +22,10 @@ storage, schema, route, ranking, or production change was made.
 
 ## Verdict
 
-`MEDIA_PUBLICATION_POLICY_PREVIEW_ACCEPTANCE: BLOCKED`
+`MEDIA_PUBLICATION_POLICY_PREVIEW_ACCEPTANCE: PARTIAL PASS`
 
-The preview is now reachable, but the required positive sample of 10
-`venue-photos` objects (including six `/draft/` objects) is absent from the
-published runtime. This is a data-coverage blocker, not a reason to relax the
-policy, activate 404 slugs, or mock data.
+The separate preview branch now supplies the approved 10-row venue subset.
+All 10 required `venue-photos` objects render successfully through Next Image.
 
 Subsequent read-only reconciliation found that all 91 production rows are
 already active + published with exact Storage/submission mappings. The blocker
@@ -39,7 +37,7 @@ known production project during `VERCEL_ENV=preview`.
 
 PREVIEW_DEPLOYMENT: PASS  
 PREVIEW_PUBLIC_DATA_ACCESS: PASS  
-VENUE_PHOTOS_SAMPLE: BLOCKED (0/10 reachable; sampled migrated slugs 404)  
+VENUE_PHOTOS_SAMPLE: PASS (10/10 reachable and rendered)
 OWNER_PHOTO_CANDIDATES_SAMPLE: PARTIAL (direct WebP proof; full 10-object matrix pending)  
 JPEG_RENDERING: PARTIAL  
 PNG_RENDERING: NOT_TESTED  

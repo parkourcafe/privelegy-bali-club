@@ -62,10 +62,13 @@ honest `Place not found` page and none rendered a `venue-photos` image.
 `VENUE_MAPPING_REQUIRED: NO`  
 `VENUE_STATUS_CHANGE_REQUIRED: NO`  
 `PHOTO_STATUS_CHANGE_REQUIRED_FOR_MEDIA_002: NO`  
-`PREVIEW_DATA_ENVIRONMENT_REQUIRED: YES`  
-`READY_FOR_10_OBJECT_PREVIEW_QA: NO`
+`PREVIEW_DATA_ENVIRONMENT_REQUIRED: COMPLETE`
+
+`READY_FOR_10_OBJECT_PREVIEW_QA: YES`
+
+`10_OBJECT_PREVIEW_QA: PASS`
 
 Do not weaken the production-project preview guard or add a service-role key.
-The safe next step is a separate preview Supabase project/branch containing the
-approved read-only QA subset, or an explicit owner decision to introduce a
-narrow public-read preview mechanism with equivalent isolation.
+A separate Supabase preview branch now contains the approved 10-row database
+subset. The image binaries remain in the existing public production bucket and
+are consumed read-only by exact venue-bound URLs.

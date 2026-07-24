@@ -1,6 +1,6 @@
 # Preview open issues
 
-## PREVIEW-BLOCKER-001 — Venue-photos positive sample unavailable
+## RESOLVED — Venue-photos positive sample unavailable
 
 The explicit preview deployment is public and the application is reachable.
 However, six migrated `venue-photos` slugs tested directly return the app's 404
@@ -20,9 +20,17 @@ status or mapping write is required. The remaining blocker is preview data
 isolation: `lib/supabase/server.ts` rejects the known production project during
 Vercel preview, and the Vercel project has no separate preview Supabase config.
 
-Resolution is now: provide a separate preview Supabase project/branch with the
-approved QA subset (or approve a separately designed public-read preview
-mechanism). Do not add service-role credentials or weaken the guard implicitly.
+Resolved with Supabase branch `mmhlvalhrebvsyehepos` and an approved 10-row
+public-read database subset. The 10 exact image URLs render from the existing
+public production bucket without service-role access or production writes.
+
+## PREVIEW-ISSUE-002 — Branch migration history drift
+
+Automatic branch creation ended in `MIGRATIONS_FAILED`; only the early schema
+was present. A branch-only minimal public-read media QA schema was applied.
+Media acceptance is complete, but `/api/health/ready` remains 503 because later
+mobile/route tables are absent. Do not merge or promote this branch. Reconcile
+production migration history before treating it as a full staging database.
 
 `vercel env ls` also reports no project environment variables. Once the
 deployment is publicly reachable, the preview must receive only the approved
