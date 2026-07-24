@@ -98,18 +98,6 @@ html {
   scroll-padding-top: 64px;
 }
 
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-[role="button"]:focus-visible {
-  outline: 3px solid var(--lagoon);
-  outline-offset: 3px;
-  border-radius: 10px;
-}
-
 .site-shell {
   width: min(100% - 32px, 1120px);
   margin: 0 auto;
@@ -2185,16 +2173,27 @@ textarea:focus-visible,
    Fills the space with intent: kicker + serif name + verdict laid over a
    category-graded field (or the venue photo) with a legibility scrim + film
    grain. Never an empty placeholder box. */
+.venue-masthead-figure {
+  margin: 14px 0 0;
+}
+
 .venue-masthead {
   position: relative;
   display: flex;
   align-items: flex-end;
-  margin-top: 14px;
+  margin-top: 0;
   min-height: 440px;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: var(--shadow-lift);
   color: var(--ob-sand);
+}
+
+.venue-photo-provenance {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 640px) {

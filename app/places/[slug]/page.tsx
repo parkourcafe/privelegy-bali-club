@@ -335,9 +335,8 @@ export default async function VenuePage({
     "@type": venueSchemaType(venue.category),
     name,
     url: `${BASE}/places/${slug}`,
-    // Photo Policy v3 §4/§8: schema/OG image must be owner-approved or licensed —
-    // photo_url is provisional-by-default post-0043, so no image is emitted here
-    // until per-photo statuses exist.
+    // Photo Policy v3 §4/§8: schema/OG image remains conservative even though
+    // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
       ...(content?.address ? { streetAddress: content.address } : {}),
@@ -483,9 +482,10 @@ export default async function VenuePage({
             .join(" · ");
           const verdict = heroVerdict;
           return (
-            <header
-              className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
-            >
+            <figure className="venue-masthead-figure">
+              <header
+                className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
+              >
               {venue.photoUrl ? (
                 <VenueImage
                   className="venue-masthead-photo"
@@ -516,8 +516,14 @@ export default async function VenuePage({
                 </p>
                 <h1 className="venue-masthead-title">{name}</h1>
                 {verdict && <p className="venue-masthead-verdict">{verdict}</p>}
-              </div>
-            </header>
+                </div>
+              </header>
+              {venue.photoUrl && (
+                <figcaption className="venue-photo-provenance">
+                  Approved venue photo · Supabase Storage media library
+                </figcaption>
+              )}
+            </figure>
           );
         })()}
 
