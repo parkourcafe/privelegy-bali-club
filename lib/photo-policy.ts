@@ -91,7 +91,25 @@ export function publicImageForSchema(candidates: PhotoCandidate[]): string | nul
  * selection separate because it requires an explicit rights-state candidate. */
 export function venuePhotoUrlForDisplay(
   photoUrl: string | null | undefined,
-
+  options:
+    | AudienceMode
+    | {
+        photoStatus?: VenuePhotoStatus | string | null;
+        mode?: AudienceMode;
+      } = {},
+): string | undefined {
+  if (!photoUrl) return undefined;
+  // Legacy callers passed only the audience mode after the owner-approved
+  // publication decision. Preserve that contract; new data reads pass the
+  // object form below so unapproved statuses still fail closed.
+  if (typeof options === "string") return photoUrl;
+  if (
+    (options.photoStatus === "approved" || options.photoStatus === "published")
+  ) {
+    return photoUrl;
+  }
+  const mode = options.mode ?? audienceMode();
+  return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
 }
 
 /** Defense-in-depth for legacy object paths. A `/venue-photos/draft/` URL may
