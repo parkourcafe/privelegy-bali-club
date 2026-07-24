@@ -1722,15 +1722,27 @@ html {
 }
 
 .guide-media-hero {
-  min-height: clamp(220px, 42vw, 420px);
+  min-height: clamp(340px, 58vw, 620px);
   margin-top: 24px;
   border-radius: 30px;
 }
 
 .guide-media-inline {
-  min-height: clamp(150px, 30vw, 260px);
+  min-height: clamp(330px, 68vw, 560px);
   margin: 18px 0 10px;
   border-radius: 24px;
+}
+
+.guide-media-disclosure {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  z-index: 2;
+  max-width: min(92%, 520px);
+  color: rgba(250, 246, 239, 0.78);
+  font-size: 11px;
+  line-height: 1.35;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 
 .guide-media-decision {
