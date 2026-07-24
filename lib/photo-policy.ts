@@ -23,6 +23,14 @@ export type PhotoUsageStatus =
   | "designed_fallback"
   | "revoked";
 
+export type VenuePhotoStatus =
+  | "missing"
+  | "needs_verification"
+  | "approved_no_photo"
+  | "approved"
+  | "published"
+  | "rejected";
+
 export interface PhotoCandidate {
   src: string;
   usageStatus: PhotoUsageStatus;
@@ -83,8 +91,41 @@ export function publicImageForSchema(candidates: PhotoCandidate[]): string | nul
  * selection separate because it requires an explicit rights-state candidate. */
 export function venuePhotoUrlForDisplay(
   photoUrl: string | null | undefined,
-  _mode: AudienceMode = audienceMode(),
+  options:
+    | AudienceMode
+    | {
+        photoStatus?: VenuePhotoStatus | string | null;
+        mode?: AudienceMode;
+      } = {},
 ): string | undefined {
   if (!photoUrl) return undefined;
-  return photoUrl;
+  // Legacy callers passed only the audience mode after the owner-approved
+  // publication decision. Preserve that contract; new data reads pass the
+  // object form below so unapproved statuses still fail closed.
+  if (typeof options === "string") return photoUrl;
+  if (
+    (options.photoStatus === "approved" || options.photoStatus === "published")
+  ) {
+    return photoUrl;
+  }
+  const mode = options.mode ?? audienceMode();
+  return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
+}
+
+/** Defense-in-depth for legacy object paths. A `/venue-photos/draft/` URL may
+ * render only after the data boundary has confirmed the exact file's rights
+ * state. Normal approved bucket URLs are unaffected. */
+export function venuePhotoSourceAllowed(
+  src: string,
+  rightsApproved: boolean,
+): boolean {
+  try {
+    const url = new URL(src, "https://www.otherbali.com");
+    const legacyDraft = url.pathname.includes(
+      "/storage/v1/object/public/venue-photos/draft/",
+    );
+    return !legacyDraft || rightsApproved;
+  } catch {
+    return false;
+  }
 }

@@ -53,6 +53,10 @@ export interface Venue {
   priceAnchor?: string; // e.g. "Americano 35k · Bintang 40k"
   whatToOrder?: string; // consensus-checked bestseller(s)
   photoUrl?: string;
+  // True only when the exact file has an approved/published rights state at
+  // the server-side data boundary. It can release a legacy `/draft/` object
+  // path without opening other provisional media.
+  photoRightsApproved?: boolean;
   whatsapp?: string; // digits only, intl format
   tablepilotSlug?: string; // if set, venue is bookable via TablePilot (money model v0.3)
   // Sub-area inside the district (Berawa / Batu Bolong / Echo Beach / …).

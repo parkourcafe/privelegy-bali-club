@@ -40,12 +40,18 @@ test("catalogue renders a bounded server-side page instead of hydrating every ve
 
 test("public venue photos use responsive optimization without weakening consent delivery", async () => {
   const image = await read("components/VenueImage.tsx");
+  const photoPolicy = await read("lib/photo-policy.ts");
   const config = await read("next.config.ts");
   const protectedPhotoRoute = await read("app/api/venue-photo/[id]/route.ts");
   assert.match(image, /from "next\/image"/);
   assert.match(image, /src\.startsWith\("\/api\/venue-photo\/"\)\) return false/);
-  assert.match(image, /\/storage\/v1\/object\/public\/venue-photos\/draft\//);
-  assert.match(image, /if \(isDraftVenuePhoto\(src\)\) return <>\{fallback\}<\/>/);
+  assert.match(image, /venuePhotoSourceAllowed/);
+  assert.match(
+    image,
+    /if \(!venuePhotoSourceAllowed\(src, rightsApproved\)\) return <>\{fallback\}<\/>/,
+  );
+  assert.match(photoPolicy, /\/storage\/v1\/object\/public\/venue-photos\/draft\//);
+  assert.match(photoPolicy, /return !legacyDraft \|\| rightsApproved/);
   assert.match(image, /sizes=\{sizesByVariant\[variant\]\}/);
   assert.match(config, /hostname: "\*\*\.supabase\.co"/);
   assert.match(config, /stale-while-revalidate=604800/);

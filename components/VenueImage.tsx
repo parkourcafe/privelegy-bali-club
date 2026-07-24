@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { venuePhotoSourceAllowed } from "@/lib/photo-policy";
 
 type VenueImageVariant = "card" | "visual" | "hero";
 
@@ -27,15 +28,6 @@ function canUseNextImage(src: string): boolean {
   }
 }
 
-function isDraftVenuePhoto(src: string): boolean {
-  try {
-    const url = new URL(src, "https://www.otherbali.com");
-    return url.pathname.includes("/storage/v1/object/public/venue-photos/draft/");
-  } catch {
-    return false;
-  }
-}
-
 // Photo Policy v3 §3: a failed image load must fall back seamlessly — no
 // broken-image icon, no empty box. On error this renders the provided
 // `fallback` (the caller's designed fallback, e.g. <PlaceCover/>) or nothing,
@@ -47,6 +39,7 @@ export default function VenueImage({
   className,
   priority = false,
   fallback = null,
+  rightsApproved = false,
 }: {
   src: string;
   alt: string;
@@ -54,9 +47,10 @@ export default function VenueImage({
   className?: string;
   priority?: boolean;
   fallback?: React.ReactNode;
+  rightsApproved?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
-  if (isDraftVenuePhoto(src)) return <>{fallback}</>;
+  if (!venuePhotoSourceAllowed(src, rightsApproved)) return <>{fallback}</>;
   if (failed) return <>{fallback}</>;
 
   if (canUseNextImage(src)) {

@@ -493,6 +493,7 @@ export default async function VenuePage({
                   alt={`${name} — ${catLabel}`}
                   variant="hero"
                   priority
+                  rightsApproved={venue.photoRightsApproved}
                 />
               ) : (
                 // Category mood art — atmospheric and decorative, never
@@ -666,6 +667,7 @@ export default async function VenuePage({
                           bestFor: sc?.bestFor ?? s.bestFor,
                           priceBand: sc?.priceBand ?? undefined,
                           photoUrl: s.photoUrl,
+                          photoRightsApproved: s.photoRightsApproved,
                           isSponsored: s.isSponsored,
                           gmapsUrl: s.gmapsUrl,
                           tablepilotSlug: undefined,

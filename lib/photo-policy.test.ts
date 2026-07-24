@@ -8,6 +8,7 @@ import {
   provisionalPhotosAllowed,
   choosePhotoSrc,
   publicImageForSchema,
+  venuePhotoSourceAllowed,
   venuePhotoUrlForDisplay,
   type PhotoCandidate,
 } from "./photo-policy.ts";
@@ -57,4 +58,46 @@ test("owner-approved venue photo_url bridge is public in every audience mode", (
   assert.equal(venuePhotoUrlForDisplay("x.jpg", "owner_prelaunch"), "x.jpg");
   assert.equal(venuePhotoUrlForDisplay("x.jpg", "tourist_public"), "x.jpg");
   assert.equal(venuePhotoUrlForDisplay(null, "owner_prelaunch"), undefined);
+});
+
+test("exact owner-approved venue photo is public without opening provisional media", () => {
+  assert.equal(
+    venuePhotoUrlForDisplay("approved.jpg", {
+      photoStatus: "approved",
+      mode: "tourist_public",
+    }),
+    "approved.jpg",
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("published.jpg", {
+      photoStatus: "published",
+      mode: "tourist_public",
+    }),
+    "published.jpg",
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("candidate.jpg", {
+      photoStatus: "needs_verification",
+      mode: "tourist_public",
+    }),
+    undefined,
+  );
+  assert.equal(
+    venuePhotoUrlForDisplay("candidate.jpg", {
+      photoStatus: "needs_verification",
+      mode: "owner_prelaunch",
+    }),
+    "candidate.jpg",
+  );
+});
+
+test("legacy draft object path requires exact-file rights approval", () => {
+  const draft =
+    "https://example.supabase.co/storage/v1/object/public/venue-photos/draft/place/photo.jpg";
+  const approved =
+    "https://example.supabase.co/storage/v1/object/public/owner-photo-candidates/owner-approved/place/photo.jpg";
+  assert.equal(venuePhotoSourceAllowed(draft, false), false);
+  assert.equal(venuePhotoSourceAllowed(draft, true), true);
+  assert.equal(venuePhotoSourceAllowed(approved, false), true);
+  assert.equal(venuePhotoSourceAllowed("not a URL", false), true);
 });
