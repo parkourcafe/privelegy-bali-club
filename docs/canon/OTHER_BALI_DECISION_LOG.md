@@ -67,3 +67,13 @@ No silent island-wide fill is allowed when the selected district lacks enough re
 ## Decision mechanics
 
 Any URL, money, schema, publication or ranking change requires a new dated owner decision and, where applicable, approved Data Dictionary/Taxonomy/Migration Map entries. Competitive findings cannot override this log.
+
+## 2026-07-25 — CONTRACTS-001
+
+The first `CONTRACTS_ONLY` draft set was created:
+
+- `OTHER_BALI_DATA_DICTIONARY_V1.md`;
+- `OTHER_BALI_TAXONOMY_V1.md`;
+- `OTHER_BALI_MIGRATION_MAP_V1.md`.
+
+This records document creation only. Approval is pending; no schema, migration, route, UI, event or money implementation is authorized.

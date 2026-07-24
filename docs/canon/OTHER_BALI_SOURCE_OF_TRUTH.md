@@ -54,4 +54,4 @@ The four T0 artifacts are evidence, not target architecture:
 
 ## Required next stage
 
-The only next permitted stage is `CONTRACTS_ONLY`: create and approve Data Dictionary V1, Taxonomy V1 and Migration Map V1. No product implementation is authorized by this reconciliation commit.
+The current stage is `CONTRACTS_ONLY`: the three contract drafts are now present and require owner/editorial/data approval. No product implementation is authorized until those approvals and any resulting Decision Log amendments exist.
