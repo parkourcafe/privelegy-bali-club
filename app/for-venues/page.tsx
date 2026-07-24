@@ -46,7 +46,7 @@ const CHIPS = [
 const STEPS = [
   {
     title: "You send the basics",
-    body: "Name, area, and one way to reach you — WhatsApp, email or Instagram. Two minutes.",
+    body: "Name, area, website, Instagram, WhatsApp and email. The form keeps the operator check in one place.",
   },
   {
     title: "We check it by hand",
@@ -122,7 +122,7 @@ export default function ForVenuesPage() {
                 <li>Open your page via the private link</li>
                 <li>Check the info — add photos, video or menu updates</li>
                 <li>
-                  Tick <strong>&ldquo;I agree&rdquo;</strong> — and we publish
+                  Tick <strong>&ldquo;I agree&rdquo;</strong> — and send it for final review
                 </li>
               </ol>
               <p className="mt-3 text-xs text-[var(--muted)]">
@@ -142,17 +142,42 @@ export default function ForVenuesPage() {
             <div className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5">
               <h2 className="text-lg font-bold">Not listed yet?</h2>
               <p className="mt-1 text-sm text-[var(--muted)]">
-                Request a listing — two minutes. Name, area, one way to reach
-                you. We check every place by hand and build the page for you.
+                Request a listing with your name, area and official contact
+                channels. We check every place by hand and build the page for you.
               </p>
               <p className="mt-3 text-sm">
-                <strong>Why it&apos;s worth it:</strong> travellers book a
-                table, order delivery or takeaway, message you on WhatsApp or
-                open directions — directly, no middleman. Travellers never pay.
+                <strong>What travellers can do:</strong> save your place, open
+                Google Maps, or use a verified booking, delivery, takeaway or
+                WhatsApp handoff when that capability is confirmed. Travellers
+                never pay Other Bali.
               </p>
               <a href="#submit" className="mt-3 inline-block font-bold text-[var(--lagoon-strong)]">
                 Fill the form ↓
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <h2>What you can update — and what we measure</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5">
+              <h3 className="text-lg font-bold">Keep the page accurate</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Use your private confirmation link to correct venue details and
+                submit current menu sources, hours, photos and video. Every
+                public change stays behind operator review and photo-rights QA.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5">
+              <h3 className="text-lg font-bold">Results we can report</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Aggregate card views, saves, Maps clicks, WhatsApp clicks,
+                booking-action clicks, trip additions, perk opens and QR
+                redemptions. Confirmed visits appear only when an explicit
+                confirmation method exists. A click is intent, not a guaranteed
+                booking, visit or sale.
+              </p>
             </div>
           </div>
         </section>
@@ -214,10 +239,11 @@ export default function ForVenuesPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <strong>2 months free, no strings.</strong> No fees, no card,
-                nothing automatic. After that — only if we&apos;re clearly
-                bringing you guests — a light subscription or a small commission
-                on confirmed bookings, always agreed with you first.
+                <strong>Pilot free through 21 September 2026.</strong> No fees,
+                no card and nothing is charged automatically. Monetization is
+                reserved pending the decision after the two-month pilot. Any
+                future model would require a separate agreement; organic order
+                is never for sale.
               </li>
               <li>
                 <strong>Travellers never pay.</strong> The guide is free to use

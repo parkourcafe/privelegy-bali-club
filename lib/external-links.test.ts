@@ -4,6 +4,7 @@ import {
   controlledExternalOpen,
   classifyGoogleMapsHandoff,
   googleMapsHandoffLabel,
+  normalizeInstagramProfileUrl,
   parseSafeHttpsUrl,
   resolveSafeExternalLink,
   validateAppleMapsUrl,
@@ -70,6 +71,19 @@ test("accepts only actual Instagram profile URLs for Instagram handoffs", () => 
   );
   assert.equal(validateInstagramUrl("https://instagram.com.evil.invalid/otherbali"), null);
   assert.equal(validateInstagramUrl("https://www.instagram.com/"), null);
+});
+
+test("normalizes explicit Instagram handles without creating relative internal links", () => {
+  assert.equal(
+    normalizeInstagramProfileUrl("@otherbali"),
+    "https://www.instagram.com/otherbali/",
+  );
+  assert.equal(
+    normalizeInstagramProfileUrl("https://instagram.com/otherbali"),
+    "https://instagram.com/otherbali",
+  );
+  assert.equal(normalizeInstagramProfileUrl("other bali"), null);
+  assert.equal(normalizeInstagramProfileUrl("/places/not-instagram"), null);
 });
 
 test("validates WhatsApp numbers and controlled URL forms", () => {

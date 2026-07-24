@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "mode": "pilot",
+  "updated_at": "2026-07-22",
+  "fact_labels": {
+    "extracted": "The source baseline covers six reportable GSC days, 2026-07-11 through 2026-07-16.",
+    "interpreted": "HOLD is a provisional pilot decision because the evidence window is immature. It is not a Google rule and must be replaced after current GSC ingestion."
+  },
+  "automation_policy": "The system may propose a decision but never publishes, merges, redirects, retires or deletes a page automatically.",
+  "entries": [
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/canggu/work-friendly-cafes",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; refresh current query-to-page data before changing this owner.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/canggu/best-brunch",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/canggu/best-restaurants",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/seminyak/best-restaurants",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/best-warungs-in-bali",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; no merge, expansion or retirement is authorized.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/places/jari-menari-seminyak",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; refresh entity-query and index-state evidence before changing the page.",
+      "owner_role": "SEO/Product Owner"
+    },
+    {
+      "review_month": "2026-07",
+      "page_url": "https://www.otherbali.com/places/pizza-fabbrica",
+      "decision": "HOLD",
+      "status": "proposed",
+      "evidence_window_start": "2026-07-11",
+      "evidence_window_end": "2026-07-16",
+      "reason": "Only six reportable GSC days were captured; refresh entity-query and index-state evidence before changing the page.",
+      "owner_role": "SEO/Product Owner"
+    }
+  ]
+}

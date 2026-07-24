@@ -82,9 +82,15 @@ export default async function DistrictHubPage({
             <h1 className="hero-title">Where to eat &amp; go in {hub.name}</h1>
             <p className="hero-copy mt-3">{hubIntro(hub)}</p>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
-              <Link href="/plan" className="quiet-link">
-                Build a Canggu day →
-              </Link>
+              {hub.slug === "canggu" ? (
+                <Link href="/plan#canggu-day-builder" className="quiet-link">
+                  Open the Canggu day builder →
+                </Link>
+              ) : (
+                <Link href="/plan" className="quiet-link">
+                  Plan a Bali trip →
+                </Link>
+              )}
               <Link href={`/places?district=${hub.slug}`} className="quiet-link">
                 Filter all {hub.name} places →
               </Link>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Venue } from "@/lib/types";
+import { venueCategoryLabel, venueCoverAssetCategory } from "@/lib/venue-presentation";
 
 // Typographic editorial cover — the honest no-photo state. It sets type over
 // category mood art (atmospheric still-life/landscape, deliberately NOT venue
@@ -12,19 +13,6 @@ import type { Venue } from "@/lib/types";
 //   category · area eyebrow).
 // - "hero": category line + a large serif monogram — the page H1 with the
 //   full name sits directly beneath, so the cover doesn't repeat it.
-
-const categoryWord: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  fitness: "Fitness",
-  yoga: "Yoga",
-  beauty: "Beauty",
-  bar: "Bar",
-  surf: "Surf",
-};
 
 // One licensed still per category means neighbouring no-photo cards repeat the
 // same art. A cheap deterministic hash of the venue name picks one of four
@@ -53,13 +41,13 @@ export default function PlaceCover({
       <div className={`type-cover type-cover-${category}${altClass(name)}`} aria-hidden="true">
         <Image
           className="type-cover-art"
-          src={`/covers/${category}.webp`}
+          src={`/covers/${venueCoverAssetCategory(category)}.webp`}
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, 33vw"
         />
         <p className="type-cover-category">
-          {categoryWord[category] ?? "Place"}
+          {venueCategoryLabel(category)}
           {microArea ? ` · ${microArea}` : ""}
         </p>
         <div>
@@ -76,7 +64,7 @@ export default function PlaceCover({
     <div className={`type-cover type-cover-${category}${altClass(name)}`} aria-hidden="true">
       <Image
         className="type-cover-art"
-        src={`/covers/${category}.webp`}
+        src={`/covers/${venueCoverAssetCategory(category)}.webp`}
         alt=""
         fill
         sizes="(max-width: 640px) 100vw, 33vw"

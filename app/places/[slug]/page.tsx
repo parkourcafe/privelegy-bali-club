@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
 import SaveButton from "@/components/SaveButton";
+import AddToTripButton from "@/components/AddToTripButton";
 import {
   freshVerifiedUluwatuActionUrl,
   getUluwatuContent,
@@ -24,6 +25,15 @@ import { getPublicVenueDetailExtension, type PublicVenuePageDetailExtension } fr
 import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKind } from "@/lib/data/menu-summary-repository";
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
+import {
+  venueCategoryLabel,
+  venueCoverAssetCategory,
+  venueSchemaType,
+} from "@/lib/venue-presentation";
+import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
+import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
+import { quickDecisionRows } from "@/lib/quick-decision";
+import { normalizeInstagramProfileUrl } from "@/lib/external-links";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -44,23 +54,6 @@ function fixtureMenuSummary(menu: MenuRecord): PublicMenuSummary {
     })),
   };
 }
-
-const categoryLabel: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  beauty: "Beauty & salon",
-  fitness: "Fitness",
-  yoga: "Yoga",
-  bar: "Bar",
-  surf: "Surf",
-  hotel: "Hotel",
-  resort: "Resort",
-  attraction: "Attraction",
-  activity: "Activity",
-};
 
 // Which Uluwatu guide a category belongs to (breadcrumb + related links).
 const categoryGuide: Record<string, { href: string; label: string }> = {
@@ -157,23 +150,6 @@ const SCHEMA_HOURS: Record<string, string> = {
   "papi-sapi": "Mo-Su 16:00-23:30",
 };
 
-const schemaType: Record<string, string> = {
-  restaurant: "Restaurant",
-  cafe: "CafeOrCoffeeShop",
-  bar: "BarOrPub",
-  beach_club: "LocalBusiness",
-  warung: "Restaurant",
-  spa: "HealthAndBeautyBusiness",
-  beauty: "HealthAndBeautyBusiness",
-  fitness: "ExerciseGym",
-  yoga: "SportsActivityLocation",
-  surf: "SportsActivityLocation",
-  hotel: "Hotel",
-  resort: "Resort",
-  attraction: "TouristAttraction",
-  activity: "TouristAttraction",
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -193,7 +169,7 @@ export async function generateMetadata({
   const area = content?.microArea ?? venue?.area;
   const district = districtLabel[venue?.district ?? ULUWATU_DB_SLUG] ?? "Bali";
   const description = (content?.verdict ?? venue?.whyItsHere ??
-    `${name} — ${categoryLabel[venue?.category ?? "restaurant"]} in ${district}, Bali.`)
+    `${name} — ${venueCategoryLabel(venue?.category ?? "restaurant")} in ${district}, Bali.`)
     .slice(0, 158);
   // Index every venue whose page passes the publication bar — the Uluwatu
   // registry, or the decision-ready editorial bar for other districts. Falls
@@ -202,20 +178,15 @@ export async function generateMetadata({
 
   // Category keyword in the SERP title is the most valuable disambiguator
   // (what the place IS), e.g. "La Brisa — Beach club in Berawa, Canggu".
-  const catLabel = categoryLabel[venue?.category ?? "restaurant"];
-  return {
-    title: `${name} — ${catLabel} in ${area ? `${area}, ` : ""}${district}`,
+  return buildVenueMetadata({
+    slug,
+    name,
+    category: venue.category,
+    district,
+    area,
     description,
-    alternates: { canonical: `/places/${slug}` },
-    robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
-    openGraph: {
-      title: `${name} · Other Bali`,
-      description,
-      url: `${BASE}/places/${slug}`,
-      type: "article",
-    },
-    twitter: { card: "summary_large_image", title: `${name} · Other Bali`, description },
-  };
+    indexable,
+  });
 }
 
 export default async function VenuePage({
@@ -267,14 +238,15 @@ export default async function VenuePage({
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "official_url", content?.officialUrl)
       : undefined) ?? venue.officialUrl ?? undefined;
-  const instagramUrl =
+  const instagramUrl = normalizeInstagramProfileUrl(
     (isUluwatu && content
       ? freshVerifiedUluwatuActionUrl(content, "instagram_url", content?.instagramUrl)
-      : undefined) ?? venue.instagramUrl ?? undefined;
+      : undefined) ?? venue.instagramUrl,
+  ) ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
   const microArea = content?.microArea ?? venue.area;
-  const catLabel = categoryLabel[venue.category] ?? venue.category;
+  const catLabel = venueCategoryLabel(venue.category);
   const guide = isUluwatu
     ? categoryGuide[venue.category]
     : isCanggu
@@ -350,7 +322,7 @@ export default async function VenuePage({
   // page is about that exact venue (branded-query relevance).
   const schemaSameAs = [
     content?.officialUrl ?? venue.officialUrl,
-    content?.instagramUrl ?? venue.instagramUrl,
+    instagramUrl,
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
@@ -360,7 +332,7 @@ export default async function VenuePage({
   // hours/prices (brief §15).
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": schemaType[venue.category] ?? "LocalBusiness",
+    "@type": venueSchemaType(venue.category),
     name,
     url: `${BASE}/places/${slug}`,
     // Photo Policy v3 §4/§8: schema/OG image must be owner-approved or licensed —
@@ -454,6 +426,35 @@ export default async function VenuePage({
   const heroVerdict = content?.verdict ?? venue.whyItsHere;
   const whyHereText = content?.whyHere ?? venue.whyItsHere;
   const showWhyHere = Boolean(whyHereText && whyHereText.trim() !== heroVerdict?.trim());
+  const whatToOrderItems = publicWhatToOrderItems({
+    whatToOrder: content?.whatToOrder ?? venue.whatToOrder,
+    hasCurrentStructuredMenu: Boolean(menu),
+    officialMenuUrl: menuUrl ?? menu?.sourceUrl,
+  });
+  const verifiedAt = publicVenueVerifiedAt({
+    contentVerifiedAt: content?.lastVerifiedAt,
+    venueVerifiedAt: venue.lastVerifiedAt,
+  });
+  const spend = content?.priceBand?.trim() || venue.priceAnchor?.trim() || null;
+  const practicalTags = (venue.practicalTags ?? [])
+    .map((tag) => tag.trim())
+    .filter((tag, index, tags) => Boolean(tag) && tags.indexOf(tag) === index);
+  const quickBestFor = content?.bestFor ?? venue.bestFor;
+  const quickNotFor = content?.notFor ?? venue.notFor;
+  const quickDecision = quickDecisionRows({
+    bestFor: quickBestFor,
+    notFor: quickNotFor,
+    whyGo: whyHereText ?? heroVerdict,
+    whatToOrder: whatToOrderItems,
+    practicalNote: content?.visitContext ?? (practicalTags.length ? practicalTags.join(" · ") : null),
+    // An explicit evidence-registry field only. Never infer reservation need
+    // from the presence of a booking button.
+    reservationNote: content?.reservation,
+  });
+  const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
+  const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
+    content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+  );
 
   return (
     <div className="page-dark venue-page-pad">
@@ -496,13 +497,16 @@ export default async function VenuePage({
               ) : (
                 // Category mood art — atmospheric and decorative, never
                 // presented as venue photography.
-                <VenueImage
-                  className="venue-masthead-photo venue-masthead-art"
-                  src={`/covers/${venue.category}.webp`}
-                  alt=""
-                  variant="hero"
-                  priority
-                />
+                <>
+                  <VenueImage
+                    className="venue-masthead-photo venue-masthead-art"
+                    src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
+                    alt=""
+                    variant="hero"
+                    priority
+                  />
+                  <span className="venue-media-disclosure">Media pending · verified details only</span>
+                </>
               )}
               <div className="venue-masthead-inner">
                 <p className="venue-masthead-kicker">
@@ -517,8 +521,9 @@ export default async function VenuePage({
         })()}
 
         {/* Save control (kept from mainline) sits just under the masthead. */}
-        <div style={{ marginTop: 14 }}>
+        <div className="flex flex-wrap items-center gap-3" style={{ marginTop: 14 }}>
           <SaveButton venueSlug={slug} variant="detail" />
+          <AddToTripButton venueSlug={slug} />
         </div>
 
         <div className="venue-detail-grid">
@@ -546,14 +551,12 @@ export default async function VenuePage({
             )}
 
             {/* What to order — research-sourced items, no invented signatures */}
-            {(content?.whatToOrder?.length || venue.whatToOrder) && (
+            {whatToOrderItems.length > 0 && (
               <section className="guide-section">
                 <h2>What to order</h2>
                 <div className="guide-prose">
                   <ul>
-                    {(content?.whatToOrder ?? venue.whatToOrder?.split(";").map((s) => s.trim()) ?? [])
-                      .filter(Boolean)
-                      .map((item) => (
+                    {whatToOrderItems.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                   </ul>
@@ -576,9 +579,14 @@ export default async function VenuePage({
               />
             )}
 
+            {/* Provider handoff belongs before deep details: choose → act →
+                read menu only if needed. */}
+            <VenueActionBar {...actionSlotProps} />
+
             {/* Menu — rendered only when there is something real to show
-                (verified menu or an official source). No big empty-state box
-                on the 80% of venues without menu data. */}
+                (verified menu or an official source). It is intentionally after
+                quick decision/practical/action so the place page stays a
+                micro-decision, not a menu database first. */}
             {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
@@ -588,8 +596,6 @@ export default async function VenuePage({
                 </div>
               </section>
             )}
-
-            <VenueActionBar {...actionSlotProps} />
 
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (
@@ -674,9 +680,9 @@ export default async function VenuePage({
             )}
 
             {/* Verification note */}
-            {content?.lastVerifiedAt && (
+            {verifiedAt && (
               <p className="verification-note">
-                Information last checked: {content.lastVerifiedAt}. Details like
+                Information last checked: {verifiedAt}. Details like
                 hours and menus change — confirm big plans with the venue.
               </p>
             )}
@@ -684,39 +690,15 @@ export default async function VenuePage({
 
           {/* ── Aside: quick decision block + practical info ── */}
           <aside className="venue-detail-aside">
-            <div className="quick-block">
-              <h2>The quick read</h2>
+            {hasQuickDecision && <div className="quick-block">
+              <h2>Quick decision</h2>
               <dl>
-                {(content?.bestFor ?? venue.bestFor) && (
-                  <div>
-                    <dt>Best for</dt>
-                    <dd>{content?.bestFor ?? venue.bestFor}</dd>
+                {quickDecision.map((row) => (
+                  <div key={row.label}>
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
                   </div>
-                )}
-                {(content?.notFor ?? venue.notFor) && (
-                  <div>
-                    <dt>Not for</dt>
-                    <dd>{content?.notFor ?? venue.notFor}</dd>
-                  </div>
-                )}
-                {content?.atmosphere && (
-                  <div>
-                    <dt>Atmosphere</dt>
-                    <dd>{content.atmosphere}</dd>
-                  </div>
-                )}
-                {content?.visitContext && (
-                  <div>
-                    <dt>Good to know</dt>
-                    <dd>{content.visitContext}</dd>
-                  </div>
-                )}
-                {content?.reservation && (
-                  <div>
-                    <dt>Reservations</dt>
-                    <dd>{content.reservation}</dd>
-                  </div>
-                )}
+                ))}
               </dl>
 
               {bookHref && !venue.tablepilotSlug && (
@@ -731,9 +713,9 @@ export default async function VenuePage({
                   </TrackedOutboundLink>
                 </div>
               )}
-            </div>
+            </div>}
 
-            <div className="quick-block mt-4">
+            {hasPractical && <div className="quick-block mt-4">
               <h2>Practical</h2>
               <dl className="practical-list">
                 {(content?.address ?? venue.address) && (
@@ -748,10 +730,16 @@ export default async function VenuePage({
                     <dd>{content.openingHours}</dd>
                   </div>
                 )}
-                {content?.priceBand && (
+                {spend && (
                   <div>
                     <dt>Spend</dt>
-                    <dd>{content.priceBand} — relative to the area</dd>
+                    <dd>{spend}{content?.priceBand ? " — relative to the area" : ""}</dd>
+                  </div>
+                )}
+                {practicalTags.length > 0 && (
+                  <div>
+                    <dt>Good to know</dt>
+                    <dd>{practicalTags.join(" · ")}</dd>
                   </div>
                 )}
                 {officialUrl && (
@@ -797,7 +785,7 @@ export default async function VenuePage({
                   </div>
                 )}
               </dl>
-            </div>
+            </div>}
           </aside>
         </div>
       </main>

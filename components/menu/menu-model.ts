@@ -21,17 +21,20 @@ export function formatMenuPrice(
 ): string | null {
   const sourcePrice = priceText?.trim();
   if (sourcePrice) return sourcePrice;
-  if (priceMinor == null || !currency) return null;
+  if (priceMinor == null || !Number.isFinite(priceMinor) || !currency?.trim()) return null;
   try {
     const formatter = new Intl.NumberFormat("en", {
       style: "currency",
-      currency,
+      currency: currency.trim().toUpperCase(),
       maximumFractionDigits: currency.toUpperCase() === "IDR" ? 0 : undefined,
     });
     const fractionDigits = formatter.resolvedOptions().maximumFractionDigits ?? 2;
     return formatter.format(priceMinor / 10 ** fractionDigits);
   } catch {
-    return `${currency.toUpperCase()} ${priceMinor.toLocaleString("en")}`;
+    // Unknown currency metadata cannot establish the denomination or number of
+    // minor units. Hiding it is safer than presenting the stored integer as an
+    // exact public price.
+    return null;
   }
 }
 

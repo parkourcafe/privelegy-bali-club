@@ -5,10 +5,13 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { GuideSectionMedia } from "@/components/GuideMedia";
 import { guidesForDistrict } from "@/lib/guides";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES } from "@/lib/seminyak-guides";
 import type { VenueWithPerk } from "@/lib/data";
+import StartYourShortlist from "@/components/StartYourShortlist";
+import { buildStartShortlist } from "@/lib/start-shortlist";
 
 const BASE = "https://www.otherbali.com";
 
@@ -53,6 +56,7 @@ function TopPicks({ title, note, venues, href }: { title: string; note: string; 
         <h2>{title}</h2>
         <Link href={href} className="quiet-link">See all →</Link>
       </div>
+      <GuideSectionMedia seed={`seminyak ${title}`} index={0} />
       <p className="text-sm text-[var(--muted)]">{note}</p>
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (
@@ -116,6 +120,8 @@ export default async function SeminyakPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <StartYourShortlist district="Seminyak" items={buildStartShortlist(venues)} />
 
         <TopPicks title="Best restaurants" note="Eat Street rooms, sharing tables and honest warungs." venues={restaurants} href="/seminyak/best-restaurants" />
         <TopPicks title="Beach clubs & sunset" note="Where to be for golden hour on the sand." venues={beachClubs} href="/seminyak/beach-clubs-sunset" />

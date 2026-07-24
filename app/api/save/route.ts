@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-import { getSavedSlugs, toggleSavedPlace } from "@/lib/data";
+import { getSavedSlugs, getVenueWithPerk, isPublicReadyVenue, setSavedPlace } from "@/lib/data";
 import { readGuestRef, resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
+import { normalizeVenueSlug } from "@/lib/trip";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  const venueSlug = new URL(req.url).searchParams.get("venue")?.trim() ?? "";
-  if (!venueSlug || venueSlug.length > 160) {
+  const venueSlug = normalizeVenueSlug(new URL(req.url).searchParams.get("venue"));
+  if (!venueSlug) {
     return NextResponse.json({ saved: false }, { status: 400 });
   }
   const guestRef = await readGuestRef();
@@ -19,23 +20,30 @@ export async function GET(req: Request) {
   );
 }
 
-// Toggle a saved place (master §6c, Rung 1). Anonymous — guest id from the
-// httpOnly cookie; no login, no PII, no localStorage (guardrail #10).
+// Desired-state writes are idempotent, so a retry cannot invert the saved state.
 export async function POST(req: Request) {
-  let body: { venueSlug?: string };
+  let body: { venueSlug?: unknown; saved?: unknown };
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ ok: false }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "bad_request" }, { status: 400 });
   }
-  if (!body.venueSlug) {
-    return NextResponse.json({ ok: false }, { status: 400 });
+  const venueSlug = normalizeVenueSlug(body.venueSlug);
+  if (!venueSlug || typeof body.saved !== "boolean") {
+    return NextResponse.json({ ok: false, error: "bad_request" }, { status: 400 });
+  }
+  if (body.saved) {
+    const venue = await getVenueWithPerk(venueSlug);
+    if (!venue || !isPublicReadyVenue(venue)) {
+      return NextResponse.json({ ok: false, saved: false, error: "venue_unavailable" }, { status: 404 });
+    }
   }
 
   const { ref, created } = await resolveGuestRef();
-  const result = await toggleSavedPlace(ref, body.venueSlug);
+  const result = await setSavedPlace(ref, venueSlug, body.saved);
 
-  const res = NextResponse.json(result);
+  const status = result.ok ? 200 : result.error === "venue_unavailable" ? 404 : 503;
+  const res = NextResponse.json(result, { status });
   if (created) res.cookies.set(GUEST_COOKIE, ref, guestCookieOptions());
   return res;
 }

@@ -2,15 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getRoute, getRoutes } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
+import { GuideHeroMedia } from "@/components/GuideMedia";
 import { DISTRICT_GUIDE } from "@/lib/districts";
 
-// Canggu's route back-link/breadcrumb predates the multi-district routes
-// registry and points at the interactive day-builder (/plan), not a generic
-// district guide page — preserved verbatim. Every other district falls back
-// to its DISTRICT_GUIDE entry (name + guidePath); districts without one (e.g.
-// a brand-new regency) fall back to the island-wide guide rather than 404.
+// Route pages are ordered sequences. Back-links return to the relevant area
+// guide, not /plan, so Plan can stay the future-trip surface.
 const DISTRICT_BACK_OVERRIDE: Record<string, { label: string; crumbLabel: string; href: string }> = {
-  canggu: { label: "Your Canggu day", crumbLabel: "Canggu day", href: "/plan" },
+  canggu: { label: "Canggu guide", crumbLabel: "Canggu", href: "/canggu" },
 };
 
 function backLinkFor(district: string): { label: string; crumbLabel: string; href: string } {
@@ -93,7 +91,7 @@ export default async function RoutePage({
         <main className="site-shell-narrow text-center">
           <h1 className="text-xl font-semibold">Route not found</h1>
           <Link href="/plan" className="quiet-link mt-4 inline-block">
-            Back to your Canggu day
+            Back to Bali planning
           </Link>
         </main>
       </div>
@@ -113,12 +111,18 @@ export default async function RoutePage({
           <p className="topline">Route</p>
           <h1 className="route-title mt-3">{route.title}</h1>
           {route.subtitle && <p className="hero-copy">{route.subtitle}</p>}
+          <p className="mt-3 text-sm text-[var(--muted)]">
+            An ordered sequence of stops. Use this when you want the day in a
+            clean line, not a catalogue or a generated shortlist.
+          </p>
         </div>
         <div className="route-summary">
           <p className="text-sm font-bold text-[var(--ink)]">{route.stops.length} stops</p>
           <p className="mt-2 text-sm">A clean line through the day.</p>
         </div>
       </header>
+
+      <GuideHeroMedia seed={`route ${route.slug} ${route.title}`} />
 
       <ol className="timeline-list">
         {route.stops.map((v, i) => (

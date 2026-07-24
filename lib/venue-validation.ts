@@ -36,9 +36,16 @@ export const VENUE_CATEGORIES = [
   "surf",
   "hotel",
   "resort",
+  "villa",
   "attraction",
   "activity",
 ] as const satisfies readonly VenueCategory[];
+
+// Keep the database-to-rendering allowlist exhaustive when VenueCategory grows.
+// `satisfies VenueCategory[]` alone catches invalid entries but not omissions.
+type MissingVenueCategory = Exclude<VenueCategory, (typeof VENUE_CATEGORIES)[number]>;
+const venueCategoriesAreExhaustive: [MissingVenueCategory] extends [never] ? true : never = true;
+void venueCategoriesAreExhaustive;
 
 const CATEGORY_SET: ReadonlySet<string> = new Set(VENUE_CATEGORIES);
 

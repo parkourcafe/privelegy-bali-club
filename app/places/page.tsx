@@ -71,7 +71,7 @@ export async function generateMetadata({
   return {
     title,
     description:
-      "A curated, resident-checked map of Bali by district — cafés, restaurants, beach clubs, bars and wellness, with who each place suits and what to expect. Free to browse; travellers never pay.",
+      "Explore published Bali places by district, type and moment — cafés, restaurants, beach clubs, bars and wellness, with clear fit notes and practical actions.",
     alternates: { canonical },
     robots: hasFilters || parsedPage === null
       ? { index: false, follow: true }
@@ -79,7 +79,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description:
-        "A resident-checked map of Bali by district, with clear fit notes and practical actions.",
+        "Explore published Bali places by district, type and moment, with clear fit notes and practical actions.",
       url: `https://www.otherbali.com${canonical}`,
       type: "website",
     },
@@ -391,20 +391,21 @@ export default async function PlacesPage({
                   href="/plan"
                   className="text-sm font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
                 >
-                  Canggu day →
+                  Need a trip plan? →
                 </Link>
               </div>
               <div className="max-w-2xl pt-10">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(231,183,174,0.55)] bg-black/35 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#E7B7AE] backdrop-blur-sm">
-                  {`${ready.length} curated places · resident-checked`}
+                  {`${ready.length} published places · Explore mode`}
                 </span>
                 <h1 className="hero-title mt-4 text-[#FAF6EF] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
                   {districtName ? `Explore ${districtName}` : "Explore Bali"}
                 </h1>
                 <p className="hero-copy max-w-xl text-[#FAF6EF] drop-shadow-[0_2px_14px_rgba(0,0,0,0.92)]">
-                  A curated map of Bali by district. Every place here is one we
-                  can stand behind — why it&apos;s worth it, who it suits, and
-                  what to expect. Offers appear only when venues confirm them.
+                  Use Explore when you want to compare published places across
+                  Bali by district, type or moment. Open a card when you are
+                  ready to decide, save, or hand off to Maps or a verified venue
+                  action.
                 </p>
               </div>
             </div>

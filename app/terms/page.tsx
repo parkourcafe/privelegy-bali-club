@@ -50,9 +50,7 @@ export default function TermsPage() {
               Traveller payments
             </h2>
             <p className="mt-3">
-              Other Bali does not charge travellers to use the guide. Venues may
-              pay Other Bali only when a reservation made through us becomes a
-              real seated visit.
+              Other Bali does not charge travellers to use the guide.
             </p>
           </section>
 

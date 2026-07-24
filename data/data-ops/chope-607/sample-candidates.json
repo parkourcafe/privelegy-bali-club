@@ -1,0 +1,51 @@
+{
+  "provenance": "Derived from /Users/msnigmatullaeva/Downloads/insert_chope_candidates.sql (12-row approved Chope-competitor export). Sample only; not the full 607-row source.",
+  "source_file_available": false,
+  "rows": [
+    {
+      "source_id": "chope-sample-001",
+      "name": "Secana Rooftop Bali",
+      "category": "bar",
+      "district": "canggu",
+      "address": "Jalan Pemelisan Agung, Canggu, Bali 80361",
+      "official_url": "https://secanabeachtown.com",
+      "instagram_url": "https://www.instagram.com/secanabeachtown/"
+    },
+    {
+      "source_id": "chope-sample-002",
+      "name": "Yema Kitchen",
+      "category": "restaurant",
+      "district": "canggu",
+      "address": "Jalan Tanah Barak No.31, Canggu, Bali 80351",
+      "official_url": "https://yemabali.com",
+      "instagram_url": "https://www.instagram.com/yema.bali/"
+    },
+    {
+      "source_id": "chope-sample-003",
+      "name": "Sa'Mesa Canggu | Experience Dining",
+      "category": "restaurant",
+      "district": "canggu",
+      "address": "Jalan Tanah Barak No.1e, Canggu, Bali 80351",
+      "official_url": "https://samesabali.com",
+      "instagram_url": null
+    },
+    {
+      "source_id": "chope-sample-004",
+      "name": "Cliff at CANNA",
+      "category": "restaurant",
+      "district": "nusa-dua",
+      "address": "Jalan Raya Nusa Dua Selatan, Benoa, Nusa Dua, Bali 80363",
+      "official_url": "https://cannabali.id",
+      "instagram_url": "https://www.instagram.com/cliffatcannabali/"
+    },
+    {
+      "source_id": "chope-sample-005",
+      "name": "Huge Restaurant",
+      "category": "restaurant",
+      "district": "seminyak",
+      "address": "Jalan Batu Belig No.4, Seminyak, Bali 80361",
+      "official_url": "https://hugebali.com",
+      "instagram_url": "https://www.instagram.com/huge.restaurant/"
+    }
+  ]
+}

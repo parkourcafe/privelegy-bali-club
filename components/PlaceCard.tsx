@@ -7,6 +7,8 @@ import {
   TrackedPlaceLink,
   TrackedReservationLink,
 } from "@/components/PlaceCardActions";
+import { venueCategoryLabel } from "@/lib/venue-presentation";
+import { googleMapsHandoffLabel } from "@/lib/external-links";
 
 // Editorial place card (brief §9). Decision-first: image or typographic
 // cover, name, category · micro-area, ONE editorial sentence, Best for,
@@ -16,19 +18,6 @@ import {
 // whole card is clickable without nested interactive elements; the secondary
 // action sits above it (z-index). Sponsored is labeled and never reorders
 // anything (guardrail #6).
-
-const categoryLabel: Record<string, string> = {
-  cafe: "Café",
-  warung: "Warung",
-  restaurant: "Restaurant",
-  beach_club: "Beach club",
-  spa: "Wellness",
-  fitness: "Fitness",
-  yoga: "Yoga",
-  beauty: "Beauty",
-  bar: "Bar",
-  surf: "Surf",
-};
 
 export interface PlaceCardData {
   slug: string;
@@ -70,19 +59,22 @@ export default function PlaceCard({
         {place.photoUrl ? (
           <VenueImage
             src={place.photoUrl}
-            alt={`${place.name} — ${categoryLabel[place.category] ?? place.category}`}
+            alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
             variant="card"
             fallback={<PlaceCover name={place.name} category={place.category} />}
           />
         ) : (
-          <PlaceCover name={place.name} category={place.category} />
+          <>
+            <PlaceCover name={place.name} category={place.category} />
+            <span className="media-pending-badge">Media pending · verified details below</span>
+          </>
         )}
       </div>
 
       <div className="place-card-body">
         <p className="place-card-eyebrow">
           <span>
-            {categoryLabel[place.category] ?? place.category}
+            {venueCategoryLabel(place.category)}
             {place.microArea ? ` · ${place.microArea}` : ""}
           </span>
           {place.isSponsored && <span className="sponsored-label">Sponsored</span>}
@@ -131,7 +123,7 @@ export default function PlaceCard({
                   venueSlug={place.slug}
                   className="place-card-cta"
                 >
-                  Directions
+                  {googleMapsHandoffLabel(place.gmapsUrl) ?? "Open in Maps"}
                 </TrackedDirectionLink>
               )
             )}

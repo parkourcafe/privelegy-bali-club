@@ -22,6 +22,7 @@
 // 2. REVIEW — internal only, through authenticated operator surfaces.
 
 import type { Venue } from "./types";
+import { isRenderableVenue } from "./venue-validation";
 import {
   getUluwatuContent,
   publishedUluwatuVenues,
@@ -65,7 +66,7 @@ export function getPublicationStatus(v: Venue): PublicationStatus {
 // isIndexableVenueSlug, which is Uluwatu-registry-only and kept for callers that
 // only have a slug.
 export function isVenueIndexable(v: Venue): boolean {
-  return getPublicationStatus(v) === "published";
+  return isRenderableVenue(v) && getPublicationStatus(v) === "published";
 }
 
 // Slug-only Uluwatu check (registry). Retained for compatibility; page/sitemap

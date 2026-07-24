@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import type { SafeActionEventPayload } from "../contracts/menu-action";
 import type { SafeEventPayload } from "./event-payload";
-import { trackMenuItemOpen, trackMenuOpen, trackVenueAction } from "../analytics";
+import { track, trackMenuItemOpen, trackMenuOpen, trackVenueAction } from "../analytics";
 
 // These tests exercise the tracking path, which is opt-in since the consent gate
 // (audit 2026-07): analyticsAllowed() reads document.cookie, absent under node,
@@ -140,6 +140,17 @@ test("menu interactions emit only bounded entity identifiers", async () => {
         },
       ]
     );
+  });
+});
+
+test("save and route additions emit consent-gated PII-free venue events", async () => {
+  await withTrackingSinks(({ posts }) => {
+    track("save", { venueSlug: "fixture-venue" });
+    track("route_add", { venueSlug: "fixture-venue" });
+    assert.deepEqual(posts, [
+      { type: "save", venueSlug: "fixture-venue" },
+      { type: "route_add", venueSlug: "fixture-venue" },
+    ]);
   });
 });
 

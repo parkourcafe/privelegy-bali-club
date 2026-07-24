@@ -9,7 +9,7 @@ import {
 import { VENUES, PERKS, PLAN_ENTRIES, ROUTES } from "./seed";
 import { DISTRICT_GUIDE, type DistrictGuideEntry, type DistrictStatus } from "./districts";
 import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
-import { getPublicationStatus } from "./publication";
+import { isVenueIndexable } from "./publication";
 import { venuePhotoUrlForDisplay } from "./photo-policy";
 import { keepRenderableVenues } from "./venue-validation";
 import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
@@ -29,6 +29,8 @@ import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
 } from "./data/public-cache";
+import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
+import { normalizeInstagramProfileUrl } from "./external-links";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -182,7 +184,7 @@ const mapVenue = (r: Row): Venue => {
     address: (r.address as string) ?? "",
     gmapsUrl: publicDirectionsUrl(r),
     officialUrl: (r.official_url as string) ?? undefined,
-    instagramUrl: (r.instagram_url as string) ?? undefined,
+    instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
@@ -589,7 +591,7 @@ export async function getVenuesList(): Promise<VenueWithPerk[]> {
 // gate for Uluwatu plus explicit active/published state for every district.
 // Sparse or held rows remain available only in authenticated operator queues.
 export function isPublicReadyVenue(v: Venue): boolean {
-  return getPublicationStatus(v) === "published";
+  return isVenueIndexable(v);
 }
 
 // Public planning catalogue: explicitly active, published venue rows only.
@@ -647,8 +649,12 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
   // unknown category before they reach sort/uniqueBy/display. A bad active row
   // (bulk import, partial migration) is logged and excluded, never rendered.
   const renderable = keepRenderableVenues([...venues, ...uluwatuFallback]);
+  // Apply the same editorial publication policy used by /places/[slug]. Without
+  // this shared gate, a sparse DB row can appear on a public hub card while its
+  // detail route correctly returns 404, creating a broken internal link.
+  const publicReady = renderable.filter(isPublicReadyVenue);
 
-  return uniqueBy(renderable, (v) => v.slug)
+  return uniqueBy(publicReady, (v) => v.slug)
     .sort((a, b) => a.district.localeCompare(b.district) || a.name.localeCompare(b.name))
     .map((v) => ({
       ...v,
@@ -725,13 +731,14 @@ async function fetchSimilarVenues(
     if (categoryResult.error || vibeResult.error) return [];
 
     const targetTags = new Set(vibeTags);
-    const ranked = uniqueBy(
+    const candidates = keepRenderableVenues(uniqueBy(
       [
         ...((categoryResult.data ?? []) as unknown as Row[]),
         ...((vibeResult.data ?? []) as unknown as Row[]),
       ].map(mapVenue),
       (candidate) => candidate.slug,
-    )
+    )).filter(isPublicReadyVenue);
+    const ranked = candidates
       .map((candidate) => ({
         candidate,
         score:
@@ -745,7 +752,7 @@ async function fetchSimilarVenues(
       )
       .slice(0, safeLimit)
       .map(({ candidate }) => candidate);
-    const renderable = keepRenderableVenues(ranked);
+    const renderable = ranked;
     if (renderable.length === 0) return [];
 
     const { data: perkRows } = await sb
@@ -769,7 +776,7 @@ async function fetchSimilarVenues(
 
 const getCachedSimilarVenues = unstable_cache(
   fetchSimilarVenues,
-  ["similar-venues-v1"],
+  ["similar-venues-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
@@ -1056,6 +1063,16 @@ const ROUTE_FALLBACK_STAGES: Record<string, RouteFallbackStage[]> = {
     { note: "Dinner as the light goes.", categories: ["restaurant", "warung"], terms: ["dinner", "evening"] },
     { note: "Close with a drink nearby.", categories: ["bar", "beach_club"], terms: ["cocktail", "night", "drinks"] },
   ],
+  "canggu-food-route": [
+    { note: "Start with a Canggu café or brunch base.", categories: ["cafe"], terms: ["breakfast", "brunch", "coffee"] },
+    { note: "Move to a proper local or casual lunch stop.", categories: ["warung", "restaurant"], terms: ["local", "lunch", "casual"] },
+    { note: "End with the dinner room worth planning around.", categories: ["restaurant"], terms: ["dinner", "date", "group"] },
+  ],
+  "canggu-rainy-day": [
+    { note: "Begin with a covered café or breakfast stop.", categories: ["cafe"], terms: ["breakfast", "coffee", "covered"] },
+    { note: "Use the wet-weather window for a reset.", categories: ["spa", "beauty", "yoga"], terms: ["spa", "massage", "reset"] },
+    { note: "Stay close for a low-friction dinner.", categories: ["restaurant", "warung"], terms: ["dinner", "comfort", "easy"] },
+  ],
 };
 
 function routeFallbackCount(slug: string): number {
@@ -1116,7 +1133,8 @@ function fallbackRouteStops(slug: string, venues: VenueWithPerk[]): VenueWithPer
 }
 
 function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[] {
-  const bySlug = new Map(venues.map((v) => [v.slug, v]));
+  const routeVenues = venues.filter((v) => v.district === d.district);
+  const bySlug = new Map(routeVenues.map((v) => [v.slug, v]));
   const explicit = d.stops
     .map((s) => {
       const v = bySlug.get(s.venueSlug);
@@ -1125,7 +1143,7 @@ function resolveRouteStops(d: RouteDef, venues: VenueWithPerk[]): VenueWithPerk[
     })
     .filter((x): x is VenueWithPerk => x !== null);
 
-  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, venues);
+  return explicit.length > 0 ? explicit : fallbackRouteStops(d.slug, routeVenues);
 }
 
 // Route definitions from DB (if present) else seed.
@@ -1185,7 +1203,12 @@ async function buildRoute(slug: string): Promise<RouteDetail | null> {
   const defs = await getRouteDefs();
   const d = defs.find((x) => x.slug === slug);
   if (!d) return null;
-  const all = await getVenuesList();
+  // Route pages are a Bali-wide planning surface. Resolving explicit route
+  // stops from the Canggu Field Kit list made DB-backed routes fragile: any
+  // published venue outside that curated plan could exist in `route_stops` but
+  // still render as a 404. Use the public catalogue instead; the publication
+  // gate is still enforced by `getPublishedVenues()`.
+  const all = await getPublishedVenues();
   const stops = resolveRouteStops(d, all);
   if (stops.length === 0) return null;
   return { slug: d.slug, district: d.district, title: d.title, subtitle: d.subtitle, stops };
@@ -1221,6 +1244,96 @@ export async function toggleSavedPlace(
   return { ok: Boolean(r.ok), saved: Boolean(r.saved) };
 }
 
+export async function setSavedPlace(
+  guestRef: string,
+  venueSlug: string,
+  saved: boolean,
+): Promise<{ ok: boolean; saved: boolean; error?: string }> {
+  const sb = serviceClient();
+  if (!sb) return { ok: false, saved: false, error: "unavailable" };
+  const { data, error } = await sb.rpc("set_saved_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_saved: saved,
+  });
+  if (error || !data) return { ok: false, saved: false, error: "unavailable" };
+  const result = data as Record<string, unknown>;
+  return {
+    ok: Boolean(result.ok),
+    saved: Boolean(result.saved),
+    error: typeof result.error === "string" ? result.error : undefined,
+  };
+}
+
+export interface TripVenueEntry extends TripEntry {
+  venue: VenueWithPerk;
+}
+
+export async function getSavedTrip(guestRef: string | null): Promise<TripEntry[]> {
+  const sb = serviceClient();
+  if (!sb || !guestRef) return [];
+  const { data, error } = await sb.rpc("saved_trip_for", { p_guest_ref: guestRef });
+  if (!error) return parseTripEntries(data);
+  return (await getSavedSlugs(guestRef)).map((venueSlug, index) => ({
+    venueSlug,
+    day: null,
+    position: index + 1,
+  }));
+}
+
+export async function getSavedTripVenues(guestRef: string | null): Promise<TripVenueEntry[]> {
+  const entries = await getSavedTrip(guestRef);
+  const venues = await getVenuesBySlugs(entries.map((entry) => entry.venueSlug));
+  const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  return entries.flatMap((entry) => {
+    const venue = bySlug.get(entry.venueSlug);
+    return venue ? [{ ...entry, venue }] : [];
+  });
+}
+
+async function tripMutation(
+  rpc: "upsert_trip_place" | "move_trip_place" | "reorder_trip_place",
+  params: Record<string, unknown>,
+): Promise<{ ok: boolean; error?: string }> {
+  const sb = serviceClient();
+  if (!sb) return { ok: false, error: "unavailable" };
+  const { data, error } = await sb.rpc(rpc, params);
+  if (error || !data) return { ok: false, error: "unavailable" };
+  const result = data as Record<string, unknown>;
+  return {
+    ok: Boolean(result.ok),
+    error: typeof result.error === "string" ? result.error : undefined,
+  };
+}
+
+export function addTripPlace(guestRef: string, venueSlug: string, day: number) {
+  return tripMutation("upsert_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_day_number: day,
+  });
+}
+
+export function moveTripPlace(guestRef: string, venueSlug: string, day: number) {
+  return tripMutation("move_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_day_number: day,
+  });
+}
+
+export function reorderTripPlace(
+  guestRef: string,
+  venueSlug: string,
+  direction: "up" | "down",
+) {
+  return tripMutation("reorder_trip_place", {
+    p_guest_ref: guestRef,
+    p_venue_slug: venueSlug,
+    p_direction: direction,
+  });
+}
+
 export async function getVenuesBySlugs(slugs: string[]): Promise<VenueWithPerk[]> {
   if (slugs.length === 0) return [];
   const all = await getPublishedVenues();
@@ -1254,5 +1367,30 @@ export async function getSharedListSlugs(id: string): Promise<string[]> {
   const { data, error } = await sb.rpc("shared_list_slugs", { p_id: id });
   if (error || !Array.isArray(data)) return [];
   return data as string[];
+}
+
+export async function createSharedTrip(guestRef: string | null): Promise<string | null> {
+  const sb = serviceClient();
+  if (!sb || !guestRef) return null;
+  const { data, error } = await sb.rpc("create_shared_trip", { p_guest_ref: guestRef });
+  return error || typeof data !== "string" ? null : data;
+}
+
+export async function getSharedTrip(id: string): Promise<TripEntry[]> {
+  const sb = serviceClient();
+  if (!sb || !id) return [];
+  const { data, error } = await sb.rpc("shared_list_trip", { p_id: id });
+  if (!error) return parseSharedTripEntries(data, []);
+  return parseSharedTripEntries(null, await getSharedListSlugs(id));
+}
+
+export async function getSharedTripVenues(id: string): Promise<TripVenueEntry[]> {
+  const entries = await getSharedTrip(id);
+  const venues = await getVenuesBySlugs(entries.map((entry) => entry.venueSlug));
+  const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  return entries.flatMap((entry) => {
+    const venue = bySlug.get(entry.venueSlug);
+    return venue ? [{ ...entry, venue }] : [];
+  });
 }
 // (Rung 3 opt-in contact lives in #26's guide_leads / GuideLeadForm — not duplicated here.)

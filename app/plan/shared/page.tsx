@@ -1,60 +1,52 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
+import {
+  MOODS,
+  DISTRICTS,
+  allowedMood,
+  allowedDistrict,
+  allowedDays,
+  daysLabel,
+  first,
+} from "./params";
 
-const MOODS = {
-  "slow-morning": "Slow morning",
-  "work-session": "Work session",
-  "midday-reset": "Midday reset",
-  "golden-hour": "Golden hour",
-  "late-dinner": "Late dinner",
-  "special-occasion": "Special occasion",
-} as const;
+type SharedPlanSearchParams = Promise<{
+  m?: string | string[];
+  district?: string | string[];
+  days?: string | string[];
+}>;
 
-const DISTRICTS = {
-  canggu: "Canggu",
-  ubud: "Ubud",
-  seminyak: "Seminyak",
-  uluwatu: "Uluwatu",
-  sanur: "Sanur",
-  jimbaran: "Jimbaran",
-  "nusa-dua": "Nusa Dua",
-} as const;
-
-type Mood = keyof typeof MOODS;
-type District = keyof typeof DISTRICTS;
-
-export const metadata: Metadata = {
-  title: "Shared Other Bali day",
-  description: "A Bali day shared from the Other Bali iPhone app.",
-  alternates: { canonical: "/plan/shared" },
-  robots: { index: false, follow: true },
-};
-
-function first(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] : value;
-}
-
-function allowedMood(value: string | undefined): Mood {
-  return value && value in MOODS ? (value as Mood) : "slow-morning";
-}
-
-function allowedDistrict(value: string | undefined): District {
-  return value && value in DISTRICTS ? (value as District) : "canggu";
-}
-
-function allowedDays(value: string | undefined) {
-  return value === "3" || value === "7" ? value : "1";
+// Dynamic metadata so a shared link unfurls as the actual plan ("Slow
+// morning in Canggu"), with a per-plan OG card (./og/route.tsx) instead of
+// the generic site image. Params are whitelist-coerced, so titles and image
+// URLs only ever contain known-safe values.
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SharedPlanSearchParams;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const mood = allowedMood(first(params.m));
+  const district = allowedDistrict(first(params.district));
+  const days = allowedDays(first(params.days));
+  const title = `${MOODS[mood]} in ${DISTRICTS[district]} — a shared Other Bali day`;
+  const description = `${daysLabel(days)} in ${DISTRICTS[district]}, shared with you as a starting point. Open the live guide for current places, menus and verified booking actions.`;
+  const ogImage = `/plan/shared/og?m=${mood}&district=${district}&days=${days}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: "/plan/shared" },
+    robots: { index: false, follow: true },
+    openGraph: { title, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage] },
+  };
 }
 
 export default async function SharedPlan({
   searchParams,
 }: {
-  searchParams: Promise<{
-    m?: string | string[];
-    district?: string | string[];
-    days?: string | string[];
-  }>;
+  searchParams: SharedPlanSearchParams;
 }) {
   const params = await searchParams;
   const mood = allowedMood(first(params.m));

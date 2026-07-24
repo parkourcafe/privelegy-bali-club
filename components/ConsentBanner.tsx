@@ -47,11 +47,13 @@ export default function ConsentBanner() {
         className="fixed inset-0 z-40 bg-[#16100c]/35 md:hidden"
       />
       {/* Compact opt-in bar (founder request: keep it, but small enough not to
-          cover half the screen). One tight line of copy + two actions. */}
+          cover half the screen). Until the desktop navigation breakpoint, it
+          sits above MobileNav instead of letting that higher-z layer cover the
+          consent actions. */}
       <div
         role="dialog"
         aria-label="Analytics choice"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-2.5 backdrop-blur-md"
+        className="fixed inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom,0px))] z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-2.5 backdrop-blur-md min-[1360px]:bottom-0"
       >
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-snug text-[var(--ob-sand-dim)]">

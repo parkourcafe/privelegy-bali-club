@@ -1,0 +1,8 @@
+entity_id,entity_type,name,official_url,maps_url,place_id,district,subarea,identity_state,source_ids,notes
+E-ULU-001,temple,Pura Luhur Uluwatu,https://www.indonesia.travel/us/en/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu,,,Uluwatu,Pecatu,READY,"SRC-ULU-001;SRC-ULU-002;SRC-ULU-014","Operations require owner refresh"
+E-ULU-002,beach,Padang Padang Beach,https://sita.badungkab.go.id/en/destinations/exploring-padang-padang-beach-a-beach-paradise-in-uluwatu,,,Uluwatu,Pecatu,IDENTITY_ONLY,SRC-ULU-005,"Safety and access HOLD"
+E-ULU-003,beach,Nyang Nyang Beach,https://sita.badungkab.go.id/en/destinations/nyang-nyang-beach-white-sand-stunning-cliffs-and-a-peaceful-atmosphere,,,Uluwatu,Pecatu,IDENTITY_ONLY,"SRC-ULU-004;SRC-ULU-006","Access HOLD"
+E-ULU-004,cultural_park,GWK Cultural Park,https://www.gwkbali.com/?lang=en,,,Uluwatu,Ungasan,IDENTITY_ONLY,"SRC-ULU-008;SRC-ULU-009","Not Pecatu; operations volatile"
+E-ULU-005,hotel,Alila Villas Uluwatu,https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsav-alila-villas-uluwatu,,,Uluwatu,Pecatu,IDENTITY_ONLY,SRC-ULU-010,"Non-ranked only"
+E-ULU-006,hotel,BVLGARI Resort Bali,https://www.bulgarihotels.com/en_US/bali/location,,,Uluwatu,Pecatu,IDENTITY_ONLY,SRC-ULU-011,"Non-ranked only"
+E-ULU-007,hotel,Anantara Uluwatu Bali Resort,https://www.anantara.com/uploads/minor/anantara/documents/anantara-uluwatu-bali-resort/hotel-info/2026/anantara_uluwatu_bali_resort_factsheet.pdf,,,Uluwatu,Labuan Sait,IDENTITY_ONLY,SRC-ULU-012,"Non-ranked only"

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "mode": "pilot",
+  "updated_at": "2026-07-22",
+  "rules": {
+    "automatic_redirects": false,
+    "allowed_codes": [
+      301,
+      308
+    ],
+    "exact_replacement_required": true,
+    "redirect_to_homepage_by_default": false,
+    "chains_allowed": false,
+    "human_approval_required": true
+  },
+  "entries": []
+}

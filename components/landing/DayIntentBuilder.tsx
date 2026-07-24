@@ -96,16 +96,17 @@ const finishOptions: Choice[] = [
   { value: "early", label: "Early night", hint: "Good food, easy exit", query: ["family", "quiet"] },
 ];
 
-// One-tap moments: the primary, default way to use the builder. Each is a real
-// link straight to a filtered /places, so a traveller picks the moment they're
-// in and lands on the map — no questions required. Hrefs mirror the working
-// "moments" cards on the homepage so the results are never empty. The full
-// seven-axis brief is optional and lives behind the "Fine-tune" toggle.
+// One-tap planning scenarios: the primary, default way to use the builder.
+// These link to the existing decision-ready editorial routes rather than
+// creating a second catalogue or a duplicate route system. The full seven-axis
+// brief remains optional behind the "Fine-tune" toggle.
 const quickStarts: { label: string; hint: string; href: string }[] = [
-  { label: "Slow morning", hint: "Coffee & a calm table", href: "/places?intent=1&q=cafe%20quiet&category=cafe" },
-  { label: "Beach day", hint: "Sun, swim, sunset", href: "/places?intent=1&q=sunset%20view&category=beach_club" },
-  { label: "Food crawl", hint: "Lunch & dinner worth ordering", href: "/places?intent=1&q=dinner%20restaurant&category=restaurant" },
-  { label: "Date night", hint: "A table for two", href: "/places?intent=1&q=romantic%20date&category=restaurant" },
+  { label: "First day in Bali", hint: "Land, settle in, make the day easy", href: "/first-time-in-bali" },
+  { label: "Sunset", hint: "Choose the right coast and setting", href: "/where-to-watch-sunset-in-bali" },
+  { label: "With kids", hint: "Lower-friction family choices", href: "/bali-with-kids" },
+  { label: "Rainy day", hint: "A useful plan when the weather turns", href: "/bali-rainy-day" },
+  { label: "Romantic", hint: "Places and moments that work for two", href: "/romantic-bali" },
+  { label: "Plan 3 / 5 / 7 days", hint: "Start with the length of your trip", href: "/how-many-days-in-bali" },
 ];
 
 function unique(values: string[]) {
@@ -218,7 +219,7 @@ export default function DayIntentBuilder() {
           land on a filtered map. No wall of questions; the full seven-axis
           brief is optional and tucked behind "Fine-tune" below. */}
       <p className="mt-4 text-sm leading-relaxed text-[var(--ob-sand-dim)]">
-        What&rsquo;s today about? Tap a moment — we&rsquo;ll open the map.
+        Start with the moment you need. Each guide turns it into a practical plan.
       </p>
       <div className="mt-3 grid grid-cols-2 gap-2">
         {quickStarts.map((q) => (
