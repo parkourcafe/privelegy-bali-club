@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { venuePhotoSourceAllowed } from "@/lib/photo-policy";
 
 type VenueImageVariant = "card" | "visual" | "hero";
 
@@ -49,8 +48,10 @@ export default function VenueImage({
   fallback?: React.ReactNode;
   rightsApproved?: boolean;
 }) {
+  // Kept for call-site compatibility while MEDIA-002 moves publication
+  // authority to the server-side venue mapping boundary.
+  void rightsApproved;
   const [failed, setFailed] = useState(false);
-  if (!venuePhotoSourceAllowed(src, rightsApproved)) return <>{fallback}</>;
   if (failed) return <>{fallback}</>;
 
   if (canUseNextImage(src)) {

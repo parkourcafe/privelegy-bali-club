@@ -16,6 +16,28 @@
 
 export type AudienceMode = "owner_prelaunch" | "tourist_public";
 
+export const CURRENT_MEDIA_PROJECT_REF = "egkdapqwkfprtyqvvnso";
+export const LEGACY_MEDIA_PROJECT_REF = "xvhxyohqkkpaynrgrvvb";
+export const PUBLIC_MEDIA_BUCKETS = ["venue-photos", "owner-photo-candidates"] as const;
+export type PublicMediaBucket = (typeof PUBLIC_MEDIA_BUCKETS)[number];
+
+export type VenuePhotoPolicyInput = {
+  photoUrl: string | null | undefined;
+  venueStatus?: string | null;
+  publicationStatus?: string | null;
+  photoStatus?: string | null;
+};
+
+export type VenuePhotoDecision = {
+  src?: string;
+  mediaState: "ready" | "blocked";
+  reason?:
+    | "missing"
+    | "not_published"
+    | "invalid_url"
+    | "hard_blocked";
+};
+
 export type PhotoUsageStatus =
   | "owner_approved"
   | "editorial_licensed"
@@ -23,35 +45,10 @@ export type PhotoUsageStatus =
   | "designed_fallback"
   | "revoked";
 
-export type VenuePhotoStatus =
-  | "missing"
-  | "needs_verification"
-  | "approved_no_photo"
-  | "approved"
-  | "published"
-  | "rejected";
-
 export interface PhotoCandidate {
   src: string;
   usageStatus: PhotoUsageStatus;
   expiresAt?: string | null;
-}
-
-// This legacy project no longer serves its public venue-photos bucket
-// (verified 2026-07-25: Storage returns `Bucket not found`). Keep the exact
-// approved rows in the consent ledger, but fail closed in public rendering
-// until the same file is migrated or a new owner-approved file replaces it.
-const DECOMMISSIONED_PHOTO_HOSTS = new Set([
-  "xvhxyohqkkpaynrgrvvb.supabase.co",
-]);
-
-function isDecommissionedPhotoSource(src: string): boolean {
-  try {
-    const url = new URL(src, "https://www.otherbali.com");
-    return DECOMMISSIONED_PHOTO_HOSTS.has(url.hostname);
-  } catch {
-    return false;
-  }
 }
 
 export function parseAudienceMode(raw: string | undefined | null): AudienceMode {
@@ -62,7 +59,78 @@ export function audienceMode(): AudienceMode {
   return parseAudienceMode(process.env.OTHER_BALI_AUDIENCE_MODE);
 }
 
-/** Retained for compatibility with the pre-launch policy and preview tooling. */
+const HARD_BLOCKED_MEDIA_STATES = new Set([
+  "missing",
+  "approved_no_photo",
+  "blocked",
+  "rejected",
+  "removed",
+  "archived",
+  "revoked",
+  "expired",
+  "broken",
+  "deleted",
+]);
+
+function normalized(value: string | null | undefined): string {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+/**
+ * Validate a venue-bound public media URL. The URL is accepted only when it
+ * points to the current project and an explicitly allowed media bucket. A
+ * storage prefix (including `draft/`) is not a publication state.
+ */
+export function parseVenuePublicMediaUrl(
+  photoUrl: string | null | undefined,
+): { url: URL; bucket: PublicMediaBucket } | null {
+  if (!photoUrl) return null;
+  try {
+    const url = new URL(photoUrl);
+    if (url.hostname === `${LEGACY_MEDIA_PROJECT_REF}.supabase.co`) return null;
+    if (url.protocol !== "https:" || url.hostname !== `${CURRENT_MEDIA_PROJECT_REF}.supabase.co`) return null;
+    if (url.username || url.password || url.hash) return null;
+    const prefix = "/storage/v1/object/public/";
+    if (!url.pathname.startsWith(prefix)) return null;
+    const remainder = url.pathname.slice(prefix.length);
+    const [bucket, ...objectParts] = remainder.split("/");
+    if (!PUBLIC_MEDIA_BUCKETS.includes(bucket as PublicMediaBucket) || objectParts.length === 0 || objectParts.join("/") === "") {
+      return null;
+    }
+    return { url, bucket: bucket as PublicMediaBucket };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Resolve the single venue-bound photo carrier for public venue surfaces.
+ * MEDIA-002 permits current-project inventory media even when its storage path
+ * is `draft/`; the venue publication gate and exact photo_url binding remain
+ * mandatory, so this does not publish a bucket by URL knowledge alone.
+ */
+export function resolveVenuePhoto(
+  input: VenuePhotoPolicyInput,
+  mode: AudienceMode = audienceMode(),
+): VenuePhotoDecision {
+  // Retain the mode in this API for future audience-specific surfaces;
+  // MEDIA-002 venue-bound authorization applies in both modes.
+  void mode;
+  if (!input.photoUrl) return { mediaState: "blocked", reason: "missing" };
+  if (normalized(input.venueStatus) !== "active" || normalized(input.publicationStatus) !== "published") {
+    return { mediaState: "blocked", reason: "not_published" };
+  }
+  if (HARD_BLOCKED_MEDIA_STATES.has(normalized(input.photoStatus))) {
+    return { mediaState: "blocked", reason: "hard_blocked" };
+  }
+  if (!parseVenuePublicMediaUrl(input.photoUrl)) {
+    return { mediaState: "blocked", reason: "invalid_url" };
+  }
+  return { src: input.photoUrl, mediaState: "ready" };
+}
+
+/** May provisional (not-yet-approved official-source) photos render on open
+ * public surfaces right now? Server-side answer only. */
 export function provisionalPhotosAllowed(mode: AudienceMode = audienceMode()): boolean {
   return mode === "owner_prelaunch";
 }
@@ -102,49 +170,13 @@ export function publicImageForSchema(candidates: PhotoCandidate[]): string | nul
   return choosePhotoSrc(candidates, { allowProvisional: false });
 }
 
-/** Public display bridge for the legacy single-photo venue column. The owner
- * has confirmed publication rights for the existing photo catalogue, so every
- * non-empty URL is displayable on public cards and detail pages. Keep schema
- * selection separate because it requires an explicit rights-state candidate. */
+/** Resolve the venue-bound MEDIA-002 carrier for catalogue/detail surfaces.
+ * This is intentionally separate from candidate selection and schema imagery:
+ * a current-project URL is public only when its venue is active and published.
+ * The storage folder name is not a publication state. */
 export function venuePhotoUrlForDisplay(
-  photoUrl: string | null | undefined,
-  options:
-    | AudienceMode
-    | {
-        photoStatus?: VenuePhotoStatus | string | null;
-        mode?: AudienceMode;
-      } = {},
+  input: VenuePhotoPolicyInput,
+  mode: AudienceMode = audienceMode(),
 ): string | undefined {
-  if (!photoUrl) return undefined;
-  if (isDecommissionedPhotoSource(photoUrl)) return undefined;
-  // Legacy callers passed only the audience mode after the owner-approved
-  // publication decision. Preserve that contract; new data reads pass the
-  // object form below so unapproved statuses still fail closed.
-  if (typeof options === "string") return photoUrl;
-  if (
-    (options.photoStatus === "approved" || options.photoStatus === "published")
-  ) {
-    return photoUrl;
-  }
-  const mode = options.mode ?? audienceMode();
-  return provisionalPhotosAllowed(mode) ? photoUrl : undefined;
-}
-
-/** Defense-in-depth for legacy object paths. A `/venue-photos/draft/` URL may
- * render only after the data boundary has confirmed the exact file's rights
- * state. Normal approved bucket URLs are unaffected. */
-export function venuePhotoSourceAllowed(
-  src: string,
-  rightsApproved: boolean,
-): boolean {
-  try {
-    const url = new URL(src, "https://www.otherbali.com");
-    if (DECOMMISSIONED_PHOTO_HOSTS.has(url.hostname)) return false;
-    const legacyDraft = url.pathname.includes(
-      "/storage/v1/object/public/venue-photos/draft/",
-    );
-    return !legacyDraft || rightsApproved;
-  } catch {
-    return false;
-  }
+  return resolveVenuePhoto(input, mode).src;
 }
