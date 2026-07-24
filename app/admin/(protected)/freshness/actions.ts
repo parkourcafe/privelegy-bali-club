@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath, revalidateTag } from "next/cache";
-import { isPublishableActionTarget, isPublishableHttpsUrl } from "../../../components/admin/freshness-model";
+import { isPublishableActionTarget, isPublishableHttpsUrl } from "@/components/admin/freshness-model";
 import { requireAdminRequest } from "@/lib/admin-request-auth";
 import { hasExplicitReviewConfirmation } from "@/lib/admin-review";
 import { serviceClient } from "@/lib/supabase/service";

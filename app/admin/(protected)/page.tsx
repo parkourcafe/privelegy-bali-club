@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getVenuesList } from "@/lib/data";
 import { getOperatorOnboardStatus } from "@/lib/admin-operations";
 import { listAttributionSources } from "@/lib/admin-attribution";
+import AdminSignOutButton from "@/app/admin/login/AdminSignOutButton";
 import {
   createAttributionSource,
   deactivateAttributionSource,
@@ -21,10 +22,15 @@ export default async function AdminIndex() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 py-10">
-      <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
-        Field Kit · operator
-      </p>
-      <h1 className="mt-1 text-2xl font-bold">Phase 0 control</h1>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">
+            Field Kit · operator
+          </p>
+          <h1 className="mt-1 text-2xl font-bold">Phase 0 control</h1>
+        </div>
+        <AdminSignOutButton />
+      </div>
 
       <Link
         href="/admin/freshness"
