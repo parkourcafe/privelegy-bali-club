@@ -194,3 +194,39 @@ Local browser smoke:
 - `npm run build` — PASS, 153 static pages generated.
 - Files changed: `app/page.tsx`, `lib/homepage.ts`, `docs/visual-redesign-pilot-handoff.md`.
 - No URLs, canonical/indexability behaviour, data model, ranking or factual media were changed.
+
+## Loop 4 — homepage tail media-ratio correction
+
+### Trigger
+
+- Founder screenshots showed two remaining split-card patterns after PR #204: the `Canggu deep guide` card and the three `Trust` principles still rendered near 50/50 media/copy.
+
+### Changes
+
+- Rebuilt the Canggu module as one full-width media card with a compact bottom overlay instead of a separate white copy panel.
+- Preserved both Canggu destinations: the full card opens `/canggu`; the supporting text link opens `/canggu-first-day`.
+- Kept the longer all-Bali availability qualification below the image rather than inside the media overlay.
+- Added visible `Illustrative area` disclosure because `DistrictCover` uses generated atmospheric area media.
+- Added an optional responsive `sizes` prop to `DistrictCover`; existing consumers keep the prior default while the new full-width card requests an appropriate source size.
+- Rebuilt the three Trust principles as full-image cards with controlled bottom overlays and `Illustrative principle` disclosure.
+- Shortened the principle labels to `Selected, not exhaustive`, `No paid ranking` and `Clear next steps`; updated the boundary-test assertion to the new canonical public wording.
+- The shortlist panel remains a functional CTA module and was intentionally not forced into the media-card ratio rule.
+
+### Deterministic ratio and browser QA
+
+- Canggu desktop 1440 px: 1112 × 445 px card; copy region 85 px = 19%, conservative media share = 81%.
+- Canggu mobile 390 px: 350 × 438 px card; copy region 85 px = 19%, conservative media share = 81%.
+- Trust desktop 1440 px: each card 181 × 227 px; copy region 40 px = 18%, conservative media share = 82%.
+- Trust mobile 390 px: each card 350 × 233 px; copy region 40 px = 17%, conservative media share = 83%.
+- Horizontal overflow at 390 px: 0 px.
+- Desktop/mobile crops, lazy-loaded media, disclosure labels, text contrast and CTA targets were visually reviewed.
+
+### Verification
+
+- `npm run typecheck` — PASS.
+- `npm run lint` — PASS with 0 errors and the same pre-existing `PhotoReviewPanel.tsx` raw `<img>` warning.
+- Homepage boundary tests — PASS, 10 tests.
+- `npm run test:t0:unit` — PASS, 48 tests.
+- `npm run build` — PASS, 153 static pages generated.
+- Files changed: `app/page.tsx`, `components/landing/DistrictCover.tsx`, `lib/homepage.ts`, `scripts/wave1-home-boundary.test.mjs`, `docs/visual-redesign-pilot-handoff.md`.
+- No routes, schema, ranking, public factual claims or media assets were added.
