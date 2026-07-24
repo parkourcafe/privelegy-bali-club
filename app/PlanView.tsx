@@ -5,6 +5,7 @@ import type { PlanBySlot } from "@/lib/data";
 import { VIBES } from "@/lib/vibes";
 import { MOMENTS, getMoment, venueFitsMoment } from "@/lib/moments";
 import VenueCard from "@/components/VenueCard";
+import VenueVisual from "@/components/VenueVisual";
 
 const categoryLabel: Record<string, string> = {
   cafe: "Café",
@@ -62,6 +63,20 @@ export default function PlanView({
     [plan, moment, area, vibe, category]
   );
 
+  const decisionPicks = useMemo(
+    () =>
+      filtered
+        .map((block) => ({
+          block,
+          best: block.venues[0],
+          backup: block.venues[1],
+          contrast: block.venues.find((venue) => venue.notFor) ?? block.venues[2],
+        }))
+        .filter(({ best }) => Boolean(best))
+        .slice(0, 4),
+    [filtered],
+  );
+
   return (
     <>
       {/* Moment picker — static scenarios (buttons → predefined filters, §6) */}
@@ -108,8 +123,39 @@ export default function PlanView({
         </p>
       ) : (
         <div>
+          <section className="result-triptych" aria-labelledby="result-triptych-title">
+            <div className="result-triptych-header">
+              <p className="topline">Decision-first view</p>
+              <h2 id="result-triptych-title">Start with the best fits, then open detail if needed.</h2>
+              <p>
+                We show one strong fit per daypart first. The full list stays below for travellers who want to compare more.
+              </p>
+            </div>
+            <div className="result-triptych-grid">
+              {decisionPicks.map(({ block, best, backup, contrast }) => (
+                <article key={block.slot} className="result-triptych-card">
+                  <div className="result-triptych-media">
+                    <VenueVisual name={best.name} category={best.category} photoUrl={best.photoUrl} />
+                  </div>
+                  <div className="result-triptych-body">
+                    <p className="result-triptych-slot">{block.label}</p>
+                    <h3>{best.name}</h3>
+                    <p className="result-triptych-reason">{best.bestFor ?? best.blurb}</p>
+                    <div className="result-triptych-chips">
+                      <span>Best fit</span>
+                      {backup ? <span>Backup: {backup.name}</span> : null}
+                      {contrast ? <span>Check: {contrast.notFor ? contrast.notFor : contrast.name}</span> : null}
+                    </div>
+                    <a href={`#${block.slot}`} className="result-triptych-action">
+                      Compare {block.label.toLowerCase()} options →
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
           {filtered.map((block) => (
-            <section key={block.slot} className="slot-section">
+            <section key={block.slot} id={block.slot} className="slot-section scroll-mt-8">
               <div className="slot-heading">
                 <h2>{block.label}</h2>
                 <p>{block.hint}</p>

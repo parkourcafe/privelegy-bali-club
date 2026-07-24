@@ -497,13 +497,16 @@ export default async function VenuePage({
               ) : (
                 // Category mood art — atmospheric and decorative, never
                 // presented as venue photography.
-                <VenueImage
-                  className="venue-masthead-photo venue-masthead-art"
-                  src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
-                  alt=""
-                  variant="hero"
-                  priority
-                />
+                <>
+                  <VenueImage
+                    className="venue-masthead-photo venue-masthead-art"
+                    src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
+                    alt=""
+                    variant="hero"
+                    priority
+                  />
+                  <span className="venue-media-disclosure">Media pending · verified details only</span>
+                </>
               )}
               <div className="venue-masthead-inner">
                 <p className="venue-masthead-kicker">
@@ -576,9 +579,14 @@ export default async function VenuePage({
               />
             )}
 
+            {/* Provider handoff belongs before deep details: choose → act →
+                read menu only if needed. */}
+            <VenueActionBar {...actionSlotProps} />
+
             {/* Menu — rendered only when there is something real to show
-                (verified menu or an official source). No big empty-state box
-                on the 80% of venues without menu data. */}
+                (verified menu or an official source). It is intentionally after
+                quick decision/practical/action so the place page stays a
+                micro-decision, not a menu database first. */}
             {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
@@ -588,8 +596,6 @@ export default async function VenuePage({
                 </div>
               </section>
             )}
-
-            <VenueActionBar {...actionSlotProps} />
 
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (
