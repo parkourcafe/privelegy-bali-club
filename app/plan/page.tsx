@@ -11,12 +11,12 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Plan your Bali trip",
   description:
-    "Start a Bali trip plan from published itineraries, ready-made routes and the Canggu day-builder pilot. Free; travellers never pay.",
+    "Plan a Bali trip from published itineraries, ready-made routes and area guides. Free; travellers never pay.",
   alternates: { canonical: "/plan" },
   openGraph: {
     title: "Plan your Bali trip · Other Bali",
     description:
-      "Future-trip planning for Bali: itineraries, ready-made routes and a Canggu day-builder pilot.",
+      "Future-trip planning for Bali: itineraries, ready-made routes and area guides.",
     url: "https://www.otherbali.com/plan",
     type: "website",
   },
@@ -46,8 +46,8 @@ const TRIP_GUIDES = [
 ];
 
 // Future planning surface. It shows published trip guides and route records
-// first. The current interactive planner underneath is explicitly framed as a
-// Canggu active-deep pilot so it no longer competes with /my-day (Today).
+// first. The area example underneath is explicitly bounded so it does not
+// compete with /my-day (Today) or imply that Bali planning is district-limited.
 export default async function Plan({
   searchParams,
 }: {
@@ -137,12 +137,11 @@ export default async function Plan({
       )}
 
       <section id="canggu-day-builder" className="scroll-mt-8">
-        <p className="topline">Canggu active-deep pilot</p>
-        <h2 className="section-title mt-2">Build a Canggu day</h2>
+        <p className="topline">Area planning example</p>
+        <h2 className="section-title mt-2">Build a day in Canggu</h2>
         <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
-          Canggu currently has the deepest operational coverage. This module is
-          a pilot for arranging a day there; it does not mean the rest of Bali is
-          missing from Explore or future planning.
+          Use this Canggu example when it fits your trip. The planner and guides
+          above cover Bali-wide choices, areas and routes.
         </p>
         <GuideSectionMedia seed="plan guide canggu places pilot" index={2} />
         <PlanView plan={plan} initialMoment={m} />
