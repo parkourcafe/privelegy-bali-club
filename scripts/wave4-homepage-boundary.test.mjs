@@ -87,7 +87,7 @@ test("approved homepage config has valid cardinality and existing required targe
   }
 });
 
-test("homepage moments use the approved Bali scenario media with visible disclosure", () => {
+test("homepage moments use the approved Bali scenario media without public AI disclosure labels", () => {
   const approvedScenes = [
     "home-bali-first-day",
     "home-bali-sunset",
@@ -111,7 +111,15 @@ test("homepage moments use the approved Bali scenario media with visible disclos
   for (const scene of supersededScenes) {
     assert.doesNotMatch(appSource, new RegExp(`scene: "${scene}"`));
   }
-  assert.match(appSource, /Illustrative scenario/);
+  for (const forbidden of [
+    "Illustrative scenario",
+    "Illustrative atmosphere",
+    "Illustrative route",
+    "Illustrative principle",
+    "generated with Higgsfield",
+  ]) {
+    assert.doesNotMatch(appSource, new RegExp(escapeRegExp(forbidden), "i"));
+  }
 });
 
 test("approved homepage scenario assets fully decode at the reviewed dimensions", async () => {

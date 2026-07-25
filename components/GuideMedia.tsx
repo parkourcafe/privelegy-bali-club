@@ -37,7 +37,6 @@ export function GuideHeroMedia({ seed }: { seed: string }) {
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="ob-grade ob-kenburns" />
       <HeroLoop src={videoFor(seed)} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-      <figcaption className="guide-media-disclosure">Illustrative atmosphere · generated with Higgsfield · not evidence of a specific place</figcaption>
     </figure>
   );
 }
@@ -50,7 +49,6 @@ export function GuideSectionMedia({
   support,
   actionHref,
   actionLabel,
-  disclosure,
 }: {
   seed: string;
   index: number;
@@ -59,7 +57,6 @@ export function GuideSectionMedia({
   support?: string;
   actionHref?: string;
   actionLabel?: string;
-  disclosure?: string;
 }) {
   const scene = sceneFor(seed, index * 17);
   if (src && heading) {
@@ -78,7 +75,6 @@ export function GuideSectionMedia({
           <h2>{heading}</h2>
           {support ? <p>{support}</p> : null}
           {actionHref && actionLabel ? <Link href={actionHref}>{actionLabel}</Link> : null}
-          {disclosure ? <figcaption>{disclosure}</figcaption> : null}
         </div>
       </figure>
     );
@@ -87,7 +83,6 @@ export function GuideSectionMedia({
     <figure className="guide-media guide-media-inline">
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="transition duration-700" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-      <figcaption className="guide-media-disclosure">Illustrative atmosphere · generated with Higgsfield · not evidence of a specific place</figcaption>
     </figure>
   );
 }

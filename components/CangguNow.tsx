@@ -85,9 +85,6 @@ export default function CangguNow() {
           </Link>
         ))}
       </div>
-      <p className="canggu-media-disclosure">
-        Illustrative scenarios · generated with Higgsfield · not evidence of a specific place
-      </p>
       <nav className="canggu-utility-links" aria-label="More ways to start in Canggu">
         {CANGGU_NOW_UTILITIES.map((item) => (
           <Link key={item.label} href={item.href}>

@@ -32,8 +32,9 @@ const SCENES = {
   "home-bali-romantic": ["hf_20260724_191916_dc5fd083-99f6-480b-bd9a-35729656c1e6.png", 1200],
   "home-bali-trip-lengths": ["hf_20260724_191918_7e4d06d5-9689-441f-9369-453568481551.png", 1200],
   // /plan route cards (Higgsfield GPT Image 2, 2026-07-24). Composite
-  // planning scenes only: the UI labels them "Illustrative route" and they
-  // must never be treated as evidence of a named temple, venue or district.
+  // planning scenes only: internal provenance is retained here, but the public
+  // UI must not show AI/disclosure labels or treat them as evidence of a named
+  // temple, venue or district.
   "plan-route-first-day": ["hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png", 1200],
   "plan-route-ubud-culture": ["hf_20260724_192645_829d6721-3cb8-425b-9196-22f501fdc0f1.png", 1200],
   "plan-route-bangli-temple-village": ["hf_20260724_192645_19d497a2-e284-4ec8-adf7-650113353459.png", 1200],

@@ -23,7 +23,7 @@ const expectedMedia = [
   "canggu-sunset-illustrative.webp",
 ];
 
-test("Canggu illustrative media is unique, present, and disclosed", async () => {
+test("Canggu illustrative media is unique, present, and not publicly labelled as generated", async () => {
   for (const filename of expectedMedia) {
     const references = combinedCangguSource.match(new RegExp(filename, "g")) ?? [];
     assert.ok(references.length >= 1, `${filename} must remain mapped to Canggu`);
@@ -35,9 +35,17 @@ test("Canggu illustrative media is unique, present, and disclosed", async () => 
     assert.equal(bytes.subarray(8, 12).toString("ascii"), "WEBP", `${filename} must be a WebP container`);
   }
 
-  assert.match(combinedCangguSource, /generated with Higgsfield/);
-  assert.match(combinedCangguSource, /not evidence of a specific place/);
-  assert.match(combinedCangguSource, /not a specific venue/);
+  for (const forbidden of [
+    "generated with Higgsfield",
+    "Illustrative scenarios",
+    "Illustrative Canggu atmosphere",
+    "Illustrative area moods",
+    "Illustrative planning scenes",
+    "not evidence of a specific place",
+    "not a specific venue",
+  ]) {
+    assert.doesNotMatch(combinedCangguSource, new RegExp(forbidden, "i"));
+  }
 });
 
 test("Canggu keeps factual venue cards separate from illustrative media", () => {
@@ -56,7 +64,7 @@ test("Canggu now is six media-first choices rather than a twelve-card text direc
   assert.equal((cangguNowSource.match(/imageSrc:/g) ?? []).length, 6);
   assert.equal((cangguNowSource.match(/data-canggu-moment-card/g) ?? []).length, 1);
   assert.match(cangguNowSource, /data-media-copy/);
-  assert.match(cangguNowSource, /Illustrative scenarios/);
+  assert.doesNotMatch(cangguNowSource, /Illustrative scenarios/);
   assert.match(cangguNowSource, /const CANGGU_NOW_UTILITIES = \[/);
   for (const utility of ["Near me", "First day", "With kids", "Saved", "My perks"]) {
     assert.match(cangguNowSource, new RegExp(utility));
