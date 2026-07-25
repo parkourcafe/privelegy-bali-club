@@ -133,16 +133,18 @@ test("routes are pre-generated and public plan and Uluwatu reads revalidate", as
   assert.doesNotMatch(uluwatu, /force-dynamic/);
 });
 
-test("homepage suppresses the inner-page header before hydration", async () => {
+test("homepage keeps the global header and Explore mega-menu available", async () => {
   const landing = await read("app/page.tsx");
   const globalHeader = await read("components/GlobalHeader.tsx");
   const styles = await read("app/globals.css");
   assert.match(landing, /data-page-shell="landing"/);
-  assert.match(globalHeader, /if \(!pathname \|\| pathname === "\/"\) return null/);
-  assert.match(
-    styles,
-    /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header\s*\{\s*display: none;/,
-  );
+  assert.doesNotMatch(globalHeader, /pathname === "\/"/);
+  assert.doesNotMatch(styles, /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header/);
+  assert.match(globalHeader, /NAV_GROUPS\.map/);
+  assert.match(globalHeader, /ob-mega-panel/);
+  assert.match(globalHeader, /ob-compact-nav/);
+  assert.match(globalHeader, /Explore Other Bali/);
+  assert.match(styles, /\.ob-compact-panel/);
 });
 
 test("isolated review host fails closed and analytics disclosure matches the consent gate", async () => {
