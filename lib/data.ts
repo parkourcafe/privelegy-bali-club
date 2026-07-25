@@ -176,7 +176,10 @@ function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
 const mapVenue = (r: Row): Venue => {
   const district = r.district as string;
   const photoStatus = r.photo_status as string | null;
-  const photoUrl = venuePhotoUrlForDisplay(r.photo_url as string | null, {
+  const photoUrl = venuePhotoUrlForDisplay({
+    photoUrl: r.photo_url as string | null,
+    venueStatus: r.status as string | null,
+    publicationStatus: r.publication_status as string | null,
     photoStatus,
   });
   return {
@@ -197,12 +200,10 @@ const mapVenue = (r: Row): Venue => {
     vibeTags: (r.vibe_tags as string[]) ?? undefined,
     priceAnchor: (r.price_anchor as string) ?? undefined,
     whatToOrder: (r.what_to_order as string) ?? undefined,
-    // Photo Policy v3: an explicitly approved/published exact file is public;
-    // every other legacy photo_url remains provisional and fail-closed.
+    // MEDIA-002 bridge: publication is decided centrally from venue context;
+    // a draft storage prefix is not itself a publication state.
     photoUrl,
-    photoRightsApproved: Boolean(
-      photoUrl && (photoStatus === "approved" || photoStatus === "published"),
-    ),
+    photoRightsApproved: Boolean(photoUrl),
     whatsapp: undefined,
     tablepilotSlug: undefined,
     area: (r.area as string) ?? undefined,

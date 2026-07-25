@@ -1,0 +1,9 @@
+carrier,files,symbols,read,status,evidence
+venues.photo_url,lib/data.ts; lib/mobile-api/service.ts; app/places/[slug]/page.tsx,PLAN_VENUE_COLUMNS; PUBLIC_PLACES_VENUE_COLUMNS; mapVenue; getVenueWithPerk,public venue/card/detail mapping,PASS,source audit
+venue_photo_submissions.image_path,app/admin/(protected)/photos/data.ts; app/admin/(protected)/photos/actions.ts; app/api/venue-photo/[id]/route.ts; app/api/partner/photos/route.ts; app/api/onboard/photo/route.ts,"PHOTO_BUCKET; storage.from(""venue-photos"")",admin/partner/API photo flows,PASS,source audit
+photo_status,repository search,no public runtime reader found,none,OPEN_ISSUE,rg source audit
+venue_photos,repository search,no public runtime reader found,none,OPEN_ISSUE,rg source audit
+Supabase public image host,next.config.ts,images.remotePatterns,Next Image optimizer,PASS,hostname **.supabase.co; pathname /storage/v1/object/public/**
+Draft-path suppression,components/VenueImage.tsx,isDraftVenuePhoto,returns fallback for /venue-photos/draft/,BLOCKER,source audit; all 91 paths are draft/
+Provisional photo policy,lib/photo-policy.ts; lib/data.ts,venuePhotoUrlForDisplay; official_provisional_preview,tourist_public suppresses provisional photo_url,BLOCKER,source audit
+Public cache,lib/data.ts; lib/data/public-cache.ts,unstable_cache; PUBLIC_CACHE_TAGS.venues,five-minute venue cache,REVIEW,revalidate=300; direct DB write did not call revalidateTag
