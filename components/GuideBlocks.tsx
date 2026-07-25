@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cache } from "react";
 import SiteFooter from "@/components/SiteFooter";
@@ -100,6 +101,7 @@ export interface GuideLink {
   href: string;
   title: string;
   blurb: string;
+  mediaSrc?: string;
 }
 
 export function RelatedGuides({ links, heading = "Keep planning" }: { links: GuideLink[]; heading?: string }) {
@@ -108,12 +110,41 @@ export function RelatedGuides({ links, heading = "Keep planning" }: { links: Gui
       <h2>{heading}</h2>
       <div className="related-guides">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="related-guide-card">
-            <h3>{link.title}</h3>
-            <p>{link.blurb}</p>
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`related-guide-card${link.mediaSrc ? " related-guide-card-media" : ""}`}
+          >
+            {link.mediaSrc ? (
+              <>
+                <Image
+                  src={link.mediaSrc}
+                  alt=""
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 759px) calc(100vw - 2rem), (max-width: 1199px) calc((100vw - 4rem) / 3), 360px"
+                  className="related-guide-card-image ob-grade"
+                />
+                <span className="related-guide-card-scrim" aria-hidden="true" />
+                <span className="related-guide-card-copy" data-media-copy>
+                  <h3>{link.title}</h3>
+                  <p>{link.blurb}</p>
+                </span>
+              </>
+            ) : (
+              <>
+                <h3>{link.title}</h3>
+                <p>{link.blurb}</p>
+              </>
+            )}
           </Link>
         ))}
       </div>
+      {links.some((link) => link.mediaSrc) ? (
+        <p className="canggu-media-disclosure">
+          Illustrative planning imagery · not evidence of a specific place
+        </p>
+      ) : null}
     </section>
   );
 }
