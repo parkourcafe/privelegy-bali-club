@@ -22,7 +22,7 @@ test("Plan separates published routes into Bali-wide and Canggu practical choice
   assert.match(planSource, /Canggu practical routes/);
 });
 
-test("Plan replaces generic section banners with route-specific illustrative media cards", () => {
+test("Plan replaces generic section banners with route-specific media cards without public AI labels", () => {
   assert.doesNotMatch(planSource, /GuideSectionMedia seed="plan bali trip length guides"/);
   assert.doesNotMatch(planSource, /GuideSectionMedia seed="plan ready made routes bali"/);
   assert.match(planSource, /<PlanRouteCard key=\{route\.slug\} route=\{route\} \/>/);
@@ -42,7 +42,7 @@ test("Plan replaces generic section banners with route-specific illustrative med
   ]) {
     assert.match(cardSource, new RegExp(`"${slug}"`), `missing route media mapping: ${slug}`);
   }
-  assert.match(cardSource, /Illustrative route/);
+  assert.doesNotMatch(cardSource, /Illustrative route/);
   assert.match(cardSource, /route\.district/);
   assert.match(cardSource, /route\.stopCount/);
   assert.match(cardSource, /Open route/);

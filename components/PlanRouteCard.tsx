@@ -51,7 +51,6 @@ export default function PlanRouteCard({ route }: { route: RouteSummary }) {
         imgClassName="ob-grade transition duration-500 group-hover:scale-[1.025]"
       />
       <div className="plan-route-card-shade" />
-      <span className="plan-route-disclosure">Illustrative route</span>
       <div className="plan-route-copy">
         <p className="plan-route-district">{districtLabel(route.district)}</p>
         <h4>{route.title}</h4>

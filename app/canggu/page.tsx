@@ -187,7 +187,6 @@ function TopPicks({
         support={note}
         actionHref={href}
         actionLabel="See all picks"
-        disclosure="Illustrative atmosphere · generated with Higgsfield · not a specific venue"
       />
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (
@@ -254,7 +253,6 @@ export default async function CangguPillarPage() {
           kicker="Canggu · Other Bali beta"
           title="Choose your Canggu day"
           copy="Eat, work, reset or catch sunset — start with the decision you are making now."
-          mediaDisclosure="Illustrative Canggu atmosphere · generated with Higgsfield · not evidence of a specific place"
           actions={
             <Link
               href="/plan#canggu-day-builder"
@@ -312,9 +310,6 @@ export default async function CangguPillarPage() {
               </article>
             ))}
           </div>
-          <p className="canggu-media-disclosure">
-            Illustrative area moods · generated imagery · not documentary views of each locality
-          </p>
         </section>
 
         <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurantPicks} href="/canggu/best-restaurants" mediaSrc="/scenes/canggu-restaurants-illustrative.webp" />
@@ -344,9 +339,6 @@ export default async function CangguPillarPage() {
               </article>
             ))}
           </div>
-          <p className="canggu-media-disclosure">
-            Illustrative planning scenes · practical guidance is editorial, not live traffic, sea or availability data
-          </p>
         </section>
 
         <FaqBlock items={FAQ} />
@@ -367,7 +359,6 @@ export default async function CangguPillarPage() {
             support="Morning, reset, sunset."
             actionHref="/plan#canggu-day-builder"
             actionLabel="Open the day builder"
-            disclosure="Illustrative route · generated imagery · not live availability"
           />
         </section>
 

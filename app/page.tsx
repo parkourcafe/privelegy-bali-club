@@ -106,9 +106,6 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
               />
             ) : null}
             <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/5" />
-            <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white">
-              Illustrative scenario
-            </span>
             <span className="absolute inset-x-0 bottom-0 flex min-h-[20%] items-end justify-between gap-4 p-4 sm:p-5">
               <span className="max-w-[84%]">
                 <span className="block font-display text-2xl leading-none">{item.label}</span>
@@ -198,9 +195,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <p className="absolute bottom-5 right-5 rounded-full border border-white/35 bg-[#211913]/75 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md sm:bottom-6 sm:right-6">
-            Illustrative atmosphere
-          </p>
         </section>
 
         <section id="moments" aria-labelledby="moments-title" className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
@@ -272,9 +266,6 @@ export default function HomePage() {
                         <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
                       )}
                       <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/20 to-transparent" />
-                      <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-[#211913]/80 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-white">
-                        Illustrative route
-                      </span>
                       <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
                         <span className="min-w-0">
                           <span className="block font-display text-xl leading-tight">{plan.label}</span>
@@ -374,9 +365,6 @@ export default function HomePage() {
                       sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) 33vw, 181px"
                     />
                     <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
-                    <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-[#211913]/80 px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.12em] text-white">
-                      Illustrative principle
-                    </span>
                     <span data-media-copy className="absolute inset-x-0 bottom-0 block p-3 text-xs">{principle}</span>
                   </li>
                 );

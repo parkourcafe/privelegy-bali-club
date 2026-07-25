@@ -140,11 +140,6 @@ export function RelatedGuides({ links, heading = "Keep planning" }: { links: Gui
           </Link>
         ))}
       </div>
-      {links.some((link) => link.mediaSrc) ? (
-        <p className="canggu-media-disclosure">
-          Illustrative planning imagery · not evidence of a specific place
-        </p>
-      ) : null}
     </section>
   );
 }
