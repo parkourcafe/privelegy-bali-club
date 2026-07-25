@@ -144,10 +144,10 @@ export default function UbudPillarPage() {
       </section>
 
       <section className="guide-section">
-        <h2>Evidence limits</h2>
+        <h2>Before you go</h2>
         <div className="guide-prose">
-          <p>This page does not rank hotels, promise transport conditions or publish fixed travel times. Detailed stay-zone, no-scooter, family and accessibility advice remains on hold until field and Maps checks are complete.</p>
-          <p>Current attraction schedules, prices, venue offers and booking terms should always be checked with the official provider for the date of the visit.</p>
+          <p>Ubud days work best when you plan around distance, traffic and weather. A place that looks close on the map can still take longer than expected.</p>
+          <p>Check current schedules, prices, offers and booking terms with the official provider for the date of your visit.</p>
         </div>
       </section>
 

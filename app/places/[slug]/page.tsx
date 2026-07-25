@@ -589,7 +589,7 @@ export default async function VenuePage({
             {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
-                <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+                <p className="guide-lede">Use this for the latest menu details we can show here; when the menu changes often, open the official source before you go.</p>
                 <div className="mt-4">
                   <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
                 </div>
