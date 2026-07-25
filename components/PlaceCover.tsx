@@ -1,18 +1,10 @@
 import Image from "next/image";
 import type { Venue } from "@/lib/types";
-import { venueCategoryLabel, venueCoverAssetCategory } from "@/lib/venue-presentation";
+import { venueCoverAssetCategory } from "@/lib/venue-presentation";
 
-// Typographic editorial cover — the honest no-photo state. It sets type over
-// category mood art (atmospheric still-life/landscape, deliberately NOT venue
-// photography — publication rule v2) on a category-tinted field and never
-// pretends to depict the venue (brief §9). Venues with an approved photo
-// render the photo instead.
-//
-// Variants avoid duplicated text around the cover:
-// - "card": the venue name as a poster plate (the card body carries the
-//   category · area eyebrow).
-// - "hero": category line + a large serif monogram — the page H1 with the
-//   full name sits directly beneath, so the cover doesn't repeat it.
+// Decorative no-photo cover. It uses category mood art only; visitor-facing
+// venue names, categories, areas and verdicts live in the card/page copy, not
+// as text overlays on the image.
 
 // One licensed still per category means neighbouring no-photo cards repeat the
 // same art. A cheap deterministic hash of the venue name picks one of four
@@ -28,12 +20,10 @@ function altClass(name: string): string {
 export default function PlaceCover({
   name,
   category,
-  microArea,
   variant = "card",
 }: {
   name: string;
   category: Venue["category"];
-  microArea?: string;
   variant?: "card" | "hero";
 }) {
   if (variant === "hero") {
@@ -46,16 +36,6 @@ export default function PlaceCover({
           fill
           sizes="(max-width: 640px) 100vw, 33vw"
         />
-        <p className="type-cover-category">
-          {venueCategoryLabel(category)}
-          {microArea ? ` · ${microArea}` : ""}
-        </p>
-        <div>
-          <div className="type-cover-rule" />
-          <p className="type-cover-word" style={{ fontSize: "clamp(72px, 14vw, 140px)" }}>
-            {name.trim().charAt(0).toUpperCase()}.
-          </p>
-        </div>
       </div>
     );
   }
@@ -69,11 +49,6 @@ export default function PlaceCover({
         fill
         sizes="(max-width: 640px) 100vw, 33vw"
       />
-      <span />
-      <div>
-        <div className="type-cover-rule" />
-        <p className="type-cover-word">{name}</p>
-      </div>
     </div>
   );
 }

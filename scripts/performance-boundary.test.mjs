@@ -56,6 +56,30 @@ test("public venue photos use responsive optimization without weakening consent 
   assert.match(protectedPhotoRoute, /max-age=300, s-maxage=300/);
 });
 
+test("public venue media does not expose internal fallback or provenance labels", async () => {
+  const placeCard = await read("components/PlaceCard.tsx");
+  const placeCover = await read("components/PlaceCover.tsx");
+  const venueVisual = await read("components/VenueVisual.tsx");
+  const venuePage = await read("app/places/[slug]/page.tsx");
+  const styles = await read("app/globals.css");
+  const publicVenueMedia = `${placeCard}\n${placeCover}\n${venueVisual}\n${venuePage}\n${styles}`;
+
+  for (const forbidden of [
+    "Media pending",
+    "verified details below",
+    "verified details only",
+    "media-pending-badge",
+    "venue-media-disclosure",
+    "type-cover-word",
+    "type-cover-category",
+    "venue-visual-label",
+    "Approved venue photo",
+    "Supabase Storage media library",
+  ]) {
+    assert.doesNotMatch(publicVenueMedia, new RegExp(forbidden, "i"));
+  }
+});
+
 test("large menus defer closed-section items and keep publication gates", async () => {
   const item = await read("components/menu/MenuItem.tsx");
   const summaryRepository = await read("lib/data/menu-summary-repository.ts");
