@@ -3,11 +3,9 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import SceneImage from "@/components/landing/SceneImage";
-import PlaceCard, { type PlaceCardData } from "@/components/PlaceCard";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
-import type { Venue } from "@/lib/types";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // venue/publication edits in Supabase surface without a redeploy. Build-safe
@@ -106,23 +104,6 @@ const SUNSET_MODES = [
 
 function isSunset(v: { jobs?: string[]; category: string }): boolean {
   return (v.jobs?.includes("sunset_drinks_view") ?? false) || v.category === "beach_club";
-}
-
-function toPlaceCard(venue: Venue): PlaceCardData {
-  return {
-    slug: venue.slug,
-    name: venue.name,
-    category: venue.category,
-    microArea: venue.area,
-    editorialLine: venue.whyItsHere,
-    bestFor: venue.bestFor,
-    priceBand: venue.priceAnchor,
-    photoUrl: venue.photoUrl,
-    photoRightsApproved: venue.photoRightsApproved,
-    isSponsored: venue.isSponsored,
-    gmapsUrl: venue.gmapsUrl,
-    tablepilotSlug: venue.tablepilotSlug,
-  };
 }
 
 // Bali sits ~8.5° south of the equator, so sunset barely drifts across the year
@@ -279,9 +260,31 @@ export default async function SunsetPage() {
             </div>
             <GuideSectionMedia seed={`sunset bali ${area.key} ${area.name}`} index={AREA_ORDER.findIndex((item) => item.key === area.key) + 1} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <div className="pick-grid pick-grid-3 mt-4">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {area.venues.map((venue) => (
-                <PlaceCard key={venue.slug} place={toPlaceCard(venue)} visualFirst />
+                <article key={venue.slug} className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5 shadow-[var(--shadow-soft)]">
+                  <p className="eyebrow">
+                    {venue.category.replace(/_/g, " ")}
+                    {venue.area ? ` · ${venue.area}` : ""}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl leading-none text-[var(--ink)]">
+                    <Link href={`/places/${venue.slug}`} className="text-inherit no-underline">
+                      {venue.name}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                    {venue.bestFor || venue.whyItsHere || "Open the place page for current details before you go."}
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[var(--line)] pt-3 text-xs font-bold text-[var(--lagoon-strong)]">
+                    {venue.priceAnchor ? <span className="text-[var(--muted)]">{venue.priceAnchor}</span> : null}
+                    {venue.gmapsUrl ? (
+                      <a href={venue.gmapsUrl} target="_blank" rel="noreferrer">
+                        Open in Google Maps
+                      </a>
+                    ) : null}
+                    <Link href={`/places/${venue.slug}`}>View place →</Link>
+                  </div>
+                </article>
               ))}
             </div>
           </section>
