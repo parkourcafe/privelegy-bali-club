@@ -9,13 +9,14 @@ import { NAV_GROUPS, NAV_ACTIONS } from "@/lib/navigation";
 import { t } from "@/lib/i18n/dictionaries";
 import type { PublicLocale } from "@/lib/i18n/locales";
 
-// Persistent site header for every inner page (IA spec v1 §5.1). Six category
+// Persistent site header for every public page (IA spec v1 §5.1). Six category
 // groups from the shared navigation registry render as <details> mega-menus —
 // natively keyboard- and screen-reader-operable (summary acts as a button),
 // no horizontal scrolling of loose links. The cinematic homepage keeps its own
-// overlay nav (LandingChrome), so this returns null there. On small screens
-// the groups hide and the bottom bar (components/MobileNav) takes over; the
-// header keeps brand + Explore/Saved.
+// hero, but the global header still renders there so users always have the
+// same Explore menus and quick actions. On small screens the groups hide and
+// the bottom bar (components/MobileNav) takes over; the header keeps brand +
+// Explore/Saved.
 export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
   const pathname = usePathname();
   const rootRef = useRef<HTMLElement>(null);
@@ -55,7 +56,7 @@ export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
       .forEach((d) => (d.open = false));
   }, [pathname]);
 
-  if (!pathname || pathname === "/") return null;
+  if (!pathname) return null;
 
   return (
     <header className="ob-site-header" ref={rootRef}>
@@ -98,6 +99,29 @@ export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
         </nav>
 
         <nav className="ob-site-actions" aria-label="Quick actions">
+          <details className="ob-compact-nav">
+            <summary className="ob-compact-summary">
+              <span aria-hidden="true" className="ob-compact-icon">☰</span>
+              Explore
+            </summary>
+            <div className="ob-compact-panel" role="group" aria-label="Explore Other Bali">
+              {NAV_GROUPS.map((g) => (
+                <section key={g.key} className="ob-compact-group">
+                  <p className="ob-compact-group-title">{t(locale, g.label)}</p>
+                  {g.links.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      className="ob-compact-link"
+                      aria-current={pathname === l.href ? "page" : undefined}
+                    >
+                      {t(locale, l.label)}
+                    </Link>
+                  ))}
+                </section>
+              ))}
+            </div>
+          </details>
           {NAV_ACTIONS.map((a) => (
             <Link
               key={a.href}

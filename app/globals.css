@@ -3404,10 +3404,10 @@ html {
 }
 .ob-browse-chip:hover { background: rgba(250, 246, 239, 0.18); transform: translateY(-1px); }
 
-/* ── Persistent site header (GlobalHeader) — every inner page (2026-07) ──
+/* ── Persistent site header (GlobalHeader) — every public page (2026-07) ──
    A slim, sticky brand bar so a venue or guide page is never a dead end:
    the logo returns home and the four section links are always reachable.
-   The cinematic homepage keeps its own overlay nav (this renders null there). */
+   The homepage uses the same header so the Explore mega-menu is always available. */
 .ob-site-header {
   position: sticky;
   top: 0;
@@ -3418,13 +3418,6 @@ html {
   border-bottom: 1px solid var(--line);
 }
 
-/* The root layout owns the inner-page header while the homepage owns its own
-   cinematic overlay navigation. The page marker is present in server HTML, so
-   this prevents both headers from painting before usePathname hydrates (Next
-   warns that pathname-dependent markup can mismatch when Proxy is present). */
-body:has(> [data-page-shell="landing"]) > .ob-site-header {
-  display: none;
-}
 .ob-site-header-inner {
   display: flex;
   align-items: center;
@@ -3710,9 +3703,9 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
    translated label (e.g. Russian "Сохранённое", Indonesian "Bahasa
    Indonesia" in the switcher next to it) can't force the header row past the
    viewport width. The locale switcher stays visible at every width. */
-.ob-site-actions a { display: none; }
+.ob-site-actions > a { display: none; }
 @media (min-width: 1360px) {
-  .ob-site-actions a {
+  .ob-site-actions > a {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
@@ -3725,6 +3718,81 @@ body:has(> [data-page-shell="landing"]) > .ob-site-header {
 }
 .ob-site-actions a:hover { color: var(--ink); background: rgba(0, 89, 98, 0.07); }
 .ob-site-actions a[data-active="true"] { color: var(--lagoon-strong); }
+
+.ob-compact-nav {
+  position: relative;
+  display: block;
+}
+.ob-compact-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 800;
+  list-style: none;
+  white-space: nowrap;
+}
+.ob-compact-summary::-webkit-details-marker { display: none; }
+.ob-compact-summary:hover,
+.ob-compact-nav[open] .ob-compact-summary {
+  background: rgba(0, 89, 98, 0.07);
+  color: var(--lagoon-strong);
+}
+.ob-compact-summary:focus-visible { outline: 2px solid var(--lagoon); outline-offset: 2px; }
+.ob-compact-icon {
+  font-size: 16px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.ob-compact-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 65;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  width: min(88vw, 360px);
+  max-height: min(78vh, 640px);
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow-lift);
+}
+.ob-compact-group {
+  display: grid;
+  gap: 2px;
+}
+.ob-compact-group-title {
+  margin: 8px 8px 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ob-compact-link {
+  display: block;
+  min-height: 40px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+.ob-compact-link:hover,
+.ob-compact-link[aria-current="page"] {
+  background: rgba(0, 89, 98, 0.07);
+  color: var(--lagoon-strong);
+}
+@media (min-width: 1360px) { .ob-compact-nav { display: none; } }
 
 /* Locale switcher (Multi-locale public UI rule v2) — mirrors the .ob-mega
    summary/panel pattern but the trigger stays compact (native name only,
