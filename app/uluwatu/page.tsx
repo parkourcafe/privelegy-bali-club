@@ -70,7 +70,7 @@ export default async function UluwatuPillarPage() {
         variant="sunset"
         kicker="Uluwatu · Bukit Peninsula"
         title="Is Uluwatu the right Bali base for you?"
-        copy="Other Bali uses Uluwatu as a practical planning label that includes verified anchors in Pecatu and nearby Ungasan. It is not one official compact district, so start with the part of the peninsula your trip is built around."
+        copy="Use this page to decide whether the Bukit Peninsula fits your trip. Uluwatu, Pecatu and Ungasan sit close together, but the best base depends on whether you want surf beaches, cliff sunsets, restaurants or an easier route back to your hotel."
         meta={`Verified: ${reviewDate} · researched, not sponsored · no paid ranking`}
       />
 
@@ -81,18 +81,18 @@ export default async function UluwatuPillarPage() {
       <StartYourShortlist district="Uluwatu" items={buildStartShortlist(venues)} />
 
       <section className="guide-section">
-        <h2>Start with the planning label</h2>
+        <h2>Start with the part of Uluwatu you actually need</h2>
         <div className="guide-prose">
-          <p>Pura Luhur Uluwatu is a Pecatu cliff-side cultural anchor. GWK Cultural Park is in Ungasan. Both can appear in a broader Uluwatu trip, but they are not the same locality.</p>
-          <p>That distinction matters before you choose accommodation or sequence a day. This guide does not publish fixed tourist-zone boundaries or promise that the wider area works like one neighbourhood.</p>
+          <p>Pura Luhur Uluwatu, Padang Padang, Bingin, Nyang Nyang and GWK can all sit inside an “Uluwatu trip”, but they do not feel the same on the ground.</p>
+          <p>Choose your base by the day you want: cliff sunsets and Kecak, surf beaches, brunch and cafés around Bingin, or a quieter hotel stay with fewer transfers.</p>
         </div>
       </section>
 
       <section className="guide-section">
-        <h2>Verified coastal anchors</h2>
+        <h2>Pick beaches and sunsets with a bit of caution</h2>
         <div className="guide-prose">
-          <p>Padang Padang and Nyang Nyang are distinct Pecatu/Uluwatu-area beach anchors. Their identity is verified; swimming suitability, accessibility and current access conditions are not treated as universal facts here.</p>
-          <p>Choose accommodation and transport only after checking the exact route and current access conditions. Other Bali does not currently claim that the wider Uluwatu area is walkable, that a scooter is required, or that one transport option works for everyone.</p>
+          <p>Padang Padang and Nyang Nyang are both worth knowing, but access, stairs, tides and swimming conditions can change the day quickly.</p>
+          <p>Before you lock a plan, check the exact route from your hotel and keep a driver, taxi app or return plan in mind. Uluwatu is beautiful, but it is not a single walkable neighbourhood.</p>
         </div>
       </section>
 
@@ -114,10 +114,10 @@ export default async function UluwatuPillarPage() {
       </section>
 
       <section className="guide-section">
-        <h2>Evidence limits</h2>
+        <h2>Before you go</h2>
         <div className="guide-prose">
-          <p>Current hours, tickets, day passes, prices and venue policies are volatile. Check current official terms for the date of your visit.</p>
-          <p>We will add detailed stay, hotel, beach and activity guidance only after the movement, access, safety, entity and Maps checks behind those decisions are complete.</p>
+          <p>Opening hours, Kecak tickets, beach access, day-pass rules and prices can change. Check the official page or the venue before you travel across the peninsula.</p>
+          <p>If you are staying in Uluwatu without a scooter, plan transport first. The area is spread out, and the best choice often depends on the exact hotel, beach and dinner spot.</p>
         </div>
       </section>
 

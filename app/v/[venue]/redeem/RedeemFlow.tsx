@@ -17,7 +17,7 @@ type Phase = "idle" | "consent" | "submitting" | "done" | "error";
 const ERRORS: Record<string, string> = {
   consent_required: "We need your okay to record the redemption. No personal data is stored.",
   redemption_storage_unconfigured:
-    "Redemption isn't switched on yet for this deployment. (Backend not configured.)",
+    "This offer is not ready to redeem online yet. Please ask the venue team before ordering.",
   venue_not_found: "This venue link looks wrong.",
   no_active_perk: "This venue does not have a confirmed offer right now.",
   guest_ref_failed: "Couldn't start your session. Try again.",

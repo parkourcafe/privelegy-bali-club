@@ -52,11 +52,11 @@ export default function WhereToStayInSanurPage() {
             <tbody>
               <tr><th scope="row">Central Sanur</th><td>Staying near the main Sanur rhythm.</td><td>Do not assume every hotel is walkable to everything; check the exact route.</td></tr>
               <tr><th scope="row">South Sanur</th><td>A quieter, more resort-led stay.</td><td>Check the exact beach segment and current hotel facts.</td></tr>
-              <tr><th scope="row">North Sanur</th><td>Classic Sanur and harbour-side logistics.</td><td>The new and legacy hotel cluster has identity caveats; confirm the exact property.</td></tr>
+              <tr><th scope="row">North Sanur</th><td>Classic Sanur and harbour-side logistics.</td><td>Confirm the exact property name and route before booking.</td></tr>
             </tbody>
           </table>
         </div>
-        <p className="guide-lede mt-5">These are Other Bali planning zones, not official administrative boundaries.</p>
+        <p className="guide-lede mt-5">Use this as a traveller shortcut: first pick the kind of Sanur stay you want, then compare individual hotels.</p>
       </section>
 
       <section className="guide-section">
@@ -71,7 +71,7 @@ export default function WhereToStayInSanurPage() {
 
       <section className="guide-section">
         <h2>North Sanur: classic Sanur and harbour logistics</h2>
-        <div className="guide-prose"><p>North Sanur is useful for classic Sanur and harbour-side logistics, with some identity caveats in the new and legacy hotel cluster. Confirm the exact property name and current harbour route before relying on either.</p></div>
+        <div className="guide-prose"><p>North Sanur is useful for classic Sanur and harbour-side logistics. Confirm the exact property name and current harbour route before relying on either.</p></div>
       </section>
 
       <section className="guide-section">
