@@ -78,10 +78,7 @@ export default function PlaceCard({
               fallback={<PlaceCover name={place.name} category={place.category} />}
             />
           ) : (
-            <>
-              <PlaceCover name={place.name} category={place.category} />
-              <span className="media-pending-badge">Media pending · verified details below</span>
-            </>
+            <PlaceCover name={place.name} category={place.category} />
           )}
         </div>
       )}

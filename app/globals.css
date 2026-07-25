@@ -702,15 +702,6 @@ html {
   background: rgba(255, 250, 241, 0.36);
 }
 
-.venue-visual-label {
-  position: absolute;
-  left: 18px;
-  bottom: 16px;
-  color: #fffaf1;
-  font-size: 12px;
-  font-weight: 800;
-}
-
 .scene-cafe {
   background:
     linear-gradient(135deg, rgba(32, 35, 30, 0.1), rgba(32, 35, 30, 0)),
@@ -1089,35 +1080,6 @@ html {
   background: var(--paper-warm);
 }
 
-.media-pending-badge,
-.venue-media-disclosure {
-  position: absolute;
-  z-index: 3;
-  border: 1px solid rgba(255, 250, 241, 0.7);
-  border-radius: 999px;
-  background: rgba(43, 26, 19, 0.72);
-  color: #fffaf1;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(8px);
-}
-
-.media-pending-badge {
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  padding: 7px 10px;
-  text-align: center;
-}
-
-.venue-media-disclosure {
-  left: 24px;
-  top: 24px;
-  padding: 8px 12px;
-}
-
 .place-card-media img {
   width: 100%;
   height: 100%;
@@ -1285,40 +1247,6 @@ html {
     rgba(255, 255, 255, 0) 40%,
     rgba(246, 251, 249, 0.55) 100%
   );
-}
-
-.type-cover > p,
-.type-cover > div,
-.type-cover > span {
-  position: relative;
-  z-index: 2;
-}
-
-.type-cover-category {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.type-cover-word {
-  font-family: var(--font-display);
-  /* Scales with the card (cqi = 1% of the cover's inline size), so a wide hero
-     cover reads big and a narrow 3-up card shrinks the name to fit whole. */
-  font-size: clamp(24px, 17cqi, 52px);
-  font-weight: 600;
-  font-style: italic;
-  line-height: 0.98;
-  overflow-wrap: anywhere;
-}
-
-.type-cover-rule {
-  width: 42px;
-  height: 1px;
-  margin-bottom: 8px;
-  background: currentColor;
-  opacity: 0.6;
 }
 
 .type-cover-cafe { background: linear-gradient(150deg, #F6FBF9, #E7F1ED 60%, #D8E8E3); }

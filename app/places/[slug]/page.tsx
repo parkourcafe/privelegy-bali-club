@@ -498,16 +498,13 @@ export default async function VenuePage({
               ) : (
                 // Category mood art — atmospheric and decorative, never
                 // presented as venue photography.
-                <>
-                  <VenueImage
-                    className="venue-masthead-photo venue-masthead-art"
-                    src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
-                    alt=""
-                    variant="hero"
-                    priority
-                  />
-                  <span className="venue-media-disclosure">Media pending · verified details only</span>
-                </>
+                <VenueImage
+                  className="venue-masthead-photo venue-masthead-art"
+                  src={`/covers/${venueCoverAssetCategory(venue.category)}.webp`}
+                  alt=""
+                  variant="hero"
+                  priority
+                />
               )}
               <div className="venue-masthead-inner">
                 <p className="venue-masthead-kicker">
@@ -518,11 +515,6 @@ export default async function VenuePage({
                 {verdict && <p className="venue-masthead-verdict">{verdict}</p>}
                 </div>
               </header>
-              {venue.photoUrl && (
-                <figcaption className="venue-photo-provenance">
-                  Approved venue photo · Supabase Storage media library
-                </figcaption>
-              )}
             </figure>
           );
         })()}
