@@ -2089,6 +2089,189 @@ html {
   }
 }
 
+/* Canggu visual-first recovery — show the decision before explaining it. */
+.canggu-now-section {
+  border: 1px solid var(--sand-line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: clamp(18px, 3vw, 28px);
+  box-shadow: var(--shadow-soft);
+}
+
+.canggu-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.canggu-section-heading h2 {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4.4vw, 34px);
+  font-weight: 650;
+  line-height: 1.08;
+}
+
+.canggu-moment-grid,
+.canggu-area-grid,
+.canggu-practical-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.canggu-moment-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.canggu-visual-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: flex-end;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: var(--ob-espresso-2);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  text-decoration: none;
+}
+
+.canggu-moment-card {
+  aspect-ratio: 2 / 3;
+}
+
+.canggu-area-card {
+  aspect-ratio: 4 / 5;
+}
+
+.canggu-practical-card {
+  aspect-ratio: 4 / 3;
+}
+
+.canggu-visual-card-image {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.canggu-visual-card:hover .canggu-visual-card-image {
+  transform: scale(1.035);
+}
+
+.canggu-visual-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(12, 10, 9, 0.92) 0%, rgba(12, 10, 9, 0.52) 34%, rgba(12, 10, 9, 0.05) 68%);
+}
+
+.canggu-visual-card-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  color: white;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.42);
+}
+
+.canggu-visual-card-copy strong,
+.canggu-visual-card-copy h3 {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 3vw, 23px);
+  font-weight: 700;
+  line-height: 1.02;
+}
+
+.canggu-visual-card-copy p,
+.canggu-visual-card-copy > span:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 12.5px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.canggu-card-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.canggu-media-disclosure {
+  display: inline-flex;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: var(--ob-espresso-2);
+  padding: 6px 10px;
+  color: var(--ob-sand);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.canggu-utility-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.canggu-utility-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--sand-line);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 10px 14px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.canggu-utility-links a:hover {
+  border-color: var(--lagoon);
+  color: var(--lagoon-strong);
+}
+
+@media (min-width: 760px) {
+  .canggu-moment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .canggu-moment-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .canggu-area-grid,
+  .canggu-practical-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .canggu-area-card,
+  .canggu-practical-card {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 759px) {
+  .canggu-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 759px) {
   .district-trust-strip {
     align-items: flex-start;
@@ -2285,6 +2468,64 @@ html {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.related-guide-card-media {
+  position: relative;
+  display: flex;
+  aspect-ratio: 4 / 5;
+  min-width: 0;
+  align-items: flex-end;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: var(--ob-espresso-2);
+  padding: 0;
+  color: white;
+  isolation: isolate;
+}
+
+.related-guide-card-image {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.related-guide-card-media:hover .related-guide-card-image {
+  transform: scale(1.035);
+}
+
+.related-guide-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(12, 10, 9, 0.94) 0%, rgba(12, 10, 9, 0.56) 36%, rgba(12, 10, 9, 0.04) 72%);
+}
+
+.related-guide-card-copy {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  padding: 18px;
+  color: white;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.42);
+}
+
+.related-guide-card-media h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  color: white;
+  font-size: clamp(19px, 2.2vw, 24px);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.related-guide-card-media p {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 /* ── Venue detail masthead (editorial hero) ──

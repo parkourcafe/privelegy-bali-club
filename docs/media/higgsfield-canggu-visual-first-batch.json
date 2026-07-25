@@ -1,0 +1,99 @@
+{
+  "generatedStartedAtUtc": "2026-07-25T00:33:54Z",
+  "generatedCompletedAtUtc": "2026-07-25T00:52:00Z",
+  "model": "gpt_image_2",
+  "aspectRatio": "3:4",
+  "resolution": "2k",
+  "quality": "high",
+  "classification": "AI_ILLUSTRATIVE_ALLOWED",
+  "publicDisclosures": [
+    "Illustrative area moods · generated imagery · not documentary views of each locality",
+    "Illustrative planning scenes · practical guidance is editorial, not live traffic, sea or availability data"
+  ],
+  "accountBalanceBefore": 533.69,
+  "accountBalanceAfter": 477.69,
+  "creditCost": 56,
+  "sourceUrlRetention": "source URLs are reproducible from the committed BASE path in scripts/fetch-scenes.mjs and each asset sourceFile",
+  "delivery": {
+    "format": "webp",
+    "width": 900,
+    "height": 1200,
+    "quality": 76,
+    "encoderEffort": 6,
+    "review": "eight source PNGs reviewed as two four-image contact sheets and individually for semantic fit, distinctness, Bali specificity, anatomy, text/logos, false named-place implication and lower-overlay crop safety; all eight shipped WebPs passed decoder metadata checks"
+  },
+  "assets": [
+    {
+      "sceneId": "canggu-area-batu-bolong",
+      "sourceFile": "hf_20260725_003354_8631906e-2bcf-46ff-88c9-c3f7893e0dbb.png",
+      "purpose": "fictional energetic Batu Bolong area mood with surf, cafe and street energy",
+      "restriction": "not documentary locality or venue proof",
+      "output": "public/scenes/canggu-area-batu-bolong.webp",
+      "bytes": 111100,
+      "sha256": "3333049959e5e53e2ecf5c42e7ec5ec615e92b8ffa8242144c6209c6ba1fc13a"
+    },
+    {
+      "sceneId": "canggu-area-berawa",
+      "sourceFile": "hf_20260725_003623_706d7ccf-ad6f-4015-97a4-430d91698a5d.png",
+      "purpose": "fictional polished Berawa area mood with wellness and social energy",
+      "restriction": "not documentary locality or venue proof",
+      "output": "public/scenes/canggu-area-berawa.webp",
+      "bytes": 106078,
+      "sha256": "57a91c1abc664d0dbe83bfb0de0ed1f0f6aa9065f7c08a85e059dd764731df12"
+    },
+    {
+      "sceneId": "canggu-area-pererenan",
+      "sourceFile": "hf_20260725_003902_f8d2b25b-8e2b-4ba2-bb87-db8c0d97e1dd.png",
+      "purpose": "fictional calmer Pererenan area mood with green lane, rice field and cafe",
+      "restriction": "not documentary locality or venue proof",
+      "output": "public/scenes/canggu-area-pererenan.webp",
+      "bytes": 117470,
+      "sha256": "3451728c7b1cd3af7cdd1ff3e75df8bd3c2a77445a495d89d8a5899a8fc4dfca"
+    },
+    {
+      "sceneId": "canggu-area-echo-beach",
+      "sourceFile": "hf_20260725_004134_6b9f3cfc-67ff-46ae-bcde-a0b19543d6a9.png",
+      "purpose": "fictional Echo Beach area mood with dark sand, surf and sunset",
+      "restriction": "not documentary locality, beach condition or venue proof",
+      "output": "public/scenes/canggu-area-echo-beach.webp",
+      "bytes": 72974,
+      "sha256": "4d30f5b53716aab79440528cd87105db3b1e7c7b0564a5617c072bacc273d6ef"
+    },
+    {
+      "sceneId": "canggu-practical-stay-local",
+      "sourceFile": "hf_20260725_004505_9f1f7fce-1c69-40dc-9269-7166d295f151.png",
+      "purpose": "generic compact-area planning scene with an unlabelled sketch, helmet and coffee",
+      "restriction": "not a routing product, exact map, traffic or ETA evidence",
+      "output": "public/scenes/canggu-practical-stay-local.webp",
+      "bytes": 71938,
+      "sha256": "bacf49d8767eca0d69d970b661cd0046dfb2c78b1db19083d586e522bc5b77c0"
+    },
+    {
+      "sceneId": "canggu-practical-surf",
+      "sourceFile": "hf_20260725_004720_37b4b199-d520-4bd5-990b-8504aa31ea6d.png",
+      "purpose": "generic Canggu-style surf-coast planning scene",
+      "restriction": "not live sea, safety, weather or named-beach evidence",
+      "output": "public/scenes/canggu-practical-surf.webp",
+      "bytes": 90114,
+      "sha256": "06e72142ea8a108a8c0b9b9484dd85d76efeda02b0052d0999ff9d97a9109c3f"
+    },
+    {
+      "sceneId": "canggu-practical-reserve",
+      "sourceFile": "hf_20260725_004943_19c429bb-7135-4e24-9f7b-72ec86622c0f.png",
+      "purpose": "generic dinner confirmation scene with an unbranded checkmark",
+      "restriction": "not live availability, provider, booking or confirmed outcome evidence",
+      "output": "public/scenes/canggu-practical-reserve.webp",
+      "bytes": 63272,
+      "sha256": "3aaf6f5f5e14c0f4da6eba11a7f0e8a583bdfb35462f5977b2f276db548f92da"
+    },
+    {
+      "sceneId": "canggu-practical-day-rhythm",
+      "sourceFile": "hf_20260725_005200_965b6166-45dc-49f0-bd32-ac36505af161.png",
+      "purpose": "fictional composite of morning surf and later reset",
+      "restriction": "not a real resort, spa, venue or route proof",
+      "output": "public/scenes/canggu-practical-day-rhythm.webp",
+      "bytes": 112060,
+      "sha256": "b035ac0e5adcfd65efb94ad9749c2ee9f6043fe9f6897ad6d9b36b367814f4ad"
+    }
+  ]
+}

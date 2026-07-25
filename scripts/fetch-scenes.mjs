@@ -63,6 +63,21 @@ const SCENES = {
   "district-lombok": ["hf_20260715_012234_ef0c9b5a-cdfe-4bd6-8449-d80231636d37.png", 1200],
 };
 
+// /canggu area-mood and practical decision cards (Higgsfield GPT Image 2,
+// 2026-07-25). These are fictional composite illustrations, never factual
+// proof of a locality, live traffic, sea conditions, availability or venue.
+// Keep the reviewed portrait crop exact: 900 × 1200 at WebP quality 76.
+const CANGGU_PORTRAITS = {
+  "canggu-area-batu-bolong": "hf_20260725_003354_8631906e-2bcf-46ff-88c9-c3f7893e0dbb.png",
+  "canggu-area-berawa": "hf_20260725_003623_706d7ccf-ad6f-4015-97a4-430d91698a5d.png",
+  "canggu-area-pererenan": "hf_20260725_003902_f8d2b25b-8e2b-4ba2-bb87-db8c0d97e1dd.png",
+  "canggu-area-echo-beach": "hf_20260725_004134_6b9f3cfc-67ff-46ae-bcde-a0b19543d6a9.png",
+  "canggu-practical-stay-local": "hf_20260725_004505_9f1f7fce-1c69-40dc-9269-7166d295f151.png",
+  "canggu-practical-surf": "hf_20260725_004720_37b4b199-d520-4bd5-990b-8504aa31ea6d.png",
+  "canggu-practical-reserve": "hf_20260725_004943_19c429bb-7135-4e24-9f7b-72ec86622c0f.png",
+  "canggu-practical-day-rhythm": "hf_20260725_005200_965b6166-45dc-49f0-bd32-ac36505af161.png",
+};
+
 // One short muted hero loop (silent). Hard 3MB gate: if the file is bigger
 // than the mobile performance budget, it is NOT shipped and the hero keeps
 // its Ken Burns poster — that fallback is by design, not an error.
@@ -112,6 +127,27 @@ for (const [name, [file, width]] of Object.entries(SCENES)) {
     console.log(`scenes: fetched ${name}.webp`);
   } catch (e) {
     console.warn(`scenes: skipped ${name} (${e.message ?? e}) — SVG fallback will render`);
+  }
+}
+
+for (const [name, file] of Object.entries(CANGGU_PORTRAITS)) {
+  const target = path.join(OUT, `${name}.webp`);
+  if (existsSync(target)) {
+    skipped++;
+    continue;
+  }
+  try {
+    const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    await sharp(buf)
+      .resize(900, 1200, { fit: "cover" })
+      .webp({ quality: 76, effort: 6 })
+      .toFile(target);
+    ok++;
+    console.log(`scenes: fetched ${name}.webp`);
+  } catch (e) {
+    console.warn(`scenes: skipped ${name} (${e.message ?? e}) — visual fallback will render`);
   }
 }
 
