@@ -2,6 +2,7 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
+import SceneImage from "@/components/landing/SceneImage";
 import { getGuide, guideMetadata } from "@/lib/guides";
 import {
   BALI_ICONS,
@@ -14,6 +15,8 @@ const BASE = "https://www.otherbali.com";
 const guide = getGuide("things-to-do-in-bali")!;
 export const metadata = guideMetadata(guide);
 
+type SceneVariant = "sunset" | "ridge" | "surf" | "night";
+
 // Area guides this hub links into — the district things-to-do pages and pillars.
 const BY_AREA: { href: string; title: string; blurb: string }[] = [
   { href: "/ubud/things-to-do", title: "Things to do in Ubud", blurb: "Rice terraces, the ridge walk, temples and the Monkey Forest." },
@@ -23,6 +26,42 @@ const BY_AREA: { href: string; title: string; blurb: string }[] = [
   { href: "/sanur/things-to-do", title: "Things to do in Sanur", blurb: "Sunrise walks, the beach path and the Nusa fast boats." },
   { href: "/canggu", title: "Things to do in Canggu", blurb: "Surf, café mornings, beach clubs and sunset." },
 ];
+
+const GROUP_VISUALS: Record<string, { scene: string; variant: SceneVariant; action: string }> = {
+  temples: { scene: "district-uluwatu-bukit", variant: "sunset", action: "Choose a temple day" },
+  nature: { scene: "district-sidemen", variant: "ridge", action: "Choose a nature day" },
+  culture: { scene: "district-ubud", variant: "ridge", action: "Choose a culture evening" },
+};
+
+const THING_VISUALS: Record<string, { scene: string; variant: SceneVariant }> = {
+  "Uluwatu Temple & the sunset Kecak": { scene: "district-uluwatu-bukit", variant: "sunset" },
+  "Tanah Lot": { scene: "home-bali-sunset", variant: "sunset" },
+  "Ulun Danu Beratan": { scene: "district-munduk", variant: "ridge" },
+  "Tirta Empul holy spring": { scene: "district-ubud", variant: "ridge" },
+  "Besakih, the Mother Temple": { scene: "plan-route-east-bali-heritage", variant: "ridge" },
+  "Lempuyang — the Gates of Heaven": { scene: "district-amed", variant: "ridge" },
+  "Mount Batur sunrise trek": { scene: "plan-route-bangli-temple-village", variant: "ridge" },
+  "Tegallalang Rice Terraces": { scene: "plan-route-ubud-culture", variant: "ridge" },
+  "Chase a waterfall": { scene: "home-bali-rainy-day", variant: "ridge" },
+  "Nusa Penida day trip": { scene: "district-nusa-islands", variant: "surf" },
+  "Handara Gate": { scene: "district-munduk", variant: "ridge" },
+  "Sidemen Valley": { scene: "district-sidemen", variant: "ridge" },
+  "A traditional dance performance": { scene: "district-ubud", variant: "night" },
+  "A coffee plantation tour": { scene: "moment-morning", variant: "ridge" },
+};
+
+const AREA_VISUALS: Record<string, { scene: string; variant: SceneVariant }> = {
+  "/ubud/things-to-do": { scene: "district-ubud", variant: "ridge" },
+  "/uluwatu": { scene: "district-uluwatu-bukit", variant: "sunset" },
+  "/jimbaran/things-to-do": { scene: "district-jimbaran", variant: "sunset" },
+  "/nusa-dua/things-to-do": { scene: "district-nusa-dua", variant: "surf" },
+  "/sanur/things-to-do": { scene: "district-sanur", variant: "surf" },
+  "/canggu": { scene: "district-canggu", variant: "sunset" },
+};
+
+function firstSentence(text: string) {
+  return text.split(/(?<=[.!?])\s+/)[0] ?? text;
+}
 
 export default function ThingsToDoInBaliPage() {
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Things to do in Bali" }];
@@ -80,29 +119,70 @@ export default function ThingsToDoInBaliPage() {
           <GuideHeroMedia seed="things to do in bali temples waterfalls sunrise" />
         </header>
 
+        <section className="guide-section visual-first-choices" aria-labelledby="choose-bali-day-heading">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="guide-kicker">Choose visually first</p>
+              <h2 id="choose-bali-day-heading">Pick the kind of Bali day before reading the list</h2>
+            </div>
+            <p>
+              Temples, nature and culture sit in different parts of Bali. Start with the day shape,
+              then open the detailed sights only if that direction fits your base.
+            </p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {BALI_THING_GROUPS.map((group) => {
+              const visual = GROUP_VISUALS[group.key];
+              const count = BALI_ICONS.filter((t) => t.group === group.key).length;
+              return (
+                <a key={group.key} href={`#${group.key}`} className="visual-choice-card">
+                  <SceneImage scene={visual.scene} variant={visual.variant} imgClassName="ob-grade transition duration-700" />
+                  <div className="visual-choice-card-copy">
+                    <span>{count} ideas</span>
+                    <h3>{group.heading}</h3>
+                    <p>{group.note}</p>
+                    <strong>{visual.action} →</strong>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+
         {BALI_THING_GROUPS.map((group, index) => {
           const items = BALI_ICONS.filter((t) => t.group === group.key);
           if (items.length === 0) return null;
+          const fallbackVisual = GROUP_VISUALS[group.key];
           return (
-            <section key={group.key} className="guide-section">
+            <section key={group.key} id={group.key} className="guide-section visual-first-section">
               <h2>{group.heading}</h2>
               <GuideSectionMedia seed={`things to do ${group.key} ${group.heading}`} index={index} />
               <p className="text-sm leading-relaxed text-[var(--muted)]">{group.note}</p>
-              <div className="guide-prose">
+              <div className="visual-detail-grid">
                 {items.map((t) => (
-                  <div key={t.title} className="mt-6">
-                    <h3 className="!mt-0">
-                      {t.mapsUrl ? (
-                        <a href={t.mapsUrl} target="_blank" rel="noreferrer" className="text-[var(--lagoon-strong)]">
-                          {t.title}
-                        </a>
-                      ) : (
-                        t.title
-                      )}
-                    </h3>
-                    <p className="text-sm font-semibold text-[var(--muted)]">{t.region}</p>
-                    <p className="mt-1">{t.blurb}</p>
-                  </div>
+                  (() => {
+                    const visual = THING_VISUALS[t.title] ?? fallbackVisual;
+                    return (
+                      <article key={t.title} className="visual-detail-card">
+                        <div className="visual-detail-card-media" aria-hidden="true">
+                          <SceneImage scene={visual.scene} variant={visual.variant} imgClassName="ob-grade" />
+                        </div>
+                        <div className="visual-detail-card-copy">
+                          <p className="visual-detail-region">{t.region}</p>
+                          <h3>
+                            {t.mapsUrl ? (
+                              <a href={t.mapsUrl} target="_blank" rel="noreferrer" className="text-[var(--lagoon-strong)]">
+                                {t.title}
+                              </a>
+                            ) : (
+                              t.title
+                            )}
+                          </h3>
+                          <p>{firstSentence(t.blurb)}</p>
+                        </div>
+                      </article>
+                    );
+                  })()
                 ))}
               </div>
             </section>
@@ -116,16 +196,22 @@ export default function ThingsToDoInBaliPage() {
             Wherever you base, there&apos;s a day or two of things to do on the
             doorstep. Pick your area:
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <div className="visual-choice-grid visual-choice-grid-area mt-5">
             {BY_AREA.map((a) => (
-              <li key={a.href}>
-                <Link href={a.href} className="font-semibold text-[var(--ink)]">
-                  {a.title}
-                </Link>
-                <span className="text-[var(--muted)]"> · {a.blurb}</span>
-              </li>
+              <Link key={a.href} href={a.href} className="visual-choice-card visual-choice-card-compact">
+                <SceneImage
+                  scene={AREA_VISUALS[a.href]?.scene ?? "hero-sunset"}
+                  variant={AREA_VISUALS[a.href]?.variant ?? "sunset"}
+                  imgClassName="ob-grade transition duration-700"
+                />
+                <div className="visual-choice-card-copy">
+                  <h3>{a.title}</h3>
+                  <p>{a.blurb}</p>
+                  <strong>Open area →</strong>
+                </div>
+              </Link>
             ))}
-          </ul>
+          </div>
         </section>
 
         <section className="guide-section">
