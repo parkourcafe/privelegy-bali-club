@@ -4138,3 +4138,49 @@ html {
 .ob-gateway-wide:hover { border-color: rgba(198, 154, 92, 0.65); background: rgba(255, 250, 241, 0.07); }
 .ob-gateway-wide b { font-size: 1rem; }
 .ob-gateway-wide span { color: var(--ob-sand-dim, rgba(244, 236, 224, 0.72)); font-size: 0.85rem; }
+
+/* v1.2 district decision rail: one candidate set, two honest handoffs. */
+.decision-rail {
+  margin: 34px 0;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper-soft);
+}
+.decision-rail-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; }
+.decision-rail-head h2 { margin: 4px 0 0; }
+.decision-moments, .decision-view-toggle { display: flex; flex-wrap: wrap; gap: 8px; }
+.decision-moments { margin-top: 18px; }
+.decision-moments button, .decision-view-toggle button {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.decision-moments button[aria-pressed="true"], .decision-view-toggle button[aria-pressed="true"] {
+  border-color: var(--lagoon-strong);
+  background: var(--lagoon-strong);
+  color: white;
+}
+.decision-moments button:disabled { cursor: wait; opacity: .6; }
+.decision-status { margin-top: 18px; color: var(--muted); }
+.decision-status a { text-decoration: underline; }
+.decision-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.decision-result-card { display: flex; flex-direction: column; gap: 8px; min-height: 210px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.decision-result-card > span { color: var(--lagoon-strong); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.decision-result-card h3, .decision-result-card p { margin: 0; }
+.decision-result-card p { color: var(--muted); }
+.decision-result-card small { color: var(--muted); }
+.decision-result-card a { margin-top: auto; font-weight: 800; }
+.decision-results[data-view="map"] .decision-result-card { border-color: var(--lagoon-strong); }
+.decision-disclosure { margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+@media (max-width: 759px) {
+  .decision-rail-head { align-items: start; flex-direction: column; }
+  .decision-results { grid-template-columns: 1fr; }
+  .decision-result-card { min-height: 0; }
+}

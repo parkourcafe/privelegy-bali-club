@@ -4,6 +4,7 @@ import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { guidesForDistrict } from "@/lib/guides";
@@ -155,6 +156,8 @@ export default async function NusaPenidaPillarPage() {
             ))}
           </div>
         </section>
+
+        <DecisionRail area="nusa-islands" areaLabel="Nusa Penida" />
 
         <section className="guide-section">
           <h2>Who Nusa Penida suits — and who it frustrates</h2>

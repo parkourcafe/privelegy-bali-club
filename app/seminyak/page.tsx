@@ -4,6 +4,7 @@ import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideSectionMedia } from "@/components/GuideMedia";
@@ -166,6 +167,8 @@ export default async function SeminyakPillarPage() {
             ))}
           </div>
         </section>
+
+        <DecisionRail area="seminyak" areaLabel="Seminyak" />
 
         <StartYourShortlist district="Seminyak" items={buildStartShortlist(venues)} />
 

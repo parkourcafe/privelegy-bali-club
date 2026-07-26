@@ -4,6 +4,7 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import StartYourShortlist from "@/components/StartYourShortlist";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
@@ -128,6 +129,8 @@ export default async function SanurPillarPage() {
           ))}
         </div>
       </section>
+
+      <DecisionRail area="sanur" areaLabel="Sanur" />
 
       <StartYourShortlist district="Sanur" items={buildStartShortlist(venues)} />
 
