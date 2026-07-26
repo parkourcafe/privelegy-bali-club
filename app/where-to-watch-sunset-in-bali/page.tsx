@@ -63,7 +63,7 @@ const AREA_ORDER: SunsetArea[] = [
     key: "jimbaran",
     name: "Jimbaran",
     note: "Calm-bay sunsets, soft sand and an easy golden hour.",
-    scene: "district-jimbaran",
+    scene: "guide-jimbaran-bay-sunset",
     variant: "sunset",
     shortLabel: "Calm bay",
   },

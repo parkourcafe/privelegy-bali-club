@@ -35,7 +35,7 @@ const GROUP_VISUALS: Record<string, { scene: string; variant: SceneVariant; acti
 
 const THING_VISUALS: Record<string, { scene: string; variant: SceneVariant }> = {
   "Uluwatu Temple & the sunset Kecak": { scene: "district-uluwatu-bukit", variant: "sunset" },
-  "Tanah Lot": { scene: "home-bali-sunset", variant: "sunset" },
+  "Tanah Lot": { scene: "guide-tanah-lot-sunset", variant: "sunset" },
   "Ulun Danu Beratan": { scene: "district-munduk", variant: "ridge" },
   "Tirta Empul holy spring": { scene: "district-ubud", variant: "ridge" },
   "Besakih, the Mother Temple": { scene: "plan-route-east-bali-heritage", variant: "ridge" },
@@ -53,7 +53,7 @@ const THING_VISUALS: Record<string, { scene: string; variant: SceneVariant }> = 
 const AREA_VISUALS: Record<string, { scene: string; variant: SceneVariant }> = {
   "/ubud/things-to-do": { scene: "district-ubud", variant: "ridge" },
   "/uluwatu": { scene: "district-uluwatu-bukit", variant: "sunset" },
-  "/jimbaran/things-to-do": { scene: "district-jimbaran", variant: "sunset" },
+  "/jimbaran/things-to-do": { scene: "guide-jimbaran-bay-sunset", variant: "sunset" },
   "/nusa-dua/things-to-do": { scene: "district-nusa-dua", variant: "surf" },
   "/sanur/things-to-do": { scene: "district-sanur", variant: "surf" },
   "/canggu": { scene: "district-canggu", variant: "sunset" },
