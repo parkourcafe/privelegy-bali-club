@@ -8,7 +8,13 @@ import { strict as assert } from "node:assert";
 import { test } from "node:test";
 import { t, DICTIONARIES } from "./dictionaries.ts";
 import { PUBLIC_LOCALES } from "./locales.ts";
-import { NAV_GROUPS, NAV_ACTIONS, GATEWAY_PRIMARY, GATEWAY_SECONDARY } from "../navigation.ts";
+import {
+  NAV_GROUPS,
+  NAV_ACTIONS,
+  NAV_SECONDARY_LINKS,
+  GATEWAY_PRIMARY,
+  GATEWAY_SECONDARY,
+} from "../navigation.ts";
 
 const TRANSLATABLE_LOCALES = PUBLIC_LOCALES.filter((l) => l !== "en");
 
@@ -37,6 +43,7 @@ const CHROME_LITERALS = [
 const NAV_STRINGS = [
   ...NAV_GROUPS.flatMap((g) => [g.label, ...g.links.map((l) => l.label)]),
   ...NAV_ACTIONS.map((a) => a.label),
+  ...NAV_SECONDARY_LINKS.flatMap((l) => [l.label, l.blurb].filter((v): v is string => !!v)),
   ...GATEWAY_PRIMARY.flatMap((c) => [c.label, c.blurb]),
   ...GATEWAY_SECONDARY.flatMap((l) => [l.label, l.blurb].filter((v): v is string => !!v)),
 ];

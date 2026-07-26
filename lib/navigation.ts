@@ -113,6 +113,17 @@ export const NAV_ACTIONS: NavLink[] = [
   { href: "/me", label: "Saved" },
 ];
 
+// Secondary operator entrance. Keep this out of the primary category groups so
+// the traveller navigation stays tourist-first, but make the existing
+// /for-venues page findable from the Explore sheets as well as the footer.
+export const NAV_SECONDARY_LINKS: NavLink[] = [
+  {
+    href: "/for-venues",
+    label: "I run a place",
+    blurb: "Request a listing or update your venue page",
+  },
+];
+
 // Homepage CategoryGateway (spec §6): the four primary category cards plus the
 // two second-row entries. Cards reference the same registry links.
 export const GATEWAY_PRIMARY: { group: string; href: string; label: string; blurb: string; art: string }[] = [
