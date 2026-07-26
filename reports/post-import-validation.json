@@ -1,0 +1,5 @@
+{
+  "status": "NOT_RUN",
+  "reason": "Dry-run only; owner approval and an isolated target are required before import.",
+  "writesPerformed": false
+}
