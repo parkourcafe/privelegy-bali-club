@@ -72,4 +72,7 @@ test("mobile consent actions stay above the persistent bottom navigation", () =>
   assert.match(mobileNavCss, /@media \(min-width: 1360px\) \{ \.ob-mobile-nav \{ display: none; \} \}/);
   assert.match(consentSource, /bottom-\[calc\(56px\+env\(safe-area-inset-bottom,0px\)\)\]/);
   assert.match(consentSource, /min-\[1360px\]:bottom-0/);
+  assert.match(consentSource, /pointer-events-none/);
+  assert.match(consentSource, /pointer-events-auto/);
+  assert.doesNotMatch(consentSource, /fixed inset-0 z-40/);
 });

@@ -36,26 +36,15 @@ export default function ConsentBanner() {
   }
 
   return (
-    <>
-      {/* Mobile-only dim. On phones the tall hero puts the day-builder under
-          the fixed bar, so taps land on the bar and look "dead" — a light dim
-          signals "choose first", and tapping it dismisses (essential only). On
-          desktop the bar sits below the fold and blocks nothing, so no scrim. */}
-      <div
-        aria-hidden="true"
-        onClick={() => choose("denied")}
-        className="fixed inset-0 z-40 bg-[#16100c]/35 md:hidden"
-      />
-      {/* Compact opt-in bar (founder request: keep it, but small enough not to
-          cover half the screen). Until the desktop navigation breakpoint, it
-          sits above MobileNav instead of letting that higher-z layer cover the
-          consent actions. */}
-      <div
-        role="dialog"
-        aria-label="Analytics choice"
-        className="fixed inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom,0px))] z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-2.5 backdrop-blur-md min-[1360px]:bottom-0"
-      >
-        <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+    <div
+      role="dialog"
+      aria-label="Analytics choice"
+      // The consent surface must not turn the entire first viewport into a
+      // modal blocker. Keep only the compact bar interactive; the hero and
+      // navigation remain usable before the traveller makes a choice.
+      className="pointer-events-none fixed inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom,0px))] z-50 border-t border-[var(--ob-line)] bg-[var(--ob-espresso-2)]/95 px-4 py-2.5 backdrop-blur-md min-[1360px]:bottom-0"
+    >
+      <div className="pointer-events-auto mx-auto flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-snug text-[var(--ob-sand-dim)]">
             Essential cookies keep saved offers. Optional Google Analytics
             loads only if you accept; it is never used for advertising.{" "}
@@ -79,8 +68,7 @@ export default function ConsentBanner() {
               Accept
             </button>
           </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 }

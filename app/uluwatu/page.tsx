@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,33 @@ const guideLinks = [
   { href: "/uluwatu/48-hours", label: "48 hours" },
 ];
 
+const visualChoices = [
+  {
+    href: "/uluwatu-sunset-kecak",
+    image: "/scenes/uluwatu-cliff-coast-illustrative.webp",
+    alt: "Illustrative view of a limestone cliff coast and ocean in Uluwatu",
+    label: "Cliff coast",
+    title: "Sunset above the cliffs",
+    copy: "Start here if the day is about the temple, the light and a slower return after dark.",
+  },
+  {
+    href: "/uluwatu/48-hours",
+    image: "/scenes/uluwatu-bukit-approach-illustrative.webp",
+    alt: "Illustrative morning road through the Bukit Peninsula toward the coast",
+    label: "Bukit route",
+    title: "A base with transfers",
+    copy: "Choose the peninsula as a route, not a single walkable neighbourhood.",
+  },
+  {
+    href: "/uluwatu/beach-clubs-sunset",
+    image: "/scenes/uluwatu-surf-coast-illustrative.webp",
+    alt: "Illustrative surf coast below pale limestone cliffs in southern Bali",
+    label: "Surf coast",
+    title: "Beach first, dinner later",
+    copy: "Best for a day shaped around surf beaches, water and a west-facing finish.",
+  },
+] as const;
+
 export default async function UluwatuPillarPage() {
   const venues = (await getPublishedVenues())
     .filter((venue) => venue.district === ULUWATU_DB_SLUG);
@@ -77,6 +105,36 @@ export default async function UluwatuPillarPage() {
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Uluwatu planning guides">
         {guideLinks.map((item) => <Link key={item.href} href={item.href} className="chip">{item.label}</Link>)}
       </nav>
+
+      <section className="guide-section" aria-labelledby="uluwatu-visual-choices">
+        <div className="visual-first-heading-row">
+          <div>
+            <p className="eyebrow">Choose the shape of the day</p>
+            <h2 id="uluwatu-visual-choices">Start with the Uluwatu you actually want</h2>
+          </div>
+          <p>These area-mood scenes are illustrative, not photos of named venues. Use them to choose a route; use the verified shortlist below to choose a place.</p>
+        </div>
+        <div className="visual-choice-grid visual-choice-grid-three">
+          {visualChoices.map((choice) => (
+            <Link key={choice.href} href={choice.href} className="visual-choice-card">
+              <Image
+                src={choice.image}
+                alt={choice.alt}
+                fill
+                loading="lazy"
+                sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px"
+                className="object-cover transition duration-700"
+              />
+              <div className="visual-choice-card-copy">
+                <span>{choice.label}</span>
+                <h3>{choice.title}</h3>
+                <p>{choice.copy}</p>
+                <strong>Open the guide →</strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <StartYourShortlist district="Uluwatu" items={buildStartShortlist(venues)} />
 
