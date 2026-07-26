@@ -3,8 +3,8 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-LZSRI7MA.js",
-    "./assets/app-WNRZNGMT.css"
+    "./assets/app-JLNX2REC.css",
+    "./assets/app-P4C5FT4W.js"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
@@ -12,9 +12,11 @@
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
     "mobile/src/App.tsx",
+    "mobile/src/SelectionExperience.tsx",
     "mobile/src/api.ts",
     "mobile/src/contracts.ts",
     "mobile/src/deep-links.ts",
+    "mobile/src/discovery-model.ts",
     "mobile/src/main.tsx",
     "mobile/src/native-runtime.ts",
     "mobile/src/storage.ts",
@@ -23,5 +25,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "ab2ad891df050d34172dfed677865058cbb8c474a729d0b2c4cc6effe9d5ace9"
+  "sourceHash": "a5f77a21d6b887ee8d81d273597ff114f8464cc67f7e6c5f7f28bb47f4916595"
 }

@@ -58,7 +58,7 @@ test("route provider failure falls back to an exact external Maps handoff", asyn
   assert.equal(result.route, null);
   assert.match(result.handoff, /^https:\/\/www\.google\.com\/maps\/dir\//);
   assert.match(result.handoff, /destination=-8.7%2C115.16/);
-  assert.match(googleMapsDirectionsHandoff(request), /travelmode=driving/);
+  assert.match(googleMapsDirectionsHandoff(request), /travelmode=two-wheeler/);
 });
 
 test("offline mutations are idempotent and preserve conflicts for resolution", () => {

@@ -76,19 +76,23 @@ export const ROUTING_PROVIDER_CAPABILITIES: Readonly<Record<RoutingProviderId, R
  * handoff and fails closed for provider-owned calculations.
  */
 export class ExternalDirectionsOnlyRouteService implements RouteService {
-  async getTravelEstimate(): Promise<TravelEstimate> {
+  async getTravelEstimate(request: RouteRequest): Promise<TravelEstimate> {
+    void request;
     throw unavailable();
   }
 
-  async getRoute(): Promise<RouteSummary> {
+  async getRoute(request: RouteRequest): Promise<RouteSummary> {
+    void request;
     throw unavailable();
   }
 
-  async getRouteMatrix(): Promise<TravelEstimate[]> {
+  async getRouteMatrix(requests: RouteRequest[]): Promise<TravelEstimate[]> {
+    void requests;
     throw unavailable();
   }
 
-  async getTransportOptions(): Promise<TravelEstimate[]> {
+  async getTransportOptions(request: RouteRequest): Promise<TravelEstimate[]> {
+    void request;
     throw unavailable();
   }
 
@@ -96,7 +100,8 @@ export class ExternalDirectionsOnlyRouteService implements RouteService {
     return googleMapsDirectionsHandoff(request);
   }
 
-  async getTrafficAdvisory(): Promise<string | null> {
+  async getTrafficAdvisory(request: RouteRequest): Promise<string | null> {
+    void request;
     return null;
   }
 
