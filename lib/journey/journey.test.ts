@@ -52,7 +52,7 @@ test("route provider failure falls back to an exact external Maps handoff", asyn
   const unavailable = {
     getRoute: async () => { throw new JourneyError("ROUTE_PROVIDER_UNAVAILABLE", "offline", true); },
     getDirectionsHandoff: async () => "unused",
-  } as RouteService;
+  } as unknown as RouteService;
   const result = await routeWithExternalFallback(unavailable, request);
   assert.equal(result.fallback, true);
   assert.equal(result.route, null);
@@ -89,4 +89,3 @@ test("offline truth labels cached state and blocks live/provider actions", () =>
   );
   assert.equal(offlineFreshnessLabel("2026-07-27T00:00:00.000Z", true), null);
 });
-
