@@ -1,0 +1,50 @@
+{
+  "packageId": "v12-fixture-001",
+  "idempotencyKey": "v12-fixture-001",
+  "places": [
+    {
+      "id": "fixture-cafe-canggu",
+      "name": "Fixture Cafe",
+      "category": "cafe",
+      "district": "canggu",
+      "latitude": -8.6478,
+      "longitude": 115.1385,
+      "coordinateStatus": "confirmed",
+      "sourceUrl": "https://otherbali.com/validation-fixtures/fixture-cafe",
+      "actions": [
+        {
+          "placeId": "fixture-cafe-canggu",
+          "actionType": "website",
+          "url": "https://otherbali.com/validation-fixtures/fixture-cafe",
+          "sourceUrl": "https://otherbali.com/validation-fixtures/fixture-cafe",
+          "isOfficial": true,
+          "verificationStatus": "verified"
+        },
+        {
+          "placeId": "fixture-cafe-canggu",
+          "actionType": "save",
+          "url": null,
+          "sourceUrl": null,
+          "isOfficial": false,
+          "verificationStatus": "verified"
+        }
+      ],
+      "evidence": [
+        {
+          "field": "coordinates",
+          "value": "-8.6478,115.1385",
+          "sourceUrl": "https://otherbali.com/validation-fixtures/fixture-cafe",
+          "verifiedAt": "2026-07-27T00:00:00.000Z"
+        }
+      ],
+      "media": [
+        {
+          "url": "https://otherbali.com/validation-fixtures/fixture-cafe.jpg",
+          "sourceUrl": "https://otherbali.com/validation-fixtures/fixture-cafe",
+          "rightsStatus": "allowed",
+          "decoderStatus": "passed"
+        }
+      ]
+    }
+  ]
+}

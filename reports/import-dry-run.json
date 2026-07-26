@@ -1,0 +1,26 @@
+{
+  "architectureVersion": "v1.2",
+  "mode": "dry-run",
+  "packageId": "v12-fixture-001",
+  "packageDigest": "c867b67db16d9b1fd2c88e985f5dd7838ec2db176be46edf0dc9b0ab6f807b04",
+  "counts": {
+    "places": 1,
+    "errors": 0,
+    "warnings": 0
+  },
+  "errors": {
+    "source_errors": [],
+    "schema_errors": [],
+    "coordinate_errors": [],
+    "duplicate_errors": [],
+    "action_link_errors": [],
+    "evidence_conflicts": [],
+    "media_errors": [],
+    "import_conflicts": [],
+    "post_import_failures": []
+  },
+  "warnings": [],
+  "ERROR_STATUS": "PASS",
+  "IMPORT_STATUS": "READY_FOR_OWNER_APPROVAL",
+  "writesPerformed": false
+}

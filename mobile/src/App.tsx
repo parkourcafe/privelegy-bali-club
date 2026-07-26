@@ -8,6 +8,7 @@ import type {
 import type { ExternalLinkKind } from "../../lib/external-links";
 import { fetchBootstrap, fetchRouteDetail, fetchVenueDetail } from "./api";
 import type { MobileBootstrapPayload } from "./contracts";
+import SelectionExperience from "./SelectionExperience";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
 import {
   exitMobileApp,
@@ -318,6 +319,8 @@ export default function App() {
   const [loadedRouteDetail, setLoadedRouteDetail] = useState<LoadedRouteDetail | null>(null);
   const [routeLoadingId, setRouteLoadingId] = useState<string | null>(null);
   const [routeFailureId, setRouteFailureId] = useState<string | null>(null);
+  const [discoveryIndex, setDiscoveryIndex] = useState(0);
+  const [selectionNotice, setSelectionNotice] = useState<string | null>(null);
   const restoredScroll = useRef(false);
   const storageMutationActive = useRef(false);
   const persistedVenueState = useRef<PersistedVenueState>({ ids: [], snapshots: [] });
@@ -816,6 +819,29 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 
+  function addToToday(snapshot: SavedVenueSnapshot) {
+    setSelectionNotice(`${snapshot.venue.name} was added to Today for this app session. Persistent Today sync depends on the shared v1.2 contract.`);
+  }
+
+  function addToTrip(snapshot: SavedVenueSnapshot) {
+    setSelectionNotice(`${snapshot.venue.name} is ready, but Trip storage is not connected in this build. Nothing was silently saved.`);
+  }
+
+  async function goNow(snapshot: SavedVenueSnapshot) {
+    setSelectionNotice(null);
+    if (!online) {
+      setSelectionNotice("Go now requires internet in this Level 1 offline build.");
+      return;
+    }
+    try {
+      const cached = snapshot.detail?.mapsUrl ? snapshot.detail : null;
+      const venue = cached ?? (await fetchVenueDetail(snapshot.venue.slug)).data.venue;
+      await openExternal(venue.mapsUrl, "google_maps");
+    } catch {
+      setSelectionNotice("Exact directions are unavailable. No generic or unverified destination was opened.");
+    }
+  }
+
   function openRoute(id: string) {
     setSelectedVenueId(null);
     setSelectedRouteId(id);
@@ -877,6 +903,7 @@ export default function App() {
             This device could not persist that change, so the saved/offline state was not updated.
           </p>
         ) : null}
+        {selectionNotice ? <p className="notice" role="status">{selectionNotice}</p> : null}
       </header>
 
       <nav className="tabs" aria-label="Guide sections">
@@ -953,7 +980,23 @@ export default function App() {
               </section>
             ) : null}
 
-            {(surface === "places" || surface === "saved") && visibleVenueSnapshots.length ? (
+            {surface === "places" ? (
+              <SelectionExperience
+                snapshots={visibleVenueSnapshots}
+                updatedAt={bootstrap?.updatedAt ?? null}
+                online={online}
+                savedIds={savedVenueSet}
+                activeIndex={Math.min(discoveryIndex, Math.max(0, visibleVenueSnapshots.length - 1))}
+                onActiveIndexChange={setDiscoveryIndex}
+                onOpenDetails={openVenue}
+                onToggleSave={(snapshot) => void toggleVenue(snapshot)}
+                onAddToToday={addToToday}
+                onAddToTrip={addToTrip}
+                onGoNow={(snapshot) => void goNow(snapshot)}
+              />
+            ) : null}
+
+            {surface === "saved" && visibleVenueSnapshots.length ? (
               <section className="cards" aria-label={surface === "saved" ? "Saved places" : "Places"}>
                 {visibleVenueSnapshots.map((snapshot) => (
                   <VenueCard
