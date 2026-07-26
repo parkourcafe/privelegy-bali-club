@@ -115,6 +115,7 @@ declare
   v_id uuid;
   v_response jsonb;
   v_existing jsonb;
+  v_existing_operation text;
   v_version bigint;
   v_context jsonb;
 begin
@@ -130,9 +131,15 @@ begin
   if v_guest_id is null then
     insert into public.guest_refs(ref) values (p_guest_ref) returning id into v_guest_id;
   end if;
-  select response into v_existing from public.v12_runtime_idempotency
+  select operation, response into v_existing_operation, v_existing
+    from public.v12_runtime_idempotency
     where guest_ref_id = v_guest_id and idempotency_key = p_idempotency_key;
-  if v_existing is not null then return v_existing || '{"replayed":true}'::jsonb; end if;
+  if v_existing is not null then
+    if v_existing_operation <> p_operation then
+      return jsonb_build_object('ok', false, 'error', 'idempotency_conflict');
+    end if;
+    return v_existing || '{"replayed":true}'::jsonb;
+  end if;
 
   if p_operation = 'decision.create' then
     v_context := coalesce(p_input->'context', p_input);
@@ -296,7 +303,9 @@ $$;
 
 revoke all on function public.v12_runtime_mutate(text,text,jsonb,text) from public;
 revoke all on function public.v12_runtime_read(text,text,text) from public;
-grant execute on function public.v12_runtime_mutate(text,text,jsonb,text) to anon, authenticated;
-grant execute on function public.v12_runtime_read(text,text,text) to anon, authenticated;
+revoke all on function public.v12_runtime_mutate(text,text,jsonb,text) from anon, authenticated;
+revoke all on function public.v12_runtime_read(text,text,text) from anon, authenticated;
+grant execute on function public.v12_runtime_mutate(text,text,jsonb,text) to service_role;
+grant execute on function public.v12_runtime_read(text,text,text) to service_role;
 
 commit;

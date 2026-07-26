@@ -1,5 +1,5 @@
 import "server-only";
-import { anonClient } from "@/lib/supabase/server";
+import { serviceClient } from "@/lib/supabase/service";
 import type { RuntimeOperation } from "./contracts";
 
 export interface RuntimeMutationResult {
@@ -15,7 +15,7 @@ export async function mutateRuntime(
   input: Record<string, unknown>,
   idempotencyKey: string,
 ): Promise<RuntimeMutationResult> {
-  const client = anonClient();
+  const client = serviceClient();
   if (!client) return { ok: false, error: "runtime_unavailable" };
   const { data, error } = await client.rpc("v12_runtime_mutate", {
     p_guest_ref: guestRef,
@@ -32,7 +32,7 @@ export async function readRuntime(
   resource: "feed" | "today" | "trip" | "sync",
   id?: string,
 ): Promise<RuntimeMutationResult> {
-  const client = anonClient();
+  const client = serviceClient();
   if (!client) return { ok: false, error: "runtime_unavailable" };
   const { data, error } = await client.rpc("v12_runtime_read", {
     p_guest_ref: guestRef,
