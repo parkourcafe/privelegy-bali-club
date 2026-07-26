@@ -9,6 +9,7 @@ import { join } from "node:path";
 import {
   NAV_GROUPS,
   NAV_ACTIONS,
+  NAV_SECONDARY_LINKS,
   GATEWAY_PRIMARY,
   GATEWAY_SECONDARY,
 } from "./navigation.ts";
@@ -24,6 +25,7 @@ function routeExists(href: string): boolean {
 const allLinks = [
   ...NAV_GROUPS.flatMap((g) => g.links),
   ...NAV_ACTIONS,
+  ...NAV_SECONDARY_LINKS,
   ...GATEWAY_PRIMARY,
   ...GATEWAY_SECONDARY,
 ];

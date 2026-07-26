@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import OtherBaliLogo from "@/components/OtherBaliLogo";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
-import { NAV_GROUPS, NAV_ACTIONS } from "@/lib/navigation";
+import { NAV_GROUPS, NAV_ACTIONS, NAV_SECONDARY_LINKS } from "@/lib/navigation";
 import { t } from "@/lib/i18n/dictionaries";
 import type { PublicLocale } from "@/lib/i18n/locales";
 
@@ -120,6 +120,19 @@ export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
                   ))}
                 </section>
               ))}
+              <section className="ob-compact-group" aria-label="For businesses">
+                <p className="ob-compact-group-title">For businesses</p>
+                {NAV_SECONDARY_LINKS.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="ob-compact-link"
+                    aria-current={pathname === l.href ? "page" : undefined}
+                  >
+                    {t(locale, l.label)}
+                  </Link>
+                ))}
+              </section>
             </div>
           </details>
           {NAV_ACTIONS.map((a) => (

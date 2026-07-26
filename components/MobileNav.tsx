@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_GROUPS } from "@/lib/navigation";
+import { NAV_GROUPS, NAV_SECONDARY_LINKS } from "@/lib/navigation";
 import { t } from "@/lib/i18n/dictionaries";
 import type { PublicLocale } from "@/lib/i18n/locales";
 
@@ -111,6 +111,18 @@ export default function MobileNav({ locale }: { locale: PublicLocale }) {
                   </ul>
                 </section>
               ))}
+              <section className="ob-sheet-group" aria-label="For businesses">
+                <h2>For businesses</h2>
+                <ul>
+                  {NAV_SECONDARY_LINKS.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} onClick={() => setOpen(false)}>
+                        {t(locale, l.label)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
           </div>
         </div>
