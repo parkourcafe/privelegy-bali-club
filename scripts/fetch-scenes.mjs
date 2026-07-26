@@ -62,6 +62,12 @@ const SCENES = {
   "district-nusa-islands": ["hf_20260715_012231_1e69b197-86fd-427f-8776-078b9bc34c63.png", 1200],
   "district-gili-islands": ["hf_20260715_012233_311e6d57-382e-4ff2-8f8d-fab56af2ec1e.png", 1200],
   "district-lombok": ["hf_20260715_012234_ef0c9b5a-cdfe-4bd6-8449-d80231636d37.png", 1200],
+  // Visual-first guide refresh (Higgsfield Soul Location, 2026-07-25).
+  // QA-approved topic/area scenes: no visible text, logos, watermarks or
+  // identifiable people. Use as atmospheric Bali guide imagery only — never as
+  // proof of a specific venue, availability, exact tide/light, or live view.
+  "guide-jimbaran-bay-sunset": ["hf_20260725_181002_9ad6fce8-c579-4627-b86b-eced66f2829c.png", 1200],
+  "guide-tanah-lot-sunset": ["hf_20260725_180040_060fa46f-8d4b-4593-96ed-33aecc6287c5.png", 1200],
 };
 
 // /canggu area-mood and practical decision cards (Higgsfield GPT Image 2,
