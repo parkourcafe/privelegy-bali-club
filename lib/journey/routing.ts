@@ -10,17 +10,29 @@ export interface RouteService {
   getOfflineRouteCapability(): Promise<"unsupported" | "requires_downloaded_pack" | "available">;
 }
 
-export function googleMapsDirectionsHandoff(request: RouteRequest): string {
-  const values = [
-    request.origin.latitude,
-    request.origin.longitude,
-    request.destination.latitude,
-    request.destination.longitude,
-  ];
-  if (values.some((value) => !Number.isFinite(value))) {
-    throw new JourneyError("DEEP_LINK_INVALID", "Directions require finite coordinates");
+function assertCoordinates(latitude: number, longitude: number, label: string): void {
+  if (
+    !Number.isFinite(latitude)
+    || !Number.isFinite(longitude)
+    || latitude < -90
+    || latitude > 90
+    || longitude < -180
+    || longitude > 180
+  ) {
+    throw new JourneyError("DEEP_LINK_INVALID", `${label} requires valid WGS84 coordinates`);
   }
-  const mode = request.transportMode === "scooter" ? "driving" : request.transportMode;
+}
+
+export function googleMapsDirectionsHandoff(request: RouteRequest): string {
+  assertCoordinates(request.origin.latitude, request.origin.longitude, "Origin");
+  assertCoordinates(request.destination.latitude, request.destination.longitude, "Destination");
+  const mode = request.transportMode === "scooter"
+    ? "two-wheeler"
+    : request.transportMode === "drive"
+      ? "driving"
+      : request.transportMode === "walk"
+        ? "walking"
+        : "transit";
   const url = new URL("https://www.google.com/maps/dir/");
   url.searchParams.set("api", "1");
   url.searchParams.set("origin", `${request.origin.latitude},${request.origin.longitude}`);
@@ -45,4 +57,3 @@ export async function routeWithExternalFallback(
     return { route: null, handoff: googleMapsDirectionsHandoff(request), fallback: true };
   }
 }
-
