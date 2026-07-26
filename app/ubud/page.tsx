@@ -4,6 +4,7 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter } from "@/components/GuideBlocks";
 
@@ -145,6 +146,8 @@ export default function UbudPillarPage() {
           ))}
         </div>
       </section>
+
+      <DecisionRail area="ubud" areaLabel="Ubud" />
 
       <section className="guide-section">
         <h2>Start with the trip you want</h2>

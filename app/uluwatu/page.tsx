@@ -4,6 +4,7 @@ import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import StartYourShortlist from "@/components/StartYourShortlist";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
@@ -135,6 +136,8 @@ export default async function UluwatuPillarPage() {
           ))}
         </div>
       </section>
+
+      <DecisionRail area="uluwatu-bukit" areaLabel="Uluwatu" />
 
       <StartYourShortlist district="Uluwatu" items={buildStartShortlist(venues)} />
 
