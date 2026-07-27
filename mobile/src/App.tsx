@@ -10,6 +10,7 @@ import {
   createDecision,
   fetchBootstrap,
   fetchEvents,
+  fetchOfflineBaliManifest,
   pushSyncMutation,
   fetchRouteDetail,
   fetchVenueDetail,
@@ -54,6 +55,7 @@ import {
   removeTripStop,
   setTripStopState,
 } from "./trip-planner";
+import type { OfflineBaliManifest } from "../../lib/journey/offline-bali";
 
 interface LoadedVenueDetail {
   venue: MobileVenue;
@@ -212,6 +214,58 @@ function TripPlan({
           )}
         </article>
       ))}
+    </section>
+  );
+}
+
+function OfflineBaliManager({
+  manifest,
+  online,
+}: {
+  manifest: OfflineBaliManifest | null;
+  online: boolean;
+}) {
+  const activated = manifest?.providerStatus === "available";
+  return (
+    <section className="offline-bali" aria-labelledby="offline-bali-title">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Offline Level 3</p>
+          <h2 id="offline-bali-title">Offline Bali</h2>
+        </div>
+        <span className={activated ? "status online" : "status offline"}>
+          {activated ? "Available" : "Not activated"}
+        </span>
+      </div>
+      {activated ? (
+        <div className="offline-region-list">
+          {manifest.regions.map((region) => (
+            <article className="card" key={region.id}>
+              <div className="card-copy">
+                <p className="card-kicker">Downloadable map region</p>
+                <h3>{region.name}</h3>
+                <p>{Math.ceil(region.estimatedBytes / 1_048_576)} MB · map, GPS and onboard routing</p>
+              </div>
+              <button className="save-button" type="button" disabled={!online}>
+                {online ? "Download" : "Internet required"}
+              </button>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <>
+          <p>
+            Saved places, routes, events and your Trip stay available offline. Full map tiles,
+            GPS on a downloaded map and turn-by-turn routing are not active yet.
+          </p>
+          <ul>
+            <li>No map provider has passed privacy, cost and Bali device acceptance.</li>
+            <li>No map region can be downloaded until all three Level 3 capabilities are verified.</li>
+            <li>Google Maps remains an online external handoff and is never labelled offline navigation.</li>
+          </ul>
+          {manifest?.reason ? <p className="truth-note">{manifest.reason}</p> : null}
+        </>
+      )}
     </section>
   );
 }
@@ -408,6 +462,7 @@ export default function App() {
   const [todayEventOccurrences, setTodayEventOccurrences] = useState<MobileEventOccurrence[]>([]);
   const [events, setEvents] = useState<MobileEventOccurrence[]>([]);
   const [eventsUpdatedAt, setEventsUpdatedAt] = useState<string | null>(null);
+  const [offlineBaliManifest, setOfflineBaliManifest] = useState<OfflineBaliManifest | null>(null);
   const [trip, setTrip] = useState<Trip | null>(null);
   const [tripDayIndex, setTripDayIndex] = useState(0);
   const [clock, setClock] = useState(() => new Date());
@@ -587,9 +642,10 @@ export default function App() {
     setRefreshing(true);
     setRefreshFailed(false);
     try {
-      const [next, eventResult] = await Promise.all([
+      const [next, eventResult, offlineManifestResult] = await Promise.all([
         fetchBootstrap(signal),
         fetchEvents(signal).catch(() => null),
+        fetchOfflineBaliManifest(signal).catch(() => null),
       ]);
       setBootstrap(next);
       void writeCachedBootstrap(next).catch(() => setStorageWriteFailed(true));
@@ -598,6 +654,7 @@ export default function App() {
         setEventsUpdatedAt(eventResult.updatedAt);
         void writeEventsSnapshot(eventResult).catch(() => setStorageWriteFailed(true));
       }
+      if (offlineManifestResult) setOfflineBaliManifest(offlineManifestResult);
 
       void enqueueVenueState((current) => {
         const savedIds = new Set(current.ids);
@@ -1471,6 +1528,10 @@ export default function App() {
                 ) : null}
               </>
             ) : null}
+
+            {surface === "saved"
+              ? <OfflineBaliManager manifest={offlineBaliManifest} online={online} />
+              : null}
 
             {surface === "saved"
               && (savedVenueIds.length > 0 || savedRouteIds.length > 0)

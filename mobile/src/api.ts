@@ -7,6 +7,10 @@ import {
   type MobileVenueDetailPayload,
 } from "./contracts";
 import type { SyncMutation } from "../../lib/journey/offline-sync";
+import {
+  parseOfflineBaliManifest,
+  type OfflineBaliManifest,
+} from "../../lib/journey/offline-bali";
 
 export const MOBILE_API_ORIGIN = __MOBILE_API_ORIGIN__;
 export const MOBILE_API_TIMEOUT_MS = 12_000;
@@ -223,6 +227,17 @@ export async function fetchEvents(signal?: AbortSignal) {
     "/api/mobile/v1/events",
     "Events",
     parseEventsResponse,
+    signal,
+  );
+}
+
+export async function fetchOfflineBaliManifest(
+  signal?: AbortSignal,
+): Promise<OfflineBaliManifest> {
+  return await fetchMobilePayload(
+    "/api/mobile/v1/offline-regions",
+    "Offline Bali manifest",
+    parseOfflineBaliManifest,
     signal,
   );
 }
