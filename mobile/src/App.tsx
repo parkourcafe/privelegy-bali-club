@@ -1202,17 +1202,34 @@ export default function App() {
   }
 
   function chooseSurface(next: MobileSurface) {
+    const navigation = {
+      ...navigationSnapshotRef.current,
+      surface: next,
+      selectedVenueId: null,
+      selectedRouteId: null,
+      scrollY: 0,
+    };
+    navigationSnapshotRef.current = navigation;
     setSurface(next);
     setSelectedVenueId(null);
     setSelectedRouteId(null);
     window.scrollTo({ top: 0, behavior: "auto" });
+    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
   }
 
   function openVenue(id: string) {
     if (!venueSnapshotsById.has(id)) return;
+    const navigation = {
+      ...navigationSnapshotRef.current,
+      selectedVenueId: id,
+      selectedRouteId: null,
+      scrollY: 0,
+    };
+    navigationSnapshotRef.current = navigation;
     setSelectedRouteId(null);
     setSelectedVenueId(id);
     window.scrollTo({ top: 0, behavior: "auto" });
+    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
   }
 
   function changeDiscoveryIndex(index: number) {
@@ -1363,9 +1380,17 @@ export default function App() {
   }
 
   function openRoute(id: string) {
+    const navigation = {
+      ...navigationSnapshotRef.current,
+      selectedVenueId: null,
+      selectedRouteId: id,
+      scrollY: 0,
+    };
+    navigationSnapshotRef.current = navigation;
     setSelectedVenueId(null);
     setSelectedRouteId(id);
     window.scrollTo({ top: 0, behavior: "auto" });
+    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
   }
 
   async function openExternal(url: string, kind: ExternalLinkKind, allowedHosts?: readonly string[]) {

@@ -65,7 +65,7 @@ function DiscoverCard({
   const card = toDiscoveryCards([snapshot.venue], updatedAt)[0]!;
   return (
     <article className="discover-card" aria-labelledby={`discover-${snapshot.venue.id}`}>
-      <div className="discover-media">
+      <div className={`discover-media${snapshot.venue.photoUrl ? "" : " missing-media"}`}>
         {snapshot.venue.photoUrl ? (
           // Capacitor bundles this React shell directly; Next/Image is not available in this runtime.
           // eslint-disable-next-line @next/next/no-img-element

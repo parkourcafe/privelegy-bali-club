@@ -1,4 +1,6 @@
 const EXPECTED_ANDROID_PERMISSIONS = [
+  "android.permission.ACCESS_COARSE_LOCATION",
+  "android.permission.ACCESS_FINE_LOCATION",
   "android.permission.ACCESS_NETWORK_STATE",
   "android.permission.INTERNET",
   "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
@@ -236,8 +238,16 @@ export function assertIosMetadata({ info, entitlements, profile, codesign, now =
   }
   if (!exactStringArray(info.UIDeviceFamily?.map(String), ["1"])) fail("IPA must target iPhone only");
   if (!falseValue(info.CAPACITOR_DEBUG)) fail("IPA CAPACITOR_DEBUG must be disabled");
-  const usageKeys = Object.keys(info).filter((key) => /^NS.+UsageDescription$/.test(key));
-  if (usageKeys.length) fail(`IPA contains unapproved privacy permissions: ${usageKeys.join(", ")}`);
+  const usageKeys = uniqueSorted(Object.keys(info).filter((key) => /^NS.+UsageDescription$/.test(key)));
+  const approvedUsageKeys = ["NSLocationWhenInUseUsageDescription"];
+  if (JSON.stringify(usageKeys) !== JSON.stringify(approvedUsageKeys)) {
+    fail(`IPA contains unapproved privacy permissions: ${usageKeys.join(", ") || "missing approved location disclosure"}`);
+  }
+  if (typeof info.NSLocationWhenInUseUsageDescription !== "string"
+    || !info.NSLocationWhenInUseUsageDescription.includes("only when you ask")
+    || !info.NSLocationWhenInUseUsageDescription.includes("not stored")) {
+    fail("IPA location usage description does not match the approved on-demand, non-storage behavior");
+  }
 
   if (codesign.identifier !== expected.appId || codesign.teamIdentifier !== expected.appleTeamId) {
     fail("IPA code signature identity does not match the approved app/team");

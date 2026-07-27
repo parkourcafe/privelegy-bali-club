@@ -24,6 +24,8 @@ const aaptBadging = `package: name='com.otherbali.app' versionCode='2' versionNa
 minSdkVersion:'24'
 targetSdkVersion:'36'
 uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
+uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
 uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
 uses-permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
 application-label:'Other Bali'
@@ -36,6 +38,8 @@ const bundletoolManifest = `<manifest xmlns:android="http://schemas.android.com/
   package="com.otherbali.app">
   <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
   <application android:debuggable="false" />
@@ -53,6 +57,7 @@ function validIosEvidence() {
       DTSDKName: "iphoneos26.5",
       UIDeviceFamily: [1],
       CAPACITOR_DEBUG: false,
+      NSLocationWhenInUseUsageDescription: "Other Bali uses your location only when you ask it to choose the nearest supported area. Your precise location is not stored.",
     },
     entitlements: {
       "application-identifier": applicationIdentifier,
@@ -103,6 +108,8 @@ test("release contract pins all store identities, versions, SDKs, and permission
     androidTargetSdk: "36",
     androidCompileSdk: "36",
     androidPermissions: [
+      "android.permission.ACCESS_COARSE_LOCATION",
+      "android.permission.ACCESS_FINE_LOCATION",
       "android.permission.ACCESS_NETWORK_STATE",
       "android.permission.INTERNET",
       "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
@@ -136,6 +143,8 @@ test("aapt2 parsers accept only the pinned non-debug RuStore contract", () => {
   assert.equal(assertAndroidMetadata(badging, "fixture APK"), true);
   assert.deepEqual(parseAaptPermissions(`package: com.otherbali.app
 uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
+uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
 uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
 permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION' protectionLevel='signature'
 uses-permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
@@ -232,6 +241,10 @@ Signature size=9999
   const permission = validIosEvidence();
   permission.info.NSCameraUsageDescription = "Camera";
   assert.throws(() => assertIosMetadata(permission), /unapproved privacy permissions/);
+
+  const missingLocation = validIosEvidence();
+  delete missingLocation.info.NSLocationWhenInUseUsageDescription;
+  assert.throws(() => assertIosMetadata(missingLocation), /missing approved location disclosure/);
 
   const wrongDomain = validIosEvidence();
   wrongDomain.profile.Entitlements["com.apple.developer.associated-domains"] = ["applinks:preview.example"];
