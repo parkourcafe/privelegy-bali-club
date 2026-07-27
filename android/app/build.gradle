@@ -74,9 +74,9 @@ android {
         applicationId "com.otherbali.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        // Codes 1 and 2 belonged to superseded store candidates. Continue the
-        // native Capacitor line at 3 so Play uploads remain monotonic.
-        versionCode 3
+        // Codes 1–3 belong to superseded store or dark-shell candidates.
+        // Continue the native light-shell line at 4 so Play stays monotonic.
+        versionCode 4
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {

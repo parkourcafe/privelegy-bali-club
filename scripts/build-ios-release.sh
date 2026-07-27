@@ -6,7 +6,7 @@ readonly AUTHORIZATION_PHRASE="YES_I_HAVE_ACTION_TIME_AUTHORIZATION"
 readonly TEAM_ID="KB7VPWHTTM"
 readonly BUNDLE_ID="com.otherbali.app"
 readonly VERSION="1.0"
-readonly BUILD_NUMBER="4"
+readonly BUILD_NUMBER="5"
 
 if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]; then
   echo "Refusing to sign. Obtain action-time authorization, then set OTHER_BALI_ALLOW_SIGNING=${AUTHORIZATION_PHRASE}." >&2

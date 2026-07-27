@@ -14,27 +14,16 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-test("store package preflight reports every owner and signed-capture gate without claiming readiness", async () => {
-  const result = await inspectStorePackage({ root });
-  assert.equal(result.ok, true);
-  assert.equal(result.ready, false);
-  assert.equal(result.screenshots.iphone69.length, 5);
-  assert.ok(result.screenshots.iphone69.every((shot) => shot.width === 1320 && shot.height === 2868 && shot.hasAlpha === false));
-  assert.ok(result.pending.includes("deviceEvidence:iphoneIpa"));
-  assert.ok(result.pending.includes("deviceEvidence:samsungPlayDistributedBuild"));
-  assert.ok(!result.pending.some((item) => item.startsWith("androidPhone:")));
-  assert.equal(result.screenshots.androidPhone.length, 5);
-  assert.ok(result.screenshots.androidPhone.every((shot) => shot.width === 1080 && shot.height === 1920 && shot.hasAlpha === false));
-  assert.equal(
-    result.pending.includes("releaseArtifactsEvidence"),
-    result.releaseEvidence === null,
+test("store package preflight rejects evidence captured for the previous signed release", async () => {
+  await assert.rejects(
+    () => inspectStorePackage({ root }),
+    (error) => {
+      assert.match(error.message, /package manifest release identity\/version does not match the signed release contract/);
+      assert.match(error.message, /iphone69: Simulator capture evidence has the wrong app identity\/version/);
+      assert.match(error.message, /androidPhone: signed-device capture evidence has the wrong app identity\/version/);
+      return true;
+    },
   );
-  assert.ok(result.pending.includes("ownerInputs:appReviewContact"));
-  assert.ok(result.pending.some((item) => item.includes("APP REVIEW CONTACT")));
-  assert.ok(result.metadataLengths["Apple promotional text"] <= 170);
-  assert.ok(result.metadataLengths["Google short description"] <= 80);
-  assert.ok(result.metadataLengths["RuStore full description"] <= 4000);
-  await assert.rejects(() => inspectStorePackage({ root, strict: true }), /Store package is not ready/);
 });
 
 test("store package requires both screenshot sets and every fixed owner gate", () => {

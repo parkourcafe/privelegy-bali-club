@@ -47,7 +47,7 @@ async function releaseShellFixture() {
     ["offline.html", "<!doctype html><p>Offline</p>\n"],
     ["build-manifest.json", `${JSON.stringify(validManifest, null, 2)}\n`],
     ["assets/app-test.js", "console.log('release');\n"],
-    ["assets/app-test.css", "body{color:#20160f}\n"],
+    ["assets/app-test.css", "body{background:#faf6ef;color:#2b1a13}\n"],
   ]);
   await Promise.all([
     writeFile(path.join(root, "android/app/src/main/assets/capacitor.config.json"), `${JSON.stringify(config)}\n`),
@@ -82,7 +82,7 @@ test("Android release identity, SDK floor, version, and signing gate are fixed",
 
   assert.match(appGradle, /namespace = "com\.otherbali\.app"/);
   assert.match(appGradle, /applicationId "com\.otherbali\.app"/);
-  assert.match(appGradle, /versionCode 3/);
+  assert.match(appGradle, /versionCode 4/);
   assert.match(appGradle, /versionName "1\.0\.0"/);
   assert.match(variables, /minSdkVersion = 24/);
   assert.match(variables, /compileSdkVersion = 36/);

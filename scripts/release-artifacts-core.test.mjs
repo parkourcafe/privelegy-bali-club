@@ -20,7 +20,7 @@ import {
 const fingerprint = "11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00";
 const normalizedFingerprint = fingerprint.replaceAll(":", "");
 
-const aaptBadging = `package: name='com.otherbali.app' versionCode='2' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+const aaptBadging = `package: name='com.otherbali.app' versionCode='4' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
 minSdkVersion:'24'
 targetSdkVersion:'36'
 uses-permission: name='android.permission.INTERNET'
@@ -33,7 +33,7 @@ application-label:'Other Bali'
 
 const bundletoolManifest = `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   android:compileSdkVersion="36"
-  android:versionCode="2"
+  android:versionCode="4"
   android:versionName="1.0.0"
   package="com.otherbali.app">
   <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
@@ -51,7 +51,7 @@ function validIosEvidence() {
     info: {
       CFBundleIdentifier: "com.otherbali.app",
       CFBundleShortVersionString: "1.0",
-      CFBundleVersion: "4",
+      CFBundleVersion: "5",
       MinimumOSVersion: "15.0",
       DTPlatformName: "iphoneos",
       DTSDKName: "iphoneos26.5",
@@ -98,12 +98,12 @@ test("release contract pins all store identities, versions, SDKs, and permission
     appId: "com.otherbali.app",
     appleTeamId: "KB7VPWHTTM",
     iosVersion: "1.0",
-    iosBuild: "4",
+    iosBuild: "5",
     iosMinimumVersion: "15.0",
     associatedDomains: ["applinks:www.otherbali.com"],
     systemBarsStyle: "DARK",
     androidVersion: "1.0.0",
-    androidVersionCode: "2",
+    androidVersionCode: "4",
     androidMinSdk: "24",
     androidTargetSdk: "36",
     androidCompileSdk: "36",
@@ -117,7 +117,7 @@ test("release contract pins all store identities, versions, SDKs, and permission
   });
 });
 
-test("embedded Capacitor release config pins the dark system-bar style", () => {
+test("embedded Capacitor release config pins dark icons for the light system bars", () => {
   const config = {
     appId: "com.otherbali.app",
     webDir: "ios-web",
@@ -274,6 +274,7 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
+  assert.match(script, /readonly BUILD_NUMBER="5"/);
   const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
   const provisioningIndex = script.indexOf("xcodebuild \\");
   assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);
