@@ -9,12 +9,14 @@ import type { ExternalLinkKind } from "../../lib/external-links";
 import {
   createDecision,
   fetchBootstrap,
+  fetchDiscoveryFeed,
   fetchEvents,
   fetchOfflineBaliManifest,
   pushSyncMutation,
   fetchRouteDetail,
   fetchVenueDetail,
   type MobileEventOccurrence,
+  type MobileFeedCard,
 } from "./api";
 import type { Trip } from "../../lib/journey/contracts";
 import type { SyncMutation } from "../../lib/journey/offline-sync";
@@ -43,6 +45,7 @@ import {
   writeSavedRouteState,
   writeSavedVenueState,
   writeEventsSnapshot,
+  writeFeedResumeSnapshot,
   writeTodayEventState,
   writeTodayVenueState,
   writeTrip,
@@ -52,13 +55,24 @@ import {
   type SavedVenueSnapshot,
 } from "./storage";
 import {
+  adaptReadyMadeRoutesToTrip,
   addTripStop,
   createEmptyTrip,
   isEventUsable,
+  moveTripStopToDay,
   moveTripStop,
+  reconcileTodayEventOccurrences,
   removeTripStop,
+  replaceTripStop,
+  setTripStopNote,
   setTripStopState,
 } from "./trip-planner";
+import {
+  buildSharedCandidateUniverse,
+  MOBILE_FEED_POLICY_VERSION,
+  resolveFeedResumeSnapshot,
+  type FeedResumeSnapshot,
+} from "./discovery-model";
 import type { OfflineBaliManifest, OfflinePackState, OfflineRegionManifest } from "../../lib/journey/offline-bali";
 import {
   defaultOfflineMapRuntime,
@@ -97,6 +111,28 @@ function formatUpdatedAt(value: string): string {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(value));
+}
+
+async function fetchCompleteDiscoveryFeed(signal?: AbortSignal): Promise<MobileFeedCard[]> {
+  const cards: MobileFeedCard[] = [];
+  const seenCursors = new Set<string>();
+  let cursor: string | null = null;
+  for (let pageNumber = 0; pageNumber < 10; pageNumber += 1) {
+    const result = await fetchDiscoveryFeed({
+      district: "all",
+      category: "all",
+      limit: 50,
+      cursor,
+    }, signal);
+    cards.push(...result.page.items);
+    if (result.page.end) return cards;
+    if (!result.page.nextCursor || seenCursors.has(result.page.nextCursor)) {
+      throw new Error("Feed cursor did not advance");
+    }
+    seenCursors.add(result.page.nextCursor);
+    cursor = result.page.nextCursor;
+  }
+  throw new Error("Feed exceeded the bounded mobile catalogue");
 }
 
 function VenueCard({
@@ -189,13 +225,23 @@ function EventCard({
 function TripPlan({
   trip,
   resolveStop,
+  replacementOptions,
   onMove,
+  onMoveToDay,
+  onReplace,
+  onSaveNote,
+  onToggleSkipped,
   onToggleVisited,
   onRemove,
 }: {
   trip: Trip;
   resolveStop: (entityType: "place" | "event_occurrence", entityId: string) => string;
+  replacementOptions: Array<{ id: string; name: string }>;
   onMove: (dayIndex: number, stopId: string, direction: -1 | 1) => void;
+  onMoveToDay: (dayIndex: number, stopId: string, targetDayIndex: number) => void;
+  onReplace: (dayIndex: number, stopId: string, replacementId: string) => void;
+  onSaveNote: (dayIndex: number, stopId: string, note: string) => void;
+  onToggleSkipped: (dayIndex: number, stopId: string, skipped: boolean) => void;
   onToggleVisited: (dayIndex: number, stopId: string, visited: boolean) => void;
   onRemove: (dayIndex: number, stopId: string) => void;
 }) {
@@ -214,13 +260,59 @@ function TripPlan({
             <ol>
               {day.stops.map((stop, stopIndex) => (
                 <li key={stop.id} className={stop.state === "visited" ? "visited" : ""}>
-                  <span>{resolveStop(stop.entityType, stop.entityId)}</span>
+                  <span>
+                    {resolveStop(stop.entityType, stop.entityId)}
+                    {stop.state === "skipped" ? " · skipped" : ""}
+                    {stop.state === "replaced" ? " · replaced" : ""}
+                  </span>
                   <div className="trip-actions">
                     <button type="button" disabled={stopIndex === 0} onClick={() => onMove(dayIndex, stop.id, -1)}>↑</button>
                     <button type="button" disabled={stopIndex === day.stops.length - 1} onClick={() => onMove(dayIndex, stop.id, 1)}>↓</button>
+                    <label>
+                      Day
+                      <select
+                        aria-label={`Move ${resolveStop(stop.entityType, stop.entityId)} to another day`}
+                        value={dayIndex}
+                        onChange={(event) => onMoveToDay(dayIndex, stop.id, Number(event.target.value))}
+                      >
+                        {trip.days.map((targetDay, targetDayIndex) => (
+                          <option key={targetDay.id} value={targetDayIndex}>Day {targetDayIndex + 1}</option>
+                        ))}
+                      </select>
+                    </label>
                     <button type="button" onClick={() => onToggleVisited(dayIndex, stop.id, stop.state !== "visited")}>
                       {stop.state === "visited" ? "Undo" : "Visited"}
                     </button>
+                    <button type="button" onClick={() => onToggleSkipped(dayIndex, stop.id, stop.state !== "skipped")}>
+                      {stop.state === "skipped" ? "Restore" : "Skip"}
+                    </button>
+                    {stop.entityType === "place" && replacementOptions.length ? (
+                      <label>
+                        Replace
+                        <select
+                          aria-label={`Replace ${resolveStop(stop.entityType, stop.entityId)}`}
+                          defaultValue=""
+                          onChange={(event) => {
+                            if (event.target.value) onReplace(dayIndex, stop.id, event.target.value);
+                            event.target.value = "";
+                          }}
+                        >
+                          <option value="">Choose another place</option>
+                          {replacementOptions.map((option) => (
+                            <option key={option.id} value={option.id}>{option.name}</option>
+                          ))}
+                        </select>
+                      </label>
+                    ) : null}
+                    <label>
+                      Note
+                      <input
+                        aria-label={`Note for ${resolveStop(stop.entityType, stop.entityId)}`}
+                        defaultValue={stop.userNote ?? ""}
+                        maxLength={500}
+                        onBlur={(event) => onSaveNote(dayIndex, stop.id, event.target.value)}
+                      />
+                    </label>
                     <button type="button" onClick={() => onRemove(dayIndex, stop.id)}>Remove</button>
                   </div>
                 </li>
@@ -567,14 +659,18 @@ export default function App() {
   const [todayEventIds, setTodayEventIds] = useState<string[]>([]);
   const [todayEventOccurrences, setTodayEventOccurrences] = useState<MobileEventOccurrence[]>([]);
   const [events, setEvents] = useState<MobileEventOccurrence[]>([]);
+  const [feedCards, setFeedCards] = useState<MobileFeedCard[]>([]);
   const [eventsUpdatedAt, setEventsUpdatedAt] = useState<string | null>(null);
   const [offlineBaliManifest, setOfflineBaliManifest] = useState<OfflineBaliManifest | null>(null);
   const [offlinePacks, setOfflinePacks] = useState<OfflinePackState[]>([]);
   const [navigationSession, setNavigationSession] = useState<NavigationSession | null>(null);
   const navigationSessionRef = useRef<NavigationSession | null>(null);
+  const feedResumeRef = useRef<FeedResumeSnapshot | null>(null);
+  const feedSessionIdRef = useRef(crypto.randomUUID());
   const [companionArea, setCompanionArea] = useState<string | null>(null);
   const [trip, setTrip] = useState<Trip | null>(null);
   const [tripDayIndex, setTripDayIndex] = useState(0);
+  const [tripTemplateLoading, setTripTemplateLoading] = useState<number | null>(null);
   const [clock, setClock] = useState(() => new Date());
   const [pendingSyncCount, setPendingSyncCount] = useState(0);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine);
@@ -696,6 +792,8 @@ export default function App() {
         setOfflinePacks(state.offlinePacks);
         setNavigationSession(state.navigationSession);
         navigationSessionRef.current = state.navigationSession;
+        feedResumeRef.current = state.feedResume;
+        if (state.feedResume) feedSessionIdRef.current = state.feedResume.sessionId;
         pendingSyncRef.current = state.pendingSync;
         setPendingSyncCount(state.pendingSync.length);
         persistedVenueState.current = {
@@ -799,12 +897,14 @@ export default function App() {
     setRefreshing(true);
     setRefreshFailed(false);
     try {
-      const [next, eventResult, offlineManifestResult] = await Promise.all([
+      const [next, feedResult, eventResult, offlineManifestResult] = await Promise.all([
         fetchBootstrap(signal),
+        fetchCompleteDiscoveryFeed(signal).catch(() => null),
         fetchEvents(signal).catch(() => null),
         fetchOfflineBaliManifest(signal).catch(() => null),
       ]);
       setBootstrap(next);
+      if (feedResult) setFeedCards(feedResult);
       void writeCachedBootstrap(next).catch(() => setStorageWriteFailed(true));
       if (eventResult) {
         setEvents(eventResult.events);
@@ -1061,13 +1161,16 @@ export default function App() {
     [clock, events],
   );
   const activeTodayEvents = useMemo(
-    () => todayEventIds
+    () => {
+      const reconciled = reconcileTodayEventOccurrences(todayEventOccurrences, events);
+      return todayEventIds
       .map((id) => (
-        todayEventOccurrences.find((event) => event.id === id)
+        reconciled.find((event) => event.id === id)
         ?? events.find((event) => event.id === id)
       ))
       .filter((event): event is MobileEventOccurrence => Boolean(event))
-      .filter((event) => isEventUsable(event, clock)),
+      .filter((event) => isEventUsable(event, clock));
+    },
     [clock, events, todayEventIds, todayEventOccurrences],
   );
   const companionSuggestions = useMemo(() => {
@@ -1113,13 +1216,38 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [online, pendingDeepLink, refreshAttempted, refreshing, venueSnapshotsById]);
 
+  const sharedCandidateUniverse = useMemo(
+    () => buildSharedCandidateUniverse(
+      feedCards.length ? feedCards.map((card) => card.venue) : venues,
+    ),
+    [feedCards, venues],
+  );
+
+  useEffect(() => {
+    if (!storageReady || !feedResumeRef.current || !sharedCandidateUniverse.length) return;
+    const resolution = resolveFeedResumeSnapshot(feedResumeRef.current, {
+      expectedVersion: MOBILE_FEED_POLICY_VERSION,
+      candidateIds: sharedCandidateUniverse.map((venue) => venue.id),
+    });
+    if (resolution.status === "restored") {
+      setDiscoveryIndex(resolution.snapshot.position);
+      return;
+    }
+    feedResumeRef.current = null;
+    setDiscoveryIndex(0);
+    setSelectionNotice(
+      resolution.reason === "version_mismatch"
+        ? "Discover changed since your last visit, so a fresh feed was opened."
+        : "Your previous Discover card is no longer published, so a fresh feed was opened.",
+    );
+  }, [sharedCandidateUniverse, storageReady]);
   const visibleVenueSnapshots = surface === "saved"
     ? savedVenueIds.map((id) => venueSnapshotsById.get(id)).filter((item): item is SavedVenueSnapshot => Boolean(item))
     : surface === "today"
       ? todayVenueIds.map((id) => (
           todayVenueSnapshots.find((item) => item.venue.id === id) ?? venueSnapshotsById.get(id)
         )).filter((item): item is SavedVenueSnapshot => Boolean(item))
-    : venues.map((venue) => ({
+    : sharedCandidateUniverse.map((venue) => ({
       venue,
       updatedAt: bootstrap?.updatedAt ?? new Date(0).toISOString(),
       detail: null,
@@ -1311,9 +1439,30 @@ export default function App() {
   }
 
   function changeDiscoveryIndex(index: number) {
-    const next = Math.max(0, Math.trunc(index));
+    const next = Math.min(
+      Math.max(0, Math.trunc(index)),
+      Math.max(0, sharedCandidateUniverse.length - 1),
+    );
     setDiscoveryIndex(next);
     navigationSnapshotRef.current = { ...navigationSnapshotRef.current, discoveryIndex: next };
+    const active = sharedCandidateUniverse[next];
+    if (active) {
+      const cursor = btoa(JSON.stringify({
+        version: 1,
+        position: next,
+        entityId: active.id,
+      })).replaceAll("+", "-").replaceAll("/", "_").replace(/=+$/, "");
+      const resume: FeedResumeSnapshot = {
+        sessionId: feedSessionIdRef.current,
+        version: MOBILE_FEED_POLICY_VERSION,
+        cursor,
+        lastSeenEntityId: active.id,
+        position: next,
+        updatedAt: new Date().toISOString(),
+      };
+      feedResumeRef.current = resume;
+      void writeFeedResumeSnapshot(resume).catch(() => setStorageWriteFailed(true));
+    }
     void writeNavigationState({
       ...navigationSnapshotRef.current,
       scrollY: Math.max(0, window.scrollY),
@@ -1369,6 +1518,42 @@ export default function App() {
     const next = addTripStop(base, Math.min(tripDayIndex, base.days.length - 1), "place", snapshot.venue.id);
     if (await persistTrip(next)) {
       setSelectionNotice(`${snapshot.venue.name} was added to Trip day ${Math.min(tripDayIndex, base.days.length - 1) + 1}.`);
+    }
+  }
+
+  async function createTripFromPublishedRoutes(duration: 3 | 5 | 7 | 10) {
+    if (!online || tripTemplateLoading !== null) {
+      setSelectionNotice("Published trip templates require a connection.");
+      return;
+    }
+    setTripTemplateLoading(duration);
+    setSelectionNotice(null);
+    try {
+      const details = (await Promise.all(
+        routes.slice(0, duration).map(async (route) => {
+          try {
+            return (await fetchRouteDetail(route.slug)).data.route;
+          } catch {
+            return null;
+          }
+        }),
+      )).filter((route): route is MobileRouteDetail => Boolean(route));
+      if (!details.length) {
+        setSelectionNotice("No verified route templates are available right now. Nothing was created.");
+        return;
+      }
+      const next = adaptReadyMadeRoutesToTrip(
+        duration,
+        new Date().toISOString().slice(0, 10),
+        details,
+      );
+      if (await persistTrip(next)) {
+        setSelectionNotice(
+          `${duration}-day Trip created from ${details.length} published route${details.length === 1 ? "" : "s"}. Duplicate stops were removed.`,
+        );
+      }
+    } finally {
+      setTripTemplateLoading(null);
     }
   }
 
@@ -1653,6 +1838,7 @@ export default function App() {
             {surface === "places" ? (
               <SelectionExperience
                 snapshots={visibleVenueSnapshots}
+                feedCards={feedCards}
                 updatedAt={bootstrap?.updatedAt ?? null}
                 online={online}
                 savedIds={savedVenueSet}
@@ -1799,15 +1985,25 @@ export default function App() {
                     </select>
                   </label>
                   {!trip ? (
-                    <div className="duration-actions" aria-label="Create trip">
+                    <div className="duration-actions" aria-label="Create or adapt a trip">
                       {[3, 5, 7, 10].map((duration) => (
-                        <button
-                          type="button"
-                          key={duration}
-                          onClick={() => void persistTrip(createEmptyTrip(duration as 3 | 5 | 7 | 10))}
-                        >
-                          Start {duration}-day trip
-                        </button>
+                        <div key={duration}>
+                          <button
+                            type="button"
+                            onClick={() => void persistTrip(createEmptyTrip(duration as 3 | 5 | 7 | 10))}
+                          >
+                            Start empty {duration}-day trip
+                          </button>
+                          <button
+                            type="button"
+                            disabled={!online || tripTemplateLoading !== null}
+                            onClick={() => void createTripFromPublishedRoutes(duration as 3 | 5 | 7 | 10)}
+                          >
+                            {tripTemplateLoading === duration
+                              ? "Building…"
+                              : `Use published routes for ${duration} days`}
+                          </button>
+                        </div>
                       ))}
                     </div>
                   ) : null}
@@ -1816,8 +2012,31 @@ export default function App() {
                   <TripPlan
                     trip={trip}
                     resolveStop={resolveTripStop}
+                    replacementOptions={sharedCandidateUniverse
+                      .filter((venue) => !trip.days.some((day) => day.stops.some(
+                        (stop) => stop.entityType === "place" && stop.entityId === venue.id,
+                      )))
+                      .map((venue) => ({ id: venue.id, name: venue.name }))}
                     onMove={(dayIndex, stopId, direction) => void editTrip(
                       (current) => moveTripStop(current, dayIndex, stopId, direction),
+                    )}
+                    onMoveToDay={(dayIndex, stopId, targetDayIndex) => void editTrip(
+                      (current) => moveTripStopToDay(
+                        current,
+                        dayIndex,
+                        stopId,
+                        targetDayIndex,
+                        current.days[targetDayIndex]?.stops.length ?? 0,
+                      ),
+                    )}
+                    onReplace={(dayIndex, stopId, replacementId) => void editTrip(
+                      (current) => replaceTripStop(current, dayIndex, stopId, "place", replacementId),
+                    )}
+                    onSaveNote={(dayIndex, stopId, note) => void editTrip(
+                      (current) => setTripStopNote(current, dayIndex, stopId, note),
+                    )}
+                    onToggleSkipped={(dayIndex, stopId, skipped) => void editTrip(
+                      (current) => setTripStopState(current, dayIndex, stopId, skipped ? "skipped" : "planned"),
                     )}
                     onToggleVisited={(dayIndex, stopId, visited) => void editTrip(
                       (current) => setTripStopState(current, dayIndex, stopId, visited ? "visited" : "planned"),

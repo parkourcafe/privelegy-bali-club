@@ -212,6 +212,8 @@ test("What’s On response validates event lifecycle and uses the mobile gateway
     area: "Sanur",
     startsAt: "2026-08-01T10:00:00.000Z",
     endsAt: "2026-08-01T12:00:00.000Z",
+    status: "scheduled",
+    cancellationReason: null,
     lastVerifiedAt: "2026-07-31T10:00:00.000Z",
     expiresAt: "2026-08-01T12:30:00.000Z",
   };
@@ -224,7 +226,7 @@ test("What’s On response validates event lifecycle and uses the mobile gateway
     }), { status: 200, headers: { "Content-Type": "application/json" } });
   }) as typeof fetch);
   try {
-    assert.equal((await api.fetchEvents()).events[0]?.title, "Sunset session");
+    assert.deepEqual((await api.fetchEvents()).events[0], event);
     assert.throws(() => api.parseEventsResponse({
       updatedAt: "2026-07-31T10:00:00.000Z",
       data: { events: [{ ...event, endsAt: event.startsAt }] },
@@ -232,6 +234,49 @@ test("What’s On response validates event lifecycle and uses the mobile gateway
   } finally {
     restoreFetch();
   }
+});
+
+test("What’s On parser accepts exact scheduled/cancelled lifecycle fields and requires cancellation reason", async () => {
+  const api = await apiPromise;
+  const scheduled = {
+    id: "occurrence-1",
+    eventId: "event-1",
+    title: "Sunset session",
+    venueSlug: "sample-cafe",
+    area: "Sanur",
+    startsAt: "2026-08-01T10:00:00.000Z",
+    endsAt: "2026-08-01T12:00:00.000Z",
+    status: "scheduled",
+    cancellationReason: null,
+    lastVerifiedAt: "2026-07-31T10:00:00.000Z",
+    expiresAt: "2026-08-01T12:30:00.000Z",
+  };
+  const cancelled = {
+    ...scheduled,
+    id: "occurrence-2",
+    eventId: "event-2",
+    title: "Cancelled beach session",
+    status: "cancelled",
+    cancellationReason: "Venue closure",
+    lastVerifiedAt: "2026-08-01T08:00:00.000Z",
+  };
+
+  assert.deepEqual(api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [scheduled, cancelled] },
+  }).events, [scheduled, cancelled]);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...cancelled, cancellationReason: null }] },
+  }), /cancel/i);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...scheduled, status: "postponed" }] },
+  }), /status|lifecycle/i);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...scheduled, cancellationReason: "unexpected" }] },
+  }), /cancel/i);
 });
 
 test("sync push returns the raw acknowledgement required for safe queue settlement", async () => {

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { nearestArea } from "../../lib/day-builder";
-import type { MobileDecisionResult } from "./api";
+import type { MobileDecisionResult, MobileFeedCard } from "./api";
 import type { SavedVenueSnapshot } from "./storage";
 import {
   EMPTY_DECISION_INPUTS,
@@ -14,6 +14,7 @@ import {
 
 interface SelectionExperienceProps {
   snapshots: SavedVenueSnapshot[];
+  feedCards?: MobileFeedCard[];
   updatedAt: string | null;
   online: boolean;
   savedIds: ReadonlySet<string>;
@@ -35,6 +36,7 @@ const MODE_LABELS: Record<SelectionMode, string> = {
 
 function DiscoverCard({
   snapshot,
+  feedCard,
   updatedAt,
   saved,
   online,
@@ -49,6 +51,7 @@ function DiscoverCard({
   onNext,
 }: {
   snapshot: SavedVenueSnapshot;
+  feedCard: MobileFeedCard | null;
   updatedAt: string | null;
   saved: boolean;
   online: boolean;
@@ -62,7 +65,15 @@ function DiscoverCard({
   onPrevious: () => void;
   onNext: () => void;
 }) {
-  const card = toDiscoveryCards([snapshot.venue], updatedAt)[0]!;
+  const card = feedCard ? {
+    venue: feedCard.venue,
+    reasonShown: feedCard.reasonShown,
+    whyThisPlace: feedCard.whyThisPlace,
+    skipIf: feedCard.skipIf,
+    tags: feedCard.tags,
+    freshnessLabel: feedCard.freshness,
+    mediaCount: feedCard.venue.photoUrl ? 1 : 0,
+  } : toDiscoveryCards([snapshot.venue], updatedAt)[0]!;
   return (
     <article className="discover-card" aria-labelledby={`discover-${snapshot.venue.id}`}>
       <div className={`discover-media${snapshot.venue.photoUrl ? "" : " missing-media"}`}>
@@ -117,10 +128,21 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
   const [decisionError, setDecisionError] = useState<string | null>(null);
   const [decisionResult, setDecisionResult] = useState<MobileDecisionResult | null>(null);
   const [locationNotice, setLocationNotice] = useState<string | null>(null);
-  const cards = useMemo(
-    () => toDiscoveryCards(props.snapshots.map((item) => item.venue), props.updatedAt),
-    [props.snapshots, props.updatedAt],
-  );
+  const cards = useMemo(() => {
+    const feedById = new Map((props.feedCards ?? []).map((card) => [card.venue.id, card]));
+    return props.snapshots.map((item) => {
+      const feedCard = feedById.get(item.venue.id);
+      return feedCard ? {
+        venue: feedCard.venue,
+        reasonShown: feedCard.reasonShown,
+        whyThisPlace: feedCard.whyThisPlace,
+        skipIf: feedCard.skipIf,
+        tags: feedCard.tags,
+        freshnessLabel: feedCard.freshness,
+        mediaCount: feedCard.venue.photoUrl ? 1 : 0,
+      } : toDiscoveryCards([item.venue], props.updatedAt)[0]!;
+    });
+  }, [props.feedCards, props.snapshots, props.updatedAt]);
   const activeSnapshot = props.snapshots[props.activeIndex] ?? props.snapshots[0] ?? null;
   const filteredCards = filterMapListCards(cards, district, category);
   const snapshotsById = useMemo(
@@ -184,6 +206,9 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
       {mode === "discover" ? activeSnapshot ? (
         <DiscoverCard
           snapshot={activeSnapshot}
+          feedCard={(props.feedCards ?? []).find(
+            (card) => card.venue.id === activeSnapshot.venue.id,
+          ) ?? null}
           updatedAt={props.updatedAt}
           saved={props.savedIds.has(activeSnapshot.venue.id)}
           online={props.online}

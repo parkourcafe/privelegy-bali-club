@@ -1,6 +1,7 @@
 import {
   parseMobileBootstrap,
   parseMobileRouteDetail,
+  parseMobileVenue,
   parseMobileVenueDetail,
   type MobileBootstrapPayload,
   type MobileRouteDetailPayload,
@@ -47,8 +48,28 @@ export interface MobileEventOccurrence {
   area: string | null;
   startsAt: string;
   endsAt: string;
+  status?: "scheduled" | "cancelled";
+  cancellationReason?: string | null;
   lastVerifiedAt: string;
   expiresAt: string;
+}
+
+export interface MobileFeedCard {
+  venue: ReturnType<typeof parseMobileVenue>;
+  reasonShown: string;
+  whyThisPlace: string;
+  skipIf: string | null;
+  tags: string[];
+  freshness: string;
+}
+
+export interface MobileFeedResult {
+  updatedAt: string;
+  page: {
+    items: MobileFeedCard[];
+    nextCursor: string | null;
+    end: boolean;
+  };
 }
 
 const MOBILE_HEADERS = {
@@ -199,7 +220,10 @@ export function parseEventsResponse(value: unknown): {
       if (!Number.isFinite(Date.parse(entry))) throw new Error("Invalid event timestamp");
       return entry;
     };
-    const event = {
+    const status: "scheduled" | "cancelled" = item.status === "scheduled" || item.status === "cancelled"
+      ? item.status
+      : (() => { throw new Error("Invalid event status"); })();
+    const event: MobileEventOccurrence = {
       id: bounded("id", 160),
       eventId: bounded("eventId", 160),
       title: bounded("title", 200),
@@ -207,9 +231,16 @@ export function parseEventsResponse(value: unknown): {
       area: item.area === null ? null : bounded("area", 160),
       startsAt: timestamp("startsAt"),
       endsAt: timestamp("endsAt"),
+      status,
+      cancellationReason: item.cancellationReason === null
+        ? null
+        : bounded("cancellationReason", 500),
       lastVerifiedAt: timestamp("lastVerifiedAt"),
       expiresAt: timestamp("expiresAt"),
     };
+    if ((status === "cancelled") !== Boolean(event.cancellationReason)) {
+      throw new Error("Invalid event cancellation lifecycle");
+    }
     if (
       Date.parse(event.endsAt) <= Date.parse(event.startsAt)
       || Date.parse(event.expiresAt) <= Date.parse(event.lastVerifiedAt)
@@ -220,6 +251,126 @@ export function parseEventsResponse(value: unknown): {
     throw new Error("Duplicate event occurrence");
   }
   return { updatedAt, events };
+}
+
+export function parseMobileFeedResponse(value: unknown): MobileFeedResult {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error("Invalid feed response");
+  }
+  const envelope = value as Record<string, unknown>;
+  if (
+    envelope.schemaVersion !== 1
+    || typeof envelope.updatedAt !== "string"
+    || !Number.isFinite(Date.parse(envelope.updatedAt))
+    || new Date(envelope.updatedAt).toISOString() !== envelope.updatedAt
+    || !envelope.data
+    || typeof envelope.data !== "object"
+    || Array.isArray(envelope.data)
+  ) throw new Error("Invalid feed timestamp or envelope");
+  const page = (envelope.data as Record<string, unknown>).page;
+  if (!page || typeof page !== "object" || Array.isArray(page)) {
+    throw new Error("Invalid feed page");
+  }
+  const record = page as Record<string, unknown>;
+  if (
+    !Array.isArray(record.items)
+    || record.items.length > 50
+    || typeof record.end !== "boolean"
+    || !(
+      record.nextCursor === null
+      || (
+        typeof record.nextCursor === "string"
+        && /^[A-Za-z0-9_-]{1,500}$/.test(record.nextCursor)
+      )
+    )
+    || (record.end && record.nextCursor !== null)
+    || (!record.end && record.nextCursor === null)
+  ) throw new Error("Invalid feed cursor lifecycle");
+  const bounded = (entry: unknown, field: string, max = 1_000): string => {
+    if (typeof entry !== "string" || !entry.trim() || entry.length > max) {
+      throw new Error(`Invalid bounded feed ${field}`);
+    }
+    return entry;
+  };
+  const feedVenue = (entry: unknown) => {
+    try {
+      return parseMobileVenue(entry);
+    } catch {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+        throw new Error("Invalid feed venue");
+      }
+      const officialUrl = (entry as Record<string, unknown>).officialUrl;
+      if (typeof officialUrl !== "string") throw new Error("Invalid feed venue");
+      try {
+        const url = new URL(officialUrl);
+        if (
+          url.protocol !== "https:"
+          || url.username
+          || url.password
+          || !url.hostname.includes(".")
+        ) throw new Error("unsafe");
+        return {
+          ...parseMobileVenue({ ...(entry as Record<string, unknown>), officialUrl: null }),
+          officialUrl,
+        };
+      } catch {
+        throw new Error("Invalid feed venue");
+      }
+    }
+  };
+  const items = record.items.map((entry): MobileFeedCard => {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+      throw new Error("Invalid feed card");
+    }
+    const card = entry as Record<string, unknown>;
+    if (
+      !Array.isArray(card.tags)
+      || card.tags.length > 20
+      || card.tags.some((tag) => typeof tag !== "string" || !tag.trim() || tag.length > 120)
+    ) throw new Error("Invalid bounded feed tags");
+    return {
+      venue: feedVenue(card.venue),
+      reasonShown: bounded(card.reasonShown, "reason"),
+      whyThisPlace: bounded(card.whyThisPlace, "why"),
+      skipIf: card.skipIf === null ? null : bounded(card.skipIf, "skip"),
+      tags: card.tags as string[],
+      freshness: bounded(card.freshness, "freshness", 240),
+    };
+  });
+  if (new Set(items.map((item) => item.venue.id)).size !== items.length) {
+    throw new Error("Duplicate feed identity");
+  }
+  return {
+    updatedAt: envelope.updatedAt,
+    page: {
+      items,
+      nextCursor: record.nextCursor as string | null,
+      end: record.end,
+    },
+  };
+}
+
+export async function fetchDiscoveryFeed(
+  request: {
+    district: string;
+    category: string;
+    limit: number;
+    cursor: string | null;
+  },
+  signal?: AbortSignal,
+): Promise<MobileFeedResult> {
+  const search = new URLSearchParams({
+    district: request.district,
+    category: request.category,
+    limit: String(request.limit),
+  });
+  if (request.cursor !== null) search.set("cursor", request.cursor);
+  return await fetchMobilePayload(
+    `/api/mobile/v1/feed?${search.toString()}`,
+    "Feed",
+    parseMobileFeedResponse,
+    signal,
+  );
 }
 
 export async function fetchEvents(signal?: AbortSignal) {

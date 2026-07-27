@@ -52,7 +52,7 @@ function eventStoreClient(result: { data: unknown[] | null; error: unknown }) {
   return { calls, client };
 }
 
-test("configured event store applies active-public filters and maps occurrences", async () => {
+test("configured event store returns published not-expired lifecycle reconciliation records", async () => {
   const { getActiveMobileEvents } = await eventsModule;
   const now = new Date("2026-08-01T08:00:00.000Z");
   const { calls, client } = eventStoreClient({
@@ -64,8 +64,22 @@ test("configured event store applies active-public filters and maps occurrences"
       area: "Sanur",
       starts_at: "2026-08-01T10:00:00.000Z",
       ends_at: "2026-08-01T12:00:00.000Z",
+      status: "scheduled",
+      cancellation_reason: null,
       last_verified_at: "2026-07-31T10:00:00.000Z",
       expires_at: "2026-08-01T12:30:00.000Z",
+    }, {
+      id: "occurrence-2",
+      event_id: "event-2",
+      title: "Cancelled beach session",
+      venue_slug: null,
+      area: "Sanur",
+      starts_at: "2026-08-01T13:00:00.000Z",
+      ends_at: "2026-08-01T15:00:00.000Z",
+      status: "cancelled",
+      cancellation_reason: "Venue closure",
+      last_verified_at: "2026-08-01T07:30:00.000Z",
+      expires_at: "2026-08-01T16:00:00.000Z",
     }],
     error: null,
   });
@@ -80,19 +94,31 @@ test("configured event store applies active-public filters and maps occurrences"
       area: "Sanur",
       startsAt: "2026-08-01T10:00:00.000Z",
       endsAt: "2026-08-01T12:00:00.000Z",
+      status: "scheduled",
+      cancellationReason: null,
       lastVerifiedAt: "2026-07-31T10:00:00.000Z",
       expiresAt: "2026-08-01T12:30:00.000Z",
+    }, {
+      id: "occurrence-2",
+      eventId: "event-2",
+      title: "Cancelled beach session",
+      venueSlug: null,
+      area: "Sanur",
+      startsAt: "2026-08-01T13:00:00.000Z",
+      endsAt: "2026-08-01T15:00:00.000Z",
+      status: "cancelled",
+      cancellationReason: "Venue closure",
+      lastVerifiedAt: "2026-08-01T07:30:00.000Z",
+      expiresAt: "2026-08-01T16:00:00.000Z",
     }],
   );
   assert.deepEqual(calls, [
     { method: "from", args: ["v12_event_occurrences"] },
     {
       method: "select",
-      args: ["id,event_id,title,venue_slug,area,starts_at,ends_at,last_verified_at,expires_at"],
+      args: ["id,event_id,title,venue_slug,area,starts_at,ends_at,status,cancellation_reason,last_verified_at,expires_at"],
     },
-    { method: "eq", args: ["status", "scheduled"] },
     { method: "eq", args: ["publication_status", "published"] },
-    { method: "gt", args: ["ends_at", now.toISOString()] },
     { method: "gt", args: ["expires_at", now.toISOString()] },
     { method: "order", args: ["starts_at", { ascending: true }] },
     { method: "limit", args: [100] },

@@ -20,6 +20,10 @@ import {
   type OfflinePackState,
 } from "../../lib/journey/offline-bali";
 import {
+  parseFeedResumeSnapshot,
+  type FeedResumeSnapshot,
+} from "./discovery-model";
+import {
   parseNavigationSession,
   type NavigationSession,
 } from "../../lib/journey/adaptive-companion";
@@ -39,6 +43,7 @@ export const MOBILE_STORAGE_KEYS = {
   pendingSync: "otherbali.mobile.pending-sync.v1",
   offlinePacks: "otherbali.mobile.offline-packs.v1",
   navigationSession: "otherbali.mobile.navigation-session.v1",
+  feedResume: "otherbali.mobile.feed-resume.v1",
   navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
 } as const;
@@ -84,6 +89,7 @@ export interface MobileStorageState {
   pendingSync: SyncMutation[];
   offlinePacks: OfflinePackState[];
   navigationSession: NavigationSession | null;
+  feedResume: FeedResumeSnapshot | null;
   navigation: MobileNavigationState;
 }
 
@@ -298,7 +304,18 @@ function parseEventsSnapshot(raw: string | null): {
     const events = value.events.filter((entry): entry is MobileEventOccurrence => {
       if (!entry || typeof entry !== "object" || Array.isArray(entry)) return false;
       const item = entry as Record<string, unknown>;
-      return ["id","eventId","title","startsAt","endsAt","lastVerifiedAt","expiresAt"]
+      const legacyLifecycle = item.status === undefined && item.cancellationReason === undefined;
+      const currentLifecycle = (
+        (item.status === "scheduled" && item.cancellationReason === null)
+        || (
+          item.status === "cancelled"
+          && typeof item.cancellationReason === "string"
+          && item.cancellationReason.trim().length > 0
+          && item.cancellationReason.length <= 500
+        )
+      );
+      return (legacyLifecycle || currentLifecycle)
+        && ["id","eventId","title","startsAt","endsAt","lastVerifiedAt","expiresAt"]
         .every((field) => typeof item[field] === "string" && String(item[field]).length <= 200)
         && (item.venueSlug === null || typeof item.venueSlug === "string")
         && (item.area === null || typeof item.area === "string");
@@ -625,6 +642,7 @@ export async function hydrateMobileStorage(
     pendingSyncRaw,
     offlinePacksRaw,
     navigationSessionRaw,
+    feedResumeRaw,
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
@@ -641,6 +659,7 @@ export async function hydrateMobileStorage(
     readRawWithMigration(MOBILE_STORAGE_KEYS.pendingSync, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.offlinePacks, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.navigationSession, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.feedResume, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(
       MOBILE_STORAGE_KEYS.navigation,
       preferences,
@@ -675,6 +694,14 @@ export async function hydrateMobileStorage(
       if (!navigationSessionRaw) return null;
       try {
         return parseNavigationSession(JSON.parse(navigationSessionRaw) as unknown);
+      } catch {
+        return null;
+      }
+    })(),
+    feedResume: (() => {
+      if (!feedResumeRaw) return null;
+      try {
+        return parseFeedResumeSnapshot(JSON.parse(feedResumeRaw) as unknown);
       } catch {
         return null;
       }
@@ -853,6 +880,15 @@ export function writeNavigationSession(
     JSON.stringify(normalized),
     options,
   );
+}
+
+export function writeFeedResumeSnapshot(
+  snapshot: FeedResumeSnapshot,
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalized = parseFeedResumeSnapshot(snapshot);
+  if (!normalized) return Promise.reject(new Error("invalid_feed_resume_snapshot"));
+  return writeRaw(MOBILE_STORAGE_KEYS.feedResume, JSON.stringify(normalized), options);
 }
 
 export function writeNavigationState(
