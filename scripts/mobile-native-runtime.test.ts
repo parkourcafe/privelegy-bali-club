@@ -5,6 +5,7 @@ import {
   openControlledExternal,
   shareMobileTarget,
   startBackButtonMonitoring,
+  startAppStateMonitoring,
   startNetworkMonitoring,
   type MobileNativeBridge,
 } from "../mobile/src/native-runtime";
@@ -16,6 +17,7 @@ function bridge(overrides: Partial<MobileNativeBridge> = {}): MobileNativeBridge
     getLaunchUrl: async () => null,
     addAppUrlListener: async () => ({ remove: async () => undefined }),
     addBackButtonListener: async () => ({ remove: async () => undefined }),
+    addAppStateListener: async () => ({ remove: async () => undefined }),
     exitApp: async () => undefined,
     getNetworkConnected: async () => true,
     addNetworkListener: async () => ({ remove: async () => undefined }),
@@ -172,4 +174,24 @@ test("Android hardware-back monitoring is removable and root exit stays native-o
   assert.equal(await startBackButtonMonitoring(() => calls.push("unexpected"), iosRuntime), null);
   await exitMobileApp(iosRuntime);
   assert.deepEqual(calls, ["back", "removed", "exit"]);
+});
+
+test("native app-state monitoring reports external handoff return and is removable", async () => {
+  const states: boolean[] = [];
+  let listener: ((active: boolean) => void) | null = null;
+  const handle = await startAppStateMonitoring((active) => states.push(active), bridge({
+    async addAppStateListener(next) {
+      listener = next;
+      return { remove: async () => { states.push(false); } };
+    },
+  }));
+  assert.ok(handle);
+  assert.ok(listener);
+  (listener as (active: boolean) => void)(false);
+  (listener as (active: boolean) => void)(true);
+  assert.deepEqual(states, [false, true]);
+  await handle.remove();
+  assert.deepEqual(states, [false, true, false]);
+
+  assert.equal(await startAppStateMonitoring(() => {}, bridge({ isNative: () => false })), null);
 });

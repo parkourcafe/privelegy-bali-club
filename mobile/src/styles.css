@@ -134,6 +134,15 @@ footer { margin-top: 54px; border-top: 1px solid var(--line); padding: 24px 4px 
 .offline-bali ul { margin: 14px 0; padding-left: 22px; }
 .offline-region-list { display: grid; gap: 12px; }
 .offline-region-list .save-button:disabled { cursor: not-allowed; opacity: .55; }
+.companion { margin: 0 0 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); padding: 20px; }
+.companion > label { display: grid; gap: 8px; color: var(--muted); font-weight: 700; }
+.companion select { min-height: 48px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); padding: 0 12px; }
+.companion-results { display: grid; gap: 12px; margin-top: 18px; }
+.companion-results button:disabled { cursor: not-allowed; opacity: .55; }
+.navigation-session { display: grid; gap: 7px; margin-top: 16px; border: 1px solid var(--brass); border-radius: 18px; background: var(--panel); padding: 16px; }
+.navigation-session .eyebrow { margin: 0; }
+.navigation-session span { color: var(--muted); line-height: 1.45; }
+.navigation-session button { justify-self: start; min-height: 42px; border: 1px solid var(--brass); border-radius: 999px; background: transparent; color: var(--paper); padding: 0 16px; font-weight: 700; }
 
 @media (max-width: 520px) {
   .app-shell { padding-right: 14px; padding-left: 14px; }
