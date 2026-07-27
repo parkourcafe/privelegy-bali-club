@@ -6,7 +6,17 @@ import type {
   MobileVenueCompact,
 } from "../../lib/mobile-api/contracts";
 import type { ExternalLinkKind } from "../../lib/external-links";
-import { createDecision, fetchBootstrap, fetchRouteDetail, fetchVenueDetail } from "./api";
+import {
+  createDecision,
+  fetchBootstrap,
+  fetchEvents,
+  pushSyncMutation,
+  fetchRouteDetail,
+  fetchVenueDetail,
+  type MobileEventOccurrence,
+} from "./api";
+import type { Trip } from "../../lib/journey/contracts";
+import type { SyncMutation } from "../../lib/journey/offline-sync";
 import type { MobileBootstrapPayload } from "./contracts";
 import SelectionExperience from "./SelectionExperience";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
@@ -24,14 +34,26 @@ import {
   MAX_SAVED_ROUTE_SNAPSHOTS,
   writeCachedBootstrap,
   writeNavigationState,
+  writePendingSync,
   writeSavedRouteState,
   writeSavedVenueState,
+  writeEventsSnapshot,
+  writeTodayEventState,
   writeTodayVenueState,
+  writeTrip,
   type MobileSurface,
   type MobileNavigationState,
   type SavedRouteSnapshot,
   type SavedVenueSnapshot,
 } from "./storage";
+import {
+  addTripStop,
+  createEmptyTrip,
+  isEventUsable,
+  moveTripStop,
+  removeTripStop,
+  setTripStopState,
+} from "./trip-planner";
 
 interface LoadedVenueDetail {
   venue: MobileVenue;
@@ -116,6 +138,81 @@ function RouteCard({
         </button>
       </div>
     </article>
+  );
+}
+
+function EventCard({
+  event,
+  inToday,
+  onAddToToday,
+  onAddToTrip,
+}: {
+  event: MobileEventOccurrence;
+  inToday: boolean;
+  onAddToToday: () => void;
+  onAddToTrip: () => void;
+}) {
+  return (
+    <article className="card">
+      <div className="card-copy">
+        <p className="card-kicker">{event.area ?? "Bali"} · {formatUpdatedAt(event.startsAt)}</p>
+        <h3>{event.title}</h3>
+        <p>Ends {formatUpdatedAt(event.endsAt)} · verified {formatUpdatedAt(event.lastVerifiedAt)}</p>
+      </div>
+      <div className="card-actions">
+        <button className="detail-button" type="button" disabled={inToday} onClick={onAddToToday}>
+          {inToday ? "In Today" : "Add to Today"}
+        </button>
+        <button className="save-button" type="button" onClick={onAddToTrip}>Add to Trip</button>
+      </div>
+    </article>
+  );
+}
+
+function TripPlan({
+  trip,
+  resolveStop,
+  onMove,
+  onToggleVisited,
+  onRemove,
+}: {
+  trip: Trip;
+  resolveStop: (entityType: "place" | "event_occurrence", entityId: string) => string;
+  onMove: (dayIndex: number, stopId: string, direction: -1 | 1) => void;
+  onToggleVisited: (dayIndex: number, stopId: string, visited: boolean) => void;
+  onRemove: (dayIndex: number, stopId: string) => void;
+}) {
+  return (
+    <section className="trip-plan" aria-label="Offline trip plan">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Editable offline plan</p>
+          <h2>{trip.title}</h2>
+        </div>
+      </div>
+      {trip.days.map((day, dayIndex) => (
+        <article className="trip-day" key={day.id}>
+          <h3>Day {dayIndex + 1} · {day.date}</h3>
+          {!day.stops.length ? <p>No stops yet.</p> : (
+            <ol>
+              {day.stops.map((stop, stopIndex) => (
+                <li key={stop.id} className={stop.state === "visited" ? "visited" : ""}>
+                  <span>{resolveStop(stop.entityType, stop.entityId)}</span>
+                  <div className="trip-actions">
+                    <button type="button" disabled={stopIndex === 0} onClick={() => onMove(dayIndex, stop.id, -1)}>↑</button>
+                    <button type="button" disabled={stopIndex === day.stops.length - 1} onClick={() => onMove(dayIndex, stop.id, 1)}>↓</button>
+                    <button type="button" onClick={() => onToggleVisited(dayIndex, stop.id, stop.state !== "visited")}>
+                      {stop.state === "visited" ? "Undo" : "Visited"}
+                    </button>
+                    <button type="button" onClick={() => onRemove(dayIndex, stop.id)}>Remove</button>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          )}
+        </article>
+      ))}
+    </section>
   );
 }
 
@@ -307,10 +404,19 @@ export default function App() {
   const [savedRouteSnapshots, setSavedRouteSnapshots] = useState<SavedRouteSnapshot[]>([]);
   const [todayVenueIds, setTodayVenueIds] = useState<string[]>([]);
   const [todayVenueSnapshots, setTodayVenueSnapshots] = useState<SavedVenueSnapshot[]>([]);
+  const [todayEventIds, setTodayEventIds] = useState<string[]>([]);
+  const [todayEventOccurrences, setTodayEventOccurrences] = useState<MobileEventOccurrence[]>([]);
+  const [events, setEvents] = useState<MobileEventOccurrence[]>([]);
+  const [eventsUpdatedAt, setEventsUpdatedAt] = useState<string | null>(null);
+  const [trip, setTrip] = useState<Trip | null>(null);
+  const [tripDayIndex, setTripDayIndex] = useState(0);
+  const [clock, setClock] = useState(() => new Date());
+  const [pendingSyncCount, setPendingSyncCount] = useState(0);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine);
   const [refreshing, setRefreshing] = useState(false);
   const [refreshAttempted, setRefreshAttempted] = useState(false);
   const [refreshFailed, setRefreshFailed] = useState(false);
+  const [syncFailed, setSyncFailed] = useState(false);
   const [externalOpenFailed, setExternalOpenFailed] = useState(false);
   const [shareFailed, setShareFailed] = useState(false);
   const [deepLinkFailed, setDeepLinkFailed] = useState(false);
@@ -330,6 +436,8 @@ export default function App() {
   const persistedRouteState = useRef<PersistedRouteState>({ ids: [], snapshots: [] });
   const venuePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
   const routePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
+  const pendingSyncRef = useRef<SyncMutation[]>([]);
+  const syncActive = useRef(false);
   const storageReadyRef = useRef(storageReady);
   const navigationSnapshotRef = useRef<MobileNavigationState>({
     surface,
@@ -384,6 +492,25 @@ export default function App() {
     });
   }, []);
 
+  const queueMutation = useCallback(async (
+    mutation: Omit<SyncMutation, "idempotencyKey" | "createdAt" | "baseVersion">,
+  ) => {
+    const next: SyncMutation = {
+      ...mutation,
+      idempotencyKey: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+      baseVersion: null,
+    };
+    const pending = [...pendingSyncRef.current, next].slice(-200);
+    try {
+      await writePendingSync(pending);
+      pendingSyncRef.current = pending;
+      setPendingSyncCount(pending.length);
+    } catch {
+      setStorageWriteFailed(true);
+    }
+  }, []);
+
   useEffect(() => {
     let active = true;
     void hydrateMobileStorage()
@@ -396,6 +523,13 @@ export default function App() {
         setSavedRouteSnapshots(state.savedRouteSnapshots);
         setTodayVenueIds(state.todayVenueIds);
         setTodayVenueSnapshots(state.todayVenueSnapshots);
+        setTodayEventIds(state.todayEventIds);
+        setTodayEventOccurrences(state.todayEventOccurrences);
+        setEvents(state.eventsSnapshot?.events ?? []);
+        setEventsUpdatedAt(state.eventsSnapshot?.updatedAt ?? null);
+        setTrip(state.trip);
+        pendingSyncRef.current = state.pendingSync;
+        setPendingSyncCount(state.pendingSync.length);
         persistedVenueState.current = {
           ids: state.savedVenueIds,
           snapshots: state.savedVenueSnapshots,
@@ -420,13 +554,50 @@ export default function App() {
     };
   }, [storageRetryNonce]);
 
+  useEffect(() => {
+    if (!storageReady || !online || syncActive.current || !pendingSyncRef.current.length) return;
+    syncActive.current = true;
+    setSyncFailed(false);
+    const controller = new AbortController();
+    void (async () => {
+      try {
+        while (!controller.signal.aborted && pendingSyncRef.current.length) {
+          const mutation = pendingSyncRef.current[0];
+          if (!mutation) break;
+          await pushSyncMutation(mutation, controller.signal);
+          const remaining = pendingSyncRef.current.filter(
+            (item) => item.idempotencyKey !== mutation.idempotencyKey,
+          );
+          await writePendingSync(remaining);
+          pendingSyncRef.current = remaining;
+          setPendingSyncCount(remaining.length);
+        }
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setSyncFailed(true);
+        }
+      } finally {
+        syncActive.current = false;
+      }
+    })();
+    return () => controller.abort();
+  }, [online, pendingSyncCount, storageReady]);
+
   const refresh = useCallback(async (signal?: AbortSignal) => {
     setRefreshing(true);
     setRefreshFailed(false);
     try {
-      const next = await fetchBootstrap(signal);
+      const [next, eventResult] = await Promise.all([
+        fetchBootstrap(signal),
+        fetchEvents(signal).catch(() => null),
+      ]);
       setBootstrap(next);
       void writeCachedBootstrap(next).catch(() => setStorageWriteFailed(true));
+      if (eventResult) {
+        setEvents(eventResult.events);
+        setEventsUpdatedAt(eventResult.updatedAt);
+        void writeEventsSnapshot(eventResult).catch(() => setStorageWriteFailed(true));
+      }
 
       void enqueueVenueState((current) => {
         const savedIds = new Set(current.ids);
@@ -467,6 +638,11 @@ export default function App() {
       controller.abort();
     };
   }, [refresh, storageReady]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setClock(new Date()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     let disposed = false;
@@ -632,6 +808,20 @@ export default function App() {
     for (const route of routes) result.set(route.id, route);
     return result;
   }, [routes, savedRouteSnapshots]);
+  const activeEvents = useMemo(
+    () => events.filter((event) => isEventUsable(event, clock)),
+    [clock, events],
+  );
+  const activeTodayEvents = useMemo(
+    () => todayEventIds
+      .map((id) => (
+        todayEventOccurrences.find((event) => event.id === id)
+        ?? events.find((event) => event.id === id)
+      ))
+      .filter((event): event is MobileEventOccurrence => Boolean(event))
+      .filter((event) => isEventUsable(event, clock)),
+    [clock, events, todayEventIds, todayEventOccurrences],
+  );
 
   useEffect(() => {
     if (!pendingDeepLink) return;
@@ -780,15 +970,22 @@ export default function App() {
     storageMutationActive.current = true;
     setStorageWriteFailed(false);
     const id = snapshot.venue.id;
+    const removing = savedVenueSet.has(id);
     try {
-      await enqueueVenueState((current) => {
-        const removing = current.ids.includes(id);
+      const persisted = await enqueueVenueState((current) => {
+        const removingCurrent = current.ids.includes(id);
         return {
-          ids: removing ? current.ids.filter((item) => item !== id) : [...current.ids, id],
-          snapshots: removing
+          ids: removingCurrent ? current.ids.filter((item) => item !== id) : [...current.ids, id],
+          snapshots: removingCurrent
             ? current.snapshots.filter((item) => item.venue.id !== id)
             : [...current.snapshots.filter((item) => item.venue.id !== id), snapshot],
         };
+      });
+      if (persisted) await queueMutation({
+        entityType: "saved",
+        entityId: id,
+        operation: removing ? "remove" : "save",
+        payload: { entityType: "place", entityId: id },
       });
     } finally {
       storageMutationActive.current = false;
@@ -856,13 +1053,81 @@ export default function App() {
       setTodayVenueIds(ids);
       setTodayVenueSnapshots(snapshots);
       setSelectionNotice(`${snapshot.venue.name} was added to Today and is available offline on this device.`);
+      await queueMutation({
+        entityType: "trip_stop",
+        entityId: snapshot.venue.id,
+        operation: "add_to_day",
+        payload: { entityType: "place", day: "today" },
+      });
     } catch {
       setStorageWriteFailed(true);
     }
   }
 
-  function addToTrip(snapshot: SavedVenueSnapshot) {
-    setSelectionNotice(`${snapshot.venue.name} is ready, but Trip storage is not connected in this build. Nothing was silently saved.`);
+  async function persistTrip(next: Trip) {
+    setStorageWriteFailed(false);
+    try {
+      await writeTrip(next);
+      setTrip(next);
+      setTripDayIndex((current) => Math.min(current, next.days.length - 1));
+      await queueMutation({
+        entityType: "trip_stop",
+        entityId: next.id,
+        operation: "trip_replace",
+        payload: { trip: next },
+      });
+      return true;
+    } catch {
+      setStorageWriteFailed(true);
+      return false;
+    }
+  }
+
+  async function addToTrip(snapshot: SavedVenueSnapshot) {
+    const base = trip ?? createEmptyTrip(3);
+    const next = addTripStop(base, Math.min(tripDayIndex, base.days.length - 1), "place", snapshot.venue.id);
+    if (await persistTrip(next)) {
+      setSelectionNotice(`${snapshot.venue.name} was added to Trip day ${Math.min(tripDayIndex, base.days.length - 1) + 1}.`);
+    }
+  }
+
+  async function addEventToToday(event: MobileEventOccurrence) {
+    if (!isEventUsable(event)) {
+      setSelectionNotice("This event is no longer active and was not added.");
+      return;
+    }
+    const ids = todayEventIds.includes(event.id) ? todayEventIds : [...todayEventIds, event.id];
+    const occurrences = [
+      ...todayEventOccurrences.filter((item) => item.id !== event.id),
+      event,
+    ];
+    try {
+      await writeTodayEventState(ids, occurrences);
+      setTodayEventIds(ids);
+      setTodayEventOccurrences(occurrences);
+      setSelectionNotice(`${event.title} was added to Today and cached on this device.`);
+      await queueMutation({
+        entityType: "trip_stop",
+        entityId: event.id,
+        operation: "add_to_day",
+        payload: { entityType: "event_occurrence", day: "today" },
+      });
+    } catch {
+      setStorageWriteFailed(true);
+    }
+  }
+
+  async function addEventToTrip(event: MobileEventOccurrence) {
+    if (!isEventUsable(event)) {
+      setSelectionNotice("This event is no longer active and was not added.");
+      return;
+    }
+    const base = trip ?? createEmptyTrip(3);
+    const dayIndex = Math.min(tripDayIndex, base.days.length - 1);
+    const next = addTripStop(base, dayIndex, "event_occurrence", event.id);
+    if (await persistTrip(next)) {
+      setSelectionNotice(`${event.title} was added to Trip day ${dayIndex + 1}.`);
+    }
   }
 
   async function goNow(snapshot: SavedVenueSnapshot) {
@@ -878,6 +1143,20 @@ export default function App() {
     } catch {
       setSelectionNotice("Exact directions are unavailable. No generic or unverified destination was opened.");
     }
+  }
+
+  function resolveTripStop(entityType: "place" | "event_occurrence", entityId: string): string {
+    if (entityType === "place") {
+      return venueSnapshotsById.get(entityId)?.venue.name ?? "Saved place unavailable";
+    }
+    const event = [...events, ...todayEventOccurrences].find((item) => item.id === entityId);
+    if (!event) return "Event unavailable";
+    return isEventUsable(event, clock) ? event.title : `${event.title} · expired`;
+  }
+
+  async function editTrip(transform: (current: Trip) => Trip) {
+    if (!trip) return;
+    await persistTrip(transform(trip));
   }
 
   function openRoute(id: string) {
@@ -931,8 +1210,10 @@ export default function App() {
         <div className="status-row" aria-live="polite">
           <span className={online ? "status online" : "status offline"}>{online ? "Online" : "Offline · cached data"}</span>
           {bootstrap ? <span>Updated {formatUpdatedAt(bootstrap.updatedAt)}</span> : null}
+          {pendingSyncCount ? <span>{pendingSyncCount} change{pendingSyncCount === 1 ? "" : "s"} waiting to sync</span> : null}
         </div>
         {refreshFailed ? <p className="notice">The live guide could not refresh. Cached public data remains available.</p> : null}
+        {syncFailed ? <p className="notice">Your offline changes are safe on this device and will retry syncing automatically.</p> : null}
         {externalOpenFailed ? <p className="notice" role="alert">That external link could not be opened safely.</p> : null}
         {shareFailed ? <p className="notice" role="alert">Sharing is unavailable on this device.</p> : null}
         {deepLinkFailed ? <p className="notice" role="alert">That place link is not available in the current public guide.</p> : null}
@@ -945,9 +1226,15 @@ export default function App() {
       </header>
 
       <nav className="tabs" aria-label="Guide sections">
-        {(["places", "today", "routes", "saved"] as const).map((item) => (
+        {([
+          ["places", "Discover"],
+          ["today", "Today"],
+          ["routes", "Trip"],
+          ["events", "What’s On"],
+          ["saved", "My Bali"],
+        ] as const).map(([item, label]) => (
           <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
-            {item[0].toUpperCase() + item.slice(1)}
+            {label}
           </button>
         ))}
       </nav>
@@ -999,7 +1286,13 @@ export default function App() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">{surface === "saved" ? "Saved on this device" : "Public guide"}</p>
-                <h2>{surface === "places" ? "Places" : surface === "today" ? "Today" : surface === "routes" ? "Routes" : "Saved"}</h2>
+                <h2>
+                  {surface === "places" ? "Discover"
+                    : surface === "today" ? "Today"
+                      : surface === "routes" ? "Trip"
+                        : surface === "events" ? "What’s On"
+                          : "My Bali"}
+                </h2>
               </div>
               <button className="refresh-button" type="button" onClick={() => void refresh()} disabled={refreshing || !online}>
                 {refreshing ? "Refreshing…" : "Refresh"}
@@ -1055,11 +1348,66 @@ export default function App() {
               </section>
             ) : null}
 
-            {surface === "today" && !visibleVenueSnapshots.length ? (
+            {surface === "today" && !visibleVenueSnapshots.length && !activeTodayEvents.length ? (
               <section className="empty-state">
                 <h2>Today is empty.</h2>
                 <p>Add a place from Discover or Decide. The plan remains readable offline on this device.</p>
               </section>
+            ) : null}
+
+            {surface === "today" && activeTodayEvents.length ? (
+              <section className="cards" aria-label="Today events">
+                {activeTodayEvents.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
+                    inToday
+                    onAddToToday={() => {}}
+                    onAddToTrip={() => void addEventToTrip(event)}
+                  />
+                ))}
+              </section>
+            ) : null}
+
+            {surface === "today"
+              && todayEventIds.length > activeTodayEvents.length ? (
+              <p className="notice" role="status">
+                {todayEventIds.length - activeTodayEvents.length} expired or unavailable event
+                {todayEventIds.length - activeTodayEvents.length === 1 ? " was" : "s were"} removed from the active plan.
+              </p>
+            ) : null}
+
+            {surface === "events" ? (
+              <>
+                {eventsUpdatedAt ? (
+                  <p className="freshness">
+                    Event availability checked {formatUpdatedAt(eventsUpdatedAt)}.
+                    {!online ? " Showing the last verified offline snapshot." : ""}
+                  </p>
+                ) : null}
+                {activeEvents.length ? (
+                  <section className="cards" aria-label="Active events">
+                    {activeEvents.map((event) => (
+                      <EventCard
+                        key={event.id}
+                        event={event}
+                        inToday={todayEventIds.includes(event.id)}
+                        onAddToToday={() => void addEventToToday(event)}
+                        onAddToTrip={() => void addEventToTrip(event)}
+                      />
+                    ))}
+                  </section>
+                ) : (
+                  <section className="empty-state">
+                    <h2>No verified active events.</h2>
+                    <p>
+                      {online
+                        ? "Nothing is currently published in the verified event feed."
+                        : "Reconnect to refresh What’s On. Expired cached events are never shown as active."}
+                    </p>
+                  </section>
+                )}
+              </>
             ) : null}
 
             {(surface === "routes" || surface === "saved") && visibleRoutes.length ? (
@@ -1075,6 +1423,53 @@ export default function App() {
                   />
                 ))}
               </section>
+            ) : null}
+
+            {surface === "routes" ? (
+              <>
+                <section className="trip-controls">
+                  <label>
+                    Add new stops to
+                    <select
+                      value={tripDayIndex}
+                      disabled={!trip}
+                      onChange={(event) => setTripDayIndex(Number(event.target.value))}
+                    >
+                      {(trip?.days ?? []).map((day, index) => (
+                        <option value={index} key={day.id}>Day {index + 1} · {day.date}</option>
+                      ))}
+                    </select>
+                  </label>
+                  {!trip ? (
+                    <div className="duration-actions" aria-label="Create trip">
+                      {[3, 5, 7, 10].map((duration) => (
+                        <button
+                          type="button"
+                          key={duration}
+                          onClick={() => void persistTrip(createEmptyTrip(duration as 3 | 5 | 7 | 10))}
+                        >
+                          Start {duration}-day trip
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                </section>
+                {trip ? (
+                  <TripPlan
+                    trip={trip}
+                    resolveStop={resolveTripStop}
+                    onMove={(dayIndex, stopId, direction) => void editTrip(
+                      (current) => moveTripStop(current, dayIndex, stopId, direction),
+                    )}
+                    onToggleVisited={(dayIndex, stopId, visited) => void editTrip(
+                      (current) => setTripStopState(current, dayIndex, stopId, visited ? "visited" : "planned"),
+                    )}
+                    onRemove={(dayIndex, stopId) => void editTrip(
+                      (current) => removeTripStop(current, dayIndex, stopId),
+                    )}
+                  />
+                ) : null}
+              </>
             ) : null}
 
             {surface === "saved"

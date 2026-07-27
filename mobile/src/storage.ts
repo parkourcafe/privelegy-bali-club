@@ -11,6 +11,10 @@ import {
   parseMobileVenueCompact,
   type MobileBootstrapPayload,
 } from "./contracts";
+import type { MobileEventOccurrence } from "./api";
+import type { Trip } from "../../lib/journey/contracts";
+import { validateTrip } from "../../lib/journey/trip";
+import type { SyncMutation } from "../../lib/journey/offline-sync";
 
 export const MOBILE_STORAGE_KEYS = {
   bootstrap: "otherbali.mobile.public-bootstrap.v1",
@@ -21,6 +25,10 @@ export const MOBILE_STORAGE_KEYS = {
   savedVenueState: "otherbali.mobile.saved-venue-state.v2",
   savedRouteState: "otherbali.mobile.saved-route-state.v2",
   todayVenueState: "otherbali.mobile.today-venue-state.v1",
+  todayEventState: "otherbali.mobile.today-event-state.v1",
+  eventsSnapshot: "otherbali.mobile.events-snapshot.v1",
+  trip: "otherbali.mobile.trip.v1",
+  pendingSync: "otherbali.mobile.pending-sync.v1",
   navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
 } as const;
@@ -28,7 +36,7 @@ export const MOBILE_STORAGE_KEYS = {
 export const MAX_SAVED_ROUTE_SNAPSHOTS = 100;
 const MAX_SAVED_ROUTE_SNAPSHOT_CANDIDATES = 500;
 
-export type MobileSurface = "places" | "today" | "routes" | "saved";
+export type MobileSurface = "places" | "today" | "routes" | "events" | "saved";
 
 export interface MobileNavigationState {
   surface: MobileSurface;
@@ -58,6 +66,11 @@ export interface MobileStorageState {
   savedRouteSnapshots: SavedRouteSnapshot[];
   todayVenueIds: string[];
   todayVenueSnapshots: SavedVenueSnapshot[];
+  todayEventIds: string[];
+  todayEventOccurrences: MobileEventOccurrence[];
+  eventsSnapshot: { updatedAt: string; events: MobileEventOccurrence[] } | null;
+  trip: Trip | null;
+  pendingSync: SyncMutation[];
   navigation: MobileNavigationState;
 }
 
@@ -261,6 +274,97 @@ function parseSavedVenueState(raw: string | null): {
   }
 }
 
+function parseEventsSnapshot(raw: string | null): {
+  updatedAt: string;
+  events: MobileEventOccurrence[];
+} | null {
+  if (!raw) return null;
+  try {
+    const value = JSON.parse(raw) as Record<string, unknown>;
+    if (!isIsoTimestamp(value.updatedAt) || !Array.isArray(value.events) || value.events.length > 100) return null;
+    const events = value.events.filter((entry): entry is MobileEventOccurrence => {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) return false;
+      const item = entry as Record<string, unknown>;
+      return ["id","eventId","title","startsAt","endsAt","lastVerifiedAt","expiresAt"]
+        .every((field) => typeof item[field] === "string" && String(item[field]).length <= 200)
+        && (item.venueSlug === null || typeof item.venueSlug === "string")
+        && (item.area === null || typeof item.area === "string");
+    });
+    return { updatedAt: value.updatedAt, events };
+  } catch {
+    return null;
+  }
+}
+
+function parseEventState(raw: string | null): {
+  ids: string[];
+  events: MobileEventOccurrence[];
+} | null {
+  if (!raw) return null;
+  try {
+    const value = JSON.parse(raw) as Record<string, unknown>;
+    const ids = parseIds(JSON.stringify(value.ids));
+    const parsed = parseEventsSnapshot(JSON.stringify({
+      updatedAt: new Date(0).toISOString(),
+      events: value.events,
+    }));
+    if (!parsed) return null;
+    const idSet = new Set(ids);
+    return { ids, events: parsed.events.filter((event) => idSet.has(event.id)) };
+  } catch {
+    return null;
+  }
+}
+
+function parseTrip(raw: string | null): Trip | null {
+  if (!raw) return null;
+  try {
+    const value = JSON.parse(raw) as Trip;
+    if (
+      !value
+      || typeof value !== "object"
+      || typeof value.id !== "string"
+      || typeof value.title !== "string"
+      || !/^\d{4}-\d{2}-\d{2}$/.test(value.startDate)
+      || !/^\d{4}-\d{2}-\d{2}$/.test(value.endDate)
+      || !Array.isArray(value.days)
+    ) return null;
+    return validateTrip(value);
+  } catch {
+    return null;
+  }
+}
+
+function parsePendingSync(raw: string | null): SyncMutation[] {
+  if (!raw) return [];
+  try {
+    const value: unknown = JSON.parse(raw);
+    if (!Array.isArray(value)) return [];
+    const unique = new Map<string, SyncMutation>();
+    for (const entry of value.slice(-200)) {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
+      const item = entry as Record<string, unknown>;
+      if (
+        typeof item.idempotencyKey !== "string"
+        || !item.idempotencyKey
+        || item.idempotencyKey.length > 160
+        || !["saved", "visited", "note", "trip_stop"].includes(String(item.entityType))
+        || typeof item.entityId !== "string"
+        || typeof item.operation !== "string"
+        || !item.payload
+        || typeof item.payload !== "object"
+        || Array.isArray(item.payload)
+        || !isIsoTimestamp(item.createdAt)
+        || !(item.baseVersion === null || typeof item.baseVersion === "string")
+      ) continue;
+      unique.set(item.idempotencyKey, item as unknown as SyncMutation);
+    }
+    return [...unique.values()].sort((left, right) => left.createdAt.localeCompare(right.createdAt));
+  } catch {
+    return [];
+  }
+}
+
 function parseSavedRouteState(raw: string | null): {
   ids: string[];
   snapshots: SavedRouteSnapshot[];
@@ -295,7 +399,7 @@ function parseNavigation(raw: string | null): MobileNavigationState {
     const boundedId = (id: unknown) => id === null
       || (typeof id === "string" && id.length > 0 && id.length <= 160);
     if (
-      !["places", "today", "routes", "saved"].includes(String(surface))
+      !["places", "today", "routes", "events", "saved"].includes(String(surface))
       || !boundedId(selectedVenueId)
       || !boundedId(selectedRouteId)
       || (selectedVenueId !== null && selectedRouteId !== null)
@@ -481,6 +585,10 @@ export async function hydrateMobileStorage(
     snapshotsRaw,
     routeSnapshotsRaw,
     todayVenueStateRaw,
+    todayEventStateRaw,
+    eventsSnapshotRaw,
+    tripRaw,
+    pendingSyncRaw,
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
@@ -491,6 +599,10 @@ export async function hydrateMobileStorage(
     readRawWithMigration(MOBILE_STORAGE_KEYS.savedVenueSnapshots, preferences, legacyStorage),
     readRawWithMigration(MOBILE_STORAGE_KEYS.savedRouteSnapshots, preferences, legacyStorage),
     readRawWithMigration(MOBILE_STORAGE_KEYS.todayVenueState, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.todayEventState, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.eventsSnapshot, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.trip, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.pendingSync, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(
       MOBILE_STORAGE_KEYS.navigation,
       preferences,
@@ -501,6 +613,7 @@ export async function hydrateMobileStorage(
   const savedVenueState = parseSavedVenueState(savedVenueStateRaw);
   const savedRouteState = parseSavedRouteState(savedRouteStateRaw);
   const todayVenueState = parseSavedVenueState(todayVenueStateRaw);
+  const todayEventState = parseEventState(todayEventStateRaw);
   const savedVenueIds = savedVenueState?.ids ?? parseIds(savedVenueIdsRaw);
   const savedRouteIds = savedRouteState?.ids ?? parseIds(savedRouteIdsRaw);
   const savedRouteIdSet = new Set(savedRouteIds);
@@ -514,6 +627,11 @@ export async function hydrateMobileStorage(
         .filter((snapshot) => savedRouteIdSet.has(snapshot.route.id)),
     todayVenueIds: todayVenueState?.ids ?? [],
     todayVenueSnapshots: todayVenueState?.snapshots ?? [],
+    todayEventIds: todayEventState?.ids ?? [],
+    todayEventOccurrences: todayEventState?.events ?? [],
+    eventsSnapshot: parseEventsSnapshot(eventsSnapshotRaw),
+    trip: parseTrip(tripRaw),
+    pendingSync: parsePendingSync(pendingSyncRaw),
     navigation: parseNavigation(navigationRaw),
   };
 }
@@ -613,6 +731,57 @@ export function writeTodayVenueState(
     JSON.stringify({ ids: normalizedIds, snapshots: normalizedSnapshots }),
     options,
   );
+}
+
+export function writeEventsSnapshot(
+  snapshot: { updatedAt: string; events: MobileEventOccurrence[] },
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalized = parseEventsSnapshot(JSON.stringify(snapshot));
+  if (!normalized) return Promise.reject(new Error("invalid_events_snapshot"));
+  return writeRaw(MOBILE_STORAGE_KEYS.eventsSnapshot, JSON.stringify(normalized), options);
+}
+
+export function writeTodayEventState(
+  ids: string[],
+  events: MobileEventOccurrence[],
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalizedIds = boundedIds(ids);
+  const idSet = new Set(normalizedIds);
+  const parsed = parseEventsSnapshot(JSON.stringify({
+    updatedAt: new Date(0).toISOString(),
+    events,
+  }));
+  if (!parsed) return Promise.reject(new Error("invalid_today_event_state"));
+  return writeRaw(
+    MOBILE_STORAGE_KEYS.todayEventState,
+    JSON.stringify({
+      ids: normalizedIds,
+      events: parsed.events.filter((event) => idSet.has(event.id)),
+    }),
+    options,
+  );
+}
+
+export function writeTrip(
+  trip: Trip,
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  try {
+    const normalized = validateTrip(structuredClone(trip));
+    return writeRaw(MOBILE_STORAGE_KEYS.trip, JSON.stringify(normalized), options);
+  } catch {
+    return Promise.reject(new Error("invalid_trip"));
+  }
+}
+
+export function writePendingSync(
+  mutations: SyncMutation[],
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalized = parsePendingSync(JSON.stringify(mutations));
+  return writeRaw(MOBILE_STORAGE_KEYS.pendingSync, JSON.stringify(normalized), options);
 }
 
 export function writeNavigationState(

@@ -6,6 +6,7 @@ import {
   type MobileRouteDetailPayload,
   type MobileVenueDetailPayload,
 } from "./contracts";
+import type { SyncMutation } from "../../lib/journey/offline-sync";
 
 export const MOBILE_API_ORIGIN = __MOBILE_API_ORIGIN__;
 export const MOBILE_API_TIMEOUT_MS = 12_000;
@@ -32,6 +33,18 @@ export interface MobileDecisionResult {
   backup: MobileDecisionPlace | null;
   contrast: MobileDecisionPlace | null;
   emptyStateReason: string | null;
+}
+
+export interface MobileEventOccurrence {
+  id: string;
+  eventId: string;
+  title: string;
+  venueSlug: string | null;
+  area: string | null;
+  startsAt: string;
+  endsAt: string;
+  lastVerifiedAt: string;
+  expiresAt: string;
 }
 
 const MOBILE_HEADERS = {
@@ -149,6 +162,89 @@ export async function createDecision(
   });
   if (!response.ok) throw new Error(`Decision request failed with ${response.status}`);
   return parseDecisionResponse(await response.json());
+}
+
+export function parseEventsResponse(value: unknown): {
+  updatedAt: string;
+  events: MobileEventOccurrence[];
+} {
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid events response");
+  const envelope = value as Record<string, unknown>;
+  const updatedAt = envelope.updatedAt;
+  const data = envelope.data;
+  if (
+    typeof updatedAt !== "string"
+    || !Number.isFinite(Date.parse(updatedAt))
+    || !data
+    || typeof data !== "object"
+    || Array.isArray(data)
+    || !Array.isArray((data as Record<string, unknown>).events)
+  ) throw new Error("Invalid events response");
+  const source = (data as { events: unknown[] }).events;
+  if (source.length > 100) throw new Error("Invalid events response");
+  const events = source.map((value): MobileEventOccurrence => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid event");
+    const item = value as Record<string, unknown>;
+    const bounded = (field: string, max: number) => {
+      const entry = item[field];
+      if (typeof entry !== "string" || !entry.trim() || entry.length > max) throw new Error("Invalid event");
+      return entry;
+    };
+    const timestamp = (field: string) => {
+      const entry = bounded(field, 40);
+      if (!Number.isFinite(Date.parse(entry))) throw new Error("Invalid event timestamp");
+      return entry;
+    };
+    const event = {
+      id: bounded("id", 160),
+      eventId: bounded("eventId", 160),
+      title: bounded("title", 200),
+      venueSlug: item.venueSlug === null ? null : bounded("venueSlug", 160),
+      area: item.area === null ? null : bounded("area", 160),
+      startsAt: timestamp("startsAt"),
+      endsAt: timestamp("endsAt"),
+      lastVerifiedAt: timestamp("lastVerifiedAt"),
+      expiresAt: timestamp("expiresAt"),
+    };
+    if (
+      Date.parse(event.endsAt) <= Date.parse(event.startsAt)
+      || Date.parse(event.expiresAt) <= Date.parse(event.lastVerifiedAt)
+    ) throw new Error("Invalid event lifecycle");
+    return event;
+  });
+  if (new Set(events.map((event) => event.id)).size !== events.length) {
+    throw new Error("Duplicate event occurrence");
+  }
+  return { updatedAt, events };
+}
+
+export async function fetchEvents(signal?: AbortSignal) {
+  return await fetchMobilePayload(
+    "/api/mobile/v1/events",
+    "Events",
+    parseEventsResponse,
+    signal,
+  );
+}
+
+export async function pushSyncMutation(
+  mutation: SyncMutation,
+  signal?: AbortSignal,
+): Promise<void> {
+  const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/sync`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      ...MOBILE_HEADERS,
+      "Content-Type": "application/json",
+      "Idempotency-Key": mutation.idempotencyKey,
+    },
+    body: JSON.stringify({ input: mutation }),
+    signal,
+  });
+  if (!response.ok) throw new Error(`Sync request failed with ${response.status}`);
+  const value = await response.json() as { data?: { ok?: unknown } };
+  if (value.data?.ok !== true) throw new Error("Sync mutation was not accepted");
 }
 
 export async function fetchBootstrap(signal?: AbortSignal): Promise<MobileBootstrapPayload> {
