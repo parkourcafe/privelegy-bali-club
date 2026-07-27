@@ -18,18 +18,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Bali" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob-title">
                                 <rect key="frame" x="32" y="297" width="311" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
-                                <color key="textColor" red="0.9568627451" green="0.9254901961" blue="0.8784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.168627451" green="0.1019607843" blue="0.07450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALI GUIDE" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob-subtitle">
                                 <rect key="frame" x="32" y="350" width="311" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                <color key="textColor" red="0.7764705882" green="0.6039215686" blue="0.3607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.0" green="0.3490196078" blue="0.3843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="safe-area"/>
-                        <color key="backgroundColor" red="0.0862745098" green="0.062745098" blue="0.0470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9803921569" green="0.9647058824" blue="0.937254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ob-title" firstAttribute="centerX" secondItem="snD-IY-ifK" secondAttribute="centerX" id="title-center-x"/>
                             <constraint firstItem="ob-title" firstAttribute="centerY" secondItem="snD-IY-ifK" secondAttribute="centerY" constant="-20" id="title-center-y"/>
