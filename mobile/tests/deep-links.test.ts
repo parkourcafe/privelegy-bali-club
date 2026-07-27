@@ -13,6 +13,7 @@ function bridge(overrides: Partial<MobileNativeBridge> = {}): MobileNativeBridge
     getLaunchUrl: async () => null,
     addAppUrlListener: async () => ({ remove: async () => undefined }),
     addBackButtonListener: async () => ({ remove: async () => undefined }),
+    addAppStateListener: async () => ({ remove: async () => undefined }),
     exitApp: async () => undefined,
     getNetworkConnected: async () => true,
     addNetworkListener: async () => ({ remove: async () => undefined }),

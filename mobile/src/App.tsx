@@ -26,6 +26,7 @@ import {
   openControlledExternal,
   shareMobileTarget,
   startBackButtonMonitoring,
+  startAppStateMonitoring,
   startDeepLinkMonitoring,
   startNetworkMonitoring,
 } from "./native-runtime";
@@ -35,6 +36,7 @@ import {
   MAX_SAVED_ROUTE_SNAPSHOTS,
   writeCachedBootstrap,
   writeNavigationState,
+  writeNavigationSession,
   writePendingSync,
   writeSavedRouteState,
   writeSavedVenueState,
@@ -56,6 +58,13 @@ import {
   setTripStopState,
 } from "./trip-planner";
 import type { OfflineBaliManifest } from "../../lib/journey/offline-bali";
+import {
+  buildCompanionSuggestions,
+  createNavigationSession,
+  transitionNavigationSession,
+  type CompanionSuggestion,
+  type NavigationSession,
+} from "../../lib/journey/adaptive-companion";
 
 interface LoadedVenueDetail {
   venue: MobileVenue;
@@ -270,6 +279,72 @@ function OfflineBaliManager({
   );
 }
 
+function AdaptiveCompanion({
+  suggestions,
+  districts,
+  area,
+  online,
+  onAreaChange,
+  onOpen,
+  onAddToToday,
+  onGoNow,
+}: {
+  suggestions: CompanionSuggestion[];
+  districts: Array<{ slug: string; name: string }>;
+  area: string | null;
+  online: boolean;
+  onAreaChange: (area: string | null) => void;
+  onOpen: (venueId: string) => void;
+  onAddToToday: (venueId: string) => void;
+  onGoNow: (venueId: string) => void;
+}) {
+  return (
+    <section className="companion" aria-labelledby="companion-title">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Adaptive companion</p>
+          <h2 id="companion-title">Your next move</h2>
+        </div>
+      </div>
+      <label>
+        Area context
+        <select value={area ?? ""} onChange={(event) => onAreaChange(event.target.value || null)}>
+          <option value="">Any published area</option>
+          {districts.map((district) => (
+            <option value={district.slug} key={district.slug}>{district.name}</option>
+          ))}
+        </select>
+      </label>
+      <p className="truth-note">
+        {online
+          ? "Suggestions use your Today, Trip, saved places and selected area. Live opening and traffic are never inferred."
+          : "Using cached guide context. Current opening, traffic and travel time require internet."}
+      </p>
+      {suggestions.length ? (
+        <div className="companion-results" aria-live="polite">
+          {suggestions.map((suggestion) => (
+            <article className="card" key={suggestion.venueId}>
+              <div className="card-copy">
+                <p className="card-kicker">Context match</p>
+                <h3>{suggestion.name}</h3>
+                <p>{suggestion.reason}</p>
+                <p className="truth-note">{suggestion.caveat}</p>
+              </div>
+              <div className="card-actions">
+                <button type="button" className="detail-button" onClick={() => onOpen(suggestion.venueId)}>Details</button>
+                <button type="button" className="save-button" onClick={() => onAddToToday(suggestion.venueId)}>Add to Today</button>
+                <button type="button" className="save-button" disabled={!online} onClick={() => onGoNow(suggestion.venueId)}>
+                  {online ? "Go now" : "Internet required"}
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : <p>No unvisited published candidates are available for this context.</p>}
+    </section>
+  );
+}
+
 function VenueDetail({
   snapshot,
   detail,
@@ -463,6 +538,9 @@ export default function App() {
   const [events, setEvents] = useState<MobileEventOccurrence[]>([]);
   const [eventsUpdatedAt, setEventsUpdatedAt] = useState<string | null>(null);
   const [offlineBaliManifest, setOfflineBaliManifest] = useState<OfflineBaliManifest | null>(null);
+  const [navigationSession, setNavigationSession] = useState<NavigationSession | null>(null);
+  const navigationSessionRef = useRef<NavigationSession | null>(null);
+  const [companionArea, setCompanionArea] = useState<string | null>(null);
   const [trip, setTrip] = useState<Trip | null>(null);
   const [tripDayIndex, setTripDayIndex] = useState(0);
   const [clock, setClock] = useState(() => new Date());
@@ -583,6 +661,8 @@ export default function App() {
         setEvents(state.eventsSnapshot?.events ?? []);
         setEventsUpdatedAt(state.eventsSnapshot?.updatedAt ?? null);
         setTrip(state.trip);
+        setNavigationSession(state.navigationSession);
+        navigationSessionRef.current = state.navigationSession;
         pendingSyncRef.current = state.pendingSync;
         setPendingSyncCount(state.pendingSync.length);
         persistedVenueState.current = {
@@ -598,6 +678,7 @@ export default function App() {
         setSelectedRouteId(state.navigation.selectedRouteId);
         setInitialScrollY(state.navigation.scrollY);
         setDiscoveryIndex(state.navigation.discoveryIndex ?? 0);
+        setCompanionArea(state.navigation.companionArea ?? null);
         navigationSnapshotRef.current = state.navigation;
         setStorageReady(true);
       })
@@ -608,6 +689,38 @@ export default function App() {
       active = false;
     };
   }, [storageRetryNonce]);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    let disposed = false;
+    let handle: Awaited<ReturnType<typeof startAppStateMonitoring>> | null = null;
+    void startAppStateMonitoring((active) => {
+      if (disposed) return;
+      const current = navigationSessionRef.current;
+      if (!current) return;
+      const nextState = active && current.state === "away"
+        ? "returned"
+        : !active && current.state === "handoff_pending"
+          ? "away"
+          : null;
+      if (!nextState) return;
+      try {
+        const next = transitionNavigationSession(current, nextState);
+        navigationSessionRef.current = next;
+        setNavigationSession(next);
+        void writeNavigationSession(next).catch(() => setStorageWriteFailed(true));
+      } catch {
+        // A stale lifecycle callback must not corrupt a terminal navigation session.
+      }
+    }).then((next) => {
+      if (disposed && next) void next.remove();
+      else handle = next;
+    }).catch(() => {});
+    return () => {
+      disposed = true;
+      if (handle) void handle.remove();
+    };
+  }, [storageReady]);
 
   useEffect(() => {
     if (!storageReady || !online || syncActive.current || !pendingSyncRef.current.length) return;
@@ -879,6 +992,22 @@ export default function App() {
       .filter((event) => isEventUsable(event, clock)),
     [clock, events, todayEventIds, todayEventOccurrences],
   );
+  const companionSuggestions = useMemo(() => {
+    const tripStops = trip?.days.flatMap((day) => day.stops) ?? [];
+    return buildCompanionSuggestions(venues, {
+      manualArea: companionArea,
+      online,
+      now: clock.toISOString(),
+      todayVenueIds,
+      tripVenueIds: tripStops
+        .filter((stop) => stop.entityType === "place" && stop.state !== "visited")
+        .map((stop) => stop.entityId),
+      visitedVenueIds: tripStops
+        .filter((stop) => stop.entityType === "place" && stop.state === "visited")
+        .map((stop) => stop.entityId),
+      savedVenueIds,
+    });
+  }, [clock, companionArea, online, savedVenueIds, todayVenueIds, trip, venues]);
 
   useEffect(() => {
     if (!pendingDeepLink) return;
@@ -1196,7 +1325,24 @@ export default function App() {
     try {
       const cached = snapshot.detail?.mapsUrl ? snapshot.detail : null;
       const venue = cached ?? (await fetchVenueDetail(snapshot.venue.slug)).data.venue;
-      await openExternal(venue.mapsUrl, "google_maps");
+      const session = createNavigationSession({
+        id: crypto.randomUUID(),
+        targetType: "place",
+        targetId: snapshot.venue.id,
+        targetName: snapshot.venue.name,
+        sourceSurface: surface,
+        mode: "external_maps",
+      });
+      await writeNavigationSession(session);
+      navigationSessionRef.current = session;
+      setNavigationSession(session);
+      const opened = await openExternal(venue.mapsUrl, "google_maps");
+      if (!opened && navigationSessionRef.current?.id === session.id) {
+        const failed = transitionNavigationSession(session, "failed");
+        navigationSessionRef.current = failed;
+        setNavigationSession(failed);
+        await writeNavigationSession(failed);
+      }
     } catch {
       setSelectionNotice("Exact directions are unavailable. No generic or unverified destination was opened.");
     }
@@ -1229,6 +1375,25 @@ export default function App() {
       beforeOpen: persistNavigation,
     });
     setExternalOpenFailed(!opened);
+    return opened;
+  }
+
+  function changeCompanionArea(area: string | null) {
+    setCompanionArea(area);
+    navigationSnapshotRef.current = { ...navigationSnapshotRef.current, companionArea: area };
+    void writeNavigationState({
+      ...navigationSnapshotRef.current,
+      scrollY: Math.max(0, window.scrollY),
+    }).catch(() => setStorageWriteFailed(true));
+  }
+
+  function completeNavigationSession() {
+    const current = navigationSessionRef.current;
+    if (!current || current.state !== "returned") return;
+    const completed = transitionNavigationSession(current, "completed");
+    navigationSessionRef.current = completed;
+    setNavigationSession(completed);
+    void writeNavigationSession(completed).catch(() => setStorageWriteFailed(true));
   }
 
   async function shareTarget(target: MobileDeepLinkTarget, title: string) {
@@ -1280,6 +1445,20 @@ export default function App() {
           </p>
         ) : null}
         {selectionNotice ? <p className="notice" role="status">{selectionNotice}</p> : null}
+        {navigationSession && !["failed", "completed"].includes(navigationSession.state) ? (
+          <section className="navigation-session" aria-live="polite">
+            <p className="eyebrow">Integrated navigation</p>
+            <strong>{navigationSession.targetName}</strong>
+            <span>
+              {navigationSession.state === "returned"
+                ? "Returned from Maps · your place in Other Bali was restored."
+                : "External Maps handoff active · route guidance remains with the provider."}
+            </span>
+            {navigationSession.state === "returned" ? (
+              <button type="button" onClick={completeNavigationSession}>Done</button>
+            ) : null}
+          </section>
+        ) : null}
       </header>
 
       <nav className="tabs" aria-label="Guide sections">
@@ -1410,6 +1589,25 @@ export default function App() {
                 <h2>Today is empty.</h2>
                 <p>Add a place from Discover or Decide. The plan remains readable offline on this device.</p>
               </section>
+            ) : null}
+
+            {surface === "today" ? (
+              <AdaptiveCompanion
+                suggestions={companionSuggestions}
+                districts={(bootstrap?.data.districts ?? []).map(({ slug, name }) => ({ slug, name }))}
+                area={companionArea}
+                online={online}
+                onAreaChange={changeCompanionArea}
+                onOpen={openVenue}
+                onAddToToday={(venueId) => {
+                  const snapshot = venueSnapshotsById.get(venueId);
+                  if (snapshot) void addToToday(snapshot);
+                }}
+                onGoNow={(venueId) => {
+                  const snapshot = venueSnapshotsById.get(venueId);
+                  if (snapshot) void goNow(snapshot);
+                }}
+              />
             ) : null}
 
             {surface === "today" && activeTodayEvents.length ? (

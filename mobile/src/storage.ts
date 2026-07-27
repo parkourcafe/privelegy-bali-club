@@ -19,6 +19,10 @@ import {
   parseOfflinePackStates,
   type OfflinePackState,
 } from "../../lib/journey/offline-bali";
+import {
+  parseNavigationSession,
+  type NavigationSession,
+} from "../../lib/journey/adaptive-companion";
 
 export const MOBILE_STORAGE_KEYS = {
   bootstrap: "otherbali.mobile.public-bootstrap.v1",
@@ -34,6 +38,7 @@ export const MOBILE_STORAGE_KEYS = {
   trip: "otherbali.mobile.trip.v1",
   pendingSync: "otherbali.mobile.pending-sync.v1",
   offlinePacks: "otherbali.mobile.offline-packs.v1",
+  navigationSession: "otherbali.mobile.navigation-session.v1",
   navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
 } as const;
@@ -49,6 +54,7 @@ export interface MobileNavigationState {
   selectedRouteId: string | null;
   scrollY: number;
   discoveryIndex?: number;
+  companionArea?: string | null;
 }
 
 export interface SavedVenueSnapshot {
@@ -77,6 +83,7 @@ export interface MobileStorageState {
   trip: Trip | null;
   pendingSync: SyncMutation[];
   offlinePacks: OfflinePackState[];
+  navigationSession: NavigationSession | null;
   navigation: MobileNavigationState;
 }
 
@@ -426,12 +433,23 @@ function parseNavigation(raw: string | null): MobileNavigationState {
       return DEFAULT_NAVIGATION_STATE;
     }
     const discoveryIndex = candidate.discoveryIndex;
+    const companionArea = candidate.companionArea;
+    if (!(
+      companionArea === undefined
+      || companionArea === null
+      || (
+        typeof companionArea === "string"
+        && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(companionArea)
+        && companionArea.length <= 120
+      )
+    )) return DEFAULT_NAVIGATION_STATE;
     if (discoveryIndex === undefined) {
       return {
         surface: surface as MobileSurface,
         selectedVenueId: selectedVenueId as string | null,
         selectedRouteId: selectedRouteId as string | null,
         scrollY,
+        ...(companionArea === undefined ? {} : { companionArea }),
       };
     }
     if (!Number.isInteger(discoveryIndex) || Number(discoveryIndex) < 0 || Number(discoveryIndex) > 10_000) {
@@ -443,6 +461,7 @@ function parseNavigation(raw: string | null): MobileNavigationState {
       selectedRouteId: selectedRouteId as string | null,
       scrollY,
       discoveryIndex: Number(discoveryIndex),
+      ...(companionArea === undefined ? {} : { companionArea }),
     };
   } catch {
     return DEFAULT_NAVIGATION_STATE;
@@ -605,6 +624,7 @@ export async function hydrateMobileStorage(
     tripRaw,
     pendingSyncRaw,
     offlinePacksRaw,
+    navigationSessionRaw,
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
@@ -620,6 +640,7 @@ export async function hydrateMobileStorage(
     readRawWithMigration(MOBILE_STORAGE_KEYS.trip, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.pendingSync, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.offlinePacks, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.navigationSession, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(
       MOBILE_STORAGE_KEYS.navigation,
       preferences,
@@ -650,6 +671,14 @@ export async function hydrateMobileStorage(
     trip: parseTrip(tripRaw),
     pendingSync: parsePendingSync(pendingSyncRaw),
     offlinePacks: parseOfflinePacks(offlinePacksRaw),
+    navigationSession: (() => {
+      if (!navigationSessionRaw) return null;
+      try {
+        return parseNavigationSession(JSON.parse(navigationSessionRaw) as unknown);
+      } catch {
+        return null;
+      }
+    })(),
     navigation: parseNavigation(navigationRaw),
   };
 }
@@ -809,6 +838,19 @@ export function writeOfflinePackStates(
   return writeRaw(
     MOBILE_STORAGE_KEYS.offlinePacks,
     JSON.stringify(parseOfflinePackStates(packs)),
+    options,
+  );
+}
+
+export function writeNavigationSession(
+  session: NavigationSession,
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalized = parseNavigationSession(session);
+  if (!normalized) return Promise.reject(new Error("invalid_navigation_session"));
+  return writeRaw(
+    MOBILE_STORAGE_KEYS.navigationSession,
+    JSON.stringify(normalized),
     options,
   );
 }

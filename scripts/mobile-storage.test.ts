@@ -6,6 +6,7 @@ import {
   MOBILE_STORAGE_KEYS,
   writeNavigationState,
   writeOfflinePackStates,
+  writeNavigationSession,
   writeEventsSnapshot,
   writeSavedRouteIds,
   writeSavedRouteState,
@@ -154,6 +155,29 @@ test("Offline Level 3 pack state persists only validated bounded records", async
   }], options);
   const hydrated = await hydrateMobileStorage(options);
   assert.deepEqual(hydrated.offlinePacks.map((pack) => pack.regionId), ["ubud"]);
+});
+
+test("Integrated Navigation restores a bounded session without precise location", async () => {
+  const preferences = new MemoryPreferences();
+  const options = { preferences, legacyStorage: null };
+  await writeNavigationSession({
+    id: "12345678-1234-1234-1234-123456789abc",
+    targetType: "place",
+    targetId: "venue-1",
+    targetName: "Sample Cafe",
+    sourceSurface: "today",
+    mode: "external_maps",
+    state: "away",
+    startedAt: "2026-07-27T04:00:00.000Z",
+    updatedAt: "2026-07-27T04:01:00.000Z",
+    returnedAt: null,
+  }, options);
+  const hydrated = await hydrateMobileStorage(options);
+  assert.equal(hydrated.navigationSession?.state, "away");
+  assert.doesNotMatch(
+    preferences.values.get(MOBILE_STORAGE_KEYS.navigationSession) ?? "",
+    /latitude|longitude|mapsUrl|https:/i,
+  );
 });
 
 test("corrupt offline event and Trip state fail closed without erasing other state", async () => {
