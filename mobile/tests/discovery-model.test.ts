@@ -2,10 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import type { MobileVenueCompact } from "../../lib/mobile-api/contracts";
 import {
+  buildSharedCandidateUniverse,
   clampFeedPosition,
   decisionRequestReady,
   filterMapListCards,
   nextFeedPosition,
+  pageCandidateUniverse,
   toDiscoveryCards,
 } from "../src/discovery-model";
 
@@ -43,3 +45,40 @@ test("decision request requires all explicit inputs before submission", () => {
   assert.equal(decisionRequestReady({ area: "Sanur", company: "", moment: "Calm", budget: "Mid", ending: "Early" }), false);
 });
 
+test("cursor pages come from one deterministic filtered universe without paid influence or cross-fill", () => {
+  const input = [...venues, { ...venues[0]!, name: "Duplicate A", isSponsored: true }];
+  const universe = buildSharedCandidateUniverse(input, {
+    district: "sanur",
+    category: "cafe",
+  });
+  const changedPaid = buildSharedCandidateUniverse(
+    input.map((venue) => ({ ...venue, isSponsored: !venue.isSponsored })),
+    { district: "sanur", category: "cafe" },
+  );
+
+  assert.deepEqual(universe.map((venue) => venue.id), ["a", "c"]);
+  assert.deepEqual(
+    changedPaid.map((venue) => venue.id),
+    universe.map((venue) => venue.id),
+  );
+  assert.deepEqual(
+    buildSharedCandidateUniverse(venues, {
+      district: "uluwatu",
+      category: "cafe",
+    }),
+    [],
+  );
+
+  const first = pageCandidateUniverse(universe, { cursor: null, limit: 1 });
+  assert.deepEqual(first.items.map((venue) => venue.id), ["a"]);
+  assert.equal(typeof first.nextCursor, "string");
+  assert.equal(first.end, false);
+
+  const second = pageCandidateUniverse(universe, {
+    cursor: first.nextCursor,
+    limit: 1,
+  });
+  assert.deepEqual(second.items.map((venue) => venue.id), ["c"]);
+  assert.equal(second.nextCursor, null);
+  assert.equal(second.end, true);
+});

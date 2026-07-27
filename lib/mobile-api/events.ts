@@ -10,6 +10,8 @@ export interface MobileEventOccurrence {
   area: string | null;
   startsAt: string;
   endsAt: string;
+  status: "scheduled" | "cancelled";
+  cancellationReason: string | null;
   lastVerifiedAt: string;
   expiresAt: string;
 }
@@ -43,10 +45,8 @@ export async function getActiveMobileEvents(
   try {
     result = await client
       .from("v12_event_occurrences")
-      .select("id,event_id,title,venue_slug,area,starts_at,ends_at,last_verified_at,expires_at")
-      .eq("status", "scheduled")
+      .select("id,event_id,title,venue_slug,area,starts_at,ends_at,status,cancellation_reason,last_verified_at,expires_at")
       .eq("publication_status", "published")
-      .gt("ends_at", iso)
       .gt("expires_at", iso)
       .order("starts_at", { ascending: true })
       .limit(100);
@@ -65,6 +65,8 @@ export async function getActiveMobileEvents(
     area: row.area ? String(row.area) : null,
     startsAt: String(row.starts_at),
     endsAt: String(row.ends_at),
+    status: row.status === "cancelled" ? "cancelled" : "scheduled",
+    cancellationReason: row.cancellation_reason ? String(row.cancellation_reason) : null,
     lastVerifiedAt: String(row.last_verified_at),
     expiresAt: String(row.expires_at),
   }));

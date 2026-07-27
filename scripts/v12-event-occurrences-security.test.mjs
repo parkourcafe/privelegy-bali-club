@@ -25,12 +25,16 @@ test("event occurrences are default-deny and distinct from analytics events", ()
   assert.doesNotMatch(migration, /create table if not exists public\.events\b/);
 });
 
-test("mobile event feed filters cancelled, unpublished and expired occurrences", () => {
-  assert.match(adapter, /\.eq\("status", "scheduled"\)/);
+test("mobile event feed exposes published lifecycle records until reconciliation expiry", () => {
+  assert.match(
+    adapter,
+    /\.select\("id,event_id,title,venue_slug,area,starts_at,ends_at,status,cancellation_reason,last_verified_at,expires_at"\)/,
+  );
   assert.match(adapter, /\.eq\("publication_status", "published"\)/);
-  assert.match(adapter, /\.gt\("ends_at", iso\)/);
   assert.match(adapter, /\.gt\("expires_at", iso\)/);
   assert.match(adapter, /\.limit\(100\)/);
+  assert.doesNotMatch(adapter, /\.eq\("status", "scheduled"\)/);
+  assert.match(migration, /status <> 'cancelled' or cancellation_reason is not null/);
   assert.match(route, /"Access-Control-Allow-Methods": "GET, OPTIONS"/);
   assert.doesNotMatch(route, /POST|PATCH|DELETE/);
 });
