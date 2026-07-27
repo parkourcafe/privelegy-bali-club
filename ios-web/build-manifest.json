@@ -3,11 +3,12 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-JLNX2REC.css",
-    "./assets/app-P4C5FT4W.js"
+    "./assets/app-35LNSR2N.js",
+    "./assets/app-D7USJOBF.css"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
+    "lib/day-builder.ts",
     "lib/external-links.ts",
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
@@ -25,5 +26,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "a5f77a21d6b887ee8d81d273597ff114f8464cc67f7e6c5f7f28bb47f4916595"
+  "sourceHash": "2e9b5aef02b019f89ca3dbf7c0a6bd62f218a578c5d0a978adea5d9bd9acf23a"
 }

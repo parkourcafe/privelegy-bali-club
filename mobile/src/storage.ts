@@ -20,20 +20,22 @@ export const MOBILE_STORAGE_KEYS = {
   savedRouteSnapshots: "otherbali.mobile.saved-route-details.v1",
   savedVenueState: "otherbali.mobile.saved-venue-state.v2",
   savedRouteState: "otherbali.mobile.saved-route-state.v2",
-  navigation: "otherbali.mobile.navigation-state.v2",
+  todayVenueState: "otherbali.mobile.today-venue-state.v1",
+  navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
 } as const;
 
 export const MAX_SAVED_ROUTE_SNAPSHOTS = 100;
 const MAX_SAVED_ROUTE_SNAPSHOT_CANDIDATES = 500;
 
-export type MobileSurface = "places" | "routes" | "saved";
+export type MobileSurface = "places" | "today" | "routes" | "saved";
 
 export interface MobileNavigationState {
   surface: MobileSurface;
   selectedVenueId: string | null;
   selectedRouteId: string | null;
   scrollY: number;
+  discoveryIndex?: number;
 }
 
 export interface SavedVenueSnapshot {
@@ -54,6 +56,8 @@ export interface MobileStorageState {
   savedRouteIds: string[];
   savedVenueSnapshots: SavedVenueSnapshot[];
   savedRouteSnapshots: SavedRouteSnapshot[];
+  todayVenueIds: string[];
+  todayVenueSnapshots: SavedVenueSnapshot[];
   navigation: MobileNavigationState;
 }
 
@@ -73,6 +77,7 @@ export const DEFAULT_NAVIGATION_STATE: MobileNavigationState = {
   selectedVenueId: null,
   selectedRouteId: null,
   scrollY: 0,
+  discoveryIndex: 0,
 };
 
 function browserLegacyStorage(): Storage | null {
@@ -290,7 +295,7 @@ function parseNavigation(raw: string | null): MobileNavigationState {
     const boundedId = (id: unknown) => id === null
       || (typeof id === "string" && id.length > 0 && id.length <= 160);
     if (
-      !["places", "routes", "saved"].includes(String(surface))
+      !["places", "today", "routes", "saved"].includes(String(surface))
       || !boundedId(selectedVenueId)
       || !boundedId(selectedRouteId)
       || (selectedVenueId !== null && selectedRouteId !== null)
@@ -301,11 +306,24 @@ function parseNavigation(raw: string | null): MobileNavigationState {
     ) {
       return DEFAULT_NAVIGATION_STATE;
     }
+    const discoveryIndex = candidate.discoveryIndex;
+    if (discoveryIndex === undefined) {
+      return {
+        surface: surface as MobileSurface,
+        selectedVenueId: selectedVenueId as string | null,
+        selectedRouteId: selectedRouteId as string | null,
+        scrollY,
+      };
+    }
+    if (!Number.isInteger(discoveryIndex) || Number(discoveryIndex) < 0 || Number(discoveryIndex) > 10_000) {
+      return DEFAULT_NAVIGATION_STATE;
+    }
     return {
       surface: surface as MobileSurface,
       selectedVenueId: selectedVenueId as string | null,
       selectedRouteId: selectedRouteId as string | null,
       scrollY,
+      discoveryIndex: Number(discoveryIndex),
     };
   } catch {
     return DEFAULT_NAVIGATION_STATE;
@@ -462,6 +480,7 @@ export async function hydrateMobileStorage(
     savedRouteIdsRaw,
     snapshotsRaw,
     routeSnapshotsRaw,
+    todayVenueStateRaw,
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
@@ -471,6 +490,7 @@ export async function hydrateMobileStorage(
     readRawWithMigration(MOBILE_STORAGE_KEYS.savedRoutes, preferences, legacyStorage),
     readRawWithMigration(MOBILE_STORAGE_KEYS.savedVenueSnapshots, preferences, legacyStorage),
     readRawWithMigration(MOBILE_STORAGE_KEYS.savedRouteSnapshots, preferences, legacyStorage),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.todayVenueState, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(
       MOBILE_STORAGE_KEYS.navigation,
       preferences,
@@ -480,6 +500,7 @@ export async function hydrateMobileStorage(
   ]);
   const savedVenueState = parseSavedVenueState(savedVenueStateRaw);
   const savedRouteState = parseSavedRouteState(savedRouteStateRaw);
+  const todayVenueState = parseSavedVenueState(todayVenueStateRaw);
   const savedVenueIds = savedVenueState?.ids ?? parseIds(savedVenueIdsRaw);
   const savedRouteIds = savedRouteState?.ids ?? parseIds(savedRouteIdsRaw);
   const savedRouteIdSet = new Set(savedRouteIds);
@@ -491,6 +512,8 @@ export async function hydrateMobileStorage(
     savedRouteSnapshots: savedRouteState?.snapshots
       ?? parseSavedRouteSnapshots(routeSnapshotsRaw)
         .filter((snapshot) => savedRouteIdSet.has(snapshot.route.id)),
+    todayVenueIds: todayVenueState?.ids ?? [],
+    todayVenueSnapshots: todayVenueState?.snapshots ?? [],
     navigation: parseNavigation(navigationRaw),
   };
 }
@@ -571,6 +594,22 @@ export function writeSavedRouteState(
     .filter((snapshot) => idSet.has(snapshot.route.id));
   return writeRaw(
     MOBILE_STORAGE_KEYS.savedRouteState,
+    JSON.stringify({ ids: normalizedIds, snapshots: normalizedSnapshots }),
+    options,
+  );
+}
+
+export function writeTodayVenueState(
+  ids: string[],
+  snapshots: SavedVenueSnapshot[],
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const normalizedIds = boundedIds(ids);
+  const idSet = new Set(normalizedIds);
+  const normalizedSnapshots = parseSavedVenueSnapshots(JSON.stringify(snapshots))
+    .filter((snapshot) => idSet.has(snapshot.venue.id));
+  return writeRaw(
+    MOBILE_STORAGE_KEYS.todayVenueState,
     JSON.stringify({ ids: normalizedIds, snapshots: normalizedSnapshots }),
     options,
   );

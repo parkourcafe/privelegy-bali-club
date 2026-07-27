@@ -9,6 +9,7 @@ import {
   writeSavedRouteState,
   writeSavedRouteSnapshots,
   writeSavedVenueState,
+  writeTodayVenueState,
   writeSavedVenueSnapshots,
   type PreferenceStore,
 } from "../mobile/src/storage";
@@ -414,4 +415,24 @@ test("mobile app uses saved route details offline and exposes route-stop compact
   assert.match(source, /selectedSavedRouteSnapshot/);
   assert.match(source, /Saved offline route/);
   assert.match(source, /travel time, traffic and turn-by-turn navigation are not claimed/);
+});
+
+test("Today snapshots and Discover cursor survive restart without precise location data", async () => {
+  const legacyStorage = new MemoryStorage();
+  const preferences = new MemoryPreferences();
+  const options = { preferences, legacyStorage };
+  await writeTodayVenueState([savedSnapshot.venue.id], [savedSnapshot], options);
+  await writeNavigationState({
+    surface: "places",
+    selectedVenueId: null,
+    selectedRouteId: null,
+    scrollY: 240,
+    discoveryIndex: 7,
+  }, options);
+
+  const hydrated = await hydrateMobileStorage(options);
+  assert.deepEqual(hydrated.todayVenueIds, [savedSnapshot.venue.id]);
+  assert.equal(hydrated.todayVenueSnapshots[0]?.venue.slug, "sample-cafe");
+  assert.equal(hydrated.navigation.discoveryIndex, 7);
+  assert.doesNotMatch(preferences.values.get(MOBILE_STORAGE_KEYS.navigation) ?? "", /latitude|longitude|coords/);
 });

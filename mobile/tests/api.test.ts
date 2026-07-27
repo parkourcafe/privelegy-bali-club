@@ -153,3 +153,51 @@ test("a successful route response is parsed and clears its deadline timer", asyn
     restoreFetch();
   }
 });
+
+test("shared decision response is bounded and preserves server order", async () => {
+  const api = await apiPromise;
+  const result = api.parseDecisionResponse({
+    schemaVersion: 1,
+    data: {
+      ok: true,
+      result: {
+        bestFit: { placeId: "first-place", name: "First", why: "Fit", notIdealIf: null },
+        backup: { placeId: "second-place", name: "Second", why: null, notIdealIf: "Late" },
+        contrast: null,
+        emptyStateReason: null,
+      },
+    },
+  });
+  assert.equal(result.bestFit?.placeId, "first-place");
+  assert.equal(result.backup?.placeId, "second-place");
+  assert.equal(result.contrast, null);
+  assert.throws(() => api.parseDecisionResponse({
+    data: { result: { bestFit: { placeId: "../unsafe", name: "Unsafe" } } },
+  }));
+});
+
+test("mobile decision uses the shared runtime through the credentialed mobile gateway", async () => {
+  const api = await apiPromise;
+  let requestUrl = "";
+  let requestInit: RequestInit | undefined;
+  const restoreFetch = installFetch((async (input, init) => {
+    requestUrl = String(input);
+    requestInit = init;
+    return new Response(JSON.stringify({
+      data: {
+        ok: true,
+        result: { bestFit: null, backup: null, contrast: null, emptyStateReason: "none" },
+      },
+    }), { status: 201, headers: { "Content-Type": "application/json" } });
+  }) as typeof fetch);
+  try {
+    await api.createDecision({ area: "sanur", moment: "local_food_calm" });
+    assert.equal(requestUrl, "https://mobile-api.test/api/mobile/v1/decisions");
+    assert.equal(requestInit?.method, "POST");
+    assert.equal(requestInit?.credentials, "include");
+    assert.match(String(requestInit?.body), /"area":"sanur"/);
+    assert.ok(new Headers(requestInit?.headers).get("Idempotency-Key"));
+  } finally {
+    restoreFetch();
+  }
+});

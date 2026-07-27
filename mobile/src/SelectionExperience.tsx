@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { nearestArea } from "../../lib/day-builder";
+import type { MobileDecisionResult } from "./api";
 import type { SavedVenueSnapshot } from "./storage";
 import {
   EMPTY_DECISION_INPUTS,
@@ -22,6 +24,7 @@ interface SelectionExperienceProps {
   onAddToToday: (snapshot: SavedVenueSnapshot) => void;
   onAddToTrip: (snapshot: SavedVenueSnapshot) => void;
   onGoNow: (snapshot: SavedVenueSnapshot) => void;
+  onDecide: (inputs: DecisionInputs) => Promise<MobileDecisionResult>;
 }
 
 const MODE_LABELS: Record<SelectionMode, string> = {
@@ -110,6 +113,10 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
   const [category, setCategory] = useState("");
   const [decisionInputs, setDecisionInputs] = useState<DecisionInputs>(EMPTY_DECISION_INPUTS);
   const [decisionSubmitted, setDecisionSubmitted] = useState(false);
+  const [decisionLoading, setDecisionLoading] = useState(false);
+  const [decisionError, setDecisionError] = useState<string | null>(null);
+  const [decisionResult, setDecisionResult] = useState<MobileDecisionResult | null>(null);
+  const [locationNotice, setLocationNotice] = useState<string | null>(null);
   const cards = useMemo(
     () => toDiscoveryCards(props.snapshots.map((item) => item.venue), props.updatedAt),
     [props.snapshots, props.updatedAt],
@@ -122,6 +129,41 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
   );
   const districts = [...new Set(cards.map((card) => card.venue.district))].sort();
   const categories = [...new Set(cards.map((card) => card.venue.category))].sort();
+  const decisionEntries: Array<[string, MobileDecisionResult["bestFit"]]> = decisionResult
+    ? [
+        ["Best fit", decisionResult.bestFit],
+        ["Backup", decisionResult.backup],
+        ["Contrast", decisionResult.contrast],
+      ]
+    : [];
+  const decisionCards = decisionEntries.flatMap(([role, place]) => {
+        if (!place) return [];
+        const snapshot = [...snapshotsById.values()].find((item) => (
+          item.venue.slug === place.placeId || item.venue.id === place.placeId
+        ));
+        return snapshot ? [{ role, place, snapshot }] : [];
+      });
+
+  function useCurrentArea() {
+    setLocationNotice(null);
+    if (!navigator.geolocation) {
+      setLocationNotice("Location is unavailable on this device. Choose an area manually.");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const area = nearestArea(coords.latitude, coords.longitude);
+        if (!area || !districts.includes(area.slug)) {
+          setLocationNotice("You are outside the supported area range. Choose an area manually.");
+          return;
+        }
+        setDecisionInputs((current) => ({ ...current, area: area.slug }));
+        setLocationNotice(`Using ${area.name} for this decision. Precise location was not stored.`);
+      },
+      () => setLocationNotice("Location permission was not granted. Choose an area manually."),
+      { enableHighAccuracy: false, maximumAge: 300_000, timeout: 8_000 },
+    );
+  }
 
   return (
     <section className="selection-experience" aria-labelledby="selection-title">
@@ -163,32 +205,61 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
       ) : null}
 
       {mode === "decide" ? (
-        <form className="decision-form" onSubmit={(event) => {
+        <form className="decision-form" onSubmit={async (event) => {
           event.preventDefault();
+          if (!decisionRequestReady(decisionInputs) || decisionLoading) return;
           setDecisionSubmitted(true);
+          setDecisionLoading(true);
+          setDecisionError(null);
+          setDecisionResult(null);
+          try {
+            setDecisionResult(await props.onDecide(decisionInputs));
+          } catch {
+            setDecisionError(props.online
+              ? "The shared decision service is unavailable. No client-side ranking was substituted."
+              : "Decide for me requires a connection. Discover and saved places remain available offline.");
+          } finally {
+            setDecisionLoading(false);
+          }
         }}>
-          {([
-            ["area", "Area"],
-            ["company", "Company"],
-            ["moment", "Moment or vibe"],
-            ["budget", "Budget"],
-            ["ending", "How should the day end?"],
-          ] as const).map(([field, label]) => (
-            <label key={field}>
-              <span>{label}</span>
-              <input
-                value={decisionInputs[field]}
-                onChange={(event) => {
-                  setDecisionSubmitted(false);
-                  setDecisionInputs((current) => ({ ...current, [field]: event.target.value }));
-                }}
-              />
-            </label>
-          ))}
-          <button type="submit" disabled={!decisionRequestReady(decisionInputs)}>Find my best fit</button>
-          {decisionSubmitted ? (
-            <div className="notice" role="status">
-              The shared Decision API is not connected in this build. Your choices were not replaced by a client-side ranking guess.
+          <label><span>Area</span><select value={decisionInputs.area} onChange={(event) => {
+            setDecisionSubmitted(false);
+            setDecisionInputs((current) => ({ ...current, area: event.target.value }));
+          }}>
+            <option value="">Choose an area</option>
+            {districts.map((item) => <option key={item} value={item}>{item.replaceAll("-", " ")}</option>)}
+          </select></label>
+          <button type="button" onClick={useCurrentArea}>Use my current area</button>
+          {locationNotice ? <p className="truth-note" role="status">{locationNotice}</p> : null}
+          <label><span>Company</span><select value={decisionInputs.company} onChange={(event) => setDecisionInputs((current) => ({ ...current, company: event.target.value }))}>
+            <option value="">Choose</option><option value="solo">Solo</option><option value="couple">Couple</option><option value="family">Family</option><option value="friends">Friends</option>
+          </select></label>
+          <label><span>Moment</span><select value={decisionInputs.moment} onChange={(event) => setDecisionInputs((current) => ({ ...current, moment: event.target.value }))}>
+            <option value="">Choose</option><option value="brunch_after_surf">Brunch</option><option value="local_food_calm">Calm local food</option><option value="date_night_special">Date night</option><option value="sunset_drinks_view">Sunset drinks</option>
+          </select></label>
+          <label><span>Budget</span><select value={decisionInputs.budget} onChange={(event) => setDecisionInputs((current) => ({ ...current, budget: event.target.value }))}>
+            <option value="">Choose</option><option value="budget">Keep it simple</option><option value="mid">Mid-range</option><option value="splurge">Worth a splurge</option>
+          </select></label>
+          <label><span>Ending</span><select value={decisionInputs.ending} onChange={(event) => setDecisionInputs((current) => ({ ...current, ending: event.target.value }))}>
+            <option value="">Choose</option><option value="early">Early</option><option value="dinner">Dinner</option><option value="sunset">Sunset</option><option value="special">Something special</option>
+          </select></label>
+          <button type="submit" disabled={!props.online || !decisionRequestReady(decisionInputs) || decisionLoading}>
+            {decisionLoading ? "Choosing…" : "Find my best fit"}
+          </button>
+          {decisionError ? <div className="notice" role="alert">{decisionError}</div> : null}
+          {decisionSubmitted && decisionResult?.emptyStateReason ? <div className="notice" role="status">No verified candidates match this exact context yet. Try another moment or area.</div> : null}
+          {decisionCards.length ? (
+            <div className="decision-results" aria-live="polite">
+              {decisionCards.map(({ role, place, snapshot }) => (
+                <article className="card" key={`${role}-${place.placeId}`}>
+                  <div className="card-copy"><p className="card-kicker">{role}</p><h3>{place.name}</h3><p>{place.why ?? "Open the published profile for context."}</p>{place.notIdealIf ? <p><strong>Skip if:</strong> {place.notIdealIf}</p> : null}</div>
+                  <div className="card-actions">
+                    <button type="button" onClick={() => props.onOpenDetails(snapshot.venue.id)}>Details</button>
+                    <button type="button" onClick={() => props.onAddToToday(snapshot)}>Add to today</button>
+                    <button type="button" onClick={() => props.onGoNow(snapshot)}>Go now</button>
+                  </div>
+                </article>
+              ))}
             </div>
           ) : null}
         </form>
