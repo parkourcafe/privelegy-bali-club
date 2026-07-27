@@ -6,7 +6,7 @@ import type {
   MobileVenueCompact,
 } from "../../lib/mobile-api/contracts";
 import type { ExternalLinkKind } from "../../lib/external-links";
-import { fetchBootstrap, fetchRouteDetail, fetchVenueDetail } from "./api";
+import { createDecision, fetchBootstrap, fetchRouteDetail, fetchVenueDetail } from "./api";
 import type { MobileBootstrapPayload } from "./contracts";
 import SelectionExperience from "./SelectionExperience";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
@@ -26,6 +26,7 @@ import {
   writeNavigationState,
   writeSavedRouteState,
   writeSavedVenueState,
+  writeTodayVenueState,
   type MobileSurface,
   type MobileNavigationState,
   type SavedRouteSnapshot,
@@ -304,6 +305,8 @@ export default function App() {
   const [savedRouteIds, setSavedRouteIds] = useState<string[]>([]);
   const [savedVenueSnapshots, setSavedVenueSnapshots] = useState<SavedVenueSnapshot[]>([]);
   const [savedRouteSnapshots, setSavedRouteSnapshots] = useState<SavedRouteSnapshot[]>([]);
+  const [todayVenueIds, setTodayVenueIds] = useState<string[]>([]);
+  const [todayVenueSnapshots, setTodayVenueSnapshots] = useState<SavedVenueSnapshot[]>([]);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine);
   const [refreshing, setRefreshing] = useState(false);
   const [refreshAttempted, setRefreshAttempted] = useState(false);
@@ -333,6 +336,7 @@ export default function App() {
     selectedVenueId,
     selectedRouteId,
     scrollY: 0,
+    discoveryIndex: 0,
   });
 
   useLayoutEffect(() => {
@@ -342,8 +346,9 @@ export default function App() {
       surface,
       selectedVenueId,
       selectedRouteId,
+      discoveryIndex,
     };
-  }, [selectedRouteId, selectedVenueId, storageReady, surface]);
+  }, [discoveryIndex, selectedRouteId, selectedVenueId, storageReady, surface]);
 
   const enqueueVenueState = useCallback((
     transform: (current: PersistedVenueState) => PersistedVenueState,
@@ -389,6 +394,8 @@ export default function App() {
         setSavedRouteIds(state.savedRouteIds);
         setSavedVenueSnapshots(state.savedVenueSnapshots);
         setSavedRouteSnapshots(state.savedRouteSnapshots);
+        setTodayVenueIds(state.todayVenueIds);
+        setTodayVenueSnapshots(state.todayVenueSnapshots);
         persistedVenueState.current = {
           ids: state.savedVenueIds,
           snapshots: state.savedVenueSnapshots,
@@ -401,6 +408,7 @@ export default function App() {
         setSelectedVenueId(state.navigation.selectedVenueId);
         setSelectedRouteId(state.navigation.selectedRouteId);
         setInitialScrollY(state.navigation.scrollY);
+        setDiscoveryIndex(state.navigation.discoveryIndex ?? 0);
         navigationSnapshotRef.current = state.navigation;
         setStorageReady(true);
       })
@@ -587,7 +595,8 @@ export default function App() {
     [savedRouteSnapshots],
   );
   const venueSnapshotsById = useMemo(() => {
-    const result = new Map(savedVenueSnapshots.map((item) => [item.venue.id, item]));
+    const result = new Map(todayVenueSnapshots.map((item) => [item.venue.id, item]));
+    for (const item of savedVenueSnapshots) result.set(item.venue.id, item);
     const routeDetails = [
       ...savedRouteSnapshots,
       ...(loadedRouteDetail ? [loadedRouteDetail] : []),
@@ -615,7 +624,7 @@ export default function App() {
       }
     }
     return result;
-  }, [bootstrap, loadedRouteDetail, savedRouteSnapshots, savedVenueSnapshots, venues]);
+  }, [bootstrap, loadedRouteDetail, savedRouteSnapshots, savedVenueSnapshots, todayVenueSnapshots, venues]);
 
   const routeSummariesById = useMemo(() => {
     const result = new Map<string, MobileRouteSummary>();
@@ -652,6 +661,10 @@ export default function App() {
 
   const visibleVenueSnapshots = surface === "saved"
     ? savedVenueIds.map((id) => venueSnapshotsById.get(id)).filter((item): item is SavedVenueSnapshot => Boolean(item))
+    : surface === "today"
+      ? todayVenueIds.map((id) => (
+          todayVenueSnapshots.find((item) => item.venue.id === id) ?? venueSnapshotsById.get(id)
+        )).filter((item): item is SavedVenueSnapshot => Boolean(item))
     : venues.map((venue) => ({
       venue,
       updatedAt: bootstrap?.updatedAt ?? new Date(0).toISOString(),
@@ -819,8 +832,33 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 
-  function addToToday(snapshot: SavedVenueSnapshot) {
-    setSelectionNotice(`${snapshot.venue.name} was added to Today for this app session. Persistent Today sync depends on the shared v1.2 contract.`);
+  function changeDiscoveryIndex(index: number) {
+    const next = Math.max(0, Math.trunc(index));
+    setDiscoveryIndex(next);
+    navigationSnapshotRef.current = { ...navigationSnapshotRef.current, discoveryIndex: next };
+    void writeNavigationState({
+      ...navigationSnapshotRef.current,
+      scrollY: Math.max(0, window.scrollY),
+    }).catch(() => setStorageWriteFailed(true));
+  }
+
+  async function addToToday(snapshot: SavedVenueSnapshot) {
+    setStorageWriteFailed(false);
+    const ids = todayVenueIds.includes(snapshot.venue.id)
+      ? todayVenueIds
+      : [...todayVenueIds, snapshot.venue.id];
+    const snapshots = [
+      ...todayVenueSnapshots.filter((item) => item.venue.id !== snapshot.venue.id),
+      snapshot,
+    ];
+    try {
+      await writeTodayVenueState(ids, snapshots);
+      setTodayVenueIds(ids);
+      setTodayVenueSnapshots(snapshots);
+      setSelectionNotice(`${snapshot.venue.name} was added to Today and is available offline on this device.`);
+    } catch {
+      setStorageWriteFailed(true);
+    }
   }
 
   function addToTrip(snapshot: SavedVenueSnapshot) {
@@ -907,7 +945,7 @@ export default function App() {
       </header>
 
       <nav className="tabs" aria-label="Guide sections">
-        {(["places", "routes", "saved"] as const).map((item) => (
+        {(["places", "today", "routes", "saved"] as const).map((item) => (
           <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
             {item[0].toUpperCase() + item.slice(1)}
           </button>
@@ -961,7 +999,7 @@ export default function App() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">{surface === "saved" ? "Saved on this device" : "Public guide"}</p>
-                <h2>{surface === "places" ? "Places" : surface === "routes" ? "Routes" : "Saved"}</h2>
+                <h2>{surface === "places" ? "Places" : surface === "today" ? "Today" : surface === "routes" ? "Routes" : "Saved"}</h2>
               </div>
               <button className="refresh-button" type="button" onClick={() => void refresh()} disabled={refreshing || !online}>
                 {refreshing ? "Refreshing…" : "Refresh"}
@@ -987,16 +1025,23 @@ export default function App() {
                 online={online}
                 savedIds={savedVenueSet}
                 activeIndex={Math.min(discoveryIndex, Math.max(0, visibleVenueSnapshots.length - 1))}
-                onActiveIndexChange={setDiscoveryIndex}
+                onActiveIndexChange={changeDiscoveryIndex}
                 onOpenDetails={openVenue}
                 onToggleSave={(snapshot) => void toggleVenue(snapshot)}
                 onAddToToday={addToToday}
                 onAddToTrip={addToTrip}
                 onGoNow={(snapshot) => void goNow(snapshot)}
+                onDecide={(inputs) => createDecision({
+                  area: inputs.area,
+                  company: inputs.company,
+                  moment: inputs.moment,
+                  budget: inputs.budget,
+                  ending: inputs.ending,
+                })}
               />
             ) : null}
 
-            {surface === "saved" && visibleVenueSnapshots.length ? (
+            {(surface === "saved" || surface === "today") && visibleVenueSnapshots.length ? (
               <section className="cards" aria-label={surface === "saved" ? "Saved places" : "Places"}>
                 {visibleVenueSnapshots.map((snapshot) => (
                   <VenueCard
@@ -1007,6 +1052,13 @@ export default function App() {
                     onToggle={() => toggleVenue(snapshot)}
                   />
                 ))}
+              </section>
+            ) : null}
+
+            {surface === "today" && !visibleVenueSnapshots.length ? (
+              <section className="empty-state">
+                <h2>Today is empty.</h2>
+                <p>Add a place from Discover or Decide. The plan remains readable offline on this device.</p>
               </section>
             ) : null}
 

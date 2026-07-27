@@ -20,6 +20,20 @@ export class MobileApiTimeoutError extends Error {
   }
 }
 
+export interface MobileDecisionPlace {
+  placeId: string;
+  name: string;
+  why: string | null;
+  notIdealIf: string | null;
+}
+
+export interface MobileDecisionResult {
+  bestFit: MobileDecisionPlace | null;
+  backup: MobileDecisionPlace | null;
+  contrast: MobileDecisionPlace | null;
+  emptyStateReason: string | null;
+}
+
 const MOBILE_HEADERS = {
   Accept: "application/json",
   "X-Other-Bali-Mobile-Shell": __MOBILE_SHELL_VERSION__,
@@ -78,6 +92,63 @@ async function fetchMobilePayload<T>(
       externalSignal.removeEventListener("abort", onExternalAbort);
     }
   }
+}
+
+function parseDecisionPlace(value: unknown): MobileDecisionPlace | null {
+  if (value === null) return null;
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid decision place");
+  const item = value as Record<string, unknown>;
+  if (
+    typeof item.placeId !== "string"
+    || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.placeId)
+    || typeof item.name !== "string"
+    || !item.name.trim()
+    || item.name.length > 160
+  ) throw new Error("Invalid decision place");
+  const nullable = (entry: unknown) => entry === null
+    ? null
+    : typeof entry === "string" && entry.length <= 1_000 ? entry : null;
+  return {
+    placeId: item.placeId,
+    name: item.name,
+    why: nullable(item.why),
+    notIdealIf: nullable(item.notIdealIf),
+  };
+}
+
+export function parseDecisionResponse(value: unknown): MobileDecisionResult {
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid decision response");
+  const envelope = value as Record<string, unknown>;
+  const data = envelope.data;
+  if (!data || typeof data !== "object" || Array.isArray(data)) throw new Error("Invalid decision response");
+  const result = (data as Record<string, unknown>).result;
+  if (!result || typeof result !== "object" || Array.isArray(result)) throw new Error("Invalid decision response");
+  const item = result as Record<string, unknown>;
+  return {
+    bestFit: parseDecisionPlace(item.bestFit),
+    backup: parseDecisionPlace(item.backup),
+    contrast: parseDecisionPlace(item.contrast),
+    emptyStateReason: typeof item.emptyStateReason === "string" ? item.emptyStateReason : null,
+  };
+}
+
+export async function createDecision(
+  context: Record<string, string>,
+  signal?: AbortSignal,
+): Promise<MobileDecisionResult> {
+  const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/decisions`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      ...MOBILE_HEADERS,
+      "Content-Type": "application/json",
+      "Idempotency-Key": crypto.randomUUID(),
+    },
+    body: JSON.stringify({ context }),
+    signal,
+  });
+  if (!response.ok) throw new Error(`Decision request failed with ${response.status}`);
+  return parseDecisionResponse(await response.json());
 }
 
 export async function fetchBootstrap(signal?: AbortSignal): Promise<MobileBootstrapPayload> {
