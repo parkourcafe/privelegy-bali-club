@@ -274,6 +274,7 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
+  assert.match(script, /readonly BUILD_NUMBER="5"/);
   const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
   const provisioningIndex = script.indexOf("xcodebuild \\");
   assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);
