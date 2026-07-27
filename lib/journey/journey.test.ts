@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { assertOccurrenceActive, occurrenceToStop } from "./events";
-import { offlineCapability, offlineFreshnessLabel, SyncQueue } from "./offline-sync";
+import {
+  classifySyncAcknowledgement,
+  offlineCapability,
+  offlineFreshnessLabel,
+  SyncQueue,
+  type SyncMutation,
+} from "./offline-sync";
 import { googleMapsDirectionsHandoff, routeWithExternalFallback, type RouteService } from "./routing";
 import { reorderStop, transitionStop, validateTrip } from "./trip";
 import { JourneyError, type EventOccurrence, type RouteRequest, type Trip, type TripStop } from "./contracts";
@@ -77,6 +83,56 @@ test("offline mutations are idempotent and preserve conflicts for resolution", (
   );
   queue.acknowledge(mutation.idempotencyKey);
   assert.equal(queue.list().length, 0);
+});
+
+test("classifies sync acknowledgements and only authorizes an exact applied response", () => {
+  const mutation: SyncMutation = {
+    idempotencyKey: "mutation-123",
+    entityType: "saved",
+    entityId: "place-456",
+    operation: "save",
+    payload: { saved: true },
+    baseVersion: null,
+    createdAt: "2026-07-28T10:00:00.000Z",
+  };
+
+  assert.deepEqual(
+    classifySyncAcknowledgement(mutation, {
+      ok: true,
+      status: "applied",
+      idempotencyKey: "mutation-123",
+      serverVersion: "version-2",
+    }),
+    { outcome: "applied", serverVersion: "version-2" },
+  );
+
+  assert.deepEqual(
+    classifySyncAcknowledgement(mutation, {
+      ok: true,
+      status: "conflict",
+      idempotencyKey: "mutation-123",
+      serverVersion: "version-3",
+    }),
+    { outcome: "conflict", serverVersion: "version-3" },
+  );
+
+  const retryResponses: unknown[] = [
+    { ok: true, status: "accepted", idempotencyKey: "mutation-123", serverVersion: "version-2" },
+    { ok: true, status: "applied", serverVersion: "version-2" },
+    { ok: true, status: "applied", idempotencyKey: "mutation-changed", serverVersion: "version-2" },
+    { ok: true, status: "applied", idempotencyKey: "mutation-123", serverVersion: "" },
+    { ok: false, status: "applied", idempotencyKey: "mutation-123", serverVersion: "version-2" },
+    { ok: true, status: "unknown", idempotencyKey: "mutation-123", serverVersion: "version-2" },
+    null,
+    "malformed",
+  ];
+
+  for (const response of retryResponses) {
+    assert.deepEqual(classifySyncAcknowledgement(mutation, response), {
+      outcome: "retry",
+      serverVersion: null,
+    });
+  }
 });
 
 test("offline truth labels cached state and blocks live/provider actions", () => {

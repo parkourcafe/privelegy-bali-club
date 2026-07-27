@@ -42,6 +42,33 @@ export interface SyncConflict {
   serverVersion: string;
 }
 
+export type SyncAcknowledgementClassification =
+  | { outcome: "applied"; serverVersion: string }
+  | { outcome: "conflict"; serverVersion: string }
+  | { outcome: "retry"; serverVersion: null };
+
+export function classifySyncAcknowledgement(
+  mutation: SyncMutation,
+  response: unknown,
+): SyncAcknowledgementClassification {
+  if (!response || typeof response !== "object" || Array.isArray(response)) {
+    return { outcome: "retry", serverVersion: null };
+  }
+  const acknowledgement = response as Record<string, unknown>;
+  const status = acknowledgement.status;
+  const serverVersion = acknowledgement.serverVersion;
+  if (
+    acknowledgement.ok !== true
+    || acknowledgement.idempotencyKey !== mutation.idempotencyKey
+    || (status !== "applied" && status !== "conflict")
+    || typeof serverVersion !== "string"
+    || !serverVersion.trim()
+  ) {
+    return { outcome: "retry", serverVersion: null };
+  }
+  return { outcome: status, serverVersion };
+}
+
 export class SyncQueue {
   readonly #pending = new Map<string, SyncMutation>();
 
@@ -80,4 +107,3 @@ export function offlineFreshnessLabel(updatedAt: string, online: boolean): strin
   if (!Number.isFinite(timestamp)) throw new Error("Offline snapshot timestamp is invalid");
   return `Offline · last updated ${new Date(timestamp).toISOString()}`;
 }
-

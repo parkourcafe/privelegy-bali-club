@@ -81,6 +81,15 @@ jobs:
       - name: Install Android SDK 36
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
+      - name: Require Mapbox downloads token
+        env:
+          MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
+        run: |
+          if [ -z "${MAPBOX_DOWNLOADS_TOKEN:-}" ]; then
+            echo "Required Mapbox downloads token is not configured."
+            exit 1
+          fi
+
       - name: Install dependencies and sync the bundled mobile shell
         run: |
           npm ci
@@ -89,10 +98,14 @@ jobs:
 
       - name: Lint and assemble debug package
         working-directory: android
+        env:
+          MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
         run: ./gradlew --no-daemon lint test assemblePlayDebug
 
       - name: Confirm release signing fails closed without secrets
         working-directory: android
+        env:
+          MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
         run: |
           if ./gradlew --no-daemon bundlePlayRelease; then
             echo "Google Play upload signing unexpectedly passed without protected secrets."

@@ -245,7 +245,7 @@ export async function fetchOfflineBaliManifest(
 export async function pushSyncMutation(
   mutation: SyncMutation,
   signal?: AbortSignal,
-): Promise<void> {
+): Promise<unknown> {
   const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/sync`, {
     method: "POST",
     credentials: "include",
@@ -258,8 +258,9 @@ export async function pushSyncMutation(
     signal,
   });
   if (!response.ok) throw new Error(`Sync request failed with ${response.status}`);
-  const value = await response.json() as { data?: { ok?: unknown } };
-  if (value.data?.ok !== true) throw new Error("Sync mutation was not accepted");
+  const value = await response.json() as { data?: unknown };
+  if (value.data === undefined) throw new Error("Sync mutation acknowledgement was missing");
+  return value.data;
 }
 
 export async function fetchBootstrap(signal?: AbortSignal): Promise<MobileBootstrapPayload> {
