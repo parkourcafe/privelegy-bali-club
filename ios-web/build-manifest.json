@@ -3,13 +3,14 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-54F33MTH.css",
-    "./assets/app-SUSVGHGD.js"
+    "./assets/app-RR4PO4WD.css",
+    "./assets/app-WI6W6SIM.js"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
     "lib/day-builder.ts",
     "lib/external-links.ts",
+    "lib/journey/offline-bali.ts",
     "lib/journey/trip.ts",
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
@@ -28,5 +29,5 @@
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "04b74fa67a9e4a1f09da546c252b3cd0c0399374052f016733a9738ecbd07e23"
+  "sourceHash": "7a185717a4e74614da1658f9c1a163bb819aaf4a7fc471b666a557cbaad6139c"
 }

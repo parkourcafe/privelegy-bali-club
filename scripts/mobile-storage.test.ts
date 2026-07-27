@@ -5,6 +5,7 @@ import {
   hydrateMobileStorage,
   MOBILE_STORAGE_KEYS,
   writeNavigationState,
+  writeOfflinePackStates,
   writeEventsSnapshot,
   writeSavedRouteIds,
   writeSavedRouteState,
@@ -127,6 +128,32 @@ test("Offline Level 2 hydrates verified events, Today events and canonical Trip"
   assert.equal(hydrated.eventsSnapshot?.events[0]?.id, eventOccurrence.id);
   assert.deepEqual(hydrated.todayEventIds, [eventOccurrence.id]);
   assert.equal(hydrated.trip?.days[0]?.stops[0]?.entityType, "event_occurrence");
+});
+
+test("Offline Level 3 pack state persists only validated bounded records", async () => {
+  const preferences = new MemoryPreferences();
+  const options = { preferences, legacyStorage: null };
+  await writeOfflinePackStates([{
+    regionId: "ubud",
+    version: "2026-07",
+    status: "ready",
+    progress: 1,
+    downloadedBytes: 1_000,
+    totalBytes: 1_000,
+    updatedAt: "2026-07-27T00:00:00.000Z",
+    lastError: null,
+  }, {
+    regionId: "../unsafe",
+    version: "1",
+    status: "ready",
+    progress: 1,
+    downloadedBytes: 1,
+    totalBytes: 1,
+    updatedAt: "2026-07-27T00:00:00.000Z",
+    lastError: null,
+  }], options);
+  const hydrated = await hydrateMobileStorage(options);
+  assert.deepEqual(hydrated.offlinePacks.map((pack) => pack.regionId), ["ubud"]);
 });
 
 test("corrupt offline event and Trip state fail closed without erasing other state", async () => {

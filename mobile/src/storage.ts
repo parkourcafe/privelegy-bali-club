@@ -15,6 +15,10 @@ import type { MobileEventOccurrence } from "./api";
 import type { Trip } from "../../lib/journey/contracts";
 import { validateTrip } from "../../lib/journey/trip";
 import type { SyncMutation } from "../../lib/journey/offline-sync";
+import {
+  parseOfflinePackStates,
+  type OfflinePackState,
+} from "../../lib/journey/offline-bali";
 
 export const MOBILE_STORAGE_KEYS = {
   bootstrap: "otherbali.mobile.public-bootstrap.v1",
@@ -29,6 +33,7 @@ export const MOBILE_STORAGE_KEYS = {
   eventsSnapshot: "otherbali.mobile.events-snapshot.v1",
   trip: "otherbali.mobile.trip.v1",
   pendingSync: "otherbali.mobile.pending-sync.v1",
+  offlinePacks: "otherbali.mobile.offline-packs.v1",
   navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
 } as const;
@@ -71,6 +76,7 @@ export interface MobileStorageState {
   eventsSnapshot: { updatedAt: string; events: MobileEventOccurrence[] } | null;
   trip: Trip | null;
   pendingSync: SyncMutation[];
+  offlinePacks: OfflinePackState[];
   navigation: MobileNavigationState;
 }
 
@@ -365,6 +371,15 @@ function parsePendingSync(raw: string | null): SyncMutation[] {
   }
 }
 
+function parseOfflinePacks(raw: string | null): OfflinePackState[] {
+  if (!raw) return [];
+  try {
+    return parseOfflinePackStates(JSON.parse(raw) as unknown);
+  } catch {
+    return [];
+  }
+}
+
 function parseSavedRouteState(raw: string | null): {
   ids: string[];
   snapshots: SavedRouteSnapshot[];
@@ -589,6 +604,7 @@ export async function hydrateMobileStorage(
     eventsSnapshotRaw,
     tripRaw,
     pendingSyncRaw,
+    offlinePacksRaw,
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
@@ -603,6 +619,7 @@ export async function hydrateMobileStorage(
     readRawWithMigration(MOBILE_STORAGE_KEYS.eventsSnapshot, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.trip, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.pendingSync, preferences, legacyStorage).catch(() => null),
+    readRawWithMigration(MOBILE_STORAGE_KEYS.offlinePacks, preferences, legacyStorage).catch(() => null),
     readRawWithMigration(
       MOBILE_STORAGE_KEYS.navigation,
       preferences,
@@ -632,6 +649,7 @@ export async function hydrateMobileStorage(
     eventsSnapshot: parseEventsSnapshot(eventsSnapshotRaw),
     trip: parseTrip(tripRaw),
     pendingSync: parsePendingSync(pendingSyncRaw),
+    offlinePacks: parseOfflinePacks(offlinePacksRaw),
     navigation: parseNavigation(navigationRaw),
   };
 }
@@ -782,6 +800,17 @@ export function writePendingSync(
 ): Promise<void> {
   const normalized = parsePendingSync(JSON.stringify(mutations));
   return writeRaw(MOBILE_STORAGE_KEYS.pendingSync, JSON.stringify(normalized), options);
+}
+
+export function writeOfflinePackStates(
+  packs: OfflinePackState[],
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  return writeRaw(
+    MOBILE_STORAGE_KEYS.offlinePacks,
+    JSON.stringify(parseOfflinePackStates(packs)),
+    options,
+  );
 }
 
 export function writeNavigationState(
