@@ -53,6 +53,7 @@ function validIosEvidence() {
       DTSDKName: "iphoneos26.5",
       UIDeviceFamily: [1],
       CAPACITOR_DEBUG: false,
+      NSLocationWhenInUseUsageDescription: "Other Bali uses your location only when you ask it to choose the nearest supported area. Your precise location is not stored.",
     },
     entitlements: {
       "application-identifier": applicationIdentifier,
@@ -232,6 +233,10 @@ Signature size=9999
   const permission = validIosEvidence();
   permission.info.NSCameraUsageDescription = "Camera";
   assert.throws(() => assertIosMetadata(permission), /unapproved privacy permissions/);
+
+  const missingLocation = validIosEvidence();
+  delete missingLocation.info.NSLocationWhenInUseUsageDescription;
+  assert.throws(() => assertIosMetadata(missingLocation), /missing approved location disclosure/);
 
   const wrongDomain = validIosEvidence();
   wrongDomain.profile.Entitlements["com.apple.developer.associated-domains"] = ["applinks:preview.example"];
