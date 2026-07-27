@@ -3,13 +3,14 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-35LNSR2N.js",
-    "./assets/app-D7USJOBF.css"
+    "./assets/app-54F33MTH.css",
+    "./assets/app-SUSVGHGD.js"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
     "lib/day-builder.ts",
     "lib/external-links.ts",
+    "lib/journey/trip.ts",
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
     "mobile/src/App.tsx",
@@ -22,9 +23,10 @@
     "mobile/src/native-runtime.ts",
     "mobile/src/storage.ts",
     "mobile/src/styles.css",
+    "mobile/src/trip-planner.ts",
     "package-lock.json",
     "package.json",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "2e9b5aef02b019f89ca3dbf7c0a6bd62f218a578c5d0a978adea5d9bd9acf23a"
+  "sourceHash": "04b74fa67a9e4a1f09da546c252b3cd0c0399374052f016733a9738ecbd07e23"
 }

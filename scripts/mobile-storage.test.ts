@@ -5,14 +5,18 @@ import {
   hydrateMobileStorage,
   MOBILE_STORAGE_KEYS,
   writeNavigationState,
+  writeEventsSnapshot,
   writeSavedRouteIds,
   writeSavedRouteState,
   writeSavedRouteSnapshots,
   writeSavedVenueState,
   writeTodayVenueState,
+  writeTodayEventState,
+  writeTrip,
   writeSavedVenueSnapshots,
   type PreferenceStore,
 } from "../mobile/src/storage";
+import { addTripStop, createEmptyTrip } from "../mobile/src/trip-planner";
 
 class MemoryStorage implements Storage {
   private readonly values = new Map<string, string>();
@@ -95,6 +99,50 @@ const savedRouteSnapshot = {
     ],
   },
 };
+
+const eventOccurrence = {
+  id: "occurrence-1",
+  eventId: "event-1",
+  title: "Sunset session",
+  venueSlug: "sample-cafe",
+  area: "Sanur",
+  startsAt: "2026-08-01T10:00:00.000Z",
+  endsAt: "2026-08-01T12:00:00.000Z",
+  lastVerifiedAt: "2026-07-31T10:00:00.000Z",
+  expiresAt: "2026-08-01T12:30:00.000Z",
+};
+
+test("Offline Level 2 hydrates verified events, Today events and canonical Trip", async () => {
+  const preferences = new MemoryPreferences();
+  const options = { preferences, legacyStorage: null };
+  await writeEventsSnapshot({
+    updatedAt: "2026-07-31T10:00:00.000Z",
+    events: [eventOccurrence],
+  }, options);
+  await writeTodayEventState([eventOccurrence.id], [eventOccurrence], options);
+  const trip = addTripStop(createEmptyTrip(3, "2026-08-01"), 0, "event_occurrence", eventOccurrence.id);
+  await writeTrip(trip, options);
+
+  const hydrated = await hydrateMobileStorage(options);
+  assert.equal(hydrated.eventsSnapshot?.events[0]?.id, eventOccurrence.id);
+  assert.deepEqual(hydrated.todayEventIds, [eventOccurrence.id]);
+  assert.equal(hydrated.trip?.days[0]?.stops[0]?.entityType, "event_occurrence");
+});
+
+test("corrupt offline event and Trip state fail closed without erasing other state", async () => {
+  const preferences = new MemoryPreferences();
+  preferences.values.set(MOBILE_STORAGE_KEYS.eventsSnapshot, JSON.stringify({
+    updatedAt: "not-a-date",
+    events: [eventOccurrence],
+  }));
+  preferences.values.set(MOBILE_STORAGE_KEYS.trip, JSON.stringify({
+    ...createEmptyTrip(3, "2026-08-01"),
+    days: [],
+  }));
+  const hydrated = await hydrateMobileStorage({ preferences, legacyStorage: null });
+  assert.equal(hydrated.eventsSnapshot, null);
+  assert.equal(hydrated.trip, null);
+});
 
 test("Preferences hydration migrates legacy WebView state without losing saved detail", async () => {
   const legacyStorage = new MemoryStorage();

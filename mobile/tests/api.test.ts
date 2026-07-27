@@ -201,3 +201,35 @@ test("mobile decision uses the shared runtime through the credentialed mobile ga
     restoreFetch();
   }
 });
+
+test("What’s On response validates event lifecycle and uses the mobile gateway", async () => {
+  const api = await apiPromise;
+  const event = {
+    id: "occurrence-1",
+    eventId: "event-1",
+    title: "Sunset session",
+    venueSlug: "sample-cafe",
+    area: "Sanur",
+    startsAt: "2026-08-01T10:00:00.000Z",
+    endsAt: "2026-08-01T12:00:00.000Z",
+    lastVerifiedAt: "2026-07-31T10:00:00.000Z",
+    expiresAt: "2026-08-01T12:30:00.000Z",
+  };
+  const restoreFetch = installFetch((async (input) => {
+    assert.equal(String(input), "https://mobile-api.test/api/mobile/v1/events");
+    return new Response(JSON.stringify({
+      schemaVersion: 1,
+      updatedAt: "2026-07-31T10:00:00.000Z",
+      data: { events: [event] },
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  }) as typeof fetch);
+  try {
+    assert.equal((await api.fetchEvents()).events[0]?.title, "Sunset session");
+    assert.throws(() => api.parseEventsResponse({
+      updatedAt: "2026-07-31T10:00:00.000Z",
+      data: { events: [{ ...event, endsAt: event.startsAt }] },
+    }), /lifecycle/);
+  } finally {
+    restoreFetch();
+  }
+});
