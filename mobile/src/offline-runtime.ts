@@ -130,3 +130,82 @@ export async function getOfflineMapCapability(
     return { available: false, provider: null, reason: "runtime_unavailable" };
   }
 }
+
+export type OfflineRegionDownloadResult =
+  | { outcome: "blocked"; reason: string; packs: OfflinePackState[] }
+  | { outcome: "ready"; reason: null; packs: OfflinePackState[] }
+  | { outcome: "failed"; reason: "download_failed"; packs: OfflinePackState[] };
+
+export interface OfflineRegionDownloadOptions {
+  runtime?: OfflineMapRuntime;
+  region: OfflineRegionManifest;
+  packs: OfflinePackState[];
+  persist(packs: OfflinePackState[]): Promise<void>;
+  publish(packs: OfflinePackState[]): void;
+  now?: () => Date;
+}
+
+function replacePack(
+  packs: OfflinePackState[],
+  replacement: OfflinePackState,
+): OfflinePackState[] {
+  return [...packs.filter((pack) => pack.regionId !== replacement.regionId), replacement];
+}
+
+export async function downloadOfflineRegionIfAvailable({
+  runtime = defaultOfflineMapRuntime,
+  region,
+  packs,
+  persist,
+  publish,
+  now = () => new Date(),
+}: OfflineRegionDownloadOptions): Promise<OfflineRegionDownloadResult> {
+  const capability = await getOfflineMapCapability(runtime);
+  if (!capability.available) {
+    return {
+      outcome: "blocked",
+      reason: capability.reason ?? "provider_unavailable",
+      packs,
+    };
+  }
+
+  const downloading: OfflinePackState = {
+    regionId: region.id,
+    version: region.version,
+    status: "downloading",
+    progress: 0,
+    downloadedBytes: 0,
+    totalBytes: region.estimatedBytes,
+    updatedAt: now().toISOString(),
+    lastError: null,
+  };
+  let next = replacePack(packs, downloading);
+  publish(next);
+  await persist(next);
+
+  try {
+    const ready = await runtime.download(region, (progress) => {
+      next = replacePack(next, progress);
+      publish(next);
+      void persist(next).catch(() => {
+        // A later progress event or the final state retries persistence. The
+        // caller already publishes its durable-storage warning.
+      });
+    });
+    next = replacePack(next, ready);
+    publish(next);
+    await persist(next);
+    return { outcome: "ready", reason: null, packs: next };
+  } catch {
+    const failed: OfflinePackState = {
+      ...downloading,
+      status: "failed",
+      updatedAt: now().toISOString(),
+      lastError: "download_failed",
+    };
+    next = replacePack(next, failed);
+    publish(next);
+    await persist(next);
+    return { outcome: "failed", reason: "download_failed", packs: next };
+  }
+}

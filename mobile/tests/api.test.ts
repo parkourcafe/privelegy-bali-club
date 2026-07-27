@@ -233,3 +233,40 @@ test("What’s On response validates event lifecycle and uses the mobile gateway
     restoreFetch();
   }
 });
+
+test("sync push returns the raw acknowledgement required for safe queue settlement", async () => {
+  const api = await apiPromise;
+  const mutation = {
+    idempotencyKey: "sync-acknowledgement-1",
+    entityType: "saved" as const,
+    entityId: "sample-cafe",
+    operation: "save",
+    payload: { entityType: "place", entityId: "sample-cafe" },
+    baseVersion: null,
+    createdAt: "2026-07-28T10:00:00.000Z",
+  };
+  const acknowledgement = {
+    ok: true,
+    status: "applied",
+    idempotencyKey: mutation.idempotencyKey,
+    serverVersion: "2",
+  };
+  const restoreFetch = installFetch((async (input, init) => {
+    assert.equal(String(input), "https://mobile-api.test/api/mobile/v1/sync");
+    assert.equal(init?.method, "POST");
+    assert.equal(
+      new Headers(init?.headers).get("Idempotency-Key"),
+      mutation.idempotencyKey,
+    );
+    return new Response(JSON.stringify({ data: acknowledgement }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch);
+
+  try {
+    assert.deepEqual(await api.pushSyncMutation(mutation), acknowledgement);
+  } finally {
+    restoreFetch();
+  }
+});

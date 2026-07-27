@@ -21,6 +21,7 @@ import type { SyncMutation } from "../../lib/journey/offline-sync";
 import type { MobileBootstrapPayload } from "./contracts";
 import SelectionExperience from "./SelectionExperience";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
+import { flushPendingSyncQueue } from "./sync-runtime";
 import {
   exitMobileApp,
   openControlledExternal,
@@ -59,7 +60,10 @@ import {
   setTripStopState,
 } from "./trip-planner";
 import type { OfflineBaliManifest, OfflinePackState, OfflineRegionManifest } from "../../lib/journey/offline-bali";
-import { defaultOfflineMapRuntime } from "./offline-runtime";
+import {
+  defaultOfflineMapRuntime,
+  downloadOfflineRegionIfAvailable,
+} from "./offline-runtime";
 import {
   buildCompanionSuggestions,
   createNavigationSession,
@@ -758,16 +762,27 @@ export default function App() {
     const controller = new AbortController();
     void (async () => {
       try {
-        while (!controller.signal.aborted && pendingSyncRef.current.length) {
-          const mutation = pendingSyncRef.current[0];
-          if (!mutation) break;
-          await pushSyncMutation(mutation, controller.signal);
-          const remaining = pendingSyncRef.current.filter(
-            (item) => item.idempotencyKey !== mutation.idempotencyKey,
+        while (!controller.signal.aborted && pendingSyncRef.current.length > 0) {
+          const flushingKeys = new Set(
+            pendingSyncRef.current.map((mutation) => mutation.idempotencyKey),
           );
-          await writePendingSync(remaining);
-          pendingSyncRef.current = remaining;
-          setPendingSyncCount(remaining.length);
+          const result = await flushPendingSyncQueue(
+            pendingSyncRef.current,
+            (mutation) => pushSyncMutation(mutation, controller.signal),
+            async (remaining) => {
+              const appended = pendingSyncRef.current.filter(
+                (mutation) => !flushingKeys.has(mutation.idempotencyKey),
+              );
+              const nextPending = [...remaining, ...appended];
+              await writePendingSync(nextPending);
+              pendingSyncRef.current = nextPending;
+              setPendingSyncCount(nextPending.length);
+            },
+          );
+          if (result.conflict || result.appliedCount === 0) {
+            setSyncFailed(true);
+            break;
+          }
         }
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) {
@@ -844,35 +859,29 @@ export default function App() {
   }, []);
 
   const downloadOfflineRegion = useCallback(async (region: OfflineRegionManifest) => {
-    const downloading: OfflinePackState = {
-      regionId: region.id,
-      version: region.version,
-      status: "downloading",
-      progress: 0,
-      downloadedBytes: 0,
-      totalBytes: region.estimatedBytes,
-      updatedAt: new Date().toISOString(),
-      lastError: null,
-    };
-    const pending = [...offlinePacks.filter((pack) => pack.regionId !== region.id), downloading];
-    setOfflinePacks(pending);
-    await writeOfflinePackStates(pending);
     try {
-      const ready = await defaultOfflineMapRuntime.download(region, (progress) => {
-        setOfflinePacks((current) => {
-          const next = [...current.filter((pack) => pack.regionId !== region.id), progress];
-          void writeOfflinePackStates(next).catch(() => setStorageWriteFailed(true));
-          return next;
-        });
+      const result = await downloadOfflineRegionIfAvailable({
+        region,
+        packs: offlinePacks,
+        publish: setOfflinePacks,
+        persist: async (packs) => {
+          try {
+            await writeOfflinePackStates(packs);
+          } catch {
+            setStorageWriteFailed(true);
+            throw new Error("offline_pack_persist_failed");
+          }
+        },
       });
-      const next = [...pending.filter((pack) => pack.regionId !== region.id), ready];
-      setOfflinePacks(next);
-      await writeOfflinePackStates(next);
+      if (result.outcome === "blocked") {
+        setSelectionNotice("Offline maps are not available on this device yet.");
+      } else if (result.outcome === "failed") {
+        setSelectionNotice("The offline map download failed. Your existing offline data is unchanged.");
+      } else {
+        setSelectionNotice(`${region.name} is ready offline.`);
+      }
     } catch {
-      const failed = { ...downloading, status: "failed" as const, updatedAt: new Date().toISOString(), lastError: "download_failed" };
-      const next = [...pending.filter((pack) => pack.regionId !== region.id), failed];
-      setOfflinePacks(next);
-      await writeOfflinePackStates(next).catch(() => {});
+      setSelectionNotice("The offline map state could not be saved on this device.");
     }
   }, [offlinePacks]);
 

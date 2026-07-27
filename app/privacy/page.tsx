@@ -29,7 +29,17 @@ export default function PrivacyPage() {
               The Other Bali mobile app stores the catalogue cache, your Saved
               places and routes, and navigation state on your device. It does not
               require an account and does not include advertising, cross-app
-              tracking, or third-party analytics SDKs.
+              tracking, or advertising analytics SDKs.
+            </p>
+            <p className="mt-3">
+              If you choose an offline map download, Mapbox processes the map
+              region you selected and supplies the offline map tiles. When you
+              open a downloaded map and allow location access, your device uses
+              location to place you on that map. Mapbox telemetry is disabled by default.
+              The current app does not expose a telemetry consent choice,
+              so it does not enable telemetry. If an opt-in control is introduced,
+              this notice will be updated before that control becomes available.
+              Offline onboard routing is not currently available in the app.
             </p>
             <p className="mt-3">
               To load and refresh the catalogue, place details, and routes, the

@@ -17,9 +17,10 @@ const headers = {
 
 export function getOfflineBaliManifest(
   now = new Date(),
-  enabled = process.env.OFFLINE_MAPBOX_LEVEL3_ENABLED === "true",
+  providerEnabled = process.env.OFFLINE_MAPBOX_LEVEL3_ENABLED === "true",
+  deviceAcceptancePassed = process.env.OFFLINE_MAPBOX_DEVICE_ACCEPTANCE_PASSED === "true",
 ): OfflineBaliManifest {
-  if (!enabled) {
+  if (!providerEnabled || !deviceAcceptancePassed) {
     return {
       schemaVersion: OFFLINE_BALI_SCHEMA_VERSION,
       updatedAt: now.toISOString(),

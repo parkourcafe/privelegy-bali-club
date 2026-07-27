@@ -25,6 +25,16 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
         navigationProvider.coreConfig.tilestoreConfig.navigatorLocation.tileStore
     }
 
+    @objc override public func load() {
+        let defaults = UserDefaults.standard
+        let telemetryEnabled = defaults.object(
+            forKey: "offline-mapbox.telemetry-enabled"
+        ) != nil
+            ? defaults.bool(forKey: "offline-mapbox.telemetry-enabled")
+            : false
+        defaults.set(telemetryEnabled, forKey: "MGLMapboxMetricsEnabled")
+    }
+
     @objc func capability(_ call: CAPPluginCall) {
         call.resolve([
             "available": true,
@@ -111,7 +121,10 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
 
     @objc func list(_ call: CAPPluginCall) {
         let packs = UserDefaults.standard.dictionaryRepresentation().keys
-            .filter { $0.hasPrefix("offline-mapbox.") }
+            .filter {
+                $0.hasPrefix("offline-mapbox.")
+                    && $0 != "offline-mapbox.telemetry-enabled"
+            }
             .map { key -> [String: Any] in
                 [
                     "regionId": String(key.dropFirst("offline-mapbox.".count)),

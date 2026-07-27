@@ -46,6 +46,17 @@ public class OfflineMapboxPlugin extends Plugin {
     private TileStore tileStore;
     private MapboxNavigation navigation;
 
+    @Override
+    public void load() {
+        SharedPreferences preferences =
+            getContext().getSharedPreferences("offline-mapbox", 0);
+        boolean telemetryEnabled = preferences.contains("telemetry-enabled")
+            ? preferences.getBoolean("telemetry-enabled", false)
+            : false;
+        MapProvider.INSTANCE.getMapTelemetryInstance(getContext())
+            .setUserTelemetryRequestState(telemetryEnabled);
+    }
+
     private TileStore tileStore() {
         if (tileStore == null) {
             File directory = new File(getContext().getFilesDir(), "mapbox-offline-v1");
@@ -168,7 +179,9 @@ public class OfflineMapboxPlugin extends Plugin {
     public void list(PluginCall call) {
         SharedPreferences preferences = getContext().getSharedPreferences("offline-mapbox", 0);
         JSArray packs = new JSArray();
-        for (String id : preferences.getAll().keySet()) packs.put(pack(id, 1, 1, 1));
+        for (String id : preferences.getAll().keySet()) {
+            if (!"telemetry-enabled".equals(id)) packs.put(pack(id, 1, 1, 1));
+        }
         JSObject result = new JSObject();
         result.put("packs", packs);
         call.resolve(result);
