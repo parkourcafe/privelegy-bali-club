@@ -37,6 +37,7 @@ import {
   writeCachedBootstrap,
   writeNavigationState,
   writeNavigationSession,
+  writeOfflinePackStates,
   writePendingSync,
   writeSavedRouteState,
   writeSavedVenueState,
@@ -57,7 +58,8 @@ import {
   removeTripStop,
   setTripStopState,
 } from "./trip-planner";
-import type { OfflineBaliManifest } from "../../lib/journey/offline-bali";
+import type { OfflineBaliManifest, OfflinePackState, OfflineRegionManifest } from "../../lib/journey/offline-bali";
+import { defaultOfflineMapRuntime } from "./offline-runtime";
 import {
   buildCompanionSuggestions,
   createNavigationSession,
@@ -230,9 +232,17 @@ function TripPlan({
 function OfflineBaliManager({
   manifest,
   online,
+  packs,
+  onDownload,
+  onRemove,
+  onOpen,
 }: {
   manifest: OfflineBaliManifest | null;
   online: boolean;
+  packs: OfflinePackState[];
+  onDownload: (region: OfflineRegionManifest) => void;
+  onRemove: (regionId: string) => void;
+  onOpen: (regionId: string) => void;
 }) {
   const activated = manifest?.providerStatus === "available";
   return (
@@ -250,14 +260,31 @@ function OfflineBaliManager({
         <div className="offline-region-list">
           {manifest.regions.map((region) => (
             <article className="card" key={region.id}>
+              {(() => {
+                const pack = packs.find((item) => item.regionId === region.id);
+                return (
+                  <>
               <div className="card-copy">
                 <p className="card-kicker">Downloadable map region</p>
                 <h3>{region.name}</h3>
                 <p>{Math.ceil(region.estimatedBytes / 1_048_576)} MB · map, GPS and onboard routing</p>
+                {pack ? <p>{pack.status === "ready" ? "Ready offline" : `${Math.round(pack.progress * 100)}% · ${pack.status}`}</p> : null}
               </div>
-              <button className="save-button" type="button" disabled={!online}>
-                {online ? "Download" : "Internet required"}
-              </button>
+              <div className="trip-actions">
+                {pack?.status === "ready" ? (
+                  <>
+                    <button type="button" onClick={() => onOpen(region.id)}>Open map</button>
+                    <button type="button" onClick={() => onRemove(region.id)}>Remove</button>
+                  </>
+                ) : (
+                  <button className="save-button" type="button" disabled={!online} onClick={() => onDownload(region)}>
+                    {online ? "Download" : "Internet required"}
+                  </button>
+                )}
+              </div>
+                  </>
+                );
+              })()}
             </article>
           ))}
         </div>
@@ -538,6 +565,7 @@ export default function App() {
   const [events, setEvents] = useState<MobileEventOccurrence[]>([]);
   const [eventsUpdatedAt, setEventsUpdatedAt] = useState<string | null>(null);
   const [offlineBaliManifest, setOfflineBaliManifest] = useState<OfflineBaliManifest | null>(null);
+  const [offlinePacks, setOfflinePacks] = useState<OfflinePackState[]>([]);
   const [navigationSession, setNavigationSession] = useState<NavigationSession | null>(null);
   const navigationSessionRef = useRef<NavigationSession | null>(null);
   const [companionArea, setCompanionArea] = useState<string | null>(null);
@@ -661,6 +689,7 @@ export default function App() {
         setEvents(state.eventsSnapshot?.events ?? []);
         setEventsUpdatedAt(state.eventsSnapshot?.updatedAt ?? null);
         setTrip(state.trip);
+        setOfflinePacks(state.offlinePacks);
         setNavigationSession(state.navigationSession);
         navigationSessionRef.current = state.navigationSession;
         pendingSyncRef.current = state.pendingSync;
@@ -813,6 +842,46 @@ export default function App() {
     const timer = window.setInterval(() => setClock(new Date()), 60_000);
     return () => window.clearInterval(timer);
   }, []);
+
+  const downloadOfflineRegion = useCallback(async (region: OfflineRegionManifest) => {
+    const downloading: OfflinePackState = {
+      regionId: region.id,
+      version: region.version,
+      status: "downloading",
+      progress: 0,
+      downloadedBytes: 0,
+      totalBytes: region.estimatedBytes,
+      updatedAt: new Date().toISOString(),
+      lastError: null,
+    };
+    const pending = [...offlinePacks.filter((pack) => pack.regionId !== region.id), downloading];
+    setOfflinePacks(pending);
+    await writeOfflinePackStates(pending);
+    try {
+      const ready = await defaultOfflineMapRuntime.download(region, (progress) => {
+        setOfflinePacks((current) => {
+          const next = [...current.filter((pack) => pack.regionId !== region.id), progress];
+          void writeOfflinePackStates(next).catch(() => setStorageWriteFailed(true));
+          return next;
+        });
+      });
+      const next = [...pending.filter((pack) => pack.regionId !== region.id), ready];
+      setOfflinePacks(next);
+      await writeOfflinePackStates(next);
+    } catch {
+      const failed = { ...downloading, status: "failed" as const, updatedAt: new Date().toISOString(), lastError: "download_failed" };
+      const next = [...pending.filter((pack) => pack.regionId !== region.id), failed];
+      setOfflinePacks(next);
+      await writeOfflinePackStates(next).catch(() => {});
+    }
+  }, [offlinePacks]);
+
+  const removeOfflineRegion = useCallback(async (regionId: string) => {
+    await defaultOfflineMapRuntime.remove(regionId);
+    const next = offlinePacks.filter((pack) => pack.regionId !== regionId);
+    setOfflinePacks(next);
+    await writeOfflinePackStates(next);
+  }, [offlinePacks]);
 
   useEffect(() => {
     let disposed = false;
@@ -1753,7 +1822,16 @@ export default function App() {
             ) : null}
 
             {surface === "saved"
-              ? <OfflineBaliManager manifest={offlineBaliManifest} online={online} />
+              ? (
+                <OfflineBaliManager
+                  manifest={offlineBaliManifest}
+                  online={online}
+                  packs={offlinePacks}
+                  onDownload={(region) => void downloadOfflineRegion(region)}
+                  onRemove={(regionId) => void removeOfflineRegion(regionId)}
+                  onOpen={(regionId) => void defaultOfflineMapRuntime.open(regionId)}
+                />
+              )
               : null}
 
             {surface === "saved"

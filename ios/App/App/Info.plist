@@ -37,6 +37,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MBXAccessToken</key>
+	<string>$(MAPBOX_ACCESS_TOKEN)</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Other Bali uses your location only when you ask it to choose the nearest supported area. Your precise location is not stored.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
