@@ -74,10 +74,9 @@ android {
         applicationId "com.otherbali.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        // Code 1 belonged to the superseded TWA candidate. Start the native
-        // Capacitor line at 2 so a previously uploaded test package cannot
-        // collide with the store candidate.
-        versionCode 2
+        // Codes 1 and 2 belonged to superseded store candidates. Continue the
+        // native Capacitor line at 3 so Play uploads remain monotonic.
+        versionCode 3
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {

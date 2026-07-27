@@ -82,7 +82,7 @@ test("Android release identity, SDK floor, version, and signing gate are fixed",
 
   assert.match(appGradle, /namespace = "com\.otherbali\.app"/);
   assert.match(appGradle, /applicationId "com\.otherbali\.app"/);
-  assert.match(appGradle, /versionCode 2/);
+  assert.match(appGradle, /versionCode 3/);
   assert.match(appGradle, /versionName "1\.0\.0"/);
   assert.match(variables, /minSdkVersion = 24/);
   assert.match(variables, /compileSdkVersion = 36/);
