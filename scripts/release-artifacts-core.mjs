@@ -1,4 +1,6 @@
 const EXPECTED_ANDROID_PERMISSIONS = [
+  "android.permission.ACCESS_COARSE_LOCATION",
+  "android.permission.ACCESS_FINE_LOCATION",
   "android.permission.ACCESS_NETWORK_STATE",
   "android.permission.INTERNET",
   "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
