@@ -19,8 +19,8 @@ test("store package preflight rejects evidence captured for the previous signed 
     () => inspectStorePackage({ root }),
     (error) => {
       assert.match(error.message, /package manifest release identity\/version does not match the signed release contract/);
-      assert.match(error.message, /release-artifact evidence contract differs from the current release contract/);
-      assert.match(error.message, /screenshot source hash does not match verified mobile-shell evidence/);
+      assert.match(error.message, /iphone69: Simulator capture evidence has the wrong app identity\/version/);
+      assert.match(error.message, /androidPhone: signed-device capture evidence has the wrong app identity\/version/);
       return true;
     },
   );
