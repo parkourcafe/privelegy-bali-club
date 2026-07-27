@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   parseMobileBootstrap,
@@ -128,4 +129,25 @@ test("mobile shell accepts a bounded route detail and rejects non-sequential sto
 
   payload.data.route.stops[0]!.position = 2;
   assert.throws(() => parseMobileRouteDetail(payload), /position must be sequential/);
+});
+
+test("mobile navigation commits root and detail transitions before a forced process exit", () => {
+  const source = readFileSync(new URL("../mobile/src/App.tsx", import.meta.url), "utf8");
+  for (const handler of ["chooseSurface", "openVenue", "openRoute"]) {
+    const start = source.indexOf(`function ${handler}`);
+    assert.notEqual(start, -1, `${handler} must exist`);
+    const body = source.slice(start, source.indexOf("\n  }", start) + 4);
+    assert.match(body, /navigationSnapshotRef\.current = navigation/);
+    assert.match(body, /writeNavigationState\(navigation\)/);
+  }
+});
+
+test("photo-less Discover cards use a bounded mobile media fallback", () => {
+  const component = readFileSync(
+    new URL("../mobile/src/SelectionExperience.tsx", import.meta.url),
+    "utf8",
+  );
+  const styles = readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8");
+  assert.match(component, /discover-media.*missing-media/);
+  assert.match(styles, /\.discover-media\.missing-media\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9/);
 });

@@ -105,6 +105,7 @@ footer { margin-top: 54px; border-top: 1px solid var(--line); padding: 24px 4px 
 .selection-modes button[aria-pressed="true"] { border-color: var(--brass); background: var(--brass); color: var(--ink); }
 .discover-card { overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--panel); }
 .discover-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #35271e; }
+.discover-media.missing-media { aspect-ratio: 16 / 9; min-height: 180px; }
 .discover-media img { width: 100%; height: 100%; object-fit: cover; }
 .media-fallback { display: grid; width: 100%; height: 100%; place-items: center; padding: 24px; color: var(--muted); text-align: center; }
 .media-count { position: absolute; right: 12px; bottom: 12px; border-radius: 999px; background: rgba(32, 22, 15, 0.82); padding: 7px 10px; font-size: 0.75rem; }
