@@ -128,6 +128,25 @@ test("allows a verified official reservation outside active-deep coverage", () =
   assert.match(result.primary?.disclosure ?? "", /official/i);
 });
 
+test("never exposes Chope as a public booking handoff", () => {
+  const chopeReserve = capability({
+    id: "chope-reserve",
+    provider: "chope",
+    url: "https://www.chope.co/bali-restaurants/restaurant/fixture-venue",
+    sourceUrl: "https://www.chope.co/bali-restaurants/restaurant/fixture-venue",
+    label: "Reserve",
+  });
+  const result = resolve(
+    props({ coverageMode: "planning_only", capabilities: [chopeReserve] })
+  );
+
+  assert.equal(result.primary, null);
+  assert.deepEqual(result.all, []);
+  assert.deepEqual(result.rejected, [
+    { id: "chope-reserve", reason: "invalid_provider_handoff" },
+  ]);
+});
+
 test("fails closed for ineligible capability records", async (t) => {
   const cases: Array<[string, Partial<VenueActionCapabilityRecord>]> = [
     ["wrong venue", { venueSlug: "another-venue" }],
