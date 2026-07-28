@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const page = await readFile(new URL("../app/ubud/page.tsx", import.meta.url), "utf8");
+const pillars = await readFile(new URL("../lib/pillars.ts", import.meta.url), "utf8");
 
 test("Ubud pillar owns base fit and routes narrower decisions", () => {
   assert.match(page, /Is Ubud the right Bali base for you\?/);
@@ -17,6 +18,13 @@ test("Ubud pillar owns base fit and routes narrower decisions", () => {
 test("Ubud pillar place CTAs do not point to generic district guides", () => {
   assert.doesNotMatch(page, /href="\/ubud\/(things-to-do|itinerary|best-restaurants|best-cafes-coffee|best-yoga-wellness)"/);
   assert.doesNotMatch(page, /href="\/places\?district=ubud"/);
+});
+
+test("Ubud pillar exposes registry-driven contextual links to its focused guides", () => {
+  assert.match(page, /import \{ PILLARS \} from "@\/lib\/pillars"/);
+  assert.match(page, /const ubudGuideLinks = \(PILLARS\.find/);
+  assert.match(page, /<RelatedGuides heading="Ubud planning guides" links=\{ubudGuideLinks\} \/>/);
+  assert.match(pillars, /path: "\/ubud\/best-cafes-coffee"/);
 });
 
 test("Ubud pillar uses supported SEO contracts", () => {
