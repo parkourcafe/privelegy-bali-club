@@ -77,6 +77,9 @@ import type { OfflineBaliManifest, OfflinePackState, OfflineRegionManifest } fro
 import {
   defaultOfflineMapRuntime,
   downloadOfflineRegionIfAvailable,
+  reconcileOfflinePackStates,
+  removeOfflineRegionSafely,
+  type ListableOfflineMapRuntime,
 } from "./offline-runtime";
 import {
   buildCompanionSuggestions,
@@ -790,6 +793,15 @@ export default function App() {
         setEventsUpdatedAt(state.eventsSnapshot?.updatedAt ?? null);
         setTrip(state.trip);
         setOfflinePacks(state.offlinePacks);
+        if (defaultOfflineMapRuntime.list) {
+          const runtime = defaultOfflineMapRuntime as ListableOfflineMapRuntime;
+          void reconcileOfflinePackStates({
+            runtime,
+            packs: state.offlinePacks,
+            publish: setOfflinePacks,
+            persist: writeOfflinePackStates,
+          }).catch(() => setStorageWriteFailed(true));
+        }
         setNavigationSession(state.navigationSession);
         navigationSessionRef.current = state.navigationSession;
         feedResumeRef.current = state.feedResume;
@@ -986,10 +998,23 @@ export default function App() {
   }, [offlinePacks]);
 
   const removeOfflineRegion = useCallback(async (regionId: string) => {
-    await defaultOfflineMapRuntime.remove(regionId);
-    const next = offlinePacks.filter((pack) => pack.regionId !== regionId);
-    setOfflinePacks(next);
-    await writeOfflinePackStates(next);
+    const result = await removeOfflineRegionSafely({
+      runtime: defaultOfflineMapRuntime,
+      regionId,
+      packs: offlinePacks,
+      publish: setOfflinePacks,
+      persist: async (packs) => {
+        try {
+          await writeOfflinePackStates(packs);
+        } catch {
+          setStorageWriteFailed(true);
+          throw new Error("offline_pack_persist_failed");
+        }
+      },
+    });
+    if (result.outcome === "failed") {
+      setSelectionNotice("The offline map could not be removed from this device.");
+    }
   }, [offlinePacks]);
 
   useEffect(() => {

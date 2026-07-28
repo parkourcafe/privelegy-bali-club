@@ -14,14 +14,18 @@ const privacyUrl = new URL("../app/privacy/page.tsx", import.meta.url);
 const workflowUrl = new URL("../.github/workflows/ci.yml", import.meta.url);
 const appUrl = new URL("../mobile/src/App.tsx", import.meta.url);
 
-test("native Mapbox plugins default telemetry off and truthfully deny onboard routing", async () => {
+test("native Mapbox plugins default telemetry off and advertise routing only with a public native route bridge", async () => {
   const [ios, android] = await Promise.all([
     readFile(iosPluginUrl, "utf8"),
     readFile(androidPluginUrl, "utf8"),
   ]);
 
-  assert.match(ios, /"onboardRouting"\s*:\s*false/);
-  assert.match(android, /put\("onboardRouting",\s*false\)/);
+  assert.match(android, /@PluginMethod[\s\S]{0,200}\broute\s*\(/);
+  assert.match(ios, /CAPPluginMethod\s*\(\s*name:\s*"route"/);
+  assert.match(ios, /@objc\s+func\s+route\s*\(/);
+  assert.match(android, /put\s*\(\s*"onboardRouting"\s*,\s*true\s*\)/);
+  assert.match(ios, /"onboardRouting"\s*:\s*true/);
+  assert.match(`${android}\n${ios}`, /MapboxNavigation(?:Provider)?/);
 
   assert.match(ios, /(?:public\s+override|override\s+public)\s+func\s+load\s*\(\s*\)/);
   assert.match(ios, /object\s*\(\s*forKey:\s*"offline-mapbox\.telemetry-enabled"\s*\)/);

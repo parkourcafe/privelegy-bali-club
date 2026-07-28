@@ -14,3 +14,7 @@ dependencies {
     implementation "com.mapbox.navigationcore:android-ndk27:$mapboxNavigationVersion"
     implementation "com.mapbox.maps:android-ndk27:11.26.0"
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.incremental = false
+}

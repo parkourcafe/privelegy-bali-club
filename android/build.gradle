@@ -33,6 +33,14 @@ allprojects {
     }
 }
 
+subprojects {
+    tasks.configureEach { task ->
+        if (task.name ==~ /compile.*JavaWithJavac/ && task.hasProperty("options")) {
+            task.options.incremental = false
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

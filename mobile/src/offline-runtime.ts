@@ -1,4 +1,9 @@
-import type { OfflinePackState, OfflineRegionManifest } from "../../lib/journey/offline-bali";
+import {
+  OFFLINE_BALI_MAX_DEVICE_BYTES,
+  OFFLINE_BALI_MAX_PACKS,
+  type OfflinePackState,
+  type OfflineRegionManifest,
+} from "../../lib/journey/offline-bali";
 import { Capacitor } from "@capacitor/core";
 import { OfflineMapbox } from "@other-bali/offline-mapbox";
 
@@ -6,6 +11,15 @@ export interface OfflineMapRuntimeCapability {
   available: boolean;
   provider: string | null;
   reason: string | null;
+}
+
+export interface NativeOfflinePack {
+  regionId: string;
+  version: string;
+  completedResourceCount: number;
+  completedResourceSize: number;
+  requiredResourceCount: number;
+  progress: number;
 }
 
 export interface OfflineMapRuntime {
@@ -16,6 +30,11 @@ export interface OfflineMapRuntime {
   ): Promise<OfflinePackState>;
   remove(regionId: string): Promise<void>;
   open(regionId: string): Promise<boolean>;
+  list?(): Promise<NativeOfflinePack[]>;
+}
+
+export interface ListableOfflineMapRuntime extends OfflineMapRuntime {
+  list(): Promise<NativeOfflinePack[]>;
 }
 
 export const unavailableOfflineMapRuntime: OfflineMapRuntime = {
@@ -109,7 +128,11 @@ export const mapboxOfflineMapRuntime: OfflineMapRuntime = {
     await OfflineMapbox.remove({ regionId });
   },
   async open(regionId) {
-    return (await OfflineMapbox.open({ regionId })).opened;
+    return (await OfflineMapbox.open({
+      regionId,
+      routeGeometry: [],
+      destinationLabel: "Next stop",
+    })).opened;
   },
 };
 
@@ -208,4 +231,155 @@ export async function downloadOfflineRegionIfAvailable({
     await persist(next);
     return { outcome: "failed", reason: "download_failed", packs: next };
   }
+}
+
+export interface OfflinePackLifecycleOptions {
+  runtime: OfflineMapRuntime;
+  packs: OfflinePackState[];
+  publish(packs: OfflinePackState[]): void;
+  persist(packs: OfflinePackState[]): Promise<void>;
+  now?: () => Date;
+}
+
+export interface OfflinePackReconciliationOptions
+  extends Omit<OfflinePackLifecycleOptions, "runtime"> {
+  runtime: ListableOfflineMapRuntime;
+}
+
+const OFFLINE_REGION_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+function isOfflineRegionId(value: unknown): value is string {
+  return typeof value === "string"
+    && value.length <= 100
+    && OFFLINE_REGION_ID_PATTERN.test(value);
+}
+
+function validateNativePacks(value: unknown): NativeOfflinePack[] {
+  if (!Array.isArray(value) || value.length > OFFLINE_BALI_MAX_PACKS) {
+    throw new Error("Invalid native pack list");
+  }
+  const ids = new Set<string>();
+  return value.map((entry) => {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+      throw new Error("Invalid native pack");
+    }
+    const pack = entry as Partial<NativeOfflinePack>;
+    if (
+      !isOfflineRegionId(pack.regionId)
+      || typeof pack.version !== "string"
+      || !pack.version.trim()
+      || pack.version.trim() !== pack.version
+      || pack.version.length > 80
+      || !Number.isSafeInteger(pack.completedResourceCount)
+      || (pack.completedResourceCount ?? -1) < 0
+      || !Number.isSafeInteger(pack.completedResourceSize)
+      || (pack.completedResourceSize ?? -1) < 0
+      || (pack.completedResourceSize ?? 0) > OFFLINE_BALI_MAX_DEVICE_BYTES
+      || !Number.isSafeInteger(pack.requiredResourceCount)
+      || (pack.requiredResourceCount ?? 0) < 1
+      || (pack.completedResourceCount ?? 0) < (pack.requiredResourceCount ?? 0)
+      || typeof pack.progress !== "number"
+      || pack.progress !== 1
+    ) {
+      throw new Error("Invalid native pack");
+    }
+    if (ids.has(pack.regionId)) throw new Error(`Duplicate native pack: ${pack.regionId}`);
+    ids.add(pack.regionId);
+    return pack as NativeOfflinePack;
+  });
+}
+
+function readyStateFromNative(
+  native: NativeOfflinePack,
+  updatedAt: string,
+): OfflinePackState {
+  return {
+    regionId: native.regionId,
+    version: native.version,
+    status: "ready",
+    progress: 1,
+    downloadedBytes: native.completedResourceSize,
+    totalBytes: native.completedResourceSize,
+    updatedAt,
+    lastError: null,
+  };
+}
+
+export async function reconcileOfflinePackStates({
+  runtime,
+  packs,
+  publish,
+  persist,
+  now = () => new Date(),
+}: OfflinePackReconciliationOptions): Promise<OfflinePackState[]> {
+  const nativePacks = validateNativePacks(await runtime.list());
+  const nativeById = new Map(nativePacks.map((pack) => [pack.regionId, pack]));
+  const timestamp = now().toISOString();
+  const reconciled = packs.map((durable): OfflinePackState => {
+    const native = nativeById.get(durable.regionId);
+    if (!native) {
+      return {
+        ...durable,
+        status: "failed",
+        updatedAt: timestamp,
+        lastError: "native_pack_missing",
+      };
+    }
+    nativeById.delete(durable.regionId);
+    return readyStateFromNative(native, timestamp);
+  });
+  for (const native of nativeById.values()) {
+    reconciled.push(readyStateFromNative(native, timestamp));
+  }
+  publish(reconciled);
+  await persist(reconciled);
+  return reconciled;
+}
+
+export type OfflineRegionRemovalResult =
+  | { outcome: "removed"; packs: OfflinePackState[] }
+  | { outcome: "failed"; packs: OfflinePackState[] };
+
+export async function removeOfflineRegionSafely({
+  runtime,
+  regionId,
+  packs,
+  publish,
+  persist,
+  now = () => new Date(),
+}: OfflinePackLifecycleOptions & { regionId: string }): Promise<OfflineRegionRemovalResult> {
+  if (!isOfflineRegionId(regionId)) {
+    throw new Error("Invalid offline region id");
+  }
+  const existing = packs.find((pack) => pack.regionId === regionId);
+  if (!existing) return { outcome: "removed", packs };
+
+  const timestamp = now().toISOString();
+  const deleting = replacePack(packs, {
+    ...existing,
+    status: "deleting",
+    updatedAt: timestamp,
+    lastError: null,
+  });
+  publish(deleting);
+  await persist(deleting);
+
+  try {
+    await runtime.remove(regionId);
+  } catch {
+    const failed = replacePack(deleting, {
+      ...existing,
+      status: "failed",
+      updatedAt: timestamp,
+      lastError: "remove_failed",
+    });
+    publish(failed);
+    await persist(failed);
+    return { outcome: "failed", packs: failed };
+  }
+
+  const removed = deleting.filter((pack) => pack.regionId !== regionId);
+  publish(removed);
+  await persist(removed);
+  return { outcome: "removed", packs: removed };
 }
