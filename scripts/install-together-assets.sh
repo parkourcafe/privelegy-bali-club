@@ -47,6 +47,19 @@ while IFS=$'\t' read -r name src; do
   fi
 done <<< "$ASSETS"
 
+# --- видео: 10s немые loop-ролики, кладём как есть (mp4) ---
+VIDEOS=$(cat <<'EOF'
+together-hero-loop	hf_20260728_173212_4413d424-80eb-461d-b93d-9242e6d1f49a.mp4
+together-hero-loop-portrait	hf_20260728_173348_c03985c5-9983-4f89-9b5f-6bbf952fc98c.mp4
+EOF
+)
+
+while IFS=$'\t' read -r name src; do
+  [ -z "$name" ] && continue
+  echo "→ $name.mp4"
+  curl -fsSL -o "$DEST/$name.mp4" "$B/$src"
+done <<< "$VIDEOS"
+
 rm -rf "$TMP"
 echo
 echo "Готово. Файлы в $DEST/"
