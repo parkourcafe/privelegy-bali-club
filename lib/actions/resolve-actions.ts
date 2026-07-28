@@ -160,6 +160,10 @@ function resolveCapability(
 ): ResolvedVenueAction | null {
   const provider = normalizeActionProvider(record.provider);
   if (!provider) return null;
+  // Chope may be retained as research provenance, but it is not an Other Bali
+  // booking partner or an approved public handoff. Public venue actions must
+  // point to the venue, its official booking engine, WhatsApp, or TablePilot.
+  if (provider === "chope") return null;
 
   let href: string | null = null;
   if (provider === "tablepilot") {

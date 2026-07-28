@@ -80,7 +80,7 @@ const PROVIDER_HOSTS = Object.freeze({
 });
 
 const ORDERING_PROVIDERS = new Set(["grabfood", "gofood", "shopeefood"]);
-const BOOKING_PROVIDERS = new Set(["sevenrooms", "tablecheck", "chope", "resdiary", "dishcult"]);
+const BOOKING_PROVIDERS = new Set(["sevenrooms", "tablecheck", "resdiary", "dishcult"]);
 
 function parseHttps(value) {
   try {
