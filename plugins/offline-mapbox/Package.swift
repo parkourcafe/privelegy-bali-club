@@ -13,7 +13,8 @@ let package = Package(
             name: "OfflineMapboxPlugin",
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
-                .product(name: "MapboxNavigationCore", package: "mapbox-navigation-ios")
+                .product(name: "MapboxNavigationCore", package: "mapbox-navigation-ios"),
+                .product(name: "MapboxDirections", package: "mapbox-navigation-ios")
             ],
             path: "ios/Sources/OfflineMapboxPlugin"
         )
