@@ -25,7 +25,8 @@ async function fetchPublishedActionCapabilities(
     if (error || !data) return [];
     return sortActionCapabilities(
       (data as DataRow[]).map((row) => mapPublishedActionCapability(row)).filter(
-        (record): record is VenueActionCapabilityRecord => record !== null
+        (record): record is VenueActionCapabilityRecord =>
+          record !== null && record.provider !== "chope"
       )
     );
   } catch {
@@ -35,7 +36,7 @@ async function fetchPublishedActionCapabilities(
 
 const getCachedPublishedActionCapabilities = unstable_cache(
   fetchPublishedActionCapabilities,
-  ["published-action-capabilities-v1"],
+  ["published-action-capabilities-v2-no-chope"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.actions],
