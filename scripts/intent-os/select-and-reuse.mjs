@@ -4,14 +4,13 @@
 import { writeFileSync } from 'node:fs';
 import {
   paths, readCsv, readState, writeState, appendEvent, appendDecision,
-  nowIso, GENERATOR, SOURCE_VERSION, REPO_ROOT,
+  nowIso, REPO_ROOT,
 } from './lib.mjs';
 import { WINNER_MIN_SCORE, BACKUP_MIN_SCORE, ALLOWED_PILOT_READINESS } from './enums.mjs';
 
 const rel = (p) => p.replace(REPO_ROOT + '/', '');
 const { records: shortlist } = readCsv(paths.shortlist);
 const { records: serp } = readCsv(paths.serpScorecard);
-const serpById = new Map(serp.map((r) => [r.canonical_intent_id, r]));
 
 const ranked = [...shortlist].sort((a, b) => Number(b.total_score) - Number(a.total_score));
 const winner = ranked.find((r) => Number(r.total_score) >= WINNER_MIN_SCORE

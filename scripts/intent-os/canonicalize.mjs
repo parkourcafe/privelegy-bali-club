@@ -18,7 +18,6 @@ const rel = (p) => p.replace(REPO_ROOT + '/', '');
 const { records: normalized } = readCsv(paths.normalized);
 const { records: reconciled } = readCsv(paths.reconciliation);
 const recById = new Map(reconciled.map((r) => [r.source_record_id, r]));
-const normById = new Map(normalized.map((r) => [r.source_record_id, r]));
 
 const childrenByParent = new Map();
 for (const r of normalized) {

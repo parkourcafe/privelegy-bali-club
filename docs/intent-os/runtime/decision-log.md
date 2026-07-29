@@ -259,3 +259,24 @@ SAFE_HOLD with the exact blocker recorded, not a workaround.
 Eleven of thirteen stages completed on live data. Winner OB-CAN-0011 (95), backup OB-CAN-0007 (88),
 reuse decision EXTEND_EXISTING. The product brief is a complete implementation spec, so resuming
 needs only a scope authorisation, not rework.
+
+## 2026-07-29T19:40:22.828Z — IMPLEMENT / QA / INDEPENDENT_REVIEW / PREVIEW -> READY_FOR_PR
+
+Implemented the date-night modifier refinement as EXTEND_EXISTING behind
+NEXT_PUBLIC_OB_DATE_NIGHT_MODIFIERS (default off).
+
+Live evidence probe determined which modifiers can exist at all. All 9 Ubud date-night venues carry
+EMPTY vibe_tags and practical_tags, so only job-slug-derived modifiers are available there:
+special-occasion (4) and sunset-view (2). 'secluded' has NO supporting field anywhere in the dataset
+and ships permanently unavailable rather than approximated onto 'romantic'.
+
+Server no longer reads searchParams: doing so forced DYNAMIC_SERVER_USAGE on a statically generated
+route and would have degraded every district spoke. The server renders the complete set; the client
+narrows after hydration.
+
+Independent review by Codex CLI raised 3 HIGH findings, all fixed and re-reviewed clean, plus one
+MEDIUM and one LOW which were also fixed.
+
+QA GAP recorded honestly: end-to-end rendering could NOT be verified locally. /bali/* returns 404 in
+dev and 500 (DYNAMIC_SERVER_USAGE) under next start — reproduced at clean baseline with all changes
+stashed, so it is pre-existing and not a regression from this work.

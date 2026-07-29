@@ -7,7 +7,7 @@
 // The live verification is the check that could overturn NO_BUILD, and it is
 // blocked by a capability the agent may not create for itself.
 
-import { writeFileSync, readFileSync, existsSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   paths, readCsv, readState, writeState, appendEvent, appendDecision,
