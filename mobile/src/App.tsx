@@ -970,6 +970,12 @@ export default function App() {
     return () => window.clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (!selectionNotice) return;
+    const timer = window.setTimeout(() => setSelectionNotice(null), 6_000);
+    return () => window.clearTimeout(timer);
+  }, [selectionNotice]);
+
   const downloadOfflineRegion = useCallback(async (region: OfflineRegionManifest) => {
     try {
       const result = await downloadOfflineRegionIfAvailable({
@@ -1760,7 +1766,6 @@ export default function App() {
             This device could not persist that change, so the saved/offline state was not updated.
           </p>
         ) : null}
-        {selectionNotice ? <p className="notice" role="status">{selectionNotice}</p> : null}
         {navigationSession && !["failed", "completed"].includes(navigationSession.state) ? (
           <section className="navigation-session" aria-live="polite">
             <p className="eyebrow">Integrated navigation</p>
@@ -1777,19 +1782,31 @@ export default function App() {
         ) : null}
       </header>
 
-      <nav className="tabs" aria-label="Guide sections">
-        {([
-          ["places", "Discover"],
-          ["today", "Today"],
-          ["routes", "Trip"],
-          ["events", "What’s On"],
-          ["saved", "My Bali"],
-        ] as const).map(([item, label]) => (
-          <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
-            {label}
-          </button>
-        ))}
-      </nav>
+      <div className="sticky-navigation">
+        <nav className="tabs" aria-label="Guide sections">
+          {([
+            ["places", "Discover"],
+            ["today", "Today"],
+            ["routes", "Trip"],
+            ["events", "What’s On"],
+            ["saved", "My Bali"],
+          ] as const).map(([item, label]) => (
+            <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
+              {label}
+            </button>
+          ))}
+        </nav>
+        {selectionNotice ? (
+          <p
+            className="action-feedback"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {selectionNotice}
+          </p>
+        ) : null}
+      </div>
 
       <main id="main-content">
         {selectedVenue ? (

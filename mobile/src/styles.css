@@ -43,9 +43,11 @@ h1 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 15vw, 5.5rem); font-weig
 .status.offline::before { background: var(--brass); }
 .notice { margin: 16px 0 0; border-left: 2px solid var(--brass); padding-left: 12px; color: var(--muted); line-height: 1.5; }
 
-.tabs { position: sticky; z-index: 2; top: max(8px, var(--safe-area-inset-top, env(safe-area-inset-top))); display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0 -2px 32px; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(250, 246, 239, 0.92); box-shadow: var(--shadow-soft); backdrop-filter: blur(16px); }
+.sticky-navigation { position: sticky; z-index: 2; top: max(8px, var(--safe-area-inset-top, env(safe-area-inset-top))); display: grid; gap: 8px; margin: 0 -2px 32px; }
+.tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(250, 246, 239, 0.92); box-shadow: var(--shadow-soft); backdrop-filter: blur(16px); }
 .tabs button { min-height: 48px; border: 0; border-radius: 13px; background: transparent; color: var(--muted); font-weight: 700; }
 .tabs button[aria-pressed="true"] { background: var(--brass); color: var(--on-accent); }
+.action-feedback { display: flex; min-height: 48px; align-items: center; margin: 0; border: 1px solid var(--brass); border-radius: 14px; background: var(--panel); box-shadow: var(--shadow-soft); padding: 10px 14px; color: var(--muted); line-height: 1.45; overflow-wrap: anywhere; }
 
 .section-heading { display: flex; gap: 18px; align-items: end; justify-content: space-between; margin-bottom: 18px; }
 .section-heading h2 { margin: 0; font-size: 2.3rem; font-weight: 500; }
