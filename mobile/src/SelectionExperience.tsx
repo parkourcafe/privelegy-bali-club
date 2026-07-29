@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { nearestArea } from "../../lib/day-builder";
 import type { MobileDecisionResult, MobileFeedCard } from "./api";
 import type { SavedVenueSnapshot } from "./storage";
@@ -30,6 +30,7 @@ interface SelectionExperienceProps {
 
 const MODE_LABELS: Record<SelectionMode, string> = {
   discover: "Discover",
+  swipe: "Swipe",
   decide: "Decide for me",
   "map-list": "Map / List",
 };
@@ -49,6 +50,8 @@ function DiscoverCard({
   onGoNow,
   onPrevious,
   onNext,
+  onSwipe,
+  swipeMode = false,
 }: {
   snapshot: SavedVenueSnapshot;
   feedCard: MobileFeedCard | null;
@@ -64,7 +67,10 @@ function DiscoverCard({
   onGoNow: () => void;
   onPrevious: () => void;
   onNext: () => void;
+  onSwipe?: (direction: "left" | "right" | "up") => void;
+  swipeMode?: boolean;
 }) {
+  const pointerStart = useRef<{ x: number; y: number } | null>(null);
   const card = feedCard ? {
     venue: feedCard.venue,
     reasonShown: feedCard.reasonShown,
@@ -75,7 +81,26 @@ function DiscoverCard({
     mediaCount: feedCard.venue.photoUrl ? 1 : 0,
   } : toDiscoveryCards([snapshot.venue], updatedAt)[0]!;
   return (
-    <article className="discover-card" aria-labelledby={`discover-${snapshot.venue.id}`}>
+    <article
+      className={`discover-card${swipeMode ? " swipe-card" : ""}`}
+      aria-labelledby={`discover-${snapshot.venue.id}`}
+      onPointerDown={(event) => {
+        if (!swipeMode || (event.target as HTMLElement).closest("button, a, input, select, textarea")) return;
+        pointerStart.current = { x: event.clientX, y: event.clientY };
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }}
+      onPointerUp={(event) => {
+        if (!swipeMode || !pointerStart.current || (event.target as HTMLElement).closest("button, a, input, select, textarea")) return;
+        const start = pointerStart.current;
+        pointerStart.current = null;
+        const dx = event.clientX - start.x;
+        const dy = event.clientY - start.y;
+        if (Math.max(Math.abs(dx), Math.abs(dy)) < 64) return;
+        onSwipe?.(Math.abs(dx) >= Math.abs(dy) ? (dx < 0 ? "left" : "right") : "up");
+      }}
+      onPointerCancel={() => { pointerStart.current = null; }}
+    >
+      {swipeMode ? <p className="swipe-hint" aria-live="polite">Swipe left to skip · right to save · up to add to today</p> : null}
       <div className={`discover-media${snapshot.venue.photoUrl ? "" : " missing-media"}`}>
         {snapshot.venue.photoUrl ? (
           // Capacitor bundles this React shell directly; Next/Image is not available in this runtime.
@@ -203,7 +228,7 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
         ))}
       </div>
 
-      {mode === "discover" ? activeSnapshot ? (
+      {(mode === "discover" || mode === "swipe") ? activeSnapshot ? (
         <DiscoverCard
           snapshot={activeSnapshot}
           feedCard={(props.feedCards ?? []).find(
@@ -221,6 +246,12 @@ export default function SelectionExperience(props: SelectionExperienceProps) {
           onGoNow={() => props.onGoNow(activeSnapshot)}
           onPrevious={() => props.onActiveIndexChange(nextFeedPosition(props.activeIndex, "previous", props.snapshots.length))}
           onNext={() => props.onActiveIndexChange(nextFeedPosition(props.activeIndex, "next", props.snapshots.length))}
+          swipeMode={mode === "swipe"}
+          onSwipe={(direction) => {
+            if (direction === "right" && !props.savedIds.has(activeSnapshot.venue.id)) props.onToggleSave(activeSnapshot);
+            if (direction === "up") props.onAddToToday(activeSnapshot);
+            props.onActiveIndexChange(nextFeedPosition(props.activeIndex, "next", props.snapshots.length));
+          }}
         />
       ) : (
         <div className="empty-state" role="status">

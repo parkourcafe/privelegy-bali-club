@@ -1,6 +1,6 @@
 import type { MobileVenueCompact } from "../../lib/mobile-api/contracts";
 
-export type SelectionMode = "discover" | "decide" | "map-list";
+export type SelectionMode = "discover" | "swipe" | "decide" | "map-list";
 
 export interface DiscoveryCardModel {
   venue: MobileVenueCompact;
