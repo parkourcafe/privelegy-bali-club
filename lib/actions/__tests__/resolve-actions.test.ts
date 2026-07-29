@@ -128,7 +128,7 @@ test("allows a verified official reservation outside active-deep coverage", () =
   assert.match(result.primary?.disclosure ?? "", /official/i);
 });
 
-test("never exposes Chope as a public booking handoff", () => {
+test("exposes an owner-approved, verified Chope booking handoff", () => {
   const chopeReserve = capability({
     id: "chope-reserve",
     provider: "chope",
@@ -140,10 +140,31 @@ test("never exposes Chope as a public booking handoff", () => {
     props({ coverageMode: "planning_only", capabilities: [chopeReserve] })
   );
 
-  assert.equal(result.primary, null);
-  assert.deepEqual(result.all, []);
+  assert.equal(result.primary?.provider, "chope");
+  assert.equal(
+    result.primary?.href,
+    "https://www.chope.co/bali-restaurants/restaurant/fixture-venue"
+  );
+  assert.equal(result.primary?.label, "Reserve");
+  assert.equal(result.primary?.disclosure, "Booking handled by Chope");
+  assert.deepEqual(result.rejected, []);
+});
+
+test("keeps Chope available while the owned TablePilot rail is paused", () => {
+  const chopeReserve = capability({
+    id: "chope-reserve",
+    provider: "chope",
+    url: "https://www.chope.co/bali-restaurants/restaurant/fixture-venue",
+    sourceUrl: "https://www.chope.co/bali-restaurants/restaurant/fixture-venue",
+  });
+  const result = resolve(props({
+    capabilities: [cloneCapability(0), chopeReserve],
+  }));
+
+  assert.equal(result.primary?.provider, "chope");
+  assert.deepEqual(result.all.map((action) => action.id), ["chope-reserve"]);
   assert.deepEqual(result.rejected, [
-    { id: "chope-reserve", reason: "invalid_provider_handoff" },
+    { id: "fixture-reserve", reason: "invalid_provider_handoff" },
   ]);
 });
 
