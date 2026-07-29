@@ -6,7 +6,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import DecisionRail from "@/components/DecisionRail";
 import PillarMasthead from "@/components/landing/PillarMasthead";
-import { GuideFooter } from "@/components/GuideBlocks";
+import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { PILLARS } from "@/lib/pillars";
 
 const canonicalUrl = "https://www.otherbali.com/ubud";
 const reviewDate = "2026-07-23";
@@ -79,6 +80,12 @@ const placeLinks = [
   { href: "/places/zest-ubud", label: "Zest Ubud", category: "Restaurants" },
   { href: "/places/zuna-yoga-ubud", label: "Zuna Yoga", category: "Yoga & wellness" },
 ];
+
+const ubudGuideLinks = (PILLARS.find((pillar) => pillar.slug === "ubud")?.children ?? []).map((guide) => ({
+  href: guide.path,
+  title: guide.title,
+  blurb: "Open the focused Ubud planning guide.",
+}));
 
 const visualChoices = [
   {
@@ -208,6 +215,8 @@ export default function UbudPillarPage() {
           ))}
         </div>
       </section>
+
+      <RelatedGuides heading="Ubud planning guides" links={ubudGuideLinks} />
 
       <GuideFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
