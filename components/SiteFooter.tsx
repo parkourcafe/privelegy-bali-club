@@ -92,6 +92,7 @@ const EXPLORE_LINKS = [
   { href: "/my-day", label: "Today: find a place" },
   { href: "/places", label: "Explore places" },
   { href: "/plan", label: "Plan your trip" },
+  { href: "/together", label: "Let's go together" },
   { href: "/bali", label: "Bali by district" },
   { href: "/collections", label: "Curated collections" },
 ];
