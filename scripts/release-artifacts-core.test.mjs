@@ -281,6 +281,9 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
   assert.match(script, /CODE_SIGN_STYLE=Automatic/);
   assert.match(script, /CODE_SIGN_IDENTITY=Apple Development/);
   assert.doesNotMatch(script, /CODE_SIGN_IDENTITY=Apple Distribution/);
+  assert.match(script, /MAPBOX_ACCESS_TOKEN/);
+  assert.match(script, /restricted Mapbox public token/);
+  assert.match(script, /MAPBOX_ACCESS_TOKEN="\$\{mapbox_access_token\}"/);
   const realisticIdentityFixture = '  1) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "Apple Development: Release Operator (A1B2C3D4E5)"';
   const identityMarker = script.match(/grep -F '([^']+)'/)?.[1];
   assert.equal(identityMarker, '"Apple Development:');

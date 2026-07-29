@@ -39,6 +39,12 @@ if [[ "${node_major}" != "22" ]]; then
   exit 2
 fi
 
+mapbox_access_token="${MAPBOX_ACCESS_TOKEN:-}"
+if [[ ! "${mapbox_access_token}" =~ ^pk\.[A-Za-z0-9._-]{20,}$ ]]; then
+  echo "A restricted Mapbox public token must be supplied through MAPBOX_ACCESS_TOKEN." >&2
+  exit 2
+fi
+
 if ! security find-identity -v -p codesigning \
   | grep -F '"Apple Development:' >/dev/null; then
   echo "A valid Apple Development identity is not available in the keychain. Xcode will enforce team ${TEAM_ID} during archive." >&2
@@ -84,6 +90,7 @@ xcodebuild \
   CURRENT_PROJECT_VERSION="${BUILD_NUMBER}" \
   CODE_SIGN_STYLE=Automatic \
   'CODE_SIGN_IDENTITY=Apple Development' \
+  MAPBOX_ACCESS_TOKEN="${mapbox_access_token}" \
   -allowProvisioningUpdates \
   archive
 

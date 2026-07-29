@@ -412,6 +412,9 @@ async function inspectXcodeProject(root, failures) {
     if (/<string>armv7<\/string>/.test(info)) {
       failures.push("Info.plist contains an obsolete armv7 device requirement");
     }
+    if (!/<key>MBXAccessToken<\/key>\s*<string>\$\(MAPBOX_ACCESS_TOKEN\)<\/string>/.test(info)) {
+      failures.push("Info.plist must receive the Mapbox public token from the MAPBOX_ACCESS_TOKEN build setting");
+    }
   }
   if (!(await nonEmptyFile(privacyPath))) failures.push("PrivacyInfo.xcprivacy is missing");
 }
@@ -430,6 +433,21 @@ async function inspectBuiltApp(root, appPath, failures) {
     "capacitor.config.json",
   ]) {
     if (!(await nonEmptyFile(path.join(appPath, relative)))) failures.push(`built app is missing ${relative}`);
+  }
+  const builtInfoPath = path.join(appPath, "Info.plist");
+  if (await nonEmptyFile(builtInfoPath)) {
+    try {
+      const { stdout } = await execFileAsync(
+        "/usr/bin/plutil",
+        ["-extract", "MBXAccessToken", "raw", "-o", "-", builtInfoPath],
+        { maxBuffer: 100_000 },
+      );
+      if (!/^pk\.[A-Za-z0-9._-]{20,}$/.test(stdout.trim())) {
+        failures.push("built app has a missing or invalid Mapbox public token");
+      }
+    } catch {
+      failures.push("built app is missing the Mapbox public token");
+    }
   }
   const embedded = await json(path.join(appPath, "capacitor.config.json"), failures, "embedded Capacitor config");
   validateCapacitorConfig(embedded, failures, "embedded Capacitor config");

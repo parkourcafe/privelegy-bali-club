@@ -28,6 +28,12 @@ if (process.platform !== "darwin") {
   process.exit(2);
 }
 
+const mapboxAccessToken = process.env.MAPBOX_ACCESS_TOKEN?.trim() ?? "";
+if (!/^pk\.[A-Za-z0-9._-]{20,}$/.test(mapboxAccessToken)) {
+  console.error("A restricted Mapbox public token must be supplied through MAPBOX_ACCESS_TOKEN");
+  process.exit(2);
+}
+
 const resultBundle = path.join(artifacts, archive ? "Archive.xcresult" : "App.xcresult");
 await rm(resultBundle, { recursive: true, force: true });
 const archivePath = path.join(artifacts, "App.xcarchive");
@@ -42,6 +48,7 @@ const xcodeArgs = [
   "CODE_SIGNING_ALLOWED=NO",
   "CODE_SIGNING_REQUIRED=NO",
   "COMPILER_INDEX_STORE_ENABLE=NO",
+  `MAPBOX_ACCESS_TOKEN=${mapboxAccessToken}`,
 ];
 if (archive) {
   xcodeArgs.push(
