@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!--
+      Offline Level 3 is fail-closed in 1.0. Mapbox ships notification code for
+      active guidance, but the app exposes no trip-session or notification flow.
+      Keep POST_NOTIFICATIONS out of the signed manifest and suppress only the
+      dependency-specific bytecode warning.
+    -->
+    <issue id="NotificationPermission">
+        <ignore regexp="com[.]mapbox[.]navigation[.]trip[.]notification[.]internal[.]MapboxTripNotification" />
+    </issue>
+</lint>
