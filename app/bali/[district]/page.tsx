@@ -12,12 +12,12 @@ import {
 } from "@/lib/hub";
 import VenueCard from "@/components/VenueCard";
 
-// SEO hub. Server-rendered + ISR so crawlers and AI fetchers see full content.
-// dynamicParams: true so a district that newly crosses the hub threshold renders
-// on first request under ISR instead of 404ing until the next redeploy — the
-// sitemap can advertise it the moment it qualifies. Slugs that don't (yet) have
-// a hub still 404 via notFound() inside the component.
-export const revalidate = 3600;
+// The root layout resolves the explicit locale from a request header. Keep this
+// dynamic route request-rendered: attempting on-demand ISR without request
+// context turns a legitimate notFound() into DYNAMIC_SERVER_USAGE/500. Public
+// venue reads retain their own bounded data cache, so the database is not read
+// afresh for every request.
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
