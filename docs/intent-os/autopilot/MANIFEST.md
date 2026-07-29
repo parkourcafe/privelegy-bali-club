@@ -1,0 +1,21 @@
+# Manifest
+
+## Control files
+
+- `00_START_HERE.md`
+- `01_AUTOPILOT_DECISION.md`
+- `02_CLAUDE_CODE_MASTER_GOAL.md`
+- `03_PIPELINE_STATE_MACHINE.yaml`
+- `04_AUTONOMOUS_DECISION_POLICY.yaml`
+- `05_ARTIFACT_CONTRACT.md`
+- `06_CODEX_REVIEW_CONTRACT.md`
+- `07_RUN_COMMANDS.md`
+- `08_SECURITY_AND_RELEASE_POLICY.md`
+
+## Inputs
+
+- `inputs/external/OTHER_BALI_EXTERNAL_INTENTS_0001_0100.md`
+- `inputs/external/OTHER_BALI_EXTERNAL_INTENTS_0101_0200.md`
+- `inputs/internal/OTHER_BALI_HERMES_AUDIT_BUNDLE.zip`
+- `inputs/internal/hermes/*`
+- `inputs/governance/OTHER_BALI_INTENT_SINGLE_JOB_ARCHITECTURE_V2_0.md`

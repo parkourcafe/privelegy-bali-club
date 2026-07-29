@@ -1,0 +1,54 @@
+version: 1
+owner_questions_allowed: false
+ambiguity_defaults:
+  evidence_missing: UNVERIFIED
+  evidence_conflict: AUTO_HOLD
+  duplicate_uncertain: KEEP_SOURCE_RECORDS_SEPARATE_AND_FLAG
+  internal_external_conflict: AUTO_HOLD
+  unknown_search_volume: UNKNOWN
+  missing_data: BLOCKED_BY_DATA
+  high_risk_without_authority: HIGH_RISK_NOT_READY
+  score_tie: SELECT_LOWER_RISK_THEN_HIGHER_DATA_READINESS_THEN_LOWER_MAINTENANCE
+  no_candidate_over_threshold: NO_BUILD
+  tool_unavailable: USE_ALLOWED_FALLBACK_OR_SAFE_HOLD
+  codex_unavailable: USE_ISOLATED_CLAUDE_REVIEW_SUBAGENT
+  deploy_permission_missing: READY_FOR_PR
+forbidden_behaviors:
+  - invent_evidence
+  - invent_urls
+  - invent_search_volume
+  - rename_source_ids
+  - drop_source_records
+  - force_round_canonical_count
+  - flatten_user_jobs_and_capabilities
+  - create_mass_pages_before_pilot
+  - destructive_database_write
+  - publish_high_risk_without_authority
+  - ask_owner_for_taxonomy_choice
+risk_policy:
+  LOW:
+    auto_build_allowed: true
+  OPERATIONAL:
+    auto_build_allowed: true
+    current_data_required: true
+  SAFETY:
+    auto_build_allowed: false
+    publication_status: RESEARCH_ONLY
+  MEDICAL:
+    auto_build_allowed: false
+    publication_status: RESEARCH_ONLY
+  LEGAL_REGULATORY:
+    auto_build_allowed: false
+    publication_status: RESEARCH_ONLY
+pilot_thresholds:
+  winner_min_score: 85
+  backup_min_score: 80
+  allowed_data_readiness:
+    - READY
+    - READY_WITH_LIMITED_DISTRICTS
+release_defaults:
+  index_new_page: false
+  feature_flag_required: true
+  preview_required: true
+  rollback_required: true
+  auto_merge: false
