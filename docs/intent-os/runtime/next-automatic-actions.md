@@ -43,3 +43,22 @@ These cannot be defaulted, because policy forbids the agent from deciding them:
    evidence before they could ever be built.
 3. **Branch disposition** — review and merge `agent/intent-os-autopilot`, after which the
    `~/Documents` bundle backup can be removed.
+
+## Branch publication status
+
+The terminal artifacts are committed to the local worktree branch
+`agent/intent-os-autopilot` (three commits from baseline `2ebf74e`). **The branch was not pushed**:
+`git push` was denied by the environment's permission policy, not by a repository or credential
+failure — `gh auth status` reports an authenticated `parkourcafe` account.
+
+No PR exists. To publish for review:
+
+```bash
+cd /Users/msnigmatullaeva/other-bali-intent-os-autopilot
+git push -u origin agent/intent-os-autopilot
+gh pr create --draft --title "Intent OS autopilot: canonical library V0.1 (terminal NO_BUILD)" \
+  --body-file docs/intent-os/runtime/final-status.md
+```
+
+This does not affect the terminal state. `NO_BUILD` was decided by data readiness, not by
+publication availability, and `auto_merge: false` means no merge would have occurred regardless.
