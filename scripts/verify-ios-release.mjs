@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { chmod, mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { spawn } from "node:child_process";
+import { StringDecoder } from "node:string_decoder";
+import { Transform } from "node:stream";
 import { inspectIosRelease } from "./ios-release-core.mjs";
 
 const args = new Set(process.argv.slice(2));
@@ -34,21 +37,66 @@ if (!/^pk\.[A-Za-z0-9._-]{20,}$/.test(mapboxAccessToken)) {
   process.exit(2);
 }
 
+function createSecretRedactor(secret, destination) {
+  const decoder = new StringDecoder("utf8");
+  let retained = "";
+  const marker = "<redacted-mapbox-token>";
+
+  const drain = (final = false) => {
+    let matchIndex;
+    while ((matchIndex = retained.indexOf(secret)) >= 0) {
+      destination.write(retained.slice(0, matchIndex));
+      destination.write(marker);
+      retained = retained.slice(matchIndex + secret.length);
+    }
+    if (final) {
+      destination.write(retained);
+      retained = "";
+      return;
+    }
+    const safeLength = Math.max(retained.length - secret.length + 1, 0);
+    destination.write(retained.slice(0, safeLength));
+    retained = retained.slice(safeLength);
+  };
+
+  return new Transform({
+    transform(chunk, _encoding, callback) {
+      retained += decoder.write(chunk);
+      drain();
+      callback();
+    },
+    flush(callback) {
+      retained += decoder.end();
+      drain(true);
+      callback();
+    },
+  });
+}
+
 const resultBundle = path.join(artifacts, archive ? "Archive.xcresult" : "App.xcresult");
 await rm(resultBundle, { recursive: true, force: true });
 const archivePath = path.join(artifacts, "App.xcarchive");
 if (archive) await rm(archivePath, { recursive: true, force: true });
+const secretConfigDirectory = await mkdtemp(path.join(os.tmpdir(), "other-bali-ios-verify."));
+await chmod(secretConfigDirectory, 0o700);
+const secretConfigPath = path.join(secretConfigDirectory, "ReleaseSecrets.xcconfig");
+await writeFile(secretConfigPath, `MAPBOX_ACCESS_TOKEN = ${mapboxAccessToken}\n`, {
+  encoding: "utf8",
+  mode: 0o600,
+});
+await chmod(secretConfigPath, 0o600);
 
 const xcodeArgs = [
+  "-quiet",
   "-project", "ios/App/App.xcodeproj",
   "-scheme", "App",
   "-configuration", "Release",
+  "-xcconfig", secretConfigPath,
   "-derivedDataPath", derivedData,
   "-resultBundlePath", resultBundle,
   "CODE_SIGNING_ALLOWED=NO",
   "CODE_SIGNING_REQUIRED=NO",
   "COMPILER_INDEX_STORE_ENABLE=NO",
-  `MAPBOX_ACCESS_TOKEN=${mapboxAccessToken}`,
 ];
 if (archive) {
   xcodeArgs.push(
@@ -65,14 +113,24 @@ if (archive) {
   );
 }
 
-const exitCode = await new Promise((resolve, reject) => {
-  const child = spawn("xcodebuild", xcodeArgs, { cwd: root, stdio: "inherit" });
-  child.once("error", reject);
-  child.once("exit", (code, signal) => {
-    if (signal) reject(new Error(`xcodebuild ended with ${signal}`));
-    else resolve(code ?? 1);
+let exitCode;
+try {
+  exitCode = await new Promise((resolve, reject) => {
+    const child = spawn("xcodebuild", xcodeArgs, {
+      cwd: root,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    child.stdout.pipe(createSecretRedactor(mapboxAccessToken, process.stdout));
+    child.stderr.pipe(createSecretRedactor(mapboxAccessToken, process.stderr));
+    child.once("error", reject);
+    child.once("exit", (code, signal) => {
+      if (signal) reject(new Error(`xcodebuild ended with ${signal}`));
+      else resolve(code ?? 1);
+    });
   });
-});
+} finally {
+  await rm(secretConfigDirectory, { recursive: true, force: true });
+}
 if (exitCode !== 0) process.exit(exitCode);
 
 const appPath = archive

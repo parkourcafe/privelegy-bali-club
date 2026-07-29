@@ -73,14 +73,24 @@ fi
 
 mkdir -p "${output_directory}"
 temporary_directory="$(mktemp -d "${TMPDIR:-/tmp}/other-bali-ios-release.XXXXXX")"
+chmod 700 "${temporary_directory}"
 trap 'rm -rf "${temporary_directory}"' EXIT
 archive_path="${temporary_directory}/OtherBali.xcarchive"
 export_path="${temporary_directory}/export"
+release_xcconfig="${temporary_directory}/ReleaseSecrets.xcconfig"
+umask 077
+printf '%s\n' "MAPBOX_ACCESS_TOKEN = ${mapbox_access_token}" > "${release_xcconfig}"
+
+redact_xcode_output() {
+  sed -E 's/pk\.[A-Za-z0-9._-]{20,}/<redacted-mapbox-token>/g'
+}
 
 xcodebuild \
+  -quiet \
   -project ios/App/App.xcodeproj \
   -scheme App \
   -configuration Release \
+  -xcconfig "${release_xcconfig}" \
   -sdk iphoneos \
   -destination 'generic/platform=iOS' \
   -archivePath "${archive_path}" \
@@ -90,16 +100,16 @@ xcodebuild \
   CURRENT_PROJECT_VERSION="${BUILD_NUMBER}" \
   CODE_SIGN_STYLE=Automatic \
   'CODE_SIGN_IDENTITY=Apple Development' \
-  MAPBOX_ACCESS_TOKEN="${mapbox_access_token}" \
   -allowProvisioningUpdates \
-  archive
+  archive 2>&1 | redact_xcode_output
 
 xcodebuild \
+  -quiet \
   -exportArchive \
   -archivePath "${archive_path}" \
   -exportPath "${export_path}" \
   -exportOptionsPlist "${export_options}" \
-  -allowProvisioningUpdates
+  -allowProvisioningUpdates 2>&1 | redact_xcode_output
 
 exported_ipas=()
 for candidate in "${export_path}"/*.ipa; do
