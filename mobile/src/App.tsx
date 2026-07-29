@@ -1387,6 +1387,7 @@ export default function App() {
     storageMutationActive.current = true;
     setStorageWriteFailed(false);
     const id = snapshot.venue.id;
+    const syncId = snapshot.venue.slug;
     const removing = savedVenueSet.has(id);
     try {
       const persisted = await enqueueVenueState((current) => {
@@ -1400,9 +1401,9 @@ export default function App() {
       });
       if (persisted) await queueMutation({
         entityType: "saved",
-        entityId: id,
+        entityId: syncId,
         operation: removing ? "remove" : "save",
-        payload: { entityType: "place", entityId: id },
+        payload: { entityType: "place", entityId: syncId },
       });
     } finally {
       storageMutationActive.current = false;
@@ -1510,7 +1511,7 @@ export default function App() {
       setSelectionNotice(`${snapshot.venue.name} was added to Today and is available offline on this device.`);
       await queueMutation({
         entityType: "trip_stop",
-        entityId: snapshot.venue.id,
+        entityId: snapshot.venue.slug,
         operation: "add_to_day",
         payload: { entityType: "place", day: "today" },
       });

@@ -24,3 +24,16 @@ test("mobile application settles acknowledged sync responses before removing que
     "App must not delete a mutation merely because the sync request returned",
   );
 });
+
+test("place sync mutations use the canonical venue slug rather than the local feed id", () => {
+  assert.match(
+    appSource,
+    /const syncId = snapshot\.venue\.slug;[\s\S]{0,1200}?entityType: "saved",[\s\S]{0,120}?entityId: syncId,[\s\S]{0,180}?entityId: syncId/,
+    "saved-place sync must use the venue slug expected by the server contract",
+  );
+  assert.match(
+    appSource,
+    /async function addToToday[\s\S]{0,900}?entityType: "trip_stop",[\s\S]{0,120}?entityId: snapshot\.venue\.slug/,
+    "Today sync must use the venue slug expected by the server contract",
+  );
+});
