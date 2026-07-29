@@ -76,6 +76,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // The Together page is supplied as an approved standalone bundle. Keep the
+  // bundled runtime intact and expose it at the canonical product URL.
+  async rewrites() {
+    return [{ source: "/together", destination: "/together/index.html" }];
+  },
   // Consolidate the apex onto the canonical www host with a permanent (308)
   // redirect. Every canonical, metadataBase, sitemap and OG URL already uses
   // www.otherbali.com, so www is the primary host and this only fixes stray
