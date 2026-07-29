@@ -10,7 +10,9 @@ const BUNDLE_ID = "com.otherbali.app";
 const CANONICAL_ORIGIN = "https://www.otherbali.com";
 const EXPECTED_COLLECTED_DATA_TYPES = [
   "NSPrivacyCollectedDataTypeCoarseLocation",
+  "NSPrivacyCollectedDataTypeDeviceID",
   "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+  "NSPrivacyCollectedDataTypeOtherUserContent",
   "NSPrivacyCollectedDataTypeProductInteraction",
 ];
 const execFileAsync = promisify(execFile);
@@ -222,7 +224,7 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
     failures.push("PrivacyInfo.xcprivacy must declare UserDefaults reason CA92.1 for @capacitor/preferences");
   }
   if (!sourceManifest?.collectedDataTypesExact) {
-    failures.push("PrivacyInfo.xcprivacy must exactly declare linked, non-tracking Coarse Location, Product Interaction, and Other Diagnostic Data for App Functionality");
+    failures.push("PrivacyInfo.xcprivacy must exactly declare the approved linked, non-tracking coarse location, device ID, user content, interaction, and diagnostic data types for App Functionality");
   }
 
   let builtApp = null;

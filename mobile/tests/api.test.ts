@@ -191,12 +191,23 @@ test("mobile decision uses the shared runtime through the credentialed mobile ga
     }), { status: 201, headers: { "Content-Type": "application/json" } });
   }) as typeof fetch);
   try {
-    await api.createDecision({ area: "sanur", moment: "local_food_calm" });
+    await api.createDecision({
+      area: "sanur",
+      moment: "local_food_calm",
+      latitude: "-8.6705",
+      longitude: "115.2126",
+      coordinates: "-8.6705,115.2126",
+    }, undefined, async () => "g_AAECAwQFBgcICQoL");
     assert.equal(requestUrl, "https://mobile-api.test/api/mobile/v1/decisions");
     assert.equal(requestInit?.method, "POST");
     assert.equal(requestInit?.credentials, "include");
-    assert.match(String(requestInit?.body), /"area":"sanur"/);
-    assert.ok(new Headers(requestInit?.headers).get("Idempotency-Key"));
+    assert.deepEqual(JSON.parse(String(requestInit?.body)), {
+      context: { area: "sanur", moment: "local_food_calm" },
+    });
+    const headers = new Headers(requestInit?.headers);
+    assert.ok(headers.get("Idempotency-Key"));
+    assert.equal(headers.get("X-Other-Bali-Guest"), "g_AAECAwQFBgcICQoL");
+    assert.doesNotMatch(String(requestInit?.body), /latitude|longitude|coordinates|-8\.6705/i);
   } finally {
     restoreFetch();
   }
@@ -303,6 +314,20 @@ test("sync push returns the raw acknowledgement required for safe queue settleme
       new Headers(init?.headers).get("Idempotency-Key"),
       mutation.idempotencyKey,
     );
+    assert.equal(
+      new Headers(init?.headers).get("X-Other-Bali-Guest"),
+      "g_AAECAwQFBgcICQoL",
+    );
+    assert.deepEqual(JSON.parse(String(init?.body)), {
+      input: {
+        entityType: mutation.entityType,
+        entityId: mutation.entityId,
+        operation: mutation.operation,
+        payload: mutation.payload,
+        baseVersion: mutation.baseVersion,
+        createdAt: mutation.createdAt,
+      },
+    });
     return new Response(JSON.stringify({ data: acknowledgement }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
@@ -310,7 +335,91 @@ test("sync push returns the raw acknowledgement required for safe queue settleme
   }) as typeof fetch);
 
   try {
-    assert.deepEqual(await api.pushSyncMutation(mutation), acknowledgement);
+    assert.deepEqual(
+      await api.pushSyncMutation(
+        mutation,
+        undefined,
+        async () => "g_AAECAwQFBgcICQoL",
+      ),
+      acknowledgement,
+    );
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("sync transport attaches the durable guest credential and rejects precise location", async () => {
+  const api = await apiPromise;
+  let fetchCalled = false;
+  const restoreFetch = installFetch((async () => {
+    fetchCalled = true;
+    return new Response(null, { status: 500 });
+  }) as typeof fetch);
+  try {
+    await assert.rejects(
+      api.pushSyncMutation({
+        idempotencyKey: "sync-location-rejected",
+        entityType: "trip_stop",
+        entityId: "trip-1",
+        operation: "trip_replace",
+        payload: {
+          trip: {
+            id: "trip-1",
+            origin: { latitude: -8.6705, longitude: 115.2126 },
+          },
+        },
+        baseVersion: null,
+        createdAt: "2026-07-30T10:00:00.000Z",
+      }, undefined, async () => "g_AAECAwQFBgcICQoL"),
+      /Precise location/,
+    );
+    assert.equal(fetchCalled, false);
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("privacy deletion is credentialed and requires confirmed HTTP success", async () => {
+  const api = await apiPromise;
+  const requests: Array<{ url: string; init?: RequestInit }> = [];
+  const restoreFetch = installFetch((async (input, init) => {
+    requests.push({ url: String(input), init });
+    if (requests.length === 1) {
+      return new Response(JSON.stringify({ ok: true, deleted: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    if (requests.length === 2) {
+      return new Response(JSON.stringify({ ok: false }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    return new Response(JSON.stringify({ ok: false }), {
+      status: 503,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch);
+  const identity = async () => "g_AAECAwQFBgcICQoL";
+
+  try {
+    await api.deleteSyncedData(undefined, identity);
+    assert.equal(requests[0]?.url, "https://mobile-api.test/api/mobile/v1/privacy");
+    assert.equal(requests[0]?.init?.method, "DELETE");
+    assert.equal(requests[0]?.init?.credentials, "include");
+    assert.equal(
+      new Headers(requests[0]?.init?.headers).get("X-Other-Bali-Guest"),
+      "g_AAECAwQFBgcICQoL",
+    );
+    await assert.rejects(
+      api.deleteSyncedData(undefined, identity),
+      /did not confirm success/,
+    );
+    await assert.rejects(
+      api.deleteSyncedData(undefined, identity),
+      /failed with 503/,
+    );
   } finally {
     restoreFetch();
   }

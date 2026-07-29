@@ -214,7 +214,15 @@ test("Android app links are narrow, verified, and the local state is not backed 
   assert.equal((manifest.match(/android:host="www\.otherbali\.com"/g) ?? []).length, 2);
   assert.match(manifest, /android\.permission\.ACCESS_COARSE_LOCATION/);
   assert.match(manifest, /android\.permission\.ACCESS_FINE_LOCATION/);
-  assert.doesNotMatch(manifest, /ACCESS_BACKGROUND_LOCATION|camera|notification|billing/i);
+  const activePermissionNames = [...manifest.matchAll(/<uses-permission\b([^>]*)\/>/g)]
+    .filter(([, attributes]) => !/tools:node="remove"/.test(attributes))
+    .map(([, attributes]) => attributes.match(/android:name="([^"]+)"/)?.[1])
+    .filter((name): name is string => Boolean(name));
+  assert.deepEqual(activePermissionNames.sort(), [
+    "android.permission.ACCESS_COARSE_LOCATION",
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.INTERNET",
+  ]);
 });
 
 test("Android test identity matches production and unused Google Services wiring is absent", () => {

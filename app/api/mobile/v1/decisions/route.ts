@@ -1,6 +1,7 @@
 import { createMobileDecision } from "@/lib/mobile-api/discovery";
 import { getMobileVenuesData } from "@/lib/mobile-api/service";
 import type { MobileVenue } from "@/lib/mobile-api/contracts";
+import { MOBILE_GUEST_HEADER } from "@/lib/guest-server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -10,6 +11,8 @@ const MOBILE_ORIGINS = new Set([
   "http://localhost",
   "https://localhost",
 ]);
+const MOBILE_ALLOWED_HEADERS =
+  `Content-Type, Idempotency-Key, ${MOBILE_GUEST_HEADER}, X-Other-Bali-Mobile-Shell`;
 
 function corsOrigin(request: Request): string | null {
   const origin = request.headers.get("origin");
@@ -21,6 +24,7 @@ function withMobileCors(request: Request, response: Response): Response {
   if (!origin) return response;
   response.headers.set("Access-Control-Allow-Origin", origin);
   response.headers.set("Access-Control-Allow-Credentials", "true");
+  response.headers.set("Access-Control-Allow-Headers", MOBILE_ALLOWED_HEADERS);
   response.headers.append("Vary", "Origin");
   return response;
 }
@@ -138,7 +142,7 @@ export function OPTIONS(request: Request) {
     headers: origin ? {
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Headers": "Content-Type, Idempotency-Key, X-Other-Bali-Mobile-Shell",
+      "Access-Control-Allow-Headers": MOBILE_ALLOWED_HEADERS,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       Vary: "Origin",
     } : undefined,

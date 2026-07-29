@@ -145,6 +145,20 @@ footer { margin-top: 54px; border-top: 1px solid var(--line); padding: 24px 4px 
 .offline-bali ul { margin: 14px 0; padding-left: 22px; }
 .offline-region-list { display: grid; gap: 12px; }
 .offline-region-list .save-button:disabled { cursor: not-allowed; opacity: .55; }
+.privacy-controls { margin-top: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); padding: 20px; }
+.privacy-controls h3 { margin: 0; font-size: 1.7rem; font-weight: 500; }
+.privacy-controls > p:not(.eyebrow, .delete-error), .delete-confirmation p { color: var(--muted); line-height: 1.55; }
+.guest-reference { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 16px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); padding: 12px; }
+.guest-reference > span:first-child { width: 100%; color: var(--muted); font-size: .78rem; font-weight: 700; }
+.guest-reference code { max-width: 100%; overflow-wrap: anywhere; color: var(--ink); font-size: .88rem; }
+.guest-reference button { min-height: 40px; margin-left: auto; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--panel); color: var(--ink); padding: 6px 13px; font-weight: 700; }
+.privacy-controls .guest-reference-help { margin: 8px 0 16px; font-size: .85rem; }
+.delete-confirmation { display: grid; gap: 12px; margin-top: 16px; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--paper); padding: 16px; }
+.delete-confirmation > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.delete-confirmation button, .delete-data-button { min-height: 46px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--panel); color: var(--ink); padding: 8px 14px; font-weight: 700; }
+.delete-data-button { border-color: #9b302c; color: #8a211e; }
+.delete-confirmation button:disabled, .delete-data-button:disabled { cursor: not-allowed; opacity: .55; }
+.delete-error { margin: 14px 0 0; border-left: 2px solid #9b302c; padding-left: 12px; color: #8a211e; line-height: 1.5; }
 .companion { margin: 0 0 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); padding: 20px; }
 .companion > label { display: grid; gap: 8px; color: var(--muted); font-weight: 700; }
 .companion select { min-height: 48px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); padding: 0 12px; }
