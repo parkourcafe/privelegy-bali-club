@@ -18,13 +18,13 @@ import { DISTRICT_GRADIENT } from "@/lib/districts";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Other Bali — Curated Places, Routes & Trip Plans",
+  title: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
     url: "https://www.otherbali.com/",
     siteName: "Other Bali",
     locale: "en_US",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
   },
 };
 
@@ -42,9 +42,9 @@ const HOME_JSON_LD = {
   "@type": "WebPage",
   "@id": "https://www.otherbali.com/#homepage",
   url: "https://www.otherbali.com/",
-  name: "Other Bali — Curated Places, Routes & Trip Plans",
+  name: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment.",
   isPartOf: { "@id": "https://www.otherbali.com/#website" },
   inLanguage: "en",
 };
@@ -200,7 +200,7 @@ export default function HomePage() {
                   position={3}
                   className="inline-flex min-h-12 items-center rounded-full border border-[#f1c987]/70 bg-[#f1c987]/12 px-5 text-sm font-semibold text-[#f1c987] transition hover:bg-[#f1c987]/22 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f1c987] sm:px-6 sm:text-base"
                 >
-                  Let’s go together
+                  Discover Bali together
                 </HomeAnalyticsLink>
               </div>
             </div>

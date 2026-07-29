@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 // self-contained: no remote fonts/assets; palette hardcoded from the approved
 // Final light system (paper #FAF6EF · ink #2B1A13 · lagoon #005962 · clay dot)
 // so it renders at the edge. Wordmark rule: [O-ring] + THER BALI, serif.
-export const alt = "Other Bali — the right place for the moment you're in";
+export const alt = "Other Bali — Discover Bali together";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -76,8 +76,7 @@ export default function OpengraphImage() {
               fontFamily: "sans-serif",
             }}
           >
-            Tell us the day. Get the places that actually fit — not another list
-            to scroll.
+            Resident-curated places, routes and plans for every Bali moment.
           </div>
         </div>
 
@@ -100,7 +99,7 @@ export default function OpengraphImage() {
               background: "#005962",
             }}
           />
-          otherbali.com · Travellers never pay
+          Discover Bali together · otherbali.com
         </div>
       </div>
     ),

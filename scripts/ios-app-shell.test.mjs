@@ -18,7 +18,15 @@ test("iOS ships the bundled catalogue shell instead of a remote wrapper", async 
   assert.match(index, /\.\/assets\/app-/);
   assert.doesNotMatch(index, /window\.location\.(?:replace|assign)|<iframe/i);
   assert.doesNotMatch(config, /url:\s*["']https:\/\/www\.otherbali\.com/);
-  assert.equal(JSON.parse(manifest).apiOrigin, "https://www.otherbali.com");
+  const buildManifest = JSON.parse(manifest);
+  assert.equal(buildManifest.apiOrigin, "https://www.otherbali.com");
+  const appAsset = buildManifest.assets.find((asset) => /\.\/assets\/app-.+\.js$/.test(asset));
+  assert.ok(appAsset, "mobile build manifest is missing the application bundle");
+  const appBundle = await load(`ios-web/${appAsset.slice(2)}`);
+  assert.match(appBundle, /Discover Bali together/);
+  assert.match(appBundle, /The right place for the moment you(?:’|\\u2019)re in\./);
+  assert.match(appBundle, /Resident-curated places, routes and plans for every Bali moment\./);
+  assert.match(appBundle, /Less searching\. More Bali\./);
 });
 
 test("the native catalogue supports bootstrap, durable saves, deep links and share", async () => {

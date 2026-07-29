@@ -1739,9 +1739,11 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="hero">
-        <p className="eyebrow">Other Bali</p>
+        <p className="eyebrow">Discover Bali together</p>
         <h1>The right place for the moment you’re in.</h1>
-        <p className="hero-copy">Resident-curated places and routes, with clear handoffs when you’re ready to go.</p>
+        <p className="hero-copy">
+          Resident-curated places, routes and plans for every Bali moment. Less searching. More Bali.
+        </p>
         <div className="status-row" aria-live="polite">
           <span className={online ? "status online" : "status offline"}>{online ? "Online" : "Offline · cached data"}</span>
           {bootstrap ? <span>Updated {formatUpdatedAt(bootstrap.updatedAt)}</span> : null}

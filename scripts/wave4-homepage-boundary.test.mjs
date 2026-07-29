@@ -8,6 +8,11 @@ const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
 const trackerSource = read("components/HomeAnalyticsLink.tsx");
 const configSource = read("lib/homepage.ts");
+const mobileSource = read("mobile/src/App.tsx");
+const togetherSource = read("public/together/index.html");
+const messagingSource = read("docs/canon/OTHER_BALI_MESSAGING_SYSTEM.md");
+const sharedPlanSource = read("app/plan/shared/page.tsx");
+const sharedPlanOgSource = read("app/plan/shared/og/route.tsx");
 
 function extractSection(name) {
   const marker = `export const ${name}`;
@@ -55,6 +60,81 @@ test("Wave 4 homepage renders the approved section hierarchy", () => {
   const canggu = appSource.indexOf('id="canggu-title"');
   const trust = appSource.indexOf('id="trust-title"');
   assert.ok(moments > 0 && plan > moments && categories > plan && canggu > categories && trust > canggu);
+});
+
+test("canonical Other Bali messaging is aligned across web, mobile and store-facing surfaces", () => {
+  for (const source of [configSource, mobileSource]) {
+    assert.match(source, /Discover Bali together/);
+    assert.match(source, /The right place for the moment you’re in\./);
+    assert.match(source, /Resident-curated places, routes and plans/);
+    assert.match(source, /Less searching\. More Bali\./);
+  }
+  for (const forbidden of ["Find new friends", "Meet people", "People near you"]) {
+    const pattern = new RegExp(escapeRegExp(forbidden), "i");
+    assert.doesNotMatch(configSource, pattern);
+    assert.doesNotMatch(appSource, pattern);
+    assert.doesNotMatch(mobileSource, pattern);
+  }
+  assert.match(configSource, /The right place for the moment you’re in\./);
+  assert.match(messagingSource, /does not mean social discovery/i);
+  assert.match(messagingSource, /do\s+not use `Find new friends`/i);
+});
+
+test("Together page supports planning with existing companions without simulating a social network", () => {
+  const templateMatch = togetherSource.match(
+    /<script type="__bundler\/template">([\s\S]*?)<\/script>/,
+  );
+  assert.ok(templateMatch, "Together canvas template is missing");
+  const togetherHtml = JSON.parse(templateMatch[1]);
+
+  assert.match(togetherSource, /<title>Discover Bali Together · Other Bali<\/title>/);
+  assert.match(togetherHtml, /<title>Discover Bali Together · Other Bali<\/title>/);
+  assert.match(
+    togetherHtml,
+    /\[data-screen-label="Share a public page — actual states"\]\{display:none!important\}/,
+  );
+  assert.match(togetherHtml, /Choose with your people\./);
+  assert.match(togetherHtml, /Discover Bali <span style="color:#F6C688">together<\/span>\./);
+  assert.match(togetherHtml, /window\.location\.assign\('\/places'\)/);
+  assert.match(togetherHtml, /otherbali\.com\/places\//);
+  assert.match(togetherHtml, /Compare before you go/);
+  assert.match(togetherHtml, />Open place</);
+  assert.match(togetherHtml, /Can I share my personal Trip from the app\?/);
+  assert.match(
+    togetherHtml,
+    /Not in the current mobile release — share a place or ready-made route for now\./,
+  );
+  assert.doesNotMatch(togetherHtml, /Find new friends\./i);
+  assert.doesNotMatch(togetherHtml, /Math\.random\(\)\.toString\(36\)/);
+  assert.doesNotMatch(togetherHtml, /https:\/\/otherbali\.com\/r\//);
+  for (const unsupported of [
+    "Creating link",
+    "Link copied",
+    "Copy link",
+    "Clipboard",
+    "Help me choose",
+    "Which of these three fits us best?",
+    "Ask for a private choice",
+    "editorial explainer",
+    "вертикальная handoff-линия",
+  ]) {
+    assert.doesNotMatch(togetherHtml, new RegExp(escapeRegExp(unsupported), "i"));
+  }
+});
+
+test("shared plan preview stays a bounded starting point without live booking claims", () => {
+  assert.match(sharedPlanSource, /shared as a starting point/);
+  assert.match(sharedPlanSource, /official actions where available/);
+  assert.match(sharedPlanOgSource, /Public place guide/);
+  for (const unsupported of [
+    "saved as a starting point",
+    "verified booking",
+    "Live places & bookings",
+  ]) {
+    const pattern = new RegExp(escapeRegExp(unsupported), "i");
+    assert.doesNotMatch(sharedPlanSource, pattern);
+    assert.doesNotMatch(sharedPlanOgSource, pattern);
+  }
 });
 
 test("Wave 4 homepage removes old Canggu-centre and directory-first messaging", () => {
