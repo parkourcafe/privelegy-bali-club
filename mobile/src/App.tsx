@@ -88,6 +88,7 @@ import {
   type CompanionSuggestion,
   type NavigationSession,
 } from "../../lib/journey/adaptive-companion";
+import { editorialHeroPosterUrl, editorialHeroVideoUrl } from "./editorial-media";
 
 interface LoadedVenueDetail {
   venue: MobileVenue;
@@ -1742,6 +1743,12 @@ export default function App() {
         <p className="eyebrow">Other Bali</p>
         <h1>The right place for the moment you’re in.</h1>
         <p className="hero-copy">Resident-curated places and routes, with clear handoffs when you’re ready to go.</p>
+        <div className="hero-media" aria-label="Other Bali editorial film">
+          <video autoPlay muted loop playsInline poster={editorialHeroPosterUrl} preload="metadata">
+            <source src={editorialHeroVideoUrl} type="video/mp4" />
+          </video>
+          <span>Other Bali editorial film · area mood, not a live venue view</span>
+        </div>
         <div className="status-row" aria-live="polite">
           <span className={online ? "status online" : "status offline"}>{online ? "Online" : "Offline · cached data"}</span>
           {bootstrap ? <span>Updated {formatUpdatedAt(bootstrap.updatedAt)}</span> : null}
