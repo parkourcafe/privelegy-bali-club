@@ -50,6 +50,7 @@ try {
   const routePage = await browser.newPage();
   for (const path of [
     "/bali/reddit-recommendations",
+    "/bali/canggu/reddit-recommendations",
     "/bali/where-to-stay",
     "/places/nonexistent-release-audit",
   ]) {

@@ -21,9 +21,9 @@ export interface HomeLinkItem {
 }
 
 export const HOME_HERO = {
-  eyebrow: "Curated across Bali",
+  eyebrow: "Discover Bali together",
   h1: "The right place for the moment you’re in.",
-  body: "Find places, routes and practical plans for your day or trip — with clear guidance, not endless lists.",
+  body: "Resident-curated places, routes and plans for every Bali moment. Less searching. More Bali.",
   primaryCta: { id: "hero_now", label: "Find a place now", href: "/my-day" },
   secondaryCta: { id: "hero_plan", label: "Plan my trip", href: "/plan" },
 } as const;

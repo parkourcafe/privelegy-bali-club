@@ -15,7 +15,9 @@ function assertPreferencesDeclaration(evidence) {
   assert.equal(evidence?.userDefaultsReasonCA921, true);
   assert.deepEqual(evidence?.collectedDataTypes, [
     "NSPrivacyCollectedDataTypeCoarseLocation",
+    "NSPrivacyCollectedDataTypeDeviceID",
     "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+    "NSPrivacyCollectedDataTypeOtherUserContent",
     "NSPrivacyCollectedDataTypeProductInteraction",
   ]);
   assert.equal(evidence?.collectedDataTypesExact, true);

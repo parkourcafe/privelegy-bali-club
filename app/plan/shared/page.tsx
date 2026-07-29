@@ -31,7 +31,7 @@ export async function generateMetadata({
   const district = allowedDistrict(first(params.district));
   const days = allowedDays(first(params.days));
   const title = `${MOODS[mood]} in ${DISTRICTS[district]} — a shared Other Bali day`;
-  const description = `${daysLabel(days)} in ${DISTRICTS[district]}, shared with you as a starting point. Open the live guide for current places, menus and verified booking actions.`;
+  const description = `${daysLabel(days)} in ${DISTRICTS[district]}, shared as a starting point. Open the public guide for places, menus, directions and official actions where available.`;
   const ogImage = `/plan/shared/og?m=${mood}&district=${district}&days=${days}`;
   return {
     title,
@@ -61,14 +61,14 @@ export default async function SharedPlan({
         <BrandHomeLink />
 
         <section className="mt-10 rounded-[2rem] border border-[var(--line)] bg-[var(--paper-soft)] p-6 shadow-2xl sm:p-10">
-          <p className="topline text-[var(--lagoon)]">Shared from the iPhone app</p>
+          <p className="topline text-[var(--lagoon)]">Shared from Other Bali</p>
           <h1 className="mt-4 font-display text-5xl leading-none text-[var(--ink)] sm:text-7xl">
             {MOODS[mood]} in {DISTRICTS[district]}
           </h1>
           <p className="mt-6 max-w-xl text-lg text-[var(--muted)]">
-            {days === "1" ? "One day" : `${days} days`} saved as a starting point.
-            Open the live guide for current places, menus, directions and verified
-            booking or delivery actions.
+            A {days === "1" ? "one-day" : `${days}-day`} starting point for your
+            own plan. Open the public guide for places, menus, directions and
+            official actions where available.
           </p>
 
           <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -90,7 +90,7 @@ export default async function SharedPlan({
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href={districtGuide} className="button-primary button-large">
-              Open the live district guide
+              Open the public district guide
             </Link>
             <Link
               href={`/places?district=${encodeURIComponent(district)}`}

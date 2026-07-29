@@ -88,6 +88,7 @@ function decisionRequest(
   const headers = new Headers({
     "Content-Type": "application/json",
     Origin: "capacitor://localhost",
+    "X-Other-Bali-Guest": "g_0123456789abcdef",
   });
   if (idempotencyKey !== null) headers.set("Idempotency-Key", idempotencyKey);
   return new Request("https://www.otherbali.com/api/mobile/v1/decisions", {
@@ -110,6 +111,10 @@ test("Decision POST maps the shared server decision to the current mobile result
     "capacitor://localhost",
   );
   assert.equal(response.headers.get("access-control-allow-credentials"), "true");
+  assert.match(
+    response.headers.get("access-control-allow-headers") ?? "",
+    /X-Other-Bali-Guest/i,
+  );
   const payload = await response.json();
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.updatedAt, now.toISOString());

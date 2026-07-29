@@ -43,9 +43,11 @@ h1 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 15vw, 5.5rem); font-weig
 .status.offline::before { background: var(--brass); }
 .notice { margin: 16px 0 0; border-left: 2px solid var(--brass); padding-left: 12px; color: var(--muted); line-height: 1.5; }
 
-.tabs { position: sticky; z-index: 2; top: max(8px, var(--safe-area-inset-top, env(safe-area-inset-top))); display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0 -2px 32px; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(250, 246, 239, 0.92); box-shadow: var(--shadow-soft); backdrop-filter: blur(16px); }
+.sticky-navigation { position: sticky; z-index: 2; top: max(8px, var(--safe-area-inset-top, env(safe-area-inset-top))); display: grid; gap: 8px; margin: 0 -2px 32px; }
+.tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0; border: 1px solid var(--line); border-radius: 18px; padding: 5px; background: rgba(250, 246, 239, 0.92); box-shadow: var(--shadow-soft); backdrop-filter: blur(16px); }
 .tabs button { min-height: 48px; border: 0; border-radius: 13px; background: transparent; color: var(--muted); font-weight: 700; }
 .tabs button[aria-pressed="true"] { background: var(--brass); color: var(--on-accent); }
+.action-feedback { display: flex; min-height: 48px; align-items: center; margin: 0; border: 1px solid var(--brass); border-radius: 14px; background: var(--panel); box-shadow: var(--shadow-soft); padding: 10px 14px; color: var(--muted); line-height: 1.45; overflow-wrap: anywhere; }
 
 .section-heading { display: flex; gap: 18px; align-items: end; justify-content: space-between; margin-bottom: 18px; }
 .section-heading h2 { margin: 0; font-size: 2.3rem; font-weight: 500; }
@@ -143,6 +145,20 @@ footer { margin-top: 54px; border-top: 1px solid var(--line); padding: 24px 4px 
 .offline-bali ul { margin: 14px 0; padding-left: 22px; }
 .offline-region-list { display: grid; gap: 12px; }
 .offline-region-list .save-button:disabled { cursor: not-allowed; opacity: .55; }
+.privacy-controls { margin-top: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); padding: 20px; }
+.privacy-controls h3 { margin: 0; font-size: 1.7rem; font-weight: 500; }
+.privacy-controls > p:not(.eyebrow, .delete-error), .delete-confirmation p { color: var(--muted); line-height: 1.55; }
+.guest-reference { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 16px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); padding: 12px; }
+.guest-reference > span:first-child { width: 100%; color: var(--muted); font-size: .78rem; font-weight: 700; }
+.guest-reference code { max-width: 100%; overflow-wrap: anywhere; color: var(--ink); font-size: .88rem; }
+.guest-reference button { min-height: 40px; margin-left: auto; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--panel); color: var(--ink); padding: 6px 13px; font-weight: 700; }
+.privacy-controls .guest-reference-help { margin: 8px 0 16px; font-size: .85rem; }
+.delete-confirmation { display: grid; gap: 12px; margin-top: 16px; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--paper); padding: 16px; }
+.delete-confirmation > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.delete-confirmation button, .delete-data-button { min-height: 46px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--panel); color: var(--ink); padding: 8px 14px; font-weight: 700; }
+.delete-data-button { border-color: #9b302c; color: #8a211e; }
+.delete-confirmation button:disabled, .delete-data-button:disabled { cursor: not-allowed; opacity: .55; }
+.delete-error { margin: 14px 0 0; border-left: 2px solid #9b302c; padding-left: 12px; color: #8a211e; line-height: 1.5; }
 .companion { margin: 0 0 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); padding: 20px; }
 .companion > label { display: grid; gap: 8px; color: var(--muted); font-weight: 700; }
 .companion select { min-height: 48px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); padding: 0 12px; }

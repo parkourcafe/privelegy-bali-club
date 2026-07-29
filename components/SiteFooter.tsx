@@ -213,7 +213,8 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
               The right place for the moment you&apos;re in.
             </p>
             <p className="mt-3 text-sm" style={{ color: c.body }}>
-              Bali discovery for moments, areas and trip plans.
+              Resident-curated places, routes and plans for every Bali moment.
+              Less searching. More Bali.
             </p>
           </div>
         </div>

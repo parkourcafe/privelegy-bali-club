@@ -46,7 +46,25 @@ export const MOBILE_STORAGE_KEYS = {
   feedResume: "otherbali.mobile.feed-resume.v1",
   navigation: "otherbali.mobile.navigation-state.v3",
   legacyNavigation: "otherbali.mobile.navigation-state.v1",
+  privacyDeletionQuarantine: "otherbali.mobile.privacy-deletion-quarantine.v1",
 } as const;
+
+export const MOBILE_PERSONAL_STORAGE_KEYS = [
+  MOBILE_STORAGE_KEYS.savedVenues,
+  MOBILE_STORAGE_KEYS.savedRoutes,
+  MOBILE_STORAGE_KEYS.savedVenueSnapshots,
+  MOBILE_STORAGE_KEYS.savedRouteSnapshots,
+  MOBILE_STORAGE_KEYS.savedVenueState,
+  MOBILE_STORAGE_KEYS.savedRouteState,
+  MOBILE_STORAGE_KEYS.todayVenueState,
+  MOBILE_STORAGE_KEYS.todayEventState,
+  MOBILE_STORAGE_KEYS.trip,
+  MOBILE_STORAGE_KEYS.pendingSync,
+  MOBILE_STORAGE_KEYS.navigationSession,
+  MOBILE_STORAGE_KEYS.feedResume,
+  MOBILE_STORAGE_KEYS.navigation,
+  MOBILE_STORAGE_KEYS.legacyNavigation,
+] as const;
 
 export const MAX_SAVED_ROUTE_SNAPSHOTS = 100;
 const MAX_SAVED_ROUTE_SNAPSHOT_CANDIDATES = 500;
@@ -91,7 +109,10 @@ export interface MobileStorageState {
   navigationSession: NavigationSession | null;
   feedResume: FeedResumeSnapshot | null;
   navigation: MobileNavigationState;
+  privacyDeletionQuarantine: PrivacyDeletionQuarantinePhase | null;
 }
+
+export type PrivacyDeletionQuarantinePhase = "pending_server" | "server_confirmed";
 
 export interface PreferenceStore {
   get(options: { key: string }): Promise<{ value: string | null }>;
@@ -623,10 +644,126 @@ async function writeRaw(
   });
 }
 
+export async function clearMobilePersonalData(
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const { preferences, legacyStorage } = dependencies(options);
+  const results = await Promise.allSettled(
+    MOBILE_PERSONAL_STORAGE_KEYS.map((key) => enqueuePreferenceWrite(
+      preferences,
+      key,
+      async () => {
+        try {
+          await preferences.remove({ key });
+        } catch {
+          throw new Error("mobile_personal_data_clear_failed");
+        }
+
+        try {
+          legacyStorage?.removeItem(key);
+          legacyStorage?.removeItem(pendingWriteKey(key));
+        } catch {
+          throw new Error("mobile_personal_data_clear_failed");
+        }
+      },
+    )),
+  );
+  if (results.some((result) => result.status === "rejected")) {
+    throw new Error("mobile_personal_data_clear_failed");
+  }
+}
+
+export async function readPrivacyDeletionQuarantine(
+  options: MobileStorageOptions = {},
+): Promise<PrivacyDeletionQuarantinePhase | null> {
+  const { preferences, legacyStorage } = dependencies(options);
+  const key = MOBILE_STORAGE_KEYS.privacyDeletionQuarantine;
+  let legacyRaw: string | null = null;
+  let legacyReadable = true;
+  try {
+    legacyRaw = legacyStorage?.getItem(key) ?? null;
+  } catch {
+    legacyReadable = false;
+  }
+  let raw: string | null;
+  try {
+    raw = (await preferences.get({ key })).value ?? legacyRaw;
+  } catch {
+    // The marker is deliberately mirrored to WebView storage. When that
+    // readable mirror is absent, a failed native read still proves no marker
+    // was durably started by this version. If neither store is readable, fail
+    // closed instead of hydrating personal state.
+    if (!legacyReadable || legacyStorage === null) {
+      throw new Error("mobile_privacy_quarantine_read_unavailable");
+    }
+    raw = legacyRaw;
+  }
+  if (raw === null) return null;
+  if (raw === "server_confirmed") return "server_confirmed";
+  // A malformed non-empty marker is still an interrupted deletion. Failing
+  // closed prevents stale personal state from being hydrated or synced.
+  return "pending_server";
+}
+
+export function writePrivacyDeletionQuarantine(
+  phase: PrivacyDeletionQuarantinePhase,
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const { preferences, legacyStorage } = dependencies(options);
+  const key = MOBILE_STORAGE_KEYS.privacyDeletionQuarantine;
+  return enqueuePreferenceWrite(preferences, key, async () => {
+    let nativeWritten = false;
+    try {
+      await preferences.set({ key, value: phase });
+      nativeWritten = true;
+    } catch {
+      // The mirrored WebView copy can remain authoritative during a temporary
+      // native Preferences outage.
+    }
+    let mirrorWritten = legacyStorage === null;
+    try {
+      legacyStorage?.setItem(key, phase);
+      mirrorWritten = true;
+    } catch {
+      // Do not contact the deletion endpoint unless the restart marker is
+      // durably recoverable from every configured persistence path.
+    }
+    if (!nativeWritten && !mirrorWritten) {
+      throw new Error("mobile_privacy_quarantine_write_failed");
+    }
+    if (legacyStorage !== null && !mirrorWritten) {
+      throw new Error("mobile_privacy_quarantine_write_failed");
+    }
+  });
+}
+
+export async function clearPrivacyDeletionQuarantine(
+  options: MobileStorageOptions = {},
+): Promise<void> {
+  const { preferences, legacyStorage } = dependencies(options);
+  const key = MOBILE_STORAGE_KEYS.privacyDeletionQuarantine;
+  await enqueuePreferenceWrite(preferences, key, async () => {
+    try {
+      await preferences.remove({ key });
+      legacyStorage?.removeItem(key);
+      legacyStorage?.removeItem(pendingWriteKey(key));
+    } catch {
+      throw new Error("mobile_privacy_quarantine_clear_failed");
+    }
+  });
+}
+
 export async function hydrateMobileStorage(
   options: MobileStorageOptions = {},
 ): Promise<MobileStorageState> {
   const { preferences, legacyStorage } = dependencies(options);
+  const privacyDeletionQuarantine = await readPrivacyDeletionQuarantine(options);
+  const readPersonal = (
+    key: string,
+    legacyKey = key,
+  ): Promise<string | null> => privacyDeletionQuarantine
+    ? Promise.resolve(null)
+    : readRawWithMigration(key, preferences, legacyStorage, legacyKey);
   const [
     bootstrapRaw,
     savedVenueStateRaw,
@@ -646,24 +783,22 @@ export async function hydrateMobileStorage(
     navigationRaw,
   ] = await Promise.all([
     readRawWithMigration(MOBILE_STORAGE_KEYS.bootstrap, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedVenueState, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedRouteState, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedVenues, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedRoutes, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedVenueSnapshots, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.savedRouteSnapshots, preferences, legacyStorage),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.todayVenueState, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.todayEventState, preferences, legacyStorage).catch(() => null),
+    readPersonal(MOBILE_STORAGE_KEYS.savedVenueState),
+    readPersonal(MOBILE_STORAGE_KEYS.savedRouteState),
+    readPersonal(MOBILE_STORAGE_KEYS.savedVenues),
+    readPersonal(MOBILE_STORAGE_KEYS.savedRoutes),
+    readPersonal(MOBILE_STORAGE_KEYS.savedVenueSnapshots),
+    readPersonal(MOBILE_STORAGE_KEYS.savedRouteSnapshots),
+    readPersonal(MOBILE_STORAGE_KEYS.todayVenueState).catch(() => null),
+    readPersonal(MOBILE_STORAGE_KEYS.todayEventState).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.eventsSnapshot, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.trip, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.pendingSync, preferences, legacyStorage).catch(() => null),
+    readPersonal(MOBILE_STORAGE_KEYS.trip).catch(() => null),
+    readPersonal(MOBILE_STORAGE_KEYS.pendingSync).catch(() => null),
     readRawWithMigration(MOBILE_STORAGE_KEYS.offlinePacks, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.navigationSession, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(MOBILE_STORAGE_KEYS.feedResume, preferences, legacyStorage).catch(() => null),
-    readRawWithMigration(
+    readPersonal(MOBILE_STORAGE_KEYS.navigationSession).catch(() => null),
+    readPersonal(MOBILE_STORAGE_KEYS.feedResume).catch(() => null),
+    readPersonal(
       MOBILE_STORAGE_KEYS.navigation,
-      preferences,
-      legacyStorage,
       MOBILE_STORAGE_KEYS.legacyNavigation,
     ),
   ]);
@@ -707,6 +842,7 @@ export async function hydrateMobileStorage(
       }
     })(),
     navigation: parseNavigation(navigationRaw),
+    privacyDeletionQuarantine,
   };
 }
 

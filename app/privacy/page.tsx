@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Privacy Policy",
   description:
-    "How Other Bali handles your data: the httpOnly GuestRef model, what we do and don't store, and your choices. Travellers never need an account.",
+    "How Other Bali handles mobile and website data, what we do and don't store, and your choices. Travellers never need an account.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           Privacy
         </p>
         <h1 className="mt-3 font-display text-4xl font-semibold">Privacy Policy</h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 18, 2026</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: July 30, 2026</p>
 
         <div className="mt-10 space-y-8 text-[var(--muted)]">
           <section>
@@ -26,20 +26,45 @@ export default function PrivacyPage() {
               Mobile app
             </h2>
             <p className="mt-3">
-              The Other Bali mobile app stores the catalogue cache, your Saved
-              places and routes, and navigation state on your device. It does not
-              require an account and does not include advertising, cross-app
-              tracking, or advertising analytics SDKs.
+              The Other Bali mobile app does not require an account. It creates
+              a random pseudonymous guest reference for the installation. The
+              reference is not your name, email address, phone number or
+              advertising identifier. The app sends it in encrypted HTTPS
+              requests so Supabase can keep your cloud state associated with
+              that installation.
             </p>
             <p className="mt-3">
-              If you choose an offline map download, Mapbox processes the map
-              region you selected and supplies the offline map tiles. When you
-              open a downloaded map and allow location access, your device uses
-              location to place you on that map. Mapbox telemetry is disabled by default.
-              The current app does not expose a telemetry consent choice,
-              so it does not enable telemetry. If an opt-in control is introduced,
-              this notice will be updated before that control becomes available.
-              Offline onboard routing is not currently available in the app.
+              The app keeps a catalogue cache and navigation state on your
+              device. When cloud sync is available, it sends the place or event
+              references you save or add to Today, Trip titles and dates, chosen
+              areas and travel style, Trip stops and order, notes, visited
+              state, and the versions and request identifiers needed for
+              reliable offline sync. Supabase stores this sync state for Other
+              Bali. A Decision request transiently sends choices such as area,
+              company, moment, budget and where you want the day to end so the
+              server can return suggestions; the current mobile route does not
+              store that Decision request or a guest-linked feed session.
+            </p>
+            <p className="mt-3">
+              Location is requested only after you choose Use my current area.
+              Your device converts the raw GPS coordinates to one of the
+              supported Bali areas. Raw GPS coordinates are not stored by Other
+              Bali or sent to our API through that feature; the derived area and
+              the venue choices you make can be sent as part of decision or sync
+              state. You can deny location and choose an area manually.
+            </p>
+            <p className="mt-3">
+              Mutable cloud state remains associated with the active
+              pseudonymous guest reference until you remove it with the
+              in-app deletion action, use the external browser privacy choice
+              for browser state, or ask support to review a deletion request.
+            </p>
+            <p className="mt-3">
+              Offline Mapbox downloads and onboard routing are unavailable in
+              this release. The native provider remains blocked and its
+              telemetry is disabled. If a tested download or routing control is
+              introduced later, this notice and the store disclosures will be
+              updated before that feature is released.
             </p>
             <p className="mt-3">
               To load and refresh the catalogue, place details, and routes, the
@@ -56,17 +81,35 @@ export default function PrivacyPage() {
               catalogue. Vercel processes this information to provide hosting,
               security, and troubleshooting under its applicable service and
               privacy terms. Other Bali does not use this operational data for
-              advertising or cross-service tracking. If you do not want a new
-              request processed, you can avoid refreshing while online, use
-              material you already saved offline, or uninstall the app.
+              advertising or cross-service tracking.
             </p>
             <p className="mt-3">
               Opening Maps, an official website, or the system share sheet is a
               user-initiated handoff. Those destinations handle information
-              under their own policies. You can remove individual Saved items
-              inside the app; uninstalling it removes its remaining local data.
-              The privacy choices page below controls the browser website only,
-              not the mobile app&apos;s on-device Saved data.
+              under their own policies. You can remove individual items inside
+              the app. Delete cloud data removes the app&apos;s pseudonymous
+              Saved, Today, Trip, notes, visited, decision, feed and sync state
+              from our database after the server confirms deletion. Uninstalling
+              removes remaining local app data, but uninstalling alone cannot
+              ask the server to delete cloud state; use the in-app action first
+              or copy the displayed Anonymous Guest Reference and include it
+              when contacting support through this external privacy page.
+            </p>
+            <p className="mt-3">
+              After confirmed deletion, the server keeps only a bare revoked
+              pseudonymous guest reference and its erasure timestamp under the
+              old installation reference, so an old or delayed app request
+              cannot recreate the deleted state. It has no Saved, Today, Trip,
+              note, visited, decision, feed, source or area data attached to it.
+              This revocation marker is kept indefinitely so the old reference
+              cannot become active again. The separately detached redemption
+              proof exception, when one exists, is described under Your choices
+              below.
+            </p>
+            <p className="mt-3">
+              The mobile app does not include advertising, cross-app tracking,
+              advertising analytics SDKs, or a data-broker integration. Mapbox
+              telemetry is disabled in the current release.
             </p>
           </section>
 
@@ -75,11 +118,12 @@ export default function PrivacyPage() {
               Website data
             </h2>
             <p className="mt-3">
-              Other Bali uses an anonymous browser cookie to keep your redeemed
-              offers on this device and to count whether a guest came from an
-              Other Bali link or QR code. We may record basic interaction events,
-              such as source scans, card opens, directions clicks, reservation
-              clicks, and offer redemptions.
+              The website uses a random pseudonymous browser reference in a
+              strictly necessary httpOnly cookie to keep requested Saved and
+              redeemed-offer state associated with this browser and to count
+              whether a guest came from an Other Bali link or QR code. We may
+              record basic interaction events, such as source scans, card opens,
+              directions clicks, reservation clicks, and offer redemptions.
             </p>
             <p className="mt-3">
               We do not ask travellers for an account, payment card, or profile.
@@ -146,22 +190,42 @@ export default function PrivacyPage() {
               Your choices
             </h2>
             <p className="mt-3">
-              You can clear your browser cookies to reset the anonymous Other
-              Bali device reference. You can also choose not to redeem an offer
-              if you do not want a redemption recorded. To have the interaction
-              events tied to your device reference deleted from our records,
-              email us at{" "}
+              The mobile app&apos;s Delete cloud data action removes its mutable
+              pseudonymous cloud state and clears the app reference only after
+              the server confirms deletion. The external privacy choices page
+              can do the same for the separate browser reference. If you cannot
+              access the app, send the displayed Anonymous Guest Reference that
+              you copied before uninstalling to{" "}
               <a
                 className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
                 href="mailto:support@otherbali.com"
               >
                 support@otherbali.com
               </a>{" "}
-              and we will remove them.
+              .
             </p>
             <p className="mt-3">
-              On the browser website, you can also turn analytics on or off, or
-              forget the browser&apos;s device reference, on the{" "}
+              If redemption proof already exists, the automated action keeps
+              that proof and its corresponding granted redemption consent
+              evidence, but moves both to a new internal pseudonymous anchor
+              that is not returned to the app, is no longer linked to the
+              installation reference, and removes device fields such as the
+              consent user agent. These detached records are retained only
+              while needed to substantiate the completed redemption, complete
+              accounting, resolve a dispute, or meet an applicable legal
+              requirement; they are deleted when none of those purposes remains.
+              Other consent rows tied to that guest reference are deleted.
+              Venue-photo rights consent is a separate operator record and is
+              not tied to the mobile guest reference. Because the old Anonymous
+              Guest Reference is intentionally detached, it cannot locate this
+              proof after deletion. For a separately reviewed request, contact
+              us with the venue, approximate redemption date and confirmation
+              code if available. You can choose not to redeem an offer if you
+              do not want a new redemption recorded.
+            </p>
+            <p className="mt-3">
+              On the website, you can also turn optional analytics on or off, or
+              delete the browser&apos;s mutable pseudonymous state, on the{" "}
               <Link href="/privacy/choices" className="text-[var(--lagoon)] underline underline-offset-2">
                 privacy choices
               </Link>{" "}

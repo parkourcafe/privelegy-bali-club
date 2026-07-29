@@ -151,3 +151,44 @@ test("photo-less Discover cards use a bounded mobile media fallback", () => {
   assert.match(component, /discover-media.*missing-media/);
   assert.match(styles, /\.discover-media\.missing-media\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9/);
 });
+
+test("selection feedback stays visible in the sticky navigation flow", () => {
+  const source = readFileSync(new URL("../mobile/src/App.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8");
+
+  const heroStart = source.indexOf('<header className="hero">');
+  const heroEnd = source.indexOf("</header>", heroStart);
+  const stickyStart = source.indexOf('<div className="sticky-navigation">', heroEnd);
+  const stickyEnd = source.indexOf("</div>", stickyStart);
+  const mainStart = source.indexOf('<main id="main-content">', stickyStart);
+
+  assert.ok(heroStart >= 0 && heroEnd > heroStart);
+  assert.doesNotMatch(source.slice(heroStart, heroEnd), /selectionNotice/);
+  assert.ok(stickyStart > heroEnd && stickyEnd > stickyStart && stickyEnd < mainStart);
+  const stickyMarkup = source.slice(stickyStart, stickyEnd);
+  assert.match(stickyMarkup, /<nav className="tabs"/);
+  assert.match(stickyMarkup, /className="action-feedback"/);
+  assert.match(stickyMarkup, /role="status"/);
+  assert.match(stickyMarkup, /aria-live="polite"/);
+  assert.match(stickyMarkup, /aria-atomic="true"/);
+  assert.match(stickyMarkup, /\{selectionNotice\}/);
+
+  const stickyRule = styles.match(/\.sticky-navigation\s*\{([^}]*)\}/)?.[1] ?? "";
+  assert.match(stickyRule, /position:\s*sticky/);
+  assert.match(stickyRule, /safe-area-inset-top/);
+  assert.match(stickyRule, /z-index:\s*2/);
+
+  const feedbackRule = styles.match(/\.action-feedback\s*\{([^}]*)\}/)?.[1] ?? "";
+  assert.match(feedbackRule, /display:\s*flex/);
+  assert.match(feedbackRule, /min-height:\s*48px/);
+  assert.match(feedbackRule, /margin:\s*0/);
+  assert.match(feedbackRule, /background:\s*var\(--panel\)/);
+
+  const tabsRule = styles.match(/\.tabs\s*\{([^}]*)\}/)?.[1] ?? "";
+  assert.doesNotMatch(tabsRule, /position:\s*sticky/);
+  assert.match(tabsRule, /margin:\s*0/);
+  assert.match(
+    source,
+    /if \(!selectionNotice\) return;[\s\S]{0,160}?setSelectionNotice\(null\), 6_000/,
+  );
+});

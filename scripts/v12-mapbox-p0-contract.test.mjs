@@ -42,15 +42,17 @@ test("native Mapbox plugins default telemetry off and advertise routing only wit
   assert.match(android, /setUserTelemetryRequestState\s*\(/);
 });
 
-test("privacy policy discloses Mapbox processing and default-off telemetry without claiming routing is live", async () => {
+test("privacy policy truthfully keeps Mapbox unavailable and telemetry disabled for this release", async () => {
   const privacy = await readFile(privacyUrl, "utf8");
 
   assert.match(privacy, /Mapbox/i);
   assert.match(privacy, /offline map/i);
   assert.match(privacy, /location/i);
-  assert.match(privacy, /process/i);
-  assert.match(privacy, /telemetry[\s\S]{0,500}(?:off by default|disabled by default|default-off)/i);
-  assert.match(privacy, /(?:choose|choice|consent|turn on|opt in)/i);
+  assert.match(privacy, /(?:unavailable|blocked)[\s\S]{0,500}telemetry is disabled/i);
+  assert.doesNotMatch(
+    privacy,
+    /If you choose an offline map download[\s\S]{0,500}Mapbox processes/i,
+  );
   assert.doesNotMatch(privacy, /(?:Mapbox|offline)[\s\S]{0,120}(?:routing is live|live onboard routing)/i);
 });
 
