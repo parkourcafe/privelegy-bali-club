@@ -192,6 +192,16 @@ export default function HomePage() {
                 >
                   {HOME_HERO.secondaryCta.label}
                 </HomeAnalyticsLink>
+                <HomeAnalyticsLink
+                  href="/together"
+                  sectionId="home_hero"
+                  itemId="hero_together"
+                  itemKind="cta"
+                  position={3}
+                  className="inline-flex min-h-12 items-center rounded-full border border-[#f1c987]/70 bg-[#f1c987]/12 px-5 text-sm font-semibold text-[#f1c987] transition hover:bg-[#f1c987]/22 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f1c987] sm:px-6 sm:text-base"
+                >
+                  Let’s go together
+                </HomeAnalyticsLink>
               </div>
             </div>
           </div>
