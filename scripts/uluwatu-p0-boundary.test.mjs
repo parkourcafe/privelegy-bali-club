@@ -5,6 +5,8 @@ import test from "node:test";
 const page = await readFile(new URL("../app/uluwatu/page.tsx", import.meta.url), "utf8");
 const rootLayout = await readFile(new URL("../app/uluwatu/layout.tsx", import.meta.url), "utf8");
 const childLayout = await readFile(new URL("../app/uluwatu/best-restaurants/layout.tsx", import.meta.url), "utf8");
+const sunsetLayout = await readFile(new URL("../app/uluwatu/beach-clubs-sunset/layout.tsx", import.meta.url), "utf8");
+const venueGuideGate = await readFile(new URL("../components/UluwatuVenueGuideGate.tsx", import.meta.url), "utf8");
 
 test("Uluwatu pillar owns base fit and routes narrower decisions", () => {
   assert.match(page, /Is Uluwatu the right Bali base for you\?/);
@@ -14,6 +16,25 @@ test("Uluwatu pillar owns base fit and routes narrower decisions", () => {
 test("Uluwatu pillar is independent while venue children retain the roster gate", () => {
   assert.doesNotMatch(rootLayout, /notFound|getPublishedVenues|publishedUluwatuVenues/);
   assert.match(childLayout, /UluwatuVenueGuideGate/);
+});
+
+test("sunset guide gates only the venues whose claims it publishes", () => {
+  assert.match(venueGuideGate, /requiredSlugs\?: readonly string\[\]/);
+  assert.match(venueGuideGate, /requiredSlugs\.map\(\(slug\) => getVenueWithPerk\(slug\)\)/);
+  assert.match(venueGuideGate, /isPublicReadyVenue\(venue\)/);
+  assert.match(venueGuideGate, /venue\?\.district === ULUWATU_DB_SLUG/);
+  assert.match(sunsetLayout, /requiredSlugs=\{REQUIRED_VENUE_SLUGS\}/);
+  for (const slug of [
+    "sundays-beach-club",
+    "white-rock-beach-club",
+    "tropical-temptation-adult-only-beach-club",
+    "el-kabron-bali",
+    "oneeighty",
+    "single-fin",
+    "mana-uluwatu",
+  ]) {
+    assert.match(sunsetLayout, new RegExp(`"${slug}"`));
+  }
 });
 
 test("Uluwatu pillar uses supported SEO contracts and excludes legacy overclaims", () => {
