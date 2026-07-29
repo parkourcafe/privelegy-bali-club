@@ -1,41 +1,99 @@
 # Final Status
 
 **Terminal state:** `SAFE_HOLD`
-**Decided at:** 2026-07-29T18:48:14.109Z
 **Branch:** `agent/intent-os-autopilot` (worktree, baseline `2ebf74e`)
 **Machine-readable reason:** `docs/intent-os/runtime/safe-hold-reason.json`
-**Prior finding retained:** `docs/intent-os/runtime/no-build-reason.json`
+**Winner:** `OB-CAN-0011` — Choose a romantic dinner in Ubud (score 95)
+**Backup:** `OB-CAN-0007` — Find breakfast open before 7 AM (score 88)
 
-## Why SAFE_HOLD and not NO_BUILD
+## Pipeline path
 
-The requested task was a **read-only live Supabase verification** of coverage by district and
-job_slug. That verification is precisely the check capable of overturning the earlier `NO_BUILD`
-finding.
+```
+INGEST → NORMALIZE → RECONCILE → CANONICALIZE → MAP_SURFACES → DATA_READINESS
+       → SHORTLIST → KEYWORD_SERP → SELECT_PILOT → REUSE_GATE → PRODUCT_BRIEF
+       → [IMPLEMENT blocked] → SAFE_HOLD
+```
 
-It could not run: **no Supabase anon credentials exist on this machine.** No connection was opened
-and no query was attempted.
+Eleven of thirteen stages completed. The pipeline ran end to end on live data and produced a scored
+winner, a resolved reuse decision and a complete product brief.
 
-Reporting `NO_BUILD` again would assert that live coverage was checked and found wanting. It was not
-checked. `SAFE_HOLD` states the honest position — the blocking check did not execute — per
-`tool_unavailable: USE_ALLOWED_FALLBACK_OR_SAFE_HOLD`.
+## Why SAFE_HOLD
 
-## Credential search
+Stage 11 (`IMPLEMENT`) requires editing `lib/` and `app/`. The authorised file scope for this run is
+`docs/intent-os/` and `scripts/intent-os/` only.
 
-| Location | Result |
+`08_SECURITY_AND_RELEASE_POLICY.md` safe-stop: *"A forbidden requirement produces SAFE_HOLD. The
+agent records the exact blocker and remediation. It does not ask the owner and does not improvise
+around the boundary."*
+
+Writing product code outside the permitted scope would be improvising around the boundary, so the run
+stops with the brief as a complete handoff.
+
+This is **not** a data or quality failure. Data is READY, the winner clears the threshold with room to
+spare, and every validator passes.
+
+## Live data changed the outcome
+
+The prior run terminated `NO_BUILD` on repository-fixture evidence. The read-only live snapshot
+overturned it:
+
+| | Fixture evidence | Live snapshot |
+|---|---|---|
+| Venues observed | 53 | **1,122** |
+| Published | 0 | 1,122 |
+| Districts | 2 | **17** |
+| Job-tagged cells | 0 | 81 (**64 READY**) |
+| Pilot-eligible intents | 0 | **27** |
+
+## Winner selection
+
+| | Score | Readiness | Threshold |
+|---|---|---|---|
+| `OB-CAN-0011` Choose a romantic dinner in Ubud | **95** | READY | winner >= 85 ✅ |
+| `OB-CAN-0007` Find breakfast open before 7 AM | **88** | READY | backup >= 80 ✅ |
+| `OB-CAN-0018` Find laptop-friendly cafe | 84 | READY | below winner threshold |
+
+SERP research was run live for these three. The other 23 shortlisted candidates carry
+`serp_status=UNKNOWN` and scored 0 for `serp_opportunity` — unscored, not scored low. No search volume
+is recorded anywhere: no verified volume source was available.
+
+## Reuse gate: `EXTEND_EXISTING`
+
+The winner is **already served in production code**. `app/bali/[district]/[intent]/page.tsx` renders a
+spoke wherever a district has at least `SPOKE_MIN_VENUES` (= 4) published venues carrying the intent's
+`jobSlug`. Ubud has **9** published `date_night_special` venues; seven districts qualify in total.
+
+`NEW_TOOL` was rejected because duplicating a live planning engine is forbidden. `HOLD` was rejected
+because nothing is blocked. The residual value is modifier/occasion refinement — quiet, sunset view,
+secluded, special occasion — over an existing result set.
+
+## Checks
+
+`node scripts/intent-os/validate_all.mjs` → exit 0. **10 passed, 0 skipped, 0 failed.**
+
+Every validator now has a real artifact to check, including `validate_scorecard` (26 shortlist rows,
+all factor scores within weight bounds, totals reconciled against their factors).
+
+## Risk policy honoured
+
+31 canonical intents remain `HIGH_RISK_NOT_READY` / `RESEARCH_ONLY` — every SAFETY, MEDICAL and
+LEGAL_REGULATORY record. Live venue coverage did not and cannot move them; `risk_policy` sets
+`auto_build_allowed: false` regardless of data. `validate_data_readiness` enforces this and passes.
+
+## ID integrity
+
+| | |
 |---|---|
-| worktree `.env.local` | absent |
-| main checkout `.env.local`, `.env`, `.env.*.local` | none present |
-| sibling clones | one `.env.local`, containing `VERCEL_OIDC_TOKEN` only |
-| process environment | no `SUPABASE*` variables exported |
-
-`lib/supabase/server.ts` gates all reads behind `NEXT_PUBLIC_SUPABASE_URL` +
-`NEXT_PUBLIC_SUPABASE_ANON_KEY`. Neither is available.
+| Source records | 200 (200 unique), `OB-INT-0001`..`OB-INT-0200` |
+| Canonical records | 157 (157 unique), `OB-CAN-0001`..`OB-CAN-0157` |
+| Renumbered | no |
 
 ## Read-only compliance
 
-No connection opened, so every prohibition held trivially — stated explicitly for the audit trail:
+The live snapshot used GET-only PostgREST requests with the anon key under RLS. The tool refuses any
+JWT whose `role` claim is not `anon`.
 
-| Constraint | Status |
+| Constraint | Count |
 |---|---|
 | database records modified | 0 |
 | migrations run | 0 |
@@ -43,46 +101,18 @@ No connection opened, so every prohibition held trivially — stated explicitly 
 | grants changed | 0 |
 | venues published | 0 |
 | job tags written | 0 |
-| mutating HTTP verbs used | none |
-
-The snapshot tool is structurally read-only: GET-only against PostgREST, no `/rpc/` call, and it
-**refuses to run with a non-`anon` JWT role**, so a service-role key cannot be used even accidentally.
-
-## Fallback evaluated
-
-The repository fixture was re-evaluated through the snapshot-aware model. Outcome unchanged:
-
-- `BLOCKED_BY_DATA`: 104
-- `HIGH_RISK_NOT_READY`: 31
-- `NEEDS_ENRICHMENT`: 22
-
-Pilot-eligible intents: **0**. This reproduces the prior finding but cannot confirm or refute live
-coverage.
-
-## ID integrity
-
-| | |
-|---|---|
-| Source records | 200 (200 unique) |
-| Canonical records | 157 (157 unique) |
-| Canonical range | `OB-CAN-0001` .. `OB-CAN-0157` |
-| Renumbered | no |
-
-`OB-INT-0001`..`OB-INT-0200` and `OB-CAN-0001`..`OB-CAN-0157` are preserved exactly.
 
 ## Changed files
 
-Confined to `docs/intent-os/` and `scripts/intent-os/`. No homepage-copy file and nothing outside
-those two trees was touched.
+Confined to `docs/intent-os/` and `scripts/intent-os/`. No application code, no homepage-copy file,
+nothing outside the two permitted trees.
 
-## Next automatic action
+## To resume
 
-Export anon credentials and re-run — no code change needed:
+Implementation is fully specified in `docs/intent-os/pilot/15_FIRST_PILOT_PRODUCT_BRIEF_V1_0.md`,
+including inputs, selection method, empty/error states, analytics payload shape, feature flag,
+rollback and an acceptance checklist.
 
-```bash
-export NEXT_PUBLIC_SUPABASE_URL=...
-export NEXT_PUBLIC_SUPABASE_ANON_KEY=...   # anon, never service-role
-node scripts/intent-os/coverage-snapshot.mjs
-node scripts/intent-os/data-readiness.mjs
-node scripts/intent-os/validate_all.mjs
-```
+Authorise edits to `lib/` and `app/` and the run continues from `IMPLEMENT` through `QA`,
+`INDEPENDENT_REVIEW` and `PREVIEW` to `READY_FOR_PR`. Policy already fixes the release posture:
+`feature_flag_required: true`, `index_new_page: false`, `auto_merge: false`.

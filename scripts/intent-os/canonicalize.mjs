@@ -76,7 +76,7 @@ for (const row of normalized) {
     if (r.internal_type === 'VENUE_CAPABILITY') capabilities.add(r.internal_key);
   }
 
-  const readiness = assessReadiness({ type, risk });
+  const readiness = assessReadiness({ type, risk, internalKey: rec?.internal_key });
 
   const isHighRisk = type === 'HIGH_RISK_GUIDE';
   const lifecycle = isHighRisk ? 'RESEARCH_ONLY' : (type === 'REJECT' ? 'REJECTED' : 'ACTIVE');

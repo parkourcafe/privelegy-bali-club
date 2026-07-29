@@ -32,7 +32,10 @@ const fixture = observeVenueFixture();
 function observeCoverageSnapshot() {
   const csv = join(REPO_ROOT, 'docs/intent-os/data-readiness/COVERAGE_SNAPSHOT_BY_DISTRICT_JOB.csv');
   const status = join(REPO_ROOT, 'docs/intent-os/data-readiness/SNAPSHOT_STATUS.json');
-  const out = { present: false, status: 'ABSENT', ready_cells: 0, ready_districts: [], ready_job_slugs: [], cells: 0 };
+  const out = {
+    present: false, status: 'ABSENT', ready_cells: 0, ready_districts: [], ready_job_slugs: [],
+    cells: 0, districts_by_job: {},
+  };
   if (existsSync(status)) {
     try {
       const s = JSON.parse(readFileSync(status, 'utf8'));
@@ -44,8 +47,40 @@ function observeCoverageSnapshot() {
     } catch { /* malformed status is treated as absent */ }
   }
   out.present = existsSync(csv) && out.status === 'OK';
+  // Per-job district coverage, so readiness can be decided per intent rather than globally.
+  if (out.present) {
+    const text = readFileSync(csv, 'utf8').trim().split('\n');
+    const cols = text[0].split(',');
+    const iJob = cols.indexOf('job_slug');
+    const iDist = cols.indexOf('district');
+    const iVerdict = cols.indexOf('readiness_verdict');
+    const iPub = cols.indexOf('published_matching_venues');
+    for (const line of text.slice(1)) {
+      const f = line.split(',');
+      if (f[iVerdict] !== 'READY') continue;
+      const job = f[iJob];
+      (out.districts_by_job[job] ??= []).push({ district: f[iDist], published: Number(f[iPub]) || 0 });
+    }
+  }
   return out;
 }
+
+/**
+ * Internal concept key -> the venue `jobs` slug that actually backs it.
+ * Only these nine slugs exist in the live data, so an intent without one has no
+ * covering tag and cannot be READY however good the overall coverage looks.
+ */
+export const JOB_SLUG_BY_INTERNAL_KEY = {
+  brunch: 'brunch_after_surf',
+  'date-night': 'date_night_special',
+  sunset: 'sunset_drinks_view',
+  'family-outing': 'family_early_dinner',
+  'group-dinner': 'group_dinner_share',
+  'special-occasion': 'special_occasion',
+  'work-session': 'quiet_work_cafe',
+  'local-food': 'local_food_calm',
+  'just-landed': 'just_landed_easy_dinner',
+};
 
 const snapshot = observeCoverageSnapshot();
 
@@ -70,7 +105,7 @@ export const DATA_EVIDENCE = {
  * Decide readiness for a canonical record.
  * Returns { readiness, reason } using only observed evidence.
  */
-export function assessReadiness({ type, risk }) {
+export function assessReadiness({ type, risk, internalKey }) {
   if (['SAFETY', 'MEDICAL', 'LEGAL_REGULATORY'].includes(risk) || type === 'HIGH_RISK_GUIDE') {
     return {
       readiness: 'HIGH_RISK_NOT_READY',
@@ -100,15 +135,34 @@ export function assessReadiness({ type, risk }) {
         reason: `live coverage snapshot observed ${snap.cells} (district, job_slug) cells, none READY`,
       };
     }
-    // Fewer than five districts with READY coverage is a limited-district build.
-    return snap.ready_districts.length < 5
+    // Readiness is decided per intent: an intent is only as ready as the job
+    // slug that backs it. Without a covering slug there is no way to select for
+    // it, regardless of how much coverage exists for other jobs.
+    const jobSlug = internalKey ? JOB_SLUG_BY_INTERNAL_KEY[internalKey] : undefined;
+    if (!jobSlug) {
+      return {
+        readiness: 'BLOCKED_BY_DATA',
+        reason: `no venue jobs slug covers this intent (internal key ${internalKey || 'unmatched'}); `
+          + `live data carries only [${Object.values(JOB_SLUG_BY_INTERNAL_KEY).join('|')}]`,
+      };
+    }
+    const cells = snap.districts_by_job[jobSlug] ?? [];
+    if (cells.length === 0) {
+      return {
+        readiness: 'BLOCKED_BY_DATA',
+        reason: `job slug ${jobSlug} has no READY district cell in the live snapshot`,
+      };
+    }
+    const districts = cells.map((c) => c.district);
+    const published = cells.reduce((a, c) => a + c.published, 0);
+    return districts.length < 5
       ? {
         readiness: 'READY_WITH_LIMITED_DISTRICTS',
-        reason: `live snapshot: ${snap.ready_cells} READY cells across districts [${snap.ready_districts.join('|')}]`,
+        reason: `live snapshot: ${jobSlug} READY in ${districts.length} district(s) [${districts.join('|')}], ${published} published venues`,
       }
       : {
         readiness: 'READY',
-        reason: `live snapshot: ${snap.ready_cells} READY cells across ${snap.ready_districts.length} districts`,
+        reason: `live snapshot: ${jobSlug} READY in ${districts.length} districts, ${published} published venues`,
       };
   }
 
