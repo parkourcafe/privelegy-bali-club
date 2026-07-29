@@ -1,46 +1,88 @@
 # Final Status
 
-**Terminal state:** `NO_BUILD`
-**Decided at:** 2026-07-29T18:40:43.728Z
+**Terminal state:** `SAFE_HOLD`
+**Decided at:** 2026-07-29T18:48:14.109Z
 **Branch:** `agent/intent-os-autopilot` (worktree, baseline `2ebf74e`)
-**Machine-readable reason:** `docs/intent-os/runtime/no-build-reason.json`
-**Remediation:** `docs/intent-os/runtime/gap-remediation-plan.md`
+**Machine-readable reason:** `docs/intent-os/runtime/safe-hold-reason.json`
+**Prior finding retained:** `docs/intent-os/runtime/no-build-reason.json`
 
-## Terminal state justification
+## Why SAFE_HOLD and not NO_BUILD
 
-`DATA_READINESS` → `no_ready_data` → `NO_BUILD`, per `03_PIPELINE_STATE_MACHINE.yaml`.
-Zero of 157 canonical intents reached `READY` or `READY_WITH_LIMITED_DISTRICTS`.
+The requested task was a **read-only live Supabase verification** of coverage by district and
+job_slug. That verification is precisely the check capable of overturning the earlier `NO_BUILD`
+finding.
 
-## Evidence
+It could not run: **no Supabase anon credentials exist on this machine.** No connection was opened
+and no query was attempted.
 
-| Fact | Observed value |
+Reporting `NO_BUILD` again would assert that live coverage was checked and found wanting. It was not
+checked. `SAFE_HOLD` states the honest position — the blocking check did not execute — per
+`tool_unavailable: USE_ALLOWED_FALLBACK_OR_SAFE_HOLD`.
+
+## Credential search
+
+| Location | Result |
 |---|---|
-| Venue source of truth | Supabase table "venues" via lib/data.ts |
-| `.env.local` present | false |
-| Live Supabase read possible | false |
-| Repository venue fixture rows | 53 |
-| — published | 0 |
-| — carrying `jobs` tags | 0 |
-| — districts covered | nusa-dua, tanjung-benoa |
+| worktree `.env.local` | absent |
+| main checkout `.env.local`, `.env`, `.env.*.local` | none present |
+| sibling clones | one `.env.local`, containing `VERCEL_OIDC_TOKEN` only |
+| process environment | no `SUPABASE*` variables exported |
 
-## Checks
+`lib/supabase/server.ts` gates all reads behind `NEXT_PUBLIC_SUPABASE_URL` +
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`. Neither is available.
 
-`node scripts/intent-os/validate_all.mjs` → exit 0.
+## Read-only compliance
 
-Ten deterministic validators; those whose artifact is not produced under this terminal state report
-SKIP rather than FAIL. `validate_scorecard` is SKIP because `SHORTLIST` was never entered — the
-state machine routes `no_ready_data` directly to `NO_BUILD`.
+No connection opened, so every prohibition held trivially — stated explicitly for the audit trail:
 
-## Source ID integrity
+| Constraint | Status |
+|---|---|
+| database records modified | 0 |
+| migrations run | 0 |
+| schema changes | 0 |
+| grants changed | 0 |
+| venues published | 0 |
+| job tags written | 0 |
+| mutating HTTP verbs used | none |
 
-`OB-INT-0001`..`OB-INT-0200`: 200 rows, 200 unique, 0 missing, 0 extra, 0 parse errors.
-Every source ID appears exactly once in the ledger and is cited by exactly one canonical record.
+The snapshot tool is structurally read-only: GET-only against PostgREST, no `/rpc/` call, and it
+**refuses to run with a non-`anon` JWT role**, so a service-role key cannot be used even accidentally.
+
+## Fallback evaluated
+
+The repository fixture was re-evaluated through the snapshot-aware model. Outcome unchanged:
+
+- `BLOCKED_BY_DATA`: 104
+- `HIGH_RISK_NOT_READY`: 31
+- `NEEDS_ENRICHMENT`: 22
+
+Pilot-eligible intents: **0**. This reproduces the prior finding but cannot confirm or refute live
+coverage.
+
+## ID integrity
+
+| | |
+|---|---|
+| Source records | 200 (200 unique) |
+| Canonical records | 157 (157 unique) |
+| Canonical range | `OB-CAN-0001` .. `OB-CAN-0157` |
+| Renumbered | no |
+
+`OB-INT-0001`..`OB-INT-0200` and `OB-CAN-0001`..`OB-CAN-0157` are preserved exactly.
 
 ## Changed files
 
-All changes are confined to `docs/intent-os/` and `scripts/intent-os/`. No application code,
-migration, schema, route or configuration was touched. No database was written. No page was published.
+Confined to `docs/intent-os/` and `scripts/intent-os/`. No homepage-copy file and nothing outside
+those two trees was touched.
 
 ## Next automatic action
 
-See `docs/intent-os/runtime/next-automatic-actions.md`.
+Export anon credentials and re-run — no code change needed:
+
+```bash
+export NEXT_PUBLIC_SUPABASE_URL=...
+export NEXT_PUBLIC_SUPABASE_ANON_KEY=...   # anon, never service-role
+node scripts/intent-os/coverage-snapshot.mjs
+node scripts/intent-os/data-readiness.mjs
+node scripts/intent-os/validate_all.mjs
+```

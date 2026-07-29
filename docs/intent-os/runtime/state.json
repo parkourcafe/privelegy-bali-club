@@ -1,9 +1,9 @@
 {
   "program": "other-bali-intent-os-autopilot",
-  "state": "NO_BUILD",
+  "state": "SAFE_HOLD",
   "initial_state": "INGEST",
   "created_at": "2026-07-29T18:04:40.269Z",
-  "updated_at": "2026-07-29T18:40:43.728Z",
+  "updated_at": "2026-07-29T18:48:14.110Z",
   "generator": "other-bali-intent-os-autopilot",
   "source_version": "OB-INT-0001..0200@2026-07-29",
   "input_hashes": {
@@ -17,7 +17,8 @@
     "CANONICALIZE",
     "MAP_SURFACES",
     "DATA_READINESS",
-    "FINALIZE"
+    "FINALIZE",
+    "LIVE_VERIFICATION_ATTEMPT"
   ],
-  "terminal": "NO_BUILD"
+  "terminal": "SAFE_HOLD"
 }

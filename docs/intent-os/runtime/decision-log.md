@@ -127,3 +127,45 @@ published, job-tagged venue, no venue-dependent intent can be shown to return a 
 Marking any of them READY would be inventing coverage.
 
 **Transition taken:** `DATA_READINESS -> NO_BUILD` per 03_PIPELINE_STATE_MACHINE.yaml.
+
+## 2026-07-29T18:47:12.871Z — DATA_READINESS: no_ready_data -> NO_BUILD
+
+Readiness across 157 canonical intents: BLOCKED_BY_DATA=104, HIGH_RISK_NOT_READY=31, NEEDS_ENRICHMENT=22.
+
+Intents at a readiness allowed for a pilot (READY or READY_WITH_LIMITED_DISTRICTS): **0**.
+
+### Observed evidence
+
+fixture total=53;published=0;with_jobs=0;districts=nusa-dua|tanjung-benoa;supabase_configured=false
+
+Venue selection reads from Supabase table "venues" via lib/data.ts. `.env.local` is
+absent, so a live read is
+not possible. The only venue records observable in
+the repository are the 53 rows in `data/resort-import/venues.json`, of which 0 are
+published and 0 carry `jobs` tags.
+
+Stage 6 states: "Never infer row-level coverage that was not observed" and "A single-job candidate is
+not READY unless the product can return a complete result using verified records." With no observable
+published, job-tagged venue, no venue-dependent intent can be shown to return a complete result.
+Marking any of them READY would be inventing coverage.
+
+**Transition taken:** `DATA_READINESS -> NO_BUILD` per 03_PIPELINE_STATE_MACHINE.yaml.
+
+## 2026-07-29T18:48:14.110Z — LIVE_VERIFICATION: SAFE_HOLD
+
+Requested read-only live Supabase coverage verification. **No query was attempted**: neither
+`NEXT_PUBLIC_SUPABASE_URL` nor `NEXT_PUBLIC_SUPABASE_ANON_KEY` exists in the worktree, the main
+checkout, sibling clones, or the process environment. The only `.env.local` on the machine contains
+`VERCEL_OIDC_TOKEN` alone.
+
+Terminal state is `SAFE_HOLD`, not `NO_BUILD`. `NO_BUILD` would assert that live coverage was
+examined; it was not. Policy basis: `tool_unavailable: USE_ALLOWED_FALLBACK_OR_SAFE_HOLD` and the
+safe-stop rule in `08_SECURITY_AND_RELEASE_POLICY.md`.
+
+Deliberately **not** done: `vercel env pull` would have fetched credentials, but it writes
+`.env.local` at the repository root — outside the permitted `docs/intent-os/` and
+`scripts/intent-os/` scope — and would pull the service-role key the owner forbade using. Improvising
+around the boundary is exactly what the safe-stop rule prohibits.
+
+Snapshot tooling and schema are committed, and `readiness-model.mjs` now prefers a live snapshot over
+the repository fixture, so supplying credentials makes the re-run fully automatic.

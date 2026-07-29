@@ -25,17 +25,45 @@ function observeVenueFixture() {
 
 const fixture = observeVenueFixture();
 
+/**
+ * A committed live coverage snapshot, when one exists, is stronger evidence than
+ * the repository fixture and takes precedence. Produced by coverage-snapshot.mjs.
+ */
+function observeCoverageSnapshot() {
+  const csv = join(REPO_ROOT, 'docs/intent-os/data-readiness/COVERAGE_SNAPSHOT_BY_DISTRICT_JOB.csv');
+  const status = join(REPO_ROOT, 'docs/intent-os/data-readiness/SNAPSHOT_STATUS.json');
+  const out = { present: false, status: 'ABSENT', ready_cells: 0, ready_districts: [], ready_job_slugs: [], cells: 0 };
+  if (existsSync(status)) {
+    try {
+      const s = JSON.parse(readFileSync(status, 'utf8'));
+      out.status = s.status ?? 'UNKNOWN';
+      out.ready_cells = s.ready_cells ?? 0;
+      out.ready_districts = s.ready_districts ?? [];
+      out.ready_job_slugs = s.ready_job_slugs ?? [];
+      out.cells = s.cells ?? 0;
+    } catch { /* malformed status is treated as absent */ }
+  }
+  out.present = existsSync(csv) && out.status === 'OK';
+  return out;
+}
+
+const snapshot = observeCoverageSnapshot();
+
 export const DATA_EVIDENCE = {
   observed_at_baseline: '2ebf74e',
   supabase_configured: existsSync(join(REPO_ROOT, '.env.local')),
   venue_source_of_truth: 'Supabase table "venues" via lib/data.ts',
   live_read_possible: existsSync(join(REPO_ROOT, '.env.local')),
+  coverage_snapshot: snapshot,
   repository_venue_fixture: fixture,
   hermes_data_support: 'every venues.* field reported PARTIAL with "no live completeness count"',
-  conclusion: fixture.published === 0 || fixture.with_jobs === 0
-    ? 'No published, job-tagged venue record is observable in the repository, and no live read is possible. '
-      + 'Venue-dependent selection cannot be proven to return a complete result.'
-    : 'Observable published venue coverage exists.',
+  conclusion: snapshot.present
+    ? `Live coverage snapshot observed: ${snapshot.ready_cells} READY (district, job_slug) cells.`
+    : (fixture.published === 0 || fixture.with_jobs === 0
+      ? 'No published, job-tagged venue record is observable in the repository, no live coverage snapshot '
+        + 'exists, and no live read is possible. Venue-dependent selection cannot be proven to return a '
+        + 'complete result.'
+      : 'Observable published venue coverage exists.'),
 };
 
 /**
@@ -64,6 +92,26 @@ export function assessReadiness({ type, risk }) {
     return { readiness: 'NEEDS_ENRICHMENT', reason: 'product action depends on trip storage, not venue selection' };
   }
   // Everything else selects venues.
+  const snap = DATA_EVIDENCE.coverage_snapshot;
+  if (snap.present) {
+    if (snap.ready_cells === 0) {
+      return {
+        readiness: 'BLOCKED_BY_DATA',
+        reason: `live coverage snapshot observed ${snap.cells} (district, job_slug) cells, none READY`,
+      };
+    }
+    // Fewer than five districts with READY coverage is a limited-district build.
+    return snap.ready_districts.length < 5
+      ? {
+        readiness: 'READY_WITH_LIMITED_DISTRICTS',
+        reason: `live snapshot: ${snap.ready_cells} READY cells across districts [${snap.ready_districts.join('|')}]`,
+      }
+      : {
+        readiness: 'READY',
+        reason: `live snapshot: ${snap.ready_cells} READY cells across ${snap.ready_districts.length} districts`,
+      };
+  }
+
   const f = DATA_EVIDENCE.repository_venue_fixture;
   if (!DATA_EVIDENCE.live_read_possible && f.published === 0) {
     return {
