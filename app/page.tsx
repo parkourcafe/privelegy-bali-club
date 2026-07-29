@@ -367,9 +367,9 @@ export default function HomePage() {
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
               {HOME_TRUST_PRINCIPLES.map((principle, index) => {
                 const scene = [
-                  { scene: "home-first-day", variant: "ridge" as const },
+                  { scene: "plan-route-east-bali-heritage", variant: "ridge" as const },
                   { scene: "guide-tanah-lot-sunset", variant: "sunset" as const },
-                  { scene: "home-romantic", variant: "night" as const },
+                  { scene: "plan-route-sunset-run", variant: "night" as const },
                 ][index] ?? { scene: "home-bali-trip-lengths", variant: "sunset" as const };
                 return (
                   <li key={principle} className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-sm font-semibold text-white sm:aspect-[4/5]">
