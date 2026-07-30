@@ -25,6 +25,12 @@
         <item name="windowSplashScreenBackground">@color/splashBackground</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+        <!-- Keep the launch window itself action-bar free. Theme.SplashScreen does
+             not inherit AppTheme, so these flags must be explicit here as well. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@color/systemBarBackground</item>
         <item name="android:navigationBarColor">@color/systemBarBackground</item>

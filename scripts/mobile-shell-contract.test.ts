@@ -142,14 +142,16 @@ test("mobile navigation commits root and detail transitions before a forced proc
   }
 });
 
-test("photo-less Discover cards use a bounded mobile media fallback", () => {
+test("photo-less Discover cards use approved area media with a truth label", () => {
   const component = readFileSync(
     new URL("../mobile/src/SelectionExperience.tsx", import.meta.url),
     "utf8",
   );
   const styles = readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8");
-  assert.match(component, /discover-media.*missing-media/);
-  assert.match(styles, /\.discover-media\.missing-media\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9/);
+  assert.match(component, /editorialImageUrl\(snapshot\.venue\)/);
+  assert.match(component, /Area mood/);
+  assert.match(component, /wider area mood, not the named venue/);
+  assert.match(styles, /\.discover-media\s*\{/);
 });
 
 test("selection feedback stays visible in the sticky navigation flow", () => {

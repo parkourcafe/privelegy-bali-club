@@ -36,6 +36,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--brass); outline
 h1, h2, h3 { font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif; }
 h1 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 15vw, 5.5rem); font-weight: 500; line-height: 0.94; letter-spacing: -0.035em; }
 .hero-copy { max-width: 35rem; margin: 22px 0 0; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
+.hero-media { position: relative; overflow: hidden; margin: 22px 0 0; border: 1px solid var(--line); border-radius: 22px; background: var(--paper-warm); box-shadow: var(--shadow-soft); }
+.hero-media video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.hero-media span { display: block; padding: 8px 12px; color: var(--caption); font-size: .72rem; }
 .status-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-top: 22px; color: var(--muted); font-size: 0.82rem; }
 .status { display: inline-flex; min-height: 30px; align-items: center; border: 1px solid var(--line-strong); border-radius: 999px; padding: 0 11px; color: var(--ink); background: rgba(255, 255, 255, 0.72); }
 .status.online::before, .status.offline::before { width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; content: ""; }

@@ -83,7 +83,7 @@ const html = `<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#faf6ef" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' capacitor:; connect-src 'self' ${cspOrigin}; img-src 'self' data: https:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' capacitor:; connect-src 'self' ${cspOrigin}; img-src 'self' data: https:; media-src 'self' https:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'" />
     <title>Other Bali</title>
     <link rel="stylesheet" href="${relativeAsset(stylesheet)}" />
     <script type="module" src="${relativeAsset(javascript)}"></script>
