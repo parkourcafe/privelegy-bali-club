@@ -67,14 +67,18 @@ test("the iOS target and AASA have the exact production identity and next build 
 });
 
 test("iOS keeps the local OfflineMapbox bridge without resolving the vendor SDK", async () => {
-  const [configText, syncedPackage, pluginPackage, resolutionText] = await Promise.all([
-    load("ios/App/App/capacitor.config.json"),
+  const [pluginSource, syncedPackage, pluginPackage, resolutionText] = await Promise.all([
+    load("plugins/offline-mapbox/ios/Sources/OfflineMapboxPlugin/OfflineMapboxPlugin.swift"),
     load("ios/App/CapApp-SPM/Package.swift"),
     load("plugins/offline-mapbox/Package.swift"),
     load("ios/App/App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"),
   ]);
-  const config = JSON.parse(configText);
-  assert.ok(config.packageClassList.includes("OfflineMapboxPlugin"));
+  // capacitor.config.json is a generated, gitignored sync artifact. The release
+  // verifier checks its packageClassList after `cap sync ios`; this source-level
+  // test must also work in a clean checkout before that sync has run.
+  assert.match(pluginSource, /@objc\s*\(\s*OfflineMapboxPlugin\s*\)/);
+  assert.match(pluginSource, /class\s+OfflineMapboxPlugin\s*:\s*CAPPlugin\s*,\s*CAPBridgedPlugin/);
+  assert.match(pluginSource, /jsName\s*=\s*"OfflineMapbox"/);
   assert.match(
     syncedPackage,
     /\.package\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*path:\s*"\.\.\/\.\.\/\.\.\/plugins\/offline-mapbox"\s*\)/,
