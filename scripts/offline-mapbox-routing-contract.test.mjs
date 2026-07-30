@@ -42,7 +42,7 @@ test("public native plugin contract exposes typed route and route-aware open", a
   );
 });
 
-test("both native plugins expose onboard route capability only with native route implementation", async () => {
+test("Android retains onboard routing while iOS preserves a fail-closed route bridge", async () => {
   const [android, ios] = await Promise.all([
     readFile(androidPluginUrl, "utf8"),
     readFile(iosPluginUrl, "utf8"),
@@ -52,55 +52,56 @@ test("both native plugins expose onboard route capability only with native route
   requires(ios, /CAPPluginMethod\s*\(\s*name:\s*"route"/, "iOS route bridge method is missing");
   requires(ios, /@objc\s+func\s+route\s*\(/, "iOS route implementation is missing");
   requires(android, /put\s*\(\s*"onboardRouting"\s*,\s*true\s*\)/, "Android must not advertise onboard routing before route exists");
-  requires(ios, /"onboardRouting"\s*:\s*true/, "iOS must not advertise onboard routing before route exists");
+  requires(ios, /"onboardRouting"\s*:\s*false/, "iOS must advertise onboard routing as unavailable");
   requires(
-    `${android}\n${ios}`,
+    android,
     /MapboxNavigation(?:Provider)?/,
-    "native route methods must use the onboard Mapbox routing provider",
+    "Android route methods must use the onboard Mapbox routing provider",
   );
+  requires(
+    ios,
+    /func\s+route\s*\([^)]*\)\s*\{\s*call\.reject\s*\(\s*"offline_mapbox_unavailable"\s*\)/s,
+    "iOS route must reject because the SDK is not shipped",
+  );
+  forbids(ios, /^\s*import\s+(?:Mapbox\w*|Turf)\b/m, "iOS must not import the removed SDK");
   forbids(
-    `${android}\n${ios}`,
+    android,
     /https?:\/\//i,
-    "native offline routing must not call an HTTP route URL",
+    "Android offline routing must not call an HTTP route URL",
   );
 });
 
-test("native list returns persisted version and actual resource metrics without placeholders", async () => {
+test("Android list returns actual resource metrics while iOS list stays empty", async () => {
   const [android, ios] = await Promise.all([
     readFile(androidPluginUrl, "utf8"),
     readFile(iosPluginUrl, "utf8"),
   ]);
 
-  for (const [platform, source] of [["Android", android], ["iOS", ios]]) {
-    requires(source, /["']version["']/, `${platform} list must return the persisted pack version`);
-    requires(source, /completedResourceCount/, `${platform} list must return actual completed resource count`);
-    requires(source, /completedResourceSize/, `${platform} list must return actual completed bytes`);
-    requires(source, /requiredResourceCount/, `${platform} list must return actual required resource count`);
-  }
+  requires(android, /["']version["']/, "Android list must return the persisted pack version");
+  requires(android, /completedResourceCount/, "Android list must return actual completed resource count");
+  requires(android, /completedResourceSize/, "Android list must return actual completed bytes");
+  requires(android, /requiredResourceCount/, "Android list must return actual required resource count");
   forbids(
     android,
     /pack\s*\(\s*(?:id|regionId)\s*,\s*1\s*,\s*1\s*,\s*1\s*\)/,
     "Android list still returns 1-byte placeholder metrics",
   );
-  forbids(
+  requires(
     ios,
-    /"completedResourceCount"\s*:\s*1[\s\S]{0,200}"completedResourceSize"\s*:\s*1[\s\S]{0,200}"requiredResourceCount"\s*:\s*1/,
-    "iOS list still returns 1-byte placeholder metrics",
+    /func\s+list\s*\([^)]*\)\s*\{\s*call\.resolve\s*\(\s*\[\s*"packs"\s*:\s*\[\s*\]\s*\]\s*\)/s,
+    "iOS list must return no packs",
   );
+  forbids(ios, /completedResourceCount|completedResourceSize|requiredResourceCount/, "iOS must not synthesize pack metrics");
 });
 
-test("downloaded map open receives and renders route geometry with a next-stop label", async () => {
+test("Android downloaded map renders route context while iOS open remains unavailable", async () => {
   const [androidPlugin, androidMap, ios] = await Promise.all([
     readFile(androidPluginUrl, "utf8"),
     readFile(androidMapUrl, "utf8"),
     readFile(iosPluginUrl, "utf8"),
   ]);
 
-  for (const [platform, source] of [
-    ["Android plugin", androidPlugin],
-    ["Android map", androidMap],
-    ["iOS", ios],
-  ]) {
+  for (const [platform, source] of [["Android plugin", androidPlugin], ["Android map", androidMap]]) {
     requires(source, /(?:geometry|routeGeometry)/, `${platform} does not carry route geometry`);
     requires(source, /destinationLabel/, `${platform} does not carry the next-stop label`);
   }
@@ -116,12 +117,8 @@ test("downloaded map open receives and renders route geometry with a next-stop l
   );
   requires(
     ios,
-    /(?:PolylineAnnotation|LineLayer|GeoJSONSource)/,
-    "iOS downloaded map does not draw the route line",
+    /func\s+open\s*\([^)]*\)\s*\{\s*call\.reject\s*\(\s*"offline_mapbox_unavailable"\s*\)/s,
+    "iOS open must fail closed without the SDK",
   );
-  requires(
-    ios,
-    /(?:UILabel|PointAnnotation|SymbolLayer)/,
-    "iOS downloaded map does not render the destination label",
-  );
+  forbids(ios, /PolylineAnnotation|LineLayer|GeoJSONSource|UILabel|PointAnnotation|SymbolLayer/);
 });

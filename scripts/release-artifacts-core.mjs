@@ -10,7 +10,7 @@ export const RELEASE_CONTRACT = Object.freeze({
   appId: "com.otherbali.app",
   appleTeamId: "KB7VPWHTTM",
   iosVersion: "1.0",
-  iosBuild: "5",
+  iosBuild: "7",
   iosMinimumVersion: "15.0",
   associatedDomains: ["applinks:www.otherbali.com"],
   systemBarsStyle: "DARK",
@@ -231,7 +231,9 @@ export function assertIosMetadata({ info, entitlements, profile, codesign, now =
   if (!info || !entitlements || !profile || !codesign) fail("iOS metadata evidence is incomplete");
   if (info.CFBundleIdentifier !== expected.appId) fail("IPA bundle identifier is incorrect");
   if (String(info.CFBundleShortVersionString ?? "") !== expected.iosVersion) fail("IPA version must equal 1.0");
-  if (String(info.CFBundleVersion ?? "") !== expected.iosBuild) fail("IPA build must equal 5");
+  if (String(info.CFBundleVersion ?? "") !== expected.iosBuild) {
+    fail(`IPA build must equal ${expected.iosBuild}`);
+  }
   if (String(info.MinimumOSVersion ?? "") !== expected.iosMinimumVersion) fail("IPA minimum iOS version must equal 15.0");
   if (info.DTPlatformName !== "iphoneos" || !/^iphoneos\d+(?:\.\d+)*$/i.test(info.DTSDKName ?? "")) {
     fail("IPA must be built with an iPhoneOS SDK");

@@ -9,13 +9,13 @@ fully tested on physical devices.
 
 ## Canonical candidate
 
-- Working branch: `codex/discover-bali-messaging-20260730`
-- Last committed baseline before the current privacy patch:
-  `f337aa79cc387449a8f0f8d6c776c595e0cb76f1`
+- Working branch: `release/other-bali-appstore-build7`
+- Last committed baseline before the iOS SDK-removal patch:
+  `4afe39e`
 - Final candidate commit: **pending**
 - Web/API production origin: `https://www.otherbali.com`
 - App/package ID: `com.otherbali.app`
-- iOS: version `1.0`, build `5`, minimum iOS `15.0`
+- iOS: version `1.0`, build `7`, minimum iOS `15.0`
 - Android: version `1.0.0`, version code `4`, minimum API `24`, target/compile
   API `36`
 - Native product: bundled Capacitor app with Discover, Decide, Today, Trip,
@@ -68,8 +68,11 @@ persist or transmit raw coordinates in that flow. Manual area selection remains
 available after denial. iOS carries the matching When In Use description.
 
 Offline Mapbox downloads and onboard routing remain fail-closed in this
-release. No downloadable region is advertised, and native Mapbox telemetry
-initializes disabled.
+release. The iOS target preserves the public local Capacitor bridge but does not
+resolve, link, or embed the Mapbox or Turf SDKs; every iOS offline capability is
+false and the bridge has no telemetry path. Android retains its Mapbox
+implementation, but no downloadable region is advertised, release access
+remains gated, and provider telemetry defaults disabled.
 
 The source `PrivacyInfo.xcprivacy` now declares exactly:
 
@@ -121,8 +124,10 @@ gate.
 
 Production migration `0064_v12_sync_apply.sql` was applied explicitly after
 read-only dependency checks. A production probe returned the exact HTTP `201`
-`applied` acknowledgement required by the client. Production
-`0065_v12_guest_privacy_erasure.sql` has **not** been applied.
+`applied` acknowledgement required by the client. Production migration
+`0065_v12_guest_privacy_erasure.sql` is applied. A controlled live probe on
+2026-07-30 verified HTTP `200` deletion, idempotent repeated deletion, and
+rejection of a personal-state write attempted after erasure.
 
 The isolated Supabase branch `media-preview-qa` initially exposed real schema
 drift: migrations `0019` and `0061`–`0064` were absent. The audit restored those
@@ -200,8 +205,9 @@ are recorded without device serials or personal data.
 1. Commit the candidate, push the draft PR and wait for the exact Vercel
    preview. Verify privacy pages, mobile privacy CORS/DELETE, health, ready,
    config, bootstrap and sync against that deployment.
-2. Apply `0065` to production only under explicit deployment authorization,
-   deploy the matching server source, and repeat live checks.
+2. Production `0065` deployment and live deletion checks are complete; preserve
+   the verified server source and migration state while the native candidates
+   are rebuilt.
 3. Rebuild and verify the signed IPA/AAB/APK; replace this ledger's pending
    hash table with exact final bytes and regenerate release evidence.
 4. Complete physical Samsung QA, then physical iPhone QA when Xcode sees the
