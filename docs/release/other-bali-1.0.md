@@ -12,7 +12,8 @@ fully tested on physical devices.
 - Working branch: `codex/appstore-build6-20260730`
 - Last committed baseline before the current privacy patch:
   `f337aa79cc387449a8f0f8d6c776c595e0cb76f1`
-- Final candidate commit: **pending**
+- Final signed iOS source commit:
+  `83e11c5d91dbb4943ae6e705bc1c42976e19157f`
 - Web/API production origin: `https://www.otherbali.com`
 - App/package ID: `com.otherbali.app`
 - iOS: version `1.0`, build `6`, minimum iOS `15.0`
@@ -40,12 +41,14 @@ passing the combined verifier:
 
 | Store | Exact artifact | Bytes | SHA-256 | Status |
 | --- | --- | ---: | --- | --- |
-| App Store | `artifacts/release/ios/OtherBali.ipa` | pending | pending | rebuild required |
+| App Store | `artifacts/release/ios/OtherBali.ipa` | 28,630,543 | `224e44c6cb7086acc375b0d99f10ad4dd4a864b88c03f721a5f2f92ef84c10ee` | signed and locally verified; not uploaded |
 | Google Play | `android/app/build/outputs/bundle/playRelease/app-play-release.aab` | pending | pending | rebuild required |
 | RuStore | `android/app/build/outputs/apk/rustore/release/app-rustore-release.apk` | pending | pending | rebuild required |
 
-The final `release-artifacts.json` and `SHA256SUMS` must bind the exact binaries
-to the final commit. No earlier hash may be substituted.
+The iOS-only evidence is recorded in
+`docs/release/evidence/ios-build6-artifact.json`. The final multi-store
+`release-artifacts.json` and `SHA256SUMS` still require matching current
+Android artifacts. No earlier hash may be substituted.
 
 ## Native permissions and privacy surface
 
@@ -148,7 +151,7 @@ They did not access production user data or change production.
 Latest completed source checks before final native rebuild:
 
 - v1.2 integration: **136/136 passed**
-- full repository suite: **349/349 passed**
+- full repository suite: **359/359 passed**
 - SEO registry validation: passed
 - TypeScript: passed
 - ESLint: 0 errors, one pre-existing `<img>` performance warning
@@ -202,10 +205,10 @@ are recorded without device serials or personal data.
    config, bootstrap and sync against that deployment.
 2. Apply `0065` to production only under explicit deployment authorization,
    deploy the matching server source, and repeat live checks.
-3. Rebuild and verify the signed IPA/AAB/APK; replace this ledger's pending
-   hash table with exact final bytes and regenerate release evidence.
-4. Complete physical Samsung QA, then physical iPhone QA when Xcode sees the
-   device.
+3. Rebuild and verify the signed AAB/APK for Android if the same release line is
+   sent to Google Play or RuStore; the signed iOS build 6 IPA is complete.
+4. Complete physical iPhone QA when Xcode sees the device. Complete fresh
+   Android QA only for the Android store release.
 5. Capture and validate fresh App Store, Google Play and RuStore screenshots.
 6. Complete owner/legal privacy, processor, retention, age-rating, support,
    DPA and contact fields.
