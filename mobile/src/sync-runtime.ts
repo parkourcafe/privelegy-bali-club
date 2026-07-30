@@ -13,6 +13,23 @@ export interface PendingSyncFlushResult extends PendingSyncSettlement {
   appliedCount: number;
 }
 
+export function enqueuePendingSyncMutation(
+  pending: SyncMutation[],
+  next: SyncMutation,
+  limit = 200,
+): SyncMutation[] {
+  const withoutSupersededTrip = next.entityType === "trip_stop"
+    && next.operation === "trip_replace"
+    ? pending.filter((candidate) => !(
+      candidate.entityType === next.entityType
+      && candidate.entityId === next.entityId
+      && candidate.operation === next.operation
+    ))
+    : pending;
+
+  return [...withoutSupersededTrip, next].slice(-Math.max(1, limit));
+}
+
 export function settlePendingSyncMutation(
   pending: SyncMutation[],
   mutation: SyncMutation,

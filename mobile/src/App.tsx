@@ -24,7 +24,10 @@ import type { SyncMutation } from "../../lib/journey/offline-sync";
 import type { MobileBootstrapPayload } from "./contracts";
 import SelectionExperience from "./SelectionExperience";
 import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
-import { flushPendingSyncQueue } from "./sync-runtime";
+import {
+  enqueuePendingSyncMutation,
+  flushPendingSyncQueue,
+} from "./sync-runtime";
 import {
   exitMobileApp,
   openControlledExternal,
@@ -340,7 +343,11 @@ function TripPlan({
                         aria-label={`Note for ${resolveStop(stop.entityType, stop.entityId)}`}
                         defaultValue={stop.userNote ?? ""}
                         maxLength={500}
-                        onBlur={(event) => onSaveNote(dayIndex, stop.id, event.target.value)}
+                        onChange={(event) => onSaveNote(
+                          dayIndex,
+                          stop.id,
+                          event.currentTarget.value,
+                        )}
                       />
                     </label>
                     <button type="button" onClick={() => onRemove(dayIndex, stop.id)}>Remove</button>
@@ -736,6 +743,7 @@ export default function App() {
   const persistedRouteState = useRef<PersistedRouteState>({ ids: [], snapshots: [] });
   const venuePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
   const routePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
+  const tripRef = useRef<Trip | null>(null);
   const pendingSyncRef = useRef<SyncMutation[]>([]);
   const syncActive = useRef(false);
   const syncAbortController = useRef<AbortController | null>(null);
@@ -818,11 +826,11 @@ export default function App() {
         createdAt: new Date().toISOString(),
         baseVersion: null,
       };
-      const pending = [...pendingSyncRef.current, next].slice(-200);
+      const pending = enqueuePendingSyncMutation(pendingSyncRef.current, next);
+      pendingSyncRef.current = pending;
+      setPendingSyncCount(pending.length);
       try {
         await writePendingSync(pending);
-        pendingSyncRef.current = pending;
-        setPendingSyncCount(pending.length);
       } catch {
         setStorageWriteFailed(true);
       }
@@ -869,6 +877,7 @@ export default function App() {
         setTodayEventOccurrences(state.todayEventOccurrences);
         setEvents(state.eventsSnapshot?.events ?? []);
         setEventsUpdatedAt(state.eventsSnapshot?.updatedAt ?? null);
+        tripRef.current = state.trip;
         setTrip(state.trip);
         setOfflinePacks(state.offlinePacks);
         if (defaultOfflineMapRuntime.list) {
@@ -992,9 +1001,9 @@ export default function App() {
                 (mutation) => !flushingKeys.has(mutation.idempotencyKey),
               );
               const nextPending = [...remaining, ...appended];
-              await trackPersonalStorageWrite(() => writePendingSync(nextPending));
               pendingSyncRef.current = nextPending;
               setPendingSyncCount(nextPending.length);
+              await trackPersonalStorageWrite(() => writePendingSync(nextPending));
             },
           );
           if (result.conflict || result.appliedCount === 0) {
@@ -1657,24 +1666,32 @@ export default function App() {
     if (tracked) await tracked;
   }
 
-  async function persistTrip(next: Trip) {
+  async function persistTrip(
+    update: Trip | ((current: Trip | null) => Trip | null),
+  ) {
     if (privacyDeletionActive.current) {
       setSelectionNotice("Finish the pending privacy cleanup before changing Trip.");
       return false;
     }
+    const next = typeof update === "function"
+      ? update(tripRef.current)
+      : update;
+    if (!next) return false;
+    tripRef.current = next;
+    setTrip(next);
+    setTripDayIndex((current) => Math.min(current, next.days.length - 1));
+    const storageWrite = writeTrip(next);
+    const syncWrite = queueMutation({
+      entityType: "trip_stop",
+      entityId: next.id,
+      operation: "trip_replace",
+      payload: { trip: next },
+    });
     const tracked = personalWriteBarrier.run(async () => {
       setStorageWriteFailed(false);
       try {
-        await writeTrip(next);
+        await Promise.all([storageWrite, syncWrite]);
         if (privacyDeletionActive.current) return false;
-        setTrip(next);
-        setTripDayIndex((current) => Math.min(current, next.days.length - 1));
-        await queueMutation({
-          entityType: "trip_stop",
-          entityId: next.id,
-          operation: "trip_replace",
-          payload: { trip: next },
-        });
         return true;
       } catch {
         setStorageWriteFailed(true);
@@ -1685,10 +1702,13 @@ export default function App() {
   }
 
   async function addToTrip(snapshot: SavedVenueSnapshot) {
-    const base = trip ?? createEmptyTrip(3);
-    const next = addTripStop(base, Math.min(tripDayIndex, base.days.length - 1), "place", snapshot.venue.id);
-    if (await persistTrip(next)) {
-      setSelectionNotice(`${snapshot.venue.name} was added to Trip day ${Math.min(tripDayIndex, base.days.length - 1) + 1}.`);
+    let selectedDayIndex = 0;
+    if (await persistTrip((current) => {
+      const base = current ?? createEmptyTrip(3);
+      selectedDayIndex = Math.min(tripDayIndex, base.days.length - 1);
+      return addTripStop(base, selectedDayIndex, "place", snapshot.venue.id);
+    })) {
+      setSelectionNotice(`${snapshot.venue.name} was added to Trip day ${selectedDayIndex + 1}.`);
     }
   }
 
@@ -1767,11 +1787,13 @@ export default function App() {
       setSelectionNotice("This event is no longer active and was not added.");
       return;
     }
-    const base = trip ?? createEmptyTrip(3);
-    const dayIndex = Math.min(tripDayIndex, base.days.length - 1);
-    const next = addTripStop(base, dayIndex, "event_occurrence", event.id);
-    if (await persistTrip(next)) {
-      setSelectionNotice(`${event.title} was added to Trip day ${dayIndex + 1}.`);
+    let selectedDayIndex = 0;
+    if (await persistTrip((current) => {
+      const base = current ?? createEmptyTrip(3);
+      selectedDayIndex = Math.min(tripDayIndex, base.days.length - 1);
+      return addTripStop(base, selectedDayIndex, "event_occurrence", event.id);
+    })) {
+      setSelectionNotice(`${event.title} was added to Trip day ${selectedDayIndex + 1}.`);
     }
   }
 
@@ -1834,8 +1856,7 @@ export default function App() {
   }
 
   async function editTrip(transform: (current: Trip) => Trip) {
-    if (!trip) return;
-    await persistTrip(transform(trip));
+    await persistTrip((current) => current ? transform(current) : null);
   }
 
   function openRoute(id: string) {
@@ -1921,6 +1942,7 @@ export default function App() {
     setTodayVenueSnapshots([]);
     setTodayEventIds([]);
     setTodayEventOccurrences([]);
+    tripRef.current = null;
     setTrip(null);
     setTripDayIndex(0);
     setNavigationSession(null);
