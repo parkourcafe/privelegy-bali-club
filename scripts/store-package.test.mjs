@@ -15,14 +15,54 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 test("store package preflight rejects evidence captured for the previous signed release", async () => {
-  await assert.rejects(
-    () => inspectStorePackage({ root }),
-    (error) => {
-      assert.match(error.message, /iphone69: Simulator capture evidence has the wrong app identity\/version/);
-      assert.match(error.message, /androidPhone: signed-device capture evidence has the wrong app identity\/version/);
-      return true;
-    },
-  );
+  const fixture = await mkdtemp(path.join(os.tmpdir(), "other-bali-store-previous-release-"));
+  try {
+    await Promise.all([
+      cp(path.join(root, "store-assets"), path.join(fixture, "store-assets"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence/iphone-simulator"), { recursive: true }),
+      mkdir(path.join(fixture, "docs/release/evidence/samsung-rustore"), { recursive: true }),
+    ]);
+    await Promise.all([
+      cp(path.join(root, "docs/store-submission-package.md"), path.join(fixture, "docs/store-submission-package.md")),
+      cp(path.join(root, "docs/release/device-matrix.json"), path.join(fixture, "docs/release/device-matrix.json")),
+      cp(
+        path.join(root, "docs/release/evidence/iphone-simulator/capture.json"),
+        path.join(fixture, "docs/release/evidence/iphone-simulator/capture.json"),
+      ),
+      cp(
+        path.join(root, "docs/release/evidence/samsung-rustore/store-screenshot-capture.json"),
+        path.join(fixture, "docs/release/evidence/samsung-rustore/store-screenshot-capture.json"),
+      ),
+    ]);
+
+    const iphoneCapturePath = path.join(
+      fixture,
+      "docs/release/evidence/iphone-simulator/capture.json",
+    );
+    const androidCapturePath = path.join(
+      fixture,
+      "docs/release/evidence/samsung-rustore/store-screenshot-capture.json",
+    );
+    const iphoneCapture = JSON.parse(await readFile(iphoneCapturePath, "utf8"));
+    const androidCapture = JSON.parse(await readFile(androidCapturePath, "utf8"));
+    iphoneCapture.app.build = "previous";
+    androidCapture.app.versionCode = -1;
+    await Promise.all([
+      writeFile(iphoneCapturePath, `${JSON.stringify(iphoneCapture, null, 2)}\n`),
+      writeFile(androidCapturePath, `${JSON.stringify(androidCapture, null, 2)}\n`),
+    ]);
+
+    await assert.rejects(
+      () => inspectStorePackage({ root: fixture }),
+      (error) => {
+        assert.match(error.message, /iphone69: Simulator capture evidence has the wrong app identity\/version/);
+        assert.match(error.message, /androidPhone: signed-device capture evidence has the wrong app identity\/version/);
+        return true;
+      },
+    );
+  } finally {
+    await rm(fixture, { recursive: true, force: true });
+  }
 });
 
 test("store package requires both screenshot sets and every fixed owner gate", () => {
