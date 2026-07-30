@@ -9,13 +9,13 @@ fully tested on physical devices.
 
 ## Canonical candidate
 
-- Working branch: `codex/discover-bali-messaging-20260730`
+- Working branch: `codex/appstore-build6-20260730`
 - Last committed baseline before the current privacy patch:
   `f337aa79cc387449a8f0f8d6c776c595e0cb76f1`
 - Final candidate commit: **pending**
 - Web/API production origin: `https://www.otherbali.com`
 - App/package ID: `com.otherbali.app`
-- iOS: version `1.0`, build `5`, minimum iOS `15.0`
+- iOS: version `1.0`, build `6`, minimum iOS `15.0`
 - Android: version `1.0.0`, version code `4`, minimum API `24`, target/compile
   API `36`
 - Native product: bundled Capacitor app with Discover, Decide, Today, Trip,

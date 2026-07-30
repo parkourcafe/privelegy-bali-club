@@ -1,7 +1,7 @@
 # Other Bali Store Privacy Declarations
 
 Date: 2026-07-30
-Status: audit draft for iOS 1.0 (5) and Android 1.0.0 (4)
+Status: audit draft for iOS 1.0 (6) and Android 1.0.0 (4)
 
 Use this document only for the current `com.otherbali.app` release candidate.
 It records what the source and merged native manifests do; it is not evidence
