@@ -406,8 +406,17 @@ document.addEventListener('DOMContentLoaded', async function() {
       root.querySelectorAll('other-bali-logo').forEach((logo) => {
         if (!logo.dataset.homeBound) {
           logo.dataset.homeBound = '1';
-          logo.style.cursor = 'pointer';
-          logo.addEventListener('click', () => { window.top.location.href = '/'; });
+          const goHome = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            window.top.location.assign('/');
+          };
+          let target = logo;
+          for (let level = 0; level < 3 && target; level += 1) {
+            target.style.cursor = 'pointer';
+            target.addEventListener('click', goHome, true);
+            target = target.parentElement;
+          }
         }
       });
       root.querySelectorAll('iframe').forEach((frame) => {
