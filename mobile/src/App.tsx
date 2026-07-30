@@ -6,6 +6,7 @@ import type {
   MobileVenueCompact,
 } from "../../lib/mobile-api/contracts";
 import type { ExternalLinkKind } from "../../lib/external-links";
+import { editorialHeroPosterUrl, editorialHeroVideoUrl } from "./editorial-media";
 import {
   createDecision,
   deleteSyncedData as requestSyncedDataDeletion,
@@ -2046,6 +2047,12 @@ export default function App() {
         <p className="hero-copy">
           Resident-curated places, routes and plans for every Bali moment. Less searching. More Bali.
         </p>
+        <div className="hero-media" aria-label="Other Bali editorial film">
+          <video autoPlay muted loop playsInline poster={editorialHeroPosterUrl} preload="metadata">
+            <source src={editorialHeroVideoUrl} type="video/mp4" />
+          </video>
+          <span>Other Bali editorial film · area mood, not a live venue view</span>
+        </div>
         <div className="status-row" aria-live="polite">
           <span className={online ? "status online" : "status offline"}>{online ? "Online" : "Offline · cached data"}</span>
           {bootstrap ? <span>Updated {formatUpdatedAt(bootstrap.updatedAt)}</span> : null}
