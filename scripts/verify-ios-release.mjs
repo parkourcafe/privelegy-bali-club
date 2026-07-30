@@ -32,12 +32,20 @@ if (process.platform !== "darwin") {
 }
 
 const mapboxAccessToken = process.env.MAPBOX_ACCESS_TOKEN?.trim() ?? "";
-if (!/^pk\.[A-Za-z0-9._-]{20,}$/.test(mapboxAccessToken)) {
-  console.error("A restricted Mapbox public token must be supplied through MAPBOX_ACCESS_TOKEN");
+if (mapboxAccessToken && !/^pk\.[A-Za-z0-9._-]{20,}$/.test(mapboxAccessToken)) {
+  console.error("MAPBOX_ACCESS_TOKEN must be blank or a restricted Mapbox public token");
   process.exit(2);
 }
 
 function createSecretRedactor(secret, destination) {
+  if (!secret) {
+    return new Transform({
+      transform(chunk, _encoding, callback) {
+        destination.write(chunk);
+        callback();
+      },
+    });
+  }
   const decoder = new StringDecoder("utf8");
   let retained = "";
   const marker = "<redacted-mapbox-token>";

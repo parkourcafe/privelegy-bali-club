@@ -6,7 +6,7 @@ readonly AUTHORIZATION_PHRASE="YES_I_HAVE_ACTION_TIME_AUTHORIZATION"
 readonly TEAM_ID="KB7VPWHTTM"
 readonly BUNDLE_ID="com.otherbali.app"
 readonly VERSION="1.0"
-readonly BUILD_NUMBER="6"
+readonly BUILD_NUMBER="7"
 
 if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]; then
   echo "Refusing to sign. Obtain action-time authorization, then set OTHER_BALI_ALLOW_SIGNING=${AUTHORIZATION_PHRASE}." >&2
@@ -40,8 +40,10 @@ if [[ "${node_major}" != "22" ]]; then
 fi
 
 mapbox_access_token="${MAPBOX_ACCESS_TOKEN:-}"
-if [[ ! "${mapbox_access_token}" =~ ^pk\.[A-Za-z0-9._-]{20,}$ ]]; then
-  echo "A restricted Mapbox public token must be supplied through MAPBOX_ACCESS_TOKEN." >&2
+if [[ "${mapbox_access_token}" =~ ^[[:space:]]*$ ]]; then
+  mapbox_access_token=""
+elif [[ ! "${mapbox_access_token}" =~ ^pk\.[A-Za-z0-9._-]{20,}$ ]]; then
+  echo "MAPBOX_ACCESS_TOKEN must be blank or a restricted Mapbox public token." >&2
   exit 2
 fi
 

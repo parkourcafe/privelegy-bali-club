@@ -22,9 +22,34 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
     ]
 
     private static let quota = 1_073_741_824
-    private let navigationProvider = MapboxNavigationProvider(coreConfig: CoreConfig())
-    private var tileStore: TileStore {
-        navigationProvider.coreConfig.tilestoreConfig.navigatorLocation.tileStore
+    private var navigationProvider: MapboxNavigationProvider?
+
+    private static func mapboxAccessToken() -> String? {
+        let rawToken = Bundle.main.object(
+            forInfoDictionaryKey: "MBXAccessToken"
+        ) as? String ?? ""
+        let token = rawToken.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !token.isEmpty,
+              token.hasPrefix("pk."),
+              token.range(
+                of: #"^pk\.[A-Za-z0-9._-]{20,}$"#,
+                options: .regularExpression
+              ) != nil else {
+            return nil
+        }
+        return token
+    }
+
+    private var isMapboxAvailable: Bool {
+        Self.mapboxAccessToken() != nil
+    }
+
+    private func configuredNavigationProvider() -> MapboxNavigationProvider? {
+        guard Self.mapboxAccessToken() != nil else { return nil }
+        if let navigationProvider { return navigationProvider }
+        let provider = MapboxNavigationProvider(coreConfig: CoreConfig())
+        navigationProvider = provider
+        return provider
     }
 
     @objc override public func load() {
@@ -38,18 +63,23 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func capability(_ call: CAPPluginCall) {
+        let available = isMapboxAvailable
         call.resolve([
-            "available": true,
+            "available": available,
             "provider": "mapbox",
-            "mapTiles": true,
-            "gpsOnDownloadedMap": true,
-            "onboardRouting": true,
+            "mapTiles": available,
+            "gpsOnDownloadedMap": available,
+            "onboardRouting": available,
             "telemetryOptOutAvailable": true,
             "maxDeviceBytes": Self.quota
         ])
     }
 
     @objc func route(_ call: CAPPluginCall) {
+        guard let navigationProvider = configuredNavigationProvider() else {
+            call.reject("offline_mapbox_unavailable")
+            return
+        }
         guard let regionId = call.getString("regionId"),
               let version = call.getString("version"),
               UserDefaults.standard.string(forKey: "offline-mapbox.\(regionId)") == version,
@@ -89,13 +119,9 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
             coordinates: [originCoordinate, destinationCoordinate],
             profileIdentifier: profileIdentifier
         )
-        Task { [weak self] in
-            guard let self else {
-                call.reject("offline_route_provider_unavailable")
-                return
-            }
+        Task { [navigationProvider] in
             do {
-                let routes = try await self.navigationProvider.routingProvider()
+                let routes = try await navigationProvider.routingProvider()
                     .calculateRoutes(options: options).value
                 let route = routes.mainRoute.route
                 guard let coordinates = route.shape?.coordinates,
@@ -131,6 +157,12 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func download(_ call: CAPPluginCall) {
+        guard let navigationProvider = configuredNavigationProvider() else {
+            call.reject("offline_mapbox_unavailable")
+            return
+        }
+        let tileStore = navigationProvider.coreConfig
+            .tilestoreConfig.navigatorLocation.tileStore
         guard let id = call.getString("id"),
               id.range(of: #"^[a-z0-9-]{1,100}$"#, options: .regularExpression) != nil,
               let version = call.getString("version"), !version.isEmpty,
@@ -221,12 +253,23 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
             call.reject("region_id_required")
             return
         }
-        tileStore.removeTileRegion(forId: id)
         UserDefaults.standard.removeObject(forKey: "offline-mapbox.\(id)")
+        guard let navigationProvider = configuredNavigationProvider() else {
+            call.resolve()
+            return
+        }
+        navigationProvider.coreConfig.tilestoreConfig.navigatorLocation.tileStore
+            .removeTileRegion(forId: id)
         call.resolve()
     }
 
     @objc func list(_ call: CAPPluginCall) {
+        guard let navigationProvider = configuredNavigationProvider() else {
+            call.resolve(["packs": []])
+            return
+        }
+        let tileStore = navigationProvider.coreConfig
+            .tilestoreConfig.navigatorLocation.tileStore
         tileStore.allTileRegions { result in
             switch result {
             case .success(let regions):
@@ -254,6 +297,12 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func open(_ call: CAPPluginCall) {
+        guard let navigationProvider = configuredNavigationProvider() else {
+            call.reject("offline_mapbox_unavailable")
+            return
+        }
+        let tileStore = navigationProvider.coreConfig
+            .tilestoreConfig.navigatorLocation.tileStore
         guard let id = call.getString("regionId"),
               UserDefaults.standard.object(forKey: "offline-mapbox.\(id)") != nil else {
             call.reject("offline_region_not_ready")
@@ -278,7 +327,7 @@ public class OfflineMapboxPlugin: CAPPlugin, CAPBridgedPlugin {
         let destinationLabel = Self.boundedLabel(call.getString("destinationLabel"))
         DispatchQueue.main.async { [weak self] in
             let controller = OfflineMapViewController(
-                tileStore: self?.tileStore,
+                tileStore: tileStore,
                 routeGeometry: routeGeometry,
                 destinationLabel: destinationLabel
             )

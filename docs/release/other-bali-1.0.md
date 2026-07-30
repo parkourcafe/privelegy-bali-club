@@ -121,8 +121,10 @@ gate.
 
 Production migration `0064_v12_sync_apply.sql` was applied explicitly after
 read-only dependency checks. A production probe returned the exact HTTP `201`
-`applied` acknowledgement required by the client. Production
-`0065_v12_guest_privacy_erasure.sql` has **not** been applied.
+`applied` acknowledgement required by the client. Production migration
+`0065_v12_guest_privacy_erasure.sql` is applied. A controlled live probe on
+2026-07-30 verified HTTP `200` deletion, idempotent repeated deletion, and
+rejection of a personal-state write attempted after erasure.
 
 The isolated Supabase branch `media-preview-qa` initially exposed real schema
 drift: migrations `0019` and `0061`–`0064` were absent. The audit restored those
@@ -200,8 +202,9 @@ are recorded without device serials or personal data.
 1. Commit the candidate, push the draft PR and wait for the exact Vercel
    preview. Verify privacy pages, mobile privacy CORS/DELETE, health, ready,
    config, bootstrap and sync against that deployment.
-2. Apply `0065` to production only under explicit deployment authorization,
-   deploy the matching server source, and repeat live checks.
+2. Production `0065` deployment and live deletion checks are complete; preserve
+   the verified server source and migration state while the native candidates
+   are rebuilt.
 3. Rebuild and verify the signed IPA/AAB/APK; replace this ledger's pending
    hash table with exact final bytes and regenerate release evidence.
 4. Complete physical Samsung QA, then physical iPhone QA when Xcode sees the

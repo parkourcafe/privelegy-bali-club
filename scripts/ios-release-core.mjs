@@ -380,6 +380,21 @@ async function inspectBundledShellCopy(root, copiedRoot, label, failures) {
   }
 }
 
+async function mapboxPluginCapabilityGated(root) {
+  const pluginPath = path.join(
+    root,
+    "plugins/offline-mapbox/ios/Sources/OfflineMapboxPlugin/OfflineMapboxPlugin.swift",
+  );
+  if (!(await nonEmptyFile(pluginPath))) return false;
+  const plugin = await readFile(pluginPath, "utf8");
+  return /\bvar\s+\w*(?:navigation|routing)\w*\s*:\s*MapboxNavigationProvider\s*\?/i.test(plugin)
+    && !/\b(?:lazy\s+)?(?:let|var)\s+\w*(?:navigation|routing)\w*\s*(?::\s*MapboxNavigationProvider\s*\??)?\s*=\s*MapboxNavigationProvider\s*\(/i.test(plugin)
+    && /forInfoDictionaryKey:\s*"MBXAccessToken"/.test(plugin)
+    && /trimmingCharacters\s*\(\s*in:\s*\.whitespacesAndNewlines\s*\)/.test(plugin)
+    && (plugin.match(/call\.reject\s*\(\s*"offline_mapbox_unavailable"\s*\)/g)?.length ?? 0) >= 3
+    && /call\.resolve\s*\(\s*\[\s*"packs"\s*:\s*\[\s*\]\s*\]\s*\)/.test(plugin);
+}
+
 async function inspectXcodeProject(root, failures) {
   const projectPath = path.join(root, "ios/App/App.xcodeproj/project.pbxproj");
   const infoPath = path.join(root, "ios/App/App/Info.plist");
@@ -417,6 +432,9 @@ async function inspectXcodeProject(root, failures) {
     }
   }
   if (!(await nonEmptyFile(privacyPath))) failures.push("PrivacyInfo.xcprivacy is missing");
+  if (!(await mapboxPluginCapabilityGated(root))) {
+    failures.push("iOS Mapbox plugin must capability-gate provider initialization when MBXAccessToken is blank");
+  }
 }
 
 async function inspectBuiltApp(root, appPath, failures) {
@@ -442,11 +460,14 @@ async function inspectBuiltApp(root, appPath, failures) {
         ["-extract", "MBXAccessToken", "raw", "-o", "-", builtInfoPath],
         { maxBuffer: 100_000 },
       );
-      if (!/^pk\.[A-Za-z0-9._-]{20,}$/.test(stdout.trim())) {
-        failures.push("built app has a missing or invalid Mapbox public token");
+      const builtMapboxAccessToken = stdout.trim();
+      if (builtMapboxAccessToken && !/^pk\.[A-Za-z0-9._-]{20,}$/.test(builtMapboxAccessToken)) {
+        failures.push("built app has an invalid non-empty Mapbox public token");
+      } else if (!builtMapboxAccessToken && !(await mapboxPluginCapabilityGated(root))) {
+        failures.push("built app has a blank Mapbox public token without a capability-gated plugin");
       }
     } catch {
-      failures.push("built app is missing the Mapbox public token");
+      failures.push("built app is missing the MBXAccessToken capability configuration key");
     }
   }
   const embedded = await json(path.join(appPath, "capacitor.config.json"), failures, "embedded Capacitor config");

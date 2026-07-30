@@ -51,7 +51,7 @@ function validIosEvidence() {
     info: {
       CFBundleIdentifier: "com.otherbali.app",
       CFBundleShortVersionString: "1.0",
-      CFBundleVersion: "6",
+      CFBundleVersion: "7",
       MinimumOSVersion: "15.0",
       DTPlatformName: "iphoneos",
       DTSDKName: "iphoneos26.5",
@@ -98,7 +98,7 @@ test("release contract pins all store identities, versions, SDKs, and permission
     appId: "com.otherbali.app",
     appleTeamId: "KB7VPWHTTM",
     iosVersion: "1.0",
-    iosBuild: "6",
+    iosBuild: "7",
     iosMinimumVersion: "15.0",
     associatedDomains: ["applinks:www.otherbali.com"],
     systemBarsStyle: "DARK",
@@ -275,7 +275,7 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
-  assert.match(script, /readonly BUILD_NUMBER="6"/);
+  assert.match(script, /readonly BUILD_NUMBER="7"/);
   const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
   const provisioningIndex = script.indexOf("xcodebuild \\");
   assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);
@@ -284,6 +284,8 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
   assert.doesNotMatch(script, /CODE_SIGN_IDENTITY=Apple Distribution/);
   assert.match(script, /MAPBOX_ACCESS_TOKEN/);
   assert.match(script, /restricted Mapbox public token/);
+  assert.match(script, /\^\[\[:space:\]\]\*\$/);
+  assert.match(script, /elif\s+\[\[\s+!\s+"\$\{mapbox_access_token\}"\s+=~/);
   assert.match(script, /ReleaseSecrets\.xcconfig/);
   assert.match(script, /umask 077/);
   assert.match(script, /-xcconfig "\$\{release_xcconfig\}"/);
@@ -295,6 +297,11 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
   assert.match(verifier, /mode: 0o600/);
   assert.match(verifier, /"-xcconfig", secretConfigPath/);
   assert.match(verifier, /createSecretRedactor/);
+  assert.match(
+    verifier,
+    /if\s*\(\s*mapboxAccessToken\s*&&\s*!\/\^pk\\\./,
+  );
+  assert.match(verifier, /if\s*\(\s*!secret\s*\)/);
   assert.match(verifier, /"<redacted-mapbox-token>"/);
   assert.match(verifier, /"-quiet"/);
   assert.doesNotMatch(verifier, /`MAPBOX_ACCESS_TOKEN=\$\{mapboxAccessToken\}`/);

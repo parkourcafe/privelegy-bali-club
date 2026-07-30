@@ -14,6 +14,23 @@ const privacyUrl = new URL("../app/privacy/page.tsx", import.meta.url);
 const workflowUrl = new URL("../.github/workflows/ci.yml", import.meta.url);
 const appUrl = new URL("../mobile/src/App.tsx", import.meta.url);
 
+function swiftFunction(source, name) {
+  const signature = new RegExp(`\\bfunc\\s+${name}\\s*\\(`).exec(source);
+  assert.ok(signature, `iOS OfflineMapboxPlugin.${name} is missing`);
+
+  const bodyStart = source.indexOf("{", signature.index);
+  assert.notEqual(bodyStart, -1, `iOS OfflineMapboxPlugin.${name} has no body`);
+
+  let depth = 0;
+  for (let index = bodyStart; index < source.length; index += 1) {
+    if (source[index] === "{") depth += 1;
+    if (source[index] === "}") depth -= 1;
+    if (depth === 0) return source.slice(signature.index, index + 1);
+  }
+
+  assert.fail(`iOS OfflineMapboxPlugin.${name} has an unterminated body`);
+}
+
 test("native Mapbox plugins default telemetry off and advertise routing only with a public native route bridge", async () => {
   const [ios, android] = await Promise.all([
     readFile(iosPluginUrl, "utf8"),
@@ -24,7 +41,7 @@ test("native Mapbox plugins default telemetry off and advertise routing only wit
   assert.match(ios, /CAPPluginMethod\s*\(\s*name:\s*"route"/);
   assert.match(ios, /@objc\s+func\s+route\s*\(/);
   assert.match(android, /put\s*\(\s*"onboardRouting"\s*,\s*true\s*\)/);
-  assert.match(ios, /"onboardRouting"\s*:\s*true/);
+  assert.match(ios, /"onboardRouting"\s*:/);
   assert.match(`${android}\n${ios}`, /MapboxNavigation(?:Provider)?/);
 
   assert.match(ios, /(?:public\s+override|override\s+public)\s+func\s+load\s*\(\s*\)/);
@@ -40,6 +57,81 @@ test("native Mapbox plugins default telemetry off and advertise routing only wit
   assert.match(android, /contains\s*\(\s*"telemetry-enabled"\s*\)/);
   assert.match(android, /getBoolean\s*\(\s*"telemetry-enabled"\s*,\s*false\s*\)/);
   assert.match(android, /setUserTelemetryRequestState\s*\(/);
+});
+
+test("iOS Mapbox availability is token-gated without eager navigation provider initialization", async () => {
+  const ios = await readFile(iosPluginUrl, "utf8");
+
+  assert.match(
+    ios,
+    /\bvar\s+\w*(?:navigation|routing)\w*\s*:\s*MapboxNavigationProvider\s*\?(?:\s*=\s*nil)?/i,
+    "MapboxNavigationProvider must be optional so plugin construction is safe without an access token",
+  );
+  assert.doesNotMatch(
+    ios,
+    /\b(?:lazy\s+)?(?:let|var)\s+\w*(?:navigation|routing)\w*\s*(?::\s*MapboxNavigationProvider\s*\??)?\s*=\s*MapboxNavigationProvider\s*\(/i,
+    "MapboxNavigationProvider must not be initialized by a stored-property initializer",
+  );
+  assert.match(
+    ios,
+    /object\s*\(\s*forInfoDictionaryKey:\s*"MBXAccessToken"\s*\)[\s\S]{0,800}trimmingCharacters\s*\(\s*in:\s*\.whitespacesAndNewlines\s*\)[\s\S]{0,800}!\s*\w+\.isEmpty[\s\S]{0,500}hasPrefix\s*\(\s*"pk\."\s*\)[\s\S]{0,1800}MapboxNavigationProvider\s*\(/,
+    "a trimmed, nonblank public MBXAccessToken must be validated before constructing MapboxNavigationProvider",
+  );
+
+  const capability = swiftFunction(ios, "capability");
+  assert.match(
+    capability,
+    /(?:token|provider|available|configured)/i,
+    "capability must derive Mapbox availability from token-backed configuration",
+  );
+  for (const key of ["available", "mapTiles", "onboardRouting"]) {
+    assert.match(capability, new RegExp(`"${key}"\\s*:`), `capability must report ${key}`);
+    assert.doesNotMatch(
+      capability,
+      new RegExp(`"${key}"\\s*:\\s*(?:true|false)\\b`),
+      `capability.${key} must reflect runtime token availability instead of a constant`,
+    );
+  }
+});
+
+test("iOS Mapbox calls degrade safely when MBXAccessToken is missing or blank", async () => {
+  const ios = await readFile(iosPluginUrl, "utf8");
+  const list = swiftFunction(ios, "list");
+
+  assert.match(
+    list,
+    /(?:guard|if)[\s\S]{0,350}(?:token|provider|available|configured)[\s\S]{0,700}call\.resolve\s*\(\s*\[\s*"packs"\s*:\s*\[\s*\]\s*\]\s*\)/i,
+    "list must resolve with an empty packs array when Mapbox is unavailable",
+  );
+
+  for (const name of ["download", "route", "open"]) {
+    const method = swiftFunction(ios, name);
+    assert.match(
+      method,
+      /(?:guard|if)[\s\S]{0,400}(?:token|provider|available|configured)[\s\S]{0,900}call\.reject\s*\([\s\S]{0,220}"offline_mapbox_unavailable"/i,
+      `${name} must reject cleanly with offline_mapbox_unavailable when Mapbox is unavailable`,
+    );
+  }
+
+  const remove = swiftFunction(ios, "remove");
+  assert.match(
+    remove,
+    /"offline-mapbox\.\s*\\\(\s*(?:id|regionId)\s*\)"/,
+    "remove must address the persisted offline-mapbox.<id> preference",
+  );
+  const preferenceCleanupAt = remove.search(/removeObject\s*\(\s*forKey\s*:/);
+  assert.ok(
+    preferenceCleanupAt >= 0,
+    "remove must delete persisted region preferences even when Mapbox is unavailable",
+  );
+  const availabilityGateAt = remove.search(
+    /(?:guard|if)[^\n]{0,240}(?:token|provider|available|configured)/i,
+  );
+  assert.ok(
+    availabilityGateAt < 0 || preferenceCleanupAt < availabilityGateAt,
+    "remove must clean preferences before any Mapbox availability gate",
+  );
+  assert.match(remove, /call\.resolve\s*\(/, "remove must still resolve after local preference cleanup");
 });
 
 test("privacy policy truthfully keeps Mapbox unavailable and telemetry disabled for this release", async () => {

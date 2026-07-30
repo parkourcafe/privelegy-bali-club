@@ -10,7 +10,7 @@ export const RELEASE_CONTRACT = Object.freeze({
   appId: "com.otherbali.app",
   appleTeamId: "KB7VPWHTTM",
   iosVersion: "1.0",
-  iosBuild: "6",
+  iosBuild: "7",
   iosMinimumVersion: "15.0",
   associatedDomains: ["applinks:www.otherbali.com"],
   systemBarsStyle: "DARK",
