@@ -61,6 +61,12 @@ for (const intent of library) {
   }
 
   let surface = intent.recommended_surfaces;
+  // CAUTION: EXISTING_KEY means "this runtime key appears in an observed file".
+  // It does NOT mean the route that consumes the key resolves for any user.
+  // A key can be live in code while every district feeding it is filtered out
+  // upstream — that is exactly how OB-CAN-0011 was certified as "already
+  // served" against a route that returns 404. Reachability is answered by
+  // route-reachability.mjs at the reuse gate, not here.
   let projection = existingKey ? 'EXISTING_KEY' : 'NEW_PROJECTION';
   let blocking = '';
 
