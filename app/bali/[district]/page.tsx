@@ -17,7 +17,10 @@ import VenueCard from "@/components/VenueCard";
 // on first request under ISR instead of 404ing until the next redeploy — the
 // sitemap can advertise it the moment it qualifies. Slugs that don't (yet) have
 // a hub still 404 via notFound() inside the component.
-export const revalidate = 3600;
+// Same root cause as the intent spoke below it: the root layout resolves locale
+// from a request header, so on-demand ISR without request context turns a
+// legitimate notFound() into DYNAMIC_SERVER_USAGE/500. Matches the fix on `main`.
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
