@@ -51,7 +51,7 @@ test("the iOS target and AASA have the exact production identity and next build 
     load("public/.well-known/apple-app-site-association"),
   ]);
   assert.match(project, /PRODUCT_BUNDLE_IDENTIFIER = com\.otherbali\.app/);
-  assert.match(project, /CURRENT_PROJECT_VERSION = 5/);
+  assert.match(project, /CURRENT_PROJECT_VERSION = 6/);
   assert.match(project, /DEVELOPMENT_TEAM = KB7VPWHTTM/);
   assert.match(project, /\/\* Release \*\/ = \{[^}]*buildSettings = \{[^}]*CODE_SIGN_IDENTITY = "Apple Development";[^}]*\};\s*name = Release;\s*\};/);
   assert.doesNotMatch(project, /CODE_SIGN_IDENTITY = "Apple Distribution"/);

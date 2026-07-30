@@ -3,8 +3,8 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-I5DUO6OX.css",
-    "./assets/app-QJWDGIHV.js"
+    "./assets/app-BD5HNWFO.js",
+    "./assets/app-GNKTZZTS.css"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
@@ -23,6 +23,7 @@
     "mobile/src/contracts.ts",
     "mobile/src/deep-links.ts",
     "mobile/src/discovery-model.ts",
+    "mobile/src/editorial-media.ts",
     "mobile/src/guest-identity.ts",
     "mobile/src/main.tsx",
     "mobile/src/native-runtime.ts",
@@ -37,5 +38,5 @@
     "plugins/offline-mapbox/dist/esm/index.js",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "90ae8e8e82fe98559a9e783e368ec21ea02524ea601696e0431d7454867e8b6a"
+  "sourceHash": "b3cf11c4d6d5940bbab4886bcba2572d4e16368adf6f8a1a16ba3f52dd897a95"
 }

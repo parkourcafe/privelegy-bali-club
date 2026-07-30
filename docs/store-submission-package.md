@@ -12,7 +12,7 @@ publication require separate owner approval.
 
 - Product name: **Other Bali**
 - Apple bundle ID / Android application ID: `com.otherbali.app`
-- Apple version: `1.0` (`build 5`)
+- Apple version: `1.0` (`build 6`)
 - Android version: `1.0.0` (`versionCode 4`)
 - Category: Travel
 - Price: Free
