@@ -103,7 +103,7 @@ const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> 
     blurb: "Build one Canggu day.",
   },
   "/canggu-first-day": {
-    mediaSrc: "/scenes/home-bali-first-day.webp",
+    mediaSrc: "/scenes/home-first-day.webp",
     blurb: "Coffee, beach, sunset, dinner.",
   },
   "/best-restaurants-in-bali": {
