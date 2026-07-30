@@ -8,14 +8,15 @@ type RouteMedia = {
 };
 
 const ROUTE_MEDIA: Record<string, RouteMedia> = {
-  "first-day": { scene: "plan-route-first-day", variant: "ridge" },
+  // Keep route cards visually distinct from homepage moment cards.
+  "first-day": { scene: "home-first-day", variant: "ridge" },
   "ubud-culture-day": { scene: "plan-route-ubud-culture", variant: "ridge" },
   "bangli-temple-village-day": { scene: "plan-route-bangli-temple-village", variant: "ridge" },
   "east-bali-heritage-day": { scene: "plan-route-east-bali-heritage", variant: "ridge" },
   "canggu-food-route": { scene: "plan-route-canggu-food", variant: "night" },
-  "canggu-rainy-day": { scene: "plan-route-canggu-rain", variant: "ridge" },
+  "canggu-rainy-day": { scene: "home-rainy-day", variant: "ridge" },
   "cafe-work": { scene: "plan-route-cafe-work", variant: "surf" },
-  "sunset-run": { scene: "plan-route-sunset-run", variant: "sunset" },
+  "sunset-run": { scene: "home-sunset", variant: "sunset" },
 };
 
 const DISTRICT_MEDIA: Record<string, RouteMedia> = {
