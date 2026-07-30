@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "signed-and-locally-verified-not-uploaded",
+  "verifiedAt": "2026-07-30T13:04:06+08:00",
+  "source": {
+    "branch": "codex/appstore-build6-20260730",
+    "commit": "83e11c5d91dbb4943ae6e705bc1c42976e19157f",
+    "mobileShellSourceHash": "b3cf11c4d6d5940bbab4886bcba2572d4e16368adf6f8a1a16ba3f52dd897a95"
+  },
+  "artifact": {
+    "path": "artifacts/release/ios/OtherBali.ipa",
+    "sha256": "224e44c6cb7086acc375b0d99f10ad4dd4a864b88c03f721a5f2f92ef84c10ee",
+    "bytes": 28630543,
+    "bundleId": "com.otherbali.app",
+    "version": "1.0",
+    "build": "6",
+    "minimumOs": "15.0",
+    "sdk": "iphoneos26.5",
+    "deviceFamily": [
+      1
+    ],
+    "architecture": [
+      "arm64"
+    ]
+  },
+  "signing": {
+    "class": "Apple Distribution",
+    "teamId": "KB7VPWHTTM",
+    "getTaskAllow": false,
+    "associatedDomains": [
+      "applinks:www.otherbali.com"
+    ],
+    "profileExpiration": "2027-07-12T13:27:11+08:00",
+    "codesignDeepStrict": "passed"
+  },
+  "privacy": {
+    "tracking": false,
+    "userDefaultsReasonCA921": true,
+    "collectedDataTypesExact": true,
+    "collectedDataTypes": [
+      "NSPrivacyCollectedDataTypeCoarseLocation",
+      "NSPrivacyCollectedDataTypeDeviceID",
+      "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+      "NSPrivacyCollectedDataTypeOtherUserContent",
+      "NSPrivacyCollectedDataTypeProductInteraction"
+    ]
+  },
+  "verification": {
+    "embeddedShellMatchesCanonicalManifest": true,
+    "nativeReadiness": "passed",
+    "configPreflight": "passed",
+    "physicalIphoneQa": "pending",
+    "appStoreUpload": "not-performed"
+  }
+}

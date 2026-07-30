@@ -2,17 +2,19 @@
 
 Date: 2026-07-30
 
-Status: listing copy is updated for the current release candidate. Existing
-screenshots and signed-device records belong to an older source and must be
-recaptured. Do not upload these materials as a release claim until the exact
-signed IPA/AAB/APK has passed the final device matrix. Store submission and
+Status: listing copy is updated for the current release candidate. The five
+App Store screenshots were recaptured from the exact build 6
+release-simulator app on iPhone 17 Pro Max / iOS 26.5 and their hashes are
+bound to the current embedded source. Android screenshots and signed-device
+records still belong to an older source and must be recaptured. Simulator
+evidence does not replace physical iPhone/TestFlight QA. Store submission and
 publication require separate owner approval.
 
 ## Canonical product facts
 
 - Product name: **Other Bali**
 - Apple bundle ID / Android application ID: `com.otherbali.app`
-- Apple version: `1.0` (`build 5`)
+- Apple version: `1.0` (`build 6`)
 - Android version: `1.0.0` (`versionCode 4`)
 - Category: Travel
 - Price: Free
@@ -344,12 +346,12 @@ debug QA captures as store artwork.
   it. Do not add store badges, pricing claims, awards or unreadable screenshots.
   Suggested accessibility text:
   `Other Bali logo with the lines Discover Bali together, resident-curated places, routes and plans, and Less searching. More Bali.`
-- Store screenshots: the five historical iPhone and Android files remain only
-  as audit evidence and are marked `stale` in
-  `store-assets/package-manifest.json`. Recapture both five-shot narratives from
-  the current verified source; bind Android images to the exact signed,
-  clean-installed RuStore APK and record iPhone Simulator provenance separately
-  from physical-device/TestFlight QA.
+- Store screenshots: the five current iPhone files are build 6
+  release-simulator captures and are marked `ready` in
+  `store-assets/package-manifest.json`. Their provenance is recorded separately
+  from pending physical-device/TestFlight QA. The Android files remain
+  historical audit evidence marked `stale`; recapture them from the exact
+  signed, clean-installed Android store artifact.
 - Support/privacy URLs: verify both return HTTPS 200 without authentication on
   the day of submission.
 - Legal seller/developer name, copyright holder, App Review contact and store

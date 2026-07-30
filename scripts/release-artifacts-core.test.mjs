@@ -51,7 +51,7 @@ function validIosEvidence() {
     info: {
       CFBundleIdentifier: "com.otherbali.app",
       CFBundleShortVersionString: "1.0",
-      CFBundleVersion: "5",
+      CFBundleVersion: "6",
       MinimumOSVersion: "15.0",
       DTPlatformName: "iphoneos",
       DTSDKName: "iphoneos26.5",
@@ -98,7 +98,7 @@ test("release contract pins all store identities, versions, SDKs, and permission
     appId: "com.otherbali.app",
     appleTeamId: "KB7VPWHTTM",
     iosVersion: "1.0",
-    iosBuild: "5",
+    iosBuild: "6",
     iosMinimumVersion: "15.0",
     associatedDomains: ["applinks:www.otherbali.com"],
     systemBarsStyle: "DARK",
@@ -275,7 +275,7 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
-  assert.match(script, /readonly BUILD_NUMBER="5"/);
+  assert.match(script, /readonly BUILD_NUMBER="6"/);
   const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
   const provisioningIndex = script.indexOf("xcodebuild \\");
   assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);

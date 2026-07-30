@@ -9,13 +9,14 @@ fully tested on physical devices.
 
 ## Canonical candidate
 
-- Working branch: `codex/discover-bali-messaging-20260730`
+- Working branch: `codex/appstore-build6-20260730`
 - Last committed baseline before the current privacy patch:
   `f337aa79cc387449a8f0f8d6c776c595e0cb76f1`
-- Final candidate commit: **pending**
+- Final signed iOS source commit:
+  `83e11c5d91dbb4943ae6e705bc1c42976e19157f`
 - Web/API production origin: `https://www.otherbali.com`
 - App/package ID: `com.otherbali.app`
-- iOS: version `1.0`, build `5`, minimum iOS `15.0`
+- iOS: version `1.0`, build `6`, minimum iOS `15.0`
 - Android: version `1.0.0`, version code `4`, minimum API `24`, target/compile
   API `36`
 - Native product: bundled Capacitor app with Discover, Decide, Today, Trip,
@@ -27,25 +28,25 @@ release sources for this candidate.
 
 ## Signed-artifact status
 
-The IPA/AAB/APK currently present on disk were built before the final privacy
-and deletion changes. They are **superseded and must not be uploaded**.
+The signed iOS build 6 IPA below is the current App Store candidate. Older iOS
+artifacts are preserved only under the build-5 history directory and must not
+be uploaded. Existing Android AAB/APK artifacts still predate the final privacy
+and deletion source and remain superseded.
 
 In particular, the old IPA with SHA-256 beginning `453eaf85…` contains the old
 privacy manifest (`UserID`, `PreciseLocation`, `CoarseLocation`,
-`linked=false`, and an Analytics purpose). It is not evidence for the current
-source manifest.
-
-Populate this table only after rebuilding from the final committed source and
-passing the combined verifier:
+`linked=false`, and an Analytics purpose). It is not evidence for build 6.
 
 | Store | Exact artifact | Bytes | SHA-256 | Status |
 | --- | --- | ---: | --- | --- |
-| App Store | `artifacts/release/ios/OtherBali.ipa` | pending | pending | rebuild required |
+| App Store | `artifacts/release/ios/OtherBali.ipa` | 28,630,543 | `224e44c6cb7086acc375b0d99f10ad4dd4a864b88c03f721a5f2f92ef84c10ee` | signed and locally verified; not uploaded |
 | Google Play | `android/app/build/outputs/bundle/playRelease/app-play-release.aab` | pending | pending | rebuild required |
 | RuStore | `android/app/build/outputs/apk/rustore/release/app-rustore-release.apk` | pending | pending | rebuild required |
 
-The final `release-artifacts.json` and `SHA256SUMS` must bind the exact binaries
-to the final commit. No earlier hash may be substituted.
+The iOS-only evidence is recorded in
+`docs/release/evidence/ios-build6-artifact.json`. The final multi-store
+`release-artifacts.json` and `SHA256SUMS` still require matching current
+Android artifacts. No earlier hash may be substituted.
 
 ## Native permissions and privacy surface
 
@@ -148,7 +149,7 @@ They did not access production user data or change production.
 Latest completed source checks before final native rebuild:
 
 - v1.2 integration: **136/136 passed**
-- full repository suite: **349/349 passed**
+- full repository suite: **359/359 passed**
 - SEO registry validation: passed
 - TypeScript: passed
 - ESLint: 0 errors, one pre-existing `<img>` performance warning
@@ -156,6 +157,10 @@ Latest completed source checks before final native rebuild:
 - `git diff --check`: passed
 - independent privacy/sync source review: **GO**, with no remaining P0/P1
   finding in the reviewed scope
+- release-simulator build and embedded-shell verification: passed
+- signed App Store IPA verification: passed for version `1.0`, build `6`,
+  Apple Distribution team `KB7VPWHTTM`, `get-task-allow=false`, exact
+  Associated Domain and exact privacy manifest
 
 The persistent quarantine, identity invalidation and deferred analytics-load
 fixes are included in these results.
@@ -174,9 +179,19 @@ Current-candidate gates:
   deletion, ID rotation, post-delete sync and crash/ANR review.
 - Google Play-delivered Samsung build: **pending**. A locally signed AAB is not
   evidence of a Play App Signing-delivered install.
-- iPhone physical QA: **blocked until the device appears to Xcode**. Simulator
-  evidence is supplemental only.
-- Store screenshots: **pending recapture** from the exact final UI and artifact.
+- iPhone physical QA: **pending exact build 6 delivery through TestFlight**.
+  Simulator evidence remains supplemental only.
+- iPhone Simulator QA: **passed on build 6** using a clean installation on
+  iPhone 17 Pro Max / iOS 26.5. The verified pass covered first launch with
+  location denied, live catalogue, Saved, Today, a three-day editable Trip,
+  note persistence after forced relaunch, day-move persistence after forced
+  relaunch, native share, Google Maps handoff and return, truthful What's On
+  empty state, My Bali and privacy controls.
+- App Store screenshots: **recaptured and validated from build 6** at
+  `1320 x 2868`, opaque PNG, with provenance and SHA-256 hashes recorded in
+  `docs/release/evidence/iphone-simulator/capture.json`.
+- Google Play and RuStore screenshots: **still stale** until the matching final
+  signed Android artifacts are rebuilt and installed.
 
 Do not mark a device entry `passed` until its installed artifact, source
 commit, device/OS, clean-install mode, cases, timestamps and evidence pointers
@@ -202,11 +217,12 @@ are recorded without device serials or personal data.
    config, bootstrap and sync against that deployment.
 2. Apply `0065` to production only under explicit deployment authorization,
    deploy the matching server source, and repeat live checks.
-3. Rebuild and verify the signed IPA/AAB/APK; replace this ledger's pending
-   hash table with exact final bytes and regenerate release evidence.
-4. Complete physical Samsung QA, then physical iPhone QA when Xcode sees the
-   device.
-5. Capture and validate fresh App Store, Google Play and RuStore screenshots.
+3. Rebuild and verify the signed AAB/APK for Android if the same release line is
+   sent to Google Play or RuStore; the signed iOS build 6 IPA is complete.
+4. Complete physical iPhone QA when Xcode sees the device. Complete fresh
+   Android QA only for the Android store release.
+5. Keep the validated build 6 App Store screenshots; capture fresh Google Play
+   and RuStore screenshots only after matching Android artifacts exist.
 6. Complete owner/legal privacy, processor, retention, age-rating, support,
    DPA and contact fields.
 7. Store submission/publication requires separate explicit approval and is not
