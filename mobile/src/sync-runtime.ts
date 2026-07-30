@@ -13,6 +13,24 @@ export interface PendingSyncFlushResult extends PendingSyncSettlement {
   appliedCount: number;
 }
 
+export interface PendingSyncPumpRestartState {
+  mounted: boolean;
+  pendingCount: number;
+  blocked: boolean;
+  failed: boolean;
+  newWorkArrived: boolean;
+  privacyDeletionActive: boolean;
+}
+
+export function shouldRestartPendingSyncPump(
+  state: PendingSyncPumpRestartState,
+): boolean {
+  return state.mounted
+    && state.pendingCount > 0
+    && ((!state.blocked && !state.failed) || state.newWorkArrived)
+    && !state.privacyDeletionActive;
+}
+
 export function enqueuePendingSyncMutation(
   pending: SyncMutation[],
   next: SyncMutation,

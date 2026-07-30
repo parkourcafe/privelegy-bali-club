@@ -27,6 +27,7 @@ import { parseMobileDeepLink, type MobileDeepLinkTarget } from "./deep-links";
 import {
   enqueuePendingSyncMutation,
   flushPendingSyncQueue,
+  shouldRestartPendingSyncPump,
 } from "./sync-runtime";
 import {
   exitMobileApp,
@@ -710,6 +711,7 @@ export default function App() {
   const [tripTemplateLoading, setTripTemplateLoading] = useState<number | null>(null);
   const [clock, setClock] = useState(() => new Date());
   const [pendingSyncCount, setPendingSyncCount] = useState(0);
+  const [syncPumpWakeup, setSyncPumpWakeup] = useState(0);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine);
   const [refreshing, setRefreshing] = useState(false);
   const [refreshAttempted, setRefreshAttempted] = useState(false);
@@ -745,7 +747,9 @@ export default function App() {
   const routePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
   const tripRef = useRef<Trip | null>(null);
   const pendingSyncRef = useRef<SyncMutation[]>([]);
+  const syncQueueRevision = useRef(0);
   const syncActive = useRef(false);
+  const syncPumpMounted = useRef(false);
   const syncAbortController = useRef<AbortController | null>(null);
   const privacyDeletionActive = useRef(false);
   const privacyDeletionQuarantineRef = useRef<PrivacyDeletionQuarantinePhase | null>(null);
@@ -828,7 +832,9 @@ export default function App() {
       };
       const pending = enqueuePendingSyncMutation(pendingSyncRef.current, next);
       pendingSyncRef.current = pending;
+      syncQueueRevision.current += 1;
       setPendingSyncCount(pending.length);
+      setSyncPumpWakeup((current) => current + 1);
       try {
         await writePendingSync(pending);
       } catch {
@@ -975,6 +981,20 @@ export default function App() {
   }, [storageReady, trackPersonalStorageWrite]);
 
   useEffect(() => {
+    syncPumpMounted.current = true;
+    return () => {
+      syncPumpMounted.current = false;
+      syncAbortController.current?.abort();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!storageReady || !online || privacyDeletePending) {
+      syncAbortController.current?.abort();
+    }
+  }, [online, privacyDeletePending, storageReady]);
+
+  useEffect(() => {
     if (
       !storageReady
       || !online
@@ -985,8 +1005,11 @@ export default function App() {
     syncActive.current = true;
     setSyncFailed(false);
     const controller = new AbortController();
+    const queueRevisionAtStart = syncQueueRevision.current;
     syncAbortController.current = controller;
     void (async () => {
+      let blocked = false;
+      let failed = false;
       try {
         while (!controller.signal.aborted && pendingSyncRef.current.length > 0) {
           const flushingKeys = new Set(
@@ -1007,24 +1030,36 @@ export default function App() {
             },
           );
           if (result.conflict || result.appliedCount === 0) {
+            blocked = true;
             setSyncFailed(true);
             break;
           }
         }
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) {
+          failed = true;
           setSyncFailed(true);
         }
       } finally {
         syncActive.current = false;
         if (syncAbortController.current === controller) syncAbortController.current = null;
+        if (shouldRestartPendingSyncPump({
+          mounted: syncPumpMounted.current,
+          pendingCount: pendingSyncRef.current.length,
+          blocked,
+          failed,
+          newWorkArrived: syncQueueRevision.current !== queueRevisionAtStart,
+          privacyDeletionActive: privacyDeletionActive.current,
+        })) {
+          setSyncPumpWakeup((current) => current + 1);
+        }
       }
     })();
-    return () => controller.abort();
   }, [
     online,
     pendingSyncCount,
     privacyDeletePending,
+    syncPumpWakeup,
     storageReady,
     trackPersonalStorageWrite,
   ]);
