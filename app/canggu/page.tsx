@@ -99,19 +99,17 @@ const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> 
     blurb: "A softer first day.",
   },
   "/plan#canggu-day-builder": {
-    mediaSrc: "/scenes/plan-route-canggu-food.webp",
     blurb: "Build one Canggu day.",
   },
   "/canggu-first-day": {
-    mediaSrc: "/scenes/home-bali-first-day.webp",
     blurb: "Coffee, beach, sunset, dinner.",
   },
   "/best-restaurants-in-bali": {
-    mediaSrc: "/scenes/canggu-restaurants-illustrative.webp",
+    mediaSrc: "/scenes/home-bali-romantic.webp",
     blurb: "Compare dinner scenes island-wide.",
   },
   "/best-cafes-in-bali": {
-    mediaSrc: "/scenes/canggu-cafes-illustrative.webp",
+    mediaSrc: "/scenes/plan-route-cafe-work.webp",
     blurb: "Find the right café mood.",
   },
   "/ubud-vs-canggu": {
@@ -119,7 +117,7 @@ const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> 
     blurb: "Energy or a slower cultural base.",
   },
   "/canggu-vs-uluwatu": {
-    mediaSrc: "/scenes/plan-route-sunset-run.webp",
+    mediaSrc: "/scenes/guide-tanah-lot-sunset.webp",
     blurb: "Busy coast or cliff days.",
   },
   "/where-to-stay-in-bali": {
@@ -127,11 +125,10 @@ const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> 
     blurb: "Choose the base that fits the trip.",
   },
   "/best-coffee-in-bali": {
-    mediaSrc: "/scenes/plan-route-cafe-work.webp",
     blurb: "Serious coffee across Bali.",
   },
   "/where-to-watch-sunset-in-bali": {
-    mediaSrc: "/scenes/home-bali-sunset.webp",
+    mediaSrc: "/scenes/guide-jimbaran-bay-sunset.webp",
     blurb: "Choose your golden-hour coast.",
   },
 };

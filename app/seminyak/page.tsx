@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideSectionMedia } from "@/components/GuideMedia";
@@ -47,6 +49,33 @@ const FAQ = [
     a: "The core around Jl. Kayu Aya (Eat Street), Petitenget and Seminyak Square is walkable; anything toward Umalas, Batu Belig or Sunset Road is a short scooter or taxi.",
   },
 ];
+
+const visualChoices = [
+  {
+    href: "/seminyak/best-restaurants",
+    image: "/scenes/seminyak-dining-street-illustrative.webp",
+    alt: "Illustrative polished Seminyak dining street at early evening",
+    label: "Dining first",
+    title: "Build the night around food",
+    copy: "Start with the restaurant decision if Seminyak's polished dinner scene is the reason to stay.",
+  },
+  {
+    href: "/seminyak/beach-clubs-sunset",
+    image: "/scenes/seminyak-sunset-beach-illustrative.webp",
+    alt: "Illustrative Seminyak west-coast beach at sunset with an elegant lounge mood",
+    label: "Sunset coast",
+    title: "Stay for golden hour",
+    copy: "Choose the beach-club and sunset route, then verify the exact venue, access and booking terms.",
+  },
+  {
+    href: "/seminyak/cafes-coffee",
+    image: "/scenes/seminyak-walkable-neighbourhood-illustrative.webp",
+    alt: "Illustrative walkable polished Seminyak neighbourhood with palms and boutique storefronts",
+    label: "Walkable core",
+    title: "Keep the day on foot",
+    copy: "Best for a denser mix of cafés, shops, spas and short hops around the central strip.",
+  },
+] as const;
 
 function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
   if (venues.length === 0) return null;
@@ -120,6 +149,26 @@ export default async function SeminyakPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <section className="guide-section" aria-labelledby="seminyak-visual-choices">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="eyebrow">Choose the shape of the day</p>
+              <h2 id="seminyak-visual-choices">Start with the Seminyak you need</h2>
+            </div>
+            <p>These area-mood scenes are illustrative, not photos of named restaurants, beach clubs or shops. Use them to choose the decision; verify the exact place in the focused guides.</p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {visualChoices.map((choice) => (
+              <Link key={choice.href} href={choice.href} className="visual-choice-card">
+                <Image src={choice.image} alt={choice.alt} fill loading="lazy" sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px" className="object-cover transition duration-700" />
+                <div className="visual-choice-card-copy"><span>{choice.label}</span><h3>{choice.title}</h3><p>{choice.copy}</p><strong>Open the guide →</strong></div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <DecisionRail area="seminyak" areaLabel="Seminyak" />
 
         <StartYourShortlist district="Seminyak" items={buildStartShortlist(venues)} />
 

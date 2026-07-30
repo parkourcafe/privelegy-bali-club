@@ -21,6 +21,7 @@ export interface MobileNativeBridge {
   getLaunchUrl(): Promise<string | null>;
   addAppUrlListener(listener: (url: string) => void): Promise<NativeListenerHandle>;
   addBackButtonListener(listener: () => void): Promise<NativeListenerHandle>;
+  addAppStateListener(listener: (active: boolean) => void): Promise<NativeListenerHandle>;
   exitApp(): Promise<void>;
   getNetworkConnected(): Promise<boolean>;
   addNetworkListener(listener: (connected: boolean) => void): Promise<NativeListenerHandle>;
@@ -41,6 +42,9 @@ const capacitorBridge: MobileNativeBridge = {
   },
   addBackButtonListener(listener) {
     return CapacitorApp.addListener("backButton", listener);
+  },
+  addAppStateListener(listener) {
+    return CapacitorApp.addListener("appStateChange", ({ isActive }) => listener(isActive));
   },
   async exitApp() {
     await CapacitorApp.exitApp();
@@ -142,6 +146,14 @@ export async function startBackButtonMonitoring(
 ): Promise<NativeListenerHandle | null> {
   if (!bridge.isAndroid()) return null;
   return bridge.addBackButtonListener(listener);
+}
+
+export async function startAppStateMonitoring(
+  listener: (active: boolean) => void,
+  bridge: MobileNativeBridge = capacitorBridge,
+): Promise<NativeListenerHandle | null> {
+  if (!bridge.isNative()) return null;
+  return bridge.addAppStateListener(listener);
 }
 
 export async function exitMobileApp(

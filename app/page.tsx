@@ -18,13 +18,13 @@ import { DISTRICT_GRADIENT } from "@/lib/districts";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Other Bali — Curated Places, Routes & Trip Plans",
+  title: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
     url: "https://www.otherbali.com/",
     siteName: "Other Bali",
     locale: "en_US",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
   },
 };
 
@@ -42,9 +42,9 @@ const HOME_JSON_LD = {
   "@type": "WebPage",
   "@id": "https://www.otherbali.com/#homepage",
   url: "https://www.otherbali.com/",
-  name: "Other Bali — Curated Places, Routes & Trip Plans",
+  name: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment.",
   isPartOf: { "@id": "https://www.otherbali.com/#website" },
   inLanguage: "en",
 };
@@ -68,18 +68,18 @@ const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" 
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_trip: { scene: "moment-morning", variant: "ridge" },
-  bali_3_days: { scene: "hero-sunset", variant: "sunset" },
-  bali_5_days: { scene: "moment-goldenhour", variant: "sunset" },
-  without_scooter: { scene: "moment-morning", variant: "ridge" },
-  with_kids_plan: { scene: "moment-warung", variant: "surf" },
+  first_trip: { scene: "plan-route-first-day", variant: "ridge" },
+  bali_3_days: { scene: "plan-route-canggu-food", variant: "sunset" },
+  bali_5_days: { scene: "plan-route-ubud-culture", variant: "ridge" },
+  without_scooter: { scene: "plan-route-cafe-work", variant: "night" },
+  with_kids_plan: { scene: "plan-route-bangli-temple-village", variant: "surf" },
 };
 
 const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  eat_drink: { scene: "moment-warung", variant: "surf" },
-  beach_pool: { scene: "moment-goldenhour", variant: "sunset" },
-  wellness: { scene: "moment-morning", variant: "ridge" },
-  things_to_do: { scene: "hero-sunset", variant: "sunset" },
+  eat_drink: { scene: "canggu-restaurants-illustrative", variant: "surf" },
+  beach_pool: { scene: "seminyak-sunset-beach-illustrative", variant: "sunset" },
+  wellness: { scene: "canggu-spas-illustrative", variant: "ridge" },
+  things_to_do: { scene: "ubud-greenery-terraces-illustrative", variant: "night" },
 };
 
 function CardGrid({ items }: { items: HomeLinkItem[] }) {
@@ -192,6 +192,16 @@ export default function HomePage() {
                 >
                   {HOME_HERO.secondaryCta.label}
                 </HomeAnalyticsLink>
+                <HomeAnalyticsLink
+                  href="/together"
+                  sectionId="home_hero"
+                  itemId="hero_together"
+                  itemKind="cta"
+                  position={3}
+                  className="inline-flex min-h-12 items-center rounded-full border border-[#f1c987]/70 bg-[#f1c987]/12 px-5 text-sm font-semibold text-[#f1c987] transition hover:bg-[#f1c987]/22 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f1c987] sm:px-6 sm:text-base"
+                >
+                  Discover Bali together
+                </HomeAnalyticsLink>
               </div>
             </div>
           </div>
@@ -287,7 +297,7 @@ export default function HomePage() {
 
         <section aria-labelledby="categories-title" className="relative overflow-hidden border-y border-[#e4d8c8] bg-[#fffaf3]">
           <div className="pointer-events-none absolute inset-0 opacity-25">
-            <SceneImage scene="moment-warung" variant="surf" imgClassName="blur-sm scale-105" />
+            <SceneImage scene="canggu-area-echo-beach" variant="surf" imgClassName="blur-sm scale-105" />
           </div>
           <div className="absolute inset-0 bg-[#fffaf3]/85" />
           <div className="relative mx-auto max-w-6xl px-5 py-16 sm:py-20">
@@ -314,9 +324,9 @@ export default function HomePage() {
             position={1}
             className="group relative mt-8 block aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#e4d8c8] bg-[#2b1a13] text-white shadow-sm transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:aspect-video lg:aspect-[5/2]"
           >
-            <DistrictCover
-              slug="canggu"
-              gradient={DISTRICT_GRADIENT.canggu}
+            <SceneImage
+              scene="canggu-hero-illustrative"
+              variant="sunset"
               sizes="(max-width: 640px) calc(100vw - 2.5rem), 1120px"
             />
             <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
@@ -356,7 +366,11 @@ export default function HomePage() {
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
               {HOME_TRUST_PRINCIPLES.map((principle, index) => {
-                const scene = [MOMENT_SCENE.first_day, CATEGORY_SCENE.beach_pool, CATEGORY_SCENE.things_to_do][index] ?? MOMENT_SCENE.first_day;
+                const scene = [
+                  { scene: "plan-route-east-bali-heritage", variant: "ridge" as const },
+                  { scene: "guide-tanah-lot-sunset", variant: "sunset" as const },
+                  { scene: "plan-route-sunset-run", variant: "night" as const },
+                ][index] ?? { scene: "home-bali-trip-lengths", variant: "sunset" as const };
                 return (
                   <li key={principle} className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-sm font-semibold text-white sm:aspect-[4/5]">
                     <SceneImage

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import StartYourShortlist from "@/components/StartYourShortlist";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
@@ -42,6 +44,33 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "Other Bali" },
 };
 
+const visualChoices = [
+  {
+    href: "/sanur/where-to-stay",
+    image: "/scenes/sanur-sunrise-promenade-illustrative.webp",
+    alt: "Illustrative Sanur sunrise promenade beside calm east-coast water",
+    label: "Sunrise promenade",
+    title: "Walk the coast early",
+    copy: "Best if the promenade and a slower first rhythm are part of the trip.",
+  },
+  {
+    href: "/sanur/best-hotels",
+    image: "/scenes/sanur-calm-family-coast-illustrative.webp",
+    alt: "Illustrative calm reef-sheltered shoreline and shaded coastal path in Sanur",
+    label: "Calm coast",
+    title: "Choose an easier base",
+    copy: "Look for the exact beach segment, walking route and hotel facilities — not just the Sanur label.",
+  },
+  {
+    href: "/nusa-penida-day-trip",
+    image: "/scenes/sanur-harbor-handoff-illustrative.webp",
+    alt: "Illustrative harbor-side road and traditional boats in Sanur at morning",
+    label: "Ferry handoff",
+    title: "Start with the transfer",
+    copy: "If an island connection shapes the day, confirm the operator, departure point and return plan separately.",
+  },
+] as const;
+
 export default async function SanurPillarPage() {
   const venues = await getSanurVenues();
 
@@ -70,6 +99,38 @@ export default async function SanurPillarPage() {
         <Link href="/sanur/things-to-do" className="chip">Things to do</Link>
         <Link href="/sanur/best-restaurants" className="chip">Restaurants</Link>
       </nav>
+
+      <section className="guide-section" aria-labelledby="sanur-visual-choices">
+        <div className="visual-first-heading-row">
+          <div>
+            <p className="eyebrow">Choose the shape of the day</p>
+            <h2 id="sanur-visual-choices">Start with the Sanur that fits</h2>
+          </div>
+          <p>These area-mood scenes are illustrative, not photos of named hotels, beaches or ferry operators. Use them to choose the decision; use the guides below to verify the details.</p>
+        </div>
+        <div className="visual-choice-grid visual-choice-grid-three">
+          {visualChoices.map((choice) => (
+            <Link key={choice.href} href={choice.href} className="visual-choice-card">
+              <Image
+                src={choice.image}
+                alt={choice.alt}
+                fill
+                loading="lazy"
+                sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px"
+                className="object-cover transition duration-700"
+              />
+              <div className="visual-choice-card-copy">
+                <span>{choice.label}</span>
+                <h3>{choice.title}</h3>
+                <p>{choice.copy}</p>
+                <strong>Open the guide →</strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <DecisionRail area="sanur" areaLabel="Sanur" />
 
       <StartYourShortlist district="Sanur" items={buildStartShortlist(venues)} />
 

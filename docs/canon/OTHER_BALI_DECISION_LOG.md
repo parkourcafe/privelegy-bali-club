@@ -116,3 +116,26 @@ explicitly authorized operations.
 
 The known full-staging blocker remains open: the preview branch is not a
 complete staging database because its inherited migration history failed.
+
+## 2026-07-30 — MESSAGING-001
+
+```text
+CANONICAL_PRODUCT_PROMISE:
+The right place for the moment you’re in.
+
+CAMPAIGN_LINE:
+Discover Bali together.
+
+PRODUCT_PROOF:
+Resident-curated places, routes and plans for every Bali moment.
+
+OUTCOME:
+Less searching. More Bali.
+```
+
+Decision: `together` means choosing, sharing and planning with people the
+traveller already knows. It does not authorize claims about finding new
+friends, people search, public profiles, social matching, chat, dating or
+collaborative Trip editing. Release-facing copy must describe only capabilities
+verified in the exact shipped source. The full usage contract is recorded in
+`OTHER_BALI_MESSAGING_SYSTEM.md`.

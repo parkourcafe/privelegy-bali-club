@@ -68,6 +68,24 @@ const SCENES = {
   // proof of a specific venue, availability, exact tide/light, or live view.
   "guide-jimbaran-bay-sunset": ["hf_20260725_181002_9ad6fce8-c579-4627-b86b-eced66f2829c.png", 1200],
   "guide-tanah-lot-sunset": ["hf_20260725_180040_060fa46f-8d4b-4593-96ed-33aecc6287c5.png", 1200],
+  // /together editorial scene set (Higgsfield Nano Banana Pro 2k, 2026-07-28).
+  // One continuous look across the whole page: the product palette, documentary
+  // grade, and a recurring motif of one empty seat at a laid table. No signage,
+  // logos, readable text, licence plates or identifiable people — people appear
+  // only as hands or out-of-focus shapes. Atmospheric illustration of the
+  // Find → Send → Decide → Plan idea, never proof of a specific venue, table,
+  // dish or availability. The place-card and recipient slots on /together must
+  // render published place data instead and must never fall back to these.
+  "together-hero-dinner": ["hf_20260728_170204_2999ccb6-8ac4-47b1-a4a3-9225ed11093e.png", 1920],
+  "together-hero-dinner-portrait": ["hf_20260728_173215_812878a7-d8f9-4f9a-a4a2-edc569c99409.png", 1080],
+  "together-step-find": ["hf_20260728_173110_80e40e31-7871-4fba-b64d-5830c4071303.png", 1200],
+  "together-step-send": ["hf_20260728_173113_aff852dc-4ace-4222-a5f2-d9c97e31aed9.png", 1200],
+  "together-step-decide": ["hf_20260728_173117_4aa01390-00d9-4f8d-825f-27ae87434969.png", 1200],
+  "together-step-plan": ["hf_20260728_173120_36a7c488-1eea-48e5-894e-ff94e3b0003a.png", 1200],
+  "together-dusk-wash": ["hf_20260728_173135_8f77f4fa-7eff-4ffa-a853-8e438c26ad28.png", 1920],
+  "together-shortlist-three": ["hf_20260728_173140_fbbbda12-dd3f-426a-a2cb-2e061ecfce55.png", 1200],
+  "together-open-seat": ["hf_20260728_173143_2e4618c7-e9e9-4380-bafd-57002e9f2e59.png", 1200],
+  "together-scooters-golden": ["hf_20260728_173155_b3241971-2d87-4093-a60f-6909f1fb2127.png", 1200],
 };
 
 // /canggu area-mood and practical decision cards (Higgsfield GPT Image 2,
@@ -101,6 +119,14 @@ const VIDEOS = {
   // not page weight — bytes stream only when an owner presses play.
   // v2 (2026-07-17): livelier conversational voiceover per founder feedback.
   "venues-story": ["hf_20260717_120511_9f1a17d0-ff54-4b3e-ae18-fdf1c3bd764c.mp4", 30_000_000],
+  // /together hero loops (Kling 3.0 pro, sound off, 2026-07-28): 10s single
+  // continuous shots animated from the two stills above — candle flicker, leaf
+  // movement, a barely perceptible push-in. Same 3MB autoplay budget as
+  // hero-loop: these autoplay in the hero, so an over-budget raw file is
+  // deliberately NOT shipped and the static scene stays. To ship one, compress
+  // it under budget with ffmpeg and commit it like hero-loop.mp4.
+  "together-hero-loop": ["hf_20260728_173212_4413d424-80eb-461d-b93d-9242e6d1f49a.mp4", 3_000_000],
+  "together-hero-loop-portrait": ["hf_20260728_173348_c03985c5-9983-4f89-9b5f-6bbf952fc98c.mp4", 3_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { guidesForDistrict } from "@/lib/guides";
@@ -43,6 +45,33 @@ const NUSA_PENIDA_CHIPS: { href: string; label: string }[] = [
   { href: "/nusa-penida-day-trip", label: "How to visit" },
   { href: "#practical", label: "Water safety" },
 ];
+
+const visualChoices = [
+  {
+    href: "#the-two-sides",
+    image: "/scenes/nusa-penida-west-loop-illustrative.webp",
+    alt: "Illustrative rugged Nusa Penida west-loop limestone coastline",
+    label: "West loop",
+    title: "Chase the big cliffs",
+    copy: "Choose the west side for dramatic landscape priorities, with rough roads and steep access kept in view.",
+  },
+  {
+    href: "#the-two-sides",
+    image: "/scenes/nusa-penida-east-loop-illustrative.webp",
+    alt: "Illustrative dramatic Nusa Penida east-loop cove and steep path",
+    label: "East loop",
+    title: "Go for coves and distance",
+    copy: "Use the east side as a separate day decision; travel time and access matter more than map distance.",
+  },
+  {
+    href: "/nusa-penida-day-trip",
+    image: "/scenes/nusa-penida-water-adventure-illustrative.webp",
+    alt: "Illustrative Nusa Penida open sea and small boat beside rugged coast",
+    label: "Water adventure",
+    title: "Add the sea carefully",
+    copy: "Choose snorkelling or diving only after checking the operator, sea conditions and current safety guidance.",
+  },
+] as const;
 
 function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
   if (venues.length === 0) return null;
@@ -112,6 +141,23 @@ export default async function NusaPenidaPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <section className="guide-section" aria-labelledby="nusa-penida-visual-choices">
+          <div className="visual-first-heading-row">
+            <div><p className="eyebrow">Choose the shape of the day</p><h2 id="nusa-penida-visual-choices">Start with the Nusa Penida you need</h2></div>
+            <p>These area-mood scenes are illustrative, not photos of named viewpoints, beaches, coves or operators. Use them to choose the route; verify access, weather, sea state and safety before committing.</p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {visualChoices.map((choice) => (
+              <Link key={choice.href} href={choice.href} className="visual-choice-card">
+                <Image src={choice.image} alt={choice.alt} fill loading="lazy" sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px" className="object-cover transition duration-700" />
+                <div className="visual-choice-card-copy"><span>{choice.label}</span><h3>{choice.title}</h3><p>{choice.copy}</p><strong>Open the guide →</strong></div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <DecisionRail area="nusa-islands" areaLabel="Nusa Penida" />
 
         <section className="guide-section">
           <h2>Who Nusa Penida suits — and who it frustrates</h2>

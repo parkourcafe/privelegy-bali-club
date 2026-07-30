@@ -153,3 +153,274 @@ test("a successful route response is parsed and clears its deadline timer", asyn
     restoreFetch();
   }
 });
+
+test("shared decision response is bounded and preserves server order", async () => {
+  const api = await apiPromise;
+  const result = api.parseDecisionResponse({
+    schemaVersion: 1,
+    data: {
+      ok: true,
+      result: {
+        bestFit: { placeId: "first-place", name: "First", why: "Fit", notIdealIf: null },
+        backup: { placeId: "second-place", name: "Second", why: null, notIdealIf: "Late" },
+        contrast: null,
+        emptyStateReason: null,
+      },
+    },
+  });
+  assert.equal(result.bestFit?.placeId, "first-place");
+  assert.equal(result.backup?.placeId, "second-place");
+  assert.equal(result.contrast, null);
+  assert.throws(() => api.parseDecisionResponse({
+    data: { result: { bestFit: { placeId: "../unsafe", name: "Unsafe" } } },
+  }));
+});
+
+test("mobile decision uses the shared runtime through the credentialed mobile gateway", async () => {
+  const api = await apiPromise;
+  let requestUrl = "";
+  let requestInit: RequestInit | undefined;
+  const restoreFetch = installFetch((async (input, init) => {
+    requestUrl = String(input);
+    requestInit = init;
+    return new Response(JSON.stringify({
+      data: {
+        ok: true,
+        result: { bestFit: null, backup: null, contrast: null, emptyStateReason: "none" },
+      },
+    }), { status: 201, headers: { "Content-Type": "application/json" } });
+  }) as typeof fetch);
+  try {
+    await api.createDecision({
+      area: "sanur",
+      moment: "local_food_calm",
+      latitude: "-8.6705",
+      longitude: "115.2126",
+      coordinates: "-8.6705,115.2126",
+    }, undefined, async () => "g_AAECAwQFBgcICQoL");
+    assert.equal(requestUrl, "https://mobile-api.test/api/mobile/v1/decisions");
+    assert.equal(requestInit?.method, "POST");
+    assert.equal(requestInit?.credentials, "include");
+    assert.deepEqual(JSON.parse(String(requestInit?.body)), {
+      context: { area: "sanur", moment: "local_food_calm" },
+    });
+    const headers = new Headers(requestInit?.headers);
+    assert.ok(headers.get("Idempotency-Key"));
+    assert.equal(headers.get("X-Other-Bali-Guest"), "g_AAECAwQFBgcICQoL");
+    assert.doesNotMatch(String(requestInit?.body), /latitude|longitude|coordinates|-8\.6705/i);
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("What’s On response validates event lifecycle and uses the mobile gateway", async () => {
+  const api = await apiPromise;
+  const event = {
+    id: "occurrence-1",
+    eventId: "event-1",
+    title: "Sunset session",
+    venueSlug: "sample-cafe",
+    area: "Sanur",
+    startsAt: "2026-08-01T10:00:00.000Z",
+    endsAt: "2026-08-01T12:00:00.000Z",
+    status: "scheduled",
+    cancellationReason: null,
+    lastVerifiedAt: "2026-07-31T10:00:00.000Z",
+    expiresAt: "2026-08-01T12:30:00.000Z",
+  };
+  const restoreFetch = installFetch((async (input) => {
+    assert.equal(String(input), "https://mobile-api.test/api/mobile/v1/events");
+    return new Response(JSON.stringify({
+      schemaVersion: 1,
+      updatedAt: "2026-07-31T10:00:00.000Z",
+      data: { events: [event] },
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  }) as typeof fetch);
+  try {
+    assert.deepEqual((await api.fetchEvents()).events[0], event);
+    assert.throws(() => api.parseEventsResponse({
+      updatedAt: "2026-07-31T10:00:00.000Z",
+      data: { events: [{ ...event, endsAt: event.startsAt }] },
+    }), /lifecycle/);
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("What’s On parser accepts exact scheduled/cancelled lifecycle fields and requires cancellation reason", async () => {
+  const api = await apiPromise;
+  const scheduled = {
+    id: "occurrence-1",
+    eventId: "event-1",
+    title: "Sunset session",
+    venueSlug: "sample-cafe",
+    area: "Sanur",
+    startsAt: "2026-08-01T10:00:00.000Z",
+    endsAt: "2026-08-01T12:00:00.000Z",
+    status: "scheduled",
+    cancellationReason: null,
+    lastVerifiedAt: "2026-07-31T10:00:00.000Z",
+    expiresAt: "2026-08-01T12:30:00.000Z",
+  };
+  const cancelled = {
+    ...scheduled,
+    id: "occurrence-2",
+    eventId: "event-2",
+    title: "Cancelled beach session",
+    status: "cancelled",
+    cancellationReason: "Venue closure",
+    lastVerifiedAt: "2026-08-01T08:00:00.000Z",
+  };
+
+  assert.deepEqual(api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [scheduled, cancelled] },
+  }).events, [scheduled, cancelled]);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...cancelled, cancellationReason: null }] },
+  }), /cancel/i);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...scheduled, status: "postponed" }] },
+  }), /status|lifecycle/i);
+  assert.throws(() => api.parseEventsResponse({
+    updatedAt: "2026-08-01T08:00:00.000Z",
+    data: { events: [{ ...scheduled, cancellationReason: "unexpected" }] },
+  }), /cancel/i);
+});
+
+test("sync push returns the raw acknowledgement required for safe queue settlement", async () => {
+  const api = await apiPromise;
+  const mutation = {
+    idempotencyKey: "sync-acknowledgement-1",
+    entityType: "saved" as const,
+    entityId: "sample-cafe",
+    operation: "save",
+    payload: { entityType: "place", entityId: "sample-cafe" },
+    baseVersion: null,
+    createdAt: "2026-07-28T10:00:00.000Z",
+  };
+  const acknowledgement = {
+    ok: true,
+    status: "applied",
+    idempotencyKey: mutation.idempotencyKey,
+    serverVersion: "2",
+  };
+  const restoreFetch = installFetch((async (input, init) => {
+    assert.equal(String(input), "https://mobile-api.test/api/mobile/v1/sync");
+    assert.equal(init?.method, "POST");
+    assert.equal(
+      new Headers(init?.headers).get("Idempotency-Key"),
+      mutation.idempotencyKey,
+    );
+    assert.equal(
+      new Headers(init?.headers).get("X-Other-Bali-Guest"),
+      "g_AAECAwQFBgcICQoL",
+    );
+    assert.deepEqual(JSON.parse(String(init?.body)), {
+      input: {
+        entityType: mutation.entityType,
+        entityId: mutation.entityId,
+        operation: mutation.operation,
+        payload: mutation.payload,
+        baseVersion: mutation.baseVersion,
+        createdAt: mutation.createdAt,
+      },
+    });
+    return new Response(JSON.stringify({ data: acknowledgement }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch);
+
+  try {
+    assert.deepEqual(
+      await api.pushSyncMutation(
+        mutation,
+        undefined,
+        async () => "g_AAECAwQFBgcICQoL",
+      ),
+      acknowledgement,
+    );
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("sync transport attaches the durable guest credential and rejects precise location", async () => {
+  const api = await apiPromise;
+  let fetchCalled = false;
+  const restoreFetch = installFetch((async () => {
+    fetchCalled = true;
+    return new Response(null, { status: 500 });
+  }) as typeof fetch);
+  try {
+    await assert.rejects(
+      api.pushSyncMutation({
+        idempotencyKey: "sync-location-rejected",
+        entityType: "trip_stop",
+        entityId: "trip-1",
+        operation: "trip_replace",
+        payload: {
+          trip: {
+            id: "trip-1",
+            origin: { latitude: -8.6705, longitude: 115.2126 },
+          },
+        },
+        baseVersion: null,
+        createdAt: "2026-07-30T10:00:00.000Z",
+      }, undefined, async () => "g_AAECAwQFBgcICQoL"),
+      /Precise location/,
+    );
+    assert.equal(fetchCalled, false);
+  } finally {
+    restoreFetch();
+  }
+});
+
+test("privacy deletion is credentialed and requires confirmed HTTP success", async () => {
+  const api = await apiPromise;
+  const requests: Array<{ url: string; init?: RequestInit }> = [];
+  const restoreFetch = installFetch((async (input, init) => {
+    requests.push({ url: String(input), init });
+    if (requests.length === 1) {
+      return new Response(JSON.stringify({ ok: true, deleted: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    if (requests.length === 2) {
+      return new Response(JSON.stringify({ ok: false }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    return new Response(JSON.stringify({ ok: false }), {
+      status: 503,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch);
+  const identity = async () => "g_AAECAwQFBgcICQoL";
+
+  try {
+    await api.deleteSyncedData(undefined, identity);
+    assert.equal(requests[0]?.url, "https://mobile-api.test/api/mobile/v1/privacy");
+    assert.equal(requests[0]?.init?.method, "DELETE");
+    assert.equal(requests[0]?.init?.credentials, "include");
+    assert.equal(
+      new Headers(requests[0]?.init?.headers).get("X-Other-Bali-Guest"),
+      "g_AAECAwQFBgcICQoL",
+    );
+    await assert.rejects(
+      api.deleteSyncedData(undefined, identity),
+      /did not confirm success/,
+    );
+    await assert.rejects(
+      api.deleteSyncedData(undefined, identity),
+      /failed with 503/,
+    );
+  } finally {
+    restoreFetch();
+  }
+});

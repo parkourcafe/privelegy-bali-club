@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s · Other Bali",
   },
   description:
-    "The right place for the moment you're in. Curated Bali places, routes, and confirmed venue offers where available.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
   manifest: "/manifest.webmanifest?v=5",
   appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
   icons: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Other Bali — the right place for the moment you're in",
     description:
-      "A free, curated guide to Bali. Pick a place by the moment you're in, grab a confirmed offer, hand off to the venue to book. Travellers never pay.",
+      "Discover Bali together with resident-curated places, routes and practical plans for every moment.",
     siteName: "Other Bali",
     locale: "en_US",
     type: "website",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Other Bali — the right place for the moment you're in",
     description:
-      "A free, curated guide to Bali. Tell us the day; get the places that actually fit — not another list to scroll. Travellers never pay.",
+      "Resident-curated places, routes and plans for every Bali moment. Less searching. More Bali.",
   },
 };
 

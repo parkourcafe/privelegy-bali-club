@@ -7,6 +7,7 @@ test("Capacitor Release uses only the bundled local shell with logging disabled"
   const config = createCapacitorConfig({});
   assert.equal(config.webDir, "ios-web");
   assert.equal(config.loggingBehavior, "none");
+  assert.equal(config.backgroundColor, "#faf6ef");
   assert.equal(config.server, undefined);
   assert.deepEqual(config.plugins?.SystemBars, { style: "DARK" });
 });
@@ -65,6 +66,38 @@ test("mobile shell consumes Capacitor safe-area variables with browser fallbacks
   }
 });
 
+test("native shell and fallback surfaces use the approved light design system", () => {
+  const [styles, offline, generator, androidColors, androidStyles, androidStylesV27, androidStylesV29, iosLaunch] = [
+    readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8"),
+    readFileSync(new URL("../mobile/public/offline.html", import.meta.url), "utf8"),
+    readFileSync(new URL("./build-mobile-shell.mjs", import.meta.url), "utf8"),
+    readFileSync(new URL("../android/app/src/main/res/values/colors.xml", import.meta.url), "utf8"),
+    readFileSync(new URL("../android/app/src/main/res/values/styles.xml", import.meta.url), "utf8"),
+    readFileSync(new URL("../android/app/src/main/res/values-v27/styles.xml", import.meta.url), "utf8"),
+    readFileSync(new URL("../android/app/src/main/res/values-v29/styles.xml", import.meta.url), "utf8"),
+    readFileSync(new URL("../ios/App/App/Base.lproj/LaunchScreen.storyboard", import.meta.url), "utf8"),
+  ];
+
+  assert.match(styles, /color-scheme:\s*light/);
+  assert.match(styles, /--paper:\s*#faf6ef/);
+  assert.match(styles, /--panel:\s*#fff(?:fff)?/);
+  assert.match(styles, /--ink:\s*#2b1a13/);
+  assert.match(styles, /--brass:\s*#005962/);
+  assert.match(offline, /color-scheme:\s*light/);
+  assert.match(offline, /#faf6ef/i);
+  assert.match(generator, /theme-color" content="#faf6ef"/);
+  for (const source of [styles, offline, generator]) {
+    assert.doesNotMatch(source, /#20160f/i);
+  }
+
+  assert.match(androidColors, /<color name="splashBackground">#FAF6EF<\/color>/);
+  assert.match(androidColors, /<color name="systemBarBackground">#FAF6EF<\/color>/);
+  assert.match(androidStyles, /<item name="android:windowLightStatusBar">true<\/item>/);
+  assert.match(androidStylesV27, /<item name="android:windowLightNavigationBar">true<\/item>/);
+  assert.match(androidStylesV29, /<item name="android:forceDarkAllowed">false<\/item>/);
+  assert.match(iosLaunch, /red="0\.9803921569" green="0\.9647058824" blue="0\.937254902"/);
+});
+
 test("large iPhones stack card actions instead of crushing route titles", () => {
   const styles = readFileSync(new URL("../mobile/src/styles.css", import.meta.url), "utf8");
   assert.match(styles, /@media\s*\(max-width:\s*520px\)/);
@@ -100,8 +133,10 @@ test("native bridge plugins and privacy declarations match the approved release 
   assert.match(privacy, /<string>CA92\.1<\/string>/);
   for (const type of [
     "NSPrivacyCollectedDataTypeCoarseLocation",
+    "NSPrivacyCollectedDataTypeDeviceID",
     "NSPrivacyCollectedDataTypeProductInteraction",
     "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+    "NSPrivacyCollectedDataTypeOtherUserContent",
   ]) {
     assert.match(privacy, new RegExp(`<string>${type}<\\/string>`));
   }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideSectionMedia } from "@/components/GuideMedia";
@@ -44,6 +46,33 @@ const NUSA_DUA_CHIPS: { href: string; label: string }[] = [
 ];
 
 const previewThings = NUSA_DUA_THINGS_TO_DO.slice(0, 4);
+
+const visualChoices = [
+  {
+    href: "/nusa-dua/things-to-do",
+    image: "/scenes/nusa-dua-resort-promenade-illustrative.webp",
+    alt: "Illustrative Nusa Dua reef-protected beach beside a manicured seafront promenade",
+    label: "Resort promenade",
+    title: "Keep the day easy",
+    copy: "Start here if a polished seafront, calm water and low-friction logistics matter most.",
+  },
+  {
+    href: "/nusa-dua/best-restaurants",
+    image: "/scenes/nusa-dua-calm-family-beach-illustrative.webp",
+    alt: "Illustrative calm reef-sheltered shoreline with tropical shade in Nusa Dua",
+    label: "Calm family beach",
+    title: "Choose the gentler water",
+    copy: "Best for a relaxed swim-and-resort day; check the exact zone and tide before going.",
+  },
+  {
+    href: "/nusa-dua/things-to-do",
+    image: "/scenes/nusa-dua-watersports-coast-illustrative.webp",
+    alt: "Illustrative Nusa Dua watersports coast with small boats offshore",
+    label: "Watersports coast",
+    title: "Add a more active morning",
+    copy: "Use Tanjung Benoa as a separate activity decision, then verify the operator and conditions.",
+  },
+] as const;
 
 function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
   if (venues.length === 0) return null;
@@ -114,6 +143,38 @@ export default async function NusaDuaPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <section className="guide-section" aria-labelledby="nusa-dua-visual-choices">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="eyebrow">Choose the shape of the day</p>
+              <h2 id="nusa-dua-visual-choices">Start with the Nusa Dua you need</h2>
+            </div>
+            <p>These area-mood scenes are illustrative, not photos of named resorts, beaches or operators. Use them to choose the decision; verify the exact zone, hotel and activity in the focused guides.</p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {visualChoices.map((choice) => (
+              <Link key={choice.href} href={choice.href} className="visual-choice-card">
+                <Image
+                  src={choice.image}
+                  alt={choice.alt}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px"
+                  className="object-cover transition duration-700"
+                />
+                <div className="visual-choice-card-copy">
+                  <span>{choice.label}</span>
+                  <h3>{choice.title}</h3>
+                  <p>{choice.copy}</p>
+                  <strong>Open the guide →</strong>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <DecisionRail area="nusa-dua" areaLabel="Nusa Dua" />
 
         <section className="guide-section">
           <h2>Who Nusa Dua suits — and who it frustrates</h2>

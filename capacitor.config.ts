@@ -41,7 +41,7 @@ export function createCapacitorConfig(
     appName: "Other Bali",
     webDir: "ios-web",
     loggingBehavior: devServerUrl ? "debug" : "none",
-    backgroundColor: "#20160f",
+    backgroundColor: "#faf6ef",
     ios: {
       contentInset: "automatic",
       preferredContentMode: "mobile",

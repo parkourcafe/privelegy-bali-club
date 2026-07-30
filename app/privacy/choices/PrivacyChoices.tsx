@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { readConsent, setConsent, type ConsentValue } from "@/lib/consent";
+import {
+  clearConsent,
+  readConsent,
+  setConsent,
+  type ConsentValue,
+} from "@/lib/consent";
 
 // Client control panel for /privacy/choices (audit 2026-07). Reads and changes
 // the analytics choice, and unlinks/forgets this device. No login, no
@@ -11,6 +16,7 @@ export default function PrivacyChoices() {
   const [consent, setConsentState] = useState<ConsentValue | null>(null);
   const [busy, setBusy] = useState(false);
   const [forgotten, setForgotten] = useState(false);
+  const [forgetError, setForgetError] = useState<string | null>(null);
 
   useEffect(() => {
     // Client-only read of the consent cookie after mount (SSR can't see it).
@@ -22,18 +28,32 @@ export default function PrivacyChoices() {
     setConsent(value);
     setConsentState(value);
     setForgotten(false);
+    setForgetError(null);
   }
 
   async function forget() {
     setBusy(true);
+    setForgotten(false);
+    setForgetError(null);
     try {
-      await fetch("/api/privacy/forget", { method: "POST" });
+      const response = await fetch("/api/privacy/forget", { method: "POST" });
+      if (!response.ok) {
+        throw new Error("Deletion could not be confirmed");
+      }
+      const result = await response.json() as { ok?: unknown };
+      if (result.ok !== true) {
+        throw new Error("Deletion could not be confirmed");
+      }
+      clearConsent();
+      setConsentState(null);
+      setForgotten(true);
     } catch {
-      /* best-effort; cookies still cleared on a reachable server */
+      setForgetError(
+        "We could not confirm deletion. Nothing is marked as deleted yet; please try again.",
+      );
+    } finally {
+      setBusy(false);
     }
-    setConsentState(null);
-    setForgotten(true);
-    setBusy(false);
   }
 
   const stateLabel =
@@ -78,10 +98,18 @@ export default function PrivacyChoices() {
           Forget this device
         </h2>
         <p className="mt-3">
-          Removes the interaction events, saved places, and shared lists tied to
-          this device&apos;s anonymous reference, and clears the reference so a
-          fresh one is used going forward. Redemption records kept as venue
-          proof are retained; to have those removed too, email us below.
+          Removes website interaction events, saved places and shared lists,
+          plus synced Saved, Today, Trip, note, visited, decision and feed state
+          tied to this browser&apos;s pseudonymous guest reference. It then
+          clears the reference so a fresh one is used going forward.
+          A bare revoked pseudonymous reference and erasure timestamp remain
+          indefinitely only to block delayed requests from recreating data.
+          Existing redemption proof and its corresponding granted consent
+          evidence are detached from the installation reference, stripped of
+          device fields such as the consent user agent, and kept for partner
+          proof, accounting and applicable legal needs; other guest-linked
+          consent rows are deleted. Contact us below for a separately reviewed
+          request concerning retained records.
         </p>
         <button
           type="button"
@@ -93,18 +121,28 @@ export default function PrivacyChoices() {
         </button>
         {forgotten && (
           <p className="mt-3 text-sm text-[var(--lagoon)]" role="status">
-            Done — this device has been unlinked.
+            Done — server deletion was confirmed and this browser has been unlinked.
+          </p>
+        )}
+        {forgetError && (
+          <p className="mt-3 text-sm text-red-300" role="alert">
+            {forgetError}
           </p>
         )}
       </section>
 
       <section>
         <h2 className="font-display text-2xl font-semibold text-[var(--ink)]">
-          Full deletion
+          Retained records and support
         </h2>
         <p className="mt-3">
-          To request deletion of everything tied to your device reference,
-          including retained records, email{" "}
+          The mobile app has its own Delete cloud data action because its
+          pseudonymous guest reference is separate from this browser. Before
+          uninstalling, copy the Anonymous Guest Reference shown in My Bali if
+          you may need support to locate undeleted sync state. For retained
+          redemption proof, the old reference is intentionally detached and
+          cannot locate the proof; send the venue, approximate redemption date
+          and confirmation code if available to{" "}
           <a
             className="inline-flex min-h-11 items-center text-[var(--lagoon)]"
             href="mailto:support@otherbali.com"

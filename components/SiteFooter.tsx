@@ -92,6 +92,7 @@ const EXPLORE_LINKS = [
   { href: "/my-day", label: "Today: find a place" },
   { href: "/places", label: "Explore places" },
   { href: "/plan", label: "Plan your trip" },
+  { href: "/together", label: "Let's go together" },
   { href: "/bali", label: "Bali by district" },
   { href: "/collections", label: "Curated collections" },
 ];
@@ -212,7 +213,8 @@ export default function SiteFooter({ tone = "light" }: { tone?: Tone }) {
               The right place for the moment you&apos;re in.
             </p>
             <p className="mt-3 text-sm" style={{ color: c.body }}>
-              Bali discovery for moments, areas and trip plans.
+              Resident-curated places, routes and plans for every Bali moment.
+              Less searching. More Bali.
             </p>
           </div>
         </div>

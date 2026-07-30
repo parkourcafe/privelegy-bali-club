@@ -1,42 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CANGGU_NOW_ITEMS = [
+const CANGGU_NOW_ITEMS: Array<{ label: string; href: string; copy: string; imageSrc?: string }> = [
   {
     label: "Breakfast",
     href: "/canggu/best-brunch",
     copy: "Coffee, brunch, an easy start.",
-    imageSrc: "/scenes/canggu-cafes-illustrative.webp",
+    imageSrc: "/scenes/home-first-day.webp",
   },
   {
     label: "Restaurants",
     href: "/canggu/best-restaurants",
     copy: "Date night or a table for friends.",
-    imageSrc: "/scenes/canggu-restaurants-illustrative.webp",
+    imageSrc: "/scenes/home-romantic.webp",
   },
   {
     label: "Beach clubs",
     href: "/canggu/beach-clubs-sunset",
     copy: "Sunset, social or quiet.",
-    imageSrc: "/scenes/canggu-sunset-illustrative.webp",
+    imageSrc: "/scenes/home-sunset.webp",
   },
   {
     label: "Spa & reset",
     href: "/canggu/best-spas",
     copy: "Slow down after beach and board.",
-    imageSrc: "/scenes/canggu-spas-illustrative.webp",
+    imageSrc: "/scenes/home-rainy-day.webp",
   },
   {
     label: "Rainy day",
     href: "/route/canggu-rainy-day",
     copy: "Covered stops, without losing the day.",
-    imageSrc: "/scenes/plan-route-canggu-rain.webp",
+    imageSrc: "/scenes/home-bali-rainy-day.webp",
   },
   {
     label: "Remote work",
     href: "/route/cafe-work",
     copy: "Laptop café, lunch, then switch off.",
-    imageSrc: "/scenes/plan-route-cafe-work.webp",
   },
 ] as const;
 
@@ -69,14 +68,18 @@ export default function CangguNow() {
             className="canggu-visual-card canggu-moment-card"
             data-canggu-moment-card
           >
-            <Image
-              src={item.imageSrc}
-              alt=""
-              fill
-              loading="lazy"
-              sizes="(max-width: 759px) calc((100vw - 3.5rem) / 2), (max-width: 1199px) calc((100vw - 5rem) / 3), 360px"
-              className="canggu-visual-card-image ob-grade"
-            />
+            {item.imageSrc ? (
+              <Image
+                src={item.imageSrc}
+                alt=""
+                fill
+                loading="lazy"
+                sizes="(max-width: 759px) calc((100vw - 3.5rem) / 2), (max-width: 1199px) calc((100vw - 5rem) / 3), 360px"
+                className="canggu-visual-card-image ob-grade"
+              />
+            ) : (
+              <span className="canggu-visual-card-no-image" aria-hidden="true" />
+            )}
             <span className="canggu-visual-card-scrim" aria-hidden="true" />
             <span className="canggu-visual-card-copy" data-media-copy>
               <strong>{item.label}</strong>

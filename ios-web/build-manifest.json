@@ -3,25 +3,39 @@
   "shellVersion": "0.1.0",
   "apiOrigin": "https://www.otherbali.com",
   "assets": [
-    "./assets/app-LZSRI7MA.js",
-    "./assets/app-WNRZNGMT.css"
+    "./assets/app-I5DUO6OX.css",
+    "./assets/app-QJWDGIHV.js"
   ],
   "sourceInputs": [
     "capacitor.config.ts",
+    "lib/day-builder.ts",
     "lib/external-links.ts",
+    "lib/journey/adaptive-companion.ts",
+    "lib/journey/contracts.ts",
+    "lib/journey/offline-bali.ts",
+    "lib/journey/offline-sync.ts",
+    "lib/journey/trip.ts",
     "lib/mobile-api/taxonomy.ts",
     "mobile/public/offline.html",
     "mobile/src/App.tsx",
+    "mobile/src/SelectionExperience.tsx",
     "mobile/src/api.ts",
     "mobile/src/contracts.ts",
     "mobile/src/deep-links.ts",
+    "mobile/src/discovery-model.ts",
+    "mobile/src/guest-identity.ts",
     "mobile/src/main.tsx",
     "mobile/src/native-runtime.ts",
+    "mobile/src/offline-runtime.ts",
+    "mobile/src/personal-write-barrier.ts",
     "mobile/src/storage.ts",
     "mobile/src/styles.css",
+    "mobile/src/sync-runtime.ts",
+    "mobile/src/trip-planner.ts",
     "package-lock.json",
     "package.json",
+    "plugins/offline-mapbox/dist/esm/index.js",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "a32c9eea16f6546dd38b540a7db6a499f8f29c3d2e875b88810ccdc938f6ee56"
+  "sourceHash": "90ae8e8e82fe98559a9e783e368ec21ea02524ea601696e0431d7454867e8b6a"
 }

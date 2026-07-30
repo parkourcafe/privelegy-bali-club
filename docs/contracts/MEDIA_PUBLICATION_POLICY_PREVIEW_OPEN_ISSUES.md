@@ -24,19 +24,31 @@ Resolved with Supabase branch `mmhlvalhrebvsyehepos` and an approved 10-row
 public-read database subset. The 10 exact image URLs render from the existing
 public production bucket without service-role access or production writes.
 
-## PREVIEW-ISSUE-002 — Branch migration history drift
+## PARTIALLY RESOLVED — PREVIEW-ISSUE-002: Branch migration history drift
 
 Automatic branch creation ended in `MIGRATIONS_FAILED`; only the early schema
 was present. A branch-only minimal public-read media QA schema was applied.
-Media acceptance is complete, but `/api/health/ready` remains 503 because later
-mobile/route tables are absent. Do not merge or promote this branch. Reconcile
-production migration history before treating it as a full staging database.
+Media acceptance is complete.
 
-`vercel env ls` also reports no project environment variables. Once the
-deployment is publicly reachable, the preview must receive only the approved
-anon/public configuration and the non-production project-ref guard required by
-`lib/supabase/server.ts`; without it the application correctly fails closed
-instead of using mock data.
+On 2026-07-30 the missing public-read `routes` and `route_stops` schema was
+added to this preview branch only. The tables remain empty. The 10 original QA
+rows had no mobile-deliverable Maps handoff, so the production-backed public
+venue `milk-and-madu-ubud` was copied into preview as a bounded mobile
+catalogue replica. Its publication provenance is owner-confirmed in migration
+`0061`. No search URL was promoted to an exact place and no production write
+occurred.
+
+The current preview now returns HTTP 200 for live, ready, mobile config and
+mobile bootstrap, with at least one deliverable venue. This resolves the
+release-candidate runtime blocker. It does not repair the branch's historical
+migration state: do not merge or promote the Supabase branch, and reconcile
+production migration history before using preview-branch promotion as an
+infrastructure workflow.
+
+The preview deployment now receives the approved anon/public configuration and
+passes the non-production project-ref guard in `lib/supabase/server.ts`. It
+contains no service-role/admin secret. Without that bounded configuration the
+application correctly fails closed instead of using mock data.
 
 ## Not blockers
 

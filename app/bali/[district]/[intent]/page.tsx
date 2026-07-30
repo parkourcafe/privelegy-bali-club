@@ -23,10 +23,6 @@ import {
 // dynamic route request-rendered: attempting on-demand ISR without request
 // context turns a legitimate notFound() into DYNAMIC_SERVER_USAGE/500. Public
 // venue reads retain their own bounded data cache.
-//
-// This matches the fix already on `main` (this branch was cut from 2ebf74e,
-// which predates it). Without it every district/intent spoke 500s — including
-// on production — independently of the modifier pilot below.
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 

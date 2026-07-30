@@ -2,6 +2,7 @@ import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
 import VenueImage from "@/components/VenueImage";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import {
   TrackedDirectionLink,
   TrackedPlaceLink,
@@ -49,10 +50,15 @@ export default function PlaceCard({
   visualFirst?: boolean;
 }) {
   const href = `/places/${place.slug}`;
+  const tablepilotBaseUrl = safeTablePilotPublicBase({
+    enabled: process.env.NEXT_PUBLIC_TABLEPILOT_ENABLED,
+    vercelEnv: process.env.VERCEL_ENV,
+    configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+  });
   const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
     ? buildTablePilotReservationUrl(
         place.tablepilotSlug,
-        process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+        tablepilotBaseUrl,
       )
     : null;
 

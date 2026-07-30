@@ -20,10 +20,12 @@ import {
 const fingerprint = "11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00";
 const normalizedFingerprint = fingerprint.replaceAll(":", "");
 
-const aaptBadging = `package: name='com.otherbali.app' versionCode='2' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+const aaptBadging = `package: name='com.otherbali.app' versionCode='4' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
 minSdkVersion:'24'
 targetSdkVersion:'36'
 uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
+uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
 uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
 uses-permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
 application-label:'Other Bali'
@@ -31,11 +33,13 @@ application-label:'Other Bali'
 
 const bundletoolManifest = `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   android:compileSdkVersion="36"
-  android:versionCode="2"
+  android:versionCode="4"
   android:versionName="1.0.0"
   package="com.otherbali.app">
   <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
   <application android:debuggable="false" />
@@ -47,12 +51,13 @@ function validIosEvidence() {
     info: {
       CFBundleIdentifier: "com.otherbali.app",
       CFBundleShortVersionString: "1.0",
-      CFBundleVersion: "4",
+      CFBundleVersion: "5",
       MinimumOSVersion: "15.0",
       DTPlatformName: "iphoneos",
       DTSDKName: "iphoneos26.5",
       UIDeviceFamily: [1],
       CAPACITOR_DEBUG: false,
+      NSLocationWhenInUseUsageDescription: "Other Bali uses your location only when you ask it to choose the nearest supported area. Your precise location is not stored.",
     },
     entitlements: {
       "application-identifier": applicationIdentifier,
@@ -93,16 +98,18 @@ test("release contract pins all store identities, versions, SDKs, and permission
     appId: "com.otherbali.app",
     appleTeamId: "KB7VPWHTTM",
     iosVersion: "1.0",
-    iosBuild: "4",
+    iosBuild: "5",
     iosMinimumVersion: "15.0",
     associatedDomains: ["applinks:www.otherbali.com"],
     systemBarsStyle: "DARK",
     androidVersion: "1.0.0",
-    androidVersionCode: "2",
+    androidVersionCode: "4",
     androidMinSdk: "24",
     androidTargetSdk: "36",
     androidCompileSdk: "36",
     androidPermissions: [
+      "android.permission.ACCESS_COARSE_LOCATION",
+      "android.permission.ACCESS_FINE_LOCATION",
       "android.permission.ACCESS_NETWORK_STATE",
       "android.permission.INTERNET",
       "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
@@ -110,7 +117,7 @@ test("release contract pins all store identities, versions, SDKs, and permission
   });
 });
 
-test("embedded Capacitor release config pins the dark system-bar style", () => {
+test("embedded Capacitor release config pins dark icons for the light system bars", () => {
   const config = {
     appId: "com.otherbali.app",
     webDir: "ios-web",
@@ -136,6 +143,8 @@ test("aapt2 parsers accept only the pinned non-debug RuStore contract", () => {
   assert.equal(assertAndroidMetadata(badging, "fixture APK"), true);
   assert.deepEqual(parseAaptPermissions(`package: com.otherbali.app
 uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
+uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
 uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
 permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION' protectionLevel='signature'
 uses-permission: name='com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
@@ -233,6 +242,10 @@ Signature size=9999
   permission.info.NSCameraUsageDescription = "Camera";
   assert.throws(() => assertIosMetadata(permission), /unapproved privacy permissions/);
 
+  const missingLocation = validIosEvidence();
+  delete missingLocation.info.NSLocationWhenInUseUsageDescription;
+  assert.throws(() => assertIosMetadata(missingLocation), /missing approved location disclosure/);
+
   const wrongDomain = validIosEvidence();
   wrongDomain.profile.Entitlements["com.apple.developer.associated-domains"] = ["applinks:preview.example"];
   assert.throws(() => assertIosMetadata(wrongDomain), /does not authorize the exact associated domain/);
@@ -256,17 +269,35 @@ test("fingerprints are normalized and malformed values fail closed", () => {
 });
 
 test("signed iOS build command uses cloud-managed distribution signing and a local App Store export", async () => {
-  const [script, exportOptions] = await Promise.all([
+  const [script, verifier, exportOptions] = await Promise.all([
     readFile(new URL("./build-ios-release.sh", import.meta.url), "utf8"),
+    readFile(new URL("./verify-ios-release.mjs", import.meta.url), "utf8"),
     readFile(new URL("../ios/App/ExportOptions.plist", import.meta.url), "utf8"),
   ]);
   assert.match(script, /YES_I_HAVE_ACTION_TIME_AUTHORIZATION/);
+  assert.match(script, /readonly BUILD_NUMBER="5"/);
   const guardIndex = script.indexOf('if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]');
   const provisioningIndex = script.indexOf("xcodebuild \\");
   assert.ok(guardIndex >= 0 && provisioningIndex > guardIndex);
   assert.match(script, /CODE_SIGN_STYLE=Automatic/);
   assert.match(script, /CODE_SIGN_IDENTITY=Apple Development/);
   assert.doesNotMatch(script, /CODE_SIGN_IDENTITY=Apple Distribution/);
+  assert.match(script, /MAPBOX_ACCESS_TOKEN/);
+  assert.match(script, /restricted Mapbox public token/);
+  assert.match(script, /ReleaseSecrets\.xcconfig/);
+  assert.match(script, /umask 077/);
+  assert.match(script, /-xcconfig "\$\{release_xcconfig\}"/);
+  assert.match(script, /redact_xcode_output/);
+  assert.match(script, /redacted-mapbox-token/);
+  assert.equal(script.match(/^\s+-quiet \\/gm)?.length, 2);
+  assert.doesNotMatch(script, /^\s+MAPBOX_ACCESS_TOKEN="\$\{mapbox_access_token\}" \\/m);
+  assert.match(verifier, /mkdtemp/);
+  assert.match(verifier, /mode: 0o600/);
+  assert.match(verifier, /"-xcconfig", secretConfigPath/);
+  assert.match(verifier, /createSecretRedactor/);
+  assert.match(verifier, /"<redacted-mapbox-token>"/);
+  assert.match(verifier, /"-quiet"/);
+  assert.doesNotMatch(verifier, /`MAPBOX_ACCESS_TOKEN=\$\{mapboxAccessToken\}`/);
   const realisticIdentityFixture = '  1) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "Apple Development: Release Operator (A1B2C3D4E5)"';
   const identityMarker = script.match(/grep -F '([^']+)'/)?.[1];
   assert.equal(identityMarker, '"Apple Development:');

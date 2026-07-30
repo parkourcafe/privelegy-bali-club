@@ -35,7 +35,7 @@ async function fetchPublishedActionCapabilities(
 
 const getCachedPublishedActionCapabilities = unstable_cache(
   fetchPublishedActionCapabilities,
-  ["published-action-capabilities-v1"],
+  ["published-action-capabilities-v3-owner-approved-chope"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.actions],

@@ -2,12 +2,18 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
+import { runInNewContext } from "node:vm";
 import sharp from "sharp";
 const read = (path) => readFileSync(path, "utf8");
 const appSource = read("app/page.tsx");
 const layoutSource = read("app/layout.tsx");
 const trackerSource = read("components/HomeAnalyticsLink.tsx");
 const configSource = read("lib/homepage.ts");
+const mobileSource = read("mobile/src/App.tsx");
+const togetherSource = read("public/together/index.html");
+const messagingSource = read("docs/canon/OTHER_BALI_MESSAGING_SYSTEM.md");
+const sharedPlanSource = read("app/plan/shared/page.tsx");
+const sharedPlanOgSource = read("app/plan/shared/og/route.tsx");
 
 function extractSection(name) {
   const marker = `export const ${name}`;
@@ -55,6 +61,207 @@ test("Wave 4 homepage renders the approved section hierarchy", () => {
   const canggu = appSource.indexOf('id="canggu-title"');
   const trust = appSource.indexOf('id="trust-title"');
   assert.ok(moments > 0 && plan > moments && categories > plan && canggu > categories && trust > canggu);
+});
+
+test("canonical Other Bali messaging is aligned across web, mobile and store-facing surfaces", () => {
+  for (const source of [configSource, mobileSource]) {
+    assert.match(source, /Discover Bali together/);
+    assert.match(source, /The right place for the moment you’re in\./);
+    assert.match(source, /Resident-curated places, routes and plans/);
+    assert.match(source, /Less searching\. More Bali\./);
+  }
+  for (const forbidden of ["Find new friends", "Meet people", "People near you"]) {
+    const pattern = new RegExp(escapeRegExp(forbidden), "i");
+    assert.doesNotMatch(configSource, pattern);
+    assert.doesNotMatch(appSource, pattern);
+    assert.doesNotMatch(mobileSource, pattern);
+  }
+  assert.match(configSource, /The right place for the moment you’re in\./);
+  assert.match(messagingSource, /does not mean social discovery/i);
+  assert.match(messagingSource, /do\s+not use `Find new friends`/i);
+});
+
+test("Together page supports planning with existing companions without simulating a social network", () => {
+  const templateMatch = togetherSource.match(
+    /<script type="__bundler\/template">([\s\S]*?)<\/script>/,
+  );
+  assert.ok(templateMatch, "Together canvas template is missing");
+  const togetherHtml = JSON.parse(templateMatch[1]);
+
+  assert.match(togetherSource, /<title>Discover Bali Together · Other Bali<\/title>/);
+  assert.match(togetherHtml, /<title>Discover Bali Together · Other Bali<\/title>/);
+  assert.match(
+    togetherHtml,
+    /\[data-screen-label="Share a public page — actual states"\]\{display:none!important\}/,
+  );
+  assert.match(togetherHtml, /Choose with your people\./);
+  assert.match(togetherHtml, /Discover Bali <span style="color:#F6C688">together<\/span>\./);
+  assert.match(togetherHtml, /window\.location\.assign\('\/places'\)/);
+  assert.match(togetherHtml, /otherbali\.com\/places\//);
+  assert.match(togetherHtml, /Compare before you go/);
+  assert.match(togetherHtml, />Open place</);
+  assert.match(togetherHtml, /Can I share my personal Trip from the app\?/);
+  assert.match(
+    togetherHtml,
+    /Not in the current mobile release — share a place or ready-made route for now\./,
+  );
+  assert.doesNotMatch(togetherHtml, /Find new friends\./i);
+  assert.doesNotMatch(togetherHtml, /Math\.random\(\)\.toString\(36\)/);
+  assert.doesNotMatch(togetherHtml, /https:\/\/otherbali\.com\/r\//);
+  for (const unsupported of [
+    "Creating link",
+    "Link copied",
+    "Copy link",
+    "Clipboard",
+    "Help me choose",
+    "Which of these three fits us best?",
+    "Ask for a private choice",
+    "editorial explainer",
+    "вертикальная handoff-линия",
+  ]) {
+    assert.doesNotMatch(togetherHtml, new RegExp(escapeRegExp(unsupported), "i"));
+  }
+});
+
+test("Together bridge keeps navigation live without hijacking the header", () => {
+  const bridgeMatch = togetherSource.match(
+    /<\/body>\s*<script>\s*([\s\S]*?)<\/script>\s*<\/html>\s*$/,
+  );
+  assert.ok(bridgeMatch, "Together navigation bridge is missing");
+  const bridgeSource = bridgeMatch[1];
+
+  const listeners = () => Object.create(null);
+  const makeElement = ({
+    href,
+    parentElement = null,
+    nextElementSibling = null,
+    textContent = "",
+  } = {}) => ({
+    dataset: {},
+    style: {},
+    parentElement,
+    nextElementSibling,
+    textContent,
+    attributes: href === undefined ? {} : { href },
+    listeners: listeners(),
+    addEventListener(type, handler) {
+      this.listeners[type] = handler;
+    },
+    getAttribute(name) {
+      return this.attributes[name];
+    },
+    setAttribute(name, value) {
+      this.attributes[name] = value;
+    },
+    closest(selector) {
+      if (selector !== '[data-together-home="1"]') return null;
+      if (this.dataset.togetherHome === "1") return this;
+      return this.parentElement?.closest(selector) ?? null;
+    },
+  });
+
+  const legacyMyDayLink = makeElement({ href: "Other Bali - My Day (Desktop).dc.html" });
+  const header = makeElement();
+  const headerLabel = makeElement({ textContent: "TOGETHER" });
+  const brand = makeElement({ parentElement: header, textContent: "TOGETHER" });
+  let headerLogo = makeElement({ parentElement: brand, nextElementSibling: headerLabel });
+  const footerLabel = makeElement({ textContent: "The right place for the moment you’re in." });
+  const footerBrand = makeElement({
+    textContent: "The right place for the moment you’re in. What is Together?",
+  });
+  const footerLogo = makeElement({
+    parentElement: footerBrand,
+    nextElementSibling: footerLabel,
+  });
+  const observers = [];
+  const assigned = [];
+  let rendered = false;
+  const document = {
+    body: {},
+    listeners: listeners(),
+    addEventListener(type, handler) {
+      this.listeners[type] = handler;
+    },
+    removeEventListener(type, handler) {
+      if (this.listeners[type] === handler) delete this.listeners[type];
+    },
+    querySelectorAll(selector) {
+      if (!rendered) return [];
+      if (selector === "a[href]") return [legacyMyDayLink];
+      if (selector === "other-bali-logo") return [headerLogo, footerLogo];
+      if (selector === "iframe") return [];
+      return [];
+    },
+  };
+
+  class MutationObserver {
+    constructor(callback) {
+      this.callback = callback;
+      observers.push(this);
+    }
+    observe() {}
+    disconnect() {}
+  }
+
+  const window = { top: { location: { assign: (path) => assigned.push(path) } } };
+  const context = {
+    document,
+    MutationObserver,
+    window,
+  };
+  runInNewContext(bridgeSource, context);
+
+  assert.equal(observers.length, 0, "bridge must wait until the bundled document is rendered");
+  assert.equal(legacyMyDayLink.getAttribute("href"), "Other Bali - My Day (Desktop).dc.html");
+  rendered = true;
+  window.__connectTogetherNavigation();
+
+  assert.equal(legacyMyDayLink.getAttribute("href"), "/my-day");
+  assert.equal(brand.attributes.role, "link");
+  assert.equal(brand.attributes.tabindex, "0");
+  assert.equal(typeof document.listeners.click, "function");
+  assert.equal(brand.listeners.click, undefined, "home behavior must use durable delegation");
+  assert.equal(header.listeners.click, undefined, "header must not capture sibling navigation");
+  assert.equal(footerBrand.listeners.click, undefined, "decorative/footer logos must stay inert");
+  assert.equal(footerBrand.dataset.togetherHome, undefined, "footer must not become a home link");
+
+  const clonedBrand = makeElement({ parentElement: header, textContent: "TOGETHER" });
+  clonedBrand.dataset = { ...brand.dataset };
+  clonedBrand.attributes = { ...brand.attributes };
+  const clonedLabel = makeElement({ parentElement: clonedBrand, textContent: "TOGETHER" });
+  headerLogo = makeElement({ parentElement: clonedBrand, nextElementSibling: clonedLabel });
+  document.listeners.click({
+    target: clonedLabel,
+    preventDefault() {},
+    stopPropagation() {},
+  });
+  assert.deepEqual(assigned, ["/"]);
+  assert.doesNotThrow(() => observers.at(-1).callback([{}]));
+  const swapIndex = togetherSource.indexOf(
+    "document.documentElement.replaceWith(doc.documentElement);",
+  );
+  const babelIndex = togetherSource.indexOf("window.Babel.transformScriptTags();");
+  const connectIndex = togetherSource.indexOf("window.__connectTogetherNavigation();");
+  assert.ok(swapIndex >= 0 && connectIndex > swapIndex, "bridge must run after the root swap");
+  assert.ok(babelIndex >= 0 && connectIndex > babelIndex, "bridge must run after template scripts");
+  assert.doesNotMatch(bridgeSource, /new MutationObserver\(connect\)/);
+  assert.match(bridgeSource, /document\.addEventListener\('click', goHome, true\)/);
+  assert.doesNotMatch(bridgeSource, /brand\.addEventListener\('click'/);
+});
+
+test("shared plan preview stays a bounded starting point without live booking claims", () => {
+  assert.match(sharedPlanSource, /shared as a starting point/);
+  assert.match(sharedPlanSource, /official actions where available/);
+  assert.match(sharedPlanOgSource, /Public place guide/);
+  for (const unsupported of [
+    "saved as a starting point",
+    "verified booking",
+    "Live places & bookings",
+  ]) {
+    const pattern = new RegExp(escapeRegExp(unsupported), "i");
+    assert.doesNotMatch(sharedPlanSource, pattern);
+    assert.doesNotMatch(sharedPlanOgSource, pattern);
+  }
 });
 
 test("Wave 4 homepage removes old Canggu-centre and directory-first messaging", () => {

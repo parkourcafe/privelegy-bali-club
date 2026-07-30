@@ -1,4 +1,6 @@
 const EXPECTED_ANDROID_PERMISSIONS = [
+  "android.permission.ACCESS_COARSE_LOCATION",
+  "android.permission.ACCESS_FINE_LOCATION",
   "android.permission.ACCESS_NETWORK_STATE",
   "android.permission.INTERNET",
   "com.otherbali.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
@@ -8,12 +10,12 @@ export const RELEASE_CONTRACT = Object.freeze({
   appId: "com.otherbali.app",
   appleTeamId: "KB7VPWHTTM",
   iosVersion: "1.0",
-  iosBuild: "4",
+  iosBuild: "5",
   iosMinimumVersion: "15.0",
   associatedDomains: ["applinks:www.otherbali.com"],
   systemBarsStyle: "DARK",
   androidVersion: "1.0.0",
-  androidVersionCode: "2",
+  androidVersionCode: "4",
   androidMinSdk: "24",
   androidTargetSdk: "36",
   androidCompileSdk: "36",
@@ -229,15 +231,23 @@ export function assertIosMetadata({ info, entitlements, profile, codesign, now =
   if (!info || !entitlements || !profile || !codesign) fail("iOS metadata evidence is incomplete");
   if (info.CFBundleIdentifier !== expected.appId) fail("IPA bundle identifier is incorrect");
   if (String(info.CFBundleShortVersionString ?? "") !== expected.iosVersion) fail("IPA version must equal 1.0");
-  if (String(info.CFBundleVersion ?? "") !== expected.iosBuild) fail("IPA build must equal 4");
+  if (String(info.CFBundleVersion ?? "") !== expected.iosBuild) fail("IPA build must equal 5");
   if (String(info.MinimumOSVersion ?? "") !== expected.iosMinimumVersion) fail("IPA minimum iOS version must equal 15.0");
   if (info.DTPlatformName !== "iphoneos" || !/^iphoneos\d+(?:\.\d+)*$/i.test(info.DTSDKName ?? "")) {
     fail("IPA must be built with an iPhoneOS SDK");
   }
   if (!exactStringArray(info.UIDeviceFamily?.map(String), ["1"])) fail("IPA must target iPhone only");
   if (!falseValue(info.CAPACITOR_DEBUG)) fail("IPA CAPACITOR_DEBUG must be disabled");
-  const usageKeys = Object.keys(info).filter((key) => /^NS.+UsageDescription$/.test(key));
-  if (usageKeys.length) fail(`IPA contains unapproved privacy permissions: ${usageKeys.join(", ")}`);
+  const usageKeys = uniqueSorted(Object.keys(info).filter((key) => /^NS.+UsageDescription$/.test(key)));
+  const approvedUsageKeys = ["NSLocationWhenInUseUsageDescription"];
+  if (JSON.stringify(usageKeys) !== JSON.stringify(approvedUsageKeys)) {
+    fail(`IPA contains unapproved privacy permissions: ${usageKeys.join(", ") || "missing approved location disclosure"}`);
+  }
+  if (typeof info.NSLocationWhenInUseUsageDescription !== "string"
+    || !info.NSLocationWhenInUseUsageDescription.includes("only when you ask")
+    || !info.NSLocationWhenInUseUsageDescription.includes("not stored")) {
+    fail("IPA location usage description does not match the approved on-demand, non-storage behavior");
+  }
 
   if (codesign.identifier !== expected.appId || codesign.teamIdentifier !== expected.appleTeamId) {
     fail("IPA code signature identity does not match the approved app/team");
