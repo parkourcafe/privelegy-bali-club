@@ -39,14 +39,6 @@ if [[ "${node_major}" != "22" ]]; then
   exit 2
 fi
 
-mapbox_access_token="${MAPBOX_ACCESS_TOKEN:-}"
-if [[ "${mapbox_access_token}" =~ ^[[:space:]]*$ ]]; then
-  mapbox_access_token=""
-elif [[ ! "${mapbox_access_token}" =~ ^pk\.[A-Za-z0-9._-]{20,}$ ]]; then
-  echo "MAPBOX_ACCESS_TOKEN must be blank or a restricted Mapbox public token." >&2
-  exit 2
-fi
-
 if ! security find-identity -v -p codesigning \
   | grep -F '"Apple Development:' >/dev/null; then
   echo "A valid Apple Development identity is not available in the keychain. Xcode will enforce team ${TEAM_ID} during archive." >&2
@@ -79,20 +71,12 @@ chmod 700 "${temporary_directory}"
 trap 'rm -rf "${temporary_directory}"' EXIT
 archive_path="${temporary_directory}/OtherBali.xcarchive"
 export_path="${temporary_directory}/export"
-release_xcconfig="${temporary_directory}/ReleaseSecrets.xcconfig"
-umask 077
-printf '%s\n' "MAPBOX_ACCESS_TOKEN = ${mapbox_access_token}" > "${release_xcconfig}"
-
-redact_xcode_output() {
-  sed -E 's/pk\.[A-Za-z0-9._-]{20,}/<redacted-mapbox-token>/g'
-}
 
 xcodebuild \
   -quiet \
   -project ios/App/App.xcodeproj \
   -scheme App \
   -configuration Release \
-  -xcconfig "${release_xcconfig}" \
   -sdk iphoneos \
   -destination 'generic/platform=iOS' \
   -archivePath "${archive_path}" \
@@ -103,7 +87,7 @@ xcodebuild \
   CODE_SIGN_STYLE=Automatic \
   'CODE_SIGN_IDENTITY=Apple Development' \
   -allowProvisioningUpdates \
-  archive 2>&1 | redact_xcode_output
+  archive
 
 xcodebuild \
   -quiet \
@@ -111,7 +95,7 @@ xcodebuild \
   -archivePath "${archive_path}" \
   -exportPath "${export_path}" \
   -exportOptionsPlist "${export_options}" \
-  -allowProvisioningUpdates 2>&1 | redact_xcode_output
+  -allowProvisioningUpdates
 
 exported_ipas=()
 for candidate in "${export_path}"/*.ipa; do

@@ -60,11 +60,15 @@ export default function PrivacyPage() {
               for browser state, or ask support to review a deletion request.
             </p>
             <p className="mt-3">
-              Offline Mapbox downloads and onboard routing are unavailable in
-              this release. The native provider remains blocked and its
-              telemetry is disabled. If a tested download or routing control is
-              introduced later, this notice and the store disclosures will be
-              updated before that feature is released.
+              Offline map downloads and onboard routing are unavailable in this
+              release. The iOS app does not include the Mapbox Maps or
+              Navigation SDK, and its local native bridge reports every offline
+              capability as unavailable. The Android app still includes the
+              Mapbox provider, but the release manifest exposes no downloadable
+              regions, access remains gated, and provider telemetry defaults
+              off. If a tested download or routing control is introduced later,
+              this notice and the store disclosures will be updated before that
+              feature is released.
             </p>
             <p className="mt-3">
               To load and refresh the catalogue, place details, and routes, the
@@ -108,8 +112,9 @@ export default function PrivacyPage() {
             </p>
             <p className="mt-3">
               The mobile app does not include advertising, cross-app tracking,
-              advertising analytics SDKs, or a data-broker integration. Mapbox
-              telemetry is disabled in the current release.
+              advertising analytics SDKs, or a data-broker integration. The iOS
+              app includes no Mapbox SDK or Mapbox telemetry path. On Android,
+              the gated Mapbox provider defaults telemetry off.
             </p>
           </section>
 

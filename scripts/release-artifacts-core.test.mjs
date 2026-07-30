@@ -268,7 +268,7 @@ test("fingerprints are normalized and malformed values fail closed", () => {
   assert.throws(() => normalizeFingerprint("debug"), /must be a SHA-256 fingerprint/);
 });
 
-test("signed iOS build command uses cloud-managed distribution signing and a local App Store export", async () => {
+test("signed iOS build uses cloud-managed distribution without dormant provider secret plumbing", async () => {
   const [script, verifier, exportOptions] = await Promise.all([
     readFile(new URL("./build-ios-release.sh", import.meta.url), "utf8"),
     readFile(new URL("./verify-ios-release.mjs", import.meta.url), "utf8"),
@@ -282,29 +282,15 @@ test("signed iOS build command uses cloud-managed distribution signing and a loc
   assert.match(script, /CODE_SIGN_STYLE=Automatic/);
   assert.match(script, /CODE_SIGN_IDENTITY=Apple Development/);
   assert.doesNotMatch(script, /CODE_SIGN_IDENTITY=Apple Distribution/);
-  assert.match(script, /MAPBOX_ACCESS_TOKEN/);
-  assert.match(script, /restricted Mapbox public token/);
-  assert.match(script, /\^\[\[:space:\]\]\*\$/);
-  assert.match(script, /elif\s+\[\[\s+!\s+"\$\{mapbox_access_token\}"\s+=~/);
-  assert.match(script, /ReleaseSecrets\.xcconfig/);
-  assert.match(script, /umask 077/);
-  assert.match(script, /-xcconfig "\$\{release_xcconfig\}"/);
-  assert.match(script, /redact_xcode_output/);
-  assert.match(script, /redacted-mapbox-token/);
   assert.equal(script.match(/^\s+-quiet \\/gm)?.length, 2);
-  assert.doesNotMatch(script, /^\s+MAPBOX_ACCESS_TOKEN="\$\{mapbox_access_token\}" \\/m);
-  assert.match(verifier, /mkdtemp/);
-  assert.match(verifier, /mode: 0o600/);
-  assert.match(verifier, /"-xcconfig", secretConfigPath/);
-  assert.match(verifier, /createSecretRedactor/);
-  assert.match(
-    verifier,
-    /if\s*\(\s*mapboxAccessToken\s*&&\s*!\/\^pk\\\./,
-  );
-  assert.match(verifier, /if\s*\(\s*!secret\s*\)/);
-  assert.match(verifier, /"<redacted-mapbox-token>"/);
   assert.match(verifier, /"-quiet"/);
-  assert.doesNotMatch(verifier, /`MAPBOX_ACCESS_TOKEN=\$\{mapboxAccessToken\}`/);
+  for (const [label, source] of [["build script", script], ["verifier", verifier]]) {
+    assert.doesNotMatch(
+      source,
+      /MBXAccessToken|MAPBOX_ACCESS_TOKEN|ReleaseSecrets\.xcconfig|redact_xcode_output|createSecretRedactor|redacted-mapbox-token|-xcconfig/,
+      `${label} still contains iOS provider token plumbing`,
+    );
+  }
   const realisticIdentityFixture = '  1) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "Apple Development: Release Operator (A1B2C3D4E5)"';
   const identityMarker = script.match(/grep -F '([^']+)'/)?.[1];
   assert.equal(identityMarker, '"Apple Development:');

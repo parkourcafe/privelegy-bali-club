@@ -9,13 +9,13 @@ fully tested on physical devices.
 
 ## Canonical candidate
 
-- Working branch: `codex/appstore-build6-20260730`
-- Last committed baseline before the current privacy patch:
-  `f337aa79cc387449a8f0f8d6c776c595e0cb76f1`
+- Working branch: `release/other-bali-appstore-build7`
+- Last committed baseline before the iOS SDK-removal patch:
+  `4afe39e`
 - Final candidate commit: **pending**
 - Web/API production origin: `https://www.otherbali.com`
 - App/package ID: `com.otherbali.app`
-- iOS: version `1.0`, build `6`, minimum iOS `15.0`
+- iOS: version `1.0`, build `7`, minimum iOS `15.0`
 - Android: version `1.0.0`, version code `4`, minimum API `24`, target/compile
   API `36`
 - Native product: bundled Capacitor app with Discover, Decide, Today, Trip,
@@ -68,8 +68,11 @@ persist or transmit raw coordinates in that flow. Manual area selection remains
 available after denial. iOS carries the matching When In Use description.
 
 Offline Mapbox downloads and onboard routing remain fail-closed in this
-release. No downloadable region is advertised, and native Mapbox telemetry
-initializes disabled.
+release. The iOS target preserves the public local Capacitor bridge but does not
+resolve, link, or embed the Mapbox or Turf SDKs; every iOS offline capability is
+false and the bridge has no telemetry path. Android retains its Mapbox
+implementation, but no downloadable region is advertised, release access
+remains gated, and provider telemetry defaults disabled.
 
 The source `PrivacyInfo.xcprivacy` now declares exactly:
 

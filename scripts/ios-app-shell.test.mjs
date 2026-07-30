@@ -56,10 +56,39 @@ test("the iOS target and AASA have the exact production identity and next build 
   assert.match(project, /\/\* Release \*\/ = \{[^}]*buildSettings = \{[^}]*CODE_SIGN_IDENTITY = "Apple Development";[^}]*\};\s*name = Release;\s*\};/);
   assert.doesNotMatch(project, /CODE_SIGN_IDENTITY = "Apple Distribution"/);
   assert.match(plist, /<string>otherbali<\/string>/);
-  assert.match(plist, /<key>MBXAccessToken<\/key>\s*<string>\$\(MAPBOX_ACCESS_TOKEN\)<\/string>/);
+  assert.doesNotMatch(plist, /MBXAccessToken|MAPBOX_ACCESS_TOKEN/);
+  assert.match(
+    plist,
+    /<key>NSLocationWhenInUseUsageDescription<\/key>\s*<string>[^<]+<\/string>/,
+  );
   assert.match(entitlements, /applinks:www\.otherbali\.com/);
   const aasa = JSON.parse(aasaText);
   assert.deepEqual(aasa.applinks.details[0].appIDs, ["KB7VPWHTTM.com.otherbali.app"]);
+});
+
+test("iOS keeps the local OfflineMapbox bridge without resolving the vendor SDK", async () => {
+  const [configText, syncedPackage, pluginPackage, resolutionText] = await Promise.all([
+    load("ios/App/App/capacitor.config.json"),
+    load("ios/App/CapApp-SPM/Package.swift"),
+    load("plugins/offline-mapbox/Package.swift"),
+    load("ios/App/App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"),
+  ]);
+  const config = JSON.parse(configText);
+  assert.ok(config.packageClassList.includes("OfflineMapboxPlugin"));
+  assert.match(
+    syncedPackage,
+    /\.package\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*path:\s*"\.\.\/\.\.\/\.\.\/plugins\/offline-mapbox"\s*\)/,
+  );
+  assert.match(
+    syncedPackage,
+    /\.product\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*package:\s*"OtherBaliOfflineMapbox"\s*\)/,
+  );
+  assert.doesNotMatch(pluginPackage, /github\.com\/mapbox|\.product\s*\(\s*name:\s*"(?:Mapbox|Turf)/i);
+  const resolution = JSON.parse(resolutionText);
+  assert.equal(
+    resolution.pins.some((pin) => /(?:mapbox|turf)/i.test(`${pin.identity} ${pin.location}`)),
+    false,
+  );
 });
 
 test("AASA routes and iOS release blockers stay bound to the exact application", () => {

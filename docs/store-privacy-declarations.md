@@ -1,7 +1,7 @@
 # Other Bali Store Privacy Declarations
 
 Date: 2026-07-30
-Status: audit draft for iOS 1.0 (6) and Android 1.0.0 (4)
+Status: audit draft for iOS 1.0 (7) and Android 1.0.0 (4)
 
 Use this document only for the current `com.otherbali.app` release candidate.
 It records what the source and merged native manifests do; it is not evidence
@@ -31,10 +31,14 @@ payment, map-provider, sync, or retention change.
   expose an IP address to Vercel, which derives an approximate city/country.
 - No advertising ID, contacts, camera, microphone, or Photos permission is
   requested.
-- Offline Mapbox Level 3 remains fail-closed: the public manifest reports
-  `blocked_pending_acceptance`, exposes no downloadable regions, and the native
-  provider initializes telemetry disabled. No current user flow sends device
-  location to Mapbox or starts onboard routing.
+- Offline Mapbox Level 3 remains fail-closed on both platforms, with different
+  native boundaries. The iOS binary does not link or embed Mapbox Maps,
+  Navigation, Directions, Common, or Turf; its registered local Capacitor bridge
+  reports all availability flags false and zero storage. Android still includes
+  the Mapbox provider, but the public manifest reports
+  `blocked_pending_acceptance`, exposes no downloadable regions, and provider
+  telemetry defaults disabled. No current user flow sends device location to
+  Mapbox or starts onboard routing.
 
 ## Server-side collection introduced by sync
 
@@ -185,7 +189,10 @@ Before answering the store questionnaires for the exact signed binaries:
 2. Deploy the matching server/privacy source to its exact preview and verify
    the mobile DELETE, CORS, `/privacy`, and `/privacy/choices` behavior.
 3. Inspect merged native privacy manifests, dependencies, permissions, and
-   linked SDKs; confirm that Mapbox Level 3 and telemetry remain unavailable.
+   linked SDKs. Confirm the iOS app has no Mapbox/Turf framework, bundle,
+   privacy manifest, linked library, binary marker, or access-token key. Confirm
+   the Android Mapbox implementation remains gated with telemetry defaulting
+   off.
 4. Confirm the Vercel and Supabase processor/service-provider status and the
    current hosting-log retention.
 5. Rebuild and reverify the IPA/AAB/APK, then test deletion, identity rotation,
