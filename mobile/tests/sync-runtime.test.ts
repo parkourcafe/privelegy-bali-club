@@ -2,9 +2,57 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { type SyncMutation } from "../../lib/journey/offline-sync";
 import {
+  enqueuePendingSyncMutation,
   flushPendingSyncQueue,
   settlePendingSyncMutation,
 } from "../src/sync-runtime";
+
+test("coalesces queued Trip replacements while preserving unrelated mutations", () => {
+  const saved: SyncMutation = {
+    idempotencyKey: "mutation-saved",
+    entityType: "saved",
+    entityId: "place-1",
+    operation: "save",
+    payload: { entityType: "place", entityId: "place-1" },
+    baseVersion: null,
+    createdAt: "2026-07-28T08:00:00.000Z",
+  };
+  const originalTrip: SyncMutation = {
+    idempotencyKey: "mutation-trip-original",
+    entityType: "trip_stop",
+    entityId: "trip-2",
+    operation: "trip_replace",
+    payload: { trip: { id: "trip-2", note: "Old" } },
+    baseVersion: null,
+    createdAt: "2026-07-28T08:01:00.000Z",
+  };
+  const otherTrip: SyncMutation = {
+    idempotencyKey: "mutation-trip-other",
+    entityType: "trip_stop",
+    entityId: "trip-3",
+    operation: "trip_replace",
+    payload: { trip: { id: "trip-3", note: "Keep" } },
+    baseVersion: null,
+    createdAt: "2026-07-28T08:02:00.000Z",
+  };
+  const latestTrip: SyncMutation = {
+    idempotencyKey: "mutation-trip-latest",
+    entityType: "trip_stop",
+    entityId: "trip-2",
+    operation: "trip_replace",
+    payload: { trip: { id: "trip-2", note: "Latest" } },
+    baseVersion: null,
+    createdAt: "2026-07-28T08:03:00.000Z",
+  };
+
+  assert.deepEqual(
+    enqueuePendingSyncMutation(
+      [saved, originalTrip, otherTrip],
+      latestTrip,
+    ),
+    [saved, otherTrip, latestTrip],
+  );
+});
 
 test("removes only an exactly applied mutation while retaining retries and surfacing conflicts", () => {
   const before: SyncMutation = {

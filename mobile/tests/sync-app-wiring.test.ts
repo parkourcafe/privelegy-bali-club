@@ -30,6 +30,44 @@ test("mobile application settles acknowledged sync responses before removing que
   );
 });
 
+test("Trip notes persist while typing and queued replacements are coalesced", () => {
+  assert.match(
+    appSource,
+    /aria-label=\{`Note for \$\{resolveStop\(stop\.entityType, stop\.entityId\)\}`\}[\s\S]{0,280}?onChange=\{\(event\) => onSaveNote\(/,
+    "Trip note editing must persist on change because Android Back can hide the keyboard without blurring",
+  );
+  assert.match(
+    appSource,
+    /enqueuePendingSyncMutation\(pendingSyncRef\.current, next\)/,
+    "rapid Trip edits must use the coalescing queue helper",
+  );
+  assert.match(
+    appSource,
+    /const pending = enqueuePendingSyncMutation\(pendingSyncRef\.current, next\);[\s\S]{0,100}?pendingSyncRef\.current = pending;[\s\S]{0,120}?await writePendingSync\(pending\)/,
+    "enqueue must reserve the in-memory queue before awaiting its durable write",
+  );
+  assert.match(
+    appSource,
+    /const nextPending = \[\.\.\.remaining, \.\.\.appended\];[\s\S]{0,100}?pendingSyncRef\.current = nextPending;[\s\S]{0,160}?writePendingSync\(nextPending\)/,
+    "sync acknowledgements must reserve their merged queue before awaiting persistence",
+  );
+  assert.match(
+    appSource,
+    /const next = typeof update === "function"[\s\S]{0,120}?update\(tripRef\.current\)[\s\S]{0,220}?tripRef\.current = next;[\s\S]{0,180}?const storageWrite = writeTrip\(next\)/,
+    "Trip transforms must reserve the latest in-memory snapshot and durable write before awaiting",
+  );
+  assert.match(
+    appSource,
+    /const storageWrite = writeTrip\(next\);[\s\S]{0,260}?const syncWrite = queueMutation\(\{[\s\S]{0,140}?operation: "trip_replace"[\s\S]{0,220}?Promise\.all\(\[storageWrite, syncWrite\]\)/,
+    "the latest Trip snapshot and its sync replacement must be crash-durably reserved together",
+  );
+  assert.doesNotMatch(
+    appSource,
+    /persistTrip\(transform\(trip\)\)/,
+    "Trip edits must not derive from stale render state",
+  );
+});
+
 test("place sync mutations use the canonical venue slug rather than the local feed id", () => {
   assert.match(
     appSource,
