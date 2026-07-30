@@ -398,17 +398,28 @@ document.addEventListener('DOMContentLoaded', async function() {
       'Other Bali - For Villas.dc.html': '/villas',
       'Other Bali - For Hotels.dc.html': '/hotels'
     };
-    const connect = () => {
-      document.querySelectorAll('a[href]').forEach((link) => {
+    const connect = (root = document) => {
+      root.querySelectorAll('a[href]').forEach((link) => {
         const target = routes[link.getAttribute('href')];
         if (target) link.setAttribute('href', target);
       });
-      document.querySelectorAll('other-bali-logo').forEach((logo) => {
+      root.querySelectorAll('other-bali-logo').forEach((logo) => {
         if (!logo.dataset.homeBound) {
           logo.dataset.homeBound = '1';
           logo.style.cursor = 'pointer';
-          logo.addEventListener('click', () => { window.location.href = '/'; });
+          logo.addEventListener('click', () => { window.top.location.href = '/'; });
         }
+      });
+      root.querySelectorAll('iframe').forEach((frame) => {
+        try {
+          if (frame.contentDocument) {
+            connect(frame.contentDocument);
+            if (!frame.dataset.homeObserver) {
+              frame.dataset.homeObserver = '1';
+              new MutationObserver(() => connect(frame.contentDocument)).observe(frame.contentDocument, { childList: true, subtree: true });
+            }
+          }
+        } catch (_) { /* cross-origin frames are intentionally ignored */ }
       });
     };
     connect();
