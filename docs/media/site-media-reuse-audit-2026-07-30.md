@@ -19,8 +19,17 @@
 - These scenes remain atmospheric/illustrative and are not venue proof, live
   conditions or availability claims.
 
-## Remaining work
+## Final reconciliation
 
-Reconcile repeated shared guide-media assignments across the long-tail routes.
-Where no approved Higgfield scene fits the copy, use a text-led block or create
-and document a new scene rather than repeating a generic image.
+- The remaining Canggu guide assignments now use distinct approved Higgfield
+  scenes where an image adds meaning (restaurant, café and sunset comparisons).
+- The Canggu day-builder and first-day related links are text-led where the
+  existing image would repeat a scene already visible on the page.
+- The coffee guide is also text-led rather than reusing the work-café scene.
+- A final source scan found no repeated still-image reference within a page,
+  no still-image reference shared by two page source files, and no two
+  referenced scene files with identical bytes. Shared video fallbacks in the
+  media component are intentional player defaults, not duplicate page cards.
+
+No new Higgfield generation was required for this audit wave; all replacements
+use approved assets already present in `public/scenes`.
