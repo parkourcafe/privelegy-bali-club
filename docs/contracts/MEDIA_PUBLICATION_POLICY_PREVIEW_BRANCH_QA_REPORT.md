@@ -1,15 +1,20 @@
 # MEDIA-002 preview branch QA report
 
-Date: 2026-07-25  
-Source commit: `4652d00`  
-Supabase branch: `media-preview-qa` (`mmhlvalhrebvsyehepos`)  
-Preview: https://other-bali-t0-diagnostics-crvu7gwo2-yulaboober.vercel.app
+Date: 2026-07-30
+
+Source commit: `998684d`
+
+Supabase branch: `media-preview-qa` (`mmhlvalhrebvsyehepos`)
+
+Preview: https://other-bali-t0-diagnostics-git-codex-discover-9e6b55-yulaboober.vercel.app
 
 ## Environment
 
 The Vercel preview uses the separate Supabase branch for public database reads.
 Only a publishable key is configured; no service-role/admin secret is present.
-The branch contains 10 active + published QA venue rows and two district rows.
+The branch contains the original 10 active + published media-QA venue rows,
+plus one public production-backed venue used to exercise the mobile catalogue,
+and two district rows.
 
 Supabase branch creation reported `MIGRATIONS_FAILED` because production schema
 changes are not fully represented in migration history. A branch-only minimal
@@ -39,12 +44,30 @@ Desktop checks used 1440×900 and 1280×800. Mobile checks used 390×844 and
 mobile breakpoints respectively; image crop, headline readability and layout
 were acceptable.
 
-## Open issue
+## Mobile readiness repair
 
-`/api/health/ready` remains 503 because the automatically created branch did
-not receive the later route/mobile-readiness tables after migration failure.
-This does not invalidate the bounded media QA, but the branch is not a complete
-application staging database and must not be promoted or merged.
+On 2026-07-30, preview-only `routes` and `route_stops` tables, public-read RLS
+policies and grants were applied because the automatically created branch had
+stopped before those migrations. Both tables intentionally remain empty; no
+route fixtures were invented.
+
+The original 10 media-QA rows were editorially complete, but none had a Maps
+handoff accepted by mobile v1: nine carried search URLs and one failed the
+Google Maps allowlist. The filter was not weakened and those URLs were not
+rewritten. Instead, one existing published venue was copied from the public
+production mobile API into the preview branch as a bounded catalogue replica:
+`milk-and-madu-ubud`. Its public identity, owner-confirmed publication
+provenance, editorial fields and credential-free Maps handoff were validated
+before insertion. Production schema, data and storage were not changed.
+
+After this repair, the current preview returns HTTP 200 from
+`/api/health/live`, `/api/health/ready`, `/api/mobile/v1/config` and
+`/api/mobile/v1/bootstrap`. Bootstrap exposes at least one deliverable venue.
+
+The Supabase branch still reports historical `MIGRATIONS_FAILED` state. Runtime
+readiness for this release candidate is proven, but the branch must not be
+promoted or merged into production; migration-history reconciliation remains a
+separate infrastructure task.
 
 ## Owner visual acceptance
 
@@ -84,3 +107,5 @@ PRODUCTION_RELEASE_AUTHORIZED: NO
 PREVIEW_BRANCH_DELETION_AUTHORIZED: NO
 
 FULL_STAGING_READINESS: BLOCKED (migration history drift)
+
+CURRENT_RELEASE_RUNTIME_READINESS: PASS

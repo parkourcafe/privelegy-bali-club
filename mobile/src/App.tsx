@@ -8,6 +8,7 @@ import type {
 import type { ExternalLinkKind } from "../../lib/external-links";
 import {
   createDecision,
+  deleteSyncedData as requestSyncedDataDeletion,
   fetchBootstrap,
   fetchDiscoveryFeed,
   fetchEvents,
@@ -35,6 +36,8 @@ import {
 } from "./native-runtime";
 import {
   DEFAULT_NAVIGATION_STATE,
+  clearPrivacyDeletionQuarantine,
+  clearMobilePersonalData,
   hydrateMobileStorage,
   MAX_SAVED_ROUTE_SNAPSHOTS,
   writeCachedBootstrap,
@@ -42,6 +45,7 @@ import {
   writeNavigationSession,
   writeOfflinePackStates,
   writePendingSync,
+  writePrivacyDeletionQuarantine,
   writeSavedRouteState,
   writeSavedVenueState,
   writeEventsSnapshot,
@@ -51,9 +55,15 @@ import {
   writeTrip,
   type MobileSurface,
   type MobileNavigationState,
+  type PrivacyDeletionQuarantinePhase,
   type SavedRouteSnapshot,
   type SavedVenueSnapshot,
 } from "./storage";
+import {
+  deleteGuestIdentity,
+  getOrCreateGuestIdentity,
+} from "./guest-identity";
+import { PersonalWriteBarrier } from "./personal-write-barrier";
 import {
   adaptReadyMadeRoutesToTrip,
   addTripStop,
@@ -88,7 +98,6 @@ import {
   type CompanionSuggestion,
   type NavigationSession,
 } from "../../lib/journey/adaptive-companion";
-import { editorialHeroPosterUrl, editorialHeroVideoUrl } from "./editorial-media";
 
 interface LoadedVenueDetail {
   venue: MobileVenue;
@@ -115,6 +124,23 @@ function formatUpdatedAt(value: string): string {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(value));
+}
+
+async function copyTextToClipboard(value: string): Promise<void> {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied) throw new Error("clipboard_unavailable");
 }
 
 async function fetchCompleteDiscoveryFeed(signal?: AbortSignal): Promise<MobileFeedCard[]> {
@@ -686,6 +712,15 @@ export default function App() {
   const [shareFailed, setShareFailed] = useState(false);
   const [deepLinkFailed, setDeepLinkFailed] = useState(false);
   const [storageWriteFailed, setStorageWriteFailed] = useState(false);
+  const [privacyDeleteConfirming, setPrivacyDeleteConfirming] = useState(false);
+  const [privacyDeletePending, setPrivacyDeletePending] = useState(false);
+  const [privacyDeleteError, setPrivacyDeleteError] = useState<string | null>(null);
+  const [
+    privacyDeletionQuarantinePhase,
+    setPrivacyDeletionQuarantinePhase,
+  ] = useState<PrivacyDeletionQuarantinePhase | null>(null);
+  const [guestReference, setGuestReference] = useState<string | null>(null);
+  const [guestReferenceUnavailable, setGuestReferenceUnavailable] = useState(false);
   const [pendingDeepLink, setPendingDeepLink] = useState<MobileDeepLinkTarget | null>(null);
   const [loadedVenueDetail, setLoadedVenueDetail] = useState<LoadedVenueDetail | null>(null);
   const [detailLoadingVenueId, setDetailLoadingVenueId] = useState<string | null>(null);
@@ -703,6 +738,10 @@ export default function App() {
   const routePersistenceQueue = useRef<Promise<void>>(Promise.resolve());
   const pendingSyncRef = useRef<SyncMutation[]>([]);
   const syncActive = useRef(false);
+  const syncAbortController = useRef<AbortController | null>(null);
+  const privacyDeletionActive = useRef(false);
+  const privacyDeletionQuarantineRef = useRef<PrivacyDeletionQuarantinePhase | null>(null);
+  const [personalWriteBarrier] = useState(() => new PersonalWriteBarrier());
   const storageReadyRef = useRef(storageReady);
   const navigationSnapshotRef = useRef<MobileNavigationState>({
     surface,
@@ -726,61 +765,99 @@ export default function App() {
   const enqueueVenueState = useCallback((
     transform: (current: PersistedVenueState) => PersistedVenueState,
   ): Promise<boolean> => {
-    const operation = venuePersistenceQueue.current.then(async () => {
-      const next = transform(persistedVenueState.current);
-      await writeSavedVenueState(next.ids, next.snapshots);
-      persistedVenueState.current = next;
-      setSavedVenueIds(next.ids);
-      setSavedVenueSnapshots(next.snapshots);
+    const tracked = personalWriteBarrier.run(async () => {
+      const operation = venuePersistenceQueue.current.then(async () => {
+        const next = transform(persistedVenueState.current);
+        await writeSavedVenueState(next.ids, next.snapshots);
+        persistedVenueState.current = next;
+        setSavedVenueIds(next.ids);
+        setSavedVenueSnapshots(next.snapshots);
+      });
+      venuePersistenceQueue.current = operation.catch(() => {});
+      await operation;
     });
-    venuePersistenceQueue.current = operation.catch(() => {});
-    return operation.then(() => true).catch(() => {
+    if (!tracked) return Promise.resolve(false);
+    return tracked.then(() => true).catch(() => {
       setStorageWriteFailed(true);
       return false;
     });
-  }, []);
+  }, [personalWriteBarrier]);
 
   const enqueueRouteState = useCallback((
     transform: (current: PersistedRouteState) => PersistedRouteState,
   ): Promise<boolean> => {
-    const operation = routePersistenceQueue.current.then(async () => {
-      const next = transform(persistedRouteState.current);
-      await writeSavedRouteState(next.ids, next.snapshots);
-      persistedRouteState.current = next;
-      setSavedRouteIds(next.ids);
-      setSavedRouteSnapshots(next.snapshots);
+    const tracked = personalWriteBarrier.run(async () => {
+      const operation = routePersistenceQueue.current.then(async () => {
+        const next = transform(persistedRouteState.current);
+        await writeSavedRouteState(next.ids, next.snapshots);
+        persistedRouteState.current = next;
+        setSavedRouteIds(next.ids);
+        setSavedRouteSnapshots(next.snapshots);
+      });
+      routePersistenceQueue.current = operation.catch(() => {});
+      await operation;
     });
-    routePersistenceQueue.current = operation.catch(() => {});
-    return operation.then(() => true).catch(() => {
+    if (!tracked) return Promise.resolve(false);
+    return tracked.then(() => true).catch(() => {
       setStorageWriteFailed(true);
       return false;
     });
-  }, []);
+  }, [personalWriteBarrier]);
 
   const queueMutation = useCallback(async (
     mutation: Omit<SyncMutation, "idempotencyKey" | "createdAt" | "baseVersion">,
   ) => {
-    const next: SyncMutation = {
-      ...mutation,
-      idempotencyKey: crypto.randomUUID(),
-      createdAt: new Date().toISOString(),
-      baseVersion: null,
-    };
-    const pending = [...pendingSyncRef.current, next].slice(-200);
-    try {
-      await writePendingSync(pending);
-      pendingSyncRef.current = pending;
-      setPendingSyncCount(pending.length);
-    } catch {
-      setStorageWriteFailed(true);
+    if (privacyDeletionActive.current) {
+      setSelectionNotice("Finish the pending privacy cleanup before saving new personal changes.");
+      return;
     }
-  }, []);
+    const tracked = personalWriteBarrier.run(async () => {
+      const next: SyncMutation = {
+        ...mutation,
+        idempotencyKey: crypto.randomUUID(),
+        createdAt: new Date().toISOString(),
+        baseVersion: null,
+      };
+      const pending = [...pendingSyncRef.current, next].slice(-200);
+      try {
+        await writePendingSync(pending);
+        pendingSyncRef.current = pending;
+        setPendingSyncCount(pending.length);
+      } catch {
+        setStorageWriteFailed(true);
+      }
+    });
+    if (tracked) await tracked;
+  }, [personalWriteBarrier]);
+
+  const trackPersonalStorageWrite = useCallback((
+    operation: () => Promise<void>,
+  ): Promise<void> => {
+    return personalWriteBarrier.run(async () => {
+      await operation();
+    }) ?? Promise.resolve();
+  }, [personalWriteBarrier]);
 
   useEffect(() => {
     let active = true;
     void hydrateMobileStorage()
       .then((state) => {
         if (!active) return;
+        const quarantine = state.privacyDeletionQuarantine;
+        if (quarantine) {
+          privacyDeletionQuarantineRef.current = quarantine;
+          setPrivacyDeletionQuarantinePhase(quarantine);
+          privacyDeletionActive.current = true;
+          storageMutationActive.current = true;
+          personalWriteBarrier.block();
+          setPrivacyDeleteConfirming(true);
+          setPrivacyDeleteError(quarantine === "server_confirmed"
+            ? "Synced data was deleted, but device cleanup was interrupted. Personal changes remain paused; tap Retry cleanup."
+            : "A previous deletion was interrupted. Sync and personal changes remain paused; reconnect and tap Retry cleanup.");
+        } else {
+          privacyDeletionQuarantineRef.current = null;
+          setPrivacyDeletionQuarantinePhase(null);
+        }
         setBootstrap(state.bootstrap);
         setSavedVenueIds(state.savedVenueIds);
         setSavedRouteIds(state.savedRouteIds);
@@ -817,13 +894,16 @@ export default function App() {
           ids: state.savedRouteIds,
           snapshots: state.savedRouteSnapshots,
         };
-        setSurface(state.navigation.surface);
-        setSelectedVenueId(state.navigation.selectedVenueId);
-        setSelectedRouteId(state.navigation.selectedRouteId);
-        setInitialScrollY(state.navigation.scrollY);
-        setDiscoveryIndex(state.navigation.discoveryIndex ?? 0);
-        setCompanionArea(state.navigation.companionArea ?? null);
-        navigationSnapshotRef.current = state.navigation;
+        const navigation = quarantine
+          ? { ...DEFAULT_NAVIGATION_STATE, surface: "saved" as const }
+          : state.navigation;
+        setSurface(navigation.surface);
+        setSelectedVenueId(navigation.selectedVenueId);
+        setSelectedRouteId(navigation.selectedRouteId);
+        setInitialScrollY(navigation.scrollY);
+        setDiscoveryIndex(navigation.discoveryIndex ?? 0);
+        setCompanionArea(navigation.companionArea ?? null);
+        navigationSnapshotRef.current = navigation;
         setStorageReady(true);
       })
       .catch(() => {
@@ -832,7 +912,25 @@ export default function App() {
     return () => {
       active = false;
     };
-  }, [storageRetryNonce]);
+  }, [personalWriteBarrier, storageRetryNonce]);
+
+  useEffect(() => {
+    if (!storageReady || privacyDeletionQuarantinePhase) return;
+    let active = true;
+    void getOrCreateGuestIdentity()
+      .then((identity) => {
+        if (active) {
+          setGuestReference(identity);
+          setGuestReferenceUnavailable(false);
+        }
+      })
+      .catch(() => {
+        if (active) setGuestReferenceUnavailable(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, [privacyDeletionQuarantinePhase, storageReady]);
 
   useEffect(() => {
     if (!storageReady) return;
@@ -852,7 +950,8 @@ export default function App() {
         const next = transitionNavigationSession(current, nextState);
         navigationSessionRef.current = next;
         setNavigationSession(next);
-        void writeNavigationSession(next).catch(() => setStorageWriteFailed(true));
+        void trackPersonalStorageWrite(() => writeNavigationSession(next))
+          .catch(() => setStorageWriteFailed(true));
       } catch {
         // A stale lifecycle callback must not corrupt a terminal navigation session.
       }
@@ -864,13 +963,20 @@ export default function App() {
       disposed = true;
       if (handle) void handle.remove();
     };
-  }, [storageReady]);
+  }, [storageReady, trackPersonalStorageWrite]);
 
   useEffect(() => {
-    if (!storageReady || !online || syncActive.current || !pendingSyncRef.current.length) return;
+    if (
+      !storageReady
+      || !online
+      || privacyDeletionActive.current
+      || syncActive.current
+      || !pendingSyncRef.current.length
+    ) return;
     syncActive.current = true;
     setSyncFailed(false);
     const controller = new AbortController();
+    syncAbortController.current = controller;
     void (async () => {
       try {
         while (!controller.signal.aborted && pendingSyncRef.current.length > 0) {
@@ -881,11 +987,12 @@ export default function App() {
             pendingSyncRef.current,
             (mutation) => pushSyncMutation(mutation, controller.signal),
             async (remaining) => {
+              if (privacyDeletionActive.current || controller.signal.aborted) return;
               const appended = pendingSyncRef.current.filter(
                 (mutation) => !flushingKeys.has(mutation.idempotencyKey),
               );
               const nextPending = [...remaining, ...appended];
-              await writePendingSync(nextPending);
+              await trackPersonalStorageWrite(() => writePendingSync(nextPending));
               pendingSyncRef.current = nextPending;
               setPendingSyncCount(nextPending.length);
             },
@@ -901,10 +1008,17 @@ export default function App() {
         }
       } finally {
         syncActive.current = false;
+        if (syncAbortController.current === controller) syncAbortController.current = null;
       }
     })();
     return () => controller.abort();
-  }, [online, pendingSyncCount, storageReady]);
+  }, [
+    online,
+    pendingSyncCount,
+    privacyDeletePending,
+    storageReady,
+    trackPersonalStorageWrite,
+  ]);
 
   const refresh = useCallback(async (signal?: AbortSignal) => {
     setRefreshing(true);
@@ -970,6 +1084,12 @@ export default function App() {
     const timer = window.setInterval(() => setClock(new Date()), 60_000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!selectionNotice) return;
+    const timer = window.setTimeout(() => setSelectionNotice(null), 6_000);
+    return () => window.clearTimeout(timer);
+  }, [selectionNotice]);
 
   const downloadOfflineRegion = useCallback(async (region: OfflineRegionManifest) => {
     try {
@@ -1039,10 +1159,12 @@ export default function App() {
     };
   }, [refresh, storageReady]);
 
-  const persistNavigation = useCallback(() => writeNavigationState({
-    ...navigationSnapshotRef.current,
-    scrollY: Math.max(0, window.scrollY),
-  }), []);
+  const persistNavigation = useCallback(() => trackPersonalStorageWrite(
+    () => writeNavigationState({
+      ...navigationSnapshotRef.current,
+      scrollY: Math.max(0, window.scrollY),
+    }),
+  ), [trackPersonalStorageWrite]);
 
   useEffect(() => {
     if (!storageReady) return;
@@ -1094,14 +1216,15 @@ export default function App() {
       setSelectedVenueId(null);
       setSelectedRouteId(null);
       window.scrollTo({ top: 0, behavior: "auto" });
-      void writeNavigationState(rootNavigation).catch(() => setStorageWriteFailed(true));
+      void trackPersonalStorageWrite(() => writeNavigationState(rootNavigation))
+        .catch(() => setStorageWriteFailed(true));
       return;
     }
 
     void persistNavigation()
       .catch(() => setStorageWriteFailed(true))
       .finally(() => void exitMobileApp().catch(() => {}));
-  }, [persistNavigation]);
+  }, [persistNavigation, trackPersonalStorageWrite]);
 
   useEffect(() => {
     let disposed = false;
@@ -1384,10 +1507,11 @@ export default function App() {
   }, [enqueueRouteState, online, savedRouteSet, selectedRouteId]);
 
   async function toggleVenue(snapshot: SavedVenueSnapshot) {
-    if (storageMutationActive.current) return;
+    if (privacyDeletionActive.current || storageMutationActive.current) return;
     storageMutationActive.current = true;
     setStorageWriteFailed(false);
     const id = snapshot.venue.id;
+    const syncId = snapshot.venue.slug;
     const removing = savedVenueSet.has(id);
     try {
       const persisted = await enqueueVenueState((current) => {
@@ -1401,9 +1525,9 @@ export default function App() {
       });
       if (persisted) await queueMutation({
         entityType: "saved",
-        entityId: id,
+        entityId: syncId,
         operation: removing ? "remove" : "save",
-        payload: { entityType: "place", entityId: id },
+        payload: { entityType: "place", entityId: syncId },
       });
     } finally {
       storageMutationActive.current = false;
@@ -1411,7 +1535,7 @@ export default function App() {
   }
 
   async function toggleRoute(id: string) {
-    if (storageMutationActive.current) return;
+    if (privacyDeletionActive.current || storageMutationActive.current) return;
     storageMutationActive.current = true;
     setStorageWriteFailed(false);
     const loadedSnapshot = loadedRouteDetail?.route.id === id ? loadedRouteDetail : null;
@@ -1434,6 +1558,7 @@ export default function App() {
   }
 
   function chooseSurface(next: MobileSurface) {
+    if (privacyDeletionActive.current) return;
     const navigation = {
       ...navigationSnapshotRef.current,
       surface: next,
@@ -1446,11 +1571,12 @@ export default function App() {
     setSelectedVenueId(null);
     setSelectedRouteId(null);
     window.scrollTo({ top: 0, behavior: "auto" });
-    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
+    void trackPersonalStorageWrite(() => writeNavigationState(navigation))
+      .catch(() => setStorageWriteFailed(true));
   }
 
   function openVenue(id: string) {
-    if (!venueSnapshotsById.has(id)) return;
+    if (privacyDeletionActive.current || !venueSnapshotsById.has(id)) return;
     const navigation = {
       ...navigationSnapshotRef.current,
       selectedVenueId: id,
@@ -1461,10 +1587,12 @@ export default function App() {
     setSelectedRouteId(null);
     setSelectedVenueId(id);
     window.scrollTo({ top: 0, behavior: "auto" });
-    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
+    void trackPersonalStorageWrite(() => writeNavigationState(navigation))
+      .catch(() => setStorageWriteFailed(true));
   }
 
   function changeDiscoveryIndex(index: number) {
+    if (privacyDeletionActive.current) return;
     const next = Math.min(
       Math.max(0, Math.trunc(index)),
       Math.max(0, sharedCandidateUniverse.length - 1),
@@ -1487,56 +1615,73 @@ export default function App() {
         updatedAt: new Date().toISOString(),
       };
       feedResumeRef.current = resume;
-      void writeFeedResumeSnapshot(resume).catch(() => setStorageWriteFailed(true));
+      void trackPersonalStorageWrite(() => writeFeedResumeSnapshot(resume))
+        .catch(() => setStorageWriteFailed(true));
     }
-    void writeNavigationState({
+    void trackPersonalStorageWrite(() => writeNavigationState({
       ...navigationSnapshotRef.current,
       scrollY: Math.max(0, window.scrollY),
-    }).catch(() => setStorageWriteFailed(true));
+    })).catch(() => setStorageWriteFailed(true));
   }
 
   async function addToToday(snapshot: SavedVenueSnapshot) {
-    setStorageWriteFailed(false);
-    const ids = todayVenueIds.includes(snapshot.venue.id)
-      ? todayVenueIds
-      : [...todayVenueIds, snapshot.venue.id];
-    const snapshots = [
-      ...todayVenueSnapshots.filter((item) => item.venue.id !== snapshot.venue.id),
-      snapshot,
-    ];
-    try {
-      await writeTodayVenueState(ids, snapshots);
-      setTodayVenueIds(ids);
-      setTodayVenueSnapshots(snapshots);
-      setSelectionNotice(`${snapshot.venue.name} was added to Today and is available offline on this device.`);
-      await queueMutation({
-        entityType: "trip_stop",
-        entityId: snapshot.venue.id,
-        operation: "add_to_day",
-        payload: { entityType: "place", day: "today" },
-      });
-    } catch {
-      setStorageWriteFailed(true);
+    if (privacyDeletionActive.current) {
+      setSelectionNotice("Finish the pending privacy cleanup before changing Today.");
+      return;
     }
+    const tracked = personalWriteBarrier.run(async () => {
+      setStorageWriteFailed(false);
+      const ids = todayVenueIds.includes(snapshot.venue.id)
+        ? todayVenueIds
+        : [...todayVenueIds, snapshot.venue.id];
+      const snapshots = [
+        ...todayVenueSnapshots.filter((item) => item.venue.id !== snapshot.venue.id),
+        snapshot,
+      ];
+      try {
+        await writeTodayVenueState(ids, snapshots);
+        if (privacyDeletionActive.current) return;
+        setTodayVenueIds(ids);
+        setTodayVenueSnapshots(snapshots);
+        setSelectionNotice(`${snapshot.venue.name} was added to Today and is available offline on this device.`);
+        await queueMutation({
+          entityType: "trip_stop",
+          entityId: snapshot.venue.slug,
+          operation: "add_to_day",
+          payload: { entityType: "place", day: "today" },
+        });
+      } catch {
+        setStorageWriteFailed(true);
+      }
+    });
+    if (tracked) await tracked;
   }
 
   async function persistTrip(next: Trip) {
-    setStorageWriteFailed(false);
-    try {
-      await writeTrip(next);
-      setTrip(next);
-      setTripDayIndex((current) => Math.min(current, next.days.length - 1));
-      await queueMutation({
-        entityType: "trip_stop",
-        entityId: next.id,
-        operation: "trip_replace",
-        payload: { trip: next },
-      });
-      return true;
-    } catch {
-      setStorageWriteFailed(true);
+    if (privacyDeletionActive.current) {
+      setSelectionNotice("Finish the pending privacy cleanup before changing Trip.");
       return false;
     }
+    const tracked = personalWriteBarrier.run(async () => {
+      setStorageWriteFailed(false);
+      try {
+        await writeTrip(next);
+        if (privacyDeletionActive.current) return false;
+        setTrip(next);
+        setTripDayIndex((current) => Math.min(current, next.days.length - 1));
+        await queueMutation({
+          entityType: "trip_stop",
+          entityId: next.id,
+          operation: "trip_replace",
+          payload: { trip: next },
+        });
+        return true;
+      } catch {
+        setStorageWriteFailed(true);
+        return false;
+      }
+    });
+    return tracked ? await tracked : false;
   }
 
   async function addToTrip(snapshot: SavedVenueSnapshot) {
@@ -1584,29 +1729,37 @@ export default function App() {
   }
 
   async function addEventToToday(event: MobileEventOccurrence) {
-    if (!isEventUsable(event)) {
-      setSelectionNotice("This event is no longer active and was not added.");
+    if (privacyDeletionActive.current) {
+      setSelectionNotice("Finish the pending privacy cleanup before changing Today.");
       return;
     }
-    const ids = todayEventIds.includes(event.id) ? todayEventIds : [...todayEventIds, event.id];
-    const occurrences = [
-      ...todayEventOccurrences.filter((item) => item.id !== event.id),
-      event,
-    ];
-    try {
-      await writeTodayEventState(ids, occurrences);
-      setTodayEventIds(ids);
-      setTodayEventOccurrences(occurrences);
-      setSelectionNotice(`${event.title} was added to Today and cached on this device.`);
-      await queueMutation({
-        entityType: "trip_stop",
-        entityId: event.id,
-        operation: "add_to_day",
-        payload: { entityType: "event_occurrence", day: "today" },
-      });
-    } catch {
-      setStorageWriteFailed(true);
-    }
+    const tracked = personalWriteBarrier.run(async () => {
+      if (!isEventUsable(event)) {
+        setSelectionNotice("This event is no longer active and was not added.");
+        return;
+      }
+      const ids = todayEventIds.includes(event.id) ? todayEventIds : [...todayEventIds, event.id];
+      const occurrences = [
+        ...todayEventOccurrences.filter((item) => item.id !== event.id),
+        event,
+      ];
+      try {
+        await writeTodayEventState(ids, occurrences);
+        if (privacyDeletionActive.current) return;
+        setTodayEventIds(ids);
+        setTodayEventOccurrences(occurrences);
+        setSelectionNotice(`${event.title} was added to Today and cached on this device.`);
+        await queueMutation({
+          entityType: "trip_stop",
+          entityId: event.id,
+          operation: "add_to_day",
+          payload: { entityType: "event_occurrence", day: "today" },
+        });
+      } catch {
+        setStorageWriteFailed(true);
+      }
+    });
+    if (tracked) await tracked;
   }
 
   async function addEventToTrip(event: MobileEventOccurrence) {
@@ -1624,6 +1777,10 @@ export default function App() {
 
   async function goNow(snapshot: SavedVenueSnapshot) {
     setSelectionNotice(null);
+    if (privacyDeletionActive.current) {
+      setSelectionNotice("Finish the pending privacy cleanup before starting directions.");
+      return;
+    }
     if (!online) {
       setSelectionNotice("Go now requires internet in this Level 1 offline build.");
       return;
@@ -1639,15 +1796,28 @@ export default function App() {
         sourceSurface: surface,
         mode: "external_maps",
       });
-      await writeNavigationSession(session);
-      navigationSessionRef.current = session;
-      setNavigationSession(session);
+      const initialWrite = personalWriteBarrier.run(async () => {
+        await writeNavigationSession(session);
+        if (privacyDeletionActive.current) return false;
+        navigationSessionRef.current = session;
+        setNavigationSession(session);
+        return true;
+      });
+      if (!initialWrite || !await initialWrite) return;
       const opened = await openExternal(venue.mapsUrl, "google_maps");
-      if (!opened && navigationSessionRef.current?.id === session.id) {
+      if (
+        !opened
+        && !privacyDeletionActive.current
+        && navigationSessionRef.current?.id === session.id
+      ) {
         const failed = transitionNavigationSession(session, "failed");
-        navigationSessionRef.current = failed;
-        setNavigationSession(failed);
-        await writeNavigationSession(failed);
+        const failedWrite = personalWriteBarrier.run(async () => {
+          await writeNavigationSession(failed);
+          if (privacyDeletionActive.current) return;
+          navigationSessionRef.current = failed;
+          setNavigationSession(failed);
+        });
+        if (failedWrite) await failedWrite;
       }
     } catch {
       setSelectionNotice("Exact directions are unavailable. No generic or unverified destination was opened.");
@@ -1669,6 +1839,7 @@ export default function App() {
   }
 
   function openRoute(id: string) {
+    if (privacyDeletionActive.current) return;
     const navigation = {
       ...navigationSnapshotRef.current,
       selectedVenueId: null,
@@ -1679,7 +1850,8 @@ export default function App() {
     setSelectedVenueId(null);
     setSelectedRouteId(id);
     window.scrollTo({ top: 0, behavior: "auto" });
-    void writeNavigationState(navigation).catch(() => setStorageWriteFailed(true));
+    void trackPersonalStorageWrite(() => writeNavigationState(navigation))
+      .catch(() => setStorageWriteFailed(true));
   }
 
   async function openExternal(url: string, kind: ExternalLinkKind, allowedHosts?: readonly string[]) {
@@ -1693,27 +1865,156 @@ export default function App() {
   }
 
   function changeCompanionArea(area: string | null) {
+    if (privacyDeletionActive.current) return;
     setCompanionArea(area);
     navigationSnapshotRef.current = { ...navigationSnapshotRef.current, companionArea: area };
-    void writeNavigationState({
+    void trackPersonalStorageWrite(() => writeNavigationState({
       ...navigationSnapshotRef.current,
       scrollY: Math.max(0, window.scrollY),
-    }).catch(() => setStorageWriteFailed(true));
+    })).catch(() => setStorageWriteFailed(true));
   }
 
   function completeNavigationSession() {
+    if (privacyDeletionActive.current) return;
     const current = navigationSessionRef.current;
     if (!current || current.state !== "returned") return;
     const completed = transitionNavigationSession(current, "completed");
-    navigationSessionRef.current = completed;
-    setNavigationSession(completed);
-    void writeNavigationSession(completed).catch(() => setStorageWriteFailed(true));
+    const tracked = personalWriteBarrier.run(async () => {
+      await writeNavigationSession(completed);
+      if (privacyDeletionActive.current) return;
+      navigationSessionRef.current = completed;
+      setNavigationSession(completed);
+    });
+    if (tracked) void tracked.catch(() => setStorageWriteFailed(true));
   }
 
   async function shareTarget(target: MobileDeepLinkTarget, title: string) {
     setShareFailed(false);
     await persistNavigation();
     setShareFailed(!await shareMobileTarget(target, title));
+  }
+
+  async function copyGuestReference() {
+    if (!guestReference) return;
+    try {
+      await copyTextToClipboard(guestReference);
+      setSelectionNotice("Anonymous guest reference copied.");
+    } catch {
+      setSelectionNotice("This device could not copy the guest reference. You can select it manually.");
+    }
+  }
+
+  function quarantinePersonalStateInMemory() {
+    pendingSyncRef.current = [];
+    setPendingSyncCount(0);
+    setSyncFailed(false);
+    persistedVenueState.current = { ids: [], snapshots: [] };
+    persistedRouteState.current = { ids: [], snapshots: [] };
+    navigationSessionRef.current = null;
+    feedResumeRef.current = null;
+    feedSessionIdRef.current = crypto.randomUUID();
+    setSavedVenueIds([]);
+    setSavedRouteIds([]);
+    setSavedVenueSnapshots([]);
+    setSavedRouteSnapshots([]);
+    setTodayVenueIds([]);
+    setTodayVenueSnapshots([]);
+    setTodayEventIds([]);
+    setTodayEventOccurrences([]);
+    setTrip(null);
+    setTripDayIndex(0);
+    setNavigationSession(null);
+    setCompanionArea(null);
+    setSelectedVenueId(null);
+    setSelectedRouteId(null);
+    setDiscoveryIndex(0);
+    navigationSnapshotRef.current = {
+      ...DEFAULT_NAVIGATION_STATE,
+      surface: "saved",
+    };
+  }
+
+  async function deleteSyncedAndLocalPersonalData() {
+    if (privacyDeletePending) return;
+    setPrivacyDeleteError(null);
+    const existingQuarantine = privacyDeletionQuarantineRef.current;
+    if (!online && existingQuarantine !== "server_confirmed") {
+      setPrivacyDeleteError(privacyDeletionActive.current
+        ? "Local privacy cleanup is still incomplete. Sync and personal changes remain paused; reconnect and retry."
+        : "Connect to the internet to delete synced data. Nothing was deleted.");
+      return;
+    }
+
+    const alreadyQuarantined = existingQuarantine !== null || privacyDeletionActive.current;
+    const deletionWriteGeneration = personalWriteBarrier.block();
+    privacyDeletionActive.current = true;
+    storageMutationActive.current = true;
+    syncAbortController.current?.abort();
+    setPrivacyDeletePending(true);
+    let serverDeletionConfirmed = existingQuarantine === "server_confirmed";
+    let localCleanupConfirmed = false;
+    let safeRollbackConfirmed = false;
+    try {
+      if (!existingQuarantine) {
+        await writePrivacyDeletionQuarantine("pending_server");
+        privacyDeletionQuarantineRef.current = "pending_server";
+        setPrivacyDeletionQuarantinePhase("pending_server");
+      }
+      await personalWriteBarrier.waitForSettled();
+      if (!serverDeletionConfirmed) {
+        await requestSyncedDataDeletion();
+        serverDeletionConfirmed = true;
+        await writePrivacyDeletionQuarantine("server_confirmed");
+        privacyDeletionQuarantineRef.current = "server_confirmed";
+        setPrivacyDeletionQuarantinePhase("server_confirmed");
+      }
+
+      // The cloud deletion is now authoritative. Quarantine the pre-deletion
+      // queue and its in-memory surfaces before any fallible device cleanup so
+      // an error can never replay deleted state into the same guest scope.
+      quarantinePersonalStateInMemory();
+
+      await clearMobilePersonalData();
+      quarantinePersonalStateInMemory();
+      await deleteGuestIdentity();
+      setGuestReference(null);
+      const nextIdentity = await getOrCreateGuestIdentity();
+      await clearPrivacyDeletionQuarantine();
+      privacyDeletionQuarantineRef.current = null;
+      setPrivacyDeletionQuarantinePhase(null);
+      localCleanupConfirmed = true;
+      setGuestReference(nextIdentity);
+      setGuestReferenceUnavailable(false);
+      setPrivacyDeleteConfirming(false);
+      setSelectionNotice(
+        "Synced data and your saved personal plans were deleted. Public guide caches and offline map downloads remain.",
+      );
+    } catch {
+      if (!serverDeletionConfirmed && !alreadyQuarantined) {
+        try {
+          await clearPrivacyDeletionQuarantine();
+          privacyDeletionQuarantineRef.current = null;
+          setPrivacyDeletionQuarantinePhase(null);
+          safeRollbackConfirmed = true;
+        } catch {
+          // The durable marker could not be removed. Keep the app quarantined
+          // so a relaunch cannot hydrate or sync stale personal state.
+        }
+      }
+      setPrivacyDeleteError(serverDeletionConfirmed
+        ? "Synced data was deleted, but this device could not clear every local copy. Sync and personal changes are paused; tap Retry cleanup."
+        : alreadyQuarantined || !safeRollbackConfirmed
+          ? "Local privacy cleanup is still incomplete. Sync and personal changes remain paused; reconnect and retry."
+          : "Synced data could not be deleted. Nothing on this device was cleared.");
+    } finally {
+      if (serverDeletionConfirmed) quarantinePersonalStateInMemory();
+      if (safeRollbackConfirmed || localCleanupConfirmed) {
+        privacyDeletionActive.current = false;
+        storageMutationActive.current = false;
+        personalWriteBarrier.release(deletionWriteGeneration);
+      }
+      setPrivacyDeletePending(false);
+    }
   }
 
   if (!storageReady) {
@@ -1740,15 +2041,11 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="hero">
-        <p className="eyebrow">Other Bali</p>
+        <p className="eyebrow">Discover Bali together</p>
         <h1>The right place for the moment you’re in.</h1>
-        <p className="hero-copy">Resident-curated places and routes, with clear handoffs when you’re ready to go.</p>
-        <div className="hero-media" aria-label="Other Bali editorial film">
-          <video autoPlay muted loop playsInline poster={editorialHeroPosterUrl} preload="metadata">
-            <source src={editorialHeroVideoUrl} type="video/mp4" />
-          </video>
-          <span>Other Bali editorial film · area mood, not a live venue view</span>
-        </div>
+        <p className="hero-copy">
+          Resident-curated places, routes and plans for every Bali moment. Less searching. More Bali.
+        </p>
         <div className="status-row" aria-live="polite">
           <span className={online ? "status online" : "status offline"}>{online ? "Online" : "Offline · cached data"}</span>
           {bootstrap ? <span>Updated {formatUpdatedAt(bootstrap.updatedAt)}</span> : null}
@@ -1764,7 +2061,6 @@ export default function App() {
             This device could not persist that change, so the saved/offline state was not updated.
           </p>
         ) : null}
-        {selectionNotice ? <p className="notice" role="status">{selectionNotice}</p> : null}
         {navigationSession && !["failed", "completed"].includes(navigationSession.state) ? (
           <section className="navigation-session" aria-live="polite">
             <p className="eyebrow">Integrated navigation</p>
@@ -1781,19 +2077,31 @@ export default function App() {
         ) : null}
       </header>
 
-      <nav className="tabs" aria-label="Guide sections">
-        {([
-          ["places", "Discover"],
-          ["today", "Today"],
-          ["routes", "Trip"],
-          ["events", "What’s On"],
-          ["saved", "My Bali"],
-        ] as const).map(([item, label]) => (
-          <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
-            {label}
-          </button>
-        ))}
-      </nav>
+      <div className="sticky-navigation">
+        <nav className="tabs" aria-label="Guide sections">
+          {([
+            ["places", "Discover"],
+            ["today", "Today"],
+            ["routes", "Trip"],
+            ["events", "What’s On"],
+            ["saved", "My Bali"],
+          ] as const).map(([item, label]) => (
+            <button key={item} type="button" aria-pressed={surface === item} onClick={() => chooseSurface(item)}>
+              {label}
+            </button>
+          ))}
+        </nav>
+        {selectionNotice ? (
+          <p
+            className="action-feedback"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {selectionNotice}
+          </p>
+        ) : null}
+      </div>
 
       <main id="main-content">
         {selectedVenue ? (
@@ -2083,14 +2391,98 @@ export default function App() {
 
             {surface === "saved"
               ? (
-                <OfflineBaliManager
-                  manifest={offlineBaliManifest}
-                  online={online}
-                  packs={offlinePacks}
-                  onDownload={(region) => void downloadOfflineRegion(region)}
-                  onRemove={(regionId) => void removeOfflineRegion(regionId)}
-                  onOpen={(regionId) => void defaultOfflineMapRuntime.open(regionId)}
-                />
+                <>
+                  <OfflineBaliManager
+                    manifest={offlineBaliManifest}
+                    online={online}
+                    packs={offlinePacks}
+                    onDownload={(region) => void downloadOfflineRegion(region)}
+                    onRemove={(regionId) => void removeOfflineRegion(regionId)}
+                    onOpen={(regionId) => void defaultOfflineMapRuntime.open(regionId)}
+                  />
+                  <section className="privacy-controls" aria-labelledby="privacy-controls-title">
+                    <p className="eyebrow">Privacy & device data</p>
+                    <h3 id="privacy-controls-title">Your synced plans</h3>
+                    <p>
+                      Other Bali uses a random app identifier to sync Saved, Today and Trip changes.
+                      No account is required.
+                    </p>
+                    <div className="guest-reference">
+                      <span>Anonymous Guest Reference</span>
+                      {guestReference ? (
+                        <>
+                          <code>{guestReference}</code>
+                          <button type="button" onClick={() => void copyGuestReference()}>
+                            Copy
+                          </button>
+                        </>
+                      ) : (
+                        <span>{guestReferenceUnavailable ? "Unavailable on this device" : "Loading…"}</span>
+                      )}
+                    </div>
+                    <p className="guest-reference-help">
+                      Share this code with support when asking us to locate synced data.
+                      Save it before uninstalling if you may need help later.
+                    </p>
+                    {!privacyDeleteConfirming ? (
+                      <button
+                        className="delete-data-button"
+                        type="button"
+                        disabled={privacyDeletePending}
+                        onClick={() => {
+                          setPrivacyDeleteError(null);
+                          setPrivacyDeleteConfirming(true);
+                        }}
+                      >
+                        Delete synced data
+                      </button>
+                    ) : (
+                      <div
+                        className="delete-confirmation"
+                        role="alertdialog"
+                        aria-modal="false"
+                        aria-labelledby="delete-confirmation-title"
+                      >
+                        <strong id="delete-confirmation-title">
+                          {privacyDeletionQuarantinePhase
+                            ? "Finish the interrupted privacy cleanup?"
+                            : "Delete synced data and personal plans from this device?"}
+                        </strong>
+                        <p>
+                          Saved places, Today, Trip, notes, visited states and pending sync changes
+                          will be removed. Public guide caches and offline map downloads will remain.
+                        </p>
+                        <div>
+                          <button
+                            type="button"
+                            disabled={privacyDeletePending || privacyDeletionQuarantinePhase !== null}
+                            onClick={() => {
+                              setPrivacyDeleteConfirming(false);
+                              setPrivacyDeleteError(null);
+                            }}
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            className="delete-data-button"
+                            type="button"
+                            disabled={privacyDeletePending}
+                            onClick={() => void deleteSyncedAndLocalPersonalData()}
+                          >
+                            {privacyDeletePending
+                              ? "Deleting…"
+                              : privacyDeletionQuarantinePhase
+                                ? "Retry cleanup"
+                                : "Confirm deletion"}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                    {privacyDeleteError ? (
+                      <p className="delete-error" role="alert">{privacyDeleteError}</p>
+                    ) : null}
+                  </section>
+                </>
               )
               : null}
 

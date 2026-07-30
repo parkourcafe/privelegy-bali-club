@@ -408,6 +408,7 @@ export default async function VenuePage({
     ) ? "active_deep" : isUbud ? "next_deep" : "planning_only",
     capabilities: published ? detailExtension.actionCapabilities : [],
     tablepilotBaseUrl: safeTablePilotPublicBase({
+      enabled: process.env.NEXT_PUBLIC_TABLEPILOT_ENABLED,
       vercelEnv: process.env.VERCEL_ENV,
       configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
     }),

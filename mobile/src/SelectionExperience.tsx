@@ -2,7 +2,6 @@ import { useMemo, useRef, useState } from "react";
 import { nearestArea } from "../../lib/day-builder";
 import type { MobileDecisionResult, MobileFeedCard } from "./api";
 import type { SavedVenueSnapshot } from "./storage";
-import { editorialImageUrl } from "./editorial-media";
 import {
   EMPTY_DECISION_INPUTS,
   decisionRequestReady,
@@ -81,7 +80,6 @@ function DiscoverCard({
     freshnessLabel: feedCard.freshness,
     mediaCount: feedCard.venue.photoUrl ? 1 : 0,
   } : toDiscoveryCards([snapshot.venue], updatedAt)[0]!;
-  const imageUrl = snapshot.venue.photoUrl ?? editorialImageUrl(snapshot.venue);
   return (
     <article
       className={`discover-card${swipeMode ? " swipe-card" : ""}`}
@@ -103,18 +101,18 @@ function DiscoverCard({
       onPointerCancel={() => { pointerStart.current = null; }}
     >
       {swipeMode ? <p className="swipe-hint" aria-live="polite">Swipe left to skip · right to save · up to add to today</p> : null}
-      <div className="discover-media">
-        {imageUrl ? (
+      <div className={`discover-media${snapshot.venue.photoUrl ? "" : " missing-media"}`}>
+        {snapshot.venue.photoUrl ? (
           // Capacitor bundles this React shell directly; Next/Image is not available in this runtime.
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={imageUrl} alt="" />
+          <img src={snapshot.venue.photoUrl} alt="" />
         ) : (
           <div className="media-fallback" role="img" aria-label={`No published venue media for ${snapshot.venue.name}`}>
             Other Bali editorial guide
           </div>
         )}
-        <span className="media-count" aria-label={card.mediaCount ? "Published venue photo" : "Editorial area image"}>
-          {card.mediaCount ? "Venue photo" : "Area mood"}
+        <span className="media-count" aria-label={`${card.mediaCount} published images`}>
+          {card.mediaCount ? `${card.mediaCount} photo` : "No venue photo"}
         </span>
       </div>
       <div className="discover-copy">
@@ -127,7 +125,7 @@ function DiscoverCard({
         </ul>
         <p className="reason-shown"><strong>Why you’re seeing this</strong><br />{card.reasonShown}</p>
         <p className="freshness-label">{online ? card.freshnessLabel : `Offline · ${card.freshnessLabel}`}</p>
-        <p className="truth-note">Image shows the wider area mood, not the named venue. Travel time and opening state are hidden until a fresh verified source is available.</p>
+        <p className="truth-note">Travel time and opening state are hidden until a fresh verified source is available.</p>
       </div>
       <div className="quick-actions" aria-label={`Actions for ${snapshot.venue.name}`}>
         <button type="button" aria-pressed={saved} onClick={onToggleSave}>{saved ? "Saved" : "Save"}</button>

@@ -12,6 +12,10 @@ import {
   parseOfflineBaliManifest,
   type OfflineBaliManifest,
 } from "../../lib/journey/offline-bali";
+import {
+  GUEST_IDENTITY_PATTERN,
+  getOrCreateGuestIdentity,
+} from "./guest-identity";
 
 export const MOBILE_API_ORIGIN = __MOBILE_API_ORIGIN__;
 export const MOBILE_API_TIMEOUT_MS = 12_000;
@@ -76,6 +80,42 @@ const MOBILE_HEADERS = {
   Accept: "application/json",
   "X-Other-Bali-Mobile-Shell": __MOBILE_SHELL_VERSION__,
 };
+
+export type GuestIdentityProvider = () => Promise<string>;
+
+const DECISION_CONTEXT_FIELDS = [
+  "area",
+  "company",
+  "moment",
+  "budget",
+  "ending",
+] as const;
+
+function safeDecisionContext(context: Record<string, string>): Record<string, string> {
+  const safe: Record<string, string> = {};
+  for (const field of DECISION_CONTEXT_FIELDS) {
+    const value = context[field];
+    if (typeof value === "string" && value.length <= 160) safe[field] = value;
+  }
+  return safe;
+}
+
+function containsPreciseLocation(value: unknown): boolean {
+  if (!value || typeof value !== "object") return false;
+  if (Array.isArray(value)) return value.some(containsPreciseLocation);
+  return Object.entries(value).some(([key, entry]) => (
+    /^(?:lat|latitude|lon|lng|longitude|coord|coords|coordinate|coordinates)$/i.test(key)
+    || containsPreciseLocation(entry)
+  ));
+}
+
+async function guestIdentityHeader(
+  provider: GuestIdentityProvider,
+): Promise<{ "X-Other-Bali-Guest": string }> {
+  const identity = await provider();
+  if (!GUEST_IDENTITY_PATTERN.test(identity)) throw new Error("Invalid guest identity");
+  return { "X-Other-Bali-Guest": identity };
+}
 
 function abortError(): DOMException {
   return new DOMException("The operation was aborted.", "AbortError");
@@ -173,16 +213,19 @@ export function parseDecisionResponse(value: unknown): MobileDecisionResult {
 export async function createDecision(
   context: Record<string, string>,
   signal?: AbortSignal,
+  identityProvider: GuestIdentityProvider = getOrCreateGuestIdentity,
 ): Promise<MobileDecisionResult> {
+  const guestHeader = await guestIdentityHeader(identityProvider);
   const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/decisions`, {
     method: "POST",
     credentials: "include",
     headers: {
       ...MOBILE_HEADERS,
+      ...guestHeader,
       "Content-Type": "application/json",
       "Idempotency-Key": crypto.randomUUID(),
     },
-    body: JSON.stringify({ context }),
+    body: JSON.stringify({ context: safeDecisionContext(context) }),
     signal,
   });
   if (!response.ok) throw new Error(`Decision request failed with ${response.status}`);
@@ -396,22 +439,60 @@ export async function fetchOfflineBaliManifest(
 export async function pushSyncMutation(
   mutation: SyncMutation,
   signal?: AbortSignal,
+  identityProvider: GuestIdentityProvider = getOrCreateGuestIdentity,
 ): Promise<unknown> {
+  const { idempotencyKey, ...input } = mutation;
+  if (containsPreciseLocation(input)) {
+    throw new Error("Precise location is not allowed in sync payloads");
+  }
+  const guestHeader = await guestIdentityHeader(identityProvider);
   const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/sync`, {
     method: "POST",
     credentials: "include",
     headers: {
       ...MOBILE_HEADERS,
+      ...guestHeader,
       "Content-Type": "application/json",
-      "Idempotency-Key": mutation.idempotencyKey,
+      "Idempotency-Key": idempotencyKey,
     },
-    body: JSON.stringify({ input: mutation }),
+    body: JSON.stringify({ input }),
     signal,
   });
   if (!response.ok) throw new Error(`Sync request failed with ${response.status}`);
   const value = await response.json() as { data?: unknown };
   if (value.data === undefined) throw new Error("Sync mutation acknowledgement was missing");
   return value.data;
+}
+
+export async function deleteSyncedData(
+  signal?: AbortSignal,
+  identityProvider: GuestIdentityProvider = getOrCreateGuestIdentity,
+): Promise<void> {
+  const guestHeader = await guestIdentityHeader(identityProvider);
+  const response = await fetch(`${MOBILE_API_ORIGIN}/api/mobile/v1/privacy`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+      ...MOBILE_HEADERS,
+      ...guestHeader,
+    },
+    signal,
+  });
+  if (!response.ok) throw new Error(`Privacy deletion request failed with ${response.status}`);
+  let confirmation: unknown;
+  try {
+    confirmation = await response.json();
+  } catch {
+    throw new Error("Privacy deletion response did not confirm success");
+  }
+  if (
+    !confirmation
+    || typeof confirmation !== "object"
+    || Array.isArray(confirmation)
+    || (confirmation as Record<string, unknown>).ok !== true
+  ) {
+    throw new Error("Privacy deletion response did not confirm success");
+  }
 }
 
 export async function fetchBootstrap(signal?: AbortSignal): Promise<MobileBootstrapPayload> {

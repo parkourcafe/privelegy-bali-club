@@ -10,6 +10,13 @@ Brand voice in one line: **The right place for the moment you're in.** We are th
 knowledgeable local friend — specific, honest, calm. Not a hype blog, not a
 brochure, not an SEO robot.
 
+Campaign line: **Discover Bali together.** Here, `together` means choosing,
+sharing and planning with people the traveller already knows; it never means
+friend finding, people search, social matching, following, chat or dating.
+Product proof is **Resident-curated places, routes and plans for every Bali
+moment.** The short outcome line is **Less searching. More Bali.** See
+`docs/canon/OTHER_BALI_MESSAGING_SYSTEM.md`.
+
 ---
 
 ## 1. The non-negotiables (guardrails, first)

@@ -2,10 +2,15 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
+  clearMobilePersonalData,
+  clearPrivacyDeletionQuarantine,
   hydrateMobileStorage,
+  MOBILE_PERSONAL_STORAGE_KEYS,
   MOBILE_STORAGE_KEYS,
+  readPrivacyDeletionQuarantine,
   writeNavigationState,
   writeOfflinePackStates,
+  writePendingSync,
   writeNavigationSession,
   writeEventsSnapshot,
   writeSavedRouteIds,
@@ -15,6 +20,7 @@ import {
   writeTodayVenueState,
   writeTodayEventState,
   writeTrip,
+  writePrivacyDeletionQuarantine,
   writeSavedVenueSnapshots,
   type PreferenceStore,
 } from "../mobile/src/storage";
@@ -534,4 +540,180 @@ test("Today snapshots and Discover cursor survive restart without precise locati
   assert.equal(hydrated.todayVenueSnapshots[0]?.venue.slug, "sample-cafe");
   assert.equal(hydrated.navigation.discoveryIndex, 7);
   assert.doesNotMatch(preferences.values.get(MOBILE_STORAGE_KEYS.navigation) ?? "", /latitude|longitude|coords/);
+});
+
+test("privacy deletion clears personal state without deleting public caches or offline maps", async () => {
+  const preferences = new MemoryPreferences();
+  const legacyStorage = new MemoryStorage();
+  const options = { preferences, legacyStorage };
+
+  for (const key of MOBILE_PERSONAL_STORAGE_KEYS) {
+    preferences.values.set(key, `native:${key}`);
+    legacyStorage.setItem(key, `legacy:${key}`);
+    legacyStorage.setItem(`${key}.pending-write-v1`, `pending:${key}`);
+  }
+  preferences.values.set(MOBILE_STORAGE_KEYS.bootstrap, "public-bootstrap");
+  preferences.values.set(MOBILE_STORAGE_KEYS.eventsSnapshot, "public-events");
+  preferences.values.set(MOBILE_STORAGE_KEYS.offlinePacks, "offline-map-downloads");
+
+  await clearMobilePersonalData(options);
+
+  for (const key of MOBILE_PERSONAL_STORAGE_KEYS) {
+    assert.equal(preferences.values.has(key), false, `${key} removed from Preferences`);
+    assert.equal(legacyStorage.getItem(key), null, `${key} removed from legacy storage`);
+    assert.equal(
+      legacyStorage.getItem(`${key}.pending-write-v1`),
+      null,
+      `${key} pending fallback removed`,
+    );
+  }
+  assert.equal(preferences.values.get(MOBILE_STORAGE_KEYS.bootstrap), "public-bootstrap");
+  assert.equal(preferences.values.get(MOBILE_STORAGE_KEYS.eventsSnapshot), "public-events");
+  assert.equal(preferences.values.get(MOBILE_STORAGE_KEYS.offlinePacks), "offline-map-downloads");
+});
+
+test("privacy cleanup still discards the durable sync queue when another key fails", async () => {
+  const values = new Map<string, string>(
+    MOBILE_PERSONAL_STORAGE_KEYS.map((key) => [key, `value:${key}`]),
+  );
+  const preferences: PreferenceStore = {
+    async get({ key }) { return { value: values.get(key) ?? null }; },
+    async set({ key, value }) { values.set(key, value); },
+    async remove({ key }) {
+      if (key === MOBILE_STORAGE_KEYS.savedVenueState) {
+        throw new Error("simulated saved-state removal failure");
+      }
+      values.delete(key);
+    },
+  };
+
+  await assert.rejects(
+    clearMobilePersonalData({ preferences, legacyStorage: null }),
+    /mobile_personal_data_clear_failed/,
+  );
+  assert.equal(
+    values.has(MOBILE_STORAGE_KEYS.pendingSync),
+    false,
+    "cleanup must attempt and remove pending sync even when an unrelated key fails",
+  );
+  assert.equal(values.has(MOBILE_STORAGE_KEYS.savedVenueState), true);
+});
+
+test("a persisted deletion quarantine suppresses stale personal hydration across relaunch", async () => {
+  const preferences = new MemoryPreferences();
+  const legacyStorage = new MemoryStorage();
+  const options = { preferences, legacyStorage };
+  const trip = addTripStop(createEmptyTrip(3, "2026-08-01"), 0, "place", savedSnapshot.venue.id);
+
+  await writeSavedVenueState([savedSnapshot.venue.id], [savedSnapshot], options);
+  await writeTodayVenueState([savedSnapshot.venue.id], [savedSnapshot], options);
+  await writeTrip(trip, options);
+  await writePendingSync([{
+    idempotencyKey: "pending-before-delete",
+    entityType: "saved",
+    entityId: savedSnapshot.venue.slug,
+    operation: "save",
+    payload: { saved: true },
+    baseVersion: null,
+    createdAt: "2026-07-30T10:00:00.000Z",
+  }], options);
+  await writeNavigationState({
+    surface: "today",
+    selectedVenueId: savedSnapshot.venue.id,
+    selectedRouteId: null,
+    scrollY: 200,
+    discoveryIndex: 4,
+  }, options);
+  await writePrivacyDeletionQuarantine("pending_server", options);
+
+  const relaunched = await hydrateMobileStorage(options);
+  assert.equal(relaunched.privacyDeletionQuarantine, "pending_server");
+  assert.deepEqual(relaunched.savedVenueIds, []);
+  assert.deepEqual(relaunched.todayVenueIds, []);
+  assert.equal(relaunched.trip, null);
+  assert.deepEqual(relaunched.pendingSync, []);
+  assert.deepEqual(relaunched.navigation, {
+    surface: "places",
+    selectedVenueId: null,
+    selectedRouteId: null,
+    scrollY: 0,
+    discoveryIndex: 0,
+  });
+  assert.equal(
+    preferences.values.has(MOBILE_STORAGE_KEYS.savedVenueState),
+    true,
+    "quarantine hides stale state without treating an interrupted cleanup as successful",
+  );
+
+  await clearPrivacyDeletionQuarantine(options);
+  assert.equal(await readPrivacyDeletionQuarantine(options), null);
+  const rolledBack = await hydrateMobileStorage(options);
+  assert.deepEqual(rolledBack.savedVenueIds, [savedSnapshot.venue.id]);
+  assert.equal(rolledBack.pendingSync.length, 1);
+});
+
+test("partial local cleanup retains the confirmed marker and hides the stale key on next launch", async () => {
+  const preferences = new MemoryPreferences();
+  const legacyStorage = new MemoryStorage();
+  const baseOptions = { preferences, legacyStorage };
+  await writeSavedVenueState([savedSnapshot.venue.id], [savedSnapshot], baseOptions);
+  await writePendingSync([{
+    idempotencyKey: "pending-before-partial-cleanup",
+    entityType: "saved",
+    entityId: savedSnapshot.venue.slug,
+    operation: "save",
+    payload: { saved: true },
+    baseVersion: null,
+    createdAt: "2026-07-30T10:00:00.000Z",
+  }], baseOptions);
+  await writePrivacyDeletionQuarantine("server_confirmed", baseOptions);
+
+  const failingPreferences: PreferenceStore = {
+    get: (input) => preferences.get(input),
+    set: (input) => preferences.set(input),
+    async remove({ key }) {
+      if (key === MOBILE_STORAGE_KEYS.savedVenueState) {
+        throw new Error("simulated partial cleanup");
+      }
+      await preferences.remove({ key });
+    },
+  };
+  await assert.rejects(
+    clearMobilePersonalData({ preferences: failingPreferences, legacyStorage }),
+    /mobile_personal_data_clear_failed/,
+  );
+  assert.equal(preferences.values.has(MOBILE_STORAGE_KEYS.savedVenueState), true);
+
+  const relaunched = await hydrateMobileStorage({
+    preferences: failingPreferences,
+    legacyStorage,
+  });
+  assert.equal(relaunched.privacyDeletionQuarantine, "server_confirmed");
+  assert.deepEqual(relaunched.savedVenueIds, []);
+  assert.deepEqual(relaunched.pendingSync, []);
+  assert.equal(
+    await readPrivacyDeletionQuarantine({ preferences: failingPreferences, legacyStorage }),
+    "server_confirmed",
+  );
+});
+
+test("the restart quarantine remains recoverable during a native Preferences outage", async () => {
+  const legacyStorage = new MemoryStorage();
+  const unavailablePreferences: PreferenceStore = {
+    async get() { throw new Error("native read unavailable"); },
+    async set() { throw new Error("native write unavailable"); },
+    async remove() { throw new Error("native remove unavailable"); },
+  };
+  const options = { preferences: unavailablePreferences, legacyStorage };
+  legacyStorage.setItem(MOBILE_STORAGE_KEYS.bootstrap, "{}");
+
+  await writePrivacyDeletionQuarantine("pending_server", options);
+  assert.equal(
+    legacyStorage.getItem(MOBILE_STORAGE_KEYS.privacyDeletionQuarantine),
+    "pending_server",
+  );
+  assert.equal(await readPrivacyDeletionQuarantine(options), "pending_server");
+  const relaunched = await hydrateMobileStorage(options);
+  assert.equal(relaunched.privacyDeletionQuarantine, "pending_server");
+  assert.deepEqual(relaunched.pendingSync, []);
 });

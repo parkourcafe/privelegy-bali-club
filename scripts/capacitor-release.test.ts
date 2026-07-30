@@ -133,8 +133,10 @@ test("native bridge plugins and privacy declarations match the approved release 
   assert.match(privacy, /<string>CA92\.1<\/string>/);
   for (const type of [
     "NSPrivacyCollectedDataTypeCoarseLocation",
+    "NSPrivacyCollectedDataTypeDeviceID",
     "NSPrivacyCollectedDataTypeProductInteraction",
     "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+    "NSPrivacyCollectedDataTypeOtherUserContent",
   ]) {
     assert.match(privacy, new RegExp(`<string>${type}<\\/string>`));
   }

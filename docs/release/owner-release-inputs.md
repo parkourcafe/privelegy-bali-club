@@ -19,11 +19,14 @@ keystores, passwords, private keys or tax documents to Git.
       current task and remains a separate permission.
 
 Once Apple signing is configured, the authorized local build command is
-`OTHER_BALI_ALLOW_SIGNING=YES_I_HAVE_ACTION_TIME_AUTHORIZATION npm run ios:release:signed`.
+`MAPBOX_ACCESS_TOKEN=<restricted-public-token> OTHER_BALI_ALLOW_SIGNING=YES_I_HAVE_ACTION_TIME_AUTHORIZATION npm run ios:release:signed`.
 Do not set that guard before the corresponding action-time permission is given.
 The script uses Xcode Automatic signing with an Apple Development identity for
 the archive, then Apple's cloud-managed distribution certificate during the
 local `app-store-connect` export.
+The Mapbox token must be injected at build time from protected local storage;
+the script rejects a missing token and the verifier rejects an empty
+`MBXAccessToken` in the built app. Never commit the token to Git.
 It allows Xcode to update provisioning for both steps but never uploads the
 result. The exported IPA must still pass the release verifier as Apple
 Distribution-signed with the exact `applinks:www.otherbali.com` entitlement.

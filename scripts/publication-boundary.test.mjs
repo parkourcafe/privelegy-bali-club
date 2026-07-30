@@ -4,7 +4,7 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
-const [catalogue, detail, publication, data, cards, placeCard, worker, workerRegister, partner, onboarding, analytics, analyticsClient, rootLayout, proxy] = await Promise.all([
+const [catalogue, detail, publication, data, cards, placeCard, worker, workerRegister, partner, onboarding, analytics, analyticsClient, consent, rootLayout, proxy] = await Promise.all([
   read("app/places/page.tsx"),
   read("app/places/[slug]/page.tsx"),
   read("lib/publication.ts"),
@@ -17,6 +17,7 @@ const [catalogue, detail, publication, data, cards, placeCard, worker, workerReg
   read("app/api/onboard/jtbd/route.ts"),
   read("components/Analytics.tsx"),
   read("components/AnalyticsClient.tsx"),
+  read("lib/consent.ts"),
   read("app/layout.tsx"),
   read("proxy.ts"),
 ]);
@@ -71,7 +72,10 @@ test("preview deployments never write QA traffic into production analytics", () 
   for (const prefix of ["admin", "api", "onboard", "partner", "me", "v", "list"]) {
     assert.match(analyticsClient, new RegExp(`/${prefix}`));
   }
-  assert.match(analyticsClient, /send_page_view:\s*false/);
+  assert.match(analyticsClient, /initializeAnalyticsRuntime/);
+  assert.match(consent, /readConsent\(\) === "granted"/);
+  assert.match(consent, /analytics_storage:\s*granted \? "granted" : "denied"/);
+  assert.match(consent, /send_page_view:\s*false/);
   assert.match(analyticsClient, /window\.location\.origin.*pathname/);
   assert.match(rootLayout, /referrer:\s*"origin"/);
   assert.match(proxy, /Cache-Control.*private, no-store/);

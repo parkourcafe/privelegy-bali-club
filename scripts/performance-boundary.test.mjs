@@ -110,6 +110,18 @@ test("venue detail uses request rendering for locale while public data stays cac
   assert.match(saveRoute, /private, no-store/);
 });
 
+test("programmatic Bali hubs request-render locale and preserve real 404s", async () => {
+  const districtPage = await read("app/bali/[district]/page.tsx");
+  const intentPage = await read("app/bali/[district]/[intent]/page.tsx");
+  const data = await read("lib/data.ts");
+  for (const source of [districtPage, intentPage]) {
+    assert.match(source, /export const dynamic = "force-dynamic"/);
+    assert.match(source, /notFound\(\)/);
+    assert.doesNotMatch(source, /export const revalidate\s*=/);
+  }
+  assert.match(data, /const getCachedPublishedVenues = unstable_cache/);
+});
+
 test("venue detail and sitemap retain one publication boundary", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
   const sitemap = await read("app/sitemap.ts");

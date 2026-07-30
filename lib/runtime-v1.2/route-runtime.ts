@@ -1,4 +1,9 @@
-import { GUEST_COOKIE, guestCookieOptions, resolveGuestRef } from "@/lib/guest-server";
+import {
+  GUEST_COOKIE,
+  InvalidGuestRefError,
+  guestCookieOptions,
+  resolveGuestRef,
+} from "@/lib/guest-server";
 import { mutateRuntime, readRuntime } from "./data-access";
 import { boundedRecord, idempotencyKey, parseRuntimeBody, type RuntimeOperation } from "./contracts";
 import { runtimeError, runtimeSuccess } from "./http";
@@ -8,7 +13,16 @@ export async function mutationResponse(request: Request, operation: RuntimeOpera
   const key = body && idempotencyKey(request, body);
   const input = body && boundedRecord(body.input ?? body, 48_000);
   if (!body || !key || !input) return runtimeError("INVALID_REQUEST", "A bounded input and Idempotency-Key are required.");
-  const { ref, created } = await resolveGuestRef();
+  let guest: Awaited<ReturnType<typeof resolveGuestRef>>;
+  try {
+    guest = await resolveGuestRef(request);
+  } catch (error) {
+    if (error instanceof InvalidGuestRefError) {
+      return runtimeError("INVALID_REQUEST", "The pseudonymous guest reference is invalid.");
+    }
+    return runtimeError("TEMPORARILY_UNAVAILABLE", "The runtime store is unavailable.", 503);
+  }
+  const { ref, created } = guest;
   const result = await mutateRuntime(ref, operation, input, key);
   if (!result.ok) {
     if (result.error === "bad_request") return runtimeError("INVALID_REQUEST", "The mutation is invalid.");
