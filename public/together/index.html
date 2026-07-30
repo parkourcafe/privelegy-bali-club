@@ -433,6 +433,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     };
     connect();
     new MutationObserver(connect).observe(document.body, { childList: true, subtree: true });
+    document.addEventListener('click', (event) => {
+      const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
+      if (path.some((node) => node?.tagName === 'OTHER-BALI-LOGO')) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.assign('/');
+      }
+    }, true);
   })();
 </script>
 </html>
