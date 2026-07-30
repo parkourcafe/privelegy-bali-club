@@ -28,6 +28,40 @@ test("mobile application settles acknowledged sync responses before removing que
     /if \(privacyDeletionActive\.current \|\| controller\.signal\.aborted\) return;/,
     "an acknowledgement racing with privacy deletion must not recreate the pending queue",
   );
+  const pumpStart = appSource.indexOf("flushPendingSyncQueue(");
+  const refreshStart = appSource.indexOf("const refresh = useCallback", pumpStart);
+  assert.ok(pumpStart >= 0 && refreshStart > pumpStart);
+  const pump = appSource.slice(pumpStart, refreshStart);
+  assert.doesNotMatch(
+    pump,
+    /return \(\) => controller\.abort\(\)/,
+    "queue-count rerenders must not abort an active multi-mutation drain",
+  );
+  assert.match(
+    appSource,
+    /if \(!storageReady \|\| !online \|\| privacyDeletePending\) \{[\s\S]{0,100}?syncAbortController\.current\?\.abort\(\)/,
+    "only real stop conditions should abort an active sync request",
+  );
+  assert.match(
+    appSource,
+    /syncPumpMounted\.current = false;[\s\S]{0,100}?syncAbortController\.current\?\.abort\(\)/,
+    "unmount must still cancel an active sync request",
+  );
+  assert.match(
+    pump,
+    /shouldRestartPendingSyncPump\(\{[\s\S]{0,500}?setSyncPumpWakeup\(\(current\) => current \+ 1\)/,
+    "a mutation queued while the pump is finishing must schedule another pass",
+  );
+  assert.match(
+    appSource,
+    /pendingSyncRef\.current = pending;[\s\S]{0,100}?syncQueueRevision\.current \+= 1;[\s\S]{0,120}?setSyncPumpWakeup\(\(current\) => current \+ 1\)/,
+    "every enqueue must wake the pump even when coalescing leaves the queue length unchanged",
+  );
+  assert.match(
+    appSource,
+    /const queueRevisionAtStart = syncQueueRevision\.current;[\s\S]{0,3000}?newWorkArrived: syncQueueRevision\.current !== queueRevisionAtStart/,
+    "a pass that fails must distinguish newly enqueued work from an unmodified failed queue",
+  );
 });
 
 test("Trip notes persist while typing and queued replacements are coalesced", () => {
@@ -43,7 +77,7 @@ test("Trip notes persist while typing and queued replacements are coalesced", ()
   );
   assert.match(
     appSource,
-    /const pending = enqueuePendingSyncMutation\(pendingSyncRef\.current, next\);[\s\S]{0,100}?pendingSyncRef\.current = pending;[\s\S]{0,120}?await writePendingSync\(pending\)/,
+    /const pending = enqueuePendingSyncMutation\(pendingSyncRef\.current, next\);[\s\S]{0,100}?pendingSyncRef\.current = pending;[\s\S]{0,260}?await writePendingSync\(pending\)/,
     "enqueue must reserve the in-memory queue before awaiting its durable write",
   );
   assert.match(

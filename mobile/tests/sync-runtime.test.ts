@@ -4,6 +4,7 @@ import { type SyncMutation } from "../../lib/journey/offline-sync";
 import {
   enqueuePendingSyncMutation,
   flushPendingSyncQueue,
+  shouldRestartPendingSyncPump,
   settlePendingSyncMutation,
 } from "../src/sync-runtime";
 
@@ -51,6 +52,34 @@ test("coalesces queued Trip replacements while preserving unrelated mutations", 
       latestTrip,
     ),
     [saved, otherTrip, latestTrip],
+  );
+});
+
+test("sync pump restarts only for an eligible nonempty queue", () => {
+  const eligible = {
+    mounted: true,
+    pendingCount: 3,
+    blocked: false,
+    failed: false,
+    newWorkArrived: false,
+    privacyDeletionActive: false,
+  };
+  assert.equal(shouldRestartPendingSyncPump(eligible), true);
+  assert.equal(shouldRestartPendingSyncPump({ ...eligible, pendingCount: 0 }), false);
+  assert.equal(shouldRestartPendingSyncPump({ ...eligible, mounted: false }), false);
+  assert.equal(shouldRestartPendingSyncPump({ ...eligible, blocked: true }), false);
+  assert.equal(shouldRestartPendingSyncPump({ ...eligible, failed: true }), false);
+  assert.equal(
+    shouldRestartPendingSyncPump({ ...eligible, failed: true, newWorkArrived: true }),
+    true,
+  );
+  assert.equal(
+    shouldRestartPendingSyncPump({ ...eligible, blocked: true, newWorkArrived: true }),
+    true,
+  );
+  assert.equal(
+    shouldRestartPendingSyncPump({ ...eligible, privacyDeletionActive: true }),
+    false,
   );
 });
 
@@ -229,5 +258,43 @@ test("flushes mutations in order and stops with the full remaining queue on the 
     pending: [visited, note],
     conflict: null,
     appliedCount: 0,
+  });
+});
+
+test("a healthy sync pass drains every queued mutation instead of stopping after one", async () => {
+  const pending: SyncMutation[] = Array.from({ length: 4 }, (_, index) => ({
+    idempotencyKey: `mutation-${index + 1}`,
+    entityType: "saved",
+    entityId: `place-${index + 1}`,
+    operation: "save",
+    payload: { entityType: "place", entityId: `place-${index + 1}` },
+    baseVersion: null,
+    createdAt: `2026-07-30T01:0${index}:00.000Z`,
+  }));
+  const pushed: string[] = [];
+  const persistedLengths: number[] = [];
+
+  const result = await flushPendingSyncQueue(
+    pending,
+    async (mutation) => {
+      pushed.push(mutation.idempotencyKey);
+      return {
+        ok: true,
+        status: "applied",
+        idempotencyKey: mutation.idempotencyKey,
+        serverVersion: "1",
+      };
+    },
+    async (remaining) => {
+      persistedLengths.push(remaining.length);
+    },
+  );
+
+  assert.deepEqual(pushed, pending.map((mutation) => mutation.idempotencyKey));
+  assert.deepEqual(persistedLengths, [3, 2, 1, 0]);
+  assert.deepEqual(result, {
+    pending: [],
+    conflict: null,
+    appliedCount: 4,
   });
 });
