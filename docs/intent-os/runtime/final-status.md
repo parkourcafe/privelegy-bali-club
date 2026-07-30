@@ -1,22 +1,83 @@
 # Final Status
 
-**Terminal state:** `LOCAL_QA_COMPLETE`
+**Terminal state:** `BLOCKED_UNREACHABLE_ROUTE`
 **Branch:** `agent/intent-os-autopilot`
-**Previous state:** `SAFE_HOLD` (implementation was gated, now unblocked)
-**Machine-readable reason:** `docs/intent-os/runtime/safe-hold-reason.json`
 **Winner:** `OB-CAN-0011` — Choose a romantic dinner in Ubud (score 95)
 **Backup:** `OB-CAN-0007` — Find breakfast open before 7 AM (score 88)
+
+> ## ⛔ Correction (2026-07-30): the reuse-gate premise was false
+>
+> Sections further down state that the winner is *"already served in production code"* and that
+> *"seven districts qualify"*. **Both claims are wrong.** They are preserved below as the historical
+> record of what the run concluded, not as current truth. Read this block first.
+>
+> `lib/data.ts` excludes eight districts from district hubs:
+>
+> ```js
+> const HUB_EXCLUDE_DISTRICTS = new Set([
+>   "uluwatu-bukit", "canggu", "sanur", "ubud",
+>   "seminyak", "nusa-dua", "jimbaran", "nusa-islands"
+> ]);
+> ```
+>
+> `getIntentSpokes()` is built on `getDistrictHubs()`, which skips those districts. `/bali/ubud/date-night`
+> therefore calls `notFound()` regardless of database contents. The line predates this work — it is
+> present at baseline `2ebf74e` and on `main`.
+>
+> Cross-checked against this run's own snapshot (`../data-readiness/COVERAGE_SNAPSHOT_BY_DISTRICT_JOB.csv`),
+> **every district holding `date_night_special` venues is on the exclusion list**: canggu (29),
+> seminyak (14), uluwatu-bukit (13), ubud (9), nusa-dua (8), jimbaran (5), sanur (4).
+>
+> The districts that are *not* excluded fail the thresholds (`HUB_MIN_VENUES = 8`,
+> `SPOKE_MIN_VENUES = 4`): kuta-legian has 98 published venues but only 1 per job slug; amed, lovina
+> and munduk have 1, 3 and 1; sidemen, gili-islands and lombok have no rows.
+>
+> **No district produces any intent spoke.** The `/bali/[district]/[intent]` route yields zero pages.
+> Ubud and Uluwatu are served by bespoke routes (`app/ubud/*`, `app/uluwatu/*`).
+>
+> **Root cause of the error:** Stage 10 scored raw district × job-slug coverage and never applied the
+> hub exclusion. Data readiness was measured; route reachability was not. Any future reuse gate must
+> assert that the surface it proposes to extend actually resolves.
 
 ## QA Status Summary
 
 | Gate | Status | Result |
 |---|---|---|
-| Local deterministic Playwright QA | ✅ PASS | 13/13 tests pass |
-| Unit tests | ✅ PASS | 15/15 tests pass |
+| Modifier unit tests | ✅ PASS | 15/15 |
+| Local integration tests | ✅ PASS | 13/13 |
+| Real-browser QA (Chromium, fixtures) | ✅ PASS | 28/28 — `e2e/browser-qa.mjs` |
 | Production build | ✅ PASS | No regressions |
 | Lint and typecheck | ✅ PASS | Zero violations |
-| Real Vercel preview QA | ⏸ BLOCKED | Vercel SSO protects preview URLs |
-| Feature flag OFF isolation | ✅ VERIFIED | Original behavior preserved |
+| Feature flag OFF isolation | ✅ VERIFIED | Original markup restored |
+| **Route reachability in production** | ❌ **FAIL** | **target route yields no page — see correction above** |
+| Real Vercel preview QA | ⏸ BLOCKED | no isolated preview Supabase; SSO blocks automation |
+
+The passing rows establish that the modifier logic is correct. They do not establish that a user can
+reach a page where it runs.
+
+**Why the QA missed it:** the fixture branch in `getIntentSpokes()` (gated on `NEXT_PUBLIC_TEST_MODE`)
+returns spokes directly and does not call `getDistrictHubs()` — bypassing the exact check that holds
+the exclusion. Every fixture-mode assertion therefore exercised an unreachable configuration. Future
+QA for this feature must drive the real data path end to end.
+
+## Disposition
+
+The implementation is correct, tested, and inert behind `NEXT_PUBLIC_OB_DATE_NIGHT_MODIFIERS`
+(default OFF). It ships no risk, and it also ships no value until its target surface exists.
+
+Three options, all product decisions:
+
+1. **Park it** until the surface is decided — recommended, and the current state.
+2. **Move the refinement to a route that renders**, e.g. `/uluwatu/date-night-restaurants`. That page
+   uses a different template with no `VenueCard` grid, so this is a rewrite rather than a port.
+3. **Remove districts from `HUB_EXCLUDE_DISTRICTS`.** This would make the spoke live, but Ubud and
+   Uluwatu already have bespoke pages — creating exactly the URL cannibalization this pilot's own
+   SERP research flagged.
+
+---
+
+*Everything below this line is the original run record from 2026-07-29, retained unaltered. The
+reuse-gate section it contains is superseded by the correction above.*
 
 ## Pipeline path
 
@@ -70,6 +131,10 @@ SERP research was run live for these three. The other 23 shortlisted candidates 
 is recorded anywhere: no verified volume source was available.
 
 ## Reuse gate: `EXTEND_EXISTING`
+
+> ⛔ **SUPERSEDED — this section is factually wrong.** The spoke does not render for any district;
+> `HUB_EXCLUDE_DISTRICTS` removes every district that has the data. See the correction at the top of
+> this file. Retained verbatim as the run record.
 
 The winner is **already served in production code**. `app/bali/[district]/[intent]/page.tsx` renders a
 spoke wherever a district has at least `SPOKE_MIN_VENUES` (= 4) published venues carrying the intent's
