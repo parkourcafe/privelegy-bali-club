@@ -12,6 +12,7 @@ import {
   NORMALIZED_RECORD_TYPES, SURFACES, DATA_READINESS, RISK_CLASSES, LIFECYCLE_STATUS,
   LIBRARY_COLUMNS, SCORECARD_WEIGHTS, INTERNAL_TYPES,
 } from './enums.mjs';
+import { loadRouteGates, reachabilityForSnapshot } from './route-reachability.mjs';
 
 const rel = (p) => p.replace(REPO_ROOT + '/', '');
 
@@ -284,6 +285,85 @@ export function validate_scorecard() {
     : result(name, PASS, `${records.length} shortlist rows, all factor scores within weight bounds`);
 }
 
+// Guards the failure mode that produced a shipped-but-unreachable pilot: the
+// reuse gate certified /bali/ubud/date-night as "already served in production"
+// on venue-coverage evidence alone, never checking that the route resolves.
+// Data readiness and route reachability are separate questions; this check asks
+// the second one.
+export function validate_route_reachability() {
+  const name = 'validate_route_reachability';
+  const skip = skipIfMissing(name, paths.coverageSnapshot, 'coverage snapshot');
+  if (skip) return skip;
+
+  let gates;
+  try {
+    gates = loadRouteGates();
+  } catch (e) {
+    // A parser that silently defaults would re-create the original bug, so an
+    // unreadable gate is a hard failure, not a shrug.
+    return result(name, FAIL, 'cannot read route gates from lib/data.ts', [e.message]);
+  }
+
+  const { records } = readCsv(paths.coverageSnapshot);
+  const cells = reachabilityForSnapshot(records, gates);
+  const reachable = cells.filter((c) => c.verdict === 'REACHABLE');
+  const indeterminate = cells.filter((c) => c.verdict === 'INDETERMINATE');
+
+  // Which route does this run actually claim to build on? Take it from the
+  // literal paths written into the pilot artifacts rather than inferring it
+  // from prose — a district name appears in many sentences, but a
+  // `/bali/<district>/<intent>` string is an unambiguous commitment.
+  const findings = [];
+  const claimedPaths = new Set();
+  for (const artifact of [paths.productBrief, paths.reuseGate]) {
+    if (!existsSync(artifact)) continue;
+    for (const p of readFileSync(artifact, 'utf8').match(/\/bali\/[a-z-]+\/[a-z-]+/g) ?? []) {
+      claimedPaths.add(p);
+    }
+  }
+
+  // The winner's job slug comes from the shortlist, keyed by the id the run
+  // recorded in state.json — so this follows the pipeline's own decision rather
+  // than re-deriving it.
+  let winnerJobSlug = null;
+  if (existsSync(paths.state) && existsSync(paths.shortlist)) {
+    const winnerId = JSON.parse(readFileSync(paths.state, 'utf8')).winner;
+    if (winnerId) {
+      const row = readCsv(paths.shortlist).records.find((r) => r.canonical_intent_id === winnerId);
+      winnerJobSlug = row?.job_slug ?? null;
+    }
+  }
+
+  for (const claimed of claimedPaths) {
+    const district = claimed.split('/')[2];
+    const cell = cells.find(
+      (c) => c.district === district && (winnerJobSlug ? c.jobSlug === winnerJobSlug : true)
+    );
+    if (!cell) {
+      findings.push(`${claimed} is claimed by the pilot but has no cell in the coverage snapshot`);
+    } else if (cell.verdict !== 'REACHABLE') {
+      findings.push(`${claimed} is claimed by the pilot but is ${cell.verdict}: ${cell.reasons.join('; ')}`);
+    }
+  }
+
+  if (findings.length) {
+    return result(name, FAIL, 'the pilot targets a route that does not resolve', findings);
+  }
+
+  const detail =
+    `${cells.length} (district, job) cells: ${reachable.length} reachable` +
+    (indeterminate.length ? `, ${indeterminate.length} indeterminate` : '') +
+    `, ${cells.length - reachable.length - indeterminate.length} unreachable` +
+    ` (gates read live from ${gates.source})`;
+
+  // Zero reachable cells is not by itself a failure — a run may legitimately
+  // precede any qualifying data — but it must never pass unremarked, because
+  // that is the state in which a build decision is most likely to be wrong.
+  return result(name, PASS, detail, reachable.length === 0
+    ? ['NOTE: no (district, job) cell currently yields a spoke; any EXTEND_EXISTING decision on this route would be extending nothing']
+    : undefined);
+}
+
 export const ALL_CHECKS = [
   validate_source_ledger,
   validate_unique_ids,
@@ -295,4 +375,5 @@ export const ALL_CHECKS = [
   validate_surface_mapping,
   validate_data_readiness,
   validate_scorecard,
+  validate_route_reachability,
 ];

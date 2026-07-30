@@ -32,6 +32,7 @@ export const paths = {
   serpScorecard: join(REPO_ROOT, 'docs/intent-os/pilot/12_KEYWORD_SERP_SCORECARD_V0_1.csv'),
   serpNotes: join(REPO_ROOT, 'docs/intent-os/pilot/13_SERP_RESEARCH_NOTES_V0_1.md'),
   reuseGate: join(REPO_ROOT, 'docs/intent-os/pilot/14_REUSE_GATE_REPORT_V0_1.md'),
+  coverageSnapshot: join(REPO_ROOT, 'docs/intent-os/data-readiness/COVERAGE_SNAPSHOT_BY_DISTRICT_JOB.csv'),
   productBrief: join(REPO_ROOT, 'docs/intent-os/pilot/15_FIRST_PILOT_PRODUCT_BRIEF_V1_0.md'),
   state: join(REPO_ROOT, 'docs/intent-os/runtime/state.json'),
   eventLog: join(REPO_ROOT, 'docs/intent-os/runtime/event-log.ndjson'),

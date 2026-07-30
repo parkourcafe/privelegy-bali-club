@@ -7,6 +7,9 @@ import {
   nowIso, REPO_ROOT,
 } from './lib.mjs';
 import { WINNER_MIN_SCORE, BACKUP_MIN_SCORE, ALLOWED_PILOT_READINESS } from './enums.mjs';
+import {
+  loadRouteGates, districtPublishedBounds, spokeReachability,
+} from './route-reachability.mjs';
 
 const rel = (p) => p.replace(REPO_ROOT + '/', '');
 const { records: shortlist } = readCsv(paths.shortlist);
@@ -29,15 +32,61 @@ if (!winner) {
 }
 
 // --- Stage 10: reuse gate ---------------------------------------------------
-// Observed at baseline: /bali/[district]/[intent] renders a spoke whenever a
-// district has >= SPOKE_MIN_VENUES venues carrying the intent's jobSlug.
-const SPOKE_MIN_VENUES = 4;
-const snapshot = readCsv(`${REPO_ROOT}/docs/intent-os/data-readiness/COVERAGE_SNAPSHOT_BY_DISTRICT_JOB.csv`).records;
-const winnerJob = 'date_night_special';
-const qualifying = snapshot.filter((r) => r.job_slug === winnerJob
-  && Number(r.published_matching_venues) >= SPOKE_MIN_VENUES);
+//
+// A spoke needs THREE gates, not one. An earlier version of this stage checked
+// only SPOKE_MIN_VENUES and then hardcoded `EXTEND_EXISTING`, which certified
+// /bali/ubud/date-night as "already served in production" when in fact Ubud is
+// in HUB_EXCLUDE_DISTRICTS and the route has never resolved. Venue coverage
+// answers "is there enough evidence?"; it does not answer "does the surface
+// exist?". Both must be asked, and the decision must depend on the answer.
+//
+// Gates are read from lib/data.ts rather than copied, so this can never drift
+// from the application it is reasoning about.
+const snapshot = readCsv(paths.coverageSnapshot).records;
+const winnerJob = winner.job_slug;
+const gates = loadRouteGates();
+const bounds = districtPublishedBounds(snapshot);
 
-const reuseDecision = 'EXTEND_EXISTING';
+const candidates = snapshot
+  .filter((r) => r.job_slug === winnerJob)
+  .map((r) => ({
+    row: r,
+    reach: spokeReachability({
+      district: r.district,
+      jobSlug: winnerJob,
+      publishedMatching: Number(r.published_matching_venues) || 0,
+      bounds,
+      gates,
+    }),
+  }));
+
+const qualifying = candidates.filter((c) => c.reach.reachable).map((c) => c.row);
+
+// EXTEND_EXISTING asserts that a live surface exists to extend. If no district
+// yields a spoke, that assertion is false and the honest outcome is HOLD with
+// the blocking reason recorded — not a build order against a 404.
+const reuseDecision = qualifying.length > 0 ? 'EXTEND_EXISTING' : 'HOLD';
+const unreachableReasons = [
+  ...new Set(candidates.flatMap((c) => c.reach.reasons)),
+];
+
+if (reuseDecision === 'HOLD') {
+  appendEvent({
+    stage: 'REUSE_GATE',
+    status: 'HOLD_UNREACHABLE_ROUTE',
+    inputs: [rel(paths.coverageSnapshot), 'lib/data.ts'],
+    outputs: [],
+    checks: [
+      `winner_job=${winnerJob}`,
+      `districts_with_data=${candidates.length}`,
+      `districts_reachable=0`,
+      `hub_min=${gates.hubMin}`,
+      `spoke_min=${gates.spokeMin}`,
+      `excluded_districts=${[...gates.excluded].join('|')}`,
+    ],
+    next_state: 'HOLD',
+  });
+}
 
 const reuseReport = `# Reuse Gate Report V0.1
 
@@ -51,24 +100,30 @@ const reuseReport = `# Reuse Gate Report V0.1
 ${reuseDecision}
 \`\`\`
 
-**Duplicating an existing planning engine is forbidden**, and the winner is already served.
+${reuseDecision === 'EXTEND_EXISTING'
+    ? '**Duplicating an existing planning engine is forbidden**, and the winner is already served.'
+    : '**No live surface exists to extend.** The winner has data, but no district resolves to a spoke, so `EXTEND_EXISTING` would be a build order against a route that returns 404.'}
 
-## Evidence: the winner already renders in production code
+## Route reachability
 
-\`app/bali/[district]/[intent]/page.tsx\` renders an intent spoke for any (district, intent) pair
-where \`getIntentSpokes()\` finds at least \`SPOKE_MIN_VENUES\` (= ${SPOKE_MIN_VENUES}, \`lib/data.ts:870\`)
-published venues carrying the intent's \`jobSlug\`.
+A spoke resolves only when all three gates pass. Values are read live from
+\`lib/data.ts\`, not copied, so this table cannot drift from the application:
 
-The winner maps to \`date-night\` / \`${winnerJob}\` in \`lib/intents.ts\`. Live coverage:
+- district **not** in \`HUB_EXCLUDE_DISTRICTS\` (currently ${gates.excluded.size} districts excluded)
+- district published total >= \`HUB_MIN_VENUES\` (= ${gates.hubMin})
+- published venues carrying the job slug >= \`SPOKE_MIN_VENUES\` (= ${gates.spokeMin})
 
-| District | Published venues | Qualifies (>= ${SPOKE_MIN_VENUES}) |
-|---|---|---|
-${snapshot.filter((r) => r.job_slug === winnerJob).sort((a, b) => Number(b.published_matching_venues) - Number(a.published_matching_venues))
-    .map((r) => `| ${r.district} | ${r.published_matching_venues} | ${Number(r.published_matching_venues) >= SPOKE_MIN_VENUES ? 'yes' : 'no'} |`).join('\n')}
+The winner maps to \`${winnerJob}\`. Live coverage against all three gates:
 
-**${qualifying.length} districts already qualify**, including Ubud with ${snapshot.find((r) => r.district === 'ubud' && r.job_slug === winnerJob)?.published_matching_venues} published venues.
-\`/bali/ubud/date-night\` therefore renders today, with metadata, canonical, FAQs, JSON-LD and an
-internal-link mesh already implemented.
+| District | Published w/ job | Excluded from hubs | Reachable |
+|---|---|---|---|
+${candidates.sort((a, b) => Number(b.row.published_matching_venues) - Number(a.row.published_matching_venues))
+    .map((c) => `| ${c.row.district} | ${c.row.published_matching_venues} | ${gates.excluded.has(c.row.district) ? '**yes**' : 'no'} | ${c.reach.verdict} |`).join('\n')}
+
+**${qualifying.length} of ${candidates.length} districts yield a spoke.**
+${qualifying.length === 0
+    ? `\nBlocking reasons observed:\n${unreachableReasons.map((r) => `- ${r}`).join('\n')}\n\nVenue coverage was never the constraint. Every district holding this job slug is excluded from district hubs, so \`getIntentSpokes()\` returns nothing for it and the route calls \`notFound()\`.`
+    : `\nThose districts render today with metadata, canonical, FAQs, JSON-LD and an internal-link mesh already implemented.`}
 
 ## Why not the other three options
 
@@ -227,10 +282,13 @@ appendDecision(`
 Winner \`${winner.canonical_intent_id}\` (${winner.total_score} >= ${WINNER_MIN_SCORE}), backup
 \`${backup?.canonical_intent_id}\` (${backup?.total_score} >= ${BACKUP_MIN_SCORE}). Both READY.
 
-Reuse decision **${reuseDecision}**. The winner is already served: \`/bali/ubud/date-night\` renders
-today because Ubud has ${snapshot.find((r) => r.district === 'ubud' && r.job_slug === winnerJob)?.published_matching_venues}
-published \`${winnerJob}\` venues against \`SPOKE_MIN_VENUES = ${SPOKE_MIN_VENUES}\`. A new tool would
-duplicate a live engine, which Stage 9 forbids. \`HOLD\` was rejected because nothing is blocked.
+Reuse decision **${reuseDecision}**, based on route reachability rather than venue coverage alone:
+${qualifying.length} of ${candidates.length} districts carrying \`${winnerJob}\` actually yield a spoke
+(gates \`HUB_EXCLUDE_DISTRICTS\`, \`HUB_MIN_VENUES = ${gates.hubMin}\`, \`SPOKE_MIN_VENUES = ${gates.spokeMin}\`,
+all read live from \`lib/data.ts\`).
+${qualifying.length === 0
+    ? `\nNo live surface exists to extend, so \`EXTEND_EXISTING\` is unavailable however good the data is. Blocking reasons: ${unreachableReasons.join('; ')}.`
+    : `\nA new tool would duplicate a live engine, which Stage 9 forbids.`}
 
 The residual value is modifier/occasion refinement (quiet, sunset view, secluded, special occasion)
 over the existing result set — an extension, not a second engine.
