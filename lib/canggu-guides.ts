@@ -74,7 +74,7 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     // hours, weekend queue windows — the answer says what we do know instead of
     // estimating (guardrail #10).
     faq: [
-      { q: "Where is the best brunch in Canggu?", a: "Canggu's brunch clusters around Batu Bolong, Berawa and Pererenan — café-and-coffee spots for a laptop morning, all-day restaurants for a bigger weekend spread, and a beachfront club. The picks above are sorted by which you want." },
+      { q: "Where is the best brunch in Canggu?", a: "Canggu's brunch clusters in three areas: Batu Bolong, Berawa and Pererenan. Café-and-coffee spots suit a laptop morning. All-day restaurants suit a bigger weekend spread. One beachfront club sits on the sand at Batu Bolong. The picks above are sorted by which you want." },
       { q: "What time is brunch in Canggu?", a: "7AM Bakers in Umalas opens at 07:00, earlier than most of the neighbourhood. Nook Umalas runs 08:00 to 23:00. Most places on this list serve an all-day menu, so a late brunch is easy." },
       { q: "How much does brunch cost in Canggu?", a: "Most of this list sits in the mid band. Oma Jamu, ZIN Cafe and NÜDE Berawa are the cheapest. Crate Cafe is 35,000–70,000 IDR a plate. Milu by Nook and The Lawn are the top band, with Milu's mains at 100,000–250,000 IDR." },
       { q: "Do I need to book brunch in Canggu?", a: "Most of the cafés here are walk-in. The bigger weekend rooms fill up, so arriving early helps. Where a place does take bookings, the link is on its own page." },

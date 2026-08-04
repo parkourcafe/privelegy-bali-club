@@ -261,6 +261,14 @@ Use `null` or hide when unknown.
 
 Organic recommendation copy remains Other Bali editorial voice. Owner copy is attributed as owner copy. Sponsored placement and paid visibility are not active concepts and may not enter content metadata or ranking.
 
+### Guide and district page shape
+
+What a finished public listing page must contain — required blocks in order,
+sentence rules, price format, and a runnable pass/fail gate — is
+`.agents/skills/otherbali-guide-page-standard/SKILL.md`. Run its
+`scripts/check-page.mjs` before publishing a listing page and after any data
+change that touches one. It binds every agent.
+
 ### Venue record content
 
 Public district pages, guide cards and place pages are assembled at render time

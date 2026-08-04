@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali Guide Page Standard"
+  short_description: "What a finished listing page must contain, with a runnable pass/fail gate"
+  default_prompt: "Use $otherbali-guide-page-standard to build, rewrite or sign off an Other Bali listing page — it specifies the required blocks, sentence rules and price format, and ships a gate script that fails the page when they are not met."
