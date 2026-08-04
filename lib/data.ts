@@ -31,7 +31,7 @@ import {
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
-import { schemaOpeningHours } from "./opening-hours";
+import { schemaOpeningHours, schemaOpeningHoursSpecification } from "./opening-hours";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -98,8 +98,16 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "latitude",
+  "longitude",
+  "phone",
+  "full_address",
   "opening_hours_json",
   "opening_hours",
+  "price_min_idr",
+  "price_max_idr",
+  "price_text",
+  "google_place_id",
   "tier",
   "status",
   "is_sponsored",
@@ -202,6 +210,23 @@ const mapVenue = (r: Row): Venue => {
     // Canonical jsonb first. The strict legacy fallback is temporary
     // compatibility for manually verified data-ops imports.
     openingHours: schemaOpeningHours(r.opening_hours_json, r.opening_hours),
+    openingHoursSpecification: schemaOpeningHoursSpecification(r.opening_hours_json),
+    latitude: typeof r.latitude === "number" && Number.isFinite(r.latitude)
+      ? r.latitude
+      : undefined,
+    longitude: typeof r.longitude === "number" && Number.isFinite(r.longitude)
+      ? r.longitude
+      : undefined,
+    phone: textValue(r.phone) || undefined,
+    fullAddress: textValue(r.full_address) || undefined,
+    priceMinIdr: typeof r.price_min_idr === "number" && Number.isFinite(r.price_min_idr)
+      ? r.price_min_idr
+      : undefined,
+    priceMaxIdr: typeof r.price_max_idr === "number" && Number.isFinite(r.price_max_idr)
+      ? r.price_max_idr
+      : undefined,
+    priceText: textValue(r.price_text) || undefined,
+    googlePlaceId: textValue(r.google_place_id) || undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),

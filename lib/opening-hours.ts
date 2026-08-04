@@ -1,3 +1,5 @@
+import type { VenueOpeningHoursSpecification } from "./types";
+
 const DAY_ORDER = [
   ["Monday", "Mo"],
   ["Tuesday", "Tu"],
@@ -22,13 +24,40 @@ function clock24(value: string): string | null {
 }
 
 function interval24(value: unknown): string | null {
+  const parts = intervalParts24(value);
+  return parts ? `${parts.opens}-${parts.closes}` : null;
+}
+
+function intervalParts24(value: unknown): { opens: string; closes: string } | null {
   if (typeof value !== "string") return null;
   const parts = value.split(/\s*[-–—]\s*/);
   if (parts.length !== 2) return null;
   const open = clock24(parts[0]);
   const close = clock24(parts[1]);
   if (!open || !close || open === close) return null;
-  return `${open}-${close}`;
+  return { opens: open, closes: close };
+}
+
+export function schemaOpeningHoursSpecification(
+  jsonValue: unknown,
+): VenueOpeningHoursSpecification[] | undefined {
+  if (!jsonValue || typeof jsonValue !== "object" || Array.isArray(jsonValue)) return undefined;
+  const record = jsonValue as Record<string, unknown>;
+  const specifications: VenueOpeningHoursSpecification[] = [];
+  for (const [dayName] of DAY_ORDER) {
+    const intervals = record[dayName];
+    if (!Array.isArray(intervals)) continue;
+    for (const interval of intervals) {
+      const normalized = intervalParts24(interval);
+      if (!normalized) continue;
+      specifications.push({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: `https://schema.org/${dayName}`,
+        ...normalized,
+      });
+    }
+  }
+  return specifications.length ? specifications : undefined;
 }
 
 export function schemaOpeningHours(

@@ -39,6 +39,20 @@ test("public cards contain no Google rating or review product", () => {
   assert.doesNotMatch(cards, /googleRating|googleReviews/);
   assert.doesNotMatch(placeCard, /googleRating|googleReviews|Google reviews/);
   assert.doesNotMatch(data, /google_rating|google_reviews|rating_source/);
+  assert.doesNotMatch(detail, /aggregateRating/);
+});
+
+test("place JSON-LD exposes verified practical facts without inventing values", () => {
+  assert.match(data, /"latitude"/);
+  assert.match(data, /"longitude"/);
+  assert.match(data, /"phone"/);
+  assert.match(data, /"full_address"/);
+  assert.match(data, /schemaOpeningHoursSpecification\(r\.opening_hours_json\)/);
+  assert.match(detail, /"@type": "GeoCoordinates"/);
+  assert.match(detail, /openingHoursSpecification/);
+  assert.match(detail, /telephone: venue\.phone/);
+  assert.match(detail, /image: venue\.photoUrl/);
+  assert.doesNotMatch(detail, /SCHEMA_HOURS/);
 });
 
 test("TablePilot card handoffs require the active-deep coverage gate", () => {

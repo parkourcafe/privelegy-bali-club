@@ -35,6 +35,13 @@ export type VenueCategory =
   | "attraction"
   | "activity";
 
+export interface VenueOpeningHoursSpecification {
+  "@type": "OpeningHoursSpecification";
+  dayOfWeek: string;
+  opens: string;
+  closes: string;
+}
+
 export interface Venue {
   id: string;
   slug: string;
@@ -46,6 +53,15 @@ export interface Venue {
   officialUrl?: string; // venue's own website — used for schema sameAs (entity signal)
   instagramUrl?: string; // official IG — used for schema sameAs
   openingHours?: string; // verified schema.org syntax, mapped at the data boundary
+  openingHoursSpecification?: VenueOpeningHoursSpecification[];
+  latitude?: number;
+  longitude?: number;
+  phone?: string;
+  fullAddress?: string;
+  priceMinIdr?: number;
+  priceMaxIdr?: number;
+  priceText?: string;
+  googlePlaceId?: string;
   tier: VenueTier;
   status?: string;
   isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3

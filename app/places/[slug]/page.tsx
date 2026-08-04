@@ -143,13 +143,6 @@ const districtLabel: Record<string, string> = {
   lombok: "Lombok",
 };
 
-// Structured hours for JSON-LD — only for exact, official-domain-sourced
-// daily ranges (free-text like "until late" stays out of schema).
-const SCHEMA_HOURS: Record<string, string> = {
-  "tropical-temptation-adult-only-beach-club": "Mo-Su 10:00-21:00",
-  "papi-sapi": "Mo-Su 16:00-23:30",
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -327,6 +320,15 @@ export default async function VenuePage({
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
     content?.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+  const hasValidGeo =
+    typeof venue.latitude === "number"
+    && Number.isFinite(venue.latitude)
+    && venue.latitude >= -90
+    && venue.latitude <= 90
+    && typeof venue.longitude === "number"
+    && Number.isFinite(venue.longitude)
+    && venue.longitude >= -180
+    && venue.longitude <= 180;
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
@@ -339,16 +341,29 @@ export default async function VenuePage({
     // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
-      ...(content?.address ? { streetAddress: content.address } : {}),
+      ...((venue.fullAddress ?? content?.address ?? venue.address)
+        ? { streetAddress: venue.fullAddress ?? content?.address ?? venue.address }
+        : {}),
       addressLocality: microArea ?? districtLabel[venue.district] ?? "Bali",
       addressRegion: "Bali",
       addressCountry: "ID",
     },
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
-    ...((venue.openingHours ?? SCHEMA_HOURS[slug])
-      ? { openingHours: venue.openingHours ?? SCHEMA_HOURS[slug] }
-      : {}),
+    ...(hasValidGeo ? {
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: venue.latitude,
+        longitude: venue.longitude,
+      },
+    } : {}),
+    ...(venue.openingHoursSpecification?.length
+      ? { openingHoursSpecification: venue.openingHoursSpecification }
+      : venue.openingHours
+        ? { openingHours: venue.openingHours }
+        : {}),
+    ...(venue.phone ? { telephone: venue.phone } : {}),
+    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
     hasMap: venue.gmapsUrl,
   };
 
