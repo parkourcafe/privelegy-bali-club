@@ -1,0 +1,36 @@
+{
+  "program": "other-bali-intent-os-autopilot",
+  "state": "READY_FOR_PR",
+  "initial_state": "INGEST",
+  "created_at": "2026-07-29T18:04:40.269Z",
+  "updated_at": "2026-07-29T19:40:22.827Z",
+  "generator": "other-bali-intent-os-autopilot",
+  "source_version": "OB-INT-0001..0200@2026-07-29",
+  "input_hashes": {
+    "docs/intent-os/autopilot/inputs/external/OTHER_BALI_EXTERNAL_INTENTS_0001_0100.md": "d0f3e11323e7419afa61e3a2f572196cd7d9050530db42b44edac0035bb76416",
+    "docs/intent-os/autopilot/inputs/external/OTHER_BALI_EXTERNAL_INTENTS_0101_0200.md": "de0df9bbda5c0c12ba33f978045d0934db23a0bcf2521d3e11490e10a70bf1b6"
+  },
+  "stages_completed": [
+    "INGEST",
+    "NORMALIZE",
+    "RECONCILE",
+    "CANONICALIZE",
+    "MAP_SURFACES",
+    "DATA_READINESS",
+    "FINALIZE",
+    "LIVE_VERIFICATION_ATTEMPT",
+    "SHORTLIST",
+    "KEYWORD_SERP",
+    "SELECT_PILOT",
+    "REUSE_GATE",
+    "PRODUCT_BRIEF",
+    "LIVE_SNAPSHOT",
+    "IMPLEMENT",
+    "QA",
+    "INDEPENDENT_REVIEW",
+    "PREVIEW"
+  ],
+  "terminal": "READY_FOR_PR",
+  "winner": "OB-CAN-0011",
+  "backup": "OB-CAN-0007"
+}

@@ -1,0 +1,282 @@
+# Intent OS Autopilot — Decision Log
+
+Every material autonomous decision is appended here with its policy basis.
+Policy source: `docs/intent-os/autopilot/04_AUTONOMOUS_DECISION_POLICY.yaml`.
+
+
+## 2026-07-29T18:06:59.731Z — INGEST: summary-table vs row-data discrepancy
+
+**Observation.** Both external input files carry summary statistics that disagree with their own
+per-record tables.
+
+| File | Declared | Actual (parsed rows) |
+|---|---|---|
+| `...0001_0100.md` | 86 EVIDENCE_STRONG + 14 EVIDENCE_MODERATE | 96 STRONG + 4 MODERATE |
+| `...0101_0200.md` | 70 EVIDENCE_STRONG + 30 EVIDENCE_MODERATE | 61 STRONG + 39 MODERATE |
+
+The second file's per-domain statistics block also aggregates into 10 coarse domains, while its
+rows carry 47 distinct fine-grained domain strings.
+
+**Decision.** Per-record values in the ID-bearing tables are treated as authoritative. The summary
+blocks are human-written commentary, not source records: they carry no `OB-INT-` ID and therefore
+are not covered by non-negotiable rule 1 or rule 2.
+
+**Policy basis.** `evidence_conflict: AUTO_HOLD` applies to a conflict between evidence about a
+*source record*. No source record is in conflict here — all 200 parsed cleanly with
+`parse_status=OK`. Holding the pipeline on a prose-summary mismatch would block 200 intact records
+for a defect in derived commentary.
+
+**Consequence.** No AUTO_HOLD. Discrepancy recorded in `errors.ndjson` as a data-quality finding
+and carried into the Stage 3 reconciliation report. Domain normalization in Stage 2 must use the
+row-level domain strings, never the summary buckets.
+
+## 2026-07-29T18:23:04.101Z — NORMALIZE: type assignment
+
+Assigned exactly one normalized record type to all 200 source records using an
+ordered rule table (`scripts/intent-os/classify-rules.mjs`). First match wins; the winning rule id
+is stored per row in `decision_rule`, so every assignment is traceable and reproducible.
+
+Type distribution: CANONICAL_USER_JOB=76, HIGH_RISK_GUIDE=49, CHILD_SCENARIO=24, EDITORIAL_TOPIC=21, ENTITY_QUERY=20, SUPPORTING_JOB=10
+
+Risk distribution: LOW=126, OPERATIONAL=25, SAFETY=22, MEDICAL=16, LEGAL_REGULATORY=11
+
+Risk classification is evaluated before type, and MEDICAL / LEGAL_REGULATORY / SAFETY records become
+`HIGH_RISK_GUIDE` regardless of how the text is phrased. Policy basis: `risk_policy` in
+`04_AUTONOMOUS_DECISION_POLICY.yaml` sets `auto_build_allowed: false` and
+`publication_status: RESEARCH_ONLY` for those three classes. This is why a record such as
+"Find medical clinic / hospital in emergency" is not treated as an ordinary venue-selection job.
+
+13 explicit per-record overrides were applied where the rule table misfired:
+OB-INT-0031, OB-INT-0033, OB-INT-0047, OB-INT-0063, OB-INT-0064, OB-INT-0065, OB-INT-0066, OB-INT-0068, OB-INT-0069, OB-INT-0070, OB-INT-0144, OB-INT-0146, OB-INT-0165. Each carries a reason in `classify-rules.mjs`.
+
+No target distribution was imposed: Stage 2 explicitly forbids forcing 100 or 200 canonical parents.
+
+## 2026-07-29T18:30:44.189Z — NORMALIZE: type assignment
+
+Assigned exactly one normalized record type to all 200 source records using an
+ordered rule table (`scripts/intent-os/classify-rules.mjs`). First match wins; the winning rule id
+is stored per row in `decision_rule`, so every assignment is traceable and reproducible.
+
+Type distribution: CANONICAL_USER_JOB=77, HIGH_RISK_GUIDE=46, CHILD_SCENARIO=25, EDITORIAL_TOPIC=23, ENTITY_QUERY=19, SUPPORTING_JOB=10
+
+Risk distribution: LOW=128, OPERATIONAL=26, SAFETY=21, MEDICAL=16, LEGAL_REGULATORY=9
+
+Risk classification is evaluated before type, and MEDICAL / LEGAL_REGULATORY / SAFETY records become
+`HIGH_RISK_GUIDE` regardless of how the text is phrased. Policy basis: `risk_policy` in
+`04_AUTONOMOUS_DECISION_POLICY.yaml` sets `auto_build_allowed: false` and
+`publication_status: RESEARCH_ONLY` for those three classes. This is why a record such as
+"Find medical clinic / hospital in emergency" is not treated as an ordinary venue-selection job.
+
+16 explicit per-record overrides were applied where the rule table misfired:
+OB-INT-0031, OB-INT-0033, OB-INT-0047, OB-INT-0055, OB-INT-0063, OB-INT-0064, OB-INT-0065, OB-INT-0066, OB-INT-0068, OB-INT-0069, OB-INT-0070, OB-INT-0106, OB-INT-0144, OB-INT-0146, OB-INT-0165, OB-INT-0167. Each carries a reason in `classify-rules.mjs`.
+
+No target distribution was imposed: Stage 2 explicitly forbids forcing 100 or 200 canonical parents.
+
+## 2026-07-29T18:35:16.413Z — RECONCILE: external vs internal
+
+Matched 200 external records against 44 typed internal concepts.
+Result: MATCHED=53, PARTIAL=47, UNMATCHED_EXTERNAL=100, AUTO_HOLD=0.
+
+Job/capability collisions were resolved by the master goal's fixed decisions rather than by
+AUTO_HOLD, because the policy's `internal_external_conflict` default applies to unresolved
+conflicts, and these are resolved by specification.
+
+Hermes `DRIFT_004` claims `lib/scenarios.ts` is absent; the file exists at this baseline. Observed
+repository state is authoritative per Stage 3. Recorded as stale internal evidence.
+
+## 2026-07-29T18:37:45.651Z — CANONICALIZE: library V0.1
+
+Built 157 canonical records from 200 source records. Every source record
+is cited by exactly one canonical record (0 uncited). CHILD_SCENARIO records fold into
+their parent as `child_scenarios`/`aliases` rather than becoming separate parents.
+
+No round-number target was imposed; the count follows from the parent/child structure.
+
+Readiness: BLOCKED_BY_DATA=104, HIGH_RISK_NOT_READY=31, NEEDS_ENRICHMENT=22
+Lifecycle: ACTIVE=126, RESEARCH_ONLY=31
+
+## 2026-07-29T18:38:44.125Z — MAP_SURFACES: exhaustive projection
+
+Mapped all 157 canonical intents to surfaces (one row per intent, exhaustive as required).
+Inspected: lib/intents.ts, lib/moments.ts, lib/catalogue-moments.ts, lib/trip-missions.ts, lib/scenarios.ts, lib/collections.ts, lib/day-builder.ts, docs/seo/os/intent-registry.json, docs/seo/os/page-registry.json.
+
+Surface distribution: PLACES_FILTER=77, NO_BUILD=31, DECISION_PAGE=22, PLACES_SEARCH=18, PRODUCT_ONLY_NO_URL=9
+
+53 intents map onto a runtime key that already exists; the rest would need a new projection.
+Intents at HIGH_RISK_NOT_READY are forced to NO_BUILD regardless of their recommended surface.
+
+## 2026-07-29T18:38:44.162Z — DATA_READINESS: no_ready_data -> NO_BUILD
+
+Readiness across 157 canonical intents: BLOCKED_BY_DATA=104, HIGH_RISK_NOT_READY=31, NEEDS_ENRICHMENT=22.
+
+Intents at a readiness allowed for a pilot (READY or READY_WITH_LIMITED_DISTRICTS): **0**.
+
+### Observed evidence
+
+fixture total=53;published=0;with_jobs=0;districts=nusa-dua|tanjung-benoa;supabase_configured=false
+
+Venue selection reads from Supabase table "venues" via lib/data.ts. `.env.local` is
+absent, so a live read is
+not possible. The only venue records observable in
+the repository are the 53 rows in `data/resort-import/venues.json`, of which 0 are
+published and 0 carry `jobs` tags.
+
+Stage 6 states: "Never infer row-level coverage that was not observed" and "A single-job candidate is
+not READY unless the product can return a complete result using verified records." With no observable
+published, job-tagged venue, no venue-dependent intent can be shown to return a complete result.
+Marking any of them READY would be inventing coverage.
+
+**Transition taken:** `DATA_READINESS -> NO_BUILD` per 03_PIPELINE_STATE_MACHINE.yaml.
+
+## 2026-07-29T18:47:12.871Z — DATA_READINESS: no_ready_data -> NO_BUILD
+
+Readiness across 157 canonical intents: BLOCKED_BY_DATA=104, HIGH_RISK_NOT_READY=31, NEEDS_ENRICHMENT=22.
+
+Intents at a readiness allowed for a pilot (READY or READY_WITH_LIMITED_DISTRICTS): **0**.
+
+### Observed evidence
+
+fixture total=53;published=0;with_jobs=0;districts=nusa-dua|tanjung-benoa;supabase_configured=false
+
+Venue selection reads from Supabase table "venues" via lib/data.ts. `.env.local` is
+absent, so a live read is
+not possible. The only venue records observable in
+the repository are the 53 rows in `data/resort-import/venues.json`, of which 0 are
+published and 0 carry `jobs` tags.
+
+Stage 6 states: "Never infer row-level coverage that was not observed" and "A single-job candidate is
+not READY unless the product can return a complete result using verified records." With no observable
+published, job-tagged venue, no venue-dependent intent can be shown to return a complete result.
+Marking any of them READY would be inventing coverage.
+
+**Transition taken:** `DATA_READINESS -> NO_BUILD` per 03_PIPELINE_STATE_MACHINE.yaml.
+
+## 2026-07-29T18:48:14.110Z — LIVE_VERIFICATION: SAFE_HOLD
+
+Requested read-only live Supabase coverage verification. **No query was attempted**: neither
+`NEXT_PUBLIC_SUPABASE_URL` nor `NEXT_PUBLIC_SUPABASE_ANON_KEY` exists in the worktree, the main
+checkout, sibling clones, or the process environment. The only `.env.local` on the machine contains
+`VERCEL_OIDC_TOKEN` alone.
+
+Terminal state is `SAFE_HOLD`, not `NO_BUILD`. `NO_BUILD` would assert that live coverage was
+examined; it was not. Policy basis: `tool_unavailable: USE_ALLOWED_FALLBACK_OR_SAFE_HOLD` and the
+safe-stop rule in `08_SECURITY_AND_RELEASE_POLICY.md`.
+
+Deliberately **not** done: `vercel env pull` would have fetched credentials, but it writes
+`.env.local` at the repository root — outside the permitted `docs/intent-os/` and
+`scripts/intent-os/` scope — and would pull the service-role key the owner forbade using. Improvising
+around the boundary is exactly what the safe-stop rule prohibits.
+
+Snapshot tooling and schema are committed, and `readiness-model.mjs` now prefers a live snapshot over
+the repository fixture, so supplying credentials makes the re-run fully automatic.
+
+## 2026-07-29T18:55:01.754Z — CANONICALIZE: library V0.1
+
+Built 157 canonical records from 200 source records. Every source record
+is cited by exactly one canonical record (0 uncited). CHILD_SCENARIO records fold into
+their parent as `child_scenarios`/`aliases` rather than becoming separate parents.
+
+No round-number target was imposed; the count follows from the parent/child structure.
+
+Readiness: READY=25, HIGH_RISK_NOT_READY=31, BLOCKED_BY_DATA=77, READY_WITH_LIMITED_DISTRICTS=2, NEEDS_ENRICHMENT=22
+Lifecycle: ACTIVE=126, RESEARCH_ONLY=31
+
+## 2026-07-29T18:55:01.796Z — MAP_SURFACES: exhaustive projection
+
+Mapped all 157 canonical intents to surfaces (one row per intent, exhaustive as required).
+Inspected: lib/intents.ts, lib/moments.ts, lib/catalogue-moments.ts, lib/trip-missions.ts, lib/scenarios.ts, lib/collections.ts, lib/day-builder.ts, docs/seo/os/intent-registry.json, docs/seo/os/page-registry.json.
+
+Surface distribution: PLACES_FILTER=77, NO_BUILD=31, DECISION_PAGE=22, PLACES_SEARCH=18, PRODUCT_ONLY_NO_URL=9
+
+53 intents map onto a runtime key that already exists; the rest would need a new projection.
+Intents at HIGH_RISK_NOT_READY are forced to NO_BUILD regardless of their recommended surface.
+
+## 2026-07-29T18:55:01.837Z — DATA_READINESS: pass -> SHORTLIST
+
+Readiness across 157 canonical intents: READY=25, HIGH_RISK_NOT_READY=31, BLOCKED_BY_DATA=77, READY_WITH_LIMITED_DISTRICTS=2, NEEDS_ENRICHMENT=22.
+
+Intents at a readiness allowed for a pilot (READY or READY_WITH_LIMITED_DISTRICTS): **27**.
+
+### Observed evidence
+
+fixture total=53;published=0;with_jobs=0;districts=nusa-dua|tanjung-benoa;supabase_configured=false
+
+Venue selection reads from Supabase table "venues" via lib/data.ts. `.env.local` is
+absent, so a live read is
+not possible. The only venue records observable in
+the repository are the 53 rows in `data/resort-import/venues.json`, of which 0 are
+published and 0 carry `jobs` tags.
+
+Stage 6 states: "Never infer row-level coverage that was not observed" and "A single-job candidate is
+not READY unless the product can return a complete result using verified records." With no observable
+published, job-tagged venue, no venue-dependent intent can be shown to return a complete result.
+Marking any of them READY would be inventing coverage.
+
+**Transition taken:** `DATA_READINESS -> SHORTLIST` per 03_PIPELINE_STATE_MACHINE.yaml.
+
+## 2026-07-29T18:56:10.457Z — SHORTLIST: 26 action-job candidates
+
+Filtered 157 canonical intents to 26 that are pilot-eligible, single-job
+and ACTIVE, then to 26 that are completable in-browser with a portable result and no
+registration.
+
+Every factor is scored from an observable property with a stated rule (see `scoring_basis` per row).
+`serp_opportunity` is 0 for all rows: Stage 8 owns it and `unknown_search_volume: UNKNOWN` forbids
+guessing. Totals will rise by at most 10 after Stage 8.
+
+Top 5 provisional: OB-CAN-0011 (86), OB-CAN-0007 (82), OB-CAN-0004 (79), OB-CAN-0018 (79), OB-CAN-0019 (79)
+
+## 2026-07-29T18:58:09.069Z — KEYWORD_SERP: 3 of 26 researched
+
+Live SERP research run for the three highest-scoring candidates. The remaining
+23 are `UNKNOWN`, scored 0, explicitly not estimated.
+
+No search volume was recorded: no verified volume source was available.
+
+Key discriminator: an interactive tool already ranks for laptop-friendly cafés (geronimo-ai.com,
+competing on measured WiFi Mbps that Other Bali does not hold), while the Ubud romantic-dinner SERP
+contains no tool at all and is pure editorial territory.
+
+## 2026-07-29T19:00:09.424Z — SELECT_PILOT / REUSE_GATE
+
+Winner `OB-CAN-0011` (95 >= 85), backup
+`OB-CAN-0007` (88 >= 80). Both READY.
+
+Reuse decision **EXTEND_EXISTING**. The winner is already served: `/bali/ubud/date-night` renders
+today because Ubud has 9
+published `date_night_special` venues against `SPOKE_MIN_VENUES = 4`. A new tool would
+duplicate a live engine, which Stage 9 forbids. `HOLD` was rejected because nothing is blocked.
+
+The residual value is modifier/occasion refinement (quiet, sunset view, secluded, special occasion)
+over the existing result set — an extension, not a second engine.
+
+## 2026-07-29T19:01:35.747Z — IMPLEMENT: blocked by authorised file scope -> SAFE_HOLD
+
+Stage 11 requires editing `lib/` and `app/`. This run is authorised to write only
+`docs/intent-os/` and `scripts/intent-os/`. Per the safe-stop rule a forbidden requirement produces
+SAFE_HOLD with the exact blocker recorded, not a workaround.
+
+Eleven of thirteen stages completed on live data. Winner OB-CAN-0011 (95), backup OB-CAN-0007 (88),
+reuse decision EXTEND_EXISTING. The product brief is a complete implementation spec, so resuming
+needs only a scope authorisation, not rework.
+
+## 2026-07-29T19:40:22.828Z — IMPLEMENT / QA / INDEPENDENT_REVIEW / PREVIEW -> READY_FOR_PR
+
+Implemented the date-night modifier refinement as EXTEND_EXISTING behind
+NEXT_PUBLIC_OB_DATE_NIGHT_MODIFIERS (default off).
+
+Live evidence probe determined which modifiers can exist at all. All 9 Ubud date-night venues carry
+EMPTY vibe_tags and practical_tags, so only job-slug-derived modifiers are available there:
+special-occasion (4) and sunset-view (2). 'secluded' has NO supporting field anywhere in the dataset
+and ships permanently unavailable rather than approximated onto 'romantic'.
+
+Server no longer reads searchParams: doing so forced DYNAMIC_SERVER_USAGE on a statically generated
+route and would have degraded every district spoke. The server renders the complete set; the client
+narrows after hydration.
+
+Independent review by Codex CLI raised 3 HIGH findings, all fixed and re-reviewed clean, plus one
+MEDIUM and one LOW which were also fixed.
+
+QA GAP recorded honestly: end-to-end rendering could NOT be verified locally. /bali/* returns 404 in
+dev and 500 (DYNAMIC_SERVER_USAGE) under next start — reproduced at clean baseline with all changes
+stashed, so it is pre-existing and not a regression from this work.

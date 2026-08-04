@@ -1,0 +1,84 @@
+{
+  "program": "other-bali-intent-os-autopilot",
+  "terminal_state": "NO_BUILD",
+  "decided_at": "2026-07-29T18:40:43.713Z",
+  "generator": "other-bali-intent-os-autopilot",
+  "source_version": "OB-INT-0001..0200@2026-07-29",
+  "repository_baseline": "2ebf74e",
+  "branch": "agent/intent-os-autopilot",
+  "transition": {
+    "from": "DATA_READINESS",
+    "edge": "no_ready_data",
+    "to": "NO_BUILD",
+    "authority": "docs/intent-os/autopilot/03_PIPELINE_STATE_MACHINE.yaml"
+  },
+  "cause": {
+    "code": "NO_PILOT_ELIGIBLE_DATA_READINESS",
+    "statement": "Zero canonical intents reached a data readiness allowed for a pilot.",
+    "allowed_readiness_for_pilot": [
+      "READY",
+      "READY_WITH_LIMITED_DISTRICTS"
+    ],
+    "counts_by_readiness": {
+      "BLOCKED_BY_DATA": 104,
+      "HIGH_RISK_NOT_READY": 31,
+      "NEEDS_ENRICHMENT": 22
+    },
+    "pilot_eligible_count": 0
+  },
+  "evidence": {
+    "venue_source_of_truth": "Supabase table \"venues\" via lib/data.ts",
+    "supabase_configured": false,
+    "live_read_possible": false,
+    "repository_venue_fixture": {
+      "fixture_present": true,
+      "total": 53,
+      "published": 0,
+      "with_jobs": 0,
+      "districts": [
+        "nusa-dua",
+        "tanjung-benoa"
+      ]
+    },
+    "hermes_data_support": "every venues.* field reported PARTIAL with \"no live completeness count\""
+  },
+  "policy_basis": [
+    "02_CLAUDE_CODE_MASTER_GOAL.md Stage 6: \"Never infer row-level coverage that was not observed.\"",
+    "02_CLAUDE_CODE_MASTER_GOAL.md Stage 6: \"A single-job candidate is not READY unless the product can return a complete result using verified records.\"",
+    "04_AUTONOMOUS_DECISION_POLICY.yaml ambiguity_defaults.missing_data: BLOCKED_BY_DATA",
+    "04_AUTONOMOUS_DECISION_POLICY.yaml forbidden_behaviors: invent_evidence"
+  ],
+  "not_reached": [
+    "SHORTLIST",
+    "KEYWORD_SERP",
+    "SELECT_PILOT",
+    "REUSE_GATE",
+    "PRODUCT_BRIEF",
+    "IMPLEMENT",
+    "QA",
+    "INDEPENDENT_REVIEW",
+    "PREVIEW"
+  ],
+  "thresholds_never_evaluated": {
+    "winner_min_score": 85,
+    "backup_min_score": 80
+  },
+  "artifacts_produced": [
+    "docs/intent-os/canonical/01_SOURCE_RECORD_LEDGER_0001_0200.csv",
+    "docs/intent-os/canonical/02_NORMALIZED_SOURCE_RECORDS_V0_1.csv",
+    "docs/intent-os/canonical/03_ALIAS_AND_MODIFIER_REGISTER_V0_1.csv",
+    "docs/intent-os/canonical/04_SUPPORTING_JOB_REGISTER_V0_1.csv",
+    "docs/intent-os/canonical/05_HIGH_RISK_AND_REJECT_REGISTER_V0_1.csv",
+    "docs/intent-os/canonical/06_EXTERNAL_INTERNAL_RECONCILIATION_V0_1.csv",
+    "docs/intent-os/canonical/07_RECONCILIATION_REPORT_V0_1.md",
+    "docs/intent-os/canonical/08_CANONICAL_INTENT_LIBRARY_V0_1.csv",
+    "docs/intent-os/canonical/08_CANONICAL_INTENT_LIBRARY_V0_1.json",
+    "docs/intent-os/canonical/09_INTENT_SURFACE_MAPPING_V0_1.csv",
+    "docs/intent-os/canonical/10_INTENT_DATA_READINESS_MATRIX_V0_1.csv"
+  ],
+  "unblock_condition": {
+    "statement": "Provide observable published, job-tagged venue coverage, then re-run the pipeline.",
+    "machine_check": "venues where publication_status = published AND jobs is non-empty, count > 0, observable without inventing coverage",
+    "rerun_command": "node scripts/intent-os/bootstrap.mjs && node scripts/intent-os/ingest.mjs && node scripts/intent-os/normalize.mjs && node scripts/intent-os/reconcile.mjs && node scripts/intent-os/canonicalize.mjs && node scripts/intent-os/map-surfaces.mjs && node scripts/intent-os/data-readiness.mjs"
+  }
+}

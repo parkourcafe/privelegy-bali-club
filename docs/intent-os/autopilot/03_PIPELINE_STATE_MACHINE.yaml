@@ -1,0 +1,79 @@
+version: 1
+program: other-bali-intent-os-autopilot
+initial_state: INGEST
+states:
+  - INGEST
+  - NORMALIZE
+  - RECONCILE
+  - CANONICALIZE
+  - MAP_SURFACES
+  - DATA_READINESS
+  - SHORTLIST
+  - KEYWORD_SERP
+  - SELECT_PILOT
+  - REUSE_GATE
+  - PRODUCT_BRIEF
+  - IMPLEMENT
+  - QA
+  - INDEPENDENT_REVIEW
+  - PREVIEW
+  - READY_FOR_PR
+  - READY_FOR_PREVIEW
+  - NO_BUILD
+  - SAFE_HOLD
+  - FAILED_GATE
+terminal_states:
+  - READY_FOR_PR
+  - READY_FOR_PREVIEW
+  - NO_BUILD
+  - SAFE_HOLD
+  - FAILED_GATE
+transitions:
+  INGEST:
+    pass: NORMALIZE
+    fail: FAILED_GATE
+  NORMALIZE:
+    pass: RECONCILE
+    fail: FAILED_GATE
+  RECONCILE:
+    pass: CANONICALIZE
+    fail: SAFE_HOLD
+  CANONICALIZE:
+    pass: MAP_SURFACES
+    fail: FAILED_GATE
+  MAP_SURFACES:
+    pass: DATA_READINESS
+    fail: FAILED_GATE
+  DATA_READINESS:
+    pass: SHORTLIST
+    no_ready_data: NO_BUILD
+    fail: FAILED_GATE
+  SHORTLIST:
+    pass: KEYWORD_SERP
+    empty: NO_BUILD
+  KEYWORD_SERP:
+    pass: SELECT_PILOT
+    insufficient_external_data: SAFE_HOLD
+    fail: FAILED_GATE
+  SELECT_PILOT:
+    winner: REUSE_GATE
+    no_winner: NO_BUILD
+  REUSE_GATE:
+    feasible: PRODUCT_BRIEF
+    hold: NO_BUILD
+  PRODUCT_BRIEF:
+    pass: IMPLEMENT
+    fail: FAILED_GATE
+  IMPLEMENT:
+    pass: QA
+    fail: FAILED_GATE
+  QA:
+    pass: INDEPENDENT_REVIEW
+    fail: FAILED_GATE
+  INDEPENDENT_REVIEW:
+    pass: PREVIEW
+    fail: FAILED_GATE
+  PREVIEW:
+    pr_ready: READY_FOR_PR
+    preview_only: READY_FOR_PREVIEW
+    fail: FAILED_GATE

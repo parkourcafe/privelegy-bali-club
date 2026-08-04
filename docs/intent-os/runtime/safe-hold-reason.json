@@ -1,0 +1,74 @@
+{
+  "program": "other-bali-intent-os-autopilot",
+  "terminal_state": "SAFE_HOLD",
+  "decided_at": "2026-07-29T19:01:35.747Z",
+  "generator": "other-bali-intent-os-autopilot",
+  "source_version": "OB-INT-0001..0200@2026-07-29",
+  "repository_baseline": "2ebf74e",
+  "branch": "agent/intent-os-autopilot",
+  "requested_task": "full autonomous run from DATA_READINESS using the live coverage snapshot",
+  "cause": {
+    "code": "IMPLEMENT_REQUIRES_OUT_OF_SCOPE_WRITES",
+    "statement": "Stage 11 IMPLEMENT requires editing lib/ and app/. Authorised file scope for this run is docs/intent-os/ and scripts/intent-os/ only.",
+    "blocked_stage": "IMPLEMENT",
+    "stages_completed": 11,
+    "stages_total": 13
+  },
+  "read_only_compliance": {
+    "mutating_verbs_used": [],
+    "database_records_modified": 0,
+    "migrations_run": 0,
+    "schema_changes": 0,
+    "grants_changed": 0,
+    "venues_published": 0,
+    "job_tags_written": 0
+  },
+  "policy_basis": [
+    "08_SECURITY_AND_RELEASE_POLICY.md safe-stop: forbidden requirement -> SAFE_HOLD, record blocker, do not improvise around the boundary",
+    "02_CLAUDE_CODE_MASTER_GOAL.md Stage 9: duplicating an existing planning engine is forbidden"
+  ],
+  "fallback_evaluated": {
+    "source": "repository fixture data/resort-import/venues.json",
+    "result": "unchanged: 0 pilot-eligible intents",
+    "counts_by_readiness": {
+      "BLOCKED_BY_DATA": 104,
+      "HIGH_RISK_NOT_READY": 31,
+      "NEEDS_ENRICHMENT": 22
+    },
+    "note": "The fallback reproduces the prior NO_BUILD finding but cannot confirm or refute live coverage."
+  },
+  "id_integrity": {
+    "source_records": 200,
+    "source_records_unique": 200,
+    "canonical_records": 157,
+    "canonical_records_unique": 157,
+    "canonical_id_range": "OB-CAN-0001 .. OB-CAN-0157",
+    "renumbered": false
+  },
+  "unblock": {
+    "statement": "Authorise edits to lib/ and app/; the brief is a complete implementation spec.",
+    "brief": "docs/intent-os/pilot/15_FIRST_PILOT_PRODUCT_BRIEF_V1_0.md",
+    "expected_path": "IMPLEMENT -> QA -> INDEPENDENT_REVIEW -> PREVIEW -> READY_FOR_PR"
+  },
+  "winner": {
+    "id": "OB-CAN-0011",
+    "name": "Choose a romantic dinner in Ubud",
+    "score": 95,
+    "readiness": "READY"
+  },
+  "backup": {
+    "id": "OB-CAN-0007",
+    "name": "Find breakfast open before 7 AM",
+    "score": 88,
+    "readiness": "READY"
+  },
+  "reuse_decision": "EXTEND_EXISTING",
+  "reuse_basis": "/bali/ubud/date-night already renders: 9 published date_night_special venues vs SPOKE_MIN_VENUES=4; 7 districts qualify",
+  "live_snapshot": {
+    "venues_observed": 1122,
+    "districts": 17,
+    "cells": 81,
+    "ready_cells": 64,
+    "pilot_eligible_intents": 27
+  }
+}

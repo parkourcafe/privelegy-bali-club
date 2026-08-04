@@ -1,0 +1,32 @@
+source_system,source_key,current_label,current_route_or_file,proposed_canonical_id,projection_type,alias_or_modifier,runtime_status,conflict_status,recommended_action
+runtime_plan,plan,Future trip planning,/plan,INTENT_TRIP_PLAN,PRIMARY_SURFACE,false,LIVE,OPEN,Keep as trip-level planning surface
+runtime_day_builder,my-day,Today,/my-day,INTENT_TODAY_DECISION,PRIMARY_SURFACE,false,LIVE,OPEN,Keep as one-day engine
+runtime_catalogue,places,Catalogue,/places,INTENT_PLACE_DISCOVERY,PRIMARY_SURFACE,false,LIVE,OPEN,Keep catalogue separate from SEO
+runtime_catalogue,query,Search,/places?q=,INTENT_SEARCH_BRIEF,PROJECTION,false,LIVE,OPEN,Document substring matcher limits
+catalogue_moments,date-night,Date night,/places?moment=date-night,INTENT_DATE_NIGHT,ALIAS,true,LIVE,CONFLICT,Map after evidence review
+catalogue_moments,golden-hour,Golden hour,/places?moment=golden-hour,INTENT_GOLDEN_HOUR,MODIFIER,true,LIVE,CONFLICT,Verify sunset relationship
+plan_moments,work-session,Work session,/plan?m=work-session,INTENT_WORK_SESSION,PRIMARY_SURFACE,false,LIVE,CONFLICT,Keep distinct from capability
+plan_moments,family-day,Family day,/plan?m=family-day,INTENT_FAMILY_OUTING,ALIAS,true,LIVE,CONFLICT,Do not map to family-easy capability
+trip_missions,first-day,First day,lib/trip-missions.ts,INTENT_FIRST_DAY,PRIMARY_CONFIG,false,LIVE,OPEN,Map to scenario only via parent relation
+trip_missions,slow-living-bali,Slow living Bali,lib/trip-missions.ts,INTENT_MONTH_IN_BALI,ALIAS,true,PARTIAL,CONFLICT,Record missing scenario/config drift
+trip_missions,family-bali,Family Bali,lib/trip-missions.ts,INTENT_FAMILY_OUTING,ALIAS,true,PARTIAL,CONFLICT,Record missing scenario/config drift
+trip_missions,bali-night-out,Bali night out,lib/trip-missions.ts,INTENT_DATE_NIGHT,ALIAS,true,PARTIAL,CONFLICT,Do not create scenario silently
+trip_missions,bali-rainy-day,Bali rainy day,lib/trip-missions.ts,INTENT_TODAY_DECISION,ALIAS,true,PARTIAL,CONFLICT,Record missing scenario/config drift
+scenarios,first-time-in-bali,First time in Bali,/first-time-in-bali,INTENT_FIRST_DAY,PRIMARY_EDITORIAL,false,LIVE,OPEN,Preserve editorial layer
+scenarios,bali-for-a-month,Bali for a month,/bali-for-a-month,INTENT_MONTH_IN_BALI,PRIMARY_EDITORIAL,false,LIVE,OPEN,Preserve editorial layer
+scenarios,romantic-bali,Romantic Bali,/romantic-bali,INTENT_ROMANTIC_BALI,PRIMARY_EDITORIAL,false,LIVE,OPEN,Parent to date-night but not alias
+scenarios,bali-retreat-reset,Bali retreat reset,/bali-retreat-reset,INTENT_RETREAT_RESET,PRIMARY_EDITORIAL,false,LIVE,OPEN,Preserve editorial layer
+collections,work-friendly-cafes,Work-friendly cafes,/collections/work-friendly-cafes,CAPABILITY_WORK_FRIENDLY,PROJECTION,false,LIVE,CONFLICT,Venue capability not user job
+collections,local-and-calm,Local and calm,/collections/local-and-calm,CAPABILITY_LOCAL_AND_CALM,PROJECTION,false,LIVE,CONFLICT,Composite context not local-food alias
+collections,family-easy,Family easy,/collections/family-easy,CAPABILITY_FAMILY_EASY,PROJECTION,false,LIVE,CONFLICT,Venue capability not family-outing job
+seo_jobs,work-friendly-cafes,Canggu work-friendly cafes,/canggu/work-friendly-cafes,INTENT_WORK_SESSION,SEO_PROJECTION,true,LIVE,CONFLICT,SEO is acquisition mapping only
+seo_jobs,date-night-restaurants,Uluwatu date-night restaurants,/uluwatu/date-night-restaurants,INTENT_DATE_NIGHT,SEO_PROJECTION,true,LIVE,CONFLICT,Reconcile with romantic/special occasion
+seo_jobs,sunset-drinks-view,Sunset drinks view,/bali/{district}/{intent},INTENT_SUNSET_CHOICE,SEO_PROJECTION,true,LIVE,CONFLICT,Verify golden-hour alias
+venue_fields,work-friendly,Work-friendly,venues.jobs/practical_tags,CAPABILITY_WORK_FRIENDLY,CAPABILITY,false,PARTIAL,CONFLICT,Do not promote to user-job canonical
+venue_fields,family-easy,Family easy,venues.jobs/practical_tags,CAPABILITY_FAMILY_EASY,CAPABILITY,false,PARTIAL,CONFLICT,Do not promote to user-job canonical
+venue_fields,local-and-calm,Local and calm,venues.jobs/collections,CAPABILITY_LOCAL_AND_CALM,CAPABILITY,false,PARTIAL,CONFLICT,Composite context
+save_flow,save,Save,components/SaveButton.tsx;api/save,INTENT_SAVE_FOR_LATER,ACTION_SURFACE,false,LIVE,OPEN,Confirm whether analytics action is also user job
+trip_flow,route_add,Add to trip,components/AddToTripButton.tsx;api/trip,INTENT_ADD_TO_TRIP,ACTION_SURFACE,false,LIVE,OPEN,Keep linked to trip plan
+share_flow,shared-trip,Shared trip,/plan/shared;api/list,INTENT_SHARE_TRIP,ACTION_SURFACE,false,PARTIAL,OPEN,Verify route/runtime availability
+redemption_flow,redeem,Redeem offer,/v/[venue]/redeem,INTENT_REDEEM_OFFER,ACTION_SURFACE,false,LIVE,OPEN,Keep outside acquisition jobs
+seo_registry,shadow entries,Shadow registry,docs/seo/os/intent-registry.json,None,GOVERNANCE_REGISTRY,false,DOCS_ONLY,OPEN,Promote conditionally only after reconciliation

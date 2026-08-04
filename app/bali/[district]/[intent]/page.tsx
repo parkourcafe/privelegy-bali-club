@@ -9,7 +9,15 @@ import {
   spokeFaqs,
   spokeJsonLd,
 } from "@/lib/hub";
+import { Suspense } from "react";
 import VenueCard from "@/components/VenueCard";
+import DateNightRefine from "@/components/DateNightRefine";
+import {
+  DATE_NIGHT_INTENT_SLUG,
+  dateNightModifiersEnabled,
+  modifierAvailability,
+  venueModifierKeys,
+} from "@/lib/date-night-modifiers";
 
 // The root layout resolves the explicit locale from a request header. Keep this
 // dynamic route request-rendered: attempting on-demand ISR without request
@@ -53,6 +61,20 @@ export default async function IntentSpokePage({
   const spoke = spokes.find((s) => s.district === district && s.intent.urlSlug === intent);
   if (!spoke) notFound();
 
+  // Modifier refinement (Intent OS pilot OB-CAN-0011). Flag-gated and scoped to
+  // the date-night spoke; every other spoke is untouched.
+  //
+  // The filter is deliberately NOT read from `searchParams` on the server: this
+  // route is statically generated (generateStaticParams + revalidate), and
+  // reading searchParams would force dynamic rendering for every district spoke.
+  // Instead the server always renders the complete, unfiltered set — so crawlers
+  // and no-JS visitors get everything — and the client narrows it after
+  // hydration. Critical content is therefore never hydration-dependent.
+  const refineEnabled =
+    dateNightModifiersEnabled() && spoke.intent.urlSlug === DATE_NIGHT_INTENT_SLUG;
+  const availability = refineEnabled ? modifierAvailability(spoke.venues) : [];
+  const basePath = `/bali/${district}/${intent}`;
+
   const faqs = spokeFaqs(spoke);
   // Other intents in the same district (up-link mesh) and the same intent in
   // other districts (lateral cluster) — the internal links that build authority.
@@ -88,10 +110,40 @@ export default async function IntentSpokePage({
           <p className="hero-copy mt-3">{spokeIntro(spoke)}</p>
         </header>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {spoke.venues.map((v) => (
-            <VenueCard key={v.slug} v={v} actionMode={actionMode} showSimilar={false} linkToPage />
-          ))}
+        {refineEnabled && (
+          <Suspense fallback={null}>
+            <DateNightRefine
+              basePath={basePath}
+              availability={availability}
+              districtName={spoke.districtName}
+              noun={spoke.intent.noun}
+            />
+          </Suspense>
+        )}
+
+        {/* Flag off renders exactly what shipped before: no wrapper element, so
+            grid layout and equal-height rows are untouched. The wrapper exists
+            only when the refinement is active and needs a filter target. */}
+        <div
+          className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          {...(refineEnabled ? { "data-refine-grid": "" } : {})}
+        >
+          {spoke.venues.map((v) =>
+            refineEnabled ? (
+              <div
+                key={v.slug}
+                className="contents"
+                // Which modifiers this venue has positive evidence for. The
+                // client filter hides non-matching wrappers; with no JS every
+                // card shows. `contents` keeps the card itself the grid item.
+                data-refine={venueModifierKeys(v).join(" ")}
+              >
+                <VenueCard v={v} actionMode={actionMode} showSimilar={false} linkToPage />
+              </div>
+            ) : (
+              <VenueCard key={v.slug} v={v} actionMode={actionMode} showSimilar={false} linkToPage />
+            )
+          )}
         </div>
 
         {siblingIntents.length > 0 && (

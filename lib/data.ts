@@ -31,6 +31,7 @@ import {
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
+import { TEST_FIXTURES } from "./test-fixtures";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -881,6 +882,34 @@ function spokeRichness(v: VenueWithPerk): number {
 }
 
 export async function getIntentSpokes(): Promise<IntentSpoke[]> {
+  // Test mode for Playwright QA — when NEXT_PUBLIC_TEST_MODE=1, return fixture data
+  // instead of querying the database. Fixtures are isolated to tests only.
+  if (process.env.NEXT_PUBLIC_TEST_MODE === "1") {
+    const fixtureData = Object.values(TEST_FIXTURES);
+    const spokes: IntentSpoke[] = [];
+    for (const fixture of fixtureData) {
+      for (const intent of INTENTS) {
+        const venues = fixture.venues
+          .filter((v) => normalizeJobs(v.jobs).includes(intent.jobSlug))
+          // Sort by richness (editorial completeness) — fixtures have minimal editorial fields
+          .sort((a, b) => {
+            const richA = (a.whyItsHere ? 2 : 0) + (a.whatToOrder ? 1 : 0) + (a.bestFor ? 1 : 0) + (a.priceAnchor ? 1 : 0);
+            const richB = (b.whyItsHere ? 2 : 0) + (b.whatToOrder ? 1 : 0) + (b.bestFor ? 1 : 0) + (b.priceAnchor ? 1 : 0);
+            return richB - richA || a.name.localeCompare(b.name);
+          });
+        if (venues.length >= SPOKE_MIN_VENUES) {
+          spokes.push({
+            district: fixture.districtSlug,
+            districtName: fixture.districtName,
+            intent,
+            venues: venues as VenueWithPerk[],
+          });
+        }
+      }
+    }
+    return spokes;
+  }
+
   const hubs = await getDistrictHubs();
   const spokes: IntentSpoke[] = [];
   for (const hub of hubs) {

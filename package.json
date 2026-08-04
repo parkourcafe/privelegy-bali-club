@@ -24,6 +24,8 @@
     "test:t0:live": "node scripts/t0-indexability-smoke.mjs",
     "test:t0:fix-live": "node scripts/t0-indexability-smoke.mjs --include-branch-targets",
     "test:seo-os": "node --test scripts/seo-os-core.test.mjs && node scripts/seo-os.mjs validate",
+    "test:e2e": "playwright test",
+    "test:e2e:qa": "NEXT_PUBLIC_TEST_MODE=1 NEXT_PUBLIC_OB_DATE_NIGHT_MODIFIERS=1 playwright test e2e/date-night-modifiers.spec.ts",
     "seo:os:validate": "node scripts/seo-os.mjs validate",
     "seo:os:snapshot": "node scripts/seo-os.mjs snapshot",
     "seo:os:check": "node scripts/seo-os.mjs check",
@@ -74,6 +76,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "8.4.1",
+    "@playwright/test": "^1.62.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22.20.1",
     "@types/qrcode": "^1.5.6",
@@ -99,7 +102,7 @@
     },
     "postcss": "8.5.19"
   },
-  "//browserslist": "Modern targets so Next/SWC stops shipping ES2022 polyfills (Array.at/flat/flatMap, Object.fromEntries/hasOwn, String.trimStart/End) \u2014 ~13.8 KB of legacy JS off every page. Floor is early-2022 browsers, which covers the tourist audience's phones.",
+  "//browserslist": "Modern targets so Next/SWC stops shipping ES2022 polyfills (Array.at/flat/flatMap, Object.fromEntries/hasOwn, String.trimStart/End) — ~13.8 KB of legacy JS off every page. Floor is early-2022 browsers, which covers the tourist audience's phones.",
   "browserslist": [
     "chrome >= 104",
     "edge >= 104",

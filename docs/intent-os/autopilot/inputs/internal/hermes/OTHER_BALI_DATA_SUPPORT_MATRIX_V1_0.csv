@@ -1,0 +1,28 @@
+data_field_or_engine,source_path,used_by_intents,supporting_schema_or_mapping,data_support,status,known_gap_or_verification_needed
+venues.id,lib/data.ts;supabase/migrations/0001_init.sql,venue detail save add-to-trip redemption,"venues.id text primary key",PARTIAL,LIVE,Full current row inventory unavailable
+venues.slug,lib/data.ts;lib/trip.ts;0056_saved_place_trip_extension.sql,all venue intents and saved flows,"unique venue slug plus slug regex",PARTIAL,LIVE,Need live uniqueness/current published coverage proof
+venues.name,lib/data.ts;app/places/PlacesView.tsx,search venue detail collections,"name text not null",PARTIAL,LIVE,No live completeness count
+venues.category,lib/data.ts;app/places/page.tsx;lib/intents.ts,Explore filters Plan moments collections SEO spokes,"category text not null; VenueCategory",PARTIAL,LIVE,Category vocabulary spans web/mobile and needs canonical list
+venues.district,0001_init.sql;lib/data.ts;day-builder.ts,area browse filters My Day collections SEO spokes,"district FK; DAY_AREAS; mobile districts",PARTIAL,LIVE,Current DB district support not live-verified
+venues.jobs,lib/data.ts;lib/intents.ts;lib/collections.ts;lib/moments.ts,SEO intents collections Plan moments,"text[] mapped to jobs",PARTIAL,LIVE,Primary intent coverage field lacks live distribution audit
+venues.vibe_tags,lib/data.ts;PlanView.tsx;PlacesView.tsx,Plan vibe filter and search/moment match,"text[]",PARTIAL,LIVE,No canonical allowed vocabulary confirmed
+venues.practical_tags,lib/data.ts;app/places/page.tsx,search brief/detail practical context,"text[]",PARTIAL,LIVE,No explicit taxonomy registry
+venues.why_its_here,lib/data.ts;lib/start-shortlist.ts;quick-decision.ts,decision surfaces and card copy,"text",PARTIAL,LIVE,Required for start shortlist but row completeness unknown
+venues.best_for,lib/data.ts;lib/start-shortlist.ts;quick-decision.ts,decision surfaces and ranking,"text",PARTIAL,LIVE,Required for start shortlist but row completeness unknown
+venues.not_for,lib/quick-decision.ts;PlanView.tsx,contrast/check decision copy,"text",PARTIAL,LIVE,Not used as a governing exclusion rule
+venues.what_to_order,lib/collections.ts;quick-decision.ts,food collections and detail,"text",PARTIAL,LIVE,Used as factual signal but no completeness proof
+venues.price_anchor,lib/collections.ts;app/places/page.tsx,budget collections/card price,"text",PARTIAL,LIVE,Free-form versus Price band format split
+venues.photo_url/photo_status,lib/data.ts;venue page;PlacesView.tsx,card/detail presentation,"photo_url plus photo_status",PARTIAL,LIVE,Photo rights/publication state needs live row proof
+venues.publication_status/status,lib/data.ts;publication.ts;0056 migration,all public intents and SEO sitemap,"active + published gates",PARTIAL,LIVE,Current status distribution unavailable
+venues.last_verified_at,lib/data.ts;app/sitemap.ts;venue metadata,staleness and last-modified signals,"timestamptz/text mapping",PARTIAL,LIVE,Missing values directly reduce freshness proof
+venues.official_url/instagram_url/gmaps_url,lib/data.ts;venue page;analytics.ts,identity and outbound actions,"URL fields normalized at boundary",PARTIAL,LIVE,No current live link completeness audit
+plan_entries,0001_init.sql;lib/data.ts,Plan and route-to-venue planning,"district venue_slug slot rank blurb",PARTIAL,LIVE,Live route row set not verified
+routes,lib/data.ts;app/plan/page.tsx;app/route/[slug]/page.tsx,ready-made route intent,"RouteDef loaded by getRoutes",PARTIAL,LIVE,Schema/read mapping not fully reviewed in this pass
+collections matching,lib/collections.ts,collection and Today slots,published venue fields and 10/3 gate,PARTIAL,LIVE,Heuristics differ from catalogue moments
+trip missions,lib/trip-missions.ts;app/places/page.tsx,trip-level intent,"static config query/category/scenarioSlug",FULL,PARTIAL,Several scenario links missing
+scenario config,lib/scenarios.ts;app/sitemap.ts,editorial situation intent,"static SCENARIOS plus mission handoff",FULL,LIVE/PARTIAL,Only four scenarios defined in inspected file; mission registry has eight
+saved_places,0019_saved_places_and_sharing.sql;0056_saved_place_trip_extension.sql,save/add-to-trip/share,"guest_ref_id venue_slug day_number position",PARTIAL,PARTIAL,Need runtime/RPC grant verification
+shared_lists,0019_saved_places_and_sharing.sql;0056_saved_place_trip_extension.sql,share saved list/trip,"venue_slugs trip_entries",PARTIAL,PARTIAL,Need UI route and current function availability verification
+events/log_event,0056_saved_place_trip_extension.sql;lib/analytics.ts,analytics taxonomy,"allowlisted event type and guest/venue/source",PARTIAL,PARTIAL,No event counts; GA4 disabled by default
+intent-registry,docs/seo/os/intent-registry.json,governance of SEO intent surfaces,"schema version, route types, intent_id, gate status",PARTIAL,DOCS_ONLY,Mode shadow; many null IDs/unreviewed entries
+sitemap/canonical/robots,app/sitemap.ts;app/robots.ts;lib/seo/places-indexing.ts,SEO intent surfaces,route emission plus canonical/noindex rules,FULL,LIVE,Runtime crawl verification outside this internal audit
