@@ -69,3 +69,27 @@ export function publishableStreetAddress(value: unknown): string | undefined {
   if (!STREET_MARKER.test(text)) return undefined;
   return text;
 }
+
+// A coordinate pair fit to publish as schema.org GeoCoordinates.
+//
+// A wrong coordinate is the least visible error this catalogue can ship: the
+// card still looks correct and the traveller simply arrives somewhere else, so
+// nobody reports it. Half a pair is worse than none — it reads as a precise
+// claim while carrying no location at all.
+//
+// Rejects the artefacts rather than the merely surprising: a missing or
+// non-numeric half, NaN/Infinity, anything outside the earth's own range, and
+// exact 0,0, which is where an empty value lands once something parses it as a
+// number. Being in the wrong district is a collection-time question and is
+// checked on the way in, not here.
+export function publishableGeoCoordinates(
+  latitude: unknown,
+  longitude: unknown,
+): { latitude: number; longitude: number } | undefined {
+  if (typeof latitude !== "number" || typeof longitude !== "number") return undefined;
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return undefined;
+  if (latitude < -90 || latitude > 90) return undefined;
+  if (longitude < -180 || longitude > 180) return undefined;
+  if (latitude === 0 && longitude === 0) return undefined;
+  return { latitude, longitude };
+}

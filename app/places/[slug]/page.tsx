@@ -27,6 +27,7 @@ import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKin
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 import {
+  publishableGeoCoordinates,
   publishableStreetAddress,
   venueCategoryLabel,
   venueCoverAssetCategory,
@@ -343,14 +344,8 @@ export default async function VenuePage({
   const schemaStreetAddress =
     publishableStreetAddress(content?.address) ?? publishableStreetAddress(venue.fullAddress);
   // Coordinates make the card answerable ("where is it") instead of prose-only.
-  // Both must be present and finite — a half-filled pair is worse than none.
-  const schemaGeo =
-    typeof venue.latitude === "number" &&
-    typeof venue.longitude === "number" &&
-    Number.isFinite(venue.latitude) &&
-    Number.isFinite(venue.longitude)
-      ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
-      : null;
+  const publishableGeo = publishableGeoCoordinates(venue.latitude, venue.longitude);
+  const schemaGeo = publishableGeo ? { "@type": "GeoCoordinates", ...publishableGeo } : null;
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).

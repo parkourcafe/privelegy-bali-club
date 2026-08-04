@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  publishableGeoCoordinates,
   publishableStreetAddress,
   venueCategoryLabel,
   venueCoverAssetCategory,
@@ -73,4 +74,40 @@ test("publishableStreetAddress ignores non-strings and blanks", () => {
   assert.equal(publishableStreetAddress(undefined), undefined);
   assert.equal(publishableStreetAddress(""), undefined);
   assert.equal(publishableStreetAddress("   "), undefined);
+});
+
+test("publishableGeoCoordinates accepts a real Bali pin", () => {
+  // Values written by the coordinate run of 2026-08-04, resolved from the
+  // venues' own sites and their stored Maps pins.
+  assert.deepEqual(publishableGeoCoordinates(-8.6589493, 115.1381321), {
+    latitude: -8.6589493,
+    longitude: 115.1381321,
+  });
+  assert.deepEqual(publishableGeoCoordinates(-8.660204, 115.142973), {
+    latitude: -8.660204,
+    longitude: 115.142973,
+  });
+});
+
+test("publishableGeoCoordinates refuses a half-filled pair", () => {
+  // 332 of the 336 venues in the launch districts still hold exactly this
+  // shape. A lone latitude must publish nothing at all.
+  assert.equal(publishableGeoCoordinates(-8.6589493, null), undefined);
+  assert.equal(publishableGeoCoordinates(null, 115.1381321), undefined);
+  assert.equal(publishableGeoCoordinates(null, null), undefined);
+  assert.equal(publishableGeoCoordinates(undefined, undefined), undefined);
+});
+
+test("publishableGeoCoordinates refuses non-numbers and non-finite values", () => {
+  assert.equal(publishableGeoCoordinates("-8.6589493", "115.1381321"), undefined);
+  assert.equal(publishableGeoCoordinates(Number.NaN, 115.1381321), undefined);
+  assert.equal(publishableGeoCoordinates(-8.6589493, Number.POSITIVE_INFINITY), undefined);
+});
+
+test("publishableGeoCoordinates refuses impossible points and null island", () => {
+  // 0,0 is where an empty value lands once something parses it as a number,
+  // and it is in the Atlantic rather than in Bali.
+  assert.equal(publishableGeoCoordinates(0, 0), undefined);
+  assert.equal(publishableGeoCoordinates(91, 115.1381321), undefined);
+  assert.equal(publishableGeoCoordinates(-8.6589493, 181), undefined);
 });
