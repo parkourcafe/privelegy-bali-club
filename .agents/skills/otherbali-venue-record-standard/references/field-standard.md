@@ -103,14 +103,39 @@ concrete anchor.
 $$ · mains 90–150K
 ```
 
-**Known drift — do not paper over it.** Production data currently holds at least
-three incompatible formats on a single page:
+**What the bands mean, in IDR per menu item.** Anchored on the one production
+row that already carries the canonical format — Poule de Luxe, `$ · pastries
+~25–45K each` — and consistent with the rest of the page: the `$` cohort is the
+explicitly budget end (Oma Jamu, ZIN Cafe, NÜDE), `$$$` the priciest (The Lawn,
+Udara Bali).
 
-| Format | Example | Count on /canggu/best-brunch |
+| Band | Per item |
+|---|---|
+| `$` | up to ~50K |
+| `$$` | ~50–150K |
+| `$$$` | above ~150K |
+
+Judge by where the range sits overall, not by its ceiling: a 35–70K plate is
+`$$`, a 100–250K main is `$$$`. Writing the ladder down is the point — without
+it, every venue reopens the same argument and each agent resolves it by feel.
+Adjust the numbers if they prove wrong in practice, but adjust them here, once.
+
+**Known drift — do not paper over it.** Measured on /canggu/best-brunch
+(2026-08-04), production data holds four shapes across 43 rows:
+
+| Shape | Count | Example |
 |---|---|---|
-| Band only | `$$` | most |
-| Range, short | `35k-70k IDR` | Crate Cafe |
-| Range, long | `Rp 100.000 - 250.000` | Milu by Nook |
+| Band only, no anchor | 40 | `$$`, `$`, `$$$` |
+| **Canonical — band + anchor** | **1** | `$ · pastries ~25–45K each` (Poule de Luxe) |
+| Range, short, no band | 1 | `35k-70k IDR` (Crate Cafe) |
+| Range, long, no band | 1 | `Rp 100.000 - 250.000` (Milu by Nook) |
+
+Worth noticing before proposing a fix: the canonical format is not hypothetical.
+One row already carries it, so normalisation means moving rows toward an
+existing example rather than inventing a house style. The two range-only rows
+also carry no band at all, so converting them to the canonical shape requires
+*assigning* a band — a judgement about the venue, not a reformatting. That part
+is the founder's call, not a silent rewrite.
 
 Because of this, **never state a page-wide price range in prose** — you cannot
 compute one from mixed formats without inventing it. Name specific venues with
