@@ -1441,6 +1441,10 @@ export function toPlaceCard(v: UluwatuVenueContent) {
     microArea: v.microArea,
     editorialLine: v.verdict,
     bestFor: v.bestFor,
+    // Fit context, negative half. The registry has carried this for 32 venues
+    // since the launch pass; it was simply never handed to the card, so the
+    // reviewed copy rendered nowhere.
+    notFor: v.notFor,
     priceBand: v.priceBand ?? undefined,
     photoUrl: undefined,
     isSponsored: false,

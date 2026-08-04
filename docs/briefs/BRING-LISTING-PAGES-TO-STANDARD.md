@@ -46,13 +46,28 @@ do the records already hold, and does anything render it?"*
 **Already fixed:** `PlaceCard` renders `notFor`, and `lib/canggu.ts`
 `toCangguPlaceCard` passes it. All Canggu guide pages therefore show `Not for`.
 
-**Known open gap — likely your first and cheapest win:**
-`lib/uluwatu/venues.ts` `toPlaceCard` does *not* pass `notFor`, although the
-Uluwatu registry carries it for 33 venues. Four pages are affected:
-`/uluwatu/best-brunch`, `/uluwatu/best-restaurants`,
-`/uluwatu/beach-clubs-sunset`, `/uluwatu/date-night-restaurants`. This is the
-same defect that was fixed for Canggu, in a second code path. Verify the claim
-yourself before acting on it — this file ages.
+**Also fixed:** `lib/uluwatu/venues.ts` `toPlaceCard` now passes `notFor` too.
+The registry had carried it for 32 venues since the launch pass while the card
+never received it — the same defect as Canggu, surviving in a second code path.
+Verified by render: `Not for` now shows on 22/22 cards on `/uluwatu/best-brunch`,
+19/19 on `/uluwatu/best-restaurants`, 7/7 on `/uluwatu/beach-clubs-sunset` and
+9/9 on `/uluwatu/date-night-restaurants`.
+
+**Known open gap — a good first task.** The four Uluwatu pages above render
+through `components/GuideBlocks.tsx`, which has no answer-first block, no
+freshness line, and thin Good to know sections. The gate measures it exactly —
+on `/uluwatu/best-brunch` it currently reports:
+
+```
+FAIL  answer block present before the list   no .guide-answer section
+FAIL  5-8 Good to know questions             4 questions
+FAIL  visible last-checked date              no 'Last checked' line
+WARN  title <= 60 chars                      77 chars
+```
+
+`components/CangguGuideView.tsx` already solves all three for the Canggu path;
+the work is bringing that capability to the registry-driven path without
+duplicating it. Run the gate yourself first — these numbers age.
 
 **Page inventory.** District guides under `app/<district>/<topic>/page.tsx` for
 canggu, seminyak, ubud, uluwatu; Bali-wide lists at `app/best-*`,
