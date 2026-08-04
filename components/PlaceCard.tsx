@@ -27,6 +27,10 @@ export interface PlaceCardData {
   microArea?: string;
   editorialLine?: string;
   bestFor?: string;
+  // Fit context (master §6): WHO/WHEN a place does NOT suit. Never a quality
+  // warning (guardrail #9) — it is the same reviewed `venues.not_for` copy the
+  // detail page already shows, surfaced at the point of choosing.
+  notFor?: string;
   priceBand?: string;
   photoUrl?: string;
   photoRightsApproved?: boolean;
@@ -114,6 +118,12 @@ export default function PlaceCard({
         {!visualFirst && place.bestFor && (
           <p className="place-card-fit">
             <strong>Best for:</strong> {place.bestFor}
+          </p>
+        )}
+
+        {!visualFirst && place.notFor && (
+          <p className="place-card-fit place-card-fit-not">
+            <strong>Not for:</strong> {place.notFor}
           </p>
         )}
 
