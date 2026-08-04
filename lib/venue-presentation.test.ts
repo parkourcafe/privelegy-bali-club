@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  publishableStreetAddress,
   venueCategoryLabel,
   venueCoverAssetCategory,
   venueSchemaType,
@@ -34,4 +35,42 @@ test("preserves established labels and schema types for existing categories", ()
     assert.equal(venueSchemaType(category), schemaType);
     assert.equal(venueCoverAssetCategory(category), category);
   }
+});
+
+test("publishableStreetAddress accepts a real address", () => {
+  assert.equal(
+    publishableStreetAddress("Jl. Pantai Batu Bolong No.10, Canggu"),
+    "Jl. Pantai Batu Bolong No.10, Canggu",
+  );
+  assert.equal(
+    publishableStreetAddress("Jalan Labuan Sait, Pecatu, Kuta Selatan, Badung, Bali 80361"),
+    "Jalan Labuan Sait, Pecatu, Kuta Selatan, Badung, Bali 80361",
+  );
+  assert.equal(
+    publishableStreetAddress("Br. Nagi, Jl. Lanyahan, Petulu, Ubud, Gianyar, Bali 80571"),
+    "Br. Nagi, Jl. Lanyahan, Petulu, Ubud, Gianyar, Bali 80571",
+  );
+});
+
+test("publishableStreetAddress rejects an area note", () => {
+  // These are the values venues.full_address actually holds for most rows.
+  assert.equal(publishableStreetAddress("Canggu/Batu Bolong/Berawa"), undefined);
+  assert.equal(publishableStreetAddress("Pecatu / uluwatu bukit"), undefined);
+  assert.equal(publishableStreetAddress("Ubud"), undefined);
+  assert.equal(publishableStreetAddress("Tibubeneng / Canggu / Berawa near Finns"), undefined);
+});
+
+test("publishableStreetAddress rejects an operator's working note", () => {
+  // Publishing these as a postal address states something false, and an empty
+  // field would at least be visible.
+  assert.equal(publishableStreetAddress("Berawa boundary / verify pin"), undefined);
+  assert.equal(publishableStreetAddress("Canggu shortcut / verify branch"), undefined);
+  assert.equal(publishableStreetAddress("Jl. Raya Ubud — verify"), undefined);
+});
+
+test("publishableStreetAddress ignores non-strings and blanks", () => {
+  assert.equal(publishableStreetAddress(null), undefined);
+  assert.equal(publishableStreetAddress(undefined), undefined);
+  assert.equal(publishableStreetAddress(""), undefined);
+  assert.equal(publishableStreetAddress("   "), undefined);
 });
