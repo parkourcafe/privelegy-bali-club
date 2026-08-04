@@ -5,6 +5,7 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getCangguVenues, toCangguPlaceCard } from "@/lib/canggu";
 import { CANGGU_GUIDES, type CangguGuide } from "@/lib/canggu-guides";
+import { publicVenueVerifiedAt } from "@/lib/venue-completeness";
 
 const BASE = "https://www.otherbali.com";
 
@@ -13,6 +14,20 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
   const groups = guide.groups
     .map((g) => ({ g, items: venues.filter(g.match) }))
     .filter((x) => x.items.length > 0);
+
+  // The answer block only ever promises venues this page actually renders, so
+  // an unpublished or re-jobbed place drops out of the copy by itself.
+  const shown = new Map(groups.flatMap(({ items }) => items).map((v) => [v.slug, v]));
+  const answerPicks = guide.answer?.picks.filter((p) => shown.has(p.slug)) ?? [];
+
+  // Freshness is the newest evidence date we actually hold on the venues on
+  // this page — never a build or deploy timestamp (§13). Same validity policy
+  // as the venue card, so a malformed row cannot date the page.
+  const lastChecked = [...shown.values()]
+    .map((v) => publicVenueVerifiedAt({ venueVerifiedAt: v.lastVerifiedAt }))
+    .filter((d): d is string => Boolean(d))
+    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+    .at(-1);
 
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
@@ -68,6 +83,34 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
           <p className="hero-copy">{guide.lede}</p>
           <GuideHeroMedia seed={`canggu ${guide.slug} ${guide.h1}`} />
         </header>
+
+        {answerPicks.length > 0 && (
+          <section className="guide-answer" aria-labelledby="short-answer">
+            <h2 id="short-answer">Short answer</h2>
+            <dl className="guide-answer-picks">
+              {answerPicks.map((pick) => (
+                <div key={pick.slug}>
+                  <dt>{pick.want}</dt>
+                  <dd>
+                    <a href={`/places/${pick.slug}`}>{shown.get(pick.slug)!.name}</a>
+                    {" — "}
+                    {pick.why}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {guide.answer?.facts.map((fact) => (
+              <p key={fact} className="guide-answer-fact">{fact}</p>
+            ))}
+            <p className="guide-answer-trust">
+              {shown.size} {shown.size === 1 ? "place" : "places"}, chosen by us and checked on
+              the record. Nobody can pay to be on this list or to sit higher on it.
+              {lastChecked
+                ? ` Last checked ${new Date(lastChecked).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}.`
+                : ""}
+            </p>
+          </section>
+        )}
 
         {groups.length > 1 && (
           <nav className="mt-6 flex flex-wrap gap-2" aria-label="Quick picks">

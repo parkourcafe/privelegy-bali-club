@@ -13,12 +13,29 @@ export type GuideGroup = {
   match: (v: VenueWithPerk) => boolean;
 };
 
+// Answer-first block. The page has to answer the question before the list
+// starts, so the decision is readable (and extractable) without scrolling.
+//
+// Two rules hold this honest:
+//  1. Every pick is addressed by SLUG and gated at render time against the
+//     venues actually shown — an unpublished or re-jobbed venue drops out of
+//     the answer instead of leaving a dangling promise in the copy.
+//  2. `why` and `facts` restate facts already carried on the verified venue
+//     record (why_its_here / best_for / price_anchor). No blanket estimate of
+//     district-wide hours or prices — unknown stays unsaid (guardrail #10).
+export type GuideAnswerPick = {
+  slug: string;
+  want: string; // the traveller's decision, in their words
+  why: string; // the one fact that settles it
+};
+
 export type CangguGuide = {
   slug: string;
   h1: string;
   metaTitle: string;
   metaDescription: string;
   lede: string;
+  answer?: { picks: GuideAnswerPick[]; facts: string[] };
   base: (v: VenueWithPerk) => boolean;
   groups: GuideGroup[];
   faq: { q: string; a: string }[];
@@ -32,16 +49,39 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     metaDescription:
       "The best brunch in Canggu, sorted by the morning you want: café brunch and specialty coffee, all-day and weekend spreads, or a table by the beach.",
     lede: "Brunch is Canggu's best meal. These are the spots we rate, sorted by the morning you're after — a laptop-and-coffee café, a proper weekend spread, or toes-near-sand by the beach.",
+    answer: {
+      picks: [
+        { slug: "hungry-bird-coffee", want: "Specialty coffee", why: "Roasts its own beans in Tibubeneng, direct from local farms, since 2013." },
+        { slug: "brunch-club-pererenan", want: "A long table with friends", why: "All-day brunch under a big mango tree in Pererenan." },
+        { slug: "zin-cafe-canggu", want: "A laptop morning", why: "Free coworking near Nelayan Beach, with power at most tables." },
+        { slug: "secret-spot-bali", want: "Vegan brunch", why: "Fully plant-based breakfast through dinner, vegan croissants included." },
+        { slug: "the-lawn-canggu-beach-club", want: "Brunch by the water", why: "Directly on the black sand at Batu Bolong Beach." },
+      ],
+      facts: [
+        "Plates start around 35,000–70,000 IDR at Crate Cafe and run to 100,000–250,000 IDR for mains at Milu by Nook.",
+        "7AM Bakers in Umalas opens at 07:00, ahead of most of the neighbourhood. Nook Umalas runs 08:00 to 23:00.",
+        "Berawa has the most brunch on this list; Batu Bolong is the beach-road strip; Pererenan, Umalas and Seseh sit further out.",
+      ],
+    },
     base: (v) => venueHasJob(v, ["brunch-after-surf"]),
     groups: [
       { key: "cafe", heading: "Café brunch & specialty coffee", note: "Bowls, eggs, good coffee — and a seat that lasts.", match: (v) => v.category === "cafe" },
       { key: "allday", heading: "All-day & weekend brunch", note: "Bigger menus and a proper sit-down spread.", match: (v) => v.category === "restaurant" },
       { key: "beach", heading: "Beachfront brunch", note: "Brunch with sand and surf out front.", match: (v) => v.category === "beach_club" },
     ],
+    // Each answer restates facts already carried on the verified venue records
+    // behind this page. Where we do not hold the fact — district-wide opening
+    // hours, weekend queue windows — the answer says what we do know instead of
+    // estimating (guardrail #10).
     faq: [
-      { q: "Where is the best brunch in Canggu?", a: "Canggu's brunch clusters around Batu Bolong, Berawa and Pererenan — café-and-coffee spots for a laptop morning, all-day restaurants for a bigger weekend spread, and a few beachfront clubs. The picks above are sorted by which you want." },
-      { q: "Do I need to book brunch in Canggu?", a: "The popular weekend spots fill up, so a reservation helps on Saturday and Sunday mornings. Cafés and quieter places are usually walk-in." },
-      { q: "What time is brunch in Canggu?", a: "Most cafés open early (around 7–8am) and serve brunch all morning into the afternoon; many run all-day menus, so a late brunch is easy." },
+      { q: "Where is the best brunch in Canggu?", a: "Canggu's brunch clusters around Batu Bolong, Berawa and Pererenan — café-and-coffee spots for a laptop morning, all-day restaurants for a bigger weekend spread, and a beachfront club. The picks above are sorted by which you want." },
+      { q: "What time is brunch in Canggu?", a: "7AM Bakers in Umalas opens at 07:00, earlier than most of the neighbourhood. Nook Umalas runs 08:00 to 23:00. Most places on this list serve an all-day menu, so a late brunch is easy." },
+      { q: "How much does brunch cost in Canggu?", a: "Most of this list sits in the mid band. Crate Cafe is 35,000–70,000 IDR a plate. Milu by Nook is 100,000–250,000 IDR for mains. Oma Jamu and ZIN Cafe are the cheapest here; The Lawn is the most expensive." },
+      { q: "Do I need to book brunch in Canggu?", a: "Most of the cafés here are walk-in. The bigger weekend rooms fill up, so arriving early helps. Where a place does take bookings, the link is on its own page." },
+      { q: "Where is the best vegan brunch in Canggu?", a: "Secret Spot is fully plant-based, vegan croissants included. Roots builds a bowl from 50+ ingredients. The Shady Shack is vegetarian and vegan over the Berawa rice fields. Oma Jamu is the cheapest of them. CAFE VIDA has a vegan and raw section, with no palm oil, cane sugar or wheat flour." },
+      { q: "Where can I work over brunch in Canggu?", a: "ZIN Cafe is a free coworking space with power at most tables. MIEL has spacious tables, a quiet room and fast wifi. Tropical Nomad is a coworking space with its own open-air café. 7AM Bakers has strong wifi and two floors. Crate Cafe is not the one — it is loud and busy." },
+      { q: "Is there brunch in Canggu for kids?", a: "Milk & Madu Beach Road has a kids' play area. Brunch Club in Pererenan is open-sided with room to move under the mango tree. Milu by Nook has a garden over a rice paddy. Bali Buda Canggu is a calm wholefoods café with groceries on the way out." },
+      { q: "Which part of Canggu is best for brunch?", a: "Berawa has the most choice on this list. Batu Bolong is the beach-road strip, closest to the surf and the busiest. Pererenan, Umalas and Seseh sit further out and quieter, with rice fields instead of traffic." },
     ],
   },
   {
