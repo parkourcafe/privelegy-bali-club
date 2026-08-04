@@ -326,7 +326,20 @@ export default async function VenuePage({
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
-    content?.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+    content?.priceBand ?? venue.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+  // Opening hours: the registry's per-venue override wins, then the venue's
+  // own verified DB value. SCHEMA_HOURS above covers two hand-checked venues
+  // and predates the DB column being read at all.
+  const schemaOpeningHours = SCHEMA_HOURS[slug] ?? venue.openingHours;
+  // Coordinates make the card answerable ("where is it") instead of prose-only.
+  // Both must be present and finite — a half-filled pair is worse than none.
+  const schemaGeo =
+    typeof venue.latitude === "number" &&
+    typeof venue.longitude === "number" &&
+    Number.isFinite(venue.latitude) &&
+    Number.isFinite(venue.longitude)
+      ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
+      : null;
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
@@ -347,7 +360,8 @@ export default async function VenuePage({
     },
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
-    ...(SCHEMA_HOURS[slug] ? { openingHours: SCHEMA_HOURS[slug] } : {}),
+    ...(schemaOpeningHours ? { openingHours: schemaOpeningHours } : {}),
+    ...(schemaGeo ? { geo: schemaGeo } : {}),
     hasMap: venue.gmapsUrl,
   };
 
