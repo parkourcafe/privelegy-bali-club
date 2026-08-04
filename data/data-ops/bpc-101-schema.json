@@ -1,0 +1,77 @@
+{
+ "type": "object",
+ "properties": {
+  "venue_name": {
+   "type": "string",
+   "description": "Venue name exactly as shown on the page"
+  },
+  "address": {
+   "type": "string",
+   "description": "Full street address in Latin script. Country must be written 'Indonesia', never in Cyrillic. Empty string if absent."
+  },
+  "district": {
+   "type": "string",
+   "description": "Area/district as stated on the page. If it contradicts the address, still report what the page says; the mismatch is resolved downstream."
+  },
+  "official_website_url": {
+   "type": "string",
+   "description": "ONLY the venue's own website. If the link points to instagram.com, taplink.cc, linktr.ee, gofood, grab, a link aggregator or a booking marketplace, return an empty string and put that link in other_links instead."
+  },
+  "instagram_url": {
+   "type": "string"
+  },
+  "other_links": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Any link that was offered as 'website' but is not a real venue site"
+  },
+  "benefit_verbatim": {
+   "type": "string",
+   "description": "The discount/perk wording exactly as printed on the page"
+  },
+  "discount_percent": {
+   "type": "integer",
+   "description": "Numeric percent if the benefit is a percentage discount; omit if not"
+  },
+  "complimentary_item": {
+   "type": "string",
+   "description": "Free item, if the benefit is a gift rather than a percentage"
+  },
+  "card_required": {
+   "type": "boolean"
+  },
+  "booking_required": {
+   "type": "boolean"
+  },
+  "minimum_spend": {
+   "type": "string"
+  },
+  "valid_days": {
+   "type": "string"
+  },
+  "valid_hours": {
+   "type": "string"
+  },
+  "valid_until": {
+   "type": "string",
+   "description": "Expiry date if stated, ISO format. Empty if the page states none."
+  },
+  "other_restrictions": {
+   "type": "string"
+  },
+  "phone": {
+   "type": "string",
+   "description": "Collect but it will be discarded downstream; do not guess"
+  },
+  "opening_hours": {
+   "type": "string"
+  }
+ },
+ "required": [
+  "venue_name",
+  "address",
+  "benefit_verbatim"
+ ]
+}
