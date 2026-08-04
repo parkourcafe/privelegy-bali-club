@@ -122,6 +122,12 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "longitude",
   "opening_hours",
   "price_band",
+  // opening_hours_json is the richer source (501 venues vs 240 in the text
+  // column) and is the only one that can express a venue's two services in
+  // a day. phone and full_address complete the LocalBusiness node.
+  "opening_hours_json",
+  "phone",
+  "full_address",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -218,6 +224,9 @@ const mapVenue = (r: Row): Venue => {
     longitude: typeof r.longitude === "number" ? r.longitude : undefined,
     openingHours: (r.opening_hours as string) ?? undefined,
     priceBand: (r.price_band as string) ?? undefined,
+    openingHoursJson: r.opening_hours_json ?? undefined,
+    phone: (r.phone as string) ?? undefined,
+    fullAddress: (r.full_address as string) ?? undefined,
   };
 };
 // Public tourist mapping: proposed / partner-negotiation offers are treated as

@@ -417,6 +417,14 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
   consent pipeline keeps running and an approved owner submission replaces the
   interim photo. Implemented by migration 0043 (restores the 0033-quarantined
   URLs; reversible — quarantine rows are kept).
+- **Rights confirmed (founder decision, 2026-08-04).** Selena confirmed that
+  photo rights for the catalogue are secured, so venue photos are published
+  without waiting for a per-photo consent record, and the venue page now also
+  emits `image` in its LocalBusiness markup — which Photo Policy v3 §4/§8 had
+  held back. Display still routes through `venuePhotoUrlForDisplay`, so a
+  future per-photo gate takes effect without further code changes. This
+  supersedes the "re-quarantine at the launch gate" step below; reinstating it
+  requires a new dated decision.
 - **At the public-launch gate this reverts to v2 strictness:** venue photos
   without a logged owner consent record (who / when / content version /
   channel, incl. photo-rights confirmation) are re-quarantined.

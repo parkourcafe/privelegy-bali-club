@@ -80,6 +80,12 @@ export interface Venue {
   longitude?: number;
   openingHours?: string;
   priceBand?: string;
+  // Per-day hours, including venues that run two services in a day. Parsed
+  // by lib/opening-hours.ts; unparseable entries are dropped rather than
+  // guessed.
+  openingHoursJson?: unknown;
+  phone?: string;
+  fullAddress?: string;
 }
 
 export interface Perk {

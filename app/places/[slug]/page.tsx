@@ -11,6 +11,7 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
+import { buildOpeningHoursSpec } from "@/lib/opening-hours";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -331,6 +332,10 @@ export default async function VenuePage({
   // own verified DB value. SCHEMA_HOURS above covers two hand-checked venues
   // and predates the DB column being read at all.
   const schemaOpeningHours = SCHEMA_HOURS[slug] ?? venue.openingHours;
+  // Per-day hours from opening_hours_json. Preferred over the string form
+  // because it is the only representation that can state a venue's two
+  // services in one day as two entries instead of one wrong span.
+  const hoursSpec = buildOpeningHoursSpec(venue.openingHoursJson);
   // Coordinates make the card answerable ("where is it") instead of prose-only.
   // Both must be present and finite — a half-filled pair is worse than none.
   const schemaGeo =
@@ -353,7 +358,9 @@ export default async function VenuePage({
     // until per-photo statuses exist.
     address: {
       "@type": "PostalAddress",
-      ...(content?.address ? { streetAddress: content.address } : {}),
+      ...(content?.address || venue.fullAddress
+        ? { streetAddress: content?.address ?? venue.fullAddress }
+        : {}),
       addressLocality: microArea ?? districtLabel[venue.district] ?? "Bali",
       addressRegion: "Bali",
       addressCountry: "ID",
@@ -361,7 +368,15 @@ export default async function VenuePage({
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
     ...(schemaOpeningHours ? { openingHours: schemaOpeningHours } : {}),
+    ...(hoursSpec.length ? { openingHoursSpecification: hoursSpec } : {}),
     ...(schemaGeo ? { geo: schemaGeo } : {}),
+    ...(venue.phone ? { telephone: venue.phone } : {}),
+    // Photo rights: the founder confirmed on 2026-08-04 that rights are
+    // secured for the catalogue's photos, superseding the schema/OG hold in
+    // Photo Policy v3 §4/§8. Still routed through venuePhotoUrlForDisplay
+    // (venue.photoUrl) rather than the raw column, so any future per-photo
+    // gate keeps working without touching this line.
+    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
     hasMap: venue.gmapsUrl,
   };
 
