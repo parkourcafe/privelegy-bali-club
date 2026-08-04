@@ -346,7 +346,9 @@ export default async function VenuePage({
     },
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
-    ...(SCHEMA_HOURS[slug] ? { openingHours: SCHEMA_HOURS[slug] } : {}),
+    ...((venue.openingHours ?? SCHEMA_HOURS[slug])
+      ? { openingHours: venue.openingHours ?? SCHEMA_HOURS[slug] }
+      : {}),
     hasMap: venue.gmapsUrl,
   };
 
@@ -408,7 +410,6 @@ export default async function VenuePage({
     ) ? "active_deep" : isUbud ? "next_deep" : "planning_only",
     capabilities: published ? detailExtension.actionCapabilities : [],
     tablepilotBaseUrl: safeTablePilotPublicBase({
-      enabled: process.env.NEXT_PUBLIC_TABLEPILOT_ENABLED,
       vercelEnv: process.env.VERCEL_ENV,
       configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
     }),
@@ -453,7 +454,7 @@ export default async function VenuePage({
   });
   const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
   const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
-    content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+    content?.openingHours || venue.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
   );
 
   return (
@@ -462,7 +463,7 @@ export default async function VenuePage({
         {published && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
           />
         )}
         <PageViewTracker event="venue_detail_view" slug={slug} />
@@ -725,10 +726,10 @@ export default async function VenuePage({
                     <dd>{content?.address ?? venue.address}</dd>
                   </div>
                 )}
-                {content?.openingHours && (
+                {(content?.openingHours ?? venue.openingHours) && (
                   <div>
                     <dt>Hours</dt>
-                    <dd>{content.openingHours}</dd>
+                    <dd>{content?.openingHours ?? venue.openingHours}</dd>
                   </div>
                 )}
                 {spend && (

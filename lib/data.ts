@@ -31,6 +31,7 @@ import {
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
+import { schemaOpeningHours } from "./opening-hours";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -65,6 +66,8 @@ const PLAN_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
   "tier",
   "status",
   "is_sponsored",
@@ -95,6 +98,8 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
   "tier",
   "status",
   "is_sponsored",
@@ -194,6 +199,9 @@ const mapVenue = (r: Row): Venue => {
     gmapsUrl: publicDirectionsUrl(r),
     officialUrl: (r.official_url as string) ?? undefined,
     instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
+    // Canonical jsonb first. The strict legacy fallback is temporary
+    // compatibility for manually verified data-ops imports.
+    openingHours: schemaOpeningHours(r.opening_hours_json, r.opening_hours),
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
