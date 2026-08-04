@@ -120,6 +120,20 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "publication_status",
   "wellness_categories",
   "last_verified_at",
+  // Citable facts for the venue page's LocalBusiness markup. These columns
+  // existed but were never selected, so /places/[slug] could not emit
+  // coordinates, hours or a price band even where the data was present — the
+  // card carried only prose, which a model cannot quote. Emission stays
+  // conditional on a non-null value, so nothing is invented (guardrail #10).
+  "latitude",
+  "longitude",
+  "price_band",
+  // opening_hours / opening_hours_json are already selected above; the jsonb
+  // column is the richer source (501 venues vs 240 in the text column) and
+  // the only one that can express a venue's two services in a day. phone and
+  // full_address complete the LocalBusiness node.
+  "phone",
+  "full_address",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -224,6 +238,12 @@ const mapVenue = (r: Row): Venue => {
     publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
     wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
     lastVerifiedAt: (r.last_verified_at as string) ?? undefined,
+    latitude: typeof r.latitude === "number" ? r.latitude : undefined,
+    longitude: typeof r.longitude === "number" ? r.longitude : undefined,
+    priceBand: (r.price_band as string) ?? undefined,
+    openingHoursJson: r.opening_hours_json ?? undefined,
+    phone: (r.phone as string) ?? undefined,
+    fullAddress: (r.full_address as string) ?? undefined,
   };
 };
 // Public tourist mapping: proposed / partner-negotiation offers are treated as

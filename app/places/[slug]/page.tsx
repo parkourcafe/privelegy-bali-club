@@ -11,6 +11,7 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
+import { buildOpeningHoursSpec } from "@/lib/opening-hours";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -326,7 +327,25 @@ export default async function VenuePage({
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
-    content?.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+    content?.priceBand ?? venue.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+  // Opening hours: the venue's own DB value wins — it is already normalized
+  // to schema.org syntax at the data boundary (lib/opening-hours.ts) and is
+  // the canonical source. SCHEMA_HOURS is a two-venue hand-checked fallback
+  // that predates the DB column being read at all.
+  const schemaOpeningHours = venue.openingHours ?? SCHEMA_HOURS[slug];
+  // Per-day hours from opening_hours_json. Preferred over the string form
+  // because it is the only representation that can state a venue's two
+  // services in one day as two entries instead of one wrong span.
+  const hoursSpec = buildOpeningHoursSpec(venue.openingHoursJson);
+  // Coordinates make the card answerable ("where is it") instead of prose-only.
+  // Both must be present and finite — a half-filled pair is worse than none.
+  const schemaGeo =
+    typeof venue.latitude === "number" &&
+    typeof venue.longitude === "number" &&
+    Number.isFinite(venue.latitude) &&
+    Number.isFinite(venue.longitude)
+      ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
+      : null;
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
@@ -339,16 +358,25 @@ export default async function VenuePage({
     // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
-      ...(content?.address ? { streetAddress: content.address } : {}),
+      ...(content?.address || venue.fullAddress
+        ? { streetAddress: content?.address ?? venue.fullAddress }
+        : {}),
       addressLocality: microArea ?? districtLabel[venue.district] ?? "Bali",
       addressRegion: "Bali",
       addressCountry: "ID",
     },
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
-    ...((venue.openingHours ?? SCHEMA_HOURS[slug])
-      ? { openingHours: venue.openingHours ?? SCHEMA_HOURS[slug] }
-      : {}),
+    ...(schemaOpeningHours ? { openingHours: schemaOpeningHours } : {}),
+    ...(hoursSpec.length ? { openingHoursSpecification: hoursSpec } : {}),
+    ...(schemaGeo ? { geo: schemaGeo } : {}),
+    ...(venue.phone ? { telephone: venue.phone } : {}),
+    // Photo rights: the founder confirmed on 2026-08-04 that rights are
+    // secured for the catalogue's photos, superseding the schema/OG hold in
+    // Photo Policy v3 §4/§8. Still routed through venuePhotoUrlForDisplay
+    // (venue.photoUrl) rather than the raw column, so any future per-photo
+    // gate keeps working without touching this line.
+    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
     hasMap: venue.gmapsUrl,
   };
 

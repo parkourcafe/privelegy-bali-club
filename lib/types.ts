@@ -78,6 +78,18 @@ export interface Venue {
   // Evidence freshness for sitemap lastmod. This is the existing
   // venues.last_verified_at value, not a synthetic build/deploy timestamp.
   lastVerifiedAt?: string;
+  // Citable facts surfaced in the venue page's LocalBusiness markup. Optional
+  // by design: a venue without verified coordinates or hours simply omits
+  // them rather than carrying a guess (guardrail #10).
+  latitude?: number;
+  longitude?: number;
+  priceBand?: string;
+  // Per-day hours, including venues that run two services in a day. Parsed
+  // by lib/opening-hours.ts; unparseable entries are dropped rather than
+  // guessed.
+  openingHoursJson?: unknown;
+  phone?: string;
+  fullAddress?: string;
 }
 
 export interface Perk {
