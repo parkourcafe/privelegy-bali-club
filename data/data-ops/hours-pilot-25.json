@@ -1,0 +1,227 @@
+[
+ {
+  "slug": "atlas-beach-club",
+  "name": "Atlas Beach Club",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa near Finns",
+  "official_url": "https://atlasbeachfest.com/",
+  "instagram_url": "https://www.instagram.com/atlasbeachfest/"
+ },
+ {
+  "slug": "obsidian-gym-bali",
+  "name": "Obsidian Gym Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://obsidian-bali.com",
+  "instagram_url": "https://www.instagram.com/obsidian.bali/"
+ },
+ {
+  "slug": "body-factory-bali",
+  "name": "Body Factory Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://bodyfactorybali.com/",
+  "instagram_url": "https://www.instagram.com/bodyfactory_bali/"
+ },
+ {
+  "slug": "the-shady-shack",
+  "name": "The Shady Shack",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://www.theshadyshackbali.com/",
+  "instagram_url": "https://www.instagram.com/theshadyshack/"
+ },
+ {
+  "slug": "lyma-beach",
+  "name": "Lyma Beach",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pantai Lima / Seseh-Cemagi route",
+  "official_url": "https://lymabeach.com/",
+  "instagram_url": "https://www.instagram.com/lymabeach/"
+ },
+ {
+  "slug": "top-gym",
+  "name": "Top Gym",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://topgym.id/canggu",
+  "instagram_url": "https://www.instagram.com/topgym.bali/"
+ },
+ {
+  "slug": "nirvana-strength-tibubeneng",
+  "name": "Nirvana Strength Tibubeneng",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://nirvanalife.com/bali/",
+  "instagram_url": "https://www.instagram.com/nirvanalifebali/"
+ },
+ {
+  "slug": "santanera",
+  "name": "Santanera",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Tanah Barak",
+  "official_url": "https://www.santanerabali.com/",
+  "instagram_url": "https://instagram.com/santanerabali"
+ },
+ {
+  "slug": "12-kitchen-and-wine",
+  "name": "12 Kitchen and Wine",
+  "category": "bar",
+  "district": "canggu",
+  "address": "Berawa / Pantai Berawa",
+  "official_url": "https://12kitchenwine.com/",
+  "instagram_url": "https://www.instagram.com/12kitchenandwine/"
+ },
+ {
+  "slug": "samadi-bali",
+  "name": "Samadi Bali",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://samadibali.com/",
+  "instagram_url": "https://www.instagram.com/samadiyogacanggu/"
+ },
+ {
+  "slug": "canggu-yoga-centre",
+  "name": "Canggu Yoga Centre",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://cangguyogacentre.id",
+  "instagram_url": "https://www.instagram.com/cangguyogacentre/"
+ },
+ {
+  "slug": "milk-and-madu-beach-road",
+  "name": "Milk & Madu Beach Road",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": "https://milkandmadu.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "luna-and-sol-pilates-yoga",
+  "name": "Luna & Sol Pilates - Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://luna-solpilates.com/",
+  "instagram_url": "https://www.instagram.com/lunaandsol_bali/"
+ },
+ {
+  "slug": "baked-pererenan",
+  "name": "BAKED Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://baked.co.id/",
+  "instagram_url": "https://www.instagram.com/baked.indonesia/"
+ },
+ {
+  "slug": "bali-padel-academy",
+  "name": "Bali Padel Academy",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://www.balipadelacademy.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "desa-seni-yoga",
+  "name": "Desa Seni Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Berawa boundary / verify pin",
+  "official_url": "https://desaseni.com/",
+  "instagram_url": "https://www.instagram.com/desaseni_/"
+ },
+ {
+  "slug": "khao-canggu",
+  "name": "KHAO Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": "https://www.khaobali.com/",
+  "instagram_url": "https://www.instagram.com/khaocanggu/"
+ },
+ {
+  "slug": "guan-yin-yoga-canggu",
+  "name": "Guan Yin Yoga Canggu",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://tuguhotels.com/hotels/bali/guan-yin-yoga-shala/",
+  "instagram_url": null
+ },
+ {
+  "slug": "riviera-cafe-cemagi",
+  "name": "Riviera Cafe Cemagi",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Cemagi / Mengwi / Cemagi",
+  "official_url": "https://rivieragroupbali.com/riviera-cafe/",
+  "instagram_url": "https://www.instagram.com/rivieracafe.cemagi/"
+ },
+ {
+  "slug": "udara-bali",
+  "name": "Udara Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Seseh (Adjacent Pererenan)",
+  "official_url": "https://www.udara-bali.com/dining/",
+  "instagram_url": "https://www.instagram.com/udarabali/"
+ },
+ {
+  "slug": "beach-boy-canggu",
+  "name": "Beach Boy Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Munduk Catu",
+  "official_url": "https://www.beachboycanggu.com/",
+  "instagram_url": "https://www.instagram.com/beachboycanggu/"
+ },
+ {
+  "slug": "workmates-coworking-space-and-cafe",
+  "name": "Workmates Coworking Space & Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Gg. Bonton No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80363, Indonesia",
+  "official_url": "https://thewonderspace.com/workmatescanggu/",
+  "instagram_url": null
+ },
+ {
+  "slug": "amavi-canggu-bali",
+  "name": "AMAVI Canggu Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa No.9, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://amavicanggu.grandcentralgroup.co.id/",
+  "instagram_url": "https://www.instagram.com/amavi.canggu/"
+ },
+ {
+  "slug": "artisan-pererenan",
+  "name": "Artisan – Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Munduk Kedungu No.5, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": "https://artisangroup.id/",
+  "instagram_url": "https://www.instagram.com/artisan.bali/"
+ },
+ {
+  "slug": "at06",
+  "name": "AT06",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan No.6, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://at06bali.com/",
+  "instagram_url": "https://www.instagram.com/at06.bali/"
+ }
+]

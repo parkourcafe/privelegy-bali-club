@@ -1,0 +1,3611 @@
+[
+ {
+  "slug": "atlas-beach-club",
+  "name": "Atlas Beach Club",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa near Finns",
+  "official_url": "https://atlasbeachfest.com/",
+  "instagram_url": "https://www.instagram.com/atlasbeachfest/"
+ },
+ {
+  "slug": "alchemy",
+  "name": "Alchemy",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Penestanan, Ubud",
+  "official_url": "https://www.alchemybali.com/",
+  "instagram_url": "https://www.instagram.com/alchemybali/"
+ },
+ {
+  "slug": "anomali-coffee-ubud",
+  "name": "Anomali Coffee Ubud",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://anomalicoffee.com/",
+  "instagram_url": "https://www.instagram.com/anomali.bali/"
+ },
+ {
+  "slug": "obsidian-gym-bali",
+  "name": "Obsidian Gym Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://obsidian-bali.com",
+  "instagram_url": "https://www.instagram.com/obsidian.bali/"
+ },
+ {
+  "slug": "body-factory-bali",
+  "name": "Body Factory Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://bodyfactorybali.com/",
+  "instagram_url": "https://www.instagram.com/bodyfactory_bali/"
+ },
+ {
+  "slug": "moana-fish-eatery",
+  "name": "Moana Fish Eatery",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Batu Bolong",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/moana.bali/"
+ },
+ {
+  "slug": "seniman-coffee-studio",
+  "name": "Seniman Coffee Studio",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://www.senimancoffee.com/seniman-ubud/",
+  "instagram_url": "https://www.instagram.com/senimancoffee/"
+ },
+ {
+  "slug": "the-shady-shack",
+  "name": "The Shady Shack",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://www.theshadyshackbali.com/",
+  "instagram_url": "https://www.instagram.com/theshadyshack/"
+ },
+ {
+  "slug": "lyma-beach",
+  "name": "Lyma Beach",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pantai Lima / Seseh-Cemagi route",
+  "official_url": "https://lymabeach.com/",
+  "instagram_url": "https://www.instagram.com/lymabeach/"
+ },
+ {
+  "slug": "top-gym",
+  "name": "Top Gym",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://topgym.id/canggu",
+  "instagram_url": "https://www.instagram.com/topgym.bali/"
+ },
+ {
+  "slug": "nirvana-strength-tibubeneng",
+  "name": "Nirvana Strength Tibubeneng",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://nirvanalife.com/bali/",
+  "instagram_url": "https://www.instagram.com/nirvanalifebali/"
+ },
+ {
+  "slug": "santanera",
+  "name": "Santanera",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Tanah Barak",
+  "official_url": "https://www.santanerabali.com/",
+  "instagram_url": "https://instagram.com/santanerabali"
+ },
+ {
+  "slug": "12-kitchen-and-wine",
+  "name": "12 Kitchen and Wine",
+  "category": "bar",
+  "district": "canggu",
+  "address": "Berawa / Pantai Berawa",
+  "official_url": "https://12kitchenwine.com/",
+  "instagram_url": "https://www.instagram.com/12kitchenandwine/"
+ },
+ {
+  "slug": "samadi-bali",
+  "name": "Samadi Bali",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://samadibali.com/",
+  "instagram_url": "https://www.instagram.com/samadiyogacanggu/"
+ },
+ {
+  "slug": "canggu-yoga-centre",
+  "name": "Canggu Yoga Centre",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://cangguyogacentre.id",
+  "instagram_url": "https://www.instagram.com/cangguyogacentre/"
+ },
+ {
+  "slug": "milk-and-madu-beach-road",
+  "name": "Milk & Madu Beach Road",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": "https://milkandmadu.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "luna-and-sol-pilates-yoga",
+  "name": "Luna & Sol Pilates - Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://luna-solpilates.com/",
+  "instagram_url": "https://www.instagram.com/lunaandsol_bali/"
+ },
+ {
+  "slug": "baked-pererenan",
+  "name": "BAKED Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://baked.co.id/",
+  "instagram_url": "https://www.instagram.com/baked.indonesia/"
+ },
+ {
+  "slug": "kopiten",
+  "name": "Kopiten",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Raya Tumbakbayuh - Pererenan, Tumbak Bayuh, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/kopiten_coffee/"
+ },
+ {
+  "slug": "bali-padel-academy",
+  "name": "Bali Padel Academy",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://www.balipadelacademy.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "desa-seni-yoga",
+  "name": "Desa Seni Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Berawa boundary / verify pin",
+  "official_url": "https://desaseni.com/",
+  "instagram_url": "https://www.instagram.com/desaseni_/"
+ },
+ {
+  "slug": "khao-canggu",
+  "name": "KHAO Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": "https://www.khaobali.com/",
+  "instagram_url": "https://www.instagram.com/khaocanggu/"
+ },
+ {
+  "slug": "guan-yin-yoga-canggu",
+  "name": "Guan Yin Yoga Canggu",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://tuguhotels.com/hotels/bali/guan-yin-yoga-shala/",
+  "instagram_url": null
+ },
+ {
+  "slug": "cretya-sunset-by-alas-harum",
+  "name": "Cretya Sunset",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Bresela No.8, Bresela, Kec. Payangan, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://cretyasunset.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "bebek-bengil",
+  "name": "Bebek Bengil",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Hanoman, Padang Tegal, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "official_url": "https://www.bebekbengil.co.id/en",
+  "instagram_url": "https://www.instagram.com/bebekbengilrestaurant/"
+ },
+ {
+  "slug": "putri-bali-spa",
+  "name": "Putri Bali Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Raya Sanggingan, Ubud",
+  "official_url": "https://www.putribalispa.com/",
+  "instagram_url": "https://www.instagram.com/putribali_spa/"
+ },
+ {
+  "slug": "big-dragon-villas-ubud",
+  "name": "Big Dragon Villas Ubud",
+  "category": "villa",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://bigdragonvillasubud.com/",
+  "instagram_url": "https://www.instagram.com/bigdragonvillasubud/"
+ },
+ {
+  "slug": "karsa-spa",
+  "name": "Karsa Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Bangkiang Sidem, on the Artist's Trail at the end of the Campuhan Ridge Walk, Ubud",
+  "official_url": "https://karsaspa.com/",
+  "instagram_url": "https://www.instagram.com/karsaspa/"
+ },
+ {
+  "slug": "riviera-cafe-cemagi",
+  "name": "Riviera Cafe Cemagi",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Cemagi / Mengwi / Cemagi",
+  "official_url": "https://rivieragroupbali.com/riviera-cafe/",
+  "instagram_url": "https://www.instagram.com/rivieracafe.cemagi/"
+ },
+ {
+  "slug": "udara-bali",
+  "name": "Udara Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Seseh (Adjacent Pererenan)",
+  "official_url": "https://www.udara-bali.com/dining/",
+  "instagram_url": "https://www.instagram.com/udarabali/"
+ },
+ {
+  "slug": "alchemy-yoga-and-meditation-center",
+  "name": "Alchemy Yoga and Meditation Center",
+  "category": "yoga",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://alchemyyogacenter.com/",
+  "instagram_url": "https://www.instagram.com/alchemyyogaubud/"
+ },
+ {
+  "slug": "radiantly-alive",
+  "name": "Radiantly Alive",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Jl. Jembawan No. 3, Ubud, Gianyar 80571",
+  "official_url": "https://www.radiantlyalive.com/",
+  "instagram_url": "https://www.instagram.com/radiantlyaliveyoga/"
+ },
+ {
+  "slug": "taksu-yoga",
+  "name": "Taksu Yoga",
+  "category": "yoga",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://taksu.org/contact/",
+  "instagram_url": "https://www.instagram.com/taksuwellnesscenter/"
+ },
+ {
+  "slug": "beach-boy-canggu",
+  "name": "Beach Boy Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Munduk Catu",
+  "official_url": "https://www.beachboycanggu.com/",
+  "instagram_url": "https://www.instagram.com/beachboycanggu/"
+ },
+ {
+  "slug": "the-yoga-barn",
+  "name": "The Yoga Barn",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan, Padang Tegal, Ubud, Gianyar 80571",
+  "official_url": "https://www.theyogabarn.com/",
+  "instagram_url": "https://www.instagram.com/theyogabarn/"
+ },
+ {
+  "slug": "ubud-yoga-centre",
+  "name": "Ubud Yoga Centre",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Jl. Raya Singakerta No. 108, Nyuh Kuning, Ubud, Gianyar 80571",
+  "official_url": "https://ubudyogacentre.com/",
+  "instagram_url": "https://www.instagram.com/ubudyogacentre/"
+ },
+ {
+  "slug": "workmates-coworking-space-and-cafe",
+  "name": "Workmates Coworking Space & Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Gg. Bonton No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80363, Indonesia",
+  "official_url": "https://thewonderspace.com/workmatescanggu/",
+  "instagram_url": null
+ },
+ {
+  "slug": "svaha-spa-bisma-ubud",
+  "name": "Svaha Spa Bisma",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Bisma / Ubud Centre edge",
+  "official_url": "https://svahawellness.com/",
+  "instagram_url": "https://www.instagram.com/svahaspabisma/"
+ },
+ {
+  "slug": "taksu-yoga-ubud",
+  "name": "Taksu Yoga & Wellness Center",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Goutama Selatan, Ubud, Gianyar 80571",
+  "official_url": "https://taksu.org/",
+  "instagram_url": "https://www.instagram.com/taksuwellnesscenter/"
+ },
+ {
+  "slug": "amavi-canggu-bali",
+  "name": "AMAVI Canggu Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa No.9, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://amavicanggu.grandcentralgroup.co.id/",
+  "instagram_url": "https://www.instagram.com/amavi.canggu/"
+ },
+ {
+  "slug": "ankhusa-restaurant-ubud-by-wonderspace",
+  "name": "Ankhusa Restaurant Ubud by Wonderspace",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Desa Kenderan No.88 A, Kenderan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://thewonderspace.com/ankhusabali/",
+  "instagram_url": "https://www.instagram.com/ankhusabali/"
+ },
+ {
+  "slug": "artisan-pererenan",
+  "name": "Artisan – Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Munduk Kedungu No.5, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": "https://artisangroup.id/",
+  "instagram_url": "https://www.instagram.com/artisan.bali/"
+ },
+ {
+  "slug": "at06",
+  "name": "AT06",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan No.6, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://at06bali.com/",
+  "instagram_url": "https://www.instagram.com/at06.bali/"
+ },
+ {
+  "slug": "the-slow",
+  "name": "The Slow",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/the.slow/"
+ },
+ {
+  "slug": "blu-cafe-chef-made",
+  "name": "BLU Cafe. Chef Made",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jalan Pantai Pererenan No.150b , Pererenan, Kec. Mengwi, Banjar, Pengembungan, Bali, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/blu_cafe_chefmade/"
+ },
+ {
+  "slug": "brie-restaurant-and-cheesery",
+  "name": "Brie Restaurant & Cheesery",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan Kelod, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://brie.chaika.team/",
+  "instagram_url": "https://www.instagram.com/brie.bali/"
+ },
+ {
+  "slug": "secret-spot-bali",
+  "name": "Secret Spot",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Tanah Barak No. 7, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/secretspot.bali/"
+ },
+ {
+  "slug": "warung-nonii",
+  "name": "Warung Nonii",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/waroengnonii/"
+ },
+ {
+  "slug": "wrong-gym-pererenan",
+  "name": "Wrong Gym Pererenan",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pererenan north",
+  "official_url": "https://wronggym.com/",
+  "instagram_url": "https://www.instagram.com/thewronggym/"
+ },
+ {
+  "slug": "cantina-classe-canggu",
+  "name": "Cantina Classe — Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Canggu Padang Linjong No.8C, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://thewonderspace.com/cantinacanggu/",
+  "instagram_url": "https://www.instagram.com/cantinaclasse/"
+ },
+ {
+  "slug": "baked-berawa",
+  "name": "BAKED. Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa / Semat",
+  "official_url": "https://baked.co.id/",
+  "instagram_url": "https://www.instagram.com/baked.indonesia/"
+ },
+ {
+  "slug": "cantina-classe-ubud",
+  "name": "Cantina Classe — Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Drupadi, Melinggih, Kec. Payangan, Kabupaten Gianyar, Bali 80572, Indonesia",
+  "official_url": "https://thewonderspace.com/cantinaubud/",
+  "instagram_url": "https://www.instagram.com/cantinaclasse/"
+ },
+ {
+  "slug": "dodo-pizza",
+  "name": "Dodo Pizza",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Anggrek, Tibubeneng, Canggu, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://dodopizza.co.id/",
+  "instagram_url": "https://www.instagram.com/dodopizza.bali/"
+ },
+ {
+  "slug": "focaccia-buddies",
+  "name": "Focaccia Buddies",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.107, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/focacciabuddies.bali/"
+ },
+ {
+  "slug": "habitat-bistro",
+  "name": "Habitat Bistro",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma No.888A, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://thewonderspace.com/habitatbistroubud/",
+  "instagram_url": "https://www.instagram.com/habitatbistroubud/"
+ },
+ {
+  "slug": "home-cafe-mengwi",
+  "name": "HOME Cafe MENGWI",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Br. Tiying Tutul No.19, Pererenan, Mengwi, Badung Regency, Bali 80351, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/homekikicafe/"
+ },
+ {
+  "slug": "ju-bali",
+  "name": "Ju Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "80361, Jl. Bumbak Dauh No.8, Kerobokan, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://ju-bali.com/",
+  "instagram_url": "https://www.instagram.com/ju_bali/"
+ },
+ {
+  "slug": "jungle-flower-restaurant",
+  "name": "Jungle Flower Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "C7H7+QX3, Lodtunduh, Kecamatan Ubud, Kabupaten Gianyar, Bali 80582, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/jungleflowerrestaurant/"
+ },
+ {
+  "slug": "kojin-teppanyaki-restaurant-ubud-by-wonderspace",
+  "name": "Kojin Teppanyaki Restaurant Ubud by Wonderspace",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Desa Kenderan No.88A, Kenderan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://thewonderspace.com/kojinbali/",
+  "instagram_url": "https://www.instagram.com/kojinbali/"
+ },
+ {
+  "slug": "la-portal-to-shamballah",
+  "name": "La Portal to Shamballah",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "official_url": "https://www.laportaltoshamballah.com/",
+  "instagram_url": "https://www.instagram.com/laportal.shamballah.ubud/"
+ },
+ {
+  "slug": "loop-cafe",
+  "name": "LOOP cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Dalem Lingsir No.12, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": "https://loopbali.com/",
+  "instagram_url": "https://www.instagram.com/loopcafe.bali/"
+ },
+ {
+  "slug": "mamu-ubud-cafe-shisha-hookah",
+  "name": "MAMU Ubud Cafe Shisha Hookah",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Jl. Made Lebah, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/mamu_bali/"
+ },
+ {
+  "slug": "mavammy",
+  "name": "Mavammy",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Bolong No.8, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/mavammy/"
+ },
+ {
+  "slug": "momento-daily-resto",
+  "name": "Momento Daily Resto",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Bolong No.32, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/momento.bali/"
+ },
+ {
+  "slug": "norii-japanese-restaurant-ubud",
+  "name": "Norii Japanese Restaurant — Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sawah Indah Gang Amarea No.8, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://thewonderspace.com/noriiubud/",
+  "instagram_url": "https://www.instagram.com/noriibali/"
+ },
+ {
+  "slug": "paed-thai-canggu",
+  "name": "Paed Thai — Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Canggu Padang Linjong No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "http://thewonderspace.com/paedthaicanggu/",
+  "instagram_url": "https://www.instagram.com/paedthai/"
+ },
+ {
+  "slug": "ecosfera-yoga-canggu-canggu",
+  "name": "Ecosfera Yoga Canggu",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Batu Mejan / Echo Beach",
+  "official_url": "https://ecosferahotel.com/yoga/",
+  "instagram_url": "https://www.instagram.com/ecosfera_spa_yoga/"
+ },
+ {
+  "slug": "riviera-bistro-berawa",
+  "name": "Riviera Bistro Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": "https://rivieragroupbali.com/riviera-bistro/",
+  "instagram_url": "https://www.instagram.com/rivierabistro.berawa/"
+ },
+ {
+  "slug": "honey-kitchen",
+  "name": "Honey Kitchen",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/honeykitchenbali/"
+ },
+ {
+  "slug": "porch",
+  "name": "Porch",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Raya Semat No.1, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/porch.bali/"
+ },
+ {
+  "slug": "seabird-bistro-and-coworking-canggu-by-wonderspace",
+  "name": "Seabird Bistro & Coworking Canggu by Wonderspace",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Nelayan No.888B, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "https://thewonderspace.com/seabirdcanggu/",
+  "instagram_url": null
+ },
+ {
+  "slug": "seven-paintings-ubud-restaurant",
+  "name": "Seven Paintings Ubud Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma No.888A, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://sevenpaintingsubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "air-terjun-tegenungan",
+  "name": "Air Terjun Tegenungan",
+  "category": "attraction",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://disparda.baliprov.go.id/nungnung-waterfall/2020/04/",
+  "instagram_url": null
+ },
+ {
+  "slug": "nook-umalas",
+  "name": "Nook Umalas",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Umalas / Kerobokan / Umalas",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/nook_bali/"
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-ubud",
+  "name": "Shichirin Japanese Restaurant — Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma No.888A, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "http://thewonderspace.com/shichirinubud/",
+  "instagram_url": "https://www.instagram.com/shichirincanggu/"
+ },
+ {
+  "slug": "rise-and-shine-cafe",
+  "name": "Rise and Shine Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/riseandshine_bali/"
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-canggu",
+  "name": "Shichirin Japanese Restaurant — Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pemelisan Agung Pantai Berawa no.88 Canggu Kuta, Utara, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": "http://thewonderspace.com/shichirincanggu/",
+  "instagram_url": "https://www.instagram.com/shichirincanggu/"
+ },
+ {
+  "slug": "goldust-spa-canggu",
+  "name": "Goldust Spa",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://goldustspa.com/",
+  "instagram_url": "https://www.instagram.com/goldustspa"
+ },
+ {
+  "slug": "the-jungle-club-ubud-by-wonderspace",
+  "name": "The Jungle Club Ubud by Wonderspace",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Jaga Raga No.8A, Celuk, Ubud, Gianyar Regency, Bali 80582, Indonesia",
+  "official_url": "http://jungleclububud.com/",
+  "instagram_url": "https://www.instagram.com/jungleclububud/"
+ },
+ {
+  "slug": "oma-jamu",
+  "name": "Oma Jamu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/omajamuvegan/"
+ },
+ {
+  "slug": "maya-ubud-spa-ubud",
+  "name": "Maya Ubud Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Peliatan / Ubud edge",
+  "official_url": "http://mayaresorts.com/ubud/",
+  "instagram_url": "https://www.instagram.com/mayaubud"
+ },
+ {
+  "slug": "jungle-padel-canggu",
+  "name": "Jungle Padel Canggu",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://junglepadel.com/",
+  "instagram_url": "https://www.instagram.com/junglepadel/"
+ },
+ {
+  "slug": "mandapa-spa-ubud",
+  "name": "Mandapa Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Kedewatan / Sayan",
+  "official_url": "https://www.ritzcarlton.com/en/hotels/dpsub-mandapa-a-ritz-carlton-reserve/overview/",
+  "instagram_url": null
+ },
+ {
+  "slug": "zin-cafe-canggu",
+  "name": "ZIN Cafe Canggu",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Nelayan",
+  "official_url": "https://zin.world/zin-cafe/",
+  "instagram_url": "https://www.instagram.com/zin_cafe/"
+ },
+ {
+  "slug": "the-elephant",
+  "name": "The Elephant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud, Campuhan",
+  "official_url": "https://www.elephantbali.com/",
+  "instagram_url": "https://www.instagram.com/theelephantubud/"
+ },
+ {
+  "slug": "wohl-cafe",
+  "name": "WOHL Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Sempol No.26, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/wohlcafe/"
+ },
+ {
+  "slug": "xo-rooftop",
+  "name": "XO ROOFTOP",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Kayu Tulang Teratai Grand Village No.B1, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/xo.rooftop/"
+ },
+ {
+  "slug": "wulan-vegetarian-warung",
+  "name": "Wulan Vegetarian Warung",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/wulanveg/"
+ },
+ {
+  "slug": "goldust-beauty-facials-canggu",
+  "name": "Goldust Beauty / Facials",
+  "category": "beauty",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://goldustspa.com/",
+  "instagram_url": "https://www.instagram.com/goldustspa"
+ },
+ {
+  "slug": "paradise-padel-bali",
+  "name": "Paradise Padel Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/paradisepadelbali/"
+ },
+ {
+  "slug": "canggu-club-tennis-centre",
+  "name": "Canggu Club Tennis Centre",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://finnslifestylevillage.com/",
+  "instagram_url": "https://www.instagram.com/finnsrecclub/"
+ },
+ {
+  "slug": "karsa-cafe",
+  "name": "Karsa Cafe",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://www.karsacafe.com/",
+  "instagram_url": "https://www.instagram.com/karsakafe/"
+ },
+ {
+  "slug": "neighbourhood-food-berawa",
+  "name": "Neighbourhood Food Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa near Finns",
+  "official_url": "https://www.neighbourhoodfood.co/",
+  "instagram_url": "https://www.instagram.com/neighbourhoodbali/"
+ },
+ {
+  "slug": "spring-spa-ubud",
+  "name": "Spring Spa Ubud",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Ubud, Bali (rice-terrace setting)",
+  "official_url": "https://www.springspa.com/locations/bali/ubud",
+  "instagram_url": null
+ },
+ {
+  "slug": "crate-cafe",
+  "name": "Crate Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Batu Bolong",
+  "official_url": "https://lifescrate.com/",
+  "instagram_url": "https://www.instagram.com/cratecafe/"
+ },
+ {
+  "slug": "home-by-chef-wayan",
+  "name": "HOME by Chef Wayan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No. 92, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "official_url": "https://bychefwayan.com/",
+  "instagram_url": "https://www.instagram.com/home.by.chefwayan/"
+ },
+ {
+  "slug": "sushimi-bali",
+  "name": "Sushimi Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa No.101C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+  "official_url": "http://www.sushimibali.com/",
+  "instagram_url": "https://www.instagram.com/sushimibali/"
+ },
+ {
+  "slug": "the-loft-bali",
+  "name": "The Loft",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Bolong No. 50A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/theloftbali/"
+ },
+ {
+  "slug": "melting-wok-warung",
+  "name": "Melting Wok Warung",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Gootama No.13, Ubud, Kec. Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/melting_wok_warung/"
+ },
+ {
+  "slug": "sayuri-healing-food",
+  "name": "Sayuri Healing Food",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Jl. Sukma Kesuma No.2, Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "official_url": "https://sayurihealingfood.com/",
+  "instagram_url": "https://www.instagram.com/sayuri_healing_food/"
+ },
+ {
+  "slug": "warung-biah-biah",
+  "name": "Warung Biah Biah",
+  "category": "warung",
+  "district": "ubud",
+  "address": "Jl. Goutama Sel. No.13, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warung_biahbiah/"
+ },
+ {
+  "slug": "swarna-spa-and-wellness",
+  "name": "Swarna Spa and Wellness",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://swarnaspa.com/",
+  "instagram_url": "https://www.instagram.com/swarnaspaandwellness/"
+ },
+ {
+  "slug": "maya-ubud-yoga-ubud",
+  "name": "Maya Ubud Yoga",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Peliatan / Ubud edge",
+  "official_url": "http://mayaresorts.com/ubud/",
+  "instagram_url": "https://www.instagram.com/mayaubud/"
+ },
+ {
+  "slug": "luigis-hot-pizza",
+  "name": "Luigi’s Hot Pizza",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": "https://luigishotpizza.com/",
+  "instagram_url": "https://www.instagram.com/luigishotpizzabali/"
+ },
+ {
+  "slug": "touche-cafe-and-restaurant",
+  "name": "Touché Cafe & Restaurant",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pererenan north",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/touche.bali/"
+ },
+ {
+  "slug": "nirvana-life-bali",
+  "name": "Nirvana Life Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://nirvanalife.com/bali",
+  "instagram_url": "https://www.instagram.com/nirvanalifebali/"
+ },
+ {
+  "slug": "bali-mma",
+  "name": "Bali MMA",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://balimma.com/",
+  "instagram_url": "https://www.instagram.com/balimma/"
+ },
+ {
+  "slug": "soma-fight-club",
+  "name": "SOMA Fight Club",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://somafightclub.com/",
+  "instagram_url": "https://www.instagram.com/somafightclub/"
+ },
+ {
+  "slug": "f45-training-canggu",
+  "name": "F45 Training Canggu",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://f45training.com/id/studio/canggu/",
+  "instagram_url": "https://www.instagram.com/f45_training_Canggu"
+ },
+ {
+  "slug": "the-canggu-studio",
+  "name": "The Canggu Studio",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://thecanggustudio.com/",
+  "instagram_url": "https://www.instagram.com/thecanggustudio/"
+ },
+ {
+  "slug": "fitness-plus-canggu",
+  "name": "Fitness Plus Canggu",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://canggu.fitnessplusindonesia.co.id/",
+  "instagram_url": "https://www.instagram.com/fitnessplus.canggu/"
+ },
+ {
+  "slug": "victory-fitness-club",
+  "name": "Victory Fitness Club",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/victoryfitnessclub/"
+ },
+ {
+  "slug": "surya-fitness-gym",
+  "name": "Surya Fitness Gym",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://www.suryagymbali.com/",
+  "instagram_url": "https://www.instagram.com/suryagymbali/"
+ },
+ {
+  "slug": "brother-gym",
+  "name": "Brother Gym",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/brother_gym_canggu_bali/"
+ },
+ {
+  "slug": "flex-gym-bali",
+  "name": "Flex Gym Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://flexgym.co.id/",
+  "instagram_url": "https://www.instagram.com/flexgym.id/"
+ },
+ {
+  "slug": "bali-climbing-bouldering-gym",
+  "name": "Bali Climbing Bouldering Gym",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://bali-climbing.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "adda-yoga",
+  "name": "Adda Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://addayogabali.com/",
+  "instagram_url": "https://www.instagram.com/addayogacanggu/"
+ },
+ {
+  "slug": "gravity-stretching-canggu",
+  "name": "Gravity Stretching Canggu",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://bookgravity.com",
+  "instagram_url": null
+ },
+ {
+  "slug": "the-free-bird-studio",
+  "name": "The Free Bird Studio",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://thefreebirdstudio.com/",
+  "instagram_url": "https://www.instagram.com/the_free_bird_studio/"
+ },
+ {
+  "slug": "warung-yess",
+  "name": "Warung Yess",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://www.warungyess.com/",
+  "instagram_url": "https://www.instagram.com/warungyess/"
+ },
+ {
+  "slug": "s2s-crossfit",
+  "name": "S2S Crossfit",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://s2scrossfit.com/",
+  "instagram_url": "https://www.instagram.com/s2scrossfit_bali/"
+ },
+ {
+  "slug": "saya-club",
+  "name": "Saya Club",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://sayaclub.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "satu-satu-coffee-company",
+  "name": "Satu-Satu Coffee Company",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/satusatucoffeecompany/"
+ },
+ {
+  "slug": "warung-jawa-bu-sri",
+  "name": "Warung Jawa Bu Sri",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warungjawabusricanggu/"
+ },
+ {
+  "slug": "amplitude-skate-and-bike-park",
+  "name": "Amplitude Skate & Bike Park",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://raceamplitude.com",
+  "instagram_url": null
+ },
+ {
+  "slug": "warung-siam",
+  "name": "Warung Siam",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warungsiam/"
+ },
+ {
+  "slug": "miel-specialty-coffee-canggu",
+  "name": "MIEL Specialty Coffee Canggu",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/miel.bali/"
+ },
+ {
+  "slug": "cafe-wayan-and-bakery",
+  "name": "Cafe Wayan & Bakery",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://cafewayan.com/",
+  "instagram_url": "https://www.instagram.com/cafewayanbakeryubud/"
+ },
+ {
+  "slug": "the-practice-bali",
+  "name": "The Practice Bali",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://thepracticebali.com/",
+  "instagram_url": "https://www.instagram.com/thepracticebaliyoga/"
+ },
+ {
+  "slug": "luma",
+  "name": "Luma",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": "https://www.lumabali.com/",
+  "instagram_url": "https://www.instagram.com/luma.bali/"
+ },
+ {
+  "slug": "jaens-spa-ubud-ubud",
+  "name": "Jaens Spa Ubud",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://jaensspa.com/",
+  "instagram_url": "https://www.instagram.com/jaensspatriloka/"
+ },
+ {
+  "slug": "jet-black-ginger-canggu-canggu",
+  "name": "Jet Black Ginger Canggu",
+  "category": "beauty",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://www.jetblackginger.com/pages/appointments",
+  "instagram_url": "https://www.instagram.com/jet_black_ginger/"
+ },
+ {
+  "slug": "face-therapy-spa-pererenan",
+  "name": "Face Therapy Spa Pererenan",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/face_therapy/"
+ },
+ {
+  "slug": "copenhagen-cafe-berawa",
+  "name": "Copenhagen CAFE Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": "https://cphbali.com/",
+  "instagram_url": "https://www.instagram.com/copenhagencafe.bali/"
+ },
+ {
+  "slug": "bali-buda-ubud",
+  "name": "Bali Buda Ubud",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://balibuda.com/",
+  "instagram_url": "https://www.instagram.com/balibuda/"
+ },
+ {
+  "slug": "7am-bakers-umalas",
+  "name": "7AM Bakers Umalas",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Umalas / Kerobokan / Umalas",
+  "official_url": "https://sevenambakers.com/",
+  "instagram_url": "https://www.instagram.com/7am.bakers/"
+ },
+ {
+  "slug": "poule-de-luxe-bali",
+  "name": "Poule de Luxe Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Kerobokan / Seminyak edge / Batu Belig",
+  "official_url": "https://www.pouledeluxe.fr/",
+  "instagram_url": "https://www.instagram.com/pouledeluxebali/"
+ },
+ {
+  "slug": "milu-by-nook",
+  "name": "Milu by Nook",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/milubynook/"
+ },
+ {
+  "slug": "alchemy-yoga-and-meditation-center-ubud",
+  "name": "Alchemy Yoga and Meditation Center",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Penestanan",
+  "official_url": "https://alchemyyogacenter.com/",
+  "instagram_url": "https://www.instagram.com/alchemyyogaubud/"
+ },
+ {
+  "slug": "warung-mendez",
+  "name": "Warung Mendez",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warung.mendez/"
+ },
+ {
+  "slug": "bali-buda-canggu",
+  "name": "Bali Buda Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://balibuda.com/",
+  "instagram_url": "https://www.instagram.com/balibuda/"
+ },
+ {
+  "slug": "amo-spa-canggu-canggu",
+  "name": "AMO Spa Canggu",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Batu Bolong / Canggu",
+  "official_url": "https://amospa.com/",
+  "instagram_url": "https://www.instagram.com/amospabali/"
+ },
+ {
+  "slug": "ibu-rai",
+  "name": "Ibu Rai",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/iburairestaurant/"
+ },
+ {
+  "slug": "dandelion",
+  "name": "Casa Tua",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Bolong No.10, Canggu",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/casatua.canggu/"
+ },
+ {
+  "slug": "jm-taekwondo-bali",
+  "name": "JM Taekwondo Bali",
+  "category": "fitness",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/rivasjhkim_bali/"
+ },
+ {
+  "slug": "cafe-vida-healthy-organic-restaurant-canggu",
+  "name": "CAFE VIDA Healthy Organic Restaurant Canggu",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/cafe_vida_bali/"
+ },
+ {
+  "slug": "the-lawn-canggu-beach-club",
+  "name": "The Lawn Canggu Beach Club",
+  "category": "beach_club",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong Beach",
+  "official_url": "https://www.thelawncanggu.com/",
+  "instagram_url": "https://www.instagram.com/thelawncanggu/"
+ },
+ {
+  "slug": "tonic-day-spa-botanicals-canggu",
+  "name": "Tonic Day Spa & Botanicals",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Berawa / Canggu",
+  "official_url": "https://tonic.co.id/",
+  "instagram_url": "https://www.instagram.com/tonic.bali/"
+ },
+ {
+  "slug": "ji-restaurant-bali",
+  "name": "Ji Restaurant Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong Beach",
+  "official_url": "https://jirestaurantbali.com/",
+  "instagram_url": "https://instagram.com/jirestaurantbali"
+ },
+ {
+  "slug": "zest-ubud",
+  "name": "Zest Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan No.7, Sayan, Ubud, Gianyar 80571",
+  "official_url": "https://www.zestubud.com/",
+  "instagram_url": "https://www.instagram.com/zestubud/"
+ },
+ {
+  "slug": "neighbourhood-food-seseh",
+  "name": "Neighbourhood Food Seseh",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Seseh / Cemagi / Mengwi / Seseh",
+  "official_url": "https://www.neighbourhoodfood.co/",
+  "instagram_url": "https://www.instagram.com/neighbourhoodbali/"
+ },
+ {
+  "slug": "warung-varuna",
+  "name": "Warung Varuna",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warungvaruna/"
+ },
+ {
+  "slug": "boheme-canggu",
+  "name": "Boheme Restaurant at Shore Amora Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.159, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali",
+  "official_url": "https://www.shoreamora.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "pranava-yoga",
+  "name": "Pranava Yoga",
+  "category": "yoga",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://www.matrabali.com/pranava-yoga",
+  "instagram_url": "https://www.instagram.com/yoga_pranava/"
+ },
+ {
+  "slug": "chito-caucasus-cuisine-bistro",
+  "name": "CHITO caucasus cuisine bistro",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Made Lebah, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.chitobistro.com/?utm_source%3Dgoogle%26utm_medium%3Dmaps%26utm_campaign%3Dlocal_listing",
+  "instagram_url": null
+ },
+ {
+  "slug": "zuna-yoga",
+  "name": "Zuna Yoga",
+  "category": "yoga",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://zunayoga.com/",
+  "instagram_url": "https://www.instagram.com/zunayoga/"
+ },
+ {
+  "slug": "the-cassowary-restaurant",
+  "name": "The Cassowary Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jalan Ulun Suwi II, Singapadu, Singapadu, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
+  "official_url": "https://sanctoo.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "aperitif-restaurant",
+  "name": "Apéritif Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Br. Nagi, Jl. Lanyahan, Petulu, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://www.aperitif.com/",
+  "instagram_url": "https://www.instagram.com/aperitifbali/"
+ },
+ {
+  "slug": "lolas-cantina-canggu",
+  "name": "Lola’s Cantina Mexicana — Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu Shortcut, Tibubeneng, Kuta Utara, Badung, Bali 80361, Indonesia",
+  "official_url": "https://www.lolasbali.com/",
+  "instagram_url": "https://www.instagram.com/lolasbali/"
+ },
+ {
+  "slug": "nasi-ayam-kedewatan-ibu-mangku",
+  "name": "Nasi Ayam Kedewatan Ibu Mangku — Outlet Pusat Ubud",
+  "category": "warung",
+  "district": "ubud",
+  "address": "Jl. Raya Kedewatan No.18, Kedewatan, Ubud, Gianyar, Bali, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/nasiayamkedewatan/"
+ },
+ {
+  "slug": "watercress-berawa",
+  "name": "Watercress Berawa",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Opposite Bali Equestrian Centre, Berawa, Tibubeneng, Kuta Utara, Badung, Bali, Indonesia",
+  "official_url": "https://watercressbali.com/",
+  "instagram_url": "https://www.instagram.com/watercressbali/"
+ },
+ {
+  "slug": "milk-and-madu-ubud",
+  "name": "Milk & Madu Ubud",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Jl. Suweta No.3, Ubud, Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://milkandmadu.com/location/",
+  "instagram_url": "https://www.instagram.com/milkandmadu/"
+ },
+ {
+  "slug": "hujan-locale",
+  "name": "Hujan Locale",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sri Wedari No.5, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://hujanlocale.com/",
+  "instagram_url": "https://instagram.com/hujan_locale"
+ },
+ {
+  "slug": "collina-kawi-restaurant-at-kawi-resort",
+  "name": "Collina Kawi Restaurant at Kawi Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Tampaksiring, Gianyar Regency, Bali 80552",
+  "official_url": "http://www.kawiresort.com/",
+  "instagram_url": "https://www.instagram.com/kawiresort/"
+ },
+ {
+  "slug": "watercress-ubud",
+  "name": "Watercress Ubud",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://watercressbali.com/",
+  "instagram_url": "https://www.instagram.com/watercressbali/"
+ },
+ {
+  "slug": "the-avocado-factory",
+  "name": "The Avocado Factory",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan, Canggu, Kuta Utara, Badung, Bali 80351, Indonesia",
+  "official_url": "https://theavocadofactory.com/",
+  "instagram_url": "https://www.instagram.com/theavocadofactory/"
+ },
+ {
+  "slug": "eskq-bar-steak-house",
+  "name": "ESKQ Bar Steak House",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu, Kuta Utara, Badung Regency, Bali 80351",
+  "official_url": "https://eskq.bar/?utm_source%3Dgbp%26utm_medium%3Dorganic%26utm_campaign%3Dgbp-website",
+  "instagram_url": null
+ },
+ {
+  "slug": "tropical-nomad",
+  "name": "Tropical Nomad",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Canggu shortcut / Subak Canggu",
+  "official_url": "https://tropical-nomad-coworking-space.webflow.io/",
+  "instagram_url": "https://www.instagram.com/tropicalnomadcanggu/"
+ },
+ {
+  "slug": "chupacabras",
+  "name": "Chupacabras",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Kedewatan, Ubud, Gianyar Regency, Bali",
+  "official_url": "https://www.chupacabrasbali.com/",
+  "instagram_url": "https://www.instagram.com/chupacabrasbali/"
+ },
+ {
+  "slug": "tis-cafe-ubud",
+  "name": "Tis Cafe",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Tegallalang, Tegallalang, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "http://www.tisrestaurant.com/",
+  "instagram_url": "https://www.instagram.com/tiscafeubud/"
+ },
+ {
+  "slug": "amateras-restaurant-at-jannata-resort-and-spa",
+  "name": "Amateras Restaurant at Jannata Resort & Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Rsi Markandya II, Br. Bangkiang Sidem Desa Keliki, Kelusa, Kec. Payangan, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://jannataresort.com/en/amateras-dining",
+  "instagram_url": null
+ },
+ {
+  "slug": "therapy-day-spa-pererenan",
+  "name": "Therapy Day Spa Pererenan",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://therapy.co.id/",
+  "instagram_url": "https://www.instagram.com/therapy.bali/"
+ },
+ {
+  "slug": "deus-ex-machina",
+  "name": "Deus Ex Machina",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": "https://deuscustoms.co.id/pages/the-temple-of-enthusiasm-1",
+  "instagram_url": "https://www.instagram.com/deusexmachina.id/"
+ },
+ {
+  "slug": "room4dessert",
+  "name": "Room4Dessert",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Sanggingan, Kedewatan, Ubud, Gianyar, Bali 80561, Indonesia",
+  "official_url": "https://www.room4dessert.com/",
+  "instagram_url": "https://www.instagram.com/r4d_room4dessert/"
+ },
+ {
+  "slug": "samesa-canggu",
+  "name": "Sa'Mesa Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Canggu Padang Linjong No.1e, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": "http://www.samesabali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "isla-by-earth-island",
+  "name": "ISLA by Earth Island",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Canggu shortcut / Subak Canggu",
+  "official_url": "https://earth-island.com/pages/islaislabyearthisland",
+  "instagram_url": "https://www.instagram.com/earth___island/"
+ },
+ {
+  "slug": "la-brisa-bali",
+  "name": "La Brisa Bali",
+  "category": "beach_club",
+  "district": "canggu",
+  "address": "Canggu / Echo Beach",
+  "official_url": "https://labrisa-bali.com/",
+  "instagram_url": "https://www.instagram.com/labrisabali/"
+ },
+ {
+  "slug": "alchemy-yoga-meditation-center",
+  "name": "Alchemy Yoga & Meditation Center",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Penestanan Kelod No. 75, Penestanan, Ubud, Gianyar 80571",
+  "official_url": "https://www.alchemyyogacenter.com/",
+  "instagram_url": "https://www.instagram.com/alchemyyogaubud/"
+ },
+ {
+  "slug": "warung-bu-mi",
+  "name": "Warung Bu Mi",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": "https://warungbumi.shop/",
+  "instagram_url": "https://instagram.com/warungbumicanggu"
+ },
+ {
+  "slug": "revolver-canggu",
+  "name": "Revolver Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Central Canggu / shortcut approach",
+  "official_url": "https://revolverbali.com/pages/canggu",
+  "instagram_url": "https://instagram.com/revolver.bali"
+ },
+ {
+  "slug": "mozaic",
+  "name": "Mozaic",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Sanggingan, Kedewatan, Ubud, Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://www.mozaic-bali.com/",
+  "instagram_url": "https://www.instagram.com/mozaicrestaurantubud/"
+ },
+ {
+  "slug": "bambou-cafe-and-lagree-cemagi",
+  "name": "Bambou Café & Lagree Cemagi",
+  "category": "fitness",
+  "district": "canggu",
+  "address": "Cemagi / Mengwi / Cemagi / Mengening",
+  "official_url": "https://www.bamboucafe.com/bali",
+  "instagram_url": "https://www.instagram.com/bamboucafecemagi/"
+ },
+ {
+  "slug": "mason",
+  "name": "Mason",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Batu Bolong",
+  "official_url": "https://masonrybali.com/canggu",
+  "instagram_url": "https://www.instagram.com/mason.bali/"
+ },
+ {
+  "slug": "dicarik-warung",
+  "name": "Dicarik Warung",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Kajeng, Subak Juwuk Manis, Ubud 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/dicarikwarung/"
+ },
+ {
+  "slug": "hippie-fish-pererenan-beach",
+  "name": "Hippie Fish Pererenan Beach",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pererenan Beach",
+  "official_url": "https://hippie-fish.com/",
+  "instagram_url": "https://www.instagram.com/hippiefishbali/"
+ },
+ {
+  "slug": "milk-and-madu-berawa",
+  "name": "Milk & Madu Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Berawa / Tegal Gundul",
+  "official_url": "https://milkandmadu.com/",
+  "instagram_url": "https://instagram.com/milkandmadu"
+ },
+ {
+  "slug": "locavore-nxt",
+  "name": "Locavore NXT",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. A.A. Gede Rai, Gang Pura Panti Bija, Lodtunduh, Ubud, Gianyar, Bali 80571, Indonesia",
+  "official_url": "https://locavorenxt.com/",
+  "instagram_url": "https://www.instagram.com/locavorenxt/"
+ },
+ {
+  "slug": "kush-ayurveda-yoga-barn",
+  "name": "KUSH Ayurvedic Rejuvenation Spa at The Yoga Barn",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Sukma / Pengosekan, at The Yoga Barn, Ubud",
+  "official_url": "https://theyogabarn.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "cascades",
+  "name": "CasCades",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://www.cascadesbali.com/",
+  "instagram_url": "https://www.instagram.com/cascadesbali/"
+ },
+ {
+  "slug": "ubud-sari-health-resort",
+  "name": "Ubud Sari Health Resort",
+  "category": "spa",
+  "district": "ubud",
+  "address": "~5 minutes from Ubud centre, Ubud",
+  "official_url": "https://ubudsari.com/",
+  "instagram_url": "https://www.instagram.com/ubudsari/"
+ },
+ {
+  "slug": "mission-flow-studio",
+  "name": "Mission Flow Studio",
+  "category": "yoga",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://missionflowstudio.com/",
+  "instagram_url": "https://www.instagram.com/missionflowstudio/"
+ },
+ {
+  "slug": "laka-leke",
+  "name": "Laka Leke",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://www.lakaleke.com/",
+  "instagram_url": "https://www.instagram.com/lakalekerestaurant/"
+ },
+ {
+  "slug": "intuitive-flow",
+  "name": "Intuitive Flow",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Nalanda School, Penestanan Kelod, Ubud, Gianyar 80571",
+  "official_url": "https://intuitiveflow.com/",
+  "instagram_url": "https://www.instagram.com/intuitive_flow_yogastudio/"
+ },
+ {
+  "slug": "oneworld-ayurveda",
+  "name": "Oneworld Ayurveda",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Pengosekan, Ubud, Gianyar 80571",
+  "official_url": "https://oneworldayurveda.com/ubud/",
+  "instagram_url": "https://www.instagram.com/oneworldayurveda/"
+ },
+ {
+  "slug": "belantara-restaurant-at-kastara-resort-and-spa",
+  "name": "Belantara Restaurant at Kastara Resort and Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Keliki, Jl. Bangkiang Sidem, Ubud, Kec. Tegallalang, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.kastararesort.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "woods-bali",
+  "name": "Woods Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://woodsbali.com/",
+  "instagram_url": "https://www.instagram.com/woodsbali/"
+ },
+ {
+  "slug": "baas-terrace-and-wine-locked-lounge-at-metland-venya-ubud",
+  "name": "Baas Terrace and Wine Locked Lounge at Metland Venya Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Kelabang Moding, Tegallalang, Kecamatan Ubud, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://metlandvenyaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "dice-at-the-craft-hotel",
+  "name": "Dice at The Craft Hotel",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Andong, Petulu, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://crafthotelubud.com/",
+  "instagram_url": "https://www.instagram.com/thecraftubud/"
+ },
+ {
+  "slug": "como-shambhala-at-como-uma-ubud-yoga-ubud",
+  "name": "COMO Shambhala at COMO Uma Ubud Yoga",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Kedewatan",
+  "official_url": "https://www.comohotels.com/bali/como-uma-ubud",
+  "instagram_url": "https://www.instagram.com/comoumaubud/"
+ },
+ {
+  "slug": "cabana-lounge-at-alila-ubud",
+  "name": "Cabana Lounge at Alila Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Inside Alila Ubud, Melinggih Kelod, Kec. Payangan, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsau-alila-ubud/dining%3Fsrc%3Dprop_dpsau_en_misc_gbp_cabana%2520lounge_profile",
+  "instagram_url": null
+ },
+ {
+  "slug": "bokashi-berawa",
+  "name": "Bokashi Bali at Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Subak Sari No.2, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "https://bokashibali.com/",
+  "instagram_url": "https://www.instagram.com/bokashipererenan/"
+ },
+ {
+  "slug": "bulan-madu-restaurant-at-amora-ubud-boutique-villas",
+  "name": "Bulan Madu Restaurant at Amora Ubud Boutique Villas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "G745+Q26, Jl. Bangkiang Sidem, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.amoraubud.com/",
+  "instagram_url": "https://www.instagram.com/amoraubud/"
+ },
+ {
+  "slug": "ely-s-kitchen-ubud",
+  "name": "Ely's Kitchen Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.88, Bentuyung Sakti, Ubud, Gianyar Bali 80571",
+  "official_url": "https://elyskitchenubud.com/",
+  "instagram_url": "https://www.instagram.com/elyskitchenubud/"
+ },
+ {
+  "slug": "citrus-restaurant-ubud",
+  "name": "Citrus Restaurant Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Pejeng Kawan, Tampaksiring, Gianyar Regency, Bali 80552",
+  "official_url": "https://citrusubud.com/",
+  "instagram_url": "https://www.instagram.com/citrusubud/"
+ },
+ {
+  "slug": "hungry-bird-coffee",
+  "name": "Hungry Bird Coffee Roaster",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Jl. Segara Perancak No.86, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+  "official_url": "https://www.coffeeinsurrection.com/hungry-bird-coffee-roaster.html",
+  "instagram_url": "https://www.instagram.com/hungrybirdcoffee/"
+ },
+ {
+  "slug": "tukies-coconut-shop",
+  "name": "Tukies Coconut Shop",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest No.15, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/tukiescoconutshop/"
+ },
+ {
+  "slug": "ashe-grill-and-bar",
+  "name": "Ashe Grill & Bar",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.156, Canggu, Kec. Mengwi, Kabupaten Badung, Pererenan, Kec. Mengwi, Bali, 80351",
+  "official_url": "https://www.ashebali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "seres-springs-resort-and-spa-singakerta-ubud",
+  "name": "SereS Springs Resort & Spa Singakerta, Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Jukut Paku, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.sereshotelsresorts.com/",
+  "instagram_url": "https://www.instagram.com/seresresortbali/"
+ },
+ {
+  "slug": "air-cafe-and-lounge-at-the-sebali-resort",
+  "name": "Air Cafe and Lounge at The Sebali Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "The Sebali Resort, Br, Jl. Kepitu, Kenderan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://thesebali.com/dining.php",
+  "instagram_url": null
+ },
+ {
+  "slug": "tirta-empul",
+  "name": "Tirta Empul",
+  "category": "attraction",
+  "district": "ubud",
+  "address": null,
+  "official_url": "https://disparda.baliprov.go.id/tirta-empul/2021/01/",
+  "instagram_url": null
+ },
+ {
+  "slug": "bamboo-shoot-restaurant-at-emana-bambooscape",
+  "name": "Bamboo Shoot Restaurant at Emana Bambooscape",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. A.A. Gede Rai No.1, Lodtunduh, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://emanahotels.com/bambooscape-villas-ubud-bali/",
+  "instagram_url": null
+ },
+ {
+  "slug": "birdhill-restaurant-at-amora-ubud-boutique-villas",
+  "name": "Birdhill Restaurant at Amora Ubud Boutique Villas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bangkiang Sidem, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://amoraubud.com/bird-hill-restaurant-ubud/",
+  "instagram_url": null
+ },
+ {
+  "slug": "bali-botanica-spa",
+  "name": "Bali Botanica by Oneworld Ayurveda",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Raya Sanggingan, Kedewatan, Ubud",
+  "official_url": "https://balibotanica.com/",
+  "instagram_url": "https://www.instagram.com/balibotanicadayspa/"
+ },
+ {
+  "slug": "basilico-ubud-restaurant",
+  "name": "Basilico Ubud Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://basilicoubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "kukusan-bali-restaurant-at-the-artini-dijiwa-ubud",
+  "name": "Kukusan Bali Restaurant at The Artini Dijiwa Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan Ubud, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://dijiwasanctuaries.com/at/theartiniubud",
+  "instagram_url": "https://www.instagram.com/theartinidijiwaubud/"
+ },
+ {
+  "slug": "bar-vera-bistro-and-wine-bar",
+  "name": "Bar Vera Bistro & Wine Bar",
+  "category": "bar",
+  "district": "canggu",
+  "address": "Pererenan / Pantai Pererenan",
+  "official_url": "https://barverabali.com/",
+  "instagram_url": "https://www.instagram.com/bar.vera.bali/"
+ },
+ {
+  "slug": "casa-luna",
+  "name": "Casa Luna",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://casalunabali.com/",
+  "instagram_url": "https://www.instagram.com/casalunabali/"
+ },
+ {
+  "slug": "fair-warung-bale",
+  "name": "Fair Warung Balé",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://fairwarungbale.shop/",
+  "instagram_url": "https://www.instagram.com/fairwarungbaleubud/"
+ },
+ {
+  "slug": "kecambah-restaurant-at-lalasa-villas",
+  "name": "Kecambah Restaurant at Lalasa Villas",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pemelisan Agung Pantai Berawa No.12 Canggu Kuta, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "http://www.lalasavillas.com/",
+  "instagram_url": "https://www.instagram.com/lalasavillas_canggu/"
+ },
+ {
+  "slug": "the-sankara-suites-and-villas",
+  "name": "The Sankara Suites & Villas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sri Wedari No.78, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.thesankarasuite.com/",
+  "instagram_url": "https://www.instagram.com/thesankarasuites/"
+ },
+ {
+  "slug": "motion-cafe",
+  "name": "Motion Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": "https://www.motionfitnessbali.com/",
+  "instagram_url": "https://www.instagram.com/motionfitnessfoods/"
+ },
+ {
+  "slug": "pyramids-of-chi",
+  "name": "Pyramids of Chi",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Kelebang Moding, Bentuyung Sari, Ubud, Gianyar 80571",
+  "official_url": "https://ubud.pyramidsofchi.com/",
+  "instagram_url": "https://www.instagram.com/pyramidsofchi/"
+ },
+ {
+  "slug": "black-garlic-ubud",
+  "name": "Black Garlic Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bangkiang Sidem No.1, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://blackgarlicubud.com/",
+  "instagram_url": "https://www.instagram.com/blackgarlicubud"
+ },
+ {
+  "slug": "riviera-trattoria-pererenan",
+  "name": "Riviera Trattoria Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Mengwi / Pererenan north",
+  "official_url": "https://rivieragroupbali.com/riviera-trattoria/",
+  "instagram_url": "https://www.instagram.com/riviera.pererenan/"
+ },
+ {
+  "slug": "divya-bar-ubud",
+  "name": "Divya Bar Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://divyabar.com/",
+  "instagram_url": "https://www.instagram.com/divyaubud"
+ },
+ {
+  "slug": "enclave-ubud-at-plataran-ubud",
+  "name": "Enclave Ubud at Plataran Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Hanoman Pengosekan, Ubud, Kecamatan Ubud, Ubud, Bali 80571",
+  "official_url": "https://www.plataran.com/venues-dining/enclave-ubud",
+  "instagram_url": null
+ },
+ {
+  "slug": "sensorium-bali",
+  "name": "Sensorium Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Canggu edge / Pererenan / Batu Mejan",
+  "official_url": "https://sensoriumbali.co.id/",
+  "instagram_url": "https://www.instagram.com/sensorium_bali/"
+ },
+ {
+  "slug": "wanna-jungle-pool-and-bar-at-the-kayon-jungle-resort",
+  "name": "Wanna Jungle Pool and Bar at The Kayon Jungle Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Br, Bresela, Kec. Payangan, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://thekayonjungleresort.com/",
+  "instagram_url": "https://www.instagram.com/kayonjungleresort/"
+ },
+ {
+  "slug": "sunset-bloom-restaurant-at-swan-paradise-a-pramana-experience",
+  "name": "Sunset Bloom Restaurant at Swan Paradise A Pramana Experience",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Bonbiyu Br. Banda, Saba, Kec. Blahbatuh, Kabupaten Gianyar, Bali 80581",
+  "official_url": "http://www.swanparadisebali.com/",
+  "instagram_url": "https://www.instagram.com/swanparadisebali/"
+ },
+ {
+  "slug": "chaskaa-ubud",
+  "name": "Chaskaa Modern Indian Cuisine and Bar at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.5, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.chaskaabali.com/",
+  "instagram_url": "https://instagram.com/chaskaa_bali"
+ },
+ {
+  "slug": "semara-grill-at-inara-alas-harum",
+  "name": "Semara Grill at Inara Alas Harum",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "H7G9+R9M Jalan Raya Bresela Kecamatan Payangan, Taro, Kecamatan Ubud, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://inarahotels.com/alas-harum-resort-bali/",
+  "instagram_url": "https://www.instagram.com/inaraalasharum/"
+ },
+ {
+  "slug": "arya-arkananta-resort-and-spa",
+  "name": "Arya Arkananta Resort & Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Gang puskesmas sayan2, Next to Moksa Restaurant, Jl. Banjar Penestanan Kaja No.77, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.aryaarkanantabali.com/",
+  "instagram_url": "https://www.instagram.com/aryaarkanantaresort/"
+ },
+ {
+  "slug": "sista-dumpling",
+  "name": "SISTA DUMPLING 喜食",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Raya Semat No.7, Tibubeneng, Kabupaten Badung",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/sistadumpling/"
+ },
+ {
+  "slug": "french-kiss-restaurant",
+  "name": "French Kiss Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Monkey Forest, Street Jalan Wenara Wana, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://frenchkissubud.com/",
+  "instagram_url": "https://www.instagram.com/frenchkissbali/"
+ },
+ {
+  "slug": "desa-swan-villas-and-spa-keramas",
+  "name": "Desa Swan Villas & SPA, Keramas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Pantai Keramas St, Keramas, Blahbatuh, Gianyar Regency, Bali 80581",
+  "official_url": "http://www.desaswan.com/",
+  "instagram_url": "https://www.instagram.com/desaswanvillas/"
+ },
+ {
+  "slug": "friends-cafe-and-bistro",
+  "name": "Friends Cafe & Bistro",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan Banjar Laplapan No.108, Tegal Kelod, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://friendscafeubud.com/",
+  "instagram_url": "https://www.instagram.com/friendsubud/"
+ },
+ {
+  "slug": "gauri-by-ely-s-kitchen-at-adiwana-unagi-riverfront",
+  "name": "Gauri by Ely's Kitchen at Adiwana Unagi Riverfront",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Rapuan, Mas, Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "https://gaurirestaurant.com/",
+  "instagram_url": "https://www.instagram.com/gauriubud/"
+ },
+ {
+  "slug": "genius-bistro",
+  "name": "Genius Bistro",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Sempol, Pererenan, Canggu, Kabupaten Badung, Bali 80351",
+  "official_url": "http://www.geniusbistrobali.com/",
+  "instagram_url": "https://www.instagram.com/geniusbistro_bali/"
+ },
+ {
+  "slug": "glow-restaurant-at-como-shambhala-estate",
+  "name": "glow Restaurant at COMO Shambhala Estate",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "COMO Shambhala Estate, Melinggih Kelod, Payangan, Gianyar Regency, Bali 80353",
+  "official_url": "https://www.comohotels.com/bali/como-shambhala-estate/dining/glow%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBfnb",
+  "instagram_url": "https://www.instagram.com/comoshambhalaestate"
+ },
+ {
+  "slug": "green-spot-cafe",
+  "name": "Green Spot Cafe",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Echo Beach Villa and Apartment, Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "https://ecosferahotel.com/green-spot-cafe/",
+  "instagram_url": "https://www.instagram.com/ecosferahotel.echobeach/"
+ },
+ {
+  "slug": "habitat-bistro-restaurant-ubud-by-wonderspace",
+  "name": "Habitat Bistro Restaurant Ubud by Wonderspace",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma No.888A, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://thewonderspace.com/habitatbistroubud/?utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgoogle_business_profileHabitat_Bistro",
+  "instagram_url": null
+ },
+ {
+  "slug": "hotapa-kitchen",
+  "name": "Hotapa Kitchen",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sri Wedari No.81, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.honairesort.com/",
+  "instagram_url": "https://www.instagram.com/honairesortubud/"
+ },
+ {
+  "slug": "kubu-at-mandapa",
+  "name": "Kubu at Mandapa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Kedewatan, Banjar, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.kubuatmandapa.com/",
+  "instagram_url": "https://www.instagram.com/kubuatmandapa/"
+ },
+ {
+  "slug": "injoy",
+  "name": "INJOY",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Nyuh Bojog, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://theinmovement.com/injoy-restaurant/",
+  "instagram_url": "https://www.instagram.com/the_in_movement/"
+ },
+ {
+  "slug": "janger-restaurant-at-puri-wulandari-a-boutique-resort-and-spa",
+  "name": "Janger Restaurant at Puri Wulandari, A Boutique Resort and Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Kedewatan, Banjar Tanggayuda, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.jangerrestaurant.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "inklusiv-warung",
+  "name": "Inklusiv Warung",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Munduk Catu No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "http://www.villamoksha.com/inklusivvideo",
+  "instagram_url": null
+ },
+ {
+  "slug": "jack-fruit-restaurant-at-pramana-giri-kusuma",
+  "name": "Jack Fruit Restaurant at Pramana Giri Kusuma",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "H6MW+VJ, Melinggih, Payangan, Gianyar Regency, Bali 80572",
+  "official_url": "https://pramanagirikusuma.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "kawa-hibachi-at-kastara-resort-and-spa",
+  "name": "Kawa Hibachi at Kastara Resort and Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bangkiang Sidem, Keliki, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://kastararesort.com/restaurant/kawa-hibachi/",
+  "instagram_url": null
+ },
+ {
+  "slug": "kemangi-ubud-resto-at-adiwana-svarga-loka",
+  "name": "Kemangi Ubud Resto at Adiwana Svarga Loka",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan Kelod, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.kemangiubudresto.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "madhubann-pure-veg-indian-restaurant",
+  "name": "Madhubann : Pure Veg Indian Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Ubud No.6, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.madhubann.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "ksuna-restaurant",
+  "name": "Ksuna Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Silungan, Lodtunduh, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://thegarciaubud.com/dining",
+  "instagram_url": null
+ },
+ {
+  "slug": "genio-by-twist",
+  "name": "GENIO by twist",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sukma Kesuma No.45, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/geniobytwist/"
+ },
+ {
+  "slug": "lumbung-restaurant-at-visesa-ubud-resort",
+  "name": "Lumbung Restaurant at Visesa Ubud Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Lumbung Restaurant, Jl. Suweta, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.visesaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-ubud",
+  "name": "Ganesha Ek Sanskriti at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.ganeshaeksanskriti.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "kunang-kunang-restaurant-at-the-sun-of-granary-resort-and-villas",
+  "name": "Kunang-Kunang Restaurant at The Sun of Granary Resort and Villas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Banjar Pinjul, Jl. Raya Kenderan, Kenderan, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://kunangkunangubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "hura-restaurant-at-the-pala-ubud-villas",
+  "name": "Hura Restaurant at The Pala Ubud Villas",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Kelusu, Pejeng Kelod, Kec. Tampaksiring, Kabupaten Gianyar, Bali 80552",
+  "official_url": "https://www.thepalaubudresort.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "le-gastronome-restaurant-at-keliki-luxury-lodge",
+  "name": "Le Gastronome Restaurant at Keliki Luxury Lodge",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suda Mala, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://www.kelikiluxurylodge.com/en/the-restaurant",
+  "instagram_url": null
+ },
+ {
+  "slug": "kedai-tepi-kali-and-bar-at-tapa-tepi-kali-canggu",
+  "name": "Kedai Tepi Kali and Bar at Tapa Tepi Kali Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Echo Beach, Jl. Canggu Padang Linjong, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/kedaitepikali/"
+ },
+ {
+  "slug": "mamu-garden-cafe-and-lounge",
+  "name": "MAMU garden cafe & lounge",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Made Lebah, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://mamugarden.com/?utm_source%3Dgoogle%26utm_medium%3Dmaps%26utm_campaign%3Dlocal_listing",
+  "instagram_url": null
+ },
+ {
+  "slug": "natys-bar-and-grill-ubud",
+  "name": "Natys Bar & Grill Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "http://www.natysrestaurant.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "ngajeng-restaurant",
+  "name": "Ngajeng Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Taro, Taro, Kec. Tegallalang, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://ngajengrestaurant.com/",
+  "instagram_url": "https://www.instagram.com/ngajengubud/"
+ },
+ {
+  "slug": "natys-restaurant-ubud-at-natya-resort-ubud",
+  "name": "Natys Restaurant Ubud at Natya Resort Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Tegallalang, Tegallalang, Kecamatan Ubud, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://natysrestaurant.com/natys-ubud/",
+  "instagram_url": null
+ },
+ {
+  "slug": "the-nini-restaurant-12",
+  "name": "The Nini Restaurant | 12+",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Banjar, Jl. Manik Tawang, Manukaya, Kec. Tampaksiring, Kabupaten Gianyar, Bali 80552",
+  "official_url": "https://www.bambootel.com/sawah-view",
+  "instagram_url": null
+ },
+ {
+  "slug": "noonik-bistro",
+  "name": "NOONIK Bistro",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan No.1, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://noonikbistro.com/",
+  "instagram_url": "https://www.instagram.com/noonikbistro"
+ },
+ {
+  "slug": "pistachio-restaurant-at-adiwana-bisma",
+  "name": "Pistachio Restaurant at Adiwana Bisma",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.pistachioubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "perantenan-restaurant-at-the-alena-resort",
+  "name": "Perantenan Restaurant at The Alena Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Silungan, Lodtunduh, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.thealenaresort.com/perantenan-restaurant.htm",
+  "instagram_url": null
+ },
+ {
+  "slug": "plantation-restaurant-at-alila-ubud",
+  "name": "Plantation Restaurant at Alila Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Melinggih Kelod, Ubud, Gianyar Regency, Bali 80572",
+  "official_url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsau-alila-ubud%3Fsrc%3Dcorp_lclb_google_seo_dpsau%26utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dlmr",
+  "instagram_url": null
+ },
+ {
+  "slug": "queen-s-of-india-at-ubud",
+  "name": "Queen's of India at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://bali.queenstandoor.com/location/ubud",
+  "instagram_url": "https://www.instagram.com/queensbali/"
+ },
+ {
+  "slug": "river-warung-at-bambu-indah",
+  "name": "River Warung at Bambu Indah",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Sayan, Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "https://www.bambuindah.com/pages/dine",
+  "instagram_url": "https://www.instagram.com/bambuindah/"
+ },
+ {
+  "slug": "rize-ubud",
+  "name": "rize ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Nyuh Bojog No.2, Mas, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/rajaranibyrize/"
+ },
+ {
+  "slug": "the-restaurant-by-keliki-luxury-lodge",
+  "name": "The Restaurant by Keliki Luxury Lodge",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suda Mala, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://www.kelikiluxurylodge.com/en/the-restaurant",
+  "instagram_url": null
+ },
+ {
+  "slug": "rize-pererenan",
+  "name": "rize pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.150, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/rize.bali/"
+ },
+ {
+  "slug": "roomah-canggu-at-holiday-inn-resort-bali-canggu",
+  "name": "Roomah Canggu at Holiday Inn Resort Bali Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Bolong No.93xx A No, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "https://canggu.holidayinnresorts.com/roomah",
+  "instagram_url": "https://www.instagram.com/holidayinnbalicanggu/"
+ },
+ {
+  "slug": "runara-restaurant-at-abisena-ubud",
+  "name": "Runara Restaurant at Abisena Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Keliki No.123, Keliki, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://abisenaubud.com/space-event/%23runara",
+  "instagram_url": null
+ },
+ {
+  "slug": "sans-indian-restaurant-ubud-by-wonderspace",
+  "name": "Sans Indian Restaurant Ubud by Wonderspace",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Banjar Pinjul, Kenderan No. 8, Kenderan, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "http://thewonderspace.com/sansindian/?utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgoogle_business_profileSans_Indian_Cuisine_Ubud_",
+  "instagram_url": null
+ },
+ {
+  "slug": "sawah-terrace-at-mandapa-a-ritz-carlton-reserve",
+  "name": "Sawah Terrace at Mandapa, a Ritz-Carlton Reserve",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Kedewatan, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.ritzcarlton.com/en/hotels/dpsub-mandapa-a-ritz-carlton-reserve/overview/?scid%3Df2ae0541-1279-4f24-b197-a979c79310b0",
+  "instagram_url": null
+ },
+ {
+  "slug": "sante-wine-and-dine-at-rusters",
+  "name": "Sante Wine and Dine at RÜSTERS",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "RUSTERS Area, Jl. Raya Kengetan, Singapadu Kaler, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://santebali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "senja-bar-and-resto-at-goya-boutique-resort",
+  "name": "Senja Bar and Resto at Goya Boutique Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.goyaboutiqueresorts.com/dining/",
+  "instagram_url": null
+ },
+ {
+  "slug": "shary-shary",
+  "name": "Shary Shary",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan No.82, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/sharysharybali/"
+ },
+ {
+  "slug": "serai-restaurant-at-the-hava-ubud",
+  "name": "Serai Restaurant at The Hava Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.thehavaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "sumampan-restaurant-at-thewakanda-ubud",
+  "name": "Sumampan Restaurant at thewakanda Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Subak Gunungsari, Banjar Sumampan, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
+  "official_url": "https://wakandaubud.com/sumampan-restaurant",
+  "instagram_url": null
+ },
+ {
+  "slug": "suka-espresso-ubud",
+  "name": "SUKA UBUD",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan Ubud No.108, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.bysuka.com/suka-ubud",
+  "instagram_url": "https://www.instagram.com/sukacollective"
+ },
+ {
+  "slug": "tablespoon-ubud-at-adiwana-suweta",
+  "name": "Tablespoon Ubud at Adiwana Suweta",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.88, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.tablespoonubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "t-dung-restaurant-pool-and-bar-at-kenran-resort-ubud",
+  "name": "T'dung Restaurant Pool and Bar at Kenran Resort Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Kenderan, Tegallalang, Gianyar, Bali 80552, Kenderan, Tegallalang, Gianyar Regency, Bali 80522",
+  "official_url": "https://tdungrestaurant.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "tanarasa-restaurant-at-tanadewa-resort-ubud-bali-by-cross-collection",
+  "name": "Tanarasa Restaurant at Tanadewa Resort Ubud Bali by Cross Collection",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Padang Getas, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.tanadewaubud.com/dine",
+  "instagram_url": null
+ },
+ {
+  "slug": "tembaga-restaurant",
+  "name": "Tembaga Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Baung, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.bambuindah.com/pages/tembaga",
+  "instagram_url": "https://www.instagram.com/bambuindah/"
+ },
+ {
+  "slug": "tan-ting-restaurant-at-lingga-yoga-by-the-jungle-pots",
+  "name": "Tan-Ting Restaurant at LINGGA YOGA by The Jungle Pots",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Br.Pakuseba, Taro, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://thejunglepots.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "tekila-mexican-restaurant-ubud",
+  "name": "TeKila Mexican Restaurant Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan Ubud No.108, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://tekilaubud.com/menu/",
+  "instagram_url": null
+ },
+ {
+  "slug": "tuju-ubud-social-club",
+  "name": "TUJU UBUD SOCIAL CLUB",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/tujuubud/"
+ },
+ {
+  "slug": "urban-bites-cafe-at-berawa",
+  "name": "Urban Bites Cafe at Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jalan Raya Semat Tibubeneng, berawa, Canggu, Kuta Utara, Badung Regency, Bali 80361",
+  "official_url": "https://urbanbitesbali.com/canggu",
+  "instagram_url": "https://www.instagram.com/urbanbitescafe/"
+ },
+ {
+  "slug": "uma-tiki-restaurant-at-korurua-dijiwa-ubud",
+  "name": "Uma Tiki Restaurant at Korurua Dijiwa Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Br. Junjungan, Jl. Tirta Tawar, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://dijiwasanctuaries.com/at/koruruaubud/cuisine/uma-tiki-restaurant-ubud",
+  "instagram_url": null
+ },
+ {
+  "slug": "uname-ubud-by-pramana",
+  "name": "UNAME Ubud by Pramana",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Padang Getas, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.theuname.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "vanara-restaurant-at-sanna-ubud",
+  "name": "Vanara Restaurant at Sanna Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Tegallalang, Banjar Tengah, Tegallalang, Kecamatan Ubud, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://www.sannaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "yonne-cafe-and-bar-at-sens-hotel-and-spa",
+  "name": "Yonne Cafe and Bar at SenS Hotel and Spa",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sukma Kesuma No.1, Banjar Tebesaya, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.senshotelsresorts.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "waroeng-bernadette-at-ubud",
+  "name": "Waroeng Bernadette at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80517",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/waroengbernadette/"
+ },
+ {
+  "slug": "zali-at-pererenan",
+  "name": "Zali at Pererenan",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.152, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "official_url": "https://www.zalirestaurant.com/",
+  "instagram_url": "https://www.instagram.com/zali.inbali/"
+ },
+ {
+  "slug": "bisma-valley-at-adiwana-bisma",
+  "name": "Bisma Valley at Adiwana Bisma",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://adiwanahotels.com/bisma-resort-ubud-bali/",
+  "instagram_url": "https://www.instagram.com/adiwanabismaubud"
+ },
+ {
+  "slug": "di-sini-di-sana-by-rachman-and-sons",
+  "name": "Di Sini Di Sana by Rachman & Sons",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Lungsiakan No.57, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://disinidisanabras.com/",
+  "instagram_url": "https://www.instagram.com/disinidisana.bras"
+ },
+ {
+  "slug": "juggan-sky",
+  "name": "Juggan Sky",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Katik Lantang, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://juggans.com/",
+  "instagram_url": "https://www.instagram.com/juggansky/"
+ },
+ {
+  "slug": "the-kelusa-at-samsara-ubud",
+  "name": "The Kelusa at Samsara Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Banjar Ayah No.Desa, Kelusa, Payangan, Gianyar Regency, Bali 80572",
+  "official_url": "https://www.thekelusaubud.com/",
+  "instagram_url": "https://www.instagram.com/thekelusa/"
+ },
+ {
+  "slug": "sababa",
+  "name": "Sababa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "http://www.sabababali.com/",
+  "instagram_url": "https://www.instagram.com/sababa.bali/"
+ },
+ {
+  "slug": "melali-ubud",
+  "name": "Melali Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sri Wedari No.58, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://melalibali.id/",
+  "instagram_url": "https://www.instagram.com/melali.ubud/"
+ },
+ {
+  "slug": "the-orchid-duck-restaurant",
+  "name": "The Orchid Duck Restaurant",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Goa Gajah Jl. Raya Teges No.Br, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://theorchidduckrestaurant.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "paoman-restaurant-at-inara-alas-harum",
+  "name": "Paoman Restaurant at Inara Alas Harum",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "H7G9+R9M Jalan Raya Bresela Kecamatan Payangan, Taro, Kecamatan Ubud, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://inarahotels.com/alas-harum-resort-bali/",
+  "instagram_url": "https://www.instagram.com/inaraalasharum/"
+ },
+ {
+  "slug": "bukit-cinta-restaurant-and-bar-at-the-lokha-ubud",
+  "name": "Bukit Cinta Restaurant and Bar at The Lokha Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Br. Bangkiangsidem, Keliki, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://thelokhaubud.com/dining",
+  "instagram_url": "https://www.instagram.com/thelokhaubud/"
+ },
+ {
+  "slug": "the-upper-deck-ubud",
+  "name": "The Upper Deck Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Sebali, Banjar Sebali, Keliki, Tegallalang - Ubud, Kabupaten Gianyar, Bali 80561",
+  "official_url": "https://www.chapung.com/ubud-restaurant/the-upper-deck-restaurant/?utm_source%3DGoogle%2BMy%2BBusiness%26utm_medium%3DProfile%2BClick",
+  "instagram_url": null
+ },
+ {
+  "slug": "chora-mediterranean-restaurant-and-bar",
+  "name": "CHORA Mediterranean Restaurant & Bar",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma No.70, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://choraubud.com/",
+  "instagram_url": "https://www.instagram.com/choraubud/"
+ },
+ {
+  "slug": "ary-s-book-cafe",
+  "name": "Ary's Book Cafe",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Ubud No.7, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/arys_bookcafe/"
+ },
+ {
+  "slug": "botanist-restaurant-ubud-at-blue-karma-dijiwa-ubud",
+  "name": "Botanist Restaurant Ubud at Blue Karma Dijiwa Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Kelabang Moding, Banjar Bentuyung, Ubud, Kec. Tegallalang, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://bluekarmasecrets.dijiwasanctuaries.com/at/bluekarmaubud/facility/botanist-restaurant-ubud%3Futm_source%3Dgoogle%26utm_medium%3Dbusiness%2Bprofile",
+  "instagram_url": null
+ },
+ {
+  "slug": "clover-cafe-at-the-hava-ubud",
+  "name": "Clover Cafe at The Hava Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Penestanan, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.thehavaubud.com/",
+  "instagram_url": "https://www.instagram.com/hava_ubud/"
+ },
+ {
+  "slug": "the-swept-away-restaurant-ubud-by-the-samaya-ubud",
+  "name": "The Swept Away Restaurant Ubud by The Samaya Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Baung, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.thesamayabali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "kemiri-restaurant-at-como-uma-ubud",
+  "name": "Kemiri Restaurant at COMO Uma Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Sanggingan Banjar Lungsiakan, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.comohotels.com/bali/como-uma-ubud%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBprofile",
+  "instagram_url": "https://www.instagram.com/comoumaubud"
+ },
+ {
+  "slug": "swiss-chalet-and-grill",
+  "name": "Swiss Chalet and Grill",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Lungsiakan No.2C, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://swisschaletandgrill.com/",
+  "instagram_url": "https://instagram.com/swisschalet.bali"
+ },
+ {
+  "slug": "livingstone-holyground",
+  "name": "Livingstone Holyground",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Andong No.88x, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/livingstone.holyground/"
+ },
+ {
+  "slug": "samm-s-farm",
+  "name": "Samm's Farm",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Canggu Padang Linjong No.58, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/sammsfarm/"
+ },
+ {
+  "slug": "sky-lounge-by-ely-s-kitchen-at-adiwana-unagi-suites",
+  "name": "Sky Lounge by Ely's Kitchen at Adiwana Unagi Suites",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.88, Desa Bentuyung, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://adiwanahotels.com/unagi-suites-resort-ubud-bali/facilities/",
+  "instagram_url": "https://www.instagram.com/adiwanaunagisuites"
+ },
+ {
+  "slug": "ibu-susu-bar-and-kitchen",
+  "name": "IBU SUSU Bar & Kitchen",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.ibususu.com/",
+  "instagram_url": "https://www.instagram.com/ibu_susu_ubud/"
+ },
+ {
+  "slug": "kong-contemporary-bistro",
+  "name": "KONG | Contemporary Bistro",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa No.14b, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "https://kongbali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "zuna-yoga-ubud",
+  "name": "Zuna Yoga",
+  "category": "yoga",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://zunayoga.com/",
+  "instagram_url": "https://www.instagram.com/zunayoga/"
+ },
+ {
+  "slug": "kudus-house-at-como-shambhala-estate",
+  "name": "Kudus House at COMO Shambhala Estate",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Banjar Begawan, Desa, Melinggih Kelod, Kec. Payangan, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.comohotels.com/bali/como-shambhala-estate%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBprofile",
+  "instagram_url": "https://www.instagram.com/comoshambhalaestate/"
+ },
+ {
+  "slug": "sungai-restaurant-at-sthala-a-tribute-portfolio-hotel",
+  "name": "Sungai Restaurant at Sthala, a Tribute Portfolio Hotel",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jalan A.A Gede Rai, Jl. Raya Mawang Kelod, Lodtunduh, Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "https://www.marriott.com/en-us/hotels/dpstp-sthala-a-tribute-portfolio-hotel-ubud-bali/overview/?scid%3Df2ae0541-1279-4f24-b197-a979c79310b0",
+  "instagram_url": null
+ },
+ {
+  "slug": "tall-trees-at-the-westin-resort-and-spa-ubud-bali",
+  "name": "Tall Trees at The Westin Resort and Spa Ubud, Bali",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Lod Tunduh, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.marriott.com/en-us/hotels/dpswr-the-westin-resort-and-spa-ubud-bali/overview/?scid%3Df2ae0541-1279-4f24-b197-a979c79310b0",
+  "instagram_url": null
+ },
+ {
+  "slug": "kyoka-japanese-kitchen-ubud",
+  "name": "Kyoka Japanese Kitchen Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Dewisita, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://kyokaubud.com/menu/",
+  "instagram_url": "https://www.instagram.com/kyoka_ubud/"
+ },
+ {
+  "slug": "begawan-biji-restaurant-ubud-organic-farm-to-table",
+  "name": "Begawan Biji Restaurant Ubud (Organic Farm-To-Table)",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Melinggih Kelod, Payangan, Gianyar Regency, Bali 80572",
+  "official_url": "https://begawanbiji.com/?utm_source%3Dgbp%26utm_medium%3Dorganic%26utm_campaign%3Dgbp-listing",
+  "instagram_url": null
+ },
+ {
+  "slug": "the-blue-door-bar-restaurant-and-club",
+  "name": "The Blue Door Bar, Restaurant & Club",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.thebluedoorbali.com/",
+  "instagram_url": "https://www.instagram.com/thebluedoorbali/"
+ },
+ {
+  "slug": "nari-fire-influenced-bistro",
+  "name": "NARI - Fire Influenced Bistro",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Campuhan, Sayan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://naribali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "nautilus",
+  "name": "Nautilus",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.80, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://nautilusubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "chupacabras-south-american-prime-meats",
+  "name": "CHUPACABRAS - South American | Prime Meats",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Kedewatan, Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "https://www.chupacabrasbali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "shrida",
+  "name": "Shrida",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Bisma, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.shridaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "terracotta-restaurant-at-mathis-retreat-ubud",
+  "name": "Terracotta Restaurant at MATHIS Retreat Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Lungsiakan No.56, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://dijiwasanctuaries.com/at/mathisretreatubud/facility/bks-terracotta-restaurant",
+  "instagram_url": null
+ },
+ {
+  "slug": "kaukau-restaurant-at-arkamara-dijiwa-ubud",
+  "name": "Kaukau Restaurant at Arkamara Dijiwa Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Katik Lantang, Singakerta, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://dijiwasanctuaries.com/at/arkamaraubud/facility/kaukau-restaurant",
+  "instagram_url": null
+ },
+ {
+  "slug": "three-monkeys-bali-at-ubud",
+  "name": "Three Monkeys Bali at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://threemonkeysbali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "caffe-torino-by-venticinque-group-at-grand-srikandi-mansion",
+  "name": "Caffè Torino by Venticinque Group at Grand Srikandi Mansion",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Cepaka Utama No.32, Dalung, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/caffe_torino_by_venticinque/"
+ },
+ {
+  "slug": "rasa-kitchen",
+  "name": "Rasa Kitchen",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Canggu Padang Linjong No.80A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": "http://www.rasakitchen.co/",
+  "instagram_url": null
+ },
+ {
+  "slug": "bee-cafe-ubud-at-beehouse-dijiwa-ubud",
+  "name": "Bee Cafe Ubud at Beehouse Dijiwa Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Sawah Indah, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://dijiwasanctuaries.com/at/beehouseubud",
+  "instagram_url": "https://instagram.com/beehousedijiwaubud"
+ },
+ {
+  "slug": "yen-social-bali",
+  "name": "Yen Social Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Tegal Sari No.5, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/yen_socialbali/"
+ },
+ {
+  "slug": "alma-tapas-bar",
+  "name": "Alma Tapas Bar at Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "http://almatapasbar.com/",
+  "instagram_url": "https://www.instagram.com/almatapasbar/"
+ },
+ {
+  "slug": "wild-ginger-restaurant-at-nandini-jungle-by-hanging-gardens",
+  "name": "Wild Ginger Restaurant at Nandini Jungle by Hanging Gardens",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "H6PP+G26, Br, Jl. Susut, Buahan, Kec. Payangan, Kabupaten Gianyar, Bali 80572",
+  "official_url": "https://www.nandinibali.com/",
+  "instagram_url": "https://www.instagram.com/nandinijungleresort/"
+ },
+ {
+  "slug": "noema-greek-restaurant-and-bar",
+  "name": "Noema Greek Restaurant & Bar",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Suweta No.6, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://noemaubud.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "one-eyed-jack",
+  "name": "One Eyed Jack",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa No.c89, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali",
+  "official_url": "http://oneeyedjackbali.com/",
+  "instagram_url": "https://www.instagram.com/oneeyedjack.bali/"
+ },
+ {
+  "slug": "figo-italian-restaurant-ubud",
+  "name": "FIGO Italian Restaurant Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Onyx Park Resort, Jl. Sri Wedari No.24, Tegallantang, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/figo.ubud/"
+ },
+ {
+  "slug": "ambar-ubud-bar-at-mandapa-a-ritz-carlton-reserve",
+  "name": "Ambar Ubud Bar at Mandapa, a Ritz-Carlton Reserve",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Raya Kedewatan, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "http://www.ambarubudbar.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "ubud-pilates",
+  "name": "Ubud Pilates",
+  "category": "fitness",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://ubudpilates.com/",
+  "instagram_url": "https://www.instagram.com/ubudpilates"
+ },
+ {
+  "slug": "babi-guling-swari",
+  "name": "Warung Babi Guling Swari",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/babigulingswari/"
+ },
+ {
+  "slug": "mosto-berawa",
+  "name": "Mosto Berawa",
+  "category": "bar",
+  "district": "canggu",
+  "address": "Berawa / Pantai Berawa",
+  "official_url": "https://mostobali.com/",
+  "instagram_url": "https://www.instagram.com/mostobali/"
+ },
+ {
+  "slug": "heart-space-bali",
+  "name": "Heart Space Bali",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Nyuh Kuning No. 1, MAS, Ubud, Gianyar 80571",
+  "official_url": "https://www.heartspacebali.com/",
+  "instagram_url": "https://www.instagram.com/heartspace.bali/"
+ },
+ {
+  "slug": "pizza-fabbrica",
+  "name": "Pizza Fabbrica",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": "https://pizzafabbricabali.com/",
+  "instagram_url": "https://www.instagram.com/pizzafabbricabali/"
+ },
+ {
+  "slug": "the-shala-bali",
+  "name": "The Shala Bali",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Sanggingan No. 90, Penestanan Kaja, Ubud, Gianyar 80571",
+  "official_url": "https://www.theshalabali.com/",
+  "instagram_url": "https://www.instagram.com/theshalabali/"
+ },
+ {
+  "slug": "roots-pererenan",
+  "name": "Roots",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Pererenan No.121, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/rootsinbali/"
+ },
+ {
+  "slug": "seseh-general-store",
+  "name": "Seseh General Store",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Seseh / Cemagi / Mengwi / Seseh",
+  "official_url": "https://www.sesehgeneralstore.com/",
+  "instagram_url": "https://www.instagram.com/sesehgeneralstore/"
+ },
+ {
+  "slug": "the-chowk-ubud",
+  "name": "The Chowk - Indian Gourmet House. (Museum Puri Lukisan Ubud)",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Museum Puri Lukisan, Jl. Raya Ubud No.29, Ubud, Gianyar Regency, Bali 80571",
+  "official_url": "https://thechowk.id/",
+  "instagram_url": "https://www.instagram.com/thechowk_id"
+ },
+ {
+  "slug": "mango-tree-spa-loccitane",
+  "name": "Mango Tree Spa by L'OCCITANE",
+  "category": "spa",
+  "district": "ubud",
+  "address": "At Kupu Kupu Barong Villas, Ayung River valley, Kedewatan, Ubud",
+  "official_url": "https://www.mangotreespabali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "cafe-del-mar-bali",
+  "name": "Café del Mar Bali",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Batu Belig / Berawa edge",
+  "official_url": "https://cafedelmarbali.co.id/",
+  "instagram_url": "https://www.instagram.com/cafedelmarbali/"
+ },
+ {
+  "slug": "milano",
+  "name": "Milano",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Berawa, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "official_url": "https://www.whitegoosehotel.com/milano",
+  "instagram_url": null
+ },
+ {
+  "slug": "sang-spa",
+  "name": "Sang Spa & Yoga",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Jembawan No. 13B, Padang Tegal, Ubud (with a second Pengosekan outlet)",
+  "official_url": "https://sangspa.com/",
+  "instagram_url": "https://www.instagram.com/sangspaubud/"
+ },
+ {
+  "slug": "brunch-club-pererenan",
+  "name": "Brunch Club Pererenan",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Pererenan / Pantai Pererenan",
+  "official_url": "https://brunchclubbali.com/",
+  "instagram_url": "https://www.instagram.com/brunch_club_bali/"
+ },
+ {
+  "slug": "bottega-italiana",
+  "name": "Bottega Italiana",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu/Batu Bolong/Berawa",
+  "official_url": "https://www.bottegaitalianabali.com/",
+  "instagram_url": "https://www.instagram.com/bottegaitalianabali/"
+ },
+ {
+  "slug": "12-urban-cafe-breakfast-and-dinner-movie-night-cocktail-bar-canggu",
+  "name": "12 Urban Cafe - Breakfast & Dinner | Movie night | Cocktail Bar Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Pantai Batu Mejan No.12c, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "official_url": "https://12urbancafe.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "jaens-spa",
+  "name": "Jaens Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Raya Pengosekan, Ubud (multiple outlets near Monkey Forest)",
+  "official_url": "https://jaensspa.com/",
+  "instagram_url": "https://www.instagram.com/jaensspa/"
+ },
+ {
+  "slug": "shelter-restaurant",
+  "name": "Shelter Restaurant",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Pererenan / Pantai Pererenan",
+  "official_url": "https://www.shelterbali.com/",
+  "instagram_url": "https://www.instagram.com/shelter.pererenan/"
+ },
+ {
+  "slug": "babi-guling-men-agus",
+  "name": "Babi Guling Men Agus",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/babigulingmenagus/"
+ },
+ {
+  "slug": "babi-guling-men-lari",
+  "name": "Babi Guling Men Lari",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/begulingmenlari/"
+ },
+ {
+  "slug": "warung-local",
+  "name": "Warung Local",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/warunglocal/"
+ },
+ {
+  "slug": "warung-sika",
+  "name": "Warung Sika",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": "https://warungsika.biz.id/",
+  "instagram_url": "https://www.instagram.com/warung_sika/"
+ },
+ {
+  "slug": "babi-guling-sari-kembar-99",
+  "name": "Babi Guling Sari Kembar 99",
+  "category": "warung",
+  "district": "canggu",
+  "address": null,
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/babiguling.sarikembar99/"
+ },
+ {
+  "slug": "whos-who",
+  "name": "Who's Who",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/whoswhobali/"
+ },
+ {
+  "slug": "skool-kitchen",
+  "name": "SKOOL Kitchen",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Batu Bolong Beach, Canggu",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/skoolkitchen/"
+ },
+ {
+  "slug": "manga-madu",
+  "name": "Warung Mangga Madu",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://warungmanggamadu.shop/",
+  "instagram_url": "https://www.instagram.com/warungmanggamadu/"
+ },
+ {
+  "slug": "onion-collective",
+  "name": "Onion Collective",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://theonionco.com/",
+  "instagram_url": "https://www.instagram.com/theonionco/"
+ },
+ {
+  "slug": "udara-bali-yoga-detox-and-spa-organic-ocean",
+  "name": "Udara Bali Yoga Detox & Spa / Organic Ocean",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Seseh / Mengwi / Seseh",
+  "official_url": "https://www.udara-bali.com/",
+  "instagram_url": "https://www.instagram.com/udarabali/"
+ },
+ {
+  "slug": "rize-cafe",
+  "name": "Rize Cafe",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://rize-bali.com/",
+  "instagram_url": "https://www.instagram.com/rize.bali/"
+ },
+ {
+  "slug": "soulshine-bali",
+  "name": "Soulshine Bali",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Ambarawati, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.soulshinebali.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel",
+  "name": "Jen Deli Restaurant and La Fortuna Bar at Sense Canggu Beach Hotel",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Jl. Munduk Kedungu No.55s, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali",
+  "official_url": "http://www.sensecanggubeach.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "finns-beach-club",
+  "name": "FINNS Beach Club",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa near Finns",
+  "official_url": "https://finnsbeachclub.com/",
+  "instagram_url": "https://www.instagram.com/finnsbeachclub/"
+ },
+ {
+  "slug": "cantika-zest",
+  "name": "Cantika Zest",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Raya Katik Lantang, Penestanan Kelod, Ubud",
+  "official_url": "http://www.cantikazestbali.com/",
+  "instagram_url": "https://www.instagram.com/cantikazestspa/"
+ },
+ {
+  "slug": "gelato-secrets-ubud",
+  "name": "Gelato Secrets Ubud",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://gelatosecrets.com/",
+  "instagram_url": "https://www.instagram.com/gelatosecrets/"
+ },
+ {
+  "slug": "ulekan-berawa",
+  "name": "Ulekan Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": "https://www.ulekanbali.com/",
+  "instagram_url": "https://instagram.com/ulekanbali"
+ },
+ {
+  "slug": "ruko-cafe",
+  "name": "Ruko Cafe",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu/Berawa",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/rukocafe/"
+ },
+ {
+  "slug": "estetica-belle",
+  "name": "Estetica Belle",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://www.esteticabelle.com/",
+  "instagram_url": "https://www.instagram.com/esteticabellecanggu/"
+ },
+ {
+  "slug": "sababay-winery",
+  "name": "Sababay Winery",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jalan Professor Doktor Ida Bagus Mantra No.333X Keramas, Medahan, Kec. Blahbatuh, Kabupaten Gianyar, Bali 80581",
+  "official_url": "https://sababaywinery.com/",
+  "instagram_url": null
+ },
+ {
+  "slug": "padi-restaurant-at-puri-sebali-resort",
+  "name": "Padi Restaurant at Puri Sebali Resort",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Puri Sebali Resort, Jl. Raya Sebali, Kelusa, Kec. Payangan, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.purisebaliresort.com/restaurant.htm",
+  "instagram_url": null
+ },
+ {
+  "slug": "vrindavan-100-pure-indian-vegetarian-and-vegan-restaurant-at-ubud",
+  "name": "Vrindavan 100% Pure Indian Vegetarian & Vegan Restaurant at Ubud",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Jl. Arjuna No.21, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "official_url": "https://www.vrindavanrestaurantbali.com/",
+  "instagram_url": "https://instagram.com/vrindavan_bali"
+ },
+ {
+  "slug": "nail-lesss-canggu",
+  "name": "Nail Lesss Canggu",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/nail_lesss/"
+ },
+ {
+  "slug": "cutiepai-nails",
+  "name": "CutiePai Nails",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://cutiepainails.com/",
+  "instagram_url": "https://www.instagram.com/cutiepainails/"
+ },
+ {
+  "slug": "nude-berawa",
+  "name": "NÜDE Berawa",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": "https://nude-bali.com/locations/berawa/",
+  "instagram_url": "https://www.instagram.com/nudebali/"
+ },
+ {
+  "slug": "bali-bohemia",
+  "name": "Bali Bohemia",
+  "category": "restaurant",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://balibohemia.com/restaurant",
+  "instagram_url": "https://www.instagram.com/rotibohemia/"
+ },
+ {
+  "slug": "jungle-padel-canggu-shortcut",
+  "name": "Jungle Padel Canggu Shortcut",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Canggu / Canggu shortcut",
+  "official_url": "https://junglepadel.com/canggu/",
+  "instagram_url": "https://www.instagram.com/junglepadel/"
+ },
+ {
+  "slug": "sawobali",
+  "name": "Sawobali",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/sawobali/"
+ },
+ {
+  "slug": "finns-recreation-club-finns-lifestyle-village",
+  "name": "FINNS Recreation Club / FINNS Lifestyle Village",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Tibubeneng / Canggu / Berawa",
+  "official_url": "https://finnsrecclub.com/",
+  "instagram_url": "https://instagram.com/finnsrecclub"
+ },
+ {
+  "slug": "yuki-canggu",
+  "name": "YUKI Canggu",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong Beach",
+  "official_url": "https://www.yuki-bali.com/canggu",
+  "instagram_url": "https://www.instagram.com/yukibali_/"
+ },
+ {
+  "slug": "only-nails-pererenan",
+  "name": "Only Nails Pererenan",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Badung / Pererenan",
+  "official_url": "https://onlynailsbali.com/",
+  "instagram_url": "https://www.instagram.com/onlynailsbali/"
+ },
+ {
+  "slug": "seeds-of-life",
+  "name": "Seeds of Life",
+  "category": "cafe",
+  "district": "ubud",
+  "address": "Ubud Center",
+  "official_url": "https://theseedsoflifecafe.com/",
+  "instagram_url": "https://www.instagram.com/seedsoflifebali/"
+ },
+ {
+  "slug": "two-face-canggu",
+  "name": "TWO FACE Canggu",
+  "category": "cafe",
+  "district": "canggu",
+  "address": "Canggu / Munduk Catu",
+  "official_url": "https://www.twofacebali.com/two-face-canggu",
+  "instagram_url": "https://www.instagram.com/twofacecoffee/"
+ },
+ {
+  "slug": "svaha-spa",
+  "name": "Svaha Spa",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Jl. Bisma, Ubud (plus Teges, Kenderan and other Ubud outlets)",
+  "official_url": "https://svahaspa.com/",
+  "instagram_url": "https://www.instagram.com/svaha.spa/"
+ },
+ {
+  "slug": "lulu-bistrot",
+  "name": "Lulu Bistrot",
+  "category": "restaurant",
+  "district": "canggu",
+  "address": "Canggu / Batu Bolong",
+  "official_url": "https://www.lulubistrot.com/",
+  "instagram_url": "https://www.instagram.com/lulu.bistrot/"
+ },
+ {
+  "slug": "maya-ubud-fitness-centre-ubud",
+  "name": "Maya Ubud Fitness Centre",
+  "category": "fitness",
+  "district": "ubud",
+  "address": "Peliatan / Ubud edge",
+  "official_url": "http://mayaresorts.com/ubud/",
+  "instagram_url": "https://www.instagram.com/mayaubud/"
+ },
+ {
+  "slug": "espace-spa-canggu-canggu",
+  "name": "Espace Spa Canggu",
+  "category": "spa",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": null,
+  "instagram_url": "https://www.instagram.com/espacespabali/"
+ },
+ {
+  "slug": "ubud-fitness-center",
+  "name": "Ubud Fitness Center",
+  "category": "fitness",
+  "district": "ubud",
+  "address": "Ubud",
+  "official_url": "https://www.ubudfitnesscentre.com/",
+  "instagram_url": "https://www.instagram.com/ubud_fitness/"
+ },
+ {
+  "slug": "sacred-river-spa-at-four-seasons-sayan-ubud",
+  "name": "Sacred River Spa at Four Seasons Sayan",
+  "category": "spa",
+  "district": "ubud",
+  "address": "Sayan",
+  "official_url": "https://www.fourseasons.com/sayan/spa/",
+  "instagram_url": null
+ },
+ {
+  "slug": "think-pink-nails-canggu-canggu",
+  "name": "Think Pink Nails Canggu",
+  "category": "beauty",
+  "district": "canggu",
+  "address": "Canggu",
+  "official_url": "https://www.thinkpinksalon.com/",
+  "instagram_url": "https://www.instagram.com/thinkpink.salon/"
+ },
+ {
+  "slug": "taksu-spa-beauty-ubud",
+  "name": "Taksu Spa Beauty",
+  "category": "beauty",
+  "district": "ubud",
+  "address": "Ubud Centre",
+  "official_url": "https://taksu.org/",
+  "instagram_url": "https://www.instagram.com/taksuwellnesscenter/"
+ }
+]
