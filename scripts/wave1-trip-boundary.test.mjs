@@ -17,6 +17,7 @@ const detailPage = await readFile(new URL("../app/places/[slug]/page.tsx", impor
 const listRoute = await readFile(new URL("../app/api/list/route.ts", import.meta.url), "utf8");
 const saveButton = await readFile(new URL("../components/SaveButton.tsx", import.meta.url), "utf8");
 const addToTrip = await readFile(new URL("../components/AddToTripButton.tsx", import.meta.url), "utf8");
+const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
 test("saved trip migration is additive and never introduces a parallel trip table", () => {
   assert.match(migration, /alter table public\.saved_places\s+add column if not exists day_number/i);
@@ -110,6 +111,12 @@ test("card actions avoid eager per-card requests and option trees", () => {
   assert.match(saveButton, /if \(variant === "card"\) return/);
   assert.match(addToTrip, /useId\(\)/);
   assert.match(addToTrip, /!expanded/);
+});
+
+test("Save and shared action buttons keep mobile tap targets at least 46px", () => {
+  assert.match(globalStyles, /\.button-primary,\s*\.button-secondary\s*\{[\s\S]*?min-height:\s*46px/);
+  assert.match(globalStyles, /\.save-btn-card\s*\{[\s\S]*?height:\s*46px;\s*width:\s*46px/);
+  assert.match(globalStyles, /\.save-btn-detail\s*\{[\s\S]*?min-height:\s*46px/);
 });
 
 test("migration extends the bounded legacy event allowlist without browser grants", () => {

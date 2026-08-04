@@ -791,7 +791,7 @@ html {
 .button-primary,
 .button-secondary {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -3343,13 +3343,13 @@ html {
 .save-btn { cursor: pointer; border: none; background: transparent; line-height: 1; }
 .save-btn-card {
   position: absolute; top: 10px; left: 10px; z-index: 3;
-  display: inline-flex; height: 34px; width: 34px; align-items: center;
+  display: inline-flex; height: 46px; width: 46px; align-items: center;
   justify-content: center; border-radius: 999px; background: rgba(255, 250, 241, 0.92);
   font-size: 18px; color: var(--lagoon-strong); box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.5);
 }
 .save-btn-card[data-saved="true"] { color: #c0392b; }
 .save-btn-detail {
-  display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line);
+  display: inline-flex; min-height: 46px; align-items: center; gap: 8px; border: 1px solid var(--line);
   border-radius: 999px; padding: 8px 16px; font-size: 0.9rem; font-weight: 600;
   color: var(--ink); background: var(--paper-soft);
 }
