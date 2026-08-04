@@ -1,0 +1,138 @@
+ЗАДАЧА: собрать данные со 101 партнёрской страницы Bali Privileges Club.
+
+Это те же страницы, что вы уже обрабатывали для ресторанов (77 шт.) — теперь
+спа, фитнес, бьюти, йога, пляжные клубы, падел и сёрф.
+
+БАЗОВЫЙ URL: https://baliprivilegesclub.com/partners/<путь>/
+(в списке ниже указан только <путь>)
+
+ЧТО ИЗВЛЕЧЬ С КАЖДОЙ СТРАНИЦЫ — те же поля, что и в прошлый раз:
+  venue_name, venue_type, district, address,
+  bpc_listing_url, official_website_url, instagram_url,
+  benefit_type, discount_percent, complimentary_item, benefit_verbatim,
+  booking_required, card_required, minimum_spend, valid_days, valid_hours,
+  excluded_items, other_restrictions, valid_until,
+  source_url, checked_at, verification_status
+
+ПРАВИЛА (важно — в прошлой выгрузке были ошибки, их не надо повторять):
+1. official_website_url — ТОЛЬКО настоящий сайт заведения. Если на странице
+   вместо сайта стоит ссылка на Instagram, taplink.cc, linktr.ee, GoFood или
+   другой агрегатор — оставьте поле пустым, а ссылку положите в примечание.
+   В прошлый раз так ошиблись 13 раз из 77.
+2. Адрес — латиницей, страна пишется "Indonesia", не "Индонезия".
+   В прошлый раз 34 адреса из 77 были частично на русском.
+3. district должен соответствовать адресу. Если на странице указан район,
+   противоречащий адресу, — доверяйте адресу и отметьте расхождение
+   в примечании. В прошлый раз было одно такое (указан Чангу, адрес — Денпасар).
+4. Ничего не выдумывайте: нет данных — пустое поле. Не пишите "нет данных"
+   текстом внутри поля.
+5. Скидку записывайте ровно как на странице (и число, и дословную формулировку).
+6. utm-метки в ссылках можно оставить, мы их срежем сами.
+
+ФОРМАТ: один CSV, кодировка UTF-8, шапка + 101 строка,
+сохранить как bpc-remaining-101.csv
+
+СПИСОК (название | тип у BPC | путь):
+1. ARCTIC Recovery | Sauna, Massage & Ice Bath | SPA & massage | arctic-recovery-sauna-massage-ice-bath
+2. ARETE Sports Complex | Padel | arete-sports-complex
+3. BALI BABE beauty & hair Ubud | Beauty | bali-babe-beauty-hair-ubud
+4. BALI BABE beauty & hair Uluwatu | Beauty | bali-babe-beauty-hair-uluwatu
+5. BALI BABE beauty & hair Canggu | Beauty | bali-babe-beauty-hair
+6. BALI DACHA | SPA & massage | bali-dacha
+7. Bali Yoga Center | Fitness | bali-yoga-center
+8. Beam And Bare Laser Studio Bali | Beauty | beam-and-bare-laser-studio-bali
+9. Beautique | Beauty | beautique
+10. BULLGYM BALI at Cafe Del Mar Bali | Fitness | bullgym-bali-at-cafe-del-mar-bali
+11. De WAVE Jimbaran | SPA & massage | de-wave-jimbaran
+12. EL Salon Bali | Beauty | el-salon-bali
+13. Endless Summer | Surfing | endless-summer
+14. Espace Spa | SPA & massage | espace-spa
+15. Fajar Bali Spa | SPA & massage | fajar-bali-spa
+16. Firefly Laser Hair Removal & Facial | Beauty | firefly-laser-hair-removal-facial
+17. Fitness Plus Jimbaran | Fitness | fitness-plus-jimbaran
+18. GravityStretching — Canggu | Fitness | gravitystretching-canggu
+19. GravityStretching | Fitness | gravitystretching
+20. Hammana Spa Ubud | SPA & massage | hammana-spa-ubud
+21. Heartbeat Bali Fitness Boutique | Fitness | heartbeat-bali-fitness-boutique
+22. Hill Fit Bali | Fitness | hill-fit-bali
+23. HOTSTONE Regenerative Retreat Hot Stone Club Ubud | SPA & massage | hotstone-regenerative-retreat-hot-stone-club-ubud
+24. Ijen Spa | SPA & massage | ijen-spa
+25. Kae Spa — Batu Bolong | SPA & massage | kae-spa-batu-bolong
+26. Kae Spa — Batu Mejan | SPA & massage | kae-spa
+27. Kanana Gym | Fitness | kanana-gym
+28. Kanana Yoga | Yoga | kanana-yoga
+29. Karma Spa – Karma Kandara | SPA & massage | karma-spa-karma-kandara
+30. Kayumanis Beach Bar & Grill Nusa Dua | Beach club | kayumanis-beach-bar-grill-nusa-dua
+31. Korean Face Bar | Beauty | korean-face-bar
+32. Lash and Nails Lounge | Beauty | lash-and-nails-lounge
+33. Love Spa Ubud | SPA & massage | love-spa-ubud
+34. Lyla Wellness | SPA & massage | lyla-wellness
+35. Lymphatic Drainage by Carica Studio | Beauty | lymphatic-drainage-by-carica-studio
+36. Maison Pilates | Fitness | maison-pilates
+37. Miss Yu Hair Bar | Beauty | miss-yu-hair-bar
+38. MOII Aesthetic Clinic Bali | Beauty | moii-aesthetic-clinic-bali
+39. MONSTER PADEL SOCIAL CLUB BALI | Padel | monster-padel-social-club-bali
+40. Moon Beauty Space | Beauty | moon-beauty-space
+41. MYNX Hair & Beauty Emporium | Beauty | mynx-hair-beauty-emporium
+42. Oasis Padel | Padel | oasis-padel
+43. Omra Spa | SPA & massage | omra-spa
+44. PALLAS Fit Ground | Fitness | pallas-fit-ground
+45. Raya Spa & Massage Canggu | SPA & massage | raya-spa-and-massage-canggu
+46. Riverside Spa | SPA & massage | riverside-spa
+47. Rose Petal | Beauty | rose-petal
+48. Roseluxe Beauty Laser | Beauty | roseluxe-beauty-laser
+49. Sakala Beach Club | Beach club | sakala-beach-club
+50. Sembuh Recovery Balangan | Fitness | sembuh-recovery-balangan
+51. SINERFAND SPA CANGGU | SPA & massage | sinerfand-spa-canggu
+52. Soendaram Spa & Wellness | SPA & massage | soendaram-spa-wellness
+53. SUGAR SKIN | Beauty | sugar-skin
+54. SURF JOINT | Surfing | surf-joint
+55. Svaha Spa Arden | SPA & massage | svaha-spa-arden
+56. Svaha Spa Batu Bolong | SPA & massage | svaha-spa-batu-bolong
+57. Svaha Spa Berawa | SPA & massage | svaha-spa-berawa
+58. Svaha Spa Bingin | SPA & massage | svaha-spa-bingin
+59. Svaha Spa Bisma | SPA & massage | svaha-spa-bisma
+60. Svaha Spa Celuk | SPA & massage | svaha-spa-celuk
+61. Svaha Spa Dedary | SPA & massage | svaha-spa-dedary
+62. Svaha Spa Kelusa | SPA & massage | svaha-spa-kelusa
+63. Svaha Spa Kenderan | SPA & massage | svaha-spa-kenderan
+64. Svaha Spa La Mewali | SPA & massage | svaha-spa-la-mewali
+65. Svaha Spa Maar | SPA & massage | svaha-spa-maar
+66. Svaha Spa Melasti | SPA & massage | svaha-spa-melasti
+67. Svaha Spa Nelayan | SPA & massage | svaha-spa-nelayan
+68. Svaha Spa Padang Linjong | SPA & massage | svaha-spa-padang-linjong
+69. Svaha Spa Sana Vie | SPA & massage | svaha-spa-sana-vie
+70. Svaha Spa Sanora | SPA & massage | svaha-spa-sanora
+71. Svaha Spa Sanur | SPA & massage | svaha-spa-sanur
+72. Svaha Spa Seminyak Sanctuary | SPA & massage | svaha-spa-seminyak-sanctuary
+73. Svaha Spa Seminyak | SPA & massage | svaha-spa-seminyak
+74. Svaha Spa Teges | SPA & massage | svaha-spa-teges
+75. Svaha Spa Umalas | SPA & massage | svaha-spa-umalas
+76. Swargaloka Spa | SPA & massage | swargaloka-spa
+77. TEPLO: Spa, Massage, Cafe | SPA & massage | teplo-spa-massage-cafe
+78. The Bali Physio — Kedampang | Fitness | the-bali-physio-kedampang
+79. The Bali Physio — Kerobokan | Fitness | the-bali-physio-kerobokan
+80. The Bali Physio — Mas Ubud | Fitness | the-bali-physio-mas-ubud
+81. The Bali Physio — Peliatan Ubud | Fitness | the-bali-physio-peliatan-ubud
+82. The Bali Physio — Pererenan | Fitness | the-bali-physio-pererenan
+83. The Bali Physio — Sanur | Fitness | the-bali-physio-sanur
+84. The Bali Physio — Uluwatu | Fitness | the-bali-physio-uluwatu
+85. The Bali Physio — Shortcut Canggu | Fitness | the-bali-physio
+86. The Calma Spa Bali – Jimbaran Beach | SPA & massage | the-calma-spa-bali-jimbaran-beach
+87. The FACES — Sanur | Beauty | the-faces-sanur
+88. The FACES — Ubud | Beauty | the-faces
+89. The Istana | SPA & massage | the-istana
+90. The Space Bali Yoga & Co-working Uluwatu | Yoga | the-space-bali-yoga-co-working-uluwatu
+91. The Tanning Edit Bali — Canggu | Beauty | the-tanning-edit-bali-canggu
+92. The Tanning Edit Bali — Seminyak | Beauty | the-tanning-edit-bali
+93. The Yoga Garden Lembongan | Yoga | the-yoga-garden-lembongan
+94. Threshold Gym | Fitness | threshold-gym
+95. TOPGYM | Fitness | topgym
+96. Train At Six Gym & Wellness Centre | Fitness | train-at-six-gym-wellness-centre
+97. Tropical Temptation Beach Club | Beach club | tropical-temptation-beach-club
+98. ULU FIT Bali | Fitness Centre in Uluwatu | Fitness | ulu-fit-bali-fitness-centre-in-uluwatu
+99. Upgrade Beauty Center | Beauty | upgrade-beauty-center
+100. White Rock Beach Club | Beach club | white-rock-beach-club
+101. Yoga 108 Bali | Yoga | yoga-108-bali
+
+ВАЖНО: путь не меняйте — по нему мы состыкуем результат с уже собранным.
