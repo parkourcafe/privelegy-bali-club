@@ -264,6 +264,20 @@ export default function HomePage() {
                     );
                   })}
                 </div>
+                {/* Island-wide pages that earn impressions but had no link from
+                    the homepage. Same reasoning as the Canggu paragraph above. */}
+                <p className="mt-5 text-base leading-relaxed text-[#44352b]">
+                  Staying longer than a holiday? Read{" "}
+                  <Link href="/bali-for-a-month" className="font-semibold text-[#005962] underline underline-offset-4">
+                    Bali for a month
+                  </Link>{" "}
+                  before you pick a base. Heading south, Jimbaran is the quieter
+                  choice for{" "}
+                  <Link href="/jimbaran/spas-wellness" className="font-semibold text-[#005962] underline underline-offset-4">
+                    spas and wellness
+                  </Link>
+                  .
+                </p>
                 <Link href="/bali" className="mt-5 inline-flex font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
                   Explore Bali areas →
                 </Link>
@@ -342,6 +356,25 @@ export default function HomePage() {
             <div className="p-6 sm:p-8">
               <p className="text-base leading-relaxed text-[#44352b]">
                 Use Canggu for denser local scenarios, routes, decision-ready places and confirmed venue actions. The rest of Bali still keeps useful planning pages and published venue cards where the data passes the current rules.
+              </p>
+              {/* In-prose links to the deep Canggu pages. Internal links are the
+                  one kind of link this site reliably has, and the homepage holds
+                  most of its weight — these pages had none of it. Kept as
+                  sentences, not a menu, so the anchor text says what the page is. */}
+              <p className="mt-4 text-base leading-relaxed text-[#44352b]">
+                Landing this week? The{" "}
+                <Link href="/route/first-day" className="font-semibold text-[#005962] underline underline-offset-4">
+                  Canggu first-day route
+                </Link>{" "}
+                is the soft version. Working from here, start with{" "}
+                <Link href="/canggu/work-friendly-cafes" className="font-semibold text-[#005962] underline underline-offset-4">
+                  work-friendly cafés in Canggu
+                </Link>
+                ; for a slow morning instead, see{" "}
+                <Link href="/canggu/best-brunch" className="font-semibold text-[#005962] underline underline-offset-4">
+                  where to have brunch in Canggu
+                </Link>
+                .
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
               <HomeAnalyticsLink
