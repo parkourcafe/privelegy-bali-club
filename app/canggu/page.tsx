@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
 import PlaceCard from "@/components/PlaceCard";
-import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
+import { FaqBlock, RelatedGuides, GuideFooter, type GuideLink } from "@/components/GuideBlocks";
 import { GuideSectionMedia } from "@/components/GuideMedia";
 import CangguNow from "@/components/CangguNow";
 import { guidesForDistrict } from "@/lib/guides";
@@ -38,32 +39,103 @@ export const metadata: Metadata = {
 // The main areas of Canggu, north to south — names already used across our
 // venue data (migration 0031). Character is fit-context; positions are
 // established local geography.
-const CANGGU_AREAS: { label: string; character: string; bestFor: string }[] = [
+const CANGGU_AREAS = [
   {
     label: "Batu Bolong",
-    character:
-      "The busy heart — the beach temple, the café-and-surf strip, and the tightest cluster of restaurants and bars. Walkable in patches, and the most congested.",
-    bestFor: "First-timers who want everything a short walk away.",
+    character: "Cafés, surf and dinner close together.",
+    bestFor: "First trip · busy base",
+    imageSrc: "/scenes/canggu-area-batu-bolong.webp",
   },
   {
     label: "Berawa",
-    character:
-      "The polished side: big beach clubs, gyms and health cafés, and a fast-developing dining scene. A little more spread out, scooter-friendly.",
-    bestFor: "Beach clubs, fitness and a livelier, upscale base.",
+    character: "Beach clubs, wellness and a polished scene.",
+    bestFor: "Social · upscale",
+    imageSrc: "/scenes/canggu-area-berawa.webp",
   },
   {
     label: "Pererenan",
-    character:
-      "The quieter, greener neighbour just west — rice fields, a growing crop of good restaurants, and a calmer pace while staying close to the action.",
-    bestFor: "A calmer base that's still minutes from Batu Bolong.",
+    character: "A calmer rhythm with strong cafés and dinner.",
+    bestFor: "Slower · still close",
+    imageSrc: "/scenes/canggu-area-pererenan.webp",
   },
   {
-    label: "Echo Beach & Canggu village",
-    character:
-      "The surf-and-sunset end (Batu Mejan/Echo) and the more local village core inland — warungs, board rental and a less polished feel.",
-    bestFor: "Surfers and a quieter, more local sunset base.",
+    label: "Echo Beach",
+    character: "Surf mornings and an easy sunset finish.",
+    bestFor: "Surf · sunset",
+    imageSrc: "/scenes/canggu-area-echo-beach.webp",
   },
-];
+] as const;
+
+const CANGGU_PRACTICAL_CARDS = [
+  {
+    title: "Stay within one area",
+    copy: "Cross-area traffic can consume the day.",
+    imageSrc: "/scenes/canggu-practical-stay-local.webp",
+  },
+  {
+    title: "Surf, not swimming",
+    copy: "Gentle swim? Choose another coast.",
+    imageSrc: "/scenes/canggu-practical-surf.webp",
+  },
+  {
+    title: "Book popular rooms",
+    copy: "Reserve where a confirmed action is available.",
+    imageSrc: "/scenes/canggu-practical-reserve.webp",
+  },
+  {
+    title: "Start early, reset later",
+    copy: "Café or surf first; spa and sunset after.",
+    imageSrc: "/scenes/canggu-practical-day-rhythm.webp",
+  },
+] as const;
+
+const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> = {
+  "/uluwatu": {
+    mediaSrc: "/scenes/plan-route-sunset-run.webp",
+    blurb: "Cliffs, surf and sunset.",
+  },
+  "/first-time-in-bali": {
+    mediaSrc: "/scenes/home-bali-first-day.webp",
+    blurb: "A softer first day.",
+  },
+  "/plan#canggu-day-builder": {
+    blurb: "Build one Canggu day.",
+  },
+  "/canggu-first-day": {
+    blurb: "Coffee, beach, sunset, dinner.",
+  },
+  "/best-restaurants-in-bali": {
+    mediaSrc: "/scenes/home-bali-romantic.webp",
+    blurb: "Compare dinner scenes island-wide.",
+  },
+  "/best-cafes-in-bali": {
+    mediaSrc: "/scenes/plan-route-cafe-work.webp",
+    blurb: "Find the right café mood.",
+  },
+  "/ubud-vs-canggu": {
+    mediaSrc: "/scenes/plan-route-ubud-culture.webp",
+    blurb: "Energy or a slower cultural base.",
+  },
+  "/canggu-vs-uluwatu": {
+    mediaSrc: "/scenes/guide-tanah-lot-sunset.webp",
+    blurb: "Busy coast or cliff days.",
+  },
+  "/where-to-stay-in-bali": {
+    mediaSrc: "/scenes/home-bali-trip-lengths.webp",
+    blurb: "Choose the base that fits the trip.",
+  },
+  "/best-coffee-in-bali": {
+    blurb: "Serious coffee across Bali.",
+  },
+  "/where-to-watch-sunset-in-bali": {
+    mediaSrc: "/scenes/guide-jimbaran-bay-sunset.webp",
+    blurb: "Choose your golden-hour coast.",
+  },
+};
+
+function withCangguGuideMedia(links: GuideLink[]): GuideLink[] {
+  return links.map((link) => ({ ...link, ...CANGGU_GUIDE_MEDIA[link.href] }));
+}
 
 const FAQ = [
   {
@@ -88,19 +160,34 @@ const FAQ = [
   },
 ];
 
-function TopPicks({ title, note, venues, href }: { title: string; note: string; venues: VenueWithPerk[]; href: string }) {
+function TopPicks({
+  title,
+  note,
+  venues,
+  href,
+  mediaSrc,
+}: {
+  title: string;
+  note: string;
+  venues: VenueWithPerk[];
+  href: string;
+  mediaSrc: string;
+}) {
   if (venues.length === 0) return null;
   return (
     <section className="guide-section">
-      <div className="flex items-baseline justify-between gap-4">
-        <h2>{title}</h2>
-        <Link href={href} className="quiet-link">See all →</Link>
-      </div>
-      <GuideSectionMedia seed={`canggu ${title}`} index={0} />
-      <p className="text-sm text-[var(--muted)]">{note}</p>
+      <GuideSectionMedia
+        seed={`canggu ${title}`}
+        index={0}
+        src={mediaSrc}
+        heading={title}
+        support={note}
+        actionHref={href}
+        actionLabel="See all picks"
+      />
       <div className="pick-grid" style={{ marginTop: 16 }}>
         {venues.slice(0, 3).map((v) => (
-          <PlaceCard key={v.slug} place={toCangguPlaceCard(v)} />
+          <PlaceCard key={v.slug} place={toCangguPlaceCard(v)} visualFirst />
         ))}
       </div>
     </section>
@@ -113,6 +200,27 @@ export default async function CangguPillarPage() {
   const cafes = venues.filter((v) => v.category === "cafe" || venueHasJob(v, ["quiet-work-cafe", "brunch-after-surf"]));
   const spas = venues.filter((v) => v.category === "spa");
   const sunset = venues.filter((v) => v.category === "beach_club" || v.category === "bar" || venueHasJob(v, ["sunset-drinks-view"]));
+  const usedTopPickSlugs = new Set<string>();
+  const uniqueTopPicks = (items: VenueWithPerk[]) => {
+    const picks: VenueWithPerk[] = [];
+    for (const venue of items) {
+      if (picks.length === 3) break;
+      if (usedTopPickSlugs.has(venue.slug)) continue;
+      usedTopPickSlugs.add(venue.slug);
+      picks.push(venue);
+    }
+    return picks;
+  };
+  const restaurantPicks = uniqueTopPicks(restaurants);
+  const cafePicks = uniqueTopPicks(cafes);
+  const spaPicks = uniqueTopPicks(spas);
+  const sunsetPicks = uniqueTopPicks(sunset);
+  const shortlist = buildStartShortlist(venues);
+  const venueBySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  const shortlistPlaces = shortlist.flatMap((item) => {
+    const venue = venueBySlug.get(item.slug);
+    return venue ? [toCangguPlaceCard(venue)] : [];
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Canggu" }];
 
@@ -137,29 +245,28 @@ export default async function CangguPillarPage() {
 
         <PillarMasthead
           posterScene="district-canggu"
+          imageSrc="/scenes/canggu-hero-illustrative.webp"
           variant="surf"
-          videoSrc="/scenes/places-coast-loop.mp4"
           kicker="Canggu · Other Bali beta"
-          title="Canggu, sorted by the decision you're making"
-          copy="Surf, coffee, sunset and a deep dinner scene — and enough choice to lose an afternoon deciding. This guide sorts Canggu by what you're actually choosing: where to eat, where to work, where to reset, where to watch the sun go down. Confirmed offers and table reservations are one tap away."
-          meta="Editorial review: 2026-07-14 · researched, not sponsored · no paid ranking"
+          title="Choose your Canggu day"
+          copy="Eat, work, reset or catch sunset — start with the decision you are making now."
           actions={
-            <>
-              <Link
-                href="/plan#canggu-day-builder"
-                className="inline-flex rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
-              >
-                Open the Canggu day builder
-              </Link>
-              <Link
-                href="/places?district=canggu"
-                className="inline-flex rounded-full border border-[rgba(250,246,239,0.45)] px-6 py-3 font-medium text-[#FAF6EF] transition-colors hover:bg-white/10"
-              >
-                Browse all Canggu places
-              </Link>
-            </>
+            <Link
+              href="/plan#canggu-day-builder"
+              className="inline-flex min-h-11 items-center rounded-full bg-[#005962] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#003f46]"
+            >
+              Plan your Canggu day
+            </Link>
           }
         />
+
+        <div className="district-trust-strip">
+          <p>
+            <strong>Resident-curated.</strong> Editorial review: 2026-07-14 ·
+            researched, not sponsored · no paid ranking.
+          </p>
+          <Link href="/places?district=canggu">Browse all Canggu places →</Link>
+        </div>
 
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Canggu guides">
           {CANGGU_GUIDES.map((g) => (
@@ -171,112 +278,88 @@ export default async function CangguPillarPage() {
 
         <CangguNow />
 
-        <StartYourShortlist district="Canggu" items={buildStartShortlist(venues)} />
+        <StartYourShortlist district="Canggu" items={shortlist} visualPlaces={shortlistPlaces} />
 
         <section className="guide-section">
-          <h2>Who Canggu suits — and who it frustrates</h2>
-          <div className="guide-prose">
-            <p>
-              <strong>It suits</strong> surfers, remote workers and travellers who
-              want energy — café mornings, beach clubs, a deep dinner scene and a
-              sunset every night. It&apos;s the island&apos;s busiest hub, and the
-              easiest place to fill a day without planning one.
-            </p>
-            <p>
-              <strong>It frustrates</strong> anyone chasing calm or classic Bali:
-              the traffic between areas is real, the beaches are grey-sand surf
-              beaches rather than swimming postcards, and construction is constant.
-              For quiet, culture or gentle water, Ubud, Sanur or the Bukit fit
-              better.
-            </p>
+          <div className="canggu-section-heading">
+            <div>
+              <p className="eyebrow">Choose your base</p>
+              <h2>The Canggu areas</h2>
+            </div>
+          </div>
+          <div className="canggu-area-grid">
+            {CANGGU_AREAS.map((area) => (
+              <article key={area.label} className="canggu-visual-card canggu-area-card" data-canggu-area-card>
+                <Image
+                  src={area.imageSrc}
+                  alt=""
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 759px) calc(100vw - 2rem), (max-width: 1199px) calc((100vw - 5rem) / 4), 270px"
+                  className="canggu-visual-card-image ob-grade"
+                />
+                <span className="canggu-visual-card-scrim" aria-hidden="true" />
+                <div className="canggu-visual-card-copy" data-media-copy>
+                  <span className="canggu-card-kicker">{area.bestFor}</span>
+                  <h3>{area.label}</h3>
+                  <p>{area.character}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="guide-section">
-          <h2>The areas: where to base</h2>
-          <p className="guide-lede">
-            Canggu is really several villages that have grown together — the area
-            you pick sets your whole day. From busiest to calmest:
-          </p>
-          <div className="compare-table-wrap">
-            <table className="compare-table">
-              <thead>
-                <tr>
-                  <th scope="col">Area</th>
-                  <th scope="col">Character</th>
-                  <th scope="col">Best for</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CANGGU_AREAS.map((a) => (
-                  <tr key={a.label}>
-                    <th scope="row">{a.label}</th>
-                    <td>{a.character}</td>
-                    <td>{a.bestFor}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurants} href="/canggu/best-restaurants" />
-        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafes} href="/canggu/work-friendly-cafes" />
-        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spas} href="/canggu/best-spas" />
-        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunset} href="/canggu/beach-clubs-sunset" />
+        <TopPicks title="Best restaurants" note="From date-night rooms to group tables." venues={restaurantPicks} href="/canggu/best-restaurants" mediaSrc="/scenes/canggu-restaurants-illustrative.webp" />
+        <TopPicks title="Work-friendly cafés" note="Wifi, sockets and a seat that lasts." venues={cafePicks} href="/canggu/work-friendly-cafes" mediaSrc="/scenes/canggu-cafes-illustrative.webp" />
+        <TopPicks title="Spas & reset" note="Wind down after beach and board." venues={spaPicks} href="/canggu/best-spas" mediaSrc="/scenes/canggu-spas-illustrative.webp" />
+        <TopPicks title="Beach clubs & sunset" note="Golden hour, from day clubs to quiet bars." venues={sunsetPicks} href="/canggu/beach-clubs-sunset" mediaSrc="/scenes/canggu-sunset-illustrative.webp" />
 
         <section className="guide-section">
-          <h2>Practical notes (read before you plan)</h2>
-          <div className="guide-prose">
-            <ul>
-              <li>
-                <strong>Traffic is the tax.</strong> The narrow roads between
-                Berawa, Batu Bolong and Pererenan jam badly at sunset and on
-                weekends — build in extra time, or walk within one area.
-              </li>
-              <li>
-                <strong>The beach is for surf and sunset, not swimming.</strong>
-                Grey-sand beach breaks with rips; great for learning to surf and
-                for golden hour, less so for a calm dip.
-              </li>
-              <li>
-                <strong>Book the popular rooms and weekend sunsets.</strong> Where
-                you see a Reserve button, a table is one tap away; cafés and
-                warungs stay walk-in.
-              </li>
-              <li>
-                <strong>Mornings are for cafés and surf, afternoons for reset.</strong>
-                Beat the heat and the crowds early — see the{" "}
-                <Link href="/canggu/work-friendly-cafes" className="font-bold text-[var(--lagoon-strong)]">café</Link>,{" "}
-                <Link href="/canggu/best-warungs" className="font-bold text-[var(--lagoon-strong)]">warung</Link> and{" "}
-                <Link href="/canggu/best-spas" className="font-bold text-[var(--lagoon-strong)]">spa</Link> guides.
-              </li>
-            </ul>
+          <p className="eyebrow">Before you plan</p>
+          <h2>Four Canggu realities</h2>
+          <div className="canggu-practical-grid">
+            {CANGGU_PRACTICAL_CARDS.map((item) => (
+              <article key={item.title} className="canggu-visual-card canggu-practical-card" data-canggu-practical-card>
+                <Image
+                  src={item.imageSrc}
+                  alt=""
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 759px) calc(100vw - 2rem), (max-width: 1199px) calc((100vw - 5rem) / 4), 270px"
+                  className="canggu-visual-card-image ob-grade"
+                />
+                <span className="canggu-visual-card-scrim" aria-hidden="true" />
+                <div className="canggu-visual-card-copy" data-media-copy>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
         <FaqBlock items={FAQ} />
         <RelatedGuides
-          links={[
+          links={withCangguGuideMedia([
             { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliffs, surf and the island's best sunsets." },
             { href: "/first-time-in-bali", title: "First time in Bali", blurb: "Your first day without the rookie mistakes." },
             { href: "/plan#canggu-day-builder", title: "Canggu day builder", blurb: "Use the active-deep pilot for a Canggu day." },
-          ]}
+          ])}
         />
 
-        <div className="cta-band">
-          <h2>Use the Canggu day builder</h2>
-          <p>
-            Surf or café in the morning, reset in the afternoon, a table or a
-            beach club for sunset — build it around the moment you&apos;re in, with
-            published Canggu places and confirmed actions where available.
-          </p>
-          <Link href="/plan#canggu-day-builder" className="cta-band-action">
-            Open the Canggu builder →
-          </Link>
-        </div>
+        <section className="guide-section" data-canggu-visual-cta>
+          <GuideSectionMedia
+            seed="canggu day builder"
+            index={0}
+            src="/scenes/plan-route-canggu-food.webp"
+            heading="Build one Canggu day"
+            support="Morning, reset, sunset."
+            actionHref="/plan#canggu-day-builder"
+            actionLabel="Open the day builder"
+          />
+        </section>
 
-        <RelatedGuides heading="Bali planning guides" links={guidesForDistrict("canggu")} />
+        <RelatedGuides heading="Bali planning guides" links={withCangguGuideMedia(guidesForDistrict("canggu"))} />
 
         <GuideFooter />
       </main>

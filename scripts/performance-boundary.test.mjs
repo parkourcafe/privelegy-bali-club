@@ -40,16 +40,44 @@ test("catalogue renders a bounded server-side page instead of hydrating every ve
 
 test("public venue photos use responsive optimization without weakening consent delivery", async () => {
   const image = await read("components/VenueImage.tsx");
+  const photoPolicy = await read("lib/photo-policy.ts");
   const config = await read("next.config.ts");
   const protectedPhotoRoute = await read("app/api/venue-photo/[id]/route.ts");
   assert.match(image, /from "next\/image"/);
   assert.match(image, /src\.startsWith\("\/api\/venue-photo\/"\)\) return false/);
-  assert.match(image, /\/storage\/v1\/object\/public\/venue-photos\/draft\//);
-  assert.match(image, /if \(isDraftVenuePhoto\(src\)\) return <>\{fallback\}<\/>/);
+  assert.doesNotMatch(image, /isDraftVenuePhoto/);
+  assert.doesNotMatch(image, /venuePhotoSourceAllowed/);
+  assert.doesNotMatch(image, /\/storage\/v1\/object\/public\/venue-photos\/draft\//);
+  assert.match(photoPolicy, /parseVenuePublicMediaUrl/);
+  assert.match(photoPolicy, /HARD_BLOCKED_MEDIA_STATES/);
   assert.match(image, /sizes=\{sizesByVariant\[variant\]\}/);
   assert.match(config, /hostname: "\*\*\.supabase\.co"/);
   assert.match(config, /stale-while-revalidate=604800/);
   assert.match(protectedPhotoRoute, /max-age=300, s-maxage=300/);
+});
+
+test("public venue media does not expose internal fallback or provenance labels", async () => {
+  const placeCard = await read("components/PlaceCard.tsx");
+  const placeCover = await read("components/PlaceCover.tsx");
+  const venueVisual = await read("components/VenueVisual.tsx");
+  const venuePage = await read("app/places/[slug]/page.tsx");
+  const styles = await read("app/globals.css");
+  const publicVenueMedia = `${placeCard}\n${placeCover}\n${venueVisual}\n${venuePage}\n${styles}`;
+
+  for (const forbidden of [
+    "Media pending",
+    "verified details below",
+    "verified details only",
+    "media-pending-badge",
+    "venue-media-disclosure",
+    "type-cover-word",
+    "type-cover-category",
+    "venue-visual-label",
+    "Approved venue photo",
+    "Supabase Storage media library",
+  ]) {
+    assert.doesNotMatch(publicVenueMedia, new RegExp(forbidden, "i"));
+  }
 });
 
 test("large menus defer closed-section items and keep publication gates", async () => {
@@ -82,6 +110,18 @@ test("venue detail uses request rendering for locale while public data stays cac
   assert.match(saveRoute, /private, no-store/);
 });
 
+test("programmatic Bali hubs request-render locale and preserve real 404s", async () => {
+  const districtPage = await read("app/bali/[district]/page.tsx");
+  const intentPage = await read("app/bali/[district]/[intent]/page.tsx");
+  const data = await read("lib/data.ts");
+  for (const source of [districtPage, intentPage]) {
+    assert.match(source, /export const dynamic = "force-dynamic"/);
+    assert.match(source, /notFound\(\)/);
+    assert.doesNotMatch(source, /export const revalidate\s*=/);
+  }
+  assert.match(data, /const getCachedPublishedVenues = unstable_cache/);
+});
+
 test("venue detail and sitemap retain one publication boundary", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
   const sitemap = await read("app/sitemap.ts");
@@ -105,16 +145,18 @@ test("routes are pre-generated and public plan and Uluwatu reads revalidate", as
   assert.doesNotMatch(uluwatu, /force-dynamic/);
 });
 
-test("homepage suppresses the inner-page header before hydration", async () => {
+test("homepage keeps the global header and Explore mega-menu available", async () => {
   const landing = await read("app/page.tsx");
   const globalHeader = await read("components/GlobalHeader.tsx");
   const styles = await read("app/globals.css");
   assert.match(landing, /data-page-shell="landing"/);
-  assert.match(globalHeader, /if \(!pathname \|\| pathname === "\/"\) return null/);
-  assert.match(
-    styles,
-    /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header\s*\{\s*display: none;/,
-  );
+  assert.doesNotMatch(globalHeader, /pathname === "\/"/);
+  assert.doesNotMatch(styles, /body:has\(> \[data-page-shell="landing"\]\) > \.ob-site-header/);
+  assert.match(globalHeader, /NAV_GROUPS\.map/);
+  assert.match(globalHeader, /ob-mega-panel/);
+  assert.match(globalHeader, /ob-compact-nav/);
+  assert.match(globalHeader, /Explore Other Bali/);
+  assert.match(styles, /\.ob-compact-panel/);
 });
 
 test("isolated review host fails closed and analytics disclosure matches the consent gate", async () => {

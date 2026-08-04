@@ -1,6 +1,6 @@
-import { test } from "node:test";
+import { test, describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { parseRange, buildOpeningHoursSpec } from "./opening-hours";
+import { parseRange, buildOpeningHoursSpec, schemaOpeningHours } from "./opening-hours";
 
 test("trailing am/pm applies to both bounds", () => {
   // The error that matters: "5.00-11.00pm" is an evening service, and
@@ -34,6 +34,8 @@ test("unparseable input yields null rather than a guess", () => {
   assert.equal(parseRange("Daily until late"), null);
   assert.equal(parseRange("11:00"), null);
   assert.equal(parseRange("25:00-26:00"), null);
+  // A 12-hour marker cannot rescue an out-of-range hour.
+  assert.equal(parseRange("13.00pm-15.00pm"), null);
 });
 
 test("two shifts in a day become two separate specs", () => {
@@ -62,4 +64,31 @@ test("malformed containers return an empty list", () => {
   assert.deepEqual(buildOpeningHoursSpec("Mo-Su 09:00-17:00"), []);
   assert.deepEqual(buildOpeningHoursSpec([]), []);
   assert.deepEqual(buildOpeningHoursSpec({ Monday: ["nonsense"] }), []);
+});
+
+describe("schemaOpeningHours", () => {
+  it("maps canonical venue JSON to schema.org rules", () => {
+    assert.equal(schemaOpeningHours({
+      Monday: ["7.00am-10.00pm"],
+      Tuesday: ["7.00am-10.00pm"],
+    }), "Mo 07:00-22:00, Tu 07:00-22:00");
+  });
+
+  it("keeps split service as separate rules", () => {
+    assert.equal(
+      schemaOpeningHours({ Monday: ["8.00am-2.00pm", "6.00pm-10.00pm"] }),
+      "Mo 08:00-14:00, Mo 18:00-22:00",
+    );
+  });
+
+  it("accepts only strictly normalized legacy values", () => {
+    assert.equal(schemaOpeningHours(null, "Mo-Su 07:00-22:00"), "Mo-Su 07:00-22:00");
+    assert.equal(schemaOpeningHours(null, "open daily from seven"), undefined);
+  });
+
+  it("shares the parser with the specification builder", () => {
+    // Same trailing-marker rule as parseRange: an evening service must not
+    // be published as a morning one.
+    assert.equal(schemaOpeningHours({ Friday: ["5.00-11.00pm"] }), "Fr 17:00-23:00");
+  });
 });

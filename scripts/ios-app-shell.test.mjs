@@ -18,7 +18,15 @@ test("iOS ships the bundled catalogue shell instead of a remote wrapper", async 
   assert.match(index, /\.\/assets\/app-/);
   assert.doesNotMatch(index, /window\.location\.(?:replace|assign)|<iframe/i);
   assert.doesNotMatch(config, /url:\s*["']https:\/\/www\.otherbali\.com/);
-  assert.equal(JSON.parse(manifest).apiOrigin, "https://www.otherbali.com");
+  const buildManifest = JSON.parse(manifest);
+  assert.equal(buildManifest.apiOrigin, "https://www.otherbali.com");
+  const appAsset = buildManifest.assets.find((asset) => /\.\/assets\/app-.+\.js$/.test(asset));
+  assert.ok(appAsset, "mobile build manifest is missing the application bundle");
+  const appBundle = await load(`ios-web/${appAsset.slice(2)}`);
+  assert.match(appBundle, /Discover Bali together/);
+  assert.match(appBundle, /The right place for the moment you(?:’|\\u2019)re in\./);
+  assert.match(appBundle, /Resident-curated places, routes and plans for every Bali moment\./);
+  assert.match(appBundle, /Less searching\. More Bali\./);
 });
 
 test("the native catalogue supports bootstrap, durable saves, deep links and share", async () => {
@@ -43,14 +51,48 @@ test("the iOS target and AASA have the exact production identity and next build 
     load("public/.well-known/apple-app-site-association"),
   ]);
   assert.match(project, /PRODUCT_BUNDLE_IDENTIFIER = com\.otherbali\.app/);
-  assert.match(project, /CURRENT_PROJECT_VERSION = 4/);
+  assert.match(project, /CURRENT_PROJECT_VERSION = 7/);
   assert.match(project, /DEVELOPMENT_TEAM = KB7VPWHTTM/);
   assert.match(project, /\/\* Release \*\/ = \{[^}]*buildSettings = \{[^}]*CODE_SIGN_IDENTITY = "Apple Development";[^}]*\};\s*name = Release;\s*\};/);
   assert.doesNotMatch(project, /CODE_SIGN_IDENTITY = "Apple Distribution"/);
   assert.match(plist, /<string>otherbali<\/string>/);
+  assert.doesNotMatch(plist, /MBXAccessToken|MAPBOX_ACCESS_TOKEN/);
+  assert.match(
+    plist,
+    /<key>NSLocationWhenInUseUsageDescription<\/key>\s*<string>[^<]+<\/string>/,
+  );
   assert.match(entitlements, /applinks:www\.otherbali\.com/);
   const aasa = JSON.parse(aasaText);
   assert.deepEqual(aasa.applinks.details[0].appIDs, ["KB7VPWHTTM.com.otherbali.app"]);
+});
+
+test("iOS keeps the local OfflineMapbox bridge without resolving the vendor SDK", async () => {
+  const [pluginSource, syncedPackage, pluginPackage, resolutionText] = await Promise.all([
+    load("plugins/offline-mapbox/ios/Sources/OfflineMapboxPlugin/OfflineMapboxPlugin.swift"),
+    load("ios/App/CapApp-SPM/Package.swift"),
+    load("plugins/offline-mapbox/Package.swift"),
+    load("ios/App/App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"),
+  ]);
+  // capacitor.config.json is a generated, gitignored sync artifact. The release
+  // verifier checks its packageClassList after `cap sync ios`; this source-level
+  // test must also work in a clean checkout before that sync has run.
+  assert.match(pluginSource, /@objc\s*\(\s*OfflineMapboxPlugin\s*\)/);
+  assert.match(pluginSource, /class\s+OfflineMapboxPlugin\s*:\s*CAPPlugin\s*,\s*CAPBridgedPlugin/);
+  assert.match(pluginSource, /jsName\s*=\s*"OfflineMapbox"/);
+  assert.match(
+    syncedPackage,
+    /\.package\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*path:\s*"\.\.\/\.\.\/\.\.\/plugins\/offline-mapbox"\s*\)/,
+  );
+  assert.match(
+    syncedPackage,
+    /\.product\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*package:\s*"OtherBaliOfflineMapbox"\s*\)/,
+  );
+  assert.doesNotMatch(pluginPackage, /github\.com\/mapbox|\.product\s*\(\s*name:\s*"(?:Mapbox|Turf)/i);
+  const resolution = JSON.parse(resolutionText);
+  assert.equal(
+    resolution.pins.some((pin) => /(?:mapbox|turf)/i.test(`${pin.identity} ${pin.location}`)),
+    false,
+  );
 });
 
 test("AASA routes and iOS release blockers stay bound to the exact application", () => {

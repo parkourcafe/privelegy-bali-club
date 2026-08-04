@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PillarMasthead from "@/components/landing/PillarMasthead";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PlaceCard from "@/components/PlaceCard";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { guidesForDistrict } from "@/lib/guides";
@@ -19,6 +21,33 @@ import type { VenueWithPerk } from "@/lib/data";
 const BASE = "https://www.otherbali.com";
 
 const previewThings = JIMBARAN_THINGS_TO_DO.slice(0, 4);
+
+const visualChoices = [
+  {
+    href: "/jimbaran/best-restaurants",
+    image: "/scenes/jimbaran-seafood-sunset-illustrative.webp",
+    alt: "Illustrative Jimbaran bay at sunset with fishing boats and a seafood table",
+    label: "Seafood sunset",
+    title: "Eat by the bay",
+    copy: "Start here if the evening is about grilled seafood, sand and the last light.",
+  },
+  {
+    href: "/jimbaran/things-to-do",
+    image: "/scenes/jimbaran-calm-bay-illustrative.webp",
+    alt: "Illustrative calm sheltered bay and quiet beach in Jimbaran",
+    label: "Calm bay",
+    title: "Swim before dinner",
+    copy: "Use the bay as a gentler beach day, then check the exact access and tide conditions.",
+  },
+  {
+    href: "/jimbaran/best-hotels",
+    image: "/scenes/jimbaran-airport-base-illustrative.webp",
+    alt: "Illustrative tropical road and sea view representing an airport-near Jimbaran base",
+    label: "Airport-near base",
+    title: "Keep the route easy",
+    copy: "A practical first or last night when proximity and a quiet resort rhythm matter.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Jimbaran guide — the seafood bay, sunset bars & resort dining",
@@ -116,6 +145,38 @@ export default async function JimbaranPillarPage() {
             </Link>
           ))}
         </nav>
+
+        <section className="guide-section" aria-labelledby="jimbaran-visual-choices">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="eyebrow">Choose the shape of the day</p>
+              <h2 id="jimbaran-visual-choices">Start with the Jimbaran you need</h2>
+            </div>
+            <p>These area-mood scenes are illustrative, not photos of named restaurants, beaches or hotels. Use them to choose the decision; verify the exact place and conditions in the focused guides.</p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {visualChoices.map((choice) => (
+              <Link key={choice.href} href={choice.href} className="visual-choice-card">
+                <Image
+                  src={choice.image}
+                  alt={choice.alt}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px"
+                  className="object-cover transition duration-700"
+                />
+                <div className="visual-choice-card-copy">
+                  <span>{choice.label}</span>
+                  <h3>{choice.title}</h3>
+                  <p>{choice.copy}</p>
+                  <strong>Open the guide →</strong>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <DecisionRail area="jimbaran" areaLabel="Jimbaran" />
 
         <section className="guide-section">
           <h2>Who Jimbaran suits — and who it frustrates</h2>

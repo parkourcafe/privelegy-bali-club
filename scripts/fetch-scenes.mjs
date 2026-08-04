@@ -4,10 +4,10 @@
 // quietly and the landing falls back to its SVG scene art, so this never
 // breaks a build.
 //
-// These are generated atmospheric scenes (no people, no text). Editorial rule:
-// they are mood imagery and must never be presented as photos of a specific
-// real venue. One shared warm film grade across the set — the site should
-// read as if shot as one film.
+// These are generated atmospheric or explicitly illustrative scenario scenes.
+// The original mood set contains no people or text; later scenario collages may
+// contain faceless graphic silhouettes, but never identifiable people or baked
+// text. They must never be presented as photos of a specific real venue.
 import { existsSync, mkdirSync, statSync, writeFileSync } from "fs";
 import path from "path";
 
@@ -22,6 +22,27 @@ const SCENES = {
   "moment-goldenhour": ["hf_20260711_160531_33959ad1-f6ca-48e3-be60-9b09df36ed7e.png", 1200],
   "moment-dinner": ["hf_20260711_160538_4118293a-66fa-4ff6-a81f-9947ddfd07dc.png", 1200],
   "human-dusk": ["hf_20260711_160539_124f0320-4eb3-49a9-8afb-b1e118c86255.png", 1920],
+  // Homepage DecisionDemo Bali scenario stills (Higgsfield GPT Image 2,
+  // 2026-07-24). These are explicitly labelled as illustrative scenarios in
+  // the UI and must never be reused as factual venue or district photography.
+  "home-bali-first-day": ["hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png", 1200],
+  "home-bali-sunset": ["hf_20260724_191859_e19f93a8-8210-4685-959a-342631c631e4.png", 1200],
+  "home-bali-with-kids": ["hf_20260724_191900_24be8e07-722a-4397-916b-a3dacd2e3e4c.png", 1200],
+  "home-bali-rainy-day": ["hf_20260724_191916_31415caf-e939-4436-bf68-63c5d65db1c1.png", 1200],
+  "home-bali-romantic": ["hf_20260724_191916_dc5fd083-99f6-480b-bd9a-35729656c1e6.png", 1200],
+  "home-bali-trip-lengths": ["hf_20260724_191918_7e4d06d5-9689-441f-9369-453568481551.png", 1200],
+  // /plan route cards (Higgsfield GPT Image 2, 2026-07-24). Composite
+  // planning scenes only: internal provenance is retained here, but the public
+  // UI must not show AI/disclosure labels or treat them as evidence of a named
+  // temple, venue or district.
+  "plan-route-first-day": ["hf_20260724_192644_5dac85e2-d3f6-4f41-8e85-5d8200bf2b96.png", 1200],
+  "plan-route-ubud-culture": ["hf_20260724_192645_829d6721-3cb8-425b-9196-22f501fdc0f1.png", 1200],
+  "plan-route-bangli-temple-village": ["hf_20260724_192645_19d497a2-e284-4ec8-adf7-650113353459.png", 1200],
+  "plan-route-east-bali-heritage": ["hf_20260724_192702_449fbb00-81fd-4db9-aecc-144a868abea8.png", 1200],
+  "plan-route-canggu-food": ["hf_20260724_192703_fd0d58e5-88cb-4b3e-9ba9-869b25531c3d.png", 1200],
+  "plan-route-canggu-rain": ["hf_20260724_191916_31415caf-e939-4436-bf68-63c5d65db1c1.png", 1200],
+  "plan-route-cafe-work": ["hf_20260724_192704_955ccd43-a345-45fc-bd35-75caa0260a64.png", 1200],
+  "plan-route-sunset-run": ["hf_20260724_191859_e19f93a8-8210-4685-959a-342631c631e4.png", 1200],
   // District mood stills (Higgsfield soul_cinematic, 2026-07-15 pass) for the
   // "Around Bali" cards — one distinct atmospheric scene per district, same
   // warm film grade as the rest of the set. Mood imagery of the AREA only;
@@ -41,6 +62,45 @@ const SCENES = {
   "district-nusa-islands": ["hf_20260715_012231_1e69b197-86fd-427f-8776-078b9bc34c63.png", 1200],
   "district-gili-islands": ["hf_20260715_012233_311e6d57-382e-4ff2-8f8d-fab56af2ec1e.png", 1200],
   "district-lombok": ["hf_20260715_012234_ef0c9b5a-cdfe-4bd6-8449-d80231636d37.png", 1200],
+  // Visual-first guide refresh (Higgsfield Soul Location, 2026-07-25).
+  // QA-approved topic/area scenes: no visible text, logos, watermarks or
+  // identifiable people. Use as atmospheric Bali guide imagery only — never as
+  // proof of a specific venue, availability, exact tide/light, or live view.
+  "guide-jimbaran-bay-sunset": ["hf_20260725_181002_9ad6fce8-c579-4627-b86b-eced66f2829c.png", 1200],
+  "guide-tanah-lot-sunset": ["hf_20260725_180040_060fa46f-8d4b-4593-96ed-33aecc6287c5.png", 1200],
+  // /together editorial scene set (Higgsfield Nano Banana Pro 2k, 2026-07-28).
+  // One continuous look across the whole page: the product palette, documentary
+  // grade, and a recurring motif of one empty seat at a laid table. No signage,
+  // logos, readable text, licence plates or identifiable people — people appear
+  // only as hands or out-of-focus shapes. Atmospheric illustration of the
+  // Find → Send → Decide → Plan idea, never proof of a specific venue, table,
+  // dish or availability. The place-card and recipient slots on /together must
+  // render published place data instead and must never fall back to these.
+  "together-hero-dinner": ["hf_20260728_170204_2999ccb6-8ac4-47b1-a4a3-9225ed11093e.png", 1920],
+  "together-hero-dinner-portrait": ["hf_20260728_173215_812878a7-d8f9-4f9a-a4a2-edc569c99409.png", 1080],
+  "together-step-find": ["hf_20260728_173110_80e40e31-7871-4fba-b64d-5830c4071303.png", 1200],
+  "together-step-send": ["hf_20260728_173113_aff852dc-4ace-4222-a5f2-d9c97e31aed9.png", 1200],
+  "together-step-decide": ["hf_20260728_173117_4aa01390-00d9-4f8d-825f-27ae87434969.png", 1200],
+  "together-step-plan": ["hf_20260728_173120_36a7c488-1eea-48e5-894e-ff94e3b0003a.png", 1200],
+  "together-dusk-wash": ["hf_20260728_173135_8f77f4fa-7eff-4ffa-a853-8e438c26ad28.png", 1920],
+  "together-shortlist-three": ["hf_20260728_173140_fbbbda12-dd3f-426a-a2cb-2e061ecfce55.png", 1200],
+  "together-open-seat": ["hf_20260728_173143_2e4618c7-e9e9-4380-bafd-57002e9f2e59.png", 1200],
+  "together-scooters-golden": ["hf_20260728_173155_b3241971-2d87-4093-a60f-6909f1fb2127.png", 1200],
+};
+
+// /canggu area-mood and practical decision cards (Higgsfield GPT Image 2,
+// 2026-07-25). These are fictional composite illustrations, never factual
+// proof of a locality, live traffic, sea conditions, availability or venue.
+// Keep the reviewed portrait crop exact: 900 × 1200 at WebP quality 76.
+const CANGGU_PORTRAITS = {
+  "canggu-area-batu-bolong": "hf_20260725_003354_8631906e-2bcf-46ff-88c9-c3f7893e0dbb.png",
+  "canggu-area-berawa": "hf_20260725_003623_706d7ccf-ad6f-4015-97a4-430d91698a5d.png",
+  "canggu-area-pererenan": "hf_20260725_003902_f8d2b25b-8e2b-4ba2-bb87-db8c0d97e1dd.png",
+  "canggu-area-echo-beach": "hf_20260725_004134_6b9f3cfc-67ff-46ae-bcde-a0b19543d6a9.png",
+  "canggu-practical-stay-local": "hf_20260725_004505_9f1f7fce-1c69-40dc-9269-7166d295f151.png",
+  "canggu-practical-surf": "hf_20260725_004720_37b4b199-d520-4bd5-990b-8504aa31ea6d.png",
+  "canggu-practical-reserve": "hf_20260725_004943_19c429bb-7135-4e24-9f7b-72ec86622c0f.png",
+  "canggu-practical-day-rhythm": "hf_20260725_005200_965b6166-45dc-49f0-bd32-ac36505af161.png",
 };
 
 // One short muted hero loop (silent). Hard 3MB gate: if the file is bigger
@@ -59,6 +119,14 @@ const VIDEOS = {
   // not page weight — bytes stream only when an owner presses play.
   // v2 (2026-07-17): livelier conversational voiceover per founder feedback.
   "venues-story": ["hf_20260717_120511_9f1a17d0-ff54-4b3e-ae18-fdf1c3bd764c.mp4", 30_000_000],
+  // /together hero loops (Kling 3.0 pro, sound off, 2026-07-28): 10s single
+  // continuous shots animated from the two stills above — candle flicker, leaf
+  // movement, a barely perceptible push-in. Same 3MB autoplay budget as
+  // hero-loop: these autoplay in the hero, so an over-budget raw file is
+  // deliberately NOT shipped and the static scene stays. To ship one, compress
+  // it under budget with ffmpeg and commit it like hero-loop.mp4.
+  "together-hero-loop": ["hf_20260728_173212_4413d424-80eb-461d-b93d-9242e6d1f49a.mp4", 3_000_000],
+  "together-hero-loop-portrait": ["hf_20260728_173348_c03985c5-9983-4f89-9b5f-6bbf952fc98c.mp4", 3_000_000],
 };
 
 mkdirSync(OUT, { recursive: true });
@@ -83,11 +151,36 @@ for (const [name, [file, width]] of Object.entries(SCENES)) {
     const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    await sharp(buf).resize({ width, withoutEnlargement: true }).webp({ quality: 78 }).toFile(target);
+    const quality = name.startsWith("home-") || name.startsWith("plan-route-") ? 72 : 78;
+    await sharp(buf)
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality, effort: 6 })
+      .toFile(target);
     ok++;
     console.log(`scenes: fetched ${name}.webp`);
   } catch (e) {
     console.warn(`scenes: skipped ${name} (${e.message ?? e}) — SVG fallback will render`);
+  }
+}
+
+for (const [name, file] of Object.entries(CANGGU_PORTRAITS)) {
+  const target = path.join(OUT, `${name}.webp`);
+  if (existsSync(target)) {
+    skipped++;
+    continue;
+  }
+  try {
+    const res = await fetch(`${BASE}/${file}`, { signal: AbortSignal.timeout(30_000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    await sharp(buf)
+      .resize(900, 1200, { fit: "cover" })
+      .webp({ quality: 76, effort: 6 })
+      .toFile(target);
+    ok++;
+    console.log(`scenes: fetched ${name}.webp`);
+  } catch (e) {
+    console.warn(`scenes: skipped ${name} (${e.message ?? e}) — visual fallback will render`);
   }
 }
 

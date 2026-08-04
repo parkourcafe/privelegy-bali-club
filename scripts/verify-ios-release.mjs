@@ -34,6 +34,7 @@ const archivePath = path.join(artifacts, "App.xcarchive");
 if (archive) await rm(archivePath, { recursive: true, force: true });
 
 const xcodeArgs = [
+  "-quiet",
   "-project", "ios/App/App.xcodeproj",
   "-scheme", "App",
   "-configuration", "Release",
@@ -59,7 +60,10 @@ if (archive) {
 }
 
 const exitCode = await new Promise((resolve, reject) => {
-  const child = spawn("xcodebuild", xcodeArgs, { cwd: root, stdio: "inherit" });
+  const child = spawn("xcodebuild", xcodeArgs, {
+    cwd: root,
+    stdio: "inherit",
+  });
   child.once("error", reject);
   child.once("exit", (code, signal) => {
     if (signal) reject(new Error(`xcodebuild ended with ${signal}`));

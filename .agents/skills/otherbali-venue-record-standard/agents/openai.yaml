@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali Venue Record Standard"
+  short_description: "How to write venue record fields the public pages assemble from"
+  default_prompt: "Use $otherbali-venue-record-standard before writing, rewriting or backfilling Other Bali venue copy — including requests that arrive page-shaped, because district pages are assembled from `venues` rows rather than page prose."

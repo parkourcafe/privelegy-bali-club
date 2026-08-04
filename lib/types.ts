@@ -45,6 +45,7 @@ export interface Venue {
   gmapsUrl: string;
   officialUrl?: string; // venue's own website — used for schema sameAs (entity signal)
   instagramUrl?: string; // official IG — used for schema sameAs
+  openingHours?: string; // verified schema.org syntax, mapped at the data boundary
   tier: VenueTier;
   status?: string;
   isSponsored: boolean; // organic (false) vs labeled sponsored display (true); NOT a paid listing product under money model v0.3
@@ -53,6 +54,10 @@ export interface Venue {
   priceAnchor?: string; // e.g. "Americano 35k · Bintang 40k"
   whatToOrder?: string; // consensus-checked bestseller(s)
   photoUrl?: string;
+  // True only when the exact file has an approved/published rights state at
+  // the server-side data boundary. It can release a legacy `/draft/` object
+  // path without opening other provisional media.
+  photoRightsApproved?: boolean;
   whatsapp?: string; // digits only, intl format
   tablepilotSlug?: string; // if set, venue is bookable via TablePilot (money model v0.3)
   // Sub-area inside the district (Berawa / Batu Bolong / Echo Beach / …).
@@ -78,7 +83,6 @@ export interface Venue {
   // them rather than carrying a guess (guardrail #10).
   latitude?: number;
   longitude?: number;
-  openingHours?: string;
   priceBand?: string;
   // Per-day hours, including venues that run two services in a day. Parsed
   // by lib/opening-hours.ts; unparseable entries are dropped rather than

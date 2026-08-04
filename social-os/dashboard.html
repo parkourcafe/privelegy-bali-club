@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Other Bali — Founder Operating Dashboard</title>
+  <style>
+    :root {
+      --ink:#231f1a; --muted:#766e63; --sand:#f4efe6; --paper:#fffdf8;
+      --line:#ded4c5; --brass:#a77a36; --green:#2f6b52; --green-bg:#e7f2eb;
+      --amber:#9b6617; --amber-bg:#fff1d6; --red:#9b3f39; --red-bg:#fae7e4;
+      --blue:#385d73; --blue-bg:#e7f0f5; --shadow:0 16px 42px rgba(55,42,25,.09);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--sand);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,select{font:inherit}
+    .shell{max-width:1440px;margin:auto;padding:28px}
+    header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:22px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;color:var(--brass)}
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0;line-height:1.1}
+    h1{font-size:clamp(30px,4vw,54px);max-width:720px}.subtitle{color:var(--muted);max-width:720px;margin:10px 0 0}
+    .header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .date-pill,.button{border:1px solid var(--line);background:var(--paper);padding:10px 13px;border-radius:999px;color:var(--ink)}
+    .button{cursor:pointer}.button:hover{border-color:var(--brass)}
+    .grid{display:grid;grid-template-columns:1.55fr .75fr;gap:20px}
+    .card{background:var(--paper);border:1px solid rgba(167,122,54,.16);border-radius:22px;box-shadow:var(--shadow);padding:22px}
+    .hero{background:linear-gradient(135deg,#29231d 0%,#3b3024 100%);color:white;position:relative;overflow:hidden;min-height:270px}
+    .hero:after{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-80px;top:-100px;box-shadow:0 0 0 45px rgba(255,255,255,.025),0 0 0 90px rgba(255,255,255,.018)}
+    .hero .eyebrow{color:#d9b878}.hero h2{font-size:36px;max-width:760px;margin-top:12px}.hero p{max-width:720px;color:#e7ded0;font-size:16px}
+    .hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.tag{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:750;background:rgba(255,255,255,.11)}
+    .dot{width:8px;height:8px;border-radius:50%;background:#efc46f}
+    .owner-action{border-left:3px solid #d7ad60;padding-left:14px;margin-top:20px;position:relative;z-index:1}.owner-action strong{display:block;color:#efc46f;text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+    .kpi{padding:18px}.kpi .label{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.06em}.kpi .value{font-family:Georgia,serif;font-size:34px;margin:6px 0}.kpi .note{font-size:12px;color:var(--muted)}
+    .status-good{color:var(--green)}.status-warn{color:var(--amber)}.status-blocked{color:var(--red)}
+    .side-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.side-title h2{font-size:25px}
+    .gauge-wrap{display:flex;align-items:center;gap:18px}.gauge{--p:20;width:116px;height:116px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--p)*1%),#e8e0d5 0);display:grid;place-items:center;position:relative;flex:none}.gauge:after{content:"";width:82px;height:82px;background:var(--paper);border-radius:50%;position:absolute}.gauge b{z-index:1;font:700 28px Georgia}.gauge-copy strong{display:block;font-size:16px}.gauge-copy span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .gate-list{display:grid;gap:10px;margin-top:18px}.gate{border:1px solid var(--line);border-radius:14px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start}.gate-icon{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;flex:none}.done .gate-icon{background:var(--green-bg);color:var(--green)}.active .gate-icon{background:var(--amber-bg);color:var(--amber)}.locked .gate-icon{background:#eee8df;color:#8e867b}.gate b{display:block;font-size:13px}.gate small{color:var(--muted)}
+    .section{margin-top:22px}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:14px}.section-head h2{font-size:30px}.section-head p{margin:4px 0 0;color:var(--muted)}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.filters select{border:1px solid var(--line);background:var(--paper);padding:9px 12px;border-radius:10px;color:var(--ink)}
+    .timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .task{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:17px;display:grid;grid-template-columns:auto 1fr;gap:13px;transition:.2s}.task:hover{transform:translateY(-1px);box-shadow:var(--shadow)}.task.hidden{display:none}.task.complete{opacity:.68}.task.complete h3{text-decoration:line-through}.task input{width:20px;height:20px;accent-color:var(--green);margin-top:2px}.task-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.day{font-size:11px;font-weight:850;color:var(--brass);letter-spacing:.08em;text-transform:uppercase}.owner{font-size:10px;text-transform:uppercase;font-weight:850;padding:4px 7px;border-radius:999px}.owner-selena{background:var(--amber-bg);color:var(--amber)}.owner-ai{background:var(--blue-bg);color:var(--blue)}.owner-joint{background:var(--green-bg);color:var(--green)}.task h3{font:700 19px Georgia;margin:7px 0}.task p{margin:0;color:var(--muted);font-size:13px}.deliverable{margin-top:10px;border-top:1px dashed var(--line);padding-top:9px;font-size:12px}.deliverable b{color:var(--ink)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}.list{display:grid;gap:10px;margin-top:14px}.list-item{padding:13px;border-radius:14px;background:#f8f4ed;border:1px solid #e9dfd1}.list-item b{display:block}.list-item span{color:var(--muted);font-size:13px}
+    .blocked{background:var(--red-bg);border-color:#efc7c3}.blocked b{color:var(--red)}
+    .legend{font-size:12px;color:var(--muted);margin-top:10px}.source{font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:18px;padding-top:14px}
+    .empty{display:none;text-align:center;color:var(--muted);padding:25px}.empty.show{display:block}
+    @media(max-width:1000px){.grid,.two-col{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:660px){.shell{padding:16px}header{display:block}.header-actions{justify-content:flex-start;margin-top:16px}.kpis,.timeline{grid-template-columns:1fr}.hero h2{font-size:29px}.section-head{display:block}.filters{margin-top:12px}.gauge-wrap{align-items:flex-start}}
+    @media print{body{background:white}.button,.filters{display:none}.card,.task{box-shadow:none;break-inside:avoid}.shell{max-width:none;padding:0}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header>
+    <div>
+      <div class="eyebrow">Other Bali · Founder Operating System</div>
+      <h1>Что делать дальше — без хаоса</h1>
+      <p class="subtitle">Ежедневный dashboard для запуска Social Media OS: ваши решения, работа AI, блокеры, ожидаемые результаты и безопасный путь к первому controlled pilot.</p>
+    </div>
+    <div class="header-actions">
+      <span class="date-pill" id="todayLabel"></span>
+      <button class="button" onclick="window.print()">Печать / PDF</button>
+      <button class="button" id="resetBtn">Сбросить отметки</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card hero">
+      <div class="eyebrow">Следующий шаг</div>
+      <h2 id="nextTitle">Добавить Social Media OS в основной репозиторий</h2>
+      <p id="nextDescription">Архитектура V3.1 уже в main. Теперь нужен отдельный PR только для social-os и этого dashboard — без публикации, connectors и внешних аккаунтов.</p>
+      <div class="hero-meta">
+        <span class="tag"><span class="dot"></span><span id="nextOwner">AI выполняет · Selena проверяет</span></span>
+        <span class="tag" id="nextOutput">Результат: PR Social Media OS</span>
+      </div>
+      <div class="owner-action"><strong>От вас сегодня</strong><span id="founderAsk">Подтвердить после просмотра, что структура и 14-дневный порядок вам подходят.</span></div>
+    </section>
+
+    <aside class="card">
+      <div class="side-title"><h2>Готовность</h2><span class="eyebrow">Gate 1</span></div>
+      <div class="gauge-wrap">
+        <div class="gauge" id="gauge"><b id="progressPct">20%</b></div>
+        <div class="gauge-copy"><strong id="progressText">3 из 15 шагов</strong><span>До трёх approval-ready материалов. Это не разрешение на публикацию.</span></div>
+      </div>
+      <div class="gate-list">
+        <div class="gate done"><span class="gate-icon">✓</span><div><b>Product truth</b><small>V3.1 merged и deployed</small></div></div>
+        <div class="gate active"><span class="gate-icon">2</span><div><b>Repository Social OS</b><small>Локально готов, требуется PR</small></div></div>
+        <div class="gate locked"><span class="gate-icon">3</span><div><b>Evidence + rights</b><small>0 claims · 0 assets</small></div></div>
+        <div class="gate locked"><span class="gate-icon">4</span><div><b>Human approval</b><small>0 approved</small></div></div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="kpis">
+    <article class="card kpi"><div class="label">Архитектура</div><div class="value status-good">V3.1</div><div class="note">Merged · deployed · HTTP 200</div></article>
+    <article class="card kpi"><div class="label">Backlog</div><div class="value">10</div><div class="note">Все 4 режима · Bali-wide</div></article>
+    <article class="card kpi"><div class="label">Awaiting approval</div><div class="value status-warn">3</div><div class="note">Шаблоны · ещё не publishable</div></article>
+    <article class="card kpi"><div class="label">Evidence / rights</div><div class="value status-blocked">0 / 0</div><div class="note">Главный текущий блокер</div></article>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><h2>План на 14 дней</h2><p>Отмечайте выполненное. Dashboard сам покажет следующий шаг.</p></div>
+      <div class="filters">
+        <select id="ownerFilter" aria-label="Фильтр по владельцу"><option value="all">Все владельцы</option><option value="selena">Только Selena</option><option value="ai">Только AI</option><option value="joint">Совместно</option></select>
+        <select id="statusFilter" aria-label="Фильтр по статусу"><option value="all">Все статусы</option><option value="open">Открытые</option><option value="complete">Завершённые</option></select>
+      </div>
+    </div>
+    <div class="timeline" id="timeline"></div>
+    <div class="empty" id="emptyState">По выбранным фильтрам задач нет.</div>
+  </section>
+
+  <section class="section two-col">
+    <article class="card">
+      <div class="eyebrow">Что всегда делает Selena</div><h2>Решения владельца</h2>
+      <div class="list">
+        <div class="list-item"><b>Утверждает голос и смысл</b><span>AI предлагает варианты, но не говорит от вашего имени.</span></div>
+        <div class="list-item"><b>Выбирает приоритеты</b><span>Какие три темы, какие реальные assets и какой CTA важнее.</span></div>
+        <div class="list-item"><b>Подтверждает права и факты</b><span>Кто снял материал, можно ли использовать, кто проверил claim.</span></div>
+        <div class="list-item"><b>Даёт финальный approval</b><span>Только неизменённому пакету с hash, preview и QA.</span></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="eyebrow">Что делает AI / система</div><h2>Подготовительная работа</h2>
+      <div class="list">
+        <div class="list-item"><b>Research и evidence mapping</b><span>Структурирует источники, freshness, claims и блокеры.</span></div>
+        <div class="list-item"><b>Native drafts</b><span>Разные hooks, formats, CTA и asset briefs для трёх платформ.</span></div>
+        <div class="list-item"><b>QA и validation</b><span>Проверяет claims, expiry, rights, disclosure, links и статусы.</span></div>
+        <div class="list-item"><b>Approval packet</b><span>Собирает всё необходимое для одного понятного решения.</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section two-col">
+    <article class="card">
+      <div class="eyebrow">Блокеры сейчас</div><h2>Почему мы ещё не публикуем</h2>
+      <div class="list">
+        <div class="list-item blocked"><b>0 verified claims</b><span>Нельзя добавлять цены, часы, маршруты, события или venue facts.</span></div>
+        <div class="list-item blocked"><b>0 rights-cleared assets</b><span>Ни одно фото/видео пока не зарегистрировано для social.</span></div>
+        <div class="list-item blocked"><b>CTA routes не подтверждены</b><span>/plan существует; Today, Explore и My Bali требуют target mapping.</span></div>
+        <div class="list-item blocked"><b>0 human approvals</b><span>Все три материала намеренно остаются awaiting_approval.</span></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="eyebrow">Конечный результат этапа</div><h2>Что должно быть через 14 дней</h2>
+      <div class="list">
+        <div class="list-item"><b>Social Media OS в main</b><span>Отдельный проверенный PR без изменения продуктового кода.</span></div>
+        <div class="list-item"><b>3 approval-ready packages</b><span>Instagram, TikTok и YouTube Shorts — разные native версии.</span></div>
+        <div class="list-item"><b>100% evidence + media rights</b><span>Каждый factual claim и каждый используемый asset покрыт реестром.</span></div>
+        <div class="list-item"><b>Founder go / revise / stop</b><span>Осознанное решение без автоматической публикации.</span></div>
+      </div>
+      <p class="legend">Gate 1 завершает dry run. Подключение publisher — отдельное решение Gate 2.</p>
+    </article>
+  </section>
+
+  <footer class="source">
+    <b>Источники и свежесть:</b> Master Architecture V3.1 Corrected и AGENTS.md в main (22 Jul 2026); локальный `social-os` Phase 1; validator result: 3 awaiting approval, 0 claims, 0 rights, 0 approved/queued/scheduled/published. Dashboard не читает production analytics и не публикует контент.
+  </footer>
+</main>
+
+<script>
+  const tasks = [
+    {id:'v31',day:'Сделано',owner:'ai',title:'Утвердить архитектуру V3.1',desc:'Master и AGENTS синхронизированы, PR #195 merged, production deploy успешен.',output:'V3.1 — официальный source of truth',done:true,ask:'Ничего: этот шаг уже завершён.'},
+    {id:'audit',day:'Сделано',owner:'ai',title:'Провести аудит Social OS',desc:'Выявлены legacy social claims, пустые evidence/rights и route gaps.',output:'source_conflicts.md + build_report.md',done:true,ask:'Ничего: выводы уже зафиксированы.'},
+    {id:'dryrun',day:'Сделано',owner:'ai',title:'Собрать безопасный dry run',desc:'Созданы backlog, схемы, prompts и 3 непубликуемых channel-пакета.',output:'Phase 1 validation PASS',done:true,ask:'Ничего: dry run готов.'},
+    {id:'repo-pr',day:'День 1',owner:'joint',title:'Добавить social-os в main',desc:'AI обновляет ветку от main, повторяет аудит и открывает отдельный PR. Selena проверяет scope.',output:'Merged repository Social OS',ask:'Просмотреть PR и подтвердить, что структура понятна.'},
+    {id:'voices',day:'День 2',owner:'selena',title:'Утвердить три voice profiles',desc:'Проверить tourist EN, partner EN и founder RU на коротких примерах.',output:'Approved voice rules',ask:'Написать: approve или конкретные правки по каждому голосу.'},
+    {id:'topics',day:'День 3',owner:'joint',title:'Выбрать три пилотные темы',desc:'Сбалансировать Today, Explore, Plan/My Bali и избегать Canggu/restaurant-first.',output:'3 approved content briefs',ask:'Выбрать 3 идеи из backlog или заменить одну своей.'},
+    {id:'claims-map',day:'День 4',owner:'ai',title:'Собрать evidence request list',desc:'Для каждой публичной фразы определить нужный источник, verifier и freshness.',output:'Claim checklist без догадок',ask:'Назначить человека, который может подтвердить product и venue facts.'},
+    {id:'facts',day:'День 5',owner:'joint',title:'Подтвердить факты и CTA',desc:'Проверить canonical URLs, продуктовые flows и любые practical claims.',output:'Verified claims + approved targets',ask:'Дать подтверждение источников и реальных CTA-ссылок.'},
+    {id:'assets',day:'День 6',owner:'selena',title:'Передать реальные assets и права',desc:'Выбрать фото/видео; указать автора, разрешённые каналы, людей, логотипы и музыку.',output:'Asset rights registry',ask:'Загрузить выбранные материалы и подтвердить права.'},
+    {id:'drafts',day:'Дни 7–8',owner:'ai',title:'Сделать 9 native variants',desc:'По 3 разные версии для Instagram, TikTok и YouTube Shorts.',output:'3 complete content packages',ask:'В этот момент от вас ничего; AI готовит варианты.'},
+    {id:'qa',day:'День 9',owner:'ai',title:'Провести автоматическую и редакционную QA',desc:'Claims, expiry, rights, disclosures, links, platform differences и previews.',output:'QA report + blockers',ask:'Ничего, если нет конфликтов источников.'},
+    {id:'review',day:'День 10',owner:'selena',title:'Founder review',desc:'Посмотреть три approval packets как готовые единицы, не отдельные фразы.',output:'Approve / revise / stop по каждому',ask:'Дать решение и одну причину для каждой правки.'},
+    {id:'revisions',day:'Дни 11–12',owner:'joint',title:'Внести правки и повторить QA',desc:'Любая правка меняет artifact и требует нового approval cycle.',output:'Frozen approval candidates',ask:'Подтвердить, что финальная версия отражает ваши правки.'},
+    {id:'approve',day:'День 13',owner:'selena',title:'Зафиксировать human approval',desc:'Identity, timestamp и immutable hash только после полного QA.',output:'До 3 approved artifacts',ask:'Нажать approve только на неизменённый пакет.'},
+    {id:'go-no-go',day:'День 14',owner:'joint',title:'Принять Gate 2 go / no-go',desc:'Решить, подключать ли controlled publishing или повторить dry run.',output:'Письменное решение Gate 2',ask:'Выбрать: подключать publisher, повторить pilot или остановить тему.'}
+  ];
+  const ownerNames={selena:'Selena',ai:'AI',joint:'Совместно'};
+  const storageKey='other-bali-founder-dashboard-v1';
+  let saved={}; try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')}catch(e){saved={}}
+  tasks.forEach(t=>{if(saved[t.id]===undefined && t.done)saved[t.id]=true});
+  const timeline=document.getElementById('timeline');
+  function render(){
+    timeline.innerHTML=''; const owner=document.getElementById('ownerFilter').value; const status=document.getElementById('statusFilter').value; let visible=0;
+    tasks.forEach(t=>{const complete=!!saved[t.id]; if(owner!=='all'&&t.owner!==owner)return;if(status==='open'&&complete)return;if(status==='complete'&&!complete)return;visible++;
+      const el=document.createElement('article');el.className='task'+(complete?' complete':'');el.dataset.id=t.id;
+      el.innerHTML=`<input type="checkbox" aria-label="Отметить ${t.title}" ${complete?'checked':''}><div><div class="task-top"><span class="day">${t.day}</span><span class="owner owner-${t.owner}">${ownerNames[t.owner]}</span></div><h3>${t.title}</h3><p>${t.desc}</p><div class="deliverable"><b>Результат:</b> ${t.output}<br><b>От вас:</b> ${t.ask}</div></div>`;
+      el.querySelector('input').addEventListener('change',e=>{saved[t.id]=e.target.checked;localStorage.setItem(storageKey,JSON.stringify(saved));render();});timeline.appendChild(el);
+    });
+    document.getElementById('emptyState').classList.toggle('show',visible===0); updateSummary();
+  }
+  function updateSummary(){
+    const completed=tasks.filter(t=>saved[t.id]).length,pct=Math.round(completed/tasks.length*100);document.getElementById('progressPct').textContent=pct+'%';document.getElementById('progressText').textContent=`${completed} из ${tasks.length} шагов`;document.getElementById('gauge').style.setProperty('--p',pct);
+    const next=tasks.find(t=>!saved[t.id]);
+    if(next){document.getElementById('nextTitle').textContent=next.title;document.getElementById('nextDescription').textContent=next.desc;document.getElementById('nextOwner').textContent=ownerNames[next.owner]+' · '+next.day;document.getElementById('nextOutput').textContent='Результат: '+next.output;document.getElementById('founderAsk').textContent=next.ask}
+    else{document.getElementById('nextTitle').textContent='Gate 1 завершён';document.getElementById('nextDescription').textContent='Три материала прошли evidence, rights, QA и human approval. Следующее действие — отдельное решение Gate 2.';document.getElementById('nextOwner').textContent='Founder decision';document.getElementById('nextOutput').textContent='Результат: go / revise / stop';document.getElementById('founderAsk').textContent='Выбрать следующий контролируемый шаг.'}
+  }
+  document.getElementById('ownerFilter').addEventListener('change',render);document.getElementById('statusFilter').addEventListener('change',render);
+  document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Сбросить все локальные отметки?')){saved={v31:true,audit:true,dryrun:true};localStorage.setItem(storageKey,JSON.stringify(saved));render()}});
+  document.getElementById('todayLabel').textContent=new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Makassar'}).format(new Date())+' · Bali';
+  render();
+</script>
+</body>
+</html>

@@ -154,7 +154,7 @@ export async function GET(req: Request) {
         >
           <div style={{ display: "flex", gap: 16 }}>
             <Chip label="Length" value={daysLabel(days)} />
-            <Chip label="Guide" value="Live places & bookings" />
+            <Chip label="Guide" value="Public place guide" />
           </div>
           <div
             style={{

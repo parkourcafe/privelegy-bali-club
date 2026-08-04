@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-07-24T14:10:00Z",
+  "model_requested": "gpt_image_2",
+  "model_status_returned_by_jobs": "gpt_image_2",
+  "aspect_ratio": "3:4",
+  "resolution": "2k",
+  "workspace_type": "private",
+  "credits_before": 716.41,
+  "credits_after": 673.69,
+  "credits_spent": 42.72,
+  "review_status": "superseded_after_post_deploy_decoder_failure",
+  "superseded_by": "docs/media/higgsfield-site-readiness-recovery-batch.json",
+  "superseded_reason": "The source set later produced corrupt 60 KB WebPs that returned HTTP 400 through next/image; do not reproduce or ship these source IDs.",
+  "supersedes": "docs/media/higgsfield-homepage-batch.json",
+  "source_url_retention": "omitted_from_repository because the CDN path contains an account-scoped segment; job IDs and source filenames are retained for provenance",
+  "local_delivery": {
+    "format": "webp",
+    "pixel_width": 1200,
+    "pixel_height": 1607,
+    "quality": 66,
+    "files": [
+      { "path": "public/scenes/home-bali-first-day.webp", "bytes": 142412 },
+      { "path": "public/scenes/home-bali-rainy-day.webp", "bytes": 145726 },
+      { "path": "public/scenes/home-bali-romantic.webp", "bytes": 87130 },
+      { "path": "public/scenes/home-bali-sunset.webp", "bytes": 144992 },
+      { "path": "public/scenes/home-bali-trip-lengths.webp", "bytes": 118778 },
+      { "path": "public/scenes/home-bali-with-kids.webp", "bytes": 192640 }
+    ]
+  },
+  "assets": [
+    {
+      "id": "ce9363cf-b6d1-42da-bbbf-ce1aeb2acb35",
+      "file_slug": "home-bali-first-day",
+      "source_file": "hf_20260724_141000_ce9363cf-b6d1-42da-bbbf-ce1aeb2acb35.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. First day in Bali: a newly arrived traveller seen from behind entering a lush tropical guesthouse courtyard at soft morning light, one elegant carry-on bag and woven tote, frangipani, carved stone details and a glimpse of palms, calm welcoming mood, not an airport, no staged smile.",
+      "status": "completed"
+    },
+    {
+      "id": "e8e4ecc3-2509-4ef1-b202-32e7e2c3774d",
+      "file_slug": "home-bali-sunset",
+      "source_file": "hf_20260724_141000_e8e4ecc3-2509-4ef1-b202-32e7e2c3774d.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. Sunset in Bali: wide ocean horizon at golden hour from an unnamed west-coast headland, silhouettes of coconut palms and two small seated travellers, glowing orange sun reflected on water, dramatic layered cloud, unmistakably tropical Bali atmosphere without depicting a specific beach.",
+      "status": "completed"
+    },
+    {
+      "id": "df506b0d-f636-4cb7-a149-824620530018",
+      "file_slug": "home-bali-with-kids",
+      "source_file": "hf_20260724_141001_df506b0d-f636-4cb7-a149-824620530018.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. Bali with kids: relaxed family of four spending an easy late-morning beside calm shallow tropical water, children exploring sand and shells while parents sit nearby under natural palm shade, candid documentary composition, gentle joyful energy, no resort branding, no unsafe swimming, no posed stock-photo smiles.",
+      "status": "completed"
+    },
+    {
+      "id": "617dcb30-ff91-4e41-8e1a-5d2cdeb7a05c",
+      "file_slug": "home-bali-rainy-day",
+      "source_file": "hf_20260724_141000_617dcb30-ff91-4e41-8e1a-5d2cdeb7a05c.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. Rainy day in Bali: monsoon rain falling beyond a covered open-air terrace, lush banana leaves and frangipani outside, warm wooden table with tea and a folded paper plan inside, carved stone and woven textures, cosy amber interior against deep green rain, no identifiable cafe or hotel.",
+      "status": "completed"
+    },
+    {
+      "id": "fd4b6487-4277-453d-8c57-1f2e52605b23",
+      "file_slug": "home-bali-romantic",
+      "source_file": "hf_20260724_141000_fd4b6487-4277-453d-8c57-1f2e52605b23.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. Romantic Bali: an adult couple seen from behind on an intimate ocean-facing terrace at blue-gold dusk, subtle frangipani and woven lantern glow, volcanic horizon haze and sea beyond, quiet understated closeness, sophisticated not wedding-like, no identifiable hotel or restaurant.",
+      "status": "completed"
+    },
+    {
+      "id": "400f3194-355e-401f-b81e-5a97c38fd2ab",
+      "file_slug": "home-bali-trip-lengths",
+      "source_file": "hf_20260724_141000_400f3194-355e-401f-b81e-5a97c38fd2ab.png",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "Premium contemporary Bali travel editorial photography, realistic but clearly illustrative, warm natural sunlight, restrained teal coral and earth palette, subtle analog film grain, refined magazine art direction, no text, no typography, no logos, no identifiable real venue, no famous named landmark, no watermark. Vertical 3:4 composition for a website card. Keep the lower 22 percent visually calm and dark enough for a short white text overlay. Planning 3, 5 or 7 days in Bali: premium editorial flat-lay on a dark wood table with a simplified artistic silhouette of Bali, three distinct colored route ribbons, small unlabelled photographic cards suggesting coast, rice terraces and mountain landscape, travel notebook and pencil, clearly trip planning but not a real navigation map, no readable labels or numbers.",
+      "status": "completed"
+    }
+  ]
+}

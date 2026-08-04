@@ -11,10 +11,11 @@ import {
 } from "@/lib/hub";
 import VenueCard from "@/components/VenueCard";
 
-export const revalidate = 3600;
-// dynamicParams: true so a newly-qualifying district/intent spoke renders on
-// first request under ISR instead of 404ing until redeploy. Non-qualifying
-// combos still 404 via notFound() below.
+// The root layout resolves the explicit locale from a request header. Keep this
+// dynamic route request-rendered: attempting on-demand ISR without request
+// context turns a legitimate notFound() into DYNAMIC_SERVER_USAGE/500. Public
+// venue reads retain their own bounded data cache.
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

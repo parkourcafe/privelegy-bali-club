@@ -2,6 +2,7 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
+import SceneImage from "@/components/landing/SceneImage";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
@@ -15,15 +16,90 @@ const BASE = "https://www.otherbali.com";
 const guide = getGuide("where-to-watch-sunset-in-bali")!;
 export const metadata = guideMetadata(guide);
 
+type SceneVariant = "sunset" | "ridge" | "surf" | "night";
+
+type SunsetArea = {
+  key: string;
+  name: string;
+  note: string;
+  pillar?: string;
+  scene: string;
+  variant: SceneVariant;
+  shortLabel: string;
+};
+
 // Sunset is the west/south coast — Uluwatu cliffs, Seminyak & Canggu beaches,
 // the southern bays. Sanur (sunrise coast) and inland Ubud are deliberately not
 // here. Venues are the west/south sunset clubs and bars, driven from live data.
-const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "The most dramatic sunsets on the island — clifftop bars high above the surf.", pillar: "/uluwatu" },
-  { key: "seminyak", name: "Seminyak", note: "Beachfront clubs on the sand, sunset drinks facing straight west.", pillar: "/seminyak" },
-  { key: "canggu", name: "Canggu", note: "Echo Beach and Batu Bolong — sunset sessions with a surf out front.", pillar: "/canggu" },
-  { key: "jimbaran", name: "Jimbaran", note: "Calm-bay sunsets, soft sand and an easy golden hour.", pillar: undefined },
-  { key: "nusa-dua", name: "Nusa Dua", note: "Resort-side sunset spots on reef-protected water.", pillar: "/nusa-dua" },
+const AREA_ORDER: SunsetArea[] = [
+  {
+    key: "uluwatu-bukit",
+    name: "Uluwatu & the Bukit",
+    note: "The most dramatic sunsets on the island — clifftop bars high above the surf.",
+    pillar: "/uluwatu",
+    scene: "district-uluwatu-bukit",
+    variant: "sunset",
+    shortLabel: "Cliff drama",
+  },
+  {
+    key: "seminyak",
+    name: "Seminyak",
+    note: "Beachfront clubs on the sand, sunset drinks facing straight west.",
+    pillar: "/seminyak",
+    scene: "district-seminyak",
+    variant: "sunset",
+    shortLabel: "Polished beach clubs",
+  },
+  {
+    key: "canggu",
+    name: "Canggu",
+    note: "Echo Beach and Batu Bolong — sunset sessions with a surf out front.",
+    pillar: "/canggu",
+    scene: "canggu-sunset-illustrative",
+    variant: "sunset",
+    shortLabel: "Surf energy",
+  },
+  {
+    key: "jimbaran",
+    name: "Jimbaran",
+    note: "Calm-bay sunsets, soft sand and an easy golden hour.",
+    scene: "guide-jimbaran-bay-sunset",
+    variant: "sunset",
+    shortLabel: "Calm bay",
+  },
+  {
+    key: "nusa-dua",
+    name: "Nusa Dua",
+    note: "Resort-side sunset spots on reef-protected water.",
+    pillar: "/nusa-dua",
+    scene: "district-nusa-dua",
+    variant: "surf",
+    shortLabel: "Resort calm",
+  },
+];
+
+const SUNSET_MODES = [
+  {
+    href: "#uluwatu-bukit",
+    title: "Big cliff view",
+    copy: "Choose Uluwatu when the sunset itself is the main event.",
+    scene: "district-uluwatu-bukit",
+    variant: "sunset" as SceneVariant,
+  },
+  {
+    href: "#seminyak",
+    title: "Beach club comfort",
+    copy: "Choose Seminyak for sofas, sand and a lower-effort golden hour.",
+    scene: "home-bali-sunset",
+    variant: "sunset" as SceneVariant,
+  },
+  {
+    href: "#canggu",
+    title: "Surf-front session",
+    copy: "Choose Canggu for sunset with surf, music and a social crowd.",
+    scene: "canggu-sunset-illustrative",
+    variant: "sunset" as SceneVariant,
+  },
 ];
 
 function isSunset(v: { jobs?: string[]; category: string }): boolean {
@@ -86,14 +162,40 @@ export default async function SunsetPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            Sunset is a west-and-south-coast event in Bali. Uluwatu&apos;s
+            Sunset in Bali is a west-and-south-coast decision. Uluwatu&apos;s
             clifftop bars are the most dramatic, Seminyak and Canggu have the
-            beachfront clubs, and the southern bays do a calmer golden hour. (Sanur
-            faces east — that&apos;s the sunrise coast.) Here are the sunset spots
-            we stand behind, by area.
+            beachfront clubs, and the southern bays do a calmer golden hour. Sanur
+            faces east — that&apos;s the sunrise coast.
           </p>
           <GuideHeroMedia seed="where to watch sunset in bali golden hour coast" />
         </header>
+
+        <section className="guide-section visual-first-choices" aria-labelledby="sunset-style-heading">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="guide-kicker">Choose visually first</p>
+              <h2 id="sunset-style-heading">Pick the sunset mood before the venue</h2>
+            </div>
+            <p>
+              The best sunset choice depends on the evening you want: cliff drama,
+              beach-club comfort, surf-front energy, or a calmer bay. Start here,
+              then open the area with the right feel.
+            </p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-three">
+            {SUNSET_MODES.map((mode) => (
+              <a key={mode.href} href={mode.href} className="visual-choice-card">
+                <SceneImage scene={mode.scene} variant={mode.variant} imgClassName="ob-grade transition duration-700" />
+                <div className="visual-choice-card-copy">
+                  <span>Golden hour</span>
+                  <h3>{mode.title}</h3>
+                  <p>{mode.copy}</p>
+                  <strong>Open this mood →</strong>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
         <section className="guide-section">
           <h2>When to be there</h2>
@@ -117,8 +219,37 @@ export default async function SunsetPage() {
           </p>
         </section>
 
-        {byArea.map((area, index) => (
-          <section key={area.key} className="guide-section">
+        <section className="guide-section" aria-labelledby="sunset-area-heading">
+          <div className="visual-first-heading-row">
+            <div>
+              <p className="guide-kicker">Choose by area</p>
+              <h2 id="sunset-area-heading">The west and south coast options</h2>
+            </div>
+            <p>
+              Sanur and Ubud are not sunset bases. These are the coastlines that
+              make sense when golden hour is the plan.
+            </p>
+          </div>
+          <div className="visual-choice-grid visual-choice-grid-area">
+            {AREA_ORDER.map((area) => {
+              const liveArea = byArea.find((item) => item.key === area.key);
+              return (
+                <a key={area.key} href={`#${area.key}`} className="visual-choice-card visual-choice-card-compact">
+                  <SceneImage scene={area.scene} variant={area.variant} imgClassName="ob-grade transition duration-700" />
+                  <div className="visual-choice-card-copy">
+                    <span>{area.shortLabel}</span>
+                    <h3>{area.name}</h3>
+                    <p>{area.note}</p>
+                    <strong>{liveArea ? `${liveArea.venues.length} places` : "Open area"} →</strong>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+
+        {byArea.map((area) => (
+          <section key={area.key} id={area.key} className="guide-section visual-first-section">
             <div className="flex items-baseline justify-between gap-4">
               <h2>{area.name}</h2>
               {area.pillar ? (
@@ -127,18 +258,35 @@ export default async function SunsetPage() {
                 </Link>
               ) : null}
             </div>
-            <GuideSectionMedia seed={`sunset bali ${area.key} ${area.name}`} index={index + 1} />
+            <GuideSectionMedia seed={`sunset bali ${area.key} ${area.name}`} index={AREA_ORDER.findIndex((item) => item.key === area.key) + 1} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <ul className="mt-3 space-y-2 text-sm">
-              {area.venues.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                    {v.name}
-                  </Link>
-                  {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                </li>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {area.venues.map((venue) => (
+                <article key={venue.slug} className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5 shadow-[var(--shadow-soft)]">
+                  <p className="eyebrow">
+                    {venue.category.replace(/_/g, " ")}
+                    {venue.area ? ` · ${venue.area}` : ""}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl leading-none text-[var(--ink)]">
+                    <Link href={`/places/${venue.slug}`} className="text-inherit no-underline">
+                      {venue.name}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                    {venue.bestFor || venue.whyItsHere || "Open the place page for current details before you go."}
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[var(--line)] pt-3 text-xs font-bold text-[var(--lagoon-strong)]">
+                    {venue.priceAnchor ? <span className="text-[var(--muted)]">{venue.priceAnchor}</span> : null}
+                    {venue.gmapsUrl ? (
+                      <a href={venue.gmapsUrl} target="_blank" rel="noreferrer">
+                        Open in Google Maps
+                      </a>
+                    ) : null}
+                    <Link href={`/places/${venue.slug}`}>View place →</Link>
+                  </div>
+                </article>
               ))}
-            </ul>
+            </div>
           </section>
         ))}
 

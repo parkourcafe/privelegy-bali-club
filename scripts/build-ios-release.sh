@@ -6,7 +6,7 @@ readonly AUTHORIZATION_PHRASE="YES_I_HAVE_ACTION_TIME_AUTHORIZATION"
 readonly TEAM_ID="KB7VPWHTTM"
 readonly BUNDLE_ID="com.otherbali.app"
 readonly VERSION="1.0"
-readonly BUILD_NUMBER="4"
+readonly BUILD_NUMBER="7"
 
 if [[ "${OTHER_BALI_ALLOW_SIGNING:-}" != "${AUTHORIZATION_PHRASE}" ]]; then
   echo "Refusing to sign. Obtain action-time authorization, then set OTHER_BALI_ALLOW_SIGNING=${AUTHORIZATION_PHRASE}." >&2
@@ -67,11 +67,13 @@ fi
 
 mkdir -p "${output_directory}"
 temporary_directory="$(mktemp -d "${TMPDIR:-/tmp}/other-bali-ios-release.XXXXXX")"
+chmod 700 "${temporary_directory}"
 trap 'rm -rf "${temporary_directory}"' EXIT
 archive_path="${temporary_directory}/OtherBali.xcarchive"
 export_path="${temporary_directory}/export"
 
 xcodebuild \
+  -quiet \
   -project ios/App/App.xcodeproj \
   -scheme App \
   -configuration Release \
@@ -88,6 +90,7 @@ xcodebuild \
   archive
 
 xcodebuild \
+  -quiet \
   -exportArchive \
   -archivePath "${archive_path}" \
   -exportPath "${export_path}" \

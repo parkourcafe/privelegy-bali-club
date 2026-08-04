@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import BrandHomeLink from "@/components/BrandHomeLink";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import DecisionRail from "@/components/DecisionRail";
 import PillarMasthead from "@/components/landing/PillarMasthead";
-import { GuideFooter } from "@/components/GuideBlocks";
+import { GuideFooter, RelatedGuides } from "@/components/GuideBlocks";
+import { PILLARS } from "@/lib/pillars";
 
 const canonicalUrl = "https://www.otherbali.com/ubud";
 const reviewDate = "2026-07-23";
@@ -78,6 +81,39 @@ const placeLinks = [
   { href: "/places/zuna-yoga-ubud", label: "Zuna Yoga", category: "Yoga & wellness" },
 ];
 
+const ubudGuideLinks = (PILLARS.find((pillar) => pillar.slug === "ubud")?.children ?? []).map((guide) => ({
+  href: guide.path,
+  title: guide.title,
+  blurb: "Open the focused Ubud planning guide.",
+}));
+
+const visualChoices = [
+  {
+    href: "/ubud-culture-rice-terraces-waterfalls",
+    image: "/scenes/ubud-culture-gateway-illustrative.webp",
+    alt: "Illustrative stone gateway and tropical garden representing Ubud culture and arts mood",
+    label: "Culture & arts",
+    title: "Choose the inland identity",
+    copy: "Start with culture and arts when the trip is about central Bali rather than a coastal base.",
+  },
+  {
+    href: "/ubud/itinerary",
+    image: "/scenes/ubud-greenery-terraces-illustrative.webp",
+    alt: "Illustrative Ubud rice terraces and a narrow path away from the centre",
+    label: "Greenery away",
+    title: "Trade centre access for space",
+    copy: "Use this as a centre-versus-away decision; exact walkability and transport still need verification.",
+  },
+  {
+    href: "/ubud/best-yoga-wellness",
+    image: "/scenes/ubud-river-valley-illustrative.webp",
+    alt: "Illustrative shaded Ubud river valley representing a slow wellness day",
+    label: "Slow day",
+    title: "Make wellness the anchor",
+    copy: "Choose a slower river-and-greenery rhythm, then open verified place profiles for the actual stop.",
+  },
+] as const;
+
 export default function UbudPillarPage() {
   return (
     <main className="site-shell">
@@ -102,6 +138,23 @@ export default function UbudPillarPage() {
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Ubud planning guides">
         {placeLinks.map((item) => <Link key={item.href} href={item.href} className="chip">{item.label}</Link>)}
       </nav>
+
+      <section className="guide-section" aria-labelledby="ubud-visual-choices">
+        <div className="visual-first-heading-row">
+          <div><p className="eyebrow">Choose the shape of the day</p><h2 id="ubud-visual-choices">Start with the Ubud you need</h2></div>
+          <p>These area-mood scenes are illustrative, not photos of named temples, rice fields or retreats. Verified sources and exact place profiles remain the authority for what to visit.</p>
+        </div>
+        <div className="visual-choice-grid visual-choice-grid-three">
+          {visualChoices.map((choice) => (
+            <Link key={choice.href} href={choice.href} className="visual-choice-card">
+              <Image src={choice.image} alt={choice.alt} fill loading="lazy" sizes="(max-width: 759px) 100vw, (max-width: 1199px) 33vw, 360px" className="object-cover transition duration-700" />
+              <div className="visual-choice-card-copy"><span>{choice.label}</span><h3>{choice.title}</h3><p>{choice.copy}</p><strong>Open the guide →</strong></div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <DecisionRail area="ubud" areaLabel="Ubud" />
 
       <section className="guide-section">
         <h2>Start with the trip you want</h2>
@@ -144,10 +197,10 @@ export default function UbudPillarPage() {
       </section>
 
       <section className="guide-section">
-        <h2>Evidence limits</h2>
+        <h2>Before you go</h2>
         <div className="guide-prose">
-          <p>This page does not rank hotels, promise transport conditions or publish fixed travel times. Detailed stay-zone, no-scooter, family and accessibility advice remains on hold until field and Maps checks are complete.</p>
-          <p>Current attraction schedules, prices, venue offers and booking terms should always be checked with the official provider for the date of the visit.</p>
+          <p>Ubud days work best when you plan around distance, traffic and weather. A place that looks close on the map can still take longer than expected.</p>
+          <p>Check current schedules, prices, offers and booking terms with the official provider for the date of your visit.</p>
         </div>
       </section>
 
@@ -162,6 +215,8 @@ export default function UbudPillarPage() {
           ))}
         </div>
       </section>
+
+      <RelatedGuides heading="Ubud planning guides" links={ubudGuideLinks} />
 
       <GuideFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />

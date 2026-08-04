@@ -35,7 +35,6 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/bali-hotel-brunches", label: "Brunches & Buffets" },
       { href: "/best-coffee-in-bali", label: "Specialty Coffee" },
       { href: "/where-to-watch-sunset-in-bali", label: "Bars & Sunset Drinks" },
-      { href: "/collections", label: "Curated Lists" },
     ],
   },
   {
@@ -112,6 +111,17 @@ export const NAV_ACTIONS: NavLink[] = [
   { href: "/places", label: "Explore" },
   { href: "/plan", label: "Plan" },
   { href: "/me", label: "Saved" },
+];
+
+// Secondary operator entrance. Keep this out of the primary category groups so
+// the traveller navigation stays tourist-first, but make the existing
+// /for-venues page findable from the Explore sheets as well as the footer.
+export const NAV_SECONDARY_LINKS: NavLink[] = [
+  {
+    href: "/for-venues",
+    label: "I run a place",
+    blurb: "Request a listing or update your venue page",
+  },
 ];
 
 // Homepage CategoryGateway (spec §6): the four primary category cards plus the

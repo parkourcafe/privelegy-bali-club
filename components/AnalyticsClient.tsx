@@ -5,8 +5,10 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import {
   CONSENT_CHANGE_EVENT,
+  denyAnalyticsUnlessGranted,
+  initializeAnalyticsRuntime,
   readConsent,
-  type ConsentValue,
+  type ConsentState,
 } from "@/lib/consent";
 
 declare global {
@@ -24,7 +26,7 @@ function isPrivatePath(pathname: string): boolean {
 export default function AnalyticsClient({ measurementId }: { measurementId: string }) {
   const pathname = usePathname();
   const lastPage = useRef<string | null>(null);
-  const [consent, setConsentState] = useState<ConsentValue | null>(null);
+  const [consent, setConsentState] = useState<ConsentState>(null);
   const [ready, setReady] = useState(false);
   const isPrivate = isPrivatePath(pathname);
 
@@ -34,15 +36,14 @@ export default function AnalyticsClient({ measurementId }: { measurementId: stri
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsentState(readConsent());
     const onConsentChange = (event: Event) => {
-      setConsentState((event as CustomEvent<ConsentValue>).detail);
+      setConsentState((event as CustomEvent<ConsentState>).detail);
     };
     window.addEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
     return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
   }, []);
 
   useEffect(() => {
-    if (consent === "granted") return;
-    window.gtag?.("consent", "update", { analytics_storage: "denied" });
+    denyAnalyticsUnlessGranted(consent, window.gtag);
   }, [consent]);
 
   useEffect(() => {
@@ -58,16 +59,10 @@ export default function AnalyticsClient({ measurementId }: { measurementId: stri
 
   function initializeAnalytics() {
     window.dataLayer = window.dataLayer ?? [];
-    window.gtag = window.gtag ?? ((...args: unknown[]) => window.dataLayer?.push(args));
-    window.gtag("consent", "default", {
-      analytics_storage: "granted",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-    });
-    window.gtag("js", new Date());
-    window.gtag("config", measurementId, { send_page_view: false });
-    setReady(true);
+    const gtag = window.gtag
+      ?? ((...args: unknown[]) => window.dataLayer?.push(args));
+    window.gtag = gtag;
+    setReady(initializeAnalyticsRuntime(measurementId, gtag));
   }
 
   return (

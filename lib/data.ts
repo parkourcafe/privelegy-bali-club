@@ -31,6 +31,7 @@ import {
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
+import { schemaOpeningHours } from "./opening-hours";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -65,6 +66,8 @@ const PLAN_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
   "tier",
   "status",
   "is_sponsored",
@@ -72,6 +75,7 @@ const PLAN_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  "photo_status",
   "area",
   "why_its_here",
   "best_for",
@@ -94,6 +98,8 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
   "tier",
   "status",
   "is_sponsored",
@@ -101,6 +107,7 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "price_anchor",
   "what_to_order",
   "photo_url",
+  "photo_status",
   // Legacy action fields are deliberately excluded. Public actions may
   // surface only through the fresh, confirmed capability store.
   "area",
@@ -120,12 +127,11 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   // conditional on a non-null value, so nothing is invented (guardrail #10).
   "latitude",
   "longitude",
-  "opening_hours",
   "price_band",
-  // opening_hours_json is the richer source (501 venues vs 240 in the text
-  // column) and is the only one that can express a venue's two services in
-  // a day. phone and full_address complete the LocalBusiness node.
-  "opening_hours_json",
+  // opening_hours / opening_hours_json are already selected above; the jsonb
+  // column is the richer source (501 venues vs 240 in the text column) and
+  // the only one that can express a venue's two services in a day. phone and
+  // full_address complete the LocalBusiness node.
   "phone",
   "full_address",
 ].join(",");
@@ -188,6 +194,13 @@ function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
 
 const mapVenue = (r: Row): Venue => {
   const district = r.district as string;
+  const photoStatus = r.photo_status as string | null;
+  const photoUrl = venuePhotoUrlForDisplay({
+    photoUrl: r.photo_url as string | null,
+    venueStatus: r.status as string | null,
+    publicationStatus: r.publication_status as string | null,
+    photoStatus,
+  });
   return {
     id: r.id as string,
     slug: r.slug as string,
@@ -200,14 +213,19 @@ const mapVenue = (r: Row): Venue => {
     gmapsUrl: publicDirectionsUrl(r),
     officialUrl: (r.official_url as string) ?? undefined,
     instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
+    // Canonical jsonb first. The strict legacy fallback is temporary
+    // compatibility for manually verified data-ops imports.
+    openingHours: schemaOpeningHours(r.opening_hours_json, r.opening_hours),
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
     vibeTags: (r.vibe_tags as string[]) ?? undefined,
     priceAnchor: (r.price_anchor as string) ?? undefined,
     whatToOrder: (r.what_to_order as string) ?? undefined,
-    // Photo Policy v3: photo_url is provisional-by-default (see lib/photo-policy).
-    photoUrl: venuePhotoUrlForDisplay(r.photo_url as string | null),
+    // MEDIA-002 bridge: publication is decided centrally from venue context;
+    // a draft storage prefix is not itself a publication state.
+    photoUrl,
+    photoRightsApproved: Boolean(photoUrl),
     whatsapp: undefined,
     tablepilotSlug: undefined,
     area: (r.area as string) ?? undefined,
@@ -222,7 +240,6 @@ const mapVenue = (r: Row): Venue => {
     lastVerifiedAt: (r.last_verified_at as string) ?? undefined,
     latitude: typeof r.latitude === "number" ? r.latitude : undefined,
     longitude: typeof r.longitude === "number" ? r.longitude : undefined,
-    openingHours: (r.opening_hours as string) ?? undefined,
     priceBand: (r.price_band as string) ?? undefined,
     openingHoursJson: r.opening_hours_json ?? undefined,
     phone: (r.phone as string) ?? undefined,

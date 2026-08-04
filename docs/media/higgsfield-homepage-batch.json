@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-07-24T06:19:50Z",
+  "model_requested": "nano_banana_pro",
+  "model_status_returned_by_jobs": "nano_banana_2",
+  "aspect_ratio": "4:5",
+  "resolution": "2k",
+  "workspace_type": "private",
+  "credits_before": 728.41,
+  "credits_after": 716.41,
+  "credits_spent": 12,
+  "review_status": "approved_for_illustrative_homepage_pilot",
+  "source_url_retention": "omitted_from_repository because the ephemeral CDN path contained an account-scoped segment; job IDs are retained for provenance",
+  "local_delivery": {
+    "format": "webp",
+    "pixel_width": 1440,
+    "pixel_height": 1788,
+    "quality": 72,
+    "files": [
+      { "path": "public/scenes/home-first-day.webp", "bytes": 128902 },
+      { "path": "public/scenes/home-rainy-day.webp", "bytes": 140820 },
+      { "path": "public/scenes/home-romantic.webp", "bytes": 80782 },
+      { "path": "public/scenes/home-sunset.webp", "bytes": 72658 },
+      { "path": "public/scenes/home-trip-lengths.webp", "bytes": 90102 },
+      { "path": "public/scenes/home-with-kids.webp", "bytes": 83936 }
+    ]
+  },
+  "assets": [
+    {
+      "id": "ac5c6e1f-efa4-4d3f-a802-06733591a584",
+      "file_slug": "home-first-day",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-first-day. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: a gentle arrival ritual in an entirely fictional interior setting, with an open linen travel bag, folded abstract map fragments, soft morning window light, a plain cup, and a simple day notebook with completely blank cover and pages. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, calm sophisticated tactile art direction, consistent warm color grade. Strict exclusions: no real named venue, no beach, no hotel or airport claim, no real road, no facility, no menu, no event, no live weather condition, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no recognizable faces, no baked-in text anywhere.",
+      "job_id": "ac5c6e1f-efa4-4d3f-a802-06733591a584",
+      "primary_https_result_url": null,
+      "status": "completed"
+    },
+    {
+      "id": "5173ca20-ac62-4e93-809f-7b7afb043bd6",
+      "file_slug": "home-sunset",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-sunset. Use the provided reference image only for overall style, palette, paper-collage tactility, film grain, and color grade; do not copy its objects or layout. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: an abstract coastal golden-hour decision scene with layered fictional horizon bands, a soft sun disc, two subtle abstract route options, and a tiny faceless human silhouette. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, sophisticated calm tactile art-directed finish. Strict exclusions: no identifiable coast or beach, no real named venue, no hotel, no road, no facility, no menu, no event, no live weather condition, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no recognizable faces, no baked-in text anywhere.",
+      "job_id": "5173ca20-ac62-4e93-809f-7b7afb043bd6",
+      "primary_https_result_url": null,
+      "status": "completed"
+    },
+    {
+      "id": "ef37af54-d33a-4d1b-9843-2ce514989add",
+      "file_slug": "home-with-kids",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-with-kids. Use the provided reference image only for overall style, palette, paper-collage tactility, film grain, and color grade; do not copy its objects or layout. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: a calm low-friction family day concept with simplified graphic family silhouettes, a shaded rest moment, a simple travel bag, and playful abstract paper shapes. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, sophisticated calm tactile art-directed finish. Strict exclusions: no identifiable children, no recognizable faces, no identifiable venue, no pool, no facility, no real named place, no beach claim, no hotel, no menu, no event, no live weather, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no baked-in text anywhere.",
+      "job_id": "ef37af54-d33a-4d1b-9843-2ce514989add",
+      "primary_https_result_url": null,
+      "status": "completed"
+    },
+    {
+      "id": "939211e7-fcba-4b82-bde9-7d25aefc406e",
+      "file_slug": "home-rainy-day",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-rainy-day. Use the provided reference image only for overall style, palette, paper-collage tactility, film grain, and color grade; do not copy its objects or layout. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: a weather-change planning mood with stylized rain on broad fictional tropical leaves, a covered fictional table, a folded abstract route card with no marks or text, and warm indoor light. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, sophisticated calm tactile art-directed finish. Strict exclusions: no live-weather claim, no named place, no real venue, no hotel, no road, no facility, no menu, no event, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no recognizable faces, no baked-in text anywhere.",
+      "job_id": "939211e7-fcba-4b82-bde9-7d25aefc406e",
+      "primary_https_result_url": null,
+      "status": "completed"
+    },
+    {
+      "id": "eb9525ef-e7c8-436a-a140-0dd0634b0e23",
+      "file_slug": "home-romantic",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-romantic. Use the provided reference image only for overall style, palette, paper-collage tactility, film grain, and color grade; do not copy its objects or layout. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: a quiet route for two shown through two empty chairs, soft candle glow, a moonlit abstract horizon, and one delicate connecting route line. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, sophisticated calm tactile art-directed finish. Strict exclusions: no restaurant, no villa, no beach claim, no real named venue, no hotel, no road, no facility, no menu, no event, no live weather, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no recognizable faces, no baked-in text anywhere.",
+      "job_id": "eb9525ef-e7c8-436a-a140-0dd0634b0e23",
+      "primary_https_result_url": null,
+      "status": "completed"
+    },
+    {
+      "id": "4a22f700-0b40-46b7-933d-0266c0f40c81",
+      "file_slug": "home-trip-lengths",
+      "intended_route": "/",
+      "intended_component": "Home DecisionDemo moment card",
+      "classification": "AI_ILLUSTRATIVE_ALLOWED",
+      "public_disclosure": "Illustrative scenario",
+      "exact_prompt": "home-trip-lengths. Use the provided reference image only for overall style, palette, paper-collage tactility, film grain, and color grade; do not copy its objects or layout. Premium travel magazine editorial collage, clearly non-documentary illustrative editorial art, not a photograph. One clear subject: abstract trip planning with three layered route ribbons of different lengths, abstract map fragments, blank luggage tag shapes with no numbers and no words, and a morning-to-sunset color transition. Shared art direction: layered paper and analog film fragments, restrained warm sand, deep lagoon, oxidized coral and ink palette, subtle film grain, elegant negative space, thin abstract route-line graphics, central mobile-safe 4:5 portrait composition, sophisticated calm tactile art-directed finish. Strict exclusions: no real named venue, no beach, no hotel, no road, no facility, no menu, no event, no live weather condition, no landmark, no logos, no words, no captions, no signs, no watermarks, no identifiable businesses, no recognizable faces, no baked-in text anywhere.",
+      "job_id": "4a22f700-0b40-46b7-933d-0266c0f40c81",
+      "primary_https_result_url": null,
+      "status": "completed"
+    }
+  ]
+}

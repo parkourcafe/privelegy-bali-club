@@ -1,5 +1,4 @@
-// Разбор часов работы из venues.opening_hours_json в schema.org
-// OpeningHoursSpecification.
+// Разбор часов работы из venues.opening_hours_json.
 //
 // Формат в базе: {"Monday": ["10.00am-11.00pm"], "Tuesday": [...], …}
 // У части заведений в массиве ДВЕ смены — обед и ужин
@@ -12,10 +11,28 @@
 // это 17:00–23:00, а не «с пяти утра». На этой ошибке уже попался
 // нормализатор унаследованных часов — она не видна на странице, человек
 // просто приезжает к закрытой двери.
+//
+// Модуль отдаёт две формы одних и тех же данных:
+//   • schemaOpeningHours — компактная строка «Mo 07:00-22:00, Tu …»
+//     (venue.openingHours на границе данных);
+//   • buildOpeningHoursSpec — массив OpeningHoursSpecification для разметки
+//     страницы заведения.
+// Парсер у них общий, чтобы две формы не разъехались.
 
 const DAYS = [
-  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+  ["Monday", "Mo"],
+  ["Tuesday", "Tu"],
+  ["Wednesday", "We"],
+  ["Thursday", "Th"],
+  ["Friday", "Fr"],
+  ["Saturday", "Sa"],
+  ["Sunday", "Su"],
 ] as const;
+
+// Унаследованное текстовое поле принимается только в строго нормализованном
+// виде — всё остальное считается непроверенным и не публикуется.
+const SCHEMA_RULE =
+  /^(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))? [0-2]\d:[0-5]\d-[0-2]\d:[0-5]\d(?:, (?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))? [0-2]\d:[0-5]\d-[0-2]\d:[0-5]\d)*$/;
 
 export interface OpeningHoursSpec {
   "@type": "OpeningHoursSpecification";
@@ -33,6 +50,7 @@ function toTime(raw: string, inheritedMeridiem?: string): string | null {
   const minute = Number(m[2] ?? 0);
   const meridiem = m[3] ?? inheritedMeridiem;
   if (meridiem) {
+    if (hour < 1 || hour > 12) return null;
     const pm = meridiem.startsWith("p");
     if (pm && hour !== 12) hour += 12;
     if (!pm && hour === 12) hour = 0;
@@ -62,26 +80,52 @@ export function parseRange(range: string): { opens: string; closes: string } | n
   return { opens, closes: normalisedCloses };
 }
 
+function dayRanges(json: unknown, dayName: string): string[] {
+  if (!json || typeof json !== "object" || Array.isArray(json)) return [];
+  const record = json as Record<string, unknown>;
+  const raw = record[dayName] ?? record[dayName.toLowerCase()];
+  const list = Array.isArray(raw) ? raw : typeof raw === "string" ? [raw] : [];
+  return list.filter(
+    (entry): entry is string => typeof entry === "string" && !/closed/i.test(entry),
+  );
+}
+
 /**
- * Строит массив OpeningHoursSpecification. Неразобранные значения
- * пропускаются молча — отдать неверные часы хуже, чем не отдать никаких
+ * Компактная schema.org-строка часов. Канонический источник — jsonb;
+ * унаследованное текстовое поле принимается только уже нормализованным.
+ */
+export function schemaOpeningHours(
+  jsonValue: unknown,
+  legacyValue?: unknown,
+): string | undefined {
+  const rules: string[] = [];
+  for (const [dayName, dayCode] of DAYS) {
+    for (const entry of dayRanges(jsonValue, dayName)) {
+      const parsed = parseRange(entry);
+      if (parsed) rules.push(`${dayCode} ${parsed.opens}-${parsed.closes}`);
+    }
+  }
+  if (rules.length) return rules.join(", ");
+
+  const legacy = typeof legacyValue === "string" ? legacyValue.trim() : "";
+  return legacy && SCHEMA_RULE.test(legacy) ? legacy : undefined;
+}
+
+/**
+ * Строит массив OpeningHoursSpecification — единственная форма, которая
+ * умеет выразить две смены в один день. Неразобранные значения
+ * пропускаются молча: отдать неверные часы хуже, чем не отдать никаких
  * (гардрейл №10).
  */
 export function buildOpeningHoursSpec(json: unknown): OpeningHoursSpec[] {
-  if (!json || typeof json !== "object" || Array.isArray(json)) return [];
-  const source = json as Record<string, unknown>;
   const out: OpeningHoursSpec[] = [];
-  for (const day of DAYS) {
-    const raw = source[day] ?? source[day.toLowerCase()];
-    const ranges = Array.isArray(raw) ? raw : typeof raw === "string" ? [raw] : [];
-    for (const entry of ranges) {
-      if (typeof entry !== "string") continue;
-      if (/closed/i.test(entry)) continue;
+  for (const [dayName] of DAYS) {
+    for (const entry of dayRanges(json, dayName)) {
       const parsed = parseRange(entry);
       if (!parsed) continue;
       out.push({
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: `https://schema.org/${day}`,
+        dayOfWeek: `https://schema.org/${dayName}`,
         opens: parsed.opens,
         closes: parsed.closes,
       });

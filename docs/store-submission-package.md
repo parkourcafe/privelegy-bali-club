@@ -1,18 +1,19 @@
 # Other Bali 1.0 — store submission package
 
-Date: 2026-07-18
+Date: 2026-07-30
 
-Status: copy and capture plan are ready for owner review. Do not upload these
-materials as a release claim until the exact signed IPA/AAB/APK has passed the
-final device matrix. Store submission and publication require separate owner
-approval.
+Status: listing copy is updated for the current release candidate. Existing
+screenshots and signed-device records belong to an older source and must be
+recaptured. Do not upload these materials as a release claim until the exact
+signed IPA/AAB/APK has passed the final device matrix. Store submission and
+publication require separate owner approval.
 
 ## Canonical product facts
 
 - Product name: **Other Bali**
 - Apple bundle ID / Android application ID: `com.otherbali.app`
-- Apple version: `1.0` (`build 4`)
-- Android version: `1.0.0` (`versionCode 2`)
+- Apple version: `1.0` (`build 6`)
+- Android version: `1.0.0` (`versionCode 4`)
 - Category: Travel
 - Price: Free
 - Current in-app language: English
@@ -20,17 +21,26 @@ approval.
 - Account creation or sign-in: not available and not required
 - Payments, subscriptions, in-app purchases and paid digital goods: none
 - Advertising: none
-- Core product: `Places`, `Routes` and `Saved`
+- Core product: `Discover`, `Today`, `Trip`, `What's On` and `My Bali`
 - Primary website: `https://www.otherbali.com`
 - Support URL: `https://www.otherbali.com/support`
 - Privacy policy URL: `https://www.otherbali.com/privacy`
 - Support email: `support@otherbali.com` — verify inbound delivery before submission
 
-The app provides a resident-curated catalogue of Bali places, public venue
-details and ready-made routes. A user can save place and route summaries on the
-device for later/offline reference, share a place or route with the native
-share sheet, and open an external map or a venue's official website. The app
-does not promise live availability, opening hours, prices or booking inventory.
+The app provides resident-curated Bali places, verified active events when
+available, structured decisions, ready-made routes and an editable personal
+Trip. A user can create a 3/5/7/10-day Trip, move or replace stops, add notes,
+save public place and route summaries for later/offline reference, share a
+public place or ready-made route with the native share sheet, and open an
+external map or official provider page. The app does not promise live
+availability, opening status, prices or booking inventory.
+
+Approved messaging hierarchy: **The right place for the moment you’re in.** is
+the canonical product promise; **Discover Bali together.** is the campaign
+line; **Resident-curated places, routes and plans for every Bali moment.** is
+the product proof; **Less searching. More Bali.** is the outcome. In this
+release, `together` means choosing and sharing with existing travel companions.
+It does not mean friend discovery or social networking.
 
 ## Apple App Store
 
@@ -42,30 +52,38 @@ does not promise live availability, opening hours, prices or booking inventory.
 
 **Subtitle**
 
-`Curated Bali places & routes`
+`Bali places, trips & routes`
 
 **Promotional text**
 
-`Browse resident-curated places and routes around Bali, save useful public summaries for offline reference, and share a place or route from your device.`
+`Discover Bali together. Swipe through resident-curated places, build an editable personal Trip, save place and route summaries offline, and share recommendations.`
 
 **Description**
 
-`Other Bali is a resident-curated guide to places and routes around Bali.`
+`Discover Bali together. Other Bali is a resident-curated decision and planning guide for the moment you are in.`
 
-`Explore cafés, restaurants, warungs, bars, beach clubs, spas and other useful places across the island. Open a place to read a concise public summary, see practical details, and continue to Maps or the venue's official website when available.`
+`Explore cafés, restaurants, warungs, bars, beach clubs, spas and other useful places across the island. Swipe through Discover or use area, company, moment and budget context to narrow the choice.`
 
 `Use Other Bali to:`
 
-`- browse curated places and filter the catalogue by area or category;`
+`- browse or swipe through resident-curated places;`
+`- build a personal Today plan;`
+`- create an empty 3, 5, 7 or 10-day Trip or start from published routes;`
+`- move, replace, skip or remove Trip stops and add private notes;`
+`- see verified active events when the public feed contains them;`
 `- open practical venue details;`
-`- follow ready-made routes and view their stops;`
+`- explore ready-made routes and view their ordered stops;`
 `- save places and routes on your device for later or offline reference;`
 `- share a place or route using your device's share sheet;`
 `- open directions in an external maps app or visit an official venue page.`
 
+`Less searching. More Bali.`
+
 `No account is required. Other Bali contains no subscriptions, in-app purchases, paid digital content or advertising. The current app interface is in English.`
 
 `Venue information is editorial and may change. Confirm time-sensitive details directly with the venue before travelling.`
+
+`Discover Bali together means choosing, planning and sharing with people you already know. The app does not provide user profiles, people search, friend matching, chat, dating or collaborative Trip editing.`
 
 **Keywords**
 
@@ -92,9 +110,11 @@ notes only for version 1.0 updates and later.
 
 `Other Bali is a free, English-language Bali guide. It has no registration, login, subscription, payment, in-app purchase, advertising or paid digital content. No demo account is needed.`
 
-`Review flow: launch the app and allow the Places catalogue to load; open any place; save it; return to Places; open Routes and select a route; save or share it; then open Saved to confirm the locally stored items. Maps and official-site actions intentionally open an external application or browser.`
+`Discover Bali together refers to choosing, planning and sharing recommendations with existing travel companions. The app has no user profiles, friend discovery, people search, messaging, following, chat, dating or collaborative Trip editing.`
 
-`Saved place and route summaries are stored locally on the device and can be opened offline after they have been saved. Venue information is not live inventory and should be confirmed with the venue.`
+`Review flow: launch the app and allow Discover to load; swipe or open a place and save it; add a place to Today; open Trip and start an empty 3-day Trip or create one from published routes; add or move a stop; open a ready-made route and share it; then open My Bali to confirm locally stored items. Maps and official-site actions intentionally open an external application or browser.`
+
+`Saved place and route summaries and the personal Trip are stored locally on the device and remain readable offline. The current mobile app shares public places and ready-made routes, not the user-authored personal Trip. Venue information is not live inventory and should be confirmed with the venue.`
 
 Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPUT REQUIRED]`.
 
@@ -134,35 +154,43 @@ Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPU
 
 **Short description**
 
-`Resident-curated Bali places and routes, saved for offline use.`
+`Resident-curated Bali places, editable trips and offline saves`
 
 **Full description**
 
-`Other Bali is a resident-curated guide to places and routes around Bali.`
+`Discover Bali together. Other Bali is a resident-curated decision and planning guide for the moment you are in.`
 
-`Explore cafés, restaurants, warungs, bars, beach clubs, spas and other useful places across the island. Each place has a concise public summary and practical details, with links to an external maps app or the venue's official website when available.`
+`Explore cafés, restaurants, warungs, bars, beach clubs, spas and other useful places across the island. Swipe through Discover or use area, company, moment and budget context to narrow the choice.`
 
 `With Other Bali you can:`
 
-`• browse curated places by area or category;`
+`• browse or swipe through resident-curated places;`
+`• build a personal Today plan;`
+`• create an empty 3, 5, 7 or 10-day Trip or start from published routes;`
+`• move, replace, skip or remove Trip stops and add private notes;`
+`• see verified active events when the public feed contains them;`
 `• read practical venue summaries;`
 `• explore ready-made routes and their stops;`
 `• save places and routes on your device;`
-`• reopen saved summaries when you are offline;`
+`• reopen saved summaries and your personal Trip when you are offline;`
 `• share a place or route using Android's share sheet;`
 `• open external directions or an official venue page.`
+
+`Less searching. More Bali.`
 
 `No account is required. Other Bali contains no subscriptions, in-app purchases, paid digital content or advertising. The current interface is in English.`
 
 `Venue information may change. Confirm time-sensitive details directly with the venue before travelling.`
 
+`Discover Bali together means choosing, planning and sharing with people you already know. The app has no user profiles, people search, friend matching, chat, dating or collaborative Trip editing.`
+
 **Release name**
 
-`1.0.0 (2)`
+`1.0.0 (4)`
 
 **Release notes**
 
-`First release: curated Bali places, ready-made routes, on-device saves, offline access to saved summaries, sharing and external map links.`
+`First release: Discover, Today, editable 3/5/7/10-day Trips, active events when available, offline saves, sharing and external Maps links.`
 
 ### Google Play review and declarations
 
@@ -179,7 +207,7 @@ Review contact name, phone number and email: `[APP REVIEW CONTACT — OWNER INPU
 - Data safety: copy only the verified classifications from
   `docs/store-privacy-declarations.md`. Reconfirm them against the exact AAB,
   production API/log retention and Play SDK Index before submission.
-- Reviewer note: `Open Places, select a venue, save it, open Routes and select a route, then open Saved. No login or payment is required. Maps and official-site actions leave the app intentionally.`
+- Reviewer note: `Open Discover, select and save a place, add it to Today, create a personal Trip, open and share a ready-made route, then open My Bali. No login or payment is required. Maps and official-site actions leave the app intentionally.`
 
 ### Google Play account gates
 
@@ -207,35 +235,43 @@ The listing may be written in Russian, but it must state clearly that version
 
 **Краткое описание**
 
-`Отобранные места и маршруты по Бали с сохранением для офлайн-доступа.`
+`Места Бали, личный маршрут поездки и сохранения для офлайн-доступа.`
 
 **Подробное описание**
 
-`Other Bali — гид по местам и маршрутам Бали, составленный людьми, которые живут на острове.`
+`Открывайте Бали вместе. Other Bali — гид для выбора мест и планирования поездки, составленный людьми, которые живут на острове.`
 
-`В каталоге собраны кафе, рестораны, варунги, бары, пляжные клубы, спа и другие полезные места. В карточке места можно прочитать краткое описание и практическую информацию, а затем открыть маршрут во внешнем приложении карт или официальный сайт заведения, если ссылка доступна.`
+`В каталоге собраны кафе, рестораны, варунги, бары, пляжные клубы, спа и другие полезные места. Листайте Discover или уточняйте выбор по району, компании, моменту и бюджету.`
 
 `В приложении можно:`
 
-`• просматривать отобранные места по районам и категориям;`
+`• просматривать отобранные места;`
+`• собирать личный план Today;`
+`• создавать личную поездку на 3, 5, 7 или 10 дней с нуля или из готовых маршрутов;`
+`• перемещать, заменять, пропускать и удалять остановки, добавлять личные заметки;`
+`• видеть подтверждённые активные события, когда они есть в ленте;`
 `• читать практические описания мест;`
 `• открывать готовые маршруты и их остановки;`
 `• сохранять места и маршруты на устройстве;`
-`• просматривать сохранённые материалы без подключения к интернету;`
+`• просматривать сохранённые материалы и личный план поездки без подключения к интернету;`
 `• делиться местом или маршрутом через системное меню;`
 `• переходить во внешние карты и на официальные страницы заведений.`
+
+`Меньше поиска. Больше Бали.`
 
 `Регистрация не требуется. В Other Bali нет подписок, встроенных покупок, платного цифрового контента и рекламы. Интерфейс версии 1.0 доступен на английском языке.`
 
 `Информация о заведениях может меняться. Перед поездкой уточняйте актуальные сведения непосредственно у заведения.`
 
+`Фраза «Открывайте Бали вместе» означает выбор, планирование и обмен рекомендациями с людьми, которых вы уже знаете. В приложении нет поиска людей, профилей, чатов, знакомств и совместного редактирования поездки.`
+
 **Что нового в версии 1.0.0**
 
-`Первый выпуск: каталог мест Бали, готовые маршруты, сохранение на устройстве, офлайн-доступ к сохранённым материалам, отправка через системное меню и ссылки на карты.`
+`Первый выпуск: Discover, Today, личная поездка на 3/5/7/10 дней, события, офлайн-сохранения, системное меню и внешние карты.`
 
 **Комментарий модератору**
 
-`Регистрация, тестовый аккаунт и оплата не требуются. Для проверки откройте Places, выберите место и сохраните его; затем откройте Routes, выберите маршрут и перейдите в Saved. Кнопки карт и официального сайта намеренно открывают внешнее приложение или браузер. Интерфейс приложения — английский.`
+`Регистрация, тестовый аккаунт и оплата не требуются. Для проверки откройте Discover, выберите и сохраните место, добавьте его в Today, создайте личную поездку в Trip, откройте готовый маршрут и перейдите в My Bali. Кнопки карт и официального сайта намеренно открывают внешнее приложение или браузер. Интерфейс приложения — английский.`
 
 ### RuStore owner/legal gates
 
@@ -267,18 +303,16 @@ Capture this five-screen narrative on both iPhone and Android. The crop must
 describe what is actually visible; do not claim that controls below the fold
 appear in a top-of-detail screenshot:
 
-1. **Places overview** — a populated catalogue with the app identity and useful
-   area/category context visible.
+1. **Discover** — a populated swipe/list surface with the app identity,
+   `Discover Bali together` campaign line and useful decision context visible.
 2. **Place detail** — a strong representative venue showing its identity,
-   category and stable public detail fields. The overview already demonstrates
-   the open/save actions, so they need not be duplicated in this crop.
-3. **Routes overview** — the list of available curated routes.
-4. **Route detail** — a route title and ordered stop content; the routes
-   overview already demonstrates the open/save action.
-5. **Saved** — at least one genuine saved place or route, demonstrating
-   on-device utility. Showing both is welcome when both remain legible in one
-   authentic viewport; capture online unless the visible offline state is
-   intentional.
+   category and stable public detail fields plus a truthful next action.
+3. **Trip start** — ready-made routes and the genuine 3/5/7/10-day personal
+   Trip creation controls.
+4. **Editable Trip** — a real personal Trip with ordered stops and at least one
+   visible edit control such as move, replace, note, skip or remove.
+5. **My Bali** — genuine saved content and local/offline utility. Capture online
+   unless the visible offline state is intentional.
 
 Optional sixth image, if the store slot and final UI support it: a saved item
 opened while the app shows its genuine offline/cached state.
@@ -308,10 +342,14 @@ debug QA captures as store artwork.
   `store-assets/google-play-feature-graphic-1024x500.png`, `1024 x 500`, using
   the canonical Other Bali identity. Its editable source is stored alongside
   it. Do not add store badges, pricing claims, awards or unreadable screenshots.
-- Store screenshots: both final five-shot sets are present. The iPhone set has
-  clean-Simulator source/capture provenance; the Android set was captured from
-  the exact clean-installed, device-tested RuStore APK. Both are opaque,
-  exact-size PNGs with per-file hashes enforced by the package validator.
+  Suggested accessibility text:
+  `Other Bali logo with the lines Discover Bali together, resident-curated places, routes and plans, and Less searching. More Bali.`
+- Store screenshots: the five historical iPhone and Android files remain only
+  as audit evidence and are marked `stale` in
+  `store-assets/package-manifest.json`. Recapture both five-shot narratives from
+  the current verified source; bind Android images to the exact signed,
+  clean-installed RuStore APK and record iPhone Simulator provenance separately
+  from physical-device/TestFlight QA.
 - Support/privacy URLs: verify both return HTTPS 200 without authentication on
   the day of submission.
 - Legal seller/developer name, copyright holder, App Review contact and store

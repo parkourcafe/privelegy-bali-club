@@ -2,6 +2,7 @@ import type { Venue } from "@/lib/types";
 import PlaceCover from "@/components/PlaceCover";
 import VenueImage from "@/components/VenueImage";
 import { buildTablePilotReservationUrl } from "@/lib/integrations/tablepilot";
+import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import {
   TrackedDirectionLink,
   TrackedPlaceLink,
@@ -26,8 +27,13 @@ export interface PlaceCardData {
   microArea?: string;
   editorialLine?: string;
   bestFor?: string;
+  // Fit context (master §6): WHO/WHEN a place does NOT suit. Never a quality
+  // warning (guardrail #9) — it is the same reviewed `venues.not_for` copy the
+  // detail page already shows, surfaced at the point of choosing.
+  notFor?: string;
   priceBand?: string;
   photoUrl?: string;
+  photoRightsApproved?: boolean;
   isSponsored?: boolean;
   gmapsUrl?: string;
   // Canggu money loop: when set, the card keeps a Reserve secondary CTA —
@@ -41,32 +47,51 @@ export interface PlaceCardData {
 export default function PlaceCard({
   place,
   secondaryAction = "directions",
+  visualFirst = false,
 }: {
   place: PlaceCardData;
   secondaryAction?: "directions" | "none";
+  visualFirst?: boolean;
 }) {
   const href = `/places/${place.slug}`;
+  const tablepilotBaseUrl = safeTablePilotPublicBase({
+    enabled: process.env.NEXT_PUBLIC_TABLEPILOT_ENABLED,
+    vercelEnv: process.env.VERCEL_ENV,
+    configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+  });
   const tablepilotHref = place.coverageMode === "active_deep" && place.tablepilotSlug
     ? buildTablePilotReservationUrl(
         place.tablepilotSlug,
-        process.env.NEXT_PUBLIC_TABLEPILOT_URL,
+        tablepilotBaseUrl,
       )
     : null;
 
   return (
-    <article className="place-card">
-      <div className="place-card-media">
-        {place.photoUrl ? (
-          <VenueImage
-            src={place.photoUrl}
-            alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
-            variant="card"
-            fallback={<PlaceCover name={place.name} category={place.category} />}
-          />
-        ) : (
-          <PlaceCover name={place.name} category={place.category} />
-        )}
-      </div>
+    <article
+      className={`place-card${
+        visualFirst
+          ? place.photoUrl
+            ? " place-card-visual-first"
+            : " place-card-no-media"
+          : ""
+      }`}
+      data-media-led={visualFirst && Boolean(place.photoUrl) ? "true" : undefined}
+    >
+      {(!visualFirst || place.photoUrl) && (
+        <div className="place-card-media">
+          {place.photoUrl ? (
+            <VenueImage
+              src={place.photoUrl}
+              alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
+              variant="card"
+              rightsApproved={place.photoRightsApproved}
+              fallback={<PlaceCover name={place.name} category={place.category} />}
+            />
+          ) : (
+            <PlaceCover name={place.name} category={place.category} />
+          )}
+        </div>
+      )}
 
       <div className="place-card-body">
         <p className="place-card-eyebrow">
@@ -86,15 +111,25 @@ export default function PlaceCard({
           </TrackedPlaceLink>
         </h3>
 
-        {place.editorialLine && (
+        {!visualFirst && place.editorialLine && (
           <p className="place-card-line">{place.editorialLine}</p>
         )}
 
-        {place.bestFor && (
+        {!visualFirst && place.bestFor && (
           <p className="place-card-fit">
             <strong>Best for:</strong> {place.bestFor}
           </p>
         )}
+
+        {!visualFirst && place.notFor && (
+          <p className="place-card-fit place-card-fit-not">
+            <strong>Not for:</strong> {place.notFor}
+          </p>
+        )}
+
+        {visualFirst && (place.bestFor || place.editorialLine) ? (
+          <p className="place-card-line">{place.bestFor || place.editorialLine}</p>
+        ) : null}
 
         <div className="place-card-foot">
           <span className="place-card-price">

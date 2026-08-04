@@ -14,9 +14,11 @@ import Image from "next/image";
 export default function DistrictCover({
   slug,
   gradient,
+  sizes = "(max-width: 640px) 85vw, 320px",
 }: {
   slug: string;
   gradient: string;
+  sizes?: string;
 }) {
   const [failed, setFailed] = useState(false);
   return (
@@ -35,7 +37,7 @@ export default function DistrictCover({
           alt=""
           aria-hidden
           fill
-          sizes="(max-width: 640px) 85vw, 320px"
+          sizes={sizes}
           onError={() => setFailed(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />

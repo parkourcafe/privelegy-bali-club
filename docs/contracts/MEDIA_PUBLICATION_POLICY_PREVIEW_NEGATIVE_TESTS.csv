@@ -1,0 +1,11 @@
+case_id,input_class,expected_policy,result,evidence,notes
+NEG-001,unpublished venue,deny,PASS,lib/photo-policy.test.ts,Source policy test; browser gate blocked
+NEG-002,inactive venue,deny,PASS,lib/photo-policy.test.ts,Source policy test; browser gate blocked
+NEG-003,legacy Supabase host,deny,PASS,lib/photo-policy.test.ts,Source policy test; browser gate blocked
+NEG-004,arbitrary current-bucket object,deny,PASS,lib/photo-policy.test.ts,Venue-bound URL policy
+NEG-005,unsupported host,deny,PASS,lib/photo-policy.test.ts,Source policy test
+NEG-006,invalid or empty URL,deny,PASS,lib/photo-policy.test.ts,Source policy test
+NEG-007,explicit blocked status,deny,PASS,lib/photo-policy.test.ts,Source policy test
+NEG-008,rejected status,deny,PASS,lib/photo-policy.test.ts,Source policy test
+NEG-009,archived/removed status,deny,PASS,lib/photo-policy.test.ts,Hard-block set
+NEG-010,unassigned allowed-bucket object,deny,PASS,lib/photo-policy.test.ts,Exact venue path required

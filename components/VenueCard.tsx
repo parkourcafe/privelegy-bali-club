@@ -45,7 +45,12 @@ export default function VenueCard({
 
   return (
     <article className="venue-card">
-      <VenueVisual name={v.name} category={v.category} photoUrl={v.photoUrl} />
+      <VenueVisual
+        name={v.name}
+        category={v.category}
+        photoUrl={v.photoUrl}
+        photoRightsApproved={v.photoRightsApproved}
+      />
       <div className="venue-card-body">
         <div className="flex items-center gap-2">
           <h3 className="venue-name">

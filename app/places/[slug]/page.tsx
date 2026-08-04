@@ -328,10 +328,11 @@ export default async function VenuePage({
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
     content?.priceBand ?? venue.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
-  // Opening hours: the registry's per-venue override wins, then the venue's
-  // own verified DB value. SCHEMA_HOURS above covers two hand-checked venues
-  // and predates the DB column being read at all.
-  const schemaOpeningHours = SCHEMA_HOURS[slug] ?? venue.openingHours;
+  // Opening hours: the venue's own DB value wins — it is already normalized
+  // to schema.org syntax at the data boundary (lib/opening-hours.ts) and is
+  // the canonical source. SCHEMA_HOURS is a two-venue hand-checked fallback
+  // that predates the DB column being read at all.
+  const schemaOpeningHours = venue.openingHours ?? SCHEMA_HOURS[slug];
   // Per-day hours from opening_hours_json. Preferred over the string form
   // because it is the only representation that can state a venue's two
   // services in one day as two entries instead of one wrong span.
@@ -353,9 +354,8 @@ export default async function VenuePage({
     "@type": venueSchemaType(venue.category),
     name,
     url: `${BASE}/places/${slug}`,
-    // Photo Policy v3 §4/§8: schema/OG image must be owner-approved or licensed —
-    // photo_url is provisional-by-default post-0043, so no image is emitted here
-    // until per-photo statuses exist.
+    // Photo Policy v3 §4/§8: schema/OG image remains conservative even though
+    // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
       ...(content?.address || venue.fullAddress
@@ -482,7 +482,7 @@ export default async function VenuePage({
   });
   const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
   const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
-    content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+    content?.openingHours || venue.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
   );
 
   return (
@@ -491,7 +491,7 @@ export default async function VenuePage({
         {published && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
           />
         )}
         <PageViewTracker event="venue_detail_view" slug={slug} />
@@ -512,9 +512,10 @@ export default async function VenuePage({
             .join(" · ");
           const verdict = heroVerdict;
           return (
-            <header
-              className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
-            >
+            <figure className="venue-masthead-figure">
+              <header
+                className={`venue-masthead ob-grain${venue.photoUrl ? " has-photo" : ` type-cover-${venue.category}`}`}
+              >
               {venue.photoUrl ? (
                 <VenueImage
                   className="venue-masthead-photo"
@@ -522,6 +523,7 @@ export default async function VenuePage({
                   alt={`${name} — ${catLabel}`}
                   variant="hero"
                   priority
+                  rightsApproved={venue.photoRightsApproved}
                 />
               ) : (
                 // Category mood art — atmospheric and decorative, never
@@ -541,8 +543,9 @@ export default async function VenuePage({
                 </p>
                 <h1 className="venue-masthead-title">{name}</h1>
                 {verdict && <p className="venue-masthead-verdict">{verdict}</p>}
-              </div>
-            </header>
+                </div>
+              </header>
+            </figure>
           );
         })()}
 
@@ -605,20 +608,23 @@ export default async function VenuePage({
               />
             )}
 
+            {/* Provider handoff belongs before deep details: choose → act →
+                read menu only if needed. */}
+            <VenueActionBar {...actionSlotProps} />
+
             {/* Menu — rendered only when there is something real to show
-                (verified menu or an official source). No big empty-state box
-                on the 80% of venues without menu data. */}
+                (verified menu or an official source). It is intentionally after
+                quick decision/practical/action so the place page stays a
+                micro-decision, not a menu database first. */}
             {!hotelFixtureMode && (menu || menuUrl) && (
               <section className="guide-section" aria-labelledby="menu-heading">
                 <h2 id="menu-heading">Menu</h2>
-                <p className="guide-lede">Verified details when we have them; otherwise, the clearest official source available.</p>
+                <p className="guide-lede">Use this for the latest menu details we can show here; when the menu changes often, open the official source before you go.</p>
                 <div className="mt-4">
                   <StructuredMenu menu={menu} venueSlug={venue.slug} officialMenuUrl={menuUrl} />
                 </div>
               </section>
             )}
-
-            <VenueActionBar {...actionSlotProps} />
 
             {/* Confirmed offer (active_deep district only — guardrail #4) */}
             {venue.perk && (
@@ -689,6 +695,7 @@ export default async function VenuePage({
                           bestFor: sc?.bestFor ?? s.bestFor,
                           priceBand: sc?.priceBand ?? undefined,
                           photoUrl: s.photoUrl,
+                          photoRightsApproved: s.photoRightsApproved,
                           isSponsored: s.isSponsored,
                           gmapsUrl: s.gmapsUrl,
                           tablepilotSlug: undefined,
@@ -747,10 +754,10 @@ export default async function VenuePage({
                     <dd>{content?.address ?? venue.address}</dd>
                   </div>
                 )}
-                {content?.openingHours && (
+                {(content?.openingHours ?? venue.openingHours) && (
                   <div>
                     <dt>Hours</dt>
-                    <dd>{content.openingHours}</dd>
+                    <dd>{content?.openingHours ?? venue.openingHours}</dd>
                   </div>
                 )}
                 {spend && (

@@ -38,12 +38,13 @@ test("homepage exposes approved scenario routes without creating a parallel syst
     ["With kids", "/bali-with-kids"],
     ["Rainy day", "/bali-rainy-day"],
     ["Romantic", "/romantic-bali"],
-    ["Plan 3 / 5 / 7 days", "/plan"],
+    ["Plan 3 / 5 / 7 days", "/how-many-days-in-bali"],
   ];
 
   for (const [label, href] of required) {
     assert.match(homepageConfigSource, new RegExp(`label: "${escapeRegExp(label)}"[\\s\\S]{0,220}href: "${escapeRegExp(href)}"`));
   }
+  assert.match(homepageConfigSource, /secondaryCta: \{ id: "hero_plan", label: "Plan my trip", href: "\/plan" \}/);
   assert.doesNotMatch(homeSource, /DayIntentBuilder/);
 });
 
@@ -64,11 +65,14 @@ test("homepage does not advertise the frozen paid-arrival model or Canggu-first 
     assert.ok(!homeSource.toLowerCase().includes(claim.toLowerCase()), `remove frozen/global-centre claim: ${claim}`);
   }
 
-  assert.match(homepageConfigSource, /No sponsored homepage ranking/);
+  assert.match(homepageConfigSource, /No paid ranking/);
 });
 
 test("mobile consent actions stay above the persistent bottom navigation", () => {
   assert.match(mobileNavCss, /@media \(min-width: 1360px\) \{ \.ob-mobile-nav \{ display: none; \} \}/);
   assert.match(consentSource, /bottom-\[calc\(56px\+env\(safe-area-inset-bottom,0px\)\)\]/);
   assert.match(consentSource, /min-\[1360px\]:bottom-0/);
+  assert.match(consentSource, /pointer-events-none/);
+  assert.match(consentSource, /pointer-events-auto/);
+  assert.doesNotMatch(consentSource, /fixed inset-0 z-40/);
 });

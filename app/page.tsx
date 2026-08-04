@@ -18,13 +18,13 @@ import { DISTRICT_GRADIENT } from "@/lib/districts";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Other Bali — Curated Places, Routes & Trip Plans",
+  title: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
     url: "https://www.otherbali.com/",
     siteName: "Other Bali",
     locale: "en_US",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The right Bali for the moment you’re in.",
-    description: "Curated places, routes and practical plans for your Bali day or trip.",
+    description: "Discover Bali together with resident-curated places, routes and practical plans.",
   },
 };
 
@@ -42,9 +42,9 @@ const HOME_JSON_LD = {
   "@type": "WebPage",
   "@id": "https://www.otherbali.com/#homepage",
   url: "https://www.otherbali.com/",
-  name: "Other Bali — Curated Places, Routes & Trip Plans",
+  name: "Other Bali — Discover Bali Together",
   description:
-    "Find curated places, routes and practical trip plans across Bali, with clear guidance on what fits your day or trip.",
+    "Discover Bali together with resident-curated places, routes and practical plans for every moment.",
   isPartOf: { "@id": "https://www.otherbali.com/#website" },
   inLanguage: "en",
 };
@@ -59,32 +59,32 @@ const AREA_DISTRICT_SLUG: Record<string, string> = {
 };
 
 const MOMENT_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_day: { scene: "moment-morning", variant: "ridge" },
-  sunset: { scene: "moment-goldenhour", variant: "sunset" },
-  with_kids: { scene: "moment-warung", variant: "surf" },
-  rainy_day: { scene: "moment-morning", variant: "ridge" },
-  romantic: { scene: "moment-dinner", variant: "night" },
-  trip_lengths: { scene: "hero-sunset", variant: "sunset" },
+  first_day: { scene: "home-bali-first-day", variant: "ridge" },
+  sunset: { scene: "home-bali-sunset", variant: "sunset" },
+  with_kids: { scene: "home-bali-with-kids", variant: "surf" },
+  rainy_day: { scene: "home-bali-rainy-day", variant: "ridge" },
+  romantic: { scene: "home-bali-romantic", variant: "night" },
+  trip_lengths: { scene: "home-bali-trip-lengths", variant: "sunset" },
 };
 
 const PLAN_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  first_trip: { scene: "moment-morning", variant: "ridge" },
-  bali_3_days: { scene: "hero-sunset", variant: "sunset" },
-  bali_5_days: { scene: "moment-goldenhour", variant: "sunset" },
-  without_scooter: { scene: "moment-morning", variant: "ridge" },
-  with_kids_plan: { scene: "moment-warung", variant: "surf" },
+  first_trip: { scene: "plan-route-first-day", variant: "ridge" },
+  bali_3_days: { scene: "plan-route-canggu-food", variant: "sunset" },
+  bali_5_days: { scene: "plan-route-ubud-culture", variant: "ridge" },
+  without_scooter: { scene: "plan-route-cafe-work", variant: "night" },
+  with_kids_plan: { scene: "plan-route-bangli-temple-village", variant: "surf" },
 };
 
 const CATEGORY_SCENE: Record<string, { scene: string; variant: "sunset" | "ridge" | "surf" | "night" }> = {
-  eat_drink: { scene: "moment-warung", variant: "surf" },
-  beach_pool: { scene: "moment-goldenhour", variant: "sunset" },
-  wellness: { scene: "moment-morning", variant: "ridge" },
-  things_to_do: { scene: "hero-sunset", variant: "sunset" },
+  eat_drink: { scene: "canggu-restaurants-illustrative", variant: "surf" },
+  beach_pool: { scene: "seminyak-sunset-beach-illustrative", variant: "sunset" },
+  wellness: { scene: "canggu-spas-illustrative", variant: "ridge" },
+  things_to_do: { scene: "ubud-greenery-terraces-illustrative", variant: "night" },
 };
 
 function CardGrid({ items }: { items: HomeLinkItem[] }) {
   return (
-    <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, index) => {
         const scene = MOMENT_SCENE[item.id];
         return (
@@ -95,27 +95,24 @@ function CardGrid({ items }: { items: HomeLinkItem[] }) {
             itemId={item.id}
             itemKind={item.kind}
             position={index + 1}
-            className="group flex min-h-64 overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white text-[#2b1a13] shadow-sm transition hover:-translate-y-0.5 hover:border-[#005962]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+            className="group relative aspect-[4/5] min-h-[26rem] overflow-hidden rounded-[2rem] border border-[#d8c7b0] bg-[#2b1a13] text-white shadow-[0_18px_55px_rgba(43,26,19,0.12)] transition duration-500 hover:-translate-y-1 hover:border-[#f1c987]/70 hover:shadow-[0_24px_70px_rgba(43,26,19,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
           >
-            <span className="flex w-full flex-col">
-              <span className="relative block min-h-32 overflow-hidden bg-[#2b1a13]">
-                {scene ? (
-                  <SceneImage
-                    scene={scene.scene}
-                    variant={scene.variant}
-                    imgClassName="transition duration-700 group-hover:scale-105"
-                  />
-                ) : null}
-                <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+            {scene ? (
+              <SceneImage
+                scene={scene.scene}
+                variant={scene.variant}
+                sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) 50vw, 33vw"
+                imgClassName="ob-grade transition duration-1000 group-hover:scale-[1.035]"
+              />
+            ) : null}
+            <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/5" />
+            <span className="absolute inset-x-0 bottom-0 flex min-h-[20%] items-end justify-between gap-4 p-4 sm:p-5">
+              <span className="max-w-[84%]">
+                <span className="block font-display text-2xl leading-none">{item.label}</span>
+                {item.body ? <span className="mt-2 block text-sm leading-snug text-white/82">{item.body}</span> : null}
               </span>
-              <span className="flex flex-1 flex-col justify-between p-5">
-                <span>
-                  <span className="block font-display text-xl leading-tight">{item.label}</span>
-                  {item.body ? <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{item.body}</span> : null}
-                </span>
-                <span className="mt-5 text-sm font-semibold text-[#005962]" aria-hidden="true">
-                  {item.ctaLabel ?? `View ${item.label}`} →
-                </span>
+              <span className="mb-1 grid size-11 shrink-0 place-items-center rounded-full border border-white/45 bg-white/10 text-lg transition group-hover:border-white group-hover:bg-white group-hover:text-[#2b1a13]" aria-hidden="true">
+                →
               </span>
             </span>
           </HomeAnalyticsLink>
@@ -160,18 +157,18 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(HOME_JSON_LD) }}
       />
       <main data-page-shell="landing" className="bg-[#f7f0e7] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] text-[#2b1a13] min-[1360px]:pb-0">
-        <section className="relative overflow-hidden border-b border-[#e4d8c8] bg-[#2b1a13] text-white">
+        <section className="relative min-h-[72svh] overflow-hidden border-b border-[#e4d8c8] bg-[#2b1a13] text-white">
           <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade ob-kenburns" />
           <HeroLoop src="/scenes/hero-loop.mp4" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#2b1a13]/85 to-transparent" />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 pb-14 pt-8 sm:gap-10 sm:py-16 lg:min-h-[68svh] lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
-            <div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/24 to-black/5" />
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#2b1a13]/88 via-[#2b1a13]/20 to-transparent" />
+          <div className="relative mx-auto flex min-h-[72svh] max-w-6xl items-end px-5 pb-14 pt-24 sm:pb-16 lg:pb-20">
+            <div className="max-w-[46rem]">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#f1c987]">{HOME_HERO.eyebrow}</p>
-              <h1 className="mt-4 max-w-3xl font-display text-3xl font-normal leading-[1.05] tracking-tight sm:text-6xl lg:mt-5 lg:text-7xl">
+              <h1 className="mt-4 font-display text-4xl font-normal leading-[0.98] tracking-tight sm:text-6xl lg:mt-5 lg:text-7xl">
                 {HOME_HERO.h1}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-white/88 sm:mt-6 sm:text-xl">
                 {HOME_HERO.body}
               </p>
               <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
@@ -195,29 +192,16 @@ export default function HomePage() {
                 >
                   {HOME_HERO.secondaryCta.label}
                 </HomeAnalyticsLink>
-              </div>
-            </div>
-            <div className="hidden rounded-[2rem] border border-white/25 bg-white/90 p-5 text-[#2b1a13] shadow-xl shadow-[#2b1a13]/20 backdrop-blur sm:block">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8a6b3e]">Start with your situation</p>
-              <h2 className="mt-3 font-display text-3xl leading-tight">A short choice beats an endless list.</h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#4d4036]">
-                Pick the kind of day or trip you need. Other Bali points you to a useful page, route or category that already exists.
-              </p>
-              <div className="mt-5 grid gap-2">
-                {HOME_MOMENTS.slice(0, 3).map((item, index) => (
-                  <HomeAnalyticsLink
-                    key={item.id}
-                    href={item.href}
-                    sectionId={item.sectionId}
-                    itemId={item.id}
-                    itemKind={item.kind}
-                    position={index + 1}
-                    className="flex min-h-12 items-center justify-between rounded-2xl border border-[#e4d8c8] bg-[#faf7f1] px-4 text-sm font-semibold transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-                  >
-                    <span>{item.label}</span>
-                    <span aria-hidden="true">→</span>
-                  </HomeAnalyticsLink>
-                ))}
+                <HomeAnalyticsLink
+                  href="/together"
+                  sectionId="home_hero"
+                  itemId="hero_together"
+                  itemKind="cta"
+                  position={3}
+                  className="inline-flex min-h-12 items-center rounded-full border border-[#f1c987]/70 bg-[#f1c987]/12 px-5 text-sm font-semibold text-[#f1c987] transition hover:bg-[#f1c987]/22 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f1c987] sm:px-6 sm:text-base"
+                >
+                  Discover Bali together
+                </HomeAnalyticsLink>
               </div>
             </div>
           </div>
@@ -228,7 +212,7 @@ export default function HomePage() {
           <h2 id="moments-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
             What do you want to do?
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#44352b]">Start with the kind of day you want.</p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#44352b]">Choose your situation. Open one useful route, guide or plan.</p>
           <CardGrid items={HOME_MOMENTS} />
         </section>
 
@@ -294,26 +278,24 @@ export default function HomePage() {
                       itemId={plan.id}
                       itemKind={plan.kind}
                       position={index + 1}
-                      className="group overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+                      className="group relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-white transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:aspect-[4/3]"
                     >
-                      <span className="relative block min-h-24 overflow-hidden bg-[#2b1a13]">
-                        {PLAN_SCENE[plan.id] ? (
-                          <SceneImage
-                            scene={PLAN_SCENE[plan.id].scene}
-                            variant={PLAN_SCENE[plan.id].variant}
-                            imgClassName="transition duration-700 group-hover:scale-105"
-                          />
-                        ) : (
-                          <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
-                        )}
-                        <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-                      </span>
-                      <span className="flex items-start justify-between gap-3 p-5">
-                        <span>
-                          <span className="block font-display text-xl">{plan.label}</span>
-                          <span className="mt-2 block text-sm leading-relaxed text-[#4d4036]">{plan.body}</span>
+                      {PLAN_SCENE[plan.id] ? (
+                        <SceneImage
+                          scene={PLAN_SCENE[plan.id].scene}
+                          variant={PLAN_SCENE[plan.id].variant}
+                          imgClassName="transition duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <SceneImage scene="hero-sunset" variant="sunset" imgClassName="transition duration-700 group-hover:scale-105" />
+                      )}
+                      <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/20 to-transparent" />
+                      <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                        <span className="min-w-0">
+                          <span className="block font-display text-xl leading-tight">{plan.label}</span>
+                          <span className="mt-1 block text-sm leading-snug text-white/85">{plan.body}</span>
                         </span>
-                        <span className="text-[#005962]" aria-hidden="true">→</span>
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-black/20 text-white" aria-hidden="true">→</span>
                       </span>
                     </HomeAnalyticsLink>
                   ))}
@@ -329,7 +311,7 @@ export default function HomePage() {
 
         <section aria-labelledby="categories-title" className="relative overflow-hidden border-y border-[#e4d8c8] bg-[#fffaf3]">
           <div className="pointer-events-none absolute inset-0 opacity-25">
-            <SceneImage scene="moment-warung" variant="surf" imgClassName="blur-sm scale-105" />
+            <SceneImage scene="canggu-area-echo-beach" variant="surf" imgClassName="blur-sm scale-105" />
           </div>
           <div className="absolute inset-0 bg-[#fffaf3]/85" />
           <div className="relative mx-auto max-w-6xl px-5 py-16 sm:py-20">
@@ -341,65 +323,69 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section aria-labelledby="canggu-title" className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:py-20 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Canggu deep guide</p>
+        <section aria-labelledby="canggu-title" className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#005962]">Explore an area</p>
             <h2 id="canggu-title" className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-              Canggu has the deepest active guidance right now.
+              Start with Canggu, or compare it with the rest of Bali.
             </h2>
           </div>
-          <div className="overflow-hidden rounded-[2rem] border border-[#e4d8c8] bg-white shadow-sm">
-            <div className="relative min-h-52 overflow-hidden bg-[#2b1a13]">
-              <DistrictCover slug="canggu" gradient={DISTRICT_GRADIENT.canggu} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-            </div>
-            <div className="p-6 sm:p-8">
-              <p className="text-base leading-relaxed text-[#44352b]">
-                Use Canggu for denser local scenarios, routes, decision-ready places and confirmed venue actions. The rest of Bali still keeps useful planning pages and published venue cards where the data passes the current rules.
-              </p>
-              {/* In-prose links to the deep Canggu pages. Internal links are the
-                  one kind of link this site reliably has, and the homepage holds
-                  most of its weight — these pages had none of it. Kept as
-                  sentences, not a menu, so the anchor text says what the page is. */}
-              <p className="mt-4 text-base leading-relaxed text-[#44352b]">
-                Landing this week? The{" "}
-                <Link href="/route/first-day" className="font-semibold text-[#005962] underline underline-offset-4">
-                  Canggu first-day route
-                </Link>{" "}
-                is the soft version. Working from here, start with{" "}
-                <Link href="/canggu/work-friendly-cafes" className="font-semibold text-[#005962] underline underline-offset-4">
-                  work-friendly cafés in Canggu
-                </Link>
-                ; for a slow morning instead, see{" "}
-                <Link href="/canggu/best-brunch" className="font-semibold text-[#005962] underline underline-offset-4">
-                  where to have brunch in Canggu
-                </Link>
-                .
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-              <HomeAnalyticsLink
-                href="/canggu"
-                sectionId="home_canggu"
-                itemId="canggu_deep"
-                itemKind="cta"
-                position={1}
-                className="inline-flex min-h-12 items-center rounded-full bg-[#005962] px-5 font-semibold text-white transition hover:bg-[#003f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-              >
-                Open the Canggu guide
-              </HomeAnalyticsLink>
-              <HomeAnalyticsLink
-                href="/canggu-first-day"
-                sectionId="home_canggu"
-                itemId="canggu_first_day"
-                itemKind="cta"
-                position={2}
-                className="inline-flex min-h-12 items-center rounded-full border border-[#cdbfab] px-5 font-semibold text-[#2b1a13] transition hover:border-[#005962]/50 hover:text-[#005962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
-              >
-                Start with Canggu now
-              </HomeAnalyticsLink>
-              </div>
-            </div>
+          <HomeAnalyticsLink
+            href="/canggu"
+            sectionId="home_canggu"
+            itemId="canggu_deep"
+            itemKind="cta"
+            position={1}
+            className="group relative mt-8 block aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#e4d8c8] bg-[#2b1a13] text-white shadow-sm transition hover:border-[#005962]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962] sm:aspect-video lg:aspect-[5/2]"
+          >
+            <SceneImage
+              scene="canggu-hero-illustrative"
+              variant="sunset"
+              sizes="(max-width: 640px) calc(100vw - 2.5rem), 1120px"
+            />
+            <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
+            <span data-media-copy className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+              <span className="min-w-0">
+                <span className="block font-display text-2xl leading-tight">Open Canggu</span>
+                <span className="mt-1 block text-sm leading-snug text-white/85">Routes, places and verified actions.</span>
+              </span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-black/20 text-white" aria-hidden="true">→</span>
+            </span>
+          </HomeAnalyticsLink>
+          <div className="mt-4 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+            <p className="max-w-3xl text-sm leading-relaxed text-[#44352b]">
+              Canggu has the densest local guidance; the rest of Bali remains available where published data passes the same rules.
+            </p>
+            <HomeAnalyticsLink
+              href="/canggu-first-day"
+              sectionId="home_canggu"
+              itemId="canggu_first_day"
+              itemKind="cta"
+              position={2}
+              className="inline-flex min-h-11 shrink-0 items-center font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]"
+            >
+              Start with Canggu now →
+            </HomeAnalyticsLink>
           </div>
+          {/* In-prose links to the deep Canggu pages. Internal links are the
+              one kind of link this site reliably has, and the homepage holds
+              most of its weight — these pages had none of it. Kept as
+              sentences, not a menu, so the anchor text says what the page is. */}
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#44352b]">
+            Landing this week? The{" "}
+            <Link href="/route/first-day" className="font-semibold text-[#005962] underline underline-offset-4">
+              Canggu first-day route
+            </Link>{" "}
+            is the soft version. Working from here, start with{" "}
+            <Link href="/canggu/work-friendly-cafes" className="font-semibold text-[#005962] underline underline-offset-4">
+              work-friendly cafés in Canggu
+            </Link>
+            ; for a slow morning instead, see{" "}
+            <Link href="/canggu/best-brunch" className="font-semibold text-[#005962] underline underline-offset-4">
+              where to have brunch in Canggu
+            </Link>
+            .
+          </p>
         </section>
 
         <section aria-labelledby="trust-title" className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:py-20 lg:grid-cols-[1fr_0.9fr]">
@@ -413,14 +399,20 @@ export default function HomePage() {
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
               {HOME_TRUST_PRINCIPLES.map((principle, index) => {
-                const scene = [MOMENT_SCENE.first_day, CATEGORY_SCENE.beach_pool, CATEGORY_SCENE.things_to_do][index] ?? MOMENT_SCENE.first_day;
+                const scene = [
+                  { scene: "plan-route-east-bali-heritage", variant: "ridge" as const },
+                  { scene: "guide-tanah-lot-sunset", variant: "sunset" as const },
+                  { scene: "plan-route-sunset-run", variant: "night" as const },
+                ][index] ?? { scene: "home-bali-trip-lengths", variant: "sunset" as const };
                 return (
-                  <li key={principle} className="overflow-hidden rounded-3xl border border-[#e4d8c8] bg-white text-sm font-semibold">
-                    <span className="relative block min-h-20 overflow-hidden bg-[#2b1a13]">
-                      <SceneImage scene={scene.scene} variant={scene.variant} />
-                      <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-                    </span>
-                    <span className="block p-5">{principle}</span>
+                  <li key={principle} className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-[#e4d8c8] bg-[#2b1a13] text-sm font-semibold text-white sm:aspect-[4/5]">
+                    <SceneImage
+                      scene={scene.scene}
+                      variant={scene.variant}
+                      sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) 33vw, 181px"
+                    />
+                    <span className="absolute inset-0 bg-gradient-to-t from-[#130c08] via-[#130c08]/15 to-transparent" />
+                    <span data-media-copy className="absolute inset-x-0 bottom-0 block p-3 text-xs">{principle}</span>
                   </li>
                 );
               })}
@@ -428,7 +420,12 @@ export default function HomePage() {
           </div>
           <div className="relative overflow-hidden rounded-[2rem] bg-[#005962] p-6 text-white sm:p-8">
             <div className="absolute inset-0 opacity-25" aria-hidden="true">
-              <SceneImage scene="moment-dinner" variant="night" imgClassName="ob-grade" />
+              <SceneImage
+                scene="moment-dinner"
+                variant="night"
+                sizes="(max-width: 1023px) calc(100vw - 2.5rem), 512px"
+                imgClassName="ob-grade"
+              />
             </div>
             <div className="absolute inset-0 bg-[#005962]/80" aria-hidden="true" />
             <div className="relative">

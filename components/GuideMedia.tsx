@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import HeroLoop from "@/components/landing/HeroLoop";
 import SceneImage from "@/components/landing/SceneImage";
 
@@ -31,20 +33,56 @@ function videoFor(seed: string) {
 export function GuideHeroMedia({ seed }: { seed: string }) {
   const scene = sceneFor(seed);
   return (
-    <div className="guide-media guide-media-hero" aria-hidden="true">
+    <figure className="guide-media guide-media-hero">
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="ob-grade ob-kenburns" />
       <HeroLoop src={videoFor(seed)} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-    </div>
+    </figure>
   );
 }
 
-export function GuideSectionMedia({ seed, index }: { seed: string; index: number }) {
+export function GuideSectionMedia({
+  seed,
+  index,
+  src,
+  heading,
+  support,
+  actionHref,
+  actionLabel,
+}: {
+  seed: string;
+  index: number;
+  src?: string;
+  heading?: string;
+  support?: string;
+  actionHref?: string;
+  actionLabel?: string;
+}) {
   const scene = sceneFor(seed, index * 17);
+  if (src && heading) {
+    return (
+      <figure className="guide-media guide-media-decision">
+        <Image
+          src={src}
+          alt=""
+          fill
+          loading="lazy"
+          sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1280px) calc(100vw - 4rem), 1120px"
+          className="object-cover ob-grade"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/5" />
+        <div className="guide-media-decision-copy">
+          <h2>{heading}</h2>
+          {support ? <p>{support}</p> : null}
+          {actionHref && actionLabel ? <Link href={actionHref}>{actionLabel}</Link> : null}
+        </div>
+      </figure>
+    );
+  }
   return (
-    <div className="guide-media guide-media-inline" aria-hidden="true">
+    <figure className="guide-media guide-media-inline">
       <SceneImage scene={scene.scene} variant={scene.variant} imgClassName="transition duration-700" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-    </div>
+    </figure>
   );
 }

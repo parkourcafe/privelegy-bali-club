@@ -10,10 +10,21 @@ const BUNDLE_ID = "com.otherbali.app";
 const CANONICAL_ORIGIN = "https://www.otherbali.com";
 const EXPECTED_COLLECTED_DATA_TYPES = [
   "NSPrivacyCollectedDataTypeCoarseLocation",
+  "NSPrivacyCollectedDataTypeDeviceID",
   "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+  "NSPrivacyCollectedDataTypeOtherUserContent",
   "NSPrivacyCollectedDataTypeProductInteraction",
 ];
 const execFileAsync = promisify(execFile);
+const IOS_VENDOR_MODULE_PATTERN =
+  /\b(?:MapboxCommon|MapboxCoreMaps|MapboxMaps|MapboxNavigation[A-Za-z0-9_]*|MapboxDirections|Turf)\b/i;
+const IOS_VENDOR_BINARY_PATTERN =
+  /(?:MapboxCommon|MapboxCoreMaps|MapboxMaps|MapboxNavigation[A-Za-z0-9_]*|MapboxDirections|Turf)/i;
+const IOS_VENDOR_PACKAGE_PATTERN = /(?:^|[/._-])(?:mapbox|turf)(?:[/._-]|$)/i;
+const IOS_VENDOR_ARTIFACT_SEGMENT_PATTERN =
+  /^(?:Mapbox(?:Common|CoreMaps|Maps|Navigation[A-Za-z0-9_]*|Directions)|Turf)(?:[.-][^/]*)?(?:\.framework|\.bundle|\.xcprivacy)?$/i;
+const IOS_MAP_TOKEN_PATTERN =
+  /\b(?:MBXAccessToken|MAPBOX_ACCESS_TOKEN)\b|\bpk\.[A-Za-z0-9._-]{20,}\b/;
 
 async function exists(file) {
   try {
@@ -74,16 +85,19 @@ async function textFiles(directory) {
 }
 
 async function bundleEvidence(directory, root = directory) {
-  if (!(await exists(directory))) return { manifests: [], frameworks: [] };
+  if (!(await exists(directory))) return { manifests: [], frameworks: [], bundles: [] };
   const manifests = [];
   const frameworks = [];
+  const bundles = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const target = path.join(directory, entry.name);
     if (entry.isDirectory()) {
       if (entry.name.endsWith(".framework")) frameworks.push(path.relative(root, target));
+      if (entry.name.endsWith(".bundle")) bundles.push(path.relative(root, target));
       const nested = await bundleEvidence(target, root);
       manifests.push(...nested.manifests);
       frameworks.push(...nested.frameworks);
+      bundles.push(...nested.bundles);
     } else if (entry.name.endsWith(".xcprivacy")) {
       const metadata = await stat(target);
       manifests.push({ path: path.relative(root, target), bytes: metadata.size });
@@ -92,7 +106,138 @@ async function bundleEvidence(directory, root = directory) {
   return {
     manifests: manifests.sort((left, right) => left.path.localeCompare(right.path)),
     frameworks: [...new Set(frameworks)].sort(),
+    bundles: [...new Set(bundles)].sort(),
   };
+}
+
+function containsVendorArtifactPath(value) {
+  return String(value)
+    .split(/[\\/]/)
+    .some((segment) => IOS_VENDOR_ARTIFACT_SEGMENT_PATTERN.test(segment));
+}
+
+export function iosMapSdkSourceFailures({
+  pluginPackage = "",
+  pluginSource = "",
+  infoPlist = "",
+  packageResolution = "",
+  syncedPackage = "",
+  releaseScript = "",
+  releaseVerifier = "",
+} = {}) {
+  const failures = [];
+
+  if (
+    /github\.com\/mapbox\//i.test(pluginPackage)
+    || /\.product\s*\(\s*name:\s*"(?:Mapbox[^"]*|Turf)"/i.test(pluginPackage)
+  ) {
+    failures.push("iOS offline bridge package still depends on a Mapbox or Turf product");
+  }
+  if (
+    /^\s*import\s+(?:Mapbox[A-Za-z0-9_]*|Turf)\b/im.test(pluginSource)
+    || IOS_VENDOR_MODULE_PATTERN.test(pluginSource)
+  ) {
+    failures.push("iOS offline bridge source still imports or references a Mapbox or Turf SDK module");
+  }
+  for (const [label, contents] of [
+    ["iOS offline bridge source", pluginSource],
+    ["iOS Info.plist", infoPlist],
+    ["iOS signed release script", releaseScript],
+    ["iOS release verifier", releaseVerifier],
+  ]) {
+    if (IOS_MAP_TOKEN_PATTERN.test(contents)) {
+      failures.push(`${label} still contains Mapbox access-token plumbing`);
+    }
+  }
+
+  if (
+    !/\.package\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*path:\s*"\.\.\/\.\.\/\.\.\/plugins\/offline-mapbox"\s*\)/.test(syncedPackage)
+    || !/\.product\s*\(\s*name:\s*"OtherBaliOfflineMapbox"\s*,\s*package:\s*"OtherBaliOfflineMapbox"\s*\)/.test(syncedPackage)
+  ) {
+    failures.push("synced iOS package must retain the local OtherBaliOfflineMapbox bridge registration");
+  }
+
+  try {
+    const resolution = JSON.parse(packageResolution);
+    if (!Array.isArray(resolution?.pins)) throw new Error("pins missing");
+    const vendorPin = resolution.pins.find((pin) => (
+      IOS_VENDOR_PACKAGE_PATTERN.test(pin?.identity ?? "")
+      || IOS_VENDOR_PACKAGE_PATTERN.test(pin?.location ?? "")
+    ));
+    if (vendorPin) {
+      failures.push(`iOS Swift package resolution still contains vendor SDK pin: ${vendorPin.identity ?? vendorPin.location}`);
+    }
+  } catch {
+    failures.push("iOS Swift package resolution is missing or invalid JSON");
+  }
+
+  const requiredMethods = [
+    "capability",
+    "download",
+    "route",
+    "remove",
+    "open",
+    "list",
+    "setTelemetryConsent",
+  ];
+  if (
+    !/@objc\s*\(\s*OfflineMapboxPlugin\s*\)/.test(pluginSource)
+    || !/class\s+OfflineMapboxPlugin\s*:\s*CAPPlugin\s*,\s*CAPBridgedPlugin/.test(pluginSource)
+    || requiredMethods.some((name) => (
+      !new RegExp(`CAPPluginMethod\\s*\\(\\s*name:\\s*"${name}"`).test(pluginSource)
+      || !new RegExp(`@objc\\s+func\\s+${name}\\s*\\(`).test(pluginSource)
+    ))
+  ) {
+    failures.push("iOS OfflineMapboxPlugin bridge registration or public methods are incomplete");
+  }
+  const unavailableCapability = [
+    "available",
+    "mapTiles",
+    "gpsOnDownloadedMap",
+    "onboardRouting",
+    "telemetryOptOutAvailable",
+  ].every((key) => new RegExp(`"${key}"\\s*:\\s*false\\b`).test(pluginSource))
+    && /"maxDeviceBytes"\s*:\s*0\b/.test(pluginSource);
+  if (!unavailableCapability) {
+    failures.push("iOS OfflineMapboxPlugin must advertise only unavailable capability flags and zero storage");
+  }
+  if ((pluginSource.match(/call\.reject\s*\(\s*"offline_mapbox_unavailable"\s*\)/g)?.length ?? 0) !== 3) {
+    failures.push("iOS OfflineMapboxPlugin download, route, and open must reject as unavailable");
+  }
+  if (!/func\s+list\s*\([^)]*\)\s*\{\s*call\.resolve\s*\(\s*\[\s*"packs"\s*:\s*\[\s*\]\s*\]\s*\)\s*\}/s.test(pluginSource)) {
+    failures.push("iOS OfflineMapboxPlugin list must resolve with an empty pack list");
+  }
+
+  return failures;
+}
+
+export function iosMapSdkBuiltArtifactFailures({
+  info = {},
+  embeddedFrameworks = [],
+  embeddedBundles = [],
+  embeddedManifests = [],
+  linkedLibraries = [],
+  binaryStrings = "",
+} = {}) {
+  const failures = [];
+  const infoContents = JSON.stringify(info);
+  if (IOS_MAP_TOKEN_PATTERN.test(infoContents)) {
+    failures.push("built iOS Info.plist contains Mapbox access-token material");
+  }
+  for (const candidate of [
+    ...embeddedFrameworks,
+    ...embeddedBundles,
+    ...embeddedManifests.map((entry) => entry?.path ?? entry),
+    ...linkedLibraries,
+  ]) {
+    if (containsVendorArtifactPath(candidate)) {
+      failures.push(`built iOS app contains a Mapbox or Turf SDK artifact: ${candidate}`);
+    }
+  }
+  if (IOS_VENDOR_BINARY_PATTERN.test(binaryStrings) || IOS_MAP_TOKEN_PATTERN.test(binaryStrings)) {
+    failures.push("built iOS executable contains a Mapbox or Turf SDK/token marker");
+  }
+  return [...new Set(failures)];
 }
 
 async function decodedPrivacyManifest(file) {
@@ -222,7 +367,7 @@ async function inspectPrivacyEvidence(root, appPath, failures) {
     failures.push("PrivacyInfo.xcprivacy must declare UserDefaults reason CA92.1 for @capacitor/preferences");
   }
   if (!sourceManifest?.collectedDataTypesExact) {
-    failures.push("PrivacyInfo.xcprivacy must exactly declare linked, non-tracking Coarse Location, Product Interaction, and Other Diagnostic Data for App Functionality");
+    failures.push("PrivacyInfo.xcprivacy must exactly declare the approved linked, non-tracking coarse location, device ID, user content, interaction, and diagnostic data types for App Functionality");
   }
 
   let builtApp = null;
@@ -378,6 +523,35 @@ async function inspectBundledShellCopy(root, copiedRoot, label, failures) {
   }
 }
 
+async function inspectIosMapSdkSources(root, failures) {
+  const sourceFiles = {
+    pluginPackage: "plugins/offline-mapbox/Package.swift",
+    pluginSource: "plugins/offline-mapbox/ios/Sources/OfflineMapboxPlugin/OfflineMapboxPlugin.swift",
+    infoPlist: "ios/App/App/Info.plist",
+    packageResolution: "ios/App/App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+    syncedPackage: "ios/App/CapApp-SPM/Package.swift",
+    releaseScript: "scripts/build-ios-release.sh",
+    releaseVerifier: "scripts/verify-ios-release.mjs",
+  };
+  const contents = {};
+  for (const [key, relative] of Object.entries(sourceFiles)) {
+    const file = path.join(root, relative);
+    if (!(await nonEmptyFile(file))) {
+      failures.push(`${relative} is missing or empty`);
+      contents[key] = "";
+    } else {
+      contents[key] = await readFile(file, "utf8");
+    }
+  }
+  failures.push(...iosMapSdkSourceFailures(contents));
+}
+
+function validateOfflineBridgeConfig(config, failures, label) {
+  if (!Array.isArray(config?.packageClassList) || !config.packageClassList.includes("OfflineMapboxPlugin")) {
+    failures.push(`${label} must retain OfflineMapboxPlugin in packageClassList`);
+  }
+}
+
 async function inspectXcodeProject(root, failures) {
   const projectPath = path.join(root, "ios/App/App.xcodeproj/project.pbxproj");
   const infoPath = path.join(root, "ios/App/App/Info.plist");
@@ -410,6 +584,9 @@ async function inspectXcodeProject(root, failures) {
     if (/<string>armv7<\/string>/.test(info)) {
       failures.push("Info.plist contains an obsolete armv7 device requirement");
     }
+    if (!/<key>NSLocationWhenInUseUsageDescription<\/key>\s*<string>[^<]+<\/string>/.test(info)) {
+      failures.push("Info.plist must retain the approved When In Use location disclosure");
+    }
   }
   if (!(await nonEmptyFile(privacyPath))) failures.push("PrivacyInfo.xcprivacy is missing");
 }
@@ -429,8 +606,60 @@ async function inspectBuiltApp(root, appPath, failures) {
   ]) {
     if (!(await nonEmptyFile(path.join(appPath, relative)))) failures.push(`built app is missing ${relative}`);
   }
+  const builtInfoPath = path.join(appPath, "Info.plist");
+  let builtInfo = {};
+  if (await nonEmptyFile(builtInfoPath)) {
+    try {
+      const { stdout } = await execFileAsync(
+        "/usr/bin/plutil",
+        ["-convert", "json", "-o", "-", builtInfoPath],
+        { maxBuffer: 1_000_000 },
+      );
+      builtInfo = JSON.parse(stdout);
+    } catch {
+      failures.push("could not decode built iOS Info.plist");
+    }
+    if (typeof builtInfo.NSLocationWhenInUseUsageDescription !== "string"
+      || !builtInfo.NSLocationWhenInUseUsageDescription.trim()) {
+      failures.push("built app is missing the approved When In Use location disclosure");
+    }
+  }
   const embedded = await json(path.join(appPath, "capacitor.config.json"), failures, "embedded Capacitor config");
   validateCapacitorConfig(embedded, failures, "embedded Capacitor config");
+  validateOfflineBridgeConfig(embedded, failures, "embedded Capacitor config");
+
+  const bundle = await bundleEvidence(appPath);
+  const executable = path.join(appPath, "App");
+  let linkedLibraries = [];
+  let binaryStrings = "";
+  if (!(await nonEmptyFile(executable))) {
+    failures.push("built app executable is missing for iOS SDK removal scan");
+  } else {
+    try {
+      const { stdout } = await execFileAsync("/usr/bin/otool", ["-L", executable], {
+        maxBuffer: 2_000_000,
+      });
+      linkedLibraries = stdout.split("\n").slice(1).map((line) => line.trim()).filter(Boolean);
+    } catch {
+      failures.push("could not scan linked iOS dependencies for removed SDK artifacts");
+    }
+    try {
+      const { stdout } = await execFileAsync("/usr/bin/strings", ["-a", executable], {
+        maxBuffer: 20_000_000,
+      });
+      binaryStrings = stdout;
+    } catch {
+      failures.push("could not scan the iOS executable for removed SDK markers");
+    }
+  }
+  failures.push(...iosMapSdkBuiltArtifactFailures({
+    info: builtInfo,
+    embeddedFrameworks: bundle.frameworks,
+    embeddedBundles: bundle.bundles,
+    embeddedManifests: bundle.manifests,
+    linkedLibraries,
+    binaryStrings,
+  }));
 
   const sourceManifestPath = path.join(root, "ios-web/build-manifest.json");
   const builtManifestPath = path.join(appPath, "public/build-manifest.json");
@@ -475,6 +704,7 @@ export async function inspectIosRelease({ root = process.cwd(), appPath = null }
   const generatedPath = path.join(root, "ios/App/App/capacitor.config.json");
   const generated = await json(generatedPath, failures, "generated Capacitor config");
   validateCapacitorConfig(generated, failures, "generated Capacitor config");
+  validateOfflineBridgeConfig(generated, failures, "generated Capacitor config");
   await inspectLocalShell(root, failures);
   await inspectBundledShellCopy(
     root,
@@ -483,6 +713,7 @@ export async function inspectIosRelease({ root = process.cwd(), appPath = null }
     failures,
   );
   await inspectXcodeProject(root, failures);
+  await inspectIosMapSdkSources(root, failures);
   await inspectBuiltApp(root, appPath, failures);
   const privacyEvidence = await inspectPrivacyEvidence(root, appPath, failures);
   const nativeReadiness = await inspectNativeReadiness({ root });

@@ -24,6 +24,11 @@ Do not set that guard before the corresponding action-time permission is given.
 The script uses Xcode Automatic signing with an Apple Development identity for
 the archive, then Apple's cloud-managed distribution certificate during the
 local `app-store-connect` export.
+The iOS build needs no Mapbox credential because the App Store target does not
+include the Mapbox or Turf SDKs. Its verifier rejects vendor SDK artifacts and
+access-token material instead of injecting provider configuration. Android
+dependency resolution remains separate and uses its protected downloads
+credential only in the Android build path.
 It allows Xcode to update provisioning for both steps but never uploads the
 result. The exported IPA must still pass the release verifier as Apple
 Distribution-signed with the exact `applinks:www.otherbali.com` entitlement.

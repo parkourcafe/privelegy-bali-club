@@ -8,6 +8,8 @@ import {
   provisionalPhotosAllowed,
   choosePhotoSrc,
   publicImageForSchema,
+  parseVenuePublicMediaUrl,
+  resolveVenuePhoto,
   venuePhotoUrlForDisplay,
   type PhotoCandidate,
 } from "./photo-policy.ts";
@@ -54,7 +56,38 @@ test("schema/OG image never uses provisional, in any mode (§4)", () => {
 });
 
 test("interim venue photo_url bridge is mode-gated", () => {
-  assert.equal(venuePhotoUrlForDisplay("x.jpg", "owner_prelaunch"), "x.jpg");
-  assert.equal(venuePhotoUrlForDisplay("x.jpg", "tourist_public"), undefined);
-  assert.equal(venuePhotoUrlForDisplay(null, "owner_prelaunch"), undefined);
+  const input = {
+    photoUrl: "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/venue-photos/draft/venue/photo.webp",
+    venueStatus: "active",
+    publicationStatus: "published",
+  };
+  assert.equal(venuePhotoUrlForDisplay(input, "owner_prelaunch"), input.photoUrl);
+  assert.equal(venuePhotoUrlForDisplay(input, "tourist_public"), input.photoUrl);
+  assert.equal(venuePhotoUrlForDisplay({ ...input, photoUrl: null }, "tourist_public"), undefined);
+});
+
+test("MEDIA-002 accepts an exact current-project venue URL regardless of draft prefix", () => {
+  const photoUrl = "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/venue-photos/draft/lava/photo.webp";
+  assert.deepEqual(parseVenuePublicMediaUrl(photoUrl)?.bucket, "venue-photos");
+  assert.deepEqual(resolveVenuePhoto({
+    photoUrl,
+    venueStatus: "active",
+    publicationStatus: "published",
+  }), { src: photoUrl, mediaState: "ready" });
+});
+
+test("MEDIA-002 never publishes an arbitrary bucket URL or a legacy URL", () => {
+  const base = { venueStatus: "active", publicationStatus: "published" };
+  assert.equal(resolveVenuePhoto({ ...base, photoUrl: "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/other-bucket/x.webp" }).mediaState, "blocked");
+  assert.equal(resolveVenuePhoto({ ...base, photoUrl: "https://xvhxyohqkkpaynrgrvvb.supabase.co/storage/v1/object/public/venue-photos/draft/x.webp" }).mediaState, "blocked");
+});
+
+test("MEDIA-002 requires active published venue context and preserves hard blocks", () => {
+  const photoUrl = "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/owner-photo-candidates/draft/x.webp";
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "review", publicationStatus: "published" }).reason, "not_published");
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "active", publicationStatus: "review" }).reason, "not_published");
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "active", publicationStatus: "published", photoStatus: "missing" }).reason, "hard_blocked");
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "active", publicationStatus: "published", photoStatus: "approved_no_photo" }).reason, "hard_blocked");
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "active", publicationStatus: "published", photoStatus: "rejected" }).reason, "hard_blocked");
+  assert.equal(resolveVenuePhoto({ photoUrl, venueStatus: "active", publicationStatus: "published", photoStatus: "provisional" }).mediaState, "ready");
 });
