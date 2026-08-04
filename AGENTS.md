@@ -267,9 +267,10 @@ Public district pages, guide cards and place pages are assembled at render time
 from `venues` rows, so venue copy is written to the record, not to the page. The
 standard for those fields — `why_its_here`, `best_for`, `not_for`,
 `price_anchor`, `what_to_order`, `opening_hours_json`, `last_verified_at` — is
-`.claude/skills/otherbali-venue-record-standard/`. Use it for any venue copy
-work, including requests that arrive page-shaped ("rewrite this page"). Article
-and guide prose remains `docs/content-style.md`.
+`.agents/skills/otherbali-venue-record-standard/SKILL.md`, and it applies to
+every agent, not only Claude Code. Use it for any venue copy work, including
+requests that arrive page-shaped ("rewrite this page"). Article and guide prose
+remains `docs/content-style.md`.
 
 ### District SEO workflow
 
