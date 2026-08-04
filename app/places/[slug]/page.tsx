@@ -27,6 +27,7 @@ import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKin
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 import {
+  publishableStreetAddress,
   venueCategoryLabel,
   venueCoverAssetCategory,
   venueSchemaType,
@@ -337,6 +338,10 @@ export default async function VenuePage({
   // because it is the only representation that can state a venue's two
   // services in one day as two entries instead of one wrong span.
   const hoursSpec = buildOpeningHoursSpec(venue.openingHoursJson);
+  // Street address, but only where the stored value really is one. Most
+  // venues.full_address rows hold an area note rather than an address.
+  const schemaStreetAddress =
+    publishableStreetAddress(content?.address) ?? publishableStreetAddress(venue.fullAddress);
   // Coordinates make the card answerable ("where is it") instead of prose-only.
   // Both must be present and finite — a half-filled pair is worse than none.
   const schemaGeo =
@@ -358,9 +363,7 @@ export default async function VenuePage({
     // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
-      ...(content?.address || venue.fullAddress
-        ? { streetAddress: content?.address ?? venue.fullAddress }
-        : {}),
+      ...(schemaStreetAddress ? { streetAddress: schemaStreetAddress } : {}),
       addressLocality: microArea ?? districtLabel[venue.district] ?? "Bali",
       addressRegion: "Bali",
       addressCountry: "ID",
