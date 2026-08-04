@@ -261,6 +261,16 @@ Use `null` or hide when unknown.
 
 Organic recommendation copy remains Other Bali editorial voice. Owner copy is attributed as owner copy. Sponsored placement and paid visibility are not active concepts and may not enter content metadata or ranking.
 
+### Venue record content
+
+Public district pages, guide cards and place pages are assembled at render time
+from `venues` rows, so venue copy is written to the record, not to the page. The
+standard for those fields — `why_its_here`, `best_for`, `not_for`,
+`price_anchor`, `what_to_order`, `opening_hours_json`, `last_verified_at` — is
+`.claude/skills/otherbali-venue-record-standard/`. Use it for any venue copy
+work, including requests that arrive page-shaped ("rewrite this page"). Article
+and guide prose remains `docs/content-style.md`.
+
 ### District SEO workflow
 
 For every district SEO task, use `.agents/skills/otherbali-district-seo-pipeline/SKILL.md` and maintain an ExecPlan. One URL owns one primary intent. AI output is not evidence. Do not create thin district clones or approve a new URL before repository and cannibalization checks. No public claim may ship without claim-ledger approval. Evidence, owner, field or Maps blockers make the affected topic `HOLD` without blocking independent topics. Do not production-deploy before all required gates pass, and do not modify unrelated districts.
