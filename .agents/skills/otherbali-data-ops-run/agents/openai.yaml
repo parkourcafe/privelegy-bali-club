@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali Data-Ops Run"
+  short_description: "End-to-end playbook for filling a venue field across hundreds of records"
+  default_prompt: "Use $otherbali-data-ops-run for any run that collects or imports a venue field in bulk — hours, coordinates, phones, prices. A collector's own "ready" status is not evidence; the acceptance step is the job."

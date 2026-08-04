@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali Supabase Write"
+  short_description: "Pre-flight check before any bulk write to venues, perks, menus or capabilities"
+  default_prompt: "Use $otherbali-supabase-write before running or handing off SQL that writes to Other Bali's tables. Reading the migrations is necessary but not sufficient — dry-run one row, because production carries a constraint that exists in no migration here."

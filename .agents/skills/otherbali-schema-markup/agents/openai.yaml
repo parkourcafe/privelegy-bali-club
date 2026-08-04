@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali Schema Markup"
+  short_description: "What a venue page may state in structured data, and what is forbidden"
+  default_prompt: "Use $otherbali-schema-markup when adding or changing JSON-LD, or wiring a database column through to the markup. The refusal rules matter more than the emission rules — the bugs in this area are invisible on the page."
