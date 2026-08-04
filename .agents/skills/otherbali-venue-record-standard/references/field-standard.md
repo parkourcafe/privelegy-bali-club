@@ -103,6 +103,23 @@ concrete anchor.
 $$ · mains 90–150K
 ```
 
+**What the bands mean, in IDR per menu item.** Anchored on the one production
+row that already carries the canonical format — Poule de Luxe, `$ · pastries
+~25–45K each` — and consistent with the rest of the page: the `$` cohort is the
+explicitly budget end (Oma Jamu, ZIN Cafe, NÜDE), `$$$` the priciest (The Lawn,
+Udara Bali).
+
+| Band | Per item |
+|---|---|
+| `$` | up to ~50K |
+| `$$` | ~50–150K |
+| `$$$` | above ~150K |
+
+Judge by where the range sits overall, not by its ceiling: a 35–70K plate is
+`$$`, a 100–250K main is `$$$`. Writing the ladder down is the point — without
+it, every venue reopens the same argument and each agent resolves it by feel.
+Adjust the numbers if they prove wrong in practice, but adjust them here, once.
+
 **Known drift — do not paper over it.** Measured on /canggu/best-brunch
 (2026-08-04), production data holds four shapes across 43 rows:
 
