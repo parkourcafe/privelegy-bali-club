@@ -71,10 +71,31 @@ emitting a backwards range.
 
 **Free sources worth checking before commissioning any collection:**
 
-- coordinates embedded in a stored Maps URL (`@-8.65,115.13`) — 22 rows came
-  free this way;
+- coordinates embedded in a stored Maps URL (`@-8.65,115.13`, or the `!3d…!4d…`
+  place pin, which is the venue rather than the map viewport) — 22 rows came
+  free this way, and 2 more on 2026-08-04;
+- **Plus Codes** (Open Location Code) sitting in `venues.address`,
+  `full_address` or a `q=` parameter. They look like `54Q9+W93` and decode to a
+  3×3 m cell with arithmetic alone — no network, no API key, open standard.
+  Five rows came free this way on 2026-08-04. Decode with the reference
+  `open-location-code` library rather than a hand-rolled implementation, and
+  prove the library round-trips a coordinate you already trust before believing
+  its output. Short codes need a reference point to recover the omitted leading
+  characters; a district centre is ample, since recovery is unambiguous within
+  half a degree;
 - `google_place_id`, where present. Measure first: on the 2026-08-04 run it was
   null for every venue missing coordinates.
+
+> **Stored Maps links are an allowed source — founder decision, 2026-08-04.**
+> Selena confirmed there is no rule forbidding it, and the 30-day Google
+> storage limit does not apply to these. This settles a contradiction: the
+> collection spec used to say "not Google Maps as such" while this file called
+> the same source legitimate. Reversing it needs a new dated decision.
+>
+> This does **not** extend to aggregators or booking platforms — Chope,
+> Cloudbeds, ClassPass, Playtomic, TripAdvisor. That is a different class of
+> source and stays refused; two Chope coordinates were rejected the same day,
+> both of them inside their district bounding box.
 
 **Why the bar is higher here than for hours.** Wrong hours are visible — someone
 arrives and the door is shut, and they tell you. A wrong coordinate sends
