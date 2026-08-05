@@ -145,13 +145,6 @@ const districtLabel: Record<string, string> = {
   lombok: "Lombok",
 };
 
-// Structured hours for JSON-LD — only for exact, official-domain-sourced
-// daily ranges (free-text like "until late" stays out of schema).
-const SCHEMA_HOURS: Record<string, string> = {
-  "tropical-temptation-adult-only-beach-club": "Mo-Su 10:00-21:00",
-  "papi-sapi": "Mo-Su 16:00-23:30",
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -329,11 +322,9 @@ export default async function VenuePage({
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
     content?.priceBand ?? venue.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
-  // Opening hours: the venue's own DB value wins — it is already normalized
-  // to schema.org syntax at the data boundary (lib/opening-hours.ts) and is
-  // the canonical source. SCHEMA_HOURS is a two-venue hand-checked fallback
-  // that predates the DB column being read at all.
-  const schemaOpeningHours = venue.openingHours ?? SCHEMA_HOURS[slug];
+  // Opening hours come only from the venue's DB value, already normalized to
+  // schema.org syntax at the data boundary (lib/opening-hours.ts).
+  const schemaOpeningHours = venue.openingHours;
   // Per-day hours from opening_hours_json. Preferred over the string form
   // because it is the only representation that can state a venue's two
   // services in one day as two entries instead of one wrong span.
@@ -348,7 +339,11 @@ export default async function VenuePage({
     typeof venue.latitude === "number" &&
     typeof venue.longitude === "number" &&
     Number.isFinite(venue.latitude) &&
-    Number.isFinite(venue.longitude)
+    venue.latitude >= -90 &&
+    venue.latitude <= 90 &&
+    Number.isFinite(venue.longitude) &&
+    venue.longitude >= -180 &&
+    venue.longitude <= 180
       ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
       : null;
 

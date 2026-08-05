@@ -100,6 +100,10 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "instagram_url",
   "opening_hours_json",
   "opening_hours",
+  "price_min_idr",
+  "price_max_idr",
+  "price_text",
+  "google_place_id",
   "tier",
   "status",
   "is_sponsored",
@@ -216,6 +220,14 @@ const mapVenue = (r: Row): Venue => {
     // Canonical jsonb first. The strict legacy fallback is temporary
     // compatibility for manually verified data-ops imports.
     openingHours: schemaOpeningHours(r.opening_hours_json, r.opening_hours),
+    priceMinIdr: typeof r.price_min_idr === "number" && Number.isFinite(r.price_min_idr)
+      ? r.price_min_idr
+      : undefined,
+    priceMaxIdr: typeof r.price_max_idr === "number" && Number.isFinite(r.price_max_idr)
+      ? r.price_max_idr
+      : undefined,
+    priceText: textValue(r.price_text) || undefined,
+    googlePlaceId: textValue(r.google_place_id) || undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
