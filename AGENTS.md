@@ -282,6 +282,35 @@ remains `docs/content-style.md`.
 
 ### District SEO workflow
 
+### Bulk data collection and import
+
+For any run that fills a venue field across many records — hours, coordinates,
+phones, prices — use `.agents/skills/otherbali-data-ops-run/SKILL.md`. A
+collection agent's own `ready` status is not evidence: it has already published
+a hotel's check-in time as a café's opening hour. Rows are accepted one by one
+against a stated plausibility bound, rejected rows are recorded with their
+reason, and a row without a source URL is not accepted at all.
+
+### Writing to the database
+
+Before running or handing off SQL that writes to `venues`, `perks`, menus or
+action capabilities, use `.agents/skills/otherbali-supabase-write/SKILL.md`.
+Reading the migrations is necessary but not sufficient — production carries at
+least one constraint that exists in no migration in this repository — so
+dry-run one row and roll it back.
+
+### Structured data on public pages
+
+What a venue page may state in its markup, where each field comes from and what
+is forbidden is `.agents/skills/otherbali-schema-markup/SKILL.md`. Emit the
+result of a gate, never a raw column; omit rather than approximate; and write
+the test for the refusal, because every bug shipped from this area was a value
+that should have been omitted and was not. `aggregateRating` from Google
+ratings stays out (guardrail #2) until a dated architecture decision says
+otherwise.
+
+### District SEO workflow
+
 For every district SEO task, use `.agents/skills/otherbali-district-seo-pipeline/SKILL.md` and maintain an ExecPlan. One URL owns one primary intent. AI output is not evidence. Do not create thin district clones or approve a new URL before repository and cannibalization checks. No public claim may ship without claim-ledger approval. Evidence, owner, field or Maps blockers make the affected topic `HOLD` without blocking independent topics. Do not production-deploy before all required gates pass, and do not modify unrelated districts.
 
 ---
@@ -436,6 +465,14 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
   consent pipeline keeps running and an approved owner submission replaces the
   interim photo. Implemented by migration 0043 (restores the 0033-quarantined
   URLs; reversible — quarantine rows are kept).
+- **Rights confirmed (founder decision, 2026-08-04).** Selena confirmed that
+  photo rights for the catalogue are secured, so venue photos are published
+  without waiting for a per-photo consent record, and the venue page now also
+  emits `image` in its LocalBusiness markup — which Photo Policy v3 §4/§8 had
+  held back. Display still routes through `venuePhotoUrlForDisplay`, so a
+  future per-photo gate takes effect without further code changes. This
+  supersedes the "re-quarantine at the launch gate" step below; reinstating it
+  requires a new dated decision.
 - **At the public-launch gate this reverts to v2 strictness:** venue photos
   without a logged owner consent record (who / when / content version /
   channel, incl. photo-rights confirmation) are re-quarantined.

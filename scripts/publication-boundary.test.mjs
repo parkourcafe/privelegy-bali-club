@@ -47,7 +47,8 @@ test("place JSON-LD exposes verified practical facts without inventing values", 
   assert.match(data, /"longitude"/);
   assert.match(data, /"phone"/);
   assert.match(data, /"full_address"/);
-  assert.match(data, /schemaOpeningHoursSpecification\(r\.opening_hours_json\)/);
+  assert.match(data, /openingHoursJson:\s*r\.opening_hours_json/);
+  assert.match(detail, /buildOpeningHoursSpec\(venue\.openingHoursJson\)/);
   assert.match(detail, /"@type": "GeoCoordinates"/);
   assert.match(detail, /openingHoursSpecification/);
   assert.match(detail, /telephone: venue\.phone/);
