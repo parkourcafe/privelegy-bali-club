@@ -8,11 +8,15 @@ export type EventRpcResult = {
   error: EventRpcError | null;
 };
 
+// p_source carries the guest's first-touch attribution source. It was typed as
+// `null` here, which made an unattributed funnel a compile-time guarantee — see
+// lib/actions/guest-source.ts. Only a source confirmed active may be passed:
+// log_event drops events whose source is not an active attribution row.
 export type LogEventV2Args = {
   p_type: string;
   p_guest_ref: string;
   p_venue_slug: string | null;
-  p_source: null;
+  p_source: string | null;
   p_payload: SafeEventPayload | null;
 };
 
@@ -20,7 +24,7 @@ export type LegacyLogEventArgs = {
   p_type: string;
   p_guest_ref: string;
   p_venue_slug: string | null;
-  p_source: null;
+  p_source: string | null;
 };
 
 export interface EventRpcClient {

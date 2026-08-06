@@ -1,7 +1,12 @@
 import { cache as reactCache } from "react";
 import { unstable_cache } from "next/cache";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { anonClient, isSeedFallbackAllowed, isSupabaseConfigured } from "./supabase/server";
 import { serviceClient } from "./supabase/service";
+import {
+  resolveGuestAttributionSource,
+  type GuestSourceReader,
+} from "./actions/guest-source";
 import {
   buildGoogleMapsSearchUrl,
   validateGoogleMapsUrl,
@@ -567,6 +572,45 @@ export async function setGuestSource(guestRef: string, source: string): Promise<
   } catch {
     return false;
   }
+}
+
+// Reader behind resolveGuestAttributionSource. Service-role reads: guest_refs
+// and attribution_sources are both revoked from anon/authenticated. The source
+// id is a placement tag (villa_canggu_01), never guest PII, so attaching it to
+// a funnel event adds no personal data — it denormalises a link that
+// redemption_events already stores the same way.
+function guestSourceReader(sb: SupabaseClient): GuestSourceReader {
+  return {
+    async boundSource(guestRef: string): Promise<string | null> {
+      const { data, error } = await sb
+        .from("guest_refs")
+        .select("source")
+        .eq("ref", guestRef)
+        .maybeSingle();
+      if (error || !data) return null;
+      return typeof data.source === "string" && data.source ? data.source : null;
+    },
+    async isActiveSource(source: string): Promise<boolean> {
+      const { data, error } = await sb
+        .from("attribution_sources")
+        .select("id")
+        .eq("id", source)
+        .eq("active", true)
+        .maybeSingle();
+      return !error && Boolean(data);
+    },
+  };
+}
+
+// The guest's first-touch source, or null when unbound, unreadable or no longer
+// active. Best-effort like the rest of this section: attribution must never
+// block the funnel write.
+export async function getGuestAttributionSource(
+  guestRef: string
+): Promise<string | null> {
+  const sb = serviceClient();
+  if (!sb) return null;
+  return resolveGuestAttributionSource(guestSourceReader(sb), guestRef);
 }
 
 // Right-to-be-forgotten (audit 2026-07): erase this device's behavioural +

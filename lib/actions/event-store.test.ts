@@ -6,18 +6,14 @@ import type {
   LegacyLogEventArgs,
   LogEventV2Args,
 } from "./event-compat";
-import type { EventStoreInput } from "./event-store";
-
-const eventStore = (await import(
-  new URL("./event-store.ts", import.meta.url).href
-)) as typeof import("./event-store");
-const { storeEvent } = eventStore;
+import { storeEvent, type EventStoreInput } from "./event-store";
 
 function input(): EventStoreInput {
   return {
     type: "action_handoff",
     guestRef: "g_testguest123456",
     venueSlug: "fixture-venue",
+    source: null,
     payload: {
       action: "delivery",
       provider: "gojek",
@@ -86,6 +82,7 @@ test("sends preserved events directly to legacy so v2 cannot drop them", async (
     type: "reservation_click",
     guestRef: "g_testguest123456",
     venueSlug: "fixture-venue",
+    source: null,
     payload: null,
   });
 
@@ -140,6 +137,44 @@ test("never falls back for permission, validation, or network errors", async () 
     assert.equal(result.stored, false);
     assert.equal(result.version, "v2");
   }
+});
+
+test("carries the guest's attribution source on both RPC versions", async () => {
+  const v2 = rpcClient([{ error: null }]);
+  await storeEvent(v2.client, { ...input(), source: "villa_canggu_01" });
+  assert.equal(v2.calls[0].name, "log_event_v2");
+  assert.equal(v2.calls[0].args.p_source, "villa_canggu_01");
+
+  // Preserved events skip v2 entirely — they must not lose the source on the
+  // way to log_event, which is the leg every funnel step above actually takes.
+  const legacy = rpcClient([{ error: null }]);
+  await storeEvent(legacy.client, {
+    type: "direction_click",
+    guestRef: "g_testguest123456",
+    venueSlug: "fixture-venue",
+    source: "villa_canggu_01",
+    payload: null,
+  });
+  assert.deepEqual(legacy.calls, [
+    {
+      name: "log_event",
+      args: {
+        p_type: "direction_click",
+        p_guest_ref: "g_testguest123456",
+        p_venue_slug: "fixture-venue",
+        p_source: "villa_canggu_01",
+      },
+    },
+  ]);
+});
+
+test("keeps the source across the v2-missing fallback to legacy", async () => {
+  const { client, calls } = rpcClient([{ error: { code: "PGRST202" } }, { error: null }]);
+
+  await storeEvent(client, { ...input(), source: "villa_canggu_01" });
+
+  assert.equal(calls.length, 2);
+  assert.equal(calls[1].args.p_source, "villa_canggu_01");
 });
 
 test("reports a legacy write failure without retrying", async () => {
