@@ -32,6 +32,7 @@ import {
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
 import { schemaOpeningHours } from "./opening-hours";
+import { readAllPages, type PageResult } from "./read-all-pages";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -327,6 +328,7 @@ function warnPublicReadFailed(label: string, e: unknown): void {
     }`,
   );
 }
+
 
 // ---- Read layer (planning form, G0) ----
 // Falls back to seed data when Supabase is not configured, so the app builds
@@ -665,20 +667,21 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
     perks = [];
     try {
       const sb = anonClient()!;
-      const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
-        sb
-          .from("venues")
-          .select(PUBLIC_PLACES_VENUE_COLUMNS)
-          .eq("status", "active")
-          .eq("publication_status", "published")
-          .order("district", { ascending: true })
-          .order("name", { ascending: true }),
+      const [v, { data: p, error: perkError }] = await Promise.all([
+        // Paginated: the published catalogue is larger than one response.
+        readAllPages<Row>("published-venues", (from, to) =>
+          sb
+            .from("venues")
+            .select(PUBLIC_PLACES_VENUE_COLUMNS)
+            .eq("status", "active")
+            .eq("publication_status", "published")
+            .order("district", { ascending: true })
+            .order("name", { ascending: true })
+            .range(from, to) as unknown as PromiseLike<PageResult<Row>>),
         sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
       ]);
-      if (!venueError && v) {
-        venues = (v as unknown as Row[]).map(mapVenue);
-        perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-      }
+      venues = v.map(mapVenue);
+      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
     } catch (e) {
       warnPublicReadFailed("published-venues", e);
       venues = [];
@@ -716,7 +719,9 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
 
 const getCachedPublishedVenues = unstable_cache(
   fetchPublishedVenues,
-  ["published-venues-v1"],
+  // v2: the read is paginated now, so the cached value from the truncated
+  // era must not survive the deploy.
+  ["published-venues-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
