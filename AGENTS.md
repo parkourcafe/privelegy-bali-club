@@ -471,11 +471,26 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
   emits `image` in its LocalBusiness markup — which Photo Policy v3 §4/§8 had
   held back. Display still routes through `venuePhotoUrlForDisplay`, so a
   future per-photo gate takes effect without further code changes. This
-  supersedes the "re-quarantine at the launch gate" step below; reinstating it
-  requires a new dated decision.
-- **At the public-launch gate this reverts to v2 strictness:** venue photos
-  without a logged owner consent record (who / when / content version /
-  channel, incl. photo-rights confirmation) are re-quarantined.
+  superseded the "re-quarantine at the launch gate" step, which is now removed
+  outright (see below).
+- **Launch-gate re-quarantine removed (founder decision, 2026-08-07).** The v2
+  rule — "at the public-launch gate, venue photos without a logged owner
+  consent record are re-quarantined" — no longer applies and is not a pending
+  step. Catalogue photo data comes from publicly available sources and the
+  founder has confirmed the rights; publication does not wait on a per-photo
+  consent record, at launch or before it. Reinstating the rule requires a new
+  dated decision.
+
+  Recorded because the rule was inert but not harmless. On 2026-08-07 there
+  were 1 009 live venue photos and **zero** photo consent records in
+  `consent_log`, and the `venue_photo_legacy_quarantine` table from migration
+  0033 does not exist in production. Anyone applying the old text literally
+  would have taken down the entire catalogue's imagery.
+
+  What this does NOT remove: `record_venue_photo_consent` and
+  `PHOTO_CONSENT_TERMS_VERSION` stay. They fire when an owner uploads their own
+  photo through `/onboard` or the partner portal — a record created by an
+  owner's own act, not a gate standing in front of publication.
 - Fallback art must not be presented as venue photography (unchanged).
 - Menu facts captured from official sources may be published before owner approval, but only with source attribution and a captured-at date; UI must communicate "prices as of <date>".
 - Full workflow: `docs/DATA_OPS_TRACK.md`.
