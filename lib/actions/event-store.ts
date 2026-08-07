@@ -10,6 +10,12 @@ export type EventStoreInput = {
   type: AllowedEventType;
   guestRef: string;
   venueSlug: string | null;
+  /**
+   * The guest's first-touch attribution source, already confirmed active by
+   * resolveGuestAttributionSource. Null means unattributed, which stores the
+   * event; an inactive value would make log_event discard it.
+   */
+  source: string | null;
   payload: SafeEventPayload | null;
 };
 
@@ -36,7 +42,7 @@ async function storeLegacyEvent(
     p_type: input.type,
     p_guest_ref: input.guestRef,
     p_venue_slug: input.venueSlug,
-    p_source: null,
+    p_source: input.source,
   } satisfies LegacyLogEventArgs;
 
   try {
@@ -62,7 +68,7 @@ export async function storeEvent(
     p_type: input.type,
     p_guest_ref: input.guestRef,
     p_venue_slug: input.venueSlug,
-    p_source: null,
+    p_source: input.source,
     p_payload: input.payload,
   } satisfies LogEventV2Args;
 

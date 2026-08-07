@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { parseEventRequest } from "@/lib/actions/event-safety";
 import { asEventRpcClient } from "@/lib/actions/event-compat";
 import { storeEvent } from "@/lib/actions/event-store";
+import { getGuestAttributionSource } from "@/lib/data";
 import { resolveGuestRef, GUEST_COOKIE, guestCookieOptions } from "@/lib/guest-server";
 import { serviceClient } from "@/lib/supabase/service";
 import { CONSENT_COOKIE } from "@/lib/consent";
@@ -37,10 +38,16 @@ export async function POST(req: Request) {
   const { ref, created } = await resolveGuestRef();
   const sb = serviceClient();
   if (sb) {
+    // First-touch attribution: without this the row lands with source NULL and
+    // the funnel between a QR scan and a redemption stays unattributable.
+    // A guest ref minted on this very request has no bind yet and resolves to
+    // null, so the landing_open racing /api/source stays unattributed — every
+    // later event on that guest carries the source.
     await storeEvent(asEventRpcClient(sb), {
       type: parsed.event.type,
       guestRef: ref,
       venueSlug: parsed.event.venueSlug,
+      source: await getGuestAttributionSource(ref),
       payload: parsed.event.payload,
     });
   }
