@@ -7,7 +7,6 @@ import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
 import MobileNav from "@/components/MobileNav";
-import ShaderBackground from "@/components/ShaderBackground";
 import { getLocale } from "@/lib/i18n/server";
 import { LOCALE_META } from "@/lib/i18n/locales";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -120,10 +119,6 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
-        {/* Decorative WebGL background, behind all page content. body's
-            background propagates to the root canvas (html sets none), so the
-            negative z-index layer paints above it without a CSS change. */}
-        <ShaderBackground />
         <GlobalHeader locale={locale} />
         {children}
         <MobileNav locale={locale} />

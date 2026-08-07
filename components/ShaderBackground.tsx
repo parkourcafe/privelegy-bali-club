@@ -23,9 +23,14 @@ import {
 // Animated "Smoke Ring" background. Adapted from Paper Shaders
 // (https://shaders.paper.design/smoke-ring), Apache-2.0.
 //
+// Fills its nearest positioned ancestor rather than the viewport: mounted
+// app-wide it was invisible wherever a section painted an opaque background,
+// and destroyed text contrast wherever one did not. It is a section
+// background, and the section owns the scrims that keep text readable.
+//
 // Decorative only: aria-hidden, pointer-events none, and it never carries
 // content. If WebGL is unavailable the canvas simply stays empty and the
-// page's own background shows through, so nothing depends on it rendering.
+// parent's own background shows through, so nothing depends on it rendering.
 
 /** How fast the pointer and its presence catch up, per second. */
 const POINTER_EASING = 6;
@@ -159,8 +164,10 @@ export default function ShaderBackground() {
 
     const resize = () => {
       const ratio = cappedPixelRatio(window.devicePixelRatio);
-      const width = Math.max(1, Math.round(window.innerWidth * ratio));
-      const height = Math.max(1, Math.round(window.innerHeight * ratio));
+      // Layout size of the canvas itself, so the shader follows whatever
+      // section it was dropped into instead of assuming the whole viewport.
+      const width = Math.max(1, Math.round(canvas.clientWidth * ratio));
+      const height = Math.max(1, Math.round(canvas.clientHeight * ratio));
       if (canvas.width === width && canvas.height === height) return;
       canvas.width = width;
       canvas.height = height;
@@ -226,18 +233,28 @@ export default function ShaderBackground() {
     };
 
     const onPointerMove = (event: PointerEvent) => {
-      [targetX, targetY] = pointerToCanvasSpace(
-        event.clientX,
-        event.clientY,
-        window.innerWidth,
-        window.innerHeight
-      );
-      targetPresence = 1;
+      // Rect-relative, so the push tracks the cursor over this section rather
+      // than over the page. Outside the section the field settles back.
+      const rect = canvas.getBoundingClientRect();
+      const inside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      if (inside) {
+        [targetX, targetY] = pointerToCanvasSpace(
+          event.clientX - rect.left,
+          event.clientY - rect.top,
+          rect.width,
+          rect.height
+        );
+      }
+      targetPresence = inside ? 1 : 0;
       // A static render still owes the visitor a response to the cursor.
       if (reduceMotion.matches) {
         pointerX = targetX;
         pointerY = targetY;
-        presence = 1;
+        presence = targetPresence;
         draw();
       }
     };
@@ -255,9 +272,16 @@ export default function ShaderBackground() {
       if (event.pointerType !== "mouse") releasePointer();
     };
 
+    // The running loop resizes itself each frame; this only covers the cases
+    // where no loop is running (reduced motion, hidden tab) but the section
+    // still changed size — a rotation, a font load, a collapsing panel.
     const onResize = () => {
       if (reduceMotion.matches || document.hidden) draw();
     };
+
+    const observer =
+      typeof ResizeObserver === "function" ? new ResizeObserver(onResize) : null;
+    observer?.observe(canvas);
 
     // A lost context leaves every GL object invalid; rebuild on restore rather
     // than leaving a dead canvas over the page for the rest of the session.
@@ -293,6 +317,7 @@ export default function ShaderBackground() {
     return () => {
       disposed = true;
       stop();
+      observer?.disconnect();
       canvas.removeEventListener("webglcontextlost", onContextLost);
       canvas.removeEventListener("webglcontextrestored", onContextRestored);
       document.removeEventListener("visibilitychange", onVisibility);
@@ -318,7 +343,7 @@ export default function ShaderBackground() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
+      className="pointer-events-none absolute inset-0 h-full w-full"
     />
   );
 }
