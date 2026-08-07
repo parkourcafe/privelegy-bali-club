@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalyticsLink from "@/components/HomeAnalyticsLink";
 import DistrictCover from "@/components/landing/DistrictCover";
+import HeroLoop from "@/components/landing/HeroLoop";
 import SceneImage from "@/components/landing/SceneImage";
 import ShaderBackground from "@/components/ShaderBackground";
 import SiteFooter from "@/components/SiteFooter";
@@ -158,15 +159,18 @@ export default function HomePage() {
       />
       <main data-page-shell="landing" className="bg-[#f7f0e7] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] text-[#2b1a13] min-[1360px]:pb-0">
         <section className="relative min-h-[72svh] overflow-hidden border-b border-[#e4d8c8] bg-[#2b1a13] text-white">
-          {/* Animated hero background, replacing the sunset still and its
-              video loop. The section keeps bg-[#2b1a13] underneath, so a
-              device without WebGL still gets a dark hero with readable
-              white text. The two scrims below stay: the shader is bright in
-              places and the h1 has to hold its contrast over it. */}
-          <ShaderBackground />
-          {/* Deeper through the middle than the still image needed: the ring
-              is bright, and the cursor push can drive it under the headline's
-              last line. The right edge stays light so the ring reads. */}
+          <SceneImage scene="hero-sunset" variant="sunset" imgClassName="ob-grade ob-kenburns" />
+          <HeroLoop src="/scenes/hero-loop.mp4" />
+          {/* The animation rides ON TOP of the sunset rather than replacing
+              it. mix-blend-screen turns the ring's near-black surround
+              transparent and adds only its light, so the photo (and, on
+              desktop, the video loop) still reads underneath. Nothing below
+              depends on it: without WebGL the canvas stays empty and screen
+              blending an empty layer changes nothing at all. */}
+          <ShaderBackground className="mix-blend-screen" />
+          {/* Deeper through the middle than the still alone needed: the ring
+              adds light, and the cursor push can drive it under the
+              headline's last line. The right edge stays open so it reads. */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/44 to-black/8" />
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#2b1a13]/88 via-[#2b1a13]/20 to-transparent" />
           <div className="relative mx-auto flex min-h-[72svh] max-w-6xl items-end px-5 pb-14 pt-24 sm:pb-16 lg:pb-20">

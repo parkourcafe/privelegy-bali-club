@@ -126,7 +126,16 @@ function createScene(gl: WebGLRenderingContext): Scene | null {
   };
 }
 
-export default function ShaderBackground() {
+export default function ShaderBackground({
+  className = "",
+}: {
+  /**
+   * Extra classes for the canvas. Use a blend mode here to lay the shader over
+   * existing hero art instead of replacing it: `mix-blend-screen` drops the
+   * ring's near-black surround to transparent and keeps only its light.
+   */
+  className?: string;
+} = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -343,7 +352,7 @@ export default function ShaderBackground() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className={`pointer-events-none absolute inset-0 h-full w-full ${className}`.trim()}
     />
   );
 }
