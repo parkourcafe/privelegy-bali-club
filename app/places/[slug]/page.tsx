@@ -11,6 +11,7 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
+import { buildOpeningHoursSpec } from "@/lib/opening-hours";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -26,6 +27,7 @@ import { getPublishedMenusForVenue, type PublicMenuSummary, type HotelMenusByKin
 import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environment";
 import VenueImage from "@/components/VenueImage";
 import {
+  publishableStreetAddress,
   venueCategoryLabel,
   venueCoverAssetCategory,
   venueSchemaType,
@@ -141,13 +143,6 @@ const districtLabel: Record<string, string> = {
   "nusa-islands": "Nusa Penida",
   "gili-islands": "Gili Islands",
   lombok: "Lombok",
-};
-
-// Structured hours for JSON-LD — only for exact, official-domain-sourced
-// daily ranges (free-text like "until late" stays out of schema).
-const SCHEMA_HOURS: Record<string, string> = {
-  "tropical-temptation-adult-only-beach-club": "Mo-Su 10:00-21:00",
-  "papi-sapi": "Mo-Su 16:00-23:30",
 };
 
 export async function generateMetadata({
@@ -326,7 +321,31 @@ export default async function VenuePage({
   ].filter((u): u is string => Boolean(u));
   // priceRange as a "$"-band only (schema expects a band, not a live menu).
   const schemaPriceRange =
-    content?.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+    content?.priceBand ?? venue.priceBand ?? venue.priceAnchor?.match(/\${1,4}/)?.[0];
+  // Opening hours come only from the venue's DB value, already normalized to
+  // schema.org syntax at the data boundary (lib/opening-hours.ts).
+  const schemaOpeningHours = venue.openingHours;
+  // Per-day hours from opening_hours_json. Preferred over the string form
+  // because it is the only representation that can state a venue's two
+  // services in one day as two entries instead of one wrong span.
+  const hoursSpec = buildOpeningHoursSpec(venue.openingHoursJson);
+  // Street address, but only where the stored value really is one. Most
+  // venues.full_address rows hold an area note rather than an address.
+  const schemaStreetAddress =
+    publishableStreetAddress(content?.address) ?? publishableStreetAddress(venue.fullAddress);
+  // Coordinates make the card answerable ("where is it") instead of prose-only.
+  // Both must be present and finite — a half-filled pair is worse than none.
+  const schemaGeo =
+    typeof venue.latitude === "number" &&
+    typeof venue.longitude === "number" &&
+    Number.isFinite(venue.latitude) &&
+    venue.latitude >= -90 &&
+    venue.latitude <= 90 &&
+    Number.isFinite(venue.longitude) &&
+    venue.longitude >= -180 &&
+    venue.longitude <= 180
+      ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
+      : null;
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
@@ -339,14 +358,23 @@ export default async function VenuePage({
     // the public UI may display owner-approved Supabase Storage media.
     address: {
       "@type": "PostalAddress",
-      ...(content?.address ? { streetAddress: content.address } : {}),
+      ...(schemaStreetAddress ? { streetAddress: schemaStreetAddress } : {}),
       addressLocality: microArea ?? districtLabel[venue.district] ?? "Bali",
       addressRegion: "Bali",
       addressCountry: "ID",
     },
     ...(schemaSameAs.length ? { sameAs: schemaSameAs } : {}),
     ...(schemaPriceRange ? { priceRange: schemaPriceRange } : {}),
-    ...(SCHEMA_HOURS[slug] ? { openingHours: SCHEMA_HOURS[slug] } : {}),
+    ...(schemaOpeningHours ? { openingHours: schemaOpeningHours } : {}),
+    ...(hoursSpec.length ? { openingHoursSpecification: hoursSpec } : {}),
+    ...(schemaGeo ? { geo: schemaGeo } : {}),
+    ...(venue.phone ? { telephone: venue.phone } : {}),
+    // Photo rights: the founder confirmed on 2026-08-04 that rights are
+    // secured for the catalogue's photos, superseding the schema/OG hold in
+    // Photo Policy v3 §4/§8. Still routed through venuePhotoUrlForDisplay
+    // (venue.photoUrl) rather than the raw column, so any future per-photo
+    // gate keeps working without touching this line.
+    ...(venue.photoUrl ? { image: venue.photoUrl } : {}),
     hasMap: venue.gmapsUrl,
   };
 
@@ -408,7 +436,6 @@ export default async function VenuePage({
     ) ? "active_deep" : isUbud ? "next_deep" : "planning_only",
     capabilities: published ? detailExtension.actionCapabilities : [],
     tablepilotBaseUrl: safeTablePilotPublicBase({
-      enabled: process.env.NEXT_PUBLIC_TABLEPILOT_ENABLED,
       vercelEnv: process.env.VERCEL_ENV,
       configuredBaseUrl: process.env.NEXT_PUBLIC_TABLEPILOT_URL,
     }),
@@ -453,7 +480,7 @@ export default async function VenuePage({
   });
   const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
   const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
-    content?.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+    content?.openingHours || venue.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
   );
 
   return (
@@ -462,7 +489,7 @@ export default async function VenuePage({
         {published && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
           />
         )}
         <PageViewTracker event="venue_detail_view" slug={slug} />
@@ -725,10 +752,10 @@ export default async function VenuePage({
                     <dd>{content?.address ?? venue.address}</dd>
                   </div>
                 )}
-                {content?.openingHours && (
+                {(content?.openingHours ?? venue.openingHours) && (
                   <div>
                     <dt>Hours</dt>
-                    <dd>{content.openingHours}</dd>
+                    <dd>{content?.openingHours ?? venue.openingHours}</dd>
                   </div>
                 )}
                 {spend && (

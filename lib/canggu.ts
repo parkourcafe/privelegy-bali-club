@@ -34,6 +34,7 @@ export function toCangguPlaceCard(v: VenueWithPerk): PlaceCardData {
     microArea: v.area,
     editorialLine: v.whyItsHere,
     bestFor: v.bestFor,
+    notFor: v.notFor,
     priceBand: v.priceAnchor,
     photoUrl: v.photoUrl,
     isSponsored: v.isSponsored,

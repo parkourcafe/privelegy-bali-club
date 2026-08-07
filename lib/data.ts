@@ -31,6 +31,8 @@ import {
 } from "./data/public-cache";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
+import { schemaOpeningHours } from "./opening-hours";
+import { readAllPages, type PageResult } from "./read-all-pages";
 
 export interface VenueWithPerk extends Venue {
   perk: Perk | null;
@@ -65,6 +67,8 @@ const PLAN_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
   "tier",
   "status",
   "is_sponsored",
@@ -95,6 +99,12 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "gmaps_url",
   "official_url",
   "instagram_url",
+  "opening_hours_json",
+  "opening_hours",
+  "price_min_idr",
+  "price_max_idr",
+  "price_text",
+  "google_place_id",
   "tier",
   "status",
   "is_sponsored",
@@ -115,6 +125,20 @@ const PUBLIC_PLACES_VENUE_COLUMNS = [
   "publication_status",
   "wellness_categories",
   "last_verified_at",
+  // Citable facts for the venue page's LocalBusiness markup. These columns
+  // existed but were never selected, so /places/[slug] could not emit
+  // coordinates, hours or a price band even where the data was present — the
+  // card carried only prose, which a model cannot quote. Emission stays
+  // conditional on a non-null value, so nothing is invented (guardrail #10).
+  "latitude",
+  "longitude",
+  "price_band",
+  // opening_hours / opening_hours_json are already selected above; the jsonb
+  // column is the richer source (501 venues vs 240 in the text column) and
+  // the only one that can express a venue's two services in a day. phone and
+  // full_address complete the LocalBusiness node.
+  "phone",
+  "full_address",
 ].join(",");
 
 const PUBLIC_PERK_COLUMNS = "id,venue_slug,title,terms";
@@ -194,6 +218,17 @@ const mapVenue = (r: Row): Venue => {
     gmapsUrl: publicDirectionsUrl(r),
     officialUrl: (r.official_url as string) ?? undefined,
     instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
+    // Canonical jsonb first. The strict legacy fallback is temporary
+    // compatibility for manually verified data-ops imports.
+    openingHours: schemaOpeningHours(r.opening_hours_json, r.opening_hours),
+    priceMinIdr: typeof r.price_min_idr === "number" && Number.isFinite(r.price_min_idr)
+      ? r.price_min_idr
+      : undefined,
+    priceMaxIdr: typeof r.price_max_idr === "number" && Number.isFinite(r.price_max_idr)
+      ? r.price_max_idr
+      : undefined,
+    priceText: textValue(r.price_text) || undefined,
+    googlePlaceId: textValue(r.google_place_id) || undefined,
     tier: r.tier as Venue["tier"],
     status: (r.status as string) ?? undefined,
     isSponsored: Boolean(r.is_sponsored),
@@ -216,6 +251,12 @@ const mapVenue = (r: Row): Venue => {
     publicationStatus: (r.publication_status as Venue["publicationStatus"]) ?? undefined,
     wellnessCategories: (r.wellness_categories as Venue["wellnessCategories"]) ?? undefined,
     lastVerifiedAt: (r.last_verified_at as string) ?? undefined,
+    latitude: typeof r.latitude === "number" ? r.latitude : undefined,
+    longitude: typeof r.longitude === "number" ? r.longitude : undefined,
+    priceBand: (r.price_band as string) ?? undefined,
+    openingHoursJson: r.opening_hours_json ?? undefined,
+    phone: (r.phone as string) ?? undefined,
+    fullAddress: (r.full_address as string) ?? undefined,
   };
 };
 // Public tourist mapping: proposed / partner-negotiation offers are treated as
@@ -287,6 +328,7 @@ function warnPublicReadFailed(label: string, e: unknown): void {
     }`,
   );
 }
+
 
 // ---- Read layer (planning form, G0) ----
 // Falls back to seed data when Supabase is not configured, so the app builds
@@ -625,20 +667,21 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
     perks = [];
     try {
       const sb = anonClient()!;
-      const [{ data: v, error: venueError }, { data: p, error: perkError }] = await Promise.all([
-        sb
-          .from("venues")
-          .select(PUBLIC_PLACES_VENUE_COLUMNS)
-          .eq("status", "active")
-          .eq("publication_status", "published")
-          .order("district", { ascending: true })
-          .order("name", { ascending: true }),
+      const [v, { data: p, error: perkError }] = await Promise.all([
+        // Paginated: the published catalogue is larger than one response.
+        readAllPages<Row>("published-venues", (from, to) =>
+          sb
+            .from("venues")
+            .select(PUBLIC_PLACES_VENUE_COLUMNS)
+            .eq("status", "active")
+            .eq("publication_status", "published")
+            .order("district", { ascending: true })
+            .order("name", { ascending: true })
+            .range(from, to) as unknown as PromiseLike<PageResult<Row>>),
         sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
       ]);
-      if (!venueError && v) {
-        venues = (v as unknown as Row[]).map(mapVenue);
-        perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-      }
+      venues = v.map(mapVenue);
+      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
     } catch (e) {
       warnPublicReadFailed("published-venues", e);
       venues = [];
@@ -676,7 +719,9 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
 
 const getCachedPublishedVenues = unstable_cache(
   fetchPublishedVenues,
-  ["published-venues-v1"],
+  // v2: the read is paginated now, so the cached value from the truncated
+  // era must not survive the deploy.
+  ["published-venues-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],

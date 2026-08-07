@@ -3,7 +3,7 @@
 // page change, not the sitemap build time or every deployment.
 const STATIC_LAST_MODIFIED: Readonly<Record<string, string>> = {
   "/canggu/work-friendly-cafes": "2026-07-15",
-  "/canggu/best-brunch": "2026-07-15",
+  "/canggu/best-brunch": "2026-08-04",
   "/canggu/best-restaurants": "2026-07-15",
   "/ubud/best-cafes-coffee": "2026-07-15",
   "/uluwatu/beach-clubs-sunset": "2026-07-14",

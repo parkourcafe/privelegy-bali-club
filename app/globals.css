@@ -1154,6 +1154,12 @@ html {
   font-weight: 700;
 }
 
+/* Fit context, negative half. Same weight as "Best for" — this is who a place
+   does not suit, not a warning, so it must not read as an alert. */
+.place-card-fit-not {
+  color: var(--tint-not-head);
+}
+
 .place-card-foot {
   display: flex;
   align-items: center;
@@ -2081,6 +2087,66 @@ html {
   color: var(--muted);
   font-size: 15.5px;
   line-height: 1.6;
+}
+
+/* Answer-first block: the decision, before the list. Kept to one column and a
+   readable measure so the whole answer is legible above the fold on mobile. */
+.guide-answer {
+  max-width: 680px;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--tint-best-bg);
+  padding: 18px 20px;
+}
+
+.guide-answer > h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.guide-answer-picks {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.guide-answer-picks dt {
+  color: var(--tint-best-head);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guide-answer-picks dd {
+  color: var(--ink);
+}
+
+.guide-answer-picks a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide-answer-fact {
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.guide-answer-trust {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.5;
 }
 
 .guide-prose {
