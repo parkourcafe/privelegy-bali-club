@@ -473,7 +473,7 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
   future per-photo gate takes effect without further code changes. This
   superseded the "re-quarantine at the launch gate" step, which is now removed
   outright (see below).
-- **Launch-gate re-quarantine removed (founder decision, 2026-08-07).** The v2
+- **Launch-gate re-quarantine removed (founder decision, 2026-08-08).** The v2
   rule — "at the public-launch gate, venue photos without a logged owner
   consent record are re-quarantined" — no longer applies and is not a pending
   step. Catalogue photo data comes from publicly available sources and the
@@ -481,7 +481,7 @@ Use the handoff template. A precise blocker is useful; confident improvisation i
   consent record, at launch or before it. Reinstating the rule requires a new
   dated decision.
 
-  Recorded because the rule was inert but not harmless. On 2026-08-07 there
+  Recorded because the rule was inert but not harmless. On 2026-08-08 there
   were 1 009 live venue photos and **zero** photo consent records in
   `consent_log`, and the `venue_photo_legacy_quarantine` table from migration
   0033 does not exist in production. Anyone applying the old text literally

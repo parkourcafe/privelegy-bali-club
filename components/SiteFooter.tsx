@@ -96,9 +96,15 @@ const EXPLORE_LINKS = [
   { href: "/bali", label: "Bali by district" },
   { href: "/collections", label: "Curated collections" },
 ];
+// The partner pages were orphans: /hotels and /villas existed and sat in the
+// sitemap, but nothing on the site linked to them, so an owner could only
+// arrive from a direct message or a search. The footer is the conventional
+// home for partner entry points and appears on every page.
 const ABOUT_LINKS = [
   { href: "/support", label: "Support" },
   { href: "/for-venues", label: "For businesses" },
+  { href: "/hotels", label: "For hotels" },
+  { href: "/villas", label: "For villas" },
 ];
 const LEGAL_LINKS = [
   { href: "/privacy", label: "Privacy" },
