@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { getVenueSubmissions } from "@/lib/admin-submissions";
+import {
+  orderSubmissionsForReview,
+  submissionOrigin,
+} from "@/lib/admin/submission-triage";
 
 export const dynamic = "force-dynamic";
 
@@ -20,8 +24,12 @@ function igLink(handle: string): string {
 }
 
 export default async function SubmissionsPage() {
-  const rows = await getVenueSubmissions();
+  // Live requests first: research imports share this table and outnumber the
+  // people, and marked `accepted` they read as handled work while the actual
+  // requests sink to the bottom.
+  const rows = orderSubmissionsForReview(await getVenueSubmissions());
   const pending = rows.filter((r) => r.status === "needs_verification").length;
+  const webCount = rows.filter((r) => submissionOrigin(r.source) === "web").length;
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
@@ -33,8 +41,10 @@ export default async function SubmissionsPage() {
       </p>
       <h1 className="mt-1 text-2xl font-bold">Incoming listing requests</h1>
       <p className="mt-2 text-sm text-stone-600">
-        {rows.length} total · {pending} awaiting review. These came in through
-        the public <span className="font-mono">/for-venues</span> page. Nothing
+        {rows.length} total · {webCount} from the site ·{" "}
+        {rows.length - webCount} research imports · {pending} awaiting review.
+        Site requests came in through the public{" "}
+        <span className="font-mono">/for-venues</span> page. Nothing
         here is published — review a place, and if it&apos;s a fit, add it to the
         catalogue by hand, then send an onboarding invite.
       </p>
@@ -59,9 +69,20 @@ export default async function SubmissionsPage() {
                     {[r.category, r.district].filter(Boolean).join(" · ") || "—"}
                   </p>
                 </div>
-                <span className="shrink-0 rounded bg-indigo-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
-                  {r.status.replace(/_/g, " ")}
-                </span>
+                <div className="flex shrink-0 flex-col items-end gap-1">
+                  {submissionOrigin(r.source) === "web" ? (
+                    <span className="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                      site request
+                    </span>
+                  ) : (
+                    <span className="rounded bg-stone-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-stone-600">
+                      research import
+                    </span>
+                  )}
+                  <span className="rounded bg-indigo-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
+                    {r.status.replace(/_/g, " ")}
+                  </span>
+                </div>
               </div>
 
               {r.note && (

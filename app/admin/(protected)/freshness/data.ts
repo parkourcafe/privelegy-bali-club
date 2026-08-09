@@ -1,5 +1,6 @@
 import { requireAdminRequest } from "@/lib/admin-request-auth";
 import { serviceClient } from "@/lib/supabase/service";
+import { readAllPages, type PageResult } from "@/lib/read-all-pages";
 import {
   evaluateActions, evaluateMenus, evaluateVenues, sortFreshnessIssues,
   type AdminActionRow, type AdminMenuRow, type AdminVenueRow, type FreshnessIssue,
@@ -72,22 +73,43 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
   await requireAdminRequest();
   const client = serviceClient();
   if (!client) return emptyResult(false);
-  const [menuResult, sectionResult, itemResult, actionResult, venueResult] = await Promise.all([
-    client.from("menus").select("id,venue_slug,title,version,status,completeness,source_url,source_label,captured_at,verified_at,expires_at").neq("status", "archived").order("venue_slug").order("version", { ascending: false }),
-    client.from("menu_sections").select("id,menu_id,name,description,position").order("position"),
-    client.from("menu_items").select("id,menu_id,section_id,name,description,price_minor,currency,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position").order("position"),
-    client.from("venue_action_capabilities").select("id,venue_slug,kind,provider,label,status,url,source_url,source_label,captured_at,verified_at,expires_at"),
-    client.from("venues").select("slug,name,status,publication_status,gmaps_url,last_verified_at"),
-  ]);
-  const firstError = menuResult.error ?? sectionResult.error ?? itemResult.error ?? actionResult.error ?? venueResult.error;
-  if (firstError) return emptyResult(true, firstError.message);
+  // Paginated: venue_action_capabilities and venues both passed PostgREST's
+  // 1000-row response ceiling (1192 and 1440 rows on 2026-08-09), so the
+  // former unpaginated Promise.all silently hid the tail of the queue from
+  // the operator. Every order carries a unique tiebreaker so range pagination
+  // cannot skip or duplicate rows between pages.
+  type Row = Record<string, unknown>;
+  let menuRows: Row[];
+  let sectionRows: Row[];
+  let itemRows: Row[];
+  let actionRows: Row[];
+  let venueRows: Row[];
+  try {
+    [menuRows, sectionRows, itemRows, actionRows, venueRows] = await Promise.all([
+      readAllPages<Row>("admin-freshness-menus", (from, to) =>
+        client.from("menus").select("id,venue_slug,title,version,status,completeness,source_url,source_label,captured_at,verified_at,expires_at").neq("status", "archived").order("venue_slug").order("version", { ascending: false }).order("id").range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+      readAllPages<Row>("admin-freshness-sections", (from, to) =>
+        client.from("menu_sections").select("id,menu_id,name,description,position").order("position").order("id").range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+      readAllPages<Row>("admin-freshness-items", (from, to) =>
+        client.from("menu_items").select("id,menu_id,section_id,name,description,price_minor,currency,dietary_tags,verified_allergen_tags,partner_recommended,editorial_pick,editorial_note,availability_note,position").order("position").order("id").range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+      readAllPages<Row>("admin-freshness-actions", (from, to) =>
+        client.from("venue_action_capabilities").select("id,venue_slug,kind,provider,label,status,url,source_url,source_label,captured_at,verified_at,expires_at").order("id").range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+      readAllPages<Row>("admin-freshness-venues", (from, to) =>
+        client.from("venues").select("slug,name,status,publication_status,gmaps_url,last_verified_at").order("slug").range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+    ]);
+  } catch (e) {
+    const message = e && typeof e === "object" && "message" in e
+      ? String((e as { message: unknown }).message)
+      : String(e);
+    return emptyResult(true, message);
+  }
 
-  const venues = (venueResult.data ?? []) as AdminVenueRow[];
+  const venues = venueRows as unknown as AdminVenueRow[];
   const venueNames = new Map(venues.map((venue) => [venue.slug, venue.name?.trim() || venue.slug]));
   const sectionsByMenu = new Map<string, AdminMenuSectionReview[]>();
   const itemsBySection = new Map<string, AdminMenuItemReview[]>();
 
-  for (const row of itemResult.data ?? []) {
+  for (const row of itemRows) {
     const sectionId = text(row.section_id);
     const items = itemsBySection.get(sectionId) ?? [];
     items.push({
@@ -107,7 +129,7 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
     itemsBySection.set(sectionId, items);
   }
 
-  for (const row of sectionResult.data ?? []) {
+  for (const row of sectionRows) {
     const menuId = text(row.menu_id);
     const sections = sectionsByMenu.get(menuId) ?? [];
     sections.push({
@@ -120,7 +142,7 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
     sectionsByMenu.set(menuId, sections);
   }
 
-  const menus = (menuResult.data ?? []).map((row): AdminMenuReview => {
+  const menus = menuRows.map((row): AdminMenuReview => {
     const id = text(row.id);
     const sections = (sectionsByMenu.get(id) ?? []).sort((a, b) => a.position - b.position || a.name.localeCompare(b.name));
     return {
@@ -141,7 +163,7 @@ export async function getFreshnessQueue(): Promise<FreshnessQueueResult> {
       sections,
     };
   });
-  const actions = (actionResult.data ?? []) as AdminActionRow[];
+  const actions = actionRows as unknown as AdminActionRow[];
   return {
     configured: true,
     issues: sortFreshnessIssues([...evaluateMenus(menus), ...evaluateActions(actions), ...evaluateVenues(venues)]),
