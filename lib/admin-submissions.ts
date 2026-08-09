@@ -14,6 +14,7 @@ export interface VenueSubmissionRow {
   websiteUrl: string;
   note: string;
   status: string;
+  source: string;
   createdAt: string;
 }
 
@@ -28,7 +29,7 @@ export async function getVenueSubmissions(): Promise<VenueSubmissionRow[]> {
   const { data, error } = await client
     .from("venue_submissions")
     .select(
-      "id,name,category,district,whatsapp,email,instagram_url,website_url,note,status,created_at",
+      "id,name,category,district,whatsapp,email,instagram_url,website_url,note,status,source,created_at",
     )
     .order("created_at", { ascending: false })
     .limit(500);
@@ -44,6 +45,7 @@ export async function getVenueSubmissions(): Promise<VenueSubmissionRow[]> {
     websiteUrl: String(row.website_url ?? ""),
     note: String(row.note ?? ""),
     status: String(row.status ?? ""),
+    source: String(row.source ?? ""),
     createdAt: String(row.created_at ?? ""),
   }));
 }
