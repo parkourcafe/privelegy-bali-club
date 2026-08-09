@@ -6,25 +6,25 @@ const CANGGU_NOW_ITEMS: Array<{ label: string; href: string; copy: string; image
     label: "Breakfast",
     href: "/canggu/best-brunch",
     copy: "Coffee, brunch, an easy start.",
-    imageSrc: "/scenes/home-first-day.webp",
+    imageSrc: "/scenes/canggu-cafes-illustrative.webp",
   },
   {
     label: "Restaurants",
     href: "/canggu/best-restaurants",
     copy: "Date night or a table for friends.",
-    imageSrc: "/scenes/home-romantic.webp",
+    imageSrc: "/scenes/canggu-restaurants-illustrative.webp",
   },
   {
     label: "Beach clubs",
     href: "/canggu/beach-clubs-sunset",
     copy: "Sunset, social or quiet.",
-    imageSrc: "/scenes/home-sunset.webp",
+    imageSrc: "/scenes/canggu-sunset-illustrative.webp",
   },
   {
     label: "Spa & reset",
     href: "/canggu/best-spas",
     copy: "Slow down after beach and board.",
-    imageSrc: "/scenes/home-rainy-day.webp",
+    imageSrc: "/scenes/canggu-spas-illustrative.webp",
   },
   {
     label: "Rainy day",
@@ -36,6 +36,7 @@ const CANGGU_NOW_ITEMS: Array<{ label: string; href: string; copy: string; image
     label: "Remote work",
     href: "/route/cafe-work",
     copy: "Laptop café, lunch, then switch off.",
+    imageSrc: "/scenes/plan-route-cafe-work.webp",
   },
 ] as const;
 
