@@ -40,7 +40,7 @@ const visualChoices = [
     copy: "Use the bay as a gentler beach day, then check the exact access and tide conditions.",
   },
   {
-    href: "/jimbaran/best-hotels",
+    href: "/where-to-stay-in-bali",
     image: "/scenes/jimbaran-airport-base-illustrative.webp",
     alt: "Illustrative tropical road and sea view representing an airport-near Jimbaran base",
     label: "Airport-near base",
