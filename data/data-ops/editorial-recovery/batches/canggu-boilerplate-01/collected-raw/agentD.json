@@ -1,0 +1,23 @@
+[
+  {"slug":"rasa-kitchen","status":"ready",
+   "official_sources":[{"url":"https://www.instagram.com/rasa_kitchen_canggu/","type":"instagram","confirms":"own IG; Indonesian Food; 09-23 daily; Grab & Gojek"}],
+   "facts":["Own IG geotag Canggu; Jl. Canggu Padang Linjong No.80A","Indonesian food (own bio)","Grab & Gojek delivery (own bio)"],
+   "proposed_why_its_here":"An Indonesian food spot on Jl. Canggu Padang Linjong in Canggu. Delivery is available via Grab and Gojek.",
+   "proposed_best_for":"A casual, all-day Indonesian meal in Canggu, or ordering in by Grab or Gojek.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Thin but own-IG sourced. Specific dishes & 7k-35k range excluded (aggregator/news only). Hours (own bio 9-11) trimmed from prose by acceptor (volatile; belongs in opening_hours)."},
+  {"slug":"samm-s-farm","status":"ready",
+   "official_sources":[{"url":"https://sammsfarm.com/","type":"website","confirms":"Samm's Farm Kitchen & Brewery; farm experience"},{"url":"https://sammsfarm.com/farm","type":"website","confirms":"own on-site regenerative farm"},{"url":"https://www.instagram.com/sammsfarm/","type":"instagram","confirms":"farm-fresh b/l, dinner & tapas, house brews; own roastery @sammsroasters"}],
+   "facts":["Samm's Farm Kitchen & Brewery, Jl. Canggu Padang Linjong No.58","Farm-to-table from own on-site regenerative farm","Farm-fresh breakfast/lunch, dinner & tapas, house brews","Roasts own coffee (@sammsroasters)"],
+   "proposed_why_its_here":"A farm-to-table kitchen and brewery on Jl. Canggu Padang Linjong, sourcing from its own on-site regenerative farm. The menu runs from farm-fresh breakfast and lunch to dinner and tapas, alongside house brews. The team also roasts its own coffee.",
+   "proposed_best_for":"Diners who want farm-fresh, sustainably sourced food, plus coffee and house-brew drinkers.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Own site + IG. No dish names/prices on own pages via snippets; medal claim excluded (third-party)."},
+  {"slug":"turntable-canggu-steakhouse","status":"ready",
+   "official_sources":[{"url":"https://www.instagram.com/turntable.canggu/","type":"instagram","confirms":"'Turntable Canggu | Steakhouse'; inside Valstar Hotel"},{"url":"https://www.instagram.com/turntable.canggu/reel/C9lfAr_CFSi/","type":"instagram","confirms":"serves wagyu beef"}],
+   "facts":["Steakhouse inside Valstar Hotel, Jl. Raya Babakan Canggu No.51","Serves steak incl wagyu beef (own reel)"],
+   "proposed_why_its_here":"A steakhouse inside Valstar Hotel on Jl. Raya Babakan in Canggu. It serves steaks including wagyu beef.",
+   "proposed_best_for":"Steak and wagyu lovers after dinner in Canggu.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"'Hidden sunset spot' hype trimmed by acceptor (standard bans hype even in venue's own words). Broader menu/prices excluded (aggregator/TripAdvisor only)."}
+]

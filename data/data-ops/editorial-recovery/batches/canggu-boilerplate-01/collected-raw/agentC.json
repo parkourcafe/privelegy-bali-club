@@ -1,0 +1,21 @@
+[
+  {"slug":"kong-contemporary-bistro","status":"ready",
+   "official_sources":[{"url":"https://kongbali.com/","type":"website","confirms":"identity/location Berawa No.14B; contemporary bistro"},{"url":"https://kongbali.com/food/","type":"menu","confirms":"Asian-inspired small-to-medium plates; prices in 000 IDR +7% svc +10% tax"},{"url":"https://kongbali.com/sunday-roast-2024/","type":"menu","confirms":"weekly Sunday Roast"},{"url":"https://kongbali.com/drinks-menu/","type":"menu","confirms":"cocktail/wine lists"}],
+   "facts":["Jl. Pantai Berawa No.14B, Berawa","Contemporary bistro","Asian-inspired small-to-medium sharing plates","Separate lunch/dinner menus + cocktail/wine","Weekly Sunday Roast"],
+   "proposed_why_its_here":"KONG is a contemporary bistro on Jl. Pantai Berawa in Berawa, Canggu. The kitchen serves Asian-inspired small-to-medium plates alongside a cocktail and wine list. A weekly Sunday Roast is a standing fixture.",
+   "proposed_best_for":"Groups sharing small-to-medium plates over dinner and cocktails in Berawa, and anyone after a Sunday Roast.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Prices in 000 IDR on official PDFs but egress-blocked; styling/hours excluded (third-party)."},
+  {"slug":"milano","status":"unclear",
+   "official_sources":[{"url":"https://www.instagram.com/milano.bali/","type":"instagram","confirms":"Italian eatery by White Goose; Berawa; open 7AM-1AM"}],
+   "facts":["Italian eatery (not a lounge), by White Goose Bali, Berawa","Open daily 7AM-1AM","Pizza/pasta"],
+   "proposed_why_its_here":"","proposed_best_for":"","proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"REJECT/unclear: two official-looking IG handles (@milano.bali, @milanocanggu); street number unverified from official source; no confirmable dishes/prices; second Umalas location referenced."},
+  {"slug":"one-eyed-jack","status":"ready",
+   "official_sources":[{"url":"https://www.oneeyedjackbali.com/","type":"website","confirms":"identity/location Berawa No.C89; contemporary izakaya"},{"url":"http://oneeyedjackbali.com/wp-content/uploads/2024/09/OEJ_FoodMenu_08-2024.pdf","type":"menu","confirms":"BITES/RAW PLATES/SUSHI ROLLS; uni, salmon roe, unagi; 000 IDR +10% tax +6.5% svc"},{"url":"http://oneeyedjackbali.com/wp-content/uploads/2024/09/OEJ_BarMenu_08-2024.pdf","type":"menu","confirms":"cocktails incl Jack's Lychee Martini"}],
+   "facts":["Jl. Pantai Berawa No.C89, Berawa","Contemporary izakaya","Bites/Raw Plates/Sushi Rolls; uni, salmon roe, unagi","Cocktail program incl Jack's Lychee Martini"],
+   "proposed_why_its_here":"One Eyed Jack is a contemporary izakaya on Jl. Pantai Berawa in Berawa, Canggu. It serves Japanese-style shared plates across bites, raw plates and sushi rolls, using ingredients such as uni, salmon roe and unagi. The bar pours cocktails including the Jack's Lychee Martini.",
+   "proposed_best_for":"Evening shared-plate dining and cocktails for people who like Japanese izakaya food, raw plates and sushi.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Prices in 000 IDR on official PDFs but egress-blocked; 'ex-Nobu chef' & hours excluded (third-party)."}
+]
