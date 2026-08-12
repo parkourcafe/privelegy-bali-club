@@ -52,6 +52,7 @@ export const PILLARS: Pillar[] = [
       { path: "/ubud/best-warungs", title: "Best warungs & local food in Ubud" },
       { path: "/ubud/best-cafes-coffee", title: "Best cafés & coffee in Ubud" },
       { path: "/ubud/best-yoga-wellness", title: "Best yoga & wellness in Ubud" },
+      { path: "/route/ubud-remote-work-day", title: "A remote work day in Ubud" },
     ],
   },
   {

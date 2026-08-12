@@ -1,9 +1,18 @@
 // Ubud SEO child guides (master §6a.3, brief §13). Editorial "best of"
-// (guardrail #6). Ubud has no `jobs` tags yet, so these are curated CATEGORY
-// lists from real DB editorial data — no fabricated decision groups (§4). The
-// richer decision/wellness guides arrive with the Ubud data + evidence pass.
+// (guardrail #6): curated CATEGORY lists from real DB editorial data — no
+// fabricated decision groups (§4). The richer decision/wellness guides arrive
+// with the Ubud data + evidence pass.
+//
+// `extraSection` is a single additive module on top of the category list —
+// e.g. "Laptop-friendly" on best-cafes-coffee, filtered on the venue's own
+// `jobs` tag (quiet_work_cafe, set by the 0024 editorial pass). It is not a
+// second standalone guide (Ubud unified cluster decision V1: no new P0_CREATE
+// URL clears gates today) and not a full Canggu-style `groups` restructure —
+// just the smallest module that lets a distinct decision ("where can I work")
+// sit on the existing canonical instead of forking it.
 
 import type { VenueWithPerk } from "@/lib/data";
+import { venueHasJob } from "@/lib/ubud";
 
 export type UbudGuide = {
   slug: string;
@@ -14,6 +23,13 @@ export type UbudGuide = {
   base: (v: VenueWithPerk) => boolean;
   sectionHeading: string;
   sectionNote: string;
+  extraSection?: {
+    key: string;
+    heading: string;
+    note: string;
+    match: (v: VenueWithPerk) => boolean;
+    relatedRoute?: { href: string; label: string };
+  };
   faq: { q: string; a: string }[];
 };
 
@@ -61,6 +77,13 @@ export const UBUD_GUIDES: UbudGuide[] = [
     base: (v) => v.category === "cafe",
     sectionHeading: "Coffee & café mornings",
     sectionNote: "Serious coffee and calm rooms — some better for work, some for slowing down.",
+    extraSection: {
+      key: "laptop-friendly",
+      heading: "Laptop-friendly",
+      note: "Cafés we've tagged for a quiet work session — order-paced, not grab-and-go. We don't claim wifi speed, sockets or call suitability without a direct check, so ask on arrival if that's what you need.",
+      match: (v) => venueHasJob(v, ["quiet-work-cafe"]),
+      relatedRoute: { href: "/route/ubud-remote-work-day", label: "Building a full work day? See the remote-work-day route." },
+    },
     faq: [
       { q: "Which Ubud cafés are good for working?", a: "Ubud has a strong café-work culture, but rooms vary — look for the ones we note as calm with room to sit; some jungle cafés are for the view, not a laptop." },
     ],

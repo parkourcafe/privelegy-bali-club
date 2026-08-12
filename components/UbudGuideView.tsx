@@ -10,6 +10,7 @@ const BASE = "https://www.otherbali.com";
 
 export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
   const venues = (await getUbudVenues()).filter(guide.base);
+  const extraVenues = guide.extraSection ? venues.filter(guide.extraSection.match) : [];
 
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
@@ -83,6 +84,25 @@ export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
             </div>
           )}
         </section>
+
+        {guide.extraSection && extraVenues.length > 0 && (
+          <section id={guide.extraSection.key} className="guide-section scroll-mt-8">
+            <h2>{guide.extraSection.heading}</h2>
+            <p className="text-sm text-[var(--muted)]">{guide.extraSection.note}</p>
+            <div className="pick-grid" style={{ marginTop: 16 }}>
+              {extraVenues.map((v) => (
+                <PlaceCard key={v.slug} place={toUbudPlaceCard(v)} />
+              ))}
+            </div>
+            {guide.extraSection.relatedRoute && (
+              <p className="mt-4 text-sm">
+                <a href={guide.extraSection.relatedRoute.href} className="quiet-link">
+                  {guide.extraSection.relatedRoute.label}
+                </a>
+              </p>
+            )}
+          </section>
+        )}
 
         <FaqBlock items={guide.faq} />
         <RelatedGuides links={related} />

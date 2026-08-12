@@ -202,6 +202,21 @@ export const ROUTES: RouteDef[] = [
       { venueSlug: "bebek-bengil", note: "Lunch: the Ubud restaurant that popularised Balinese crispy duck." },
     ],
   },
+  // cf. supabase/migrations/0067 — pilot scenario/plan route: three already-
+  // published, quiet_work_cafe-tagged Ubud cafés, in order. No fabricated
+  // hours, wifi or call-suitability claims (see the migration's own note).
+  {
+    slug: "ubud-remote-work-day",
+    district: "ubud",
+    title: "A remote work day in Ubud",
+    subtitle: "Three cafés, in order, for a focused session, a coffee break and a long lunch",
+    rank: 20,
+    stops: [
+      { venueSlug: "seniman-coffee-studio", note: "Start here for the longer, deep-work block — editorially tagged for a quiet work session, slower-paced service." },
+      { venueSlug: "anomali-coffee-ubud", note: "Switch desks mid-afternoon — a street-front town café, good for a shorter sit and a coffee flight between calls." },
+      { venueSlug: "bali-buda-ubud", note: "Long lunch that can stretch into more work — wholefoods restaurant and grocery, big menu, room to linger." },
+    ],
+  },
   // cf. supabase/migrations/0049 — two more excursions, same pattern.
   {
     slug: "bangli-temple-village-day",

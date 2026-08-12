@@ -2,12 +2,17 @@
 // money loop is OFF (guardrail #4): cards never carry Reserve/offer, venues hand
 // off to their own channels only. Like Canggu here, content is sourced from the
 // existing DB editorial fields (why_its_here/best_for) — nothing invented (§4).
-// Ubud carries NO `jobs` tags yet, so guides organise by category, not decision.
 // Verified facts + venue-page indexing arrive with the Ubud evidence pass
 // (loaded separately); until then venue detail pages stay noindex.
+//
+// The 0024 editorial pass did store `jobs` on Ubud venues (quiet_work_cafe
+// among them), just not yet surfaced by a guide — venueHasJob below mirrors
+// lib/canggu.ts so a guide can filter on that real DB data instead of
+// inventing a decision group.
 
 import type { VenueWithPerk } from "@/lib/data";
 import { getPublishedVenues, isPublicReadyVenue } from "@/lib/data";
+import { normalizeJobs } from "@/lib/intents";
 import type { PlaceCardData } from "@/components/PlaceCard";
 
 export const UBUD_SLUG = "ubud";
@@ -33,4 +38,11 @@ export function toUbudPlaceCard(v: VenueWithPerk): PlaceCardData {
     gmapsUrl: v.gmapsUrl,
     // No tablepilotSlug / hasOffer — planning district, no monetization (#4).
   };
+}
+
+// Match against the DB's canonical job slugs (underscore form). See
+// lib/canggu.ts for the identical helper and the normalizeJobs rationale.
+export function venueHasJob(v: VenueWithPerk, jobs: string[]): boolean {
+  const own = normalizeJobs(v.jobs);
+  return normalizeJobs(jobs).some((j) => own.includes(j));
 }
