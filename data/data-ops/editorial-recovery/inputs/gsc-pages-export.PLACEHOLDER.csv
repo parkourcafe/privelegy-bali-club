@@ -1,0 +1,10 @@
+# PLACEHOLDER — the real GSC Pages export is not committed here yet.
+#
+# Replace this file with a real export saved as `gsc-pages-export.csv`
+# (drop the .PLACEHOLDER), then run:
+#     python3 ../build_queue.py --gsc inputs/gsc-pages-export.csv
+#
+# Expected shape (GSC → Search results → Pages → Export → CSV):
+Page,Clicks,Impressions,CTR,Position
+https://otherbali.com/places/example-slug,12,540,2.22%,8.4
+https://otherbali.com/canggu,80,3200,2.5%,6.1

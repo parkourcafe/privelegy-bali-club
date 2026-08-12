@@ -1,0 +1,1273 @@
+rank,slug,name,district,category,queue_class,passes_release_gate,num_blockers,editorial_severity,gate_proximity,demand_score,gsc_impressions,gsc_clicks,gsc_position,gsc_striking_distance,composite_score
+1,7am-bakers-umalas,7AM Bakers Umalas,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+2,afterglow-bar-and-kitchen-at-tribe-bali-kuta-beach,Afterglow Bar and Kitchen at Tribe Bali Kuta Beach,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+3,baked-berawa,BAKED. Berawa,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+4,boheme-canggu,Boheme Restaurant at Shore Amora Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+5,bottega-italiana,Bottega Italiana,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+6,chamas-brazilian-churrascaria-at-kuta,Chamas Brazilian Churrascaria at Kuta,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+7,chupacabras,Chupacabras,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+8,copenhagen-cafe-berawa,Copenhagen CAFE Berawa,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+9,crate-cafe,Crate Cafe,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+10,deus-ex-machina,Deus Ex Machina,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+11,ele-restaurant-bar-and-terrace,"ELE Restaurant, Bar and Terrace",canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+12,grillos-cafe-and-eatery,Grillos Cafe & Eatery,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+13,hippie-fish-pererenan-beach,Hippie Fish Pererenan Beach,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+14,hungry-bird-coffee,Hungry Bird Coffee Roaster,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+15,indigo,Indigo,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+16,jade-by-todd-english,Jade by Todd English,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+17,kecambah-restaurant-at-lalasa-villas,Kecambah Restaurant at Lalasa Villas,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+18,manhattan-cocktail-hookah-kitchen,Manhattan Cocktail Hookah Kitchen,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+19,mason,Mason,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+20,nude-berawa,NÜDE Berawa,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+21,sia-grill-and-seafood-bar,SIA - Grill & Seafood Bar,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+22,takk-bali,TAKK Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+23,takumi-bali,Takumi Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+24,the-slow,The Slow,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+25,urban-seaside-restaurant-and-bar,Urban Seaside restaurant & bar,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,1,0.9,0.75,0.0,,,,,0.84
+26,12-kitchen-and-wine,12 Kitchen and Wine,canggu,bar,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+27,amber-resto-seminyak,Amber Resto Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+28,amok-sunset-restaurant-and-bar,Amok Sunset Restaurant & Bar,nusa-islands,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+29,ants-pants-uluwatu,Ants Pants Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+30,aperitif-restaurant,Apéritif Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+31,aribar-tapas-cantina,Aribar Tapas Cantina,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+32,arunika-restaurant-by-the-meru-sanur,Arunika Restaurant by The Meru Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+33,arya-arkananta-resort-and-spa,Arya Arkananta Resort & Spa,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+34,aunty-ji-s,Aunty Ji's,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+35,avocuts-coffee-and-eatery,Avocuts Coffee & Eatery,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+36,babi-guling-men-agus,Babi Guling Men Agus,canggu,warung,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+37,babi-guling-swari,Warung Babi Guling Swari,canggu,warung,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+38,baked-pererenan,BAKED Pererenan,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+39,barbacoa,Barbacoa,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+40,bella-italia-sanur,Bella Italia Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+41,big-fish-grill,Big Fish Grill,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+42,billy-ho-japanese-restaurant,Billy Ho Japanese Restaurant,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+43,blue-mountains-bali,Blue Mountains Bali,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+44,boardwalk-restaurant-bali,Boardwalk Restaurant Bali,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+45,brook-nusa-dua,BROOK Nusa Dua,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+46,bulan-madu-restaurant-at-amora-ubud-boutique-villas,Bulan Madu Restaurant at Amora Ubud Boutique Villas,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+47,burma-noodles-and-curry,Burma Noodles & Curry,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+48,cafe-del-mar-bali,Café del Mar Bali,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+49,cafe-lotus,Cafe Lotus,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+50,casa-bambu-cantina,Casa Bambù Cantina,nusa-islands,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+51,casa-blanca-bali,Casa Blanca Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+52,casadia-restaurant-and-bar,Casadia Restaurant & Bar,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+53,chaskaa-jimbaran,CHASKAA GWK — Jimbaran,jimbaran,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+54,chaskaa-ubud,Chaskaa Modern Indian Cuisine and Bar at Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+55,cherry-pepper-ubud,Cherry Pepper Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+56,cliff-at-canna,Cliff at CANNA,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+57,cocoon-seminyak,Cocoon Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+58,costa-beach-restaurant,COSTA - Beach Restaurant Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+59,d-made-restaurant-the-kalyana-ubud-resort,D'Made Restaurant (The Kalyana Ubud Resort),ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+60,daily-social,Daily Social,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+61,dandelion,Casa Tua,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+62,deeva-restaurant-at-the-udaya,Deeva Restaurant at The Udaya,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+63,desa-swan-villas-and-spa-keramas,"Desa Swan Villas & SPA, Keramas",ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+64,di-mare-restaurant-karma-kandara,di Mare Restaurant - Karma Kandara,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+65,dice-at-the-craft-hotel,Dice at The Craft Hotel,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+66,dining-corner-restaurant,Delight Corner at Kayumanis Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+67,ely-s-kitchen-ubud,Ely's Kitchen Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+68,enchante,Enchante,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+69,envy-restaurant,ENVY Restaurant,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+70,fermeto-ubud-restaurant,Fermeto Ubud Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+71,ferro-grill-restaurant-and-bar,FERRO Grill Restaurant & Bar,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+72,fisherman-s-club,Fisherman's Club,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+73,flame-bar-and-grill-ubud,Flame Bar & Grill Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+74,flamingo-beach-club-bali,Flamingo Beach Club Bali,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+75,fu-house-seminyak,Fu House | Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+76,genius-cafe,Genius Cafe,sanur,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+77,gong-restaurant,Gong Restaurant,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+78,honey-and-smoke,Honey & Smoke,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+79,huge-restaurant,Huge Restaurant,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+80,infinity-beach-club,Infinity Beach Club,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+81,isaya-teppanyaki-boutique-seminyak,Isaya Teppanyaki Boutique Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+82,izzi-rooftop-lounge-and-restaurant-and-bar-and-shisha,IZZI ROOFTOP LOUNGE & RESTAURANT & BAR & SHISHA,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+83,jaansan-beach-house-restaurant-bar-and-lounge-at-kelan-beach,"Jaansan Beach House | Restaurant, Bar & Lounge at Kelan Beach",jimbaran,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+84,jackson-lily-s-by-ginger-moon,Jackson Lily's by Ginger Moon,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+85,jalapeno,Jalapeno,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+86,jingga-restaurant-at-bumi-kinar,Jingga Restaurant at Bumi Kinar,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+87,ju-bali,Ju Bali,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+88,kabar-grill,KaBar Grill,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+89,kaum-bali,Kaum Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+90,kayumanis-seaside-restaurant-sanur,Kayumanis Seaside Restaurant Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+91,kepitu-restaurant-by-the-kayon-resort,Kepitu Restaurant by The Kayon Resort,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+92,kepitu-restaurant-by-the-kayon-valley-resort,Kepitu Restaurant by The Kayon Valley Resort,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+93,kimukatsu-icon-bali,Kimukatsu Icon Bali,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+94,kokoon-uluwatu-at-vanara-resort-and-spa,Kokoon Uluwatu at VANARA Resort & Spa,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+95,kukusan-bali-restaurant-at-the-artini-dijiwa-ubud,Kukusan Bali Restaurant at The Artini Dijiwa Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+96,kuu-izakaya-dining,Kuu Izakaya Bali at Maya Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+97,la-favela-bali,La Favela Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+98,la-portal-to-shamballah,La Portal to Shamballah,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+99,la-santa-rosa,La Santa Rosa,jimbaran,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+100,lava-gastrobar-grill,Lava Gastrobar & Grill,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+101,lilla-pantai,Lilla Pantai,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+102,linga-longa-bar,Linga Longa Bar,sanur,bar,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+103,loop-cafe,LOOP cafe,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+104,lowcal-cheatery-and-bar,"LowCal, Cheatery and Bar",canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+105,luca-bali-sanur,Luca Bali,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+106,malverde-tequileria-and-nightclub,Malverde Tequileria & Nightclub,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+107,mamu-ubud-cafe-shisha-hookah,MAMU Ubud Cafe Shisha Hookah,ubud,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+108,mapogu-coffee-and-eatery-mapogu-restaurant,Mapogu Coffee & Eatery Mapogu Restaurant,jimbaran,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+109,mase-kitchen-and-bar,Mase Kitchen & Bar,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+110,massimo-italian-restaurant,Massimo — Italian Restaurant,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+111,mensa-asian-bistro-and-bar,Mensa Asian Bistro and Bar,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+112,milk-and-madu-seminyak,Milk & Madu Seminyak,seminyak,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+113,milu-by-nook,Milu by Nook,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+114,moana-fish-eatery,Moana Fish Eatery,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+115,momo-bar-at-the-courtyard-by-marriott-bali-nusa-dua,MoMo Bar at The Courtyard by Marriott Bali Nusa Dua,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+116,mona-lisa-cafe,Mona Lisa Cafe,sanur,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+117,moonstone-beach-lounge,Moonstone Beach Lounge,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+118,mozza-sanur,Mozza Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+119,nasi-ayam-kedewatan-ibu-mangku,Nasi Ayam Kedewatan Ibu Mangku — Outlet Pusat Ubud,ubud,warung,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+120,natti-s-indian-specialty-restaurant-ubud,Natti's Indian Specialty Restaurant Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+121,natys-restaurant-jimbaran,Natys Restaurant Jimbaran,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+122,noaa-asian-bistro,NOAA Asian Bistro,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+123,ocean-terrace-restaurant-at-legian-beach-hotel,Ocean Terrace Restaurant at Legian Beach Hotel,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+124,pasir-restaurant-ubud,PASIR Restaurant Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+125,pizza-fabbrica,Pizza Fabbrica,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+126,rockfish-cliffside,Rockfish Cliffside,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+127,rosso-vivo-dine-and-lounge,Rosso Vivo Dine & Lounge,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+128,sacred-rice-restaurant,SACRED RICE Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+129,sala-bistro,Sala Bistro,sanur,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+130,saltlick,Saltlick,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+131,sama-sama-prime,Sama Sama Prime,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+132,sana-uluwatu,Sana Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+133,sapa-seafood-and-grill-nusa-dua,Sapa Seafood & Grill - Nusa Dua,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+134,satoshi,Satoshi,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+135,sayan-valley,Sayan Valley,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+136,secret-garden-restaurant,Secret Garden Restaurant,lovina,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+137,segara-the-seaside,Segara the Seaside,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+138,semara-grill-at-inara-alas-harum,Semara Grill at Inara Alas Harum,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+139,seres-springs-resort-and-spa-singakerta-ubud,"SereS Springs Resort & Spa Singakerta, Ubud",ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+140,seven-paintings-ubud-restaurant,Seven Paintings Ubud Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+141,shinraku-teppanyaki,Shinraku Teppanyaki,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+142,shooters-bali,Shooters Bali,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+143,sista-dumpling,SISTA DUMPLING 喜食,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+144,smoke-grill-master-and-barbeque-bali,SMOKE – GRILL MASTER & BARBEQUE BALI,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+145,soul-on-the-beach,Soul on the Beach,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+146,spice-by-blake,Spice by Blake,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+147,sumitra-luxury-villas-and-resort-by-pramana,Sumitra Luxury Villas & Resort by Pramana,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+148,sunset-bloom-restaurant-at-swan-paradise-a-pramana-experience,Sunset Bloom Restaurant at Swan Paradise A Pramana Experience,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+149,tacos-aqui-uluwatu,Tacos Aqui Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+150,tarabelle,Tarabelle,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+151,temple-by-ginger-moon,Temple by Ginger Moon,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+152,tenji-sushi,Tenji Sushi,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+153,terrace-sanur-the-1o1-bali-oasis-sanur,Terrace Sanur (The 1O1 Bali Oasis Sanur),sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+154,the-1o1-bali-oasis-sanur,THE 1O1 Bali Oasis Sanur,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+155,the-bandha-hotel-and-suites,The Bandha Hotel & Suites,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+156,the-butchers-club-steakhouse,The Butchers Club Steakhouse,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+157,the-cepaka-bistro-bali,The Cepaka Bistro Bali,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+158,the-chowk-ubud,The Chowk - Indian Gourmet House. (Museum Puri Lukisan Ubud),ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+159,the-grumpy-butcher,The Grumpy Butcher,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+160,the-island-grill-and-lounge,The Island Grill & Lounge,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+161,the-jungle-club-ubud-by-wonderspace,The Jungle Club Ubud by Wonderspace,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+162,the-naked-tiger,THE NAKED TIGER,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+163,the-northview-bali-ngiring-ngewedang-restaurant-and-coffee-c,The Northview Bali – Ngiring Ngewedang Restaurant & Coffee Corner,munduk,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+164,the-sankara-suites-and-villas,The Sankara Suites & Villas,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+165,the-sayan-house-restaurant-ubud,The Sayan House Restaurant Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+166,the-tempayan-at-tanah-gajah-a-resort-by-hadiprana,"The Tempayan at Tanah Gajah, a Resort by Hadiprana",ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+167,the-village-cucina-italiana,The Village Cucina Italiana,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+168,three-elements-restaurant,Three Elements Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+169,tirta-padma-tribhuwana-padma,Tirta Padma (Tribhuwana Padma),bangli,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+170,tree-bar-at-maya-sanur-resort-and-spa,Tree Bar at Maya Sanur Resort & Spa,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+171,tree-bar-at-maya-ubud,Tree Bar at Maya Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+172,tsune-japanese-restaurant-bali-by-wonderspace,Tsune Japanese Restaurant Bali by Wonderspace,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+173,uma-cucina,Uma Cucina,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+174,wanna-jungle-pool-and-bar-at-the-kayon-jungle-resort,Wanna Jungle Pool and Bar at The Kayon Jungle Resort,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+175,warung-bu-mi,Warung Bu Mi,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+176,warung-damar,Warung Damar,kuta-legian,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+177,watercress-berawa,Watercress Berawa,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+178,wet-plate-kitchen,Wet Plate Kitchen,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+179,whisper-cove-bar-ubud,Whisper Cove Bar Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+180,white-rock-beach-club,White Rock Beach Club,uluwatu-bukit,beach_club,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+181,wild-ginger-restaurant-at-nandini-jungle-by-hanging-gardens,Wild Ginger Restaurant at Nandini Jungle by Hanging Gardens,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,2,0.9,0.5,0.0,,,,,0.74
+182,acala-bar-and-bistro,Acala Bar & Bistro,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+183,acropora-bar-and-restaurant-at-pramana-natura-nusa-penida,Acropora Bar and Restaurant at Pramana Natura Nusa Penida,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+184,arctic-restaurant-breakfast-brunch-and-dinner,"ARCTIC Restaurant – Breakfast, Brunch & Dinner",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+185,arwana-restaurant-at-the-laguna-a-luxury-collection-resort-and-spa,"Arwana Restaurant at The Laguna, a Luxury Collection Resort & Spa",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+186,ary-s-book-cafe,Ary's Book Cafe,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+187,baan-ying-thai,Baan Ying Thai,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+188,baas-terrace-and-wine-locked-lounge-at-metland-venya-ubud,Baas Terrace and Wine Locked Lounge at Metland Venya Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+189,banyubiru-restaurant-at-the-laguna-a-luxury-collection-resort-and-spa,"Banyubiru Restaurant at The Laguna, a Luxury Collection Resort & Spa",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+190,begawan-biji-restaurant-ubud-organic-farm-to-table,Begawan Biji Restaurant Ubud (Organic Farm-To-Table),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+191,blu-sky-restaurant-bar-lounge,BLU Sky Restaurant - Bar - Lounge,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+192,boneka,Boneka Restaurant at The St. Regis Bali Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+193,botanist-restaurant-ubud-at-blue-karma-dijiwa-ubud,Botanist Restaurant Ubud at Blue Karma Dijiwa Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+194,bukit-cinta-restaurant-and-bar-at-the-lokha-ubud,Bukit Cinta Restaurant and Bar at The Lokha Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+195,cabana-lounge-at-alila-ubud,Cabana Lounge at Alila Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+196,chandi,Chandi,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+197,citrus-restaurant-ubud,Citrus Restaurant Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+198,collina-kawi-restaurant-at-kawi-resort,Collina Kawi Restaurant at Kawi Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+199,elara-seaside-lounge-and-bar-at-hilton-bali-resort,Elara - Seaside Lounge and Bar at Hilton Bali Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+200,french-kiss-restaurant,French Kiss Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+201,ganesha-elite-at-the-westin-resort-bali,Ganesha Elite at The Westin Resort Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+202,gateway-of-india-at-seminyak,Gateway of India at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+203,gioi-ocean-gourmet,GIOI Ocean Gourmet,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+204,glow-restaurant-at-como-shambhala-estate,glow Restaurant at COMO Shambhala Estate,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+205,grain-at-hilton-bali-resort,Grain at Hilton Bali Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+206,ground-zero-kitchen,Ground Zero Kitchen,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+207,hamabe-at-the-westin-resort-nusa-dua-bali,"Hamabe at The Westin Resort Nusa Dua, Bali",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+208,henry-s-steakhouse,HENRY'S Steakhouse,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+209,house-of-tundra,House of Tundra,tabanan,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+210,ikan-restaurant-and-bar-at-the-westin-resort-nusa-dua-bali,"IKAN Restaurant and Bar at The Westin Resort Nusa Dua, Bali",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+211,ja-jan-bistro-at-merusaka-nusa-dua,Ja'Jan Bistro at Merusaka Nusa Dua,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+212,jack-fruit-restaurant-at-pramana-giri-kusuma,Jack Fruit Restaurant at Pramana Giri Kusuma,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+213,jard-or-french-fusion-brasserie,JARD'OR French Fusion Brasserie,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+214,kayumanis-beach-bar-and-grill-nusa-dua,Kayumanis Beach Bar & Grill Nusa Dua,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+215,kedai-tepi-kali-and-bar-at-tapa-tepi-kali-canggu,Kedai Tepi Kali and Bar at Tapa Tepi Kali Canggu,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+216,kowhai-restaurant-at-maua-nusa-penida,KŌWHAI Restaurant at MĀUA Nusa Penida,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+217,kudus-house-at-como-shambhala-estate,Kudus House at COMO Shambhala Estate,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+218,kulkul-beach-house-at-the-laguna-a-luxury-collection-resort-and-spa,"Kulkul Beach House at The Laguna, a Luxury Collection Resort & Spa",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+219,lion-x,Lion X at Renaissance Bali Nusa Dua Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+220,livingstone,Livingstone,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+221,madhubann-pure-veg-indian-restaurant,Madhubann : Pure Veg Indian Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+222,maja-restaurant-at-amarterra-villas-resort,Maja Restaurant at Amarterra Villas Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+223,malam-asian-grill,Malam Asian Grill,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+224,merah-putih,Merah Putih,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+225,mozzarella-restaurant-at-the-magani-hotel-and-spa,Mozzarella Restaurant at The Magani Hotel and Spa,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+226,muka-restaurant-and-bar,MuKa Restaurant and Bar,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+227,nagisa-japanese-restaurant-at-hotel-nikko-bali-benoa-beach,Nagisa Japanese Restaurant at Hotel Nikko Bali Benoa Beach,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+228,nampu-japanese-restaurant,Nampu Japanese Restaurant at Grand Hyatt Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+229,natys-bar-and-grill-ubud,Natys Bar & Grill Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+230,nyoman-s-beer-garden-bar-and-restaurant,Nyoman's Beer Garden Bar & Restaurant,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+231,paoman-restaurant-at-inara-alas-harum,Paoman Restaurant at Inara Alas Harum,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+232,paon-bali-resto-and-bar-at-hilton-bali-resort,Paon Bali Resto and Bar at Hilton Bali Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+233,plantation-restaurant-at-alila-ubud,Plantation Restaurant at Alila Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+234,prego-at-the-westin-resort-nusa-dua-bali,"Prego at The Westin Resort Nusa Dua, Bali",nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+235,queen-s-of-angsoka-by-queen-s-tandoor-at-ramada-by-wyndham-bali,Queen's of Angsoka By Queen's Tandoor at Ramada by Wyndham Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+236,queen-s-of-india-at-nusa-dua,Queen's of India at Nusa Dua,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+237,queen-s-tandoor-indian-restaurant-seminyak-bali,Queen's Tandoor - Indian Restaurant Seminyak Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+238,rasa-kitchen,Rasa Kitchen,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+239,river-warung-at-bambu-indah,River Warung at Bambu Indah,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+240,sala-bistro-at-ubud,Sala Bistro at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+241,salsa-verde-at-grand-hyatt-bali,Salsa Verde at Grand Hyatt Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+242,samm-s-farm,Samm's Farm,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+243,sans-indian-restaurant-ubud-by-wonderspace,Sans Indian Restaurant Ubud by Wonderspace,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+244,sarong,Sarong,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+245,simply-social,Simply Social,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+246,steaksmith-restaurant-at-renaissance-bali-nusa-dua-resort,Steaksmith Restaurant at Renaissance Bali Nusa Dua Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+247,t-dung-restaurant-pool-and-bar-at-kenran-resort-ubud,T'dung Restaurant Pool and Bar at Kenran Resort Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+248,tamarind-restaurant-at-nusa-dua-beach-hotel-and-spa,Tamarind Restaurant at Nusa Dua Beach Hotel and Spa,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+249,tekila-mexican-restaurant-ubud,TeKila Mexican Restaurant Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+250,tetaring-restaurant-at-kayumanis-nusa-dua-private-villa-and-spa,Tetaring Restaurant at Kayumanis Nusa Dua Private Villa and Spa,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+251,the-kelusa-at-samsara-ubud,The Kelusa at Samsara Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+252,the-shore,The Shore,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+253,turntable-canggu-steakhouse,Turntable Canggu | Steakhouse,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+254,twist-ubud,Twist Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+255,ula-cafe,Ula Cafe,uluwatu-bukit,cafe,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+256,warnakali-restaurant-at-adiwana-warnakali-resort,Warnakali Restaurant at Adiwana Warnakali Resort,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,3,1.0,0.25,0.0,,,,,0.7
+257,12-urban-cafe-breakfast-and-dinner-movie-night-cocktail-bar-canggu,12 Urban Cafe - Breakfast & Dinner | Movie night | Cocktail Bar Canggu,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+258,15fit-seminyak,15FIT Seminyak,seminyak,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+259,2befit-bali,2befit Bali,seminyak,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+260,360-move-uluwatu,360 Move Uluwatu,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+261,8lements-spa-saranam,8LEMENTS Spa at HOMM Saranam,munduk,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+262,akua-mediterranean,AKUA Mediterranean,jimbaran,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+263,alchemy-uluwatu,Alchemy Uluwatu,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+264,alchemy-yoga-and-meditation-center-ubud,Alchemy Yoga and Meditation Center,ubud,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+265,ami-studio,Ami Studio,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+266,arkipela-spa-at-mo-venpick-jimbaran-jimbaran,Arkipela Spa at Mövenpick Jimbaran,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+267,aroma-spa-retreat-sanur,Aroma Spa Retreat Sanur,sanur,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+268,artisan-uluwatu,Artisan - Uluwatu,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+269,arwana,Arwana,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+270,avenue-fitness-bali,Avenue Fitness Bali,seminyak,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+271,azure-beach-restaurant,Azure beach club & restaurant Jimbaran,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+272,bali-barber-canggu,Bali Barber Canggu,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+273,bali-barber-jimbaran,Bali Barber Jimbaran,jimbaran,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+274,bali-barber-sanur-sanur,Bali Barber Sanur,sanur,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+275,bali-barber-ubud,Bali Barber Ubud,ubud,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+276,bali-beauty-salon-nusa-dua,Bali Beauty Salon Nusa Dua,nusa-dua,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+277,bali-botanica-spa,Bali Botanica by Oneworld Ayurveda,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+278,balique-restaurant,Balique,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+279,balquisse-heritage-hotel-yoga-jimbaran,Balquisse Heritage Hotel Yoga,jimbaran,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+280,balquisse-spa-jimbaran,Balquisse Spa,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+281,bambou-cafe-and-lagree-cemagi,Bambou Café & Lagree Cemagi,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+282,bambu,Bambu,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+283,bambu-fitness-bali,Bambu Fitness Bali,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+284,bar-vera-bistro-and-wine-bar,Bar Vera Bistro & Wine Bar,canggu,bar,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+285,bawang-merah-beachfront,Bawang Merah Beachfront,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+286,bejana-ritz-carlton,"Bejana Restaurant at The Ritz-Carlton, Bali",nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+287,bella-cucina,Bella Cucina,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+288,bgs-uluwatu,BGS Uluwatu,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+289,big-dragon-villas-ubud,Big Dragon Villas Ubud,ubud,villa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+290,biku,Biku,seminyak,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+291,body-factory-bali-recovery-canggu,Body Factory Bali Recovery,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+292,bodyworks-beauty-seminyak-seminyak,Bodyworks Beauty Seminyak,seminyak,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+293,boyncow,Boy'N'Cow,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+294,bumbu-bali,Bumbu Bali,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+295,cafe-vida-healthy-organic-restaurant-canggu,CAFE VIDA Healthy Organic Restaurant Canggu,canggu,cafe,P2_ADD_NOT_FOR,True,1,0.5,1.0,0.0,,,,,0.7
+296,caffe-torino-by-venticinque-group-at-grand-srikandi-mansion,Caffè Torino by Venticinque Group at Grand Srikandi Mansion,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+297,canna-beach-club,Canna Beach Club,nusa-dua,beach_club,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+298,cantika-zest,Cantika Zest,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+299,coco-nails-ubud,Coco Nails Ubud,ubud,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+300,cocomo-at-canggu,Cocomo at Canggu,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+301,cocoon-medical-spa-seminyak-seminyak,Cocoon Medical Spa Seminyak,seminyak,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+302,como-shambhala-at-como-uma-ubud-yoga-ubud,COMO Shambhala at COMO Uma Ubud Yoga,ubud,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+303,cuca-restaurant,Cuca Restaurant,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+304,d-nailbar-spa-uluwatu,D'Nailbar Spa Uluwatu,uluwatu-bukit,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+305,dala-spa-at-alaya-resort-ubud,DaLa Spa at Alaya Resort Ubud,ubud,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+306,dala-spa-beauty-at-alaya-ubud-ubud,DaLa Spa Beauty at Alaya Ubud,ubud,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+307,dava-steak-and-seafood,DAVA Steak & Seafood,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+308,de-nyuh-spa-seminyak,De Nyuh Spa Seminyak,seminyak,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+309,desa-seni-yoga,Desa Seni Yoga,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+310,dorsey-s-barber-shop-uluwatu,Dorsey's Barber Shop Uluwatu,uluwatu-bukit,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+311,ecosfera-yoga-canggu-canggu,Ecosfera Yoga Canggu,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+312,el-kabron-bali,El Kabron,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+313,espace-spa-canggu-canggu,Espace Spa Canggu,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+314,gambinos-bali,Gambinos Bali,seminyak,restaurant,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+315,gelato-secrets-ubud,Gelato Secrets Ubud,ubud,cafe,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+316,goldust-beauty-facials-canggu,Goldust Beauty / Facials,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+317,goldust-spa-canggu,Goldust Spa,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+318,good-hair-day-sanur,Good Hair Day Sanur,sanur,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+319,gooseberry-french-restaurant-uluwatu,Gooseberry French Restaurant | Uluwatu,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+320,green-spot-cafe,Green Spot Cafe,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+321,healing-village-spa-at-four-seasons-jimbaran-jimbaran,Healing Village Spa at Four Seasons Jimbaran,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+322,honey-kitchen,Honey Kitchen,canggu,restaurant,P2_ADD_NOT_FOR,True,1,0.5,1.0,0.0,,,,,0.7
+323,intercontinental-bali-resort-beauty-services-jimbaran,InterContinental Bali Resort Beauty Services,jimbaran,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+324,island-grooming-barbershop,Island Grooming Barbershop,uluwatu-bukit,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+325,izakaya-by-oku,Izakaya by OKU,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+326,jaens-spa,Jaens Spa,ubud,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+327,jaens-spa-ubud-ubud,Jaens Spa Ubud,ubud,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+328,jasmine-aromatic-house,Jasmine Aromatic House,kuta-legian,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+329,jet-black-ginger-canggu-canggu,Jet Black Ginger Canggu,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+330,ji-restaurant-bali,Ji Restaurant Bali,canggu,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+331,jimbaran-bay-beach-resort-spa-jimbaran,Jimbaran Bay Beach Resort Spa,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+332,jimbaran-hair-beauty-studio,Jimbaran Hair & Beauty Studio,jimbaran,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+333,jimbaran-hub-fitness-classes-jimbaran,Jimbaran Hub Fitness / Classes,jimbaran,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+334,jimbaran-hub-yoga-jimbaran,Jimbaran Hub Yoga,jimbaran,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+335,jimbaran-warrior,Jimbaran Warrior,jimbaran,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+336,jungle-padel-canggu-canggu,Jungle Padel Canggu,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+337,kala-uluwatu,KALA Uluwatu,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+338,karma-jimbaran-fitness-jimbaran,Karma Jimbaran Fitness,jimbaran,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+339,karma-spa-at-karma-jimbaran-jimbaran,Karma Spa at Karma Jimbaran,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+340,karma-spa-at-karma-kandara,Karma Spa at Karma Kandara,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+341,kayumanis-resto-jimbaran,Kayumanis Resto Jimbaran,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+342,kayuputi,Kayuputi Restaurant at The St. Regis Bali Resort,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+343,kilo-kitchen-bali-seminyak,Kilo Kitchen Bali - Seminyak,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+344,ko-japanese-teppanyaki-and-sushi,"KO Japanese Restaurant, Teppanyaki and Sushi",uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+345,koa-shala-sanur,Koa Shala,sanur,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+346,koa-shala-spa-sanur,Koa Shala Spa,sanur,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+347,koral,Koral,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+348,kubu-garden-restaurant,Kubu Garden Restaurant & Coffee,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+349,la-tribu-bali,La Tribu Bali,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+350,laggas-uluwatu,Laggas Uluwatu,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+351,leha-leha-spa-sanur,Leha Leha Spa Sanur,sanur,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+352,ling-lings-bali,Ling-Ling's Bali,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+353,luma,Luma,canggu,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+354,mamasan-bali,Mamasan Bali,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+355,mana-uluwatu,Mana Uluwatu,uluwatu-bukit,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+356,manarai-beach-house,Manarai Beach House,nusa-dua,beach_club,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+357,mandapa-spa-ubud,Mandapa Spa,ubud,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+358,martha-tilaar-salon-day-spa-jimbaran,Martha Tilaar Salon Day Spa Jimbaran,jimbaran,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+359,martha-tilaar-salon-day-spa-sanur,Martha Tilaar Salon Day Spa Sanur,sanur,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+360,masonry-restaurant,MASONRY Restaurant,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+361,maya-sanur-spa-sanur,Maya Sanur Spa,sanur,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+362,maya-ubud-fitness-centre-ubud,Maya Ubud Fitness Centre,ubud,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+363,maya-ubud-spa-ubud,Maya Ubud Spa & Wellness,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+364,maya-ubud-yoga-ubud,Maya Ubud Yoga,ubud,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+365,merah-putih-indonesian-restaurant,Merah Putih | Indonesian Restaurant,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+366,mission-flow-studio,Mission Flow Studio,canggu,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+367,monkey-bar-bali,The Monkey Bar,amed,bar,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+368,morning-light-yoga-studio,Morning Light Yoga Studio,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+369,motion-fitness-bali-seminyak,Motion Fitness Bali Seminyak,seminyak,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+370,nail-lesss-canggu,Nail Lesss Canggu,canggu,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+371,nelayan-restaurant-and-puri-bar,"Nelayan Restaurant and Puri Bar at Jimbaran Puri, A Belmond Hotel, Bali",uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+372,nirvana-life-bali-canggu,Nirvana Life Bali,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+373,nusa-dua-beach-grill,Nusa Dua Beach Grill,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+374,nyoman-cafe,Nyoman Café,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+375,obsidian-gym-bali-canggu,Obsidian Gym Bali,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+376,olop-iyengar-yoga,Olop Iyengar Yoga,seminyak,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+377,oneeighty,oneeighty Dayclub,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+378,only-nails-pererenan,Only Nails Pererenan,canggu,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+379,ours-spa-boutique,Ours Spa & Boutique,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+380,papi-sapi,Papi Sapi,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+381,piasan,Piasan Nusa Dua Restaurant,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+382,piccolina,Piccolina,uluwatu-bukit,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+383,piramid-spa,Piramid Spa,jimbaran,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+384,pison-petitenget,"Pison, Petitenget",seminyak,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+385,potato-head-beach-club,Potato Head Beach Club,seminyak,beach_club,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+386,power-of-now-oasis-sanur,Power of Now Oasis,sanur,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+387,prana-spa-yoga-fitness-adjacent-seminyak,Prana Spa / Yoga fitness-adjacent,seminyak,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+388,puri-santrian-spa-sanur,Puri Santrian Spa,sanur,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+389,putri-bali-spa,Putri Bali Spa,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+390,radiantly-alive,Radiantly Alive,ubud,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+391,radja-seafood-cafe,Radja Seafood Cafe,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+392,raw-gym-uluwatu,Raw Gym Uluwatu,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+393,reform-pilates-bali,Reform Pilates Bali,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+394,rejuvie-aesthetic-bali-seminyak-seminyak,Rejuvie Aesthetic Bali Seminyak,seminyak,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+395,retro-kitchen-and-bar,Retro Kitchen and Bar,sanur,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+396,rev-v-wellness-resort-fitness,REVĪVŌ Wellness Resort Fitness,nusa-dua,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+397,rite-bali-recovery-canggu,RITE Bali Recovery,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+398,rite-bali-yoga-canggu,RITE Bali Yoga,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+399,rose-petal,Rose Petal,uluwatu-bukit,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+400,sacred-river-spa-at-four-seasons-sayan-ubud,Sacred River Spa at Four Seasons Sayan,ubud,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+401,sang-spa,Sang Spa & Yoga,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+402,sangsaka,Sangsaka,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+403,santanera,Santanera,canggu,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+404,sardine,Sardine,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+405,sea-circus,Sea Circus Restaurant & Bar,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+406,seed-bingin,Seed Bingin,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+407,seminyak-yoga-shala,Seminyak Yoga Shala,seminyak,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+408,serenity-eco-guesthouse-yoga-canggu,Serenity Eco Guesthouse & Yoga,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+409,single-fin,Single Fin,uluwatu-bukit,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+410,sisterfields,Sisterfields,seminyak,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+411,six-senses-spa-uluwatu,Six Senses Spa Uluwatu,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+412,soham-pilates-class-program-seminyak,Soham Pilates / Class Program,seminyak,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+413,soham-wellness-spa-seminyak,Soham Wellness Spa,seminyak,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+414,soham-yoga-seminyak,Soham Yoga,seminyak,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+415,soleil-at-mulia,Soleil at Mulia,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+416,soma-fight-club-canggu,SOMA Fight Club,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+417,son-of-a-baker,Son of A Baker,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+418,spa-at-mu,Spa at Mu,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+419,spa-at-rimba-by-ayana-bali-jimbaran,Spa at RIMBA by AYANA Bali,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+420,spring-spa-canggu,Spring Spa Canggu,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+421,spring-spa-seminyak,Spring Spa Seminyak,seminyak,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+422,spring-spa-ubud,Spring Spa Ubud,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+423,spring-spa-uluwatu,Spring Spa Uluwatu,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+424,studio-fondue,Studio Fondue,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+425,sudajiva-spa-at-sudamala-sanur-sanur,Sudajiva Spa at Sudamala Sanur,sanur,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+426,sudamala-resort-sanur-wellness-yoga-sanur,Sudamala Resort Sanur Wellness / Yoga,sanur,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+427,suka-espresso,Suka Espresso,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+428,sundara,Sundara at Four Seasons Bali,jimbaran,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+429,sundays-beach-club,Sundays Beach Club,uluwatu-bukit,beach_club,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+430,sunset-beach-bar-and-grill,Sunset Beach Bar & Grill,jimbaran,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+431,supreme-indian-restaurant,Supreme Indian Restaurant,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+432,svaha-spa,Svaha Spa,ubud,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+433,svaha-spa-beauty-ubud-ubud,Svaha Spa Beauty Ubud,ubud,beauty,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+434,svaha-spa-bingin,Svaha Spa Bingin,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+435,svaha-spa-bisma-ubud,Svaha Spa Bisma,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+436,swarna-spa-and-wellness,Swarna Spa and Wellness,canggu,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+437,taksu-spa-beauty-ubud,Taksu Spa Beauty,ubud,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+438,taksu-spa-ubud,Taksu Spa,ubud,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+439,taksu-yoga-ubud,Taksu Yoga & Wellness Center,ubud,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+440,taru-pramana-spa-sanur,Taru Pramana Spa & Wellness,sanur,spa,P2_ADD_NOT_FOR,True,4,0.5,1.0,0.0,,,,,0.7
+441,tetaring,Tetaring,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+442,the-asa-maia,The Asa Maia,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+443,the-beach-grill-ritz-carlton,"The Beach Grill at The Ritz-Carlton, Bali",nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+444,the-bvlgari-spa,The Bvlgari Spa,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+445,the-canggu-studio-canggu,The Canggu Studio,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+446,the-canggu-studio-yoga-canggu,The Canggu Studio Yoga,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+447,the-flow-bali,The Flow Bali,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+448,the-practice-bali-canggu,The Practice Bali,canggu,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+449,the-shampoo-lounge-canggu,HairShop Canggu,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+450,the-space-bali,The Space Bali,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+451,the-temple-lodge,The Temple Lodge,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+452,the-warung-at-alila-villas-uluwatu,The Warung at Alila Villas Uluwatu,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+453,the-yoga-rescue,The Yoga Rescue,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+454,therapy-canggu-canggu,Therapy Canggu,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+455,therapy-day-spa-pererenan,Therapy Day Spa Pererenan,canggu,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+456,therapy-hair-spa-canggu-canggu,Therapy Hair & Spa Canggu,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+457,therapy-hair-spa-seminyak,Therapy Hair & Spa Seminyak,seminyak,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+458,thermes-marins-bali-spa-at-ayana-jimbaran,Thermes Marins Bali Spa at AYANA,jimbaran,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+459,think-pink-nails-canggu-canggu,Think Pink Nails Canggu,canggu,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+460,think-pink-nails-seminyak,Think Pink Nails Seminyak,seminyak,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+461,titi-batu-ubud-club-ubud,Titi Batu Ubud Club,ubud,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+462,tonic-day-spa-botanicals-canggu,Tonic Day Spa & Botanicals,canggu,spa,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+463,tropical-temptation-adult-only-beach-club,Tropical Temptation - Adult Only Beach Club,uluwatu-bukit,beach_club,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+464,ubud-beauty-salon,Ubud Beauty Salon,ubud,beauty,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+465,ubud-fitness-center,Ubud Fitness Center,ubud,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+466,ubud-gym,Ubud Gym,ubud,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+467,ubud-pilates,Ubud Pilates,ubud,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+468,ubud-sari-health-resort,Ubud Sari Health Resort,ubud,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+469,ulekan-berawa,Ulekan Berawa,canggu,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+470,ulu-active-recovery,ULU Active & Recovery,uluwatu-bukit,fitness,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+471,ulu-artisan-ungasan,ULU ARTISAN — Ungasan,uluwatu-bukit,cafe,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+472,ulu-fishmarket,Ulu Fishmarket,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+473,ulu-garden,Ulu Garden,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+474,ulu-yoga-bali,ULU Yoga Bali,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+475,unique-rooftop-bar-and-restaurant,UNIQUE Rooftop Bar & Restaurant,jimbaran,bar,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+476,vela-spa,Vela Spa,uluwatu-bukit,spa,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+477,waatu,WAATU,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+478,wanderlust-fitness-village-canggu,Wanderlust Fitness Village,canggu,fitness,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+479,waroeng-bernadette,Waroeng Bernadette at Seminyak,seminyak,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+480,warung-mami-ikan-bakar,Warung Mami ikan bakar,jimbaran,warung,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+481,warung-nia-balinese-food-and-pork-ribs,Warung Nia Balinese Food & Pork Ribs,seminyak,warung,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+482,warung-nonii,Warung Nonii,canggu,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+483,warung-ramayana-ikan-bakar,Warung Ramayana Ikan Bakar,jimbaran,warung,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+484,white-orchid-nusa-dua,White Orchid Nusa Dua,nusa-dua,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+485,woods-bali,Woods Bali,canggu,restaurant,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+486,yinside-yoga,YinSide Yoga,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+487,yoga-searcher-bali,Yoga Searcher Bali,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+488,yoga-the-istana,Yoga @ The Istana,uluwatu-bukit,yoga,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+489,yuki-uluwatu,YUKI Uluwatu,uluwatu-bukit,restaurant,P2_ADD_NOT_FOR,True,3,0.5,1.0,0.0,,,,,0.7
+490,zuna-yoga-ubud,Zuna Yoga,ubud,yoga,P2_ADD_NOT_FOR,True,2,0.5,1.0,0.0,,,,,0.7
+491,anomali-coffee-ubud,Anomali Coffee Ubud,ubud,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+492,ayam-betutu-khas-gilimanuk,Ayam Betutu Khas Gilimanuk,denpasar,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+493,bali-bohemia,Bali Bohemia,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+494,bali-climbing-bouldering-gym,Bali Climbing Bouldering Gym,canggu,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+495,bebek-bengil,Bebek Bengil,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+496,bossman-burgers,BO$$MAN,seminyak,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+497,cafe-wayan-and-bakery,Cafe Wayan & Bakery,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+498,casa-luna,Casa Luna,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+499,cascades,CasCades,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+500,crossfit-seminyak,Crossfit Seminyak,kuta-legian,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+501,dicarik-warung,Dicarik Warung,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+502,drifter-surf-cafe,Drifter Surf Shop & Cafe,uluwatu-bukit,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+503,expat-roasters,Expat. Roasters,seminyak,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+504,fair-warung-bale,Fair Warung Balé,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+505,finns-recreation-club-finns-lifestyle-village,FINNS Recreation Club / FINNS Lifestyle Village,canggu,spa,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+506,fore-coffee-jimbaran,Fore Coffee,jimbaran,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+507,heart-space-bali,Heart Space Bali,ubud,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+508,hog-wild-with-chef-bruno,Hog Wild with Chef Bruno,seminyak,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+509,ibu-rai,Ibu Rai,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+510,intuitive-flow,Intuitive Flow,ubud,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+511,jiwa-bikram-yoga-bali-seminyak,Jiwa Bikram Yoga Bali,seminyak,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+512,karsa-cafe,Karsa Cafe,ubud,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+513,kriya-spa-at-grand-hyatt-bali-nusa-dua,Kriya Spa at Grand Hyatt Bali,nusa-dua,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+514,kush-ayurveda-yoga-barn,KUSH Ayurvedic Rejuvenation Spa at The Yoga Barn,ubud,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+515,kynd-community,Kynd Community,seminyak,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+516,la-casetta-bali,La Casetta Bali,seminyak,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+517,laka-leke,Laka Leke,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+518,lulu-bistrot,Lulu Bistrot,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+519,lyma-beach,Lyma Beach,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+520,manga-madu,Warung Mangga Madu,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+521,marramba-fitness,Marramba Fitness,sanur,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+522,melting-wok-warung,Melting Wok Warung,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+523,menega-cafe,Menega Cafe,jimbaran,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+524,miel-specialty-coffee-canggu,MIEL Specialty Coffee Canggu,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+525,mosto-berawa,Mosto Berawa,canggu,bar,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+526,mulia-fitness-centre-nusa-dua,Mulia Fitness Centre,nusa-dua,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+527,mulia-spa-nusa-dua,Mulia Spa,nusa-dua,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+528,neighbourhood-food-berawa,Neighbourhood Food Berawa,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+529,neighbourhood-food-seseh,Neighbourhood Food Seseh,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+530,nook-umalas,Nook Umalas,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+531,oma-jamu,Oma Jamu,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+532,onion-collective,Onion Collective,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+533,pizzaria-hyatt,Pizzaria (Hyatt),sanur,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+534,power-of-now-yoga,Power Of Now (Yoga),sanur,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+535,pyramids-of-chi,Pyramids of Chi,ubud,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+536,rai-fitness-sunset-road-seminyak,Rai Fitness Sunset Road,seminyak,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+537,revi-vo-spa-wellness-nusa-dua,REVĪVŌ Spa / Wellness,nusa-dua,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+538,revi-vo-yoga-mindfulness-nusa-dua,REVĪVŌ Yoga / Mindfulness,nusa-dua,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+539,revive-pilates-umalas,Revive + Pilates Umalas,seminyak,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+540,rise-and-shine-cafe,Rise and Shine Cafe,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+541,riviera-bistro-berawa,Riviera Bistro Berawa,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+542,riviera-cafe-cemagi,Riviera Cafe Cemagi,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+543,riviera-trattoria-pererenan,Riviera Trattoria Pererenan,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+544,rize-cafe,Rize Cafe,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+545,room4dessert,Room4Dessert,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+546,ruko-cafe,Ruko Cafe,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+547,samadi-bali,Samadi Bali,canggu,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+548,sate-khas-senayan-beachwalk,Sate Khas Senayan,kuta-legian,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+549,satu-satu-coffee-company,Satu-Satu Coffee Company,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+550,sawobali,Sawobali,ubud,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+551,secret-spot-bali,Secret Spot,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+552,sensorium-bali,Sensorium Bali,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+553,seseh-general-store,Seseh General Store,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+554,sofitel-bali-fitness-centre-nusa-dua,Sofitel Bali Fitness Centre,nusa-dua,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+555,soham-wellness-center-seminyak,Soham Wellness Center,seminyak,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+556,the-apurva-kempinski-fitness-centre-nusa-dua,The Apurva Kempinski Fitness Centre,nusa-dua,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+557,the-apurva-kempinski-yoga-nusa-dua,The Apurva Kempinski Yoga,nusa-dua,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+558,the-apurva-spa-nusa-dua,The Apurva Spa,nusa-dua,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+559,the-cashew-tree,The Cashew Tree,uluwatu-bukit,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+560,the-lawn-canggu-beach-club,The Lawn Canggu Beach Club,canggu,beach_club,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+561,the-loft-bali,The Loft,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+562,the-shala-bali,The Shala Bali,ubud,spa,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+563,the-yoga-barn,The Yoga Barn,ubud,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+564,toko-kopi-tuku,Toko Kopi Tuku,denpasar,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+565,tropical-nomad,Tropical Nomad,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+566,tukies-coconut-shop,Tukies Coconut Shop,ubud,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+567,two-face-canggu,TWO FACE Canggu,canggu,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+568,ubud-yoga-centre,Ubud Yoga Centre,ubud,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+569,uluwatu-collective,Uluwatu Collective,uluwatu-bukit,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+570,vincent-nigita,Vincent Nigita,seminyak,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+571,waroeng-sulawesi-petitenget,Waroeng Sulawesi,seminyak,warung,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+572,warung-batan-bekul,Warung Batan Bekul,nusa-dua,warung,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+573,warung-biah-biah,Warung Biah Biah,ubud,warung,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+574,warung-dobiel-nusa-dua,Warung Dobiel,nusa-dua,warung,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+575,warung-halme-ikan-bakar-ala-jimbaran,Warung Hal-Me Ikan Bakar ala Jimbaran,nusa-dua,warung,P2_DEEPEN_PRACTICAL_VALUE,True,3,0.45,1.0,0.0,,,,,0.67
+576,warung-makan-little-mars,Warung Makan Little Mars,sanur,warung,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+577,warung-mendez,Warung Mendez,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+578,warung-siam,Warung Siam,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+579,warung-wardani,Warung Wardani,denpasar,warung,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+580,watercress-seminyak,Watercress Seminyak,seminyak,cafe,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+581,whos-who,Who's Who,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+582,wulan-vegetarian-warung,Wulan Vegetarian Warung,ubud,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+583,yoga-108-bali-seminyak,Yoga 108 Bali,seminyak,yoga,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+584,yuki-canggu,YUKI Canggu,canggu,restaurant,P2_DEEPEN_PRACTICAL_VALUE,True,2,0.45,1.0,0.0,,,,,0.67
+585,zando-fight-camp-uluwatu,Zando Fight Camp Uluwatu,uluwatu-bukit,fitness,P2_DEEPEN_PRACTICAL_VALUE,True,1,0.45,1.0,0.0,,,,,0.67
+586,air-terjun-gitgit,Air Terjun Gitgit,lovina,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+587,air-terjun-tegenungan,Air Terjun Tegenungan,ubud,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+588,alchemy-yoga-and-meditation-center-uluwatu,Alchemy Yoga & Meditation Center Uluwatu,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+589,amavi-canggu-bali,AMAVI Canggu Bali,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+590,anika-gym,Anika Gym,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+591,ankhusa-restaurant-ubud-by-wonderspace,Ankhusa Restaurant Ubud by Wonderspace,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+592,artisan-pererenan,Artisan – Pererenan,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+593,at06,AT06,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+594,azul-beach-club-legian,Azul Beach Club,kuta-legian,beach_club,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+595,babi-guling-bali-ayu-pecatu,Babi Guling Bali Ayu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+596,babi-guling-men-lari,Babi Guling Men Lari,canggu,warung,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+597,babi-guling-sari-kembar-99,Babi Guling Sari Kembar 99,canggu,warung,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+598,bali-buda-canggu,Bali Buda Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+599,bali-green-surf,Bali Green Surf,kuta-legian,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+600,balumba-surf-school-uluwatu,Balumba Surf School,uluwatu-bukit,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+601,bambu-pilates,Bambu Pilates,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+602,bistro-anwa,Bistro Anwa,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+603,bluvana-reformer-studio,Bluvana Reformer Studio,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+604,brie-restaurant-and-cheesery,Brie Restaurant & Cheesery,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+605,bunut-bolong,Bunut Bolong,jembrana,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+606,camino-resto-and-bar,Camino Resto & Bar,jimbaran,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+607,canggu-club-tennis-centre,Canggu Club Tennis Centre,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+608,cantina-classe-canggu,Cantina Classe — Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+609,cantina-classe-ubud,Cantina Classe — Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+610,caseys-spa-beauty-salon-legian,Casey's Spa & Beauty Salon,kuta-legian,beauty,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+611,celebrity-fitness,Celebrity Fitness,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+612,cemara-point-by-dusun-bedugul-asri,Cemara Point by Dusun Bedugul Asri,tabanan,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+613,coffee-cartel-legian,Coffee Cartel,kuta-legian,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+614,crumb-and-coaster-kuta,Crumb & Coaster,kuta-legian,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+615,dbuchu-bingin,D'Buchu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+616,de-maison-bali-restaurant-and-bar,De Maison Bali Restaurant & Bar,denpasar,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+617,desa-wisata-bugbug,Tourism Village Bugbug,karangasem,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+618,desa-wisata-penglipuran,Desa Wisata Penglipuran,bangli,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+619,desa-wisata-sanur-kauh,Tourism Village Sanur Kauh,sanur,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+620,desa-wisata-tembuku,Tourism Village Tembuku,bangli,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+621,desa-wisata-tenganan,Tourism Village Tenganan,karangasem,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+622,dodo-pizza,Dodo Pizza,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+623,drifter-kayu-aya,Drifter Kayu Aya,kuta-legian,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+624,dua-kafe-nusa-dua,DUA Kafe,nusa-dua,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+625,engine-room-legian,Engine Room,kuta-legian,bar,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+626,fitness-plus,Fitness plus,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+627,garuda-wisnu-kencana,Garuda Wisnu Kencana,uluwatu-bukit,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+628,genius-bistro,Genius Bistro,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+629,habitat-bistro,Habitat Bistro,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+630,hammerhead-fitness,Hammerhead Fitness,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+631,hawa-gym-tukad-yeh-aya,Hawa Gym Tukad Yeh Aya,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+632,home-cafe-mengwi,HOME Cafe MENGWI,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+633,jatiluwih,Jatiluwih,tabanan,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+634,jungle-flower-restaurant,Jungle Flower Restaurant,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+635,kopiten,Kopiten,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+636,kros-tennis-bali,Kros Tennis Bali,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+637,kupu-kupu-day-spa-legian,Kupu Kupu Day Spa,kuta-legian,beauty,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+638,la-terrazza-uluwatu,La Terrazza Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+639,la-tribu,La Tribu,uluwatu-bukit,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+640,lemanja-uluwatu,Lemanjá Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+641,lolas-cantina-canggu,Lola’s Cantina Mexicana — Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+642,lolas-cantina-uluwatu,Lola’s Cantina Mexicana — Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+643,luna-and-sol-pilates-yoga,Luna & Sol Pilates - Yoga,canggu,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+644,made-s-bakery-cafe-playground,Made’s Bakery Cafe Playground,uluwatu-bukit,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+645,mades-warung-kuta,Made's Warung,kuta-legian,warung,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+646,mantra-wellness,Mantra Wellness,uluwatu-bukit,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+647,mavammy,Mavammy,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+648,milk-and-madu-uluwatu,Milk & Madu Uluwatu,uluwatu-bukit,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+649,morning-light-yoga,Morning Light Yoga,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+650,motion-skatepark,Motion Skatepark,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+651,naya-uluwatu,NAYA Uluwatu,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+652,nirvana-strength-tibubeneng,Nirvana Strength Tibubeneng,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+653,norii-japanese-restaurant-seminyak,Norii Japanese Restaurant — Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+654,norii-japanese-restaurant-ubud,Norii Japanese Restaurant — Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+655,padang-padang-surf-camp-uluwatu,Padang Padang Surf Camp,uluwatu-bukit,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+656,paed-thai-canggu,Paed Thai — Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+657,pak-gula,PAK GULA,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+658,pantai-kuta,Pantai Kuta,kuta-legian,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+659,pantai-lovina,Pantai Lovina,lovina,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+660,pantai-pandawa,Pantai Pandawa,uluwatu-bukit,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+661,paradise-padel-bali,Paradise Padel Bali,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+662,piasan-nusa-dua-restaurant-piasan-restaurant,Piasan Nusa Dua Restaurant Piasan Restaurant,nusa-dua,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+663,poggy-bali-surf-school-uluwatu,Poggy Bali Surf School,uluwatu-bukit,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+664,pole-studio-bali,Pole Studio Bali,kuta-legian,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+665,porch,Porch,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+666,pranava-yoga,Pranava Yoga,canggu,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+667,pura-kehen,Pura Kehen,bangli,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+668,rai-fitness-sunset-bali,Rai Fitness Sunset Bali,kuta-legian,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+669,reform-pilates-bingin,Reform Pilates Bingin,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+670,reform-uluwatu,Reform+ Uluwatu,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+671,rip-curl-school-of-surf,Rip Curl School of Surf,sanur,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+672,rip-curl-surf-school-kuta-legian,Rip Curl Surf School,kuta-legian,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+673,s2s-crossfit,S2S Crossfit,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+674,sa-mesa-canggu-experience-dining,Sa'Mesa Canggu | Experience Dining,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+675,sanur-surf-school,Sanur Surf School,sanur,surf,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+676,saya-club,Saya Club,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+677,seabird-bistro-and-coworking-canggu-by-wonderspace,Seabird Bistro & Coworking Canggu by Wonderspace,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+678,seasalt,Seasalt,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+679,shichirin-japanese-restaurant-canggu,Shichirin Japanese Restaurant — Canggu,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+680,shichirin-japanese-restaurant-seminyak,Shichirin Japanese Restaurant — Seminyak,seminyak,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+681,shichirin-japanese-restaurant-ubud,Shichirin Japanese Restaurant — Ubud,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+682,signa-cafe,Signa Cafe,nusa-dua,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+683,skai-beach-club-legian,S.K.A.I Beach Club,kuta-legian,beach_club,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+684,snowcat-bali-ussr-cuisine,Snowcat Bali USSR Cuisine,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+685,surya-fitness-gym,Surya Fitness Gym,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+686,taksu-yoga,Taksu Yoga,ubud,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+687,tanah-lot,Tanah Lot,tabanan,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+688,the-free-bird-studio,The Free Bird Studio,canggu,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+689,the-little-hill-terrace,The Little Hill Terrace,munduk,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+690,tirta-empul,Tirta Empul,ubud,attraction,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+691,to-the-moon-cafe,To the moon cafe,seminyak,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+692,top-gym,Top Gym,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+693,tsune-japanese-restaurant-sanur-by-wonderspace,Tsune Japanese Restaurant Sanur by Wonderspace,sanur,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+694,victory-fitness-club,Victory Fitness Club,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+695,warung-bu-jonny-uluwatu,Warung Bu Jonny (Cak Man),uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+696,warung-kampung-legian,Warung Kampung,kuta-legian,warung,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+697,warung-local-pecatu,Warung Local,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+698,white-orchid-sanur,White Orchid (Sanur),sanur,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+699,workmates-coworking-space-and-cafe,Workmates Coworking Space & Cafe,canggu,cafe,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+700,yeyes-warung-uluwatu,Yeye's Warung,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+701,yoga-108-bali-kuta-legian,Yoga 108 Bali,kuta-legian,yoga,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+702,zali-uluwatu,Zali at Uluwatu,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,3,0.9,0.25,0.0,,,,,0.64
+703,oneworld-ayurveda,Oneworld Ayurveda,ubud,spa,P2_VERIFY_SOURCE_AND_DATE,True,3,0.4,1.0,0.0,,,,,0.64
+704,oranje-bar,Oranje Bar,sanur,bar,P2_VERIFY_SOURCE_AND_DATE,True,3,0.4,1.0,0.0,,,,,0.64
+705,seeds-of-life,Seeds of Life,ubud,cafe,P2_VERIFY_SOURCE_AND_DATE,True,2,0.4,1.0,0.0,,,,,0.64
+706,warung-babi-guling-sanur-bypass,Warung Babi Guling Sanur,sanur,warung,P2_VERIFY_SOURCE_AND_DATE,True,3,0.4,1.0,0.0,,,,,0.64
+707,warung-coconut-tree,Warung Coconut Tree,sanur,warung,P2_VERIFY_SOURCE_AND_DATE,True,3,0.4,1.0,0.0,,,,,0.64
+708,warung-pregina,Pregina Warung,sanur,warung,P2_VERIFY_SOURCE_AND_DATE,True,3,0.4,1.0,0.0,,,,,0.64
+709,warung-taman-bambu,Warung Taman Bambu,seminyak,warung,P2_VERIFY_SOURCE_AND_DATE,True,4,0.4,1.0,0.0,,,,,0.64
+710,2080-burger-x-cibo-pasta-house-sanur,2080 Burger x Cibo! Pasta House Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+711,360-rooftop-at-anantara-uluwatu-bali-resort,360 Rooftop at Anantara Uluwatu Bali Resort,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+712,5kitchen-bali-suites5-hotel,5Kitchen Bali (Suites5 Hotel),jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+713,9-11-cafe,9-11 Cafe,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+714,acala-bar-and-bistro-lembongan,Acala Bar & Bistro Lembongan,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+715,afterwork,Afterwork,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+716,air-cafe-and-lounge-at-the-sebali-resort,Air Cafe and Lounge at The Sebali Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+717,akasa-at-jumeirah-bali,Akasa at Jumeirah Bali,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+718,al-dente-cucina-italiana-and-lounge,Al Dente Cucina Italiana & Lounge,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+719,alma-tapas-bar-at-uluwatu,Alma Tapas Bar at Uluwatu,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+720,amateras-restaurant-at-jannata-resort-and-spa,Amateras Restaurant at Jannata Resort & Spa,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+721,ambar-ubud-bar-at-mandapa-a-ritz-carlton-reserve,"Ambar Ubud Bar at Mandapa, a Ritz-Carlton Reserve",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+722,anarasa-at-movenpick-resort,Anarasa at Mövenpick Resort,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+723,aoku,Aoku,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+724,arcadia,Arcadia,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+725,ares-restaurant-at-sudamala-resort-sanur,Ares Restaurant at Sudamala Resort Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+726,arna-suites-and-ocean-lounge,ARNA Suites and Ocean Lounge,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+727,artisan-ungasan,Artisan - Ungasan,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+728,asai-cafe,ASAI Cafe,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+729,atithi-indian-restaurant-and-bar,"Atithi, Indian Restaurant & Bar",kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+730,atomic-17-at-renaissance-bali-nusa-dua-resort,Atomic 17 at Renaissance Bali Nusa Dua Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+731,away-bali-legian-camakila,Away Bali Legian Camakila,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+732,backstage-at-renaissance-bali-nusa-dua-resort,Backstage at Renaissance Bali Nusa Dua Resort,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+733,bale-udang-ubud,Bale Udang (Ubud),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+734,bamboo-shoot-restaurant-at-emana-bambooscape,Bamboo Shoot Restaurant at Emana Bambooscape,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+735,bar-rasa,BAR RASA,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+736,barrels-steakhouse-at-samasta-lifestyle-village,Barrels Steakhouse at Samasta Lifestyle Village,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+737,base-restaurant-at-hideaway-villas-bali-uluwatu,Base Restaurant at Hideaway Villas Bali Uluwatu,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+738,basilico-ubud-restaurant,Basilico Ubud Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+739,batur-restaurant-grand-mercure-bali-seminyak,Batur Restaurant (Grand Mercure Bali Seminyak),seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+740,bee-cafe-ubud-at-beehouse-dijiwa-ubud,Bee Cafe Ubud at Beehouse Dijiwa Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+741,beer-brothers,Beer Brothers,sanur,cafe,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+742,belantara-restaurant-at-kastara-resort-and-spa,Belantara Restaurant at Kastara Resort and Spa,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+743,bell-aria-seres-springs-resort-and-spa-ubud,Bell'Aria (SereS Springs Resort and Spa Ubud),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+744,bella-italia-at-legian,Bella Italia at Legian,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+745,beras-merah-waroeng-and-bar-at-adhi-jaya-hotel-kuta,Beras Merah Waroeng and Bar at Adhi Jaya Hotel Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+746,big-fish-grill-the-stones-legian-bali,"Big Fish Grill (The Stones – Legian, Bali)",kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+747,birdhill-restaurant-at-amora-ubud-boutique-villas,Birdhill Restaurant at Amora Ubud Boutique Villas,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+748,bisma-valley-at-adiwana-bisma,Bisma Valley at Adiwana Bisma,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+749,bketo-bali-at-blue-karma-dijiwa-seminyak,BKeto Bali at Blue Karma Dijiwa Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+750,black-garlic-ubud,Black Garlic Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+751,bliss-lounge-bar,Bliss Lounge Bar,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+752,bluefin-japanese-fusion-and-lounge,Bluefin Japanese Fusion & Lounge,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+753,bokashi-bali-pererenan,Bokashi Bali (Pererenan),canggu,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+754,botol-biru-bar-and-grill-at-anantara-uluwatu-bali-resort,Botol Biru Bar and Grill at Anantara Uluwatu Bali Resort,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+755,bread-yard,Bread Yard,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+756,breeze-at-the-samaya-seminyak,Breeze at The Samaya Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+757,bron-the-resto,BRON THE RESTO,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+758,bulan-madu-restaurant-amora-ubud-boutique-villas,Bulan Madu Restaurant (Amora Ubud Boutique Villas),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+759,buzo-seminyak-sushi-pizza-and-itameshi,"Buzo Seminyak – Sushi, Pizza & Itameshi",seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+760,capibarra-restaurant-and-bar-kuta,Capibarra Restaurant & Bar Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+761,capri-italian-restaurant-at-sanur,Capri Italian Restaurant at Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+762,capri-italian-restaurant-at-seminyak,Capri Italian Restaurant at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+763,chaskaa-modern-indian-cuisine-and-bar-at-jimbaran,Chaskaa Modern Indian Cuisine and Bar at Jimbaran,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+764,chaskaa-modern-indian-cuisine-and-bar-at-kuta,Chaskaa Modern Indian Cuisine and Bar at Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+765,chaskaa-modern-indian-cuisine-and-bar-at-seminyak,Chaskaa Modern Indian Cuisine and Bar at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+766,chatwood-coffee-and-eatery,Chatwood Coffee and Eatery,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+767,chez-gado-gado-restaurant,Chez Gado Gado Restaurant,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+768,chito-caucasus-cuisine-bistro,CHITO caucasus cuisine bistro,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+769,chora-mediterranean-restaurant-and-bar,CHORA Mediterranean Restaurant & Bar,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+770,cinta-grill,Cinta Grill,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+771,clay-craft-at-renaissance-bali-uluwatu-resort-and-spa,Clay Craft at Renaissance Bali Uluwatu Resort and Spa,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+772,clover-cafe-at-the-hava-ubud,Clover Cafe at The Hava Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+773,coco-bistro-at-kuta-square,Coco Bistro at Kuta Square,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+774,coco-bistro-at-tanjung-benoa,Coco Bistro at Tanjung Benoa,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+775,cork-french-tavern,CORK FRENCH TAVERN,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+776,cretya-sunset-by-alas-harum,Cretya Sunset,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+777,d-pondok-warung-pondok-sebatu-villa,D’Pondok Warung (Pondok Sebatu Villa),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+778,de-daara-eateries-anandadara-ubud,De Daara Eateries (Anandadara Ubud),ubud,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+779,dewas-landing-cafe,Dewas Landing Cafe,uluwatu-bukit,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+780,di-sini-di-sana-by-rachman-and-sons,Di Sini Di Sana by Rachman & Sons,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+781,dining-corner-kayumanis-ubud,Dining Corner (Kayumanis Ubud),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+782,divya-bar-ubud,Divya Bar Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+783,donbiu-at-padma-resort-legian,DONBIU at Padma Resort Legian,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+784,dong-oman-cultural-dining-at-tonys-villas-and-resort,Dong Oman Cultural Dining at Tonys Villas and Resort,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+785,double-ikat,Double Ikat Restaurant at Renaissance Bali Uluwatu Resort & Spa,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+786,edelweiss-restaurant-and-bar-at-tapa-agung-view,Edelweiss Restaurant and Bar at Tapa Agung View,karangasem,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+787,eko-cafe-by-deli-campur-asia,Eko Cafe by Deli Campur Asia,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+788,el-jardin-steakhouse-by-andrea-peresthu,El Jardin Steakhouse by Andrea Peresthu,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+789,ely-s-kitchen,Ely's Kitchen,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+790,enclave-ubud-at-plataran-ubud,Enclave Ubud at Plataran Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+791,estia-woodfire-greek,Estia | Woodfire Greek,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+792,figo-italian-restaurant-ubud,FIGO Italian Restaurant Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+793,filini-restaurant,Filini Restaurant at Radisson Blu Bali Uluwatu,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+794,flamingo-restaurant-and-bar-at-sagara-candidasa,Flamingo Restaurant and Bar at Sagara Candidasa,karangasem,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+795,flow-restaurant-sumitra-luxury-villas-and-resort,Flow Restaurant (Sumitra Luxury Villas and Resort),sanur,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+796,fork-bali,FORK Bali,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+797,frangipaani-at-prana-bali,Frangipaani at Prana Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+798,frangipani-cafe-at-the-oberoi-beach-resort-bali,Frangipani Cafe at The Oberoi Beach Resort Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+799,friends-cafe-and-bistro,Friends Cafe & Bistro,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+800,gabah-padma-bali-restaurant-bali-at-rama-residence-padma-hotel,Gabah Padma Bali Restaurant Bali at Rama Residence Padma Hotel,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+801,gabah-restaurant-and-bar,Gabah Restaurant & Bar,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+802,gabriel-french-bistro,Gabriel French Bistro,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+803,ganesha-ek-sanskriti-at-ayodya-resort-bali,Ganesha Ek Sanskriti at Ayodya Resort Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+804,ganesha-ek-sanskriti-at-discovery-mall-kuta-bali,Ganesha Ek Sanskriti at Discovery Mall Kuta Bali,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+805,ganesha-ek-sanskriti-at-lippo-mall-kuta,Ganesha Ek Sanskriti at Lippo Mall Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+806,ganesha-ek-sanskriti-at-lippo-plaza-sunset-road,Ganesha Ek Sanskriti at Lippo Plaza Sunset Road,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+807,ganesha-ek-sanskriti-at-sanur,Ganesha Ek Sanskriti at Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+808,ganesha-ek-sanskriti-at-ubud,Ganesha Ek Sanskriti at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+809,ganesha-ek-sanskriti-discovery-mall-kuta-bali,Ganesha Ek Sanskriti (Discovery Mall Kuta Bali),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+810,garpu-restaurant-at-ramayana-candidasa-beach-resort,Garpu Restaurant at Ramayana Candidasa Beach Resort,karangasem,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+811,gateway-of-india-at-kuta,Gateway of India at Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+812,gauri-by-ely-s-kitchen-at-adiwana-unagi-riverfront,Gauri by Ely's Kitchen at Adiwana Unagi Riverfront,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+813,genio-by-twist,GENIO by twist,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+814,giorgio-italian-restaurant-at-hotel-nikko-bali-benoa-beach,Giorgio Italian Restaurant at Hotel Nikko Bali Benoa Beach,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+815,gong-restaurant-at-kayumanis-sanur,Gong Restaurant at Kayumanis Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+816,goro-goro-cafe-and-kitchen,GORO GORO CAFE & KITCHEN,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+817,grill-d-burgers-bali,Grill'd Burgers - Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+818,groove-restaurant-at-avani-seminyak-bali-resort,Groove Restaurant at Avani Seminyak Bali Resort,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+819,habitat-bistro-restaurant-ubud-by-wonderspace,Habitat Bistro Restaurant Ubud by Wonderspace,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+820,hard-rock-cafe-bali,Hard Rock Cafe Bali,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+821,hedonist-space-restaurant-lounge-bar,HEDONIST SPACE restaurant | lounge | bar,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+822,herbs-and-stones-garden-restaurant,Herbs & Stones Garden Restaurant,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+823,hidden-gem-uluwatu-at-hidden-hills-villas,Hidden Gem Uluwatu at Hidden Hills Villas,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+824,hiiragi-restaurant-at-the-bk-village,Hiiragi Restaurant at The BK Village,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+825,hinotori-at-montigo-resorts-seminyak,Hinotori at Montigo Resorts Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+826,hip-hop-soul-restaurant,Hip Hop Soul Restaurant,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+827,hiromi-restaurant-and-bar,Hiromi Restaurant and Bar,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+828,homaya-restaurant-merusaka-nusa-dua,Homaya Restaurant (Merusaka Nusa Dua),nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+829,honey-and-bread-cafe,Honey & Bread Cafe,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+830,honeycomb-bali,Honeycomb Bali,canggu,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+831,hotapa-kitchen,Hotapa Kitchen,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+832,hotel-indigo-bali-seminyak-beach-by-ihg,Hotel Indigo Bali Seminyak Beach by IHG,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+833,hotel-indigo-bali-seminyak-beach-by-ihg-seminyak,Hotel Indigo Bali Seminyak Beach by IHG,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+834,humans-cafe,HUMANS CAFE,uluwatu-bukit,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+835,hura-restaurant-at-the-pala-ubud-villas,Hura Restaurant at The Pala Ubud Villas,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+836,hut-cafe-bali,HUT Cafe Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+837,ibu-susu-bar-and-kitchen,IBU SUSU Bar & Kitchen,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+838,injoy,INJOY,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+839,jahe-restaurant,Jahe Restaurant,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+840,jala-restaurant-at-the-acala-shri-sedana,Jala Restaurant at The Acala Shri Sedana,nusa-islands,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+841,janger-restaurant-at-puri-wulandari-a-boutique-resort-and-spa,"Janger Restaurant at Puri Wulandari, A Boutique Resort and Spa",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+842,jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel,Jen Deli Restaurant and La Fortuna Bar at Sense Canggu Beach Hotel,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+843,juggan-sky,Juggan Sky,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+844,junsei-izakaya,Junsei Izakaya,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+845,kahuna-rooftop-pool-and-restaurant,KAHUNA Rooftop Pool & Restaurant,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+846,kajin-japanese-contemporary-sushi,Kajin Japanese Contemporary Sushi,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+847,kasava-resto-and-bar-at-royal-samaja-villas,Kasava Resto and Bar at Royal Samaja Villas,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+848,kaukau-restaurant-at-arkamara-dijiwa-ubud,Kaukau Restaurant at Arkamara Dijiwa Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+849,kawa-hibachi-at-kastara-resort-and-spa,Kawa Hibachi at Kastara Resort and Spa,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+850,kedisan-kintamani,Kedisan Kintamani,bangli,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+851,kemangi-ubud-resto-at-adiwana-svarga-loka,Kemangi Ubud Resto at Adiwana Svarga Loka,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+852,kemiri-restaurant-at-como-uma-ubud,Kemiri Restaurant at COMO Uma Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+853,kemukus-restaurant-kuwarasan-a-pramana-experience,Kemukus Restaurant (Kuwarasan A Pramana Experience),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+854,khao-canggu,KHAO Canggu,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+855,kimukatsu-at-living-world-bali,Kimukatsu at Living World Bali,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+856,kimukatsu-at-trans-studio-bali,Kimukatsu at Trans Studio Bali,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+857,kimukatsu-beach-walk-bali,Kimukatsu (Beach Walk Bali),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+858,kin-thai-kitchen,Kin Thai Kitchen,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+859,kong-contemporary-bistro,KONG | Contemporary Bistro,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+860,ksuna-restaurant,Ksuna Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+861,kubu-at-mandapa,Kubu at Mandapa,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+862,kunang-kunang-restaurant-at-the-sun-of-granary-resort-and-villas,Kunang-Kunang Restaurant at The Sun of Granary Resort and Villas,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+863,kura-kura-restaurant-at-the-oberoi-beach-resort-bali,Kura Kura Restaurant at The Oberoi Beach Resort Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+864,kuta-social-club,Kuta Social Club,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+865,kuuki-rooftop-dining-at-cross-paasha-bali-seminyak,Kuuki Rooftop Dining at Cross Paasha Bali Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+866,kyoka-japanese-kitchen-ubud,Kyoka Japanese Kitchen Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+867,la-casa-mexican-and-sunset-bar-at-anantara-vacation-club,La Casa Mexican and Sunset Bar at Anantara Vacation Club,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+868,la-plancha,La Plancha,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+869,le-gastronome-restaurant-at-keliki-luxury-lodge,Le Gastronome Restaurant at Keliki Luxury Lodge,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+870,lezat-beach-restaurant-at-ashyana-candidasa-beach-resort,Lezat Beach Restaurant at Ashyana Candidasa Beach Resort,karangasem,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+871,livingstone-holyground,Livingstone Holyground,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+872,lobby-bar-at-discovery-kartika-plaza-hotel,Lobby Bar at Discovery Kartika Plaza Hotel,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+873,lobby-bar-discovery-kartika-plaza-hotel,Lobby Bar (Discovery Kartika Plaza Hotel),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+874,loloan-coastal-peruvian-at-raffles-bali,Loloan Coastal Peruvian at Raffles Bali,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+875,loloan-coastal-peruvian-raffles-bali,Loloan Coastal Peruvian (Raffles Bali),jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+876,lumbung-restaurant-at-visesa-ubud-resort,Lumbung Restaurant at Visesa Ubud Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+877,lynked-restaurant,Lynked Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+878,madawa-bali,Madawa Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+879,mamu-garden-cafe-and-lounge,MAMU garden cafe & lounge,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+880,mano-beach-house,Mano Beach House,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+881,mantra-at-jumeirah-bali,Mantra at Jumeirah Bali,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+882,marble-8-restaurant-at-city-of-aventus,Marble 8 Restaurant at City of Aventus,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+883,marble-8-restaurant-at-dream-of-aventus,Marble 8 Restaurant at Dream of Aventus,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+884,marina-bali-seafood,Marina Bali Seafood,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+885,master-crepes,Master Crepes,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+886,meat-eat,Meat eat!,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+887,melali-ubud,Melali Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+888,midaz-at-bali,Midaz at Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+889,milano,Milano,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+890,moson-bali-villa-and-eatery,MOSON BALI VILLA & EATERY,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+891,mozzarella-by-the-sea-the-bandha-hotel-and-suites,Mozzarella by The Sea (The Bandha Hotel and Suites),kuta-legian,cafe,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+892,mozzarella-on-padma,Mozzarella On Padma,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+893,natys-restaurant-ubud-at-natya-resort-ubud,Natys Restaurant Ubud at Natya Resort Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+894,nautilus,Nautilus,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+895,neon-palms,NEON PALMS,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+896,ngajeng-restaurant,Ngajeng Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+897,noema-greek-restaurant-and-bar,Noema Greek Restaurant & Bar,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+898,noi-bali-grill-and-hanging-out,Noi Bali Grill and Hanging Out,seminyak,cafe,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+899,noodle-crazy-sanur,Noodle Crazy Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+900,notte-bali,Notte Bali,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+901,nuah,NUAH,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+902,nusantara,Nusantara,tabanan,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+903,nutrio-restaurant-at-revivo-wellness-resorts,NŪTRIŌ Restaurant at REVĪVŌ Wellness Resorts,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+904,ocean-grand-beach,Ocean Grand Beach,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+905,okamura-bali,Okamura Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+906,okuzono-japanese-dining-bali,Okuzono Japanese Dining Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+907,oliverra-restaurant-at-umana-bali-lxr-hotels-and-resorts,"Oliverra Restaurant at Umana Bali, LXR Hotels & Resorts",uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+908,one-eyed-jack,One Eyed Jack,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+909,opia-bali,Opia Bali,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+910,oswego-bali,Oswego Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+911,padi-restaurant-at-puri-sebali-resort,Padi Restaurant at Puri Sebali Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+912,palapa-restaurant-at-luwak-estate,Palapa Restaurant at Luwak Estate,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+913,palms-restaurant-holiday-inn-resort-baruna-bali,Palms Restaurant (Holiday Inn Resort Baruna Bali),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+914,pangi-bistro,Pangi Bistro,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+915,papas-beach-cafe-at-alamkulkul-boutique-resort,Papas Beach Cafe at AlamKulkul Boutique Resort,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+916,pasar-senggol-at-grand-hyatt-bali,Pasar Senggol at Grand Hyatt Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+917,perantenan-restaurant-at-the-alena-resort,Perantenan Restaurant at The Alena Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+918,pistachio-restaurant-at-adiwana-bisma,Pistachio Restaurant at Adiwana Bisma,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+919,poppies-restaurant,Poppies Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+920,posers-pub-and-restaurant,Posers Pub & Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+921,prior-cafe,Prior Cafe,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+922,projects-brunch-and-coffee,Projects Brunch & Coffee,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+923,qissa-indian-restaurant-at-seminyak,Qissa Indian Restaurant at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+924,queen-s-of-india-at-kuta,Queen's of India at Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+925,queen-s-of-india-at-ubud,Queen's of India at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+926,ranbo-japanese-restaurant-and-bar,Ranbo Japanese Restaurant And Bar,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+927,rempah-restaurant-menzel-ubud,Rempah Restaurant (Menzel Ubud),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+928,rize-pererenan,rize pererenan,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+929,rize-ubud,rize ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+930,rooftop-sunset-bar-at-double-six-luxury-hotel,Rooftop Sunset Bar at Double Six Luxury Hotel,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+931,roomah-canggu-at-holiday-inn-resort-bali-canggu,Roomah Canggu at Holiday Inn Resort Bali Canggu,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+932,roosterfish-beach-club,Roosterfish Beach Club,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+933,rosalita-s-cantina-bali,Rosalita's Cantina Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+934,roso-restaurant-at-the-meru-sanur,Roso Restaurant at The Meru Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+935,rue-maya-sanur,RUE (Maya Sanur),sanur,cafe,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+936,rumari,Rumari at Raffles Bali,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+937,rumari-counter-at-raffles-bali,Rumari Counter at Raffles Bali,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+938,runara-restaurant-at-abisena-ubud,Runara Restaurant at Abisena Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+939,sababa,Sababa,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+940,sababay-winery,Sababay Winery,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+941,sabeen-restaurant-at-the-haven-bali-seminyak,Sabeen Restaurant at THE HAVEN Bali Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+942,sakala-beach-club-at-the-sakala-resort-bali,Sakala Beach Club at The Sakala Resort Bali,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+943,sakti-dining-room-fivelements-retreat-bali,Sakti Dining Room (Fivelements Retreat Bali),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+944,sama-sama-yakiniku-and-japanese-restaurant-at-nusa-dua,Sama Sama Yakiniku and Japanese Restaurant at Nusa Dua,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+945,samiya-restaurant-at-homm-saranam-baturiti,Samiya Restaurant at Homm Saranam Baturiti,tabanan,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+946,samudra-ganesha-indian-restaurant-and-bar,Samudra Ganesha Indian Restaurant & Bar,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+947,sanctuary-umalas-italian-restaurant-by-wonderspace,Sanctuary Umalas Italian Restaurant by Wonderspace,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+948,sanje-restaurant-and-lounge-at-the-seminyak-beach-resort,Sanje Restaurant and Lounge at The Seminyak Beach Resort,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+949,sante-wine-and-dine-at-rusters,Sante Wine and Dine at RÜSTERS,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+950,sawah-terrace-at-mandapa-a-ritz-carlton-reserve,"Sawah Terrace at Mandapa, a Ritz-Carlton Reserve",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+951,seafood-house-restaurant,Seafood House Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+952,sees-bali-cafe-and-eatery,Sees Bali Cafe & Eatery,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+953,segaran-dining-terrace-at-jumeirah-bali,Segaran Dining Terrace at Jumeirah Bali,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+954,selia-restaurant-coffee-bar,SELIA Restaurant Coffee Bar,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+955,seminyak-kitchen-courtyard-by-marriott-bali-seminyak-resort,Seminyak Kitchen (Courtyard by Marriott Bali Seminyak Resort),seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+956,sendok-emas-bar-and-restaurant,Sendok Emas Bar & Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+957,senja-bar-and-resto-at-goya-boutique-resort,Senja Bar and Resto at Goya Boutique Resort,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+958,serai-restaurant-at-the-hava-ubud,Serai Restaurant at The Hava Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+959,settimo-cielo-rustic-refined-italian,Settimo Cielo - Rustic Refined Italian,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+960,shaburi-and-kintan-buffet-bali-at-trans-studio-mall-bali,Shaburi and Kintan Buffet Bali at Trans Studio Mall Bali,denpasar,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+961,shally-s-dining-at-lippo-mall-kuta,Shally's Dining at Lippo Mall Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+962,shary-shary,Shary Shary,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+963,shiro-sushi-sake-bar,Shiro Sushi/Sake Bar,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+964,shishi-izakaya-lounge,ShiShi Izakaya Lounge,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+965,shishi-nightclub-and-izakaya-lounge,ShiShi Nightclub & Izakaya Lounge,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+966,shotgun-social-bali,Shotgun Social Bali,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+967,shrida,Shrida,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+968,sisi-gege-restaurant-at-pramana-zahill,SiSi GeGe Restaurant at Pramana Zahill,bangli,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+969,skai-bar-and-grill,SKAI Bar & Grill,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+970,sky-lounge-by-ely-s-kitchen-at-adiwana-unagi-suites,Sky Lounge by Ely's Kitchen at Adiwana Unagi Suites,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+971,sokube-restaurant-and-bar-at-discovery-kartika-plaza-hotel,Sokube Restaurant and Bar at Discovery Kartika Plaza Hotel,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+972,soulshine-bali,Soulshine Bali,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+973,south-east-brewing-co,South+East Brewing Co.,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+974,soya-japanese-restaurant,Soya Japanese Restaurant,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+975,spice-mantraa-at-kuta,Spice Mantraa at Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+976,spice-mantraa-at-seminyak,Spice Mantraa at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+977,stadium-cafe,Stadium Cafe,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+978,street-32-at-mamaka-by-ovolo,Street 32 at Mamaka by Ovolo,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+979,sugarsand,SugarSand,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+980,suka-uluwatu,SUKA ULUWATU,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+981,sukun-restaurant-kuta-at-amnaya-resort-kuta,Sukun Restaurant Kuta at Amnaya Resort Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+982,sukun-restaurant-nusa-dua-at-amnaya-resort-nusa-dua,Sukun Restaurant Nusa Dua at Amnaya Resort Nusa Dua,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+983,sumampan-restaurant-at-thewakanda-ubud,Sumampan Restaurant at thewakanda Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+984,sungai-restaurant-at-sthala-a-tribute-portfolio-hotel,"Sungai Restaurant at Sthala, a Tribute Portfolio Hotel",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+985,sunset-bar-and-lounge-at-discovery-kartika-plaza-hotel,Sunset Bar and Lounge at Discovery Kartika Plaza Hotel,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+986,sunset-beach-bar-and-grill-uluwatu-bukit,Sunset Beach Bar & Grill,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+987,sushi-casa,Sushi Casa,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+988,suzie-q-at-double-six-luxury-hotel,Suzie-Q at Double Six Luxury Hotel,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+989,swan-restaurant-keramas-desa-swan-villas-and-spa,Swan Restaurant Keramas (Desa Swan Villas and Spa),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+990,swarga-rasa-by-de-moksha,Swarga Rasa by De Moksha,tabanan,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+991,swiss-chalet-and-grill,Swiss Chalet and Grill,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+992,tabia-the-westin-resort-and-spa-ubud-bali,"Tabia (The Westin Resort and Spa Ubud, Bali)",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+993,tablespoon-ubud-at-adiwana-suweta,Tablespoon Ubud at Adiwana Suweta,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+994,tadd-s-restaurant-at-montigo-resorts-seminyak,TADD's Restaurant at Montigo Resorts Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+995,take-authentic-japanese-cuisine,TAKE Authentic Japanese Cuisine,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+996,takir-restaurant-and-bar-arya-arkananta-resort-and-spa,Takir Restaurant and Bar (Arya Arkananta Resort and Spa),ubud,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+997,takumi-japanese-fine-dining,Takumi 匠 Japanese Fine Dining,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+998,tall-trees-at-the-westin-resort-and-spa-ubud-bali,"Tall Trees at The Westin Resort and Spa Ubud, Bali",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+999,tan-ting-restaurant-at-lingga-yoga-by-the-jungle-pots,Tan-Ting Restaurant at LINGGA YOGA by The Jungle Pots,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1000,tanah-liat-renaissance-bali-nusa-dua-resort,Tanah Liat (Renaissance Bali Nusa Dua Resort),nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1001,tanarasa-restaurant-at-tanadewa-resort-ubud-bali-by-cross-collection,Tanarasa Restaurant at Tanadewa Resort Ubud Bali by Cross Collection,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1002,tangelo-bali,Tangelo Bali,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1003,tangi-restaurant-gdas-bali-health-and-wellness-resort,Tangi Restaurant (Gdas Bali Health and Wellness Resort),ubud,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1004,tapas-tapas-bali-grand-livio-kuta-hotel,Tapas Tapas Bali (Grand Livio Kuta Hotel),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1005,tebu-merah-restaurant-at-fairfield-by-marriott-bali-legian,Tebu Merah Restaurant at Fairfield by Marriott Bali Legian,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1006,telu-bar-at-four-seasons-resort-bali-at-jimbaran-bay,TELU Bar at Four Seasons Resort Bali at Jimbaran Bay,jimbaran,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1007,tembaga-restaurant,Tembaga Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1008,tenkai-japanese-nikkei-restaurant-at-padma-resort-legian,TENKAI Japanese Nikkei Restaurant at Padma Resort Legian,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1009,terrace-brasserie-and-cafe,Terrace Brasserie & Café,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1010,terracotta-restaurant-at-mathis-retreat-ubud,Terracotta Restaurant at MATHIS Retreat Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1011,thara-kitchen-and-bar,Thara Kitchen & Bar,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1012,the-blue-door-bar-restaurant-and-club,"The Blue Door Bar, Restaurant & Club",ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1013,the-cassowary-restaurant,The Cassowary Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1014,the-cave-by-chef-ryan-clift-at-the-edge,The cave by Chef Ryan Clift at The edge,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1015,the-chowk-indian-gourmet-house,The Chowk - Indian Gourmet House,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1016,the-club-bali,The Club Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1017,the-coffee-club-legian-at-anantara-vacation-club,The Coffee Club Legian at Anantara Vacation Club,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1018,the-forge,The Forge,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1019,the-grill-at-luxe,The Grill at LUXE,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1020,the-junction-house-cafe-and-restaurant-seminyak,The Junction House - Cafe & Restaurant Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1021,the-lair,The Lair,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1022,the-nini-restaurant-12,The Nini Restaurant | 12+,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1023,the-orchid-duck-restaurant,The Orchid Duck Restaurant,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1024,the-pantry,The Pantry,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1025,the-plantation-grill-seminyak-at-double-six-luxury-hotel,The Plantation Grill Seminyak at Double Six Luxury Hotel,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1026,the-pond-restaurant,The Pond Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1027,the-restaurant-at-the-legian-seminyak,The Restaurant at The Legian Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1028,the-restaurant-by-keliki-luxury-lodge,The Restaurant by Keliki Luxury Lodge,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1029,the-room-bar-bali,The Room Bar - Bali,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1030,the-royal-kitchen-sanur,The Royal Kitchen sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1031,the-swept-away-restaurant-ubud-by-the-samaya-ubud,The Swept Away Restaurant Ubud by The Samaya Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1032,the-tree-international-bar-and-restaurant,The Tree International Bar & Restaurant,nusa-dua,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1033,the-upper-deck-ubud,The Upper Deck Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1034,the-view-restaurant-bali,The View Restaurant Bali,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1035,the-wok-spices,The Wok Spices,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1036,three-monkeys-bali-at-sanur,Three Monkeys Bali at Sanur,sanur,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1037,three-monkeys-bali-at-ubud,Three Monkeys Bali at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1038,tis-cafe-ubud,Tis Cafe,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1039,tuju-ubud-social-club,TUJU UBUD SOCIAL CLUB,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1040,tunu-bistro,Tunu Bistro,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1041,tupai-bar-at-discovery-kartika-plaza-hotel,Tupai Bar at Discovery Kartika Plaza Hotel,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1042,tupai-bar-discovery-kartika-plaza-hotel,Tupai Bar (Discovery Kartika Plaza Hotel),kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1043,uma-beach-house,Uma Beach House,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1044,uma-tiki-restaurant-at-korurua-dijiwa-ubud,Uma Tiki Restaurant at Korurua Dijiwa Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1045,ume-bali,UME BALI,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1046,uname-ubud-by-pramana,UNAME Ubud by Pramana,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1047,urban-bites-at-seminyak,Urban Bites at Seminyak,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1048,urban-bites-cafe-at-berawa,Urban Bites Cafe at Berawa,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1049,vanara-restaurant-at-sanna-ubud,Vanara Restaurant at Sanna Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1050,vore-grillhouse-and-lounge,Vore Grillhouse and Lounge,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1051,vrindavan-100-pure-indian-vegetarian-and-vegan-restaurant,Vrindavan 100% Pure Indian Vegetarian & Vegan Restaurant,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1052,vrindavan-100-pure-indian-vegetarian-and-vegan-restaurant-at-kuta,Vrindavan 100% Pure Indian Vegetarian & Vegan Restaurant at Kuta,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1053,vrindavan-100-pure-indian-vegetarian-and-vegan-restaurant-at-ubud,Vrindavan 100% Pure Indian Vegetarian & Vegan Restaurant at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1054,wajik-restaurant-by-ely-s-kitchen-unagi-wooden-villas-by-emana,Wajik Restaurant by Ely's Kitchen (Unagi Wooden Villas by Emana),ubud,cafe,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1055,waka-bar-and-restaurant-wakagangga-boutique-resort,Waka Bar and Restaurant (WakaGangga Boutique Resort),tabanan,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1056,wanaku-chinese-food-seafood-and-dimsum,"WANAKU Chinese Food, Seafood & Dimsum",uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1057,wanaku-seafood-and-chinese-restaurant,Wanaku Seafood & Chinese Restaurant,kuta-legian,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1058,waroeng-bernadette-at-ubud,Waroeng Bernadette at Ubud,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1059,watu-steakhouse-six-senses-uluwatu,Watu Steakhouse (Six Senses Uluwatu),uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,5,1.0,0.0,0.0,,,,,0.6
+1060,whim-restaurant,Whim Restaurant at Prasana by Arjani Resorts,uluwatu-bukit,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1061,wonton-club,Wonton Club,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1062,yen-social-bali,Yen Social Bali,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1063,yonne-cafe-and-bar-at-sens-hotel-and-spa,Yonne Cafe and Bar at SenS Hotel and Spa,ubud,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1064,york,YORK,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1065,younghee-bali,Younghee Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1066,zali-at-pererenan,Zali at Pererenan,canggu,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1067,zia-tina-eatery,Zia Tina Bali,seminyak,restaurant,P1_REWRITE_BOILERPLATE,False,4,1.0,0.0,0.0,,,,,0.6
+1068,alila-seminyak-yoga,Alila Seminyak Yoga,seminyak,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1069,andaz-bali-fitness-centre,Andaz Bali Fitness Centre,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1070,ayana-bali-yoga,AYANA Bali Yoga,jimbaran,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1071,ayana-fitness-centre,AYANA Fitness Centre,jimbaran,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1072,bali-beach-hotel-fitness-centre,Bali Beach Hotel Fitness Centre,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1073,bali-beach-hotel-yoga-wellness,Bali Beach Hotel Yoga / Wellness,sanur,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1074,club-med-bali-fitness,Club Med Bali Fitness,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1075,como-uma-ubud-fitness,COMO Uma Ubud Fitness,ubud,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1076,conrad-bali-fitness-centre,Conrad Bali Fitness Centre,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1077,conrad-bali-yoga,Conrad Bali Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1078,courtyard-by-marriott-nusa-dua-gym,Courtyard by Marriott Nusa Dua Gym,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1079,desa-potato-head-wellness,Desa Potato Head Wellness,seminyak,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1080,desa-wisata-besakih,Tourism Village Besakih,karangasem,attraction,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1081,desa-wisata-gitgit,Tourism Village Gitgit,lovina,attraction,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1082,desa-wisata-medewi,Tourism Village Medewi,jembrana,attraction,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1083,desa-wisata-undisan,Tourism Village Undisan,bangli,attraction,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1084,fitness-plus-canggu,Fitness Plus Canggu,canggu,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1085,focaccia-buddies,Focaccia Buddies,canggu,restaurant,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1086,four-seasons-jimbaran-fitness-centre,Four Seasons Jimbaran Fitness Centre,jimbaran,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1087,four-seasons-jimbaran-yoga,Four Seasons Jimbaran Yoga,jimbaran,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1088,four-seasons-resort-bali-at-sayan-fitness,Four Seasons Resort Bali at Sayan Fitness,ubud,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1089,gourmet-and-cafe-nusa-dua,Gourmet and Cafe Nusa Dua,nusa-dua,cafe,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1090,grand-hyatt-bali-fitness-centre,Grand Hyatt Bali Fitness Centre,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1091,grand-hyatt-bali-yoga,Grand Hyatt Bali Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1092,holiday-inn-bali-sanur-gym,Holiday Inn Bali Sanur Gym,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1093,intercontinental-bali-resort-fitness-centre,InterContinental Bali Resort Fitness Centre,jimbaran,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1094,intercontinental-bali-resort-yoga,InterContinental Bali Resort Yoga,jimbaran,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1095,intercontinental-bali-sanur-resort-fitness-centre,InterContinental Bali Sanur Resort Fitness Centre,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1096,kojin-teppanyaki-restaurant-ubud-by-wonderspace,Kojin Teppanyaki Restaurant Ubud by Wonderspace,ubud,restaurant,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1097,le-meridien-bali-jimbaran-fitness,Le Méridien Bali Jimbaran Fitness,jimbaran,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1098,mandapa-fitness-centre,Mandapa Fitness Centre,ubud,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1099,maya-sanur-fitness-centre,Maya Sanur Fitness Centre,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1100,maya-sanur-yoga-studio,Maya Sanur Yoga Studio,sanur,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1101,movenpick-jimbaran-yoga,Mövenpick Jimbaran Yoga,jimbaran,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1102,movenpick-resort-and-spa-jimbaran-fitness,Mövenpick Resort & Spa Jimbaran Fitness,jimbaran,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1103,nusa-dua-beach-hotel-yoga,Nusa Dua Beach Hotel Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1104,pantai-jimbaran,Pantai Jimbaran,jimbaran,attraction,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1105,prime-plaza-hotel-sanur-fitness-centre,Prime Plaza Hotel Sanur Fitness Centre,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1106,puri-santrian-yoga-wellness,Puri Santrian Yoga / Wellness,sanur,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1107,rotisserie-by-cashew-tree,Rotisserie by Cashew Tree,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1108,shankha-spa-and-fitness-at-hyatt-regency-bali,Shankha Spa & Fitness at Hyatt Regency Bali,sanur,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1109,shankha-spa-hyatt-regency-bali-yoga,Shankha Spa / Hyatt Regency Bali Yoga,sanur,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1110,six-senses-uluwatu-fitness-centre,Six Senses Uluwatu Fitness Centre,uluwatu-bukit,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1111,six-senses-uluwatu-pilates,Six Senses Uluwatu Pilates,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1112,six-senses-uluwatu-yoga-pavilion,Six Senses Uluwatu Yoga Pavilion,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1113,sofitel-bali-yoga,Sofitel Bali Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1114,st-regis-bali-athletic-club,St. Regis Bali Athletic Club,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1115,st-regis-bali-yoga,St. Regis Bali Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1116,sunset-pilates-legian,Sunset Pilates Legian,kuta-legian,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1117,the-asa-maia-fitness,The Asa Maia Fitness,uluwatu-bukit,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1118,the-asa-maia-pilates,The Asa Maia Pilates,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1119,the-asa-maia-yoga,The Asa Maia Yoga,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1120,the-bale-nusa-dua-yoga,The Bale Nusa Dua Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1121,the-istana-wellness-club,The Istana Wellness Club,uluwatu-bukit,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1122,the-istana-yoga,The Istana Yoga,uluwatu-bukit,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1123,the-legian-seminyak-wellness-yoga,The Legian Seminyak Wellness Yoga,seminyak,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1124,the-westin-resort-and-spa-ubud-fitness-studio,The Westin Resort & Spa Ubud Fitness Studio,ubud,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1125,w-bali-wellness-yoga,W Bali Wellness / Yoga,seminyak,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1126,warung-ubay-ungasan,Warung Ubay,uluwatu-bukit,restaurant,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1127,westin-nusa-dua-fitness-studio,Westin Nusa Dua Fitness Studio,nusa-dua,fitness,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1128,westin-nusa-dua-yoga,Westin Nusa Dua Yoga,nusa-dua,yoga,P1_ADD_VERIFIED_ANCHOR,False,4,0.9,0.0,0.0,,,,,0.54
+1129,adda-yoga,Adda Yoga,canggu,yoga,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1130,akar-ubud,Akar Ubud,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1131,alchemy,Alchemy,ubud,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1132,alchemy-yoga-meditation-center,Alchemy Yoga & Meditation Center,ubud,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1133,alma-tapas-bar,Alma Tapas Bar at Canggu,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1134,amo-spa-canggu-canggu,AMO Spa Canggu,canggu,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1135,amplitude-skate-and-bike-park,Amplitude Skate & Bike Park,canggu,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1136,ashe-grill-and-bar,Ashe Grill & Bar,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1137,atlas-beach-club,Atlas Beach Club,canggu,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1138,babi-guling-odah-sanur,Babi Guling Odah Sanur,sanur,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1139,babi-guling-pak-malen,Warung Babi Guling Pak Malen,seminyak,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1140,bali-barber-seminyak-seminyak,Bali Barber Seminyak,seminyak,beauty,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1141,bali-buda-ubud,Bali Buda Ubud,ubud,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1142,bali-fitness-seminyak-seminyak,Bali Fitness Seminyak,seminyak,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1143,bali-mma-canggu,Bali MMA,canggu,fitness,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1144,bali-padel-academy,Bali Padel Academy,canggu,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1145,beach-boy-canggu,Beach Boy Canggu,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1146,beachtown-grocer,Beachtown Grocer,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1147,bebek-tepi-sawah,Bebek Tepi Sawah,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1148,bella-by-sage,Bella by Sage,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1149,bk-wellness-studio-umalas-by-blue-karma-secrets,BK Wellness Studio Umalas by Blue Karma Secrets,seminyak,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1150,body-factory-bali-canggu,Body Factory Bali,canggu,fitness,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1151,bodyworks-spa-seminyak,Bodyworks Spa,seminyak,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1152,bokashi-berawa,Bokashi Bali at Berawa,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1153,bonito-restaurant,Bonito Restaurant,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1154,brother-gym,Brother Gym,canggu,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1155,brunch-club-pererenan,Brunch Club Pererenan,canggu,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1156,cafe-coach,Cafe Coach,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1157,canggu-yoga-centre-canggu,Canggu Yoga Centre,canggu,yoga,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1158,casa-de-lokha-mexican-grill-and-fusion-the-lokha-ubud,Casa de Lokha Mexican Grill and Fusion (The Lokha Ubud),ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1159,chow-chow-bali,Chow Chow Bali,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1160,chupacabras-south-american-prime-meats,CHUPACABRAS - South American | Prime Meats,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1161,clear-cafe,Clear Café,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1162,como-beach-club-canggu,COMO Beach Club Canggu,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1163,como-uma-canggu-wellness-spa-canggu,COMO Uma Canggu Wellness / Spa,canggu,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1164,corner-house-bali,Corner House Bali,seminyak,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1165,cutiepai-nails,CutiePai Nails,canggu,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1166,donna-ubud,Donna,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1167,downtown-kedungu-restaurant-and-bar,Downtown Kedungu - Restaurant & Bar,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1168,e-a-r-t-h-by-ulaman,E.A.R.T.H Restaurant & Lounge,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1169,eskq-bar-steak-house,ESKQ Bar Steak House,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1170,estetica-belle,Estetica Belle,canggu,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1171,f45-training-canggu-canggu,F45 Training Canggu,canggu,fitness,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1172,face-therapy-spa-pererenan,Face Therapy Spa Pererenan,canggu,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1173,finns-beach-club,FINNS Beach Club,canggu,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1174,flex-gym-bali,Flex Gym Bali,canggu,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1175,flourish,Flourish,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1176,ginger-moon-canteen,Ginger Moon Canteen,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1177,glo-day-spa-salon-canggu-canggu,Glo Day Spa & Salon Canggu,canggu,beauty,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1178,glo-day-spa-salon-sanur-sanur,Glo Day Spa & Salon Sanur,sanur,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1179,glo-day-spa-salon-seminyak-seminyak,Glo Day Spa & Salon Seminyak,seminyak,beauty,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1180,gravity-stretching-canggu,Gravity Stretching Canggu,canggu,yoga,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1181,guan-yin-yoga-canggu,Guan Yin Yoga Canggu,canggu,yoga,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1182,gusto-gelato,Gusto Gelato & Caffe,seminyak,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1183,hakkoku-bali-sushi-omakase-restaurant,Hakkoku Bali - Sushi Omakase Restaurant,ubud,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1184,herb-library,Herb Library Bali,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1185,home-by-chef-wayan,HOME by Chef Wayan,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1186,house-of-orange-beauty-canggu-canggu,House of Orange Beauty Canggu,canggu,beauty,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1187,hujan-locale,Hujan Locale,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1188,imbu-restaurant-the-kemilau-ubud,IMBU Restaurant (The Kemilau Ubud),ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1189,inklusiv-warung,Inklusiv Warung,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1190,isla-by-earth-island,ISLA by Earth Island,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1191,jari-menari-seminyak,Jari Menari,seminyak,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1192,jungle-padel-canggu-shortcut,Jungle Padel Canggu Shortcut,canggu,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1193,karsa-spa,Karsa Spa,ubud,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1194,kenja-ikan-bakar-nusa-dua,Kenja Ikan Bakar & Seafood,nusa-dua,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1195,kilig-bali,Kilig - A Filipino Warung,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1196,ku-de-ta,KU DE TA,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1197,la-brisa-bali,La Brisa Bali,canggu,beach_club,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1198,laddu-restaurant-the-sankara-suites-and-villas,Laddu Restaurant (The Sankara Suites and Villas),ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1199,lagoon-spa-seminyak-seminyak,Lagoon Spa Seminyak,seminyak,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1200,locavore-nxt,Locavore NXT,ubud,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1201,lopodo-catering-and-events,Lopodo Catering & Events,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1202,luigis-hot-pizza,Luigi’s Hot Pizza,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1203,mango-tree-spa-loccitane,Mango Tree Spa by L'OCCITANE,ubud,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1204,mauri-restaurant,Mauri Restaurant,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1205,mia-asian-modern-inspired-restaurant-and-bar,MiA - Asian Modern-Inspired Restaurant & Bar,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1206,milk-and-madu-beach-road,Milk & Madu Beach Road,canggu,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1207,milk-and-madu-berawa,Milk & Madu Berawa,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1208,milk-and-madu-ubud,Milk & Madu Ubud,ubud,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1209,moksa,Moksa,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1210,moonlite-kitchen-and-bar,MOONLITE KITCHEN & BAR,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1211,mori-ubud,Mori Ubud,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1212,motion-cafe,Motion Cafe,canggu,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1213,mozaic,Mozaic,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1214,murmur-restaurant-lounge,Murmur Restaurant Lounge,canggu,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1215,nari-fire-influenced-bistro,NARI - Fire Influenced Bistro,ubud,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1216,nasi-bali-men-weti,Nasi Bali Men Weti,sanur,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1217,nasi-banjar-mbok-mang,Nasi Banjar Mbok Mang,nusa-dua,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1218,natys-restaurant-seminyak,Natys Restaurant Seminyak,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1219,naughty-nuris-warung-seminyak,Naughty Nuri's Warung Seminyak,seminyak,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1220,noonik-bistro,NOONIK Bistro,ubud,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1221,nui-da-mano-beachfront-restaurant-in-batu-belig,Nui da Mano - Beachfront Restaurant in Batu Belig,seminyak,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1222,pica-south-american-kitchen,Pica South American Kitchen,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1223,poule-de-luxe-bali,Poule de Luxe Bali,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1224,prana-spa-seminyak,Prana Spa,seminyak,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1225,prana-yoga-seminyak,Prana Yoga,seminyak,yoga,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1226,revolver-canggu,Revolver Canggu,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1227,revolver-seminyak,Revolver Seminyak,seminyak,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1228,rite-bali,Rite Bali,canggu,fitness,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1229,rob-peetoom-hair-spa-bali-seminyak,Rob Peetoom Hair Spa Bali,seminyak,beauty,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1230,rokkyu-teppanyaki-grand-istana-rama-hotel-kuta,Rokkyu Teppanyaki (Grand Istana Rama Hotel Kuta),kuta-legian,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1231,room-4-dessert,Room 4 Dessert,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1232,roots-pererenan,Roots,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1233,saia-wellness-saia-pilates-umalas,SAIA Wellness / SAIA Pilates Umalas,seminyak,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1234,samesa-canggu,Sa'Mesa Canggu,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1235,sayuri-healing-food,Sayuri Healing Food,ubud,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1236,secana-rooftop-bali,Secana Rooftop,canggu,restaurant,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1237,seniman-coffee-studio,Seniman Coffee Studio,ubud,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1238,shelter-restaurant,Shelter Restaurant,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1239,skool-kitchen,SKOOL Kitchen,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1240,suka-espresso-ubud,SUKA UBUD,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1241,sundari-day-spa-seminyak,Sundari Day Spa,seminyak,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1242,sushimi-bali,Sushimi Bali,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1243,the-avocado-factory,The Avocado Factory,canggu,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1244,the-elephant,The Elephant,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1245,the-shady-shack,The Shady Shack,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1246,the-shampoo-lounge-seminyak-seminyak,The Shampoo Lounge Seminyak,seminyak,beauty,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1247,think-pink-salon-and-nails-bali,Think Pink Salon & Nails Bali,seminyak,spa,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1248,touche-cafe-and-restaurant,Touché Cafe & Restaurant,canggu,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1249,ubud-traditional-spa,Ubud Traditional Spa,ubud,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1250,ubud-yoga-house,Ubud Yoga House,ubud,yoga,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1251,udara-bali,Udara Bali,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1252,udara-bali-yoga-detox-and-spa-organic-ocean,Udara Bali Yoga Detox & Spa / Organic Ocean,canggu,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1253,warung-blanjong,Warung Blanjong,sanur,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1254,warung-enys,Warung Eny's,seminyak,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1255,warung-jawa-bu-sri,Warung Jawa Bu Sri,canggu,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1256,warung-little-bird,Warung Little Bird,sanur,warung,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1257,warung-local,Warung Local,canggu,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1258,warung-mak-beng,Warung Mak Beng,sanur,warung,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1259,warung-melati-nakula,Warung Melati,seminyak,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1260,warung-murah-petitenget,Warung Murah,seminyak,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1261,warung-nasi-ayam-bu-oki,Warung Nasi Ayam Bu Oki,nusa-dua,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1262,warung-semesta,Warung Semesta,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1263,warung-sika,Warung Sika,canggu,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1264,warung-varuna,Warung Varuna,canggu,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1265,warung-yess,Warung Yess,canggu,warung,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1266,watercress-ubud,Watercress Ubud,ubud,cafe,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1267,wild-vegan,Wild Vegan,ubud,restaurant,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1268,wrong-gym-pererenan,Wrong Gym Pererenan,canggu,spa,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
+1269,yema-kitchen,Yema Kitchen,canggu,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1270,you-spa-umalas,You Spa Umalas,seminyak,spa,READY_FOR_RELEASE_GATE,True,0,0.05,1.0,0.0,,,,,0.43
+1271,zest-ubud,Zest Ubud,ubud,restaurant,READY_FOR_RELEASE_GATE,True,1,0.05,1.0,0.0,,,,,0.43
+1272,zin-cafe-canggu,ZIN Cafe Canggu,canggu,cafe,READY_FOR_RELEASE_GATE,True,2,0.05,1.0,0.0,,,,,0.43
