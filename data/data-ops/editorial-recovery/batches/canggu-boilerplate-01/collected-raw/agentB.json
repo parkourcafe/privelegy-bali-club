@@ -1,0 +1,23 @@
+[
+  {"slug":"jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel","status":"ready",
+   "official_sources":[{"url":"https://www.sensecanggubeach.com/2021/01/23/jendeli-restaurant/","type":"website","confirms":"JEN Deli all-day dining, outdoor terrace, buffet/à la carte; near Echo & Batu Bolong"},{"url":"https://sensecanggubeach.com/view/la-fortuna-bar","type":"website","confirms":"La Fortuna Bar cocktails/spirits/wines, occasional live music"}],
+   "facts":["F&B outlets of Sense Canggu Beach Hotel","JEN Deli all-day breakfast/lunch/dinner, outdoor terrace","Buffet or à la carte","La Fortuna Bar cocktails/spirits/wines","Occasional live music","Short walk from Echo & Batu Bolong beaches"],
+   "proposed_why_its_here":"The in-hotel dining of Sense Canggu Beach Hotel, a short walk from Echo and Batu Bolong beaches. JEN Deli serves all-day breakfast, lunch and dinner on an outdoor terrace, with a choice of buffet or à la carte. La Fortuna Bar pours cocktails, spirits and wines with occasional live music and performances.",
+   "proposed_best_for":"Guests wanting all-day dining plus evening drinks a short walk from Echo and Batu Bolong beaches, and groups who want the option of either buffet or à la carte.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Confirmed from hotel's own site. Excluded 'rooftop' (aggregator only). No official prices/hours."},
+  {"slug":"kedai-tepi-kali-and-bar-at-tapa-tepi-kali-canggu","status":"ready",
+   "official_sources":[{"url":"https://tapatepikali.com/restaurant/","type":"website","confirms":"Kedai Tepi Kali restaurant of Tapa Tepi Kali by Pramana; Balinese/local cuisine; b/l/d"},{"url":"https://tapatepikali.com/kedai-tepi-kali-cooking-class/","type":"website","confirms":"hands-on Balinese cooking class"}],
+   "facts":["Restaurant of Tapa Tepi Kali Canggu by Pramana, Jl. Padang Linjong near Echo Beach","Balinese/local cuisine, fresh locally sourced ingredients","Open breakfast, lunch, dinner","Hands-on Balinese cooking class led by local chefs, in English"],
+   "proposed_why_its_here":"The restaurant of Tapa Tepi Kali Canggu by Pramana, on Jl. Padang Linjong near Echo Beach. Kedai Tepi Kali serves Balinese and local cuisine made with fresh, locally sourced ingredients, open for breakfast, lunch and dinner. It also runs a hands-on Balinese cooking class led by local chefs.",
+   "proposed_best_for":"Travellers who want Balinese cooking near Echo Beach, and anyone interested in a hands-on, English-language Balinese cooking class with local chefs.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Confirmed from own Pramana site. No à la carte prices/exact hours."},
+  {"slug":"khao-canggu","status":"ready",
+   "official_sources":[{"url":"https://www.khaobali.com/","type":"website","confirms":"Thai restaurant, Jl. Pantai Batu Mejan; signatures Pad Thai, Tom Yam Goong Ma Praw Oon"},{"url":"https://www.khaobali.com/about-us/","type":"website","confirms":"chef from Roi Et; traditional (non-fusion) Thai; local ingredients"},{"url":"https://www.instagram.com/khaocanggu/","type":"instagram","confirms":"official IG @khaocanggu"}],
+   "facts":["Thai restaurant on Jl. Pantai Batu Mejan (Echo Beach)","Chef from Roi Et, Thailand; traditional methods/generational recipes","Traditional (not fusion) Thai; locally sourced ingredients","Signatures Pad Thai and Tom Yam Goong Ma Praw Oon"],
+   "proposed_why_its_here":"A Thai restaurant on Jl. Pantai Batu Mejan by Echo Beach, Canggu. The kitchen is led by a chef from Roi Et, Thailand, cooking traditional Thai recipes with locally sourced ingredients. Signature dishes include Pad Thai and Tom Yam Goong Ma Praw Oon.",
+   "proposed_best_for":"Diners who want traditional, regionally rooted Thai food near Echo Beach rather than a Western-Thai fusion take.",
+   "proposed_not_for":"Not for those looking for modern Thai fusion — the kitchen deliberately sticks to traditional recipes.","proposed_price_anchor":"",
+   "notes":"Confirmed own site + IG. Hours (aggregator only) omitted; no official prices."}
+]

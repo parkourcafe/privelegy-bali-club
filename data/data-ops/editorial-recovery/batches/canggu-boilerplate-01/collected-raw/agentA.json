@@ -1,0 +1,21 @@
+[
+  {"slug":"bokashi-bali-pererenan","status":"ready",
+   "official_sources":[{"url":"https://bokashibali.com/pererenan/","type":"website","confirms":"identity/location/concept/hours"},{"url":"https://bokashibali.com/pererenan-menu/","type":"menu","confirms":"menu"}],
+   "facts":["Jl. Pantai Pererenan No. 159, Pererenan","Japanese-influenced restaurant around a robatayaki charcoal grill bar","Cocktail bar, garden seating, poolside area","Menu names Beef Tartare, Miso Cod, Chicken Liver Parfait, lunch Bento Boxes","On-site Organic Grocery Store (LYD Organic farm, Bedugul)","Open daily 8am-11pm"],
+   "proposed_why_its_here":"A Japanese-influenced restaurant built around a robatayaki charcoal grill on Jalan Pantai Pererenan. The menu names dishes including beef tartare, miso cod and chicken liver parfait. An on-site organic grocery store stocks produce from the LYD Organic farm in Bedugul.",
+   "proposed_best_for":"A robatayaki grill dinner or a daytime poolside meal in Pererenan.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Identity/location confirmed on own site. No official prices seen."},
+  {"slug":"hip-hop-soul-restaurant","status":"ready",
+   "official_sources":[{"url":"https://hiphopsoul.net/","type":"website","confirms":"identity/concept/menu"},{"url":"https://www.instagram.com/hiphopsoul.bali/","type":"instagram","confirms":"identity/location/concept"}],
+   "facts":["Jl. Raya Canggu (IG geotag; site)","Bali's first authentic Southern American soul food restaurant (self-described)","Concept themed around Black culture and hip-hop","Menu names Lemon Pepper Honey Fried Chicken with cornbread and honey butter","Handcrafted cocktails and desserts"],
+   "proposed_why_its_here":"A Southern American soul food restaurant on Jalan Raya Canggu. The menu names dishes including lemon pepper honey fried chicken served with cornbread and honey butter. It also serves handcrafted cocktails and desserts.",
+   "proposed_best_for":"Southern and soul-food comfort dishes with cocktails in central Canggu.",
+   "proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Own site + IG. Excluded an unverified 24h claim (only third-party FB). No official prices."},
+  {"slug":"honeycomb-bali","status":"unclear",
+   "official_sources":[{"url":"https://www.instagram.com/honeycomb.bali/","type":"instagram","confirms":"identity/concept"}],
+   "facts":["IG @honeycomb.bali identifies 'Honeycomb Hookah & Eatery' (hookah lounge w/ food), not a coffee cafe"],
+   "proposed_why_its_here":"","proposed_best_for":"","proposed_not_for":"","proposed_price_anchor":"",
+   "notes":"Identity mismatch: record says 'cafe on Jalan Raya Canggu'; only match is Honeycomb Hookah & Eatery (Pererenan), confirmable only via forbidden aggregators. Address/hours/menu not verifiable from official source. REJECT — confirm slug intent before any rewrite."}
+]
