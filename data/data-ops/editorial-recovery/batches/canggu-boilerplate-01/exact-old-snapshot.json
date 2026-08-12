@@ -1,0 +1,127 @@
+{
+  "capturedAt": "2026-08-12",
+  "project": "bali-privilege (egkdapqwkfprtyqvvnso)",
+  "source": "read-only SELECT from prod venues",
+  "rows": [
+    {
+      "slug": "bokashi-bali-pererenan",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jalan Pantai Pererenan No.159 in Canggu.",
+      "best_for": "Travellers who want to check availability and reserve a table through Chope.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-30"
+    },
+    {
+      "slug": "hip-hop-soul-restaurant",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jalan Raya Canggu.",
+      "best_for": "Travellers who want to check availability and reserve a table through Chope.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-30"
+    },
+    {
+      "slug": "honeycomb-bali",
+      "district": "canggu",
+      "category": "cafe",
+      "why_its_here": "Cafe on Jalan Raya Canggu.",
+      "best_for": "Travellers who want to check availability and reserve a table through Chope.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-30"
+    },
+    {
+      "slug": "jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Munduk Kedungu No.55s in Canggu, open daily 7:00am-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu; Pererenan.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "kedai-tepi-kali-and-bar-at-tapa-tepi-kali-canggu",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Canggu Padang Linjong, open daily 7:00am-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "khao-canggu",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Pantai Batu Mejan in Canggu, open daily 10:00am-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "kong-contemporary-bistro",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Pantai Berawa No.14b in Canggu, open daily 11:00am-12:00am.",
+      "best_for": "Travellers looking for a current place to eat in Canggu; Berawa.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "milano",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Pantai Berawa in Canggu, open daily 7:00am-1:00am.",
+      "best_for": "Travellers looking for a current place to eat in Canggu; Berawa.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "one-eyed-jack",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Pantai Berawa No.c89 in Canggu, open daily 3:00-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu; Berawa.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-08-04"
+    },
+    {
+      "slug": "rasa-kitchen",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Canggu Padang Linjong No.80A, open daily 10:00am-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "samm-s-farm",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Canggu Padang Linjong No.58, open daily 8:30am-10:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    },
+    {
+      "slug": "turntable-canggu-steakhouse",
+      "district": "canggu",
+      "category": "restaurant",
+      "why_its_here": "Restaurant on Jl. Raya Babakan Canggu No.51, open daily 7:00am-11:00pm.",
+      "best_for": "Travellers looking for a current place to eat in Canggu.",
+      "not_for": null,
+      "price_anchor": null,
+      "last_verified_at": "2026-07-28"
+    }
+  ]
+}

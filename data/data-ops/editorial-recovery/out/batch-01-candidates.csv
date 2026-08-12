@@ -1,0 +1,13 @@
+rank,slug,name,district,category,queue_class,num_blockers,gate_proximity,composite_score
+215,kedai-tepi-kali-and-bar-at-tapa-tepi-kali-canggu,Kedai Tepi Kali and Bar at Tapa Tepi Kali Canggu,canggu,restaurant,P1_REWRITE_BOILERPLATE,3,0.25,0.7
+238,rasa-kitchen,Rasa Kitchen,canggu,restaurant,P1_REWRITE_BOILERPLATE,3,0.25,0.7
+242,samm-s-farm,Samm's Farm,canggu,restaurant,P1_REWRITE_BOILERPLATE,3,0.25,0.7
+253,turntable-canggu-steakhouse,Turntable Canggu | Steakhouse,canggu,restaurant,P1_REWRITE_BOILERPLATE,3,0.25,0.7
+753,bokashi-bali-pererenan,Bokashi Bali (Pererenan),canggu,restaurant,P1_REWRITE_BOILERPLATE,5,0.0,0.6
+826,hip-hop-soul-restaurant,Hip Hop Soul Restaurant,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+830,honeycomb-bali,Honeycomb Bali,canggu,cafe,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+842,jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel,Jen Deli Restaurant and La Fortuna Bar at Sense Canggu Beach Hotel,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+854,khao-canggu,KHAO Canggu,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+859,kong-contemporary-bistro,KONG | Contemporary Bistro,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+889,milano,Milano,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
+908,one-eyed-jack,One Eyed Jack,canggu,restaurant,P1_REWRITE_BOILERPLATE,4,0.0,0.6
