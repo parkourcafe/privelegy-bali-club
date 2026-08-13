@@ -34,15 +34,13 @@ a data-collection pass against an existing field).
 | I01 | Work-friendly cafés | `/ubud/best-cafes-coffee` | "Laptop-friendly" module, filtered on the real `quiet_work_cafe` job tag (0024 pass). No wifi/socket/call claims. |
 | I03 | Long-stay laptop cafés | same module | Folded into I01's module — the DB has no separate max-stay/min-spend field yet (see EV03 below), so this stays a single module, not a duration sub-filter. |
 | S01 | Remote work day | `/route/ubud-remote-work-day` | Three real stops (seniman-coffee-studio, anomali-coffee-ubud, bali-buda-ubud), all `quiet_work_cafe`-tagged. |
+| I04 | Date-night restaurants | `/ubud/best-restaurants` | "Date night & special occasions" module (2026-08-13), filtered on `date-night-special`/`special-occasion` job tags across 8 real published venues (cascades, donna-ubud, hujan-locale, laka-leke, locavore-nxt, mozaic, room4dessert, whos-who) — past the plan's own 5-venue bar. No booking-reliability claim (EV10 not collected). |
+| I05 | Anniversary / special occasion | same module | Folded in as scoped — no separate URL, no separate UI section. |
 
 ## P1_UPDATE — evidence-ready now, not yet built
 
-| ID | Topic | Target canonical | Real DB evidence | Gap before shipping |
-|---|---|---|---|---|
-| I04 | Date-night restaurants | `/ubud/best-restaurants` (module, mirrors I01's pattern) | 8 published Ubud restaurants already carry `date_night_special` and/or `special_occasion`: cascades, donna-ubud, hujan-locale, laka-leke, locavore-nxt, mozaic, room4dessert, whos-who (0024 pass) — well past the plan's own 5-venue bar | None to ship the base module. EV04 (noise by daypart) and EV15 (events schedule) needed only for richer "quiet enough to talk" / "which night has music" claims — omit those claims until then. |
-| I05 | Anniversary / special occasion | sub-module within the I04 module (not a separate URL — matches V1's "module, not standalone" scoping) | Same 8 venues; `special_occasion` present on 6 of them | No booking-reliability or cancellation-policy claim without EV10 confirmation. |
-
-**Recommendation:** this is the strongest next-pilot candidate — same shipped pattern as I01 (additive module on an existing canonical, real job-tag evidence, zero new claims). Flagging for the next authorized build round; not built in this pass per the "decision document only" scope agreed for this addendum.
+None remaining as of 2026-08-13 — I04/I05 shipped this round. Re-check this
+section when a HOLD item's named blocker closes.
 
 ## P0_CREATE-eligible, deferred to next build round
 
@@ -99,8 +97,8 @@ cannot be `P0_CREATE`-ready while its parent is `HOLD`.
 
 | ID | Scenario | Parent(s) | Status | Note |
 |---|---|---|---|---|
-| S02 | Romantic evening / first date | I04 (P1_UPDATE, evidence-ready) | HOLD | Build the I04 module first; a route needs the module's venues live to sequence, same dependency order as S01 needed the I01 module |
-| S03 | Anniversary evening | I05 | HOLD | Same chain as S02, plus EV10 |
+| S02 | Romantic evening / first date | I04 (DONE, 2026-08-13) | **P0_CREATE-eligible** | I04 module is now live — a route can sequence real venues from it, same as S08 can from `/ubud/best-warungs` |
+| S03 | Anniversary evening | I05 (DONE) | HOLD | EV10 (booking/cancellation evidence) still not collected |
 | S04 | Sunset date | I06 (HOLD, EV14) | HOLD | — |
 | S05 | Business meeting day | I07 (HOLD, EV04) | HOLD | — |
 | S06 | Team offsite half-day | I08 (HOLD, EV04+EV10) | HOLD | — |
@@ -118,9 +116,9 @@ cannot be `P0_CREATE`-ready while its parent is `HOLD`.
 
 ## Recommended build queue (next authorized rounds, in order)
 
-1. **I04 + I05** — date-night module on `/ubud/best-restaurants`. Same shipped pattern as I01, evidence already exceeds the plan's own bar (8 real venues vs. the 5-venue minimum it set for S01).
-2. **S08** — `/route/ubud-<local-food-crawl-slug>`, once I10's "reject as standalone, reuse best-warungs" is accepted; same route pattern as S01/culture-day.
-3. **S02** — romantic-evening route, once the I04 module is live (needs its venue set to sequence from).
+1. ~~I04 + I05~~ — shipped 2026-08-13.
+2. **S08** — `/route/ubud-<local-food-crawl-slug>`, reusing the already-live `/ubud/best-warungs`; same route pattern as S01/culture-day.
+3. **S02** — romantic-evening route, now that the I04 module is live to sequence real venues from.
 4. Everything else stays `HOLD` until its named evidence (EV0x), schema field, or infrastructure gap closes — re-run this addendum's relevant section when one does, rather than re-deciding from scratch.
 
 ## Cross-session / schema requests

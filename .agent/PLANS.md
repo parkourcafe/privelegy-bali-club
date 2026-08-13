@@ -97,3 +97,20 @@ tracked — sitemap/registry population happens at the next OS snapshot); no
 production deployment or migration apply — migration 0067 ships in this PR
 unapplied, same status as the rest of the Ubud pipeline (preview_ready,
 production not_started).
+
+## I04/I05 — date-night module (next build round, 2026-08-13)
+
+Per the addendum's recommended build queue: shipped the `/ubud/best-restaurants`
+"Date night & special occasions" module — same additive `extraSection` pattern
+as I01, filtered on `date-night-special` / `special-occasion` job tags. Real
+evidence: 8 published Ubud restaurants already carry one or both tags
+(cascades, donna-ubud, hujan-locale, laka-leke, locavore-nxt, mozaic,
+room4dessert, whos-who — all confirmed `category = restaurant` and live in
+`docs/seo/os/page-registry.json`), exceeding the source registry's own
+5-venue bar. No booking-reliability or cancellation claim, since EV10 isn't
+collected. No new route this round — S02 (romantic-evening route) stays HOLD
+per the addendum until this module has been live long enough to sequence
+from confidently; not re-litigated here.
+
+Checks: `typecheck`, `lint`, `ubud-p0-boundary`, `internal-links`,
+`plan-route-hierarchy`, `npm run build` — all pass.

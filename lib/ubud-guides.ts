@@ -44,6 +44,12 @@ export const UBUD_GUIDES: UbudGuide[] = [
     base: (v) => v.category === "restaurant",
     sectionHeading: "Where to eat in Ubud",
     sectionNote: "Curated picks — book ahead for the popular rooms.",
+    extraSection: {
+      key: "date-night",
+      heading: "Date night & special occasions",
+      note: "Restaurants we've tagged for date night or a special occasion — set the mood, not a guarantee of a table. We don't claim booking reliability or cancellation terms without a direct check, so confirm before you commit to the evening.",
+      match: (v) => venueHasJob(v, ["date-night-special"]) || venueHasJob(v, ["special-occasion"]),
+    },
     faq: [
       { q: "Do Ubud restaurants take reservations?", a: "The popular dinner rooms fill in high season — book a day or two ahead. Casual spots and warungs are walk-in." },
       { q: "Is Ubud good for vegetarians and vegans?", a: "Very — Ubud has one of Bali's deepest plant-based scenes; most kitchens do strong vegetarian and vegan plates." },
