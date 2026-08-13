@@ -1,6 +1,8 @@
 # Ubud unified cluster decision V1
 
-Date: 2026-07-23. This is the sole Ubud architecture decision.
+Date: 2026-07-23. This is the sole decision for the topics below. For the
+20-intent-owner / 17-scenario proposal layer (2026-08-12), see
+`UBUD_UNIFIED_CLUSTER_DECISION_ADDENDUM_SCENARIO_LAYER.md`.
 
 | Topic | Status | Exact canonical / target | Primary decision | Gate / overlap |
 |---|---|---|---|---|

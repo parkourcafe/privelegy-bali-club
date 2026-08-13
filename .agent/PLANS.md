@@ -76,9 +76,18 @@ the other 19 intent owners, rather than a full Phase 4 re-decision up front.
   `ubud-culture-day` already does locally); it resolves against the real,
   already-published venues once deployed with live Supabase, same as every
   other non-Canggu route in this repo.
-- [not_started] Reconcile the remaining 19 intent owners / 7 scenarios into a
-  v2 unified cluster decision — deferred pending founder direction on scope
-  (see chat: Variant A offered, not yet chosen).
+- [completed] Reconcile the remaining 19 intent owners / 16 scenarios (Variant
+  A, chosen by founder) into
+  `docs/seo/ubud/UBUD_UNIFIED_CLUSTER_DECISION_ADDENDUM_SCENARIO_LAYER.md`:
+  0 new REJECTs of live-canonical duplicates (I10 vs. `/ubud/best-warungs`)
+  and of a V1 contradiction (I11/I12 vs. the decided `MERGE_INTO_EXISTING
+  /ubud`); 2 evidence-ready P1_UPDATE modules not yet built (I04/I05 — real
+  `date_night_special`/`special_occasion` tags already exist on 8 published
+  Ubud restaurants); 1 P0_CREATE-eligible route deferred to the next build
+  round (S08, reusing the already-live `/ubud/best-warungs`); the rest HOLD,
+  split by cause (evidence backlog vs. schema gap vs. infra gap vs.
+  high-stakes escalation for I15/S13 dietary/allergy). No code changed in
+  this pass — decision document only, per the scope agreed in chat.
 
 Constraints: did not touch `app/ubud/page.tsx` (frozen `P0_UPDATE`, approved
 claim ledger only, per boundary test `scripts/ubud-p0-boundary.test.mjs`); did
