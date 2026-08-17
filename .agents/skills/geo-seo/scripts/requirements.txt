@@ -1,0 +1,16 @@
+# Dependencies for the vendored GEO analysis scripts.
+#
+# Install into a local venv — these are optional analysis helpers, not part of
+# any gate, and nothing in npm scripts or the test suite depends on them:
+#
+#   python3 -m venv .agents/skills/geo-seo/scripts/.venv
+#   .agents/skills/geo-seo/scripts/.venv/bin/pip install -r \
+#     .agents/skills/geo-seo/scripts/requirements.txt
+#
+# Trimmed from upstream: flask and rich were only needed by the prospect-CRM
+# webapp, and playwright/Pillow by the PDF reporter. Neither is vendored.
+beautifulsoup4>=4.12.0,<5.0.0
+requests>=2.32.4,<3.0.0
+lxml>=6.0.2,<7.0.0
+urllib3>=2.6.3,<3.0.0
+validators>=0.22.0,<1.0.0

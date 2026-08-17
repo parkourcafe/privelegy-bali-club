@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali GEO"
+  short_description: "Making the site reachable, parseable and citable by AI answer engines"
+  default_prompt: "Use $geo-seo for AI-search visibility work — crawler access, llms.txt, citability, entity presence. Read references/otherbali-overlay.md first: this was vendored from an external GEO toolkit and several of its recommendations (aggregateRating, invented statistics, author personas, a static llms.txt) are guardrail violations here. A GEO score is a diagnosis, and on a data-driven site the fix is almost always a venue record field, not prose."
