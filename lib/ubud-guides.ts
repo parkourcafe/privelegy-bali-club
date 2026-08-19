@@ -30,6 +30,10 @@ export type UbudGuide = {
     match: (v: VenueWithPerk) => boolean;
     relatedRoute?: { href: string; label: string };
   };
+  // For a guide with no extraSection module (the whole page already is the
+  // decision) that still wants to forward to a scenario built from its own
+  // venues — e.g. best-warungs -> the local-food-crawl route.
+  relatedRoute?: { href: string; label: string };
   faq: { q: string; a: string }[];
 };
 
@@ -67,6 +71,7 @@ export const UBUD_GUIDES: UbudGuide[] = [
     base: (v) => v.category === "warung" || /\bwarung\b/i.test(v.name),
     sectionHeading: "Warungs & local food",
     sectionNote: "Cheap, authentic and unfussy — the local plates worth seeking out.",
+    relatedRoute: { href: "/route/ubud-local-food-crawl", label: "Want a plan, not just a list? See the local-food-crawl route." },
     faq: [
       { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food — nasi campur, satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
       { q: "Where do locals eat in Ubud?", a: "At warungs — small local eateries away from the tourist strip. The picks here are the ones we rate for authentic, affordable Balinese and Indonesian food." },

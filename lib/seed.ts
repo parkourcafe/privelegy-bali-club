@@ -217,6 +217,22 @@ export const ROUTES: RouteDef[] = [
       { venueSlug: "bali-buda-ubud", note: "Long lunch that can stretch into more work — wholefoods restaurant and grocery, big menu, room to linger." },
     ],
   },
+  // cf. supabase/migrations/0068 — S08 from the scenario-layer addendum:
+  // three real, already-published Ubud warungs, deliberately picked to be
+  // distinct (not three "Indonesian food" cards) without a cuisine mismatch
+  // or a pre-order-only stop. See the migration's own note.
+  {
+    slug: "ubud-local-food-crawl",
+    district: "ubud",
+    title: "A local-food crawl in Ubud",
+    subtitle: "Three warungs, in order, for honey-glazed chicken, a healthcare-funding lunch and an all-vegan finish",
+    rank: 30,
+    stops: [
+      { venueSlug: "manga-madu", note: "Start central at Warung Mangga Madu — straightforward, affordable Indonesian comfort food; the honey-glazed chicken is the order." },
+      { venueSlug: "fair-warung-bale", note: "Fair Warung Balé — restaurant proceeds fund free medical consultations for the local community; an easy lunch that isn't just a meal." },
+      { venueSlug: "wulan-vegetarian-warung", note: "Finish in Peliatan at Wulan Vegetarian Warung — a hole-in-the-wall, cash-only, all-vegan Indonesian menu at very low prices." },
+    ],
+  },
   // cf. supabase/migrations/0049 — two more excursions, same pattern.
   {
     slug: "bangli-temple-village-day",

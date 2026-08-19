@@ -83,6 +83,13 @@ export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
               ))}
             </div>
           )}
+          {guide.relatedRoute && (
+            <p className="mt-4 text-sm">
+              <a href={guide.relatedRoute.href} className="quiet-link">
+                {guide.relatedRoute.label}
+              </a>
+            </p>
+          )}
         </section>
 
         {guide.extraSection && extraVenues.length > 0 && (

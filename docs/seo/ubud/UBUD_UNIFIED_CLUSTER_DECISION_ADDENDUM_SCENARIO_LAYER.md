@@ -36,6 +36,7 @@ a data-collection pass against an existing field).
 | S01 | Remote work day | `/route/ubud-remote-work-day` | Three real stops (seniman-coffee-studio, anomali-coffee-ubud, bali-buda-ubud), all `quiet_work_cafe`-tagged. |
 | I04 | Date-night restaurants | `/ubud/best-restaurants` | "Date night & special occasions" module (2026-08-13), filtered on `date-night-special`/`special-occasion` job tags across 8 real published venues (cascades, donna-ubud, hujan-locale, laka-leke, locavore-nxt, mozaic, room4dessert, whos-who) — past the plan's own 5-venue bar. No booking-reliability claim (EV10 not collected). |
 | I05 | Anniversary / special occasion | same module | Folded in as scoped — no separate URL, no separate UI section. |
+| S08 | Local-food crawl | `/route/ubud-local-food-crawl` | Three real, already-published warungs (manga-madu, fair-warung-bale, wulan-vegetarian-warung), each with real editorial copy from the 0024 pass. Deliberately excluded Warung Siam (Thai — doesn't fit a "local food" frame) and Dicarik Warung (its signature dish requires advance pre-order, which would mislead a drop-in crawl). Reciprocal link from `/ubud/best-warungs`. |
 
 ## P1_UPDATE — evidence-ready now, not yet built
 
@@ -44,9 +45,7 @@ section when a HOLD item's named blocker closes.
 
 ## P0_CREATE-eligible, deferred to next build round
 
-| ID | Topic | Shape | Why it's ready | Why deferred here |
-|---|---|---|---|---|
-| S08 | Local-food crawl (warungs) | `/route/ubud-<slug>`, same entity as S01/culture-day | `/ubud/best-warungs` already exists and is already populated with real, editorially-verified warung venues (why_its_here/what_to_order) — a route just sequences 2–3 of them | This addendum's scope is decisions, not builds; also depends on I10's REJECT below, which retargets its "guide" half onto the existing canonical first |
+None remaining as of 2026-08-13 — S08 shipped this round (see Done, above).
 
 ## Reject — duplicates a live canonical or contradicts V1
 
@@ -103,7 +102,7 @@ cannot be `P0_CREATE`-ready while its parent is `HOLD`.
 | S05 | Business meeting day | I07 (HOLD, EV04) | HOLD | — |
 | S06 | Team offsite half-day | I08 (HOLD, EV04+EV10) | HOLD | — |
 | S07 | Budget food day | I09 (HOLD, EV12) | HOLD | — |
-| S08 | Local-food crawl | I10 (REJECT as standalone, but `/ubud/best-warungs` already live) | **P0_CREATE-eligible** | See "deferred to next build round" above — the one scenario not gated by its parent's rejection, since the parent canonical already exists |
+| S08 | Local-food crawl | I10 (REJECT as standalone, but `/ubud/best-warungs` already live) | **DONE, 2026-08-13** | Shipped as `/route/ubud-local-food-crawl` — see Done, above |
 | S09 | Easy family food day | I11 (REJECT/MERGE) | HOLD | Source registry marks this `DRAFT READY`; not accepted here — EV08/EV09 field audit not done, and an AI-assigned "ready" status is not evidence per this pipeline's rules |
 | S10 | Toddler-friendly half-day | I12 | HOLD | Explicitly blocked in the source registry too (physical access audit) |
 | S11 | Vegan day | I13 (HOLD, schema gap) | HOLD | — |
@@ -117,7 +116,7 @@ cannot be `P0_CREATE`-ready while its parent is `HOLD`.
 ## Recommended build queue (next authorized rounds, in order)
 
 1. ~~I04 + I05~~ — shipped 2026-08-13.
-2. **S08** — `/route/ubud-<local-food-crawl-slug>`, reusing the already-live `/ubud/best-warungs`; same route pattern as S01/culture-day.
+2. ~~S08~~ — shipped 2026-08-13 as `/route/ubud-local-food-crawl`.
 3. **S02** — romantic-evening route, now that the I04 module is live to sequence real venues from.
 4. Everything else stays `HOLD` until its named evidence (EV0x), schema field, or infrastructure gap closes — re-run this addendum's relevant section when one does, rather than re-deciding from scratch.
 

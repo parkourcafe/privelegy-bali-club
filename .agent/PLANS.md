@@ -114,3 +114,26 @@ from confidently; not re-litigated here.
 
 Checks: `typecheck`, `lint`, `ubud-p0-boundary`, `internal-links`,
 `plan-route-hierarchy`, `npm run build` — all pass.
+
+## S08 — local-food-crawl route (next build round, 2026-08-13)
+
+Third queue item: `/route/ubud-local-food-crawl`, migration
+`0068_ubud_local_food_crawl_route.sql` + `lib/seed.ts` mirror, reusing the
+already-live `/ubud/best-warungs` canonical (I10 was rejected as a standalone
+guide in the addendum). Three real, published warungs with real editorial
+copy from the 0024 pass: manga-madu, fair-warung-bale,
+wulan-vegetarian-warung. Deliberately excluded Warung Siam (Thai cuisine
+doesn't fit a "local food" frame) and Dicarik Warung (its signature dish
+needs advance pre-order, which would mislead a drop-in crawl). Added a
+top-level `UbudGuide.relatedRoute` field (sibling to `extraSection`, for a
+guide that has no filtered module but still wants to forward to a scenario
+built from its own venues) and wired it on `best-warungs`; also fixed an
+accidental duplicate `relatedRoute` on the `best-cafes-coffee` entry
+introduced while making this change.
+
+Checks: `typecheck`, `lint`, `ubud-p0-boundary`, `internal-links`,
+`plan-route-hierarchy`, `npm run build` — all pass.
+
+Remaining queue: S02 (romantic-evening route, now unblocked since I04 is
+live) is next; everything else in the addendum stays `HOLD` on named
+evidence/schema/infra gaps.
