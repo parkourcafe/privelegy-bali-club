@@ -62,10 +62,18 @@ export function mapPublishedMenu(
   const expiresAt = nullableText(row.expires_at);
   const sourceUrl = validatePublicEvidenceUrl(row.source_url);
   const completeness = text(row.completeness);
+  const status = text(row.status);
+  // Two public states (mirrored 1:1 by the menus RLS read policy):
+  // "published" — operator/owner-verified, requires verified_at;
+  // "source_snapshot" — captured from the venue's own official source
+  // (founder publication decision 2026-08-24), evidence date is captured_at
+  // and verified_at stays null by DB constraint.
+  const isSnapshot = status === "source_snapshot";
   if (
-    text(row.status) !== "published" ||
+    (status !== "published" && !isSnapshot) ||
     (completeness !== "full" && completeness !== "partial") ||
-    !verifiedAt ||
+    (!verifiedAt && !isSnapshot) ||
+    (isSnapshot && !nullableText(row.captured_at)) ||
     !isFresh(expiresAt, now) ||
     !sourceUrl
   ) return null;

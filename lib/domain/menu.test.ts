@@ -59,13 +59,40 @@ test("mapPublishedMenu accepts a partial published menu and preserves its comple
   assert.equal(full?.completeness, "full");
 });
 
+test("mapPublishedMenu accepts a source_snapshot with captured_at evidence (2026-08 policy)", () => {
+  const snapshot = mapPublishedMenu(
+    row({ status: "source_snapshot", completeness: "partial", verified_at: null }),
+    [],
+    []
+  );
+  assert.equal(snapshot?.status, "published");
+  assert.equal(snapshot?.completeness, "partial");
+  assert.equal(snapshot?.verifiedAt, null);
+});
+
 test("mapPublishedMenu still rejects unpublished, unevidenced or stale rows", () => {
   assert.equal(mapPublishedMenu(row({ status: "review", completeness: "partial" }), [], []), null);
-  assert.equal(mapPublishedMenu(row({ status: "source_snapshot", completeness: "partial" }), [], []), null);
+  assert.equal(mapPublishedMenu(row({ status: "draft" }), [], []), null);
   assert.equal(mapPublishedMenu(row({ completeness: "partial", verified_at: null }), [], []), null);
+  assert.equal(
+    mapPublishedMenu(
+      row({ status: "source_snapshot", completeness: "partial", verified_at: null, captured_at: null }),
+      [],
+      []
+    ),
+    null
+  );
   assert.equal(mapPublishedMenu(row({ completeness: "unknown-completeness" }), [], []), null);
   assert.equal(
     mapPublishedMenu(row({ completeness: "partial", expires_at: "2020-01-01T00:00:00.000Z" }), [], []),
+    null
+  );
+  assert.equal(
+    mapPublishedMenu(
+      row({ status: "source_snapshot", completeness: "partial", verified_at: null, expires_at: "2020-01-01T00:00:00.000Z" }),
+      [],
+      []
+    ),
     null
   );
 });
