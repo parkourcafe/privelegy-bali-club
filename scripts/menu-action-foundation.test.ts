@@ -29,8 +29,11 @@ test("published menu mapping suppresses unsafe evidence URLs", () => {
   assert.equal(mapPublishedMenu(menuRow(unsafe), [], []), null);
 });
 
-test("published menu mapping suppresses partial extracts", () => {
-  assert.equal(mapPublishedMenu({ ...menuRow(menuActionFixtures.freshMenu), completeness: "partial" }, [], []), null);
+test("published menu mapping renders partial extracts as honest partials (2026-08 policy)", () => {
+  const partial = mapPublishedMenu({ ...menuRow(menuActionFixtures.freshMenu), completeness: "partial" }, [], []);
+  assert.equal(partial?.completeness, "partial");
+  // Anything that is not an approved completeness value still never maps.
+  assert.equal(mapPublishedMenu({ ...menuRow(menuActionFixtures.freshMenu), completeness: "unknown" }, [], []), null);
 });
 
 test("menu mapping is deterministic and preserves snake/camel boundary", () => {

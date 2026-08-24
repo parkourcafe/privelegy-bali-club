@@ -44,9 +44,12 @@ async function fetchPublishedMenuSummary(
       .select(MENU_COLUMNS)
       .eq("venue_slug", venueSlug)
       .eq("kind", kind)
-      .eq("status", "published")
-      .eq("completeness", "full")
+      .in("status", ["published", "source_snapshot"])
+      .in("completeness", ["full", "partial"])
       .order("version", { ascending: false })
+      // Tie-break equal versions in favour of the verified "published" row
+      // over a "source_snapshot" ('p' sorts before 's').
+      .order("status", { ascending: true })
       .limit(1);
     if (error || !menus?.[0]) return null;
     const menu = menus[0] as DataRow;
@@ -144,8 +147,8 @@ async function fetchPublishedMenuSection(
       .select(MENU_COLUMNS)
       .eq("id", menuId)
       .eq("venue_slug", venueSlug)
-      .eq("status", "published")
-      .eq("completeness", "full")
+      .in("status", ["published", "source_snapshot"])
+      .in("completeness", ["full", "partial"])
       .maybeSingle();
     if (menuError || !menu) return null;
     const [{ data: section, error: sectionError }, { data: items, error: itemError }] =

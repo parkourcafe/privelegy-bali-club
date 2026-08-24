@@ -19,13 +19,13 @@ import { DISTRICT_GRADIENT } from "@/lib/districts";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Other Bali — Discover Bali Together",
+  title: "Other Bali — the right place for the moment you’re in",
   description:
-    "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
+    "Verified Bali places with real menus, prices and Best for / Not for context — so you know why to go today. No ads, no paid ranking. Less searching. More Bali.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "The right Bali for the moment you’re in.",
-    description: "Discover Bali together with resident-curated places, routes and practical plans.",
+    title: "Other Bali — the right place for the moment you’re in",
+    description: "Verified places, real menus and prices, Best for / Not for context. No ads, no paid ranking.",
     url: "https://www.otherbali.com/",
     siteName: "Other Bali",
     locale: "en_US",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The right Bali for the moment you’re in.",
-    description: "Discover Bali together with resident-curated places, routes and practical plans.",
+    title: "Other Bali — the right place for the moment you’re in",
+    description: "Verified places, real menus and prices, Best for / Not for context. No ads, no paid ranking.",
   },
 };
 

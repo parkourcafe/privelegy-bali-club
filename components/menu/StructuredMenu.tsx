@@ -18,8 +18,11 @@ export default function StructuredMenu({ menu, venueSlug, officialMenuUrl, eyebr
     <div className="structured-menu" data-menu-id={menu.id}>
       <MenuOpenTracker venueSlug={venueSlug} menuId={menu.id} />
       <header className="structured-menu-header">
-        <div><p className="structured-menu-eyebrow">{eyebrow ?? "Verified full menu"} · version {menu.version}</p><h3>{menu.title}</h3></div>
+        <div><p className="structured-menu-eyebrow">{eyebrow ?? (menu.completeness === "full" ? "Verified full menu" : "Menu highlights")} · version {menu.version}</p><h3>{menu.title}</h3></div>
         <p className="structured-menu-source">Source: <a href={menu.sourceUrl} target="_blank" rel="noreferrer">{menu.sourceLabel} ↗</a>{captured ? ` · prices as of ${captured}, may vary` : ""}{verified ? ` · checked ${verified}` : ""}{expires ? ` · current until ${expires}` : ""}</p>
+        {menu.completeness === "partial" ? (
+          <p className="structured-menu-source">Highlights from the venue’s official menu — not the full list. The complete menu is at the source link above.</p>
+        ) : null}
       </header>
       {!hideAllergenNote && (
         <p className="structured-menu-allergen-note"><strong>Allergen note:</strong> only explicitly verified allergens are shown. No allergen tag means unknown, not allergen-free.</p>

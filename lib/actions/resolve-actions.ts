@@ -175,6 +175,12 @@ function resolveCapability(
     if (!["reserve", "delivery", "takeaway", "preorder", "whatsapp"].includes(record.kind)) {
       return null;
     }
+    // Booking-language kinds are part of the money loop and must not render
+    // outside the active deep district (AGENTS.md §4: no monetization outside
+    // active_deep). Delivery/takeaway/plain contact are planning-safe handoffs.
+    if (["reserve", "preorder"].includes(record.kind) && props.coverageMode !== "active_deep") {
+      return null;
+    }
     const phone = whatsAppPhoneFromUrl(record.url);
     href = phone
       ? buildWhatsAppHandoff({

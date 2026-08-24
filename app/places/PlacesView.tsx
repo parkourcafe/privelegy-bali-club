@@ -288,7 +288,7 @@ export default function PlacesView({
           field="moment"
           render={(value) => {
             const label = CATALOGUE_MOMENTS.find((m) => m.slug === value)?.label ?? value;
-            return filters.moment === value ? `★ ${label}` : label;
+            return label;
           }}
         />
         <FilterChips
@@ -446,7 +446,7 @@ export default function PlacesView({
               <div key={venue.slug} className="relative">
                 {page === 1 && index === 0 ? (
                   <span className="moment-badge" aria-hidden="true">
-                    ★ Best for {filters.momentLabel?.toLowerCase()}
+                    Best for {filters.momentLabel?.toLowerCase()}
                   </span>
                 ) : null}
                 <PlaceCard place={toCard(venue)} />
