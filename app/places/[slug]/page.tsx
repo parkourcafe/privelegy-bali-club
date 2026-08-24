@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, type VenueWithPerk } from "@/lib/data";
+import { getVenueWithPerk, getSimilarVenues, isPublicReadyVenue, HUB_EXCLUDE_DISTRICTS, type VenueWithPerk } from "@/lib/data";
+import { PILLAR_PATH } from "@/lib/districts";
 import SaveButton from "@/components/SaveButton";
 import AddToTripButton from "@/components/AddToTripButton";
 import {
@@ -259,6 +260,13 @@ export default async function VenuePage({
     ? jimbaranCategoryGuide[venue.category]
     : undefined;
 
+  // Districts handled by an explicit branch below own their pillar path; every
+  // other catalogued district is served by the programmatic hub.
+  const districtHubPath =
+    venue.district && !PILLAR_PATH[venue.district] && !HUB_EXCLUDE_DISTRICTS.has(venue.district)
+      ? `/bali/${venue.district}`
+      : null;
+
   // Similar places: verified category/vibe/district match only — sponsored
   // status is never a ranking factor (rankSimilar scores category + tags).
   const crumbs: Crumb[] = isUluwatu
@@ -310,7 +318,17 @@ export default async function VenuePage({
         ...(guide ? [{ name: guide.label, href: guide.href }] : []),
         { name },
       ]
-    : [{ name: "Home", href: "/" }, { name: "Places", href: "/places" }, { name }];
+    : [
+        { name: "Home", href: "/" },
+        // Districts without a hand-crafted pillar still have a programmatic
+        // /bali/{district} hub — the page that ranks for that district. Sending
+        // their venues up to the island-wide catalogue instead left those hubs
+        // with no inbound links from their own venues (2026-08-24 audit).
+        ...(districtHubPath
+          ? [{ name: districtLabel[venue.district] ?? "District", href: districtHubPath }]
+          : [{ name: "Places", href: "/places" }]),
+        { name },
+      ];
 
   // Entity-identity links (schema sameAs) — the venue's own site + Instagram.
   // Prefer the Uluwatu registry, fall back to the DB fields so EVERY district's

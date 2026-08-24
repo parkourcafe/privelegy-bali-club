@@ -6,6 +6,7 @@ import SourceCapture from "./SourceCapture";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
+import GlobalFooter from "@/components/GlobalFooter";
 import MobileNav from "@/components/MobileNav";
 import { getLocale } from "@/lib/i18n/server";
 import { LOCALE_META } from "@/lib/i18n/locales";
@@ -121,6 +122,7 @@ export default async function RootLayout({
         />
         <GlobalHeader locale={locale} />
         {children}
+        <GlobalFooter />
         <MobileNav locale={locale} />
         <SourceCapture />
         <ServiceWorkerRegister />

@@ -188,8 +188,9 @@ const GUIDE: DistrictGuideEntry[] = [
 // Districts that shipped a hand-crafted pillar page — the homepage card links
 // there (a real route) instead of the programmatic /bali/[district] hub, which
 // deliberately excludes these slugs (HUB_EXCLUDE_DISTRICTS) and would 404.
-const PILLAR_PATH: Record<string, string> = {
+export const PILLAR_PATH: Record<string, string> = {
   "uluwatu-bukit": "/uluwatu",
+  canggu: "/canggu",
   ubud: "/ubud",
   seminyak: "/seminyak",
   sanur: "/sanur",

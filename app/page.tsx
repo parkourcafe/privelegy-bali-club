@@ -5,7 +5,6 @@ import DistrictCover from "@/components/landing/DistrictCover";
 import HeroLoop from "@/components/landing/HeroLoop";
 import SceneImage from "@/components/landing/SceneImage";
 import ShaderBackground from "@/components/ShaderBackground";
-import SiteFooter from "@/components/SiteFooter";
 import {
   HOME_AREAS,
   HOME_CATEGORIES,
@@ -470,7 +469,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   );
 }

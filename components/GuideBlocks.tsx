@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cache } from "react";
-import SiteFooter from "@/components/SiteFooter";
 import PlaceCard from "@/components/PlaceCard";
 import { getUluwatuContent, toPlaceCard } from "@/lib/uluwatu/venues";
 import { getPublishedVenues } from "@/lib/data";
@@ -155,10 +154,10 @@ export async function PlaceLink({ slug, children }: { slug: string; children?: R
   );
 }
 
-// The shared site footer, in its light tone — the guide/district/catalogue
-// pages that render <GuideFooter /> are the cream editorial surfaces, so the
-// footer matches them. The dark homepage renders <SiteFooter tone="dark" />
-// directly. One component, two tones (components/SiteFooter.tsx).
+// The footer now belongs to the root layout (components/GlobalFooter.tsx), so
+// every route gets one -- including the venue pages and /bali/* hubs that never
+// rendered this component. GuideFooter stays as a no-op so the ~55 pages that
+// call it need no edit and cannot double-render.
 export function GuideFooter() {
-  return <SiteFooter tone="light" />;
+  return null;
 }
