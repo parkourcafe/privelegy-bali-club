@@ -1,8 +1,11 @@
-import { getDistrictHubs, getIntentSpokes } from "@/lib/data";
+import { getDistrictHubs, getIntentSpokes, getPublishedVenues } from "@/lib/data";
+import { isVenueIndexable } from "@/lib/publication";
 import { PILLARS } from "@/lib/pillars";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { LIGHT_DISTRICTS } from "@/lib/light-districts";
+import { RESORT_FNB_PAGES } from "@/lib/resort-fnb";
+import { liveCollectionSlugs } from "@/lib/collections";
 
 export const revalidate = 3600;
 
@@ -13,7 +16,21 @@ const BASE = "https://www.otherbali.com";
 // data dump: the deep district pillars first (the flagship content), then the
 // programmatic hubs/spokes, trip scenarios, and tools.
 export async function GET() {
-  const [hubs, spokes] = await Promise.all([getDistrictHubs(), getIntentSpokes()]);
+  const [hubs, spokes, catalogue, collectionSlugs] = await Promise.all([
+    getDistrictHubs(),
+    getIntentSpokes(),
+    getPublishedVenues(),
+    liveCollectionSlugs(),
+  ]);
+  // Entity pages are what answer engines cite: every indexable venue page,
+  // grouped by district, with its one-line fit context.
+  const venues = catalogue.filter(isVenueIndexable);
+  const venuesByDistrict = new Map<string, typeof venues>();
+  for (const venue of venues) {
+    const list = venuesByDistrict.get(venue.district) ?? [];
+    list.push(venue);
+    venuesByDistrict.set(venue.district, list);
+  }
 
   const lines: string[] = [
     "# Other Bali",
@@ -48,10 +65,30 @@ export async function GET() {
     `- [Bali travel guides](${BASE}/guides): index of planning and best-of guides`,
     ...GUIDES.map((g) => `- [${g.title}](${BASE}/${g.slug}): ${g.description}`),
     "",
+    "## Hotel dining & day passes",
+    ...RESORT_FNB_PAGES.map((p) => `- [${p.title}](${BASE}${p.url})`),
+    "",
+    "## Curated collections",
+    ...collectionSlugs.map((slug) => `- [${slug.replace(/-/g, " ")}](${BASE}/collections/${slug})`),
+    "",
     "## Tools",
     `- [Plan your Bali trip](${BASE}/plan)`,
     `- [Build a day in Canggu](${BASE}/plan#canggu-day-builder)`,
+    `- [Find a place for today](${BASE}/my-day)`,
     `- [Browse all places](${BASE}/places)`,
+    "",
+    "## Places (verified venue pages)",
+    "> Each page: why it's here, Best for / Not ideal for, what to order,",
+    "> price anchor, opening hours, and — where captured — the menu with",
+    "> prices from the venue's own official source.",
+    ...[...venuesByDistrict.entries()].flatMap(([district, list]) => [
+      "",
+      `### ${district}`,
+      ...list.map((venue) => {
+        const context = venue.bestFor ?? venue.whyItsHere;
+        return `- [${venue.name}](${BASE}/places/${venue.slug})${context ? `: ${context}` : ""}`;
+      }),
+    ]),
     "",
   ];
 

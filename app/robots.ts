@@ -12,7 +12,23 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/partner/", "/onboard/", "/api/", "/me", "/list/", "/review"],
+        disallow: [
+          "/admin/",
+          "/admin",
+          "/partner/",
+          "/partner",
+          "/onboard/",
+          "/onboard",
+          "/api/",
+          "/me",
+          "/list/",
+          // "$" keeps /list-your-property crawlable while blocking bare /list.
+          "/list$",
+          "/review",
+          "/dev/",
+          // Guest-shared trips are private-ish, orphaned surfaces — no crawl value.
+          "/plan/shared",
+        ],
       },
     ],
     sitemap: "https://www.otherbali.com/sitemap.xml",

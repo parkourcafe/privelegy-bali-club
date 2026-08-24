@@ -43,6 +43,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Unified property submission page (villa + hotel intake behind the "Add"
     // CTAs on /villas and /hotels).
     { url: `${BASE}/list-your-property`, changeFrequency: "monthly", priority: 0.5 },
+    // Legal/support pages are indexable and footer-linked; keeping them out of
+    // the sitemap made crawlers treat them as second-class (2026-08-24 audit).
+    { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE}/privacy/choices`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE}/support`, changeFrequency: "yearly", priority: 0.2 },
     // SEO hub index + per-district hubs — the programmatic ranking surface for
     // districts without a hand-crafted pillar (Uluwatu is excluded — it has its
     // own /uluwatu pillar below).
