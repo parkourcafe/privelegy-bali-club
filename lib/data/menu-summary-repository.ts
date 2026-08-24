@@ -28,8 +28,11 @@ export type PublicMenuSummary = Omit<MenuRecord, "sections"> & {
 // for HTML weight are deferred to a client fetch on expand — a small drinks
 // or sides section (a handful of items) costs nothing to render inline and
 // gains nothing from an extra round-trip, so it stays fully server-rendered
-// and crawlable. Tune this threshold if real menus show it's off.
-const LARGE_SECTION_ITEM_THRESHOLD = 12;
+// and crawlable. Raised from 12 to 200 (2026-08-24, SEO-first course): menu
+// items are the page's most keyword-rich content and feed the hasMenu
+// JSON-LD, so withholding them from the initial HTML hid them from crawlers.
+// The deferral mechanism stays for pathological menus.
+const LARGE_SECTION_ITEM_THRESHOLD = 200;
 
 async function fetchPublishedMenuSummary(
   venueSlug: string,

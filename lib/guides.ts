@@ -1687,7 +1687,10 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
     heading: "Plan your trip",
     blurb: "How long to go, when, how to get around, and what it costs.",
     slugs: [
+      "bali-travel-guide",
       "how-many-days-in-bali",
+      "bali-itinerary-3-days",
+      "bali-itinerary-5-days",
       "bali-itinerary-7-days",
       "bali-itinerary-10-days",
       "best-time-to-visit-bali",
@@ -1723,7 +1726,7 @@ export const GUIDE_GROUPS: { heading: string; blurb: string; slugs: string[] }[]
   {
     heading: "Day plans & moments",
     blurb: "First days, one-day routes, and what to do when the weather or the group changes.",
-    slugs: ["canggu-first-day", "ubud-one-day", "bali-rainy-day", "bali-with-kids"],
+    slugs: ["canggu-first-day", "ubud-one-day", "canggu-without-a-scooter", "bali-rainy-day", "bali-with-kids"],
   },
 ];
 

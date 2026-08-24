@@ -42,6 +42,23 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
           <GuideHeroMedia seed={`${guide.slug} ${guide.title}`} />
         </header>
 
+        {/* Shared trust strip — the one place all ~30 guide landings say why
+            this guide is different from a generic Bali blog. */}
+        <aside
+          aria-label="Why trust this guide"
+          className="mt-6 rounded-2xl border border-[var(--line,#e5e0d5)] bg-[var(--card,rgba(255,255,255,0.6))] p-4 text-sm leading-relaxed text-[var(--muted)]"
+        >
+          <p>
+            <strong className="text-[var(--ink,inherit)]">Why trust this guide:</strong>{" "}
+            we verify every place we name — hours, prices, what to order — and we
+            say who a place is <em>not</em> for. Nobody can pay for a spot: no ads,
+            no paid ranking, no star ratings. Free for travellers.{" "}
+            <Link href="/places" className="underline underline-offset-2">
+              Browse the verified places →
+            </Link>
+          </p>
+        </aside>
+
         {(guide.sections ?? []).map((section, index) => (
           <section key={section.heading} className="guide-section">
             <h2>{section.heading}</h2>

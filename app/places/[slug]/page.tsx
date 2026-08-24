@@ -12,6 +12,7 @@ import {
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
 import { buildOpeningHoursSpec } from "@/lib/opening-hours";
+import { menuJsonLd } from "@/lib/seo/menu-json-ld";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -387,6 +388,12 @@ export default async function VenuePage({
     : fixtureMode === "stale"
     ? fixtureMenuSummary({ ...menuActionFixtures.staleMenu, venueSlug: slug })
     : detailExtension.menu;
+
+  // Menu rich-result markup, built from the same gated repository read the
+  // page renders (never from fixtures — those are a dev-only display aid, and
+  // markup must not carry invented content).
+  const schemaMenu = detailExtension.menu ? menuJsonLd(detailExtension.menu) : null;
+  if (schemaMenu) jsonLd.hasMenu = schemaMenu;
 
   // Hotel profile branch. Renders for real hotel/resort venues, and — in local
   // dev only, gated by HOTEL_FIXTURE=on — from a fixture so the layout is
