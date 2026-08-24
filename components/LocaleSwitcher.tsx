@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { PUBLIC_LOCALES, LOCALE_META, setLocaleCookie, type PublicLocale } from "@/lib/i18n/locales";
+import { LOCALE_CHANGE_EVENT, useLocale } from "@/lib/i18n/use-locale";
 
 // Visible language switcher (Multi-locale public UI rule v2). Writes the
 // same first-party cookie middleware.ts reads, then refreshes so every
@@ -14,8 +14,8 @@ import { PUBLIC_LOCALES, LOCALE_META, setLocaleCookie, type PublicLocale } from 
 // action row on mobile, and every future locale is one bad label away from
 // the same overflow. Full native + English names stay in the dropdown, which
 // has room for them.
-export default function LocaleSwitcher({ locale }: { locale: PublicLocale }) {
-  const router = useRouter();
+export default function LocaleSwitcher() {
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -38,7 +38,12 @@ export default function LocaleSwitcher({ locale }: { locale: PublicLocale }) {
   function choose(next: PublicLocale) {
     setLocaleCookie(next);
     setOpen(false);
-    router.refresh();
+    // The chrome reads the locale client-side now (lib/i18n/use-locale.ts), so
+    // no server round-trip is needed — and none may be relied on: the routes
+    // are statically cached again, so refresh() would return identical HTML.
+    // The event tells every mounted chrome component to re-read the cookie
+    // (and useLocale updates <html lang> from its effect).
+    window.dispatchEvent(new Event(LOCALE_CHANGE_EVENT));
   }
 
   return (

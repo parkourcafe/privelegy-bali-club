@@ -7,7 +7,7 @@ import OtherBaliLogo from "@/components/OtherBaliLogo";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { NAV_GROUPS, NAV_ACTIONS, NAV_SECONDARY_LINKS } from "@/lib/navigation";
 import { t } from "@/lib/i18n/dictionaries";
-import type { PublicLocale } from "@/lib/i18n/locales";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 // Persistent site header for every public page (IA spec v1 §5.1). Six category
 // groups from the shared navigation registry render as <details> mega-menus —
@@ -17,7 +17,8 @@ import type { PublicLocale } from "@/lib/i18n/locales";
 // same Explore menus and quick actions. On small screens the groups hide and
 // the bottom bar (components/MobileNav) takes over; the header keeps brand +
 // Explore/Saved.
-export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
+export default function GlobalHeader() {
+  const locale = useLocale();
   const pathname = usePathname();
   const rootRef = useRef<HTMLElement>(null);
 
@@ -145,7 +146,7 @@ export default function GlobalHeader({ locale }: { locale: PublicLocale }) {
               {t(locale, a.label)}
             </Link>
           ))}
-          <LocaleSwitcher locale={locale} />
+          <LocaleSwitcher />
         </nav>
       </div>
     </header>

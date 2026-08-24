@@ -94,30 +94,34 @@ test("large menus defer closed-section items and keep publication gates", async 
   assert.match(sectionRoute, /getPublishedMenuSection/);
 });
 
-test("venue detail uses request rendering for locale while public data stays cached", async () => {
+// Rewritten 2026-08-24: the locale moved off the request (root layout read
+// headers(), which made all 210 routes request-rendered). These now assert the
+// restored caching, and that guest state never entered the cached HTML.
+test("venue detail is ISR-cached and carries no guest state", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
   const rootLayout = await read("app/layout.tsx");
-  const localeServer = await read("lib/i18n/server.ts");
   const saveRoute = await read("app/api/save/route.ts");
-  assert.match(venuePage, /export const dynamic = "force-dynamic"/);
-  assert.doesNotMatch(venuePage, /export async function generateStaticParams\(\)/);
-  assert.doesNotMatch(venuePage, /export const revalidate\s*=/);
-  assert.match(rootLayout, /await getLocale\(\)/);
-  assert.match(localeServer, /await headers\(\)/);
+  assert.match(venuePage, /export const revalidate = 300/);
+  assert.doesNotMatch(venuePage, /export const dynamic = "force-dynamic"/);
+  // Next 16: present-but-empty is what enables runtime ISR for the segment.
+  assert.match(venuePage, /export async function generateStaticParams/);
+  assert.doesNotMatch(rootLayout, /await getLocale\(\)/);
   assert.match(venuePage, /buildVenueMetadata\(\{/);
+  // Saved places stay a client-side read; baking them into cached HTML would
+  // serve one visitor's list to the next.
   assert.doesNotMatch(venuePage, /readGuestRef|getSavedSlugs/);
   assert.match(saveRoute, /export async function GET/);
   assert.match(saveRoute, /private, no-store/);
 });
 
-test("programmatic Bali hubs request-render locale and preserve real 404s", async () => {
+test("programmatic Bali hubs are ISR-cached and preserve real 404s", async () => {
   const districtPage = await read("app/bali/[district]/page.tsx");
   const intentPage = await read("app/bali/[district]/[intent]/page.tsx");
   const data = await read("lib/data.ts");
   for (const source of [districtPage, intentPage]) {
-    assert.match(source, /export const dynamic = "force-dynamic"/);
+    assert.match(source, /export const revalidate = 3600/);
+    assert.doesNotMatch(source, /export const dynamic = "force-dynamic"/);
     assert.match(source, /notFound\(\)/);
-    assert.doesNotMatch(source, /export const revalidate\s*=/);
   }
   assert.match(data, /const getCachedPublishedVenues = unstable_cache/);
 });

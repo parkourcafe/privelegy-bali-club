@@ -8,8 +8,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
 import MobileNav from "@/components/MobileNav";
-import { getLocale } from "@/lib/i18n/server";
-import { LOCALE_META } from "@/lib/i18n/locales";
+import { DEFAULT_LOCALE, LOCALE_META } from "@/lib/i18n/locales";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
@@ -106,13 +105,18 @@ const siteJsonLd = {
   ],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const locale = await getLocale();
+  // No dynamic API (headers/cookies) may be read here: this is the ROOT
+  // layout, so one read opts every route in the app out of static/ISR
+  // rendering. It previously called getLocale(), which is why all 210 routes
+  // were server-rendered per request (2026-08-24 audit). The chrome resolves
+  // the visitor's locale client-side instead — see lib/i18n/use-locale.ts.
+  // `lang` is the canonical English default; the switcher updates it live.
   return (
     <html
-      lang={LOCALE_META[locale].htmlLang}
+      lang={LOCALE_META[DEFAULT_LOCALE].htmlLang}
       className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}
     >
       <body className="min-h-full flex flex-col">
@@ -120,10 +124,10 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
-        <GlobalHeader locale={locale} />
+        <GlobalHeader />
         {children}
         <GlobalFooter />
-        <MobileNav locale={locale} />
+        <MobileNav />
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />

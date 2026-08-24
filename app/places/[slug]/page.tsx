@@ -39,12 +39,24 @@ import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-compl
 import { quickDecisionRows } from "@/lib/quick-decision";
 import { normalizeInstagramProfileUrl } from "@/lib/external-links";
 
-// The root layout resolves the explicit locale cookie through a request header.
-// This route therefore cannot use on-demand ISR: Next.js would try to prerender
-// it without request context and fail with DYNAMIC_SERVER_USAGE. Keep the HTML
-// request-rendered while the venue, menu, action and similar-place repositories
-// retain their bounded five-minute data caches.
-export const dynamic = "force-dynamic";
+// ISR. The force-dynamic that stood here existed only because the root layout
+// read the locale from a request header, which made prerendering impossible;
+// the chrome now resolves the locale on the client, so venue HTML is cached at
+// the edge and regenerated at most every five minutes -- matching the venue,
+// menu and action repositories' own data caches. No generateStaticParams: with
+// ~1,300 venues, generating on first request and caching beats prerendering
+// the whole catalogue on every deploy.
+export const revalidate = 300;
+export const dynamicParams = true;
+
+// Empty on purpose: Next 16 requires generateStaticParams to be present (even
+// returning nothing) for a dynamic segment to be ISR-cached at runtime rather
+// than re-rendered per request. Returning the ~1,300 venue slugs here would
+// prerender the whole catalogue on every deploy for no benefit — each page is
+// generated on its first request and then served from the cache.
+export async function generateStaticParams() {
+  return [];
+}
 
 const BASE = "https://www.otherbali.com";
 
