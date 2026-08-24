@@ -170,7 +170,8 @@ function scoreCatalogueVenue(
   if (venue.photoUrl) score += 1;
   if (venue.bestFor) score += 1;
   if (venue.priceAnchor || venue.whatToOrder) score += 1;
-  score += venue.tier === "founding" ? 1 : venue.tier === "launch" ? 0.5 : 0;
+  // tier is a relationship stage, never a ranking input (AGENTS.md §4:
+  // organic selection cannot be bought or earned through partnership).
 
   return {
     score,

@@ -90,7 +90,7 @@ test("large menus defer closed-section items and keep publication gates", async 
   assert.match(summaryRepository, /index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD/);
   assert.match(summaryRepository, /items: deferred \? \[\] : section\.items/);
   assert.match(summaryRepository, /\.eq\("status", "published"\)/);
-  assert.match(summaryRepository, /\.eq\("completeness", "full"\)/);
+  assert.match(summaryRepository, /\.in\("completeness", \["full", "partial"\]\)/);
   assert.match(sectionRoute, /getPublishedMenuSection/);
 });
 

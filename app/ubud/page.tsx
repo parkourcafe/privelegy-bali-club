@@ -46,7 +46,6 @@ const placeLinks = [
   { href: "/places/alchemy-yoga-and-meditation-center-ubud", label: "Alchemy Yoga and Meditation Center", category: "Yoga & wellness" },
   { href: "/places/anomali-coffee-ubud", label: "Anomali Coffee Ubud", category: "Cafés" },
   { href: "/places/bali-buda-ubud", label: "Bali Buda Ubud", category: "Cafés" },
-  { href: "/places/big-dragon-villas-ubud", label: "Big Dragon Villas Ubud", category: "Stay" },
   { href: "/places/coco-nails-ubud", label: "Coco Nails Ubud", category: "Beauty" },
   { href: "/places/como-shambhala-at-como-uma-ubud-yoga-ubud", label: "COMO Shambhala at COMO Uma Ubud Yoga", category: "Yoga & wellness" },
   { href: "/places/dala-spa-at-alaya-resort-ubud", label: "DaLa Spa at Alaya Resort Ubud", category: "Wellness" },

@@ -46,3 +46,26 @@ test("mapPublishedMenu round-trips all four approved kinds", () => {
     assert.equal(mapPublishedMenu(row({ kind }), [], [])?.kind, kind);
   }
 });
+
+// The founder-approved 2026-08 publication policy renders partial menus as
+// honest "menu highlights" instead of hiding them entirely. mapPublishedMenu
+// must carry the real completeness through -- and keep rejecting everything
+// that is not published, evidenced and fresh.
+
+test("mapPublishedMenu accepts a partial published menu and preserves its completeness", () => {
+  const partial = mapPublishedMenu(row({ completeness: "partial" }), [], []);
+  assert.equal(partial?.completeness, "partial");
+  const full = mapPublishedMenu(row({ completeness: "full" }), [], []);
+  assert.equal(full?.completeness, "full");
+});
+
+test("mapPublishedMenu still rejects unpublished, unevidenced or stale rows", () => {
+  assert.equal(mapPublishedMenu(row({ status: "review", completeness: "partial" }), [], []), null);
+  assert.equal(mapPublishedMenu(row({ status: "source_snapshot", completeness: "partial" }), [], []), null);
+  assert.equal(mapPublishedMenu(row({ completeness: "partial", verified_at: null }), [], []), null);
+  assert.equal(mapPublishedMenu(row({ completeness: "unknown-completeness" }), [], []), null);
+  assert.equal(
+    mapPublishedMenu(row({ completeness: "partial", expires_at: "2020-01-01T00:00:00.000Z" }), [], []),
+    null
+  );
+});

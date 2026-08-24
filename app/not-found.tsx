@@ -38,7 +38,7 @@ export default function NotFound() {
 
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
         <Link
-          href="/#day-builder"
+          href="/plan#canggu-day-builder"
           className="min-h-11 rounded-full bg-[var(--ob-sand)] px-6 py-3 text-sm font-semibold text-[var(--ob-espresso)] transition-transform hover:-translate-y-0.5"
         >
           Build my day

@@ -10,7 +10,7 @@ const HUB: Record<string, { path: string; label: string }> = {
   day_pass: { path: "/bali-resort-day-passes", label: "Hotel Day Passes" },
   brunch: { path: "/bali-hotel-brunches", label: "Brunches" },
   pool_day_use: { path: "/bali-resort-day-passes", label: "Pool Day-Use" },
-  spa_package: { path: "/wellness", label: "Spa" },
+  spa_package: { path: "/best-spas-in-bali", label: "Spas & Wellness" },
 };
 
 // Offer detail page (IA spec v1 §11.3). Only rendered for PUBLIC offers

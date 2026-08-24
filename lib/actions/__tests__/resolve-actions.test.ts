@@ -440,3 +440,43 @@ test("supports all commerce kinds with canonical labels", () => {
     true
   );
 });
+
+test("WhatsApp booking-language kinds render only in the active deep district (AGENTS.md §4)", () => {
+  const whatsappReserve = capability({
+    id: "wa-reserve",
+    kind: "reserve",
+    provider: "whatsapp",
+    url: "https://wa.me/628123456789",
+    sourceUrl: "https://venue-bali.com",
+  });
+  const whatsappPreorder = capability({
+    id: "wa-preorder",
+    kind: "preorder",
+    provider: "whatsapp",
+    url: "https://wa.me/628123456789",
+    sourceUrl: "https://venue-bali.com",
+  });
+  const whatsappDelivery = capability({
+    id: "wa-delivery",
+    kind: "delivery",
+    provider: "whatsapp",
+    url: "https://wa.me/628123456789",
+    sourceUrl: "https://venue-bali.com",
+  });
+
+  const capabilities = [whatsappReserve, whatsappPreorder, whatsappDelivery];
+
+  const deep = resolve(props({ coverageMode: "active_deep", capabilities }));
+  assert.deepEqual(
+    deep.all.map((action) => action.kind).sort(),
+    ["delivery", "preorder", "reserve"]
+  );
+
+  for (const coverageMode of ["planning_only", "next_deep"] as const) {
+    const gated = resolve(props({ coverageMode, capabilities }));
+    assert.equal(gated.all.some((action) => action.kind === "reserve"), false);
+    assert.equal(gated.all.some((action) => action.kind === "preorder"), false);
+    // Delivery/takeaway are planning-safe handoffs and stay available.
+    assert.equal(gated.all.some((action) => action.kind === "delivery"), true);
+  }
+});

@@ -45,7 +45,7 @@ async function fetchPublishedMenuSummary(
       .eq("venue_slug", venueSlug)
       .eq("kind", kind)
       .eq("status", "published")
-      .eq("completeness", "full")
+      .in("completeness", ["full", "partial"])
       .order("version", { ascending: false })
       .limit(1);
     if (error || !menus?.[0]) return null;
@@ -145,7 +145,7 @@ async function fetchPublishedMenuSection(
       .eq("id", menuId)
       .eq("venue_slug", venueSlug)
       .eq("status", "published")
-      .eq("completeness", "full")
+      .in("completeness", ["full", "partial"])
       .maybeSingle();
     if (menuError || !menu) return null;
     const [{ data: section, error: sectionError }, { data: items, error: itemError }] =
