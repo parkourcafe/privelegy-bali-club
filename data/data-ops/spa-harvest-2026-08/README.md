@@ -3,6 +3,23 @@
 Collected with Firecrawl from each venue's **own website** (never an aggregator,
 never review platforms — guardrail #2). Every row carries its `source_url`.
 
+## Yoga / fitness / beauty prices (2026-08-25 evening)
+
+**`ALL_own_yoga_fitness_beauty.sql`** — 36 price/schedule snapshots attached
+to venues **already published on the site** (yoga classes, gym memberships,
+salon prices). No new venue records here — every target venue_slug already
+existed, so there was no domain-matching or district-mapping step, just a
+price list attached to a known page. Same idempotent apply, dry-run already
+done as a single row with rollback.
+
+Of 132 candidate venues (yoga/fitness/beauty with a website and no menu yet),
+17 were dropped because the scraped page's own venue name didn't match the
+target (a shared-domain mix-up, or in one case a hijacked gym domain now
+redirecting to an unrelated gambling site — the model's own relevance check
+caught it before any data reached this file), 69 had fewer than 3 priced
+items to publish, and 1 had every item at an identical price (a package total
+misread as a per-item price, same class of bug as the spa harvest).
+
 ## Wave 2 (2026-08-25 afternoon) — apply these first if you have not yet
 
 Wave 1 below (`new_venue_cards.sql`, `ALL_spa.sql`, `food_*.sql`) was already
