@@ -1,0 +1,656 @@
+item_id,venue_id,venue_name,item_name,description,price,price_raw,currency,source
+a1ce1ae277119b79-i0,a1ce1ae277119b79,Braud Cafe Seminyak,Truffle Scrambled Eggs,A delightful way to start the day.,,IDR 90k,IDR,https://www.baliholidaysecrets.com/seminyak-cafe/
+70bc6f4d9fdb7589-i0,70bc6f4d9fdb7589,Unnamed Restaurant,TRUFFLE HAND CUT FRIES,"Rustic cut fries topped with truffle oil, parmesan and a side of house aioli (V/GF)",,"45,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i1,70bc6f4d9fdb7589,Unnamed Restaurant,ARCADIA CAESAR SALAD,"Romaine lettuce, avocado, capers, croutons, parmesan cheese and smoked quail egg",,"125,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i2,70bc6f4d9fdb7589,Unnamed Restaurant,TROPICAL PRAWN SALAD,"Caramelized prawns, ripe mango, cucumber, cherry tomato, coriander, mint, kafir lime, red chili, coconut, shallot, lemon grass, chili lime dressing (GF/N)",,"135,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i3,70bc6f4d9fdb7589,Unnamed Restaurant,BURRATA & CAPONATA,"Locally made burrata, caponata vegetables, torched artichokes, lemon jam, red onion, artichoke vinaigrette, paprika fennel tuile",,"145,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i4,70bc6f4d9fdb7589,Unnamed Restaurant,SALMON & MELON GAZPACHO,"Honey melon & apple gazpacho, beetroot-cured salmon tartare, tomato gel, fennel-parsley oil, coriander seed tuile",,"120,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i5,70bc6f4d9fdb7589,Unnamed Restaurant,MUSHROOM RISOTTO,"Trio of mushrooms, parmesan, goat cheese, asparagus, asparagus pureé, truffle oil, rucola (V/GF)",,"155,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i6,70bc6f4d9fdb7589,Unnamed Restaurant,FRIED RICE,"Indonesian fried rice, Asian vegetables, egg, served with chicken sate, sambal tomat, krupuk and pickled vegetables (GF)",,"85,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i7,70bc6f4d9fdb7589,Unnamed Restaurant,TRIO COATED FISH AND CHIPS,"Coating barramundi fish with three batters: butter; charcoal batter; herb bread crumbed, served with mussy peas, tartare sauce, mixed salad and hand cut fries",,"145,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i8,70bc6f4d9fdb7589,Unnamed Restaurant,CHICKEN KATSU SANDWICH,"Toasted sandwich with marinated and crumbed chicken thigh, slaw, coriander, red onion, miso mayonnaise, tonkatsu sauce, served with hand cut fries",,"135,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i9,70bc6f4d9fdb7589,Unnamed Restaurant,BUTTER CURRY CHICKEN SKEWERS,"Tandoori spiced chicken skewer served with Indian butter curry, picked red onion, mint yoghurt sauce, coriander and choice of: paratha bread or steam rice (N)",,"155,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i10,70bc6f4d9fdb7589,Unnamed Restaurant,GRILLED MARINATED CHICKEN,"Marinated grilled chicken breast, with lemon-thyme filling, grilled broccoli, confit leek, crisp skin, duxelles mushroom cream sauce (GF)",,"155,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i11,70bc6f4d9fdb7589,Unnamed Restaurant,WAGYU BURGER,"Butter glaze bun, minced wagyu brisket beef patty, cheddar cheese, caramelized onion, lettuce, tomato, cucumber pickled, served with a trio of dipping sauces, hand cut fries",,"160,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i12,70bc6f4d9fdb7589,Unnamed Restaurant,DARK CHOCOLATE LAVA CAKE,"With hazelnut macaron, hazelnut gelato and almond cocoa crumble (V/N)",,"75,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i13,70bc6f4d9fdb7589,Unnamed Restaurant,TAMARILLO AND LEMON TART,"Tamarillo and lemon tartlet, whipped ricotta, poached tamarillo and vanilla gelato (V)",,"70,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i14,70bc6f4d9fdb7589,Unnamed Restaurant,CRÈME BRULEE,"Classic vanilla brulee, candid walnut with almond coconut biscotti (V/N)",,"70,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i15,70bc6f4d9fdb7589,Unnamed Restaurant,COLD PRESSED JUICES,"250ml varieties: Berries And Melon: Watermelon, strawberry, blueberry, mint, lemon; Green Grass: Kale, lemongrass, celery, cucumber, lime, ginger, pear; ABC: Apple, beetroot, cucumber, basil, carrot, lemon; Tropical Smash: Mango, orange, passionfruit, banana, coconut, kafir lime leaf; GOC: Ginger, orange, carrot",,"40,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+70bc6f4d9fdb7589-i16,70bc6f4d9fdb7589,Unnamed Restaurant,WATER AND SOFT DRINKS,"Coke, Sprite, Soda Water, Diet Coke/Coke Zero, Tonic Water, Balian Still Water 330ml, Balian Sparkling Water 330ml",,"30,-",IDR,https://bali.com/wp-content/uploads/2024/03/ARCADIA-LUNCH-DINNER-HALAL-MENU-SECTION.pdf
+9717493ab8eb92a6-i0,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Buffet,Enjoy a buffet with over 110 items,,৳850,BDT,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i1,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Smörgåsbord,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i2,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Rendang,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i3,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Salad bar,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i4,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Tomato soup,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i5,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Cake,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i6,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Pizza,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i7,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Seafood,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i8,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Fried rice,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+9717493ab8eb92a6-i9,9717493ab8eb92a6,Royal Cuisine Restaurant (Uttara),Fried chicken,,,,IDR,https://wanderlog.com/place/details/90097/royal-cuisine-restaurant-uttara
+428eb38b9139c97c-i0,428eb38b9139c97c,Mr. Parker's Menu,Desserts Menu,,,,IDR,https://linktr.ee/parkersmenu
+428eb38b9139c97c-i1,428eb38b9139c97c,Mr. Parker's Menu,Lunch & Dinner Menu,,,,IDR,https://linktr.ee/parkersmenu
+428eb38b9139c97c-i2,428eb38b9139c97c,Mr. Parker's Menu,Breakfast Menu,,,,IDR,https://linktr.ee/parkersmenu
+f075d0d13b4a46b5-i0,f075d0d13b4a46b5,Melons,Vietnamese Rice Paper Roll,"Carrot, basil, coriander, white & red cabbage, peanuts & sweet chili sauce",,30,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i1,f075d0d13b4a46b5,Melons,Thai Vegetable Spring Rolls,"Glass noodles, mushroom, carrot, coriander & palm sugar, tamarind sauce",,30,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i2,f075d0d13b4a46b5,Melons,Beef Carpaccio,"Wild rocket, capers, shallots, parmesan cheese & olive oil",,75,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i3,f075d0d13b4a46b5,Melons,Salmon & Avocado Tartar,"Fresh cubed salmon with avocado and tomato, finished with a light honey-mustard dressing",,85,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i4,f075d0d13b4a46b5,Melons,Snapper Ceviche,"Fresh sliced snapper with radish, mango, and cherry tomato, served with a citrus herb dressing",,90,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i5,f075d0d13b4a46b5,Melons,Tuna Tataki,"Organic beetroot, curly carrot, wasabi mayo, balsamic beet vinaigrettes and marinated chickpea",,95,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i6,f075d0d13b4a46b5,Melons,Gado – Gado Salad,"Pan seared tofu, boiled mixed vegetables, egg, potato and peanut sauce",,55,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i7,f075d0d13b4a46b5,Melons,Thai Prawn Salad,"Mango, cashew, romaine lettuce and Thai chili dressing",,90,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i8,f075d0d13b4a46b5,Melons,Compressed Watermelon Feta Salad,"Served with cherry tomato, feta cheese, red curly lettuce, black olive & balsamic vinegar",,65,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i9,f075d0d13b4a46b5,Melons,Chicken Caesar Salad,"Avocado, cherry tomato, romaine lettuce and ciabatta croutons",,70,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i10,f075d0d13b4a46b5,Melons,Rainbow Salad,"Feta cheese, avocado, pumpkin, cherry tomato, cucumber, carrot & sesame carrot dressing",,,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i11,f075d0d13b4a46b5,Melons,Tom Yum Goong,Thai style hot & sour prawn soup,,85,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i12,f075d0d13b4a46b5,Melons,Pumpkin Soup,"Pumpkin purée, pumpkin seed, coconut milk & garlic croutons",,50,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i13,f075d0d13b4a46b5,Melons,Soto Ayam (Yellow Chicken Soup),"Chicken, egg, glass noodles, bean sprouts, potato & lime",,60,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i14,f075d0d13b4a46b5,Melons,Chicken Pesto Pasta,"Pappardelle, creamy pesto cheese & cheese bread",,110,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i15,f075d0d13b4a46b5,Melons,Spaghetti Bolognese,"Meat-based sauce, parmesan cheese & garlic bread",,120,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i16,f075d0d13b4a46b5,Melons,Spaghetti Carbonara,"Ham, egg yolk, cream & parmesan cheese",,95,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i17,f075d0d13b4a46b5,Melons,Zensõ Pizza Margherita,"Pizza base, tomato & basil, topped with mozzarella",,95,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i18,f075d0d13b4a46b5,Melons,French Fries,,,35,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i19,f075d0d13b4a46b5,Melons,Pan Seared Salmon,"Couscous, spinach, passion fruit sauce and fennel salad",,,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i20,f075d0d13b4a46b5,Melons,Sesame Crusted Tuna,"Stir-fry vegetables, rice vermicelli, ginger & lemongrass consommé",,130,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i21,f075d0d13b4a46b5,Melons,Fish and Chips,Rucola salad & tartar sauce,,105,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i22,f075d0d13b4a46b5,Melons,Chicken Kung Pao,"Steamed rice, cashew nut & sesame seed",,100,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i23,f075d0d13b4a46b5,Melons,Grilled Chicken Fillet,"Couscous, coriander, bell peppers, almond, apricot & watercress",,95,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i24,f075d0d13b4a46b5,Melons,Chicken Satay,"Steamed rice, prawn crackers & peanut sauce",,95,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i25,f075d0d13b4a46b5,Melons,Chicken Club Sandwich,"Toasted ciabatta bread with chicken, avocado, mayonnaise, fresh salad & French fries",,90,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i26,f075d0d13b4a46b5,Melons,Indonesian Chicken Curry,Steamed rice & yellow pickled vegetables,,75,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i27,f075d0d13b4a46b5,Melons,Zenso Sirloin Steak,"Potato fondant, mushroom duxelles, carrot & creamy brown sauce",,215,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i28,f075d0d13b4a46b5,Melons,Grilled Rib Eye Beef Sandwich,"Ciabatta bread, onion confit, rocket salad, grilled tomato & French fries",,160,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i29,f075d0d13b4a46b5,Melons,Beef Rendang,"Slow cooked beef with rendang paste, coconut milk, steamed rice & sautéed vegetables",,175,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i30,f075d0d13b4a46b5,Melons,Beef Burger,"Premium beef minced patty with melted mozzarella, green salad & French fries",,125,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i31,f075d0d13b4a46b5,Melons,Mie Goreng (Indonesian Fried Noodles),"Egg, prawn crackers, pickled vegetables, chicken satay & peanut sauce",,82,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i32,f075d0d13b4a46b5,Melons,Nasi Goreng (Indonesian Fried Rice),"Egg, prawn crackers, pickled vegetables, chicken satay & peanut sauce",,80,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i33,f075d0d13b4a46b5,Melons,Steamed Rice,,,13,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i34,f075d0d13b4a46b5,Melons,Gelato Chocolate & Vanilla,,,35,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i35,f075d0d13b4a46b5,Melons,Almond Panna Cotta,Strawberry compote & mango sorbet,,55,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i36,f075d0d13b4a46b5,Melons,Lemon Tart,"Vanilla gelato, crumble, strawberry coulis & orange candy",,55,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i37,f075d0d13b4a46b5,Melons,Chocolate Mousse,"Chocolate sponge, vanilla gelato & strawberry coulis",,55,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i38,f075d0d13b4a46b5,Melons,Pisang Goreng,Crispy fried banana served with palm sugar and a touch of cinnamon,,35,IDR,https://lifestyleretreats.com/wp-content/uploads/2026/01/The-Samata_Zenso_All_Day_Dining_Menu_Janury_2026.pdf
+f075d0d13b4a46b5-i39,f075d0d13b4a46b5,Melons,Tapa Bistro,,,,IDR,https://lifestyleretreats.com/the-bale-nusa-dua/faces-restaurant/
+f075d0d13b4a46b5-i40,f075d0d13b4a46b5,Melons,Romantic Dinner,,,,IDR,https://lifestyleretreats.com/the-bale-nusa-dua/faces-restaurant/
+f075d0d13b4a46b5-i41,f075d0d13b4a46b5,Melons,Balinese Cooking Class,,,,IDR,https://lifestyleretreats.com/the-bale-nusa-dua/faces-restaurant/
+3bf7fcb9454adb3f-i0,3bf7fcb9454adb3f,Sundara,Wagyu Beef Tartare,parmesan | horseradish | sourdough,,$330,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i1,3bf7fcb9454adb3f,Sundara,Coffee Wood-Smoked Salmon,potato skin | crème fraîche | hearts of palm,,$280,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i2,3bf7fcb9454adb3f,Sundara,Coconut Crab Salad,jicama | lemon basil | chilli,,$320,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i3,3bf7fcb9454adb3f,Sundara,Burrata Cheese,grilled heirloom tomato | lemon basil,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i4,3bf7fcb9454adb3f,Sundara,Caesar Salad,gem lettuce | parmesan | anchovy | bacon | croutons,,$280,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i5,3bf7fcb9454adb3f,Sundara,Coffee Wood-Smoked Salmon Bowl,baby potato | rye bread | mustard | horseradish | garden leaves | pickles | egg,,$320,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i6,3bf7fcb9454adb3f,Sundara,Grilled Tuna Niçoise,olive | haricot vert | baby potato | egg | cherry tomato | lemon dijon mustard,,$280,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i7,3bf7fcb9454adb3f,Sundara,Smoked Eggplant Salad,cashew nut cheese | sorghum | cucumber | fresh herbs | pomegranate | pine nut,,$240,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i8,3bf7fcb9454adb3f,Sundara,Smoked Short Rib Croquettes,tarragon dip,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i9,3bf7fcb9454adb3f,Sundara,Jamon Iberico Bellota 50 gr,pan con tomate | arugula,,$390,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i10,3bf7fcb9454adb3f,Sundara,Selection of Imported Cheese,bread basket | seasonal marmalade,,$600,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i11,3bf7fcb9454adb3f,Sundara,Marinated Olive,artichoke | pepper | garlic | lemon,,$150,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i12,3bf7fcb9454adb3f,Sundara,Grilled Angus Beef Burger,potato bun | gruyère | pickles | lettuce | onion | bacon | hand-cut fries,,$350,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i13,3bf7fcb9454adb3f,Sundara,Spiced Beetroot Burger,potato bun | gruyère | pickles | lettuce | onion | hand-cut fries,,$290,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i14,3bf7fcb9454adb3f,Sundara,Pata Negra Foccacia,jamon Iberico | stracciatella | arugula | parmesan | basil | tomato,,$300,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i15,3bf7fcb9454adb3f,Sundara,Eggplant Foccacia,roasted pepper | stracciatella | arugula | parmesan | basil | tomato,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i16,3bf7fcb9454adb3f,Sundara,Black Truffle Flat Bread,parmesan | parsley | mushroom,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i17,3bf7fcb9454adb3f,Sundara,Stockyard Angus Rib Eye 300 gr,béarnaise sauce | tomato salad,,"$1,100",IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i18,3bf7fcb9454adb3f,Sundara,Tokusen Wagyu Striploin 200 gr,béarnaise sauce | tomato salad,,$700,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i19,3bf7fcb9454adb3f,Sundara,Carrara Wagyu Flank Steak 200 gr,béarnaise sauce | tomato salad,,$590,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i20,3bf7fcb9454adb3f,Sundara,Charcoal-Grilled Baby Chicken,grilled pepper | roasted garlic yoghurt | dill,,$360,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i21,3bf7fcb9454adb3f,Sundara,Grilled Snapper,smoked tomato emulsion | fennel salad | caper,,$350,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i22,3bf7fcb9454adb3f,Sundara,Grilled Prawns,tomato | garlic crisp | parsley | sourdough,,$320,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i23,3bf7fcb9454adb3f,Sundara,Charred Cauliflower,parmesan | chimichurri | smoked peppers,,$290,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i24,3bf7fcb9454adb3f,Sundara,Black Truffle Tagliatelle,wild mushroom | parmesan | sourdough | arugula,,$320,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i25,3bf7fcb9454adb3f,Sundara,Satay Ayam - Indonesian Chicken Skewer,peanut sauce | pickles | fried shallot,,$280,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i26,3bf7fcb9454adb3f,Sundara,Gulai Ikan Nompek - Grilled Mahi-Mahi,yellow coconut broth | chayote | red rice,,$350,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i27,3bf7fcb9454adb3f,Sundara,Nasi Goreng Bali - Balinese Fried Rice,grilled prawn | pickles | fried egg | cracker,,$340,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i28,3bf7fcb9454adb3f,Sundara,Nasi Bakar - Grilled Rice in Banana Leaf,coconut | long bean | tempe,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i29,3bf7fcb9454adb3f,Sundara,Black Truffle Pizza,crème fraîche | onion | house-smoked bacon,,$290,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i30,3bf7fcb9454adb3f,Sundara,Jamon Iberico Pizza,tomato sauce | mozzarella | arugula | cherry tomato | parmesan,,$300,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i31,3bf7fcb9454adb3f,Sundara,Frutti Di Mare Pizza,prawn | snapper | calamari | mussels,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i32,3bf7fcb9454adb3f,Sundara,Fourme d'Ambert Pizza,blue cheese | pear | walnut | honey | arugula,,$250,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i33,3bf7fcb9454adb3f,Sundara,Margherita Pizza,tomato sauce | mozzarella | basil | parmesan,,$210,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i34,3bf7fcb9454adb3f,Sundara,"Australian Black Angus Tomahawk 1,300 gr",hand-cut chips | garden salad | béarnaise sauce | chimichurri | mustard | lemon,,"$2,500",IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i35,3bf7fcb9454adb3f,Sundara,Coffee Wood-Smoked Whole Chicken 600 gr,grilled leeks | smoked paprika | coriander,,$700,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i36,3bf7fcb9454adb3f,Sundara,Jimbaran Style Whole Snapper 800 gr,sambal matah | water spinach | lemon basil | lemo lime,,$800,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i37,3bf7fcb9454adb3f,Sundara,Grilled Lobster 900 gr,lobster butter | crispy garlic | fresh herbs,,"$1,500",IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i38,3bf7fcb9454adb3f,Sundara,Grilled Butternut Pumpkin,yoghurt | pickle red onion | picada sauce,,$150,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i39,3bf7fcb9454adb3f,Sundara,Grilled Baby Gem Lettuce,parmesan dressing | sourdough crumble | dill,,$125,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i40,3bf7fcb9454adb3f,Sundara,Grilled Baby Corn,sambal | garlic crumble,,$150,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i41,3bf7fcb9454adb3f,Sundara,Roasted Baby Potato,parmesan | dijon | caramelized onion,,$125,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i42,3bf7fcb9454adb3f,Sundara,Hand-Cut Chips & Herbs,parsley | parmesan | smoked chilli aioli,,$125,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i43,3bf7fcb9454adb3f,Sundara,Garden Salad,olive | tomato | shallot | haricot vert | citronette,,$125,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i44,3bf7fcb9454adb3f,Sundara,Bali Vanilla Mille-Feuille,caramelized puff pastry | hazelnut praline | vanilla ice cream,,$185,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i45,3bf7fcb9454adb3f,Sundara,Coffee Profiterole,coffee ice cream | coffee ganache | almond | hot chocolate,,$175,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i46,3bf7fcb9454adb3f,Sundara,Chocolate Delice,dark chocolate mousse | smoked cocoa nib | salted caramel,,$190,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i47,3bf7fcb9454adb3f,Sundara,Vanilla Coconut Rice Pudding,fresh mango | passion fruit sauce | puffed rice,,$165,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i48,3bf7fcb9454adb3f,Sundara,Seasonal Sliced Fruit,,,$160,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i49,3bf7fcb9454adb3f,Sundara,Ice Cream or Sorbet,served with wafer and lime crumbles,,1 scoop,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i50,3bf7fcb9454adb3f,Sundara,Ice Cream,Vanilla | Chocolate | Cafe Latte | Hazelnut (N) | Pistachio (N),,,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i51,3bf7fcb9454adb3f,Sundara,Sorbet,Strawberry | Lemon | Mango | Coconut | Pomelo,,,IDR,https://www.sundarabali.com/menus/
+3bf7fcb9454adb3f-i52,3bf7fcb9454adb3f,Sundara,Wagyu Beef Tartare,parmesan | horseradish | sourdough,,$330,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i53,3bf7fcb9454adb3f,Sundara,Coffee Wood-Smoked Salmon,potato skin | crème fraîche | hearts of palm,,$280,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i54,3bf7fcb9454adb3f,Sundara,Coconut Crab Salad,jicama | lemon basil | chilli,,$320,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i55,3bf7fcb9454adb3f,Sundara,Burrata Cheese,grilled heirloom tomato | lemon basil,,$250,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i56,3bf7fcb9454adb3f,Sundara,Caesar Salad,gem lettuce | parmesan | anchovy | bacon | croutons,,$280,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i57,3bf7fcb9454adb3f,Sundara,Coffee Wood-Smoked Salmon Bowl,baby potato | rye bread | mustard | horseradish | garden leaves | pickles | egg,,$320,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i58,3bf7fcb9454adb3f,Sundara,Grilled Tuna Niçoise,olive | haricot vert | baby potato | egg | cherry tomato | lemon dijon mustard,,$280,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i59,3bf7fcb9454adb3f,Sundara,Smoked Eggplant Salad,cashew nut cheese | sorghum | cucumber | fresh herbs | pomegranate | pine nut,,$240,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i60,3bf7fcb9454adb3f,Sundara,Grilled Angus Beef Burger,potato bun | gruyère | pickles | lettuce | onion | bacon | hand-cut fries,,$350,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i61,3bf7fcb9454adb3f,Sundara,Spiced Beetroot Burger,potato bun | gruyère | pickles | lettuce | onion | hand-cut fries,,$290,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i62,3bf7fcb9454adb3f,Sundara,Pata Negra Foccacia,jamon Iberico | stracciatella | arugula | parmesan | basil | tomato,,$300,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i63,3bf7fcb9454adb3f,Sundara,Charcoal-Grilled Baby Chicken,grilled pepper | roasted garlic yoghurt | dill,,$360,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i64,3bf7fcb9454adb3f,Sundara,Grilled Snapper,smoked tomato emulsion | fennel salad | caper,,$350,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i65,3bf7fcb9454adb3f,Sundara,Grilled Prawns,tomato | garlic crisp | parsley | sourdough,,$320,IDR,https://www.sundarabali.com/menus
+3bf7fcb9454adb3f-i66,3bf7fcb9454adb3f,Sundara,Black Truffle Tagliatelle,wild mushroom | parmesan | sourdough | arugula,,$320,IDR,https://www.sundarabali.com/menus
+846b882f3ae175dd-i0,846b882f3ae175dd,True Food Kitchen,Guacamole,Power guac with avocado + lime and extra texture and flavor built in. Generous portion but limited tortilla chips.,,,USD,https://www.lemon8-app.com/experience/true-food-kitchen-vegan-dishes
+846b882f3ae175dd-i1,846b882f3ae175dd,True Food Kitchen,Korean Noodle Bowl with Tofu,"Comfort meal featuring satisfying tofu and slurpable noodles, maintaining a clean and balanced taste.",,,USD,https://www.lemon8-app.com/experience/true-food-kitchen-vegan-dishes
+846b882f3ae175dd-i2,846b882f3ae175dd,True Food Kitchen,Spicy Curry,"A Panang-style dish with warm, layered heat and fresh flavors.",,,USD,https://www.lemon8-app.com/experience/true-food-kitchen-vegan-dishes
+846b882f3ae175dd-i3,846b882f3ae175dd,True Food Kitchen,Dragon Fruit Lemonade,"Citrusy, slightly sweet lemonade that is refreshing and visually appealing.",,,USD,https://www.lemon8-app.com/experience/true-food-kitchen-vegan-dishes
+846b882f3ae175dd-i4,846b882f3ae175dd,True Food Kitchen,Vegan Cheeseburger,Plant-based burger that satisfies cravings without feeling heavy.,,,USD,https://www.lemon8-app.com/experience/true-food-kitchen-vegan-dishes
+846b882f3ae175dd-i5,846b882f3ae175dd,True Food Kitchen,Avocado Toast,,,,IDR,https://www.lemon8-app.com/@the.sg.nomad/7504246306215445000?region=sg
+846b882f3ae175dd-i6,846b882f3ae175dd,True Food Kitchen,Smoothie Bowls,,,,IDR,https://www.lemon8-app.com/@the.sg.nomad/7504246306215445000?region=sg
+846b882f3ae175dd-i7,846b882f3ae175dd,True Food Kitchen,Artisanal Pastries,,,,IDR,https://www.lemon8-app.com/@the.sg.nomad/7504246306215445000?region=sg
+846b882f3ae175dd-i8,846b882f3ae175dd,True Food Kitchen,"Rich, Aromatic Coffee",,,,IDR,https://www.lemon8-app.com/@the.sg.nomad/7504246306215445000?region=sg
+7468fd43553a4fa3-i0,7468fd43553a4fa3,The Avocado Factory,Crispy Avo Burger,Vegan burger with an avo patty and vegan mayo,,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i1,7468fd43553a4fa3,The Avocado Factory,Hummus Toast,Toast topped with avocado hummus,,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i2,7468fd43553a4fa3,The Avocado Factory,Avocado Pancake,"Pancake topped with avocado, fruit, gelato, and maple syrup",,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i3,7468fd43553a4fa3,The Avocado Factory,Classic Benedict,"Poached eggs, spinach, and avocado",,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i4,7468fd43553a4fa3,The Avocado Factory,Avo Birria Tacos,Tacos filled with avocado-inspired fillings,,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i5,7468fd43553a4fa3,The Avocado Factory,Chicken Katsu Sandwich,Sandwich with chicken katsu and avocado,,,IDR,https://travel-lush.com/cafes-in-canggu/
+7468fd43553a4fa3-i6,7468fd43553a4fa3,The Avocado Factory,Pistachio Pesto Spaghetti,Spaghetti with pistachio pesto and creamy avocado,,,IDR,https://travel-lush.com/cafes-in-canggu/
+3bb98c0a541126fa-i0,3bb98c0a541126fa,Kilo Bali,Grilled Baby Corn,,,,IDR,https://girleatworld.net/seminyak-bali-recommendations/
+3bb98c0a541126fa-i1,3bb98c0a541126fa,Kilo Bali,Wasabi Tuna Tartare,,,,IDR,https://girleatworld.net/seminyak-bali-recommendations/
+3bb98c0a541126fa-i2,3bb98c0a541126fa,Kilo Bali,Seafood Ceviche,,,,IDR,https://girleatworld.net/seminyak-bali-recommendations/
+3bb98c0a541126fa-i3,3bb98c0a541126fa,Kilo Bali,Tofu Rice Bowl,"Tofu, tempe in thai curry, corn fritters, quinoa and soft boiled eggs",,,IDR,https://girleatworld.net/seminyak-bali-recommendations/
+3bb98c0a541126fa-i4,3bb98c0a541126fa,Kilo Bali,A Sure Thing,"Vanilla infused vodka, cucumbers, mint, and lime.",,,IDR,https://girleatworld.net/seminyak-bali-recommendations/
+18f4db740ee5ed40-i0,18f4db740ee5ed40,Revolver Cafe,Strong Lattes,Known for strong lattes with a cracking brunch menu.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i1,18f4db740ee5ed40,Revolver Cafe,Smashed Avo,Smashed avocado served with beautiful aesthetics.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i2,18f4db740ee5ed40,Revolver Cafe,Buckwheat Pancakes,Delicious pancakes made with buckwheat flour.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i3,18f4db740ee5ed40,Revolver Cafe,Smoothies,A selection of healthy smoothies.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i4,18f4db740ee5ed40,Revolver Cafe,Fresh Juices,Freshly squeezed juices available.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i5,18f4db740ee5ed40,Revolver Cafe,Lunch Menu,A rocking lunch menu with great options.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+18f4db740ee5ed40-i6,18f4db740ee5ed40,Revolver Cafe,Iced Coffee,Mean iced coffee that is popular among coffee lovers.,,,IDR,https://www.dressedincopper.com/12-of-my-favourite-seminyak-cafes/
+06cefd9aa7900d81-i0,06cefd9aa7900d81,AT59,Coffee,Decent coffee,40000,IDR 40k,IDR,https://www.balifoodandtravel.com/where-to-eat-smarter-in-canggu-local-tips-on-delicious-alternatives
+06cefd9aa7900d81-i1,06cefd9aa7900d81,AT59,Smoothies,Made fresh,40000,IDR 40k,IDR,https://www.balifoodandtravel.com/where-to-eat-smarter-in-canggu-local-tips-on-delicious-alternatives
+06cefd9aa7900d81-i2,06cefd9aa7900d81,AT59,Juices,Variety of options,40000,IDR 40k,IDR,https://www.balifoodandtravel.com/where-to-eat-smarter-in-canggu-local-tips-on-delicious-alternatives
+06cefd9aa7900d81-i3,06cefd9aa7900d81,AT59,Vegan Options,Menu includes vegan items,50000,IDR 50k,IDR,https://www.balifoodandtravel.com/where-to-eat-smarter-in-canggu-local-tips-on-delicious-alternatives
+06cefd9aa7900d81-i4,06cefd9aa7900d81,AT59,Dinner Items,Full dinner menu available,50000,IDR 50k,IDR,https://www.balifoodandtravel.com/where-to-eat-smarter-in-canggu-local-tips-on-delicious-alternatives
+06cefd9aa7900d81-i5,06cefd9aa7900d81,AT59,Nasi Tutug Oncom,"Rice tossed with roasted fermented soybeans, rich with umami and a little smoke.",,,IDR,https://www.balifoodandtravel.com/kuta-seminyak-warungs-where-locals-eat/
+06cefd9aa7900d81-i6,06cefd9aa7900d81,AT59,Salted Fish,Crispy and spicy salted fish served as a side.,,,IDR,https://www.balifoodandtravel.com/kuta-seminyak-warungs-where-locals-eat/
+06cefd9aa7900d81-i7,06cefd9aa7900d81,AT59,Tahu Bejeug,A mashed tofu dish with garlic and green chili.,,,IDR,https://www.balifoodandtravel.com/kuta-seminyak-warungs-where-locals-eat/
+f557d2fc50ceaf28-i0,f557d2fc50ceaf28,Mades Warung,Traditional Nasi Campur,A traditional Indonesian mixed rice dish with various side dishes.,,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i1,f557d2fc50ceaf28,Mades Warung,Beef Rendang,A rich and tender coconut beef stew originating from Indonesia.,,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i2,f557d2fc50ceaf28,Mades Warung,Sate Lilit,"Minced meat satay, wrapped around bamboo skewers, grilled to perfection.",,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i3,f557d2fc50ceaf28,Mades Warung,Ayam Betutu,A traditional Balinese chicken dish cooked with spices and wrapped in banana leaves.,,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i4,f557d2fc50ceaf28,Mades Warung,Gado-Gado,"An Indonesian salad of boiled vegetables, eggs, and a peanut sauce dressing.",,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i5,f557d2fc50ceaf28,Mades Warung,Fresh seafood specialties,A variety of seafood dishes prepared with local ingredients.,,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+f557d2fc50ceaf28-i6,f557d2fc50ceaf28,Mades Warung,Authentic Indonesian desserts,A selection of traditional Indonesian sweets and desserts.,,Not specified,IDR,https://madeswarung.com/57-years-of-authentic-indonesian-cuisine
+a74e69c280514927-i0,a74e69c280514927,The Laneway Restaurant,Berawa Cocktail,"Capturing the essence of gentle, sun-kissed days, with the aroma of fresh pandan, richness of coconut, and zest of local fruits.",120000,"IDR 120,000++",IDR,https://www.peppersseminyak.com/dining
+a74e69c280514927-i1,a74e69c280514927,The Laneway Restaurant,In-Villa BBQ,"Spend time with a personal chef creating an evening of culinary bliss. Prices start from IDR 550,000++ per person including Karaoke setup.",550000,"IDR 550,000++",IDR,https://www.peppersseminyak.com/dining
+a74e69c280514927-i2,a74e69c280514927,The Laneway Restaurant,Wednesday Night Market,Balinese BBQ & Buffet All You Can Try with a vibrant night market atmosphere.,550000,"IDR 550,000++",IDR,https://www.peppersseminyak.com/dining
+a74e69c280514927-i3,a74e69c280514927,The Laneway Restaurant,Arak Cocktail,Experience Arak Cocktail in a lively night market atmosphere.,100000,"IDR 100,000++",IDR,https://www.peppersseminyak.com/dining
+319b9a62d5d53dee-i0,319b9a62d5d53dee,This Is Bali,Crunchy Chicken Spring Rolls,"Golden crispy rolls with herbed chicken, vegetables & sweet chili dip",,// 57,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i1,319b9a62d5d53dee,This Is Bali,Crunchy Veggie Spring Rolls,"Golden crispy spring rolls with vegetables & rice noodles, served with sweet chili dip",,// 50,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i2,319b9a62d5d53dee,This Is Bali,Bali Summer Rolls,"Soft rice paper rolls with steamed vegetables, tofu & handcrafted peanut sauce",,// 50,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i3,319b9a62d5d53dee,This Is Bali,Grilled Chicken Skewers,"Skewers w/ juicy chicken bites, grilled pineapple & handcrafted peanut sauce",,// 57,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i4,319b9a62d5d53dee,This Is Bali,Lemongrass Chicken Salad,"Rice noodle salad with lemongrass chicken, toasted peanuts, mint & sesame-lime dressing",,// 87,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i5,319b9a62d5d53dee,This Is Bali,Tropical Green Papaya Salad,"Crisp young papaya with cherry tomatoes, green apple, basil, mint & umami ginger dressing",,// 77,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i6,319b9a62d5d53dee,This Is Bali,Balinese Chicken Soup,"Traditional Balinese chicken soup with fresh turmeric, lemongrass, lime leaves, glass noodles & boiled egg",,// 87,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i7,319b9a62d5d53dee,This Is Bali,Bakso Meatball Soup,"Handcrafted chicken meatballs with melted cheese in fragrant broth, spinach, carrots & thick rice noodles",,// 87,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i8,319b9a62d5d53dee,This Is Bali,Balinese Fried Rice,"Wok-fried rice with caramelized vegetables, shredded chicken, sunny-side egg, lemongrass & crispy onion",,// 97,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i9,319b9a62d5d53dee,This Is Bali,Chicken Sate Spring Bowl,"Juicy skewers with grilled pineapple, handcrafted peanut sauce, fresh Asian salad & organic white rice",,// 117,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i10,319b9a62d5d53dee,This Is Bali,Jackfruit Curry Rice Bowl,Young jackfruit in fragrant coconut curry with Asian salad & organic white rice,,// 97,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i11,319b9a62d5d53dee,This Is Bali,Tempeh Teriyaki Mango Bowl,"Maple-glazed tempeh with mango chutney, fresh mango, Asian salad & organic white rice",,// 97,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i12,319b9a62d5d53dee,This Is Bali,Grilled Honey Chicken Bowl,Grilled honey teriyaki chicken with lemony corn & organic white rice,,// 117,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i13,319b9a62d5d53dee,This Is Bali,Beef Rendang Bowl,"Balinese slow-cooked beef rendang with marinated egg, dried cranberries, Asian salad & organic white rice",,// 167,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i14,319b9a62d5d53dee,This Is Bali,Coconut Curry Chicken Bowl,"Creamy coconut-mint chicken curry with toasted cashews, cranberries, Asian salad & organic white rice",,// 107,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i15,319b9a62d5d53dee,This Is Bali,Pumpkin Curry Rice Bowl,"Sweet-savory pumpkin coconut curry with toasted cashews, Asian salad & organic white rice",,// 97,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i16,319b9a62d5d53dee,This Is Bali,Sunshine Bowl,"Low-carb bowl with honey chicken, Balinese omelette, lemony corn, Bali pumpkin, carrots & beans over cauliflower lime rice",,// 117,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i17,319b9a62d5d53dee,This Is Bali,Iced Lemongrass Lemonade,Iced lemonade with lemongrass & ginger,,// 47,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i18,319b9a62d5d53dee,This Is Bali,Mini Desserts - 1000 Layers,Iconic layered cinnamon cake with red cranberries & whipped cream,,// 37,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i19,319b9a62d5d53dee,This Is Bali,Mini Desserts - Coconut Balls,Chewy sweet rice balls filled with palm nectar in grated coconut,,// 37,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i20,319b9a62d5d53dee,This Is Bali,Mini Desserts - Chocolate Ganache,Silky dark chocolate tart with Balinese sea salt & golden caramel nectar,,// 37,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i21,319b9a62d5d53dee,This Is Bali,Local Beer - Bintang,"Ice-cold traditional beer with a fruity, bitter & bold taste",,// 47,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i22,319b9a62d5d53dee,This Is Bali,Local Wine - Chardonnay,Elegant white wine with fresh aromatics & a long finish,,glass // 127,IDR,https://thisbali.com/wp-content/uploads/2026/04/TIB-x-AIR-ASIA-FULL-MENU-2026-.pdf
+319b9a62d5d53dee-i23,319b9a62d5d53dee,This Is Bali,Crispy Spring Rolls,Served with fresh vegetables and authentic dipping sauce,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i24,319b9a62d5d53dee,This Is Bali,Mie Goreng,Traditional Indonesian fried noodles with vegetables and Balinese spices,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i25,319b9a62d5d53dee,This Is Bali,Glazed Honey Chicken,Sweet and savory authentic Indonesian flavors,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i26,319b9a62d5d53dee,This Is Bali,Creamy Pumpkin Curry,Authentic vegetarian Indonesian food option,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i27,319b9a62d5d53dee,This Is Bali,Stir-fried Bean Sprouts and Tofu,Healthy vegetarian Indonesian food choice,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i28,319b9a62d5d53dee,This Is Bali,Nasi Campur,Mixed rice platter with vegetable topping and honey chicken,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i29,319b9a62d5d53dee,This Is Bali,Braised Eggplant,Flavorful vegetarian Indonesian food dish,,,IDR,https://thisbali.com/
+319b9a62d5d53dee-i30,319b9a62d5d53dee,This Is Bali,Chocolate Dessert,Perfect sweet treat to end authentic Indonesian meal,,,IDR,https://thisbali.com/
+c7ac4a76658e3624-i0,c7ac4a76658e3624,Warung d’Carik,Fried noodles (Mie Goreng),Traditional Indonesian fried noodles.,,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i1,c7ac4a76658e3624,Warung d’Carik,Fried rice (Nasi Goreng),Traditional Indonesian fried rice.,,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i2,c7ac4a76658e3624,Warung d’Carik,Fried tofu (Tahu Goreng),Crispy fried tofu served with local sauces.,,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i3,c7ac4a76658e3624,Warung d’Carik,Tempeh,Traditional Indonesian fermented soybean cake.,,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i4,c7ac4a76658e3624,Warung d’Carik,Sweet potato,"Cooked sweet potato, a common Indonesian dish.",,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i5,c7ac4a76658e3624,Warung d’Carik,Traditional Indonesian pancake,A sweet or savory pancake with local ingredients.,,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i6,c7ac4a76658e3624,Warung d’Carik,Cooked vegetables,"A selection of local seasonal vegetables, cooked to perfection.",,,IDR,https://www.roadiscalling.com/places-to-eat-in-ubud-away-from-tourists/
+c7ac4a76658e3624-i7,c7ac4a76658e3624,Warung d’Carik,Lamb,"Roasted and smoked organic lamb from a nearby farm, served with beetroot purée, carrot, and red wine sauce.",,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+c7ac4a76658e3624-i8,c7ac4a76658e3624,Warung d’Carik,Trout Fillet,"Trout fillet with rhubarb, a unique combination.",,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+c7ac4a76658e3624-i9,c7ac4a76658e3624,Warung d’Carik,Duck,"Roasted duck, incredibly soft and juicy inside.",,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+c7ac4a76658e3624-i10,c7ac4a76658e3624,Warung d’Carik,Burrata with Pesto,A versatile dish available in various versions.,,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+c7ac4a76658e3624-i11,c7ac4a76658e3624,Warung d’Carik,Kama,One of Estonia’s most traditional desserts.,,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+c7ac4a76658e3624-i12,c7ac4a76658e3624,Warung d’Carik,Hay-infused Ice Cream,"Ice cream infused with dried hay, giving it a grassy, slightly smoky flavor.",,price on request,EUR,https://www.roadiscalling.com/where-to-eat-in-otepaa
+fee62bc4dd85b2d1-i0,fee62bc4dd85b2d1,Kafe,Meg's Big Salad Bowl,every veggie under the sun with tofu-tempe crunch & toasted seeds served with tahini lemon dressing,,70,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i1,fee62bc4dd85b2d1,Kafe,Meg's Mini Bowl,"same as above, just smaller!",,57,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i2,fee62bc4dd85b2d1,Kafe,Kale Detox Salad,"shredded and massaged kale, carrots & cabbage, topped with avocado, poached beets, roasted pili nuts, with a lemon vinaigrette",,60NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i3,fee62bc4dd85b2d1,Kafe,Ukrainian Chopped Salad,"chunky chopped baby tomatoes, cucumbers, mixed capsicum and herbs in a light vinaigrette",,55NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i4,fee62bc4dd85b2d1,Kafe,Poached Beetroot & Walnut Salad,"honey poached organic beets, feta cheese & walnut with herb vinaigrette",,60,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i5,fee62bc4dd85b2d1,Kafe,Roasted Pumpkin & Rucola Feta Salad,"Pumpkin seed, caramelized onion & balsamic dressing",,75,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i6,fee62bc4dd85b2d1,Kafe,Grilled Veggie Feta Salad,"eggplant, zucchini, onion, red pepper, baby potatoes & feta tossed in herbed olive oil & served with herb vinaigrette",,79,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i7,fee62bc4dd85b2d1,Kafe,Kafe Soba Plate,"cold sesame soba noodles, teriyaki tofu, steamed bok choy, mixed salad & chopped veggies, served with homemade ponzu sauce",,75,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i8,fee62bc4dd85b2d1,Kafe,Kafe Greek Salad,"chopped cucumbers, tomatoes, capsicum, red onion, black olives, topped with Feta cheese in a light vinaigrette",,65NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i9,fee62bc4dd85b2d1,Kafe,Kafe Super Salad,"Fresh kale, rucola, cherry tomato, roasted veggies, quinoa, avocado, topped with nutrient rich spirulina. served with miso ginger dressing",,75,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i10,fee62bc4dd85b2d1,Kafe,Fresh Grilled Tuna Salad,Grilled veggies & tuna steak served on a pile of greens,,89,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i11,fee62bc4dd85b2d1,Kafe,Rainbow Buddha Bowl,"brown rice, red kidney beans, steamed broccoli & carrot, red cabbage, roasted beet, tofu, radish & tahini lemon dressing",,73,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i12,fee62bc4dd85b2d1,Kafe,Kafe Side Salad,a simple small plate of salad greens to accompany any meal. served with dressing of your choice.,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i13,fee62bc4dd85b2d1,Kafe,Kafe Burger,wagyu beef patty served with fries,,89,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i14,fee62bc4dd85b2d1,Kafe,Buttermilk Chicken Burger,lightly spiced buttermilk chicken served with smashed fries & red cabbage slaw,,89,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i15,fee62bc4dd85b2d1,Kafe,Tandoori Chicken Wrap,,,65,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i16,fee62bc4dd85b2d1,Kafe,"BLT – Bacon, Lettuce & Tomato Sandwich",with homemade mayo on sourdough bread,,65,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i17,fee62bc4dd85b2d1,Kafe,Pesto Chicken Sandwich,"with tomato, onion, fresh basil & salad on sourdough bread",,65,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i18,fee62bc4dd85b2d1,Kafe,Grilled Tuna Sandwich,"veggies, avocado, rucola & lemon chili mayo with sourdough bread",,85,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i19,fee62bc4dd85b2d1,Kafe,Chicken Caesar Wrap,grilled marinated chicken with parmesan cheese & caesar dressing,,65NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i20,fee62bc4dd85b2d1,Kafe,Vegan Burger,"A mix of cashews, tofu, veggies, spiced pickles, spread veganaise served with sweet potato fries & coleslaw",,73,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i21,fee62bc4dd85b2d1,Kafe,Melted Cheese Sandwich,,,59,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i22,fee62bc4dd85b2d1,Kafe,Falafel Wrap,"with avocado, cucumber, alfalfa sprout & tomato on sourdough bread",,60,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i23,fee62bc4dd85b2d1,Kafe,Jerk Jackfruit Wrap,"juicy pulled jackfruit, pineapple salsa, red cabbage, cucumber & tomato",,60,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i24,fee62bc4dd85b2d1,Kafe,Grilled Veggie Wrap,"grilled veggies, pesto, melted cheese, sprouts & salad",,60NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i25,fee62bc4dd85b2d1,Kafe,Mezze Plate,"hummus, babaganoush, tabouli, roasted peppers, beet, feta cheese & kalamata olives served with pita bread",,"large 87, small 59",Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i26,fee62bc4dd85b2d1,Kafe,Vegetarian Samosas,3 pcs served with coriander chutney,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i27,fee62bc4dd85b2d1,Kafe,Vegetarian Lumpia,"filled with tofu, ginger, spinach & mushroom served with lemongrass dipping sauce",,41,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i28,fee62bc4dd85b2d1,Kafe,Vietnamese Rolls,"raw veggies, tofu & herbs wrapped in rice paper with peanut coconut sauce",,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i29,fee62bc4dd85b2d1,Kafe,Herbed Potato Wedges,with melted cheddar cheese,,49,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i30,fee62bc4dd85b2d1,Kafe,Tandoori Chicken Wings,served with raita,,"3 pcs 45, 6 pcs 79",Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i31,fee62bc4dd85b2d1,Kafe,Veg Pelmeni Dumplings,choose from: jackfruit & mushroom or cabbage & carrot,,"6 pcs 30, 9 pcs 45",Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i32,fee62bc4dd85b2d1,Kafe,Soto Ayam,Restorative & tasty Indonesian chicken soup served with red rice and balinese sambal,,41,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i33,fee62bc4dd85b2d1,Kafe,Herb Tomato Soup,sprinkled with parmesan cheese,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i34,fee62bc4dd85b2d1,Kafe,Lentil Stew,yogurt available on the side,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i35,fee62bc4dd85b2d1,Kafe,Spiced Pumpkin Soup,served with garlic bread,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i36,fee62bc4dd85b2d1,Kafe,Broccoli Pesto Soup,,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i37,fee62bc4dd85b2d1,Kafe,Curry Dhal Soup,,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i38,fee62bc4dd85b2d1,Kafe,Saag Paneer,"spiced spinach with soft cubes of home made milk cheese (paneer), served with raita, mango chutney & chapati.",,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i39,fee62bc4dd85b2d1,Kafe,Kitcheree,,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i40,fee62bc4dd85b2d1,Kafe,Moringa Detox Soup,a nutritious broth with chopped vegetables and quinoa,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i41,fee62bc4dd85b2d1,Kafe,Hearty Spinach Soup,"a wonderful, healthy filler-up",,45NEW,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i42,fee62bc4dd85b2d1,Kafe,Crunchy Tempe & Tofu Chips,served with a duo of Balinese spicy sambals,,31,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i43,fee62bc4dd85b2d1,Kafe,Tortilla Chips & Salsa,,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i44,fee62bc4dd85b2d1,Kafe,Edamame,steamed salted soybean pods,,"large 35, Small 20",Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i45,fee62bc4dd85b2d1,Kafe,Corn on the Cob,2 pcs,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i46,fee62bc4dd85b2d1,Kafe,Quiche of The Day,served with side salad,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i47,fee62bc4dd85b2d1,Kafe,Fries & Ketchup,,,35,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i48,fee62bc4dd85b2d1,Kafe,Sweet Potato Fries & Ketchup,,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i49,fee62bc4dd85b2d1,Kafe,Vegan Truffle Fries,smothered in vegan cheese & truffle oil,,45GF,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i50,fee62bc4dd85b2d1,Kafe,Grilled Chicken,,,17,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i51,fee62bc4dd85b2d1,Kafe,Grilled Tuna,,,40,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i52,fee62bc4dd85b2d1,Kafe,Tofu-Tempe Crunch,,,10,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i53,fee62bc4dd85b2d1,Kafe,Toasted Seeds,,,10,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i54,fee62bc4dd85b2d1,Kafe,Green Side Salad,,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i55,fee62bc4dd85b2d1,Kafe,Sauerkraut,,,15,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i56,fee62bc4dd85b2d1,Kafe,Pickles,,,10,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i57,fee62bc4dd85b2d1,Kafe,Herb Feta Cheese,,,26,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i58,fee62bc4dd85b2d1,Kafe,Other Cheese Types,,,26,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i59,fee62bc4dd85b2d1,Kafe,Vegan Cheese,(25gr),,15,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i60,fee62bc4dd85b2d1,Kafe,Dhal,,,29,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i61,fee62bc4dd85b2d1,Kafe,Hummus,,,17,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i62,fee62bc4dd85b2d1,Kafe,Babaganoush,,,15,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i63,fee62bc4dd85b2d1,Kafe,Greek Olives,,,20,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i64,fee62bc4dd85b2d1,Kafe,Pita Bread/Chapati,,,6,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i65,fee62bc4dd85b2d1,Kafe,Organic Rice,(choice of red or brown),,10,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i66,fee62bc4dd85b2d1,Kafe,Coconut Bacon,,,15,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i67,fee62bc4dd85b2d1,Kafe,Salsa,,,12,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i68,fee62bc4dd85b2d1,Kafe,Sour Cream,,,17,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i69,fee62bc4dd85b2d1,Kafe,Guacamole,(in season),,17,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i70,fee62bc4dd85b2d1,Kafe,Fruit Bowl,"choose your fruit (watermelon, apple, banana & papaya)",,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i71,fee62bc4dd85b2d1,Kafe,Kids Nachos,"small sized Nachos with cheese only, sour cream or salsa on request",,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i72,fee62bc4dd85b2d1,Kafe,Small - Sized Spaghetti,with tomato sauce or butter & cheese,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i73,fee62bc4dd85b2d1,Kafe,Baby Fish or Chicken & Fries,with Honey Mustard BBQ Sauce,,51,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i74,fee62bc4dd85b2d1,Kafe,Kafe Style Mie Goreng,with Chicken or Tofu,,30,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i75,fee62bc4dd85b2d1,Kafe,Healthy Drinks,Small Orange Juice,,33,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i76,fee62bc4dd85b2d1,Kafe,Very Bery Smoothie,,,35,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i77,fee62bc4dd85b2d1,Kafe,Hot/Ice Chocolate,,,20,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i78,fee62bc4dd85b2d1,Kafe,Kiddie Lassie,,,22,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i79,fee62bc4dd85b2d1,Kafe,Milk Shake,,,20,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i80,fee62bc4dd85b2d1,Kafe,Homemade Gelato,Chocolate or Vanilla,,20,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i81,fee62bc4dd85b2d1,Kafe,Popsicles,100% natural fresh fruit ask our servers for the flavours,,30,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i82,fee62bc4dd85b2d1,Kafe,Banana Bread,topped with whipped cream,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i83,fee62bc4dd85b2d1,Kafe,Carrot Walnut Cake,"with dried coconut, pineapple & raisin",,35,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i84,fee62bc4dd85b2d1,Kafe,Carrot Raisin Cake,topped with whipped cream,,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i85,fee62bc4dd85b2d1,Kafe,Almond Chocolate Cake,with orange peel & dates,,35,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i86,fee62bc4dd85b2d1,Kafe,Raw Coco Ice Cream,"Moringa Mint Chocolate Chip, Chocolate Maca, Cold Pressed Coffee",,25,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i87,fee62bc4dd85b2d1,Kafe,Lime Meringue Pie,,,45,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i88,fee62bc4dd85b2d1,Kafe,Homemade Apple Pie,topped with whipped cream,,40,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i89,fee62bc4dd85b2d1,Kafe,Organic Mullberry Pie,topped with whipped cream,,40,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i90,fee62bc4dd85b2d1,Kafe,Dark Chocolate Brownie,,,20,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i91,fee62bc4dd85b2d1,Kafe,Fruit Chia Pudding,small or large size,,S 40  L 75,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i92,fee62bc4dd85b2d1,Kafe,Bubur Injin,black rice pudding with coconut milk & sliced banana,,30,Rps,https://kafe-bali.com/wp-content/uploads/2021/05/KAFE-ALL-FOOD-KIDS-MENU-MAY21.pdf
+fee62bc4dd85b2d1-i93,fee62bc4dd85b2d1,Kafe,Dog Friendly,Please Don’t Pet Me!,,,IDR,https://kafe-bali.com/kafe-menu/
+104f05406f234fda-i0,104f05406f234fda,Gajah Putih,Pairing Alcohol Malam/Lingkaran,,1200000,Rp. 1.200.000++,IDR,https://gajahputihbali.com/
+104f05406f234fda-i1,104f05406f234fda,Gajah Putih,Pairing Non Alcohol Malam/Lingkaran,,700000,Rp. 700.000++,IDR,https://gajahputihbali.com/
+104f05406f234fda-i2,104f05406f234fda,Gajah Putih,Pairing Wine Malam,,400000,Rp. 400.000++,IDR,https://gajahputihbali.com/
+104f05406f234fda-i3,104f05406f234fda,Gajah Putih,Regular Malam/Lingkaran,,1850000,Rp. 1.850.000 nett,IDR,https://gajahputihbali.com/
+104f05406f234fda-i4,104f05406f234fda,Gajah Putih,Regular Malam/Lingkaran,,1200000,Rp. 1.200.000++,IDR,https://gajahputihbali.com/tpost/fine-dining-with-theatre-in-bali
+104f05406f234fda-i5,104f05406f234fda,Gajah Putih,Pairing Alcohol Malam/Lingkaran,,1850000,Rp. 1.850.000 nett,IDR,https://gajahputihbali.com/tpost/fine-dining-with-theatre-in-bali
+104f05406f234fda-i6,104f05406f234fda,Gajah Putih,Pairing Wine Malam,,700000,Rp. 700.000++,IDR,https://gajahputihbali.com/tpost/fine-dining-with-theatre-in-bali
+104f05406f234fda-i7,104f05406f234fda,Gajah Putih,Pairing Non Alcohol Malam/Lingkaran,,400000,Rp.400.000++,IDR,https://gajahputihbali.com/tpost/fine-dining-with-theatre-in-bali
+48d48f8c19f62115-i0,48d48f8c19f62115,Hidden Gem Uluwatu,Warm Chocolate Lava Cake,"Topped with sugar icing, served with vanilla ice-cream.",,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i1,48d48f8c19f62115,Hidden Gem Uluwatu,Three colored crispy soft shell tacos,"Each adorned with sour cream, mango, shallots, coriander, sambal matah and your choice of protein.",,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i2,48d48f8c19f62115,Hidden Gem Uluwatu,Tuna Tartare,"A delicious medley of raw marinated tuna, red onion sesame, diced cucumber, juicy tomatoes, mango relish mixed in a ponzu sauce.",,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i3,48d48f8c19f62115,Hidden Gem Uluwatu,Hidden Gem’s Burger,"Australian beef patty, cheese, caramelized onions, tomatoes, pineapple jam and chili aioli served with french fries.",,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i4,48d48f8c19f62115,Hidden Gem Uluwatu,Hidden Gems Charcuterie,"A selection of four artisan cheeses, four cured meats, crostinis, candied nuts, olives, and cornichons.",,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i5,48d48f8c19f62115,Hidden Gem Uluwatu,Three-way cut lamb rack,Served with chimichurri and spinach.,,price unspecified,IDR,https://hiddengemuluwatu.com/
+48d48f8c19f62115-i6,48d48f8c19f62115,Hidden Gem Uluwatu,Warm Chocolate Lava Cake,"Topped with sugar icing, served with vanilla ice-cream.",,,IDR,https://hiddengemuluwatu.com
+48d48f8c19f62115-i7,48d48f8c19f62115,Hidden Gem Uluwatu,Three Colored Crispy Soft Shell Tacos,"Adorned with sour cream, mango, shallots, coriander, sambal matah and your choice of protein.",,,IDR,https://hiddengemuluwatu.com
+48d48f8c19f62115-i8,48d48f8c19f62115,Hidden Gem Uluwatu,Tuna Tartare,"A delicious medley of raw marinated tuna, red onion sesame, diced cucumber, juicy tomatoes, mango relish mixed in a ponzu sauce.",,,IDR,https://hiddengemuluwatu.com
+48d48f8c19f62115-i9,48d48f8c19f62115,Hidden Gem Uluwatu,Hidden Gem’s Burger,"Australian beef patty, cheese, caramelized onions, tomatoes, pineapple jam and chili aioli served with French fries.",,,IDR,https://hiddengemuluwatu.com
+48d48f8c19f62115-i10,48d48f8c19f62115,Hidden Gem Uluwatu,Hidden Gems Charcuterie,"A selection of four artisan cheeses, four cured meats, crostinis, candied nuts, olives, and cornichons.",,,IDR,https://hiddengemuluwatu.com
+48d48f8c19f62115-i11,48d48f8c19f62115,Hidden Gem Uluwatu,Three-Way Cut Lamb Rack,Served with chimichurri and spinach.,,,IDR,https://hiddengemuluwatu.com
+cf521f2c64abbd92-i0,cf521f2c64abbd92,The Cave Restaurant,High Tea,High tea by the ocean with sunset spritz on the cliff,,,IDR,https://theedgebali.com/dining/
+cf521f2c64abbd92-i1,cf521f2c64abbd92,The Cave Restaurant,Dinner,Elegant dinners at The Cave,,,IDR,https://theedgebali.com/dining/
+cf521f2c64abbd92-i2,cf521f2c64abbd92,The Cave Restaurant,In-Villa Dining,Expertly crafted dishes tailored to your preferences by a private chef in your villa,,,IDR,https://theedgebali.com/dining/
+cf521f2c64abbd92-i3,cf521f2c64abbd92,The Cave Restaurant,BBQ Experience,A private BBQ tailored to you with sizzling meats and fresh seafood,,,IDR,https://theedgebali.com/dining/
+2d1cf588e40585fa-i0,2d1cf588e40585fa,Over the Moon Bali,Premium Cocktails,Enjoy everything from our Premium Cocktails Menu.,,55K,IDR,https://www.overthemoonbali.com/menu
+7458c91c6b277a22-i0,7458c91c6b277a22,Warung Sambal Locok,Ayam Goreng Sambal Locok,,15000,15k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i1,7458c91c6b277a22,Warung Sambal Locok,Ayam Goreng Sambal Matah,,15000,15k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i2,7458c91c6b277a22,Warung Sambal Locok,Nasi Goreng,,10000,10k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i3,7458c91c6b277a22,Warung Sambal Locok,Capcay,,10000,10k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i4,7458c91c6b277a22,Warung Sambal Locok,Plecing Kangkung,,7000,7k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i5,7458c91c6b277a22,Warung Sambal Locok,Fresh fruit shake,,7000,7k,IDR,https://remoteandafloat.com/cheap-eats-in-ubud
+7458c91c6b277a22-i6,7458c91c6b277a22,Warung Sambal Locok,Javanese-style home cooking platter,"A huge variety of dishes including curries, meats, omelettes, tofu, tempe, and vegetarian options, served with Es Teh.",,30k IDR,IDR,https://remoteandafloat.com/cheap-eats-in-sanur/
+7458c91c6b277a22-i7,7458c91c6b277a22,Warung Sambal Locok,Chicken curry pedas,Delicious and spicy chicken curry.,,,IDR,https://remoteandafloat.com/cheap-eats-in-sanur/
+7458c91c6b277a22-i8,7458c91c6b277a22,Warung Sambal Locok,Deep fried beef,Crunchy and tasty deep fried beef.,,,IDR,https://remoteandafloat.com/cheap-eats-in-sanur/
+7458c91c6b277a22-i9,7458c91c6b277a22,Warung Sambal Locok,Corn fritters,Delicious corn fritters.,,,IDR,https://remoteandafloat.com/cheap-eats-in-sanur/
+7458c91c6b277a22-i10,7458c91c6b277a22,Warung Sambal Locok,Stewed veggie dishes,A variety of stewed vegetable dishes.,,,IDR,https://remoteandafloat.com/cheap-eats-in-sanur/
+659fd41017de5ec8-i0,659fd41017de5ec8,Chick-Fil-A,Chicken Nuggets,Served with waffle fries.,,,IDR,https://www.hayleyonholiday.com/where-to-eat-los-angeles-restaurants
+659fd41017de5ec8-i1,659fd41017de5ec8,Chick-Fil-A,Waffle Fries,,,,IDR,https://www.hayleyonholiday.com/where-to-eat-los-angeles-restaurants
+659fd41017de5ec8-i2,659fd41017de5ec8,Chick-Fil-A,Nasi Goreng,Includes chicken satay and comes with delicious peanut sauce.,,,IDR,https://www.hayleyonholiday.com/legian-restaurants-bali/
+138844f12cd2400b-i0,138844f12cd2400b,The ONE Legian Hotel,Western Menu Promotion,Combination of Western dishes,,,IDR,https://www.theonelegian.com/restaurants/
+138844f12cd2400b-i1,138844f12cd2400b,The ONE Legian Hotel,Indonesian Menu Promotion,Indonesian dishes available,,,IDR,https://www.theonelegian.com/restaurants/
+138844f12cd2400b-i2,138844f12cd2400b,The ONE Legian Hotel,Light Bite Food,Small dishes for snacking,,,IDR,https://www.theonelegian.com/restaurants/
+138844f12cd2400b-i3,138844f12cd2400b,The ONE Legian Hotel,Breakfast Specials,Asian and Western breakfast selections,,,IDR,https://www.theonelegian.com/restaurants/
+138844f12cd2400b-i4,138844f12cd2400b,The ONE Legian Hotel,Dinner Specials,Choice of Asian and Western dishes for dinner,,,IDR,https://www.theonelegian.com/restaurants/
+138844f12cd2400b-i5,138844f12cd2400b,The ONE Legian Hotel,Western and Indonesian Menu Promotion,Light bite food with options from Western and Indonesian cuisine.,,,IDR,https://www.theonelegian.com/restaurants
+138844f12cd2400b-i6,138844f12cd2400b,The ONE Legian Hotel,Asian Specialties,Choice of Asian dishes available for lunch and dinner.,,,IDR,https://www.theonelegian.com/restaurants
+138844f12cd2400b-i7,138844f12cd2400b,The ONE Legian Hotel,Breakfast Specialties,Breakfast options available for guests.,,,IDR,https://www.theonelegian.com/restaurants
+9b6ee856b2e31fa4-i0,9b6ee856b2e31fa4,Makan Place,Onion Toast,,,35k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i1,9b6ee856b2e31fa4,Makan Place,Asparagouz Soup,,,50k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i2,9b6ee856b2e31fa4,Makan Place,Grilled Chickec – Honey Edition,**Special Recipe** this is special recipe our chef proud of after years of experience **Freshly Grilled** new order will always be freshly grilled chicken,,40k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i3,9b6ee856b2e31fa4,Makan Place,Japanese Green Pumpkin,,,35k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i4,9b6ee856b2e31fa4,Makan Place,Nasi Goreng,No visit to Bali is complete without a plate of Nasi Goreng. Celebrate Indonesia's Independence...,,161k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i5,9b6ee856b2e31fa4,Makan Place,Fairy Wings and Garlic Cheese Bread,Start your dining experience with two crowd favourites.,,140k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i6,9b6ee856b2e31fa4,Makan Place,Happy Hour,"Every hour is a happy hour at Makan Place. Enjoy all-day Happy Hour, available daily from 10AM –...",,160k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i7,9b6ee856b2e31fa4,Makan Place,Beer Bucket,The bucket that brings everyone together. Round off your day with an ice-cold beer bucket and great...,,140k,IDR,https://makanplacebali.com/menu/food
+9b6ee856b2e31fa4-i8,9b6ee856b2e31fa4,Makan Place,Slushy Cocktails,Indulge in twice the refreshment with our 2-for-1 Slushy Cocktails.,175000,"IDR 175,000++",IDR,https://makanplacebali.com/
+9b6ee856b2e31fa4-i9,9b6ee856b2e31fa4,Makan Place,Bucket of Beers,Settle into laid-back moments with a bucket of refreshing chilled beers.,148000,"IDR 148,000++",IDR,https://makanplacebali.com/
+6c5060686372d151-i0,6c5060686372d151,Kekeb Restaurant,Rendang package,"A traditional Indonesian dish made from beef slow-cooked in coconut milk and a mixture of lemongrass, galangal, garlic, turmeric, ginger, and chilies.",,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i1,6c5060686372d151,Kekeb Restaurant,Chicken Betutu,"A famous Balinese dish of chicken marinated with a mix of spices and wrapped in banana leaves, then roasted.",,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i2,6c5060686372d151,Kekeb Restaurant,Sate,Skewered and grilled meat served with a peanut sauce.,,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i3,6c5060686372d151,Kekeb Restaurant,Grilled Honey Chicken,Chicken grilled to perfection with a honey glaze.,,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i4,6c5060686372d151,Kekeb Restaurant,Whole Crispy Duck,"A whole duck fried until crispy, served with traditional sauces.",,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i5,6c5060686372d151,Kekeb Restaurant,Live Seafood,Fresh seafood options available based on the catch of the day.,,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i6,6c5060686372d151,Kekeb Restaurant,Grilled Grouper Fish,"Grouper fish grilled to perfection, seasoned with Balinese spices.",,N/A,IDR,https://kekebrestaurant.com/
+6c5060686372d151-i7,6c5060686372d151,Kekeb Restaurant,Chicken Betutu,The best and most popular food in Indonesia,,,IDR,https://kekebrestaurant.com/food-menu-best-indonesian-food-and-balinese-food
+6c5060686372d151-i8,6c5060686372d151,Kekeb Restaurant,Gado-Gado,One of the Best Gado-Gado in Indonesian Restaurants,,,IDR,https://kekebrestaurant.com/food-menu-best-indonesian-food-and-balinese-food
+6c5060686372d151-i9,6c5060686372d151,Kekeb Restaurant,Crispy Duck,Crispy Duck Nusa Dua in Kekeb Restaurant,,,IDR,https://kekebrestaurant.com/food-menu-best-indonesian-food-and-balinese-food
+eaed0f808b3a46c1-i0,eaed0f808b3a46c1,Bali Untold,Merlins Magic,A magic-themed restaurant with an unusual method of ordering based on tarot readings.,1050000,"1,050,000 IDR",IDR,https://baliuntold.com/food-and-drink/unusual-restaurants/
+eaed0f808b3a46c1-i1,eaed0f808b3a46c1,Bali Untold,Koral Restaurant,First aquarium restaurant in Bali offering a unique underwater dining experience.,1050000,"1,050,000 IDR",IDR,https://baliuntold.com/food-and-drink/unusual-restaurants/
+eaed0f808b3a46c1-i2,eaed0f808b3a46c1,Bali Untold,Seven Paintings,An art-themed immersive dining experience in Ubud with a seven-course gourmet menu.,1000000,"1,000,000 IDR",IDR,https://baliuntold.com/food-and-drink/unusual-restaurants/
+eaed0f808b3a46c1-i3,eaed0f808b3a46c1,Bali Untold,House of Unique Picnic,Offers a picnic set menu for two people in a beautiful greenhouse setting.,265000,"265,000 IDR",IDR,https://baliuntold.com/food-and-drink/unusual-restaurants/
+eaed0f808b3a46c1-i4,eaed0f808b3a46c1,Bali Untold,Starter,Selected based on tarot reading,,included in the meal,IDR,https://baliuntold.com/food-and-drink/unusual-restaurants
+eaed0f808b3a46c1-i5,eaed0f808b3a46c1,Bali Untold,Main,Selected based on tarot reading,,included in the meal,IDR,https://baliuntold.com/food-and-drink/unusual-restaurants
+eaed0f808b3a46c1-i6,eaed0f808b3a46c1,Bali Untold,Dessert,Selected based on tarot reading,,included in the meal,IDR,https://baliuntold.com/food-and-drink/unusual-restaurants
+406c56983f5ee79c-i0,406c56983f5ee79c,Santai Beach House,Hummus,"Light bite, ideal for sharing",,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i1,406c56983f5ee79c,Santai Beach House,Grilled Calamari,"Light bite, ideal for sharing",,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i2,406c56983f5ee79c,Santai Beach House,Tuna Crudo,"Light bite, ideal for sharing",,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i3,406c56983f5ee79c,Santai Beach House,Truffle Mushroom Pasta,Filling pasta selection,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i4,406c56983f5ee79c,Santai Beach House,Seafood Marinara,Filling pasta selection,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i5,406c56983f5ee79c,Santai Beach House,Burrata Pasta,Filling pasta selection,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i6,406c56983f5ee79c,Santai Beach House,Pan-Seared Barramundi,Main dish option,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i7,406c56983f5ee79c,Santai Beach House,Yellowfin Tuna,Main dish option,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i8,406c56983f5ee79c,Santai Beach House,Rib Eye Steak,Premium cut,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i9,406c56983f5ee79c,Santai Beach House,Lamb Chop,Premium cut,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i10,406c56983f5ee79c,Santai Beach House,Sourdough Pizza,Comfort food offering familiar flavors,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i11,406c56983f5ee79c,Santai Beach House,Burgers,Comfort food offering familiar flavors,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i12,406c56983f5ee79c,Santai Beach House,Nasi Goreng Kampung,Local dish,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i13,406c56983f5ee79c,Santai Beach House,Bakmie Goreng,Local dish,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i14,406c56983f5ee79c,Santai Beach House,Sate Ayam Madura,Local dish,,,IDR,https://santaibeachbali.com/dining-nusa-dua/
+406c56983f5ee79c-i15,406c56983f5ee79c,Santai Beach House,Nasi Goreng,"Indonesia’s iconic fried rice cooked with sweet soy sauce, garlic, and topped with a fried egg.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i16,406c56983f5ee79c,Santai Beach House,Mie Goreng,"Stir-fried noodles coated in a slightly sweet and savory sauce, mixed with vegetables, egg, and protein.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i17,406c56983f5ee79c,Santai Beach House,Ayam Betutu,"Chicken marinated in traditional spices, slow-cooked until tender and aromatic.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i18,406c56983f5ee79c,Santai Beach House,Sate Lilit,"Minced fish or chicken blended with coconut, herbs, and spices, wrapped around a stick and grilled.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i19,406c56983f5ee79c,Santai Beach House,Lawar,"A traditional Balinese side dish made with finely chopped vegetables, grated coconut, and minced meat with local spices.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i20,406c56983f5ee79c,Santai Beach House,Sayur Kare,"A comforting yellow curry with coconut milk, vegetables, and rice.",,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i21,406c56983f5ee79c,Santai Beach House,Nasi Goreng Serundeng,Fried rice with crunchy coconut topping.,,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i22,406c56983f5ee79c,Santai Beach House,Beef Rendang,Slow-cooked beef in spicy coconut milk.,,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i23,406c56983f5ee79c,Santai Beach House,Crispy Duck,Duck that is deep-fried and served crispy.,,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+406c56983f5ee79c-i24,406c56983f5ee79c,Santai Beach House,Sate Ayam Madura,Chicken satay served with peanut sauce.,,,IDR,https://santaibeachbali.com/local-food-nusa-dua-authentic-flavours
+df58e395563c5a9d-i0,df58e395563c5a9d,Jimbaran Seafood Dinner,Grilled Fish Set,"Includes grilled fish, rice, vegetables, and sambal.",120000,Rp 120.000,IDR,https://www.water-sports-bali.com/jimbaran-seafood-dinner/
+df58e395563c5a9d-i1,df58e395563c5a9d,Jimbaran Seafood Dinner,Mixed Seafood Platter,"Includes prawns, squid, or clams with rice.",250000,Rp 250.000,IDR,https://www.water-sports-bali.com/jimbaran-seafood-dinner/
+df58e395563c5a9d-i2,df58e395563c5a9d,Jimbaran Seafood Dinner,"Premium Seafood (Lobster, Imported Drinks, Desserts)",Higher-end dining with premium options.,500000,Rp 500.000,IDR,https://www.water-sports-bali.com/jimbaran-seafood-dinner/
+fbe6e9c9fb87fa96-i0,fbe6e9c9fb87fa96,Made Bagus Cafe,Snapper,Local fish variety,115000,100.000-130.000 IDR,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i1,fbe6e9c9fb87fa96,Made Bagus Cafe,Grouper,Local fish variety,115000,100.000-130.000 IDR,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i2,fbe6e9c9fb87fa96,Made Bagus Cafe,Mahi Mahi,Local fish variety,115000,100.000-130.000 IDR,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i3,fbe6e9c9fb87fa96,Made Bagus Cafe,Prawns,"Fresh prawns, priced per kilogram",210000,180.000-240.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i4,fbe6e9c9fb87fa96,Made Bagus Cafe,Crab,"Fresh crab, priced per kilogram",190000,190.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i5,fbe6e9c9fb87fa96,Made Bagus Cafe,Squid,"Fresh squid, priced per kilogram",100000,100.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i6,fbe6e9c9fb87fa96,Made Bagus Cafe,Clams,"Fresh clams, priced per kilogram",50000,50.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i7,fbe6e9c9fb87fa96,Made Bagus Cafe,Lobster,Market price lobster,,Market Price,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat/
+fbe6e9c9fb87fa96-i8,fbe6e9c9fb87fa96,Made Bagus Cafe,"Fish (Snapper, Grouper, Mahi Mahi)",Popular types of fish served at the restaurant.,100000,100.000 IDR,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+fbe6e9c9fb87fa96-i9,fbe6e9c9fb87fa96,Made Bagus Cafe,Prawns,"Fresh prawns, a local specialty.",180000,180.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+fbe6e9c9fb87fa96-i10,fbe6e9c9fb87fa96,Made Bagus Cafe,Crab,Crab served fresh from the market.,190000,190.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+fbe6e9c9fb87fa96-i11,fbe6e9c9fb87fa96,Made Bagus Cafe,Squid,Freshly prepared squid.,100000,100.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+fbe6e9c9fb87fa96-i12,fbe6e9c9fb87fa96,Made Bagus Cafe,Clams,Fresh clams available at the market.,50000,50.000 IDR/kg,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+fbe6e9c9fb87fa96-i13,fbe6e9c9fb87fa96,Made Bagus Cafe,Lobster,Lobster available at market price.,,Market Price,IDR,https://almostlanding-bali.com/jimbaran-seafood-eat
+46f6bfca00859124-i0,46f6bfca00859124,Cafes in Jimbaran,Grilled Fish,Fresh seafood grilled with Balinese spices.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i1,46f6bfca00859124,Cafes in Jimbaran,Prawns,Grilled prawns served with traditional sides.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i2,46f6bfca00859124,Cafes in Jimbaran,Lobsters,Fresh lobsters grilled to perfection.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i3,46f6bfca00859124,Cafes in Jimbaran,BBQ Fish,Fish prepared with a Balinese BBQ style.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i4,46f6bfca00859124,Cafes in Jimbaran,Seafood Barbeque,A selection of various seafood barbeque options.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i5,46f6bfca00859124,Cafes in Jimbaran,Coffee,Various types of coffee beverages available.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i6,46f6bfca00859124,Cafes in Jimbaran,Desserts,A selection of cakes and pastries.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i7,46f6bfca00859124,Cafes in Jimbaran,Nasi Campur,Traditional Indonesian rice dish with assorted side dishes.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i8,46f6bfca00859124,Cafes in Jimbaran,Sandwiches,Freshly made sandwiches for a light meal.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i9,46f6bfca00859124,Cafes in Jimbaran,Sambal,A spicy condiment served with many dishes.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i10,46f6bfca00859124,Cafes in Jimbaran,Fresh Bowls,Healthy bowls featuring fresh ingredients.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+46f6bfca00859124-i11,46f6bfca00859124,Cafes in Jimbaran,Calamari,Fried calamari served with dipping sauces.,,,IDR,https://banbanjara.com/cafes-in-jimbaran?srsltid
+04863fb6dd750f64-i0,04863fb6dd750f64,Jimbaran,Seafood Platter,"Includes accompaniments such as rice, vegetables, sauces, and sambal.",125000,"125,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i1,04863fb6dd750f64,Jimbaran,Hibiscus Ice,"Brandy, wild honey, lemongrass.",90000,"90,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i2,04863fb6dd750f64,Jimbaran,Bali Mary,"Tomato water, vodka, Balinese chili, and citrus.",95000,"95,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i3,04863fb6dd750f64,Jimbaran,Ceviche,Sliced raw fish with chili lime dressing and watermelon ice.,90000,"90,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i4,04863fb6dd750f64,Jimbaran,Honey-Baked Pumpkin Salad,"Granola, plus wing beans and tarragon.",80000,"80,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i5,04863fb6dd750f64,Jimbaran,Marinated Pulled Pork,"With onions, soft boiled egg and crispy potato.",80000,"80,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i6,04863fb6dd750f64,Jimbaran,Nasi Campur,Traditional Balinese cuisine.,20000,"20,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+04863fb6dd750f64-i7,04863fb6dd750f64,Jimbaran,Soto Ayam Surabuya,Simple coconut-based chicken soup.,15000,"15,000 rupiah",IDR,https://www.travelfish.org/eatandmeet/indonesia/bali/bali/jimbaran/eat
+aeb5537005ca26f5-i0,aeb5537005ca26f5,Opia Bali,Artisanal cocktails,"A selection of artisanal cocktails, proprietary 'session' cocktails, and expertly built traditionals.",,N/A,IDR,https://www.opiabali.com/menu
+aeb5537005ca26f5-i1,aeb5537005ca26f5,Opia Bali,"Beer, wine, and champagne",Curated selections to satisfy the thirsts of diners and celebratory events in Bali.,,N/A,IDR,https://www.opiabali.com/menu
+20c5cf869c184ae8-i0,20c5cf869c184ae8,Bella,‘It was all a dream’,A refreshing concoction served with Prosecco on side.,,,IDR,https://bellacanggu.com/
+20c5cf869c184ae8-i1,20c5cf869c184ae8,Bella,‘Geisha’,A sweet sake-based drink.,,,IDR,https://bellacanggu.com/
+20c5cf869c184ae8-i2,20c5cf869c184ae8,Bella,‘Kopi Martini’,Made using original Balinese coffee for a distinctive taste.,,,IDR,https://bellacanggu.com/
+d10cef666df5d307-i0,d10cef666df5d307,Pison Petitenget,Smashed Avocado,,,IDR 78K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i1,d10cef666df5d307,Pison Petitenget,Egg’s Benedict with smoked ham and hollandaise,,,IDR 80K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i2,d10cef666df5d307,Pison Petitenget,House Cured Salmon Bagel with herb cream cheese and gravlax,,,IDR 79K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i3,d10cef666df5d307,Pison Petitenget,Corn Fritters Stack with bacon and avocado purée,,,IDR 85K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i4,d10cef666df5d307,Pison Petitenget,"Turkish Eggs with poached egg sitting on Greek yoghurt, drizzled with chilli oil",,,IDR 95K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i5,d10cef666df5d307,Pison Petitenget,Espresso,,,IDR 30K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i6,d10cef666df5d307,Pison Petitenget,Flat White,,,IDR 39K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i7,d10cef666df5d307,Pison Petitenget,Iced Latte,,,IDR 50K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i8,d10cef666df5d307,Pison Petitenget,"Espresso Avocado (mix of espresso, avocado juice, vanilla ice cream, chocolate syrup)",,,IDR 60K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i9,d10cef666df5d307,Pison Petitenget,Dirty Coffee (espresso over cold milk),,,IDR 55K,IDR,https://danielfooddiary.com/2025/11/05/pisonpetitenget/
+d10cef666df5d307-i10,d10cef666df5d307,Pison Petitenget,Pan-Fried Meat 锅包肉,Pork slices battered and coated in a glossy sweet-sour sauce.,,$14.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i11,d10cef666df5d307,Pison Petitenget,Fried Chicken Wings,,,$12.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i12,d10cef666df5d307,Pison Petitenget,Fried Pork Kidney,,,$12.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i13,d10cef666df5d307,Pison Petitenget,Gong Bao Chicken,"Diced chicken, cucumber, carrot, dried chilli and peanuts in a glossy sauce.",,$10.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i14,d10cef666df5d307,Pison Petitenget,Sweet & Sour Pork Rib,,,$14.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i15,d10cef666df5d307,Pison Petitenget,Northeast Sauce Pork Bones,,,$17.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i16,d10cef666df5d307,Pison Petitenget,Xinjiang Big Plate Chicken,,,$15.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+d10cef666df5d307-i17,d10cef666df5d307,Pison Petitenget,Big Plate Chicken With Noodle,,,$18.80,SGD,https://danielfooddiary.com/2026/05/22/orientalfood
+ac3a624fc769ca7a-i0,ac3a624fc769ca7a,menjamu,Chicken Soto,"Soup with Chicken breast, Boiled egg, Cabbage, Vermicelli noodles, Leek, Celery, Fried shallots",,75 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i1,ac3a624fc769ca7a,menjamu,Rawon Beef,"Soup with Beef cheek, Bean sprouts, Carrot, Potato, Radish, Leek, Fried shallots",,95 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i2,ac3a624fc769ca7a,menjamu,Oxtail,"Soup with Beef oxtail, Radish, Carrot, Potato, Leek, Celery, Fried shallots",,175 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i3,ac3a624fc769ca7a,menjamu,Fried Noodle (Vegetarian),,,65 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i4,ac3a624fc769ca7a,menjamu,Fried Noodle with Chicken Sate,,,85 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i5,ac3a624fc769ca7a,menjamu,Fried Rice (Vegetarian),,,65 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i6,ac3a624fc769ca7a,menjamu,Fried Rice with Chicken Sate,,,95 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i7,ac3a624fc769ca7a,menjamu,Fried Duck Only,Served With Peanut Sauce,,140 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i8,ac3a624fc769ca7a,menjamu,Rendang Package,"Served with beef rendang, corn fritters, steam rice, Sambal sauce, long bean salad, crackers",,175 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i9,ac3a624fc769ca7a,menjamu,Bebek Timbungan,Served With Sambal Bajak And Sambal Mentah,,175 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i10,ac3a624fc769ca7a,menjamu,Chicken Sate Only (8 pcs),Served with Peanut sauce,,90 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i11,ac3a624fc769ca7a,menjamu,Chicken Sate Lilit Only,Served with Peanut sauce,,95 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i12,ac3a624fc769ca7a,menjamu,Balinese Rijsttafel B,"Served with Crispy Duck, Rendang, vegetable, Fried Noodle, 2 type of sauce",,225 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i13,ac3a624fc769ca7a,menjamu,Balinese Rijsttafel C,"Served with Chicken Satay, Grill Honey Chicken, Rendang, vegetable, Fried Noodle, 2 type of sauce",,295 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i14,ac3a624fc769ca7a,menjamu,Grill Honey Prawn (6 PCS),"Served With Steamed Rice, Vegetables, And 3 Types Sauce",,160 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i15,ac3a624fc769ca7a,menjamu,Salted Egg Shrimp,"Served With Steamed Rice, Vegetables, And 2 Types Sauce",,165 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i16,ac3a624fc769ca7a,menjamu,Prawn Sambal,Served With Steam Rice And Lime,,165 K,IDR,https://www.menjamu.com/menjamu-menu.pdf
+ac3a624fc769ca7a-i17,ac3a624fc769ca7a,menjamu,Rendang Package,"Served with Beef Rendang, Corn Fritters, Steam Rice, Sambal Sauce, Lodeh Vegetables, Crackers",,,IDR,https://www.menjamu.com/
+ac3a624fc769ca7a-i18,ac3a624fc769ca7a,menjamu,Crispy Duck with Chicken Satay,"Served with Rice, Chicken Sate, Green Papaya Salad and 2 types of sauce",,,IDR,https://www.menjamu.com/
+ac3a624fc769ca7a-i19,ac3a624fc769ca7a,menjamu,Balinese Rijsttafel,"Served with Chicken Satay, Grill Honey Chicken, rendang, vegetable, fried noodle and 2 types of sauce",,,IDR,https://www.menjamu.com/
+ac3a624fc769ca7a-i20,ac3a624fc769ca7a,menjamu,Bebek Timbungan,"Shredded Chicken with Lemon Grass Dressing, Long Bean Salad, Mixed Vegetables with Coconut Dressing and Balinese Sambal",,,IDR,https://www.menjamu.com/
+7f905bce0d6b41d5-i0,7f905bce0d6b41d5,Fire Restaurant,"Flatbread, za’atar, honey yogurt",,100000,Rp 100000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i1,7f905bce0d6b41d5,Fire Restaurant,"Sourdough bread, brown butter",,95000,Rp 95000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i2,7f905bce0d6b41d5,Fire Restaurant,"Fresh Lombok oysters, green apple, mint vinaigrette, sea fennel",,75000,/pieceRp 75000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i3,7f905bce0d6b41d5,Fire Restaurant,"Reef fish crudo, yuzu, smoked crème fraîche, seaweed crackers",,190000,Rp 190000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i4,7f905bce0d6b41d5,Fire Restaurant,"Harissa baby carrots, cashew nut paste, coconut yogurt, pumpkin seeds",,160000,Rp 160000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i5,7f905bce0d6b41d5,Fire Restaurant,"Heirloom tomato salad, green goddess, chilled tomato consommé, basil",,180000,Rp 180000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i6,7f905bce0d6b41d5,Fire Restaurant,"Wagyu steak tartare, smoked tomato relish, crispy potato, chives",,245000,Rp 245000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i7,7f905bce0d6b41d5,Fire Restaurant,"Hokkaido scallop, beurre blanc, smoked ikura, dill oil",,325000,Rp 325000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i8,7f905bce0d6b41d5,Fire Restaurant,"Grilled octopus, romesco sauce, anchovy aioli, salted potato crisp",,200000,Rp 200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i9,7f905bce0d6b41d5,Fire Restaurant,"Lamb kofta, mint yogurt, cucumber salad",,210000,Rp 210000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i10,7f905bce0d6b41d5,Fire Restaurant,"Squid skewer, pork urutan, salsa verde, coriander",,170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i11,7f905bce0d6b41d5,Fire Restaurant,Stockyard Black Angus striploin,250g,850000,Rp 850000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i12,7f905bce0d6b41d5,Fire Restaurant,Ebony Black Angus tenderloin,200g,900000,Rp 900000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i13,7f905bce0d6b41d5,Fire Restaurant,Sir Harry Wagyu rib eye MB 6+,300g,1200000,Rp 1200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i14,7f905bce0d6b41d5,Fire Restaurant,Kiwami Fullblood Wagyu picanha MB 9+,300g,1300000,Rp 1300000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i15,7f905bce0d6b41d5,Fire Restaurant,"Dry-aged duck, duck breast with crispy skin, potted leg confit, sautéed kale",,850000,Rp 850000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i16,7f905bce0d6b41d5,Fire Restaurant,"Roasted half chicken, herb marinade, mushroom and gastrique sauce",,280000,Rp 280000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i17,7f905bce0d6b41d5,Fire Restaurant,"Crispy skin pork belly, apple and fennel salad, mustard jus",,530000,Rp 530000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i18,7f905bce0d6b41d5,Fire Restaurant,"Grilled line-caught fish, pil-pil sauce, charred greens and potato",,330000,Rp 330000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i19,7f905bce0d6b41d5,Fire Restaurant,"Sumbawa-sourced yellowfin tuna, curry leaf crust, baba ghanoush, yoghurt",,290000,Rp 290000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i20,7f905bce0d6b41d5,Fire Restaurant,"Papuan tiger prawn, smoked sambal roa, black vinegar, fried shallots",,430000,Rp 430000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i21,7f905bce0d6b41d5,Fire Restaurant,"Saffron rice, marinated raw prawn, shellfish bisque, persillade",,390000,Rp 390000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i22,7f905bce0d6b41d5,Fire Restaurant,"Potato dumpling, forest mushroom, asparagus, porcini velouté",,320000,Rp 320000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i23,7f905bce0d6b41d5,Fire Restaurant,"Char-grilled purple eggplant, hummus, cauliflower, parsley salad",,175000,Rp 175000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i24,7f905bce0d6b41d5,Fire Restaurant,"Mixed leaf salad, heirloom tomato, Persian cucumber, lemon honey dressing",,120000,Rp 120000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i25,7f905bce0d6b41d5,Fire Restaurant,"Steak fries, classic béarnaise",,120000,Rp 120000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i26,7f905bce0d6b41d5,Fire Restaurant,"French fries, parmesan aioli",,100000,Rp 100000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i27,7f905bce0d6b41d5,Fire Restaurant,Potato purée,,100000,Rp 100000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i28,7f905bce0d6b41d5,Fire Restaurant,"Potato gratin, pork bacon, chives",,130000,Rp 130000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i29,7f905bce0d6b41d5,Fire Restaurant,"Charred green vegetables, chimichurri, pine nuts",,120000,Rp 120000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i30,7f905bce0d6b41d5,Fire Restaurant,"BBQ corn kernels, chipotle cream, Grana Padano, lime",,130000,Rp 130000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i31,7f905bce0d6b41d5,Fire Restaurant,"Zero-waste grilled banana, whipped banoffee, salted caramel ice cream, banana skin chip",,140000,Rp 140000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i32,7f905bce0d6b41d5,Fire Restaurant,"Dark chocolate soufflé, spiced chocolate, sorbet, cocoa nibs",,140000,Rp 140000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i33,7f905bce0d6b41d5,Fire Restaurant,"Charred lime pie, shortcrust, lime gel, Swiss meringue",,125000,Rp 125000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i34,7f905bce0d6b41d5,Fire Restaurant,"Brioche French toast, torched coconut sugar, vanilla Chantilly",,125000,Rp 125000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i35,7f905bce0d6b41d5,Fire Restaurant,"Pineapple lover, roasted marmalade, Diplomatico, coconut lime granita",,150000,Rp 150000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i36,7f905bce0d6b41d5,Fire Restaurant,Garlic & Rosemary Focaccia,,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i37,7f905bce0d6b41d5,Fire Restaurant,Crab Chawanmushi,,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i38,7f905bce0d6b41d5,Fire Restaurant,"Tuna Tartare, Seaweed, Pickled Cucumber, Sesame",,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i39,7f905bce0d6b41d5,Fire Restaurant,Fennel & Apple Salad,"Walnut, Parmesan, green olive vinaigrette.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i40,7f905bce0d6b41d5,Fire Restaurant,BBQ Scallop On The Half Shell,"Forest mushroom fricassée, salted potato crisp.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i41,7f905bce0d6b41d5,Fire Restaurant,Octopus Skewer,"Muhammara, pork chorizo, chimichurri.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i42,7f905bce0d6b41d5,Fire Restaurant,200-Day Grain-Fed Striploin,"Charred green onion, potato pavé, natural jus.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i43,7f905bce0d6b41d5,Fire Restaurant,Crispy Pork belly,"Fermented chili, charred pineapple, Asian slaw.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i44,7f905bce0d6b41d5,Fire Restaurant,Grilled line-Caught Fish,"Beurre blanc, ikura, dill oil.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i45,7f905bce0d6b41d5,Fire Restaurant,Organic Charred Greens,"Classic béarnaise, pine nuts.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i46,7f905bce0d6b41d5,Fire Restaurant,Smoked Chocolate,"Brownie brittle, applewood-smoked chocolate namelaka, wine-poached apple.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i47,7f905bce0d6b41d5,Fire Restaurant,Passion Fruit With Charcoal-Brunt Meringue,"Lemon financier, passion fruit curd, dill gel, dark chocolate crumble, Swiss meringue.",,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i48,7f905bce0d6b41d5,Fire Restaurant,"Chocolate Bonbon, Coffee Liqueur Ganache",,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i49,7f905bce0d6b41d5,Fire Restaurant,"Mini Stroopwafel, Salted Caramel & Peanut Praline",,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i50,7f905bce0d6b41d5,Fire Restaurant,"Nitrogen Ice Cream, Cream Cheese & Raspberry Coulis",,,,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i51,7f905bce0d6b41d5,Fire Restaurant,Fire Ritual,"Bourbon, honey, Balinese tamarillo fruit, pineapple, and honey orange peel.",200000,Rp 200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i52,7f905bce0d6b41d5,Fire Restaurant,Liquid of Fire,"W-Made berry vodka, dates, chili, fresh sage, and lemon juice.",180000,Rp 180000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i53,7f905bce0d6b41d5,Fire Restaurant,The Brave Jatayu,"Gin, sweet vermouth, tumeric lawak, prosecco, and elderflower.",200000,Rp 200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i54,7f905bce0d6b41d5,Fire Restaurant,Hanoman Obong,"Tequila, triple sec, soursop shrub, fresh lemon juice, and green tea salt.",200000,Rp 200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i55,7f905bce0d6b41d5,Fire Restaurant,Balinese Flower Bath,"East indies spice gin, magnolia & pepper syrup, and lemon juice.",170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i56,7f905bce0d6b41d5,Fire Restaurant,Bunga Kemangi,"East indies spice gin, W-Made fresh kemangi & lemongrass cordial, lemon juice, and elderflower tonic water.",170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i57,7f905bce0d6b41d5,Fire Restaurant,Truffle Marry,"Vodka, tomato juice, Worcestershire sauce, hot sauces, salt pepper, and truffle oil.",180000,Rp 180000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i58,7f905bce0d6b41d5,Fire Restaurant,Rose Tea Gimlet,"East indies spice gin, homemade lemon rose sorbet, and early grey tea cordial.",170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i59,7f905bce0d6b41d5,Fire Restaurant,East Side,"Selaka ning crafted arak, tangerine, mint, and lemon Juice.",170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i60,7f905bce0d6b41d5,Fire Restaurant,Espresso Gula Aren,"Vodka, Nusantara cold brew, Kintamani espresso, and Pupuan-Tabanan gula aren.",170000,Rp 170000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i61,7f905bce0d6b41d5,Fire Restaurant,Nanigroni,"Saba grapa, campari, and mix vermouth.",200000,Rp 200000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i62,7f905bce0d6b41d5,Fire Restaurant,Pisang Bakar Old Fashion,"Ron barcelo gran anejo rum, chocolate bitter, and banana sugar.",190000,Rp 190000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i63,7f905bce0d6b41d5,Fire Restaurant,LOL,"Fresh lime, orange, lychee, and topped with lemonade.",90000,Rp 90000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i64,7f905bce0d6b41d5,Fire Restaurant,Apple Mint,"Fresh mint muddled, lime juice, apple juice, and vanilla syrup.",90000,Rp 90000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i65,7f905bce0d6b41d5,Fire Restaurant,Daun Kelor,"Mango, apple, jamu kunyit, and moringa leaf.",90000,Rp 90000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i66,7f905bce0d6b41d5,Fire Restaurant,W Whole Coconut,Fresh whole coconut.,90000,Rp 90000,IDR,https://www.firerestaurantbali.com/our-menus
+7f905bce0d6b41d5-i67,7f905bce0d6b41d5,Fire Restaurant,Premium Steaks,,,,IDR,https://www.firerestaurantbali.com/private-dining
+7f905bce0d6b41d5-i68,7f905bce0d6b41d5,Fire Restaurant,Seafood,,,,IDR,https://www.firerestaurantbali.com/private-dining
+859bc7a43fdcb738-i0,859bc7a43fdcb738,myCHEF,Mediterranean Sea Experience,Five-course private tasting menu featuring seafood,2200000,"IDR 2,200,000++",IDR,https://mychef.id/fine-dining/tasting-menu
+859bc7a43fdcb738-i1,859bc7a43fdcb738,myCHEF,Wagyu Experience,Five-course private tasting menu featuring Wagyu beef,2400000,"IDR 2,400,000++",IDR,https://mychef.id/fine-dining/tasting-menu
+859bc7a43fdcb738-i2,859bc7a43fdcb738,myCHEF,Wine Pairing,Select wines paired with the tasting menu,850000,"+IDR 850,000",IDR,https://mychef.id/fine-dining/tasting-menu
+83bd539e87c02503-i0,83bd539e87c02503,Newquay Brunch Spots,Persian Love Cake,"An iconic Sabzi choice, a delicious sweet treat.",,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i1,83bd539e87c02503,Newquay Brunch Spots,Mexican Bagel,"A fan favorite from Milk, perfect for post surf or hike.",,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i2,83bd539e87c02503,Newquay Brunch Spots,Iced Lavender Matcha with Coconut Milk,A refreshing drink made with Rude Health coconut milk.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i3,83bd539e87c02503,Newquay Brunch Spots,Breakfast Menu (Fern Pit Beach Kitchen),Includes a variety of egg and brioche baps.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i4,83bd539e87c02503,Newquay Brunch Spots,Sausage and Bacon Roll,A classic from Gwenna Teahouse served with scrambled eggs on toast and tea.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i5,83bd539e87c02503,Newquay Brunch Spots,Full English Breakfast (Newquay Rowing Club),Heard many amazing things about this breakfast option.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i6,83bd539e87c02503,Newquay Brunch Spots,Flaky Pastries,Great food options available at Pavilion Bakery.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i7,83bd539e87c02503,Newquay Brunch Spots,Matcha and Halloumi Caesar Salad Wrap,"Favorites from Basket, offering a flavor-packed experience.",,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i8,83bd539e87c02503,Newquay Brunch Spots,Seasonal Dishes and Health Elixirs,Nutritious meals offered at Sprout Health Foods Café.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i9,83bd539e87c02503,Newquay Brunch Spots,Crab Omelettes and Cornish Sausage Rolls,Full of Cornish twists on brunch favorites at Fore Street Café Bar.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i10,83bd539e87c02503,Newquay Brunch Spots,Vegan and Gluten-Free Treat Options,Available at Sea Spray Café along with stunning views.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i11,83bd539e87c02503,Newquay Brunch Spots,Fish Tacos,A light lunch option at The Fish House with a beach view.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+83bd539e87c02503-i12,83bd539e87c02503,Newquay Brunch Spots,Shakshuka and Loaded Breakfast Wraps,Offers locally sourced ingredients and excellent coffee at The Jam Jar.,,,IDR,https://weareglobaltravellers.com/2025/06/brunch-spots-newquay-cornwall
+d184f29fe0f1fd28-i0,d184f29fe0f1fd28,Gather,The Classic Brekkie,"Yogurt parfait, scrambled egg, sourdough, tropical fruits, black coffee (change to white coffee / matcha +8k)",,99,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i1,d184f29fe0f1fd28,Gather,The Avo Set,"Choco smoothie jar, poached egg, smashed avo, feta, sourdough, tropical fruits, black coffee (change to white coffee / matcha +8k)",,110,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i2,d184f29fe0f1fd28,Gather,The Gather Plate,"Scrambled eggs (3), parmesan, sausage, bacon, avo, sourdough, microgreens, balsamic feta tomatoes, black coffee (change to white coffee / matcha +8k)",,130,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i3,d184f29fe0f1fd28,Gather,Kiddie Meal,"Peanut butter on sourdough, banana, cacao nibs, cinnamon, honey, fruit sticks, tropical feelings juice.",,80,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i4,d184f29fe0f1fd28,Gather,The Brunch Toast,"Bacon, 2 poached eggs, sliced avo, cream cheese with shredded cucumber, microgreens & sourdough.",,90,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i5,d184f29fe0f1fd28,Gather,Shimeji n Egg,"Eggs, sautéed mushroom, parmesan, roasted tomatoes, & sourdough.",,85,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i6,d184f29fe0f1fd28,Gather,Smoked Salmon Toast,"Smoked salmon, egg salad with cream cheese and shredded cucumber, pickles, dill & sourdough.",,95,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i7,d184f29fe0f1fd28,Gather,Avo Fix,"Avo, sunny side-up eggs, baby tomatoes, feta, crispy kale & sourdough",,80,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i8,d184f29fe0f1fd28,Gather,Granola Heaven,"Granola bowl with strawberries, blueberries, banana, coconut flakes, cashew butter, & yogurt. Add on 70% dark chocolate +12k",,80,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i9,d184f29fe0f1fd28,Gather,Nutty Toast,"Cashew butter, peanut butter, banana, strawberries, cacao nibs, & sourdough.",,70,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i10,d184f29fe0f1fd28,Gather,French Toast Croissant,"Croissant french toast style, whipped cream, fresh fruits, almond shavings, house-made berries chia jam & honey.",,95,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i11,d184f29fe0f1fd28,Gather,Breakfast Tacos,"Two wheat tacos, refried beans, salad, avocado, pickled onion, peri-peri sauce and scrambled eggs.",,75,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i12,d184f29fe0f1fd28,Gather,Chili Scrambled Eggs,"Scrambled eggs, sourdough, house-made chili oil & side salad with a sprinkle of feta cheese.",,60,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i13,d184f29fe0f1fd28,Gather,Beet Hummus on Toast,"Beetroot hummus, poached eggs, pickled cabbage, cilantro, sumac, nutmix, feta cheese & sourdough.",,75,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i14,d184f29fe0f1fd28,Gather,Pesto on Toast,"Sunny side-up egg, cashew-based pesto, feta, roasted tomatoes, harissa & sourdough.",,85,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i15,d184f29fe0f1fd28,Gather,Green Punch,"Smoothie bowl made with spirulina, banana, avocado, almond butter, kale, lime, fresh fruits, seeds, & granola.",,85,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i16,d184f29fe0f1fd28,Gather,Tropical Moment,"Smoothie bowl made with banana, passion fruit, mandarine, mango, tropical fruits & granola.",,80,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i17,d184f29fe0f1fd28,Gather,Chocolate Bowl,"Smoothie bowl made with banana, dates, cashew butter, cocoa powder, coconut flakes, strawberries, premium dark chocolate, & granola.",,90,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i18,d184f29fe0f1fd28,Gather,Orange Chicken Salad,"Grilled chicken breast, quinoa, arugula, sunkist orange, almond shavings, sunﬂower seeds, feta cheese, pomegranate & orange dressing.",,110,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i19,d184f29fe0f1fd28,Gather,Kale and Co,"Kale, blue cheese, caramelised almonds, quinoa, broccoli, pumpkin & avocado.",,100,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i20,d184f29fe0f1fd28,Gather,Chicken Pesto Ciabatta,"Chicken, pesto, rocket, tomatoes, mozzarella, harissa, ciabatta.",,100,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i21,d184f29fe0f1fd28,Gather,Cauliflower Tacos,"Cauliflower wings, salad, pickles, spicy sauce, avo & cilantro. (2 pcs).",,80,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i22,d184f29fe0f1fd28,Gather,Nourish Bowl,"Falafel (6 pcs), beetroot hummus, quinoa, cherry tomatoes, cucumber, olives, herb feta, tahini dressing & sourdough croutons.",,110,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i23,d184f29fe0f1fd28,Gather,Tuna Ciabatta,"Tuna, red onion, herbs, avocado, tomatoes, pesto, spicy mayo.",,110,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i24,d184f29fe0f1fd28,Gather,Salami Pressed Croissant,"Salami, garlic aioli, rocket, tomatoes, mozzarella, candied croissant.",,90,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i25,d184f29fe0f1fd28,Gather,Yakiniku Ciabatta,"Thin-sliced beef, garlic aioli coleslaw, vietnamese pickles, chili mayo, coriander & green onion.",,120,IDR,https://gatherbali.com/menu
+d184f29fe0f1fd28-i26,d184f29fe0f1fd28,Gather,BYO breakfast platter,"Build your own breakfast platter. Start with a bread basket, add hot items of your choice, finish with condiments and select fresh fruits or a salad. Your breakfast, your rules.",,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i27,d184f29fe0f1fd28,Gather,All day breakfast,"Order breakfast anytime from our all-day à la carte menu. Think flavorful granola bowls or savory favorites like avocado on toast and shimeji mushrooms with eggs, topped with parmesan.",,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i28,d184f29fe0f1fd28,Gather,Breakfast sets,"Choose one of our breakfast sets, including eggs, sourdough, a yogurt jar, fresh fruit, and coffee.",,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i29,d184f29fe0f1fd28,Gather,Lunch bowls & fresh ciabattas,Our lunch bowls and ciabattas are made with the freshest ingredients and packed with nutrients.,,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i30,d184f29fe0f1fd28,Gather,Ceremonial matcha's,We take matcha very seriously. We source one of the finest ceremonial matchas from Japan.,,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i31,d184f29fe0f1fd28,Gather,"Fresh juices, smoothies & shots",Smoothies with premium protein powder or refreshing juices made from the best ingredients Bali has to offer.,,,IDR,https://gatherbali.com/
+d184f29fe0f1fd28-i32,d184f29fe0f1fd28,Gather,The best coffee,Enjoy our signature espresso blend with Arabica Bali Kintamani and Kochere Ethiopian beans or try a V60 with our rotating single origins.,,,IDR,https://gatherbali.com/
+6e4ea99ce827d868-i0,6e4ea99ce827d868,NUI Healthy Food,Spicy fajitas bowl,the perfect mix of fresh and spicy,,,IDR,https://makanmood.com/places/nui-healthy-food-canggu
+6e4ea99ce827d868-i1,6e4ea99ce827d868,NUI Healthy Food,Crispy chicken sandwich,"an easy, satisfying lunch",,,IDR,https://makanmood.com/places/nui-healthy-food-canggu
+6e4ea99ce827d868-i2,6e4ea99ce827d868,NUI Healthy Food,Thick Red Curry,On regular rotation here.,,,IDR,https://makanmood.com/areas/pererenan
+4b54ee3c26b084b1-i0,4b54ee3c26b084b1,Warung Sika,Ayam Bakar,BBQ chicken,,"Rp 100,000",AUD,https://balivillaescapes.com.au/warungs-canggu/
+4b54ee3c26b084b1-i1,4b54ee3c26b084b1,Warung Sika,Sate Ikan,Fish skewers,,"Rp 100,000",AUD,https://balivillaescapes.com.au/warungs-canggu/
+4b54ee3c26b084b1-i2,4b54ee3c26b084b1,Warung Sika,Sambal,Balinese chilli paste,,Free,AUD,https://balivillaescapes.com.au/warungs-canggu/
+ead15945a2f98d28-i0,ead15945a2f98d28,Bennelong Restaurant,bells-and-whistles cheese toastie,A gourmet cheese toastie with additional toppings,,$22,AUD,https://www.smh.com.au/goodfood/fine-dining-for-less-how-to-eat-in-the-citys-great-restaurants-without-breaking-the-bank-20150910-gjjfmp.html
+ead15945a2f98d28-i1,ead15945a2f98d28,Bennelong Restaurant,cheddar and pastrami sandwich,Sandwich complete with pickles,,$14,AUD,https://www.smh.com.au/goodfood/fine-dining-for-less-how-to-eat-in-the-citys-great-restaurants-without-breaking-the-bank-20150910-gjjfmp.html
+ead15945a2f98d28-i2,ead15945a2f98d28,Bennelong Restaurant,three-course meal,Friday lunch special with three courses,,$49,AUD,https://www.smh.com.au/goodfood/fine-dining-for-less-how-to-eat-in-the-citys-great-restaurants-without-breaking-the-bank-20150910-gjjfmp.html
+ead15945a2f98d28-i3,ead15945a2f98d28,Bennelong Restaurant,three courses and snack,Friday lunch menu from Cafe Paci,,$45,AUD,https://www.smh.com.au/goodfood/fine-dining-for-less-how-to-eat-in-the-citys-great-restaurants-without-breaking-the-bank-20150910-gjjfmp.html
+ead15945a2f98d28-i4,ead15945a2f98d28,Bennelong Restaurant,House-made charcuterie,A selection of cured meats and accompaniments.,,N/A,IDR,https://www.smh.com.au/lifestyle/life-and-relationships/off-to-bali-these-school-holidays-reserve-a-table-at-these-new-dining-hotspots-20260611-p60609.html
+ead15945a2f98d28-i5,ead15945a2f98d28,Bennelong Restaurant,Fattoush,Mediterranean salad with toasted bread.,,N/A,IDR,https://www.smh.com.au/lifestyle/life-and-relationships/off-to-bali-these-school-holidays-reserve-a-table-at-these-new-dining-hotspots-20260611-p60609.html
+86ed2e9480a1a5cb-i0,86ed2e9480a1a5cb,Uma Garden,Wood-fire steaks,Steaks cooked over an open flame.,,,IDR,https://umagardenbali.com/
+86ed2e9480a1a5cb-i1,86ed2e9480a1a5cb,Uma Garden,Pasta,Homemade pasta dishes.,,,IDR,https://umagardenbali.com/
+86ed2e9480a1a5cb-i2,86ed2e9480a1a5cb,Uma Garden,Seafood,Fresh seafood options.,,,IDR,https://umagardenbali.com/
+86ed2e9480a1a5cb-i3,86ed2e9480a1a5cb,Uma Garden,House bread,Baked in-house breads.,,,IDR,https://umagardenbali.com/
+86ed2e9480a1a5cb-i4,86ed2e9480a1a5cb,Uma Garden,"Shared, fire-cooked set menus","Includes steaks, whole fish, vegetables and bread cooked from the coals.",,,IDR,https://umagardenbali.com/welcome-dinner-in-bali-for-wedding-guests
+9a2fa1c6b356cf58-i0,9a2fa1c6b356cf58,Villa Songket,Continental Breakfast,"Comprising seasonal fresh cut fruit, freshly blended fruit juice, croissant or bread/toast, jam + tea and Balinese coffee.",,Included,IDR,https://www.villasongket.com/dining
+9a2fa1c6b356cf58-i1,9a2fa1c6b356cf58,Villa Songket,Eggs,Additions to breakfast offered at an extra cost.,,Extra cost,IDR,https://www.villasongket.com/dining
+9a2fa1c6b356cf58-i2,9a2fa1c6b356cf58,Villa Songket,Bacon,Additions to breakfast offered at an extra cost.,,Extra cost,IDR,https://www.villasongket.com/dining
+9a2fa1c6b356cf58-i3,9a2fa1c6b356cf58,Villa Songket,Sausages,Additions to breakfast offered at an extra cost.,,Extra cost,IDR,https://www.villasongket.com/dining
+9a2fa1c6b356cf58-i4,9a2fa1c6b356cf58,Villa Songket,Pastries,Additions to breakfast offered at an extra cost.,,Extra cost,IDR,https://www.villasongket.com/dining
+9a2fa1c6b356cf58-i5,9a2fa1c6b356cf58,Villa Songket,Balinese Cakes,Additions to breakfast offered at an extra cost.,,Extra cost,IDR,https://www.villasongket.com/dining
+53006f114d35a086-i0,53006f114d35a086,Dua Umalas,Pumpkin Ginger Soup,A warm and soothing soup that's perfect for when you're feeling under the weather.,,,IDR,https://duaumalas.shop/
+53006f114d35a086-i1,53006f114d35a086,Dua Umalas,Green Juice,Served as an icy smoothie with a touch of mint.,,,IDR,https://duaumalas.shop/
+53006f114d35a086-i2,53006f114d35a086,Dua Umalas,Wet Scrambled Eggs,"Simple and satisfying, pairs well with toast.",,,IDR,https://duaumalas.shop/
+53006f114d35a086-i3,53006f114d35a086,Dua Umalas,Chicken with Pesto Quinoa,A delicious combination of chicken and quinoa with pesto.,,,IDR,https://duaumalas.shop/
+53006f114d35a086-i4,53006f114d35a086,Dua Umalas,Matcha,Well-prepared matcha served at the perfect temperature.,,,IDR,https://duaumalas.shop/
+53006f114d35a086-i5,53006f114d35a086,Dua Umalas,Pumpkin Ginger Soup,An absolute lifesaver when feeling under the weather.,,,IDR,https://duaumalas.shop
+53006f114d35a086-i6,53006f114d35a086,Dua Umalas,Chicken with Pesto Quinoa,A delightful dish loved by many.,,,IDR,https://duaumalas.shop
+53006f114d35a086-i7,53006f114d35a086,Dua Umalas,Wet Scrambled Eggs with Toast,Simple yet satisfying breakfast option.,,,IDR,https://duaumalas.shop
+53006f114d35a086-i8,53006f114d35a086,Dua Umalas,Green Juice,Served as an icy smoothie with a touch of mint.,,,IDR,https://duaumalas.shop
