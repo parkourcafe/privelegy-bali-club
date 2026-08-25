@@ -20,6 +20,12 @@ creates. Run it second and those 107 silently insert nothing.
 Attaches each list to its venue, matched by website domain **and category**, so
 a hotel domain shared by a restaurant, a spa and a gym resolves to the spa.
 
+**A venue may hold only one public menu.** `menus_one_public_per_venue_idx` is
+unique on `venue_slug` where status is `source_snapshot` or `published` — the
+kind is irrelevant. A venue that already carries a food menu therefore cannot
+also carry a spa list, so the guard skips it. Of the 124 statements, 105 insert,
+18 are skipped for that reason and 1 has no matching venue.
+
 15 collected lists are deliberately not here — a wrong price is worse than no
 price:
 

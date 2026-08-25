@@ -7,9 +7,10 @@ with target as (
   select t.slug, 'Nikara Spa Berawa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.nikaraspa.com/nikara-spa-berawa-price', 'Official Nikara Spa Berawa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6f439b9a36e366b7f6b06c4bf195a7fafb1da043df706d94a068eb7a9d0514d9', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '6f439b9a36e366b7f6b06c4bf195a7fafb1da043df706d94a068eb7a9d0514d9', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -29,9 +30,10 @@ with target as (
   select t.slug, 'Taman Air Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tamanairspa.com/taman-air-spa-price-list', 'Official Taman Air Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '078993eb1479707e4524a603315dffd81a69d35655e76e936879e2cd4de87296', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '078993eb1479707e4524a603315dffd81a69d35655e76e936879e2cd4de87296', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -51,9 +53,10 @@ with target as (
   select t.slug, 'Jimbaran Puri Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.belmond.com/en/hotels/asia/indonesia/jimbaran-puri-bali/wellness?srsltid=AfmBOor2D9uIgoVdKJpOpU0RIX6r9-DCv5JrA-3KAEKFIPywRXvNk1UC', 'Official Jimbaran Puri Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2eb6146e17b974c983586a0cb8040765f1aba55e13825f863e5049c30874dd5a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2eb6146e17b974c983586a0cb8040765f1aba55e13825f863e5049c30874dd5a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -73,9 +76,10 @@ with target as (
   select t.slug, 'Santhika Retreat Center treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.santhikaretreatcenter.com/spa-bali?srsltid=AfmBOoqAFKqsR1J8jfOY3rldkJKNQgO2DSZ3v2RlJeLQiwB2ubQrHL-Y', 'Official Santhika Retreat Center price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8d9c4fedfff913ab0ec2ef54b5775a1e243cfc540fc1de292c461287a5d89bb1', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '8d9c4fedfff913ab0ec2ef54b5775a1e243cfc540fc1de292c461287a5d89bb1', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -95,9 +99,10 @@ with target as (
   select t.slug, 'Hesa Wellness Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hesaspa.com/', 'Official Hesa Wellness Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2a1826e5364b9da45458a3c2a5d0daaae31d280ede18dd85f436297c7e567cab', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2a1826e5364b9da45458a3c2a5d0daaae31d280ede18dd85f436297c7e567cab', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -117,9 +122,10 @@ with target as (
   select t.slug, 'Ubud Traditional Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ubudtraditionalspa.com/massage-treatments', 'Official Ubud Traditional Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0ab8c98d92c38445c524331f118b12d45d36929357d2fd3fbea660765289484c', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0ab8c98d92c38445c524331f118b12d45d36929357d2fd3fbea660765289484c', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -139,9 +145,10 @@ with target as (
   select t.slug, 'Putri Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.putribalispa.com/', 'Official Putri Bali Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8c50a36d8b3405109d3d4e9a0aebecb70670398261d0d4d0a60846ff62f59107', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '8c50a36d8b3405109d3d4e9a0aebecb70670398261d0d4d0a60846ff62f59107', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -161,9 +168,10 @@ with target as (
   select t.slug, 'Therapy Day Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://therapy.co.id/pages/spa-menu', 'Official Therapy Day Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '44d274cf4c3316863004fa969da7562ab3992454573ec302795018dcf5f4eb9a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '44d274cf4c3316863004fa969da7562ab3992454573ec302795018dcf5f4eb9a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -183,9 +191,10 @@ with target as (
   select t.slug, 'Spa Bali Moon treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spabalimoon.com/seminyak/', 'Official Spa Bali Moon price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '03de49c5836f5d73a316fe746a41e17820d0480e92986024d8bf8781b61d8ca4', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '03de49c5836f5d73a316fe746a41e17820d0480e92986024d8bf8781b61d8ca4', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -205,9 +214,10 @@ with target as (
   select t.slug, 'Prana Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://pranaspaseminyakbali.com/images/PranaSpa_Nov2024.pdf', 'Official Prana Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '71976d4ea15dcc7d1e775dd2ca0b958a707cffc5c94cedb42ef669f0151ec921', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '71976d4ea15dcc7d1e775dd2ca0b958a707cffc5c94cedb42ef669f0151ec921', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -227,9 +237,10 @@ with target as (
   select t.slug, 'The Spa at Hotel Nikko Bali Benoa Beach treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hotelnikkobali-benoabeach.com/spa/', 'Official The Spa at Hotel Nikko Bali Benoa Beach price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'af5f22359f38b2d41840d15fe3f026a44a3c9d648910f65315ec509abb68782e', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'af5f22359f38b2d41840d15fe3f026a44a3c9d648910f65315ec509abb68782e', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -249,9 +260,10 @@ with target as (
   select t.slug, 'Tunjungsari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.tunjungsarispabali.com/spa-menu', 'Official Tunjungsari Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2a87ac60d8a1df4773f90a4d595ac46320a481e03ebdc0d28464e9137b15b700', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2a87ac60d8a1df4773f90a4d595ac46320a481e03ebdc0d28464e9137b15b700', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -271,9 +283,10 @@ with target as (
   select t.slug, 'Bali Bliss Massage treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baliblissmassage.com/spa-services', 'Official Bali Bliss Massage price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '943f780b5711fc54c7a5216a1d468d0f93a237daf81b4fcf383c102f17cc168a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '943f780b5711fc54c7a5216a1d468d0f93a237daf81b4fcf383c102f17cc168a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -293,9 +306,10 @@ with target as (
   select t.slug, 'Kapha Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://kaphaspa.com/menu', 'Official Kapha Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c35ef478c47d9174949d3948fa5378f1277fba2ebcd09dd4cd81c22d3dfc31a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5c35ef478c47d9174949d3948fa5378f1277fba2ebcd09dd4cd81c22d3dfc31a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -315,9 +329,10 @@ with target as (
   select t.slug, 'Bloo Lagoon Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bloolagoon.com/bloo-lagoon-spa-wellness', 'Official Bloo Lagoon Spa & Wellness price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '807adaaf536e6ff453ad469c4c59d092be162f8c9dd389b707710e991cd42a11', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '807adaaf536e6ff453ad469c4c59d092be162f8c9dd389b707710e991cd42a11', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -344,9 +359,10 @@ with target as (
   select t.slug, 'The Samaya Ubud-Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thesamaya.com/lumonata-plugins/custom-post/pdf/spa-menu-the-samaya-ubud-1751273163.pdf', 'Official The Samaya Ubud-Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6ae09b86318e891a5e1e73f8db260e5118db1a19dec141d64bfebf4e2d7f229e', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '6ae09b86318e891a5e1e73f8db260e5118db1a19dec141d64bfebf4e2d7f229e', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -366,9 +382,10 @@ with target as (
   select t.slug, 'Karsa Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://karsaspa.com/', 'Official Karsa Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '32971d9d514c8e944b084edb1906867c371806dd731ea78ede58facf6ab0bef8', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '32971d9d514c8e944b084edb1906867c371806dd731ea78ede58facf6ab0bef8', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -388,9 +405,10 @@ with target as (
   select t.slug, 'Jaens Spa Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://jaensspa.com/', 'Official Jaens Spa Ubud price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0bef90902d8cfa556701f35f1ea309847814a619df64ae06b3c3ca7088473af6', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0bef90902d8cfa556701f35f1ea309847814a619df64ae06b3c3ca7088473af6', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -410,9 +428,10 @@ with target as (
   select t.slug, 'Sang Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://sangspa.com/', 'Official Sang Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '863be21b551d0d70146a6f2a54f31ba7122e556f0ed3ef6264b4fc794e6a3bb3', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '863be21b551d0d70146a6f2a54f31ba7122e556f0ed3ef6264b4fc794e6a3bb3', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -432,9 +451,10 @@ with target as (
   select t.slug, 'Fajar Bali Luxury Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://fajarbalispa.com/spa-menu-luxury', 'Official Fajar Bali Luxury Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5557ad2ab6207b1d05cc7a30126b0f49f9fd0b1674e0ead43ca49ff727fa4a13', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5557ad2ab6207b1d05cc7a30126b0f49f9fd0b1674e0ead43ca49ff727fa4a13', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -454,9 +474,10 @@ with target as (
   select t.slug, 'Beach House by Tonic treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.beachhousebytonic.com/treatments', 'Official Beach House by Tonic price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'd212419fe7ecebfd60c7025ffba589acff800b6be141013b48ccbd975ab990a6', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'd212419fe7ecebfd60c7025ffba589acff800b6be141013b48ccbd975ab990a6', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -476,9 +497,10 @@ with target as (
   select t.slug, 'Espace Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://espacespabali.com/our-services/aromatherapy-therapeutic-massages', 'Official Espace Spa Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '030dc43437740bef7599e4d37e3effce6b4270bc86217b3807101df922608a12', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '030dc43437740bef7599e4d37e3effce6b4270bc86217b3807101df922608a12', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -498,9 +520,10 @@ with target as (
   select t.slug, 'Hati Thai treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hatithai.id/hati-thai-canggu/', 'Official Hati Thai price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '69e0319e5c71bfc5aa6dcd3c4a3fe28adee2350ee761d4a1de67cd7cbd60bc57', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '69e0319e5c71bfc5aa6dcd3c4a3fe28adee2350ee761d4a1de67cd7cbd60bc57', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -520,9 +543,10 @@ with target as (
   select t.slug, 'Chill Reflexology treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://chillreflexologybali.com/', 'Official Chill Reflexology price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'db00312a55a27b02b28e3ad53633a73340564bba7c6e630461d231c61d0ef8f8', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'db00312a55a27b02b28e3ad53633a73340564bba7c6e630461d231c61d0ef8f8', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -542,9 +566,10 @@ with target as (
   select t.slug, 'Beautyfulspa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://beautyfulspabali.com/', 'Official Beautyfulspa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f9b70c72f17961ca30751ba3f5d087e5ecbd3c3d110f3c72207cd355bf05ac21', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'f9b70c72f17961ca30751ba3f5d087e5ecbd3c3d110f3c72207cd355bf05ac21', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -556,13 +581,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Traditional Massage', 'Aloe Glow Massage (90 min)', 'A soothing massage using natural aloe vera gel to cool and deeply hydrate the skin, helping to reduce redness, irritation, and dryness especially after sun exposure. Perfect for sensitive skin or for restoring your natural glow after a day in the tropical sun.', 300000, 'IDR', 0), ('Traditional Massage', 'Bali Paradise Massage (90 min)', 'A traditional massage inspired by Balinese healing techniques, combining gentle hand pressure and acupressure to release tension, improve circulation, and deeply relax the body. Using pure coconut oil for a calming tropical experience.', 270000, 'IDR', 1), ('Other', 'Anti Cellulite (90 min)', 'A treatment designed to reduce the appearance of cellulite by stimulating blood circulation, breaking down fat deposits, and improving skin tone. It involves techniques like deep tissue massage, lymphatic drainage and using cupping.', 250000, 'IDR', 0), ('Other', 'Anti Cellulite (90 min)', 'A treatment designed to reduce the appearance of cellulite by stimulating blood circulation, breaking down fat deposits, and improving skin tone. It involves techniques like deep tissue massage, lymphatic drainage and using cupping.', 380000, 'IDR', 1), ('Other', 'Back Nirvana (90 min)', 'A targeted massage for the back and back legs designed to melt away muscle tension perfect for deep relaxation or physical recovery. specifically designed to support the needs of athletes or physically active individuals.', 160000, 'IDR', 2), ('Aromatherapy', 'Aromatherapy Massage (90 min)', 'Aromatherapy is a therapy using essential oils and warm oil from plants to relax, reduce stress, and improve well-being.', 300000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:28:30+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:28:30+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);
@@ -575,9 +600,10 @@ with target as (
   select t.slug, 'The Ark Recovery treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thearkrecovery.com/', 'Official The Ark Recovery price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '912f7de6bdbdaa26bf296fc0a6e7697f82be551befce317879fd49d90f830219', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '912f7de6bdbdaa26bf296fc0a6e7697f82be551befce317879fd49d90f830219', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -597,9 +623,10 @@ with target as (
   select t.slug, 'Urban Oasis treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.urbanoasis.world/', 'Official Urban Oasis price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '14649cb68a28a3d8a037478169357db8f4477a152e86af889f0ffa6923158580', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '14649cb68a28a3d8a037478169357db8f4477a152e86af889f0ffa6923158580', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -619,9 +646,10 @@ with target as (
   select t.slug, 'reSPAwn Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.respawnspabali.com/massage-prices', 'Official reSPAwn Spa Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '302e1082705d361fc423149ac5e37fa6d669829aaabeaf3d5adddbbcd5565e87', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '302e1082705d361fc423149ac5e37fa6d669829aaabeaf3d5adddbbcd5565e87', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -641,9 +669,10 @@ with target as (
   select t.slug, 'Tyce Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tychespabali.com/our-treatment', 'Official Tyce Spa Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '708c2d4f7c75654114900ed02f0c8f95211ab2e77accd7efc2c13c246bea8b4a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '708c2d4f7c75654114900ed02f0c8f95211ab2e77accd7efc2c13c246bea8b4a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -663,9 +692,10 @@ with target as (
   select t.slug, 'Udara Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.udara-bali.com/udara-spa-treatments/', 'Official Udara Bali Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4fc113ef2a191fc2a227770c3ce0ebee69863310bf76cb55a3ba7a86f084d715', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '4fc113ef2a191fc2a227770c3ce0ebee69863310bf76cb55a3ba7a86f084d715', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -685,9 +715,10 @@ with target as (
   select t.slug, 'Серф-лагерь в Чангу, Бали treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://wavehousebali.com/ru/canggu/packages', 'Official Серф-лагерь в Чангу, Бали price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '04804d7c06a5db4646d7baacd1bb8f21696d914c70717646e30d89bb5e5845f4', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '04804d7c06a5db4646d7baacd1bb8f21696d914c70717646e30d89bb5e5845f4', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -707,9 +738,10 @@ with target as (
   select t.slug, 'Bodyworks Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.bodyworksbali.com/treatments', 'Official Bodyworks Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b1ebfd21701a4812baa9753b023e2ea00fc1aa182ab7a49dd931cbd9b820ce1b', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'b1ebfd21701a4812baa9753b023e2ea00fc1aa182ab7a49dd931cbd9b820ce1b', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -729,9 +761,10 @@ with target as (
   select t.slug, 'SPA BALI treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spabali.co.id/spa-package', 'Official SPA BALI price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '58a5e8217b9030b3c0de28699072d57393bbb7219cf8b26cb8e444dd43adf050', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '58a5e8217b9030b3c0de28699072d57393bbb7219cf8b26cb8e444dd43adf050', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -751,9 +784,10 @@ with target as (
   select t.slug, 'The Spa at The Samaya Seminyak treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thesamayaspabali.com/', 'Official The Spa at The Samaya Seminyak price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '103b378aaf79879ea3984add4ddd32d952ec13ea89ee9894613004cb040efd17', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '103b378aaf79879ea3984add4ddd32d952ec13ea89ee9894613004cb040efd17', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -773,9 +807,10 @@ with target as (
   select t.slug, 'COZY SPA BALI treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://cozyspabali.com/', 'Official COZY SPA BALI price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '632d66a8949c496f8e4ebcf6e709c646acfc4629761e853ca8bd991a8e358728', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '632d66a8949c496f8e4ebcf6e709c646acfc4629761e853ca8bd991a8e358728', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -795,9 +830,10 @@ with target as (
   select t.slug, 'Asha Wellness& Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.asha-spa-wellness.com/', 'Official Asha Wellness& Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cd7b61cd2f3d299f17adbac13dafd629f87c85d97db71ba599c4188786eca2df', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'cd7b61cd2f3d299f17adbac13dafd629f87c85d97db71ba599c4188786eca2df', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -817,9 +853,10 @@ with target as (
   select t.slug, 'Anjali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://astaginaresort.com/facilities/anjali-spa/', 'Official Anjali Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'a25ded88b09e01ced9f6d8070d29af941c4bbd8d4259a343be6cf5d86a471cc3', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'a25ded88b09e01ced9f6d8070d29af941c4bbd8d4259a343be6cf5d86a471cc3', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -839,9 +876,10 @@ with target as (
   select t.slug, 'Glow Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balimandira.com/spa-treatments/', 'Official Glow Spa Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '898ee3ab6a7d01287460956f93b7b56cd6505a25e09af6baec12a58ae0311572', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '898ee3ab6a7d01287460956f93b7b56cd6505a25e09af6baec12a58ae0311572', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -861,9 +899,10 @@ with target as (
   select t.slug, 'Body Worship Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bodyworshipbali.com/our-services/', 'Official Body Worship Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '18ef4ae951ab80fbf7937deb59c678d4b6dab60d13a91a58f3f1c5b6311d5ea2', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '18ef4ae951ab80fbf7937deb59c678d4b6dab60d13a91a58f3f1c5b6311d5ea2', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -883,9 +922,10 @@ with target as (
   select t.slug, 'Yes Spa Bali & Yes Hair Bliss treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://yesspabali.com/services', 'Official Yes Spa Bali & Yes Hair Bliss price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e7dae3fdeed5b29fadd51e0e611282dae95e2a0a49d283017f493d05550f3959', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'e7dae3fdeed5b29fadd51e0e611282dae95e2a0a49d283017f493d05550f3959', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -905,9 +945,10 @@ with target as (
   select t.slug, 'Bali Green Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baligreenspa.com/', 'Official Bali Green Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'aa6eb7c67507ff77c69c672429da275142972ee0daee6b3e09a04239dfddeb55', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'aa6eb7c67507ff77c69c672429da275142972ee0daee6b3e09a04239dfddeb55', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -927,9 +968,10 @@ with target as (
   select t.slug, 'The Nest Beachside Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thenestbeachsidespa.com/spa-menu', 'Official The Nest Beachside Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '65f2f9c437c9bf0100ce35771218f5669d4d9608227998cbc2e9678364e99760', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '65f2f9c437c9bf0100ce35771218f5669d4d9608227998cbc2e9678364e99760', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -949,9 +991,10 @@ with target as (
   select t.slug, 'The Nest Boutique Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thenestboutiquespa.com/spa-menu', 'Official The Nest Boutique Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ea778d394c7f4be6e7c02e97647cbef1c7a5ebf7b8e02d0ff05c5aca4502e44f', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ea778d394c7f4be6e7c02e97647cbef1c7a5ebf7b8e02d0ff05c5aca4502e44f', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -971,9 +1014,10 @@ with target as (
   select t.slug, 'Sari Day Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://saridayspa.com/spa-menu', 'Official Sari Day Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7f5868202cc59ca9d6b97d786c696a73394421c2f6f505175c30ccd52e5a23f5', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '7f5868202cc59ca9d6b97d786c696a73394421c2f6f505175c30ccd52e5a23f5', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -993,9 +1037,10 @@ with target as (
   select t.slug, 'Koa Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.koashala.com/spa', 'Official Koa Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cf9bb62ee314677b5d411180fcdc924983f483fd8cc490f5b95c71d6b80782c8', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'cf9bb62ee314677b5d411180fcdc924983f483fd8cc490f5b95c71d6b80782c8', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1015,9 +1060,10 @@ with target as (
   select t.slug, 'The Lotus Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thelotuspabali.com/', 'Official The Lotus Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8b02c216a94af9101832e1d74669f1a7e371d2cdae7a9a6f63085a9cbc6f3abe', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '8b02c216a94af9101832e1d74669f1a7e371d2cdae7a9a6f63085a9cbc6f3abe', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1037,9 +1083,10 @@ with target as (
   select t.slug, 'Bali Orchid Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baliorchidspa.com/', 'Official Bali Orchid Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f57074ca65645a5dfa12a9d6ac0660334d9efc949b422099550108f6494daeac', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'f57074ca65645a5dfa12a9d6ac0660334d9efc949b422099550108f6494daeac', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1059,9 +1106,10 @@ with target as (
   select t.slug, 'Heavenly Spa by Westin treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.heavenlyspabali.com/', 'Official Heavenly Spa by Westin price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'dc98201f64404c6d06ad806df7e82d3cb90c0e1067fd40a255778efd40c5cc55', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'dc98201f64404c6d06ad806df7e82d3cb90c0e1067fd40a255778efd40c5cc55', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1081,9 +1129,10 @@ with target as (
   select t.slug, 'Chi Massage & Luxury Spa Nusa Dua Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.chidayspas.com/nusa-dua-bali', 'Official Chi Massage & Luxury Spa Nusa Dua Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'fa9ce98b7d33184a96399184fc7706d706afda939872e266ca23468e7f7e7b68', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'fa9ce98b7d33184a96399184fc7706d706afda939872e266ca23468e7f7e7b68', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1103,9 +1152,10 @@ with target as (
   select t.slug, 'Royal Orchid Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://royalorchidspa.com/', 'Official Royal Orchid Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6b462e0da0982013a8902ecf090a747298a8569dd73d6debd6b57028e3d78a16', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '6b462e0da0982013a8902ecf090a747298a8569dd73d6debd6b57028e3d78a16', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1117,13 +1167,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Royal Traditional Balinese Massage – 60 (60 min)', null, 385000, 'IDR', 0), ('Balinese Massage', 'Balinese Costume Photo – A (60 min)', null, 675000, 'IDR', 1), ('Shirodhara', 'Royal Shirodara Massage (60 min)', null, 975000, 'IDR', 0), ('Shirodhara', 'Royal Shirodara Package (180 min)', null, 1950000, 'IDR', 1), ('Lymphatic Massage', 'Royal Lymphatic Massage (90 min)', null, 525000, 'IDR', 0), ('Traditional Massage', 'Strawberry Spa Massage (75 min)', null, 500000, 'IDR', 0), ('Traditional Massage', 'Strawberry Spa Massage (75 min)', 'A wonderfully relaxing and fruity spa experience for kids. This soothing journey is designed to be safe and enjoyable for sensitive skin. Package includes: Gentle pressure massage with baby oil, Sweet and fragrant strawberry body scrub, Refreshing shower to finish.', 500000, 'IDR', 1), ('Flower Bath', 'Flower bath (30 min)', null, 400000, 'IDR', 0), ('Other', 'Princess Meni or Pedi (45 min)', null, 350000, 'IDR', 0), ('Other', 'Royal Creambath (60 min)', null, 480000, 'IDR', 1), ('Spa Package', 'Orchid Family Package (90 min)', null, 1785000, 'IDR', 0), ('Spa Package', 'Royal Iulur Package (120 min)', null, 680000, 'IDR', 1), ('Spa Package', 'Royal Refreshing Package (120 min)', null, 720000, 'IDR', 2), ('Spa Package', 'Royal Chocolate Package (120 min)', null, 900000, 'IDR', 3), ('Spa Package', 'Balinese Costume Photo Package – B (120 min)', null, 1125000, 'IDR', 4), ('Spa Package', 'Royal Sunburn Package (120 min)', null, 900000, 'IDR', 5), ('Spa Package', 'Royal Wine Package (120 min)', null, 1350000, 'IDR', 6), ('Spa Package', 'Royal Relaxing Package (180 min)', null, 1650000, 'IDR', 7), ('Spa Package', 'Royal Beauty Package (240 min)', null, 2100000, 'IDR', 8), ('Body Scrub', 'Princess Chocholate Scrub (30 min)', null, 280000, 'IDR', 0), ('Reflexology', 'Royal Foot/Reflexology Massage (60 min)', null, 420000, 'IDR', 0), ('Facial', 'Royal Facial (60 min)', null, 480000, 'IDR', 0), ('Manicure', 'Royal Manicure or Pedicure (60 min)', null, 525000, 'IDR', 0), ('Hot Stone', 'Royal Warm Stone Massage (120 min)', null, 975000, 'IDR', 0), ('Couple Massage', 'Royal Honeymoon Package – Couple (180 min)', null, 3600000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:28:30+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:28:30+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);
@@ -1136,9 +1186,10 @@ with target as (
   select t.slug, 'Zahra Luxury Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://zahraluxuryspa.com/treatments', 'Official Zahra Luxury Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '323cb133d6342ca64218fb8660b8b31597b971029a49ba37b62aa83107761aef', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '323cb133d6342ca64218fb8660b8b31597b971029a49ba37b62aa83107761aef', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1158,9 +1209,10 @@ with target as (
   select t.slug, 'Karma Spa Therapy treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://karmaspatherapy.com/', 'Official Karma Spa Therapy price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6fc3ccb31061b52a5858fd07cb7cc293a001e27ad48f90375ecdd76cd50941de', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '6fc3ccb31061b52a5858fd07cb7cc293a001e27ad48f90375ecdd76cd50941de', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1180,9 +1232,10 @@ with target as (
   select t.slug, 'SAMUH BEACH treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.sakalaresortbali.com/wp-content/uploads/2019/10/MENU-SAMUH-BEACH-min.pdf', 'Official SAMUH BEACH price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c37ce26f9e74cdc294b46790d925a5d92225d0e6f543f7a55f79c1fff6ac3c0', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5c37ce26f9e74cdc294b46790d925a5d92225d0e6f543f7a55f79c1fff6ac3c0', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1202,9 +1255,10 @@ with target as (
   select t.slug, 'Ijen Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ijenspa.com/treatments', 'Official Ijen Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2ea91b0c43b459da66e93a6e5535c7a10cee61e942bed203811b6d1794619329', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2ea91b0c43b459da66e93a6e5535c7a10cee61e942bed203811b6d1794619329', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1224,9 +1278,10 @@ with target as (
   select t.slug, 'The U Spa by Bali Relaxing Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balirelaxing.com/spa.php', 'Official The U Spa by Bali Relaxing Resort price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2b63c7bdca20b757039019eab0d57ac7cf55ee26bd280dfdfc67e27c6e1ea269', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2b63c7bdca20b757039019eab0d57ac7cf55ee26bd280dfdfc67e27c6e1ea269', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1246,9 +1301,10 @@ with target as (
   select t.slug, 'Calma Spa Jimbaran treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://calmaspabali.com/services-3', 'Official Calma Spa Jimbaran price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'af6edff1c03ec9abb7cb8c6f8b724f1252b984011b0ec462a7b1b19e284c43dc', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'af6edff1c03ec9abb7cb8c6f8b724f1252b984011b0ec462a7b1b19e284c43dc', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1268,9 +1324,10 @@ with target as (
   select t.slug, 'Bamboo Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.bamboospabali.com/', 'Official Bamboo Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '29f4a1a68f4705d9ce61fc74cce59d150192dcb5f55de70ffc986ac0b8c2fa71', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '29f4a1a68f4705d9ce61fc74cce59d150192dcb5f55de70ffc986ac0b8c2fa71', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1290,9 +1347,10 @@ with target as (
   select t.slug, 'De WAVE Family Massage & Beauty Salon treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.dewave.id/post/de-wave-family-massage-beauty-salon-akan-hadir-di-palangka-raya-dengan-treatment-lebih-lengkap', 'Official De WAVE Family Massage & Beauty Salon price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cb143158eebe5380780593ae89517e61d6ecfe41eef109991eaa4da63c06197d', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'cb143158eebe5380780593ae89517e61d6ecfe41eef109991eaa4da63c06197d', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1312,9 +1370,10 @@ with target as (
   select t.slug, 'Anantara Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.anantara.com/uploads/minor/anantara/documents/anantara-uluwatu-bali-resort/spa/spa-menu--price-list-2022.pdf', 'Official Anantara Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b80201aaa05b25df04007baf7053c882a6080b4f61343a1278608b5fcf2a8d25', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'b80201aaa05b25df04007baf7053c882a6080b4f61343a1278608b5fcf2a8d25', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1334,9 +1393,10 @@ with target as (
   select t.slug, 'Professional Massage Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://massageuluwatu.id/', 'Official Professional Massage Uluwatu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '166262d76d0079407e06cef302c434974e49e0e4826b781cb773268ff95cfe45', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '166262d76d0079407e06cef302c434974e49e0e4826b781cb773268ff95cfe45', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1356,9 +1416,10 @@ with target as (
   select t.slug, 'The Istana Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://theistana.com/facilities/spa/', 'Official The Istana Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '383416f2d282d595a84cc9413666c90a01301b8fff6955c4e27398d7154d1494', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '383416f2d282d595a84cc9413666c90a01301b8fff6955c4e27398d7154d1494', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1378,9 +1439,10 @@ with target as (
   select t.slug, 'Win Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://winbalispa.com/spa-treatments', 'Official Win Bali Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '49767faaf3cc4b30ca1c4998d4896e731637380603d119bd61a7153d2f61ba64', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '49767faaf3cc4b30ca1c4998d4896e731637380603d119bd61a7153d2f61ba64', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1400,9 +1462,10 @@ with target as (
   select t.slug, 'Zahra Spa Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://zahraspauluwatu.com/treatments/', 'Official Zahra Spa Uluwatu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '156c9dd2e01cde5b7769b1e5e9652442d4321afdf4f25edd0f5de17600ec5345', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '156c9dd2e01cde5b7769b1e5e9652442d4321afdf4f25edd0f5de17600ec5345', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1422,9 +1485,10 @@ with target as (
   select t.slug, 'ATMOS BodyLab treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://atmos-steam.com/bali/bodylab', 'Official ATMOS BodyLab price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '99653d8c38fdb94138f1c64dfa7c15cd404be5235850e3022abbec778ad8cec6', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '99653d8c38fdb94138f1c64dfa7c15cd404be5235850e3022abbec778ad8cec6', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1444,9 +1508,10 @@ with target as (
   select t.slug, 'OAZA Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://oazabali.com/uluwatu/', 'Official OAZA Uluwatu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ff00850f3544871511a4a59b6e28ae093a9b99aa010850660c2390fd24324366', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ff00850f3544871511a4a59b6e28ae093a9b99aa010850660c2390fd24324366', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1466,9 +1531,10 @@ with target as (
   select t.slug, 'Pelangi Villa Sidemen treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://pelangivillassidemen.com/experience/', 'Official Pelangi Villa Sidemen price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cb5e64bb4d9e9541e7cb3ef5716495c63cccba0a4f813614625bebbaf215face', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'cb5e64bb4d9e9541e7cb3ef5716495c63cccba0a4f813614625bebbaf215face', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1488,9 +1554,10 @@ with target as (
   select t.slug, 'Riverside Spa at Ulaman treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://riversidespabyulaman.com/treatments', 'Official Riverside Spa at Ulaman price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '694c0dbd7319c9d84ef7853fb41b0a8850c49fda62d3b9c4641ad122d650f1b1', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '694c0dbd7319c9d84ef7853fb41b0a8850c49fda62d3b9c4641ad122d650f1b1', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1510,9 +1577,10 @@ with target as (
   select t.slug, 'Amed Roda Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://amedrodaspa.com/', 'Official Amed Roda Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '89e2830db29c0a6446c94a7a51b9fda81d7cea965aca640d15f9ea368830e6ac', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '89e2830db29c0a6446c94a7a51b9fda81d7cea965aca640d15f9ea368830e6ac', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1532,9 +1600,10 @@ with target as (
   select t.slug, 'Alala Amed Spa & Boutique treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.alalaamedspaboutique.com/', 'Official Alala Amed Spa & Boutique price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3b5c2b607ca647580804951c863192e727f7c188a2a585491e2e379a0a8dea1f', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '3b5c2b607ca647580804951c863192e727f7c188a2a585491e2e379a0a8dea1f', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1554,9 +1623,10 @@ with target as (
   select t.slug, 'Hotel Uyah Amed & Spa Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.hoteluyah.com/en/hotel-uyah-amed-bali/spa-massage-reflexology-therapies', 'Official Hotel Uyah Amed & Spa Resort price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b04ebfe988f206f3ef895d05c329a751db6745824bed924d890d56914e182a15', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'b04ebfe988f206f3ef895d05c329a751db6745824bed924d890d56914e182a15', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1576,9 +1646,10 @@ with target as (
   select t.slug, 'Karma Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://storage.karmagroup.com/assets/karmagroup.com/2024/07/K_Spa-Menu_20240531.pdf', 'Official Karma Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '72ce6b04efc4a36771b09d369c8640486616f3ecec96897fd623f237e06dfe09', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '72ce6b04efc4a36771b09d369c8640486616f3ecec96897fd623f237e06dfe09', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1598,9 +1669,10 @@ with target as (
   select t.slug, 'Jaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.puribaguscandidasa.com/spa-wellness/', 'Official Jaya Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5e026a75fc5a522f8a8f38913ea0f0b9682528558eda482aced972fb48ff1286', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5e026a75fc5a522f8a8f38913ea0f0b9682528558eda482aced972fb48ff1286', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1620,9 +1692,10 @@ with target as (
   select t.slug, 'The Green Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.okdiversbali.com/resort-spa', 'Official The Green Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'df97c7379e57d2f193dd57cb19584fa649f66dad45a226af3fa4a273b95f6c83', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'df97c7379e57d2f193dd57cb19584fa649f66dad45a226af3fa4a273b95f6c83', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1642,9 +1715,10 @@ with target as (
   select t.slug, 'RND Lovina Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rndlovinaspa.com/', 'Official RND Lovina Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'c7a92a1bca57d080a303b2c5ca2727b583d9fb25b64849ed0a3585cd18988218', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'c7a92a1bca57d080a303b2c5ca2727b583d9fb25b64849ed0a3585cd18988218', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1664,9 +1738,10 @@ with target as (
   select t.slug, 'Jaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://puribaguslovina.com/index.php/spa-wellness', 'Official Jaya Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b3d99a45cb78f338d37b389d7233431ddb2799a81cc69ab2880c8c21696c872c', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'b3d99a45cb78f338d37b389d7233431ddb2799a81cc69ab2880c8c21696c872c', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1678,13 +1753,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Hair Treatment', 'Hair Spa Treatment (60 min)', 'An extraordinary treatment and deep conditioning for damaged and dry hair, using “L’oreal Hair Spa Nourishing Cream Bath” with supplement for the scalp.', 480000, 'IDR', 0), ('Anti-aging Facial', 'Anti Aging Face Treatment (60 min)', 'For those who concern about rejuvenating. This treatment uses special products formulated for lackluster skin.', 350000, 'IDR', 0), ('Other', 'Lovina Face Cleansing (60 min)', 'This signature facial treatment provides deep cleansing of all skin types.', 300000, 'IDR', 0), ('Other', 'Lovina After Sun-Body & Hair Care (90 min)', 'A perfect treatment for calming the burning sensation after sunbathing.', 550000, 'IDR', 1), ('Other', 'Lovina Gateway (180 min)', 'For two persons, exclusively designed for couples to enhance the harmony of body and mind.', 1650000, 'IDR', 2), ('Other', 'Lovina Heaven (150 min)', 'This signature treatment draws on the type of massage used over the centuries in the Royal Balinese Palace.', 635000, 'IDR', 3), ('Other', 'Jaya Traditional Healing (90 min)', 'This treatment is designed to simulate body warmth and relieve aching nerves, joints, and muscles.', 525000, 'IDR', 4), ('Scalp Treatment', 'Scalp & Hair Treatment (60 min)', 'A hair treatment followed by a Balinese scalp massage with Aloe Vera – Avocado conditioning cream.', 300000, 'IDR', 0), ('Pedicure', 'Pedicure (60 min)', 'Foot nail and cuticle treatment followed by foot massage.', 300000, 'IDR', 0), ('Manicure', 'Manicure (60 min)', 'Hand nail and cuticle treatment followed with hand massage.', 280000, 'IDR', 0), ('Traditional Massage', 'Traditional Lovina Body Massage (60 min)', 'A sensitive and powerful massage from Lovina Village which releases tension.', 350000, 'IDR', 0), ('Traditional Massage', 'Lovina Sense Body Massage (60 min)', 'A Lovina Village secret recipe with blends of essential oil extracts from Balinese spices and flower.', 350000, 'IDR', 1), ('Hot Stone', 'Warm Stone Massage (90 min)', 'A combination of traditional Balinese massage with warm stone therapy to relax and release tension.', 550000, 'IDR', 0), ('Neck & Shoulder', 'Lovina Back & Shoulder Massage (45 min)', 'It involves applying pressure to the feet and shoulder to affect a physical change in the body.', 230000, 'IDR', 0), ('Reflexology', 'Foot Reflexology (45 min)', 'A combination of ancient Indonesian and Chinese acupressure techniques to relax your feet and improve blood circulation.', 250000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:28:30+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:28:30+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);
@@ -1697,9 +1772,10 @@ with target as (
   select t.slug, 'Mahony Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mundukheavenluxuryvillas.com/spa/', 'Official Mahony Spa & Wellness price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '60fb10ade0f05d783990dbea6b96ac6150a2543fe5ecc186d88174b98ec47f36', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '60fb10ade0f05d783990dbea6b96ac6150a2543fe5ecc186d88174b98ec47f36', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1719,9 +1795,10 @@ with target as (
   select t.slug, 'Mondo Surf & Lifestyle Village treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mondosurfvillage.com/services/massage/', 'Official Mondo Surf & Lifestyle Village price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '464316735fb8f5c8ca7b2400cdbe31a0de33be1ca36afd3a65ac79c67bcded72', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '464316735fb8f5c8ca7b2400cdbe31a0de33be1ca36afd3a65ac79c67bcded72', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1741,9 +1818,10 @@ with target as (
   select t.slug, 'Putu Bali Spa Home Care treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://putubalispahomecare.com/Foot-Massage-Bali', 'Official Putu Bali Spa Home Care price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '34994d1e467f4d8320ca15b36a2a6d7412cf48dc4db450ae9af0a4d634481c4f', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '34994d1e467f4d8320ca15b36a2a6d7412cf48dc4db450ae9af0a4d634481c4f', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1763,9 +1841,10 @@ with target as (
   select t.slug, 'tlaga spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tlagaspabali.com/', 'Official tlaga spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7625f65c0d436b485bfd1faede8ae52d342e9bd0d1fb480720d14e28344a6c72', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '7625f65c0d436b485bfd1faede8ae52d342e9bd0d1fb480720d14e28344a6c72', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1785,9 +1864,10 @@ with target as (
   select t.slug, 'Green Tara Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://greentaraspa.com/our-massages/', 'Official Green Tara Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '07c1389194e5ca3b37eb965fa63cce13368998da0ff998bbece0a882879aabb6', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '07c1389194e5ca3b37eb965fa63cce13368998da0ff998bbece0a882879aabb6', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1807,9 +1887,10 @@ with target as (
   select t.slug, 'Bali Botanica Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://balibotanica.com/traditional-treatments', 'Official Bali Botanica Ubud price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '758dc937a6563a9a3174974ef61743eba8d3a91c9d91f2fb0a6f916143175136', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '758dc937a6563a9a3174974ef61743eba8d3a91c9d91f2fb0a6f916143175136', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1829,9 +1910,10 @@ with target as (
   select t.slug, 'Jhagat Spa Centre treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://jhagatspa.com/wp-content/uploads/2026/04/Jhagat_Spa_Merged_Menu-1_compressed.pdf', 'Official Jhagat Spa Centre price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '9c8fe7f3179a9a8245171a431df3243a741ee7da0cb2dbffe7c2cca5b7805f68', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '9c8fe7f3179a9a8245171a431df3243a741ee7da0cb2dbffe7c2cca5b7805f68', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1851,9 +1933,10 @@ with target as (
   select t.slug, 'Ubud Home Massage Service treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.ubudcenter.com/ubud-massage-spa', 'Official Ubud Home Massage Service price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '47c7121e1c400538c240ba7325d2b4098a830936306b7e2ae3b265569dbb4a1f', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '47c7121e1c400538c240ba7325d2b4098a830936306b7e2ae3b265569dbb4a1f', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1873,9 +1956,10 @@ with target as (
   select t.slug, 'Taru Pramana Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://balibeachsanur.com/hotel-facilities/taru-pramana-spa-wellness', 'Official Taru Pramana Spa & Wellness price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5a79dfbfe632b126cbdd6a34b34ffc8b184e1902357807436705e07cb9690cb0', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5a79dfbfe632b126cbdd6a34b34ffc8b184e1902357807436705e07cb9690cb0', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1895,9 +1979,10 @@ with target as (
   select t.slug, 'Leha Leha Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balilehaleha.com/bali-spa-nail-hand-foot-massage-facials-bodyscrub-treatments.html', 'Official Leha Leha Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0ec1dfd23a7a154dfe0cfe5306303b59f535500fbb212e7b14df13929a5cb9e7', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0ec1dfd23a7a154dfe0cfe5306303b59f535500fbb212e7b14df13929a5cb9e7', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1917,9 +2002,10 @@ with target as (
   select t.slug, 'Desa Seni treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://desaseni.com', 'Official Desa Seni price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '398fa3c4f4ba48deffcbbd530b520138c0d0871dfb665dbe1f0f6acc82d50a95', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '398fa3c4f4ba48deffcbbd530b520138c0d0871dfb665dbe1f0f6acc82d50a95', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1939,9 +2025,10 @@ with target as (
   select t.slug, 'Estetica Belle treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.esteticabelle.com/booking-services-sitemap.xml', 'Official Estetica Belle price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'd5f9ae6b4ecd8c260e693db44ff51e864f8515e60ab042308a35752d1adb3921', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'd5f9ae6b4ecd8c260e693db44ff51e864f8515e60ab042308a35752d1adb3921', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1961,9 +2048,10 @@ with target as (
   select t.slug, 'Mango Tree Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mangotreespabali.com', 'Official Mango Tree Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '98f559cf483ce31e0abd993bc09f5cd37292b2dd0865972bc60d22eda3bddf4d', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '98f559cf483ce31e0abd993bc09f5cd37292b2dd0865972bc60d22eda3bddf4d', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -1983,9 +2071,10 @@ with target as (
   select t.slug, 'Only Nails Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://onlynailsbali.com/our-services', 'Official Only Nails Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4007c79075b6768da6c42a5ef672920bb9b25ec742cfb91f035feb353b1bbdc9', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '4007c79075b6768da6c42a5ef672920bb9b25ec742cfb91f035feb353b1bbdc9', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2005,9 +2094,10 @@ with target as (
   select t.slug, 'Piccolina Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://piccolinabali.com/menu', 'Official Piccolina Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '714b4d6de23a02a38a2d0c3b128761f57e7308e9edbe0b9b255e250bcc45c8b7', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '714b4d6de23a02a38a2d0c3b128761f57e7308e9edbe0b9b255e250bcc45c8b7', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2027,9 +2117,10 @@ with target as (
   select t.slug, 'Rejuvie Aesthetic & Dermatology Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rejuvieclinic.com/price-list', 'Official Rejuvie Aesthetic & Dermatology Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4bf7fa49f0c7f14f52e59e3478ae4e409be99f36d18e80914072892cdc09099f', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '4bf7fa49f0c7f14f52e59e3478ae4e409be99f36d18e80914072892cdc09099f', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2049,9 +2140,10 @@ with target as (
   select t.slug, 'Griya Santrian Beach Resort & Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://santrian.com/griya-santrian/spa/treatment-at-ayodhya-bale.html', 'Official Griya Santrian Beach Resort & Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7e627c0ecd457adc26263573ebd50f506c393556873a3fcc99f2ff8f23cc29b3', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '7e627c0ecd457adc26263573ebd50f506c393556873a3fcc99f2ff8f23cc29b3', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2071,9 +2163,10 @@ with target as (
   select t.slug, 'The Shampoo Lounge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.shampoolounge.com/bookingseminyak', 'Official The Shampoo Lounge price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ffb2bf5c6cb2e9d625cd2de428ccc0c8077284297bbd277b274c99a7da35b946', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ffb2bf5c6cb2e9d625cd2de428ccc0c8077284297bbd277b274c99a7da35b946', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2093,9 +2186,10 @@ with target as (
   select t.slug, 'The Asa Maia treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.theasamaia.com/resources/media/user/1774856811-Spa_Menu.pdf', 'Official The Asa Maia price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e20d0291bbe319e6fe08258c80f2b2ff75f794ad2090b482b83c443701f57539', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'e20d0291bbe319e6fe08258c80f2b2ff75f794ad2090b482b83c443701f57539', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2115,9 +2209,10 @@ with target as (
   select t.slug, 'The Freebird Studio treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thefreebirdstudio.com/bookings', 'Official The Freebird Studio price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3117e7b4a5d85838175142cf22a16857c7e2f88850683965ca02b3f57601995b', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '3117e7b4a5d85838175142cf22a16857c7e2f88850683965ca02b3f57601995b', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2137,9 +2232,10 @@ with target as (
   select t.slug, 'The Temple Lodge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thetemplelodge.com', 'Official The Temple Lodge price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ce07bad7a70547262abe2912203eb0a000793fdc8c23884565e846f440d6f120', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ce07bad7a70547262abe2912203eb0a000793fdc8c23884565e846f440d6f120', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2159,9 +2255,10 @@ with target as (
   select t.slug, 'Yoga Barn Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://theyogabarn.com/wp-content/uploads/2026/05/YBW-All-Menu-Mei2026-A3.pdf', 'Official Yoga Barn Wellness price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c9f855f80051f2e0cb8adf9a38fc13a6bcad8a2c7a9b91850f6542e10691e4d', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5c9f855f80051f2e0cb8adf9a38fc13a6bcad8a2c7a9b91850f6542e10691e4d', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2181,9 +2278,10 @@ with target as (
   select t.slug, 'Ubud Sari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ubudsari.com/ubud-sari-basic-spa-treatment', 'Official Ubud Sari Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0bf53f8c48f9ebd9661f5dd71d818ba9a1e0af440ef1fa0fcd463d02d71ce70a', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0bf53f8c48f9ebd9661f5dd71d818ba9a1e0af440ef1fa0fcd463d02d71ce70a', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2203,9 +2301,10 @@ with target as (
   select t.slug, 'UMALAS treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://youspaexperience.com/wp-content/uploads/2025/03/You-Spa-Umalas-Menu_compressed.pdf', 'Official UMALAS price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '97888f683cd1e7e58aa8eab35e3676a99480257a1d1437efa4b591694d545798', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '97888f683cd1e7e58aa8eab35e3676a99480257a1d1437efa4b591694d545798', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2225,9 +2324,10 @@ with target as (
   select t.slug, 'Rika Beauty & Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rikaspa.com/spa-uluwatu/', 'Official Rika Beauty & Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'eccc77890199b98a2318a37d5d4194aa4d3a0622dce91e2a56bde53f5e81222e', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'eccc77890199b98a2318a37d5d4194aa4d3a0622dce91e2a56bde53f5e81222e', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2239,13 +2339,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Balinese Massage (60 min)', 'A traditional Balinese massage.', 200000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (90 min)', 'A traditional Balinese massage.', 290000, 'IDR', 1), ('Balinese Massage', 'Traditional Balinese Massage (60 min)', 'The classic: long flowing palm strokes, thumb pressure along the muscle lines and warm coconut oil.', 200000, 'IDR', 2), ('Balinese Massage', 'Traditional Balinese Massage (90 min)', 'The classic: long flowing palm strokes, thumb pressure along the muscle lines and warm coconut oil.', 290000, 'IDR', 3), ('Traditional Massage', 'Signature Surf Massage (60 min)', 'Built for recovery after surfing.', 240000, 'IDR', 0), ('Traditional Massage', 'Signature Surf Massage (60 min)', 'Firm, slow, focused work for tight shoulders and paddled-out surfers.', 240000, 'IDR', 1), ('Traditional Massage', 'Signature Surf Massage (90 min)', 'Firm, slow, focused work for tight shoulders and paddled-out surfers.', 320000, 'IDR', 2), ('Couple Massage', 'Couples Massage (60 min)', 'Two therapists, two tables, one private room — 60 or 90 minutes.', 400000, 'IDR', 0), ('Reflexology', 'Reflexology (60 min)', 'Pressure-point work through the soles and reflex zones.', 220000, 'IDR', 0), ('Foot Massage', 'Focused Foot Massage (30 min)', 'Focused 30-minute foot massage.', 130000, 'IDR', 0), ('Pregnancy Massage', 'Pregnancy Massage (60 min)', 'Firm, slow, focused work for tight shoulders.', 200000, 'IDR', 0), ('Pregnancy Massage', 'Pregnancy Massage (90 min)', 'Firm, slow, focused work for tight shoulders.', 290000, 'IDR', 1), ('Aromatherapy', 'Aromatherapy Massage (60 min)', 'Gentle, fragrant oil massage.', 220000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (90 min)', 'Gentle, fragrant oil massage.', 300000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:28:30+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:28:30+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);
@@ -2258,9 +2358,10 @@ with target as (
   select t.slug, 'StarChild Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://starchildubudspa.com/all-spa-2-services', 'Official StarChild Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ddacedad52f369a051b232d8337ec488fc4c1dcf1d26048281fcbe8d29496f2c', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ddacedad52f369a051b232d8337ec488fc4c1dcf1d26048281fcbe8d29496f2c', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2280,9 +2381,10 @@ with target as (
   select t.slug, 'Swatma treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.swatma.com/', 'Official Swatma price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0d1d473255e35e9b71b39628a27a8166728e29099056bd0d79de61f67c206639', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0d1d473255e35e9b71b39628a27a8166728e29099056bd0d79de61f67c206639', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2302,9 +2404,10 @@ with target as (
   select t.slug, 'Mahamaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://nyuhbalivillas.com/ubud/spa/', 'Official Mahamaya Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '1488a190b6a1d81f036351b87e8bcba022c560044bde62fb6229ea1fe7b10455', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '1488a190b6a1d81f036351b87e8bcba022c560044bde62fb6229ea1fe7b10455', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2324,9 +2427,10 @@ with target as (
   select t.slug, 'Parina Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://parinaspa.com/', 'Official Parina Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2d2dd33eccbfe904960811be29128ddb224c1401c22d9c2ffc579d00586ea9d2', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '2d2dd33eccbfe904960811be29128ddb224c1401c22d9c2ffc579d00586ea9d2', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2346,9 +2450,10 @@ with target as (
   select t.slug, 'Alam Shanti Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://alamindahbali.com/page/alamshantispa', 'Official Alam Shanti Wellness price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '33089289529833e33b71ddb008394b8262eb52db6f7b82971bcab4b438ef8395', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '33089289529833e33b71ddb008394b8262eb52db6f7b82971bcab4b438ef8395', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2368,9 +2473,10 @@ with target as (
   select t.slug, 'Villa Sonia Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.villasoniaubud.com/en/stay-calm-and-down-to-harmony-place-with-traditional-healing-at-villa-sonia-ubud', 'Official Villa Sonia Ubud price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '31c7d7a1f579984bb713c01e59b2a31f49a2e4a3bcedf8d5bac74cb75f6e21f5', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '31c7d7a1f579984bb713c01e59b2a31f49a2e4a3bcedf8d5bac74cb75f6e21f5', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2390,9 +2496,10 @@ with target as (
   select t.slug, 'Gratia Spa Monkey Forest treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://gratiaspa.com/home-8', 'Official Gratia Spa Monkey Forest price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '9c3e76cc8530bbf2c90190d1bb21f1173c5a496a7dd770a7f1fd31510e0faeed', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '9c3e76cc8530bbf2c90190d1bb21f1173c5a496a7dd770a7f1fd31510e0faeed', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2412,9 +2519,10 @@ with target as (
   select t.slug, 'Tegal Mesari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.tegalmesarispa.com/', 'Official Tegal Mesari Spa price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f12f3efe978925a1cd7a4c37aa720e11b43ea3897045f0a08d0da868e8705a44', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'f12f3efe978925a1cd7a4c37aa720e11b43ea3897045f0a08d0da868e8705a44', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2434,9 +2542,10 @@ with target as (
   select t.slug, 'Tonic Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://canggu.tonic.co.id/treatments', 'Official Tonic Canggu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '08a0d54565dedd36805c0573140c4f6d460b78448b24a4a80781b8f41a097eec', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '08a0d54565dedd36805c0573140c4f6d460b78448b24a4a80781b8f41a097eec', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2456,9 +2565,10 @@ with target as (
   select t.slug, 'Rosies Nail Bar treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.rosiesnailbar.com/price-list-nusalembongan2', 'Official Rosies Nail Bar price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '04813e6336669056f376b91b25711960a8bee9fe2686e1fdbfa5695ccaa26bef', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '04813e6336669056f376b91b25711960a8bee9fe2686e1fdbfa5695ccaa26bef', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2478,9 +2588,10 @@ with target as (
   select t.slug, 'Bali Dream Villa Resort Echo Beach Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thebalidreamvillaresort.com/special-offers', 'Official Bali Dream Villa Resort Echo Beach Canggu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0f55cc5ea6944a43da7bf77545a99323b0d2a9e6123f44e978f8e6c8a641eb8e', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '0f55cc5ea6944a43da7bf77545a99323b0d2a9e6123f44e978f8e6c8a641eb8e', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2500,9 +2611,10 @@ with target as (
   select t.slug, 'Revive Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://revivebali.com/treatments/', 'Official Revive Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'eff36cac016d3dc17b5abbc5a8c0f1d8f33e3db1adda55d3ef09923e54e440e3', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'eff36cac016d3dc17b5abbc5a8c0f1d8f33e3db1adda55d3ef09923e54e440e3', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2522,9 +2634,10 @@ with target as (
   select t.slug, 'The Path Yoga Center treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thepathyogacenter.com/bookings', 'Official The Path Yoga Center price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '95535c546555442fe3f34f0d6c80d78075b40c7cfcdf7f520202e72f3f9cd8e7', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '95535c546555442fe3f34f0d6c80d78075b40c7cfcdf7f520202e72f3f9cd8e7', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2544,9 +2657,10 @@ with target as (
   select t.slug, 'Body & Soul Massage treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://inivie.com/experience_room/ayonacanggu/menu-spa.pdf', 'Official Body & Soul Massage price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '1a80006b3f311b571a31dc104b8b463f44d4a22968a59b02a1eb708a53cf0a60', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '1a80006b3f311b571a31dc104b8b463f44d4a22968a59b02a1eb708a53cf0a60', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2566,9 +2680,10 @@ with target as (
   select t.slug, 'Mello Spa Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mellospa.co/canggu/spa-prices-canggu', 'Official Mello Spa Canggu price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8daa29787993de35328be355081f2620f6d8ffe9856e76f979359c9283a8d7e3', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '8daa29787993de35328be355081f2620f6d8ffe9856e76f979359c9283a8d7e3', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2588,9 +2703,10 @@ with target as (
   select t.slug, 'Massage Sanur treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://massagesanur.id/', 'Official Massage Sanur price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8c6a7ebd73a213210f5c7c94b79d8cff32d4bbaa39e320104e300eda192309e2', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '8c6a7ebd73a213210f5c7c94b79d8cff32d4bbaa39e320104e300eda192309e2', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2610,9 +2726,10 @@ with target as (
   select t.slug, 'Blissful Senja treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://blissfulsenja.com/price-list', 'Official Blissful Senja price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '10c88b2c982c59c17c446b0c70a1aa807e29972ef8432b364542890cfebae8e7', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '10c88b2c982c59c17c446b0c70a1aa807e29972ef8432b364542890cfebae8e7', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2632,9 +2749,10 @@ with target as (
   select t.slug, 'salty face Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://saltyfacebali.com/service-menu', 'Official salty face Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5789924798607e375dc015c1ef1b1cc62a36176c911eb48edd5dad1da644f534', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '5789924798607e375dc015c1ef1b1cc62a36176c911eb48edd5dad1da644f534', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2654,9 +2772,10 @@ with target as (
   select t.slug, 'The Resting Koala treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://restingkoala.com/menu', 'Official The Resting Koala price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '000bfb5d80abee68d2c5520e72e9c41454e2d058d784976e55e673b4b9063d26', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '000bfb5d80abee68d2c5520e72e9c41454e2d058d784976e55e673b4b9063d26', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2676,9 +2795,10 @@ with target as (
   select t.slug, 'Fresh Beauty Lounge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://freshbeautylounge.com/uluwatu/', 'Official Fresh Beauty Lounge price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3ea9da2901e6197377f90975c068e89527cde3613a0a6a584f6f15ee61961914', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, '3ea9da2901e6197377f90975c068e89527cde3613a0a6a584f6f15ee61961914', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2698,9 +2818,10 @@ with target as (
   select t.slug, 'Spa Shell treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spashell.id/', 'Official Spa Shell price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'bc164f31c99336a75dd3d88d6062cad2809a4db726d4e22e32f00320d1363a51', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'bc164f31c99336a75dd3d88d6062cad2809a4db726d4e22e32f00320d1363a51', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2720,9 +2841,10 @@ with target as (
   select t.slug, 'Flex & Flow treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://flexandflow.fit/', 'Official Flex & Flow price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e2a4e28d9298157dd2855c36de7186461facab7c123e27cb3a4759ff04d0cf5b', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'e2a4e28d9298157dd2855c36de7186461facab7c123e27cb3a4759ff04d0cf5b', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2742,9 +2864,10 @@ with target as (
   select t.slug, 'Body Studio Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bodystudiobali.com/contact-us/', 'Official Body Studio Bali price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f8bb525bdd88ed4281a7a575551a8bd2a82c533ce54c05e32c49ab96ffef697e', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'f8bb525bdd88ed4281a7a575551a8bd2a82c533ce54c05e32c49ab96ffef697e', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2764,9 +2887,10 @@ with target as (
   select t.slug, 'Senses Spa at Biu Biu Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://biubiuresortbali.com/wellness-spa-experience', 'Official Senses Spa at Biu Biu Resort price list',
-         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ebd2bf712aa5917099ee5e3ca15c765f8115b71227db64663a3ec12660aa06e8', 'spa'
+         '2026-08-25T05:28:30+00:00'::timestamptz, null, '2026-11-23T05:28:30+00:00'::timestamptz, 'ebd2bf712aa5917099ee5e3ca15c765f8115b71227db64663a3ec12660aa06e8', 'spa'
   from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
+  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug
+                    and x.status in ('source_snapshot', 'published'))
   returning id
 ), secs as (
   insert into menu_sections (menu_id, name, position)
@@ -2778,13 +2902,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Other', 'Sunset Cliffside Bath', 'Balinese massage + cliff-edge open bath at sunset with flower petals, cocktails & fresh fruits.', 2890000, 'IDR', 0), ('Other', 'SENSES Luxury Retreat (120 min)', 'Balinese lulur scrub, 60-min massage, and Radiance Boost Facial — a complete luxury ritual.', 980000, 'IDR', 1), ('Other', 'Radiance Boost (25 min)', 'Cleansing, exfoliating, face mask and moisturizing with Pevonia Botanica. Leaves skin fresh and vibrant.', 396000, 'IDR', 2), ('Other', 'Nutrition Boost (50 min)', 'Hyaluronic Acid, Vitamin E & Carotene deeply hydrate and repair. Skin rendered smooth and rejuvenated.', 499000, 'IDR', 3), ('Other', 'Pure Balance (50 min)', 'Kaolin-based mask with Carrot oil, Green Apple & vitamins. Hydrates, brightens and purifies combination skin.', 520000, 'IDR', 4), ('Other', 'Calming & Cooling (50 min)', 'Zinc Oxide & Shea Butter calm sensitive skin. Diffuses redness and soothes irritation for a smooth complexion.', 541000, 'IDR', 5), ('Other', 'Marine Collagen (50 min)', 'Rich Marine Collagen combats dryness, dehydration, fine lines and wrinkles. Leaves skin plump, toned and glowing — perfect for holiday skin recovery.', 1072000, 'IDR', 6), ('Other', 'Mom to Be (50 min)', 'Gentle technique for expectant mothers. Soothes sore back and tired joints. Pure coconut oil.', 499000, 'IDR', 7), ('Other', 'Stress Relief (50 min)', 'Massage using trigger point therapy technique to release tension in the muscles of the back, neck and shoulder.', 520000, 'IDR', 8), ('Other', 'My After Sun Time (60 min)', 'Aloe vera body mask combined with gentle full-body massage. Reduces inflammation and relieves sunburn.', 540000, 'IDR', 9), ('Other', 'SENSES Signature (80 min)', 'Aromatherapy blended oil massage combining nurturing techniques and acupressure on the feet.', 690000, 'IDR', 10), ('Other', 'Serenity Bliss (80 min)', 'Deep tissue combined with hot stone. Improves blood flow and circulation to calm the mind.', 850000, 'IDR', 11), ('Other', 'Skin Soft & Glow (60 min)', 'Natural scrub + moisturizing mask. Choose from Green Tea, Coffee or Chocolate.', 570000, 'IDR', 12), ('Other', 'Renew & Refresh (75 min)', 'Energizing body massage with key essential oils, followed by express Pevonia facial for radiant, smooth skin.', 840000, 'IDR', 13), ('Other', 'Fruity Delight (75 min)', 'Mango & Passionfruit Scrub + Massage. Exotic tropical fruit aromas rich in vitamins.', 850000, 'IDR', 14), ('Other', 'SENSES Luxury Retreat (120 min)', 'Revitalizing Balinese lulur scrub, 60-min Balinese massage and Radiance Boost Facial.', 980000, 'IDR', 15), ('Other', 'Sanctuary of the Senses (120 min)', 'Tropical fruit sea salt scrub, relaxing body massage and Radiance Boost Facial — a complete sensory journey.', 1272000, 'IDR', 16), ('Other', 'Sunset Cocktail', '60-min massage · Cliff-edge bath with flower petals · 2 cocktails or mocktails · Fresh fruits.', 2890000, 'IDR', 17), ('Other', 'Sunset Wine', '60-min massage · Cliff-edge bath with flower petals · 1 bottle of wine · Fresh fruits.', 3390000, 'IDR', 18), ('Other', 'Sunset Champagne', '60-min massage · Cliff-edge bath with flower petals · 1 bottle Moët & Chandon · Fresh fruits.', 4690000, 'IDR', 19), ('Couple Massage', 'Romantic Couple (90 min)', 'SENSES Signature Massage plus your choice of body scrub — a shared luxury wellness journey.', 1750000, 'IDR', 0), ('Couple Massage', 'Romantic Couple (90 min)', 'A rejuvenating shared experience. Signature Massage followed by your choice of body scrub.', 1750000, 'IDR', 1), ('Facial', 'Sunburn Facial (25 min)', 'Specially designed for sun-exposed skin — calms, cools and restores the skin’s natural balance after sun exposure.', 344000, 'IDR', 0), ('Facial', 'Men Facial (50 min)', 'Phyto extracts & essential oils restore skin balance. Includes shoulder, scalp, hand and arm massage.', 957000, 'IDR', 1), ('Reflexology', 'Reflexology (50 min)', 'Stimulating reflex areas in the feet to improve circulation and restore the body’s natural balance.', 400000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (80 min)', 'Total relaxing massage with medium pressure to reduce stress and muscle aches.', 620000, 'IDR', 0), ('Shiatsu', 'Shiatsu (50 min)', 'Japanese finger pressure along meridian lines to restore energy flow and body balance.', 650000, 'IDR', 0), ('Aromatherapy', 'Thai Aroma Therapy (80 min)', 'Traditional Thai & Balinese techniques. Full body stretching followed by aroma oil massage.', 680000, 'IDR', 0), ('Hot Stone', 'Hot Stone (80 min)', 'Basalt volcanic stones with ancestral healing properties. Penetrating heat releases deep muscle tension.', 710000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue (80 min)', 'Targets muscle pain and stiffness. Focused on therapeutic muscle recovery.', 920000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:28:30+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:28:30+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);
