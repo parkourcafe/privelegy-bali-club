@@ -24,6 +24,7 @@ import {
   type DayAnswers,
 } from "@/lib/day-builder";
 import type { VenueWithPerk } from "@/lib/data";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
 
 // "My Day" is an interactive day-builder, not a directory. The traveller answers
 // a few questions (where they are — optionally via geolocation — who they're
@@ -36,11 +37,11 @@ import type { VenueWithPerk } from "@/lib/data";
 
 export const revalidate = 300;
 
-const BASE = "https://www.otherbali.com";
+const BASE = CANONICAL_SITE_ORIGIN;
 const PER_SLOT = 3;
 
 export const metadata: Metadata = {
-  title: "Today in Bali — find a place for the moment you're in | Other Bali",
+  title: "Today in Bali — find a place for the moment you're in",
   description:
     "Answer a few quick questions and get a short, practical Bali shortlist for today. Never paid placement.",
   alternates: { canonical: "/my-day" },

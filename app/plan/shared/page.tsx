@@ -34,7 +34,7 @@ export async function generateMetadata({
   const description = `${daysLabel(days)} in ${DISTRICTS[district]}, shared as a starting point. Open the public guide for places, menus, directions and official actions where available.`;
   const ogImage = `/plan/shared/og?m=${mood}&district=${district}&days=${days}`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: "/plan/shared" },
     robots: { index: false, follow: true },

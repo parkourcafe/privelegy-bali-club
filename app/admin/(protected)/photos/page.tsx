@@ -6,7 +6,7 @@ import { getPendingPhotoReviews, type PendingPhotoReview } from "./data";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Photo review · Other Bali",
+  title: "Photo review",
   robots: { index: false, follow: false },
 };
 

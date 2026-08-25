@@ -10,13 +10,14 @@ import { hotelRestaurantsHubIndexable } from "@/components/resort/HotelRestauran
 import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
 import { liveCollectionSlugs } from "@/lib/collections";
 import { staticLastModified, validLastModified } from "@/lib/seo/sitemap-last-modified";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
 
 // Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
 // several Supabase reads, and a per-request rebuild is needless load on a hot
 // endpoint. Newly published venues/districts still appear within the hour.
 export const revalidate = 3600;
 
-const BASE = "https://www.otherbali.com";
+const BASE = CANONICAL_SITE_ORIGIN;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [routes, hubs, spokes, catalogue, collectionSlugs] = await Promise.all([

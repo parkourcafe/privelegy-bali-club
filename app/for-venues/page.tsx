@@ -16,7 +16,7 @@ import { VENUES_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 // guaranteed visits or bookings from intent clicks.
 
 export const metadata: Metadata = {
-  title: "List your Bali venue on Other Bali",
+  title: { absolute: "List your Bali venue on Other Bali" },
   description:
     "Run a café, restaurant, warung, spa, bar, beach club or studio in Bali? Request a curated Other Bali page with official details, photos, video and verified action links.",
   alternates: { canonical: "/for-venues" },

@@ -14,7 +14,7 @@ import { WHATSAPP_NUMBER_DISPLAY, whatsappLink } from "@/lib/contact";
 // /api/venue-submission intake — no new DB entity, no payment, curated by hand.
 
 export const metadata: Metadata = {
-  title: "Add your property — partner with Other Bali",
+  title: { absolute: "Add your property — partner with Other Bali" },
   description:
     "Villa, hotel or resort in Bali? Add it to Other Bali, the resident-curated guide. Fill in your details and your own links, we build the page, and publish only once you approve — completely free.",
   alternates: { canonical: "/list-your-property" },

@@ -9,7 +9,7 @@ import { getFreshnessQueue, type AdminMenuReview } from "./data";
 import { archiveAction, archiveMenu, confirmAction, publishMenu, reviewMenu } from "./actions";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Freshness queue · Other Bali", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Freshness queue", robots: { index: false, follow: false } };
 
 const tone = {
   blocker: "border-red-200 bg-red-50 text-red-950",

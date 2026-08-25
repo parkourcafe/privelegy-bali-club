@@ -10,6 +10,11 @@ import MobileNav from "@/components/MobileNav";
 import { getLocale } from "@/lib/i18n/server";
 import { LOCALE_META } from "@/lib/i18n/locales";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
+import {
+  CANONICAL_SITE_ORIGIN,
+  OTHER_BALI_BRAND_NAME,
+  OTHER_BALI_CONTACT_EMAIL,
+} from "@/lib/site-origin-policy";
 
 // Other Bali — Final type system (approved 2026-07): Hanken Grotesk for
 // body/UI, Young Serif for headings, Gloock exclusively for the wordmark.
@@ -22,7 +27,7 @@ const gloock = Gloock({ weight: "400", subsets: ["latin"], variable: "--font-glo
 // Public launch label: Other Bali is the tourist-facing brand. "Bali Privilege"
 // remains internal/technical only.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.otherbali.com"),
+  metadataBase: new URL(CANONICAL_SITE_ORIGIN),
   referrer: "origin",
   // Google Search Console ownership verification. Emits
   // <meta name="google-site-verification" ...> in <head> on every page.
@@ -36,7 +41,7 @@ export const metadata: Metadata = {
   description:
     "Discover Bali together with resident-curated places, routes and practical plans for every moment. Less searching. More Bali.",
   manifest: "/manifest.webmanifest?v=5",
-  appleWebApp: { capable: true, title: "Other Bali", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: OTHER_BALI_BRAND_NAME, statusBarStyle: "default" },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: "/apple-touch-icon.png",
@@ -45,7 +50,7 @@ export const metadata: Metadata = {
     title: "Other Bali — the right place for the moment you're in",
     description:
       "Discover Bali together with resident-curated places, routes and practical plans for every moment.",
-    siteName: "Other Bali",
+    siteName: OTHER_BALI_BRAND_NAME,
     locale: "en_US",
     type: "website",
   },
@@ -72,32 +77,32 @@ export const viewport: Viewport = {
 // and one WebSite node with a SearchAction (sitelinks search box → /places?q=).
 // No sameAs is emitted because no official social profile is recorded in the
 // codebase and inventing one would violate the no-invented-content guardrail.
-const ORG_ID = "https://www.otherbali.com/#organization";
+const ORG_ID = `${CANONICAL_SITE_ORIGIN}/#organization`;
 const siteJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
       "@id": ORG_ID,
-      name: "Other Bali",
-      url: "https://www.otherbali.com",
-      logo: "https://www.otherbali.com/icon-512.png",
-      email: "support@otherbali.com",
+      name: OTHER_BALI_BRAND_NAME,
+      url: CANONICAL_SITE_ORIGIN,
+      logo: `${CANONICAL_SITE_ORIGIN}/icon-512.png`,
+      email: OTHER_BALI_CONTACT_EMAIL,
       description:
         "A Bali guide for moments, areas and trip plans.",
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.otherbali.com/#website",
-      name: "Other Bali",
-      url: "https://www.otherbali.com",
+      "@id": `${CANONICAL_SITE_ORIGIN}/#website`,
+      name: OTHER_BALI_BRAND_NAME,
+      url: CANONICAL_SITE_ORIGIN,
       publisher: { "@id": ORG_ID },
       inLanguage: "en",
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate: "https://www.otherbali.com/places?q={search_term_string}",
+          urlTemplate: `${CANONICAL_SITE_ORIGIN}/places?q={search_term_string}`,
         },
         "query-input": "required name=search_term_string",
       },

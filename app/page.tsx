@@ -19,7 +19,7 @@ import { DISTRICT_GRADIENT } from "@/lib/districts";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Other Bali — the right place for the moment you’re in",
+  title: { absolute: "Other Bali — the right place for the moment you’re in" },
   description:
     "Verified Bali places with real menus, prices and Best for / Not for context — so you know why to go today. No ads, no paid ranking. Less searching. More Bali.",
   alternates: { canonical: "/" },
