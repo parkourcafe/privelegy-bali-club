@@ -1,0 +1,515 @@
+{
+ "_meta": {
+  "date": "2026-08-10",
+  "method": "WebSearch из репо-среды; факты только с указанием источника; часы из агрегаторов помечаются low-trust",
+  "done": 61,
+  "total": 61,
+  "red_flags": [
+   "white-water-bingin: возможен снос Бингина 07.2025 — проверить статус"
+  ],
+  "finished": "2026-08-10",
+  "summary": {
+   "материал_есть": 53,
+   "тонкие_остаются_в_review": 8,
+   "стоп_флаги": 1,
+   "low_trust_часы": [
+    "workmates-coworking-space-and-cafe",
+    "signa-cafe",
+    "humans-cafe",
+    "made-s-bakery-cafe-playground",
+    "mavammy",
+    "amavi-canggu-bali",
+    "home-cafe-mengwi",
+    "izzi-rooftop-lounge-and-restaurant-and-bar-and-shisha"
+   ]
+  }
+ },
+ "amavi-canggu-bali": {
+  "cuisine": "Mediterranean; международная + индонезийская (nasi goreng, sate ayam), стейки, пицца",
+  "description": "Ресторан + бар-лаунж + бассейн; средиземноморский концепт с видом на рисовые поля",
+  "menu_highlights": "nasi goreng; Angus ribeye; пицца; sate ayam",
+  "hours": "10:00-24:00 ежедневно (агрегатор, LOW-TRUST — сверить с официальным)",
+  "sources": "amavicanggu.grandcentralgroup.co.id; baliready.com; restaurants-world.net; gofood.co.id",
+  "notes": "адрес в выдаче Berawa No.5 против No.9 в базе — не менять, пометить"
+ },
+ "artisan-pererenan": {
+  "cuisine": "современная итальянская",
+  "description": "Четвёртая точка балийской группы Artisan (Uluwatu, Ungasan, Bingin, Pererenan); основатели Charlotte Callow и Khairil Ibrahim; начиналась как бранч-кафе в Улувату",
+  "menu_highlights": "Golden Risotto (carnaroli, жёлтая паприка, креветка, яванский длинный перец); ньокки с рагу из утки и порчини с какао; Hot Tuna (тоннато, чеддер)",
+  "hours": "",
+  "sources": "artisangroup.id; spiritedasia.com/2025/11/artisan-pererenan-bali; luxuriousmagazine.com; dishcult.com/restaurant/artisanpererenan",
+  "notes": "бронь через Dish Cult"
+ },
+ "at06": {
+  "cuisine": "европейско-азиатская; индонезийская, западная, итальянская; vegetarian/vegan-friendly",
+  "description": "Мульти-концепт: ресторан + коворкинг + зал/wellness (cold plunge, джакузи) + события + кейтеринг. До сентября 2024 работал как Kajan Eatery, ребрендинг в AT 06",
+  "menu_highlights": "",
+  "hours": "06:00-22:00 ежедневно (about-страница at06bali.com)",
+  "sources": "at06bali.com/about-us; gofood.co.id; tripadvisor.com",
+  "notes": "сильная точка для work-friendly подборки Чангу"
+ },
+ "kopiten": {
+  "cuisine": "кофейня",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "gofood.co.id/bali/restaurant/kopiten-coffee-tumbak-bayuh",
+  "notes": "ТОНКО: в выдаче только GoFood-листинг; сайт отсутствует, IG kopiten_coffee. Полей на why_its_here может не хватить — кандидат остаться в review честно"
+ },
+ "dodo-pizza": {
+  "cuisine": "пиццерия (сеть Dodo, 1000+ точек в 24 странах)",
+  "description": "Дайн-ин и доставка; обещание «горячая пицца за 30 минут, иначе промокод на бесплатную»",
+  "menu_highlights": "фирменная Dodo pizza; Four Seasons; BBQ pizza; банановые роллы со сгущёнкой",
+  "hours": "",
+  "sources": "dodopizza.co.id/bali; gofood.co.id; menustic",
+  "notes": "единственная франшиза в партии — в why_its_here вести через доставку/скорость"
+ },
+ "focaccia-buddies": {
+  "cuisine": "фокачча-сэндвичи, кофе, матча",
+  "description": "«2 buddies, 1 dream»: новая точка в Пререна́не; собери-свою-фокаччу; топпинги mortadella, stracciatella",
+  "menu_highlights": "фокачча-сэндвичи; мортаделла+страчателла; кофе; матча",
+  "hours": "",
+  "sources": "instagram @focacciabuddies.bali; makanmood.com; threads",
+  "notes": "недавно открылись"
+ },
+ "blu-cafe-chef-made": {
+  "cuisine": "кафе",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "",
+  "notes": "ТОНКО: поиск не находит ничего своего; только IG @blu_cafe_chefmade. Кандидат остаться в review"
+ },
+ "home-cafe-mengwi": {
+  "cuisine": "кафе, healthy brunch",
+  "description": "Кафе в Тиинг-Тутул (Пререна́н/Менгви), самоописание «healthy brunch»",
+  "menu_highlights": "",
+  "hours": "07:00-17:00 ежедневно (Wanderlog/TA, LOW-TRUST; IG заявляет 7-23 — расходится, не публиковать)",
+  "sources": "tripadvisor; wanderlog; instagram @home.cafe.mengwi",
+  "notes": "часы противоречивы"
+ },
+ "ju-bali": {
+  "cuisine": "интернациональный comfort food с балийским акцентом; wood-fired пицца, паста, бургеры; веган-меню",
+  "description": "«Friends & Family Cafe» с джакузи-клубом между Семиньяком и Чангу (Умалас); 200 мест, детское меню, парковка; Jungle Lounge Bar с коктейлями",
+  "menu_highlights": "Tandoori Cauliflower; Creamy Mushroom Tagliatelle; Umalas Sunset, Jungle Negroni, Espresso Arak Martini",
+  "hours": "",
+  "sources": "ju-bali.com (menu, about, contact); tripadvisor",
+  "notes": "семейный кластер: джакузи + kids menu — редкий not_for наоборот"
+ },
+ "loop-cafe": {
+  "cuisine": "высокобелковые завтраки, specialty coffee",
+  "description": "Кафе про белок: яйца, лосось, творог, греческий йогурт, овсянка, sourdough; протеин-шейки для post-training; смузи-боулы, врапы, веган-опции",
+  "menu_highlights": "protein plates (wraps, scrambles, salmon bowls); 6 протеин-шейков",
+  "hours": "06:00-18:00 (loopbali.com)",
+  "sources": "loopbali.com (главная, /menu, /high-protein-pererenan)",
+  "notes": "чёткое позиционирование pre-gym/post-surf; gluten-free упоминается (findmeglutenfree)"
+ },
+ "mavammy": {
+  "cuisine": "европейская; кондитерская с бельгийским шоколадом",
+  "description": "Кафе-кондитерская на Batu Bolong: завтраки весь день, торты и десерты на high-quality ингредиентах; сильный Wi-Fi, кондиционер",
+  "menu_highlights": "carrot cake с манго-маракуйей; Lotus cheesecake; hot matcha latte; decaf",
+  "hours": "08:00-22:00 ежедневно (TikTok/агрегаторы, LOW-TRUST)",
+  "sources": "tripadvisor; horego; bali.live; flavorsofbali",
+  "notes": "десерт-первая точка; промо Пн утро и Пт вечер"
+ },
+ "momento-daily-resto": {
+  "cuisine": "ресто",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "",
+  "notes": "ТОНКО: поиск ничего своего не находит; только IG @momento.bali. Кандидат остаться в review"
+ },
+ "nuna-bali": {
+  "cuisine": "",
+  "description": "",
+  "menu_highlights": "waffle (из review-synthesis 08.08)",
+  "hours": "",
+  "sources": "",
+  "notes": "ТОНКО: ни сайта, ни IG в базе; поиск пуст. Кандидат остаться в review"
+ },
+ "paed-thai-canggu": {
+  "cuisine": "тайская, аутентичные рецепты",
+  "description": "Тайский ресторан группы Wonderspace на Padang Linjong; вид на рисовые поля, indoor+outdoor",
+  "menu_highlights": "Tom Yum Goong; Pad Thai; Green Curry; Mango Sticky Rice",
+  "hours": "07:30-22:00 ежедневно (thewonderspace.com)",
+  "sources": "thewonderspace.com/paedthaicanggu; tripadvisor",
+  "notes": "сеть Wonderspace — вторая точка в Сануре, не копировать"
+ },
+ "porch": {
+  "cuisine": "кофейня + чизкейки",
+  "description": "Кофейня на Raya Semat: 13 видов чизкейков как главная фишка",
+  "menu_highlights": "13 видов чизкейков",
+  "hours": "",
+  "sources": "tripadvisor (Porch Coffee Shop); bali.live",
+  "notes": "в базе имя Porch, в выдаче Porch Coffee Shop — совпадает по адресу Raya Semat No.1"
+ },
+ "seabird-bistro-and-coworking-canggu-by-wonderspace": {
+  "cuisine": "итальянский комфорт + французский акцент; бистро + коворкинг",
+  "description": "Бистро Wonderspace на Nelayan: бранчи, post-surf ланчи, ужины; веган/вег-опции; локальные вина и коктейли",
+  "menu_highlights": "Grilled Lobster Tagliatelle; Wagyu Steak Fries; Fish Burger; Rigatoni Vodka; Smoked Duck; Blue Hawaiian",
+  "hours": "07:00-22:00 ежедневно (thewonderspace.com)",
+  "sources": "thewonderspace.com/seabirdcanggu; tripadvisor",
+  "notes": ""
+ },
+ "shichirin-japanese-restaurant-canggu": {
+  "cuisine": "японская: тепаньяки, гюкацу, идзакая, суши/сашими",
+  "description": "Точка сети Shichirin (Ubud→Canggu→Seminyak, бренд Wonderspace); гриль-концепт, casual & stylish",
+  "menu_highlights": "Black Cod saikyo miso; Gyu katsu (Santuri Wagyu); суши/сашими",
+  "hours": "",
+  "sources": "thewonderspace.com/shichirincanggu; balibuddies",
+  "notes": "сеть ×3 — писать по точкам"
+ },
+ "shichirin-japanese-restaurant-seminyak": {
+  "cuisine": "японская: тепаньяки, гюкацу, идзакая",
+  "description": "Новейшая точка Shichirin — открыта 22.01.2025 на Dewi Saraswati",
+  "menu_highlights": "Black Cod saikyo miso; Gyu katsu; суши/сашими",
+  "hours": "",
+  "sources": "thewonderspace.com/shichirinseminyak(/menu); balibuddies (дата открытия); trip.com",
+  "notes": ""
+ },
+ "shichirin-japanese-restaurant-ubud": {
+  "cuisine": "японская: тепаньяки, гюкацу, идзакая",
+  "description": "Первая точка сети Shichirin, Jl. Bisma (соседствует с Habitat и Seven Paintings)",
+  "menu_highlights": "Black Cod saikyo miso; Gyu katsu; суши/сашими",
+  "hours": "",
+  "sources": "thewonderspace.com/shichirinubud(/menu)",
+  "notes": ""
+ },
+ "wohl-cafe": {
+  "cuisine": "кофейня",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "instagram @wohlcafe (пост)",
+  "notes": "ТОНКО: только IG; улица Sempol — кофейный кластер Пререна́на. Кандидат остаться в review"
+ },
+ "workmates-coworking-space-and-cafe": {
+  "cuisine": "кафе при коворкинге: Chicken Parmigiana, индонезийские позиции, боулы",
+  "description": "Коворкинг Wonderspace с кафе: быстрый Wi-Fi, вид на бассейн, для digital nomads",
+  "menu_highlights": "Chicken Parmigiana; fresh bowls; завтраки",
+  "hours": "08:00-23:00 (Traveloka, LOW-TRUST — ровно паттерн F9! сверить с официальным)",
+  "sources": "thewonderspace.com/workmatescanggu(/menu); traveloka; insightbali",
+  "notes": "часы 08-23 совпадают с заражённым кластером F9 — НЕ заливать без оф. подтверждения"
+ },
+ "xo-rooftop": {
+  "cuisine": "руфтоп-бар/ресторан",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "",
+  "notes": "ТОНКО: поиск не находит ничего; только IG @xo.rooftop. Кандидат остаться в review"
+ },
+ "cantina-classe-canggu": {
+  "cuisine": "итальянская: пицца ручной работы, паста, коктейли",
+  "description": "Итальянский ресторан Wonderspace на Padang Linjong (сосед Paed Thai)",
+  "menu_highlights": "Fettuccine Truffle Carbonara; Four-Cheese pizza",
+  "hours": "",
+  "sources": "thewonderspace.com/cantinaclasse; tripadvisor; thebalibible",
+  "notes": "сеть ×2 (Canggu, Ubud)"
+ },
+ "cantina-classe-ubud": {
+  "cuisine": "итальянская: пицца ручной работы, паста",
+  "description": "Точка Cantina Classe в Паянгане (Убуд); современный интерьер",
+  "menu_highlights": "Fettuccine Truffle Carbonara; Four-Cheese pizza",
+  "hours": "",
+  "sources": "tripadvisor (Payangan); wanderlog",
+  "notes": "адрес — Payangan, не центр Убуда"
+ },
+ "norii-japanese-restaurant-seminyak": {
+  "cuisine": "японская: суши, вагю, робатаяки",
+  "description": "Точка Norii в Умаласе (бренд Wonderspace)",
+  "menu_highlights": "Wagyu Don; Wagyu Skewers; Robatayaki Beef; коктейли с юдзу/матча/саке",
+  "hours": "",
+  "sources": "thewonderspace.com/noriiumalas",
+  "notes": "в базе district=seminyak, фактически Umalas — совпадает с адресом"
+ },
+ "norii-japanese-restaurant-ubud": {
+  "cuisine": "японская: суши, вагю, робатаяки",
+  "description": "Norii в Пелиатане (Убуд): японская классика в окружении зелени",
+  "menu_highlights": "Wagyu Don; Wagyu Skewers; Robatayaki Beef",
+  "hours": "",
+  "sources": "thewonderspace.com/noriiubud(/menu); tripadvisor (Peliatan)",
+  "notes": ""
+ },
+ "habitat-bistro": {
+  "cuisine": "французско-итальянский фьюжн",
+  "description": "Бистро Wonderspace на Jl. Bisma: паста ручной работы, вудфайр-пицца, джунгли и бассейн, лаунж с гамаками",
+  "menu_highlights": "Lobster Spaghetti (калабрийский чили, пармезан); ribeye с травяным маслом; лосось с пюре из цветной капусты",
+  "hours": "06:30-23:00 (habitat-bistro.com/wonderspace)",
+  "sources": "thewonderspace.com/habitatbistroubud; habitat-bistro.com; luxuryrestaurantawards",
+  "notes": ""
+ },
+ "ankhusa-restaurant-ubud-by-wonderspace": {
+  "cuisine": "балийская, индонезийская, международная",
+  "description": "Ресторан при Aksari Resort (Кендеран, Тегаллаланг): вид на джунгли, Royal Dining по традиции мегибунг — шеринг-стол",
+  "menu_highlights": "жареная утка; chicken satay; nasi goreng; oxtail",
+  "hours": "",
+  "sources": "thewonderspace.com/ankhusabali; tripadvisor (Kenderan); horego",
+  "notes": "формально district=ubud, физически Tegallalang при Aksari Resort"
+ },
+ "kojin-teppanyaki-restaurant-ubud-by-wonderspace": {
+  "cuisine": "японская: тепаньяки, кайсеки, ирори, омакасе",
+  "description": "Назван по японскому богу огня; «первый ирори на Бали»; локальные ингредиенты в японской технике; обед и ужин",
+  "menu_highlights": "тепаньяки-сеты; кайсеки; омакасе",
+  "hours": "обед и ужин (точных часов нет)",
+  "sources": "kojinbali.com; thewonderspace.com/kojinbali; whatsnewindonesia",
+  "notes": "тот же адрес Kenderan 88A, что Ankhusa (Aksari Resort)"
+ },
+ "brie-restaurant-and-cheesery": {
+  "cuisine": "европейская; единственный ресторан на Бали с собственной сыроварней",
+  "description": "Сыры делаются на месте из фермерского молока с Явы, цикл до 12 часов, варка 5 раз в неделю (~17-18ч); 1-й этаж — открытая кухня, 2-й — бар",
+  "menu_highlights": "Cheese Board; Truffle Tagliatelle; Brie Burger; домашняя буррата",
+  "hours": "",
+  "sources": "brie.chaika.team; tripadvisor (Sayan); bali.com; chope.co",
+  "notes": "уникальное УТП — единственная сыроварня"
+ },
+ "jungle-flower-restaurant": {
+  "cuisine": "ресторан при виллах",
+  "description": "Ресторан комплекса Jungle Flower Villas (10 вилл, открыт 2024) в Лодтундухе",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "tripadvisor (villas); booking.com",
+  "notes": "ТОНКО-СРЕДНЕ: ресторан существует как часть вилл; самостоятельного профиля нет. Формально проходит, но why_its_here будет короткий"
+ },
+ "la-portal-to-shamballah": {
+  "cuisine": "вегетарианская; арабско-индо-азиатский фьюжн; веган и gluten-free",
+  "description": "Ресторан + ивент-пространство + хилинг-комнаты в Пелиатане; live-музыка, воркшопы, подушки и подставки под ноутбук",
+  "menu_highlights": "Euro-Arabia Fusion plate; домашний хлеб; roasted cheese sandwich; кесадильи",
+  "hours": "Пн-Сб 10:30-21:00, Вс выходной (wanderlog/menustic, LOW-TRUST)",
+  "sources": "laportaltoshamballah.com; wanderlog; spinach.guide",
+  "notes": "один из немногих в партии с внятным not_for (не для мясоедов — меню вегетарианское, ступень 2)"
+ },
+ "mamu-ubud-cafe-shisha-hookah": {
+  "cuisine": "кафе + шиша-лаунж; боулы, пасты, шаурма, десерты ручной работы",
+  "description": "MAMU Garden Cafe в Масе: один из самых широких выборов табаков на Бали (Darkside, Musthave, Duft); кондиционированный лаунж + садовая терраса",
+  "menu_highlights": "боулы; запечённые овощи; шаурма; домашние десерты",
+  "hours": "",
+  "sources": "mamulounge.com; tripadvisor (Mas #3 of 29); restaurantguru",
+  "notes": "явный not_for: некурящие и семьи с детьми — шиша в зале (ступень 2)"
+ },
+ "seven-paintings-ubud-restaurant": {
+  "cuisine": "иммерсивный fine dining, 7 курсов",
+  "description": "«Dineamation» при Kaamala Resort: 7 блюд по 7 художникам (Микеланджело→Ван Гог) с 3D-проекциями; 16 мест за сессию; Вт-Вс, двери 18:00, шоу 19:00; дети до 6 не допускаются",
+  "menu_highlights": "Act 1 Michelangelo — фуа-гра с клюквой; Act 2 Banksy — карпаччо из осьминога; Act 7 Van Gogh — Starry Night Chocolate Bar",
+  "hours": "Вт-Вс, двери 18:00, шоу 19:00 (getyourguide/klook)",
+  "sources": "sevenpaintingsubud.com; getyourguide; klook; balibuddies",
+  "notes": "бронь обязательна (16 мест); адрес в базе Jl. Bisma — а площадка при Kaamala Resort, сверить"
+ },
+ "the-jungle-club-ubud-by-wonderspace": {
+  "cuisine": "дей-клаб с рестораном Bambu",
+  "description": "Adults-only бутик-дейклаб Wonderspace/Ini Vie на ~2 га джунглей в Челуке: инфинити-пул, зоны Jungle Deck/Boho Cave/Jungle Jetty, спа Svaha на территории, live-музыка",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "jungleclububud.com; balibuddies; getyourguide (day pass)",
+  "notes": "чёткий not_for: семьи с детьми — adults-only (ступень 1)"
+ },
+ "bistro-anwa": {
+  "cuisine": "западное бистро, органические ингредиенты; all-day brunch, пицца, паста",
+  "description": "Семейное бистро на 1-м этаже трёхэтажного Anwa Bali (Умалас); шеф Josh из Байрон-Бей; наверху руфтоп-бар и Spa Anwa; с 07:00 ежедневно",
+  "menu_highlights": "all-day brunch; sunset pizza & pasta",
+  "hours": "с 07:00 ежедневно (anwabali.com)",
+  "sources": "anwabali.com/bistro-anwa; thebalibible; thehoneycombers",
+  "notes": ""
+ },
+ "izzi-rooftop-lounge-and-restaurant-and-bar-and-shisha": {
+  "cuisine": "руфтоп-бар + ресторан + шиша-лаунж",
+  "description": "«Крупнейший хука-бар Бали»: 212+ вкусов табака, руфтоп с закатом над океаном на Batu Belig Square, DJ, PS5, настолки; 12:00-02:30 ежедневно",
+  "menu_highlights": "фирменные коктейли; шиша с фруктовой подачей",
+  "hours": "12:00-02:30 ежедневно (bali.live/wheree, LOW-TRUST)",
+  "sources": "izzibali.com; tripadvisor; bali.live",
+  "notes": "not_for: тихий ужин и некурящие (ступень 2); отзывы полярные"
+ },
+ "to-the-moon-cafe": {
+  "cuisine": "восток+запад: суши-роллы, стейки, бургеры, панкейки, смузи-боулы",
+  "description": "Кафе в Умаласе (Bumbak): фирменные суши-роллы + западная классика; dine-in, доставка, своя парковка",
+  "menu_highlights": "Tuna Steak; суши-роллы; Breakfast Board",
+  "hours": "",
+  "sources": "tothemoonbali.com; tripadvisor (Kerobokan); wanderlog",
+  "notes": ""
+ },
+ "de-maison-bali-restaurant-and-bar": {
+  "cuisine": "кафе/кофешоп",
+  "description": "Новый эстетичный кофешоп на Tukad Badung (Ренон, Денпасар), подходит для работы из кафе",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "tiktok discover (maison bali cafe)",
+  "notes": "ТОНКО-СРЕДНЕ: в базе значится restaurant&bar, выдача говорит кофешоп — расхождение категории пометить"
+ },
+ "camino-resto-and-bar": {
+  "cuisine": "средиземноморская на гриле и коптильне (BBQ/smoker)",
+  "description": "Ресторан-бар в центре Джимбарана: домашний BBQ и копчение как основа техники; завтрак, обед, ужин; локальные ингредиенты",
+  "menu_highlights": "frutti di mare pasta; гриль-рыба и лосось; molten lava cake",
+  "hours": "08:00-23:00 (caminobali.com/агрегаторы)",
+  "sources": "caminobali.com; thebalibible; chope.co; restaurantguru",
+  "notes": ""
+ },
+ "mapogu-coffee-and-eatery-mapogu-restaurant": {
+  "cuisine": "корейско-азиатская + интернациональная; кофе",
+  "description": "Кафе и коворкинг в Гоа-Гонг (Джимбаран), открыт 2022: бесплатный Wi-Fi, парковка, живая музыка по выходным",
+  "menu_highlights": "корейская гриль-курица в тортилье с чеддером, salsa roja и сметаной; завтраки; ланч-комбо",
+  "hours": "Пн-Сб 10:00-18:00, Вс закрыто (mapogu.com)",
+  "sources": "mapogu.com (breakfast, lunch-deals); tripadvisor; taletravels",
+  "notes": "воскресенье выходной — редкий факт, ценно для not_for"
+ },
+ "brook-nusa-dua": {
+  "cuisine": "американская, русская, европейская, украинская, азиатская",
+  "description": "«Бруклин на закате»: панорама на статую Гаруды, океан и взлётную полосу аэропорта; винтажный дизайн, авторские коктейли",
+  "menu_highlights": "",
+  "hours": "14:00-22:00 ежедневно (tripadvisor/яндекс)",
+  "sources": "brookbali.com; tripadvisor (Benoa); instagram @brook.restaurant",
+  "notes": "вид на полосу аэропорта — сильная деталь для why_its_here"
+ },
+ "piasan-nusa-dua-restaurant-piasan-restaurant": {
+  "cuisine": "итальянская с тропическим акцентом",
+  "description": "Ресторан при Kayumanis Nusa Dua в зоне BTDC/ITDC; балийская архитектура в современном прочтении: плавающие перегородки и парящий потолок из 15 000+ бамбуковых стеблей",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "piasanrestaurant.com; tripadvisor (Nusa Dua)",
+  "notes": "название от балийского термина «пиасан» — церемониальная постройка"
+ },
+ "signa-cafe": {
+  "cuisine": "кафе: кофе, пицца, паста, завтраки весь день",
+  "description": "Семейное кафе на Raya Kampial (Нуса-Дуа/Букит): завтрак, бранч, ужин; гурмэ-пицца, врапы, десерты, коктейли; dine-in, доставка, навынос",
+  "menu_highlights": "гурмэ-пицца; врапы; десерты",
+  "hours": "08:00-23:00 (signa.cafe/агрегаторы, LOW-TRUST — паттерн F9, сверить)",
+  "sources": "signa.cafe; tripadvisor; sluurpy",
+  "notes": "часы 08-23 = заражённый кластер F9, не заливать без оф. подтверждения"
+ },
+ "tsune-japanese-restaurant-sanur-by-wonderspace": {
+  "cuisine": "японская: плавающие суши, рыбный гриль",
+  "description": "«Первые и единственные плавающие суши в Индонезии»: суши подаются на лодочках по водному каналу; океанская локация в Сануре; живая музыка по субботам 19:00; ланч -10% ежедневно",
+  "menu_highlights": "плавающие суши; японский рыбный гриль",
+  "hours": "07:00-22:00 ежедневно (thewonderspace.com)",
+  "sources": "thewonderspace.com/tsunesanur; tripadvisor (#1 of 12 Sanur Kaja); instagram @tsunesanur",
+  "notes": "сильнейшее УТП партии — уникальная механика подачи"
+ },
+ "secret-garden-restaurant": {
+  "cuisine": "индонезийская + западная; есть вегетарианское меню и gluten-free",
+  "description": "Семейный ресторан в Антуране (Ловина) с садом; бесплатный трансфер для гостей, живущих в районе Ловины",
+  "menu_highlights": "seafood curry; гуляш",
+  "hours": "17:00-22:00 ежедневно (tripadvisor)",
+  "sources": "tripadvisor (#1 of 22 Anturan); thebalibible; trip.com",
+  "notes": "только ужин — важный not_for (не для завтрака/дневного захода)"
+ },
+ "ants-pants-uluwatu": {
+  "cuisine": "современная австралийская: чистые вкусы, свежие ингредиенты",
+  "description": "Ресторан+бассейн при Family Nest Villas (Бингин/Лабуансаит): первый этаж открытый, наверху кондиционированная коворкинг-зона; кабаны и лежаки у бассейна по депозиту, который засчитывается в счёт",
+  "menu_highlights": "завтрак весь день; пицца с 12:00; детское меню",
+  "hours": "завтрак 07:00-19:00; ланч и пицца 12:00-19:00; бассейн 07:00-20:00 (antspantsbali.com)",
+  "sources": "antspantsbali.com; kelanabykayla; tripadvisor",
+  "notes": "семейный + коворкинг — двойное позиционирование, редкое для Улувату"
+ },
+ "gains": {
+  "cuisine": "",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "",
+  "notes": "ТОНКО: поиск не находит; только IG @gainsuluwatu. Кандидат остаться в review"
+ },
+ "humans-cafe": {
+  "cuisine": "азиатская, индонезийская, европейская; спешелти-кофе",
+  "description": "Кафе на Bali Cliff (Унгасан): завтрак, обед, ужин; спешелти-кофе и детская площадка",
+  "menu_highlights": "кофе из отборного зерна; завтраки; лёгкие закуски",
+  "hours": "08:00-23:00 ежедневно (bali.live/tilda, LOW-TRUST — паттерн F9)",
+  "sources": "humansbali.com (tilda); bali.live; tripadvisor; instagram @humans.bali",
+  "notes": "детская площадка — сильный best_for для семей"
+ },
+ "la-terrazza-uluwatu": {
+  "cuisine": "итальянская + интернациональная; пицца",
+  "description": "Ресторан на утёсе над Сулубаном, основан двумя итальянцами из Пизы; шеф Lucia Nicolò; столы на краю обрыва, вид на океан и закат; завтрак, обед, happy hour, ужин",
+  "menu_highlights": "пицца с видом на океан",
+  "hours": "с 08:00 до темноты (laterrazzauluwatu.com)",
+  "sources": "laterrazzauluwatu.com (menu, about, contact); baligasm; theperpetualsaturday",
+  "notes": ""
+ },
+ "lemanja-uluwatu": {
+  "cuisine": "интернациональный фьюжн; веган-опции",
+  "description": "Кафе-бар с бассейном и коворкингом на Лабуансаит: завтрак с 07:30 от 20 000 IDR, бранч, ужин; сигнатурные коктейли",
+  "menu_highlights": "pan-grilled prawns; tuna tataki; веган-кесадильи; растительные пиццы; слоёная выпечка",
+  "hours": "07:30-22:00 ежедневно (lemanjabali.com)",
+  "sources": "lemanjabali.com; wanderlog; thebalibible; spinach.guide",
+  "notes": "цена входа 20k IDR — редкий price_anchor ступени 1"
+ },
+ "ula-cafe": {
+  "cuisine": "кафе; всё с нуля от шефа Mags",
+  "description": "Кафе на Балангане: отдельные меню завтрака и основных блюд, плетёные текстуры, винил, океанский бриз; Wi-Fi и розетки, много естественного света",
+  "menu_highlights": "",
+  "hours": "Пн-Пт 08:00-21:00, Сб-Вс 08:00-16:00 (ulabali.com)",
+  "sources": "ulabali.com; wanderlog; gofood; instagram @ula_bali",
+  "notes": "разные часы в будни и выходные — точный факт"
+ },
+ "pak-gula": {
+  "cuisine": "азиатская, шеринг-формат",
+  "description": "Двухэтажный ресторан в сердце Бингина от команды The Cashew Tree: внизу casual для быстрого захода, наверху ужин при низком свете, общие столы и бар; бронь рекомендуется",
+  "menu_highlights": "char siu pork bao buns; овощные дамплинги; chicken satay; braised beef curry",
+  "hours": "",
+  "sources": "thehoneycombers Hot New Tables август 2026",
+  "notes": "ОТКРЫТ И РАБОТАЕТ в 2026 — подтверждено свежим гайдом. Бронь рекомендуется"
+ },
+ "rotisserie-by-cashew-tree": {
+  "cuisine": "ротиссери: медленно жаренное мясо, гарниры, соусы",
+  "description": "Ротиссери от The Cashew Tree на Bangbang Metuug (Печату): ставка на качество, а не сложность",
+  "menu_highlights": "медленно жаренное мясо; свежие гарниры",
+  "hours": "11:00-21:00 ежедневно (baliready)",
+  "sources": "baliready.com; happycow; tripadvisor (Cashew Tree)",
+  "notes": ""
+ },
+ "white-water-bingin": {
+  "cuisine": "",
+  "description": "",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "",
+  "notes": "🔴 СТОП-ФЛАГ: поиск не находит заведение, при этом в июле 2025 на пляже Бингин снесли 48 строений (бары, рестораны, хоумстеи) — реконструкция началась в мае 2026. Адрес 'Jl. Pantai Bingin' попадает в зону сноса. ПРОВЕРИТЬ operating status до любой публикации; кандидат на review или status=closed"
+ },
+ "dewas-landing-cafe": {
+  "cuisine": "кафе",
+  "description": "Кафе на Raya Uluwatu (Печату), площадка местного комьюнити: проводит watch-party по футболу",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "instagram @dewaslanding.cafe; threads/facebook (watch party июнь 2026)",
+  "notes": "ТОНКО-СРЕДНЕ: своего сайта нет, но подтверждён как живая комьюнити-точка в 2026"
+ },
+ "made-s-bakery-cafe-playground": {
+  "cuisine": "пекарня-кафе: выпечка, десерты, кофе; завтраки весь день",
+  "description": "Открылась в 2025, выросла из маленького варунга на главную улицу Унгасана; при кафе бесплатная детская площадка, большие порции",
+  "menu_highlights": "выпечка; десерты; завтраки весь день",
+  "hours": "08:00-22:00 (bali.live/агрегаторы, LOW-TRUST)",
+  "sources": "tripadvisor (Ungasan); bali.live; balikids.app; instagram @mades_bakery_",
+  "notes": "бесплатная детская площадка — сильнейший best_for для семей на Буките"
+ },
+ "snowcat-bali-ussr-cuisine": {
+  "cuisine": "русская/постсоветская",
+  "description": "Ресторан советской кухни на Raya Uluwatu (Унгасан): большие порции, домашние настойки; доставка, dine-in, бронь; парковка",
+  "menu_highlights": "селёдка под шубой; пельмени; оливье; драники",
+  "hours": "",
+  "sources": "restaurantguru (631 отзыв); horego; lokasibali; menufyy",
+  "notes": "чёткая ниша — русскоязычная аудитория Букита"
+ },
+ "the-little-hill-terrace": {
+  "cuisine": "локальная кухня в современном прочтении, продукты с ферм Северного Бали",
+  "description": "Ресторан при бутик-отеле The Little Hill Suites в Мундуке: круговой вид на зелёные холмы и долины в тумане",
+  "menu_highlights": "",
+  "hours": "",
+  "sources": "thelittlehillterrace.com (menu, about, book); tripadvisor (Banjar)",
+  "notes": ""
+ },
+ "the-northview-bali-ngiring-ngewedang-restaurant-and-coffee-c": {
+  "cuisine": "азиатская, индонезийская, кофе",
+  "description": "На вершине холма в деревне Мундук (Булеленг): открытый зал с видом на холмы и долины, точка заката; ~3 часа от аэропорта, 1 час от Сингараджи; детский стул, парковка, вход для колясочников, Wi-Fi",
+  "menu_highlights": "хрустящая утка; банановые фриттеры; балийский кофе и чаи",
+  "hours": "",
+  "sources": "ngiringngewedang.com; visitnorthbali.bulelengkab.go.id (офиц. турпортал); wanderlog; horego",
+  "notes": "цены выше среднего — честный not_for; доступность для колясок редкость"
+ },
+ "cemara-point-by-dusun-bedugul-asri": {
+  "cuisine": "бар: вино, чай, лёгкие закуски",
+  "description": "Бар-точка курорта Dusun Bedugul Asri в Чандикунинге: стоит посреди пруда с карпами и виноградника, вокруг цветочный сад; проводятся воркшопы. Основной ресторан курорта — Dapur Cemara",
+  "menu_highlights": "вино; чай; лёгкие закуски",
+  "hours": "",
+  "sources": "dusunbedugulasri.com (/dining); tripadvisor (Dapur Cemara); novacircle",
+  "notes": "в базе значится restaurant — фактически бар/лаунж курорта, не полноценный ресторан. Пометить расхождение"
+ }
+}
