@@ -104,6 +104,26 @@ existing record could be enriched with the richer facts this harvest found
 done here, since that's an edit to an existing published row, not a new
 insert, and wasn't asked for.
 
+### Two more added after founder review: `gmaps_and_day_club_backfill-2026-08-25.sql`
+
+The founder asked directly what Google Maps data this harvest found — the
+honest answer was none: `nightlife/make_cards.py`'s INSERT column list
+repeated the exact same omission caught this morning in the spa/rental/
+restaurant generators. Fixed the same zero-credit way (a Google Maps
+*search* deep link built from name + district) for all 11 published rows.
+
+Separately, she overrode the §3 hold-out above: **Cretya Ubud** and **CP
+Lounge** are real venues people actually look for, even though `beach_club`
+is the wrong label for them. Rather than mislabel, added `day_club` as its
+own category (same free-text-category, `NULL`-`venue_type` pattern as
+`nightclub`/`hookah_lounge`) and published both — Cretya Ubud with full
+facts from `cretyaubud.com` (address, phone, WhatsApp, Instagram, hours, a
+220K IDR first-drink-charge cover fact, priced items up to a 2,000,000 IDR
+hammock rental); CP Lounge with hours, Instagram, booking link and an
+explicit "Free Entry" fact from `cp-lounge.com`, but no address and no
+priced items — every price field left `NULL` rather than guessed.
+Instagram coverage across the 13 published nightlife venues: 8 of 13.
+
 Cards without a numeric price still publish real facts — self-description,
 address where printed, opening hours, happy-hour terms, booking channel —
 with every price field left `NULL` rather than guessed, same rule as every
@@ -121,18 +141,24 @@ production afterward).
 | File | What it is |
 |---|---|
 | `new_venue_cards.sql` | **applied** — the 12 venue-record inserts (11 landed) |
+| `gmaps_and_day_club_backfill-2026-08-25.sql` | **applied** — gmaps_url for the 11, plus 2 new `day_club` inserts |
 | `bali_nightlife_venues.csv` | all 45 crawled venues, published or not |
 | `bali_nightlife_items.csv` | 329 priced/described items for all 45 |
-| `new_cards_rejected.json` | the 33 rejected cards with each rejection reason |
+| `new_cards_rejected.json` | the 33 rejected cards with each rejection reason (Cretya Ubud and CP Lounge listed here were later published anyway — see above) |
+
+## Final count: 13 published (11 + 2 day_club)
+
+By category: bar 22 total (+5 today), beach_club 14 total (+1 today — Azul
+already existed), nightclub 2 (new), hookah_lounge 3 (new), day_club 2 (new).
 
 ## What's not covered
 
 - Many real Bali nightclubs/beach clubs run almost entirely on Instagram with
   no independent website — this method structurally can't reach them without
   inventing facts.
-- `day_club` (Cretya Ubud and similar inland pool/lounge venues) isn't a
-  category the schema currently supports; two real, well-evidenced venues are
-  sitting in `new_cards_rejected.json` for exactly this reason.
+- 5 of 13 published venues have no Instagram (site had none, or the crawl
+  didn't surface it) — closing that gap needs a targeted re-crawl, not a
+  free backfill like gmaps_url.
 - Second-wave discovery (deeper sub-district search, the way spa's wave 2
   expanded coverage) wasn't run — 682 credits remain if the founder wants to
   continue before the subscription resets 2026-08-28.
