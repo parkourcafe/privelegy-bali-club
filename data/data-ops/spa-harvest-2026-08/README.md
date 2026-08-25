@@ -3,7 +3,49 @@
 Collected with Firecrawl from each venue's **own website** (never an aggregator,
 never review platforms — guardrail #2). Every row carries its `source_url`.
 
-## How to apply — ORDER MATTERS
+## Wave 2 (2026-08-25 afternoon) — apply these first if you have not yet
+
+Wave 1 below (`new_venue_cards.sql`, `ALL_spa.sql`, `food_*.sql`) was already
+applied. This second harvest expanded sub-area discovery in Ubud, Seminyak,
+Uluwatu and Nusa Dua, plus a name-targeted search seeded from TripAdvisor's
+directory listing for Nusa Dua (names only — no ratings collected or stored,
+per guardrail #2; each name was then searched for its own official site).
+
+**`new_venue_cards_wave2.sql`** — 311 new venue records.
+**`ALL_spa_wave2.sql`** — 153 spa price lists onto existing venue pages.
+
+Same idempotency and application order as wave 1: cards first, then prices.
+Both were dry-run against production as a single row with `rollback` before
+this file was written.
+
+By district, added on top of wave 1 (see `bali_spa_harvest_report.md` for the
+full merged base): Ubud +76, Canggu +47, the Bukit +41, Seminyak +32, Nusa Dua
++31, Legian +22, Sanur +14, Jimbaran +11, east Bali +10. Ubud now clears 100+
+combined with what was already live; Nusa Dua reaches the low 50s — short of
+the 100 target, and not a budget problem: Nusa Dua is a resort enclave of
+roughly 25-30 hotel spas plus a few dozen independent salons, many without
+their own website, which this method cannot source without inventing facts.
+
+### Three bugs found and fixed while building this batch
+
+1. **Wrong page won when a domain hosted more than one business.** The
+   builder picked between a domain's scraped pages by item count, not
+   relevance — a 124-item sushi menu at `111resorts.com` outranked the
+   32-item spa menu on the same site, and the card was about to publish
+   under the restaurant's name. Fixed: the page the model itself flagged as
+   a spa/wellness page always wins, regardless of item count.
+2. **A page's own location was overridden by the search query's target.**
+   When a venue's scraped area didn't match a Bali district (a Westin
+   actually in San Diego, two real massage studios actually in Phuket), the
+   old code fell back to the *discovery* area — the place the search was
+   *aimed at* — and nearly published them under `jimbaran` and `sidemen`.
+   Fixed: a venue's own stated area now has to either confirm Bali or reject
+   the card; it no longer falls back to the search target.
+3. **Two Houston, TX massage studios** matched a keyword-only search
+   ("massage Kedewatan price list") and nearly published as Ubud venues.
+   Added a US-address guard.
+
+## How to apply wave 1 — ORDER MATTERS
 
 Run in the Supabase SQL editor, **in this order**. Each file is idempotent: a
 re-run inserts nothing, because every statement is guarded on "this row does
@@ -68,17 +110,22 @@ spa list — the files compute `max(version) + 1` rather than hardcoding 1.
 
 ## Data files
 
+These CSVs and the report are the **merged research base after wave 2**
+(waves 1+2 combined, not wave 2 alone) — use them for coverage numbers, not
+the wave-1 counts quoted above.
+
 | File | What it is |
 |---|---|
-| `bali_spa_venues.csv` | 250 venues: identity, contacts, booking provider, flags |
-| `bali_spa_services.csv` | 4 032 services with duration, price, `price_raw`, source |
+| `bali_spa_venues.csv` | 423 venues: identity, contacts, booking provider, flags |
+| `bali_spa_services.csv` | 6 791 services with duration, price, `price_raw`, source |
 | `bali_spa_sources.csv` | venue ↔ evidence URL |
-| `bali_spa_review_queue.csv` | 27 ambiguous records for a human |
-| `bali_spa_excluded.csv` | 171 candidates rejected, each with a reason |
-| `marketplace_opportunity.csv` | 27 venues: prices published, no online booking |
+| `bali_spa_review_queue.csv` | ambiguous records for a human |
+| `bali_spa_excluded.csv` | candidates rejected, each with a reason |
+| `marketplace_opportunity.csv` | venues: prices published, no online booking |
 | `price_distribution.csv` | min / median / max per area for benchmark treatments |
 | `booking_market_share.csv` | booking systems and digital maturity |
-| `bali_spa_harvest_report.md` | the full harvest report |
+| `most_common_services.csv` | most frequent normalized service names |
+| `bali_spa_harvest_report.md` | the full harvest report, incl. by-district rollup |
 
 ## Not collected, on purpose
 
