@@ -1,0 +1,3548 @@
+[
+ {
+  "slug": "amplitude-skate-and-bike-park",
+  "name": "Amplitude Skate & Bike Park",
+  "source_url": "https://raceamplitude.com/the-school",
+  "reason": "17 items but only 2 with a plausible price"
+ },
+ {
+  "slug": "amavi-canggu-bali",
+  "name": "AMAVI Canggu Bali",
+  "source_url": "https://amavicanggu.grandcentralgroup.co.id/offers",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "artisan-pererenan",
+  "name": "Artisan – Pererenan",
+  "source_url": "https://artisangroup.id/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ashe-grill-and-bar",
+  "name": "Ashe Grill & Bar",
+  "source_url": "https://www.ashebali.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "at06",
+  "name": "AT06",
+  "source_url": "https://at06bali.com/dine",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "aunty-ji-s",
+  "name": "Aunty Ji's",
+  "source_url": "https://auntyjisbali.com/sitemap_index.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "baked-berawa",
+  "name": "BAKED. Berawa",
+  "source_url": "https://baked.co.id/password",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "baked-pererenan",
+  "name": "BAKED Pererenan",
+  "source_url": "https://baked.co.id/password",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bali-climbing-bouldering-gym",
+  "name": "Bali Climbing Bouldering Gym",
+  "source_url": "https://bali-climbing.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "beachtown-grocer",
+  "name": "Beachtown Grocer",
+  "source_url": "https://beachtowngrocer.com/digital-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "body-factory-bali-canggu",
+  "name": "Body Factory Bali",
+  "source_url": "https://www.bodyfactorybali.com/classes",
+  "reason": "38 items but only 0 priced"
+ },
+ {
+  "slug": "body-factory-bali-recovery-canggu",
+  "name": "Body Factory Bali Recovery",
+  "source_url": "https://www.bodyfactorybali.com/sitemap.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bonito-restaurant",
+  "name": "Bonito Restaurant",
+  "source_url": "https://bonito-restaurant.com/mauri-zia-tina-sister-restaurants-seminyak",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cafe-del-mar-bali",
+  "name": "Café del Mar Bali",
+  "source_url": "https://cafedelmarbali.co.id/dining",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "cafe-vida-healthy-organic-restaurant-canggu",
+  "name": "CAFE VIDA Healthy Organic Restaurant Canggu",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "canggu-club-tennis-centre",
+  "name": "Canggu Club Tennis Centre",
+  "source_url": "https://finnslifestylevillage.com/3d-flip-book",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "canggu-yoga-centre-canggu",
+  "name": "Canggu Yoga Centre",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "cantina-classe-canggu",
+  "name": "Cantina Classe — Canggu",
+  "source_url": "https://thewonderspace.com/cantinacanggu/booking",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cocomo-at-canggu",
+  "name": "Cocomo at Canggu",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "como-uma-canggu-wellness-spa-canggu",
+  "name": "COMO Uma Canggu Wellness / Spa",
+  "source_url": "https://www.comohotels.com/bali/como-uma-canggu/como-beach-club-canggu/menu",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "crate-cafe",
+  "name": "Crate Cafe",
+  "source_url": "https://lifescrate.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cutiepai-nails",
+  "name": "CutiePai Nails",
+  "source_url": "https://cutiepainails.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "desa-seni-yoga",
+  "name": "Desa Seni Yoga",
+  "source_url": "https://www.desaseni.com/yoga-therapeutic-private-retreat",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "deus-ex-machina",
+  "name": "Deus Ex Machina",
+  "source_url": "https://deuscustoms.co.id/pages/the-temple-of-enthusiasm-1/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "dodo-pizza",
+  "name": "Dodo Pizza",
+  "source_url": "https://dodopizza.co.id/id/bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "downtown-kedungu-restaurant-and-bar",
+  "name": "Downtown Kedungu - Restaurant & Bar",
+  "source_url": "https://www.downtownku.com/food",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "ecosfera-yoga-canggu-canggu",
+  "name": "Ecosfera Yoga Canggu",
+  "source_url": "https://ecosferahotel.com/yoga/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ele-restaurant-bar-and-terrace",
+  "name": "ELE Restaurant, Bar and Terrace",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "f45-training-canggu-canggu",
+  "name": "F45 Training Canggu",
+  "source_url": "https://f45training.com/id/studio/canggu/new-to-f45",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "face-therapy-spa-pererenan",
+  "name": "Face Therapy Spa Pererenan",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "finns-recreation-club-finns-lifestyle-village",
+  "name": "FINNS Recreation Club / FINNS Lifestyle Village",
+  "source_url": "https://finnsrecclub.com/test-video-scroll-2",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "fitness-plus-canggu",
+  "name": "Fitness Plus Canggu",
+  "source_url": "https://canggu.fitnessplusindonesia.co.id",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "flex-gym-bali",
+  "name": "Flex Gym Bali",
+  "source_url": "https://flexgym.co.id/membership",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "goldust-spa-canggu",
+  "name": "Goldust Spa",
+  "source_url": "https://goldustspa.com/treatments/golden-spa-party",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "gravity-stretching-canggu",
+  "name": "Gravity Stretching Canggu",
+  "source_url": "https://bookgravity.com/usa",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "guan-yin-yoga-canggu",
+  "name": "Guan Yin Yoga Canggu",
+  "source_url": "https://tuguhotels.com/hotels/bali/guan-yin-yoga-shala/",
+  "reason": "25 items but only 2 with a plausible price"
+ },
+ {
+  "slug": "home-by-chef-wayan",
+  "name": "HOME by Chef Wayan",
+  "source_url": "https://bychefwayan.com/wp-content/uploads/2024/01/Dinner-at-HOME.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "hungry-bird-coffee",
+  "name": "Hungry Bird Coffee Roaster",
+  "source_url": "https://www.coffeeinsurrection.com/hungry-bird-coffee-roaster.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "indigo",
+  "name": "Indigo",
+  "source_url": "https://www.indigocanggu.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "inklusiv-warung",
+  "name": "Inklusiv Warung",
+  "source_url": "http://www.villamoksha.com/inklusivvideo",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jade-by-todd-english",
+  "name": "Jade by Todd English",
+  "source_url": "https://jadebytoddenglish.com/why-italian-restaurants-are-perfect-for-dinner-in-canggu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jen-deli-restaurant-and-la-fortuna-bar-at-sense-canggu-beach-hotel",
+  "name": "Jen Deli Restaurant and La Fortuna Bar at Sense Canggu Beach Hotel",
+  "source_url": "https://sensecanggubeach.com/view/spa-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kecambah-restaurant-at-lalasa-villas",
+  "name": "Kecambah Restaurant at Lalasa Villas",
+  "source_url": "https://lalasavillas.com/dining",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "khao-canggu",
+  "name": "KHAO Canggu",
+  "source_url": "https://www.khaobali.com/our-menu",
+  "reason": "non-IDR currency K needs a human check"
+ },
+ {
+  "slug": "manhattan-cocktail-hookah-kitchen",
+  "name": "Manhattan Cocktail Hookah Kitchen",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "milano",
+  "name": "Milano",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "mission-flow-studio",
+  "name": "Mission Flow Studio",
+  "source_url": "https://missionflowstudio.com/class",
+  "reason": "15 items but only 0 priced"
+ },
+ {
+  "slug": "murmur-restaurant-lounge",
+  "name": "Murmur Restaurant Lounge",
+  "source_url": "https://murmurbali.com/breakfast",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "paed-thai-canggu",
+  "name": "Paed Thai — Canggu",
+  "source_url": "https://thewonderspace.com/paedthaicanggu/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "pranava-yoga",
+  "name": "Pranava Yoga",
+  "source_url": "https://www.matrabali.com/pranava-yoga",
+  "reason": "only 2 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "rasa-kitchen",
+  "name": "Rasa Kitchen",
+  "source_url": "https://www.rasakitchen.co",
+  "reason": "non-IDR currency INR needs a human check"
+ },
+ {
+  "slug": "rite-bali",
+  "name": "Rite Bali",
+  "source_url": "https://ritebali.com/products/3-day-pass",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "rite-bali-recovery-canggu",
+  "name": "RITE Bali Recovery",
+  "source_url": "https://ritebali.com/pages/spa",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "rite-bali-yoga-canggu",
+  "name": "RITE Bali Yoga",
+  "source_url": "https://ritebali.com/products/weekly-membership-3-pm-access",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "roomah-canggu-at-holiday-inn-resort-bali-canggu",
+  "name": "Roomah Canggu at Holiday Inn Resort Bali Canggu",
+  "source_url": "https://canggu.holidayinnresorts.com/roomah",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sa-mesa-canggu-experience-dining",
+  "name": "Sa'Mesa Canggu | Experience Dining",
+  "source_url": "https://samesabali.com/the-lab",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "samadi-bali",
+  "name": "Samadi Bali",
+  "source_url": "https://samadibali.com/yoga-at-samadi-bali-a-practice-for-all-levels",
+  "reason": "17 items but only 0 priced"
+ },
+ {
+  "slug": "seabird-bistro-and-coworking-canggu-by-wonderspace",
+  "name": "Seabird Bistro & Coworking Canggu by Wonderspace",
+  "source_url": "https://thewonderspace.com/seabirdcanggu/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "secana-rooftop-bali",
+  "name": "Secana Rooftop",
+  "source_url": "https://secanabeachtown.com/secana-rooftop/",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "secret-spot-bali",
+  "name": "Secret Spot",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "serenity-eco-guesthouse-yoga-canggu",
+  "name": "Serenity Eco Guesthouse & Yoga",
+  "source_url": "https://www.serenitybali.com/post/kids-yoga-teacher-training-in-bali-a-unique-wellness-experience-at-serenity-bali",
+  "reason": "11 items but only 0 priced"
+ },
+ {
+  "slug": "seseh-general-store",
+  "name": "Seseh General Store",
+  "source_url": "https://www.sesehgeneralstore.com/home",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-canggu",
+  "name": "Shichirin Japanese Restaurant — Canggu",
+  "source_url": "https://thewonderspace.com/shichirincanggu/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "sia-grill-and-seafood-bar",
+  "name": "SIA - Grill & Seafood Bar",
+  "source_url": "https://siabali.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sista-dumpling",
+  "name": "SISTA DUMPLING 喜食",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "smoke-grill-master-and-barbeque-bali",
+  "name": "SMOKE – GRILL MASTER & BARBEQUE BALI",
+  "source_url": "https://smokebali.com/wp-content/uploads/2025/12/Menu-Private-Event-Barn-2026.pdf",
+  "reason": "15 items but only 1 priced"
+ },
+ {
+  "slug": "soma-fight-club-canggu",
+  "name": "SOMA Fight Club",
+  "source_url": "https://somafightclub.com/products/monthly-pass",
+  "reason": "only 2 usable items after cleaning (3 dropped)"
+ },
+ {
+  "slug": "surya-fitness-gym",
+  "name": "Surya Fitness Gym",
+  "source_url": "https://www.suryagymbali.com/surya-gym-bali-membership-plans",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sushimi-bali",
+  "name": "Sushimi Bali",
+  "source_url": "http://www.sushimibali.com/sushi-train-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "swarna-spa-and-wellness",
+  "name": "Swarna Spa and Wellness",
+  "source_url": "https://swarnaspa.com/services_group/couple-spa-ritual",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "the-loft-bali",
+  "name": "The Loft",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "the-practice-bali-canggu",
+  "name": "The Practice Bali",
+  "source_url": "https://www.thepracticebali.com/wp-content/uploads/2021/02/Outlines-Schedule-22.02.21.pdf",
+  "reason": "49 items but only 0 priced"
+ },
+ {
+  "slug": "tonic-day-spa-botanicals-canggu",
+  "name": "Tonic Day Spa & Botanicals",
+  "source_url": "https://uluwatu.tonic.co.id",
+  "reason": "non-IDR currency K needs a human check"
+ },
+ {
+  "slug": "tropical-nomad",
+  "name": "Tropical Nomad",
+  "source_url": "https://tropical-nomad-coworking-space.webflow.io/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "turntable-canggu-steakhouse",
+  "name": "Turntable Canggu | Steakhouse",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "urban-bites-cafe-at-berawa",
+  "name": "Urban Bites Cafe at Berawa",
+  "source_url": "https://urbanbitesbali.com/canggu",
+  "reason": "9 items but only 0 priced"
+ },
+ {
+  "slug": "wanderlust-fitness-village-canggu",
+  "name": "Wanderlust Fitness Village",
+  "source_url": "https://wanderlustfitnessvillage.com/wods-app",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "warung-sika",
+  "name": "Warung Sika",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"warungsika.biz.id\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "warung-yess",
+  "name": "Warung Yess",
+  "source_url": "https://warungyess.com/case/details142.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "watercress-berawa",
+  "name": "Watercress Berawa",
+  "source_url": "https://watercressbali.com/menu",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "workmates-coworking-space-and-cafe",
+  "name": "Workmates Coworking Space & Cafe",
+  "source_url": "https://thewonderspace.com/workmatescanggu/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "wrong-gym-pererenan",
+  "name": "Wrong Gym Pererenan",
+  "source_url": "https://wronggym.com/pages/partners-list",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "zali-at-pererenan",
+  "name": "Zali at Pererenan",
+  "source_url": "https://www.zalirestaurant.com/menu/bali",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "anarasa-at-movenpick-resort",
+  "name": "Anarasa at Mövenpick Resort",
+  "source_url": "https://movenpick.accor.com/en/asia/indonesia/bali/jimbaran-bali.html%3Fmerchantid%3Dseo-maps-ID-B4P2%26sourceid%3Daw-cen%26utm_medium%3Dseo%2Bmaps%26utm_source%3Dgoogle%2BMaps%26utm_campaign%3Dseo%2Bmaps%26utm_content%3DJambaran-Bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "arkipela-spa-at-mo-venpick-jimbaran-jimbaran",
+  "name": "Arkipela Spa at Mövenpick Jimbaran",
+  "source_url": "https://movenpick.accor.com/en/asia/indonesia/bali/jimbaran-bali/facilities/arkipela-spa.html",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "ayana-bali-yoga",
+  "name": "AYANA Bali Yoga",
+  "source_url": "https://share.ayana.com/bali/wellness/Immune_Reset_Wellness_Schedule_EN.pdf",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ayana-fitness-centre",
+  "name": "AYANA Fitness Centre",
+  "source_url": "https://share.ayana.com/bali/wellness/Immune_Reset_Wellness_Schedule_EN.pdf",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "balquisse-heritage-hotel-yoga-jimbaran",
+  "name": "Balquisse Heritage Hotel Yoga",
+  "source_url": "https://www.balquisse.com/rooms",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "balquisse-spa-jimbaran",
+  "name": "Balquisse Spa",
+  "source_url": "https://www.balquisse.com/experience",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "barrels-steakhouse-at-samasta-lifestyle-village",
+  "name": "Barrels Steakhouse at Samasta Lifestyle Village",
+  "source_url": "https://www.samastabali.com/eat-and-drink/barrels-steakhouse",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "camino-resto-and-bar",
+  "name": "Camino Resto & Bar",
+  "source_url": "https://caminobali.com",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "chaskaa-jimbaran",
+  "name": "CHASKAA GWK — Jimbaran",
+  "source_url": "https://www.chaskaabali.com/outlets/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "intercontinental-bali-resort-fitness-centre",
+  "name": "InterContinental Bali Resort Fitness Centre",
+  "source_url": "https://www.ihg.com/intercontinental/hotels/us/en/bali/dpsha/hoteldetail",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "intercontinental-bali-resort-yoga",
+  "name": "InterContinental Bali Resort Yoga",
+  "source_url": "https://www.ihg.com/intercontinental/hotels/us/en/bali/dpsha/hoteldetail",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jimbaran-hub-fitness-classes-jimbaran",
+  "name": "Jimbaran Hub Fitness / Classes",
+  "source_url": "https://jimbaranhub.com/whats-around",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "jimbaran-hub-yoga-jimbaran",
+  "name": "Jimbaran Hub Yoga",
+  "source_url": "https://jimbaranhub.com/road-to-axean-2025",
+  "reason": "11 items but only 2 priced"
+ },
+ {
+  "slug": "karma-jimbaran-fitness-jimbaran",
+  "name": "Karma Jimbaran Fitness",
+  "source_url": "https://karmagroup.com/find-destination/karma-resorts/karma-jimbaran/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "la-santa-rosa",
+  "name": "La Santa Rosa",
+  "source_url": "https://lasantarosa-bali.com/suite-rooms",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "le-meridien-bali-jimbaran-fitness",
+  "name": "Le Méridien Bali Jimbaran Fitness",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpsmd-le-meridien-bali-jimbaran/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "loloan-coastal-peruvian-at-raffles-bali",
+  "name": "Loloan Coastal Peruvian at Raffles Bali",
+  "source_url": "https://raffles.com/bali%3Futm_source%3Dgoogle%2BMaps%26utm_medium%3Dseo%2Bmaps%26utm_campaign%3Dseo%2Bmaps",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "movenpick-jimbaran-yoga",
+  "name": "Mövenpick Jimbaran Yoga",
+  "source_url": "https://movenpick.accor.com/en/asia/indonesia/bali/jimbaran-bali/location.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "opia-bali",
+  "name": "Opia Bali",
+  "source_url": "https://cho.pe/Opiabali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "piramid-spa",
+  "name": "Piramid Spa",
+  "source_url": "https://piramidspabali.com",
+  "reason": "9 items but only 0 priced"
+ },
+ {
+  "slug": "rumari",
+  "name": "Rumari at Raffles Bali",
+  "source_url": "https://raffles.com/bali%3Futm_source%3Dgoogle%2BMaps%26utm_medium%3Dseo%2Bmaps%26utm_campaign%3Dseo%2Bmaps",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "rumari-counter-at-raffles-bali",
+  "name": "Rumari Counter at Raffles Bali",
+  "source_url": "https://raffles.com/bali%3Futm_source%3Dgoogle%2BMaps%26utm_medium%3Dseo%2Bmaps%26utm_campaign%3Dseo%2Bmaps",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "spa-at-rimba-by-ayana-bali-jimbaran",
+  "name": "Spa at RIMBA by AYANA Bali",
+  "source_url": "https://www.ayana.com/bali/rimba/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "telu-bar-at-four-seasons-resort-bali-at-jimbaran-bay",
+  "name": "TELU Bar at Four Seasons Resort Bali at Jimbaran Bay",
+  "source_url": "https://www.fourseasons.com/jimbaranbay/dining/lounges/telu/menu",
+  "reason": "28 items but only 0 priced"
+ },
+ {
+  "slug": "acala-bar-and-bistro",
+  "name": "Acala Bar & Bistro",
+  "source_url": "https://www.acalabarbistro.com/post/where-to-eat-in-bali-collection-nusa-dua-experience-the-taste-of-acala-bar-bistro",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "arwana",
+  "name": "Arwana",
+  "source_url": "https://www.arwanarestaurant.com/our-menus",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "arwana-restaurant-at-the-laguna-a-luxury-collection-resort-and-spa",
+  "name": "Arwana Restaurant at The Laguna, a Luxury Collection Resort & Spa",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpslc-the-laguna-a-luxury-collection-resort-and-spa-nusa-dua-bali/overview/sustainability",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "atomic-17-at-renaissance-bali-nusa-dua-resort",
+  "name": "Atomic 17 at Renaissance Bali Nusa Dua Resort",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "backstage-at-renaissance-bali-nusa-dua-resort",
+  "name": "Backstage at Renaissance Bali Nusa Dua Resort",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "banyubiru-restaurant-at-the-laguna-a-luxury-collection-resort-and-spa",
+  "name": "Banyubiru Restaurant at The Laguna, a Luxury Collection Resort & Spa",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpslc-the-laguna-a-luxury-collection-resort-and-spa-nusa-dua-bali/overview/sustainability",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "boneka",
+  "name": "Boneka Restaurant at The St. Regis Bali Resort",
+  "source_url": "https://www.marriott.com/en-us/dining/restaurant-bar/dpsxr-the-st-regis-bali-resort/5968688-boneka.mi",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "burma-noodles-and-curry",
+  "name": "Burma Noodles & Curry",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "canna-beach-club",
+  "name": "Canna Beach Club",
+  "source_url": "https://cannabali.id/venue",
+  "reason": "14 items but only 2 with a plausible price"
+ },
+ {
+  "slug": "cliff-at-canna",
+  "name": "Cliff at CANNA",
+  "source_url": "https://cannabali.id/venue/cliff-at-canna/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "club-med-bali-fitness",
+  "name": "Club Med Bali Fitness",
+  "source_url": "https://www.clubmed.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "coco-bistro-at-tanjung-benoa",
+  "name": "Coco Bistro at Tanjung Benoa",
+  "source_url": "https://cocobistrobalirestaurant.com/whats-on",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "conrad-bali-fitness-centre",
+  "name": "Conrad Bali Fitness Centre",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "conrad-bali-yoga",
+  "name": "Conrad Bali Yoga",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "courtyard-by-marriott-nusa-dua-gym",
+  "name": "Courtyard by Marriott Nusa Dua Gym",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "elara-seaside-lounge-and-bar-at-hilton-bali-resort",
+  "name": "Elara - Seaside Lounge and Bar at Hilton Bali Resort",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-ayodya-resort-bali",
+  "name": "Ganesha Ek Sanskriti at Ayodya Resort Bali",
+  "source_url": "https://ganeshaeksanskriti.com/products/sunny-side-up",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "ganesha-elite-at-the-westin-resort-bali",
+  "name": "Ganesha Elite at The Westin Resort Bali",
+  "source_url": "https://ganeshaeksanskriti.com/products/waffle-uttapam",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "grain-at-hilton-bali-resort",
+  "name": "Grain at Hilton Bali Resort",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "grand-hyatt-bali-fitness-centre",
+  "name": "Grand Hyatt Bali Fitness Centre",
+  "source_url": "https://www.hyatt.com/grand-hyatt/dpsgh-grand-hyatt-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "grand-hyatt-bali-yoga",
+  "name": "Grand Hyatt Bali Yoga",
+  "source_url": "https://www.hyatt.com/grand-hyatt/dpsgh-grand-hyatt-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hamabe-at-the-westin-resort-nusa-dua-bali",
+  "name": "Hamabe at The Westin Resort Nusa Dua, Bali",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "hiromi-restaurant-and-bar",
+  "name": "Hiromi Restaurant and Bar",
+  "source_url": "https://royalaventushotels.com/wpbc-bfb-preview",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "honey-and-bread-cafe",
+  "name": "Honey & Bread Cafe",
+  "source_url": "https://take.ramarestaurantsbali.com/home/our-menu",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "izakaya-by-oku",
+  "name": "Izakaya by OKU",
+  "source_url": "https://www.kempinski.com/en/the-apurva-kempinski-bali/restaurants-bars/izakaya-by-oku",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kayuputi",
+  "name": "Kayuputi Restaurant at The St. Regis Bali Resort",
+  "source_url": "https://www.kayuputibali.com/specials",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "kenja-ikan-bakar-nusa-dua",
+  "name": "Kenja Ikan Bakar & Seafood",
+  "source_url": "https://kenjaikanbakar.com/2026/06/17/discover-kenja-ikan-bakar-the-best-seafood-restaurant-in-nusa-dua",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kriya-spa-at-grand-hyatt-bali-nusa-dua",
+  "name": "Kriya Spa at Grand Hyatt Bali",
+  "source_url": "https://www.hyatt.com/en-US/spas/Kriya-Spa/home.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kubu-garden-restaurant",
+  "name": "Kubu Garden Restaurant & Coffee",
+  "source_url": "https://kubugarden.com/resto/kuburesto.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kulkul-beach-house-at-the-laguna-a-luxury-collection-resort-and-spa",
+  "name": "Kulkul Beach House at The Laguna, a Luxury Collection Resort & Spa",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpslc-the-laguna-a-luxury-collection-resort-and-spa-nusa-dua-bali/overview/sustainability",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "madawa-bali",
+  "name": "Madawa Bali",
+  "source_url": "https://www.madawabali.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "maja-restaurant-at-amarterra-villas-resort",
+  "name": "Maja Restaurant at Amarterra Villas Resort",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpsav-amarterra-villas-resort-bali-nusa-dua-autograph-collection/dining/",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "manarai-beach-house",
+  "name": "Manarai Beach House",
+  "source_url": "https://www.ismaya.com/eat-drink/manarai",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "momo-bar-at-the-courtyard-by-marriott-bali-nusa-dua",
+  "name": "MoMo Bar at The Courtyard by Marriott Bali Nusa Dua",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpscy-courtyard-bali-nusa-dua-resort/dining/",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "muka-restaurant-and-bar",
+  "name": "MuKa Restaurant and Bar",
+  "source_url": "https://lnkbio.id/muka-bali/?fbclid%3DPAQ0xDSwMKHRVleHRuA2FlbQIxMQABp4d7qKgMIHJ0gcfRUmFet25KLyIV0IcjtowAnIsF5fj1T9A0HdpNi32Gz8MC_aem_oXNOaqM1d7orQhCZx6wuzQ",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mulia-fitness-centre-nusa-dua",
+  "name": "Mulia Fitness Centre",
+  "source_url": "https://www.themulia.com/bali/themulia",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "nampu-japanese-restaurant",
+  "name": "Nampu Japanese Restaurant at Grand Hyatt Bali",
+  "source_url": "https://www.hyatt.com/grand-hyatt/en-US/balgh-grand-hyatt-bali/dining/nampu%3Fsrc%3Dprop_balgh_en_misc_other_websitelink-nampu_gmblisting",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "nusa-dua-beach-hotel-yoga",
+  "name": "Nusa Dua Beach Hotel Yoga",
+  "source_url": "https://www.nusaduahotel.com/special-offers/yoga-class",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "nutrio-restaurant-at-revivo-wellness-resorts",
+  "name": "NŪTRIŌ Restaurant at REVĪVŌ Wellness Resorts",
+  "source_url": "https://www.revivoresorts.com/nutrio-restaurant",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "paon-bali-resto-and-bar-at-hilton-bali-resort",
+  "name": "Paon Bali Resto and Bar at Hilton Bali Resort",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "pasar-senggol-at-grand-hyatt-bali",
+  "name": "Pasar Senggol at Grand Hyatt Bali",
+  "source_url": "https://www.hyatt.com/grand-hyatt/en-US/balgh-grand-hyatt-bali/dining/pasar-senggol%3Fsrc%3Dprop_balgh_en_misc_other_websitelink-pasarsenggol_gmblisting",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "rev-v-wellness-resort-fitness",
+  "name": "REVĪVŌ Wellness Resort Fitness",
+  "source_url": "https://www.revivoresorts.com/contact/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "revi-vo-spa-wellness-nusa-dua",
+  "name": "REVĪVŌ Spa / Wellness",
+  "source_url": "https://www.revivoresorts.com/wp-content/uploads/2025/09/wellbeing.com_.au-PRESS-CLIPPING.pdf",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "revi-vo-yoga-mindfulness-nusa-dua",
+  "name": "REVĪVŌ Yoga / Mindfulness",
+  "source_url": "https://www.revivoresorts.com/wp-content/uploads/2025/09/wellbeing.com_.au-PRESS-CLIPPING.pdf",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "sakala-beach-club-at-the-sakala-resort-bali",
+  "name": "Sakala Beach Club at The Sakala Resort Bali",
+  "source_url": "https://www.sakalaresortbali.com/wp-content/uploads/2019/10/MENU-SAMUH-BEACH-min.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "salsa-verde-at-grand-hyatt-bali",
+  "name": "Salsa Verde at Grand Hyatt Bali",
+  "source_url": "https://www.hyatt.com/grand-hyatt/en-US/balgh-grand-hyatt-bali/dining/salsa-verde%3Fsrc%3Dprop_balgh_en_misc_other_websitelink-salsaverde_gmblisting",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sapa-seafood-and-grill-nusa-dua",
+  "name": "Sapa Seafood & Grill - Nusa Dua",
+  "source_url": "https://sapabali.com",
+  "reason": "11 items but only 0 priced"
+ },
+ {
+  "slug": "sofitel-bali-fitness-centre-nusa-dua",
+  "name": "Sofitel Bali Fitness Centre",
+  "source_url": "https://sofitelbalinusadua.com/contact/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sofitel-bali-yoga",
+  "name": "Sofitel Bali Yoga",
+  "source_url": "https://sofitelbalinusadua.com/contact/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "soleil-at-mulia",
+  "name": "Soleil at Mulia",
+  "source_url": "https://www.themulia.com/bali/bali-outlets/soleil",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "st-regis-bali-athletic-club",
+  "name": "St. Regis Bali Athletic Club",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpsxr-the-st-regis-bali-resort/overview/",
+  "reason": "21 items but only 0 priced"
+ },
+ {
+  "slug": "st-regis-bali-yoga",
+  "name": "St. Regis Bali Yoga",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpsxr-the-st-regis-bali-resort/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sukun-restaurant-nusa-dua-at-amnaya-resort-nusa-dua",
+  "name": "Sukun Restaurant Nusa Dua at Amnaya Resort Nusa Dua",
+  "source_url": "https://www.amnayahotel.com/nusadua-sukun-restaurant",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "tamarind-restaurant-at-nusa-dua-beach-hotel-and-spa",
+  "name": "Tamarind Restaurant at Nusa Dua Beach Hotel and Spa",
+  "source_url": "https://all.accor.com/hotel/C150/index.en.shtml%23section-facilities",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tenji-sushi",
+  "name": "Tenji Sushi",
+  "source_url": "https://tenjigroup.com/wp-content/uploads/2025/01/Inari.pdf",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tetaring-restaurant-at-kayumanis-nusa-dua-private-villa-and-spa",
+  "name": "Tetaring Restaurant at Kayumanis Nusa Dua Private Villa and Spa",
+  "source_url": "https://www.kayumanisnusadua.com/restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-apurva-kempinski-fitness-centre-nusa-dua",
+  "name": "The Apurva Kempinski Fitness Centre",
+  "source_url": "https://www.kempinski.com/en/the-apurva-kempinski-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-apurva-kempinski-yoga-nusa-dua",
+  "name": "The Apurva Kempinski Yoga",
+  "source_url": "https://www.kempinski.com/en/the-apurva-kempinski-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-apurva-spa-nusa-dua",
+  "name": "The Apurva Spa",
+  "source_url": "https://www.kempinski.com/en/the-apurva-kempinski-bali/luxury-spa/treatments-and-massages",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-bale-nusa-dua-yoga",
+  "name": "The Bale Nusa Dua Yoga",
+  "source_url": "https://lifestyleretreats.com/the-bale-nusa-dua/balinese-cooking-class-reservation",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-tree-international-bar-and-restaurant",
+  "name": "The Tree International Bar & Restaurant",
+  "source_url": "https://sendokbali.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "urban-seaside-restaurant-and-bar",
+  "name": "Urban Seaside restaurant & bar",
+  "source_url": "https://urbanbitesbali.com/nusa-dua",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "westin-nusa-dua-fitness-studio",
+  "name": "Westin Nusa Dua Fitness Studio",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "westin-nusa-dua-yoga",
+  "name": "Westin Nusa Dua Yoga",
+  "source_url": "https://www.marriott.com/en-us/hotels/dpswi-the-westin-resort-nusa-dua-bali/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "2080-burger-x-cibo-pasta-house-sanur",
+  "name": "2080 Burger x Cibo! Pasta House Sanur",
+  "source_url": "https://esborder.qs.esb.co.id/BRG3/28B08/order%3Fmode%3Ddelivery",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "afterwork",
+  "name": "Afterwork",
+  "source_url": "https://bit.ly/e-menu-afterwork",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "andaz-bali-fitness-centre",
+  "name": "Andaz Bali Fitness Centre",
+  "source_url": "https://www.hyatt.com/andaz/dpsaz-andaz-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ares-restaurant-at-sudamala-resort-sanur",
+  "name": "Ares Restaurant at Sudamala Resort Sanur",
+  "source_url": "https://www.sudamalaresorts.com/offer/sanur-enchanting-seaside-dining/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cork-french-tavern",
+  "name": "CORK FRENCH TAVERN",
+  "source_url": "https://corkbali.com/service",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "costa-beach-restaurant",
+  "name": "COSTA - Beach Restaurant Sanur",
+  "source_url": "https://costasanur.com/bar",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "fisherman-s-club",
+  "name": "Fisherman's Club",
+  "source_url": "https://www.hyatt.com/andaz/id-ID/dpsaz-andaz-bali/dining/village-square",
+  "reason": "4 items but only 1 priced"
+ },
+ {
+  "slug": "fitness-plus",
+  "name": "Fitness plus",
+  "source_url": "https://fitnessplusindonesia.co.id/branch/FPSNR",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-sanur",
+  "name": "Ganesha Ek Sanskriti at Sanur",
+  "source_url": "https://ganeshaeksanskriti.com/products/parsi-omelette",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "glo-day-spa-salon-sanur-sanur",
+  "name": "Glo Day Spa & Salon Sanur",
+  "source_url": "https://www.glospabali.com/glo-day-spa-salon-real-benefits-of-massage-therapy",
+  "reason": "only 3 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "gong-restaurant-at-kayumanis-sanur",
+  "name": "Gong Restaurant at Kayumanis Sanur",
+  "source_url": "https://gong-restaurant.com/signature-dinner",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hawa-gym-tukad-yeh-aya",
+  "name": "Hawa Gym Tukad Yeh Aya",
+  "source_url": "https://hawagym.com/zumba",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "holiday-inn-bali-sanur-gym",
+  "name": "Holiday Inn Bali Sanur Gym",
+  "source_url": "https://www.ihg.com/holidayinn/hotels/us/en/bali/dpsbs/hoteldetail",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "intercontinental-bali-sanur-resort-fitness-centre",
+  "name": "InterContinental Bali Sanur Resort Fitness Centre",
+  "source_url": "https://www.ihg.com/intercontinental/hotels/us/en/bali/dpsha/hoteldetail",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jahe-restaurant",
+  "name": "Jahe Restaurant",
+  "source_url": "https://www.pavilionshotels.com/destinations/indonesia/the-pavilions-bali/dining/jahe-restaurant/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "junsei-izakaya",
+  "name": "Junsei Izakaya",
+  "source_url": "https://www.junsei.id/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kimukatsu-icon-bali",
+  "name": "Kimukatsu Icon Bali",
+  "source_url": "https://kimukatsu.id/Menu",
+  "reason": "32 items but only 0 priced"
+ },
+ {
+  "slug": "lava-gastrobar-grill",
+  "name": "Lava Gastrobar & Grill",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "marramba-fitness",
+  "name": "Marramba Fitness",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"www.marrambafitness.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "massimo-italian-restaurant",
+  "name": "Massimo — Italian Restaurant",
+  "source_url": "https://www.massimobali.com/our-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "maya-sanur-spa-sanur",
+  "name": "Maya Sanur Spa",
+  "source_url": "http://mayaresorts.com/sanur/spa",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "maya-sanur-yoga-studio",
+  "name": "Maya Sanur Yoga Studio",
+  "source_url": "https://mayaresorts.com/sanur/experience/yoga-sessions",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "mozza-sanur",
+  "name": "Mozza Sanur",
+  "source_url": "https://www.mozzasanur.com",
+  "reason": "20 items but only 0 priced"
+ },
+ {
+  "slug": "power-of-now-oasis-sanur",
+  "name": "Power of Now Oasis",
+  "source_url": "https://powerofnowoasis.com/yoga-classes",
+  "reason": "only 2 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "prime-plaza-hotel-sanur-fitness-centre",
+  "name": "Prime Plaza Hotel Sanur Fitness Centre",
+  "source_url": "https://spph.pphotels.com/accommodation/room-rates/suite",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "puri-santrian-spa-sanur",
+  "name": "Puri Santrian Spa",
+  "source_url": "https://santrian.com/puri-santrian/rooms",
+  "reason": "9 items but only 1 priced"
+ },
+ {
+  "slug": "puri-santrian-yoga-wellness",
+  "name": "Puri Santrian Yoga / Wellness",
+  "source_url": "https://santrian.com/puri-santrian/experience/yoga.html",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "ranbo-japanese-restaurant-and-bar",
+  "name": "Ranbo Japanese Restaurant And Bar",
+  "source_url": "https://yoshikawa.group/food_service",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "roso-restaurant-at-the-meru-sanur",
+  "name": "Roso Restaurant at The Meru Sanur",
+  "source_url": "https://balibeachsanur.com/dining-experience/roso-restaurant",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "shankha-spa-and-fitness-at-hyatt-regency-bali",
+  "name": "Shankha Spa & Fitness at Hyatt Regency Bali",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "shankha-spa-hyatt-regency-bali-yoga",
+  "name": "Shankha Spa / Hyatt Regency Bali Yoga",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "shotgun-social-bali",
+  "name": "Shotgun Social Bali",
+  "source_url": "https://shotgunsocialbali.com/portfolio-item/sea-food",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sudajiva-spa-at-sudamala-sanur-sanur",
+  "name": "Sudajiva Spa at Sudamala Sanur",
+  "source_url": "https://www.sudamalaresorts.com/sanur/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sudamala-resort-sanur-wellness-yoga-sanur",
+  "name": "Sudamala Resort Sanur Wellness / Yoga",
+  "source_url": "https://www.sudamalaresorts.com/sanur/",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "sumitra-luxury-villas-and-resort-by-pramana",
+  "name": "Sumitra Luxury Villas & Resort by Pramana",
+  "source_url": "https://sumitrahotels.com/wp-content/uploads/2025/12/Menu-Flow-Restaurant.pdf",
+  "reason": "25 items but only 0 priced"
+ },
+ {
+  "slug": "the-1o1-bali-oasis-sanur",
+  "name": "THE 1O1 Bali Oasis Sanur",
+  "source_url": "https://phm-hotels.com/hotels/101-bali-sanur",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-chowk-indian-gourmet-house",
+  "name": "The Chowk - Indian Gourmet House",
+  "source_url": "https://www.thechowk.id/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "three-monkeys-bali-at-sanur",
+  "name": "Three Monkeys Bali at Sanur",
+  "source_url": "https://threemonkeysbali.com/ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tree-bar-at-maya-sanur-resort-and-spa",
+  "name": "Tree Bar at Maya Sanur Resort & Spa",
+  "source_url": "https://mayaresorts.com/sanur/restaurant/tree-bar",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "tsune-japanese-restaurant-bali-by-wonderspace",
+  "name": "Tsune Japanese Restaurant Bali by Wonderspace",
+  "source_url": "https://thewonderspace.com/tsunesanur/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "tsune-japanese-restaurant-sanur-by-wonderspace",
+  "name": "Tsune Japanese Restaurant Sanur by Wonderspace",
+  "source_url": "https://thewonderspace.com/tsunesanur/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "2befit-bali",
+  "name": "2befit Bali",
+  "source_url": "https://2befitbali.wixsite.com/2befitbali/training",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "alila-seminyak-yoga",
+  "name": "Alila Seminyak Yoga",
+  "source_url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsas-alila-seminyak",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "aoku",
+  "name": "Aoku",
+  "source_url": "https://kaminarigroup.com/rayjin",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "bambu",
+  "name": "Bambu",
+  "source_url": "https://bambubali.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "barbacoa",
+  "name": "Barbacoa",
+  "source_url": "https://barbacoa-bali.com",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "biku",
+  "name": "Biku",
+  "source_url": "http://bikubali.com/wp-content/uploads/2016/04/20170310-menu-lunch-dinner.pdf",
+  "reason": "source is not https: http://bikubali.com/wp-content/uploads/2016/04/20170310-menu-lunch-dinner.pdf"
+ },
+ {
+  "slug": "bistro-anwa",
+  "name": "Bistro Anwa",
+  "source_url": "https://www.anwabali.com/dining",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bk-wellness-studio-umalas-by-blue-karma-secrets",
+  "name": "BK Wellness Studio Umalas by Blue Karma Secrets",
+  "source_url": "https://bluekarmasecrets.dijiwasanctuaries.com/at/bluekarmavillage/facility/bk-wellness-studio-umalas",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bketo-bali-at-blue-karma-dijiwa-seminyak",
+  "name": "BKeto Bali at Blue Karma Dijiwa Seminyak",
+  "source_url": "https://bluekarmasecrets.dijiwasanctuaries.com/at/bluekarmaseminyak/facility/b-keto-bali%3Futm_source%3Dgoogle%26utm_medium%3Dbusiness%2Bprofile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bossman-burgers",
+  "name": "BO$$MAN",
+  "source_url": "https://bossmanbali.com/menu",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "bread-yard",
+  "name": "Bread Yard",
+  "source_url": "https://bread-yard.com/menu-lunch-1",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "breeze-at-the-samaya-seminyak",
+  "name": "Breeze at The Samaya Seminyak",
+  "source_url": "https://thesamayabali.com/seminyak/dining/breeze-at-the-samaya.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "casadia-restaurant-and-bar",
+  "name": "Casadia Restaurant & Bar",
+  "source_url": "https://www.dialooghotels.com/hotel/seminyak/dining",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "chaskaa-modern-indian-cuisine-and-bar-at-seminyak",
+  "name": "Chaskaa Modern Indian Cuisine and Bar at Seminyak",
+  "source_url": "https://www.chaskaabali.com/wp-sitemap-posts-our-menu-1.xml",
+  "reason": "18 items but only 0 priced"
+ },
+ {
+  "slug": "cocoon-seminyak",
+  "name": "Cocoon Seminyak",
+  "source_url": "https://cocoon-beach.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "desa-potato-head-wellness",
+  "name": "Desa Potato Head Wellness",
+  "source_url": "https://seminyak.potatohead.co/wellbeing/yoga",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "eko-cafe-by-deli-campur-asia",
+  "name": "Eko Cafe by Deli Campur Asia",
+  "source_url": "https://ekocafebali.com",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "ely-s-kitchen",
+  "name": "Ely's Kitchen",
+  "source_url": "https://e-catalogue.elyskitchenbali.com/wp-content/uploads/2024/11/New-Menu-2025.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "expat-roasters",
+  "name": "Expat. Roasters",
+  "source_url": "https://wholesale.expatroasters.com/cafe-solutions",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "frangipaani-at-prana-bali",
+  "name": "Frangipaani at Prana Bali",
+  "source_url": "https://www.theolivetreegroup.com/our-brands/sutraa-kitchen-bar",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "frangipani-cafe-at-the-oberoi-beach-resort-bali",
+  "name": "Frangipani Cafe at The Oberoi Beach Resort Bali",
+  "source_url": "https://www.oberoihotels.com/hotels-in-bali/dining/frangipani-cafe/?utm_source%3DGMBlisting%26utm_medium%3Dorganic",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "gateway-of-india-at-seminyak",
+  "name": "Gateway of India at Seminyak",
+  "source_url": "https://www.baliindianfood.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "grill-d-burgers-bali",
+  "name": "Grill'd Burgers - Bali",
+  "source_url": "http://grilld.com.au/%23GoogleLocal",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "groove-restaurant-at-avani-seminyak-bali-resort",
+  "name": "Groove Restaurant at Avani Seminyak Bali Resort",
+  "source_url": "https://www.avanihotels.com/en/seminyak-bali/restaurants/groove",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "gusto-gelato",
+  "name": "Gusto Gelato & Caffe",
+  "source_url": "https://gusto-gelateria.com/post-3",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "herbs-and-stones-garden-restaurant",
+  "name": "Herbs & Stones Garden Restaurant",
+  "source_url": "https://herbsandstonesbali.com",
+  "reason": "10 items but only 0 priced"
+ },
+ {
+  "slug": "hiiragi-restaurant-at-the-bk-village",
+  "name": "Hiiragi Restaurant at The BK Village",
+  "source_url": "https://bluekarmasecrets.dijiwasanctuaries.com/at/bluekarmavillage/facility/hiiragi-restaurant%3Futm_source%3Dgoogle%26utm_medium%3Dbusiness%2Bprofile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hinotori-at-montigo-resorts-seminyak",
+  "name": "Hinotori at Montigo Resorts Seminyak",
+  "source_url": "https://seminyak.montigoresorts.com/dining/tadds-restaurant-seminyak",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hog-wild-with-chef-bruno",
+  "name": "Hog Wild with Chef Bruno",
+  "source_url": "https://hogwild.id/sample-page",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hotel-indigo-bali-seminyak-beach-by-ihg",
+  "name": "Hotel Indigo Bali Seminyak Beach by IHG",
+  "source_url": "https://seminyak.hotelindigo.com/en/dining/breakfast-club",
+  "reason": "17 items but only 0 priced"
+ },
+ {
+  "slug": "hotel-indigo-bali-seminyak-beach-by-ihg-seminyak",
+  "name": "Hotel Indigo Bali Seminyak Beach by IHG",
+  "source_url": "https://seminyak.hotelindigo.com/en/dining",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "infinity-beach-club",
+  "name": "Infinity Beach Club",
+  "source_url": "https://www.theseminyak.com/dining/infinity-beach-club/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "isaya-teppanyaki-boutique-seminyak",
+  "name": "Isaya Teppanyaki Boutique Seminyak",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "jiwa-bikram-yoga-bali-seminyak",
+  "name": "Jiwa Bikram Yoga Bali",
+  "source_url": "https://jiwabali.com/the-yoga",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "kahuna-rooftop-pool-and-restaurant",
+  "name": "KAHUNA Rooftop Pool & Restaurant",
+  "source_url": "https://www.marriott.com/en-us/dining/restaurant-bar/dpsas-aloft-bali-seminyak/6612902-kahuna-rooftop-pool-and-restaurant.mi",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kajin-japanese-contemporary-sushi",
+  "name": "Kajin Japanese Contemporary Sushi",
+  "source_url": "https://kaminarigroup.com/sitemap_index.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kura-kura-restaurant-at-the-oberoi-beach-resort-bali",
+  "name": "Kura Kura Restaurant at The Oberoi Beach Resort Bali",
+  "source_url": "https://www.oberoihotels.com/hotels-in-bali/dining/kura-kura-restaurant/",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "kuuki-rooftop-dining-at-cross-paasha-bali-seminyak",
+  "name": "Kuuki Rooftop Dining at Cross Paasha Bali Seminyak",
+  "source_url": "https://www.crosspaashabaliseminyak.com/dine",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "lagoon-spa-seminyak-seminyak",
+  "name": "Lagoon Spa Seminyak",
+  "source_url": "https://www.lagoonspaseminyak.com/spa-treatments/aromatherapy-massage-1-5-hours",
+  "reason": "7 items but only 1 priced"
+ },
+ {
+  "slug": "malverde-tequileria-and-nightclub",
+  "name": "Malverde Tequileria & Nightclub",
+  "source_url": "https://www.malverdebali.com/menu",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "mano-beach-house",
+  "name": "Mano Beach House",
+  "source_url": "https://www.manobali.com/eat-drink-2",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mase-kitchen-and-bar",
+  "name": "Mase Kitchen & Bar",
+  "source_url": "http://macavillas.com/restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "midaz-at-bali",
+  "name": "Midaz at Bali",
+  "source_url": "https://www.midazbali.com/menu/food",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "milk-and-madu-seminyak",
+  "name": "Milk & Madu Seminyak",
+  "source_url": "https://milkandmadu.com/location/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "motion-fitness-bali-seminyak",
+  "name": "Motion Fitness Bali Seminyak",
+  "source_url": "https://www.motionfitnessbali.com/glutamine-advantages-and-ways-to-include-it-into-your-everyday-schedule",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "natys-restaurant-seminyak",
+  "name": "Natys Restaurant Seminyak",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"natysrestaurant.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "norii-japanese-restaurant-seminyak",
+  "name": "Norii Japanese Restaurant — Seminyak",
+  "source_url": "https://thewonderspace.com/noriiumalas",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "nui-da-mano-beachfront-restaurant-in-batu-belig",
+  "name": "Nui da Mano - Beachfront Restaurant in Batu Belig",
+  "source_url": "https://nuidamano.com/lunch-dinner",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "oswego-bali",
+  "name": "Oswego Bali",
+  "source_url": "https://www.impianaseminyak.com/dining/oswego-bali-bar-dining-restaurant/",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "prana-spa-yoga-fitness-adjacent-seminyak",
+  "name": "Prana Spa / Yoga fitness-adjacent",
+  "source_url": "https://pranaspaseminyakbali.com/zh-tw",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "prana-yoga-seminyak",
+  "name": "Prana Yoga",
+  "source_url": "https://pranaspaseminyakbali.com/zh-tw",
+  "reason": "5 items but only 1 priced"
+ },
+ {
+  "slug": "qissa-indian-restaurant-at-seminyak",
+  "name": "Qissa Indian Restaurant at Seminyak",
+  "source_url": "https://qissabali.com/food-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sabeen-restaurant-at-the-haven-bali-seminyak",
+  "name": "Sabeen Restaurant at THE HAVEN Bali Seminyak",
+  "source_url": "http://www.thehavenhotels.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sanctuary-umalas-italian-restaurant-by-wonderspace",
+  "name": "Sanctuary Umalas Italian Restaurant by Wonderspace",
+  "source_url": "http://thewonderspace.com/sanctuaryrestaurant/?utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgoogle_business_profileSanctuary_Umalas",
+  "reason": "13 items but only 2 priced"
+ },
+ {
+  "slug": "sanje-restaurant-and-lounge-at-the-seminyak-beach-resort",
+  "name": "Sanje Restaurant and Lounge at The Seminyak Beach Resort",
+  "source_url": "https://www.theseminyak.com/dining/sanje-restaurant/",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "seminyak-yoga-shala",
+  "name": "Seminyak Yoga Shala",
+  "source_url": "https://seminyakyogashala.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "settimo-cielo-rustic-refined-italian",
+  "name": "Settimo Cielo - Rustic Refined Italian",
+  "source_url": "https://www.settimocielobali.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-seminyak",
+  "name": "Shichirin Japanese Restaurant — Seminyak",
+  "source_url": "https://thewonderspace.com/shichirinseminyak/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "shiro-sushi-sake-bar",
+  "name": "Shiro Sushi/Sake Bar",
+  "source_url": "https://111resorts.com/shiro/menu",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "soham-wellness-spa-seminyak",
+  "name": "Soham Wellness Spa",
+  "source_url": "https://sohamwellnesscenter.com/membership",
+  "reason": "only 2 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "soham-yoga-seminyak",
+  "name": "Soham Yoga",
+  "source_url": "https://sohamwellnesscenter.com/membership",
+  "reason": "only 2 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "south-east-brewing-co",
+  "name": "South+East Brewing Co.",
+  "source_url": "https://southeastbrewing.co",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "spice-mantraa-at-seminyak",
+  "name": "Spice Mantraa at Seminyak",
+  "source_url": "https://spicemantraa.com/seminyak",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "sundari-day-spa-seminyak",
+  "name": "Sundari Day Spa",
+  "source_url": "https://sundari-wellness.com/healing-rituals",
+  "reason": "only 0 usable items after cleaning (10 dropped)"
+ },
+ {
+  "slug": "suzie-q-at-double-six-luxury-hotel",
+  "name": "Suzie-Q at Double Six Luxury Hotel",
+  "source_url": "https://suzieqbali.com/storage/2023/04/Food-Menu-SQ_20042023.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "tadd-s-restaurant-at-montigo-resorts-seminyak",
+  "name": "TADD's Restaurant at Montigo Resorts Seminyak",
+  "source_url": "https://seminyak.montigoresorts.com/dining/hinotori-japanese-restaurant-seminyak",
+  "reason": "7 items but only 2 priced"
+ },
+ {
+  "slug": "takk-bali",
+  "name": "TAKK Bali",
+  "source_url": "http://takk-restaurant.com/assets/pdf/Menu%20Food%20April_merged_compressed.pdf",
+  "reason": "11 items but only 0 priced"
+ },
+ {
+  "slug": "the-forge",
+  "name": "The Forge",
+  "source_url": "https://www.forgebali.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-island-grill-and-lounge",
+  "name": "The Island Grill & Lounge",
+  "source_url": "https://theislandgrillandlounge.com/drinks",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-junction-house-cafe-and-restaurant-seminyak",
+  "name": "The Junction House - Cafe & Restaurant Seminyak",
+  "source_url": "https://thejunctionhousebali.com/wonderful-eating-experience-2",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-legian-seminyak-wellness-yoga",
+  "name": "The Legian Seminyak Wellness Yoga",
+  "source_url": "https://lhm-hotels.com/thelegianseminyakbali/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-restaurant-at-the-legian-seminyak",
+  "name": "The Restaurant at The Legian Seminyak",
+  "source_url": "https://lhm-hotels.com/en/the-legian-seminyak-bali/seafood-bbq-dinner",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "think-pink-salon-and-nails-bali",
+  "name": "Think Pink Salon & Nails Bali",
+  "source_url": "https://www.thinkpinksalon.com/treatments",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "urban-bites-at-seminyak",
+  "name": "Urban Bites at Seminyak",
+  "source_url": "https://urbanbitesbali.com/seminyak",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "vincent-nigita",
+  "name": "Vincent Nigita",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "vrindavan-100-pure-indian-vegetarian-and-vegan-restaurant",
+  "name": "Vrindavan 100% Pure Indian Vegetarian & Vegan Restaurant",
+  "source_url": "https://vrindavanrestaurantbali.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "w-bali-wellness-yoga",
+  "name": "W Bali Wellness / Yoga",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "warung-nia-balinese-food-and-pork-ribs",
+  "name": "Warung Nia Balinese Food & Pork Ribs",
+  "source_url": "https://warungnia.com/best-indonesian-food-in-seminyak",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "yoga-108-bali-seminyak",
+  "name": "Yoga 108 Bali",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "younghee-bali",
+  "name": "Younghee Bali",
+  "source_url": "https://youngheebali.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "air-cafe-and-lounge-at-the-sebali-resort",
+  "name": "Air Cafe and Lounge at The Sebali Resort",
+  "source_url": "http://thesebali.com/dining.php",
+  "reason": "source is not https: http://thesebali.com/dining.php"
+ },
+ {
+  "slug": "akar-ubud",
+  "name": "Akar Ubud",
+  "source_url": "https://www.akarubud.com/sitemap.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "alchemy-yoga-meditation-center",
+  "name": "Alchemy Yoga & Meditation Center",
+  "source_url": "https://www.alchemyyogacenter.com/yoga-schedule",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "amateras-restaurant-at-jannata-resort-and-spa",
+  "name": "Amateras Restaurant at Jannata Resort & Spa",
+  "source_url": "https://jannataresort.com/en/amateras-dining",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ambar-ubud-bar-at-mandapa-a-ritz-carlton-reserve",
+  "name": "Ambar Ubud Bar at Mandapa, a Ritz-Carlton Reserve",
+  "source_url": "https://www.ambarubudbar.com/our-menus",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ankhusa-restaurant-ubud-by-wonderspace",
+  "name": "Ankhusa Restaurant Ubud by Wonderspace",
+  "source_url": "https://thewonderspace.com/ankhusabali/menu.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "arcadia",
+  "name": "Arcadia",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "arctic-restaurant-breakfast-brunch-and-dinner",
+  "name": "ARCTIC Restaurant – Breakfast, Brunch & Dinner",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "arya-arkananta-resort-and-spa",
+  "name": "Arya Arkananta Resort & Spa",
+  "source_url": "https://aryaarkanantabali.com/cultural-night-dinner",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "baas-terrace-and-wine-locked-lounge-at-metland-venya-ubud",
+  "name": "Baas Terrace and Wine Locked Lounge at Metland Venya Ubud",
+  "source_url": "https://metlandvenyaubud.com/pool-and-bar",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bamboo-shoot-restaurant-at-emana-bambooscape",
+  "name": "Bamboo Shoot Restaurant at Emana Bambooscape",
+  "source_url": "https://emanahotels.com/bambooscape-villas-ubud-bali/a-candlelight-romantic-dinner-at-bamboo-shoot-restaurant-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bebek-bengil",
+  "name": "Bebek Bengil",
+  "source_url": "https://www.bebekbengil.co.id/en",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bee-cafe-ubud-at-beehouse-dijiwa-ubud",
+  "name": "Bee Cafe Ubud at Beehouse Dijiwa Ubud",
+  "source_url": "https://dijiwasanctuaries.com/at/beehouseubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "belantara-restaurant-at-kastara-resort-and-spa",
+  "name": "Belantara Restaurant at Kastara Resort and Spa",
+  "source_url": "https://kastararesort.com/restaurant",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "bella-by-sage",
+  "name": "Bella by Sage",
+  "source_url": "https://www.bellaubud.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "birdhill-restaurant-at-amora-ubud-boutique-villas",
+  "name": "Birdhill Restaurant at Amora Ubud Boutique Villas",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "bisma-valley-at-adiwana-bisma",
+  "name": "Bisma Valley at Adiwana Bisma",
+  "source_url": "https://adiwanahotels.com/bisma-resort-ubud-bali/2025/01/30/best-things-to-do-in-ubud-at-night-live-music-great-food",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "black-garlic-ubud",
+  "name": "Black Garlic Ubud",
+  "source_url": "https://blackgarlicubud.com/menu",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "botanist-restaurant-ubud-at-blue-karma-dijiwa-ubud",
+  "name": "Botanist Restaurant Ubud at Blue Karma Dijiwa Ubud",
+  "source_url": "https://bluekarmasecrets.dijiwasanctuaries.com/at/bluekarmaubud/facility/botanist-restaurant-ubud%3Futm_source%3Dgoogle%26utm_medium%3Dbusiness%2Bprofile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "brie-restaurant-and-cheesery",
+  "name": "Brie Restaurant & Cheesery",
+  "source_url": "https://brie.chaika.team/menu",
+  "reason": "non-IDR currency RUB needs a human check"
+ },
+ {
+  "slug": "bulan-madu-restaurant-at-amora-ubud-boutique-villas",
+  "name": "Bulan Madu Restaurant at Amora Ubud Boutique Villas",
+  "source_url": "https://amoraubud.com/waisak-celebration-dinner-event-at-birdhill-ubud-bali",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "cabana-lounge-at-alila-ubud",
+  "name": "Cabana Lounge at Alila Ubud",
+  "source_url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsau-alila-ubud/dining%3Fsrc%3Dprop_dpsau_en_misc_gbp_cabana%2520lounge_profile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cafe-lotus",
+  "name": "Cafe Lotus",
+  "source_url": "https://thecafelotusubud.com/menu/breakfast",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "cantika-zest",
+  "name": "Cantika Zest",
+  "source_url": "http://www.cantikazestbali.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cantina-classe-ubud",
+  "name": "Cantina Classe — Ubud",
+  "source_url": "https://thewonderspace.com/cantinaubud/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "chaskaa-ubud",
+  "name": "Chaskaa Modern Indian Cuisine and Bar at Ubud",
+  "source_url": "https://www.chaskaabali.com/our-menu",
+  "reason": "18 items but only 0 priced"
+ },
+ {
+  "slug": "chito-caucasus-cuisine-bistro",
+  "name": "CHITO caucasus cuisine bistro",
+  "source_url": "https://www.chitobistro.com/food-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "chora-mediterranean-restaurant-and-bar",
+  "name": "CHORA Mediterranean Restaurant & Bar",
+  "source_url": "https://choraubud.com/menu-chora-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "citrus-restaurant-ubud",
+  "name": "Citrus Restaurant Ubud",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "clear-cafe",
+  "name": "Clear Café",
+  "source_url": "https://clearcafebali.com/our-food",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "clover-cafe-at-the-hava-ubud",
+  "name": "Clover Cafe at The Hava Ubud",
+  "source_url": "https://thehavaubud.com/serai-restaurant",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "collina-kawi-restaurant-at-kawi-resort",
+  "name": "Collina Kawi Restaurant at Kawi Resort",
+  "source_url": "https://kawiresort.com/collina-kawi-restaurant/restaurant-menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "como-shambhala-at-como-uma-ubud-yoga-ubud",
+  "name": "COMO Shambhala at COMO Uma Ubud Yoga",
+  "source_url": "https://www.comohotels.com/bali/como-uma-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "como-uma-ubud-fitness",
+  "name": "COMO Uma Ubud Fitness",
+  "source_url": "https://www.comohotels.com/bali/como-uma-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cretya-sunset-by-alas-harum",
+  "name": "Cretya Sunset",
+  "source_url": "https://cretyasunset.com/en/cretya-ubud/menu-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "dala-spa-at-alaya-resort-ubud",
+  "name": "DaLa Spa at Alaya Resort Ubud",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "deeva-restaurant-at-the-udaya",
+  "name": "Deeva Restaurant at The Udaya",
+  "source_url": "https://theudayaresort.com/deeva-ubud-restaurant.php",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "desa-swan-villas-and-spa-keramas",
+  "name": "Desa Swan Villas & SPA, Keramas",
+  "source_url": "https://desaswan.com/cn/restaurant",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "di-sini-di-sana-by-rachman-and-sons",
+  "name": "Di Sini Di Sana by Rachman & Sons",
+  "source_url": "https://disinidisanabras.com/di-sini/menus",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "enclave-ubud-at-plataran-ubud",
+  "name": "Enclave Ubud at Plataran Ubud",
+  "source_url": "https://www.plataran.com/venues-dining/enclave-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "fermeto-ubud-restaurant",
+  "name": "Fermeto Ubud Restaurant",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "flame-bar-and-grill-ubud",
+  "name": "Flame Bar & Grill Ubud",
+  "source_url": "https://flameubud.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "flamingo-beach-club-bali",
+  "name": "Flamingo Beach Club Bali",
+  "source_url": "https://flamingobeachclub.com/food-beverage",
+  "reason": "12 items but only 0 priced"
+ },
+ {
+  "slug": "friends-cafe-and-bistro",
+  "name": "Friends Cafe & Bistro",
+  "source_url": "https://friendscafeubud.com/friends-cafe-ubud-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-ubud",
+  "name": "Ganesha Ek Sanskriti at Ubud",
+  "source_url": "https://ganeshaeksanskriti.com/products/pav-bhaji",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "gelato-secrets-ubud",
+  "name": "Gelato Secrets Ubud",
+  "source_url": "https://gelatosecrets.com/onetone-slider/slow-food",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "glow-restaurant-at-como-shambhala-estate",
+  "name": "glow Restaurant at COMO Shambhala Estate",
+  "source_url": "https://www.comohotels.com/bali/como-shambhala-estate/dining/glow%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBfnb",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "habitat-bistro",
+  "name": "Habitat Bistro",
+  "source_url": "https://thewonderspace.com/habitatbistroubud/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "habitat-bistro-restaurant-ubud-by-wonderspace",
+  "name": "Habitat Bistro Restaurant Ubud by Wonderspace",
+  "source_url": "https://thewonderspace.com/habitatbistroubud/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "hotapa-kitchen",
+  "name": "Hotapa Kitchen",
+  "source_url": "https://honairesort.com/women-healing-retreat",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "hura-restaurant-at-the-pala-ubud-villas",
+  "name": "Hura Restaurant at The Pala Ubud Villas",
+  "source_url": "https://thepalaubudresort.com/hura-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "intuitive-flow",
+  "name": "Intuitive Flow",
+  "source_url": "https://www.intuitiveflow.com/the-calm-beneath-the-chaos-a-yogic-way-through-uncertainty",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jaens-spa",
+  "name": "Jaens Spa",
+  "source_url": "https://jaensspa.com/enjoy-full-relaxing-treatment-with-best-price-on-jaens-spa",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "jaens-spa-ubud-ubud",
+  "name": "Jaens Spa Ubud",
+  "source_url": "https://jaensspa.com/enjoy-full-relaxing-treatment-with-best-price-on-jaens-spa",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "jingga-restaurant-at-bumi-kinar",
+  "name": "Jingga Restaurant at Bumi Kinar",
+  "source_url": "https://bumikinar.com/dine",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "juggan-sky",
+  "name": "Juggan Sky",
+  "source_url": "https://juggans.com/menu-juggan-sky",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "karsa-cafe",
+  "name": "Karsa Cafe",
+  "source_url": "https://www.karsacafe.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kawa-hibachi-at-kastara-resort-and-spa",
+  "name": "Kawa Hibachi at Kastara Resort and Spa",
+  "source_url": "https://kastararesort.com/restaurant/kawa-hibachi/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kemiri-restaurant-at-como-uma-ubud",
+  "name": "Kemiri Restaurant at COMO Uma Ubud",
+  "source_url": "https://www.comohotels.com/bali/como-uma-ubud%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBprofile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kepitu-restaurant-by-the-kayon-resort",
+  "name": "Kepitu Restaurant by The Kayon Resort",
+  "source_url": "https://thekayonresort.com/dining/kepitu-at-the-kayon/",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "kepitu-restaurant-by-the-kayon-valley-resort",
+  "name": "Kepitu Restaurant by The Kayon Valley Resort",
+  "source_url": "https://thekayonvalleyresort.com/dining/kepitu-restaurants-bar/",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "kilig-bali",
+  "name": "Kilig - A Filipino Warung",
+  "source_url": "https://kiligbali.com/food-guides/rise-of-modern-filipino-dining-experiences-in-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kudus-house-at-como-shambhala-estate",
+  "name": "Kudus House at COMO Shambhala Estate",
+  "source_url": "https://www.comohotels.com/bali/como-shambhala-estate%3Futm_source%3DGoogle%26utm_medium%3DGoogleMyBusiness%26utm_campaign%3DGMBprofile",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kunang-kunang-restaurant-at-the-sun-of-granary-resort-and-villas",
+  "name": "Kunang-Kunang Restaurant at The Sun of Granary Resort and Villas",
+  "source_url": "https://kunangkunangubud.com/2023/04/06/romantic-dinner-at-kunang-kunang-restaurant",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "kyoka-japanese-kitchen-ubud",
+  "name": "Kyoka Japanese Kitchen Ubud",
+  "source_url": "https://kyokaubud.com/menu/",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "laka-leke",
+  "name": "Laka Leke",
+  "source_url": "https://www.lakaleke.com/index.php",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "le-gastronome-restaurant-at-keliki-luxury-lodge",
+  "name": "Le Gastronome Restaurant at Keliki Luxury Lodge",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "lumbung-restaurant-at-visesa-ubud-resort",
+  "name": "Lumbung Restaurant at Visesa Ubud Resort",
+  "source_url": "https://visesaubud.com/dining/lumbung-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "madhubann-pure-veg-indian-restaurant",
+  "name": "Madhubann : Pure Veg Indian Restaurant",
+  "source_url": "http://www.madhubann.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mamu-garden-cafe-and-lounge",
+  "name": "MAMU garden cafe & lounge",
+  "source_url": "https://mamugarden.com/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mandapa-fitness-centre",
+  "name": "Mandapa Fitness Centre",
+  "source_url": "https://www.ritzcarlton.com/en/hotels/dpsub-mandapa-a-ritz-carlton-reserve/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mandapa-spa-ubud",
+  "name": "Mandapa Spa",
+  "source_url": "https://www.ritzcarlton.com/en/hotels/dpsub-mandapa-a-ritz-carlton-reserve/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "maya-ubud-fitness-centre-ubud",
+  "name": "Maya Ubud Fitness Centre",
+  "source_url": "https://mayaresorts.com/ubud/experience/yoga-wall",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "maya-ubud-spa-ubud",
+  "name": "Maya Ubud Spa & Wellness",
+  "source_url": "https://mayaresorts.com/ubud/spa",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "maya-ubud-yoga-ubud",
+  "name": "Maya Ubud Yoga",
+  "source_url": "https://mayaresorts.com/ubud/experience/aerial-yoga",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "melting-wok-warung",
+  "name": "Melting Wok Warung",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "moksa",
+  "name": "Moksa",
+  "source_url": "https://moksaubud.com/plan-based-heated",
+  "reason": "9 items but only 0 priced"
+ },
+ {
+  "slug": "mori-ubud",
+  "name": "Mori Ubud",
+  "source_url": "https://www.moriubud.com/home",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "nari-fire-influenced-bistro",
+  "name": "NARI - Fire Influenced Bistro",
+  "source_url": "https://naribali.com/whats-on/taste-unique-restaurant-experience-in-ubud",
+  "reason": "23 items but only 0 priced"
+ },
+ {
+  "slug": "natti-s-indian-specialty-restaurant-ubud",
+  "name": "Natti's Indian Specialty Restaurant Ubud",
+  "source_url": "https://nattisrestaurant.com",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "natys-bar-and-grill-ubud",
+  "name": "Natys Bar & Grill Ubud",
+  "source_url": "https://natysrestaurant.com/natys-restaurant-tanah-lot",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "natys-restaurant-ubud-at-natya-resort-ubud",
+  "name": "Natys Restaurant Ubud at Natya Resort Ubud",
+  "source_url": "https://natysrestaurant.com/natys-ubud/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "nautilus",
+  "name": "Nautilus",
+  "source_url": "https://nautilusubud.com",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "noema-greek-restaurant-and-bar",
+  "name": "Noema Greek Restaurant & Bar",
+  "source_url": "https://noemaubud.com/noema-menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "norii-japanese-restaurant-ubud",
+  "name": "Norii Japanese Restaurant — Ubud",
+  "source_url": "https://thewonderspace.com/noriiubud/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "oneworld-ayurveda",
+  "name": "Oneworld Ayurveda",
+  "source_url": "https://oneworldayurveda.com/ubud/rooms-and-facilities",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "onion-collective",
+  "name": "Onion Collective",
+  "source_url": "https://theonionco.com/ubud-halal-kopitiam",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "padi-restaurant-at-puri-sebali-resort",
+  "name": "Padi Restaurant at Puri Sebali Resort",
+  "source_url": "https://www.purisebaliresort.com/restaurant.htm",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "paoman-restaurant-at-inara-alas-harum",
+  "name": "Paoman Restaurant at Inara Alas Harum",
+  "source_url": "https://inarahotels.com/alas-harum-resort-bali/wp-content/uploads/2025/08/Beverage-Semara.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "perantenan-restaurant-at-the-alena-resort",
+  "name": "Perantenan Restaurant at The Alena Resort",
+  "source_url": "https://www.thealenaresort.com/perantenan-restaurant.htm",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "pistachio-restaurant-at-adiwana-bisma",
+  "name": "Pistachio Restaurant at Adiwana Bisma",
+  "source_url": "https://pistachioubud.com/australian-brunch-with-a-view-pistachio-restaurant-at-adiwana-bisma",
+  "reason": "14 items but only 0 priced"
+ },
+ {
+  "slug": "plantation-restaurant-at-alila-ubud",
+  "name": "Plantation Restaurant at Alila Ubud",
+  "source_url": "https://www.hyatt.com/alila-hotels-and-resorts/en-US/dpsau-alila-ubud%3Fsrc%3Dcorp_lclb_google_seo_dpsau%26utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dlmr",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "pyramids-of-chi",
+  "name": "Pyramids of Chi",
+  "source_url": "https://ubud.pyramidsofchi.com/wp-content/uploads/2025/10/PoC-BusinessRetreatDeck.pdf",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "radiantly-alive",
+  "name": "Radiantly Alive",
+  "source_url": "https://www.radiantlyalive.com/yoga-teacher-training-2026",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "river-warung-at-bambu-indah",
+  "name": "River Warung at Bambu Indah",
+  "source_url": "https://www.bambuindah.com/pages/dine",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "room-4-dessert",
+  "name": "Room 4 Dessert",
+  "source_url": "https://www.room4dessert.com/the-restaurant/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "runara-restaurant-at-abisena-ubud",
+  "name": "Runara Restaurant at Abisena Ubud",
+  "source_url": "https://abisenaubud.com/space-event/%23runara",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sababay-winery",
+  "name": "Sababay Winery",
+  "source_url": "https://sababaywinery.com/products/sababay-wine-white-sangria",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sacred-rice-restaurant",
+  "name": "SACRED RICE Restaurant",
+  "source_url": "https://sacredricebali.com",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "sala-bistro-at-ubud",
+  "name": "Sala Bistro at Ubud",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "sans-indian-restaurant-ubud-by-wonderspace",
+  "name": "Sans Indian Restaurant Ubud by Wonderspace",
+  "source_url": "https://thewonderspace.com/sansindian/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "sawah-terrace-at-mandapa-a-ritz-carlton-reserve",
+  "name": "Sawah Terrace at Mandapa, a Ritz-Carlton Reserve",
+  "source_url": "https://www.ritzcarlton.com/en/hotels/dpsub-mandapa-a-ritz-carlton-reserve/overview/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sayan-valley",
+  "name": "Sayan Valley",
+  "source_url": "https://sayanvalley.com/ubud-restaurants-with-a-view",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "senja-bar-and-resto-at-goya-boutique-resort",
+  "name": "Senja Bar and Resto at Goya Boutique Resort",
+  "source_url": "https://www.goyaboutiqueresorts.com/dining/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "serai-restaurant-at-the-hava-ubud",
+  "name": "Serai Restaurant at The Hava Ubud",
+  "source_url": "https://thehavaubud.com/serai-restaurant",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "seres-springs-resort-and-spa-singakerta-ubud",
+  "name": "SereS Springs Resort & Spa Singakerta, Ubud",
+  "source_url": "https://www.sereshotelsresorts.com/wp-content/uploads/sites/24/2024/02/SereS-Spa-Sanctuary-Booklet-Menu.pdf",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-ubud",
+  "name": "Shichirin Japanese Restaurant — Ubud",
+  "source_url": "https://thewonderspace.com/shichirinubud/menu",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "shinraku-teppanyaki",
+  "name": "Shinraku Teppanyaki",
+  "source_url": "https://shinrakubali.com/ubud-sushi-restaurant",
+  "reason": "21 items but only 0 priced"
+ },
+ {
+  "slug": "shrida",
+  "name": "Shrida",
+  "source_url": "https://shridaubud.com/the-most-popular-menu-in-ubud-best-restaurant-dinner",
+  "reason": "12 items but only 0 priced"
+ },
+ {
+  "slug": "simply-social",
+  "name": "Simply Social",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "sky-lounge-by-ely-s-kitchen-at-adiwana-unagi-suites",
+  "name": "Sky Lounge by Ely's Kitchen at Adiwana Unagi Suites",
+  "source_url": "https://adiwanahotels.com/unagi-suites-resort-ubud-bali/facilities/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "soulshine-bali",
+  "name": "Soulshine Bali",
+  "source_url": "https://www.soulshinebali.com/food-and-drink",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "spice-by-blake",
+  "name": "Spice by Blake",
+  "source_url": "https://spicebali.com/unique-restaurants-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sungai-restaurant-at-sthala-a-tribute-portfolio-hotel",
+  "name": "Sungai Restaurant at Sthala, a Tribute Portfolio Hotel",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "sunset-bloom-restaurant-at-swan-paradise-a-pramana-experience",
+  "name": "Sunset Bloom Restaurant at Swan Paradise A Pramana Experience",
+  "source_url": "https://swanparadisebali.com/sport-activity",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "svaha-spa",
+  "name": "Svaha Spa",
+  "source_url": "https://svahaspa.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "svaha-spa-bisma-ubud",
+  "name": "Svaha Spa Bisma",
+  "source_url": "https://svahawellness.com/svahaspaseminyak/treatment",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "swiss-chalet-and-grill",
+  "name": "Swiss Chalet and Grill",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "t-dung-restaurant-pool-and-bar-at-kenran-resort-ubud",
+  "name": "T'dung Restaurant Pool and Bar at Kenran Resort Ubud",
+  "source_url": "https://tdungrestaurant.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "taksu-yoga",
+  "name": "Taksu Yoga",
+  "source_url": "https://taksu.org/contact/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tall-trees-at-the-westin-resort-and-spa-ubud-bali",
+  "name": "Tall Trees at The Westin Resort and Spa Ubud, Bali",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "tanarasa-restaurant-at-tanadewa-resort-ubud-bali-by-cross-collection",
+  "name": "Tanarasa Restaurant at Tanadewa Resort Ubud Bali by Cross Collection",
+  "source_url": "https://www.tanadewaubud.com/dine",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tekila-mexican-restaurant-ubud",
+  "name": "TeKila Mexican Restaurant Ubud",
+  "source_url": "https://tekilaubud.com/menu/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tembaga-restaurant",
+  "name": "Tembaga Restaurant",
+  "source_url": "https://www.bambuindah.com/pages/tembaga",
+  "reason": "14 items but only 1 priced"
+ },
+ {
+  "slug": "terracotta-restaurant-at-mathis-retreat-ubud",
+  "name": "Terracotta Restaurant at MATHIS Retreat Ubud",
+  "source_url": "https://dijiwasanctuaries.com/at/mathisretreatubud/facility/bks-terracotta-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-cassowary-restaurant",
+  "name": "The Cassowary Restaurant",
+  "source_url": "https://booking.sanctoo.com/eat-drink",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-cepaka-bistro-bali",
+  "name": "The Cepaka Bistro Bali",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "the-chowk-ubud",
+  "name": "The Chowk - Indian Gourmet House. (Museum Puri Lukisan Ubud)",
+  "source_url": "https://www.thechowk.id/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-elephant",
+  "name": "The Elephant",
+  "source_url": "https://www.elephantbali.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-kelusa-at-samsara-ubud",
+  "name": "The Kelusa at Samsara Ubud",
+  "source_url": "https://thekelusaubud.com/themes/kelusa-2/assets/pdf/Intimate_European_Style_Romantic_Dinner.pdf",
+  "reason": "only 0 usable items after cleaning (7 dropped)"
+ },
+ {
+  "slug": "the-nini-restaurant-12",
+  "name": "The Nini Restaurant | 12+",
+  "source_url": "https://www.bambootel.com/sawah-view",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-orchid-duck-restaurant",
+  "name": "The Orchid Duck Restaurant",
+  "source_url": "https://theorchidduckrestaurant.com",
+  "reason": "16 items but only 0 priced"
+ },
+ {
+  "slug": "the-restaurant-by-keliki-luxury-lodge",
+  "name": "The Restaurant by Keliki Luxury Lodge",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "the-sankara-suites-and-villas",
+  "name": "The Sankara Suites & Villas",
+  "source_url": "https://www.thesankarasuite.com/laddu-restaurant",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "the-sayan-house-restaurant-ubud",
+  "name": "The Sayan House Restaurant Ubud",
+  "source_url": "https://www.thesayanhouse.com/video-tsh",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-shala-bali",
+  "name": "The Shala Bali",
+  "source_url": "https://www.theshalabali.com/darshanavedaspa",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "the-swept-away-restaurant-ubud-by-the-samaya-ubud",
+  "name": "The Swept Away Restaurant Ubud by The Samaya Ubud",
+  "source_url": "https://thesamayabali.com/seminyak/dining/island-romantic-candlelight-dinner.html",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-tempayan-at-tanah-gajah-a-resort-by-hadiprana",
+  "name": "The Tempayan at Tanah Gajah, a Resort by Hadiprana",
+  "source_url": "https://www.tanahgajahubud.com/en/dining/the-tempayan",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "the-upper-deck-ubud",
+  "name": "The Upper Deck Ubud",
+  "source_url": "https://www.chapung.com/ubud-restaurant/the-upper-deck-restaurant/",
+  "reason": "only 3 usable items after cleaning (1 dropped)"
+ },
+ {
+  "slug": "the-westin-resort-and-spa-ubud-fitness-studio",
+  "name": "The Westin Resort & Spa Ubud Fitness Studio",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "the-yoga-barn",
+  "name": "The Yoga Barn",
+  "source_url": "https://theyogabarn.com/classes/private-yoga-classes",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "three-elements-restaurant",
+  "name": "Three Elements Restaurant",
+  "source_url": "https://hanginggardensofbali.com/dining",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "three-monkeys-bali-at-ubud",
+  "name": "Three Monkeys Bali at Ubud",
+  "source_url": "https://threemonkeysbali.com/wp-sitemap.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tis-cafe-ubud",
+  "name": "Tis Cafe",
+  "source_url": "https://tisrestaurant.com/2024/08/21/indulge-in-a-unique-dining-experience-at-tis-cafe-ubud-with-exquisite-floating-breakfast-and-floating-lunch",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "titi-batu-ubud-club-ubud",
+  "name": "Titi Batu Ubud Club",
+  "source_url": "https://www.titibatu.com/classes-old",
+  "reason": "98 items but only 0 priced"
+ },
+ {
+  "slug": "tree-bar-at-maya-ubud",
+  "name": "Tree Bar at Maya Ubud",
+  "source_url": "https://mayaresorts.com/ubud/restaurant/tree-bar",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "tukies-coconut-shop",
+  "name": "Tukies Coconut Shop",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "ubud-fitness-center",
+  "name": "Ubud Fitness Center",
+  "source_url": "https://www.ubudfitnesscentre.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ubud-pilates",
+  "name": "Ubud Pilates",
+  "source_url": "https://ubudpilates.com/classes-schedule",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ubud-yoga-centre",
+  "name": "Ubud Yoga Centre",
+  "source_url": "https://ubudyogacentre.com/wp-content/uploads/2019/07/uyc_yogaclasses_17x39cm_merged-1.pdf",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ubud-yoga-house",
+  "name": "Ubud Yoga House",
+  "source_url": "https://ubudyogahouse.com/why-bali-is-the-worlds-best-destination-for-yoga-teacher-training-and-why-youll-fall-completely-in-love-with-it",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "uma-cucina",
+  "name": "Uma Cucina",
+  "source_url": "https://www.comohotels.com/bali/como-uma-ubud/uma-cucina-bali/menu",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "uma-tiki-restaurant-at-korurua-dijiwa-ubud",
+  "name": "Uma Tiki Restaurant at Korurua Dijiwa Ubud",
+  "source_url": "https://dijiwasanctuaries.com/at/koruruaubud/cuisine/uma-tiki-restaurant-ubud",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "warung-biah-biah",
+  "name": "Warung Biah Biah",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "whisper-cove-bar-ubud",
+  "name": "Whisper Cove Bar Ubud",
+  "source_url": "https://whispercovebali.com/restaurant-in-ubud-with-a-view-best-places-to-eat",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "wild-ginger-restaurant-at-nandini-jungle-by-hanging-gardens",
+  "name": "Wild Ginger Restaurant at Nandini Jungle by Hanging Gardens",
+  "source_url": "https://nandinibali.com/dining",
+  "reason": "11 items but only 0 priced"
+ },
+ {
+  "slug": "zuna-yoga-ubud",
+  "name": "Zuna Yoga",
+  "source_url": "https://zunayoga.com/online-yoga-and-meditation-classes",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "360-rooftop-at-anantara-uluwatu-bali-resort",
+  "name": "360 Rooftop at Anantara Uluwatu Bali Resort",
+  "source_url": "https://www.anantara.com/en/uluwatu-bali/restaurants/360-rooftop",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "akasa-at-jumeirah-bali",
+  "name": "Akasa at Jumeirah Bali",
+  "source_url": "https://www.jumeirah.com/en/stay/bali/jumeirah-bali/dining/akasa-restaurant%3Futm_source%3Dgoogle%26utm_medium%3Dgoogle%2520places%26utm_campaign%3Drestaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "alchemy-yoga-and-meditation-center-uluwatu",
+  "name": "Alchemy Yoga & Meditation Center Uluwatu",
+  "source_url": "https://www.alchemyyogacenter.com/uluwatu-aymc-schedule",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ami-studio",
+  "name": "Ami Studio",
+  "source_url": "https://classpass.com/studios/ami-studio-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ants-pants-uluwatu",
+  "name": "Ants Pants Uluwatu",
+  "source_url": "https://antspantsbali.com/Menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "artisan-ungasan",
+  "name": "Artisan - Ungasan",
+  "source_url": "https://artisangroup.id/menu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "balique-restaurant",
+  "name": "Balique",
+  "source_url": "https://balique-bali.com/menu",
+  "reason": "48 items but only 0 priced"
+ },
+ {
+  "slug": "bambu-fitness-bali",
+  "name": "Bambu Fitness Bali",
+  "source_url": "https://www.bambufitnessbali.com/classes",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "bambu-pilates",
+  "name": "Bambu Pilates",
+  "source_url": "https://www.bambufitnessbali.com/bambu-training-online-training",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "bluvana-reformer-studio",
+  "name": "Bluvana Reformer Studio",
+  "source_url": "https://classpass.com/studios/bluvana-reformer-studio-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "botol-biru-bar-and-grill-at-anantara-uluwatu-bali-resort",
+  "name": "Botol Biru Bar and Grill at Anantara Uluwatu Bali Resort",
+  "source_url": "https://www.anantara.com/uluwatu-bali%3Futm_source%3DGoogleMyBusiness%26utm_medium%3DGMB%26utm_term%3DUluwatu%26utm_content%3DHome%26utm_campaign%3DGoogle_GMB",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "chaskaa-modern-indian-cuisine-and-bar-at-jimbaran",
+  "name": "Chaskaa Modern Indian Cuisine and Bar at Jimbaran",
+  "source_url": "https://www.chaskaabali.com/wp-sitemap-posts-our-menu-1.xml",
+  "reason": "18 items but only 0 priced"
+ },
+ {
+  "slug": "clay-craft-at-renaissance-bali-uluwatu-resort-and-spa",
+  "name": "Clay Craft at Renaissance Bali Uluwatu Resort and Spa",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "di-mare-restaurant-karma-kandara",
+  "name": "di Mare Restaurant - Karma Kandara",
+  "source_url": "https://karmagroup.com/find-destination/karma-resorts/karma-kandara/%23cuisine_section",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "drifter-surf-cafe",
+  "name": "Drifter Surf Shop & Cafe",
+  "source_url": "https://driftersurf.com/pages/cafe",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "enchante",
+  "name": "Enchante",
+  "source_url": "https://balirvu.com/dining",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "filini-restaurant",
+  "name": "Filini Restaurant at Radisson Blu Bali Uluwatu",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "hidden-gem-uluwatu-at-hidden-hills-villas",
+  "name": "Hidden Gem Uluwatu at Hidden Hills Villas",
+  "source_url": "https://www.hiddenhillsvillas.com/tours",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "humans-cafe",
+  "name": "HUMANS CAFE",
+  "source_url": "https://humansbali.com/badung/soft-drinks-and-beer",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "karma-spa-at-karma-kandara",
+  "name": "Karma Spa at Karma Kandara",
+  "source_url": "https://karmagroup.com/resort/karma-kandara-bali/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kokoon-uluwatu-at-vanara-resort-and-spa",
+  "name": "Kokoon Uluwatu at VANARA Resort & Spa",
+  "source_url": "https://vanara.life/Kokoon-Combined-Menu.pdf",
+  "reason": "48 items but only 0 priced"
+ },
+ {
+  "slug": "la-terrazza-uluwatu",
+  "name": "La Terrazza Uluwatu",
+  "source_url": "https://www.laterrazzauluwatu.com/cliff-restaurant-dinner",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "la-tribu",
+  "name": "La Tribu",
+  "source_url": "https://classpass.com/studios/la-tribu-uluwatu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "la-tribu-bali",
+  "name": "La Tribu Bali",
+  "source_url": "https://latribubali.id/schedule-kids",
+  "reason": "16 items but only 0 priced"
+ },
+ {
+  "slug": "lemanja-uluwatu",
+  "name": "Lemanjá Uluwatu",
+  "source_url": "https://lemanjabali.com/where-to-eat-in-uluwatu-2",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mantra-at-jumeirah-bali",
+  "name": "Mantra at Jumeirah Bali",
+  "source_url": "https://www.jumeirah.com/en/stay/bali/jumeirah-bali%3Futm_source%3Dgoogle%26utm_medium%3Dgoogle%2520places%26utm_campaign%3Dhotel",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mantra-wellness",
+  "name": "Mantra Wellness",
+  "source_url": "https://classpass.com/studios/mantra-wellness-bali",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "masonry-restaurant",
+  "name": "MASONRY Restaurant",
+  "source_url": "https://masonrybali.com/uluwatu/private-dining-uluwatu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mensa-asian-bistro-and-bar",
+  "name": "Mensa Asian Bistro and Bar",
+  "source_url": "https://the-elementum.com/relax",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "milk-and-madu-uluwatu",
+  "name": "Milk & Madu Uluwatu",
+  "source_url": "https://milkandmadu.com/location/sitemap.xml",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "morning-light-yoga",
+  "name": "Morning Light Yoga",
+  "source_url": "https://uluwatusurfvillas.com/yoga/",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "morning-light-yoga-studio",
+  "name": "Morning Light Yoga Studio",
+  "source_url": "https://uluwatusurfvillas.com/yoga/",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "natys-restaurant-jimbaran",
+  "name": "Natys Restaurant Jimbaran",
+  "source_url": "https://natyahotel.com/dining-destination/natys-restaurant-jimbaran/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "naya-uluwatu",
+  "name": "NAYA Uluwatu",
+  "source_url": "https://momence.com/u/studio-naya",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "notte-bali",
+  "name": "Notte Bali",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "oliverra-restaurant-at-umana-bali-lxr-hotels-and-resorts",
+  "name": "Oliverra Restaurant at Umana Bali, LXR Hotels & Resorts",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "ours-spa-boutique",
+  "name": "Ours Spa & Boutique",
+  "source_url": "https://oursspabali.com/treatment-body-spa",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "raw-gym-uluwatu",
+  "name": "Raw Gym Uluwatu",
+  "source_url": "https://www.rawuluwatu.com",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "reform-pilates-bali",
+  "name": "Reform Pilates Bali",
+  "source_url": "https://www.reformpilatesbali.com/schedule-uluwatu",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "reform-pilates-bingin",
+  "name": "Reform Pilates Bingin",
+  "source_url": "https://classpass.com/studios/reform-pilates-bingin-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "reform-uluwatu",
+  "name": "Reform+ Uluwatu",
+  "source_url": "https://www.reformpilatesbali.com/reformplus",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "rockfish-cliffside",
+  "name": "Rockfish Cliffside",
+  "source_url": "https://rockfish-cliffside.com",
+  "reason": "13 items but only 0 priced"
+ },
+ {
+  "slug": "segaran-dining-terrace-at-jumeirah-bali",
+  "name": "Segaran Dining Terrace at Jumeirah Bali",
+  "source_url": "https://www.jumeirah.com/en/stay/bali/jumeirah-bali/dining/segaran-dining-terrace%3Futm_source%3Dgoogle%26utm_medium%3Dgoogle%2520places%26utm_campaign%3Drestaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "six-senses-spa-uluwatu",
+  "name": "Six Senses Spa Uluwatu",
+  "source_url": "https://www.sixsenses.com/en/hotels-resorts/asia-the-pacific/indonesia/uluwatu-bali/wellness-spa/",
+  "reason": "7 items but only 0 priced"
+ },
+ {
+  "slug": "six-senses-uluwatu-fitness-centre",
+  "name": "Six Senses Uluwatu Fitness Centre",
+  "source_url": "https://www.vogue.com/article/best-hotels-in-bali",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "six-senses-uluwatu-pilates",
+  "name": "Six Senses Uluwatu Pilates",
+  "source_url": "https://www.vogue.com/article/best-hotels-in-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "six-senses-uluwatu-yoga-pavilion",
+  "name": "Six Senses Uluwatu Yoga Pavilion",
+  "source_url": "https://www.vogue.com/article/best-hotels-in-bali",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "spa-at-mu",
+  "name": "Spa at Mu",
+  "source_url": "https://mu-bali.com/restaurant",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "suka-uluwatu",
+  "name": "SUKA ULUWATU",
+  "source_url": "https://www.bysuka.com/suka-uluwatu",
+  "reason": "6 items but only 1 priced"
+ },
+ {
+  "slug": "sunset-beach-bar-and-grill-uluwatu-bukit",
+  "name": "Sunset Beach Bar & Grill",
+  "source_url": "https://bali.intercontinental.com/dining/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "supreme-indian-restaurant",
+  "name": "Supreme Indian Restaurant",
+  "source_url": "https://www.supremebali.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "svaha-spa-bingin",
+  "name": "Svaha Spa Bingin",
+  "source_url": "https://svahaspa.com/bingin",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "the-asa-maia-fitness",
+  "name": "The Asa Maia Fitness",
+  "source_url": "https://theasamaia.com/fitness",
+  "reason": "16 items but only 0 priced"
+ },
+ {
+  "slug": "the-asa-maia-pilates",
+  "name": "The Asa Maia Pilates",
+  "source_url": "https://theasamaia.com/fitness",
+  "reason": "17 items but only 0 priced"
+ },
+ {
+  "slug": "the-asa-maia-yoga",
+  "name": "The Asa Maia Yoga",
+  "source_url": "https://www.theasamaia.com/fitness",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-bvlgari-spa",
+  "name": "The Bvlgari Spa",
+  "source_url": "https://www.bulgarihotels.com/en_US/bali/spa-and-fitness/the-spa",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "the-istana-yoga",
+  "name": "The Istana Yoga",
+  "source_url": "https://theistana.com/price-list",
+  "reason": "only 1 usable items after cleaning (7 dropped)"
+ },
+ {
+  "slug": "the-temple-lodge",
+  "name": "The Temple Lodge",
+  "source_url": "https://www.thetemplelodge.com/yoga",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-yoga-rescue",
+  "name": "The Yoga Rescue",
+  "source_url": "https://theyogarescue.com/schedule-and-pricing",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "ula-cafe",
+  "name": "Ula Cafe",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "ulu-garden",
+  "name": "Ulu Garden",
+  "source_url": "https://ulutribe.com/ulu-garden/our-space",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ulu-yoga-bali",
+  "name": "ULU Yoga Bali",
+  "source_url": "https://uluyoga.com/yoga-teacher-training-bali",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "uluwatu-collective",
+  "name": "Uluwatu Collective",
+  "source_url": "https://classpass.com/studios/uluwatu-collective-bali",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "uma-beach-house",
+  "name": "Uma Beach House",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "vela-spa",
+  "name": "Vela Spa",
+  "source_url": "https://theungasan.com/wellness-retreat-bali",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "wanaku-chinese-food-seafood-and-dimsum",
+  "name": "WANAKU Chinese Food, Seafood & Dimsum",
+  "source_url": "https://ramarestaurantsbali.com/the-royal-table/wanaku-chinese-seafood-dimsum/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "wet-plate-kitchen",
+  "name": "Wet Plate Kitchen",
+  "source_url": "https://wetplatekitchen.com/menu",
+  "reason": "31 items but only 0 priced"
+ },
+ {
+  "slug": "whim-restaurant",
+  "name": "Whim Restaurant at Prasana by Arjani Resorts",
+  "source_url": "https://prasanavillasuluwatu.com/dinings",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "yinside-yoga",
+  "name": "YinSide Yoga",
+  "source_url": "https://yinsideyogabali.com/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "yoga-searcher-bali",
+  "name": "Yoga Searcher Bali",
+  "source_url": "",
+  "reason": "scrape failed: http 500"
+ },
+ {
+  "slug": "zali-uluwatu",
+  "name": "Zali at Uluwatu",
+  "source_url": "https://www.zalirestaurant.com/menu/bali",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "monkey-bar-bali",
+  "name": "The Monkey Bar",
+  "source_url": "https://bellakita.com/the-monkey-bar-at-bella-vista",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "sisi-gege-restaurant-at-pramana-zahill",
+  "name": "SiSi GeGe Restaurant at Pramana Zahill",
+  "source_url": "https://pramanazahill.com/restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "bron-the-resto",
+  "name": "BRON THE RESTO",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "kimukatsu-at-living-world-bali",
+  "name": "Kimukatsu at Living World Bali",
+  "source_url": "https://lokasi.kimukatsu.id/kimukatsu-living-world-bali-japanese-restaurants-tonja-kota-denpasar-565448/Home%3Futm_source%3Dlocator%26utm_medium%3Dgoogleplaces",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kimukatsu-at-trans-studio-bali",
+  "name": "Kimukatsu at Trans Studio Bali",
+  "source_url": "https://lokasi.kimukatsu.id/kimukatsu-trans-studio-bali-japanese-restaurants-pemecutan-klod-badung-565462/Home%3Futm_source%3Dlocator%26utm_medium%3Dgoogleplaces",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "marble-8-restaurant-at-city-of-aventus",
+  "name": "Marble 8 Restaurant at City of Aventus",
+  "source_url": "https://royalaventushotels.com/wpbc-bfb-preview",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "edelweiss-restaurant-and-bar-at-tapa-agung-view",
+  "name": "Edelweiss Restaurant and Bar at Tapa Agung View",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "afterglow-bar-and-kitchen-at-tribe-bali-kuta-beach",
+  "name": "Afterglow Bar and Kitchen at Tribe Bali Kuta Beach",
+  "source_url": "https://tribehotels.com/en/indonesia/bali-kuta-beach/afterglow/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "aribar-tapas-cantina",
+  "name": "Aribar Tapas Cantina",
+  "source_url": "https://www.aribar-bali.com",
+  "reason": "5 items but only 0 priced"
+ },
+ {
+  "slug": "atithi-indian-restaurant-and-bar",
+  "name": "Atithi, Indian Restaurant & Bar",
+  "source_url": "https://atithibali.com",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "away-bali-legian-camakila",
+  "name": "Away Bali Legian Camakila",
+  "source_url": "https://www.awaybalilegiancamakila.com/food-and-baverage",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "beras-merah-waroeng-and-bar-at-adhi-jaya-hotel-kuta",
+  "name": "Beras Merah Waroeng and Bar at Adhi Jaya Hotel Kuta",
+  "source_url": "https://berasmerahresto.com/menu.html",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "big-fish-grill",
+  "name": "Big Fish Grill",
+  "source_url": "https://www.thestoneshotellegian.com/restaurants-bar/big-fish-grill/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "bluefin-japanese-fusion-and-lounge",
+  "name": "Bluefin Japanese Fusion & Lounge",
+  "source_url": "http://aldente.ramarestaurantsbali.com/wp-content/uploads/2017/04/menu-aldente-2016-No-price-small.pdf",
+  "reason": "9 items but only 0 priced"
+ },
+ {
+  "slug": "boardwalk-restaurant-bali",
+  "name": "Boardwalk Restaurant Bali",
+  "source_url": "https://www.boardwalk-restaurant.com/wp-content/uploads/2017/08/BALI-GARDEN-BEACH-RESORT-1-2.pdf",
+  "reason": "non-IDR currency AUD needs a human check"
+ },
+ {
+  "slug": "capibarra-restaurant-and-bar-kuta",
+  "name": "Capibarra Restaurant & Bar Kuta",
+  "source_url": "https://capibarrabali.com/restaurant-home",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "celebrity-fitness",
+  "name": "Celebrity Fitness",
+  "source_url": "https://celebrityfitness.co.id",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "chamas-brazilian-churrascaria-at-kuta",
+  "name": "Chamas Brazilian Churrascaria at Kuta",
+  "source_url": "https://balibitescomplex.com/naganorestaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "chaskaa-modern-indian-cuisine-and-bar-at-kuta",
+  "name": "Chaskaa Modern Indian Cuisine and Bar at Kuta",
+  "source_url": "https://www.chaskaabali.com/our-menu",
+  "reason": "19 items but only 0 priced"
+ },
+ {
+  "slug": "coco-bistro-at-kuta-square",
+  "name": "Coco Bistro at Kuta Square",
+  "source_url": "https://cocobistrobalirestaurant.com/whats-on",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "crossfit-seminyak",
+  "name": "Crossfit Seminyak",
+  "source_url": "http://www.crossfit-seminyak.com/schedule",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "donbiu-at-padma-resort-legian",
+  "name": "DONBIU at Padma Resort Legian",
+  "source_url": "https://padmaresortlegian.com/dining/donbiu.php",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "envy-restaurant",
+  "name": "ENVY Restaurant",
+  "source_url": "https://barunabali.holidayinnresorts.com/en/dining/envy",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "fork-bali",
+  "name": "FORK Bali",
+  "source_url": "http://cho.pe/forkbali.ig",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "gabah-restaurant-and-bar",
+  "name": "Gabah Restaurant & Bar",
+  "source_url": "https://ramayanasuiteskuta.com/dining/gabah/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-discovery-mall-kuta-bali",
+  "name": "Ganesha Ek Sanskriti at Discovery Mall Kuta Bali",
+  "source_url": "https://ganeshaeksanskriti.com/products/waffle-uttapam",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-lippo-mall-kuta",
+  "name": "Ganesha Ek Sanskriti at Lippo Mall Kuta",
+  "source_url": "https://ganeshaeksanskriti.com/products/waffle-uttapam",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "ganesha-ek-sanskriti-at-lippo-plaza-sunset-road",
+  "name": "Ganesha Ek Sanskriti at Lippo Plaza Sunset Road",
+  "source_url": "https://ganeshaeksanskriti.com/products/parsi-omelette",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "ground-zero-kitchen",
+  "name": "Ground Zero Kitchen",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"www.groundzerobali.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "hammerhead-fitness",
+  "name": "Hammerhead Fitness",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"hammerheadgymbali.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "hard-rock-cafe-bali",
+  "name": "Hard Rock Cafe Bali",
+  "source_url": "https://cafe.hardrock.com/bali/%23utm_source%3DGoogle%26utm_medium%3DYext%26utm_campaign%3DListings",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "jasmine-aromatic-house",
+  "name": "Jasmine Aromatic House",
+  "source_url": "https://jasminearomatichouse.com/services/face-treatment",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "kabar-grill",
+  "name": "KaBar Grill",
+  "source_url": "http://www.kabar-bali.com/",
+  "reason": "8 items but only 0 priced"
+ },
+ {
+  "slug": "kros-tennis-bali",
+  "name": "Kros Tennis Bali",
+  "source_url": "https://www.krostennisbali.com/membership",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "kuta-social-club",
+  "name": "Kuta Social Club",
+  "source_url": "https://ovolohotels.com/mamaka/kutasocialclub/",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "marble-8-restaurant-at-dream-of-aventus",
+  "name": "Marble 8 Restaurant at Dream of Aventus",
+  "source_url": "https://royalaventushotels.com/wpbc-bfb-preview",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "motion-skatepark",
+  "name": "Motion Skatepark",
+  "source_url": "https://www.motionsk8parks.com/id/rainbow-springs",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "mozzarella-on-padma",
+  "name": "Mozzarella On Padma",
+  "source_url": "http://mozzarella-resto.com/wp-content/uploads/2026/01/MBS_NEW-MENU-2026-UPDT-291225.pdf",
+  "reason": "source is not https: http://mozzarella-resto.com/wp-content/uploads/2026/01/MBS_NEW-MENU-2026-UPDT-29"
+ },
+ {
+  "slug": "mozzarella-restaurant-at-the-magani-hotel-and-spa",
+  "name": "Mozzarella Restaurant at The Magani Hotel and Spa",
+  "source_url": "http://mozzarella-resto.com/wp-content/uploads/2026/01/MBS_NEW-MENU-2026-UPDT-291225.pdf",
+  "reason": "source is not https: http://mozzarella-resto.com/wp-content/uploads/2026/01/MBS_NEW-MENU-2026-UPDT-29"
+ },
+ {
+  "slug": "ocean-terrace-restaurant-at-legian-beach-hotel",
+  "name": "Ocean Terrace Restaurant at Legian Beach Hotel",
+  "source_url": "https://www.legianbeachbali.com/page/dining/ocean-terrace-restaurant",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "papas-beach-cafe-at-alamkulkul-boutique-resort",
+  "name": "Papas Beach Cafe at AlamKulkul Boutique Resort",
+  "source_url": "https://papasbeachcafe.com/restaurant-home",
+  "reason": "non-IDR currency USD needs a human check"
+ },
+ {
+  "slug": "pole-studio-bali",
+  "name": "Pole Studio Bali",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"www.polestudiobali.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "poppies-restaurant",
+  "name": "Poppies Restaurant",
+  "source_url": "https://www.poppiesbali.com/en/poppies-restaurant-book-table.php",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "rosso-vivo-dine-and-lounge",
+  "name": "Rosso Vivo Dine & Lounge",
+  "source_url": "https://kutaseaviewhotel.com/dining/",
+  "reason": "10 items but only 0 priced"
+ },
+ {
+  "slug": "seafood-house-restaurant",
+  "name": "Seafood House Restaurant",
+  "source_url": "https://take.ramarestaurantsbali.com/home/our-menu",
+  "reason": "6 items but only 0 priced"
+ },
+ {
+  "slug": "sees-bali-cafe-and-eatery",
+  "name": "Sees Bali Cafe & Eatery",
+  "source_url": "https://sendokbali.com/restaurants.html",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "shally-s-dining-at-lippo-mall-kuta",
+  "name": "Shally's Dining at Lippo Mall Kuta",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"shallysdining.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "skai-beach-club-legian",
+  "name": "S.K.A.I Beach Club",
+  "source_url": "https://padmaresortlegian.com/facilities/skai-pool.php",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "spice-mantraa-at-kuta",
+  "name": "Spice Mantraa at Kuta",
+  "source_url": "https://spicemantraa.com/kuta",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "street-32-at-mamaka-by-ovolo",
+  "name": "Street 32 at Mamaka by Ovolo",
+  "source_url": "https://ovolohotels.com/mamaka/street-32",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "sukun-restaurant-kuta-at-amnaya-resort-kuta",
+  "name": "Sukun Restaurant Kuta at Amnaya Resort Kuta",
+  "source_url": "https://www.amnayahotel.com/kuta-sukun-restaurant",
+  "reason": "4 items but only 0 priced"
+ },
+ {
+  "slug": "sunset-pilates-legian",
+  "name": "Sunset Pilates Legian",
+  "source_url": "https://sunsetpilatesbali.com/legian-studio/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "take-authentic-japanese-cuisine",
+  "name": "TAKE Authentic Japanese Cuisine",
+  "source_url": "https://ramarestaurantsbali.com/the-royal-table/take-authentic-japanese-restaurant/",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "tebu-merah-restaurant-at-fairfield-by-marriott-bali-legian",
+  "name": "Tebu Merah Restaurant at Fairfield by Marriott Bali Legian",
+  "source_url": "https://www.marriott.com/hotels/hotel-information/restaurant/dpsfi-fairfield-bali-legian/",
+  "reason": "only 2 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "temple-by-ginger-moon",
+  "name": "Temple by Ginger Moon",
+  "source_url": "https://www.templebygingermoon.com/kid-friendly-restaurant-in-kuta",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "tenkai-japanese-nikkei-restaurant-at-padma-resort-legian",
+  "name": "TENKAI Japanese Nikkei Restaurant at Padma Resort Legian",
+  "source_url": "https://padmaresortlegian.com/dining/tenkai-japanese-nikkei-restaurant.php",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-bandha-hotel-and-suites",
+  "name": "The Bandha Hotel & Suites",
+  "source_url": "https://www.thebandha.com/special_offer/free-one-time-mini-bar",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-coffee-club-legian-at-anantara-vacation-club",
+  "name": "The Coffee Club Legian at Anantara Vacation Club",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "the-naked-tiger",
+  "name": "THE NAKED TIGER",
+  "source_url": "",
+  "reason": "official_url is an aggregator/social link, not the venue's own site"
+ },
+ {
+  "slug": "wanaku-seafood-and-chinese-restaurant",
+  "name": "Wanaku Seafood & Chinese Restaurant",
+  "source_url": "https://ramarestaurantsbali.com/the-royal-table/wanaku-seafood-chinese-restaurant/",
+  "reason": "only 0 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "warung-damar",
+  "name": "Warung Damar",
+  "source_url": "https://www.warungdamar-bali.com",
+  "reason": "only 1 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "yoga-108-bali-kuta-legian",
+  "name": "Yoga 108 Bali",
+  "source_url": "https://yoga108bali.com/seminyak-yoga-studio",
+  "reason": "only 2 usable items after cleaning (2 dropped)"
+ },
+ {
+  "slug": "8lements-spa-saranam",
+  "name": "8LEMENTS Spa at HOMM Saranam",
+  "source_url": "https://www.hommhotels.com/hotels/homm-saranam-baturiti",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "the-little-hill-terrace",
+  "name": "The Little Hill Terrace",
+  "source_url": "",
+  "reason": "scrape failed: DNS resolution failed for hostname \"thelittlehillterrace.com\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+ },
+ {
+  "slug": "the-northview-bali-ngiring-ngewedang-restaurant-and-coffee-c",
+  "name": "The Northview Bali – Ngiring Ngewedang Restaurant & Coffee Corner",
+  "source_url": "https://ngiringngewedang.com/the-restaurant",
+  "reason": "17 items but only 0 priced"
+ },
+ {
+  "slug": "acala-bar-and-bistro-lembongan",
+  "name": "Acala Bar & Bistro Lembongan",
+  "source_url": "https://www.acalabarbistro.com/post/where-to-eat-in-bali-collection-nusa-dua-experience-the-taste-of-acala-bar-bistro",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "acropora-bar-and-restaurant-at-pramana-natura-nusa-penida",
+  "name": "Acropora Bar and Restaurant at Pramana Natura Nusa Penida",
+  "source_url": "https://pramanapenida.com/acropora-restaurant/",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "casa-bambu-cantina",
+  "name": "Casa Bambù Cantina",
+  "source_url": "https://casabambucantina.com/maintanance",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "kowhai-restaurant-at-maua-nusa-penida",
+  "name": "KŌWHAI Restaurant at MĀUA Nusa Penida",
+  "source_url": "https://mauahotel.com/olea-ubud/kowhai-restaurant",
+  "reason": "page does not present a menu"
+ },
+ {
+  "slug": "cemara-point-by-dusun-bedugul-asri",
+  "name": "Cemara Point by Dusun Bedugul Asri",
+  "source_url": "https://dusunbedugulasri.com/dining-old",
+  "reason": "only 3 real items — likely nav/marketing copy"
+ },
+ {
+  "slug": "samiya-restaurant-at-homm-saranam-baturiti",
+  "name": "Samiya Restaurant at Homm Saranam Baturiti",
+  "source_url": "https://www.hommhotels.com/hotels/homm-saranam-baturiti%23dining-linked",
+  "reason": "page does not present a menu"
+ }
+]
