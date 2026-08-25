@@ -39,6 +39,7 @@ export const VENUE_CATEGORIES = [
   "villa",
   "attraction",
   "activity",
+  "rental",
 ] as const satisfies readonly VenueCategory[];
 
 // Keep the database-to-rendering allowlist exhaustive when VenueCategory grows.

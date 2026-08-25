@@ -33,7 +33,8 @@ export type VenueCategory =
   | "resort"
   | "villa"
   | "attraction"
-  | "activity";
+  | "activity"
+  | "rental";
 
 export interface Venue {
   id: string;

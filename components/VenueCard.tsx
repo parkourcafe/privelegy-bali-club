@@ -18,6 +18,7 @@ const categoryLabel: Record<string, string> = {
   spa: "Spa",
   bar: "Bar",
   surf: "Surf",
+  rental: "Vehicle rental",
 };
 
 export default function VenueCard({

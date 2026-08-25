@@ -49,6 +49,7 @@ const categoryLabel: Record<string, string> = {
   beauty: "Beauty",
   bar: "Bar",
   surf: "Surf",
+  rental: "Vehicle rental",
 };
 
 const districtLabel: Record<string, string> = {
