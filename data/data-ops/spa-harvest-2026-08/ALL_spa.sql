@@ -7,7 +7,7 @@ with target as (
   select t.slug, 'Nikara Spa Berawa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.nikaraspa.com/nikara-spa-berawa-price', 'Official Nikara Spa Berawa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6f439b9a36e366b7f6b06c4bf195a7fafb1da043df706d94a068eb7a9d0514d9', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6f439b9a36e366b7f6b06c4bf195a7fafb1da043df706d94a068eb7a9d0514d9', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -29,7 +29,7 @@ with target as (
   select t.slug, 'Taman Air Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tamanairspa.com/taman-air-spa-price-list', 'Official Taman Air Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '078993eb1479707e4524a603315dffd81a69d35655e76e936879e2cd4de87296', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '078993eb1479707e4524a603315dffd81a69d35655e76e936879e2cd4de87296', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -51,7 +51,7 @@ with target as (
   select t.slug, 'Jimbaran Puri Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.belmond.com/en/hotels/asia/indonesia/jimbaran-puri-bali/wellness?srsltid=AfmBOor2D9uIgoVdKJpOpU0RIX6r9-DCv5JrA-3KAEKFIPywRXvNk1UC', 'Official Jimbaran Puri Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2eb6146e17b974c983586a0cb8040765f1aba55e13825f863e5049c30874dd5a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2eb6146e17b974c983586a0cb8040765f1aba55e13825f863e5049c30874dd5a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -73,7 +73,7 @@ with target as (
   select t.slug, 'Santhika Retreat Center treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.santhikaretreatcenter.com/spa-bali?srsltid=AfmBOoqAFKqsR1J8jfOY3rldkJKNQgO2DSZ3v2RlJeLQiwB2ubQrHL-Y', 'Official Santhika Retreat Center price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '8d9c4fedfff913ab0ec2ef54b5775a1e243cfc540fc1de292c461287a5d89bb1', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8d9c4fedfff913ab0ec2ef54b5775a1e243cfc540fc1de292c461287a5d89bb1', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -95,7 +95,7 @@ with target as (
   select t.slug, 'Hesa Wellness Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hesaspa.com/', 'Official Hesa Wellness Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2a1826e5364b9da45458a3c2a5d0daaae31d280ede18dd85f436297c7e567cab', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2a1826e5364b9da45458a3c2a5d0daaae31d280ede18dd85f436297c7e567cab', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -117,7 +117,7 @@ with target as (
   select t.slug, 'Ubud Traditional Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ubudtraditionalspa.com/massage-treatments', 'Official Ubud Traditional Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0ab8c98d92c38445c524331f118b12d45d36929357d2fd3fbea660765289484c', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0ab8c98d92c38445c524331f118b12d45d36929357d2fd3fbea660765289484c', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -139,7 +139,7 @@ with target as (
   select t.slug, 'Putri Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.putribalispa.com/', 'Official Putri Bali Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '8c50a36d8b3405109d3d4e9a0aebecb70670398261d0d4d0a60846ff62f59107', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8c50a36d8b3405109d3d4e9a0aebecb70670398261d0d4d0a60846ff62f59107', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -154,28 +154,6 @@ from m, secs
 join (values ('Aromatherapy', 'Aroma Symphony Healing Journey (90 min)', null, 900000, 'IDR', 0), ('Aromatherapy', 'Aroma Therapy Massage (90 min)', null, 450000, 'IDR', 1), ('Aromatherapy', 'Aroma Therapy Massage (60 min)', null, 330000, 'IDR', 2), ('Aromatherapy', 'Aroma Therapy Massage (120 min)', null, 660000, 'IDR', 3), ('Yoga', 'Ayuryoga Therapy Massage (90 min)', null, 400000, 'IDR', 0), ('Yoga', 'Ayuryoga Therapy Massage (60 min)', null, 300000, 'IDR', 1), ('Yoga', 'Ayuryoga Therapy Massage (120 min)', null, 600000, 'IDR', 2), ('Traditional Massage', 'Bamboo Massage (90 min)', null, 350000, 'IDR', 0), ('Traditional Massage', 'Bamboo Massage (120 min)', null, 570000, 'IDR', 1), ('Traditional Massage', 'Cellulite Massage (60 min)', null, 500000, 'IDR', 2), ('Traditional Massage', 'Cellulite Massage (30 min)', null, 250000, 'IDR', 3), ('Traditional Massage', 'Herbal Massage (90 min)', null, 350000, 'IDR', 4), ('Traditional Massage', 'Herbal Massage (120 min)', null, 570000, 'IDR', 5), ('Ear Candle', 'Ear Candle Therapy Massage (40 min)', null, 200000, 'IDR', 0), ('Ear Candle', 'Ear Candle Therapy Massage (40 min)', 'Ear candling involves inserting a long, cylindrical candle into the ear and lighting it on the other end. Heat produced from the candle helps draw out excess ear wax and other debris which may be present in the ear canal. Benefits of ear candling may include relieving tinnitus (ringing in the ears), removing excess wax, assisting with relieving swimmers’ ear, assisting with headaches, relieving it', 200000, 'IDR', 1), ('Ear Candle', 'Ear Candle Therapy Massage (60 min)', null, 380000, 'IDR', 2), ('Ear Candle', 'Ear Candle Therapy Massage (90 min)', null, 500000, 'IDR', 3), ('Ear Candle', 'Ear Candle Therapy Massage (120 min)', null, 760000, 'IDR', 4), ('Hot Stone', 'Hot Stone Massage (90 min)', null, 350000, 'IDR', 0), ('Hot Stone', 'Hot Stone Massage (120 min)', null, 570000, 'IDR', 1), ('Shiatsu', 'Shiatsu Massage (60 min)', null, 400000, 'IDR', 0), ('Shiatsu', 'Shiatsu Massage (90 min)', null, 600000, 'IDR', 1), ('Shiatsu', 'Shiatsu Massage (120 min)', null, 800000, 'IDR', 2), ('Body Treatment', 'Slimming Massage (60 min)', null, 350000, 'IDR', 0), ('Body Treatment', 'Slimming Massage (90 min)', null, 525000, 'IDR', 1), ('Sports Massage', 'Sport Massage (90 min)', null, 400000, 'IDR', 0), ('Sports Massage', 'Sport Massage (60 min)', null, 300000, 'IDR', 1), ('Sports Massage', 'Sport Massage (120 min)', null, 600000, 'IDR', 2), ('Thai Massage', 'Thai Massage (90 min)', null, 650000, 'IDR', 0), ('Thai Massage', 'Thai Massage (60 min)', null, 480000, 'IDR', 1), ('Thai Massage', 'Thai Massage (120 min)', null, 960000, 'IDR', 2)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'lemon8-app.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Marissa Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.lemon8-app.com/@mandatoryjoys/7450805315559473681?region=sg', 'Official Marissa Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '9eb98af015eb0139a08bd7e0d413bc298b33ed8aba98eb5686ace575ac40f73d', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Deep Tissue', 0), ('Traditional Massage', 1)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Deep Tissue', '60 min deep tissue massage (60 min)', null, 240000, 'IDR', 0), ('Traditional Massage', '60 min massage (60 min)', null, 250000, 'IDR', 0), ('Traditional Massage', '60 min massage (60 min)', null, 190000, 'IDR', 1), ('Traditional Massage', '60 min massage (60 min)', null, 190000, 'IDR', 2), ('Traditional Massage', '60 min massage (60 min)', null, 235000, 'IDR', 3)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'therapy.co.id' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -183,7 +161,7 @@ with target as (
   select t.slug, 'Therapy Day Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://therapy.co.id/pages/spa-menu', 'Official Therapy Day Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '44d274cf4c3316863004fa969da7562ab3992454573ec302795018dcf5f4eb9a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '44d274cf4c3316863004fa969da7562ab3992454573ec302795018dcf5f4eb9a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -205,7 +183,7 @@ with target as (
   select t.slug, 'Spa Bali Moon treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spabalimoon.com/seminyak/', 'Official Spa Bali Moon price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '03de49c5836f5d73a316fe746a41e17820d0480e92986024d8bf8781b61d8ca4', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '03de49c5836f5d73a316fe746a41e17820d0480e92986024d8bf8781b61d8ca4', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -227,7 +205,7 @@ with target as (
   select t.slug, 'Prana Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://pranaspaseminyakbali.com/images/PranaSpa_Nov2024.pdf', 'Official Prana Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '71976d4ea15dcc7d1e775dd2ca0b958a707cffc5c94cedb42ef669f0151ec921', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '71976d4ea15dcc7d1e775dd2ca0b958a707cffc5c94cedb42ef669f0151ec921', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -249,7 +227,7 @@ with target as (
   select t.slug, 'The Spa at Hotel Nikko Bali Benoa Beach treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hotelnikkobali-benoabeach.com/spa/', 'Official The Spa at Hotel Nikko Bali Benoa Beach price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'af5f22359f38b2d41840d15fe3f026a44a3c9d648910f65315ec509abb68782e', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'af5f22359f38b2d41840d15fe3f026a44a3c9d648910f65315ec509abb68782e', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -271,7 +249,7 @@ with target as (
   select t.slug, 'Tunjungsari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.tunjungsarispabali.com/spa-menu', 'Official Tunjungsari Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2a87ac60d8a1df4773f90a4d595ac46320a481e03ebdc0d28464e9137b15b700', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2a87ac60d8a1df4773f90a4d595ac46320a481e03ebdc0d28464e9137b15b700', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -293,7 +271,7 @@ with target as (
   select t.slug, 'Bali Bliss Massage treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baliblissmassage.com/spa-services', 'Official Bali Bliss Massage price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '943f780b5711fc54c7a5216a1d468d0f93a237daf81b4fcf383c102f17cc168a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '943f780b5711fc54c7a5216a1d468d0f93a237daf81b4fcf383c102f17cc168a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -315,7 +293,7 @@ with target as (
   select t.slug, 'Kapha Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://kaphaspa.com/menu', 'Official Kapha Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5c35ef478c47d9174949d3948fa5378f1277fba2ebcd09dd4cd81c22d3dfc31a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c35ef478c47d9174949d3948fa5378f1277fba2ebcd09dd4cd81c22d3dfc31a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -330,28 +308,6 @@ from m, secs
 join (values ('Traditional Massage', 'Sutra Massage (90 min)', 'A unique blend of aromatherapy, Lomi-lomi and the Balinese technique, which include face and scalp massage. A full body massage is a combination of pressure points, deep tissue and long strokes which relives tension, for calm mind and body.', 1300000, 'IDR', 0), ('Traditional Massage', 'Unda River Stone Massage (90 min)', 'Warm stone treatment can ease inflamed tissues, soothe muscle, and can reduce swelling, promoting circulation.', 1350000, 'IDR', 1), ('Traditional Massage', 'Remedial Massage (60 min)', 'A full body massage that eases thigh muscles in the back, neck and shoulder area, excellent for recovering from specific problems and injuries.', 875000, 'IDR', 2), ('Traditional Massage', 'Maternity Massage (60 min)', 'Prenatal massage providing relief from the unique challenges of pregnancy.', 950000, 'IDR', 3), ('Traditional Massage', 'Sutra Massage (90 min)', 'The Sutra Massage is a unique blend of aromatherapy, Lomi-lomi and the Balinese technique', 1300000, 'IDR', 4), ('Traditional Massage', 'Remedial Massage (60 min)', 'This full body massage will ease thigh muscles in the back, neck and shoulder area', 875000, 'IDR', 5), ('Aromatherapy', 'Aromatherapy Massage (60 min)', 'A combination of a sense of smell and touch to achieve a healing effect on the whole body. A selection of essentials oils and warm virgin coconut oil will be presented to you to choose from then pressure point massage.', 900000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (60 min)', 'This is a combination of a sense of smell and touch to achieve a healing effect on the whole body.', 900000, 'IDR', 1), ('Balinese Massage', 'Traditional Balinese Massage (60 min)', 'A powerful massage that restores vitality and balances the body using long, firm strokes.', 800000, 'IDR', 0), ('Balinese Massage', 'Traditional Balinese Massage (60 min)', 'Balinese massage has its origin in Bali. It is a powerful massage that restores vitality', 800000, 'IDR', 1), ('Neck & Shoulder', 'Neck & Shoulder Massage (30 min)', 'A relaxing massage targeting the head, neck and shoulders to alleviate tension.', 500000, 'IDR', 0), ('Thai Massage', 'Thai Herbal Massage (90 min)', 'Warm herbal compresses infused with nature’s finest ingredients to enhance circulation and relieve muscle soreness.', 1500000, 'IDR', 0), ('Body Scrub', 'Green Tea Body Scrub (45 min)', 'A skin exfoliating treatment that helps minimize the formation of acne, cellulite and stretch marks.', 800000, 'IDR', 0), ('Body Scrub', 'Balinese Coffee Body Scrub (45 min)', 'A skin exfoliating treatment utilizing pure coffee for its antioxidant properties.', 800000, 'IDR', 1), ('Balinese Boreh', 'Balinese Body Boreh (45 min)', 'A Balinese spice body mask that increases circulation while exfoliating and softening the skin.', 800000, 'IDR', 0), ('Javanese Lulur', 'Javanese Lulur Body Exfoliation (45 min)', 'Exfoliating treatment that provides a radiant glow and evens out skin tone.', 800000, 'IDR', 0), ('Other', 'Kapha Bath (Herbal) (45 min)', 'Soothing bath infused with a selection of herbal ingredients.', 950000, 'IDR', 0), ('Other', 'Kapha Bath (Wine) (45 min)', 'Soothing warm bath infused with two bottles of locally crafted wine.', 1000000, 'IDR', 1), ('Other', 'Traditional Creambath (60 min)', null, 525000, 'IDR', 2), ('Other', 'Kapha Spice and Citrus Hand Care (60 min)', 'A hand treatment with a softening soak in citrus bath salts followed by moisturizing.', 600000, 'IDR', 3), ('Other', 'Spa Product', 'Immerse yourself in a haven of relaxation and rejuvenation as you explore our curated collection of luxurious spa products.', 250000, 'IDR', 4), ('Facial', 'Traditional Facial (60 min)', 'Deep cleansing treatment with a relaxing facial massage, designed for normal skin.', 825000, 'IDR', 0), ('Hair Styling', 'Beauty Hair Wash (30 min)', null, 350000, 'IDR', 0), ('Foot Massage', 'Kapha Spice and Citrus Foot Care (60 min)', 'A foot treatment beginning with a soak and followed by a relaxing massage.', 650000, 'IDR', 0), ('Nails', 'Nail Polish', 'Nail polish applied to complete your nail grooming ritual.', 150000, 'IDR', 0), ('Nails', 'Nail Gel Removal', null, 225000, 'IDR', 1), ('Nails', 'Nail Tip Removal', null, 300000, 'IDR', 2), ('Nails', 'Nail Soak and Trim', null, 200000, 'IDR', 3), ('Reflexology', 'Aromatic Foot Reflexology (60 min)', 'Induces a healing response in corresponding organs and areas of the body through foot reflexology.', 950000, 'IDR', 0), ('Pedicure', 'Kids Pedicure', null, 550000, 'IDR', 0), ('Manicure', 'Kids Manicure', null, 500000, 'IDR', 0), ('Flower Bath', 'Flower Bath', 'Our Aromatherapy Flower Bath is a captivating sensory experience designed to restore balance and harmony.', 950000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'andrebalispa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Andre Bali Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.andrebalispa.com/packages.html', 'Official Andre Bali Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0b24330059fa74997f1490616a1efc529f118ce5d637e32be996cd1c39bb8da1', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Traditional Massage', 0), ('Aromatherapy', 1), ('Foot Massage', 2), ('Hair Treatment', 3), ('Facial', 4), ('Pedicure', 5), ('Manicure', 6)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Traditional Massage', 'Balinese DNA Massage (60 min)', null, 850000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (60 min)', null, 850000, 'IDR', 0), ('Foot Massage', 'Foot Massage (60 min)', null, 850000, 'IDR', 0), ('Hair Treatment', 'Hair treatment (60 min)', null, 850000, 'IDR', 0), ('Facial', 'Organic Facial (60 min)', null, 850000, 'IDR', 0), ('Pedicure', 'Pedicure (60 min)', null, 850000, 'IDR', 0), ('Manicure', 'Manicure (60 min)', null, 850000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'bloolagoon.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -359,7 +315,7 @@ with target as (
   select t.slug, 'Bloo Lagoon Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bloolagoon.com/bloo-lagoon-spa-wellness', 'Official Bloo Lagoon Spa & Wellness price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '807adaaf536e6ff453ad469c4c59d092be162f8c9dd389b707710e991cd42a11', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '807adaaf536e6ff453ad469c4c59d092be162f8c9dd389b707710e991cd42a11', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -388,7 +344,7 @@ with target as (
   select t.slug, 'The Samaya Ubud-Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thesamaya.com/lumonata-plugins/custom-post/pdf/spa-menu-the-samaya-ubud-1751273163.pdf', 'Official The Samaya Ubud-Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6ae09b86318e891a5e1e73f8db260e5118db1a19dec141d64bfebf4e2d7f229e', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6ae09b86318e891a5e1e73f8db260e5118db1a19dec141d64bfebf4e2d7f229e', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -410,7 +366,7 @@ with target as (
   select t.slug, 'Karsa Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://karsaspa.com/', 'Official Karsa Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '32971d9d514c8e944b084edb1906867c371806dd731ea78ede58facf6ab0bef8', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '32971d9d514c8e944b084edb1906867c371806dd731ea78ede58facf6ab0bef8', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -432,7 +388,7 @@ with target as (
   select t.slug, 'Jaens Spa Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://jaensspa.com/', 'Official Jaens Spa Ubud price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0bef90902d8cfa556701f35f1ea309847814a619df64ae06b3c3ca7088473af6', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0bef90902d8cfa556701f35f1ea309847814a619df64ae06b3c3ca7088473af6', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -454,7 +410,7 @@ with target as (
   select t.slug, 'Sang Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://sangspa.com/', 'Official Sang Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '863be21b551d0d70146a6f2a54f31ba7122e556f0ed3ef6264b4fc794e6a3bb3', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '863be21b551d0d70146a6f2a54f31ba7122e556f0ed3ef6264b4fc794e6a3bb3', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -476,7 +432,7 @@ with target as (
   select t.slug, 'Fajar Bali Luxury Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://fajarbalispa.com/spa-menu-luxury', 'Official Fajar Bali Luxury Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5557ad2ab6207b1d05cc7a30126b0f49f9fd0b1674e0ead43ca49ff727fa4a13', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5557ad2ab6207b1d05cc7a30126b0f49f9fd0b1674e0ead43ca49ff727fa4a13', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -498,7 +454,7 @@ with target as (
   select t.slug, 'Beach House by Tonic treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.beachhousebytonic.com/treatments', 'Official Beach House by Tonic price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'd212419fe7ecebfd60c7025ffba589acff800b6be141013b48ccbd975ab990a6', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'd212419fe7ecebfd60c7025ffba589acff800b6be141013b48ccbd975ab990a6', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -520,7 +476,7 @@ with target as (
   select t.slug, 'Espace Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://espacespabali.com/our-services/aromatherapy-therapeutic-massages', 'Official Espace Spa Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '030dc43437740bef7599e4d37e3effce6b4270bc86217b3807101df922608a12', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '030dc43437740bef7599e4d37e3effce6b4270bc86217b3807101df922608a12', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -542,7 +498,7 @@ with target as (
   select t.slug, 'Hati Thai treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://hatithai.id/hati-thai-canggu/', 'Official Hati Thai price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '69e0319e5c71bfc5aa6dcd3c4a3fe28adee2350ee761d4a1de67cd7cbd60bc57', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '69e0319e5c71bfc5aa6dcd3c4a3fe28adee2350ee761d4a1de67cd7cbd60bc57', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -556,17 +512,6 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Bali Bliss – Balinese Massage (60 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 200000, 'IDR', 0), ('Balinese Massage', 'Bali Bliss – Balinese Massage (90 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 270000, 'IDR', 1), ('Balinese Massage', 'Bali Bliss – Balinese Massage (120 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 350000, 'IDR', 2), ('Balinese Massage', 'Balinese Massage Experience', 'A welcoming hands-on introduction for tourists, couples, complete beginners and anyone who wants to learn a practical skill during a stay in Bali.', 1500000, 'IDR', 3), ('Thai Massage', 'Thai Harmony – Thai Massage (60 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 200000, 'IDR', 0), ('Thai Massage', 'Thai Harmony – Thai Massage (90 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 270000, 'IDR', 1), ('Thai Massage', 'Thai Harmony – Thai Massage (120 min)', 'The traditional Balinese massage combines techniques of acupressure, stretching, deep tissue massage, and aromatherapy. It relaxes, reduces stress, and relieves muscle tension.', 360000, 'IDR', 2), ('Lymphatic Massage', 'Ayurvedic Flow – Lymphatic-Ayurvedic Massage (60 min)', 'A gentle massage combining lymphatic and Ayurvedic techniques, supporting body detoxification, improving circulation, and reducing swelling.', 200000, 'IDR', 0), ('Lymphatic Massage', 'Ayurvedic Flow – Lymphatic-Ayurvedic Massage (90 min)', 'A gentle massage combining lymphatic and Ayurvedic techniques, supporting body detoxification, improving circulation, and reducing swelling.', 270000, 'IDR', 1), ('Lymphatic Massage', 'Ayurvedic Flow – Lymphatic-Ayurvedic Massage (120 min)', 'A gentle massage combining lymphatic and Ayurvedic techniques, supporting body detoxification, improving circulation, and reducing swelling.', 350000, 'IDR', 2), ('Facial', 'Kobido Glow – Facial Massage with Kobido Elements (60 min)', 'A deep facial massage based on Kobido techniques, stimulating facial muscles, improving circulation, firming the skin, and having anti-aging effects.', 250000, 'IDR', 0), ('Lomi Lomi', 'Lomi Lomi Bliss – Lomi Lomi Massage (60 min)', 'Traditional Hawaiian massage that uses long, flowing movements to achieve deep relaxation and balance.', 200000, 'IDR', 0), ('Lomi Lomi', 'Lomi Lomi Bliss – Lomi Lomi Massage (90 min)', 'Traditional Hawaiian massage that uses long, flowing movements to achieve deep relaxation and balance.', 270000, 'IDR', 1), ('Lomi Lomi', 'Lomi Lomi Bliss – Lomi Lomi Massage (120 min)', 'Traditional Hawaiian massage that uses long, flowing movements to achieve deep relaxation and balance.', 350000, 'IDR', 2), ('Traditional Massage', 'Herbal Harmony – Herbal Compress Massage (60 min)', 'Massage using warm herbal compresses that relieve pain, relax muscles, and improve circulation.', 250000, 'IDR', 0), ('Traditional Massage', 'Herbal Harmony – Herbal Compress Massage (90 min)', 'Massage using warm herbal compresses that relieve pain, relax muscles, and improve circulation.', 300000, 'IDR', 1), ('Traditional Massage', 'Herbal Harmony – Herbal Compress Massage (120 min)', 'Massage using warm herbal compresses that relieve pain, relax muscles, and improve circulation.', 380000, 'IDR', 2), ('Traditional Massage', 'Little Bliss – Children’s Massage (30 min)', 'Gentle massage tailored for children, promoting relaxation, improving sleep, and reducing stress.', 120000, 'IDR', 3), ('Traditional Massage', 'Little Bliss – Children’s Massage (60 min)', 'Gentle massage tailored for children, promoting relaxation, improving sleep, and reducing stress.', 180000, 'IDR', 4), ('Traditional Massage', 'Medical Massage (hot cream + tiger balm) (60 min)', null, 250000, 'IDR', 5), ('Traditional Massage', 'Medical Massage (hot cream + tiger balm) (90 min)', null, 320000, 'IDR', 6), ('Traditional Massage', 'Massage Discovery', 'A compact course for people who want to experience several complementary techniques in a short time.', 2800000, 'IDR', 7), ('Reflexology', 'Foot Serenity – Foot Reflexology (60 min)', 'Foot massage technique that stimulates reflex points, improving internal organ function and overall energy balance.', 160000, 'IDR', 0), ('Reflexology', 'Foot Serenity – Foot Reflexology (90 min)', 'Foot massage technique that stimulates reflex points, improving internal organ function and overall energy balance.', 220000, 'IDR', 1), ('Reflexology', 'Foot Serenity – Foot Reflexology (120 min)', 'Foot massage technique that stimulates reflex points, improving internal organ function and overall energy balance.', 270000, 'IDR', 2), ('Body Scrub', 'Body Polish – Body Scrub (30 min)', 'Deep body exfoliation that removes dead skin cells, improves circulation, and leaves the skin smooth and nourished.', 250000, 'IDR', 0), ('Body Scrub', 'Body Polish – Body Scrub (60 min)', 'Deep body exfoliation that removes dead skin cells, improves circulation, and leaves the skin smooth and nourished.', 400000, 'IDR', 1), ('Ear Candle', 'Ear Candle (30 min)', null, 100000, 'IDR', 0), ('Sports Massage', 'Sport Massage (60 min)', null, 250000, 'IDR', 0), ('Sports Massage', 'Sport Massage (90 min)', null, 320000, 'IDR', 1), ('Body Treatment', 'Slimming / Anti-cellulite Massage (60 min)', null, 300000, 'IDR', 0), ('Other', 'Level 1 Intensive', 'An intensive professional foundation for future therapists and existing practitioners who want to broaden their skills.', 8500000, 'IDR', 0), ('Other', 'Level 2 Professional Program', 'A month-long program for people who are serious about developing in the spa and wellness industry.', 22000000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
-where status = 'draft'
-  and completeness = 'partial'
-  and verified_at is null
-  and content_digest is not null
-  and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
-  and exists (select 1 from menu_sections s join menu_items it
-              on it.section_id = s.id and it.menu_id = s.menu_id
-              where s.menu_id = menus.id);
--- spa menu snapshots, batch 1 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'chillreflexologybali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -575,7 +520,7 @@ with target as (
   select t.slug, 'Chill Reflexology treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://chillreflexologybali.com/', 'Official Chill Reflexology price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'db00312a55a27b02b28e3ad53633a73340564bba7c6e630461d231c61d0ef8f8', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'db00312a55a27b02b28e3ad53633a73340564bba7c6e630461d231c61d0ef8f8', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -590,28 +535,6 @@ from m, secs
 join (values ('Other', 'The Classic (60 min)', 'Transform your day with a relaxing combination of reflexology and acupressure. This Classic Chill treatment concentrates on the feet and ankles where tension and fatigue are often stored and finishes with the neck and shoulders to give your whole body a powerful sense of well being.', 302500, 'IDR', 0), ('Other', 'Chill Out (60 min)', 'Lay down and chill out for an hour and experience a deeply relaxing full body pressure point massage. By concentrating on stimulating and clearing the energy pathways in the body, this revitalizing treatment will leave you feeling totally chilled out!', 302500, 'IDR', 1), ('Other', 'The Ultimate Chill (90 min)', 'The Ultimate Chill treatment combines reflexology and acupressure to ease your body and mind of stress and tension. Concentrating on the feet, ankles, neck and shoulders our trained and skilled therapists will relieve built up pressures helping to make you feel more balanced for the rest of the day.', 350900, 'IDR', 2), ('Other', 'Holistic Chill (90 min)', 'Relax and enjoy the benefits of this hour and a half deeply therapeutic full body treatment. An extension of our Chill Out, this treatment concentrates intensely on specific reflex and acupressure points of the body to prevent and alleviate symptoms such as headaches, migraines and poor blood circulation. These are often symptoms of jet lag which makes Holistic Chill the perfect choice before or a', 350900, 'IDR', 3), ('Other', 'The Therapy (120 min)', 'Our highly trained Reflexologists will pamper you with our 2 hour traditional eastern reflexology treatment combined with the therapeutic acupressure. Relax while you feel tension melt away and enjoy the benefits of this amazing treatment with improved energy, promoting healing, and make you feel at peace.', 459800, 'IDR', 4), ('Other', 'The Classic (60 min)', 'Transform your day with a relaxing combination of reflexology and acupressure. This Classic Chill treatment concentrates on the feet and ankles where tension and fatigue are often stored and finishes with the neck and shoulders to give your whole body a powerful sense of well being.', 302500, 'IDR', 5), ('Other', 'Chill Out (60 min)', 'Lay down and chill out for an hour and experience a deeply relaxing full body pressure point massage. By concentrating on stimulating and clearing the energy pathways in the body, this revitalizing treatment will leave you feeling totally chilled out!', 302500, 'IDR', 6), ('Other', 'The Ultimate Chill (90 min)', 'The Ultimate Chill treatment combines reflexology and acupressure to ease your body and mind of stress and tension. Concentrating on the feet, ankles, neck and shoulders our trained and skilled therapists will relieve built up pressures helping to make you feel more balanced for the rest of the day.', 350900, 'IDR', 7), ('Other', 'Holistic Chill (90 min)', 'Relax and enjoy the benefits of this hour and a half deeply therapeutic full body treatment. An extension of our Chill Out, this treatment concentrates intensely on specific reflex and acupressure points of the body to prevent and alleviate symptoms such as headaches, migraines and poor blood circulation. These are often symptoms of jet lag which makes Holistic Chill the perfect choice before or a', 350900, 'IDR', 8), ('Other', 'The Therapy (120 min)', 'Our highly trained Reflexologists will pamper you with our 2 hour traditional eastern reflexology treatment combined with the therapeutic acupressure. Relax while you feel tension melt away and enjoy the benefits of this amazing treatment with improved energy, promoting healing, and make you feel at peace.', 459800, 'IDR', 9)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'koyaspabali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'KOYA SPA treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://koyaspabali.com/', 'Official KOYA SPA price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '42a66d0517b0f91809cdb086b47c488cfa10979ec930820aea1c21f2f4929940', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Traditional Massage', 0), ('Other', 1), ('Deep Tissue', 2), ('Four Hands Massage', 3), ('Head Massage', 4)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Traditional Massage', 'BALI BLISS MASSAGE (60 min)', 'A gentle massage with vital points stimulation to detoxify the body and create Calm & Deep Relaxation.', 350000, 'IDR', 0), ('Traditional Massage', 'STRESS RELIEF MASSAGE (60 min)', 'Superior antistress treatment working into your nervous system focusing in the head, face, neck and upper body.', 350000, 'IDR', 1), ('Traditional Massage', 'KOYA SIGNATURE MASSAGE (60 min)', 'This unique massage, created by KOYA team, uses highly therapeutic techniques promoting emotional, mental, spiritual and physical healing.', 350000, 'IDR', 2), ('Traditional Massage', 'BACK, HIPS AND LEGS MASSAGE (60 min)', 'The primary goal of this trigger point therapy is to release tension throughout the body, reduce pain, and ease chronic stress.', 350000, 'IDR', 3), ('Traditional Massage', 'BALI BLISS MASSAGE (90 min)', 'A gentle massage with vital points stimulation to detoxify the body and create Calm & Deep Relaxation.', 350000, 'IDR', 4), ('Traditional Massage', 'STRESS RELIEF MASSAGE (90 min)', 'Superior antistress treatment working into your nervous system focusing in the head, face, neck and upper body', 350000, 'IDR', 5), ('Traditional Massage', 'KOYA SIGNATURE MASSAGE (90 min)', 'This unique massage, created by KOYA team, uses highly therapeutic techniques promoting emotional, mental, spiritual and physical healing.', 350000, 'IDR', 6), ('Traditional Massage', 'BACK, HIPS AND LEGS MASSAGE (90 min)', 'The primary goal of this trigger point therapy is to release tension throughout the body, reduce pain, and ease chronic stress.', 350000, 'IDR', 7), ('Other', 'SHI-ATSU (60 min)', 'The Art of Japanese Bodywork. Strong massage to improve postural alignment and restore your body.', 350000, 'IDR', 0), ('Other', 'MOM-TO-BE (60 min)', 'This blissful Pregnancy Massage is designed to alleviate the aches and tension associated with pregnancy, using gentle and safe techniques that promote overall well-being and creates a peaceful, tranquil space for you to connect with your growing baby.', 350000, 'IDR', 1), ('Other', 'KOYA JOURNEY (120 min)', 'Embark on a transformative escape designed to cleanse, rejuvenate, and restore your body and mind. Indulge in a deeply restorative bodywork massage that masterfully blends ancient and modern techniques to release tension, enhance circulation, and promote holistic well-being.', 850000, 'IDR', 2), ('Other', 'DEEP SLEEP (120 min)', 'This ritual is meticulously crafted to unlock a profound sense of tranquility. By stimulating key acupressure points along the back and legs, it gently soothes the nervous system, enhances sleep quality, and improves circulation.', 850000, 'IDR', 3), ('Other', 'SHI-ATSU (90 min)', 'The Art of Japanese Bodywork. Strong massage to improve postural alignment and restore your body.', 350000, 'IDR', 4), ('Other', 'MOM-TO-BE (90 min)', 'This blissful Pregnancy Massage is designed to alleviate the aches and tension associated with pregnancy, using gentle and safe techniques that promote overall well-being and creates a peaceful, tranquil space for you to connect with your growing baby.', 350000, 'IDR', 5), ('Other', 'KOYA JOURNEY (120 min)', 'Embark on a transformative escape designed to cleanse, rejuvenate, and restore your body and mind.', 850000, 'IDR', 6), ('Other', 'DEEP SLEEP (120 min)', 'This ritual is meticulously crafted to unlock a profound sense of tranquility. By stimulating key acupressure points along the back and legs, it gently soothes the nervous system, enhances sleep quality, and improves circulation.', 850000, 'IDR', 7), ('Deep Tissue', 'JAPANESE DEEP TISSUE MASSAGE (60 min)', 'A powerful healing massage applying strong pressure on specific points of your body with the goal to release deep muscle tension.', 350000, 'IDR', 0), ('Deep Tissue', 'JAPANESE DEEP TISSUE MASSAGE (90 min)', 'A powerful healing massage applying strong pressure on specific points of your body with the goal to release deep muscle tension.', 350000, 'IDR', 1), ('Four Hands Massage', 'FOUR HANDS BODYWORK (90 min)', 'Experience the restorative benefits of two master therapists massaging your body in seamless coordination, relieving tension using a blend of techniques that provide grounding and healing.', 850000, 'IDR', 0), ('Four Hands Massage', 'FOUR HANDS BODYWORK (90 min)', 'Experience the restorative benefits of two master therapists massaging your body in seamless coordination, relieving tension using a blend of techniques that provide grounding and healing.', 850000, 'IDR', 1), ('Head Massage', 'HEAD, NECK, SHOULDERS AND ARMS MASSAGE (60 min)', 'Using firm pressure, soothing strokes and stretches, this massage is designed to concentrate on tension built up in the upper body, so the benefits can be achieved in a shorter period of time.', 350000, 'IDR', 0), ('Head Massage', 'HEAD, NECK, SHOULDERS AND ARMS MASSAGE (90 min)', 'Using firm pressure, soothing strokes and stretches, this massage is designed to concentrate on tension built up in the upper body.', 350000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'beautyfulspabali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -619,7 +542,7 @@ with target as (
   select t.slug, 'Beautyfulspa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://beautyfulspabali.com/', 'Official Beautyfulspa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'f9b70c72f17961ca30751ba3f5d087e5ecbd3c3d110f3c72207cd355bf05ac21', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f9b70c72f17961ca30751ba3f5d087e5ecbd3c3d110f3c72207cd355bf05ac21', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -633,6 +556,17 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Traditional Massage', 'Aloe Glow Massage (90 min)', 'A soothing massage using natural aloe vera gel to cool and deeply hydrate the skin, helping to reduce redness, irritation, and dryness especially after sun exposure. Perfect for sensitive skin or for restoring your natural glow after a day in the tropical sun.', 300000, 'IDR', 0), ('Traditional Massage', 'Bali Paradise Massage (90 min)', 'A traditional massage inspired by Balinese healing techniques, combining gentle hand pressure and acupressure to release tension, improve circulation, and deeply relax the body. Using pure coconut oil for a calming tropical experience.', 270000, 'IDR', 1), ('Other', 'Anti Cellulite (90 min)', 'A treatment designed to reduce the appearance of cellulite by stimulating blood circulation, breaking down fat deposits, and improving skin tone. It involves techniques like deep tissue massage, lymphatic drainage and using cupping.', 250000, 'IDR', 0), ('Other', 'Anti Cellulite (90 min)', 'A treatment designed to reduce the appearance of cellulite by stimulating blood circulation, breaking down fat deposits, and improving skin tone. It involves techniques like deep tissue massage, lymphatic drainage and using cupping.', 380000, 'IDR', 1), ('Other', 'Back Nirvana (90 min)', 'A targeted massage for the back and back legs designed to melt away muscle tension perfect for deep relaxation or physical recovery. specifically designed to support the needs of athletes or physically active individuals.', 160000, 'IDR', 2), ('Aromatherapy', 'Aromatherapy Massage (90 min)', 'Aromatherapy is a therapy using essential oils and warm oil from plants to relax, reduce stress, and improve well-being.', 300000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+where status = 'draft'
+  and completeness = 'partial'
+  and verified_at is null
+  and content_digest is not null
+  and expires_at > now()
+  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and exists (select 1 from menu_sections s join menu_items it
+              on it.section_id = s.id and it.menu_id = s.menu_id
+              where s.menu_id = menus.id);
+-- spa menu snapshots, batch 1 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'thearkrecovery.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -641,7 +575,7 @@ with target as (
   select t.slug, 'The Ark Recovery treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thearkrecovery.com/', 'Official The Ark Recovery price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '912f7de6bdbdaa26bf296fc0a6e7697f82be551befce317879fd49d90f830219', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '912f7de6bdbdaa26bf296fc0a6e7697f82be551befce317879fd49d90f830219', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -663,7 +597,7 @@ with target as (
   select t.slug, 'Urban Oasis treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.urbanoasis.world/', 'Official Urban Oasis price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '14649cb68a28a3d8a037478169357db8f4477a152e86af889f0ffa6923158580', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '14649cb68a28a3d8a037478169357db8f4477a152e86af889f0ffa6923158580', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -685,7 +619,7 @@ with target as (
   select t.slug, 'reSPAwn Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.respawnspabali.com/massage-prices', 'Official reSPAwn Spa Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '302e1082705d361fc423149ac5e37fa6d669829aaabeaf3d5adddbbcd5565e87', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '302e1082705d361fc423149ac5e37fa6d669829aaabeaf3d5adddbbcd5565e87', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -707,7 +641,7 @@ with target as (
   select t.slug, 'Tyce Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tychespabali.com/our-treatment', 'Official Tyce Spa Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '708c2d4f7c75654114900ed02f0c8f95211ab2e77accd7efc2c13c246bea8b4a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '708c2d4f7c75654114900ed02f0c8f95211ab2e77accd7efc2c13c246bea8b4a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -729,7 +663,7 @@ with target as (
   select t.slug, 'Udara Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.udara-bali.com/udara-spa-treatments/', 'Official Udara Bali Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '4fc113ef2a191fc2a227770c3ce0ebee69863310bf76cb55a3ba7a86f084d715', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4fc113ef2a191fc2a227770c3ce0ebee69863310bf76cb55a3ba7a86f084d715', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -751,7 +685,7 @@ with target as (
   select t.slug, 'Серф-лагерь в Чангу, Бали treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://wavehousebali.com/ru/canggu/packages', 'Official Серф-лагерь в Чангу, Бали price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '04804d7c06a5db4646d7baacd1bb8f21696d914c70717646e30d89bb5e5845f4', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '04804d7c06a5db4646d7baacd1bb8f21696d914c70717646e30d89bb5e5845f4', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -773,7 +707,7 @@ with target as (
   select t.slug, 'Bodyworks Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.bodyworksbali.com/treatments', 'Official Bodyworks Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'b1ebfd21701a4812baa9753b023e2ea00fc1aa182ab7a49dd931cbd9b820ce1b', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b1ebfd21701a4812baa9753b023e2ea00fc1aa182ab7a49dd931cbd9b820ce1b', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -795,7 +729,7 @@ with target as (
   select t.slug, 'SPA BALI treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spabali.co.id/spa-package', 'Official SPA BALI price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '58a5e8217b9030b3c0de28699072d57393bbb7219cf8b26cb8e444dd43adf050', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '58a5e8217b9030b3c0de28699072d57393bbb7219cf8b26cb8e444dd43adf050', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -817,7 +751,7 @@ with target as (
   select t.slug, 'The Spa at The Samaya Seminyak treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thesamayaspabali.com/', 'Official The Spa at The Samaya Seminyak price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '103b378aaf79879ea3984add4ddd32d952ec13ea89ee9894613004cb040efd17', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '103b378aaf79879ea3984add4ddd32d952ec13ea89ee9894613004cb040efd17', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -839,7 +773,7 @@ with target as (
   select t.slug, 'COZY SPA BALI treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://cozyspabali.com/', 'Official COZY SPA BALI price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '632d66a8949c496f8e4ebcf6e709c646acfc4629761e853ca8bd991a8e358728', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '632d66a8949c496f8e4ebcf6e709c646acfc4629761e853ca8bd991a8e358728', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -861,7 +795,7 @@ with target as (
   select t.slug, 'Asha Wellness& Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.asha-spa-wellness.com/', 'Official Asha Wellness& Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'cd7b61cd2f3d299f17adbac13dafd629f87c85d97db71ba599c4188786eca2df', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cd7b61cd2f3d299f17adbac13dafd629f87c85d97db71ba599c4188786eca2df', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -876,28 +810,6 @@ from m, secs
 join (values ('Balinese Massage', 'Balinese Massage (60 min)', 'Traditional blend of gentle stretches, acupressure and aromatherapy.', 245000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (90 min)', null, 335000, 'IDR', 1), ('Hot Stone', 'Hot Stone (90 min)', 'Heated natural stones to soothe stiff muscles and improve circulation.', 390000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue (60 min)', 'Firm pressure on deep muscle layers to release chronic tension.', 280000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue (90 min)', null, 390000, 'IDR', 1), ('Traditional Massage', 'Aloevera Gel Massage (60 min)', 'Cooling, hydrating massage — ideal after sun exposure.', 440000, 'IDR', 0), ('Traditional Massage', 'Aloevera Gel Massage (90 min)', null, 700000, 'IDR', 1), ('Back Massage', 'Back Massage (30 min)', 'Focused on back, neck and shoulders.', 140000, 'IDR', 0), ('Back Massage', 'Back Massage (60 min)', null, 250000, 'IDR', 1), ('Reflexology', 'Foot Reflexology (30 min)', null, 120000, 'IDR', 0), ('Reflexology', 'Foot Reflexology (60 min)', null, 200000, 'IDR', 1), ('Body Scrub', 'Body Scrub (45 min)', null, 230000, 'IDR', 0), ('Body Scrub', 'Full Body Massage + Body Scrub (90 min)', null, 360000, 'IDR', 1), ('Body Mask', 'Body Mask (45 min)', null, 230000, 'IDR', 0), ('Body Mask', 'Full Body Massage + Body Mask (90 min)', null, 360000, 'IDR', 1), ('Foot Massage', 'Foot + Back (60 min)', null, 225000, 'IDR', 0), ('Foot Massage', 'Foot + Shoulder (60 min)', null, 225000, 'IDR', 1), ('Foot Massage', 'Foot + Head (60 min)', null, 225000, 'IDR', 2), ('Foot Massage', 'Foot + Head + Shoulder (90 min)', null, 335000, 'IDR', 3), ('Manicure', 'Manicure Plain', 'Russian e-file + shaping + cuticle oil + hand cream', 200000, 'IDR', 0), ('Manicure', 'Manicure Gel Polish', 'Russian e-file + shaping + gel polish + cuticle oil + hand cream', 250000, 'IDR', 1), ('Manicure', 'Manicure Regular Polish', null, 250000, 'IDR', 2), ('Manicure', 'Manicure Kids', null, 100000, 'IDR', 3), ('Pedicure', 'Pedicure Plain', 'Cuticle care + shaping + callus + scrub + foot cream', 250000, 'IDR', 0), ('Pedicure', 'Pedicure Gel Polish', null, 400000, 'IDR', 1), ('Pedicure', 'Express Pedicure', null, 350000, 'IDR', 2), ('Pedicure', 'Pedicure Regular Polish', null, 350000, 'IDR', 3), ('Pedicure', 'Pedicure Kids', null, 150000, 'IDR', 4), ('Other', 'Full Set Hard Gel Extension', null, 600000, 'IDR', 0), ('Other', 'Refill Hard Gel Extension', null, 500000, 'IDR', 1), ('Other', 'One Finger Repair', null, 50000, 'IDR', 2), ('Other', 'One Repair Extension', null, 80000, 'IDR', 3), ('Other', 'Regular Polish', null, 80000, 'IDR', 4), ('Other', 'Arm Below / Above the Elbow', null, 200000, 'IDR', 5), ('Other', 'Full Arm', null, 300000, 'IDR', 6), ('Other', 'Armpit (Female)', null, 200000, 'IDR', 7), ('Other', 'Armpit (Male)', null, 300000, 'IDR', 8), ('Other', 'Lower Legs', null, 300000, 'IDR', 9), ('Other', 'Upper Legs', null, 300000, 'IDR', 10), ('Other', 'Full Legs', null, 500000, 'IDR', 11), ('Other', 'Full Back Level 1', null, 450000, 'IDR', 12), ('Other', 'Full Back Level 2', null, 550000, 'IDR', 13), ('Other', 'Chest', null, 200000, 'IDR', 14), ('Other', 'Tummy', null, 250000, 'IDR', 15), ('Other', 'Chest + Tummy', null, 400000, 'IDR', 16), ('Other', 'Small Area', null, 100000, 'IDR', 17), ('Other', 'Bikini', null, 400000, 'IDR', 18), ('Other', 'Brazilian', null, 600000, 'IDR', 19), ('Other', 'Manzilian (Men Brazilian)', null, 500000, 'IDR', 20), ('Other', 'Full Body (Female)', null, 1200000, 'IDR', 21), ('Other', 'Full Body (Male)', null, 1500000, 'IDR', 22), ('Nails', 'Gel Polish', null, 100000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'jarimenari.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Jari Menari Spa Seminyak Bali treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.jarimenari.com/chinese-spa-menu', 'Official Jari Menari Spa Seminyak Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0fb7a0f879b35a32c1b1cf7cb407b9d85509fbc678d2318851b3c4a6f256301b', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Other', 0)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Other', '完美按摩', null, 585000, 'IDR', 0), ('Other', '胴体增强按摩', null, 585000, 'IDR', 1), ('Other', '基本按摩', null, 515000, 'IDR', 2), ('Other', '4手连弹 (双人)按摩', null, 660000, 'IDR', 3), ('Other', '佳丽蒙丽娜的最爱:移动式按摩', null, 585000, 'IDR', 4), ('Other', '使用草药球,无精油对背部,头部,足部的按摩', null, 480000, 'IDR', 5), ('Other', '滋润面部护理', null, 620000, 'IDR', 6), ('Other', '背部按摩', null, 425000, 'IDR', 7), ('Other', '足部按摩', null, 425000, 'IDR', 8), ('Other', '儿童按摩', null, 425000, 'IDR', 9), ('Other', '磨砂面膜和脚部去角质', null, 425000, 'IDR', 10), ('Other', '芬芳花浴', null, 100000, 'IDR', 11)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'astaginaresort.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -905,7 +817,7 @@ with target as (
   select t.slug, 'Anjali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://astaginaresort.com/facilities/anjali-spa/', 'Official Anjali Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'a25ded88b09e01ced9f6d8070d29af941c4bbd8d4259a343be6cf5d86a471cc3', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'a25ded88b09e01ced9f6d8070d29af941c4bbd8d4259a343be6cf5d86a471cc3', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -927,7 +839,7 @@ with target as (
   select t.slug, 'Glow Spa Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balimandira.com/spa-treatments/', 'Official Glow Spa Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '898ee3ab6a7d01287460956f93b7b56cd6505a25e09af6baec12a58ae0311572', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '898ee3ab6a7d01287460956f93b7b56cd6505a25e09af6baec12a58ae0311572', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -949,7 +861,7 @@ with target as (
   select t.slug, 'Body Worship Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bodyworshipbali.com/our-services/', 'Official Body Worship Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '18ef4ae951ab80fbf7937deb59c678d4b6dab60d13a91a58f3f1c5b6311d5ea2', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '18ef4ae951ab80fbf7937deb59c678d4b6dab60d13a91a58f3f1c5b6311d5ea2', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -971,7 +883,7 @@ with target as (
   select t.slug, 'Yes Spa Bali & Yes Hair Bliss treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://yesspabali.com/services', 'Official Yes Spa Bali & Yes Hair Bliss price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'e7dae3fdeed5b29fadd51e0e611282dae95e2a0a49d283017f493d05550f3959', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e7dae3fdeed5b29fadd51e0e611282dae95e2a0a49d283017f493d05550f3959', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -986,28 +898,6 @@ from m, secs
 join (values ('Traditional Massage', 'Yes Signature Massage (60 min)', 'For those who prefer a strong massage with firm pressure. Using a combination of Swedish and Balinese traditional firm pressure massage, including thumb walking, skin rolling, percussion and a pressure point foot massage, the Yes Signature massage decreases body tension and relieves muscle aches.', 170000, 'IDR', 0), ('Traditional Massage', 'Herbal Massage (60 min)', 'Starting with a Balinese massage, steamed compresses are applied. The herbal massage improves blood circulation. While the heat dilates blood vessels, and increases the blood & oxygen supply in the body and improves organ efficiency.', 185000, 'IDR', 1), ('Traditional Massage', 'Yes Signature Massage (60 min)', 'Strong massage with firm pressure using Swedish and Balinese techniques.', 170000, 'IDR', 2), ('Traditional Massage', 'Herbal Massage (60 min)', 'Balinese massage with steamed compresses applied for tender areas.', 185000, 'IDR', 3), ('Balinese Massage', 'Balinese Massage (60 min)', 'Balinese massage is a holistic practice that merges gentle stretches, acupressure, reflexology, and aromatherapy. Using firm thumb pressure, the Balinese massage relieves tension and tiredness, reduces headaches and stress, leaving your whole body feeling relaxed.', 150000, 'IDR', 0), ('Balinese Massage', 'Yes Body Scrub & Balinese Massage (90 min)', 'Starting with a Balinese massage, your choice of natural, organic body scrub is applied to exfoliate, leaving your skin feeling fresh, smooth and clean.', 270000, 'IDR', 1), ('Balinese Massage', 'Balinese Massage (60 min)', 'Holistic practice merging stretches, acupressure, reflexology, and aromatherapy.', 150000, 'IDR', 2), ('Balinese Massage', 'Yes Body Scrub & Balinese Massage (90 min)', 'Balinese massage combined with a natural body scrub.', 270000, 'IDR', 3), ('Aromatherapy', 'Warm Aromatherapy Oil Massage (60 min)', 'Choose your aromatherapy oil and let your tension and stress melt away while this warm massage improves blood circulation and enhances the lymphatic system to improve organ function.', 175000, 'IDR', 0), ('Aromatherapy', 'Warm Aromatherapy Oil Massage (60 min)', 'Choose your aromatherapy oil for a warm massage.', 175000, 'IDR', 1), ('Hot Stone', 'Warm Stone Massage (60 min)', 'Warm stone massage follows the same principles of Swedish massage with the addition of heated stones, which help to deepen relaxation and enhance feelings of peace and tranquility.', 185000, 'IDR', 0), ('Hot Stone', 'Warm Stone Massage (60 min)', 'Swedish massage principles enhanced with heated stones.', 185000, 'IDR', 1), ('Four Hands Massage', 'Four Hands Massage (60 min)', 'The four hands massage is like experiencing two full body massages at the same time. It’s such a sensory experience that you are unable to keep track of who is doing what.', 300000, 'IDR', 0), ('Four Hands Massage', 'Four Hands Massage (60 min)', 'Experience two full body massages at the same time.', 300000, 'IDR', 1), ('Foot Massage', 'Foot & Leg Massage (60 min)', 'This is the perfect treatment if you’ve been walking around or on your feet for long periods. Our skilled therapists use a combination of pressure point techniques and soothing strokes to relieve tension.', 130000, 'IDR', 0), ('Foot Massage', 'Foot, Neck & Shoulder Massage (60 min)', 'Looking for a treatment that feels good, but not in the mood for a full body massage? This is it. This targeted massage focuses on your feet, neck, and shoulders, ideal for relieving stress.', 130000, 'IDR', 1), ('Foot Massage', 'Foot Smoothing', 'Using foot file only for smoothing the feet.', 75000, 'IDR', 2), ('Foot Massage', 'Foot & Leg Massage (60 min)', 'Relieves tension, reduces swelling, and promotes circulation.', 130000, 'IDR', 3), ('Foot Massage', 'Foot, Neck & Shoulder Massage (60 min)', 'Targets feet, neck, and shoulders for stress relief.', 130000, 'IDR', 4), ('Head Massage', 'Head, Neck, Shoulder & Arm Massage (60 min)', 'Release yourself from the stress and tension from overexertion or sitting for extended periods of time.', 130000, 'IDR', 0), ('Head Massage', 'Head, Neck, Shoulder & Arm Massage (60 min)', 'Relieves stress and tension in the upper body.', 130000, 'IDR', 1), ('Body Scrub', 'Yes Body Scrub only (45 min)', 'Your choice of natural, organic body scrub is applied to exfoliate, leaving your skin feeling fresh, smooth and clean.', 140000, 'IDR', 0), ('Body Scrub', 'Yes Body Scrub only (45 min)', 'Exfoliating body scrub service.', 140000, 'IDR', 1), ('Other', 'Yes Sunburn Treatment (60 min)', 'Application of cool aloe vera gel is applied to affected areas, with massage to unaffected areas.', 190000, 'IDR', 0), ('Other', 'Hair Curling', 'Transform your straight locks into gorgeous, bouncy curls with our expert curling iron styling service.', 100000, 'IDR', 1), ('Other', 'Olaplex Stand Alone (90 min)', 'The most intensive hair treatment to repair and strengthen very damaged hair from the inside using Olaplex.', 675000, 'IDR', 2), ('Other', 'Olaplex Express (45 min)', 'This intensive treatment combines Olaplex to repair and strengthen damaged hair from the inside.', 375000, 'IDR', 3), ('Other', 'K18 Complete Care (45 min)', 'This treatment includes shampoo with patented molecular breakthrough clinically proven to reverse hair damage in just 4 minutes.', 300000, 'IDR', 4), ('Other', 'Add Eye Contour Treatment (15 min)', 'Optional add-on to any of our Yes Massage Bali Facials using organic botanicals to soothe the area around the eyes.', 80000, 'IDR', 5), ('Other', 'Yes Sunburn Treatment (60 min)', 'Application of cool aloe vera gel on sunburned areas.', 190000, 'IDR', 6), ('Waxing', 'Paraffin Wax Treatment (45 min)', 'Layers of warm paraffin wax, infused with the essential oil of your choice, are applied to the hands or feet, which are then wrapped.', 260000, 'IDR', 0), ('Waxing', 'Paraffin Wax Treatment (45 min)', 'Moisturizing treatment with paraffin wax and a scalp massage.', 260000, 'IDR', 1), ('Javanese Lulur', 'Lulur Body Celebration (150 min)', 'Experience an authentic Balinese ritual – a treatment once reserved for royalty. Starts with a Balinese massage and choice of therapeutic oils, followed by a scrub and a restorative milk bath.', 450000, 'IDR', 0), ('Javanese Lulur', 'Lulur Body Celebration (150 min)', 'Authentic Balinese ritual with massage and lulur scrub.', 450000, 'IDR', 1), ('Spa Package', 'Body Ritual Treatment (180 min)', 'The body ritual treatment begins with your choice of body scrub, followed by a body mask and a one-hour full body massage, followed by a luxurious milk bath.', 900000, 'IDR', 0), ('Spa Package', 'Yes Spa Package A (135 min)', 'Yes Spa signature massage with manicure & pedicure.', 345000, 'IDR', 1), ('Spa Package', 'Yes Spa Package B (120 min)', 'Yes Spa signature facial, Balinese massage & body scrub.', 390000, 'IDR', 2), ('Spa Package', 'Yes Spa Package C (135 min)', 'Yes Spa signature facial, Balinese massage & pedicure.', 390000, 'IDR', 3), ('Spa Package', 'Yes Spa Package D (135 min)', 'Balinese massage, Yes Spa signature facial & hair cream bath. Only available at Yes Spa Bali on Jalan Legian.', 485000, 'IDR', 4), ('Spa Package', 'Body Ritual Treatment (180 min)', 'Includes body scrub, mask, facial, and a full body massage.', 900000, 'IDR', 5), ('Facial', 'Yes Spa Signature Facials (45 min)', 'The Yes Spa Signature Facial will cleanse, moisturize, massage and tone your face, helping to reduce the appearance of fine lines.', 155000, 'IDR', 0), ('Facial', 'Regenerative Pure C Facial (60 min)', 'Ideal for restoring aging skin, the Pure-C complex serum protects from environmental damage, providing instant radiance.', 320000, 'IDR', 1), ('Facial', 'Desensitizing Deluxe Facial (60 min)', 'Perfect for calming and balancing stressed skin, reducing redness and inflammation, resulting in soothed skin.', 320000, 'IDR', 2), ('Facial', 'Hydramax Deluxe Facial (60 min)', 'Customized for dry and devitalized skin lacking moisture, encouraging increased hydration with restorative clay and nourishing oils.', 320000, 'IDR', 3), ('Facial', 'Purifying Deluxe Facial (60 min)', 'Cleanse and detoxify congested skin with gentle exfoliation for the pores and deep cleansing mud therapy.', 320000, 'IDR', 4), ('Facial', 'Yes Spa Signature Facials (45 min)', 'Cleanses and tones the face, applying a mask for hydration.', 155000, 'IDR', 5), ('Facial', 'Regenerative Pure C Facial (60 min)', 'Restores aging skin with Pure-C complex serum.', 320000, 'IDR', 6), ('Facial', 'Desensitizing Deluxe Facial (60 min)', 'Calms stressed skin and reduces redness.', 320000, 'IDR', 7), ('Facial', 'Hydramax Deluxe Facial (60 min)', 'Customized for dry skin with restorative ingredients.', 320000, 'IDR', 8), ('Facial', 'Purifying Deluxe Facial (60 min)', 'Cleanses and detoxifies congested skin.', 320000, 'IDR', 9), ('Brows', 'Eyebrow Tinting (20 min)', 'Enhance your natural beauty with our brow tinting services that define and accentuate your eyes.', 75000, 'IDR', 0), ('Brows', 'Eyebrow Tinting (20 min)', 'Long-lasting eyebrow tinting service.', 75000, 'IDR', 1), ('Lashes', 'Eyelash Tinting (20 min)', 'Enhance your natural beauty with our lash tinting services that define and accentuate your eyes.', 75000, 'IDR', 0), ('Lashes', 'Eyelash Tinting (20 min)', 'Long-lasting eyelash tinting service.', 75000, 'IDR', 1), ('Hair Treatment', 'Bliss Signature Hair Masque (45 min)', 'Treat your hair to a luxurious conditioning masque using 100% organic, made in Bali. Includes a shoulder and arm massage.', 190000, 'IDR', 0), ('Hair Treatment', 'Hair Masque by L''Oreal (45 min)', 'Shampoo and hair masque including a shoulder and arm massage, repairing and making hair look good.', 170000, 'IDR', 1), ('Cream Bath', 'Bliss Signature Hair Cream Bath (45 min)', 'An all-natural shampoo and cream bath deep conditioning treatment attended by a relaxing scalp & shoulder massage.', 190000, 'IDR', 0), ('Hair Styling', 'Hair Wash & Blow Dry (25 min)', 'Quick hair wash and blow dry service with a scalp massage.', 100000, 'IDR', 0), ('Manicure', 'Manicure & Pedicure (45 min)', 'Nail shaping, cuticle care, and buffing.', 85000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'luxspaday.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Lux Day Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://luxspaday.com/', 'Official Lux Day Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '84df5dcedea64b7edb80531cf5265270a645d1cf2e820114d95305342cf8af95', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Other', 0), ('Reflexology', 1), ('Nails', 2)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Other', 'Hair Style', null, 190000, 'IDR', 0), ('Other', 'Body Spa', null, 190000, 'IDR', 1), ('Other', 'Beauty Care Treatment', null, 190000, 'IDR', 2), ('Reflexology', 'Foot Reflexology', null, 190000, 'IDR', 0), ('Nails', 'Nails Care & Treatment', null, 190000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'baligreenspa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -1015,7 +905,7 @@ with target as (
   select t.slug, 'Bali Green Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baligreenspa.com/', 'Official Bali Green Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'aa6eb7c67507ff77c69c672429da275142972ee0daee6b3e09a04239dfddeb55', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'aa6eb7c67507ff77c69c672429da275142972ee0daee6b3e09a04239dfddeb55', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1037,7 +927,7 @@ with target as (
   select t.slug, 'The Nest Beachside Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thenestbeachsidespa.com/spa-menu', 'Official The Nest Beachside Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '65f2f9c437c9bf0100ce35771218f5669d4d9608227998cbc2e9678364e99760', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '65f2f9c437c9bf0100ce35771218f5669d4d9608227998cbc2e9678364e99760', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1059,7 +949,7 @@ with target as (
   select t.slug, 'The Nest Boutique Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thenestboutiquespa.com/spa-menu', 'Official The Nest Boutique Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ea778d394c7f4be6e7c02e97647cbef1c7a5ebf7b8e02d0ff05c5aca4502e44f', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ea778d394c7f4be6e7c02e97647cbef1c7a5ebf7b8e02d0ff05c5aca4502e44f', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1081,7 +971,7 @@ with target as (
   select t.slug, 'Sari Day Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://saridayspa.com/spa-menu', 'Official Sari Day Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '7f5868202cc59ca9d6b97d786c696a73394421c2f6f505175c30ccd52e5a23f5', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7f5868202cc59ca9d6b97d786c696a73394421c2f6f505175c30ccd52e5a23f5', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1103,7 +993,7 @@ with target as (
   select t.slug, 'Koa Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.koashala.com/spa', 'Official Koa Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'cf9bb62ee314677b5d411180fcdc924983f483fd8cc490f5b95c71d6b80782c8', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cf9bb62ee314677b5d411180fcdc924983f483fd8cc490f5b95c71d6b80782c8', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1117,17 +1007,6 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Traditional Massage', 'Massage 90 minute treatment (90 min)', null, 420000, 'IDR', 0), ('Traditional Massage', 'Customise your massage with our add ons (30 min)', null, 200000, 'IDR', 1), ('Other', 'The Herbalist', 'Steamed herbal poultices are pressed into muscles combined with a deeply nurturing massage using traditional Jamu herb infused oil made exclusively for Koa. Enjoy a chamomile tea eye pillow to finish your refreshing therapeutic treatment.', 520000, 'IDR', 0), ('Other', 'Mother Earth', 'Your body is caressed with the flowing strokes of warm basalt stones combined with soothing massage using our unique oil blend of Agarwood, Patchouli and Musk. Fall into a deep state of relaxation with a chai infused eye pillow. Connect with earth energy in this deeply calming and grounding treatment.', 290000, 'IDR', 1), ('Other', 'Chakra Dhara', 'This treatment is based on ancient Indian holistic healing traditions. We start by awakening the skin by dry brushing the body. This improves circulation and removes impurities. Followed by an invigorating Ayurvedic style massage using a deeply nourishing warmed oil blend of Neroli, Rose, white musk with a hint of cinnamon.', 290000, 'IDR', 2), ('Other', 'Aura Harmony', 'This signature massage is a fusion of aura cleansing spray, chakra crystal layout, be lulled into a state of bliss with an aromatherapy body massage, drifting on the scent of lavender & bergamot working on both the physical and auric body you will feel an amazing lightness of being. We finish off your treatment with a singing bowl.', 290000, 'IDR', 3), ('Other', 'Nuad Boran', 'Originating from Buddhist monks this dry style massage combines stretching, gentle twisting and acupressure. No oil is applied and kimono is supplied. Finish off with a dry head and face massage while enjoying a lemongrass infused hot towel foot wrap.', 290000, 'IDR', 4), ('Other', 'Chi Reviver', 'This massage is a powerful energy reviver. Firm massage, kneading and pressure point techniques get deep into the muscles, relieving tension and improving the chi energy meridians. Eucalyptus, rosemary and lavender oils assist in the healing and rebalancing of the life force. Finished with a eucalyptus hot towel neck roll.', 290000, 'IDR', 5), ('Balinese Massage', 'Balinese Hands', 'A beautiful massage combining kneading and rhythmic strokes of balinese hands and our dreamy ylangylang, coconut and vanilla oil blend will have you floating in tropical island bliss. We will treat your feet to a ylang-ylang scrub.', 290000, 'IDR', 0), ('Reflexology', 'Reflexology', 'Begin with a refreshing lavender foot soak, followed by our signature pressure point foot massage from the knees down. This refined reflexology treatment helps restore balance, enhance circulation, and awaken the body’s natural healing energy, perfect for deep relaxation and revitalized legs.', 290000, 'IDR', 0), ('Hot Stone', 'Hot Stone Reflexology', 'Start with a refreshing lavender foot soak, lemon pandan foot scrub and peppermint green tea foot mask. Then enjoy an intensive foot and lower leg massage using acupressure on precise points on the feet to open meridians and enhance the bodies natural healing abilities. To bring balance to the treatment we finish with hot stone shoulder and neck massage.', 290000, 'IDR', 0), ('Shirodhara', 'Shirodhara (75 min)', 'This Ayurvedic healing technique combines indian head massage include face, neck, shoulder massage completed by pouring warm coconut oil on the third eye area. This is the perfect treatment to completely quieten a busy mind having a soothing and balancing effect on brain cells while gently activating our intuition. Treatment 60 mins + 15 mins shower time.', 320000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
-where status = 'draft'
-  and completeness = 'partial'
-  and verified_at is null
-  and content_digest is not null
-  and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
-  and exists (select 1 from menu_sections s join menu_items it
-              on it.section_id = s.id and it.menu_id = s.menu_id
-              where s.menu_id = menus.id);
--- spa menu snapshots, batch 2 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'thelotuspabali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -1136,7 +1015,7 @@ with target as (
   select t.slug, 'The Lotus Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thelotuspabali.com/', 'Official The Lotus Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '8b02c216a94af9101832e1d74669f1a7e371d2cdae7a9a6f63085a9cbc6f3abe', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8b02c216a94af9101832e1d74669f1a7e371d2cdae7a9a6f63085a9cbc6f3abe', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1158,7 +1037,7 @@ with target as (
   select t.slug, 'Bali Orchid Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://baliorchidspa.com/', 'Official Bali Orchid Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'f57074ca65645a5dfa12a9d6ac0660334d9efc949b422099550108f6494daeac', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f57074ca65645a5dfa12a9d6ac0660334d9efc949b422099550108f6494daeac', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1180,7 +1059,7 @@ with target as (
   select t.slug, 'Heavenly Spa by Westin treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.heavenlyspabali.com/', 'Official Heavenly Spa by Westin price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'dc98201f64404c6d06ad806df7e82d3cb90c0e1067fd40a255778efd40c5cc55', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'dc98201f64404c6d06ad806df7e82d3cb90c0e1067fd40a255778efd40c5cc55', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1202,7 +1081,7 @@ with target as (
   select t.slug, 'Chi Massage & Luxury Spa Nusa Dua Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.chidayspas.com/nusa-dua-bali', 'Official Chi Massage & Luxury Spa Nusa Dua Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'fa9ce98b7d33184a96399184fc7706d706afda939872e266ca23468e7f7e7b68', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'fa9ce98b7d33184a96399184fc7706d706afda939872e266ca23468e7f7e7b68', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1217,28 +1096,6 @@ from m, secs
 join (values ('Spa Package', 'Five Element Energy Ritual (1 Therapist) (60 min)', 'Inspired by the Five Elements philosophy, this personalised treatment adapts to your body''s needs.', 680000, 'IDR', 0), ('Head Massage', 'Japanese Head Spa (60 min)', 'A specialised scalp therapy designed to release tension and promote deep relaxation.', 680000, 'IDR', 0), ('Hair Treatment', 'Indonesian Herbal Hair Mask (60 min)', 'A traditional herbal treatment that nourishes the hair and scalp.', 480000, 'IDR', 0), ('Aromatherapy', 'Full Body Aroma Massage (60 min)', 'Deep relaxation with customised techniques and aromatherapy.', 480000, 'IDR', 0), ('Reflexology', 'Foot Reflexology (60 min)', 'Stimulates circulation and promotes overall balance.', 380000, 'IDR', 0), ('Manicure', 'Classic Manicure', 'Clean, neat, and well-groomed nails.', 380000, 'IDR', 0), ('Manicure', 'Gel Finish Manicure', 'Long-lasting colour with a glossy finish.', 480000, 'IDR', 1), ('Nail Art', 'Creative 3D Nail Art', 'Custom-designed nail styling for a unique look.', 580000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'kayumanisspanusadua.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Kayumanis Spa Nusa Dua treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://kayumanisspanusadua.com/menus', 'Official Kayumanis Spa Nusa Dua price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '9c5f19eda4a2ccbd7fd496072fbc159f456e06f52118805e8301fc321011e14c', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Spa Package', 0), ('Traditional Massage', 1), ('Four Hands Massage', 2), ('Hot Stone', 3), ('Other', 4), ('Facial', 5)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Spa Package', 'Relaxing Ritual (120 min)', 'Experience the pleasure of overall indulgence with a nurturing treatment that pays attention to every part of the body.', 1970000, 'IDR', 0), ('Spa Package', 'Kayumanis Romantic Package (120 min)', 'Spend this romantic day at our Spa with a 2 hours treatment flow, including foot bath, body massage, body scrub and wine bath.', 2080000, 'IDR', 1), ('Spa Package', 'Ocean Ritual (120 min)', 'A rejuvenating ritual inspired by the sea.', 2125000, 'IDR', 2), ('Traditional Massage', 'Relaxing Massage (60 min)', 'Inspired by traditional Balinese massage techniques.', 1025000, 'IDR', 0), ('Traditional Massage', 'Kayumanis Massage (90 min)', 'A combination of Balinese massage, lomi lomi and therapeutic massage.', 1340000, 'IDR', 1), ('Traditional Massage', 'Energy Massage (60 min)', 'A firm and deep stroke massage treatment.', 1025000, 'IDR', 2), ('Traditional Massage', 'Herbal Compress Massage (90 min)', 'Uses selected indigenous herbs to alleviate pain or inflammation.', 1420000, 'IDR', 3), ('Four Hands Massage', 'Four Hands Massage (90 min)', 'A treatment done by two therapists simultaneously.', 1890000, 'IDR', 0), ('Hot Stone', 'Warm Stone Massage (90 min)', 'Uses heated natural volcanic stones to relax tight muscles.', 1420000, 'IDR', 0), ('Other', 'Celestrial Dream (60 min)', 'An exfoliating body treatment using natural products.', 1025000, 'IDR', 0), ('Other', 'Vibrant Recharge (90 min)', 'Recommended after a long journey to help recover from jet lag.', 1420000, 'IDR', 1), ('Other', 'Kayumanis Karma (120 min)', 'A balancing treatment designed to melt away stress.', 1970000, 'IDR', 2), ('Other', 'Executive Revival (180 min)', 'A masculine ritual encouraging self-indulgence.', 2600000, 'IDR', 3), ('Other', 'Sweet Serenade (180 min)', 'A feminine approach towards health and beauty.', 2750000, 'IDR', 4), ('Other', 'Kayumanis Journey (180 min)', 'A replenishing ritual to restore energy levels.', 2830000, 'IDR', 5), ('Facial', 'Refreshing Natural Facial (60 min)', 'Focuses on pure and natural ingredients known for nourishing properties.', 1025000, 'IDR', 0), ('Facial', 'Traditional Facial (60 min)', 'Combines garden-fresh ingredients with anti-aging products.', 1025000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'royalorchidspa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -1246,7 +1103,7 @@ with target as (
   select t.slug, 'Royal Orchid Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://royalorchidspa.com/', 'Official Royal Orchid Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6b462e0da0982013a8902ecf090a747298a8569dd73d6debd6b57028e3d78a16', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6b462e0da0982013a8902ecf090a747298a8569dd73d6debd6b57028e3d78a16', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1260,6 +1117,17 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Royal Traditional Balinese Massage – 60 (60 min)', null, 385000, 'IDR', 0), ('Balinese Massage', 'Balinese Costume Photo – A (60 min)', null, 675000, 'IDR', 1), ('Shirodhara', 'Royal Shirodara Massage (60 min)', null, 975000, 'IDR', 0), ('Shirodhara', 'Royal Shirodara Package (180 min)', null, 1950000, 'IDR', 1), ('Lymphatic Massage', 'Royal Lymphatic Massage (90 min)', null, 525000, 'IDR', 0), ('Traditional Massage', 'Strawberry Spa Massage (75 min)', null, 500000, 'IDR', 0), ('Traditional Massage', 'Strawberry Spa Massage (75 min)', 'A wonderfully relaxing and fruity spa experience for kids. This soothing journey is designed to be safe and enjoyable for sensitive skin. Package includes: Gentle pressure massage with baby oil, Sweet and fragrant strawberry body scrub, Refreshing shower to finish.', 500000, 'IDR', 1), ('Flower Bath', 'Flower bath (30 min)', null, 400000, 'IDR', 0), ('Other', 'Princess Meni or Pedi (45 min)', null, 350000, 'IDR', 0), ('Other', 'Royal Creambath (60 min)', null, 480000, 'IDR', 1), ('Spa Package', 'Orchid Family Package (90 min)', null, 1785000, 'IDR', 0), ('Spa Package', 'Royal Iulur Package (120 min)', null, 680000, 'IDR', 1), ('Spa Package', 'Royal Refreshing Package (120 min)', null, 720000, 'IDR', 2), ('Spa Package', 'Royal Chocolate Package (120 min)', null, 900000, 'IDR', 3), ('Spa Package', 'Balinese Costume Photo Package – B (120 min)', null, 1125000, 'IDR', 4), ('Spa Package', 'Royal Sunburn Package (120 min)', null, 900000, 'IDR', 5), ('Spa Package', 'Royal Wine Package (120 min)', null, 1350000, 'IDR', 6), ('Spa Package', 'Royal Relaxing Package (180 min)', null, 1650000, 'IDR', 7), ('Spa Package', 'Royal Beauty Package (240 min)', null, 2100000, 'IDR', 8), ('Body Scrub', 'Princess Chocholate Scrub (30 min)', null, 280000, 'IDR', 0), ('Reflexology', 'Royal Foot/Reflexology Massage (60 min)', null, 420000, 'IDR', 0), ('Facial', 'Royal Facial (60 min)', null, 480000, 'IDR', 0), ('Manicure', 'Royal Manicure or Pedicure (60 min)', null, 525000, 'IDR', 0), ('Hot Stone', 'Royal Warm Stone Massage (120 min)', null, 975000, 'IDR', 0), ('Couple Massage', 'Royal Honeymoon Package – Couple (180 min)', null, 3600000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+where status = 'draft'
+  and completeness = 'partial'
+  and verified_at is null
+  and content_digest is not null
+  and expires_at > now()
+  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and exists (select 1 from menu_sections s join menu_items it
+              on it.section_id = s.id and it.menu_id = s.menu_id
+              where s.menu_id = menus.id);
+-- spa menu snapshots, batch 2 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'zahraluxuryspa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -1268,7 +1136,7 @@ with target as (
   select t.slug, 'Zahra Luxury Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://zahraluxuryspa.com/treatments', 'Official Zahra Luxury Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '323cb133d6342ca64218fb8660b8b31597b971029a49ba37b62aa83107761aef', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '323cb133d6342ca64218fb8660b8b31597b971029a49ba37b62aa83107761aef', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1290,7 +1158,7 @@ with target as (
   select t.slug, 'Karma Spa Therapy treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://karmaspatherapy.com/', 'Official Karma Spa Therapy price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6fc3ccb31061b52a5858fd07cb7cc293a001e27ad48f90375ecdd76cd50941de', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '6fc3ccb31061b52a5858fd07cb7cc293a001e27ad48f90375ecdd76cd50941de', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1312,7 +1180,7 @@ with target as (
   select t.slug, 'SAMUH BEACH treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.sakalaresortbali.com/wp-content/uploads/2019/10/MENU-SAMUH-BEACH-min.pdf', 'Official SAMUH BEACH price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5c37ce26f9e74cdc294b46790d925a5d92225d0e6f543f7a55f79c1fff6ac3c0', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c37ce26f9e74cdc294b46790d925a5d92225d0e6f543f7a55f79c1fff6ac3c0', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1334,7 +1202,7 @@ with target as (
   select t.slug, 'Ijen Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ijenspa.com/treatments', 'Official Ijen Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2ea91b0c43b459da66e93a6e5535c7a10cee61e942bed203811b6d1794619329', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2ea91b0c43b459da66e93a6e5535c7a10cee61e942bed203811b6d1794619329', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1356,7 +1224,7 @@ with target as (
   select t.slug, 'The U Spa by Bali Relaxing Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balirelaxing.com/spa.php', 'Official The U Spa by Bali Relaxing Resort price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2b63c7bdca20b757039019eab0d57ac7cf55ee26bd280dfdfc67e27c6e1ea269', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2b63c7bdca20b757039019eab0d57ac7cf55ee26bd280dfdfc67e27c6e1ea269', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1378,7 +1246,7 @@ with target as (
   select t.slug, 'Calma Spa Jimbaran treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://calmaspabali.com/services-3', 'Official Calma Spa Jimbaran price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'af6edff1c03ec9abb7cb8c6f8b724f1252b984011b0ec462a7b1b19e284c43dc', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'af6edff1c03ec9abb7cb8c6f8b724f1252b984011b0ec462a7b1b19e284c43dc', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1400,7 +1268,7 @@ with target as (
   select t.slug, 'Bamboo Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.bamboospabali.com/', 'Official Bamboo Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '29f4a1a68f4705d9ce61fc74cce59d150192dcb5f55de70ffc986ac0b8c2fa71', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '29f4a1a68f4705d9ce61fc74cce59d150192dcb5f55de70ffc986ac0b8c2fa71', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1422,7 +1290,7 @@ with target as (
   select t.slug, 'De WAVE Family Massage & Beauty Salon treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.dewave.id/post/de-wave-family-massage-beauty-salon-akan-hadir-di-palangka-raya-dengan-treatment-lebih-lengkap', 'Official De WAVE Family Massage & Beauty Salon price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'cb143158eebe5380780593ae89517e61d6ecfe41eef109991eaa4da63c06197d', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cb143158eebe5380780593ae89517e61d6ecfe41eef109991eaa4da63c06197d', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1444,7 +1312,7 @@ with target as (
   select t.slug, 'Anantara Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.anantara.com/uploads/minor/anantara/documents/anantara-uluwatu-bali-resort/spa/spa-menu--price-list-2022.pdf', 'Official Anantara Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'b80201aaa05b25df04007baf7053c882a6080b4f61343a1278608b5fcf2a8d25', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b80201aaa05b25df04007baf7053c882a6080b4f61343a1278608b5fcf2a8d25', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1466,7 +1334,7 @@ with target as (
   select t.slug, 'Professional Massage Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://massageuluwatu.id/', 'Official Professional Massage Uluwatu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '166262d76d0079407e06cef302c434974e49e0e4826b781cb773268ff95cfe45', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '166262d76d0079407e06cef302c434974e49e0e4826b781cb773268ff95cfe45', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1488,7 +1356,7 @@ with target as (
   select t.slug, 'The Istana Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://theistana.com/facilities/spa/', 'Official The Istana Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '383416f2d282d595a84cc9413666c90a01301b8fff6955c4e27398d7154d1494', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '383416f2d282d595a84cc9413666c90a01301b8fff6955c4e27398d7154d1494', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1510,7 +1378,7 @@ with target as (
   select t.slug, 'Win Bali Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://winbalispa.com/spa-treatments', 'Official Win Bali Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '49767faaf3cc4b30ca1c4998d4896e731637380603d119bd61a7153d2f61ba64', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '49767faaf3cc4b30ca1c4998d4896e731637380603d119bd61a7153d2f61ba64', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1532,7 +1400,7 @@ with target as (
   select t.slug, 'Zahra Spa Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://zahraspauluwatu.com/treatments/', 'Official Zahra Spa Uluwatu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '156c9dd2e01cde5b7769b1e5e9652442d4321afdf4f25edd0f5de17600ec5345', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '156c9dd2e01cde5b7769b1e5e9652442d4321afdf4f25edd0f5de17600ec5345', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1554,7 +1422,7 @@ with target as (
   select t.slug, 'ATMOS BodyLab treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://atmos-steam.com/bali/bodylab', 'Official ATMOS BodyLab price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '99653d8c38fdb94138f1c64dfa7c15cd404be5235850e3022abbec778ad8cec6', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '99653d8c38fdb94138f1c64dfa7c15cd404be5235850e3022abbec778ad8cec6', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1576,7 +1444,7 @@ with target as (
   select t.slug, 'OAZA Uluwatu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://oazabali.com/uluwatu/', 'Official OAZA Uluwatu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ff00850f3544871511a4a59b6e28ae093a9b99aa010850660c2390fd24324366', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ff00850f3544871511a4a59b6e28ae093a9b99aa010850660c2390fd24324366', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1598,7 +1466,7 @@ with target as (
   select t.slug, 'Pelangi Villa Sidemen treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://pelangivillassidemen.com/experience/', 'Official Pelangi Villa Sidemen price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'cb5e64bb4d9e9541e7cb3ef5716495c63cccba0a4f813614625bebbaf215face', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'cb5e64bb4d9e9541e7cb3ef5716495c63cccba0a4f813614625bebbaf215face', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1620,7 +1488,7 @@ with target as (
   select t.slug, 'Riverside Spa at Ulaman treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://riversidespabyulaman.com/treatments', 'Official Riverside Spa at Ulaman price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '694c0dbd7319c9d84ef7853fb41b0a8850c49fda62d3b9c4641ad122d650f1b1', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '694c0dbd7319c9d84ef7853fb41b0a8850c49fda62d3b9c4641ad122d650f1b1', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1642,7 +1510,7 @@ with target as (
   select t.slug, 'Amed Roda Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://amedrodaspa.com/', 'Official Amed Roda Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '89e2830db29c0a6446c94a7a51b9fda81d7cea965aca640d15f9ea368830e6ac', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '89e2830db29c0a6446c94a7a51b9fda81d7cea965aca640d15f9ea368830e6ac', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1657,39 +1525,6 @@ from m, secs
 join (values ('Balinese Massage', 'Balinese Massage (60 min)', 'Traditional Balinese full-body massage.', 170000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (90 min)', 'Traditional Balinese full-body massage.', 250000, 'IDR', 1), ('Head Massage', 'Back & Head Massage (45 min)', 'Relaxing massage focusing on head and back.', 150000, 'IDR', 0), ('Head Massage', 'Back & Head Massage (60 min)', 'Relaxing massage focusing on head and back.', 180000, 'IDR', 1), ('Head Massage', 'Head/Neck Massage (30 min)', 'Targeted massage for head and neck.', 90000, 'IDR', 2), ('Foot Massage', 'Foot Massage (45 min)', 'Refresh and relax your feet.', 130000, 'IDR', 0), ('Foot Massage', 'Foot Massage (60 min)', 'Refresh and relax your feet.', 180000, 'IDR', 1), ('Hot Stone', 'Hot Stone Massage (90 min)', 'Therapeutic massage with heated stones.', 240000, 'IDR', 0), ('Hot Stone', 'Hot Stone Massage (120 min)', 'Therapeutic massage with heated stones.', 340000, 'IDR', 1), ('Traditional Massage', 'Jamu - Jamu Massage (90 min)', 'Traditional Indonesian herbal massage.', 280000, 'IDR', 0), ('Traditional Massage', 'Jamu - Jamu Massage (120 min)', 'Traditional Indonesian herbal massage.', 370000, 'IDR', 1), ('Traditional Massage', 'Aloevera Massage (60 min)', 'Massage with soothing aloe vera gel.', 180000, 'IDR', 2), ('Traditional Massage', 'Aloevera Massage (90 min)', 'Massage with soothing aloe vera gel.', 280000, 'IDR', 3), ('Aromatherapy', 'Aromatherapy Massage (Warm Oil) (60 min)', 'Relaxing aromatherapy massage with warm oil.', 170000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (Warm Oil) (90 min)', 'Relaxing aromatherapy massage with warm oil.', 260000, 'IDR', 1), ('Facial', 'Traditional Facial (60 min)', 'Rejuvenating facial treatment.', 200000, 'IDR', 0), ('Facial', 'Mini Facial (30 min)', 'Compact facial treatment.', 100000, 'IDR', 1), ('Body Scrub', 'Exotic Body Scrub (45 min)', 'Exfoliating and revitalizing body scrub.', 135000, 'IDR', 0), ('Body Scrub', 'Green Tea Body Scrub (45 min)', 'Revitalizing body scrub with green tea.', 150000, 'IDR', 1), ('Body Scrub', 'Green Tea Body Scrub (60 min)', 'Revitalizing body scrub with green tea.', 180000, 'IDR', 2), ('Flower Bath', 'Flower Bath (30 min)', 'Relaxing bath with flower petals.', 110000, 'IDR', 0), ('Hair Treatment', 'Hair Mask (60 min)', 'Nourishing hair treatment.', 170000, 'IDR', 0), ('Ear Candle', 'Ear Candle (60 min)', 'Traditional ear cleansing treatment.', 105000, 'IDR', 0), ('Other', 'Kids Roda Spa (60 min)', 'Spa package designed for children.', 205000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'akashaamed.lovable.app' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Akasha Amed Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://akashaamed.lovable.app/', 'Official Akasha Amed Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6fd20cc51331cf94cb40995de97f2bd0d976a1a6e146cbff0d85c02560b157b7', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Balinese Massage', 0), ('Traditional Massage', 1), ('Hot Stone', 2), ('Deep Tissue', 3), ('Body Scrub', 4), ('Facial', 5), ('Reflexology', 6), ('Manicure', 7), ('Pedicure', 8), ('Other', 9), ('Hair Braiding', 10), ('Spa Package', 11)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Balinese Massage', 'Akasha Balinese Massage (90 min)', 'Our signature traditional full-body massage with aromatherapy oil, stretching and acupressure.', 155000, 'IDR', 0), ('Traditional Massage', 'Warm Oil Massage (90 min)', 'Light rhythmic strokes with drizzles of warm oil to drain toxins and deeply relax.', 175000, 'IDR', 0), ('Traditional Massage', 'Akasha Four-Hands Massage (90 min)', 'Two therapists work in synchronized harmony on both sides of the body.', 320000, 'IDR', 1), ('Traditional Massage', 'Kids Massage (45 min)', 'A gentle, calming massage designed for younger guests.', 85000, 'IDR', 2), ('Hot Stone', 'Hot Stone Massage (90 min)', 'Warm stones placed on energy points to release tight muscles and tension.', 295000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue Massage (90 min)', 'Slow, deep strokes targeting deeper muscle layers and connective tissue.', 185000, 'IDR', 0), ('Body Scrub', 'Body Scrub (45 min)', 'Antioxidant-rich exfoliation. Choose coffee, lavender or green tea.', 125000, 'IDR', 0), ('Facial', 'Rejuvenating Facial (60 min)', 'Cleansing, exfoliation, shoulder massage, mask and hand massage.', 225000, 'IDR', 0), ('Facial', 'Refreshing Facial (60 min)', 'Antioxidant cleansing scrub, neck & shoulder massage, refreshing mask.', 210000, 'IDR', 1), ('Facial', 'Express Facial (30 min)', 'A mini-facial: scrub, face massage, mask and moisturizer.', 110000, 'IDR', 2), ('Reflexology', 'Foot Reflexology (60 min)', 'Pressure-point stimulation on the feet to balance your energy.', 90000, 'IDR', 0), ('Manicure', 'Manicure (45 min)', 'Hand massage, nail filing, cuticles, shaping and polish.', 170000, 'IDR', 0), ('Pedicure', 'Pedicure (60 min)', 'Foot bath, trim and scrub, lower-leg massage and polish.', 205000, 'IDR', 0), ('Other', 'Kids Fingers & Toes (50 min)', 'A playful manicure and pedicure for little hands and feet.', 165000, 'IDR', 0), ('Other', 'Spa Journey (150 min)', 'Aromatic scrub, warm oil massage and a body mask to deeply relax.', 475000, 'IDR', 1), ('Other', 'Akasha Bliss (150 min)', 'Aromatherapy massage followed by a mini-facial and nail care.', 415000, 'IDR', 2), ('Other', 'Spa Sampler (120 min)', 'Release tension with a deep massage followed by reflexology.', 345000, 'IDR', 3), ('Other', 'Spa Journey (150 min)', 'Aromatic scrub, warm oil massage, and a body mask to deeply relax and restore the skin.', 475000, 'IDR', 4), ('Other', 'Akasha Bliss (150 min)', 'Aromatherapy massage followed by a mini-facial and nail care. A great all-rounder for a relaxed afternoon.', 415000, 'IDR', 5), ('Other', 'Spa Sampler (120 min)', 'Release tension with a deep massage followed by reflexology. Ideal for guests short on time.', 345000, 'IDR', 6), ('Hair Braiding', 'Half Hair Braiding', 'Beach-ready braids, halfway around.', 250000, 'IDR', 0), ('Hair Braiding', 'Full Hair Braiding', 'A full head of intricate braids.', 350000, 'IDR', 1), ('Spa Package', 'Indulgence Package (180 min)', 'A unique blend of treatments for your entire body. Pure heaven.', 550000, 'IDR', 0), ('Spa Package', 'Indulgence Package (180 min)', 'A unique blend of treatments for your entire body. Pure heaven. Our most popular package for guests who want the full spa experience.', 550000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
-where status = 'draft'
-  and completeness = 'partial'
-  and verified_at is null
-  and content_digest is not null
-  and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
-  and exists (select 1 from menu_sections s join menu_items it
-              on it.section_id = s.id and it.menu_id = s.menu_id
-              where s.menu_id = menus.id);
--- spa menu snapshots, batch 3 (25 menus)
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'alalaamedspaboutique.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -1697,7 +1532,7 @@ with target as (
   select t.slug, 'Alala Amed Spa & Boutique treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.alalaamedspaboutique.com/', 'Official Alala Amed Spa & Boutique price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '3b5c2b607ca647580804951c863192e727f7c188a2a585491e2e379a0a8dea1f', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3b5c2b607ca647580804951c863192e727f7c188a2a585491e2e379a0a8dea1f', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1719,7 +1554,7 @@ with target as (
   select t.slug, 'Hotel Uyah Amed & Spa Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.hoteluyah.com/en/hotel-uyah-amed-bali/spa-massage-reflexology-therapies', 'Official Hotel Uyah Amed & Spa Resort price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'b04ebfe988f206f3ef895d05c329a751db6745824bed924d890d56914e182a15', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b04ebfe988f206f3ef895d05c329a751db6745824bed924d890d56914e182a15', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1741,7 +1576,7 @@ with target as (
   select t.slug, 'Karma Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://storage.karmagroup.com/assets/karmagroup.com/2024/07/K_Spa-Menu_20240531.pdf', 'Official Karma Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '72ce6b04efc4a36771b09d369c8640486616f3ecec96897fd623f237e06dfe09', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '72ce6b04efc4a36771b09d369c8640486616f3ecec96897fd623f237e06dfe09', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1756,28 +1591,6 @@ from m, secs
 join (values ('Sauna', 'Fire + Ice - Infrared Sauna and Ice Bath Immersion (60 min)', 'Optimize your mood and energy levels with contrast therapy featuring sessions in the Infrared Sauna and Ice Bath complemented with Ocean Shower and Warm Pool.', 650000, 'IDR', 0), ('Deep Tissue', 'Karma Fit – Deep Tissue Recovery (30 min)', 'The ideal post work-out treatment for recovery and repair. We blend pressure point, acupressure, and gentle stretching.', 950000, 'IDR', 0), ('Traditional Massage', 'SIGNATURE ROYAL MASSAGE (75 min)', 'This signature therapeutic massage is designed to boost circulation, energy flow and reduce inflammation in the body. Our massueses therapeutically knead on your back, shoulders and neck area – feel all your stress melt away.', 350000, 'IDR', 0), ('Traditional Massage', 'SIGNATURE ROYAL MASSAGE (90 min)', 'This signature therapeutic massage is designed to boost circulation, energy flow and reduce inflammation in the body. Our massueses therapeutically knead on your back, shoulders and neck area – feel all your stress melt away.', 400000, 'IDR', 1), ('Other', 'ISLAND BEAUTY (150 min)', 'Beginning with a nourishing candlenut body scrub and wrap made with locally sourced spices sourced, this treatment is followed by a 60-minute Sacred Balinese Massage and an optional steam box or flower bath.', 800000, 'IDR', 0), ('Other', 'ISLAND CLEANSE (150 min)', 'Your treatment begins with a gentle steam in a traditional Ayurvedic steam box. This is followed by a warm sea salt scrub. Our Signature Royal Massage will relax your mind and muscles. Concludes with a mini-facial booster.', 800000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'aquariabali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Aquaria''s Inner Temple spa sanctuary treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://www.aquariabali.com/spa.html', 'Official Aquaria''s Inner Temple spa sanctuary price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'fe1020cab56a38f94840ccd902515f73af483be388ffdf74deb17e625d6664f5', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Balinese Massage', 0), ('Traditional Massage', 1), ('Foot Massage', 2), ('Hot Stone', 3), ('Pedicure', 4), ('Manicure', 5), ('Other', 6), ('Spa Package', 7), ('Acupuncture', 8)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Balinese Massage', 'Balinese massage & healing oil with foot bath (75 min)', 'Begin this traditional form of Indonesian massage with a salt and aromatic foot bath. Balinese massage holds the simple concept that the life force or Qi holds the balance between health and well being.', 175000, 'IDR', 0), ('Balinese Massage', 'Balinese massage & healing oil without foot bath (50 min)', 'Begin this traditional form of Indonesian massage with a salt and aromatic foot bath. Balinese massage holds the simple concept that the life force or Qi holds the balance between health and well being.', 150000, 'IDR', 1), ('Balinese Massage', 'Balinese massage & healing oil with foot bath (75 min)', 'This type of therapy unblocks energy pathways within the body that are essential to achieving good physical and emotional balance.', 175000, 'IDR', 2), ('Balinese Massage', 'Balinese massage & healing oil without foot bath (50 min)', 'Traditional form of Indonesian massage that uses blended oils with calming effects.', 150000, 'IDR', 3), ('Traditional Massage', 'Ginger Oil healing massage', 'The oil of empowerment.', 200000, 'IDR', 0), ('Traditional Massage', 'Clove leaf & Cinnamon Bark oil massage', 'For cold & flu, & inflammations.', 200000, 'IDR', 1), ('Traditional Massage', 'Aquaria herbal massage with Rempah-Rempah warm herbal ball (90 min)', 'Perfect for increasing circulation and energy, rheumatism and aching muscles.', 225000, 'IDR', 2), ('Traditional Massage', 'Amazing four-handed massage (75 min)', 'Once you have had a four handed massage you can never go back.', 300000, 'IDR', 3), ('Traditional Massage', 'Ginger Oil healing massage', null, 200000, 'IDR', 4), ('Traditional Massage', 'Clove leaf & Cinnamon Bark oil massage', 'Massage for cold & flu and inflammations.', 200000, 'IDR', 5), ('Traditional Massage', 'Aquaria herbal massage with Rempah-Rempah warm herbal ball (90 min)', 'Perfect for increasing circulation and energy.', 225000, 'IDR', 6), ('Traditional Massage', 'Amazing four-handed massage (75 min)', 'Two therapists work synchronistically on your body.', 300000, 'IDR', 7), ('Foot Massage', 'Aromatic relaxation massage with foot bath (75 min)', 'This blissful, gentle full body massage is purely based on relaxation, releasing tension and stress.', 175000, 'IDR', 0), ('Foot Massage', 'Aromatic relaxation massage without foot bath (50 min)', 'This blissful, gentle full body massage is purely based on relaxation, releasing tension and stress.', 150000, 'IDR', 1), ('Foot Massage', 'After sun body soother without foot bath (50 min)', 'Start your treatment with a epsom salt and aromatic foot bath.', 195000, 'IDR', 2), ('Foot Massage', 'Coconut & coconut oil body exfoliation, with yoghurt and honey mask without footbath (50 min)', 'Start your treatment with a aromatic epsom salt foot bath.', 195000, 'IDR', 3), ('Foot Massage', 'Inner Temple Spa facial with Naturasie aloe vera or almond oil with foot bath (75 min)', 'Each facial from our menu includes 100% natural products.', 250000, 'IDR', 4), ('Foot Massage', 'Inner Temple Spa facial with Naturasie aloe vera or almond oil without footbath (50 min)', 'Each facial from our menu includes 100% natural products.', 195000, 'IDR', 5), ('Foot Massage', 'Aromatic foot and lower leg massage (25 min)', 'Revive tired and sore feet with an epsom salt & aromatic peppermint stone foot soak.', 100000, 'IDR', 6), ('Foot Massage', 'Aromatic relaxation massage with foot bath (75 min)', 'Gently releases tension and stress.', 175000, 'IDR', 7), ('Foot Massage', 'Aromatic relaxation massage without foot bath (50 min)', 'Ideal for those who prefer a softer style massage.', 150000, 'IDR', 8), ('Foot Massage', 'After sun body soother without foot bath (50 min)', 'Uses organic honey, lime and cucumber to heal, soften and moisturize skin.', 195000, 'IDR', 9), ('Foot Massage', 'Inner Temple Spa facial with Naturasie aloe vera or almond oil with foot bath (75 min)', 'Includes 100% natural products with a blend of natural fruits.', 250000, 'IDR', 10), ('Foot Massage', 'Inner Temple Spa facial without footbath (50 min)', 'Natural products facial includes deeply relaxing massage.', 195000, 'IDR', 11), ('Foot Massage', 'Aromatic foot and lower leg massage (25 min)', 'Deeply relaxing leg and foot massage.', 100000, 'IDR', 12), ('Hot Stone', 'Aquaria bliss hot stone massage without foot bath (90 min)', 'Surrender to the nurturing strokes of a hot stone massage.', 225000, 'IDR', 0), ('Hot Stone', 'Aquaria bliss hot stone massage without foot bath (90 min)', 'Indulge in nurturing strokes of a hot stone massage.', 225000, 'IDR', 1), ('Pedicure', 'Pedicure Queen deluxe (90 min)', 'Start off your Queen deluxe lying down for ultimate comfort and relaxation.', 250000, 'IDR', 0), ('Pedicure', 'Pedicure quickie including polish (30 min)', '30 mins Pedicure quickie including polish.', 75000, 'IDR', 1), ('Pedicure', 'Pedicure Queen deluxe (90 min)', 'Includes a luxurious experience with foot soak.', 250000, 'IDR', 2), ('Pedicure', 'Pedicure quickie including polish (30 min)', null, 75000, 'IDR', 3), ('Manicure', 'Manicure Queen deluxe (90 min)', 'Start off your deluxe manicure lying down for the ultimate comfort and relaxation.', 250000, 'IDR', 0), ('Manicure', 'Manicure quickie including polish (30 min)', '30 mins Manicure quickie including polish.', 75000, 'IDR', 1), ('Manicure', 'Manicure & pedicure quickie including polish (60 min)', '60 mins Manicure & pedicure quickie including polish.', 140000, 'IDR', 2), ('Manicure', 'Manicure Queen deluxe (90 min)', 'A deluxe experience with hand and foot soak.', 250000, 'IDR', 3), ('Manicure', 'Manicure quickie including polish (30 min)', null, 75000, 'IDR', 4), ('Manicure', 'Manicure & pedicure quickie including polish (60 min)', null, 140000, 'IDR', 5), ('Other', 'Polish only (15 min)', '15 mins Polish only.', 75000, 'IDR', 0), ('Other', 'Polish with flower (30 min)', '30 mins Polish with flower.', 75000, 'IDR', 1), ('Other', 'Coconut & coconut oil body exfoliation, with yoghurt and honey mask (50 min)', 'Restores skin''s moisture while softening and enriching.', 195000, 'IDR', 2), ('Other', 'Polish only (15 min)', null, 75000, 'IDR', 3), ('Other', 'Polish with flower (30 min)', null, 75000, 'IDR', 4), ('Spa Package', 'Ritual one (180 min)', 'Full body exfoliation & body mask, Full body massage of your choice, Inner temple facial of your choice.', 475000, 'IDR', 0), ('Spa Package', 'Ritual two (210 min)', 'Full body bliss massage with hot stones, Inner temple spa facial of your choice, Quickie manicure and pedicure.', 535000, 'IDR', 1), ('Spa Package', 'Ritual three (210 min)', 'Full body massage of your choice, Full body scrub & mask of your choice, Manicure Queen Deluxe or Pedicure Queen Deluxe.', 535000, 'IDR', 2), ('Spa Package', 'Ritual one - 3 hours (180 min)', 'Includes full body exfoliation, body mask, and massage.', 475000, 'IDR', 3), ('Spa Package', 'Ritual two - 3.5 hours (210 min)', 'Includes full body bliss massage and facial.', 535000, 'IDR', 4), ('Spa Package', 'Ritual three - 3.5 hours (210 min)', 'Includes full body massage and scrub.', 535000, 'IDR', 5), ('Acupuncture', 'Traditional acupuncture (50 min)', 'Using sterilized new needles at specifics points and meridians to clear blockages.', 300000, 'IDR', 0), ('Acupuncture', 'Traditional acupuncture with gifted Uki (50 min)', 'Clears blockages and allows energy to flow.', 300000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'puribaguscandidasa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -1785,7 +1598,7 @@ with target as (
   select t.slug, 'Jaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.puribaguscandidasa.com/spa-wellness/', 'Official Jaya Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5e026a75fc5a522f8a8f38913ea0f0b9682528558eda482aced972fb48ff1286', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5e026a75fc5a522f8a8f38913ea0f0b9682528558eda482aced972fb48ff1286', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1807,7 +1620,7 @@ with target as (
   select t.slug, 'The Green Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.okdiversbali.com/resort-spa', 'Official The Green Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'df97c7379e57d2f193dd57cb19584fa649f66dad45a226af3fa4a273b95f6c83', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'df97c7379e57d2f193dd57cb19584fa649f66dad45a226af3fa4a273b95f6c83', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1829,7 +1642,7 @@ with target as (
   select t.slug, 'RND Lovina Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rndlovinaspa.com/', 'Official RND Lovina Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'c7a92a1bca57d080a303b2c5ca2727b583d9fb25b64849ed0a3585cd18988218', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'c7a92a1bca57d080a303b2c5ca2727b583d9fb25b64849ed0a3585cd18988218', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1851,7 +1664,7 @@ with target as (
   select t.slug, 'Jaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://puribaguslovina.com/index.php/spa-wellness', 'Official Jaya Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'b3d99a45cb78f338d37b389d7233431ddb2799a81cc69ab2880c8c21696c872c', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'b3d99a45cb78f338d37b389d7233431ddb2799a81cc69ab2880c8c21696c872c', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1865,6 +1678,17 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Hair Treatment', 'Hair Spa Treatment (60 min)', 'An extraordinary treatment and deep conditioning for damaged and dry hair, using “L’oreal Hair Spa Nourishing Cream Bath” with supplement for the scalp.', 480000, 'IDR', 0), ('Anti-aging Facial', 'Anti Aging Face Treatment (60 min)', 'For those who concern about rejuvenating. This treatment uses special products formulated for lackluster skin.', 350000, 'IDR', 0), ('Other', 'Lovina Face Cleansing (60 min)', 'This signature facial treatment provides deep cleansing of all skin types.', 300000, 'IDR', 0), ('Other', 'Lovina After Sun-Body & Hair Care (90 min)', 'A perfect treatment for calming the burning sensation after sunbathing.', 550000, 'IDR', 1), ('Other', 'Lovina Gateway (180 min)', 'For two persons, exclusively designed for couples to enhance the harmony of body and mind.', 1650000, 'IDR', 2), ('Other', 'Lovina Heaven (150 min)', 'This signature treatment draws on the type of massage used over the centuries in the Royal Balinese Palace.', 635000, 'IDR', 3), ('Other', 'Jaya Traditional Healing (90 min)', 'This treatment is designed to simulate body warmth and relieve aching nerves, joints, and muscles.', 525000, 'IDR', 4), ('Scalp Treatment', 'Scalp & Hair Treatment (60 min)', 'A hair treatment followed by a Balinese scalp massage with Aloe Vera – Avocado conditioning cream.', 300000, 'IDR', 0), ('Pedicure', 'Pedicure (60 min)', 'Foot nail and cuticle treatment followed by foot massage.', 300000, 'IDR', 0), ('Manicure', 'Manicure (60 min)', 'Hand nail and cuticle treatment followed with hand massage.', 280000, 'IDR', 0), ('Traditional Massage', 'Traditional Lovina Body Massage (60 min)', 'A sensitive and powerful massage from Lovina Village which releases tension.', 350000, 'IDR', 0), ('Traditional Massage', 'Lovina Sense Body Massage (60 min)', 'A Lovina Village secret recipe with blends of essential oil extracts from Balinese spices and flower.', 350000, 'IDR', 1), ('Hot Stone', 'Warm Stone Massage (90 min)', 'A combination of traditional Balinese massage with warm stone therapy to relax and release tension.', 550000, 'IDR', 0), ('Neck & Shoulder', 'Lovina Back & Shoulder Massage (45 min)', 'It involves applying pressure to the feet and shoulder to affect a physical change in the body.', 230000, 'IDR', 0), ('Reflexology', 'Foot Reflexology (45 min)', 'A combination of ancient Indonesian and Chinese acupressure techniques to relax your feet and improve blood circulation.', 250000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+where status = 'draft'
+  and completeness = 'partial'
+  and verified_at is null
+  and content_digest is not null
+  and expires_at > now()
+  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and exists (select 1 from menu_sections s join menu_items it
+              on it.section_id = s.id and it.menu_id = s.menu_id
+              where s.menu_id = menus.id);
+-- spa menu snapshots, batch 3 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'mundukheavenluxuryvillas.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -1873,7 +1697,7 @@ with target as (
   select t.slug, 'Mahony Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mundukheavenluxuryvillas.com/spa/', 'Official Mahony Spa & Wellness price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '60fb10ade0f05d783990dbea6b96ac6150a2543fe5ecc186d88174b98ec47f36', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '60fb10ade0f05d783990dbea6b96ac6150a2543fe5ecc186d88174b98ec47f36', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1895,7 +1719,7 @@ with target as (
   select t.slug, 'Mondo Surf & Lifestyle Village treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mondosurfvillage.com/services/massage/', 'Official Mondo Surf & Lifestyle Village price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '464316735fb8f5c8ca7b2400cdbe31a0de33be1ca36afd3a65ac79c67bcded72', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '464316735fb8f5c8ca7b2400cdbe31a0de33be1ca36afd3a65ac79c67bcded72', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1917,7 +1741,7 @@ with target as (
   select t.slug, 'Putu Bali Spa Home Care treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://putubalispahomecare.com/Foot-Massage-Bali', 'Official Putu Bali Spa Home Care price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '34994d1e467f4d8320ca15b36a2a6d7412cf48dc4db450ae9af0a4d634481c4f', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '34994d1e467f4d8320ca15b36a2a6d7412cf48dc4db450ae9af0a4d634481c4f', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1939,7 +1763,7 @@ with target as (
   select t.slug, 'tlaga spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://tlagaspabali.com/', 'Official tlaga spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '7625f65c0d436b485bfd1faede8ae52d342e9bd0d1fb480720d14e28344a6c72', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7625f65c0d436b485bfd1faede8ae52d342e9bd0d1fb480720d14e28344a6c72', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1961,7 +1785,7 @@ with target as (
   select t.slug, 'Green Tara Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://greentaraspa.com/our-massages/', 'Official Green Tara Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '07c1389194e5ca3b37eb965fa63cce13368998da0ff998bbece0a882879aabb6', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '07c1389194e5ca3b37eb965fa63cce13368998da0ff998bbece0a882879aabb6', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -1983,7 +1807,7 @@ with target as (
   select t.slug, 'Bali Botanica Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://balibotanica.com/traditional-treatments', 'Official Bali Botanica Ubud price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '758dc937a6563a9a3174974ef61743eba8d3a91c9d91f2fb0a6f916143175136', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '758dc937a6563a9a3174974ef61743eba8d3a91c9d91f2fb0a6f916143175136', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2005,7 +1829,7 @@ with target as (
   select t.slug, 'Jhagat Spa Centre treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://jhagatspa.com/wp-content/uploads/2026/04/Jhagat_Spa_Merged_Menu-1_compressed.pdf', 'Official Jhagat Spa Centre price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '9c8fe7f3179a9a8245171a431df3243a741ee7da0cb2dbffe7c2cca5b7805f68', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '9c8fe7f3179a9a8245171a431df3243a741ee7da0cb2dbffe7c2cca5b7805f68', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2027,7 +1851,7 @@ with target as (
   select t.slug, 'Ubud Home Massage Service treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.ubudcenter.com/ubud-massage-spa', 'Official Ubud Home Massage Service price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '47c7121e1c400538c240ba7325d2b4098a830936306b7e2ae3b265569dbb4a1f', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '47c7121e1c400538c240ba7325d2b4098a830936306b7e2ae3b265569dbb4a1f', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2049,7 +1873,7 @@ with target as (
   select t.slug, 'Taru Pramana Spa & Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://balibeachsanur.com/hotel-facilities/taru-pramana-spa-wellness', 'Official Taru Pramana Spa & Wellness price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5a79dfbfe632b126cbdd6a34b34ffc8b184e1902357807436705e07cb9690cb0', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5a79dfbfe632b126cbdd6a34b34ffc8b184e1902357807436705e07cb9690cb0', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2071,7 +1895,7 @@ with target as (
   select t.slug, 'Leha Leha Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.balilehaleha.com/bali-spa-nail-hand-foot-massage-facials-bodyscrub-treatments.html', 'Official Leha Leha Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0ec1dfd23a7a154dfe0cfe5306303b59f535500fbb212e7b14df13929a5cb9e7', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0ec1dfd23a7a154dfe0cfe5306303b59f535500fbb212e7b14df13929a5cb9e7', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2093,7 +1917,7 @@ with target as (
   select t.slug, 'Desa Seni treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://desaseni.com', 'Official Desa Seni price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '398fa3c4f4ba48deffcbbd530b520138c0d0871dfb665dbe1f0f6acc82d50a95', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '398fa3c4f4ba48deffcbbd530b520138c0d0871dfb665dbe1f0f6acc82d50a95', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2108,28 +1932,6 @@ from m, secs
 join (values ('Traditional Massage', 'Therapeutic Massage (60 min)', 'A soothing massage designed to relieve stress and tension.', 500000, 'IDR', 0), ('Reflexology', 'Reflexology (45 min)', 'A foot treatment that applies pressure to specific points.', 350000, 'IDR', 0), ('Body Scrub', 'Traditional Body Scrub (60 min)', 'A rejuvenating treatment utilizing natural ingredients to exfoliate the skin.', 450000, 'IDR', 0), ('Other', 'Holistic Healing Treatment (90 min)', 'A comprehensive healing therapy addressing body, mind, and spirit.', 800000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'dnailbar.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'D’Nailbar treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://dnailbar.com/other-treatments', 'Official D’Nailbar price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'd821f59e2a35d38929b43791fd91e4f7d6b860ae02f9509deea3a9c6b90426db', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Other', 0), ('Brows', 1), ('Lashes', 2), ('Foot Massage', 3), ('Traditional Massage', 4), ('Neck & Shoulder', 5), ('Body Treatment', 6)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Other', 'HALF LEG', null, 205000, 'IDR', 0), ('Other', 'FULL LEG', null, 300000, 'IDR', 1), ('Other', 'UNDER ARM', null, 135000, 'IDR', 2), ('Other', 'HALF ARM', null, 175000, 'IDR', 3), ('Other', 'FULL ARM', null, 205000, 'IDR', 4), ('Other', 'LIPS', null, 80000, 'IDR', 5), ('Other', 'NOSE/EAR', null, 80000, 'IDR', 6), ('Other', 'BIKINI LINE', null, 200000, 'IDR', 7), ('Other', 'BRAZILIAN', null, 300000, 'IDR', 8), ('Other', 'BACK OR CHEST', null, 250000, 'IDR', 9), ('Other', 'CLASSIC INFILL (60 min)', null, 300000, 'IDR', 10), ('Other', 'CLASSIC FULL (60 min)', null, 500000, 'IDR', 11), ('Other', 'HYBRID INFILL (90 min)', null, 380000, 'IDR', 12), ('Other', 'HYBRID FULL (90 min)', null, 550000, 'IDR', 13), ('Other', 'VOLUME 2D (90 min)', null, 400000, 'IDR', 14), ('Other', 'VOLUME 6D (120 min)', null, 500000, 'IDR', 15), ('Other', 'EXTENSION REMOVAL', null, 150000, 'IDR', 16), ('Brows', 'EYEBROWN', null, 115000, 'IDR', 0), ('Lashes', 'LASHES LIFT + TINT', null, 400000, 'IDR', 0), ('Lashes', 'LASHES LIFT', null, 300000, 'IDR', 1), ('Lashes', 'LASHES TINT', null, 170000, 'IDR', 2), ('Foot Massage', 'FOOT MASSAGE', null, 115000, 'IDR', 0), ('Foot Massage', 'FOOT MASSAGE', null, 180000, 'IDR', 1), ('Traditional Massage', 'FULL LEG MASSAGE', null, 130000, 'IDR', 0), ('Traditional Massage', 'FULL LEG MASSAGE', null, 200000, 'IDR', 1), ('Traditional Massage', 'TRADITIONAL FULL BODY MASSAGE', null, 215000, 'IDR', 2), ('Neck & Shoulder', 'SHOULDER MASSAGE', null, 115000, 'IDR', 0), ('Neck & Shoulder', 'SHOULDER MASSAGE', null, 200000, 'IDR', 1), ('Body Treatment', 'SLIMMING MASSAGE', null, 225000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'esteticabelle.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -2137,7 +1939,7 @@ with target as (
   select t.slug, 'Estetica Belle treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.esteticabelle.com/booking-services-sitemap.xml', 'Official Estetica Belle price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'd5f9ae6b4ecd8c260e693db44ff51e864f8515e60ab042308a35752d1adb3921', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'd5f9ae6b4ecd8c260e693db44ff51e864f8515e60ab042308a35752d1adb3921', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2159,7 +1961,7 @@ with target as (
   select t.slug, 'Mango Tree Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mangotreespabali.com', 'Official Mango Tree Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '98f559cf483ce31e0abd993bc09f5cd37292b2dd0865972bc60d22eda3bddf4d', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '98f559cf483ce31e0abd993bc09f5cd37292b2dd0865972bc60d22eda3bddf4d', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2181,7 +1983,7 @@ with target as (
   select t.slug, 'Only Nails Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://onlynailsbali.com/our-services', 'Official Only Nails Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '4007c79075b6768da6c42a5ef672920bb9b25ec742cfb91f035feb353b1bbdc9', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4007c79075b6768da6c42a5ef672920bb9b25ec742cfb91f035feb353b1bbdc9', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2203,7 +2005,7 @@ with target as (
   select t.slug, 'Piccolina Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://piccolinabali.com/menu', 'Official Piccolina Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '714b4d6de23a02a38a2d0c3b128761f57e7308e9edbe0b9b255e250bcc45c8b7', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '714b4d6de23a02a38a2d0c3b128761f57e7308e9edbe0b9b255e250bcc45c8b7', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2225,7 +2027,7 @@ with target as (
   select t.slug, 'Rejuvie Aesthetic & Dermatology Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rejuvieclinic.com/price-list', 'Official Rejuvie Aesthetic & Dermatology Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '4bf7fa49f0c7f14f52e59e3478ae4e409be99f36d18e80914072892cdc09099f', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '4bf7fa49f0c7f14f52e59e3478ae4e409be99f36d18e80914072892cdc09099f', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2239,17 +2041,6 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Other', 'Botox From Allergan', null, 89000, 'IDR', 0), ('Other', 'Botox From Xeomin Merz', null, 89000, 'IDR', 1), ('Other', 'Juvederm By Allergan - Ultra Plus', null, 4100000, 'IDR', 2), ('Other', 'Juvederm By Allergan - Volbella', null, 4100000, 'IDR', 3), ('Other', 'Juvederm By Allergan - Volift', null, 4100000, 'IDR', 4), ('Other', 'Juvederm By Allergan - Voluma', null, 4300000, 'IDR', 5), ('Other', 'Juvederm By Allergan - Volux', null, 4700000, 'IDR', 6), ('Other', 'Restylane By Galderma - Kysse', null, 4500000, 'IDR', 7), ('Other', 'Restylane By Galderma - Vital', null, 3900000, 'IDR', 8), ('Other', 'Restylane By Galderma - Vital Light', null, 3900000, 'IDR', 9), ('Other', 'Teosyal by Teoxane - Redensity II', null, 4100000, 'IDR', 10), ('Other', 'Teosyal by Teoxane - RHA2', null, 4100000, 'IDR', 11), ('Other', 'Teosyal by Teoxane - RHA3', null, 4100000, 'IDR', 12), ('Other', 'Teosyal by Teoxane - RHA4', null, 4300000, 'IDR', 13), ('Other', 'Teosyal by Teoxane - Ultra Deep', null, 4700000, 'IDR', 14), ('Other', 'Belothero By Merz - Balance', null, 4100000, 'IDR', 15), ('Other', 'Belothero By Merz - Voluma', null, 4300000, 'IDR', 16), ('Other', 'Belothero By Merz - Intense', null, 4400000, 'IDR', 17), ('Other', 'Neauvia - Neauvia Intens', null, 3900000, 'IDR', 18), ('Other', 'Neauvia - Neauvia Intens Rheology', null, 3900000, 'IDR', 19), ('Other', 'Saypha Filler By Croma Austria - Croma Filler', null, 3100000, 'IDR', 20), ('Other', 'Saypha Filler By Croma Austria - Croma Voluma', null, 3500000, 'IDR', 21), ('Other', 'Saypha Filler By Croma Austria - Croma Volume PLUS', null, 3900000, 'IDR', 22)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
-where status = 'draft'
-  and completeness = 'partial'
-  and verified_at is null
-  and content_digest is not null
-  and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
-  and exists (select 1 from menu_sections s join menu_items it
-              on it.section_id = s.id and it.menu_id = s.menu_id
-              where s.menu_id = menus.id);
--- spa menu snapshots, batch 4 (25 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'santrian.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -2258,7 +2049,7 @@ with target as (
   select t.slug, 'Griya Santrian Beach Resort & Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://santrian.com/griya-santrian/spa/treatment-at-ayodhya-bale.html', 'Official Griya Santrian Beach Resort & Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '7e627c0ecd457adc26263573ebd50f506c393556873a3fcc99f2ff8f23cc29b3', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '7e627c0ecd457adc26263573ebd50f506c393556873a3fcc99f2ff8f23cc29b3', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2280,7 +2071,7 @@ with target as (
   select t.slug, 'The Shampoo Lounge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.shampoolounge.com/bookingseminyak', 'Official The Shampoo Lounge price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ffb2bf5c6cb2e9d625cd2de428ccc0c8077284297bbd277b274c99a7da35b946', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ffb2bf5c6cb2e9d625cd2de428ccc0c8077284297bbd277b274c99a7da35b946', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2302,7 +2093,7 @@ with target as (
   select t.slug, 'The Asa Maia treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.theasamaia.com/resources/media/user/1774856811-Spa_Menu.pdf', 'Official The Asa Maia price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'e20d0291bbe319e6fe08258c80f2b2ff75f794ad2090b482b83c443701f57539', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e20d0291bbe319e6fe08258c80f2b2ff75f794ad2090b482b83c443701f57539', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2324,7 +2115,7 @@ with target as (
   select t.slug, 'The Freebird Studio treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thefreebirdstudio.com/bookings', 'Official The Freebird Studio price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '3117e7b4a5d85838175142cf22a16857c7e2f88850683965ca02b3f57601995b', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3117e7b4a5d85838175142cf22a16857c7e2f88850683965ca02b3f57601995b', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2346,7 +2137,7 @@ with target as (
   select t.slug, 'The Temple Lodge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://thetemplelodge.com', 'Official The Temple Lodge price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ce07bad7a70547262abe2912203eb0a000793fdc8c23884565e846f440d6f120', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ce07bad7a70547262abe2912203eb0a000793fdc8c23884565e846f440d6f120', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2368,7 +2159,7 @@ with target as (
   select t.slug, 'Yoga Barn Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://theyogabarn.com/wp-content/uploads/2026/05/YBW-All-Menu-Mei2026-A3.pdf', 'Official Yoga Barn Wellness price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5c9f855f80051f2e0cb8adf9a38fc13a6bcad8a2c7a9b91850f6542e10691e4d', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5c9f855f80051f2e0cb8adf9a38fc13a6bcad8a2c7a9b91850f6542e10691e4d', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2390,7 +2181,7 @@ with target as (
   select t.slug, 'Ubud Sari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://ubudsari.com/ubud-sari-basic-spa-treatment', 'Official Ubud Sari Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0bf53f8c48f9ebd9661f5dd71d818ba9a1e0af440ef1fa0fcd463d02d71ce70a', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0bf53f8c48f9ebd9661f5dd71d818ba9a1e0af440ef1fa0fcd463d02d71ce70a', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2412,7 +2203,7 @@ with target as (
   select t.slug, 'UMALAS treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://youspaexperience.com/wp-content/uploads/2025/03/You-Spa-Umalas-Menu_compressed.pdf', 'Official UMALAS price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '97888f683cd1e7e58aa8eab35e3676a99480257a1d1437efa4b591694d545798', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '97888f683cd1e7e58aa8eab35e3676a99480257a1d1437efa4b591694d545798', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2434,7 +2225,7 @@ with target as (
   select t.slug, 'Rika Beauty & Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://rikaspa.com/spa-uluwatu/', 'Official Rika Beauty & Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'eccc77890199b98a2318a37d5d4194aa4d3a0622dce91e2a56bde53f5e81222e', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'eccc77890199b98a2318a37d5d4194aa4d3a0622dce91e2a56bde53f5e81222e', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2448,6 +2239,17 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Balinese Massage (60 min)', 'A traditional Balinese massage.', 200000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (90 min)', 'A traditional Balinese massage.', 290000, 'IDR', 1), ('Balinese Massage', 'Traditional Balinese Massage (60 min)', 'The classic: long flowing palm strokes, thumb pressure along the muscle lines and warm coconut oil.', 200000, 'IDR', 2), ('Balinese Massage', 'Traditional Balinese Massage (90 min)', 'The classic: long flowing palm strokes, thumb pressure along the muscle lines and warm coconut oil.', 290000, 'IDR', 3), ('Traditional Massage', 'Signature Surf Massage (60 min)', 'Built for recovery after surfing.', 240000, 'IDR', 0), ('Traditional Massage', 'Signature Surf Massage (60 min)', 'Firm, slow, focused work for tight shoulders and paddled-out surfers.', 240000, 'IDR', 1), ('Traditional Massage', 'Signature Surf Massage (90 min)', 'Firm, slow, focused work for tight shoulders and paddled-out surfers.', 320000, 'IDR', 2), ('Couple Massage', 'Couples Massage (60 min)', 'Two therapists, two tables, one private room — 60 or 90 minutes.', 400000, 'IDR', 0), ('Reflexology', 'Reflexology (60 min)', 'Pressure-point work through the soles and reflex zones.', 220000, 'IDR', 0), ('Foot Massage', 'Focused Foot Massage (30 min)', 'Focused 30-minute foot massage.', 130000, 'IDR', 0), ('Pregnancy Massage', 'Pregnancy Massage (60 min)', 'Firm, slow, focused work for tight shoulders.', 200000, 'IDR', 0), ('Pregnancy Massage', 'Pregnancy Massage (90 min)', 'Firm, slow, focused work for tight shoulders.', 290000, 'IDR', 1), ('Aromatherapy', 'Aromatherapy Massage (60 min)', 'Gentle, fragrant oil massage.', 220000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (90 min)', 'Gentle, fragrant oil massage.', 300000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
+where status = 'draft'
+  and completeness = 'partial'
+  and verified_at is null
+  and content_digest is not null
+  and expires_at > now()
+  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
+  and exists (select 1 from menu_sections s join menu_items it
+              on it.section_id = s.id and it.menu_id = s.menu_id
+              where s.menu_id = menus.id);
+-- spa menu snapshots, batch 4 (24 menus)
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'starchildubudspa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -2456,7 +2258,7 @@ with target as (
   select t.slug, 'StarChild Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://starchildubudspa.com/all-spa-2-services', 'Official StarChild Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ddacedad52f369a051b232d8337ec488fc4c1dcf1d26048281fcbe8d29496f2c', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ddacedad52f369a051b232d8337ec488fc4c1dcf1d26048281fcbe8d29496f2c', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2478,7 +2280,7 @@ with target as (
   select t.slug, 'Swatma treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.swatma.com/', 'Official Swatma price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0d1d473255e35e9b71b39628a27a8166728e29099056bd0d79de61f67c206639', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0d1d473255e35e9b71b39628a27a8166728e29099056bd0d79de61f67c206639', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2500,7 +2302,7 @@ with target as (
   select t.slug, 'Mahamaya Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://nyuhbalivillas.com/ubud/spa/', 'Official Mahamaya Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '1488a190b6a1d81f036351b87e8bcba022c560044bde62fb6229ea1fe7b10455', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '1488a190b6a1d81f036351b87e8bcba022c560044bde62fb6229ea1fe7b10455', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2522,7 +2324,7 @@ with target as (
   select t.slug, 'Parina Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://parinaspa.com/', 'Official Parina Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '2d2dd33eccbfe904960811be29128ddb224c1401c22d9c2ffc579d00586ea9d2', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '2d2dd33eccbfe904960811be29128ddb224c1401c22d9c2ffc579d00586ea9d2', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2537,28 +2339,6 @@ from m, secs
 join (values ('Other', 'Asmara Bliss Retreat (180 min)', 'An intimate couple’s experience with Balinese massage, body scrub, mask, flower bath, and facial to soothe the senses.', 1970000, 'IDR', 0), ('Other', 'Tresna Sari Royal Escape (120 min)', 'Share a moment of pure bliss with the Tresna Sari Royal Escape, a romantic Balinese spa ritual designed for couples.', 1470000, 'IDR', 1), ('Balinese Massage', 'Balinese Massage (60 min)', 'Our traditional Balinese massage combines palm pressure with long, flowing strokes and gentle stretches.', 270000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue (60 min)', 'Deep Tissue Massage uses firm pressure to release chronic tension and pain, improving mobility and muscle recovery.', 300000, 'IDR', 0), ('Facial', 'Refreshing Facial (60 min)', 'A facial is a relaxing skincare treatment that deeply cleanses, exfoliates, and hydrates, leaving your face smooth, fresh, and glowing.', 280000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'ubudaura.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Aura Therapy Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://ubudaura.com/spa', 'Official Aura Therapy Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '9b47deb912be1f5c0ab34ce131a96cddb68934d6bc0fa292881e9d308ff2ce70', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Other', 0), ('Spa Package', 1), ('Balinese Boreh', 2), ('Traditional Massage', 3), ('Facial', 4), ('Head Massage', 5)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Other', 'Jet Lag Remedy (180 min)', 'A perfect treatment to alleviate the effect of jet lag. The ritual begins with a relaxation therapy, then your skin will be polished with a milk solution to refresh your mind. The refreshing facial reconditions and moisturizes the skin, and the treatment is followed by a relaxing milk bath.', 825000, 'IDR', 0), ('Other', 'Bodyworks Therapy (90 min)', 'Strong massage incorporating meridian point acupressure and yogic stretching.', 425000, 'IDR', 1), ('Other', 'Aura Relaxation Therapy (60 min)', 'Gentle massage technique to relieve tension and promote blood circulation.', 325000, 'IDR', 2), ('Other', 'Skandha (60 min)', 'Special healing massage using natural hot oil, dripping along the spine to relieve tension on the neck and shoulder.', 325000, 'IDR', 3), ('Other', 'Ayatha (60 min)', 'Delightful reflexology treatment includes half-leg massage and traditional herbal scrub to finish.', 325000, 'IDR', 4), ('Other', 'YajJarta (A Yogurt Therapy) (120 min)', 'This treatment begins with a foot bath treatment, soaking the feet in warm water, then ice-cold water to stimulate the lymphatic system. The treatment is followed by a signature yogurt body treatment, incorporating a relaxation massage. Using yogurt instead of oil helps to renew skin cells.', 475000, 'IDR', 5), ('Other', 'Eye Treatment (15 min)', null, 65000, 'IDR', 6), ('Spa Package', 'YajJarta Ritual (180 min)', 'Our signature yogurt treatment allows you to cool down and release tension whilst activating the nervous system, which then activates the lymphatic system. The ritual begins with a foot ritual, then continues with a rejuvenating facial. Finally, relax in a beautiful flower bath and observe how stress-free and rejuvenated your body now feels!', 825000, 'IDR', 0), ('Balinese Boreh', 'Hot Lymphatic Boreh (180 min)', 'This lymphatic healing technique begins with a deep tissue therapy massage followed by a hot herbal cloth that is applied along the spine. A lymphatic scrub is then rubbed all over the body with circular technique rubbing massage to activate the gland and promote blood circulation. Finally, relax in herbal bath to further stimulate the lymphatic system.', 825000, 'IDR', 0), ('Balinese Boreh', 'Lymphatic Boreh (120 min)', 'Enchanting treatment combines relaxing massage with revitalizing full body massage to stimulate blood circulation; followed by medicinal herbal scrub for the lymphatic system. Your treatment will be completed with a special herbal bath, and you will feel invigorated.', 495000, 'IDR', 1), ('Traditional Massage', 'Exfoliation Massage (120 min)', 'Pamper yourself with relaxing massage followed by an application of herbal, aromatic spiced (lulur) body scrub. A cooling yogurt is then applied to moisturize and balance your skin. Soak and rejuvenate in a heavenly fresh flower bath to finish.', 475000, 'IDR', 0), ('Facial', 'Cleopatra’s Rose Facial (60 min)', 'Indulge in the regal Cleopatra’s Rose Facial, a pampering treatment that combines luxurious Sensatia Botanicals products with a rejuvenating massage.', 325000, 'IDR', 0), ('Facial', 'Cleopatra’s Rose Facial (90 min)', 'Indulge in the regal Cleopatra’s Rose Facial, a pampering treatment that combines luxurious Sensatia Botanicals products with a rejuvenating massage.', 475000, 'IDR', 1), ('Facial', 'Soothing Sensatia Facial (60 min)', 'Experience the ultimate soothing sensation with our signature Soothing Sensatia Facial, using the finest Sensatia Botanicals products.', 325000, 'IDR', 2), ('Facial', 'Soothing Sensatia Facial (90 min)', 'Experience the ultimate soothing sensation with our signature Soothing Sensatia Facial, using the finest Sensatia Botanicals products.', 475000, 'IDR', 3), ('Head Massage', 'Head Massage with Coconut Oil (15 min)', null, 110000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'alamindahbali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -2566,7 +2346,7 @@ with target as (
   select t.slug, 'Alam Shanti Wellness treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://alamindahbali.com/page/alamshantispa', 'Official Alam Shanti Wellness price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '33089289529833e33b71ddb008394b8262eb52db6f7b82971bcab4b438ef8395', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '33089289529833e33b71ddb008394b8262eb52db6f7b82971bcab4b438ef8395', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2588,7 +2368,7 @@ with target as (
   select t.slug, 'Villa Sonia Ubud treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.villasoniaubud.com/en/stay-calm-and-down-to-harmony-place-with-traditional-healing-at-villa-sonia-ubud', 'Official Villa Sonia Ubud price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '31c7d7a1f579984bb713c01e59b2a31f49a2e4a3bcedf8d5bac74cb75f6e21f5', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '31c7d7a1f579984bb713c01e59b2a31f49a2e4a3bcedf8d5bac74cb75f6e21f5', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2610,7 +2390,7 @@ with target as (
   select t.slug, 'Gratia Spa Monkey Forest treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://gratiaspa.com/home-8', 'Official Gratia Spa Monkey Forest price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '9c3e76cc8530bbf2c90190d1bb21f1173c5a496a7dd770a7f1fd31510e0faeed', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '9c3e76cc8530bbf2c90190d1bb21f1173c5a496a7dd770a7f1fd31510e0faeed', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2632,7 +2412,7 @@ with target as (
   select t.slug, 'Tegal Mesari Spa treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.tegalmesarispa.com/', 'Official Tegal Mesari Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'f12f3efe978925a1cd7a4c37aa720e11b43ea3897045f0a08d0da868e8705a44', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f12f3efe978925a1cd7a4c37aa720e11b43ea3897045f0a08d0da868e8705a44', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2654,7 +2434,7 @@ with target as (
   select t.slug, 'Tonic Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://canggu.tonic.co.id/treatments', 'Official Tonic Canggu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '08a0d54565dedd36805c0573140c4f6d460b78448b24a4a80781b8f41a097eec', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '08a0d54565dedd36805c0573140c4f6d460b78448b24a4a80781b8f41a097eec', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2676,7 +2456,7 @@ with target as (
   select t.slug, 'Rosies Nail Bar treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.rosiesnailbar.com/price-list-nusalembongan2', 'Official Rosies Nail Bar price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '04813e6336669056f376b91b25711960a8bee9fe2686e1fdbfa5695ccaa26bef', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '04813e6336669056f376b91b25711960a8bee9fe2686e1fdbfa5695ccaa26bef', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2698,7 +2478,7 @@ with target as (
   select t.slug, 'Bali Dream Villa Resort Echo Beach Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thebalidreamvillaresort.com/special-offers', 'Official Bali Dream Villa Resort Echo Beach Canggu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '0f55cc5ea6944a43da7bf77545a99323b0d2a9e6123f44e978f8e6c8a641eb8e', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '0f55cc5ea6944a43da7bf77545a99323b0d2a9e6123f44e978f8e6c8a641eb8e', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2720,7 +2500,7 @@ with target as (
   select t.slug, 'Revive Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://revivebali.com/treatments/', 'Official Revive Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'eff36cac016d3dc17b5abbc5a8c0f1d8f33e3db1adda55d3ef09923e54e440e3', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'eff36cac016d3dc17b5abbc5a8c0f1d8f33e3db1adda55d3ef09923e54e440e3', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2742,7 +2522,7 @@ with target as (
   select t.slug, 'The Path Yoga Center treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://www.thepathyogacenter.com/bookings', 'Official The Path Yoga Center price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '95535c546555442fe3f34f0d6c80d78075b40c7cfcdf7f520202e72f3f9cd8e7', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '95535c546555442fe3f34f0d6c80d78075b40c7cfcdf7f520202e72f3f9cd8e7', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2757,28 +2537,6 @@ from m, secs
 join (values ('Other', 'Beginner Flow (75 min)', 'Embark on your yoga journey with our Beginner Yoga Class, where foundational practice meets thoughtful guidance. This class offers a relaxed pace, with clear instruction on simple transitions and basic poses, giving you the opportunity to focus on alignment and understand your body’s movements. Ideal for those new to yoga or looking to refine their practice, you''ll have the space to build strength', 165000, 'IDR', 0), ('Other', 'Vinyasa (90 min)', 'Dive into a transformative practice with our All Levels Vinyasa Flow Yoga class. This 90-minute journey seamlessly blends a series of asanas (yogic postures) with synchronized breath and mindful movement. Each session is enhanced by the teacher''s rich knowledge of ancient yogic teachings, offering you a glimpse into the spiritual depth of this time-honored practice. Perfect for all levels, you''ll ', 165000, 'IDR', 1), ('Spa Package', 'Online Monthly Packages - Basic', '5 Online Class Pack', 480000, 'IDR', 0), ('Spa Package', 'Online Monthly Packages - Unlimited', 'Online Classes Monthly', 1000000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'imanivillas.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Manori Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'http://imanivillas.com/pages/spa', 'Official Manori Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '65ed114996e9c4f709c7be1604f23f83488edf0ff9922461164e23e92e0c4db3', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Traditional Massage', 0), ('Other', 1), ('Reflexology', 2), ('Pregnancy Massage', 3), ('Four Hands Massage', 4), ('Cream Bath', 5), ('Body Mask', 6), ('Body Scrub', 7), ('Facial', 8), ('Manicure', 9), ('Pedicure', 10)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Traditional Massage', 'Therapeutic massage - Traditional Oriental – Full Body (60 min)', 'Rejuvenating and stimulating blend of techniques combine long massage strokes, deep stimulation on muscles and joints along with great stretching. (Shiatsu, Swedish, Thai, Reflexology)', 200000, 'IDR', 0), ('Traditional Massage', 'Therapeutic massage - Traditional Oriental – Full Body (60 min)', 'Signature massage. Rejuvenating and stimulating blend of techniques combine long massage strokes, deep stimulation on muscles and joints along with great stretching. (Shiatsu, Swedish, Thai, Reflexology)', 200000, 'IDR', 1), ('Other', 'Tension relief (60 min)', 'Let your tension melt away. Our therapists are trained to relieve stress in very specific parts of the body.', 200000, 'IDR', 0), ('Reflexology', 'Foot Reflexology discovery (60 min)', 'Tonifying and balancing. Starts with lavender, peppermint, flower petals foot wash for 60 mins.', 200000, 'IDR', 0), ('Pregnancy Massage', 'Pregnancy Massage (60 min)', 'Will make you feel lighter again.', 200000, 'IDR', 0), ('Four Hands Massage', 'Four Hands Massage (60 min)', 'A marvelous choreography performed by two therapists working in perfect harmony.', 340000, 'IDR', 0), ('Four Hands Massage', 'Four Hands Massage (60 min)', 'Another Signature Massage. A marvelous choreography performed by two therapists working in perfect harmony.', 340000, 'IDR', 1), ('Cream Bath', 'DELUXE HAIR SPA “LOREAL” CREAM BATH (60 min)', 'A rich conditioning cream is massaged into scalp and hair with a neck, shoulders and arm massage.', 190000, 'IDR', 0), ('Cream Bath', 'Deluxe Hair Spa ''Loreal'' Cream Bath (60 min)', 'Enjoy the outrageous pleasure of this traditional Indonesian treatment.', 190000, 'IDR', 1), ('Body Mask', 'BODY MASK / WRAP (120 min)', 'Traditional relaxing massage to improve body metabolism and relieve stress.', 300000, 'IDR', 0), ('Body Mask', 'Body Mask / Wrap (120 min)', 'All treatments begin with a traditional relaxing massage to improve body metabolism.', 300000, 'IDR', 1), ('Body Scrub', 'BODY SCRUB (120 min)', 'All “body scrub” treatments end with a traditional relaxing massage.', 350000, 'IDR', 0), ('Facial', 'TRADITIONAL FACIAL (60 min)', 'Ideal for cooling, soothing and rejuvenating sun damaged skin.', 190000, 'IDR', 0), ('Facial', 'Traditional Facial (60 min)', 'Our facial massage provides relaxation, drainage and activation of the skin’s metabolism.', 190000, 'IDR', 1), ('Manicure', 'MANICURE', 'Full nail grooming combined with an aromatic lavender soak and massage.', 125000, 'IDR', 0), ('Manicure', 'Manicure', 'Full nail grooming combined with an aromatic lavender soak and massage.', 125000, 'IDR', 1), ('Pedicure', 'PEDICURE', 'Combined with an aromatic lavender soak and massage to pamper your feet.', 150000, 'IDR', 0), ('Pedicure', 'Pedicure', 'Full nail grooming combined with an aromatic lavender soak and massage.', 150000, 'IDR', 1)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'inivie.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -2786,7 +2544,7 @@ with target as (
   select t.slug, 'Body & Soul Massage treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://inivie.com/experience_room/ayonacanggu/menu-spa.pdf', 'Official Body & Soul Massage price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '1a80006b3f311b571a31dc104b8b463f44d4a22968a59b02a1eb708a53cf0a60', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '1a80006b3f311b571a31dc104b8b463f44d4a22968a59b02a1eb708a53cf0a60', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2800,39 +2558,6 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Balinese Massage', 'Traditional Balinese Massage (60 min)', 'The Traditional Balinese massage, our signature treatment from Bali, combines palm and thumb pressure to reduce tension, along with long, gentle strokes using a unique blend of natural essential oils. This combination stimulates blood circulation and enhances energy flow.', 270000, 'IDR', 0), ('Aromatherapy', 'Aromatherapy Massage (60 min)', 'This full-body massage involves the use of oil and is administered with soft to medium pressure. It aims to uplift your spirits, restore positive energy, and enhance blood circulation. The massage deeply relaxes the mind and body while strengthening the spirit.', 285000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue Massage (60 min)', 'This exclusive massage incorporates our signature techniques tailored to individual needs. It includes relaxing light strokes and deep tissue pressure focused on the back to release stress and muscular tension. Revitalizing strokes rejuvenate and alleviate fatigue, enhance toxin elimination, and boost energy levels.', 285000, 'IDR', 0), ('Other', 'Bamboo Svaha Spa Signature (90 min)', 'This signature relieves stress, soothes tired muscles, and awakens your senses with warm oil and gentle to moderate pressure. Our skilled therapist incorporates warm bamboo into the Balinese Massage, harnessing its heat to enhance blood circulation for a healthier complexion. The bamboo massage technique targets muscle tension, boosts energy flow, and brings back harmony to both body and mind.', 350000, 'IDR', 0), ('Other', 'Seaweed Mask (45 min)', 'The Seaweed Mask revitalizes and nourishes the skin with natural vitamin E, facilitating detoxification to purify skin layers from toxins while boosting the regeneration of dead skin cells.', 185000, 'IDR', 1), ('Other', 'Exposure sunburn treatment therapy (60 min)', 'This skincare method uses liquid extracted from natural aloe vera to repair skin damage caused by excessive exposure to sunlight and ultraviolet rays.', 300000, 'IDR', 2), ('Other', 'Twilight Indulgence (90 min)', 'Indulge your body as the sun begins to set, with every touch offering comfort and rejuvenation. Begin with an aromatherapy massage followed by natural facials to refresh your senses.', 450000, 'IDR', 3), ('Other', 'Tropical Fruits Bath (45 min)', 'A ritual citrus and cucumber bath is a wonderful way to harness the health benefits and magical properties of these ingredients. Rich in vitamin C, this bath is perfect year-round for relaxing, restoring, strengthening, and purifying. It helps boost the immune system and enhances spiritual holistic energy.', 575000, 'IDR', 4), ('Hot Stone', 'Hot Stone (90 min)', 'This unique full-body massage uses warm, carefully selected stones to aid in detoxification, stress relief, and body warming. The technique focuses on enhancing blood circulation throughout the body.', 335000, 'IDR', 0), ('Neck & Shoulder', 'Revitalization Back, Neck & Shoulder Massage (30 min)', 'This treatment focuses on the neck, shoulders, and back, providing a rejuvenating experience that relieves tension and promotes mental clarity. The oils and fragrance options can calm, invigorate, deeply moisturize, or even rejuvenate the skin.', 150000, 'IDR', 0), ('Reflexology', 'Foot & Reflexology Massage (60 min)', 'Experience authentic Balinese reflexology, a time-honored healing therapy crafted to restore balance throughout your body and evoke a profound sense of harmony. The skilled therapists apply targeted pressure to specific points on your feet, enhancing blood circulation and promoting relaxation of the nervous system.', 270000, 'IDR', 0), ('Body Scrub', 'Mud Scrub (45 min)', 'The Mud Scrub nourishes the skin, restores balance, and eliminates toxins, including heavy metals, leaving your skin silky smooth.', 185000, 'IDR', 0), ('Body Scrub', 'Coconut Scrub (45 min)', 'Infuses the skin with natural coconut extracts to soften and relieve dryness, restoring a balanced complexion.', 185000, 'IDR', 1), ('Body Scrub', 'Japanese Scrub (45 min)', 'This luxurious body scrub is enriched with Japanese Hot Spring minerals and essential vitamins. Crafted from premium Dead Sea salt and nourishing jojoba oil infused with vitamin E, it provides your skin with essential nutrients. The exfoliating action clears away dead skin cells, revealing a healthy, radiant complexion.', 185000, 'IDR', 2), ('Body Scrub', 'Chocolate Scrub (45 min)', 'Delicately exfoliates dead skin cells and boosts cell renewal. Infused with organic ingredients that deeply penetrate and nourish your skin, it enhances elasticity, leaving your skin smooth, soft, and youthful.', 185000, 'IDR', 3), ('Body Scrub', 'Tropical Chocolate Scrub (120 min)', 'Experience a delightful transformation this season. Ground almonds blended with freshly harvested cacao beans gently exfoliate, polish, and moisturize the skin. After a full-body Balinese massage, indulge in the choco-almond scrub, followed by a luxurious milk and honey bath.', 575000, 'IDR', 4), ('Body Scrub', 'Tropical Coconut Scrub (120 min)', 'For centuries, Balinese women have relied on coconut for skin treatment and healing. The therapists incorporate a traditional blend of grated coconut, coconut milk, and a special powder to moisturize and gently exfoliate the skin. Experience the full-body Balinese massage followed by the sensory coconut scrub, and conclude with a rejuvenating herbal bath to pamper both your skin and senses.', 575000, 'IDR', 5), ('Body Scrub', 'Tropical Japanese Body Scrub (120 min)', 'Experience the luxurious blend of finely ground native herbs and spices including Pandan leaves, turmeric, curcuma heyneana, and rice powder, designed to cleanse, soften, and rejuvenate the skin. Immerse yourself in this traditional Javanese beauty treatment, cherished by Royal Families for centuries. Begin with a full-body massage, followed by the application of the scrub, and conclude with a rel', 575000, 'IDR', 6), ('Body Mask', 'Honey & Milk Body Mask (45 min)', 'Milk and honey are natural ingredients known for their nourishing and softening properties, ideal for rejuvenating tired skin exposed to sunlight and pollutants like carbon dioxide.', 185000, 'IDR', 0), ('Body Mask', 'Coffee Body Mask (45 min)', 'The Coffee Body Mask is renowned for its ability to repair skin damage, eliminate bacteria from the skin layers and pores, and protect against excessive exposure to ultraviolet light, particularly beneficial for sensitive skin.', 185000, 'IDR', 1), ('Facial', 'Svaha Natural Facial (60 min)', 'The Natural Facial treatment serves to tighten, plump, and refresh all skin types. It begins with cleansing the face using watermelon juice and liquid yogurt, followed by a honey massage and brown sugar scrub. Finally, cucumber slices are applied as a face mask to refresh the skin.', 275000, 'IDR', 0), ('Facial', 'Svaha Spa Facial Product by Biokos (60 min)', 'Biokos products formulated with aloe vera stimulate collagen production, helping to reduce signs of aging and enhance skin smoothness.', 250000, 'IDR', 1), ('Spa Package', 'Body Purification Ritual (120 min)', 'This ritual begins with a Balinese massage, followed by a sea salt body scrub to prepare the body. Next, a detoxifying seaweed mask is applied, culminating in an herbal jacuzzi experience.', 605000, 'IDR', 0), ('Spa Package', 'Spice Ritual Bath (45 min)', 'A bath infused with betel leaf and tropical herbs, known for their magical anti-inflammatory and skin-brightening properties, is extremely rich in antioxidants. This luxurious bath not only enhances skin beauty but also offers a variety of health benefits.', 455000, 'IDR', 1), ('Flower Bath', 'Flower Bath Sensation (45 min)', 'Experience the soothing and refreshing effects of a flower bath sensation with an array of beautiful, colorful blooms. Traditionally, bathing in the energy of flowers is believed to support personal growth and flourishing. This practice allows you to absorb the healing energies of the plants, helping to cleanse unwanted energies, find calm and grounding, and realign with what''s most important to y', 555000, 'IDR', 0), ('Body Treatment', 'Volcanic Body Treatment (120 min)', 'Inspired by the healing traditions of deep tissue massage, our unique body scrub incorporates volcanic mud sourced from the slopes of Bali''s sacred Mount Agung. This treatment nourishes the skin, restores balance, and effectively removes toxins like heavy metals and environmental pollutants. Enriched with lemongrass oil, it leaves your skin feeling silky smooth. Complete your experience with a lux', 600000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
-where status = 'draft'
-  and completeness = 'partial'
-  and verified_at is null
-  and content_digest is not null
-  and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
-  and exists (select 1 from menu_sections s join menu_items it
-              on it.section_id = s.id and it.menu_id = s.menu_id
-              where s.menu_id = menus.id);
--- spa menu snapshots, batch 5 (14 menus)
-with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'scribd.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'The Garden Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.scribd.com/document/687915707/the-garden-spa-treatment-menu-july-web-20230519-1', 'Official The Garden Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '00f6400d88d1b1a881740764ee632d78660199e2a3efa01ce8db9d10adc22f7d', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Traditional Massage', 0), ('Neck & Shoulder', 1), ('Foot Massage', 2), ('Hot Stone', 3), ('Reflexology', 4), ('Javanese Lulur', 5), ('Body Scrub', 6), ('Balinese Boreh', 7), ('Facial', 8), ('Manicure', 9), ('Pedicure', 10)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Traditional Massage', 'Balinese Traditional Massage (60 min)', 'Traditional Balinese massage techniques with thumb circle and palm pressure to relax and healing.', 325000, 'IDR', 0), ('Traditional Massage', 'Herbal Massage (60 min)', 'Starting with a Balinese massage, steamed herbal compresses are then applied. Herbal massage improves blood circulation and stimulates the internal organ.', 390000, 'IDR', 1), ('Traditional Massage', 'Gentle Massage (60 min)', 'A gentle and meditative massage, promotes circulation and lymph.', 325000, 'IDR', 2), ('Neck & Shoulder', 'Neck and Shoulder Massage (30 min)', 'Our back & shoulder massage, helps alleviate deep rooted tension in the shoulder and neck muscular, leaving your feeling relaxing and tension free.', 195000, 'IDR', 0), ('Foot Massage', 'Foot Massage (30 min)', 'Decreases stress, relieve toe and ankle pain.', 195000, 'IDR', 0), ('Hot Stone', 'Hot Stone Massage (90 min)', 'Using the vitality and energy of heated stones to soothe away stress and relieve muscular tension, aches and pains.', 494000, 'IDR', 0), ('Reflexology', 'Reflexology Massage (60 min)', 'This massage is based on the ancient belief that each organ in the body corresponds to a reflex point in the foot. Using gentle thumb and finger pressure-point massage, the therapist releases blockages and re-establishes the body’s energy flow.', 390000, 'IDR', 0), ('Javanese Lulur', 'Lulur Tejakula Body Scrub (60 min)', 'This scrub is good to exfoliate the skin and remove dead skin cells.', 325000, 'IDR', 0), ('Body Scrub', 'Coffee Body Scrub (60 min)', 'Exfoliating makes the skin healthy and beautiful by removing dirt, dried sweat, and air pollutants.', 325000, 'IDR', 0), ('Balinese Boreh', 'Balinese Boreh (60 min)', 'That traditional Balinese herbal scrub is good to detoxify and warm the body with the clove, ginger, and cinnamon.', 325000, 'IDR', 0), ('Facial', 'Bio Classic Facial (60 min)', null, 195000, 'IDR', 0), ('Facial', 'Honey & Cucumber Facial (60 min)', null, 195000, 'IDR', 1), ('Manicure', 'Manicure (60 min)', 'A luxurious beauty treatment for the hands and nails includes trimming, cleansing, exfoliation, massage and the final touch of application with your choice of desired color.', 260000, 'IDR', 0), ('Pedicure', 'Pedicure (60 min)', 'This soothing and healing beauty treatment for the feet, includes a relaxing foot soak, exfoliation, foot and leg massage, and expert trimming, shaping and polishing of the nails.', 260000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
 with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'mellospa.co' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
@@ -2841,7 +2566,7 @@ with target as (
   select t.slug, 'Mello Spa Canggu treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://mellospa.co/canggu/spa-prices-canggu', 'Official Mello Spa Canggu price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '8daa29787993de35328be355081f2620f6d8ffe9856e76f979359c9283a8d7e3', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8daa29787993de35328be355081f2620f6d8ffe9856e76f979359c9283a8d7e3', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2856,50 +2581,6 @@ from m, secs
 join (values ('Traditional Massage', 'Mello Signature Massage (45 min)', null, 500000, 'IDR', 0), ('Traditional Massage', 'Mello Signature Massage (60 min)', null, 650000, 'IDR', 1), ('Traditional Massage', 'Mello Signature Massage (90 min)', null, 980000, 'IDR', 2), ('Gua Sha', 'Body Massage with Gua Sha (60 min)', null, 850000, 'IDR', 0), ('Gua Sha', 'Body Massage with Gua Sha (90 min)', null, 1180000, 'IDR', 1), ('Lymphatic Massage', 'Lymphatic Drainage Massage (60 min)', null, 850000, 'IDR', 0), ('Facial', 'Deep Clarifying Facial (75 min)', null, 1100000, 'IDR', 0), ('Facial', 'Soothe & Refresh Facial (75 min)', null, 1450000, 'IDR', 1), ('Facial', 'Korean Glass Skin Facial (75 min)', null, 1450000, 'IDR', 2), ('Facial', 'Oxygen Infusion Facial (90 min)', null, 1750000, 'IDR', 3), ('Facial', 'Cellular Renewal Facial (75 min)', null, 1550000, 'IDR', 4), ('Facial', 'Collagen C Facial (90 min)', null, 1800000, 'IDR', 5), ('Facial', 'Premier Biohacking Exosome Facial (90 min)', null, 2700000, 'IDR', 6), ('Scalp Treatment', 'Face & Scalp Grounding Treatment (60 min)', null, 1100000, 'IDR', 0), ('Hydrating Facial', 'Hydration Reset Facial (75 min)', null, 1350000, 'IDR', 0), ('Spa Package', 'Mello Reset Package', null, 1700000, 'IDR', 0), ('Spa Package', 'Seoul to Canggu Package', null, 2000000, 'IDR', 1), ('Spa Package', 'Peppa Hart x Mello Package', null, 2700000, 'IDR', 2), ('Spa Package', 'Mello Reset Package (155 min)', 'A full-body ritual designed to restore from head to toe. This immersive package brings together the best of Mello.', 1700000, 'IDR', 3), ('Spa Package', 'Mello Reset Package (185 min)', null, 1975000, 'IDR', 4), ('Spa Package', 'Seoul to Seminyak Package (135 min)', 'K-beauty glow meets Bali ritual. This facial and massage duo blends Korean hydration with lymphatic sculpting.', 2000000, 'IDR', 5), ('Spa Package', 'Peppa Hart x Mello Package (245 min)', 'A ritual created to restore, replenish + reconnect blending Peppa Hart’s signature style with Mello’s expert-led.', 3100000, 'IDR', 6), ('Body Treatment', 'Premier Skin & Body Treatment', null, 3200000, 'IDR', 0), ('Body Treatment', 'Premier Skin & Body Treatment (150 min)', 'Our most luxurious treatment experience. This signature ritual pairs Mello’s most advanced facial with our most indulgent full-body massage.', 3200000, 'IDR', 1), ('Brows', 'Eye Brow Style + Tidy (30 min)', null, 350000, 'IDR', 0), ('Brows', 'YUMI Eyebrow Tint (30 min)', null, 250000, 'IDR', 1), ('Brows', 'YUMI Eyebrow Lamination (45 min)', null, 450000, 'IDR', 2), ('Brows', 'YUMI Eyebrow Lamination + Style (75 min)', null, 550000, 'IDR', 3), ('Lashes', 'YUMI Lash Tint (30 min)', null, 250000, 'IDR', 0), ('Lashes', 'YUMI Lash Lift (45 min)', null, 450000, 'IDR', 1), ('Lashes', 'YUMI Lash Lift + Tint (60 min)', null, 550000, 'IDR', 2), ('Waxing', 'Lip Wax (15 min)', null, 150000, 'IDR', 0), ('Waxing', 'Half Leg / Half Arm / Underarm Wax (20 min)', null, 200000, 'IDR', 1), ('Waxing', 'Chin Wax (20 min)', null, 300000, 'IDR', 2), ('Other', 'Full Leg / Full Arm (30 min)', null, 350000, 'IDR', 0), ('Other', 'Chest / Bikini (45 min)', null, 350000, 'IDR', 1), ('Other', 'Mello 60 (60 min)', 'A compact ritual designed for busy schedules, tired bodies, or a midday reset.', 470000, 'IDR', 2)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'executivebalimassage.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Executive Bali Massage treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.executivebalimassage.com/massage-di-kerobokan/', 'Official Executive Bali Massage price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '1daf819e21e0fe49bc1a47bc2736812f6adaa815813426ac2c1aef8774402765', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Balinese Massage', 0), ('Deep Tissue', 1), ('Swedish', 2), ('Reflexology', 3), ('Couple Massage', 4), ('Shiatsu', 5), ('Body Scrub', 6)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Balinese Massage', 'Balinese Massage (90 min)', 'Teknik khas Bali dengan tekanan, peregangan, dan gerakan mengalir untuk relaksasi.', 300000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue Massage (90 min)', 'Fokus ke otot bagian dalam untuk melepaskan ketegangan kronis.', 300000, 'IDR', 0), ('Swedish', 'Swedish Massage (90 min)', 'Pijatan lembut dengan teknik panjang yang membantu melancarkan sirkulasi.', 300000, 'IDR', 0), ('Reflexology', 'Reflexology (90 min)', 'Pijatan titik di kaki untuk memicu efek relaksasi menyeluruh.', 300000, 'IDR', 0), ('Couple Massage', 'Couples Massage (90 min)', 'Dua orang dapat menikmati pijatan bersama.', 300000, 'IDR', 0), ('Shiatsu', 'Shiatsu', 'Teknik pijat Jepang dengan tekanan pada titik-titik tertentu.', 300000, 'IDR', 0), ('Body Scrub', 'Scrub', 'Perawatan kulit dengan pengelupasan.', 300000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'lakarmaspa.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'La Karma Spa treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://www.lakarmaspa.com/', 'Official La Karma Spa price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '6e81b6d3a2991737be4cb7805ac1e17911819cfd8d5961353bd29e2ae70817b3', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Spa Package', 0), ('Facial', 1), ('Nails', 2)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Spa Package', 'PACKAGE SPECIALS (150 min)', null, 445000, 'IDR', 0), ('Facial', 'SKIN 02 FACIALS (150 min)', null, 445000, 'IDR', 0), ('Facial', 'BARE ROOTS FACIALS (150 min)', null, 445000, 'IDR', 1), ('Facial', 'FACIALS (150 min)', null, 445000, 'IDR', 2), ('Nails', 'THE NAIL BAR (150 min)', null, 445000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'massagesanur.id' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -2907,7 +2588,7 @@ with target as (
   select t.slug, 'Massage Sanur treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://massagesanur.id/', 'Official Massage Sanur price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '8c6a7ebd73a213210f5c7c94b79d8cff32d4bbaa39e320104e300eda192309e2', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '8c6a7ebd73a213210f5c7c94b79d8cff32d4bbaa39e320104e300eda192309e2', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2929,7 +2610,7 @@ with target as (
   select t.slug, 'Blissful Senja treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://blissfulsenja.com/price-list', 'Official Blissful Senja price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '10c88b2c982c59c17c446b0c70a1aa807e29972ef8432b364542890cfebae8e7', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '10c88b2c982c59c17c446b0c70a1aa807e29972ef8432b364542890cfebae8e7', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2944,28 +2625,6 @@ from m, secs
 join (values ('Traditional Massage', 'Balinese Traditional Massage (60 min)', 'Gentle stretches, acupressure and aromatherapy flowing in harmony. The heart of Balinese healing — our most beloved treatment.', 250000, 'IDR', 0), ('Traditional Massage', 'Balinese Traditional Massage (90 min)', 'Gentle stretches, acupressure and aromatherapy flowing in harmony. The heart of Balinese healing — our most beloved treatment.', 360000, 'IDR', 1), ('Traditional Massage', 'Balinese Traditional Massage (120 min)', 'Gentle stretches, acupressure and aromatherapy flowing in harmony. The heart of Balinese healing — our most beloved treatment.', 460000, 'IDR', 2), ('Traditional Massage', 'Massage table', 'No suitable surface? We''ll bring a professional massage table to your location.', 150000, 'IDR', 3), ('Traditional Massage', 'Balinese Traditional Massage', 'Authentic Balinese techniques — long strokes, acupressure and aromatherapy — delivered to your room after a slow morning walk along the Sanur boardwalk.', 250000, 'IDR', 4), ('Reflexology', 'Reflexology (60 min)', 'Targeted pressure-point therapy focused on the feet, stimulating circulation and restoring natural balance throughout the whole body.', 300000, 'IDR', 0), ('Reflexology', 'Reflexology (90 min)', 'Targeted pressure-point therapy focused on the feet, stimulating circulation and restoring natural balance throughout the whole body.', 420000, 'IDR', 1), ('Reflexology', 'Reflexology (120 min)', 'Targeted pressure-point therapy focused on the feet, stimulating circulation and restoring natural balance throughout the whole body.', 520000, 'IDR', 2), ('Reflexology', 'Reflexology', 'A grounding foot therapy that restores balance and improves circulation.', 300000, 'IDR', 3), ('Deep Tissue', 'Deep Tissue Massage (60 min)', 'Strong, purposeful pressure targeting deep muscle layers to release chronic tension, stiffness and soreness. Real results for active bodies.', 350000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue Massage (90 min)', 'Strong, purposeful pressure targeting deep muscle layers to release chronic tension, stiffness and soreness. Real results for active bodies.', 490000, 'IDR', 1), ('Deep Tissue', 'Deep Tissue Massage (120 min)', 'Strong, purposeful pressure targeting deep muscle layers to release chronic tension, stiffness and soreness. Real results for active bodies.', 620000, 'IDR', 2), ('Deep Tissue', 'Deep Tissue Massage', 'Firm, targeted pressure to release deep muscle tension.', 350000, 'IDR', 3), ('Foot Massage', 'Foot Massage (60 min)', 'A focused, deeply relaxing treatment for tired and sore feet. A small indulgence with a surprisingly big impact on overall wellbeing.', 200000, 'IDR', 0), ('Foot Massage', 'Foot Massage (90 min)', 'A focused, deeply relaxing treatment for tired and sore feet. A small indulgence with a surprisingly big impact on overall wellbeing.', 280000, 'IDR', 1), ('Foot Massage', 'Foot Massage (120 min)', 'A focused, deeply relaxing treatment for tired and sore feet. A small indulgence with a surprisingly big impact on overall wellbeing.', 350000, 'IDR', 2), ('Javanese Lulur', 'Balinese Massage + Scrub & Lulur (90 min)', 'Begin with a flowing full-body Balinese massage, then indulge in a traditional lulur body scrub — inspired by royal Javanese rituals. Skin silky, body restored, spirit renewed.', 400000, 'IDR', 0), ('Javanese Lulur', 'Balinese Massage + Scrub & Lulur (90 min)', 'Begin with a flowing full-body Balinese massage, then indulge in a traditional lulur body scrub — inspired by royal Javanese rituals. Skin silky, body restored, spirit renewed.', 550000, 'IDR', 1), ('Javanese Lulur', 'Balinese Massage + Scrub & Lulur (120 min)', 'Begin with a flowing full-body Balinese massage, then indulge in a traditional lulur body scrub — inspired by royal Javanese rituals. Skin silky, body restored, spirit renewed.', 680000, 'IDR', 2), ('Javanese Lulur', 'Balinese Massage + Lulur Scrub', 'A full massage followed by a traditional royal Javanese lulur scrub.', 400000, 'IDR', 3), ('Acupressure', 'Full Body Massage & Facial Acupressure (90 min)', 'A complete full-body Balinese massage paired with targeted facial acupressure. Releases jaw tension, eases headaches and leaves skin looking naturally lifted and deeply refreshed.', 450000, 'IDR', 0), ('Acupressure', 'Full Body Massage & Facial Acupressure (120 min)', 'A complete full-body Balinese massage paired with targeted facial acupressure. Releases jaw tension, eases headaches and leaves skin looking naturally lifted and deeply refreshed.', 550000, 'IDR', 1), ('Couple Massage', 'Couple Massage (60 min)', 'Two certified therapists arrive together for a perfectly synchronised session. Ideal for anniversaries, honeymoons or a romantic evening in your villa. A shared moment of pure bliss.', 500000, 'IDR', 0), ('Couple Massage', 'Couple Massage (90 min)', 'Two certified therapists arrive together for a perfectly synchronised session. Ideal for anniversaries, honeymoons or a romantic evening in your villa. A shared moment of pure bliss.', 700000, 'IDR', 1), ('Couple Massage', 'Couple Massage', 'Two therapists arrive together for a synchronised session in your Sanur hotel room or villa.', 500000, 'IDR', 2)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
 with target as (
-  select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'digital.ihg.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
-), m as (
-  insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
-                     captured_at, verified_at, expires_at, content_digest, kind)
-  select t.slug, 'Regent treatment prices',
-         coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
-         'draft', 'partial', 'https://digital.ihg.com/is/content/ihg/Spa-Brochure_digital_ENG', 'Official Regent price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '32ea7647afa0a6a8590aafb3a7b72efc6e0509594dff770d6e6f496fef4ac1e0', 'spa'
-  from target t
-  where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
-  returning id
-), secs as (
-  insert into menu_sections (menu_id, name, position)
-  select m.id, s.name, s.pos from m, (values ('Other', 0), ('Traditional Massage', 1), ('Foot Massage', 2), ('Abhyanga', 3)) as s(name, pos)
-  returning id, name
-)
-insert into menu_items (menu_id, section_id, name, description, price_minor, currency, position)
-select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
-from m, secs
-join (values ('Other', 'Bali Ocean Serenity (60 min)', null, 900000, 'IDR', 0), ('Traditional Massage', 'Traditional Martub Massage (60 min)', null, 900000, 'IDR', 0), ('Traditional Massage', 'Traditional Javanese Massage (60 min)', null, 900000, 'IDR', 1), ('Foot Massage', 'Foot Work Rejuvenation (60 min)', null, 900000, 'IDR', 0), ('Abhyanga', 'Abhyanga Massage (60 min)', null, 900000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
-
-with target as (
   select slug from venues where split_part(regexp_replace(regexp_replace(official_url, '^https?://', ''), '^www\.', ''), '/', 1) = 'saltyfacebali.com' and status = 'active' and publication_status = 'published' and category in ('spa', 'beauty', 'yoga', 'fitness') order by case category when 'spa' then 0 when 'beauty' then 1 else 2 end, slug limit 1
 ), m as (
   insert into menus (venue_slug, title, version, status, completeness, source_url, source_label,
@@ -2973,7 +2632,7 @@ with target as (
   select t.slug, 'salty face Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://saltyfacebali.com/service-menu', 'Official salty face Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '5789924798607e375dc015c1ef1b1cc62a36176c911eb48edd5dad1da644f534', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '5789924798607e375dc015c1ef1b1cc62a36176c911eb48edd5dad1da644f534', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -2995,7 +2654,7 @@ with target as (
   select t.slug, 'The Resting Koala treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://restingkoala.com/menu', 'Official The Resting Koala price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '000bfb5d80abee68d2c5520e72e9c41454e2d058d784976e55e673b4b9063d26', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '000bfb5d80abee68d2c5520e72e9c41454e2d058d784976e55e673b4b9063d26', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3017,7 +2676,7 @@ with target as (
   select t.slug, 'Fresh Beauty Lounge treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://freshbeautylounge.com/uluwatu/', 'Official Fresh Beauty Lounge price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, '3ea9da2901e6197377f90975c068e89527cde3613a0a6a584f6f15ee61961914', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, '3ea9da2901e6197377f90975c068e89527cde3613a0a6a584f6f15ee61961914', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3039,7 +2698,7 @@ with target as (
   select t.slug, 'Spa Shell treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://spashell.id/', 'Official Spa Shell price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'bc164f31c99336a75dd3d88d6062cad2809a4db726d4e22e32f00320d1363a51', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'bc164f31c99336a75dd3d88d6062cad2809a4db726d4e22e32f00320d1363a51', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3061,7 +2720,7 @@ with target as (
   select t.slug, 'Flex & Flow treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://flexandflow.fit/', 'Official Flex & Flow price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'e2a4e28d9298157dd2855c36de7186461facab7c123e27cb3a4759ff04d0cf5b', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'e2a4e28d9298157dd2855c36de7186461facab7c123e27cb3a4759ff04d0cf5b', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3083,7 +2742,7 @@ with target as (
   select t.slug, 'Body Studio Bali treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://bodystudiobali.com/contact-us/', 'Official Body Studio Bali price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'f8bb525bdd88ed4281a7a575551a8bd2a82c533ce54c05e32c49ab96ffef697e', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'f8bb525bdd88ed4281a7a575551a8bd2a82c533ce54c05e32c49ab96ffef697e', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3105,7 +2764,7 @@ with target as (
   select t.slug, 'Senses Spa at Biu Biu Resort treatment prices',
          coalesce((select max(mx.version) from menus mx where mx.venue_slug = t.slug), 0) + 1,
          'draft', 'partial', 'https://biubiuresortbali.com/wellness-spa-experience', 'Official Senses Spa at Biu Biu Resort price list',
-         '2026-08-25T04:45:43+00:00'::timestamptz, null, '2026-11-23T04:45:43+00:00'::timestamptz, 'ebd2bf712aa5917099ee5e3ca15c765f8115b71227db64663a3ec12660aa06e8', 'spa'
+         '2026-08-25T05:14:53+00:00'::timestamptz, null, '2026-11-23T05:14:53+00:00'::timestamptz, 'ebd2bf712aa5917099ee5e3ca15c765f8115b71227db64663a3ec12660aa06e8', 'spa'
   from target t
   where not exists (select 1 from menus x, target t2 where x.venue_slug = t2.slug and x.kind = 'spa')
   returning id
@@ -3119,13 +2778,13 @@ select m.id, secs.id, i.name, i.descr, i.price, i.cur, i.pos
 from m, secs
 join (values ('Other', 'Sunset Cliffside Bath', 'Balinese massage + cliff-edge open bath at sunset with flower petals, cocktails & fresh fruits.', 2890000, 'IDR', 0), ('Other', 'SENSES Luxury Retreat (120 min)', 'Balinese lulur scrub, 60-min massage, and Radiance Boost Facial — a complete luxury ritual.', 980000, 'IDR', 1), ('Other', 'Radiance Boost (25 min)', 'Cleansing, exfoliating, face mask and moisturizing with Pevonia Botanica. Leaves skin fresh and vibrant.', 396000, 'IDR', 2), ('Other', 'Nutrition Boost (50 min)', 'Hyaluronic Acid, Vitamin E & Carotene deeply hydrate and repair. Skin rendered smooth and rejuvenated.', 499000, 'IDR', 3), ('Other', 'Pure Balance (50 min)', 'Kaolin-based mask with Carrot oil, Green Apple & vitamins. Hydrates, brightens and purifies combination skin.', 520000, 'IDR', 4), ('Other', 'Calming & Cooling (50 min)', 'Zinc Oxide & Shea Butter calm sensitive skin. Diffuses redness and soothes irritation for a smooth complexion.', 541000, 'IDR', 5), ('Other', 'Marine Collagen (50 min)', 'Rich Marine Collagen combats dryness, dehydration, fine lines and wrinkles. Leaves skin plump, toned and glowing — perfect for holiday skin recovery.', 1072000, 'IDR', 6), ('Other', 'Mom to Be (50 min)', 'Gentle technique for expectant mothers. Soothes sore back and tired joints. Pure coconut oil.', 499000, 'IDR', 7), ('Other', 'Stress Relief (50 min)', 'Massage using trigger point therapy technique to release tension in the muscles of the back, neck and shoulder.', 520000, 'IDR', 8), ('Other', 'My After Sun Time (60 min)', 'Aloe vera body mask combined with gentle full-body massage. Reduces inflammation and relieves sunburn.', 540000, 'IDR', 9), ('Other', 'SENSES Signature (80 min)', 'Aromatherapy blended oil massage combining nurturing techniques and acupressure on the feet.', 690000, 'IDR', 10), ('Other', 'Serenity Bliss (80 min)', 'Deep tissue combined with hot stone. Improves blood flow and circulation to calm the mind.', 850000, 'IDR', 11), ('Other', 'Skin Soft & Glow (60 min)', 'Natural scrub + moisturizing mask. Choose from Green Tea, Coffee or Chocolate.', 570000, 'IDR', 12), ('Other', 'Renew & Refresh (75 min)', 'Energizing body massage with key essential oils, followed by express Pevonia facial for radiant, smooth skin.', 840000, 'IDR', 13), ('Other', 'Fruity Delight (75 min)', 'Mango & Passionfruit Scrub + Massage. Exotic tropical fruit aromas rich in vitamins.', 850000, 'IDR', 14), ('Other', 'SENSES Luxury Retreat (120 min)', 'Revitalizing Balinese lulur scrub, 60-min Balinese massage and Radiance Boost Facial.', 980000, 'IDR', 15), ('Other', 'Sanctuary of the Senses (120 min)', 'Tropical fruit sea salt scrub, relaxing body massage and Radiance Boost Facial — a complete sensory journey.', 1272000, 'IDR', 16), ('Other', 'Sunset Cocktail', '60-min massage · Cliff-edge bath with flower petals · 2 cocktails or mocktails · Fresh fruits.', 2890000, 'IDR', 17), ('Other', 'Sunset Wine', '60-min massage · Cliff-edge bath with flower petals · 1 bottle of wine · Fresh fruits.', 3390000, 'IDR', 18), ('Other', 'Sunset Champagne', '60-min massage · Cliff-edge bath with flower petals · 1 bottle Moët & Chandon · Fresh fruits.', 4690000, 'IDR', 19), ('Couple Massage', 'Romantic Couple (90 min)', 'SENSES Signature Massage plus your choice of body scrub — a shared luxury wellness journey.', 1750000, 'IDR', 0), ('Couple Massage', 'Romantic Couple (90 min)', 'A rejuvenating shared experience. Signature Massage followed by your choice of body scrub.', 1750000, 'IDR', 1), ('Facial', 'Sunburn Facial (25 min)', 'Specially designed for sun-exposed skin — calms, cools and restores the skin’s natural balance after sun exposure.', 344000, 'IDR', 0), ('Facial', 'Men Facial (50 min)', 'Phyto extracts & essential oils restore skin balance. Includes shoulder, scalp, hand and arm massage.', 957000, 'IDR', 1), ('Reflexology', 'Reflexology (50 min)', 'Stimulating reflex areas in the feet to improve circulation and restore the body’s natural balance.', 400000, 'IDR', 0), ('Balinese Massage', 'Balinese Massage (80 min)', 'Total relaxing massage with medium pressure to reduce stress and muscle aches.', 620000, 'IDR', 0), ('Shiatsu', 'Shiatsu (50 min)', 'Japanese finger pressure along meridian lines to restore energy flow and body balance.', 650000, 'IDR', 0), ('Aromatherapy', 'Thai Aroma Therapy (80 min)', 'Traditional Thai & Balinese techniques. Full body stretching followed by aroma oil massage.', 680000, 'IDR', 0), ('Hot Stone', 'Hot Stone (80 min)', 'Basalt volcanic stones with ancestral healing properties. Penetrating heat releases deep muscle tension.', 710000, 'IDR', 0), ('Deep Tissue', 'Deep Tissue (80 min)', 'Targets muscle pain and stiffness. Focused on therapeutic muscle recovery.', 920000, 'IDR', 0)) as i(sec, name, descr, price, cur, pos) on i.sec = secs.name;
 
-update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T04:45:43+00:00'::timestamptz
+update menus set status = 'source_snapshot', source_snapshot_published_at = '2026-08-25T05:14:53+00:00'::timestamptz
 where status = 'draft'
   and completeness = 'partial'
   and verified_at is null
   and content_digest is not null
   and expires_at > now()
-  and created_at >= '2026-08-25T04:45:43+00:00'::timestamptz
+  and created_at >= '2026-08-25T05:14:53+00:00'::timestamptz
   and exists (select 1 from menu_sections s join menu_items it
               on it.section_id = s.id and it.menu_id = s.menu_id
               where s.menu_id = menus.id);

@@ -15,9 +15,20 @@ not already exist".
 to venues already on the site; the other 107 attach to venues this file
 creates. Run it second and those 107 silently insert nothing.
 
-### 2. `ALL_spa.sql` — 139 spa price lists
+### 2. `ALL_spa.sql` — 124 spa price lists
 
-Attaches each list to its venue, matched by website domain.
+Attaches each list to its venue, matched by website domain **and category**, so
+a hotel domain shared by a restaurant, a spa and a gym resolves to the spa.
+
+15 collected lists are deliberately not here — a wrong price is worse than no
+price:
+
+| Dropped | Why |
+|---|---|
+| 6 | source URL is `http://`, and this run could not confirm the site serves `https`. Rewriting the scheme would assert unverified evidence. |
+| 5 | every item carried one identical price — a package total misread as per-item prices (Andre Bali Spa: manicure, facial and foot massage all at 850,000 IDR). |
+| 3 | the "source" was a social app or document host (Lemon8 returned five identical "60 min massage" rows at different prices — someone's roundup of several spas). |
+| 1 | captured from the site's Chinese page; the public product is English. |
 
 ### Already applied on 2026-08-25
 
