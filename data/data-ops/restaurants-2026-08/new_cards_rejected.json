@@ -2,7 +2,7 @@
  {
   "name": "Braud Cafe Seminyak",
   "website": "https://baliholidaysecrets.com",
-  "reason": "fewer than 3 menu items of any kind — not enough to publish"
+  "reason": "official_url is a document/social host, not the venue's own site (https://baliholidaysecrets.com)"
  },
  {
   "name": "Unnamed Restaurant",
@@ -50,11 +50,6 @@
   "reason": "official_url is a document/social host, not the venue's own site (https://roadiscalling.com)"
  },
  {
-  "name": "Over the Moon Bali",
-  "website": "https://overthemoonbali.com",
-  "reason": "fewer than 3 menu items of any kind — not enough to publish"
- },
- {
   "name": "Warung Sambal Locok",
   "website": "https://remoteandafloat.com",
   "reason": "official_url is a document/social host, not the venue's own site (https://remoteandafloat.com)"
@@ -88,11 +83,6 @@
   "name": "Jimbaran",
   "website": "https://travelfish.org",
   "reason": "official_url is a document/social host, not the venue's own site (https://travelfish.org)"
- },
- {
-  "name": "Opia Bali",
-  "website": "https://opiabali.com",
-  "reason": "fewer than 3 menu items of any kind — not enough to publish"
  },
  {
   "name": "Pison Petitenget",
