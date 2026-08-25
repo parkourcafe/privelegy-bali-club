@@ -1,15 +1,15 @@
 booking_provider,venues,share
-unknown,109,44%
-website_form,87,35%
-whatsapp,33,13%
-fresha,12,5%
-zenoti,4,2%
-custom,3,1%
+unknown,140,43%
+website_form,115,35%
+whatsapp,41,13%
+fresha,14,4%
+custom,7,2%
+zenoti,5,2%
 email,1,0%
 wetravel,1,0%
 
 digital_maturity,venues,share
-direct booking,171,68%
-no online booking,37,15%
-WhatsApp only,26,10%
-full booking engine,16,6%
+direct booking,218,67%
+no online booking,49,15%
+WhatsApp only,38,12%
+full booking engine,19,6%

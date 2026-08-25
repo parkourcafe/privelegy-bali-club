@@ -1,45 +1,53 @@
 area,service,samples,min_idr,median_idr,max_idr
 Amed,Facial,2,100000,150000,200000
 Amed,Foot Massage,2,130000,155000,180000
+Bali,Couple Massage,4,500000,600000,2500000
+Bali,Deep Tissue,2,350000,350000,350000
 Bali,Facial,3,650000,800000,800000
-"Bangkiang Sidem, Ubud",Facial,2,240000,240000,240000
-Benoa,Balinese Massage,2,400000,400000,400000
+Bali,Foot Massage,3,200000,280000,350000
+Benoa,Balinese Massage,3,299000,400000,400000
 Benoa,Facial,5,350000,400000,600000
-"Benoa, Nusa Dua",Foot Massage,2,149000,199000,249000
-Bingin,Balinese Massage,2,250000,250000,250000
-Bingin,Deep Tissue,2,300000,300000,300000
-Bingin,Facial,2,350000,350000,350000
-Candi Dasa,Balinese Massage,2,150000,150000,150000
-Candi Dasa,Foot Massage,13,100000,195000,250000
-Candidasa,Foot Massage,2,272250,272250,272250
-Canggu,Balinese Massage,7,200000,310000,1500000
-Canggu,Deep Tissue,6,240000,310000,350000
-Canggu,Facial,11,250000,450000,599000
-Canggu,Foot Massage,4,150000,250000,250000
+Benoa,Foot Massage,2,149000,199000,249000
+Bingin,Balinese Massage,4,250000,297500,630000
+Bingin,Deep Tissue,3,300000,300000,450000
+Bingin,Facial,7,350000,862000,1200000
+Bukit,Facial,2,300000,325000,350000
+Candidasa,Balinese Massage,2,150000,150000,150000
+Candidasa,Foot Massage,15,100000,195000,272250
+Canggu,Balinese Massage,11,130000,310000,1500000
+Canggu,Couple Massage,2,1500000,2650000,3800000
+Canggu,Deep Tissue,8,240000,310000,350000
+Canggu,Facial,20,250000,499500,2700000
+Canggu,Foot Massage,5,150000,250000,250000
 Gianyar,Facial,3,240000,300000,457380
 Jimbaran,Balinese Massage,2,250000,350000,450000
 Karangasem Bali,Balinese Massage,2,300000,475000,650000
 "Karangasem, Bali",Facial,3,110000,210000,225000
 Kerobokan,Balinese Massage,2,245000,472500,700000
+Kerobokan,Couple Massage,2,300000,900000,1500000
 Kerobokan,Foot Massage,4,225000,225000,335000
 Kuta,Balinese Massage,6,150000,200000,385000
 Kuta,Couple Massage,2,750000,1425000,2100000
 Kuta,Facial,14,155000,320000,455000
 Kuta,Foot Massage,8,55000,130000,155000
 Legian,Balinese Massage,5,100000,300000,550000
-Legian,Facial,7,450000,450000,1295000
+Legian,Facial,10,445000,450000,1295000
 Munduk,Balinese Massage,2,265000,265000,265000
 Munduk,Foot Massage,2,399000,399000,399000
 Not Provided,Couple Massage,3,2785000,3350000,4550000
 Not Provided,Foot Massage,2,410000,510000,610000
 Nusa Dua,Balinese Massage,4,200000,380000,675000
 Nusa Dua,Facial,3,480000,1025000,1025000
+Nusa Lembongan,Foot Massage,2,150000,150000,150000
 Padangbai,Facial,2,365000,482500,600000
 Padangbai,Foot Massage,3,140000,180000,230000
+Pecatu,Foot Massage,3,110000,160000,210000
+Pererenan,Balinese Massage,3,330000,330000,500000
 Pererenan,Deep Tissue,3,230000,260000,500000
 Pererenan,Facial,3,150000,170000,650000
-Pererenan,Foot Massage,7,120000,210000,240000
-Sanur,Balinese Massage,3,145000,195000,290000
+Pererenan,Foot Massage,13,120000,220000,270000
+Petitenget,Facial,4,195000,222500,275000
+Sanur,Balinese Massage,6,145000,320000,400000
 Sanur,Facial,9,320000,385000,1300000
 Seminyak,Balinese Massage,5,159000,250000,850000
 Seminyak,Couple Massage,8,319000,499000,1650000
@@ -49,14 +57,14 @@ Seseh,Foot Massage,2,540000,540000,540000
 Singaraja Bali,Facial,2,110000,175000,240000
 Singaraja Bali,Foot Massage,2,160000,185000,210000
 South Bali,Foot Massage,2,200000,250000,300000
-Ubud,Balinese Massage,10,230000,550000,1215000
+Ubud,Balinese Massage,23,125000,270000,3491000
 Ubud,Couple Massage,7,460000,750000,1490000
-Ubud,Deep Tissue,2,250000,732500,1215000
-Ubud,Facial,5,250000,350000,900000
+Ubud,Deep Tissue,8,240000,350000,1215000
+Ubud,Facial,23,140000,390000,1490000
 Ubud,Foot Massage,9,95000,190000,600000
-Uluwatu,Balinese Massage,8,190000,300000,1000000
-Uluwatu,Couple Massage,3,700000,700000,4200000
+Uluwatu,Balinese Massage,11,190000,300000,1000000
+Uluwatu,Couple Massage,6,400000,1225000,4200000
 Uluwatu,Deep Tissue,6,220000,400000,1150000
-Uluwatu,Facial,2,275000,737500,1200000
-Uluwatu,Foot Massage,9,115000,180000,250000
-priority5,Foot Massage,2,370000,385000,400000
+Uluwatu,Facial,10,275000,860000,1400000
+Uluwatu,Foot Massage,10,115000,165000,250000
+Umalas,Facial,2,190000,190000,190000

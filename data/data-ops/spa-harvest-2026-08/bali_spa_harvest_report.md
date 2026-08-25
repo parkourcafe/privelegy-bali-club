@@ -1,6 +1,6 @@
 # Bali Massage & Spa — Harvest Report
 
-Generated 2026-08-25T01:39:11+00:00 · Other Bali · source: Firecrawl multi-pattern discovery + own-site crawl
+Generated 2026-08-25T04:45:31+00:00 · Other Bali · source: Firecrawl multi-pattern discovery + own-site crawl
 
 ## Coverage
 
@@ -8,33 +8,33 @@ Generated 2026-08-25T01:39:11+00:00 · Other Bali · source: Firecrawl multi-pat
 |---|---|
 | Raw discovery hits | 525 + weak-area second pass |
 | Unique venue domains after filtering | 208 |
-| **Venues in the database** | **250** |
-| VERIFIED | 124 |
-| PARTIAL | 99 |
-| REVIEW (needs a human) | 27 |
-| Excluded with a recorded reason | 171 |
+| **Venues in the database** | **324** |
+| VERIFIED | 161 |
+| PARTIAL | 129 |
+| REVIEW (needs a human) | 34 |
+| Excluded with a recorded reason | 299 |
 | Duplicates merged | 5 |
 
 ## Services
 
 | | |
 |---|---|
-| **Total services extracted** | **4032** |
-| Venues with structured services | 223 (89%) |
-| Services with a price | 2391 (59%) |
-| Services with a duration | 2619 (65%) |
-| Venues with prices | 136 (54%) |
+| **Total services extracted** | **5133** |
+| Venues with structured services | 290 (90%) |
+| Services with a price | 3129 (61%) |
+| Services with a duration | 3357 (65%) |
+| Venues with prices | 177 (55%) |
 
 ## Booking
 
 | Provider | Venues |
 |---|---|
-| unknown | 109 |
-| website_form | 87 |
-| whatsapp | 33 |
-| fresha | 12 |
-| zenoti | 4 |
-| custom | 3 |
+| unknown | 140 |
+| website_form | 115 |
+| whatsapp | 41 |
+| fresha | 14 |
+| custom | 7 |
+| zenoti | 5 |
 | email | 1 |
 | wetravel | 1 |
 
@@ -42,10 +42,10 @@ Generated 2026-08-25T01:39:11+00:00 · Other Bali · source: Firecrawl multi-pat
 
 | Level | Venues | Share |
 |---|---|---|
-| direct booking | 171 | 68% |
-| no online booking | 37 | 15% |
-| WhatsApp only | 26 | 10% |
-| full booking engine | 16 | 6% |
+| direct booking | 218 | 67% |
+| no online booking | 49 | 15% |
+| WhatsApp only | 38 | 12% |
+| full booking engine | 19 | 6% |
 
 ## Data quality
 
@@ -53,57 +53,59 @@ Generated 2026-08-25T01:39:11+00:00 · Other Bali · source: Firecrawl multi-pat
 |---|---|
 | Website | 100% |
 | Phone | 52% |
-| WhatsApp | 49% |
-| Address | 60% |
-| Opening hours | 53% |
-| Booking URL | 75% |
-| Structured services | 89% |
-| Prices | 54% |
-| ≥2 evidence sources | 92% |
+| WhatsApp | 48% |
+| Address | 61% |
+| Opening hours | 51% |
+| Booking URL | 73% |
+| Structured services | 90% |
+| Prices | 55% |
+| ≥2 evidence sources | 93% |
 
 ## Geography
 
 | Area | Venues |
 |---|---|
-| priority5 | 54 |
+| Ubud | 29 |
+| Canggu | 17 |
+| Uluwatu | 16 |
+| Legian | 16 |
 | Nusa Dua | 14 |
-| Legian | 13 |
-| Ubud | 12 |
-| Uluwatu | 11 |
-| Canggu | 10 |
+| Sanur | 13 |
+| Pererenan | 11 |
+| Seminyak | 10 |
 | Jimbaran | 10 |
 | Candidasa | 10 |
-| Pererenan | 9 |
-| Seminyak | 9 |
+| Petitenget | 10 |
+| Berawa | 9 |
 | Lovina | 9 |
 | Munduk | 9 |
 | Sidemen | 9 |
 | Gianyar | 8 |
+| Kerobokan | 8 |
+| Ungasan | 8 |
 | Amed | 8 |
-| Berawa | 7 |
-| Sanur | 7 |
-| Kerobokan | 6 |
+| Balangan | 7 |
 | Benoa | 6 |
+| Pecatu | 6 |
 | Seseh | 6 |
+| Tabanan | 6 |
 | Kuta | 5 |
 | Padangbai | 5 |
 | Denpasar | 5 |
 | Bedugul | 5 |
-| Pecatu | 4 |
-| Ungasan | 4 |
-| Petitenget | 4 |
-| Tabanan | 4 |
-| Tegallalang | 3 |
+| Tegallalang | 4 |
+| Umalas | 4 |
+| Bingin | 4 |
 
 ## MVP readiness
 
 | Flag | Venues |
 |---|---|
-| publish_ready | 250 |
-| service_data_ready | 223 |
-| price_data_ready | 136 |
-| booking_ready | 124 |
-| **merchant_opportunity** | **27** |
+| publish_ready | 324 |
+| service_data_ready | 290 |
+| price_data_ready | 177 |
+| booking_ready | 159 |
+| **merchant_opportunity** | **42** |
 
 ## What is NOT in this database, and why
 

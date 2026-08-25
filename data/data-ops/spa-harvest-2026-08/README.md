@@ -3,30 +3,43 @@
 Collected with Firecrawl from each venue's **own website** (never an aggregator,
 never review platforms — guardrail #2). Every row carries its `source_url`.
 
-## How to apply
+## How to apply — ORDER MATTERS
 
-Run in the Supabase SQL editor, in this order. Each file is idempotent: a
-re-run inserts nothing, because every statement is guarded on "this venue does
-not already have a menu of this kind".
+Run in the Supabase SQL editor, **in this order**. Each file is idempotent: a
+re-run inserts nothing, because every statement is guarded on "this row does
+not already exist".
 
-1. `food_00.sql` … `food_09.sql` — **241 food menus**, 6 495 items.
-2. `spa_00.sql` … `spa_04.sql` — **108 spa price lists** onto venues we already
-   publish, matched by website domain.
-3. `new_venue_cards.sql` — **198 new spa/wellness venue records**.
+### 1. `new_venue_cards.sql` — 257 new spa/wellness venue records
 
-### Why each menu is inserted as a draft first
+**This must run first.** Of the 139 spa price lists in step 2, only 32 belong
+to venues already on the site; the other 107 attach to venues this file
+creates. Run it second and those 107 silently insert nothing.
 
-`validate_source_snapshot_transition()` (production trigger, in no migration in
-this repo) refuses `status = 'source_snapshot'` unless the menu already has
-sections **and** items, and refuses any item carrying dietary tags, allergen
-tags, `partner_recommended`, `editorial_pick` or an editorial note. A
-data-modifying CTE cannot see its own inserts, so each file inserts the menu as
-`draft`, adds sections and items, then promotes every draft it created in a
-final `update`. That promotion is scoped by `created_at >= <run timestamp>`, so
-it cannot touch a pre-existing draft.
+### 2. `ALL_spa.sql` — 139 spa price lists
 
-`menus_source_snapshot_marker_check` also forbids `source_snapshot_published_at`
-on a draft, which is why the marker is set only in the promotion step.
+Attaches each list to its venue, matched by website domain.
+
+### Already applied on 2026-08-25
+
+`food_00.sql` … `food_09.sql` — 241 food menus, 6 495 items. Kept for the
+record; re-running them is harmless but pointless.
+
+### Two production rules these files work around
+
+`validate_source_snapshot_transition()` (in no migration in this repo) refuses
+`status = 'source_snapshot'` unless the menu already has sections **and**
+items, and refuses any item carrying dietary tags, allergen tags,
+`partner_recommended`, `editorial_pick` or an editorial note. A data-modifying
+CTE cannot see its own inserts, so each file inserts the menu as `draft`, adds
+sections and items, then promotes every draft it created in a final `update`,
+scoped by `created_at >= <run timestamp>` so it cannot touch a pre-existing
+draft. `menus_source_snapshot_marker_check` also forbids
+`source_snapshot_published_at` on a draft, which is why the marker is set only
+in that promotion step.
+
+`menus_venue_slug_version_key` is unique on `(venue_slug, version)` across all
+kinds, so a venue that already has a food menu needs the next version for its
+spa list — the files compute `max(version) + 1` rather than hardcoding 1.
 
 ## What the snapshots claim, and what they do not
 
