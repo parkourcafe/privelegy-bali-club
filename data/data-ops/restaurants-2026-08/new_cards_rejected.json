@@ -2,12 +2,12 @@
  {
   "name": "Braud Cafe Seminyak",
   "website": "https://baliholidaysecrets.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "fewer than 3 menu items of any kind — not enough to publish"
  },
  {
   "name": "Unnamed Restaurant",
   "website": "https://bali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://bali.com)"
  },
  {
   "name": "Royal Cuisine Restaurant (Uttara)",
@@ -17,17 +17,7 @@
  {
   "name": "Mr. Parker's Menu",
   "website": "https://linktr.ee",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Melons",
-  "website": "https://lifestyleretreats.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Sundara",
-  "website": "https://sundarabali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://linktr.ee)"
  },
  {
   "name": "True Food Kitchen",
@@ -37,17 +27,17 @@
  {
   "name": "The Avocado Factory",
   "website": "https://travel-lush.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://travel-lush.com)"
  },
  {
   "name": "Kilo Bali",
   "website": "https://girleatworld.net",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://girleatworld.net)"
  },
  {
   "name": "Revolver Cafe",
   "website": "https://dressedincopper.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://dressedincopper.com)"
  },
  {
   "name": "AT59",
@@ -55,39 +45,14 @@
   "reason": "official_url is a document/social host, not the venue's own site (https://balifoodandtravel.com)"
  },
  {
-  "name": "Mades Warung",
-  "website": "https://madeswarung.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "This Is Bali",
-  "website": "https://thisbali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
   "name": "Warung d’Carik",
   "website": "https://roadiscalling.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Kafe",
-  "website": "https://kafe-bali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Hidden Gem Uluwatu",
-  "website": "https://hiddengemuluwatu.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "The Cave Restaurant",
-  "website": "https://theedgebali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://roadiscalling.com)"
  },
  {
   "name": "Over the Moon Bali",
   "website": "https://overthemoonbali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "fewer than 3 menu items of any kind — not enough to publish"
  },
  {
   "name": "Warung Sambal Locok",
@@ -97,32 +62,12 @@
  {
   "name": "Chick-Fil-A",
   "website": "https://hayleyonholiday.com",
-  "reason": "venue's own area does not match a known Bali district (los angeles)"
- },
- {
-  "name": "The ONE Legian Hotel",
-  "website": "https://theonelegian.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Makan Place",
-  "website": "https://makanplacebali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Kekeb Restaurant",
-  "website": "https://kekebrestaurant.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://hayleyonholiday.com)"
  },
  {
   "name": "Bali Untold",
   "website": "https://baliuntold.com",
   "reason": "official_url is a document/social host, not the venue's own site (https://baliuntold.com)"
- },
- {
-  "name": "Santai Beach House",
-  "website": "https://santaibeachbali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
  },
  {
   "name": "Jimbaran Seafood Dinner",
@@ -137,7 +82,7 @@
  {
   "name": "Cafes in Jimbaran",
   "website": "https://banbanjara.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://banbanjara.com)"
  },
  {
   "name": "Jimbaran",
@@ -147,61 +92,36 @@
  {
   "name": "Opia Bali",
   "website": "https://opiabali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Bella",
-  "website": "https://bellacanggu.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "fewer than 3 menu items of any kind — not enough to publish"
  },
  {
   "name": "Pison Petitenget",
   "website": "https://danielfooddiary.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "menjamu",
-  "website": "https://menjamu.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://danielfooddiary.com)"
  },
  {
   "name": "Newquay Brunch Spots",
   "website": "https://weareglobaltravellers.com",
-  "reason": "venue's own area does not match a known Bali district (newquay)"
- },
- {
-  "name": "Gather",
-  "website": "https://gatherbali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://weareglobaltravellers.com)"
  },
  {
   "name": "NUI Healthy Food",
   "website": "https://makanmood.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://makanmood.com)"
  },
  {
   "name": "Warung Sika",
   "website": "https://balivillaescapes.com.au",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://balivillaescapes.com.au)"
  },
  {
   "name": "Bennelong Restaurant",
   "website": "https://smh.com.au",
-  "reason": "venue's own area is outside Bali (sydney)"
- },
- {
-  "name": "Uma Garden",
-  "website": "https://umagardenbali.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://smh.com.au)"
  },
  {
   "name": "Villa Songket",
   "website": "https://villasongket.com",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
- },
- {
-  "name": "Dua Umalas",
-  "website": "https://duaumalas.shop",
-  "reason": "fewer than 3 priced menu items — not enough to publish a price fact"
+  "reason": "official_url is a document/social host, not the venue's own site (https://villasongket.com)"
  }
 ]
