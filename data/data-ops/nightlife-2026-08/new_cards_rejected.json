@@ -1,0 +1,167 @@
+[
+ {
+  "name": "Segno",
+  "website": "https://balihoneymoon.com",
+  "reason": "official_url (https://balihoneymoon.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "FINNS Beach Club",
+  "website": "https://bestbeachclubsbali.com",
+  "reason": "official_url (https://bestbeachclubsbali.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Kuta Nightlife",
+  "website": "https://getyourguide.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://www.getyourguide.com/seminyak-l95096/nightlife-bars-)"
+ },
+ {
+  "name": "Sundays Beach Club",
+  "website": "https://stokedtotravel.com",
+  "reason": "official_url (https://stokedtotravel.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Bali Beach Club Pass",
+  "website": "https://balibeachclubpass.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://balibeachclubpass.com/)"
+ },
+ {
+  "name": "Eden Hookah Club",
+  "website": "https://edenhookah.com",
+  "reason": "venue's own area does not match a known Bali district (semenyak)"
+ },
+ {
+  "name": "Eden",
+  "website": "https://taplink.cc",
+  "reason": "venue's own site lists multiple districts, no single address to anchor one card (seminyak | canggu | ubud | uluwatu)"
+ },
+ {
+  "name": "Misha Shisha Ubud",
+  "website": "https://where2smoke.net",
+  "reason": "official_url (https://where2smoke.net) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Little Havana",
+  "website": "https://bestbarbali.com",
+  "reason": "official_url (https://bestbarbali.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Potato Head Beach Club",
+  "website": "https://nomadotravel.app",
+  "reason": "official_url (https://nomadotravel.app) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Zumana Beach Club",
+  "website": "https://elsky-bali.com",
+  "reason": "official_url (https://elsky-bali.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Mosto",
+  "website": "https://threesixtyguides.com",
+  "reason": "official_url (https://threesixtyguides.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Atlas Super Club",
+  "website": "https://kkday.com",
+  "reason": "official_url (https://kkday.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "House of HEALS",
+  "website": "https://klook.com",
+  "reason": "venue's own area is outside Bali (bangkok)"
+ },
+ {
+  "name": "Warung Shisha by Mikata",
+  "website": "https://shishamikata.wixsite.com",
+  "reason": "official_url is a document/social host, not the venue's own site (https://shishamikata.wixsite.com)"
+ },
+ {
+  "name": "Conqueror Ubud - Warung Shisha",
+  "website": "https://bali.live",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://bali.live/places?types=70)"
+ },
+ {
+  "name": "Friends Bar",
+  "website": "https://friendsbarbali.com",
+  "reason": "no own-site evidence for district (canggu) -- came only from the search target"
+ },
+ {
+  "name": "Canggu Nightlife",
+  "website": "https://thebeatbali.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://thebeatbali.com/canggu/canggu-nightlife/)"
+ },
+ {
+  "name": "Habibi Bali, Food & Shisha",
+  "website": "https://see.events",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://www.see.events/french/i/78992105/habibi-bali)"
+ },
+ {
+  "name": "La Brisa Beach Club",
+  "website": "https://corlutravels.com",
+  "reason": "official_url (https://corlutravels.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Echo Beach Club",
+  "website": "https://baliluxuryvillas.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://www.baliluxuryvillas.com/locations/bali/night-life/e)"
+ },
+ {
+  "name": "The Sky Garden Bali",
+  "website": "https://baliskygarden.com",
+  "reason": "no own-site evidence for district (kuta-legian) -- came only from the search target"
+ },
+ {
+  "name": "Uluwatu Beach Clubs",
+  "website": "https://baliholidaysecrets.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://www.baliholidaysecrets.com/bali-nightlife/)"
+ },
+ {
+  "name": "Hookah Plane",
+  "website": "https://yandex.com",
+  "reason": "venue's own area does not match a known Bali district (belgrade)"
+ },
+ {
+  "name": "Savaya",
+  "website": "https://savaya.com",
+  "reason": "no own-site evidence for district (uluwatu-bukit) -- came only from the search target"
+ },
+ {
+  "name": "Hatch Bali",
+  "website": "https://hatchuluwatu.com",
+  "reason": "no priced items, no vibe description, no cover/day-pass fact — nothing to publish"
+ },
+ {
+  "name": "Single Fin",
+  "website": "https://musicinparadise.com.au",
+  "reason": "official_url (https://musicinparadise.com.au) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "CP Lounge Ubud Bali",
+  "website": "https://cp-lounge.com",
+  "reason": "official_url (https://cp-lounge.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Utopia Cave Club",
+  "website": "https://lunabeachclubbali.com",
+  "reason": "official_url (https://lunabeachclubbali.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Cretya Ubud",
+  "website": "https://alasharum.com",
+  "reason": "source is a booking/tour/editorial platform, not the venue's own site (https://alasharum.com/en/cretya-ubud/day-clubs)"
+ },
+ {
+  "name": "SHISHA GARDEN LOUNGE UBUD",
+  "website": "https://mamulounge.com",
+  "reason": "official_url (https://mamulounge.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "Canna Bali Beach Club",
+  "website": "https://waug.com",
+  "reason": "official_url (https://waug.com) doesn't relate to the venue's own name — likely a third party's write-up about it, not its own site"
+ },
+ {
+  "name": "CUBE Lounge",
+  "website": "https://cubebali.id",
+  "reason": "no own-site evidence for district (jimbaran) -- came only from the search target"
+ }
+]
