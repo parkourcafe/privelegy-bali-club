@@ -15,6 +15,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   attraction: "Attraction",
   activity: "Activity",
   rental: "Vehicle rental",
+  nightclub: "Nightclub",
+  hookah_lounge: "Hookah lounge",
 };
 
 const SCHEMA_TYPES: Record<string, string> = {
@@ -34,6 +36,8 @@ const SCHEMA_TYPES: Record<string, string> = {
   attraction: "TouristAttraction",
   activity: "TouristAttraction",
   rental: "AutoRental",
+  nightclub: "NightClub",
+  hookah_lounge: "BarOrPub",
 };
 
 export function venueCategoryLabel(category: string): string {

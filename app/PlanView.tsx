@@ -16,6 +16,8 @@ const categoryLabel: Record<string, string> = {
   bar: "Bar",
   surf: "Surf",
   rental: "Vehicle rental",
+  nightclub: "Nightclub",
+  hookah_lounge: "Hookah lounge",
 };
 
 export default function PlanView({

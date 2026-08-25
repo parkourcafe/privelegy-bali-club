@@ -14,6 +14,8 @@ const categoryLabel: Record<string, string> = {
   bar: "Bar",
   surf: "Surf",
   rental: "Vehicle rental",
+  nightclub: "Nightclub",
+  hookah_lounge: "Hookah lounge",
 };
 
 // A shared list is private-by-link and read-only — keep it out of the index.
