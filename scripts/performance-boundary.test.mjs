@@ -143,6 +143,9 @@ test("routes are pre-generated and public plan and Uluwatu reads revalidate", as
   assert.doesNotMatch(plan, /force-dynamic/);
   assert.match(uluwatu, /export const revalidate = 300/);
   assert.doesNotMatch(uluwatu, /force-dynamic/);
+  assert.doesNotMatch(uluwatu, /notFound/);
+  assert.doesNotMatch(uluwatu, /getPublishedVenues/);
+  assert.doesNotMatch(uluwatu, /publishedUluwatuVenues/);
 });
 
 test("homepage keeps the global header and Explore mega-menu available", async () => {

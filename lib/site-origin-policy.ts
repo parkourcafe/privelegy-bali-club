@@ -1,9 +1,26 @@
+export const OTHER_BALI_BRAND_NAME = "Other Bali";
+export const OTHER_BALI_APEX_HOST = "otherbali.com";
+export const OTHER_BALI_CANONICAL_HOST = "www.otherbali.com";
+export const OTHER_BALI_CONTACT_EMAIL = "hello@otherbali.com";
+export const CANONICAL_SITE_ORIGIN = `https://${OTHER_BALI_CANONICAL_HOST}`;
+
 const PRODUCTION_ORIGINS = new Set([
-  "https://otherbali.com",
-  "https://www.otherbali.com",
+  `https://${OTHER_BALI_APEX_HOST}`,
+  CANONICAL_SITE_ORIGIN,
 ]);
 
-export const CANONICAL_SITE_ORIGIN = "https://www.otherbali.com";
+export const OTHER_BALI_SITE_FACTS = {
+  brandName: OTHER_BALI_BRAND_NAME,
+  canonicalUrl: CANONICAL_SITE_ORIGIN,
+  contactEmail: OTHER_BALI_CONTACT_EMAIL,
+  market: "Bali, Indonesia",
+  primaryLanguage: "en",
+  audience:
+    "Travellers planning Bali days, routes, places to eat, beach clubs, wellness, stays, and trip logistics.",
+  businessModel:
+    "Free traveller guide and planning product; selected venue and property partners can submit or maintain listings.",
+  lastVerifiedAt: "2026-08-25",
+} as const;
 
 function normalizedHostname(value: string | null | undefined): string {
   const host = (value ?? "").split(",", 1)[0].trim().toLowerCase();
@@ -17,7 +34,7 @@ function normalizedHostname(value: string | null | undefined): string {
 
 export function isCanonicalProductionHost(value: string | null | undefined): boolean {
   const hostname = normalizedHostname(value);
-  return hostname === "www.otherbali.com" || hostname === "otherbali.com";
+  return hostname === OTHER_BALI_CANONICAL_HOST || hostname === OTHER_BALI_APEX_HOST;
 }
 
 export function isVercelDeploymentHost(value: string | null | undefined): boolean {

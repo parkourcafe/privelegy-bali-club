@@ -21,7 +21,9 @@ export default function OtherBaliLogo({
       aria-label="OTHER BALI"
       style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}
     >
+      <span className="sr-only">Other Bali</span>
       <span
+        aria-hidden="true"
         style={{
           boxSizing: "border-box",
           width: size,
@@ -44,6 +46,7 @@ export default function OtherBaliLogo({
         />
       </span>
       <span
+        aria-hidden="true"
         style={{
           font: `400 ${font.toFixed(1)}px/0.8 var(--font-gloock), Georgia, serif`,
           color,

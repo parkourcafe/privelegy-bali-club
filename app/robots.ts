@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
 
 // Tourist surfaces are indexable; operational surfaces are not. Redemption
 // pages carry an explicit noindex directive and must remain crawlable so search
@@ -15,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/partner/", "/onboard/", "/api/", "/me", "/list/", "/review"],
       },
     ],
-    sitemap: "https://www.otherbali.com/sitemap.xml",
+    sitemap: `${CANONICAL_SITE_ORIGIN}/sitemap.xml`,
   };
 }

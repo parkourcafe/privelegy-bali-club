@@ -15,7 +15,7 @@ import { VILLAS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 // marketplace checkout, owner approves before anything publishes.
 
 export const metadata: Metadata = {
-  title: "For villas — partner with Other Bali",
+  title: { absolute: "For villas — partner with Other Bali" },
   description:
     "Independent villa or boutique stay in Bali? Partner with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — completely free.",
   alternates: { canonical: "/villas" },

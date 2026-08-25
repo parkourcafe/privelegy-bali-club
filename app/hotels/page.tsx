@@ -20,7 +20,7 @@ import { HOTELS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 // deliberately NOT reproduced; photos are honest empty placeholders (§5).
 
 export const metadata: Metadata = {
-  title: "Partner your hotel with Other Bali",
+  title: { absolute: "Partner your hotel with Other Bali" },
   description:
     "Hotel, resort or boutique property in Bali? Partner with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — for your rooms and your restaurant, pool, spa and day pass. Completely free.",
   alternates: { canonical: "/hotels" },
