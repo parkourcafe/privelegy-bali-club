@@ -53,9 +53,17 @@ const CONCURRENCY = 6;
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36 OtherBali-listing-preview";
 
-async function fetchImage(url) {
+async function fetchImage(url, referer) {
   const res = await fetch(url, {
-    headers: { "user-agent": UA, accept: "image/*,*/*" },
+    headers: {
+      "user-agent": UA,
+      accept: "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+      "accept-language": "en-US,en;q=0.9",
+      // Many CDNs serve an image only when the request looks like it came from
+      // the page that embeds it. Firecrawl saw these URLs from inside the page,
+      // so without these two headers the same URL 403s when fetched cold.
+      ...(referer ? { referer, origin: new URL(referer).origin } : {}),
+    },
     redirect: "follow",
     signal: AbortSignal.timeout(30_000),
   });
@@ -65,10 +73,20 @@ async function fetchImage(url) {
   return buf;
 }
 
+async function fetchImageEitherWay(url, referer) {
+  try {
+    return await fetchImage(url, referer);
+  } catch (e) {
+    // A few CDNs reject a cross-origin referer instead of requiring one.
+    return await fetchImage(url, null);
+  }
+}
+
 async function processVenue(v) {
+  const errors = [];
   for (const imgUrl of v.candidates) {
     try {
-      const raw = await fetchImage(imgUrl);
+      const raw = await fetchImageEitherWay(imgUrl, v.official_url);
       const meta = await sharp(raw).metadata();
       if ((meta.width ?? 0) < 400) throw new Error("too_small");
       const webp = await sharp(raw).rotate().resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 78 }).toBuffer();
