@@ -47,12 +47,22 @@ row whose `official_url` points somewhere unrelated.
 
 | | before | after |
 |---|---|---|
-| published photos | 1280 | 1446 |
-| missing, has `official_url` | 250 | 84 |
+| published photos | 1280 | **1475** |
+| missing, has `official_url` | 250 | **55** |
 | missing, no `official_url` | 105 | 105 |
-| **missing total** | **355** | **189** |
+| **missing total** | **355** | **160** |
+| share of live venues with a photo | 78.4% | **87.8%** |
 
-Firecrawl credits spent: ~440 (620 → ~176).
+Firecrawl credits spent: ~605 (620 → 15). The run stopped because credits ran
+out, not because the remaining venues were judged hopeless — invocation had to
+go through Firecrawl, so zero credits means no further calls are possible.
+
+## Function retired
+
+There is no delete tool on the MCP surface, so `tmp-photo-backfill` was replaced
+with an inert stub returning 410 and `verify_jwt` switched back ON — the
+anonymous token-gated endpoint no longer exists. Delete the function itself from
+the Supabase dashboard when convenient.
 
 ### One thing that cost a run for nothing
 
@@ -65,7 +75,21 @@ trick: without it you are reading the past.
 
 ## What is left, and why
 
-**84 venues that have an `official_url` but still no photo.** Split by cause:
+**55 venues that have an `official_url` but still no photo.** Split by cause,
+from the actual per-venue errors rather than an estimate:
+
+- **14 — the only image on the page is under the 12 KB floor.** Several are
+  right at the edge (9–12 KB). That floor is a crude proxy for "is this a real
+  photo or a logo"; the right fix is to parse the image header for actual pixel
+  dimensions and require e.g. width ≥ 600, which would admit the genuine small
+  photos and still reject icons. Not done — credits ran out first.
+- **9 — the CDN refuses any non-browser request** (403 even server-side with a
+  correct `Referer`; BunnyCDN and Four Seasons' asset host among them). No
+  fetch-based approach can get these, from any machine.
+- **3 — the image URL itself 404s.**
+- **1 — the asset is 38 MB** (over the size ceiling).
+- **The rest** were correctly refused by the "is this page actually this venue"
+  guard; see below.
 
 - **~25 have a wrong `official_url` in the database** and were deliberately not
   given a photo. See `wrong_official_url.md` — this is a data defect that
