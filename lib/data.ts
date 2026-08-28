@@ -168,8 +168,14 @@ function mapsSearchUrl(name: unknown, address: unknown): string {
   return buildGoogleMapsSearchUrl(query) ?? "https://www.google.com/maps";
 }
 
-function publicDirectionsUrl(r: Row): string {
-  return validateGoogleMapsUrl(r.gmaps_url) ?? mapsSearchUrl(r.name, r.address);
+function publicDirections(r: Row): {
+  url: string;
+  kind: NonNullable<Venue["mapsHandoffKind"]>;
+} {
+  const verified = validateGoogleMapsUrl(r.gmaps_url);
+  return verified
+    ? { url: verified, kind: "verified" }
+    : { url: mapsSearchUrl(r.name, r.address), kind: "search_fallback" };
 }
 
 function uniqueBy<T>(items: T[], keyOf: (item: T) => string): T[] {
@@ -205,6 +211,7 @@ function normalizePlanEntries(entries: PlanEntry[]): PlanEntry[] {
 
 const mapVenue = (r: Row): Venue => {
   const district = r.district as string;
+  const directions = publicDirections(r);
   const photoStatus = r.photo_status as string | null;
   const photoUrl = venuePhotoUrlForDisplay({
     photoUrl: r.photo_url as string | null,
@@ -221,7 +228,8 @@ const mapVenue = (r: Row): Venue => {
     // Never null downstream: a null address once 500'd all of /places via
     // v.address.toLowerCase() in the catalogue filter.
     address: (r.address as string) ?? "",
-    gmapsUrl: publicDirectionsUrl(r),
+    gmapsUrl: directions.url,
+    mapsHandoffKind: directions.kind,
     officialUrl: (r.official_url as string) ?? undefined,
     instagramUrl: normalizeInstagramProfileUrl(r.instagram_url) ?? undefined,
     // Canonical jsonb first. The strict legacy fallback is temporary

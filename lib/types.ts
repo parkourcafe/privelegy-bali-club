@@ -43,6 +43,11 @@ export interface Venue {
   district: string; // district slug
   address: string;
   gmapsUrl: string;
+  // `gmapsUrl` always remains a usable handoff for the visitor. This marker
+  // distinguishes a source-backed URL from the safe search fallback generated
+  // when the database value is absent or invalid, so publication diagnostics
+  // never mistake fallback UX for verified evidence.
+  mapsHandoffKind?: "verified" | "search_fallback";
   officialUrl?: string; // venue's own website — used for schema sameAs (entity signal)
   instagramUrl?: string; // official IG — used for schema sameAs
   openingHours?: string; // verified schema.org syntax, mapped at the data boundary

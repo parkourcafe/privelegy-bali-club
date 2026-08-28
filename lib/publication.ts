@@ -113,7 +113,12 @@ export function assessVenuePublication(v: Venue): VenuePublicationAssessment {
   }
 
   if (!hasText(v.address)) issues.push("missing_address");
-  if (!validateGoogleMapsUrl(v.gmapsUrl)) issues.push("missing_verified_map");
+  if (
+    v.mapsHandoffKind === "search_fallback" ||
+    !validateGoogleMapsUrl(v.gmapsUrl)
+  ) {
+    issues.push("missing_verified_map");
+  }
   if (!publicVenueEditorialText(v.whyItsHere)) issues.push("missing_editorial_reason");
   if (!publicVenueEditorialText(v.bestFor)) issues.push("missing_best_for");
   if (!hasOfferingAnchor(v)) issues.push("missing_offering_anchor");

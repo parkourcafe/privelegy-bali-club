@@ -1,7 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { nanoid } from "nanoid";
 import { configuredReviewToken, hasBasicAccess } from "@/lib/admin-auth";
-import { isIdentityFreePublicPath } from "@/lib/public-request-policy";
 import {
   REQUEST_ID_HEADER,
   createRequestCorrelationId,
@@ -17,17 +15,6 @@ import {
 import { DEFAULT_LOCALE, LOCALE_COOKIE, LOCALE_HEADER, isPublicLocale } from "@/lib/i18n/locales";
 
 const REVIEW_REALM = "Other Bali App Review";
-
-function setGuestCookie(req: NextRequest, res: NextResponse) {
-  if (req.cookies.get("bp_guest")) return;
-  res.cookies.set("bp_guest", "g_" + nanoid(16), {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-  });
-}
 
 function isReviewPath(pathname: string): boolean {
   return pathname === "/review" || pathname.startsWith("/review/");
@@ -52,10 +39,6 @@ function reviewChallenge(): NextResponse {
   });
 }
 
-// Guardrail #10: the anonymous GuestRef lives in a server-set httpOnly cookie,
-// not localStorage. Set it on the first document request so every later fetch
-// (source/event/redeem/dish) shares one stable id — no client-side identity, no
-// races between concurrent first calls.
 // (Next 16: this is the `proxy` file convention, formerly `middleware`.)
 export function proxy(req: NextRequest) {
   // Admin authorization is enforced in the server layout/actions so both
@@ -108,13 +91,6 @@ export function proxy(req: NextRequest) {
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
   requestHeaders.set(LOCALE_HEADER, locale);
   const res = NextResponse.next({ request: { headers: requestHeaders } });
-  if (!isPublicLocale(cookieLocale)) {
-    res.cookies.set(LOCALE_COOKIE, locale, {
-      maxAge: 60 * 60 * 24 * 365,
-      sameSite: "lax",
-      path: "/",
-    });
-  }
   if (shouldNoindexHost({ host, vercelEnv })) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
@@ -123,7 +99,6 @@ export function proxy(req: NextRequest) {
     res.headers.set("Referrer-Policy", "no-referrer");
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
-  if (!isIdentityFreePublicPath(req.nextUrl.pathname)) setGuestCookie(req, res);
   return responseWithCorrelationId(res, requestId);
 }
 

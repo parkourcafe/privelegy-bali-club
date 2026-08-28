@@ -12,21 +12,42 @@ import { liveCollectionSlugs } from "@/lib/collections";
 import { staticLastModified, validLastModified } from "@/lib/seo/sitemap-last-modified";
 import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
 import { canonicalProgrammaticDistrictHubs } from "@/lib/seo/canonical-district-hubs";
-
-// Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
-// several Supabase reads, and a per-request rebuild is needless load on a hot
-// endpoint. Newly published venues/districts still appear within the hour.
-export const revalidate = 3600;
+import { isSitemapSection, type SitemapSection } from "@/lib/seo/sitemap-index";
 
 const BASE = CANONICAL_SITE_ORIGIN;
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+function sectionForPath(pathname: string): SitemapSection {
+  const guidePaths = new Set([
+    "/guides",
+    ...GUIDES.map((guide) => `/${guide.slug}`),
+    ...PILLARS.flatMap((pillar) => [`/${pillar.slug}`, ...pillar.children.map((child) => child.path)]),
+  ]);
+  const offerPaths = new Set(RESORT_FNB_PAGES.map((page) => page.url));
+
+  if (pathname === "/places" || pathname.startsWith("/places/")) return "places";
+  if (guidePaths.has(pathname)) return "guides";
+  if (pathname.startsWith("/route/")) return "routes";
+  if (pathname === "/collections" || pathname.startsWith("/collections/")) return "collections";
+  if (
+    offerPaths.has(pathname)
+    || pathname === "/hotel-restaurants"
+    || pathname.endsWith("/hotel-restaurants")
+    || pathname.startsWith("/day-passes/")
+    || pathname.startsWith("/brunches/")
+  ) return "offers";
+  return "content";
+}
+
+export async function buildSectionSitemap(section: string): Promise<MetadataRoute.Sitemap> {
+  if (!isSitemapSection(section)) return [];
+  // Each child route reads only the inventory it owns. This keeps sitemap
+  // segmentation from multiplying the previous all-in-one Supabase workload.
   const [routes, hubs, spokes, catalogue, collectionSlugs] = await Promise.all([
-    getRoutes(),
-    getDistrictHubs(),
-    getIntentSpokes(),
-    getPublishedVenues(),
-    liveCollectionSlugs(),
+    section === "routes" ? getRoutes() : [],
+    section === "content" ? getDistrictHubs() : [],
+    section === "content" ? getIntentSpokes() : [],
+    section === "places" ? getPublishedVenues() : [],
+    section === "collections" ? liveCollectionSlugs() : [],
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenues = catalogue.filter(isVenueIndexable);
@@ -42,6 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/support`, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${BASE}/together`, changeFrequency: "monthly", priority: 0.5 },
     // Venue self-submission intake ("add your place") — owners search for this.
     { url: `${BASE}/for-venues`, changeFrequency: "monthly", priority: 0.5 },
     // Villa partner page — villa managers search "list my villa Bali guide".
@@ -166,5 +188,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return lastModified && !entry.lastModified
       ? { ...entry, lastModified }
       : entry;
-  });
+  }).filter((entry) => sectionForPath(new URL(entry.url).pathname) === section);
 }

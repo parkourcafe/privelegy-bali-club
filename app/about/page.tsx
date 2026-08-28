@@ -6,7 +6,7 @@ import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
 export const metadata: Metadata = {
   title: "About Other Bali",
   description:
-    "How Other Bali selects places, verifies changing facts and keeps editorial recommendations separate from sponsorship.",
+    "How Other Bali selects places, verifies changing facts and protects editorial recommendations from paid placement.",
   alternates: { canonical: "/about" },
   openGraph: {
     url: `${CANONICAL_SITE_ORIGIN}/about`,
@@ -98,9 +98,7 @@ export default function AboutPage() {
           <h2>Editorial order cannot be bought</h2>
           <div className="guide-prose">
             <p>
-              Organic recommendations are selected for traveller fit. Sponsored
-              visibility is separate, labelled and does not enter the organic
-              ranking as a quality signal.
+              Organic recommendations are selected for traveller fit. We do not sell sponsored placement, paid visibility or organic ranking.
             </p>
           </div>
         </section>

@@ -154,6 +154,15 @@ export function validateWhatsAppPhone(value: unknown): string | null {
   return typeof value === "string" && INTERNATIONAL_PHONE.test(value) ? value : null;
 }
 
+export function publicPhoneHref(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const text = value.trim();
+  if (!/^\+?[\d\s().-]+$/.test(text)) return null;
+  const digits = text.replace(/\D/g, "");
+  if (digits.length < 7 || digits.length > 15) return null;
+  return `tel:${text.startsWith("+") ? "+" : ""}${digits}`;
+}
+
 export function whatsAppPhoneFromUrl(value: unknown): string | null {
   const url = parseSafeHttpsUrl(value);
   if (!url) return null;

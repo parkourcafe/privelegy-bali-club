@@ -29,6 +29,10 @@ test("suppresses import placeholders and internal notes from public editorial co
     publicVenueEditorialText("  Quiet courtyard for an unhurried lunch.  "),
     "Quiet courtyard for an unhurried lunch.",
   );
+  assert.equal(
+    publicVenueEditorialText("A seafood grill in Kuta; Legian."),
+    "A seafood grill in Kuta, Legian.",
+  );
 });
 
 test("presents villa venues with lodging metadata and the existing hotel cover", () => {

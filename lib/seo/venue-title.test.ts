@@ -10,7 +10,7 @@ test("deduplicates district names case-insensitively", () => {
       district: "ubud",
       area: "Ubud",
     }),
-    "Example — Villa in Ubud",
+    "Example — Villa in Ubud · Other Bali",
   );
 });
 
@@ -22,7 +22,7 @@ test("does not repeat a district already named by a micro-area", () => {
       district: "Ubud",
       area: "Pejeng, near Ubud",
     }),
-    "Big Dragon Villas Ubud — Villa in Pejeng, near Ubud",
+    "Big Dragon Villas Ubud — Villa in Ubud · Other Bali",
   );
 });
 
@@ -36,4 +36,17 @@ test("uses a shorter factual variant before exceeding the SERP target", () => {
 
   assert.equal(title.length <= 60, true);
   assert.match(title, /^A Considerably Longer Restaurant Name/);
+  assert.match(title, / · Other Bali$/);
+  assert.equal(title.match(/Other Bali/g)?.length, 1);
+});
+
+test("truncates an unusually long venue name without exceeding the final title budget", () => {
+  const title = buildCompactVenueTitle({
+    name: "An Exceptionally Long Official Venue Name That Cannot Fit Any Normal Search Result",
+    category: "restaurant",
+    district: "Seminyak",
+  });
+
+  assert.equal(title.length <= 60, true);
+  assert.match(title, /… · Other Bali$/);
 });

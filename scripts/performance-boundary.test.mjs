@@ -21,10 +21,39 @@ test("published reads are cached while guest identity remains outside cache scop
   assert.doesNotMatch(source, /reactCache\(\s*getSavedSlugs/);
 });
 
+test("ordinary document navigation does not mint identity or default-locale cookies", async () => {
+  const proxy = await read("proxy.ts");
+  const locale = await read("lib/i18n/locales.ts");
+  const guest = await read("lib/guest-server.ts");
+  assert.doesNotMatch(proxy, /setGuestCookie|bp_guest|nanoid/);
+  assert.doesNotMatch(proxy, /res\.cookies\.set\(LOCALE_COOKIE/);
+  assert.match(locale, /document\.cookie = `\$\{LOCALE_COOKIE\}/);
+  assert.match(guest, /export async function resolveGuestRef/);
+});
+
 test("venue detail does not load the complete catalogue for similar places", async () => {
   const source = await read("app/places/[slug]/page.tsx");
   assert.match(source, /getSimilarVenues\(venue, 3\)/);
   assert.doesNotMatch(source, /getPublishedVenues/);
+});
+
+test("venue detail exposes a validated stored phone without inventing one", async () => {
+  const source = await read("app/places/[slug]/page.tsx");
+  assert.match(source, /publicPhoneHref\(venue\.phone\)/);
+  assert.match(source, /<dt>Phone<\/dt>/);
+  assert.match(source, /href=\{phoneHref\}/);
+});
+
+test("about page rejects paid editorial visibility", async () => {
+  const source = await read("app/about/page.tsx");
+  assert.match(source, /We do not sell sponsored placement, paid visibility or organic ranking\./);
+  assert.doesNotMatch(source, /Sponsored\s+visibility is separate/);
+});
+
+test("default social card spells the complete Other Bali wordmark", async () => {
+  const source = await read("app/opengraph-image.tsx");
+  assert.match(source, />\s*OTHER BALI\s*<\/div>/);
+  assert.doesNotMatch(source, />\s*THER BALI\s*<\/div>/);
 });
 
 test("catalogue renders a bounded server-side page instead of hydrating every venue", async () => {
@@ -54,6 +83,13 @@ test("public venue photos use responsive optimization without weakening consent 
   assert.match(config, /hostname: "\*\*\.supabase\.co"/);
   assert.match(config, /stale-while-revalidate=604800/);
   assert.match(protectedPhotoRoute, /max-age=300, s-maxage=300/);
+});
+
+test("repeated editorial card groups do not mark every group image as high priority", async () => {
+  const guideBlocks = await read("components/GuideBlocks.tsx");
+  const ubudGuide = await read("components/UbudGuideView.tsx");
+  assert.doesNotMatch(guideBlocks, /priority=\{index === 0\}/);
+  assert.match(ubudGuide, /priority=\{index === 0\}/);
 });
 
 test("public venue media does not expose internal fallback or provenance labels", async () => {
@@ -124,7 +160,7 @@ test("programmatic Bali hubs request-render locale and preserve real 404s", asyn
 
 test("venue detail and sitemap retain one publication boundary", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
-  const sitemap = await read("app/sitemap.ts");
+  const sitemap = await read("lib/seo/sitemap-data.ts");
   const data = await read("lib/data.ts");
   const validation = await read("lib/venue-validation.ts");
   assert.match(venuePage, /isVenueIndexable\(venue\)/);

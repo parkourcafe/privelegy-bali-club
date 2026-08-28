@@ -51,7 +51,7 @@ function fakeResponse({ status, url, body, headers = {} }) {
   };
 }
 
-function makeFakeFetch({ samples = manifest.samples, mutate } = {}) {
+function makeFakeFetch({ samples = manifest.samples, mutate, sitemapIndex = false } = {}) {
   const calls = [];
   const sitemapLocations = samples
     .filter((sample) => sample.expectation === "indexable")
@@ -67,6 +67,10 @@ function makeFakeFetch({ samples = manifest.samples, mutate } = {}) {
     if (pathname === "/robots.txt") {
       response = { status: 200, url, body: "User-agent: *\nAllow: /\nDisallow: /admin/", headers: { "content-type": "text/plain" } };
     } else if (pathname === "/sitemap.xml") {
+      response = sitemapIndex
+        ? { status: 200, url, body: `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>${origin}/sitemap/places</loc></sitemap></sitemapindex>`, headers: { "content-type": "application/xml" } }
+        : { status: 200, url, body: `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapLocations}</urlset>`, headers: { "content-type": "application/xml" } };
+    } else if (pathname === "/sitemap/places" && sitemapIndex) {
       response = { status: 200, url, body: `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapLocations}</urlset>`, headers: { "content-type": "application/xml" } };
     } else {
       const slug = pathname.replace(/^\/places\//, "");
@@ -134,6 +138,21 @@ test("offline fake fetch proves the complete positive and negative T0 contract f
       assert.equal(result.inSitemap, false);
     }
   }
+});
+
+test("audit follows same-origin child sitemaps from a sitemap index", async () => {
+  const sample = { slug: "monkey-bar-bali", expectation: "indexable", expectedH1: "The Monkey Bar" };
+  const { fetchImpl, calls } = makeFakeFetch({ samples: [sample], sitemapIndex: true });
+  const report = await runT0IndexabilityAudit({
+    fetchImpl,
+    baseUrl: origin,
+    manifest: { version: 1, samples: [sample] },
+  });
+
+  assert.equal(report.ok, true);
+  assert.equal(report.samples[0].inSitemap, true);
+  assert.equal(report.sitemap.childCount, 1);
+  assert.ok(calls.some((call) => call.url === `${origin}/sitemap/places`));
 });
 
 test("positive checks fail independently for status, useful venue HTML, title, canonical, robots, X-Robots-Tag, sitemap, and UA parity", async (t) => {

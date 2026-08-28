@@ -44,6 +44,30 @@ const NON_PUBLIC_EDITORIAL_PATTERNS = [
   /\b(?:undefined|null)\b/i,
 ];
 
+// Some imports joined adjacent Bali district fields with a semicolon and then
+// embedded the result inside prose (for example, "in Kuta; Legian"). Preserve
+// the useful sentence while repairing only that known district-to-district
+// delimiter; a general semicolon replacement would rewrite legitimate copy.
+const DISTRICT_NAMES = [
+  "amed",
+  "canggu",
+  "jimbaran",
+  "kuta",
+  "legian",
+  "lovina",
+  "munduk",
+  "nusa dua",
+  "sanur",
+  "seminyak",
+  "sidemen",
+  "ubud",
+  "uluwatu",
+].join("|");
+const DISTRICT_FIELD_JOIN = new RegExp(
+  `\\b(${DISTRICT_NAMES})\\s*;\\s*(${DISTRICT_NAMES})\\b`,
+  "gi",
+);
+
 /**
  * Fail closed when an editorial field contains an import template, database
  * note or empty-value artefact. Hiding the row is safer than publishing
@@ -52,7 +76,10 @@ const NON_PUBLIC_EDITORIAL_PATTERNS = [
  */
 export function publicVenueEditorialText(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
-  const text = value.trim().replace(/\s+/g, " ");
+  const text = value
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(DISTRICT_FIELD_JOIN, "$1, $2");
   if (!text) return undefined;
   return NON_PUBLIC_EDITORIAL_PATTERNS.some((pattern) => pattern.test(text))
     ? undefined

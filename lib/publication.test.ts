@@ -71,6 +71,16 @@ test("reports quality gaps without mass-removing pages during shadow rollout", (
   assert.equal(isVenueIndexableInMode(candidate, "enforce"), false);
 });
 
+test("does not treat a generated Maps search fallback as verified evidence", () => {
+  const candidate = venue({
+    gmapsUrl: "https://www.google.com/maps/search/?api=1&query=Example+Ubud+Bali",
+    mapsHandoffKind: "search_fallback",
+  } as Partial<Venue> & { mapsHandoffKind: "search_fallback" });
+
+  assert.deepEqual(assessVenuePublication(candidate).issues, ["missing_verified_map"]);
+  assert.equal(decideVenuePublication(candidate).effectiveStatus, "published");
+});
+
 test("shadow assessment keeps template and internal-copy reason codes", () => {
   for (const candidate of [
     venue({ whyItsHere: "Found online as a restaurant in the DB entry." }),

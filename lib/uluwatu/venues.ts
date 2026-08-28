@@ -1418,6 +1418,7 @@ export function uluwatuAsVenue(c: UluwatuVenueContent) {
     district: ULUWATU_DB_SLUG,
     address: c.address ?? `${c.microArea}, Bukit Peninsula`,
     gmapsUrl: c.gmapsUrl,
+    mapsHandoffKind: "verified" as const,
     tier: "editorial_seed" as const,
     status: c.publication === "published" ? "active" : "review",
     isSponsored: false,

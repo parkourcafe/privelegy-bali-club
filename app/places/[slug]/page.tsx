@@ -33,11 +33,10 @@ import {
   venueSchemaType,
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
-import { buildCompactVenueTitle } from "@/lib/seo/venue-title";
 import { buildPublishedMenuJsonLd } from "@/lib/seo/menu-json-ld";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 import { quickDecisionRows } from "@/lib/quick-decision";
-import { normalizeInstagramProfileUrl } from "@/lib/external-links";
+import { normalizeInstagramProfileUrl, publicPhoneHref } from "@/lib/external-links";
 
 // The root layout resolves the explicit locale cookie through a request header.
 // This route therefore cannot use on-demand ISR: Next.js would try to prerender
@@ -183,16 +182,9 @@ export async function generateMetadata({
     area,
     description,
     indexable,
+    imageUrl: venue.photoUrl,
   });
-  return {
-    ...metadata,
-    title: buildCompactVenueTitle({
-      name,
-      category: venue.category,
-      district,
-      area,
-    }),
-  };
+  return metadata;
 }
 
 export default async function VenuePage({
@@ -251,6 +243,7 @@ export default async function VenuePage({
   ) ?? undefined;
   const menuUrl = freshVerifiedUluwatuActionUrl(content, "menu_url", content?.menuUrl);
   const bookingUrl = freshVerifiedUluwatuActionUrl(content, "booking_url", content?.bookingUrl);
+  const phoneHref = publicPhoneHref(venue.phone);
   const microArea = content?.microArea ?? venue.area;
   const catLabel = venueCategoryLabel(venue.category);
   const guide = isUluwatu
@@ -504,7 +497,7 @@ export default async function VenuePage({
   });
   const hasQuickDecision = quickDecision.length > 0 || Boolean(bookHref && !venue.tablepilotSlug);
   const hasPractical = Boolean(content?.address ?? venue.address) || Boolean(
-    content?.openingHours || venue.openingHours || spend || practicalTags.length || officialUrl || menuUrl || instagramUrl,
+    content?.openingHours || venue.openingHours || spend || practicalTags.length || phoneHref || officialUrl || menuUrl || instagramUrl,
   );
 
   return (
@@ -776,6 +769,16 @@ export default async function VenuePage({
                   <div>
                     <dt>Hours</dt>
                     <dd>{content?.openingHours ?? venue.openingHours}</dd>
+                  </div>
+                )}
+                {phoneHref && venue.phone && (
+                  <div>
+                    <dt>Phone</dt>
+                    <dd>
+                      <a href={phoneHref} aria-label={`Call ${name}`}>
+                        {venue.phone.trim()}
+                      </a>
+                    </dd>
                   </div>
                 )}
                 {spend && (

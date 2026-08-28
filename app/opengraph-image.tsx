@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 // Social share card (og:image + twitter:image via the file convention). Kept
 // self-contained: no remote fonts/assets; palette hardcoded from the approved
 // Final light system (paper #FAF6EF · ink #2B1A13 · lagoon #005962 · clay dot)
-// so it renders at the edge. Wordmark rule: [O-ring] + THER BALI, serif.
+// so it renders at the edge. Wordmark rule: complete OTHER BALI, serif.
 export const alt = "Other Bali — Discover Bali together";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -24,37 +24,27 @@ export default function OpengraphImage() {
           fontFamily: "Georgia, serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: 44,
-              border: "7px solid #2B1A13",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: 13,
-                height: 13,
-                borderRadius: 13,
-                background: "#C4623F",
-              }}
-            />
-          </div>
+        <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
           <div
             style={{
               fontSize: 58,
               lineHeight: 0.8,
               letterSpacing: "0.01em",
-              marginLeft: 4,
             }}
           >
-            THER BALI
+            OTHER BALI
           </div>
+          <div
+            style={{
+              position: "absolute",
+              width: 11,
+              height: 11,
+              left: 20,
+              top: 17,
+              borderRadius: 11,
+              background: "#C4623F",
+            }}
+          />
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>

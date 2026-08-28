@@ -7,22 +7,32 @@ type VenueTitleInput = {
   area?: string;
 };
 
+const MAX_TITLE_LENGTH = 60;
+const BRAND_SUFFIX = " · Other Bali";
+
 export function buildCompactVenueTitle(venue: VenueTitleInput): string {
   const category = venueCategoryLabel(venue.category);
   const area = venue.area?.trim();
-  const district = venue.district.trim();
+  const rawDistrict = venue.district.trim();
   const areaAlreadyNamesDistrict = Boolean(
-    area && area.toLocaleLowerCase("en").includes(district.toLocaleLowerCase("en")),
+    area && area.toLocaleLowerCase("en").includes(rawDistrict.toLocaleLowerCase("en")),
   );
+  const district = area?.toLocaleLowerCase("en") === rawDistrict.toLocaleLowerCase("en")
+    ? area
+    : rawDistrict;
   const location = [area, areaAlreadyNamesDistrict ? undefined : district]
     .filter(Boolean)
     .join(", ");
   const candidates = [
-    `${venue.name} — ${category} in ${location}`,
-    `${venue.name} — ${category} in ${district}`,
-    `${venue.name} — ${category}`,
-    `${venue.name} · Other Bali`,
+    `${venue.name} — ${category} in ${location}${BRAND_SUFFIX}`,
+    `${venue.name} — ${category} in ${district}${BRAND_SUFFIX}`,
+    `${venue.name} — ${category}${BRAND_SUFFIX}`,
+    `${venue.name}${BRAND_SUFFIX}`,
   ];
 
-  return candidates.find((candidate) => candidate.length <= 60) ?? candidates.at(-1)!;
+  const fitting = candidates.find((candidate) => candidate.length <= MAX_TITLE_LENGTH);
+  if (fitting) return fitting;
+
+  const availableNameLength = MAX_TITLE_LENGTH - BRAND_SUFFIX.length - 1;
+  return `${venue.name.slice(0, availableNameLength).trimEnd()}…${BRAND_SUFFIX}`;
 }

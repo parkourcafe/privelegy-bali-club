@@ -337,7 +337,21 @@ export async function runT0IndexabilityAudit({
     }))),
     requestText(fetchImpl, sitemapUrl, genericAgent, timeoutMs),
   ]);
-  const sitemapUrls = extractSitemapUrls(sitemapResponse.body, origin);
+  const sitemapLocations = extractSitemapUrls(sitemapResponse.body, origin);
+  const isSitemapIndex = /<sitemapindex\b/i.test(sitemapResponse.body);
+  const childSitemapUrls = isSitemapIndex
+    ? [...sitemapLocations]
+      .filter((url) => new URL(url).origin === origin)
+      .slice(0, 50)
+    : [];
+  const childSitemapResponses = await mapWithConcurrency(
+    childSitemapUrls,
+    Math.min(concurrency, 4),
+    async (url) => ({ url, response: await requestText(fetchImpl, url, genericAgent, timeoutMs) }),
+  );
+  const sitemapUrls = isSitemapIndex
+    ? new Set(childSitemapResponses.flatMap(({ response }) => [...extractSitemapUrls(response.body, origin)]))
+    : sitemapLocations;
   const violations = [];
   const addViolation = (code, message, slug = null, agent = null) => {
     violations.push({ code, ...(slug ? { slug } : {}), ...(agent ? { agent } : {}), message });
@@ -367,6 +381,15 @@ export async function runT0IndexabilityAudit({
   }
   if (sitemapResponse.error) addViolation("SITEMAP_FETCH_FAILED", sitemapResponse.error);
   if (sitemapResponse.status !== 200) addViolation("SITEMAP_STATUS", `sitemap.xml returned ${sitemapResponse.status ?? "no status"}, expected 200`);
+  if (isSitemapIndex && childSitemapUrls.length !== sitemapLocations.size) {
+    addViolation("SITEMAP_CHILD_ORIGIN", "sitemap.xml contains a child sitemap outside the audited origin or exceeds the 50-child safety limit");
+  }
+  for (const { url, response } of childSitemapResponses) {
+    if (response.error) addViolation("SITEMAP_CHILD_FETCH_FAILED", `${url}: ${response.error}`);
+    if (response.status !== 200) {
+      addViolation("SITEMAP_CHILD_STATUS", `${url} returned ${response.status ?? "no status"}, expected 200`);
+    }
+  }
   if (sitemapResponse.status === 200 && sitemapUrls.size === 0) {
     addViolation("SITEMAP_EMPTY", "sitemap.xml contains no readable <loc> entries");
   }
@@ -488,6 +511,7 @@ export async function runT0IndexabilityAudit({
     sitemap: {
       status: sitemapResponse.status,
       urlCount: sitemapUrls.size,
+      childCount: childSitemapResponses.length,
     },
     totals: {
       positive: positiveCount,

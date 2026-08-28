@@ -6,6 +6,7 @@ import {
   googleMapsHandoffLabel,
   normalizeInstagramProfileUrl,
   parseSafeHttpsUrl,
+  publicPhoneHref,
   resolveSafeExternalLink,
   validateAppleMapsUrl,
   validateGoogleMapsUrl,
@@ -95,6 +96,13 @@ test("validates WhatsApp numbers and controlled URL forms", () => {
     "628123456789",
   );
   assert.equal(whatsAppPhoneFromUrl("https://wa.me.evil.invalid/628123456789"), null);
+});
+
+test("builds a safe visible telephone handoff from stored display text", () => {
+  assert.equal(publicPhoneHref("+62 812-3456-789"), "tel:+628123456789");
+  assert.equal(publicPhoneHref("0361 123 456"), "tel:0361123456");
+  assert.equal(publicPhoneHref("Call the manager"), null);
+  assert.equal(publicPhoneHref("123"), null);
 });
 
 test("returns safe browser attributes only after kind-specific validation", () => {

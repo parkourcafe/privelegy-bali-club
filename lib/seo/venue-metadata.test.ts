@@ -9,6 +9,7 @@ const venue = {
   district: "Ubud",
   area: "Pejeng, near Ubud",
   description: "A private villa near Ubud.",
+  imageUrl: "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/venue-photos/big-dragon.webp",
 };
 
 test("builds indexable venue metadata with a self-canonical URL", () => {
@@ -16,10 +17,9 @@ test("builds indexable venue metadata with a self-canonical URL", () => {
 
   assert.equal(metadata.alternates?.canonical, "/places/big-dragon-villas-ubud");
   assert.deepEqual(metadata.robots, { index: true, follow: true });
-  assert.equal(
-    metadata.title,
-    "Big Dragon Villas Ubud — Villa in Pejeng, near Ubud, Ubud",
-  );
+  assert.deepEqual(metadata.title, {
+    absolute: "Big Dragon Villas Ubud — Villa in Ubud · Other Bali",
+  });
   assert.equal(String(metadata.title).includes("undefined"), false);
   assert.equal(
     metadata.openGraph?.url,
@@ -28,10 +28,15 @@ test("builds indexable venue metadata with a self-canonical URL", () => {
   assert.equal(metadata.openGraph?.title, "Big Dragon Villas Ubud · Other Bali");
   assert.equal(metadata.openGraph?.description, venue.description);
   assert.equal((metadata.openGraph as { type?: string } | undefined)?.type, "article");
+  assert.deepEqual(metadata.openGraph?.images, [{
+    url: venue.imageUrl,
+    alt: "Big Dragon Villas Ubud — Villa in Ubud",
+  }]);
   assert.deepEqual(metadata.twitter, {
     card: "summary_large_image",
     title: "Big Dragon Villas Ubud · Other Bali",
     description: venue.description,
+    images: [venue.imageUrl],
   });
 });
 
@@ -56,6 +61,12 @@ test("omits the area separator when a venue has no micro-area", () => {
     indexable: true,
   });
 
-  assert.equal(metadata.title, "Example Restaurant — Restaurant in Ubud");
+  assert.deepEqual(metadata.title, {
+    absolute: "Example Restaurant — Restaurant in Ubud · Other Bali",
+  });
   assert.equal(String(metadata.title).includes("undefined"), false);
+  assert.deepEqual(metadata.openGraph?.images, [{
+    url: "https://www.otherbali.com/opengraph-image",
+    alt: "Example Restaurant — Restaurant in Ubud",
+  }]);
 });
