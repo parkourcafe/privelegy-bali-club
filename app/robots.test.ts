@@ -14,6 +14,10 @@ test("production robots leaves noindex redemption URLs crawlable", () => {
     });
     assert.equal(disallowed.includes("/v/"), false);
     assert.equal(disallowed.includes("/admin/"), true);
+    assert.equal(disallowed.includes("/me"), false);
+    assert.equal(disallowed.includes("/review"), false);
+    assert.equal(disallowed.includes("/me/"), true);
+    assert.equal(disallowed.includes("/review/"), true);
   } finally {
     if (previous === undefined) delete process.env.VERCEL_ENV;
     else process.env.VERCEL_ENV = previous;

@@ -5,6 +5,8 @@ import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
 import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 // Taste sub-groups within each area (same reorg as best-restaurants-in-bali,
 // 2026-07-20). Excludes "balinese-and-local-food" -- its match() includes
@@ -48,6 +50,7 @@ export const revalidate = 300;
 
 const BASE = "https://www.otherbali.com";
 const guide = getGuide("best-warungs-in-bali")!;
+const LAST_MODIFIED = staticLastModified("/best-warungs-in-bali");
 export const metadata = guideMetadata(guide);
 
 // A warung / local eatery: keyed as `warung`, or named warung / babi guling.
@@ -116,6 +119,7 @@ export default async function BestWarungsPage() {
       description: guide.description,
       url: `${BASE}/${guide.slug}`,
       about: "Warungs and local food in Bali",
+      ...(LAST_MODIFIED ? { dateModified: LAST_MODIFIED } : {}),
       isPartOf: { "@type": "WebSite", name: "Other Bali", url: BASE },
     },
     {
@@ -142,6 +146,7 @@ export default async function BestWarungsPage() {
             home-style Balinese and Indonesian plates for a fraction of café
             prices. Here are the ones we stand behind, district by district.
           </p>
+          <EditorialFreshness date={LAST_MODIFIED} />
         </header>
 
         {byArea.map((area) => (

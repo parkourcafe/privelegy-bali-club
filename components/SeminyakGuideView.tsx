@@ -5,10 +5,13 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getSeminyakVenues, toSeminyakPlaceCard } from "@/lib/seminyak";
 import { SEMINYAK_GUIDES, type SeminyakGuide } from "@/lib/seminyak-guides";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
 
 export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuide }) {
+  const lastModified = staticLastModified(`/seminyak/${guide.slug}`);
   const venues = (await getSeminyakVenues()).filter(guide.base);
 
   const crumbs: Crumb[] = [
@@ -32,6 +35,7 @@ export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuid
       {
         "@type": "ItemList",
         name: guide.h1,
+        ...(lastModified ? { dateModified: lastModified } : {}),
         itemListElement: venues.map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -63,6 +67,7 @@ export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuid
           <p className="topline">Seminyak</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <EditorialFreshness date={lastModified} />
           <GuideHeroMedia seed={`seminyak ${guide.slug} ${guide.h1}`} />
         </header>
 
@@ -77,8 +82,8 @@ export default async function SeminyakGuideView({ guide }: { guide: SeminyakGuid
             </p>
           ) : (
             <div className="pick-grid" style={{ marginTop: 16 }}>
-              {venues.map((v) => (
-                <PlaceCard key={v.slug} place={toSeminyakPlaceCard(v)} />
+              {venues.map((v, index) => (
+                <PlaceCard key={v.slug} place={toSeminyakPlaceCard(v)} priority={index === 0} />
               ))}
             </div>
           )}

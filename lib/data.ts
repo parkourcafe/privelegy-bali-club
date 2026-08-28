@@ -17,6 +17,7 @@ import { INTENTS, normalizeJobs, type IntentDef } from "./intents";
 import { isVenueIndexable } from "./publication";
 import { venuePhotoUrlForDisplay } from "./photo-policy";
 import { keepRenderableVenues } from "./venue-validation";
+import { publicVenueEditorialText } from "./venue-presentation";
 import { publishedUluwatuVenues, uluwatuAsVenue, getUluwatuContent } from "./uluwatu/venues";
 import type {
   Venue,
@@ -239,7 +240,7 @@ const mapVenue = (r: Row): Venue => {
     isSponsored: Boolean(r.is_sponsored),
     vibeTags: (r.vibe_tags as string[]) ?? undefined,
     priceAnchor: (r.price_anchor as string) ?? undefined,
-    whatToOrder: (r.what_to_order as string) ?? undefined,
+    whatToOrder: publicVenueEditorialText(r.what_to_order),
     // MEDIA-002 bridge: publication is decided centrally from venue context;
     // a draft storage prefix is not itself a publication state.
     photoUrl,
@@ -247,9 +248,9 @@ const mapVenue = (r: Row): Venue => {
     whatsapp: undefined,
     tablepilotSlug: undefined,
     area: (r.area as string) ?? undefined,
-    whyItsHere: (r.why_its_here as string) ?? undefined,
-    bestFor: (r.best_for as string) ?? undefined,
-    notFor: (r.not_for as string) ?? undefined,
+    whyItsHere: publicVenueEditorialText(r.why_its_here),
+    bestFor: publicVenueEditorialText(r.best_for),
+    notFor: publicVenueEditorialText(r.not_for),
     practicalTags: (r.practical_tags as string[]) ?? undefined,
     jobs: (r.jobs as string[]) ?? undefined,
     ownerNote: (r.owner_note as string) ?? undefined,

@@ -90,8 +90,8 @@ export async function VenuePicks({ slugs, columns = 2 }: { slugs: string[]; colu
   if (places.length === 0) return null;
   return (
     <div className={`pick-grid${columns === 3 ? " pick-grid-3" : ""}`}>
-      {places.map((content) => (
-        <PlaceCard key={content.slug} place={toPlaceCard(content)} />
+      {places.map((content, index) => (
+        <PlaceCard key={content.slug} place={toPlaceCard(content)} priority={index === 0} />
       ))}
     </div>
   );

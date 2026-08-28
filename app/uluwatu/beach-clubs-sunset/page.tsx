@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageViewTracker from "@/components/PageViewTracker";
+import EditorialFreshness from "@/components/EditorialFreshness";
 import {
   FaqBlock,
   GuideFooter,
@@ -10,6 +11,7 @@ import {
   VenueItemListSchema,
   VenuePicks,
 } from "@/components/GuideBlocks";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 // Search intent: "uluwatu beach clubs / best sunset uluwatu / melasti beach
 // club". Primary keyword: "Uluwatu beach clubs"; secondary: "Uluwatu sunset
@@ -48,6 +50,8 @@ const ALL_SUNSET = [
   "mana-uluwatu",
 ];
 
+const LAST_MODIFIED = staticLastModified("/uluwatu/beach-clubs-sunset");
+
 const FAQ = [
   {
     q: "Which Uluwatu beach clubs have actual beach access?",
@@ -80,6 +84,7 @@ export default function BeachClubsSunsetPage() {
             All Uluwatu clubs →
           </Link>
         </div>
+        <EditorialFreshness date={LAST_MODIFIED} />
 
         <Breadcrumbs
           items={[

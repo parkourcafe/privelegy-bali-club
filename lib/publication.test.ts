@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { Venue } from "./types";
-import { getPublicationStatus, isVenueIndexable } from "./publication";
+import {
+  assessVenuePublication,
+  decideVenuePublication,
+  getPublicationStatus,
+  isVenueIndexable,
+  isVenueIndexableInMode,
+  VENUE_PUBLICATION_GATE_MODE,
+} from "./publication";
 
 function venue(overrides: Partial<Venue> = {}): Venue {
   return {
@@ -18,23 +25,62 @@ function venue(overrides: Partial<Venue> = {}): Venue {
     isSponsored: false,
     whyItsHere: "A verified editorial reason to choose this place.",
     bestFor: "A calm dinner.",
+    priceAnchor: "Mains from IDR 90k",
     ...overrides,
   };
 }
 
-test("indexes only active, database-published, decision-ready venues", () => {
+test("shadow mode keeps hard publication blockers enforced", () => {
   const published = venue();
+  assert.equal(VENUE_PUBLICATION_GATE_MODE, "shadow");
   assert.equal(getPublicationStatus(published), "published");
   assert.equal(isVenueIndexable(published), true);
 
   for (const candidate of [
     venue({ status: "inactive" }),
     venue({ publicationStatus: "review" }),
-    venue({ whyItsHere: "" }),
-    venue({ bestFor: "   " }),
+    venue({ category: "future_typo" as Venue["category"] }),
   ]) {
     assert.equal(getPublicationStatus(candidate), "review");
     assert.equal(isVenueIndexable(candidate), false);
+  }
+});
+
+test("reports quality gaps without mass-removing pages during shadow rollout", () => {
+  const candidate = venue({
+    address: "",
+    gmapsUrl: "",
+    whatToOrder: "",
+    priceAnchor: "",
+  });
+  const assessment = assessVenuePublication(candidate);
+
+  assert.deepEqual(assessment, {
+    status: "review",
+    issues: ["missing_address", "missing_verified_map", "missing_offering_anchor"],
+  });
+  assert.deepEqual(decideVenuePublication(candidate), {
+    mode: "shadow",
+    effectiveStatus: "published",
+    strictStatus: "review",
+    issues: ["missing_address", "missing_verified_map", "missing_offering_anchor"],
+  });
+  assert.equal(getPublicationStatus(candidate), "published");
+  assert.equal(isVenueIndexable(candidate), true);
+  assert.equal(decideVenuePublication(candidate, "enforce").effectiveStatus, "review");
+  assert.equal(isVenueIndexableInMode(candidate, "enforce"), false);
+});
+
+test("shadow assessment keeps template and internal-copy reason codes", () => {
+  for (const candidate of [
+    venue({ whyItsHere: "Found online as a restaurant in the DB entry." }),
+    venue({ bestFor: "Travellers looking for a current place to eat in Ubud." }),
+    venue({ priceAnchor: "Unknown", whatToOrder: "undefined" }),
+  ]) {
+    const decision = decideVenuePublication(candidate);
+    assert.equal(decision.strictStatus, "review");
+    assert.equal(decision.effectiveStatus, "published");
+    assert.ok(decision.issues.length > 0);
   }
 });
 
@@ -48,6 +94,7 @@ test("keeps the Uluwatu evidence registry authoritative for registered venues", 
     district: "uluwatu-bukit",
   });
 
+  assert.deepEqual(decideVenuePublication(held).issues, ["registry_not_published"]);
   assert.equal(isVenueIndexable(held), false);
   assert.equal(isVenueIndexable(published), true);
 });
@@ -68,6 +115,6 @@ test("an unknown runtime category cannot be indexed outside the catalogue bounda
     category: "future_typo" as Venue["category"],
   });
 
-  assert.equal(getPublicationStatus(invalid), "published");
+  assert.equal(getPublicationStatus(invalid), "review");
   assert.equal(isVenueIndexable(invalid), false);
 });

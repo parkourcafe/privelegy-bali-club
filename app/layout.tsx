@@ -75,8 +75,8 @@ export const viewport: Viewport = {
 
 // Sitewide brand entity: one Organization node (name/logo → knowledge panel)
 // and one WebSite node with a SearchAction (sitelinks search box → /places?q=).
-// No sameAs is emitted because no official social profile is recorded in the
-// codebase and inventing one would violate the no-invented-content guardrail.
+// The same official Instagram identity linked in the site-wide footer is also
+// attached here; do not add profiles that are not present on a public surface.
 const ORG_ID = `${CANONICAL_SITE_ORIGIN}/#organization`;
 const siteJsonLd = {
   "@context": "https://schema.org",
@@ -90,6 +90,7 @@ const siteJsonLd = {
       email: OTHER_BALI_CONTACT_EMAIL,
       description:
         "A Bali guide for moments, areas and trip plans.",
+      sameAs: ["https://www.instagram.com/otherbali/"],
     },
     {
       "@type": "WebSite",

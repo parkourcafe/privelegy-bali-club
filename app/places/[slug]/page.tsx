@@ -13,7 +13,7 @@ import {
 import { isVenueIndexable } from "@/lib/publication";
 import { buildOpeningHoursSpec } from "@/lib/opening-hours";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
-import PlaceCard from "@/components/PlaceCard";
+import { TrackedPlaceLink } from "@/components/PlaceCardActions";
 import PageViewTracker from "@/components/PageViewTracker";
 import TrackedOutboundLink from "@/components/TrackedOutboundLink";
 import VenueActionBar from "@/components/VenueActionBar";
@@ -33,6 +33,8 @@ import {
   venueSchemaType,
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
+import { buildCompactVenueTitle } from "@/lib/seo/venue-title";
+import { buildPublishedMenuJsonLd } from "@/lib/seo/menu-json-ld";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 import { quickDecisionRows } from "@/lib/quick-decision";
 import { normalizeInstagramProfileUrl } from "@/lib/external-links";
@@ -173,7 +175,7 @@ export async function generateMetadata({
 
   // Category keyword in the SERP title is the most valuable disambiguator
   // (what the place IS), e.g. "La Brisa — Beach club in Berawa, Canggu".
-  return buildVenueMetadata({
+  const metadata = buildVenueMetadata({
     slug,
     name,
     category: venue.category,
@@ -182,6 +184,15 @@ export async function generateMetadata({
     description,
     indexable,
   });
+  return {
+    ...metadata,
+    title: buildCompactVenueTitle({
+      name,
+      category: venue.category,
+      district,
+      area,
+    }),
+  };
 }
 
 export default async function VenuePage({
@@ -346,14 +357,27 @@ export default async function VenuePage({
     venue.longitude <= 180
       ? { "@type": "GeoCoordinates", latitude: venue.latitude, longitude: venue.longitude }
       : null;
+  const verifiedAt = publicVenueVerifiedAt({
+    contentVerifiedAt: content?.lastVerifiedAt,
+    venueVerifiedAt: venue.lastVerifiedAt,
+  });
+  const schemaDescription = content?.whyHere ?? content?.verdict ?? venue.whyItsHere;
+  const schemaDistrict = districtLabel[venue.district] ?? "Bali";
 
   // LocalBusiness JSON-LD — verified facts only, no ratings, no invented
   // hours/prices (brief §15).
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": venueSchemaType(venue.category),
+    "@id": `${BASE}/places/${slug}#place`,
     name,
     url: `${BASE}/places/${slug}`,
+    ...(schemaDescription ? { description: schemaDescription } : {}),
+    ...(verifiedAt ? { dateModified: verifiedAt } : {}),
+    containedInPlace: {
+      "@type": "Place",
+      name: schemaDistrict,
+    },
     // Photo Policy v3 §4/§8: schema/OG image remains conservative even though
     // the public UI may display owner-approved Supabase Storage media.
     address: {
@@ -387,6 +411,10 @@ export default async function VenuePage({
     : fixtureMode === "stale"
     ? fixtureMenuSummary({ ...menuActionFixtures.staleMenu, venueSlug: slug })
     : detailExtension.menu;
+  const schemaMenu = buildPublishedMenuJsonLd(menu, {
+    pageUrl: `${BASE}/places/${slug}`,
+  });
+  if (schemaMenu) jsonLd.hasMenu = schemaMenu;
 
   // Hotel profile branch. Renders for real hotel/resort venues, and — in local
   // dev only, gated by HOTEL_FIXTURE=on — from a fixture so the layout is
@@ -457,10 +485,6 @@ export default async function VenuePage({
     whatToOrder: content?.whatToOrder ?? venue.whatToOrder,
     hasCurrentStructuredMenu: Boolean(menu),
     officialMenuUrl: menuUrl ?? menu?.sourceUrl,
-  });
-  const verifiedAt = publicVenueVerifiedAt({
-    contentVerifiedAt: content?.lastVerifiedAt,
-    venueVerifiedAt: venue.lastVerifiedAt,
   });
   const spend = content?.priceBand?.trim() || venue.priceAnchor?.trim() || null;
   const practicalTags = (venue.practicalTags ?? [])
@@ -678,32 +702,28 @@ export default async function VenuePage({
             {similar.length > 0 && (
               <section className="guide-section">
                 <h2>Similar places nearby</h2>
-                <div className="pick-grid pick-grid-3" style={{ marginTop: 16 }}>
+                <ul className="related-guides" style={{ marginTop: 16 }}>
                   {similar.map((s) => {
                     const sc = getUluwatuContent(s.slug);
+                    const similarName = sc?.displayName ?? s.name;
+                    const similarArea = sc?.microArea ?? s.area;
                     return (
-                      <PlaceCard
-                        key={s.slug}
-                        place={{
-                          slug: s.slug,
-                          name: sc?.displayName ?? s.name,
-                          category: s.category,
-                          microArea: sc?.microArea ?? s.area,
-                          editorialLine: sc?.verdict ?? s.whyItsHere,
-                          bestFor: sc?.bestFor ?? s.bestFor,
-                          priceBand: sc?.priceBand ?? undefined,
-                          photoUrl: s.photoUrl,
-                          photoRightsApproved: s.photoRightsApproved,
-                          isSponsored: s.isSponsored,
-                          gmapsUrl: s.gmapsUrl,
-                          tablepilotSlug: undefined,
-                          coverageMode: "planning_only",
-                          hasOffer: false,
-                        }}
-                      />
+                      <li key={s.slug}>
+                        <TrackedPlaceLink
+                          href={`/places/${s.slug}`}
+                          venueSlug={s.slug}
+                          className="related-guide-card"
+                        >
+                          <strong>{similarName}</strong>
+                          <span>
+                            {venueCategoryLabel(s.category)}
+                            {similarArea ? ` · ${similarArea}` : ""}
+                          </span>
+                        </TrackedPlaceLink>
+                      </li>
                     );
                   })}
-                </div>
+                </ul>
               </section>
             )}
 

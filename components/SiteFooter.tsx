@@ -101,6 +101,7 @@ const EXPLORE_LINKS = [
 // arrive from a direct message or a search. The footer is the conventional
 // home for partner entry points and appears on every page.
 const ABOUT_LINKS = [
+  { href: "/about", label: "About & methodology" },
   { href: "/support", label: "Support" },
   { href: "/for-venues", label: "For businesses" },
   { href: "/hotels", label: "For hotels" },

@@ -48,10 +48,12 @@ export default function PlaceCard({
   place,
   secondaryAction = "directions",
   visualFirst = false,
+  priority = false,
 }: {
   place: PlaceCardData;
   secondaryAction?: "directions" | "none";
   visualFirst?: boolean;
+  priority?: boolean;
 }) {
   const href = `/places/${place.slug}`;
   const tablepilotBaseUrl = safeTablePilotPublicBase({
@@ -84,6 +86,7 @@ export default function PlaceCard({
               src={place.photoUrl}
               alt={`${place.name} — ${venueCategoryLabel(place.category)}`}
               variant="card"
+              priority={priority}
               rightsApproved={place.photoRightsApproved}
               fallback={<PlaceCover name={place.name} category={place.category} />}
             />

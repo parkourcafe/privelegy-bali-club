@@ -5,10 +5,13 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getNusaDuaVenues, toNusaDuaPlaceCard } from "@/lib/nusa-dua";
 import { NUSA_DUA_GUIDES, type NusaDuaGuide } from "@/lib/nusa-dua-guides";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
 
 export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide }) {
+  const lastModified = staticLastModified(`/nusa-dua/${guide.slug}`);
   const venues = (await getNusaDuaVenues()).filter(guide.base);
 
   const crumbs: Crumb[] = [
@@ -32,6 +35,7 @@ export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide 
       {
         "@type": "ItemList",
         name: guide.h1,
+        ...(lastModified ? { dateModified: lastModified } : {}),
         itemListElement: venues.map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -63,6 +67,7 @@ export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide 
           <p className="topline">Nusa Dua</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <EditorialFreshness date={lastModified} />
           <GuideHeroMedia seed={`nusa dua ${guide.slug} ${guide.h1}`} />
         </header>
 
@@ -77,8 +82,8 @@ export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide 
             </p>
           ) : (
             <div className="pick-grid" style={{ marginTop: 16 }}>
-              {venues.map((v) => (
-                <PlaceCard key={v.slug} place={toNusaDuaPlaceCard(v)} />
+              {venues.map((v, index) => (
+                <PlaceCard key={v.slug} place={toNusaDuaPlaceCard(v)} priority={index === 0} />
               ))}
             </div>
           )}

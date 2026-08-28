@@ -2,7 +2,9 @@ import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
+import EditorialFreshness from "@/components/EditorialFreshness";
 import type { Guide } from "@/lib/guides";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
 
@@ -12,6 +14,7 @@ const BASE = "https://www.otherbali.com";
 // file just picks the guide and renders it. Emits Article + BreadcrumbList
 // (via Breadcrumbs) + FAQPage (via FaqBlock) JSON-LD.
 export default function GuideArticle({ guide }: { guide: Guide }) {
+  const lastModified = staticLastModified(`/${guide.slug}`);
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
     { name: guide.eyebrow ?? guide.title },
@@ -24,6 +27,7 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
     description: guide.description,
     url: `${BASE}/${guide.slug}`,
     about: guide.eyebrow ?? guide.title,
+    ...(lastModified ? { dateModified: lastModified } : {}),
     isPartOf: { "@type": "WebSite", name: "Other Bali", url: BASE },
   };
 
@@ -38,7 +42,13 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
         <header className="guide-hero">
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
-          {guide.lede ? <p className="guide-lede">{guide.lede}</p> : null}
+          {guide.lede ? (
+            <>
+              <p className="topline mt-4">Short answer</p>
+              <p className="guide-lede">{guide.lede}</p>
+            </>
+          ) : null}
+          <EditorialFreshness date={lastModified} />
           <GuideHeroMedia seed={`${guide.slug} ${guide.title}`} />
         </header>
 

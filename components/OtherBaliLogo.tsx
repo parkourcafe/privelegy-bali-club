@@ -1,5 +1,8 @@
 // Other Bali wordmark — approved Final system (2026-07-16).
-// Rule: [O-ring] + THER BALI, set in Gloock (the wordmark's exclusive face).
+// Rule: a stylized, real-text O + THER BALI, set in Gloock (the wordmark's
+// exclusive face). Keep the complete brand name in the rendered text tree:
+// crawlers previously read the decorative O-ring plus "THER BALI" as the
+// non-existent brand "THER BALI" even though the accessibility label was right.
 // Cap-height of the text equals the ring's outer diameter; the clay dot is
 // the ONLY place clay appears in the UI. On dark photography pass
 // color="#E7B7AE" (rose) per the spec.
@@ -25,19 +28,25 @@ export default function OtherBaliLogo({
       <span
         aria-hidden="true"
         style={{
-          boxSizing: "border-box",
+          position: "relative",
           width: size,
           height: size,
-          borderRadius: "50%",
-          border: `${(size * 0.15).toFixed(1)}px solid ${color}`,
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
+          font: `400 ${font.toFixed(1)}px/0.8 var(--font-gloock), Georgia, serif`,
+          color,
+          transform: `translateY(${size * 0.02}px)`,
         }}
       >
+        O
         <span
+          aria-hidden="true"
           style={{
+            position: "absolute",
+            inset: "50% auto auto 50%",
+            transform: "translate(-50%, -50%)",
             width: size * 0.3,
             height: size * 0.3,
             borderRadius: "50%",

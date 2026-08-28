@@ -5,10 +5,13 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getSanurVenues, toSanurPlaceCard } from "@/lib/sanur";
 import { SANUR_GUIDES, type SanurGuide } from "@/lib/sanur-guides";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
 
 export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
+  const lastModified = staticLastModified(`/sanur/${guide.slug}`);
   const venues = (await getSanurVenues()).filter(guide.base);
 
   const crumbs: Crumb[] = [
@@ -32,6 +35,7 @@ export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
       {
         "@type": "ItemList",
         name: guide.h1,
+        ...(lastModified ? { dateModified: lastModified } : {}),
         itemListElement: venues.map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -63,6 +67,7 @@ export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
           <p className="topline">Sanur</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <EditorialFreshness date={lastModified} />
           <GuideHeroMedia seed={`sanur ${guide.slug} ${guide.h1}`} />
         </header>
 
@@ -77,8 +82,8 @@ export default async function SanurGuideView({ guide }: { guide: SanurGuide }) {
             </p>
           ) : (
             <div className="pick-grid" style={{ marginTop: 16 }}>
-              {venues.map((v) => (
-                <PlaceCard key={v.slug} place={toSanurPlaceCard(v)} />
+              {venues.map((v, index) => (
+                <PlaceCard key={v.slug} place={toSanurPlaceCard(v)} priority={index === 0} />
               ))}
             </div>
           )}

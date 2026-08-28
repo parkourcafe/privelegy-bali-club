@@ -3,10 +3,33 @@ import test from "node:test";
 
 import {
   publishableStreetAddress,
+  publicVenueEditorialText,
   venueCategoryLabel,
   venueCoverAssetCategory,
   venueSchemaType,
 } from "./venue-presentation";
+
+test("suppresses import placeholders and internal notes from public editorial copy", () => {
+  const rejected = [
+    "Travellers looking for a current place to eat in Ubud.",
+    "Best for: Travellers looking for a current place to eat in Seminyak.",
+    "Travellers who want to check availability and reserve a table through Chope",
+    "Ari's is an owner-confirmed dining venue in Seminyak.",
+    "Found online as 'Warung Mangga Madu' — note the DB entry drops one g.",
+    "Travellers looking for somewhere to eat in Unknown",
+    "Unknown",
+    "undefined",
+  ];
+
+  for (const value of rejected) {
+    assert.equal(publicVenueEditorialText(value), undefined);
+  }
+
+  assert.equal(
+    publicVenueEditorialText("  Quiet courtyard for an unhurried lunch.  "),
+    "Quiet courtyard for an unhurried lunch.",
+  );
+});
 
 test("presents villa venues with lodging metadata and the existing hotel cover", () => {
   assert.equal(venueCategoryLabel("villa"), "Villa");

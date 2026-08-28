@@ -3,6 +3,7 @@ import { PILLARS } from "@/lib/pillars";
 import { SCENARIOS } from "@/lib/scenarios";
 import { GUIDES } from "@/lib/guides";
 import { LIGHT_DISTRICTS } from "@/lib/light-districts";
+import { canonicalProgrammaticDistrictHubs } from "@/lib/seo/canonical-district-hubs";
 
 export const revalidate = 3600;
 
@@ -14,6 +15,7 @@ const BASE = "https://www.otherbali.com";
 // programmatic hubs/spokes, trip scenarios, and tools.
 export async function GET() {
   const [hubs, spokes] = await Promise.all([getDistrictHubs(), getIntentSpokes()]);
+  const canonicalHubs = canonicalProgrammaticDistrictHubs(hubs);
 
   const lines: string[] = [
     "# Other Bali",
@@ -31,7 +33,7 @@ export async function GET() {
     "",
     "## District hubs (quick)",
     `- [Where to eat & go in Bali](${BASE}/bali): index of district guides`,
-    ...hubs.map((h) => `- [${h.name}](${BASE}/bali/${h.slug}): ${h.venues.length} curated places`),
+    ...canonicalHubs.map((h) => `- [${h.name}](${BASE}/bali/${h.slug}): ${h.venues.length} curated places`),
     "",
     "## Quiet corners (planning landings)",
     ...LIGHT_DISTRICTS.map((d) => `- [${d.name} guide](${BASE}/${d.slug}): ${d.tagline}`),

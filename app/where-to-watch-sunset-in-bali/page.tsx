@@ -6,6 +6,8 @@ import SceneImage from "@/components/landing/SceneImage";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
 // venue/publication edits in Supabase surface without a redeploy. Build-safe
@@ -14,6 +16,7 @@ export const revalidate = 300;
 
 const BASE = "https://www.otherbali.com";
 const guide = getGuide("where-to-watch-sunset-in-bali")!;
+const LAST_MODIFIED = staticLastModified("/where-to-watch-sunset-in-bali");
 export const metadata = guideMetadata(guide);
 
 type SceneVariant = "sunset" | "ridge" | "surf" | "night";
@@ -141,6 +144,7 @@ export default async function SunsetPage() {
       description: guide.description,
       url: `${BASE}/${guide.slug}`,
       about: "Bali sunset spots",
+      ...(LAST_MODIFIED ? { dateModified: LAST_MODIFIED } : {}),
       isPartOf: { "@type": "WebSite", name: "Other Bali", url: BASE },
     },
     {
@@ -167,6 +171,7 @@ export default async function SunsetPage() {
             beachfront clubs, and the southern bays do a calmer golden hour. Sanur
             faces east — that&apos;s the sunrise coast.
           </p>
+          <EditorialFreshness date={LAST_MODIFIED} />
           <GuideHeroMedia seed="where to watch sunset in bali golden hour coast" />
         </header>
 

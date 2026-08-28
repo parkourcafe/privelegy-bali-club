@@ -6,10 +6,13 @@ import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getCangguVenues, toCangguPlaceCard } from "@/lib/canggu";
 import { CANGGU_GUIDES, type CangguGuide } from "@/lib/canggu-guides";
 import { publicVenueVerifiedAt } from "@/lib/venue-completeness";
+import EditorialFreshness from "@/components/EditorialFreshness";
+import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
 
 export default async function CangguGuideView({ guide }: { guide: CangguGuide }) {
+  const lastModified = staticLastModified(`/canggu/${guide.slug}`);
   const venues = (await getCangguVenues()).filter(guide.base);
   const groups = guide.groups
     .map((g) => ({ g, items: venues.filter(g.match) }))
@@ -50,6 +53,7 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
       {
         "@type": "ItemList",
         name: guide.h1,
+        ...(lastModified ? { dateModified: lastModified } : {}),
         itemListElement: venues.map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -81,6 +85,7 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
           <p className="topline">Canggu</p>
           <h1 className="hero-title mt-2">{guide.h1}</h1>
           <p className="hero-copy">{guide.lede}</p>
+          <EditorialFreshness date={lastModified} />
           <GuideHeroMedia seed={`canggu ${guide.slug} ${guide.h1}`} />
         </header>
 
@@ -126,14 +131,18 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
             <a href="/canggu" className="quiet-link">Canggu guide</a>.
           </p>
         ) : (
-          groups.map(({ g, items }, index) => (
+          groups.map(({ g, items }, groupIndex) => (
             <section key={g.key} id={g.key} className="guide-section scroll-mt-8">
               <h2>{g.heading}</h2>
-              <GuideSectionMedia seed={`canggu ${guide.slug} ${g.heading}`} index={index} />
+              <GuideSectionMedia seed={`canggu ${guide.slug} ${g.heading}`} index={groupIndex} />
               <p className="text-sm text-[var(--muted)]">{g.note}</p>
               <div className="pick-grid" style={{ marginTop: 16 }}>
-                {items.map((v) => (
-                  <PlaceCard key={v.slug} place={toCangguPlaceCard(v)} />
+                {items.map((v, itemIndex) => (
+                  <PlaceCard
+                    key={v.slug}
+                    place={toCangguPlaceCard(v)}
+                    priority={groupIndex === 0 && itemIndex === 0}
+                  />
                 ))}
               </div>
             </section>

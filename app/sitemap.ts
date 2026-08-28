@@ -11,6 +11,7 @@ import { LIGHT_DISTRICT_SLUGS } from "@/lib/light-districts";
 import { liveCollectionSlugs } from "@/lib/collections";
 import { staticLastModified, validLastModified } from "@/lib/seo/sitemap-last-modified";
 import { CANONICAL_SITE_ORIGIN } from "@/lib/site-origin-policy";
+import { canonicalProgrammaticDistrictHubs } from "@/lib/seo/canonical-district-hubs";
 
 // Regenerate hourly (ISR) rather than on every crawler hit: the sitemap runs
 // several Supabase reads, and a per-request rebuild is needless load on a hot
@@ -29,12 +30,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
   // Every venue whose detail page is indexable (publication bar), all districts.
   const indexableVenues = catalogue.filter(isVenueIndexable);
+  const canonicalHubs = canonicalProgrammaticDistrictHubs(hubs);
   const entries: MetadataRoute.Sitemap = [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     // The working tool lives at /plan (landing funnels into it).
     { url: `${BASE}/plan`, changeFrequency: "daily", priority: 0.9 },
     // Bali-wide curated places catalogue.
     { url: `${BASE}/places`, changeFrequency: "daily", priority: 0.8 },
+    // Trust and service pages are public, canonical and linked site-wide.
+    { url: `${BASE}/about`, lastModified: "2026-08-28", changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE}/support`, changeFrequency: "monthly", priority: 0.4 },
     // Venue self-submission intake ("add your place") — owners search for this.
     { url: `${BASE}/for-venues`, changeFrequency: "monthly", priority: 0.5 },
     // Villa partner page — villa managers search "list my villa Bali guide".
@@ -48,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // districts without a hand-crafted pillar (Uluwatu is excluded — it has its
     // own /uluwatu pillar below).
     { url: `${BASE}/bali`, changeFrequency: "weekly", priority: 0.9 },
-    ...hubs.map((h) => ({
+    ...canonicalHubs.map((h) => ({
       url: `${BASE}/bali/${h.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.85,

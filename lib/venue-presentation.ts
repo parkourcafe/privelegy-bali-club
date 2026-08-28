@@ -34,6 +34,31 @@ const SCHEMA_TYPES: Record<string, string> = {
   activity: "TouristAttraction",
 };
 
+const NON_PUBLIC_EDITORIAL_PATTERNS = [
+  /^(?:best for:\s*)?travellers looking for a current place to eat in\b/i,
+  /^(?:best for:\s*)?travellers who want to check availability and reserve a table through chope\b/i,
+  /\bowner-confirmed (?:dining )?venue\b/i,
+  /\b(?:db entry|found online as)\b/i,
+  /^unknown$/i,
+  /\b(?:in|near) unknown\b/i,
+  /\b(?:undefined|null)\b/i,
+];
+
+/**
+ * Fail closed when an editorial field contains an import template, database
+ * note or empty-value artefact. Hiding the row is safer than publishing
+ * operational metadata as traveller advice; the source record remains intact
+ * for evidence-backed correction.
+ */
+export function publicVenueEditorialText(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const text = value.trim().replace(/\s+/g, " ");
+  if (!text) return undefined;
+  return NON_PUBLIC_EDITORIAL_PATTERNS.some((pattern) => pattern.test(text))
+    ? undefined
+    : text;
+}
+
 export function venueCategoryLabel(category: string): string {
   return CATEGORY_LABELS[category] ?? "Place";
 }
