@@ -180,3 +180,32 @@ of its author, and dropped here.
 Nothing in this skill authorises machine-translating prices, access rules,
 warnings or offers into the non-English UI chrome the repository already
 supports. See the locale preservation note at the end of `AGENTS.md`.
+
+## 10. The upstream skill is also installed globally, and is muted here
+
+Upstream `geo-seo-claude` is additionally installed on the founder's machine at
+`~/.claude/skills/geo/`, deliberately, so the five non-otherbali projects get
+the unmodified toolkit and its `/geo audit <url>` commands. That install is
+correct and should stay.
+
+It is a hazard in *this* repository. Its description triggers on "geo", "seo",
+"audit", "optimize", "citability", "schema", "brand mentions" and on any bare
+URL — broad enough to win against `otherbali-schema-markup`,
+`otherbali-guide-page-standard` and this skill on exactly the prompts where one
+of those is the correct answer and upstream's is the one recommending
+`aggregateRating`.
+
+`.claude/settings.json` therefore sets:
+
+```json
+{ "skillOverrides": { "geo": "user-invocable-only" } }
+```
+
+That hides the global skill from the model in this repository while leaving
+`/geo` typable if someone deliberately wants the unreconciled version. It is
+not a judgment that the global install is bad — it is scoping. Do not delete
+the file as stray config, and do not widen it to `"off"` without a reason:
+`"off"` would also remove the deliberate `/geo` escape hatch.
+
+Consolidating upstream's 14 skills into this one (see `UPSTREAM.md`) removed
+the internal collisions. This setting removes the external one.
