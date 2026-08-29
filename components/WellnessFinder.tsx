@@ -151,6 +151,7 @@ export default function WellnessFinder({ venues }: { venues: WellnessFinderVenue
   const activeFilterCount = Number(Boolean(query)) + Number(area !== "all") + Number(kind !== "all") + Number(price !== "all");
 
   function useMyLocation() {
+    if (coordinateCount === 0) return;
     if (typeof navigator === "undefined" || !navigator.geolocation) {
       setGeo({ kind: "unavailable" });
       return;
@@ -187,7 +188,9 @@ export default function WellnessFinder({ venues }: { venues: WellnessFinderVenue
           ? "Location took too long. Try again or choose a neighbourhood."
           : geo.kind === "unavailable"
             ? "Location isn't available on this device. Choose a neighbourhood instead."
-            : "Your location is used once in this browser and is not stored.";
+            : coordinateCount === 0
+              ? "Near me is waiting for verified venue coordinates. Use the neighbourhood filters for now."
+              : "Your location is used once in this browser and is not stored.";
 
   return (
     <div className="wellness-finder">
@@ -218,13 +221,21 @@ export default function WellnessFinder({ venues }: { venues: WellnessFinderVenue
           type="button"
           className="wellness-location-button"
           onClick={useMyLocation}
-          disabled={geo.kind === "locating"}
+          disabled={coordinateCount === 0 || geo.kind === "locating"}
+          aria-describedby="wellness-location-status"
+          title={coordinateCount === 0 ? "Verified venue coordinates are not available yet" : undefined}
         >
           <LocationIcon />
-          {geo.kind === "locating" ? "Locating…" : geo.kind === "found" ? "Location on" : "Near me"}
+          {coordinateCount === 0
+            ? "Near me · data pending"
+            : geo.kind === "locating"
+              ? "Locating…"
+              : geo.kind === "found"
+                ? "Location on"
+                : "Near me"}
         </button>
       </div>
-      <p className="wellness-geo-status" aria-live="polite">{geoMessage}</p>
+      <p id="wellness-location-status" className="wellness-geo-status" aria-live="polite">{geoMessage}</p>
 
       <fieldset className="wellness-filter-group">
         <legend>What are you looking for?</legend>
