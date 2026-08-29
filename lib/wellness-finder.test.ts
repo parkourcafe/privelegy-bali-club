@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   distanceKm,
@@ -51,4 +52,12 @@ test("calculates and formats useful in-memory distances", () => {
   assert.ok(km > 1 && km < 2);
   assert.equal(formatDistance(0.42), "420 m away");
   assert.equal(formatDistance(2.34), "2.3 km away");
+});
+
+test("scopes same-origin geolocation permission to the wellness finder route", async () => {
+  const config = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+
+  assert.match(config, /source: "\/ubud\/best-yoga-wellness"/);
+  assert.match(config, /geolocation=\(self\)/);
+  assert.match(config, /geolocation=\(\)/);
 });

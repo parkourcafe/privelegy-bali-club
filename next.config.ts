@@ -150,6 +150,17 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        // Override the global deny only on the page with the explicit,
+        // user-triggered "Near me" control. Camera and microphone stay denied.
+        source: "/ubud/best-yoga-wellness",
+        headers: [
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(self), interest-cohort=()",
+          },
+        ],
+      },
     ];
   },
 };
