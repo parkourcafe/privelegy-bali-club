@@ -22,6 +22,7 @@ const expectedPositiveSlugs = [
   "alchemy-uluwatu",
   "koa-shala-sanur",
   "kilo-kitchen-bali-seminyak",
+  "adda-yoga",
 ];
 
 function positiveHtml(slug, overrides = {}) {
@@ -90,14 +91,14 @@ function reportCodes(report) {
   return new Set(report.violations.map((violation) => violation.code));
 }
 
-test("manifest locks the 12 indexable production samples and the factual-only negative control", () => {
+test("manifest locks the current indexable production samples and the factual-only negative control", () => {
   assert.deepEqual(
     manifest.samples.filter((sample) => sample.expectation === "indexable").map((sample) => sample.slug),
     expectedPositiveSlugs,
   );
   assert.deepEqual(
     manifest.samples.filter((sample) => sample.expectation === "not_found").map((sample) => sample.slug),
-    ["adda-yoga"],
+    ["t0-nonexistent-venue-control"],
   );
   assert.deepEqual(manifest.branchTargets, [
     { slug: "big-dragon-villas-ubud", expectation: "indexable", expectedH1: "Big Dragon Villas Ubud" },
@@ -115,7 +116,7 @@ test("offline fake fetch proves the complete positive and negative T0 contract f
 
   assert.equal(report.ok, true);
   assert.deepEqual(report.violations, []);
-  assert.deepEqual(report.totals, { positive: 12, negative: 1, pageFetches: 39, violations: 0 });
+  assert.deepEqual(report.totals, { positive: 13, negative: 1, pageFetches: 42, violations: 0 });
   const robotsAgents = calls
     .filter((call) => call.url === `${origin}/robots.txt`)
     .map((call) => call.userAgent)
