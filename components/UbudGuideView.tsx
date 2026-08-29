@@ -6,6 +6,7 @@ import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getUbudVenues, toUbudPlaceCard } from "@/lib/ubud";
 import { UBUD_GUIDES, type UbudGuide } from "@/lib/ubud-guides";
 import EditorialFreshness from "@/components/EditorialFreshness";
+import WellnessFinder from "@/components/WellnessFinder";
 import { staticLastModified } from "@/lib/seo/sitemap-last-modified";
 
 const BASE = "https://www.otherbali.com";
@@ -13,6 +14,7 @@ const BASE = "https://www.otherbali.com";
 export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
   const lastModified = staticLastModified(`/ubud/${guide.slug}`);
   const venues = (await getUbudVenues()).filter(guide.base);
+  const hasWellnessFinder = guide.slug === "best-yoga-wellness";
 
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
@@ -80,6 +82,15 @@ export default async function UbudGuideView({ guide }: { guide: UbudGuide }) {
               We&apos;re still verifying picks here. Meanwhile, browse the{" "}
               <a href="/ubud" className="quiet-link">Ubud guide</a>.
             </p>
+          ) : hasWellnessFinder ? (
+            <WellnessFinder
+              venues={venues.map((venue) => ({
+                ...toUbudPlaceCard(venue),
+                latitude: venue.latitude,
+                longitude: venue.longitude,
+                filterPrice: venue.priceBand ?? venue.priceAnchor,
+              }))}
+            />
           ) : (
             <div className="pick-grid" style={{ marginTop: 16 }}>
               {venues.map((v, index) => (

@@ -32,6 +32,7 @@ export interface PlaceCardData {
   // detail page already shows, surfaced at the point of choosing.
   notFor?: string;
   priceBand?: string;
+  proximityLabel?: string;
   photoUrl?: string;
   photoRightsApproved?: boolean;
   isSponsored?: boolean;
@@ -102,7 +103,10 @@ export default function PlaceCard({
             {venueCategoryLabel(place.category)}
             {place.microArea ? ` · ${place.microArea}` : ""}
           </span>
-          {place.isSponsored && <span className="sponsored-label">Sponsored</span>}
+          <span className="place-card-signals">
+            {place.proximityLabel && <span className="place-card-proximity">{place.proximityLabel}</span>}
+            {place.isSponsored && <span className="sponsored-label">Sponsored</span>}
+          </span>
         </p>
 
         <h3 className="place-card-name">

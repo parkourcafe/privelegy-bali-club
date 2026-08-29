@@ -27,7 +27,7 @@ export function toUbudPlaceCard(v: VenueWithPerk): PlaceCardData {
     microArea: v.area,
     editorialLine: v.whyItsHere,
     bestFor: v.bestFor,
-    priceBand: v.priceAnchor,
+    priceBand: v.priceAnchor ?? v.priceBand,
     photoUrl: v.photoUrl,
     isSponsored: v.isSponsored,
     gmapsUrl: v.gmapsUrl,
