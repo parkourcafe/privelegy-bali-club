@@ -709,28 +709,23 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
     // for a schema/query error in staging or production.
     venues = [];
     perks = [];
-    try {
-      const sb = anonClient()!;
-      const [v, { data: p, error: perkError }] = await Promise.all([
-        // Paginated: the published catalogue is larger than one response.
-        readAllPages<Row>("published-venues", (from, to) =>
-          sb
-            .from("venues")
-            .select(PUBLIC_PLACES_VENUE_COLUMNS)
-            .eq("status", "active")
-            .eq("publication_status", "published")
-            .order("district", { ascending: true })
-            .order("name", { ascending: true })
-            .range(from, to) as unknown as PromiseLike<PageResult<Row>>),
-        sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
-      ]);
-      venues = v.map(mapVenue);
-      perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
-    } catch (e) {
-      warnPublicReadFailed("published-venues", e);
-      venues = [];
-      perks = [];
-    }
+    const sb = anonClient()!;
+    const [v, { data: p, error: perkError }] = await Promise.all([
+      // Paginated: the published catalogue is larger than one response.
+      readAllPages<Row>("published-venues", (from, to) =>
+        sb
+          .from("venues")
+          .select(PUBLIC_PLACES_VENUE_COLUMNS)
+          .eq("status", "active")
+          .eq("publication_status", "published")
+          .order("district", { ascending: true })
+          .order("name", { ascending: true })
+          .range(from, to) as unknown as PromiseLike<PageResult<Row>>),
+      sb.from("perks").select(PUBLIC_PERK_COLUMNS).eq("active", true),
+    ]);
+    if (v.length === 0) throw new Error("published-venues-empty");
+    venues = v.map(mapVenue);
+    perks = !perkError && p ? mapPublicPerks(p as Row[]) : [];
   }
 
   perks = normalizePublicPerks(perks);
@@ -763,16 +758,27 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
 
 const getCachedPublishedVenues = unstable_cache(
   fetchPublishedVenues,
-  // v2: the read is paginated now, so the cached value from the truncated
-  // era must not survive the deploy.
-  ["published-venues-v2"],
+  // v3: empty/error fallbacks now stay outside the cache, so a previously
+  // poisoned empty catalogue cannot survive the deploy.
+  ["published-venues-v3"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
   },
 );
 
-export const getPublishedVenues = reactCache(getCachedPublishedVenues);
+async function getPublishedVenuesFailClosed(): Promise<VenueWithPerk[]> {
+  try {
+    return await getCachedPublishedVenues();
+  } catch (e) {
+    // A configured database still fails closed, but the empty fallback is not
+    // cached. A later healthy request can repopulate the shared venue cache.
+    warnPublicReadFailed("published-venues", e);
+    return [];
+  }
+}
+
+export const getPublishedVenues = reactCache(getPublishedVenuesFailClosed);
 
 async function fetchSimilarVenues(
   targetSlug: string,
