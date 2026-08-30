@@ -1,10 +1,10 @@
 name: CI
 
-# Quality gate for every change (audit 2026-07, P0 "no CI"). Runs on PRs and on
-# pushes to the main development branches. The build is env-safe: the app guards
-# every Supabase call behind isSupabaseConfigured() and falls back to seed data,
-# and the prebuild scene-fetch no-ops without network — so no secrets are needed
-# to lint, typecheck, or build.
+# Quality gate for every change (audit 2026-07, P0 "no CI"). Runs on qualifying
+# pull requests; the unsigned iOS archive can be requested manually. The build
+# is env-safe: the app guards every Supabase call behind isSupabaseConfigured()
+# and falls back to seed data, and the prebuild scene-fetch no-ops without
+# network — so no secrets are needed to lint, typecheck, or build.
 
 on:
   workflow_dispatch:
@@ -23,20 +23,6 @@ on:
       - ".agents/skills/otherbali-ai-visible-venue/**"
       - ".claude/skills/otherbali-ai-visible-venue/**"
       - "**/*.md"
-  push:
-    branches:
-      - main
-      - master
-      - "release/**"
-      # Development happens on claude/* branches — run CI there too so problems
-      # surface before a PR is opened.
-      - "claude/**"
-    paths-ignore:
-      - "data/data-ops/ai-visible-venues/**"
-      - ".agents/skills/otherbali-ai-visible-venue/**"
-      - ".claude/skills/otherbali-ai-visible-venue/**"
-      - "**/*.md"
-
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
