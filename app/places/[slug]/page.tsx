@@ -28,9 +28,9 @@ import { safeTablePilotPublicBase } from "@/lib/integrations/tablepilot-environm
 import VenueImage from "@/components/VenueImage";
 import {
   publishableStreetAddress,
+  resolveVenueSchemaType,
   venueCategoryLabel,
   venueCoverAssetCategory,
-  venueSchemaType,
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
@@ -351,7 +351,11 @@ export default async function VenuePage({
   // hours/prices (brief §15).
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": venueSchemaType(venue.category),
+    "@type": resolveVenueSchemaType({
+      name,
+      description: [content?.verdict, venue.whyItsHere].filter(Boolean).join(" "),
+      category: venue.category,
+    }),
     name,
     url: `${BASE}/places/${slug}`,
     // Photo Policy v3 §4/§8: schema/OG image remains conservative even though
