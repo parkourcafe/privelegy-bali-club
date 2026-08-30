@@ -66,11 +66,15 @@ Search results and directory pages exposed a plus code and exact-looking daily
 closing times. They were not accepted because they are not AVLI-controlled
 sources and conflict with the official site's broader `5 pm–late` statement.
 
-## Database dedupe access check
+## Database dedupe and publication check
 
-The connected Supabase project list was checked on 2026-08-30. It did not
-contain a project identifiable as Other Bali, so no SQL query was sent to any
-database and unpublished duplicate state remains `UNKNOWN`.
+The Other Bali production project was confirmed as `bali-privilege`
+(`egkdapqwkfprtyqvvnso`) on 2026-08-30. An exact read-only query across venue
+name, slug, official domain, Maps URL and Google token returned no prior AVLI
+row. A one-row insert dry-run passed and the owner-authorized production write
+created `v_import_avli_bali` / `avli-bali` as an active published venue. The
+same transaction created a partial `source_snapshot` menu with two sections and
+13 items, expiring 2026-09-30.
 
 ## Hero image selected under owner policy
 

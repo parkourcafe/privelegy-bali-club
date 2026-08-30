@@ -3,7 +3,7 @@
 **Status:** `HOLD_PREPARED`
 **Captured:** 2026-08-30
 **Publication:** forbidden
-**Database write:** not performed
+**Database write:** not performed in the draft pack
 
 ## Discovery note
 

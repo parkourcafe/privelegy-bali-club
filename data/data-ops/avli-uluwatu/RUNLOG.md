@@ -253,3 +253,12 @@
 - Checks/result: the candidate remains `draft`, `forbiddenToPublish=true`, `publicationAllowed=false`, and `readyForImportDryRun=false`. No database or runtime write was performed.
 - Blocker: the proposed `avli-bali` slug still requires an exact production database dedupe; editorial approval and a supported publication state remain separate gates.
 - Next action/owner: data owner confirms the unique production venue identity and slug; editor reviews the menu subset; engineering then prepares the exact one-record dry-run.
+
+## Owner publication authorization and production apply — 2026-08-30T06:00:00Z
+
+- Status: `PUBLISHED_SOURCE_SNAPSHOT`
+- Inputs/evidence: explicit owner authorization to publish the AVLI page; official AVLI evidence pack; production Supabase project `bali-privilege` (`egkdapqwkfprtyqvvnso`).
+- Decision/change: exact read-only dedupe by AVLI name, proposed slug, official domain and Maps token returned no prior row. A one-row venue dry-run passed, then an atomic production transaction created active/published venue `v_import_avli_bali` with canonical slug `avli-bali` in district `uluwatu-bukit`.
+- Menu change: inserted one partial `source_snapshot` menu (`50b3a1f4-076e-4ebb-a25c-105e3096173f`) with two sections and 13 verified items, preserving official source URL, capture time, content digest and both source-asset hashes. Snapshot expires 2026-09-30.
+- Checks/result: production read-back confirmed the venue row, `publication_status=published`, `status=active`, coordinates `-8.8165625,115.0958125`, open-ended `Monday-Sunday 5pm-late`, and menu counts `2 sections / 13 items`. No guide edit, merge or deploy was performed.
+- Remaining review: Uluwatu guide inclusion and any stronger editorial rewrite remain separate editor decisions; the production URL is expected only after the PR is merged and deployed.

@@ -1,7 +1,7 @@
 # AVLI — editorial review draft
 
-**State:** `EDITOR_APPROVAL_REQUIRED`
-**Publication:** forbidden
+**State:** `EDITOR_APPROVAL_REQUIRED_FOR_GUIDE_ONLY`
+**Publication:** venue page published as a partial source snapshot
 **Prepared:** 2026-08-30
 
 ## Proposed venue record copy
@@ -51,8 +51,8 @@ be slug-gated to the final published venue record.
 - Full restaurant spend range: `UNKNOWN`.
 - Live table availability: owned by SevenRooms, not Other Bali.
 - Private-dining capacity: venue-published claim; recheck before publication.
-- Final Other Bali slug and database duplicate state: `UNKNOWN` until read-only
-  production dedupe succeeds.
+- Final Other Bali slug: `avli-bali` (unique production row confirmed on
+  2026-08-30).
 
 ## Owner operational decisions recorded 2026-08-30
 
