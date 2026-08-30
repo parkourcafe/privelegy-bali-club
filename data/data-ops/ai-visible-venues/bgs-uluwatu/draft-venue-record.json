@@ -1,0 +1,221 @@
+{
+  "artifactId": "bgs-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "bgs-uluwatu-20260830",
+    "name": "BGS Uluwatu",
+    "proposedSlug": "bgs-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "cafe",
+    "district": "uluwatu",
+    "area": "Suluban, Pecatu",
+    "locality": "BGS Uluwatu, Pecatu, Bali 80361, Indonesia",
+    "address": "BGS Uluwatu, Pecatu, Bali 80361, Indonesia",
+    "officialUrl": "https://bgsbali.com/store/bgs-uluwatu/",
+    "instagramUrl": "https://www.instagram.com/bgsbali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=BGS%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+    "cuisine": "Surf café and coffee bar",
+    "phone": "+62 878 6181 3103",
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-bgs-uluwatu-official",
+      "src-bgs-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-bgs-uluwatu-official",
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "address": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-bgs-uluwatu-official"
+      ],
+      "instagramUrl": [
+        "src-bgs-uluwatu-official"
+      ],
+      "gmapsUrl": [
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "phone": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-bgs-uluwatu-official",
+        "src-bgs-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-bgs-uluwatu-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-bgs-uluwatu-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "BGS Uluwatu is a surf shop and coffee bar with an official Ulu Eats and Drinks image menu.",
+      "best_for": "Specialty coffee, smoothies and a casual surf stop.",
+      "not_for": "A full-service dinner or a dish-specific recommendation beyond the captured menu.",
+      "price_anchor": "Representative captured menu prices 15K–140K; retain source units and verify freshness before publication.",
+      "what_to_order": "Espresso; Cappuccino; Latte",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-bgs-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://bgsbali.com/store/bgs-uluwatu/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-bgs-uluwatu-official"
+      },
+      {
+        "id": "action-bgs-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=BGS%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-bgs-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-bgs-uluwatu-official-20260830",
+        "kind": "official_menu_image",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-bgs-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Tax/service wording not shown in captured excerpt; do not infer.",
+        "items": [
+          {
+            "name": "Espresso",
+            "price": 25,
+            "section": "official menu"
+          },
+          {
+            "name": "Cappuccino",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Latte",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Flat White",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Americano",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Ice Americano",
+            "price": 35,
+            "section": "official menu"
+          },
+          {
+            "name": "Ice Latte",
+            "price": 40,
+            "section": "official menu"
+          },
+          {
+            "name": "Mocha",
+            "price": 35,
+            "section": "official menu"
+          },
+          {
+            "name": "Hot Cocoa",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Krakatoa smoothie bowl",
+            "price": 55,
+            "section": "official menu"
+          },
+          {
+            "name": "Bikini Bottom smoothie bowl",
+            "price": 55,
+            "section": "official menu"
+          },
+          {
+            "name": "Sunset Strip smoothie bowl",
+            "price": 55,
+            "section": "official menu"
+          },
+          {
+            "name": "Cake in a Jar",
+            "price": 50,
+            "section": "official menu"
+          },
+          {
+            "name": "Alfajores",
+            "price": 30,
+            "section": "official menu"
+          },
+          {
+            "name": "Cookies",
+            "price": 15,
+            "section": "official menu"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for recommendations and price anchor.",
+      "Exact production row and duplicate state remain unverified.",
+      "Menu freshness should be rechecked before publication."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

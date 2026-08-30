@@ -1,0 +1,14 @@
+{
+  "artifactId": "papi-sapi-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Papi Sapi in Labuan Sait, Pecatu?",
+      "approved": false
+    }
+  ]
+}

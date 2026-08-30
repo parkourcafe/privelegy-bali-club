@@ -1,0 +1,207 @@
+{
+  "artifactId": "masonry-restaurant-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "masonry-restaurant-20260830",
+    "name": "MASONRY Uluwatu",
+    "proposedSlug": "masonry-restaurant",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Labuan Sait, Pecatu",
+    "locality": "Jl. Labuansait No.10, Pecatu, Bali",
+    "address": "Jl. Labuansait No.10, Pecatu, Bali",
+    "officialUrl": "https://masonrybali.com/uluwatu",
+    "instagramUrl": "https://www.instagram.com/masonry.bali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=MASONRY%20Uluwatu%20Labuan%20Sait%2C%20Pecatu%20Bali",
+    "cuisine": "Mediterranean-inspired wood-fired cuisine, steaks and cocktails",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": "Tuesday-Saturday 6:00pm-late",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_editorial_hold",
+    "sourceManifestIds": [
+      "src-masonry-restaurant-official",
+      "src-masonry-restaurant-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-masonry-restaurant-official",
+        "src-masonry-restaurant-otherbali"
+      ],
+      "proposedCategory": [
+        "src-masonry-restaurant-otherbali"
+      ],
+      "district": [
+        "src-masonry-restaurant-otherbali"
+      ],
+      "area": [
+        "src-masonry-restaurant-otherbali"
+      ],
+      "locality": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "address": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "officialUrl": [
+        "src-masonry-restaurant-official"
+      ],
+      "instagramUrl": [
+        "src-masonry-restaurant-official"
+      ],
+      "gmapsUrl": [
+        "src-masonry-restaurant-otherbali"
+      ],
+      "cuisine": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-masonry-restaurant-official",
+        "src-masonry-restaurant-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-masonry-restaurant-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-masonry-restaurant-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Uluwatu MASONRY. combines Mediterranean-inspired food, wood fire and an explicit steakhouse/cocktail format.",
+      "best_for": "Wood-fired mains, steaks and group dining in the evening.",
+      "not_for": "Breakfast or a daytime café visit; official page says Tuesday-Saturday 6pm-late.",
+      "price_anchor": "Representative food items 45K–1,200K; official page states prices are in 000 rupiah and subject to 10% government tax + 7% service charge.",
+      "what_to_order": [
+        "Mixed pickled vegetables",
+        "Halloumi, honey, mint",
+        "Burrata, caponata, basil oil"
+      ],
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-masonry-restaurant-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://masonrybali.com/uluwatu",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-masonry-restaurant-official"
+      },
+      {
+        "id": "action-masonry-restaurant-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://masonrybali.com/uluwatu/bookings",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-masonry-restaurant-booking"
+      },
+      {
+        "id": "action-masonry-restaurant-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=MASONRY%20Uluwatu%20Labuan%20Sait%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-masonry-restaurant-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-masonry-restaurant-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-masonry-restaurant-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr_or_explicit_idr",
+        "taxAndService": "Official page states 10% government tax + 7% service charge.",
+        "items": [
+          {
+            "name": "Mixed pickled vegetables — 45K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Halloumi, honey, mint — 90K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Burrata, caponata, basil oil — 140K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Prawn spaghetti, garlic, chilli, rucola, lemon — 160K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Wagyu kofta roll — 100K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Hummus, burnt chilli butter, crispy bits — 75K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Wood fired barramundi fillet — 190K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "48hr slow cooked short rib — 390K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Stockyard 200 day grain fed ribeye — 400g/1200K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Passion fruit tart, vanilla cream — 95K",
+            "price": null,
+            "section": "official page representative capture"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

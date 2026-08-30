@@ -1,0 +1,116 @@
+{
+  "artifactId": "laggas-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "laggas-uluwatu-20260830",
+    "name": "Laggas",
+    "proposedSlug": "laggas-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Bingin",
+    "locality": "Jl. Pantai Bingin No.9, Pecatu",
+    "address": "Jl. Pantai Bingin No.9, Pecatu",
+    "officialUrl": null,
+    "instagramUrl": "https://www.instagram.com/laggasbali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Laggas%20Bingin%20Bali",
+    "cuisine": null,
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-laggas-uluwatu-official",
+      "src-laggas-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-laggas-uluwatu-official",
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-laggas-uluwatu-official"
+      ],
+      "address": [
+        "src-laggas-uluwatu-official"
+      ],
+      "officialUrl": [],
+      "instagramUrl": [
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "gmapsUrl": [
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "cuisine": [],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-laggas-uluwatu-official",
+        "src-laggas-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [],
+      "editorial.best_for": [],
+      "editorial.not_for": [],
+      "editorial.price_anchor": [],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": null,
+      "best_for": null,
+      "not_for": null,
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-laggas-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_instagram",
+        "url": "https://www.instagram.com/laggasbali/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-laggas-uluwatu-official"
+      },
+      {
+        "id": "action-laggas-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Laggas%20Bingin%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-laggas-uluwatu-otherbali"
+      }
+    ],
+    "menus": [],
+    "blockers": [
+      "Official current menu has not been safely captured/transcribed; keep menu and what_to_order empty until a first-party asset or text is verified.",
+      "Exact production row and duplicate state require a read-only database check.",
+      "Editorial fields require approval; no publication or import is authorized."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

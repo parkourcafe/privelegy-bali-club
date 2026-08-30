@@ -1,0 +1,22 @@
+{
+  "artifactId": "suka-espresso-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Suka Espresso",
+      "slug": "suka-espresso",
+      "sourceManifestId": "src-suka-espresso-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Suka Espresso",
+      "slug": "suka-espresso",
+      "sourceManifestId": "src-suka-espresso-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

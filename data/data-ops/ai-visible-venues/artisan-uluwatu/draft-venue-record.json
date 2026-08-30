@@ -1,0 +1,196 @@
+{
+  "artifactId": "artisan-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "artisan-uluwatu-20260830",
+    "name": "Artisan Uluwatu",
+    "proposedSlug": "artisan-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "cafe",
+    "district": "uluwatu",
+    "area": "Suluban, Pecatu",
+    "locality": "Jl. Pantai Labuansait Suluban, Pecatu, Bali 80361",
+    "address": "Jl. Pantai Labuansait Suluban, Pecatu, Bali 80361",
+    "officialUrl": "https://artisangroup.id/",
+    "instagramUrl": "https://www.instagram.com/artisan.bali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Artisan%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+    "cuisine": "Mediterranean and Asian bakery, brunch and wood-fired dining",
+    "phone": "+62 822 6661 5155",
+    "photoUrl": null,
+    "openingHoursText": "Daily 7:00am-11:00pm",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-artisan-uluwatu-official",
+      "src-artisan-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-artisan-uluwatu-official",
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "address": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "instagramUrl": [
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "gmapsUrl": [
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "phone": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-artisan-uluwatu-official",
+        "src-artisan-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-artisan-uluwatu-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-artisan-uluwatu-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Artisan Uluwatu combines an artisan bakery and modern brunch by day with casual fine dining and a wood-fired menu at night.",
+      "best_for": "Breakfast, brunch, bakery items and an evening wood-fired meal.",
+      "not_for": "A fixed price promise for bakery items marked subject to availability.",
+      "price_anchor": "Representative breakfast items 55K–150K; official PDF states prices are subject to 10% government tax and 5% service charge.",
+      "what_to_order": "Green Eggs; Hand-rolled Spaghetti; Yellowfin Tuna Crudo",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-artisan-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_instagram",
+        "url": "https://www.instagram.com/artisan.bali/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-artisan-uluwatu-official"
+      },
+      {
+        "id": "action-artisan-uluwatu-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://www.chope.co/bali-restaurants/restaurant/artisan-uluwatu",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-artisan-uluwatu-booking"
+      },
+      {
+        "id": "action-artisan-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Artisan%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-artisan-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-artisan-uluwatu-official-2024",
+        "kind": "official_menu_pdf",
+        "status": "draft_verified_first_party_transcription_stale_recheck",
+        "sourceManifestId": "src-artisan-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Official PDF: subject to 10% government tax and 5% service charge.",
+        "items": [
+          {
+            "name": "The Simple Life",
+            "price": 55,
+            "section": "Breakfast"
+          },
+          {
+            "name": "Saffron Benedict",
+            "price": 100,
+            "section": "Breakfast"
+          },
+          {
+            "name": "Steak & Eggs",
+            "price": 150,
+            "section": "Breakfast"
+          },
+          {
+            "name": "Green Eggs",
+            "price": 70,
+            "section": "Breakfast"
+          },
+          {
+            "name": "Hand-rolled Spaghetti",
+            "price": null,
+            "section": "Menu highlight"
+          },
+          {
+            "name": "Yellowfin Tuna Crudo",
+            "price": null,
+            "section": "Menu highlight"
+          },
+          {
+            "name": "Crosissant",
+            "price": 25,
+            "section": "Bakery"
+          },
+          {
+            "name": "Almond Croissant",
+            "price": 40,
+            "section": "Bakery"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for recommendations and price anchor.",
+      "Exact production row and duplicate state remain unverified.",
+      "The captured official PDF is older than the current run; recheck the live menu before publication."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

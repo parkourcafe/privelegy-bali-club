@@ -1,0 +1,153 @@
+{
+  "artifactId": "alchemy-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "alchemy-uluwatu-20260830",
+    "name": "Alchemy Uluwatu",
+    "proposedSlug": "alchemy-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "cafe",
+    "district": "uluwatu",
+    "area": "Bingin",
+    "locality": "Jl. Pantai Bingin No.8, Pecatu, Bali",
+    "address": "Jl. Pantai Bingin No.8, Pecatu, Bali",
+    "officialUrl": "https://www.alchemybali.com/uluwatu",
+    "instagramUrl": "https://www.instagram.com/alchemybali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bingin%20Bali",
+    "cuisine": "Plant-based, raw vegan and gluten-free cuisine",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-alchemy-uluwatu-official",
+      "src-alchemy-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-alchemy-uluwatu-official",
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "address": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-alchemy-uluwatu-official"
+      ],
+      "instagramUrl": [
+        "src-alchemy-uluwatu-official"
+      ],
+      "gmapsUrl": [
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-alchemy-uluwatu-official",
+        "src-alchemy-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-alchemy-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": "Plant-based, raw vegan and gluten-free cuisine venue in Bingin.",
+      "best_for": "A menu-led visit after checking the venue’s current official offering.",
+      "not_for": "A dish-specific recommendation until the latest item list and prices are confirmed.",
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-alchemy-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://www.alchemybali.com/uluwatu",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-alchemy-uluwatu-official"
+      },
+      {
+        "id": "action-alchemy-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bingin%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-alchemy-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-alchemy-uluwatu-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_official_menu_link_transcription_pending",
+        "sourceManifestId": "src-alchemy-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "not_published",
+        "taxAndService": "Not stated in captured page; do not infer.",
+        "items": [
+          {
+            "name": "Official Uluwatu menu link",
+            "price": null,
+            "section": "official page"
+          },
+          {
+            "name": "Plant-based and gluten-free menu",
+            "price": null,
+            "section": "official page"
+          },
+          {
+            "name": "Raw and gently cooked options",
+            "price": null,
+            "section": "official page"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy.",
+      "Exact production row and duplicate state remain unverified.",
+      "Official page confirms the Uluwatu menu and dietary format, but item-level prices are not exposed in captured HTML."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

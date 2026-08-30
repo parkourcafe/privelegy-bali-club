@@ -1,0 +1,22 @@
+{
+  "artifactId": "white-rock-beach-club-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "White Rock Beach Club",
+      "slug": "white-rock-beach-club",
+      "sourceManifestId": "src-white-rock-beach-club-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "White Rock Beach Club",
+      "slug": "white-rock-beach-club",
+      "sourceManifestId": "src-white-rock-beach-club-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

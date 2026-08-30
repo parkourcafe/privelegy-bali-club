@@ -1,0 +1,40 @@
+{
+  "artifactId": "ulu-fishmarket-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-ulu-fishmarket-official",
+      "type": "official_website",
+      "url": "https://ulufishmarket.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-ulu-fishmarket-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/ulu-fishmarket",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-ulu-fishmarket-booking",
+      "type": "official_booking_page",
+      "url": "https://www.chope.co/bali-restaurants/restaurant/ulu-fish-market-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-ulu-fishmarket-official-menu",
+      "type": "official_website",
+      "url": "https://ulufishmarket.com/menu-copy/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "Official page is a first-party menu, but the search index dates it to an older menu page; verify freshness before publication."
+    }
+  ]
+}

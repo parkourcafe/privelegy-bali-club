@@ -1,0 +1,40 @@
+{
+  "artifactId": "ulu-garden-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-ulu-garden-official",
+      "type": "official_website",
+      "url": "https://ulutribe.com/ulu-garden/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-ulu-garden-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/ulu-garden",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-ulu-garden-booking",
+      "type": "official_booking_page",
+      "url": "https://www.dishcult.com/restaurant/ulugarden",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-ulu-garden-official-menu",
+      "type": "official_website",
+      "url": "https://ulutribe.com/ulu-garden/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_MENU_ASSET",
+      "note": "Official page confirms modern Indonesian dining, breakfast/lunch/dinner, vegan and gluten-free options; item-level menu/prices are not exposed."
+    }
+  ]
+}

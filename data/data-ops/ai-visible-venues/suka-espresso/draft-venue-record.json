@@ -1,0 +1,221 @@
+{
+  "artifactId": "suka-espresso-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "suka-espresso-20260830",
+    "name": "Suka Espresso",
+    "proposedSlug": "suka-espresso",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "cafe",
+    "district": "uluwatu",
+    "area": "Labuan Sait, Pecatu",
+    "locality": "Jl. Labuansait No.10, Pecatu, Kuta Selatan, Badung, Bali 80361",
+    "address": "Jl. Labuansait No.10, Pecatu, Kuta Selatan, Badung, Bali 80361",
+    "officialUrl": "https://www.bysuka.com/suka-uluwatu",
+    "instagramUrl": "https://www.instagram.com/sukaespresso/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Suka%20Espresso%20Labuan%20Sait%2C%20Pecatu%20Bali",
+    "cuisine": "Australian-style café and restaurant",
+    "phone": "+62 812 4652 7605",
+    "photoUrl": null,
+    "openingHoursText": "Daily 7:30am-10:00pm",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-suka-espresso-official",
+      "src-suka-espresso-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-suka-espresso-official",
+        "src-suka-espresso-otherbali"
+      ],
+      "proposedCategory": [
+        "src-suka-espresso-otherbali"
+      ],
+      "district": [
+        "src-suka-espresso-otherbali"
+      ],
+      "area": [
+        "src-suka-espresso-otherbali"
+      ],
+      "locality": [
+        "src-suka-espresso-official-menu"
+      ],
+      "address": [
+        "src-suka-espresso-official-menu"
+      ],
+      "officialUrl": [
+        "src-suka-espresso-official"
+      ],
+      "instagramUrl": [
+        "src-suka-espresso-official"
+      ],
+      "gmapsUrl": [
+        "src-suka-espresso-otherbali"
+      ],
+      "cuisine": [
+        "src-suka-espresso-official-menu"
+      ],
+      "phone": [
+        "src-suka-espresso-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-suka-espresso-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-suka-espresso-official",
+        "src-suka-espresso-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-suka-espresso-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-suka-espresso-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-suka-espresso-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-suka-espresso-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-suka-espresso-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "SUKA Uluwatu is an Australian-style café and restaurant with a first-party menu covering breakfast, bowls, sandwiches, burgers and cakes.",
+      "best_for": "Breakfast, brunch, coffee and casual all-day dining.",
+      "not_for": "A late-night venue; the official location listing closes at 10pm.",
+      "price_anchor": "Representative captured menu prices 15K–140K; retain source units and verify freshness before publication.",
+      "what_to_order": "Extra Basic; Chilli Bae; Classic Pancakes",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-suka-espresso-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://www.bysuka.com/suka-uluwatu",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-suka-espresso-official"
+      },
+      {
+        "id": "action-suka-espresso-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Suka%20Espresso%20Labuan%20Sait%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-suka-espresso-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-suka-espresso-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-suka-espresso-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Tax/service wording not shown in captured excerpt; do not infer.",
+        "items": [
+          {
+            "name": "Extra Basic",
+            "price": 60,
+            "section": "official menu"
+          },
+          {
+            "name": "Chilli Bae",
+            "price": 60,
+            "section": "official menu"
+          },
+          {
+            "name": "Classic Pancakes",
+            "price": 60,
+            "section": "official menu"
+          },
+          {
+            "name": "Bircher Muesli",
+            "price": 60,
+            "section": "official menu"
+          },
+          {
+            "name": "Loaded Fruit Salad",
+            "price": 60,
+            "section": "official menu"
+          },
+          {
+            "name": "Bacon Egg Burger",
+            "price": 75,
+            "section": "official menu"
+          },
+          {
+            "name": "Salmon Scramble",
+            "price": 115,
+            "section": "official menu"
+          },
+          {
+            "name": "Morning Fuel Bowl",
+            "price": 89,
+            "section": "official menu"
+          },
+          {
+            "name": "Shakshuka",
+            "price": 80,
+            "section": "official menu"
+          },
+          {
+            "name": "Eggs Benedict — avocado",
+            "price": 75,
+            "section": "official menu"
+          },
+          {
+            "name": "Very Berry Pancake",
+            "price": 75,
+            "section": "official menu"
+          },
+          {
+            "name": "Acai smoothie bowl",
+            "price": 85,
+            "section": "official menu"
+          },
+          {
+            "name": "Tuna Poke Bowl",
+            "price": 70,
+            "section": "official menu"
+          },
+          {
+            "name": "The Ultimate Burger",
+            "price": 140,
+            "section": "official menu"
+          },
+          {
+            "name": "Burnt Basque Cheesecake",
+            "price": 65,
+            "section": "official menu"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for recommendations and price anchor.",
+      "Exact production row and duplicate state remain unverified.",
+      "Menu freshness should be rechecked before publication."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

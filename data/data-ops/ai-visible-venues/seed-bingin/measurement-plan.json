@@ -1,0 +1,14 @@
+{
+  "artifactId": "seed-bingin-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Seed in Bingin?",
+      "approved": false
+    }
+  ]
+}

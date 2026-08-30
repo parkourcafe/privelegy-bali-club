@@ -1,0 +1,22 @@
+{
+  "artifactId": "gooseberry-french-restaurant-uluwatu-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Gooseberry",
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "sourceManifestId": "src-gooseberry-french-restaurant-uluwatu-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Gooseberry",
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "sourceManifestId": "src-gooseberry-french-restaurant-uluwatu-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

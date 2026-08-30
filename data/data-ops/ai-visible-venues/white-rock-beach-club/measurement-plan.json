@@ -1,0 +1,14 @@
+{
+  "artifactId": "white-rock-beach-club-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is White Rock Beach Club in Melasti, Ungasan?",
+      "approved": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "artifactId": "sundays-beach-club-evidence-20260830",
+  "generatedAt": "2026-08-30T05:58:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-sundays-beach-club-official-home",
+      "label": "Sundays Beach Club official website",
+      "url": "https://www.sundaysbeachclub.com/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T05:58:00Z",
+      "verifiedAt": "2026-08-30T05:58:00Z",
+      "outcome": "verified_current",
+      "supports": ["name", "category", "district", "address", "hours", "walk_in_pass", "vip_booking", "activities", "instagram", "gmaps_handoff", "menu_handoff"],
+      "limitations": ["Dynamic activities and events should be rechecked immediately before publication."]
+    },
+    {
+      "id": "src-sundays-beach-club-official-menu-pdf",
+      "label": "Sundays Food & Beverage Menu - June 2026",
+      "url": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "sourceType": "official_menu_pdf",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T05:58:00Z",
+      "verifiedAt": "2026-08-30T05:58:00Z",
+      "sha256": "dc2900eb5b2943171386eddd5ce5e8a4e69ad7f706db2a2e577cd76ceac2cade",
+      "pages": 4,
+      "documentTitle": "Sundays Food & Beverage Menu - June 2026",
+      "outcome": "verified_current_text_extractable_pdf",
+      "supports": ["food_items", "food_prices", "drinks", "price_anchor_proposal", "what_to_order_proposal", "surcharge_note"],
+      "limitations": ["Availability can change.", "The printed surcharge wording is preserved without legal or arithmetic reinterpretation."]
+    },
+    {
+      "id": "src-sundays-beach-club-sevenrooms",
+      "label": "Official Sundays VIP SevenRooms handoff",
+      "url": "https://www.sevenrooms.com/experiences/sundaysbeachclub",
+      "sourceType": "official_booking_provider",
+      "officialControl": "provider",
+      "capturedAt": "2026-08-30T05:58:00Z",
+      "verifiedAt": "2026-08-30T05:58:00Z",
+      "outcome": "verified_handoff",
+      "supports": ["vip_reserve_action"],
+      "limitations": ["Handoff does not prove availability or confirmation."]
+    },
+    {
+      "id": "src-sundays-beach-club-otherbali-public",
+      "label": "Current Other Bali Sundays Beach Club card",
+      "url": "https://www.otherbali.com/places/sundays-beach-club",
+      "sourceType": "first_party_public_card",
+      "officialControl": "other_bali",
+      "capturedAt": "2026-08-30T05:58:00Z",
+      "verifiedAt": "2026-08-30T05:58:00Z",
+      "outcome": "verified_live_before_state",
+      "supports": ["existing_slug", "existing_category", "existing_district", "before_state", "existing_editorial_copy"],
+      "limitations": ["Page reports last checked 2026-07-12.", "Other Bali editorial copy is not independent venue evidence."]
+    }
+  ]
+}

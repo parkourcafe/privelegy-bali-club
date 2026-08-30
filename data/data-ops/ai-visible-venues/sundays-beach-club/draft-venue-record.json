@@ -1,0 +1,93 @@
+{
+  "artifactId": "sundays-beach-club-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T05:58:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "sundays-beach-club-20260830",
+    "name": "Sundays Beach Club",
+    "proposedSlug": "sundays-beach-club",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "beach_club",
+    "district": "uluwatu",
+    "area": "Ungasan",
+    "locality": "Ungasan 80362, Bali, Indonesia",
+    "address": "Jalan Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan 80362, Bali, Indonesia",
+    "officialUrl": "https://www.sundaysbeachclub.com/",
+    "instagramUrl": "https://www.instagram.com/sundaysbeachclub/",
+    "gmapsUrl": "https://www.google.com.au/maps/place/Sundays%2BBeach%2BClub/@-8.846834,115.1498795,18.15z/data=!4m8!1m2!2m1!1sJalan%2BPantai%2BSelatan%2BGau%03%2BBanjar%2BWijaya%2BKusuma%03%2BUngasan%2B80362%2BBali%03%2BIndonesia!3m4!1s0x0:0xb38f06acc4d67a83!8m2!3d-8.8472658!4d115.150859",
+    "cuisine": "Beach-club dining with seafood, tacos, bowls, barbecue and wood-fired pizza",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": "Daily 7:30am-10pm",
+    "opening_hours_json": {
+      "Monday": ["7.30am-10.00pm"], "Tuesday": ["7.30am-10.00pm"], "Wednesday": ["7.30am-10.00pm"], "Thursday": ["7.30am-10.00pm"], "Friday": ["7.30am-10.00pm"], "Saturday": ["7.30am-10.00pm"], "Sunday": ["7.30am-10.00pm"]
+    },
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_explicit_holds",
+    "sourceManifestIds": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-official-menu-pdf", "src-sundays-beach-club-sevenrooms", "src-sundays-beach-club-otherbali-public"],
+    "fieldEvidence": {
+      "name": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "proposedCategory": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "district": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "area": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "locality": ["src-sundays-beach-club-official-home"],
+      "address": ["src-sundays-beach-club-official-home"],
+      "officialUrl": ["src-sundays-beach-club-official-home"],
+      "instagramUrl": ["src-sundays-beach-club-official-home"],
+      "gmapsUrl": ["src-sundays-beach-club-official-home"],
+      "cuisine": ["src-sundays-beach-club-official-menu-pdf"],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": ["src-sundays-beach-club-official-home"],
+      "opening_hours_json": ["src-sundays-beach-club-official-home"],
+      "last_verified_at": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-official-menu-pdf", "src-sundays-beach-club-sevenrooms", "src-sundays-beach-club-otherbali-public"],
+      "editorial.why_its_here": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "editorial.best_for": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "editorial.not_for": ["src-sundays-beach-club-official-home", "src-sundays-beach-club-otherbali-public"],
+      "editorial.price_anchor": ["src-sundays-beach-club-official-menu-pdf"],
+      "editorial.what_to_order": ["src-sundays-beach-club-official-menu-pdf"]
+    },
+    "editorial": {
+      "why_its_here": "Sundays is a beach club below the Ungasan cliffs with sand-level access, watersports, beachfront dining and sunset bonfires.",
+      "best_for": "A full beach day; families; sunset bonfires; couples who want sand rather than a cliff deck.",
+      "not_for": "A quick low-cost stop; daily admission is walk-in and the format is designed for staying longer.",
+      "price_anchor": "$$$ · most individual food 70K-300K; signature seafood sharing 650K-3,000K; menu surcharges apply",
+      "what_to_order": "crispy mahi mahi taco; whole lobster; wood-fired pizza",
+      "jobs": []
+    },
+    "actions": [
+      {"id": "action-sundays-website-01", "kind": "website", "label": "Official website", "provider": "official_website", "url": "https://www.sundaysbeachclub.com/", "status": "draft", "confirmationRequired": false, "sourceManifestId": "src-sundays-beach-club-official-home"},
+      {"id": "action-sundays-vip-02", "kind": "reserve", "label": "Book VIP experience", "provider": "sevenrooms", "url": "https://www.sevenrooms.com/experiences/sundaysbeachclub", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-sundays-beach-club-sevenrooms"},
+      {"id": "action-sundays-directions-03", "kind": "directions", "label": "Directions", "provider": "google_maps", "url": "https://www.google.com.au/maps/place/Sundays%2BBeach%2BClub/@-8.846834,115.1498795,18.15z/data=!4m8!1m2!2m1!1sJalan%2BPantai%2BSelatan%2BGau%03%2BBanjar%2BWijaya%2BKusuma%03%2BUngasan%2B80362%2BBali%03%2BIndonesia!3m4!1s0x0:0xb38f06acc4d67a83!8m2!3d-8.8472658!4d115.150859", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-sundays-beach-club-official-home"}
+    ],
+    "menus": [
+      {
+        "id": "menu-sundays-food-beverage-june-2026",
+        "kind": "official_menu_pdf_text_layer",
+        "status": "draft_verified_source_full_food_transcription",
+        "sourceManifestId": "src-sundays-beach-club-official-menu-pdf",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Official PDF states: subject to 21% service charge and government tax",
+        "items": [
+          {"name": "Crispy mahi mahi taco", "price": 70, "section": "Tacos y tostadas"},
+          {"name": "Lobster roll", "price": 220, "section": "Burgers and sangas"},
+          {"name": "Mahi mahi", "price": 250, "section": "BBQ"},
+          {"name": "Whole lobster", "price": 1200, "section": "BBQ"},
+          {"name": "Margherita pizza", "price": 185, "section": "Wood-fired pizza"},
+          {"name": "Chilled seafood tower", "price": 2000, "section": "Luxe signature"},
+          {"name": "Ultimate seafood platter", "price": 3000, "section": "Luxe signature"}
+        ]
+      }
+    ],
+    "blockers": ["Editorial approval is required for the exact recommendations, not_for and price anchor.", "The exact production row has not been verified read-only.", "The official PDF's surcharge wording must not be arithmetically reinterpreted without clarification."],
+    "recommendedNextAction": "Approve the editorial fields, then verify the one-row target and prepare a guarded update for hours, actions and text menu evidence."
+  }
+}

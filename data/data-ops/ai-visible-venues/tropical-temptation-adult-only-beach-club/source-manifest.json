@@ -1,0 +1,40 @@
+{
+  "artifactId": "tropical-temptation-adult-only-beach-club-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-tropical-temptation-adult-only-beach-club-official",
+      "type": "official_website",
+      "url": "https://ttbeach.club/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-tropical-temptation-adult-only-beach-club-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/tropical-temptation-adult-only-beach-club",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-tropical-temptation-adult-only-beach-club-booking",
+      "type": "official_booking_page",
+      "url": "https://reserve.ttbeach.club/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-tropical-temptation-adult-only-beach-club-official-menu",
+      "type": "official_website",
+      "url": "https://ttbeach.club/eat-and-drink",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_MENU_ASSET",
+      "note": "First-party page captured; publication remains forbidden."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "artifactId": "bgs-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-bgs-uluwatu-official",
+      "type": "official_website",
+      "url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-bgs-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/bgs-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-bgs-uluwatu-official-menu",
+      "type": "official_website",
+      "url": "https://store.bgsbali.com/pages/menu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party menu page/image captured; publication remains forbidden."
+    }
+  ]
+}

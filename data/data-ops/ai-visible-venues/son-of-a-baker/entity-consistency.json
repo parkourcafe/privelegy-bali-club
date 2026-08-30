@@ -1,0 +1,22 @@
+{
+  "artifactId": "son-of-a-baker-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Son of a Baker",
+      "slug": "son-of-a-baker",
+      "sourceManifestId": "src-son-of-a-baker-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Son of a Baker",
+      "slug": "son-of-a-baker",
+      "sourceManifestId": "src-son-of-a-baker-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artifactId": "single-fin-measurement-plan-20260830",
+  "generatedAt": "2026-08-30T05:46:16Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "draft_not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "sharedPromptLibrary": {"id": null, "version": null},
+  "market": {"country": "Indonesia", "cityOrDistrict": "Uluwatu", "languages": ["en"], "state": "proposed_not_approved"},
+  "platforms": [],
+  "runsPerPrompt": null,
+  "venueSpecificPrompts": [
+    {"promptId": "single-fin-identity-001", "promptText": "What is Single Fin Bali and where is it?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["identity", "Suluban/Pecatu location", "official source"], "approved": false},
+    {"promptId": "single-fin-discovery-001", "promptText": "Where should I go for sunset drinks in Uluwatu?", "journeyStage": "discovery", "value": "high", "expectedCriteria": ["relevant venues", "fit", "cited sources"], "approved": false},
+    {"promptId": "single-fin-menu-001", "promptText": "What food is on the current Single Fin Bali menu and what does it cost?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["current items", "prices", "tax/service treatment", "date"], "approved": false},
+    {"promptId": "single-fin-hours-001", "promptText": "What are Single Fin Bali's opening hours?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["weekday differences", "post-midnight close", "source"], "approved": false}
+  ],
+  "experiment": {"cohortId": null, "changeDate": null, "controlUrls": [], "observationWindow": null},
+  "metrics": ["presence", "citations", "cited_pages", "factual_accuracy", "message_match"],
+  "limitations": ["Prompts are unapproved.", "No paid run is authorized.", "A technical readiness check is not an observed AI-visibility baseline.", "One answer is not a trend."],
+  "nextAction": "Approve a shared Uluwatu restaurant prompt library after the public data change is verified."
+}

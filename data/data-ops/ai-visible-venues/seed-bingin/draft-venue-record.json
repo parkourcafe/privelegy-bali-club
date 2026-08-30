@@ -1,0 +1,250 @@
+{
+  "artifactId": "seed-bingin-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "seed-bingin-20260830",
+    "name": "Seed",
+    "proposedSlug": "seed-bingin",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Bingin",
+    "locality": "Jalan Pantai Bingin, Pecatu, South Kuta, Badung, Bali 80361, Indonesia",
+    "address": "Jalan Pantai Bingin, Pecatu, South Kuta, Badung, Bali 80361, Indonesia",
+    "officialUrl": "https://seedbingin.com/",
+    "instagramUrl": "https://www.instagram.com/seed.bingin/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Seed%20Bingin%20Bali",
+    "cuisine": "French-Asian farm-to-table cuisine",
+    "phone": "+62 853 3373 7207",
+    "photoUrl": null,
+    "openingHoursText": "Daily 7:00am-11:00pm",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-seed-bingin-official",
+      "src-seed-bingin-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-seed-bingin-official",
+        "src-seed-bingin-otherbali"
+      ],
+      "proposedCategory": [
+        "src-seed-bingin-otherbali"
+      ],
+      "district": [
+        "src-seed-bingin-otherbali"
+      ],
+      "area": [
+        "src-seed-bingin-otherbali"
+      ],
+      "locality": [
+        "src-seed-bingin-official-menu"
+      ],
+      "address": [
+        "src-seed-bingin-official-menu"
+      ],
+      "officialUrl": [
+        "src-seed-bingin-official"
+      ],
+      "instagramUrl": [
+        "src-seed-bingin-official"
+      ],
+      "gmapsUrl": [
+        "src-seed-bingin-otherbali"
+      ],
+      "cuisine": [
+        "src-seed-bingin-official-menu"
+      ],
+      "phone": [
+        "src-seed-bingin-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-seed-bingin-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-seed-bingin-official",
+        "src-seed-bingin-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-seed-bingin-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-seed-bingin-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-seed-bingin-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-seed-bingin-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-seed-bingin-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Farm-to-table French-Asian restaurant on Jalan Pantai Bingin with a current first-party menu.",
+      "best_for": "Shared small plates, Indonesian-inspired mains and a seven-course Nusantara menu.",
+      "not_for": "A rushed stop; dinner reservations are described as essential on the official page.",
+      "price_anchor": "Representative official menu prices captured; retain tax/service wording from source.",
+      "what_to_order": "Soft Shell Crab; Tuna Crudo; Smoked Octopus Tempura",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-seed-bingin-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://seedbingin.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-seed-bingin-official"
+      },
+      {
+        "id": "action-seed-bingin-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://www.chope.co/bali-restaurants/restaurant/seed-bingin-uluwatu",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-seed-bingin-booking"
+      },
+      {
+        "id": "action-seed-bingin-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Seed%20Bingin%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-seed-bingin-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-seed-bingin-official-20260830",
+        "kind": "official_html_or_pdf",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-seed-bingin-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Official page: prices in IDR, k means thousand; subject to 10% government tax and 7% service charge.",
+        "items": [
+          {
+            "name": "Soft Shell Crab",
+            "price": 90,
+            "section": "official menu"
+          },
+          {
+            "name": "Tuna Crudo",
+            "price": 110,
+            "section": "official menu"
+          },
+          {
+            "name": "Smoked Octopus Tempura",
+            "price": 100,
+            "section": "official menu"
+          },
+          {
+            "name": "Black Garlic Eggplant",
+            "price": 90,
+            "section": "official menu"
+          },
+          {
+            "name": "Gyozas (5pcs)",
+            "price": 90,
+            "section": "official menu"
+          },
+          {
+            "name": "Amberjack Ceviche",
+            "price": 100,
+            "section": "official menu"
+          },
+          {
+            "name": "Tuna Manga",
+            "price": 160,
+            "section": "official menu"
+          },
+          {
+            "name": "Catch of the Day",
+            "price": 165,
+            "section": "official menu"
+          },
+          {
+            "name": "Grilled King Prawns, Jimbaran Market",
+            "price": 310,
+            "section": "official menu"
+          },
+          {
+            "name": "Sumatran Beef Rendang",
+            "price": 210,
+            "section": "official menu"
+          },
+          {
+            "name": "Shrimp Ravioli",
+            "price": 170,
+            "section": "official menu"
+          },
+          {
+            "name": "Curry Sayur Asem",
+            "price": 130,
+            "section": "official menu"
+          },
+          {
+            "name": "Mango Season",
+            "price": 120,
+            "section": "official menu"
+          },
+          {
+            "name": "Passion for Bali",
+            "price": 110,
+            "section": "official menu"
+          },
+          {
+            "name": "Cocoa Pod",
+            "price": 120,
+            "section": "official menu"
+          },
+          {
+            "name": "Seed Breakfast",
+            "price": 98,
+            "section": "official menu"
+          },
+          {
+            "name": "Açaí Bowl",
+            "price": 100,
+            "section": "official menu"
+          },
+          {
+            "name": "Beef Burger single",
+            "price": 115,
+            "section": "official menu"
+          },
+          {
+            "name": "Panang Seafood Curry",
+            "price": 130,
+            "section": "official menu"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}
