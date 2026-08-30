@@ -1,0 +1,20 @@
+{
+  "artifactId": "__VENUE_SLUG__-entity-consistency-__DATE_COMPACT__",
+  "generatedAt": "__TIMESTAMP__",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "venueName": "__VENUE_NAME__",
+  "canonicalCandidate": {
+    "name": "__VENUE_NAME__",
+    "category": null,
+    "district": "__DISTRICT__",
+    "officialUrl": "__OFFICIAL_URL__"
+  },
+  "surfaces": [],
+  "conflicts": [],
+  "unresolvedFields": [
+    "Exact identity and duplicate state have not been checked."
+  ]
+}

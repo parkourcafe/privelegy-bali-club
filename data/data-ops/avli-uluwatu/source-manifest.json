@@ -1,0 +1,242 @@
+{
+  "artifactId": "avli-uluwatu-evidence-20260830",
+  "generatedAt": "2026-08-30T03:50:02Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-avli-official-home",
+      "label": "AVLI official website",
+      "url": "https://avlibali.com/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_partial",
+      "supports": [
+        "name",
+        "category",
+        "district",
+        "locality",
+        "phone",
+        "opening_hours_text",
+        "official_maps_handoff",
+        "official_booking_handoff"
+      ],
+      "limitations": [
+        "No visible street-and-number address was captured.",
+        "The published closing time is only 'late'."
+      ]
+    },
+    {
+      "id": "src-avli-official-menu-page",
+      "label": "AVLI official menu page",
+      "url": "https://avlibali.com/menu/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_current_menu_handoff",
+      "supports": [
+        "cuisine_description",
+        "sharing_style",
+        "official_main_menu_asset",
+        "official_dessert_menu_asset"
+      ],
+      "limitations": [
+        "The priced menus are image assets rather than machine-readable HTML.",
+        "The main linked asset is a signature-sharing selection, not proof that every current food item was captured."
+      ]
+    },
+    {
+      "id": "src-avli-official-signature-menu-image",
+      "label": "AVLI official signature-sharing menu image",
+      "url": "https://avlibali.com/wp-content/uploads/2025/09/Copy-of-Sharing-Menu-0107_page-0001.webp",
+      "sourceType": "official_menu_image",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T04:42:40Z",
+      "verifiedAt": "2026-08-30T04:42:40Z",
+      "sha256": "6d425bd7cc7f1732c2eae514576b2d3f057fb5d13730ce3cab270772efde38c6",
+      "dimensions": "874x1241",
+      "outcome": "verified_currently_linked_asset",
+      "supports": [
+        "current_signature_items",
+        "current_signature_prices",
+        "menu_tax_and_service_note",
+        "what_to_order_proposal",
+        "price_anchor_proposal"
+      ],
+      "limitations": [
+        "The asset path contains 2025/09, but the official menu page linked it during the 2026-08-30 capture.",
+        "Prices are stated in thousand IDR and exclude 10% government tax and 7% service charge.",
+        "Weight-based prices and large sharing cuts are not comparable to ordinary per-item prices."
+      ]
+    },
+    {
+      "id": "src-avli-official-dessert-menu-image",
+      "label": "AVLI official dessert menu image",
+      "url": "https://avlibali.com/wp-content/uploads/2026/02/Dessert-Menu-276-opt-1_page-0001.webp",
+      "sourceType": "official_menu_image",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T04:42:40Z",
+      "verifiedAt": "2026-08-30T04:42:40Z",
+      "sha256": "6b2ed1bb73d6126defafc81128f82d71172b861bccb5dadfe60f653c5fa86f97",
+      "dimensions": "1747x2482",
+      "outcome": "verified_currently_linked_asset",
+      "supports": [
+        "current_dessert_items",
+        "current_dessert_prices",
+        "menu_tax_and_service_note",
+        "price_anchor_proposal"
+      ],
+      "limitations": [
+        "Dessert prices do not establish the full restaurant spend range.",
+        "Prices are stated in thousand IDR and exclude 10% government tax and 7% service charge."
+      ]
+    },
+    {
+      "id": "src-avli-official-maps-handoff",
+      "label": "AVLI official Google Maps handoff",
+      "url": "https://maps.app.goo.gl/ou9Loqtmt68qnnDL8",
+      "sourceType": "official_maps_handoff",
+      "officialControl": "venue_handoff_to_google",
+      "capturedAt": "2026-08-30T04:42:40Z",
+      "verifiedAt": "2026-08-30T04:42:40Z",
+      "resolvedEntity": "AVLI | Modern Greek",
+      "resolvedCoordinates": {
+        "latitude": -8.8165625,
+        "longitude": 115.0958125
+      },
+      "resolvedGoogleToken": "/g/11xghttkxm",
+      "outcome": "verified_handoff_identity",
+      "supports": [
+        "gmaps_url",
+        "maps_identity",
+        "coordinates"
+      ],
+      "limitations": [
+        "The resolved Maps URL confirms the AVLI entity and coordinates but does not supply a first-party street-and-number address."
+      ]
+    },
+    {
+      "id": "src-avli-official-hero-candidate",
+      "label": "AVLI official-site exterior photo",
+      "url": "https://avlibali.com/wp-content/uploads/2025/09/Avli-Gallery-7.webp",
+      "sourceType": "official_website_media",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T04:56:01Z",
+      "verifiedAt": "2026-08-30T04:56:01Z",
+      "sha256": "ffb9e3a84e4eb3cd7c22633fecbcd4383e4576fcae2972a9e95bf83fdb329bea",
+      "outcome": "selected_draft_hero_candidate",
+      "supports": [
+        "hero_photo_candidate",
+        "venue_exterior"
+      ],
+      "limitations": [
+        "Selected under the owner's instruction that restaurant photos may be shown.",
+        "The repository's existing hero-media rights publication gate has not yet been formally aligned with that instruction."
+      ]
+    },
+    {
+      "id": "src-avli-official-chef-page",
+      "label": "AVLI official meet-the-maker page",
+      "url": "https://avlibali.com/meet-the-maker/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_owner_claim",
+      "supports": [
+        "chef_name",
+        "chef_biography"
+      ],
+      "limitations": [
+        "Biography is a venue-published claim and was not independently credential-checked.",
+        "No Michelin-star or award claim is supported by this source."
+      ]
+    },
+    {
+      "id": "src-avli-official-private-dining",
+      "label": "AVLI official private-dining page",
+      "url": "https://avlibali.com/private-dining/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_owner_claim",
+      "supports": [
+        "private_dining",
+        "courtyard_capacity"
+      ],
+      "limitations": [
+        "Capacity is volatile and should be rechecked immediately before publication."
+      ]
+    },
+    {
+      "id": "src-avli-sevenrooms",
+      "label": "AVLI SevenRooms booking handoff",
+      "url": "https://www.sevenrooms.com/explore/avlimoderngreek/reservations/create/search/",
+      "sourceType": "official_booking_provider",
+      "officialControl": "provider",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_handoff",
+      "supports": [
+        "reserve_action"
+      ],
+      "limitations": [
+        "The link is a provider handoff, not proof of live availability or a confirmed booking."
+      ]
+    },
+    {
+      "id": "src-avli-official-instagram",
+      "label": "AVLI official Instagram",
+      "url": "https://www.instagram.com/avlibali/",
+      "sourceType": "official_social",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "verified_handoff",
+      "supports": [
+        "instagram_url"
+      ],
+      "limitations": [
+        "Dynamic social posts are not accepted as stable menu, price or event evidence without a dated claim check."
+      ]
+    },
+    {
+      "id": "src-otherbali-public-catalogue-check",
+      "label": "Other Bali public catalogue absence check",
+      "url": "https://www.otherbali.com/sitemap/places",
+      "sourceType": "first_party_public_catalogue",
+      "officialControl": "other_bali",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "no_public_match_found",
+      "supports": [
+        "public_catalogue_absence_check"
+      ],
+      "limitations": [
+        "Public sitemap absence does not prove absence from unpublished database rows."
+      ]
+    },
+    {
+      "id": "src-otherbali-uluwatu-guide-check",
+      "label": "Other Bali Uluwatu restaurant guide absence check",
+      "url": "https://www.otherbali.com/uluwatu/best-restaurants",
+      "sourceType": "first_party_public_guide",
+      "officialControl": "other_bali",
+      "capturedAt": "2026-08-30T03:50:02Z",
+      "verifiedAt": "2026-08-30T03:50:02Z",
+      "outcome": "no_public_match_found",
+      "supports": [
+        "guide_absence_check"
+      ],
+      "limitations": [
+        "Guide absence is not approval to add the venue."
+      ]
+    }
+  ]
+}
