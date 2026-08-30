@@ -15,6 +15,29 @@ on:
         default: false
         type: boolean
   pull_request:
+    # Keep the full web/mobile gate off documentation and evidence-only PRs.
+    # Those changes are covered by venue-evidence.yml below.
+    paths:
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "mobile/**"
+      - "android/**"
+      - "ios/**"
+      - "public/**"
+      - "scripts/**"
+      - "data/**"
+      - ".github/workflows/**"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.*"
+      - "tsconfig.json"
+      - "tailwind.config.*"
+      - "postcss.config.*"
+      - "capacitor.config.*"
+      - "!data/data-ops/ai-visible-venues/**"
+      - "!.agents/skills/otherbali-ai-visible-venue/**"
+      - "!.claude/skills/otherbali-ai-visible-venue/**"
   push:
     branches:
       - main
@@ -23,6 +46,27 @@ on:
       # Development happens on claude/* branches — run CI there too so problems
       # surface before a PR is opened.
       - "claude/**"
+    paths:
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "mobile/**"
+      - "android/**"
+      - "ios/**"
+      - "public/**"
+      - "scripts/**"
+      - "data/**"
+      - ".github/workflows/**"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.*"
+      - "tsconfig.json"
+      - "tailwind.config.*"
+      - "postcss.config.*"
+      - "capacitor.config.*"
+      - "!data/data-ops/ai-visible-venues/**"
+      - "!.agents/skills/otherbali-ai-visible-venue/**"
+      - "!.claude/skills/otherbali-ai-visible-venue/**"
 
 concurrency:
   group: ci-${{ github.ref }}
