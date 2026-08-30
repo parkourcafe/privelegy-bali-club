@@ -9,17 +9,6 @@ on:
       - "data/data-ops/ai-visible-venues/**"
       - ".agents/skills/otherbali-ai-visible-venue/**"
       - ".claude/skills/otherbali-ai-visible-venue/**"
-  push:
-    branches:
-      - main
-      - master
-      - "release/**"
-      - "claude/**"
-    paths:
-      - "data/data-ops/ai-visible-venues/**"
-      - ".agents/skills/otherbali-ai-visible-venue/**"
-      - ".claude/skills/otherbali-ai-visible-venue/**"
-
 concurrency:
   group: venue-evidence-${{ github.ref }}
   cancel-in-progress: true
