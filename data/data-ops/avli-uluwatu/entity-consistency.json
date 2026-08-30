@@ -1,0 +1,98 @@
+{
+  "artifactId": "avli-bali-entity-consistency-20260830",
+  "generatedAt": "2026-08-30T04:42:40Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "venueName": "AVLI",
+  "canonicalCandidate": {
+    "name": "AVLI",
+    "category": "Modern Greek restaurant",
+    "district": "uluwatu",
+    "locality": "Pecatu, South Kuta, Badung Regency, Bali 80361",
+    "officialUrl": "https://avlibali.com/",
+    "proposedSlug": "avli-bali",
+    "slugState": "hold_database_dedupe_required"
+  },
+  "surfaces": [
+    {
+      "surface": "official_website",
+      "sourceManifestId": "src-avli-official-home",
+      "state": "verified_partial",
+      "observed": {
+        "name": "AVLI",
+        "category": "Modern Greek restaurant",
+        "district": "Uluwatu",
+        "locality": "Pecatu, South Kuta, Badung Regency, Bali 80361",
+        "hours": "Monday-Sunday, 5 pm until late",
+        "phone": "+62 812-2663-8787"
+      },
+      "limitations": [
+        "No visible street-and-number address was captured.",
+        "Closing time is not exact."
+      ]
+    },
+    {
+      "surface": "other_bali_public_catalogue",
+      "sourceManifestId": "src-otherbali-public-catalogue-check",
+      "state": "no_public_match_found",
+      "observed": null,
+      "limitations": [
+        "Public absence does not establish unpublished database absence."
+      ]
+    },
+    {
+      "surface": "other_bali_uluwatu_guide",
+      "sourceManifestId": "src-otherbali-uluwatu-guide-check",
+      "state": "no_public_match_found",
+      "observed": null,
+      "limitations": [
+        "Guide absence is not editorial approval to add the venue."
+      ]
+    },
+    {
+      "surface": "google_maps_handoff",
+      "sourceManifestId": "src-avli-official-maps-handoff",
+      "state": "verified_handoff_identity",
+      "observed": {
+        "url": "https://maps.app.goo.gl/ou9Loqtmt68qnnDL8",
+        "resolvedName": "AVLI | Modern Greek",
+        "latitude": -8.8165625,
+        "longitude": 115.0958125,
+        "googleToken": "/g/11xghttkxm"
+      },
+      "limitations": [
+        "The Maps handoff confirms the AVLI entity and coordinates, but the official site still does not publish a street-and-number address."
+      ]
+    },
+    {
+      "surface": "instagram",
+      "sourceManifestId": "src-avli-official-instagram",
+      "state": "verified_handoff",
+      "observed": {
+        "url": "https://www.instagram.com/avlibali/"
+      },
+      "limitations": [
+        "Dynamic posts are not stable evidence for menu, prices, events or hours."
+      ]
+    },
+    {
+      "surface": "booking_provider",
+      "sourceManifestId": "src-avli-sevenrooms",
+      "state": "verified_handoff",
+      "observed": {
+        "url": "https://www.sevenrooms.com/explore/avlimoderngreek/reservations/create/search/"
+      },
+      "limitations": [
+        "A booking handoff is not proof of live availability."
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolvedFields": [
+    "Exact street address",
+    "Production database identity and duplicate state",
+    "Final Other Bali slug"
+  ]
+}

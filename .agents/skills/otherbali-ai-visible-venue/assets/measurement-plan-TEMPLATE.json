@@ -1,0 +1,40 @@
+{
+  "artifactId": "__VENUE_SLUG__-measurement-plan-__DATE_COMPACT__",
+  "generatedAt": "__TIMESTAMP__",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "sharedPromptLibrary": {
+    "id": null,
+    "version": null
+  },
+  "market": {
+    "country": "Indonesia",
+    "cityOrDistrict": "__DISTRICT__",
+    "languages": []
+  },
+  "platforms": [],
+  "runsPerPrompt": null,
+  "venueSpecificPrompts": [],
+  "experiment": {
+    "cohortId": null,
+    "changeDate": null,
+    "controlUrls": [],
+    "observationWindow": null
+  },
+  "metrics": [
+    "presence",
+    "citations",
+    "cited_pages",
+    "factual_accuracy",
+    "message_match"
+  ],
+  "limitations": [
+    "A technical readiness check is not an observed AI-visibility baseline.",
+    "One answer is not a trend."
+  ]
+}

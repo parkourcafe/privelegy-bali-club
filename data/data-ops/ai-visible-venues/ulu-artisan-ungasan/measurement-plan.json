@@ -1,0 +1,14 @@
+{
+  "artifactId": "ulu-artisan-ungasan-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Ulu Artisan Ungasan in Ungasan?",
+      "approved": false
+    }
+  ]
+}

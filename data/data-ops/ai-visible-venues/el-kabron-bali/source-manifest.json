@@ -1,0 +1,40 @@
+{
+  "artifactId": "el-kabron-bali-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-el-kabron-bali-official",
+      "type": "official_website",
+      "url": "https://elkabron.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-el-kabron-bali-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/el-kabron-bali",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-el-kabron-bali-booking",
+      "type": "official_booking_page",
+      "url": "https://elkabron.com/book-now",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-el-kabron-bali-official-menu",
+      "type": "official_website",
+      "url": "https://elkabron.com/menu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party page captured; publication remains forbidden."
+    }
+  ]
+}

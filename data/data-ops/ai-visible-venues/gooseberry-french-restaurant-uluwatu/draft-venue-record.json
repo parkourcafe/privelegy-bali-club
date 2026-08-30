@@ -1,0 +1,188 @@
+{
+  "artifactId": "gooseberry-french-restaurant-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "gooseberry-french-restaurant-uluwatu-20260830",
+    "name": "Gooseberry",
+    "proposedSlug": "gooseberry-french-restaurant-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Bingin",
+    "locality": "Bingin",
+    "address": null,
+    "officialUrl": "https://www.gooseberry-restaurant.com/",
+    "instagramUrl": "https://www.instagram.com/gooseberry_restaurant/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Gooseberry%20Bingin%20Bali",
+    "cuisine": "Contemporary French cuisine with steaks, seafood and classic dishes",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_editorial_hold",
+    "sourceManifestIds": [
+      "src-gooseberry-french-restaurant-uluwatu-official",
+      "src-gooseberry-french-restaurant-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-gooseberry-french-restaurant-uluwatu-official",
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "address": [],
+      "officialUrl": [
+        "src-gooseberry-french-restaurant-uluwatu-official"
+      ],
+      "instagramUrl": [
+        "src-gooseberry-french-restaurant-uluwatu-official"
+      ],
+      "gmapsUrl": [
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-gooseberry-french-restaurant-uluwatu-official",
+        "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-gooseberry-french-restaurant-uluwatu-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Bingin restaurant with a current first-party menu spanning breakfast, lunch and dinner.",
+      "best_for": "French dishes, steaks and a full sit-down meal near Bingin.",
+      "not_for": "A quick grab-and-go meal or an unverified budget recommendation.",
+      "price_anchor": "Representative dishes 95K–465K in the captured current first-party menu.",
+      "what_to_order": [
+        "La Soupe à l’Oignon",
+        "Niçoise",
+        "Steak Tartare à la Minute"
+      ],
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-gooseberry-french-restaurant-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://www.gooseberry-restaurant.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-gooseberry-french-restaurant-uluwatu-official"
+      },
+      {
+        "id": "action-gooseberry-french-restaurant-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Gooseberry%20Bingin%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-gooseberry-french-restaurant-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-gooseberry-french-restaurant-uluwatu-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-gooseberry-french-restaurant-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr_or_explicit_idr",
+        "taxAndService": "Preserve the official page wording; do not recalculate absent a complete menu capture.",
+        "items": [
+          {
+            "name": "La Soupe à l’Oignon — 95K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Niçoise — 180K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Steak Tartare à la Minute — 295K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Parmentier de Canard Confit — 325K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Onglet Classique, Frites & Salade — 465K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Thon Grillé, Sauce au Poivre — 275K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Salade César — 145K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Pain Perdu Doré — 140K",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Bol d’Açaí “Smoothie Purple Love” — 125K",
+            "price": null,
+            "section": "official page representative capture"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

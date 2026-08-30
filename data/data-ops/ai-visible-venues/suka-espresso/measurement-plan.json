@@ -1,0 +1,14 @@
+{
+  "artifactId": "suka-espresso-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Suka Espresso in Labuan Sait, Pecatu?",
+      "approved": false
+    }
+  ]
+}

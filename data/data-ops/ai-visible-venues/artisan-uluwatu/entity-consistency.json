@@ -1,0 +1,22 @@
+{
+  "artifactId": "artisan-uluwatu-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Artisan Uluwatu",
+      "slug": "artisan-uluwatu",
+      "sourceManifestId": "src-artisan-uluwatu-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Artisan Uluwatu",
+      "slug": "artisan-uluwatu",
+      "sourceManifestId": "src-artisan-uluwatu-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

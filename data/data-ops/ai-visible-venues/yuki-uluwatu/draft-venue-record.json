@@ -1,0 +1,195 @@
+{
+  "artifactId": "yuki-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "yuki-uluwatu-20260830",
+    "name": "YUKI Uluwatu",
+    "proposedSlug": "yuki-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Labuan Sait, Pecatu",
+    "locality": "Jl Labuansait, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali, Indonesia",
+    "address": "Jl Labuansait, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali, Indonesia",
+    "officialUrl": "https://www.yuki-bali.com/uluwatu",
+    "instagramUrl": "https://www.instagram.com/yukibali_/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Labuan%20Sait%2C%20Pecatu%20Bali",
+    "cuisine": "Contemporary Japanese izakaya with Balinese produce",
+    "phone": "+62 811 3960 8557",
+    "photoUrl": null,
+    "openingHoursText": "Daily from 11:00am until late",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-yuki-uluwatu-official",
+      "src-yuki-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-yuki-uluwatu-official",
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "address": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-yuki-uluwatu-official"
+      ],
+      "instagramUrl": [
+        "src-yuki-uluwatu-official"
+      ],
+      "gmapsUrl": [
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "phone": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-yuki-uluwatu-official",
+        "src-yuki-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-yuki-uluwatu-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-yuki-uluwatu-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Modern Japanese izakaya in Uluwatu combining locally sourced seafood, yakitori, premium steaks and Japanese-influenced cocktails.",
+      "best_for": "Shared plates, sushi, yakitori and late-night drinks.",
+      "not_for": "A recommendation that depends on a current price list; prices are not published in the captured page.",
+      "price_anchor": "Prices not exposed in captured HTML; verify current menu before publishing.",
+      "what_to_order": "Truffled Tuna Tartare; Nori Ahi Tacos with ponzu watermelon; Line Caught Island sashimi",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-yuki-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://www.yuki-bali.com/uluwatu",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-yuki-uluwatu-official"
+      },
+      {
+        "id": "action-yuki-uluwatu-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://www.yuki-bali.com/ulu-reservations",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-yuki-uluwatu-booking"
+      },
+      {
+        "id": "action-yuki-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Labuan%20Sait%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-yuki-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-yuki-uluwatu-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription_without_prices",
+        "sourceManifestId": "src-yuki-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "not_published",
+        "taxAndService": "Not stated in captured page; do not infer.",
+        "items": [
+          {
+            "name": "Truffled Tuna Tartare",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Nori Ahi Tacos with ponzu watermelon",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Line Caught Island sashimi",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Charcoal-grilled Yakimono Octopus",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Wagyu Beef Sando",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Watermelon ‘Tuna’ Maki Roll",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Yuzu Daiquiri",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Mad Matcha",
+            "price": null,
+            "section": "official page menu highlight"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

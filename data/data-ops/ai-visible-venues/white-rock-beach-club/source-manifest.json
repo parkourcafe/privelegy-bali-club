@@ -1,0 +1,32 @@
+{
+  "artifactId": "white-rock-beach-club-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-white-rock-beach-club-official",
+      "type": "official_website",
+      "url": "https://whiterockbali.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-white-rock-beach-club-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/white-rock-beach-club",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-white-rock-beach-club-booking",
+      "type": "official_booking_page",
+      "url": "https://bookings.whiterockbali.com/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    }
+  ]
+}

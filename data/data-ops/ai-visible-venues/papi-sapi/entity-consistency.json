@@ -1,0 +1,22 @@
+{
+  "artifactId": "papi-sapi-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Papi Sapi",
+      "slug": "papi-sapi",
+      "sourceManifestId": "src-papi-sapi-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Papi Sapi",
+      "slug": "papi-sapi",
+      "sourceManifestId": "src-papi-sapi-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "artifactId": "masonry-restaurant-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "MASONRY Uluwatu",
+      "slug": "masonry-restaurant",
+      "sourceManifestId": "src-masonry-restaurant-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "MASONRY Uluwatu",
+      "slug": "masonry-restaurant",
+      "sourceManifestId": "src-masonry-restaurant-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

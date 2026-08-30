@@ -1,0 +1,138 @@
+{
+  "artifactId": "ulu-garden-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "ulu-garden-20260830",
+    "name": "Ulu Garden",
+    "proposedSlug": "ulu-garden",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Padang Padang",
+    "locality": "Padang Padang Beach Street, Uluwatu, Bali",
+    "address": "Padang Padang Beach Street, Uluwatu, Bali",
+    "officialUrl": "https://ulutribe.com/ulu-garden/",
+    "instagramUrl": "https://www.instagram.com/ulu.garden/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Ulu%20Garden%20Padang%20Padang%20Bali",
+    "cuisine": "Modern Indonesian cuisine",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": "Daily 7:00am-late",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-ulu-garden-official",
+      "src-ulu-garden-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-ulu-garden-official",
+        "src-ulu-garden-otherbali"
+      ],
+      "proposedCategory": [
+        "src-ulu-garden-otherbali"
+      ],
+      "district": [
+        "src-ulu-garden-otherbali"
+      ],
+      "area": [
+        "src-ulu-garden-otherbali"
+      ],
+      "locality": [
+        "src-ulu-garden-official-menu"
+      ],
+      "address": [
+        "src-ulu-garden-official-menu"
+      ],
+      "officialUrl": [
+        "src-ulu-garden-official"
+      ],
+      "instagramUrl": [
+        "src-ulu-garden-official"
+      ],
+      "gmapsUrl": [
+        "src-ulu-garden-otherbali"
+      ],
+      "cuisine": [
+        "src-ulu-garden-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-ulu-garden-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-ulu-garden-official",
+        "src-ulu-garden-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-ulu-garden-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-ulu-garden-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-ulu-garden-official-menu"
+      ],
+      "editorial.price_anchor": [],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": "Modern Indonesian cuisine venue in Padang Padang.",
+      "best_for": "A menu-led visit after checking the venue’s current official offering.",
+      "not_for": "A dish-specific recommendation until the latest item list and prices are confirmed.",
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-ulu-garden-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://ulutribe.com/ulu-garden/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-ulu-garden-official"
+      },
+      {
+        "id": "action-ulu-garden-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://www.dishcult.com/restaurant/ulugarden",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-ulu-garden-booking"
+      },
+      {
+        "id": "action-ulu-garden-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Ulu%20Garden%20Padang%20Padang%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-ulu-garden-otherbali"
+      }
+    ],
+    "menus": [],
+    "blockers": [
+      "Editorial approval is required for proposed copy.",
+      "Exact production row and duplicate state remain unverified.",
+      "Official page confirms modern Indonesian dining, breakfast/lunch/dinner, vegan and gluten-free options; item-level menu/prices are not exposed."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

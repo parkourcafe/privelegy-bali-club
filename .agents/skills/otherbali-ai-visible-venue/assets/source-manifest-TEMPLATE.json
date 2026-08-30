@@ -1,0 +1,23 @@
+{
+  "artifactId": "__VENUE_SLUG__-evidence-__DATE_COMPACT__",
+  "generatedAt": "__TIMESTAMP__",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-__VENUE_SLUG__-official-home",
+      "label": "__VENUE_NAME__ official website",
+      "url": "__OFFICIAL_URL__",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "__TIMESTAMP__",
+      "verifiedAt": null,
+      "nextReviewAt": null,
+      "outcome": "reference_only",
+      "supports": [],
+      "limitations": []
+    }
+  ]
+}

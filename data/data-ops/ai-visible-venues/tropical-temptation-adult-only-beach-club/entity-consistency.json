@@ -1,0 +1,22 @@
+{
+  "artifactId": "tropical-temptation-adult-only-beach-club-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Tropical Temptation",
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Tropical Temptation",
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

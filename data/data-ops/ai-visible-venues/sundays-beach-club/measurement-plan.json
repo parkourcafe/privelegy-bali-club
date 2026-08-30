@@ -1,0 +1,25 @@
+{
+  "artifactId": "sundays-beach-club-measurement-plan-20260830",
+  "generatedAt": "2026-08-30T05:58:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "draft_not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "sharedPromptLibrary": {"id": null, "version": null},
+  "market": {"country": "Indonesia", "cityOrDistrict": "Uluwatu", "languages": ["en"], "state": "proposed_not_approved"},
+  "platforms": [],
+  "runsPerPrompt": null,
+  "venueSpecificPrompts": [
+    {"promptId": "sundays-identity-001", "promptText": "What is Sundays Beach Club and where is it?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["identity", "Ungasan address", "beach-level access"], "approved": false},
+    {"promptId": "sundays-family-001", "promptText": "Which Uluwatu beach clubs are suitable for a family beach day?", "journeyStage": "discovery", "value": "high", "expectedCriteria": ["family fit", "beach access", "sources"], "approved": false},
+    {"promptId": "sundays-menu-001", "promptText": "What food is on the current Sundays Beach Club menu and what does it cost?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["current items", "prices", "surcharge wording", "date"], "approved": false},
+    {"promptId": "sundays-pass-001", "promptText": "Do I need to book Sundays Beach Club?", "journeyStage": "conversion", "value": "high", "expectedCriteria": ["walk-in daily pass", "VIP booking distinction", "no availability promise"], "approved": false}
+  ],
+  "experiment": {"cohortId": null, "changeDate": null, "controlUrls": [], "observationWindow": null},
+  "metrics": ["presence", "citations", "cited_pages", "factual_accuracy", "message_match"],
+  "limitations": ["Prompts are unapproved.", "No paid run is authorized.", "One answer is not a trend."],
+  "nextAction": "Approve the shared Uluwatu prompt set after the public update is verified."
+}

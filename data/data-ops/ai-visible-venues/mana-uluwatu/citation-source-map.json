@@ -1,0 +1,15 @@
+{
+  "artifactId": "mana-uluwatu-citation-source-map-20260830",
+  "generatedAt": "2026-08-30T05:51:23Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "rawResponseLocation": null,
+  "queryClusters": ["Mana Uluwatu identity", "Uluwatu sunset restaurants", "Mana menu and prices", "Mana opening hours"],
+  "observedCitedUrls": [],
+  "sourceGaps": ["Other Bali card does not expose current hours or text transcribed menu facts."],
+  "opportunities": ["Publish dated menu-backed decision fields and exact official booking handoff after approval."],
+  "limitations": ["No dated AI response set exists; no citation or visibility outcome is claimed."]
+}

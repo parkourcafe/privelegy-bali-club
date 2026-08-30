@@ -1,0 +1,40 @@
+{
+  "artifactId": "papi-sapi-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-papi-sapi-official",
+      "type": "official_website",
+      "url": "https://papisapi.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-papi-sapi-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/papi-sapi",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-papi-sapi-booking",
+      "type": "official_booking_page",
+      "url": "https://papisapi.com/book-a-table/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-papi-sapi-official-menu",
+      "type": "official_menu_pdf",
+      "url": "https://papisapi.com/wp-content/uploads/2026/05/PAPI-SAPI-BALI-MENU-MAY-2026-.pdf",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party May 2026 PDF; prices and surcharge wording transcribed without arithmetic reinterpretation."
+    }
+  ]
+}

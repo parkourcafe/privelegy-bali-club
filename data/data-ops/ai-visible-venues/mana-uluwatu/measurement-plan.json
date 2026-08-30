@@ -1,0 +1,25 @@
+{
+  "artifactId": "mana-uluwatu-measurement-plan-20260830",
+  "generatedAt": "2026-08-30T05:51:23Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "draft_not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "sharedPromptLibrary": {"id": null, "version": null},
+  "market": {"country": "Indonesia", "cityOrDistrict": "Uluwatu", "languages": ["en"], "state": "proposed_not_approved"},
+  "platforms": [],
+  "runsPerPrompt": null,
+  "venueSpecificPrompts": [
+    {"promptId": "mana-uluwatu-identity-001", "promptText": "What is Mana Uluwatu and where is it?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["identity", "Uluwatu Surf Villas", "public access"], "approved": false},
+    {"promptId": "mana-uluwatu-discovery-001", "promptText": "Which Uluwatu restaurants have ocean views and are open all day?", "journeyStage": "discovery", "value": "high", "expectedCriteria": ["relevant restaurants", "hours", "sources"], "approved": false},
+    {"promptId": "mana-uluwatu-menu-001", "promptText": "What is on Mana Uluwatu's current dinner menu and what does it cost?", "journeyStage": "validation", "value": "high", "expectedCriteria": ["current items", "prices", "tax and service", "source date"], "approved": false},
+    {"promptId": "mana-uluwatu-booking-001", "promptText": "How can I reserve a table at Mana Uluwatu?", "journeyStage": "conversion", "value": "medium", "expectedCriteria": ["official TableCheck handoff", "no availability promise"], "approved": false}
+  ],
+  "experiment": {"cohortId": null, "changeDate": null, "controlUrls": [], "observationWindow": null},
+  "metrics": ["presence", "citations", "cited_pages", "factual_accuracy", "message_match"],
+  "limitations": ["Prompts are unapproved.", "No paid run is authorized.", "One answer is not a trend."],
+  "nextAction": "Approve a shared prompt library after the public change is verified."
+}

@@ -1,0 +1,32 @@
+{
+  "artifactId": "alchemy-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-alchemy-uluwatu-official",
+      "type": "official_website",
+      "url": "https://www.alchemybali.com/uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-alchemy-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/alchemy-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-alchemy-uluwatu-official-menu",
+      "type": "official_website",
+      "url": "https://www.alchemybali.com/?lang=es",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "Official page confirms the Uluwatu menu and dietary format, but item-level prices are not exposed in captured HTML."
+    }
+  ]
+}

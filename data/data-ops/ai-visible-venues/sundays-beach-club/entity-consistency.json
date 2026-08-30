@@ -1,0 +1,20 @@
+{
+  "artifactId": "sundays-beach-club-entity-consistency-20260830",
+  "generatedAt": "2026-08-30T05:58:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "venueName": "Sundays Beach Club",
+  "canonicalCandidate": {"name": "Sundays Beach Club", "category": "beach_club", "district": "uluwatu", "locality": "Ungasan", "officialUrl": "https://www.sundaysbeachclub.com/", "proposedSlug": "sundays-beach-club", "slugState": "existing_public_card"},
+  "surfaces": [
+    {"surface": "official_website", "sourceManifestId": "src-sundays-beach-club-official-home", "state": "verified_current", "observed": {"name": "Sundays Beach Club", "hours": "daily 7:30am-10pm", "address": "Jalan Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan 80362, Bali, Indonesia", "admission": "walk-in daily pass; VIP pre-booking"}, "limitations": ["Activity availability is tide-dependent."]},
+    {"surface": "official_menu_pdf", "sourceManifestId": "src-sundays-beach-club-official-menu-pdf", "state": "verified_text_extractable", "observed": {"title": "Sundays Food & Beverage Menu - June 2026", "pages": 4, "currency": "IDR thousands"}, "limitations": ["Availability changes."]},
+    {"surface": "other_bali_public_card", "sourceManifestId": "src-sundays-beach-club-otherbali-public", "state": "verified_live_stale_fields", "observed": {"slug": "sundays-beach-club", "category": "beach_club", "lastChecked": "2026-07-12"}, "limitations": ["Hours and menu text are absent."]},
+    {"surface": "booking_provider", "sourceManifestId": "src-sundays-beach-club-sevenrooms", "state": "verified_vip_handoff", "observed": {"provider": "SevenRooms", "entity": "sundaysbeachclub"}, "limitations": ["VIP only; daily pass is walk-in."]}
+  ],
+  "conflicts": [
+    {"field": "booking_semantics", "state": "clarification_required", "existing": "daily beach pass page labelled Book direct", "currentEvidence": "official site says daily pass is walk-in and VIP is pre-booked via SevenRooms", "resolution": "separate_walk_in_information_from_vip_reservation"}
+  ],
+  "unresolvedFields": ["Phone", "Exact production row identity", "Final UI representation of walk-in versus VIP actions", "Surcharge arithmetic interpretation"]
+}

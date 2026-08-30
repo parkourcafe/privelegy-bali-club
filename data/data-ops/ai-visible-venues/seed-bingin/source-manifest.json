@@ -1,0 +1,40 @@
+{
+  "artifactId": "seed-bingin-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-seed-bingin-official",
+      "type": "official_website",
+      "url": "https://seedbingin.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-seed-bingin-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/seed-bingin",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-seed-bingin-booking",
+      "type": "official_booking_page",
+      "url": "https://www.chope.co/bali-restaurants/restaurant/seed-bingin-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-seed-bingin-official-menu",
+      "type": "official_website",
+      "url": "https://seedbingin.com/food-menu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party menu page/PDF or official menu highlights captured; publication remains forbidden."
+    }
+  ]
+}

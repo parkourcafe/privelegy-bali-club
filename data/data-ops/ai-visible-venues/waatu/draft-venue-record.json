@@ -1,0 +1,201 @@
+{
+  "artifactId": "waatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "waatu-20260830",
+    "name": "WAATU",
+    "proposedSlug": "waatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Ungasan clifftop",
+    "locality": "The Ungasan Clifftop Resort, Jl. Pantai Selatan Gau, Ungasan, Bali",
+    "address": "The Ungasan Clifftop Resort, Jl. Pantai Selatan Gau, Ungasan, Bali",
+    "officialUrl": "https://waatu.com/",
+    "instagramUrl": "https://www.instagram.com/waatu.bali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=WAATU%20Ungasan%20clifftop%20Bali",
+    "cuisine": "Yakitori and open-flame grill",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-waatu-official",
+      "src-waatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-waatu-official",
+        "src-waatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-waatu-otherbali"
+      ],
+      "district": [
+        "src-waatu-otherbali"
+      ],
+      "area": [
+        "src-waatu-otherbali"
+      ],
+      "locality": [
+        "src-waatu-official-menu"
+      ],
+      "address": [
+        "src-waatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-waatu-official"
+      ],
+      "instagramUrl": [
+        "src-waatu-official"
+      ],
+      "gmapsUrl": [
+        "src-waatu-otherbali"
+      ],
+      "cuisine": [
+        "src-waatu-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-waatu-official",
+        "src-waatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-waatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-waatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-waatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-waatu-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-waatu-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Uluwatu yakitori and open-flame grill with a current July 2026 first-party menu PDF linked from the official site.",
+      "best_for": "Skewers, open-fire seafood and premium grilled cuts.",
+      "not_for": "A vegetarian-only or low-cost meal; prices and availability can change.",
+      "price_anchor": "Representative official menu prices captured; retain tax/service wording from source.",
+      "what_to_order": "Beef tartare + kimchi salt; Mudcrab on toast with lardo; Lamb flatbread + yoghurt",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-waatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://waatu.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-waatu-official"
+      },
+      {
+        "id": "action-waatu-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://waatubali.com/reservations/",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-waatu-booking"
+      },
+      {
+        "id": "action-waatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=WAATU%20Ungasan%20clifftop%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-waatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-waatu-official-20260830",
+        "kind": "official_html_or_pdf",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-waatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "Official PDF: prices in thousands of Indonesian Rupiah and subject to 21% government tax and service charge.",
+        "items": [
+          {
+            "name": "Beef tartare + kimchi salt",
+            "price": 120,
+            "section": "official menu"
+          },
+          {
+            "name": "Mudcrab on toast with lardo",
+            "price": 85,
+            "section": "official menu"
+          },
+          {
+            "name": "Lamb flatbread + yoghurt",
+            "price": 140,
+            "section": "official menu"
+          },
+          {
+            "name": "Chicken & leek yakitori",
+            "price": 55,
+            "section": "official menu"
+          },
+          {
+            "name": "Garlic prawn yakitori",
+            "price": 85,
+            "section": "official menu"
+          },
+          {
+            "name": "Wagyu beef yakitori",
+            "price": 95,
+            "section": "official menu"
+          },
+          {
+            "name": "Pork & scallop XO rice",
+            "price": 160,
+            "section": "official menu"
+          },
+          {
+            "name": "Lobster tail rice",
+            "price": 160,
+            "section": "official menu"
+          },
+          {
+            "name": "Flank steak, Australia 2GR wagyu 200g",
+            "price": 650,
+            "section": "official menu"
+          },
+          {
+            "name": "Miso caramel eggplant",
+            "price": 150,
+            "section": "official menu"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "artifactId": "ulu-fishmarket-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Ulu Fishmarket in Labuan Sait, Pecatu?",
+      "approved": false
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "artifactId": "zali-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "zali-uluwatu-20260830",
+    "name": "ZALI Uluwatu",
+    "proposedSlug": "zali-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Suluban, Pecatu",
+    "locality": "Jl. Pantai Labuan Sait, Suluban, Pecatu, Bali",
+    "address": "Jl. Pantai Labuan Sait, Suluban, Pecatu, Bali",
+    "officialUrl": "https://www.zalirestaurant.com/",
+    "instagramUrl": "https://www.instagram.com/zali.inbali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=ZALI%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+    "cuisine": "Lebanese cuisine",
+    "phone": "+62 877 7813 7273",
+    "photoUrl": null,
+    "openingHoursText": "Everyday 8:00am-12:00am",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_editorial_hold",
+    "sourceManifestIds": [
+      "src-zali-uluwatu-official",
+      "src-zali-uluwatu-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-zali-uluwatu-official",
+        "src-zali-uluwatu-otherbali"
+      ],
+      "proposedCategory": [
+        "src-zali-uluwatu-otherbali"
+      ],
+      "district": [
+        "src-zali-uluwatu-otherbali"
+      ],
+      "area": [
+        "src-zali-uluwatu-otherbali"
+      ],
+      "locality": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "address": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "officialUrl": [
+        "src-zali-uluwatu-official"
+      ],
+      "instagramUrl": [
+        "src-zali-uluwatu-official"
+      ],
+      "gmapsUrl": [
+        "src-zali-uluwatu-otherbali"
+      ],
+      "cuisine": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "phone": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-zali-uluwatu-official",
+        "src-zali-uluwatu-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-zali-uluwatu-official-menu"
+      ],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": "Lebanese restaurant in Uluwatu with a first-party Bali menu page and separate Uluwatu contact details.",
+      "best_for": "Lebanese dining and late hours; verify the selected menu section before ordering.",
+      "not_for": "A recommendation that depends on an unverified dish or price.",
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-zali-uluwatu-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://www.zalirestaurant.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-zali-uluwatu-official"
+      },
+      {
+        "id": "action-zali-uluwatu-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=ZALI%20Uluwatu%20Suluban%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-zali-uluwatu-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-zali-uluwatu-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_page_image_transcription_pending",
+        "sourceManifestId": "src-zali-uluwatu-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr_or_explicit_idr",
+        "taxAndService": "Preserve the official page wording; do not recalculate absent a complete menu capture.",
+        "items": [
+          {
+            "name": "Menu page publishes current breakfast, happy-hour and beverage menu assets; exact item transcription is pending image capture.",
+            "price": null,
+            "section": "official page representative capture"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified.",
+      "ZALI menu page exposes image assets; exact item/price transcription is pending a preserved image capture."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}
