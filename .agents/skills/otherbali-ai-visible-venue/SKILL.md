@@ -51,10 +51,19 @@ data/data-ops/ai-visible-venues/<venue-slug>/
   entity-consistency.json
   citation-source-map.json
   measurement-plan.json
+  menu-implementation-candidate.json  # only when a verified menu is captured
 ```
 
 Start from the templates in `assets/`. Keep the folder outside compiler/import
 batch paths until a human has approved promotion.
+
+When an official menu is available only as an image or PDF, preserve the
+original asset and transcribe only visually verified facts into
+`menu-implementation-candidate.json`. Use the repository's existing
+`Menu`/`MenuSection`/`MenuItem` contract: store prices in minor currency units,
+preserve the source display price, mark a subset `partial`, and keep editorial
+and allergen fields empty unless separately verified. The image remains the
+source; the structured candidate is the accessible text representation.
 
 After every phase, update `RUNLOG.md` before starting the next phase. Record:
 
@@ -132,3 +141,13 @@ The validator checks the recording skeleton, publication lock, source
 references, entity/citation/measurement artifacts, null handling for
 unsupported fields and action status. It does not approve factual claims or
 authorize publication; human/editorial review remains required.
+
+If the run includes a structured menu candidate, also run:
+
+```bash
+node .agents/skills/otherbali-ai-visible-venue/scripts/validate-menu-candidate.mjs \
+  data/data-ops/ai-visible-venues/<venue-slug>/menu-implementation-candidate.json
+```
+
+This validates the candidate against the repository's current Data Ops menu
+contract. It deliberately rejects publication-unlocked artifacts.

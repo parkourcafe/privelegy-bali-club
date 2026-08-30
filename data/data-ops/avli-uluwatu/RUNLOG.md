@@ -244,3 +244,12 @@
 - Checks/result: `opening_hours_json` remains null because the current structure requires a clock time; no artificial closing time was created.
 - Blocker: production database dedupe and editorial approval remain.
 - Next action/owner: restore correct read-only database access and approve the prepared editorial record.
+
+## Menu implementation preparation — 2026-08-30T05:45:00Z
+
+- Status: `HOLD`
+- Inputs/evidence: visually verified official signature-sharing and dessert menu images, the repository `Menu`/`MenuSection`/`MenuItem` contract, and the existing server-rendered `StructuredMenu` component.
+- Decision/change: created `menu-implementation-candidate.json` with two sections and all 13 captured items. Converted prices from printed thousand-IDR units to integer minor units, preserved human-readable source prices, kept allergen/editorial flags empty, marked the menu `partial`, and set a 2026-09-30 recheck deadline.
+- Checks/result: the candidate remains `draft`, `forbiddenToPublish=true`, `publicationAllowed=false`, and `readyForImportDryRun=false`. No database or runtime write was performed.
+- Blocker: the proposed `avli-bali` slug still requires an exact production database dedupe; editorial approval and a supported publication state remain separate gates.
+- Next action/owner: data owner confirms the unique production venue identity and slug; editor reviews the menu subset; engineering then prepares the exact one-record dry-run.
