@@ -13,6 +13,9 @@
 - Canonical district: `uluwatu-bukit`
 - Verification: `2026-08-30T04:42:40Z`; source is the official AVLI website
   and official Maps handoff
+- Maps identity: the short URL and coordinates are stored; `/g/11xghttkxm` is
+  retained as an evidence token and is intentionally not stored as a
+  `google_place_id` because it is not a standard Place ID.
 - Menu: `50b3a1f4-076e-4ebb-a25c-105e3096173f`, version 1
 - Menu state: `source_snapshot`, `partial`, `food`
 - Menu coverage: 2 sections, 13 items; source snapshot published at
