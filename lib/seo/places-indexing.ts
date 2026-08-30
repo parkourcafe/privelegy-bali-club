@@ -16,3 +16,26 @@ export function placesCanonical(input: {
   }
   return "/places";
 }
+
+export function placesPaginationWindow(input: {
+  itemCount: number;
+  page: number;
+  pageSize: number;
+  firstPageIsDirectory: boolean;
+}): { start: number; end: number; totalPages: number } {
+  const directoryPages = input.firstPageIsDirectory ? 1 : 0;
+  const dataPages = Math.ceil(input.itemCount / input.pageSize);
+  const totalPages = Math.max(1, directoryPages + dataPages);
+  const dataPageIndex = input.page - directoryPages - 1;
+
+  if (dataPageIndex < 0) {
+    return { start: 0, end: 0, totalPages };
+  }
+
+  const start = dataPageIndex * input.pageSize;
+  return {
+    start,
+    end: Math.min(start + input.pageSize, input.itemCount),
+    totalPages,
+  };
+}
