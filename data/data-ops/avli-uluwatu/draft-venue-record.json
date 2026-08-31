@@ -1,0 +1,251 @@
+{
+  "artifactId": "avli-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T04:42:40Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "owner_and_editor_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "avli-uluwatu-20260830",
+    "name": "AVLI",
+    "proposedSlug": "avli-bali",
+    "slugState": "hold_database_dedupe_required",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Pecatu, Uluwatu",
+    "locality": "Pecatu, South Kuta, Badung Regency, Bali 80361, Indonesia",
+    "address": null,
+    "addressState": "omitted_maps_identity_and_coordinates_verified",
+    "officialUrl": "https://avlibali.com/",
+    "instagramUrl": "https://www.instagram.com/avlibali/",
+    "gmapsUrl": "https://maps.app.goo.gl/ou9Loqtmt68qnnDL8",
+    "gmapsState": "verified_official_handoff_target",
+    "gmapsIdentity": {
+      "name": "AVLI | Modern Greek",
+      "latitude": -8.8165625,
+      "longitude": 115.0958125,
+      "googleToken": "/g/11xghttkxm"
+    },
+    "cuisine": "Modern Greek",
+    "phone": "+62 812-2663-8787",
+    "photoUrl": "https://avlibali.com/wp-content/uploads/2025/09/Avli-Gallery-7.webp",
+    "photoState": "selected_from_official_site_under_owner_display_policy",
+    "mediaPolicyConflict": "Repository architecture still requires a rights record before publication; owner instructed that restaurant photos may be shown without this blocking the card.",
+    "openingHoursText": "Monday-Sunday 5pm-late",
+    "opening_hours_json": null,
+    "closingTimeState": "open_ended_until_last_guest_owner_confirmed",
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "needs_verification",
+    "sourceManifestIds": [
+      "src-avli-official-home",
+      "src-avli-official-menu-page",
+      "src-avli-official-signature-menu-image",
+      "src-avli-official-dessert-menu-image",
+      "src-avli-official-maps-handoff",
+      "src-avli-official-hero-candidate",
+      "src-avli-official-chef-page",
+      "src-avli-official-private-dining",
+      "src-avli-sevenrooms",
+      "src-avli-official-instagram",
+      "src-otherbali-public-catalogue-check",
+      "src-otherbali-uluwatu-guide-check"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-avli-official-home"
+      ],
+      "proposedCategory": [
+        "src-avli-official-home"
+      ],
+      "district": [
+        "src-avli-official-home"
+      ],
+      "area": [
+        "src-avli-official-home"
+      ],
+      "locality": [
+        "src-avli-official-home"
+      ],
+      "address": [],
+      "officialUrl": [
+        "src-avli-official-home"
+      ],
+      "instagramUrl": [
+        "src-avli-official-instagram"
+      ],
+      "gmapsUrl": [
+        "src-avli-official-home",
+        "src-avli-official-maps-handoff"
+      ],
+      "cuisine": [
+        "src-avli-official-home",
+        "src-avli-official-menu-page"
+      ],
+      "phone": [
+        "src-avli-official-home"
+      ],
+      "photoUrl": [
+        "src-avli-official-hero-candidate"
+      ],
+      "openingHoursText": [
+        "src-avli-official-home"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-avli-official-home",
+        "src-avli-official-menu-page",
+        "src-avli-official-chef-page",
+        "src-avli-official-private-dining"
+      ],
+      "editorial.why_its_here": [
+        "src-avli-official-home",
+        "src-avli-official-chef-page"
+      ],
+      "editorial.best_for": [
+        "src-avli-official-menu-page",
+        "src-avli-official-private-dining"
+      ],
+      "editorial.not_for": [
+        "src-avli-official-home"
+      ],
+      "editorial.price_anchor": [
+        "src-avli-official-signature-menu-image",
+        "src-avli-official-dessert-menu-image"
+      ],
+      "editorial.what_to_order": [
+        "src-avli-official-signature-menu-image"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "AVLI is a modern Greek restaurant in Pecatu with an open-air courtyard. AVLI serves sharing plates with pita, dips, grilled meats and seasonal seafood. Greek chef Angelos Lantos leads the kitchen.",
+      "best_for": "Dinner with shared plates; courtyard celebrations and private dining.",
+      "not_for": "Lunch plans - AVLI publishes a 5 pm opening time.",
+      "price_anchor": "$$$ · signature sharing from 100K/100g; desserts 140–280K",
+      "priceAnchorState": "proposed_editor_approval_required",
+      "what_to_order": "lobster pasta; grilled king black tiger prawns; market whole fresh fish",
+      "whatToOrderState": "proposed_from_official_signature_menu_editor_approval_required",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-avli-website-01",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://avlibali.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-avli-official-home",
+        "capturedAt": "2026-08-30T03:50:02Z",
+        "verifiedAt": "2026-08-30T03:50:02Z"
+      },
+      {
+        "id": "action-avli-reserve-02",
+        "kind": "reserve",
+        "label": "Reserve",
+        "provider": "sevenrooms",
+        "url": "https://www.sevenrooms.com/explore/avlimoderngreek/reservations/create/search/",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-avli-sevenrooms",
+        "capturedAt": "2026-08-30T03:50:02Z",
+        "verifiedAt": "2026-08-30T03:50:02Z",
+        "evidenceNote": "Official provider handoff only; Other Bali does not claim availability or confirmation."
+      },
+      {
+        "id": "action-avli-directions-03",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://maps.app.goo.gl/ou9Loqtmt68qnnDL8",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-avli-official-maps-handoff",
+        "capturedAt": "2026-08-30T03:50:02Z",
+        "verifiedAt": "2026-08-30T04:42:40Z",
+        "evidenceNote": "The official short link resolves to AVLI | Modern Greek at -8.8165625, 115.0958125. The exact street-and-number address remains unconfirmed."
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-avli-signature-sharing-20260830",
+        "kind": "official_menu_image",
+        "status": "draft_verified_source",
+        "sourceManifestId": "src-avli-official-signature-menu-image",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "10% government tax and 7% service charge are added",
+        "items": [
+          {
+            "name": "Lobster pasta",
+            "price": 270,
+            "unit": "per_100g"
+          },
+          {
+            "name": "Grilled king black tiger prawns",
+            "price": 150,
+            "unit": "per_100g"
+          },
+          {
+            "name": "Market whole fresh fish",
+            "price": 100,
+            "unit": "per_100g",
+            "notes": "Salt-baked preparation adds 300K. Market availability is announced daily."
+          },
+          {
+            "name": "400g Wagyu rib eye A5",
+            "price": 2800,
+            "unit": "per_item"
+          },
+          {
+            "name": "1.6kg tomahawk 150-day grainfed",
+            "price": 3900,
+            "unit": "per_item"
+          }
+        ]
+      },
+      {
+        "id": "menu-avli-desserts-20260830",
+        "kind": "official_menu_image",
+        "status": "draft_verified_source",
+        "sourceManifestId": "src-avli-official-dessert-menu-image",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "10% government tax and 7% service charge are added",
+        "items": [
+          {
+            "name": "Baklava",
+            "price": 150
+          },
+          {
+            "name": "Mango passion",
+            "price": 140
+          },
+          {
+            "name": "Soft cookie",
+            "price": 140
+          },
+          {
+            "name": "Peanut tart",
+            "price": 170
+          },
+          {
+            "name": "Greek chocolate mousse",
+            "price": 280,
+            "notes": "Serves two."
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "The connected Supabase account does not expose an Other Bali project, so production database dedupe remains blocked.",
+      "Price anchor and what_to_order are evidence-backed proposals but still require Other Bali editorial approval.",
+      "Uluwatu guide inclusion has not received editorial approval."
+    ],
+    "recommendedNextAction": "Restore read-only access to the Other Bali database for dedupe and approve the editorial fields."
+  }
+}

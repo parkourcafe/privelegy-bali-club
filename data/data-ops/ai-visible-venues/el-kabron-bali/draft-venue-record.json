@@ -1,0 +1,168 @@
+{
+  "artifactId": "el-kabron-bali-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "el-kabron-bali-20260830",
+    "name": "El Kabrón",
+    "proposedSlug": "el-kabron-bali",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "beach_club",
+    "district": "uluwatu",
+    "area": "Cemongkak, Pecatu",
+    "locality": "Jl. Pantai Cemongkak, Pecatu, Bali 80361, Indonesia",
+    "address": "Jl. Pantai Cemongkak, Pecatu, Bali 80361, Indonesia",
+    "officialUrl": "https://elkabron.com/",
+    "instagramUrl": "https://www.instagram.com/elkabronbali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=El%20Kabr%C3%B3n%20Cemongkak%2C%20Pecatu%20Bali",
+    "cuisine": "Mediterranean oceanfront dining",
+    "phone": "+62 813 3723 5750",
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-el-kabron-bali-official",
+      "src-el-kabron-bali-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-el-kabron-bali-official",
+        "src-el-kabron-bali-otherbali"
+      ],
+      "proposedCategory": [
+        "src-el-kabron-bali-otherbali"
+      ],
+      "district": [
+        "src-el-kabron-bali-otherbali"
+      ],
+      "area": [
+        "src-el-kabron-bali-otherbali"
+      ],
+      "locality": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "address": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "officialUrl": [
+        "src-el-kabron-bali-official"
+      ],
+      "instagramUrl": [
+        "src-el-kabron-bali-official"
+      ],
+      "gmapsUrl": [
+        "src-el-kabron-bali-otherbali"
+      ],
+      "cuisine": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "phone": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-el-kabron-bali-official",
+        "src-el-kabron-bali-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-el-kabron-bali-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-el-kabron-bali-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Mediterranean oceanfront restaurant and adult-only beach club at Cemongkak with sunset programming.",
+      "best_for": "Sunset dining, seafood and celebrations with a beach-club format.",
+      "not_for": "A quiet, low-cost meal or an unverified daybed price.",
+      "price_anchor": "Prices not exposed in captured HTML; verify current menu before publishing.",
+      "what_to_order": "Fresh oysters on ice; Spanish paella with giant lobster; Tomahawk steak",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-el-kabron-bali-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://elkabron.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-el-kabron-bali-official"
+      },
+      {
+        "id": "action-el-kabron-bali-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://elkabron.com/book-now",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-el-kabron-bali-booking"
+      },
+      {
+        "id": "action-el-kabron-bali-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=El%20Kabr%C3%B3n%20Cemongkak%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-el-kabron-bali-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-el-kabron-bali-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription_without_prices",
+        "sourceManifestId": "src-el-kabron-bali-official-menu",
+        "currency": "IDR",
+        "priceUnit": "not_published",
+        "taxAndService": "Not stated in captured page; do not infer.",
+        "items": [
+          {
+            "name": "Fresh oysters on ice",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Spanish paella with giant lobster",
+            "price": null,
+            "section": "official page menu highlight"
+          },
+          {
+            "name": "Tomahawk steak",
+            "price": null,
+            "section": "official page menu highlight"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

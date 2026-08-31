@@ -1,0 +1,72 @@
+{
+  "artifactId": "__VENUE_SLUG__-draft-venue-record-__DATE_COMPACT__",
+  "generatedAt": "__TIMESTAMP__",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "owner_and_editor_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": false,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "__VENUE_SLUG__-__DATE_COMPACT__",
+    "name": "__VENUE_NAME__",
+    "proposedSlug": "__VENUE_SLUG__",
+    "slugState": "hold_database_dedupe_required",
+    "proposedCategory": null,
+    "district": "__DISTRICT__",
+    "area": null,
+    "locality": null,
+    "address": null,
+    "officialUrl": "__OFFICIAL_URL__",
+    "instagramUrl": null,
+    "gmapsUrl": null,
+    "cuisine": null,
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": null,
+    "verificationStatus": "needs_verification",
+    "sourceManifestIds": [
+      "src-__VENUE_SLUG__-official-home"
+    ],
+    "fieldEvidence": {
+      "name": [],
+      "proposedCategory": [],
+      "district": [],
+      "area": [],
+      "locality": [],
+      "address": [],
+      "officialUrl": [],
+      "instagramUrl": [],
+      "gmapsUrl": [],
+      "cuisine": [],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [],
+      "editorial.why_its_here": [],
+      "editorial.best_for": [],
+      "editorial.not_for": [],
+      "editorial.price_anchor": [],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": null,
+      "best_for": null,
+      "not_for": null,
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [],
+    "menus": [],
+    "blockers": [
+      "Evidence collection has not been completed."
+    ],
+    "recommendedNextAction": "Close the highest-priority Tier A evidence gap."
+  }
+}

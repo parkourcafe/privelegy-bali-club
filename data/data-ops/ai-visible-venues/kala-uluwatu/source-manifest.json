@@ -1,0 +1,40 @@
+{
+  "artifactId": "kala-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-kala-uluwatu-official",
+      "type": "official_website",
+      "url": "https://kalauluwatu.com/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-kala-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/kala-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-kala-uluwatu-booking",
+      "type": "official_booking_page",
+      "url": "https://www.sevenrooms.com/explore/kalauluwatu/reservations/create/search/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-kala-uluwatu-official-menu",
+      "type": "official_website",
+      "url": "https://kalauluwatu.com/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party menu page/PDF or official menu highlights captured; publication remains forbidden."
+    }
+  ]
+}

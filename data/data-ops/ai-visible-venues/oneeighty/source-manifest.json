@@ -1,0 +1,32 @@
+{
+  "artifactId": "oneeighty-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-oneeighty-official",
+      "type": "official_website",
+      "url": "https://oneeightybali.com/menu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_IDENTITY_AND_MENU_REVIEW",
+      "note": "First-party page captured; menu evidence is represented below with explicit scope and any remaining image-transcription gap."
+    },
+    {
+      "id": "src-oneeighty-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/oneeighty",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-oneeighty-official-menu",
+      "type": "official_website",
+      "url": "https://oneeightybali.com/menu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party menu page or official menu content captured for draft transcription; publication remains forbidden."
+    }
+  ]
+}

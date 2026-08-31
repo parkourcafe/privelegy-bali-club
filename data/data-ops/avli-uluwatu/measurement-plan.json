@@ -1,0 +1,113 @@
+{
+  "artifactId": "avli-bali-measurement-plan-20260830",
+  "generatedAt": "2026-08-30T04:11:56Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "draft_not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "sharedPromptLibrary": {
+    "id": null,
+    "version": null
+  },
+  "market": {
+    "country": "Indonesia",
+    "cityOrDistrict": "Uluwatu",
+    "languages": [
+      "en"
+    ],
+    "state": "proposed_not_approved"
+  },
+  "platforms": [],
+  "runsPerPrompt": null,
+  "venueSpecificPrompts": [
+    {
+      "promptId": "avli-identity-001",
+      "promptText": "What is AVLI Bali and where is it located?",
+      "journeyStage": "validation",
+      "value": "high",
+      "expectedCriteria": [
+        "venue identity",
+        "restaurant category",
+        "Uluwatu or Pecatu location"
+      ],
+      "approved": false
+    },
+    {
+      "promptId": "avli-discovery-001",
+      "promptText": "Which modern Greek restaurants are in Uluwatu?",
+      "journeyStage": "category",
+      "value": "high",
+      "expectedCriteria": [
+        "relevant Uluwatu restaurants",
+        "sources used for the recommendation"
+      ],
+      "approved": false
+    },
+    {
+      "promptId": "avli-fit-001",
+      "promptText": "Where can I book a group dinner in Uluwatu?",
+      "journeyStage": "discovery",
+      "value": "medium",
+      "expectedCriteria": [
+        "group-dining fit",
+        "booking handoff",
+        "factual limitations"
+      ],
+      "approved": false
+    },
+    {
+      "promptId": "avli-hours-001",
+      "promptText": "What are AVLI Bali's opening hours?",
+      "journeyStage": "monitoring",
+      "value": "high",
+      "expectedCriteria": [
+        "opening time",
+        "open-ended service until the last guest"
+      ],
+      "approved": false
+    },
+    {
+      "promptId": "avli-private-dining-001",
+      "promptText": "Does AVLI Bali offer private dining?",
+      "journeyStage": "validation",
+      "value": "medium",
+      "expectedCriteria": [
+        "private-dining availability",
+        "source attribution",
+        "capacity treated as volatile"
+      ],
+      "approved": false
+    }
+  ],
+  "experiment": {
+    "cohortId": null,
+    "changeDate": null,
+    "controlUrls": [],
+    "observationWindow": null
+  },
+  "metrics": [
+    "presence",
+    "citations",
+    "cited_pages",
+    "factual_accuracy",
+    "message_match"
+  ],
+  "optionalSignals": [
+    "referral_traffic",
+    "search_console",
+    "server_or_cdn_crawl_activity",
+    "web_mentions",
+    "business_outcomes"
+  ],
+  "limitations": [
+    "These prompts are a draft venue-specific layer, not a complete Other Bali baseline.",
+    "Platforms, repetitions and the shared prompt-library version are not approved.",
+    "Crawler activity is diagnostic and does not prove citation.",
+    "A technical readiness check is not observed AI visibility.",
+    "One answer is not a trend."
+  ],
+  "nextAction": "Approve a versioned shared Uluwatu restaurant prompt library before running any baseline."
+}

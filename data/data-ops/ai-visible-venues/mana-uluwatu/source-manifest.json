@@ -1,0 +1,100 @@
+{
+  "artifactId": "mana-uluwatu-evidence-20260830",
+  "generatedAt": "2026-08-30T05:51:23Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-mana-uluwatu-official-restaurant",
+      "label": "Mana Uluwatu official restaurant page",
+      "url": "https://uluwatusurfvillas.com/restaurant/",
+      "sourceType": "official_website",
+      "officialControl": "venue_parent_property",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "outcome": "verified_current",
+      "supports": ["name", "category", "district", "hours", "service_periods", "phone", "cuisine", "dining_settings", "menu_asset_handoffs", "booking_handoff"],
+      "limitations": ["Menu details are image assets, not page text."]
+    },
+    {
+      "id": "src-mana-uluwatu-official-contact",
+      "label": "Uluwatu Surf Villas official contact page",
+      "url": "https://uluwatusurfvillas.com/contact/",
+      "sourceType": "official_website",
+      "officialControl": "venue_parent_property",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "outcome": "verified_current_parent_property_address",
+      "supports": ["address", "gmaps_handoff", "mana_email"],
+      "limitations": ["Address is for Uluwatu Surf Villas and does not provide a separate restaurant unit."]
+    },
+    {
+      "id": "src-mana-uluwatu-breakfast-menu-image",
+      "label": "Official Mana breakfast and lunch menu image",
+      "url": "https://i0.wp.com/uluwatusurfvillas.com/wp-content/uploads/2026/03/Breakfast.jpg",
+      "sourceType": "official_menu_image",
+      "officialControl": "venue_parent_property",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "sha256": "0cbcffb26b40684094641f5125e9d33eb8f8c66d119f4927956f8ae298763933",
+      "dimensions": "2480x3508",
+      "outcome": "verified_currently_linked_visual_transcription",
+      "supports": ["breakfast_items", "breakfast_prices", "lunch_snacks", "lunch_mains", "service_periods", "tax_service_note"],
+      "limitations": ["Image content was visually transcribed; source asset should be rechecked for later menu revisions."]
+    },
+    {
+      "id": "src-mana-uluwatu-lunch-menu-image",
+      "label": "Official Mana lunch menu image",
+      "url": "https://i0.wp.com/uluwatusurfvillas.com/wp-content/uploads/2026/03/Lunch.jpg",
+      "sourceType": "official_menu_image",
+      "officialControl": "venue_parent_property",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "sha256": "2dcf5ead7864bbb2c660309267bfc28de0d856f8012b178e126b43c72fd42403",
+      "dimensions": "2480x3508",
+      "outcome": "verified_currently_linked_visual_transcription",
+      "supports": ["lunch_salads", "lunch_burgers", "lunch_pizzas", "lunch_prices"],
+      "limitations": ["Tax/service note is printed on the paired breakfast/lunch image."]
+    },
+    {
+      "id": "src-mana-uluwatu-dinner-menu-image",
+      "label": "Official Mana dinner menu image",
+      "url": "https://i0.wp.com/uluwatusurfvillas.com/wp-content/uploads/2026/03/Dinner.jpg",
+      "sourceType": "official_menu_image",
+      "officialControl": "venue_parent_property",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "sha256": "0e6c1f0541493ec196f6129197f37e142f06a15a76b82b55f2ee4d84132dfdcc",
+      "dimensions": "2480x3508",
+      "outcome": "verified_currently_linked_visual_transcription",
+      "supports": ["dinner_items", "dinner_prices", "service_period", "tax_service_note", "what_to_order_proposal", "price_anchor_proposal"],
+      "limitations": ["Image content was visually transcribed; availability is volatile."]
+    },
+    {
+      "id": "src-mana-uluwatu-tablecheck",
+      "label": "Official Mana TableCheck handoff",
+      "url": "https://www.tablecheck.com/en/uluwatu-surf-villas-mana/reserve/landing?utm_source=website",
+      "sourceType": "official_booking_provider",
+      "officialControl": "provider",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "outcome": "verified_handoff",
+      "supports": ["reserve_action"],
+      "limitations": ["Provider handoff is not proof of availability or booking confirmation."]
+    },
+    {
+      "id": "src-mana-uluwatu-otherbali-public",
+      "label": "Current Other Bali Mana Uluwatu card",
+      "url": "https://www.otherbali.com/places/mana-uluwatu",
+      "sourceType": "first_party_public_card",
+      "officialControl": "other_bali",
+      "capturedAt": "2026-08-30T05:51:23Z",
+      "verifiedAt": "2026-08-30T05:51:23Z",
+      "outcome": "verified_live_before_state",
+      "supports": ["existing_slug", "existing_category", "existing_district", "instagram_url", "gmaps_url", "before_state", "existing_editorial_copy"],
+      "limitations": ["The page says information was last checked on 2026-07-12.", "Existing editorial copy is not independent evidence of venue facts."]
+    }
+  ]
+}

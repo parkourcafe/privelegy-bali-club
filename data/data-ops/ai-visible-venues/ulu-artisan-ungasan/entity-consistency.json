@@ -1,0 +1,22 @@
+{
+  "artifactId": "ulu-artisan-ungasan-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Ulu Artisan Ungasan",
+      "slug": "ulu-artisan-ungasan",
+      "sourceManifestId": "src-ulu-artisan-ungasan-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Ulu Artisan Ungasan",
+      "slug": "ulu-artisan-ungasan",
+      "sourceManifestId": "src-ulu-artisan-ungasan-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

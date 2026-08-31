@@ -1,0 +1,22 @@
+{
+  "artifactId": "mana-uluwatu-entity-consistency-20260830",
+  "generatedAt": "2026-08-30T05:51:23Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "venueName": "Mana Uluwatu",
+  "canonicalCandidate": {"name": "Mana Uluwatu", "category": "restaurant", "district": "uluwatu", "locality": "Suluban, Pecatu", "officialUrl": "https://uluwatusurfvillas.com/restaurant/", "proposedSlug": "mana-uluwatu", "slugState": "existing_public_card"},
+  "surfaces": [
+    {"surface": "official_restaurant_page", "sourceManifestId": "src-mana-uluwatu-official-restaurant", "state": "verified_current", "observed": {"name": "Mana Uluwatu", "parentProperty": "Uluwatu Surf Villas", "hours": "daily 7am-11pm", "phone": "+62 817 555 365"}, "limitations": ["No separate restaurant street number is published."]},
+    {"surface": "official_contact_page", "sourceManifestId": "src-mana-uluwatu-official-contact", "state": "verified_parent_property", "observed": {"address": "Jalan Pantai Suluban, Uluwatu, Pecatu, Bali, Indonesia", "email": "mana@uluwatusurfvillas.com"}, "limitations": ["Address is shared with the resort."]},
+    {"surface": "official_menu_images", "sourceManifestId": "src-mana-uluwatu-dinner-menu-image", "state": "verified_visual_transcription", "observed": {"formats": ["Breakfast.jpg", "Lunch.jpg", "Dinner.jpg"], "taxAndService": "11% + 10% excluded"}, "limitations": ["Only restaurant breakfast/lunch/dinner food menus are in scope."]},
+    {"surface": "other_bali_public_card", "sourceManifestId": "src-mana-uluwatu-otherbali-public", "state": "verified_live_stale_fields", "observed": {"slug": "mana-uluwatu", "category": "bar", "lastChecked": "2026-07-12"}, "limitations": ["Current hours and menu details are absent."]},
+    {"surface": "booking_provider", "sourceManifestId": "src-mana-uluwatu-tablecheck", "state": "verified_handoff", "observed": {"provider": "TableCheck", "entity": "uluwatu-surf-villas-mana"}, "limitations": ["No availability claim."]}
+  ],
+  "conflicts": [
+    {"field": "booking_url", "state": "stale_existing_value", "existing": "official restaurant page", "currentEvidence": "official page links directly to TableCheck", "resolution": "propose_direct_tablecheck_handoff"},
+    {"field": "category", "state": "editorial_taxonomy_review", "existing": "bar", "officialPositioning": "Restaurant & Pool", "resolution": "propose_restaurant_and_preserve_bar_context_in_copy"}
+  ],
+  "unresolvedFields": ["Exact production row identity", "Final category taxonomy", "Separate restaurant unit/address", "Full non-food menu transcription"]
+}

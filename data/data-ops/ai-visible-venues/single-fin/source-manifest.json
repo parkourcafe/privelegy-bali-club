@@ -1,0 +1,58 @@
+{
+  "artifactId": "single-fin-evidence-20260830",
+  "generatedAt": "2026-08-30T05:46:16Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-single-fin-official-home",
+      "label": "Single Fin official website",
+      "url": "https://www.singlefinbali.com/",
+      "sourceType": "official_website",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T05:46:16Z",
+      "verifiedAt": "2026-08-30T05:46:16Z",
+      "outcome": "verified_current",
+      "supports": ["name", "category", "address", "opening_hours_text", "official_maps_handoff", "official_booking_handoff"],
+      "limitations": ["The page does not provide a machine-readable overnight-hours representation for Other Bali's current parser."]
+    },
+    {
+      "id": "src-single-fin-official-menu",
+      "label": "Single Fin official Eat & Drinks page",
+      "url": "https://www.singlefinbali.com/eat-drinks/",
+      "sourceType": "official_menu_html",
+      "officialControl": "venue",
+      "capturedAt": "2026-08-30T05:46:16Z",
+      "verifiedAt": "2026-08-30T05:46:16Z",
+      "outcome": "verified_current_text_menu",
+      "supports": ["cuisine", "menu_items", "menu_prices", "tax_service_note", "what_to_order_proposal", "price_anchor_proposal"],
+      "limitations": ["The draft transcribes a representative selection rather than mirroring every current item.", "Availability can change and must be rechecked on the official page before publication."]
+    },
+    {
+      "id": "src-single-fin-sevenrooms",
+      "label": "Single Fin Uluwatu SevenRooms handoff",
+      "url": "https://www.sevenrooms.com/explore/singlefinuluwatu/reservations/create/search",
+      "sourceType": "official_booking_provider",
+      "officialControl": "provider",
+      "capturedAt": "2026-08-30T05:46:16Z",
+      "verifiedAt": "2026-08-30T05:46:16Z",
+      "outcome": "verified_handoff",
+      "supports": ["reserve_action"],
+      "limitations": ["A provider handoff does not prove live availability or confirmation."]
+    },
+    {
+      "id": "src-single-fin-otherbali-public",
+      "label": "Current Other Bali Single Fin card",
+      "url": "https://www.otherbali.com/places/single-fin",
+      "sourceType": "first_party_public_card",
+      "officialControl": "other_bali",
+      "capturedAt": "2026-08-30T05:46:16Z",
+      "verifiedAt": "2026-08-30T05:46:16Z",
+      "outcome": "verified_live_before_state",
+      "supports": ["existing_slug", "existing_category", "existing_district", "existing_editorial_copy", "instagram_url", "gmaps_url", "before_state"],
+      "limitations": ["The page says its venue information was last checked on 2026-07-12.", "Existing editorial copy is not independent evidence of venue facts."]
+    }
+  ]
+}

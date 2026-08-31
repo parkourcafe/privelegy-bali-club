@@ -1,0 +1,17 @@
+{
+  "artifactId": "__VENUE_SLUG__-citation-source-map-__DATE_COMPACT__",
+  "generatedAt": "__TIMESTAMP__",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "rawResponseLocation": null,
+  "queryClusters": [],
+  "observedCitedUrls": [],
+  "sourceGaps": [],
+  "opportunities": [],
+  "limitations": [
+    "No cited-source conclusion is allowed until dated raw AI responses exist."
+  ]
+}

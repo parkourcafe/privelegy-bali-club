@@ -1,0 +1,14 @@
+{
+  "artifactId": "tropical-temptation-adult-only-beach-club-measurement-plan-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "measurementState": "not_started",
+  "paidRunAuthorized": false,
+  "promptSetApproved": false,
+  "venueSpecificPrompts": [
+    {
+      "prompt": "What is Tropical Temptation in Melasti, Ungasan?",
+      "approved": false
+    }
+  ]
+}

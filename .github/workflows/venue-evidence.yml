@@ -1,0 +1,38 @@
+name: Venue evidence validation
+
+# Evidence packs are documentation/data artifacts, not runtime code. Validate
+# them with the local structural gate without installing the full web/mobile
+# dependency tree or running Android builds.
+on:
+  pull_request:
+    paths:
+      - "data/data-ops/ai-visible-venues/**"
+      - ".agents/skills/otherbali-ai-visible-venue/**"
+      - ".claude/skills/otherbali-ai-visible-venue/**"
+concurrency:
+  group: venue-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate venue evidence packs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate every evidence pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          packs=(data/data-ops/ai-visible-venues/*)
+          test "${#packs[@]}" -gt 0
+          for pack in "${packs[@]}"; do
+            [ -d "$pack" ] || continue
+            node .agents/skills/otherbali-ai-visible-venue/scripts/validate-draft-pack.mjs "$pack"
+          done

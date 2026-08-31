@@ -1,0 +1,24 @@
+{
+  "artifactId": "laggas-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-laggas-uluwatu-official",
+      "type": "official_instagram",
+      "url": "https://www.instagram.com/laggasbali/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-laggas-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/laggas-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    }
+  ]
+}

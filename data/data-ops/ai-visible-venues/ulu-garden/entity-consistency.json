@@ -1,0 +1,22 @@
+{
+  "artifactId": "ulu-garden-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Ulu Garden",
+      "slug": "ulu-garden",
+      "sourceManifestId": "src-ulu-garden-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Ulu Garden",
+      "slug": "ulu-garden",
+      "sourceManifestId": "src-ulu-garden-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

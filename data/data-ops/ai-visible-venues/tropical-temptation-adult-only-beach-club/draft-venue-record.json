@@ -1,0 +1,167 @@
+{
+  "artifactId": "tropical-temptation-adult-only-beach-club-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "tropical-temptation-adult-only-beach-club-20260830",
+    "name": "Tropical Temptation",
+    "proposedSlug": "tropical-temptation-adult-only-beach-club",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "beach_club",
+    "district": "uluwatu",
+    "area": "Melasti, Ungasan",
+    "locality": "Jl. Melasti Beach 88, Ungasan, Bali",
+    "address": "Jl. Melasti Beach 88, Ungasan, Bali",
+    "officialUrl": "https://ttbeach.club/",
+    "instagramUrl": "https://www.instagram.com/tropicaltemptation/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Tropical%20Temptation%20Melasti%2C%20Ungasan%20Bali",
+    "cuisine": "Beach-club dining with tropical fusion and seafood",
+    "phone": "+62 812 3886 8631",
+    "photoUrl": null,
+    "openingHoursText": "Daily 10:00am-9:00pm",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-tropical-temptation-adult-only-beach-club-official",
+      "src-tropical-temptation-adult-only-beach-club-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-tropical-temptation-adult-only-beach-club-official",
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "proposedCategory": [
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "district": [
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "area": [
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "locality": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "address": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "officialUrl": [
+        "src-tropical-temptation-adult-only-beach-club-official"
+      ],
+      "instagramUrl": [
+        "src-tropical-temptation-adult-only-beach-club-official"
+      ],
+      "gmapsUrl": [
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "cuisine": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "phone": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-tropical-temptation-adult-only-beach-club-official",
+        "src-tropical-temptation-adult-only-beach-club-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-tropical-temptation-adult-only-beach-club-official-menu"
+      ],
+      "editorial.price_anchor": [],
+      "editorial.what_to_order": []
+    },
+    "editorial": {
+      "why_its_here": "Adults-only beach club on Melasti Beach with first-party dining pages and tropical-fusion positioning.",
+      "best_for": "A full beach-club day with food, cocktails and sunset programming.",
+      "not_for": "A price-specific dish recommendation until a current priced menu asset is exposed.",
+      "price_anchor": null,
+      "what_to_order": null,
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-tropical-temptation-adult-only-beach-club-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://ttbeach.club/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-official"
+      },
+      {
+        "id": "action-tropical-temptation-adult-only-beach-club-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://reserve.ttbeach.club/",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-booking"
+      },
+      {
+        "id": "action-tropical-temptation-adult-only-beach-club-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Tropical%20Temptation%20Melasti%2C%20Ungasan%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-tropical-temptation-adult-only-beach-club-official-20260830",
+        "kind": "official_editorial_menu_highlights",
+        "status": "draft_highlights_prices_pending",
+        "sourceManifestId": "src-tropical-temptation-adult-only-beach-club-official-menu",
+        "currency": "IDR",
+        "priceUnit": "not_published",
+        "taxAndService": "Not stated in captured page; do not infer.",
+        "items": [
+          {
+            "name": "Tuna tartare with sambal matah",
+            "price": null,
+            "section": "official page highlight"
+          },
+          {
+            "name": "Flaming tomahawk steak",
+            "price": null,
+            "section": "official page highlight"
+          },
+          {
+            "name": "Sunset Platter of ocean-fresh seafood",
+            "price": null,
+            "section": "official page highlight"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy.",
+      "Exact production row and duplicate state remain unverified.",
+      "Full current first-party menu with item prices was not captured; retain highlights only and do not publish as a complete menu."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

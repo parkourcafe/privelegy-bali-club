@@ -313,6 +313,23 @@ otherwise.
 
 For every district SEO task, use `.agents/skills/otherbali-district-seo-pipeline/SKILL.md` and maintain an ExecPlan. One URL owns one primary intent. AI output is not evidence. Do not create thin district clones or approve a new URL before repository and cannibalization checks. No public claim may ship without claim-ledger approval. Evidence, owner, field or Maps blockers make the affected topic `HOLD` without blocking independent topics. Do not production-deploy before all required gates pass, and do not modify unrelated districts.
 
+### AI answer-engine visibility
+
+Whether AI answer engines can reach, parse and quote what we publish is
+`.agents/skills/geo-seo/SKILL.md`. It was vendored from an external GEO
+toolkit and **its unreconciled advice breaks guardrails here** — upstream
+recommends `aggregateRating` on venue markup, statistical density that invites
+invented numbers, and author credentials this product does not have.
+`references/otherbali-overlay.md` in that skill is the list of what we refuse
+and why; read it before acting on any score the rubrics produce.
+
+A GEO score is a diagnosis, never a licence. On a site assembled at render time
+from `venues` rows, a citability finding is a record field that is empty or
+unverified — route it to `otherbali-data-ops-run` for evidence and
+`otherbali-venue-record-standard` for the copy. Its scoring output is
+self-assessed and advisory; the pass/fail authority for a listing page remains
+`otherbali-guide-page-standard`'s `check-page.mjs`.
+
 ---
 
 ## 14. Security and privacy

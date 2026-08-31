@@ -1,0 +1,32 @@
+{
+  "artifactId": "suka-espresso-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-suka-espresso-official",
+      "type": "official_website",
+      "url": "https://www.bysuka.com/suka-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-suka-espresso-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/suka-espresso",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-suka-espresso-official-menu",
+      "type": "official_website",
+      "url": "https://www.bysuka.com/suka-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_MENU_ASSET",
+      "note": "Official page confirms morning, afternoon, dinner, wine, drinks and bar menu sections, but item-level text/prices are not exposed in this capture."
+    }
+  ]
+}

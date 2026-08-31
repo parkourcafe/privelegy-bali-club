@@ -1,0 +1,95 @@
+{
+  "artifactId": "mana-uluwatu-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T05:51:23Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "mana-uluwatu-20260830",
+    "name": "Mana Uluwatu",
+    "proposedSlug": "mana-uluwatu",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Suluban, Pecatu",
+    "locality": "Uluwatu Surf Villas, Pecatu, Bali, Indonesia",
+    "address": "Jalan Pantai Suluban, Uluwatu, Pecatu, Bali, Indonesia",
+    "officialUrl": "https://uluwatusurfvillas.com/restaurant/",
+    "instagramUrl": "https://www.instagram.com/manauluwatu/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Mana%20Uluwatu%20Pecatu%20Bali",
+    "cuisine": "Indonesian-influenced international cuisine with seafood, poultry and beef",
+    "phone": "+62 817 555 365",
+    "photoUrl": null,
+    "openingHoursText": "Daily 7am-11pm",
+    "opening_hours_json": {
+      "Monday": ["7.00am-11.00pm"], "Tuesday": ["7.00am-11.00pm"], "Wednesday": ["7.00am-11.00pm"], "Thursday": ["7.00am-11.00pm"], "Friday": ["7.00am-11.00pm"], "Saturday": ["7.00am-11.00pm"], "Sunday": ["7.00am-11.00pm"]
+    },
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_explicit_holds",
+    "sourceManifestIds": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-official-contact", "src-mana-uluwatu-breakfast-menu-image", "src-mana-uluwatu-lunch-menu-image", "src-mana-uluwatu-dinner-menu-image", "src-mana-uluwatu-tablecheck", "src-mana-uluwatu-otherbali-public"],
+    "fieldEvidence": {
+      "name": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-otherbali-public"],
+      "proposedCategory": ["src-mana-uluwatu-official-restaurant"],
+      "district": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-official-contact"],
+      "area": ["src-mana-uluwatu-official-contact", "src-mana-uluwatu-otherbali-public"],
+      "locality": ["src-mana-uluwatu-official-contact"],
+      "address": ["src-mana-uluwatu-official-contact"],
+      "officialUrl": ["src-mana-uluwatu-official-restaurant"],
+      "instagramUrl": ["src-mana-uluwatu-otherbali-public"],
+      "gmapsUrl": ["src-mana-uluwatu-official-contact", "src-mana-uluwatu-otherbali-public"],
+      "cuisine": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-breakfast-menu-image", "src-mana-uluwatu-dinner-menu-image"],
+      "phone": ["src-mana-uluwatu-official-restaurant"],
+      "photoUrl": [],
+      "openingHoursText": ["src-mana-uluwatu-official-restaurant"],
+      "opening_hours_json": ["src-mana-uluwatu-official-restaurant"],
+      "last_verified_at": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-official-contact", "src-mana-uluwatu-breakfast-menu-image", "src-mana-uluwatu-lunch-menu-image", "src-mana-uluwatu-dinner-menu-image", "src-mana-uluwatu-tablecheck", "src-mana-uluwatu-otherbali-public"],
+      "editorial.why_its_here": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-otherbali-public"],
+      "editorial.best_for": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-otherbali-public"],
+      "editorial.not_for": ["src-mana-uluwatu-official-restaurant", "src-mana-uluwatu-otherbali-public"],
+      "editorial.price_anchor": ["src-mana-uluwatu-breakfast-menu-image", "src-mana-uluwatu-lunch-menu-image", "src-mana-uluwatu-dinner-menu-image"],
+      "editorial.what_to_order": ["src-mana-uluwatu-dinner-menu-image"]
+    },
+    "editorial": {
+      "why_its_here": "Mana is the clifftop restaurant and pool at Uluwatu Surf Villas, open to outside guests for breakfast, lunch and dinner, with formal upstairs and casual poolside settings.",
+      "best_for": "Sunset dinner with an ocean view; an all-day meal; choosing between formal dining and a casual poolside setting.",
+      "not_for": "A loud party-night atmosphere.",
+      "price_anchor": "$$$ · most captured plates 40K-215K; steaks 520K-680K; excludes 11% tax and 10% service",
+      "what_to_order": "crispy pork belly taco; tuna nachos; beef short rib rendang",
+      "jobs": []
+    },
+    "actions": [
+      {"id": "action-mana-uluwatu-website-01", "kind": "website", "label": "Official website", "provider": "official_website", "url": "https://uluwatusurfvillas.com/restaurant/", "status": "draft", "confirmationRequired": false, "sourceManifestId": "src-mana-uluwatu-official-restaurant"},
+      {"id": "action-mana-uluwatu-reserve-02", "kind": "reserve", "label": "Reserve", "provider": "tablecheck", "url": "https://www.tablecheck.com/en/uluwatu-surf-villas-mana/reserve/landing?utm_source=website", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-mana-uluwatu-tablecheck"},
+      {"id": "action-mana-uluwatu-directions-03", "kind": "directions", "label": "Directions", "provider": "google_maps", "url": "https://www.google.com/maps/search/?api=1&query=Mana%20Uluwatu%20Pecatu%20Bali", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-mana-uluwatu-otherbali-public"}
+    ],
+    "menus": [
+      {
+        "id": "menu-mana-uluwatu-restaurant-20260830",
+        "kind": "official_menu_images",
+        "status": "draft_verified_source_visual_transcription",
+        "sourceManifestId": "src-mana-uluwatu-dinner-menu-image",
+        "additionalSourceManifestIds": ["src-mana-uluwatu-breakfast-menu-image", "src-mana-uluwatu-lunch-menu-image"],
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "11% government tax and 10% service charge excluded",
+        "items": [
+          {"name": "Acai smoothie bowl", "price": 135, "section": "Breakfast"},
+          {"name": "Mana full breakfast", "price": 120, "section": "Breakfast"},
+          {"name": "Tuna nachos", "price": 70, "section": "Dinner small plates"},
+          {"name": "Crispy pork belly taco", "price": 75, "section": "Dinner tacos", "unit": "per_piece"},
+          {"name": "Beef short rib rendang", "price": 215, "section": "Lunch mains"},
+          {"name": "Miso prawn ramen", "price": 160, "section": "Lunch and dinner"},
+          {"name": "Grilled market fish", "price": 145, "section": "Dinner large plates"},
+          {"name": "250g char grilled rib eye", "price": 680, "section": "Dinner steak selection"}
+        ]
+      }
+    ],
+    "blockers": ["Editorial approval is required for what_to_order, not_for and the price anchor.", "The exact production row has not been verified read-only.", "Kids, poolside, dessert and beverage image menus were not transcribed because this pass is scoped to the restaurant food card."],
+    "recommendedNextAction": "Approve the editorial fields, then verify the exact one-row target and prepare a guarded update for hours, booking and menu-backed copy."
+  }
+}

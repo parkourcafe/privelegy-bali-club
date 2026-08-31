@@ -1,0 +1,93 @@
+{
+  "artifactId": "single-fin-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T05:46:16Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "single-fin-20260830",
+    "name": "Single Fin",
+    "proposedSlug": "single-fin",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "bar",
+    "district": "uluwatu",
+    "area": "Suluban, Pecatu",
+    "locality": "Pecatu, Uluwatu, Kuta Selatan, Kabupaten Badung, Bali 80361",
+    "address": "Pantai Suluban, Jl. Labuan Sait, Pecatu, Uluwatu, Kuta Selatan, Kabupaten Badung, Bali 80361",
+    "officialUrl": "https://www.singlefinbali.com/",
+    "instagramUrl": "https://www.instagram.com/singlefinbali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Single%20Fin%20Uluwatu%20Pecatu%20Bali",
+    "cuisine": "International bar food",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": "Monday, Tuesday, Thursday, Friday and Saturday 8am-10pm; Wednesday and Sunday 8am-2am",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_explicit_holds",
+    "sourceManifestIds": ["src-single-fin-official-home", "src-single-fin-official-menu", "src-single-fin-sevenrooms", "src-single-fin-otherbali-public"],
+    "fieldEvidence": {
+      "name": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "proposedCategory": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "district": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "area": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "locality": ["src-single-fin-official-home"],
+      "address": ["src-single-fin-official-home"],
+      "officialUrl": ["src-single-fin-official-home"],
+      "instagramUrl": ["src-single-fin-otherbali-public"],
+      "gmapsUrl": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "cuisine": ["src-single-fin-official-menu"],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": ["src-single-fin-official-home"],
+      "opening_hours_json": [],
+      "last_verified_at": ["src-single-fin-official-home", "src-single-fin-official-menu", "src-single-fin-sevenrooms", "src-single-fin-otherbali-public"],
+      "editorial.why_its_here": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "editorial.best_for": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "editorial.not_for": ["src-single-fin-official-home", "src-single-fin-otherbali-public"],
+      "editorial.price_anchor": ["src-single-fin-official-menu"],
+      "editorial.what_to_order": ["src-single-fin-official-menu"]
+    },
+    "editorial": {
+      "why_its_here": "Single Fin is a cliffside bar above the Suluban surf break, with terraced ocean views and an all-day food and drinks menu.",
+      "best_for": "Sunset drinks with the surf view; group nights out; post-surf food and drinks.",
+      "not_for": "A quiet dinner or a low-key evening on the venue's busiest nights.",
+      "price_anchor": "$$ · current food menu 60K-175K; tax and service included",
+      "what_to_order": "ahi tuna tartare; grilled tiger prawns; nasi goreng Single Fin",
+      "jobs": []
+    },
+    "actions": [
+      {"id": "action-single-fin-website-01", "kind": "website", "label": "Official website", "provider": "official_website", "url": "https://www.singlefinbali.com/", "status": "draft", "confirmationRequired": false, "sourceManifestId": "src-single-fin-official-home"},
+      {"id": "action-single-fin-reserve-02", "kind": "reserve", "label": "Reserve", "provider": "sevenrooms", "url": "https://www.sevenrooms.com/explore/singlefinuluwatu/reservations/create/search", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-single-fin-sevenrooms"},
+      {"id": "action-single-fin-directions-03", "kind": "directions", "label": "Directions", "provider": "google_maps", "url": "https://www.google.com/maps/search/?api=1&query=Single%20Fin%20Uluwatu%20Pecatu%20Bali", "status": "draft", "confirmationRequired": true, "sourceManifestId": "src-single-fin-otherbali-public"}
+    ],
+    "menus": [
+      {
+        "id": "menu-single-fin-food-20260830",
+        "kind": "official_menu_html",
+        "status": "draft_verified_source_representative_transcription",
+        "sourceManifestId": "src-single-fin-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "included",
+        "items": [
+          {"name": "Spicy edamame beans", "price": 70, "section": "Snack"},
+          {"name": "Ahi tuna tartare", "price": 115, "section": "Snack"},
+          {"name": "Grilled tiger prawns", "price": 145, "section": "Snack"},
+          {"name": "Tempura fish taco", "price": 95, "section": "Tacos"},
+          {"name": "Nasi goreng Single Fin", "price": 125, "section": "Mains"},
+          {"name": "Fish and chips", "price": 140, "section": "Mains"},
+          {"name": "Cheese burger", "price": 170, "section": "Burgers"},
+          {"name": "Spicy chorizo pizza", "price": 175, "section": "Pizza"},
+          {"name": "Balinese pomelo panna cotta", "price": 60, "section": "Dessert"}
+        ]
+      }
+    ],
+    "blockers": ["Editorial approval is required for the revised what_to_order, not_for and price anchor.", "The exact production row has not been verified read-only.", "Current structured-hours parsing cannot faithfully represent a 02:00 next-day close."],
+    "recommendedNextAction": "Approve the editorial fields, then verify the exact one-row target and prepare a guarded update without structured overnight hours."
+  }
+}

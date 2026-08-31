@@ -1,0 +1,22 @@
+{
+  "artifactId": "the-warung-at-alila-villas-uluwatu-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "The Warung at Alila",
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "sourceManifestId": "src-the-warung-at-alila-villas-uluwatu-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "The Warung at Alila",
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "sourceManifestId": "src-the-warung-at-alila-villas-uluwatu-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

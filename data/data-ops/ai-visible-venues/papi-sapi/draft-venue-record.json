@@ -1,0 +1,212 @@
+{
+  "artifactId": "papi-sapi-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "papi-sapi-20260830",
+    "name": "Papi Sapi",
+    "proposedSlug": "papi-sapi",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "restaurant",
+    "district": "uluwatu",
+    "area": "Labuan Sait, Pecatu",
+    "locality": "Jl. Labuansait, Pecatu",
+    "address": "Jl. Labuansait, Pecatu",
+    "officialUrl": "https://papisapi.com/",
+    "instagramUrl": "https://www.instagram.com/papisapi_/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=Papi%20Sapi%20Labuan%20Sait%2C%20Pecatu%20Bali",
+    "cuisine": "Market-driven grill, seafood and burgers",
+    "phone": null,
+    "photoUrl": null,
+    "openingHoursText": null,
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "draft_with_explicit_menu_hold",
+    "sourceManifestIds": [
+      "src-papi-sapi-official",
+      "src-papi-sapi-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-papi-sapi-official",
+        "src-papi-sapi-otherbali"
+      ],
+      "proposedCategory": [
+        "src-papi-sapi-otherbali"
+      ],
+      "district": [
+        "src-papi-sapi-otherbali"
+      ],
+      "area": [
+        "src-papi-sapi-otherbali"
+      ],
+      "locality": [
+        "src-papi-sapi-official"
+      ],
+      "address": [
+        "src-papi-sapi-official"
+      ],
+      "officialUrl": [
+        "src-papi-sapi-official"
+      ],
+      "instagramUrl": [
+        "src-papi-sapi-official"
+      ],
+      "gmapsUrl": [
+        "src-papi-sapi-otherbali"
+      ],
+      "cuisine": [
+        "src-papi-sapi-official-menu"
+      ],
+      "phone": [],
+      "photoUrl": [],
+      "openingHoursText": [],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-papi-sapi-official",
+        "src-papi-sapi-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-papi-sapi-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-papi-sapi-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-papi-sapi-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-papi-sapi-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-papi-sapi-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "A market-led grill where the offering changes with what is fresh that morning.",
+      "best_for": "Fresh seafood, charcoal-grilled cuts and straightforward burgers.",
+      "not_for": "A fixed tasting menu or a price promise for weight-based showcase items.",
+      "price_anchor": "Representative fixed items 40K–140K; showcase meats, fish and vegetables are priced by actual weight.",
+      "what_to_order": "Grilled octopus skewer; Sapi Penyet burger; Yellowfin burger",
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-papi-sapi-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://papisapi.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-papi-sapi-official"
+      },
+      {
+        "id": "action-papi-sapi-booking",
+        "kind": "reserve",
+        "label": "Booking handoff",
+        "provider": "official_booking_page",
+        "url": "https://papisapi.com/book-a-table/",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-papi-sapi-booking"
+      },
+      {
+        "id": "action-papi-sapi-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=Papi%20Sapi%20Labuan%20Sait%2C%20Pecatu%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-papi-sapi-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-papi-sapi-may-2026",
+        "kind": "official_menu_pdf_text_layer",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-papi-sapi-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr",
+        "taxAndService": "All prices subject to 10% government tax and 6% service charge.",
+        "items": [
+          {
+            "name": "Pan con tomate",
+            "price": 40,
+            "section": "Starters"
+          },
+          {
+            "name": "Crispy fried oyster mushrooms",
+            "price": 60,
+            "section": "Starters"
+          },
+          {
+            "name": "Grilled sardines",
+            "price": 70,
+            "section": "Starters"
+          },
+          {
+            "name": "Yellowfin tuna confit",
+            "price": 90,
+            "section": "Starters"
+          },
+          {
+            "name": "Grilled school prawns",
+            "price": 100,
+            "section": "Starters"
+          },
+          {
+            "name": "Grilled octopus skewer",
+            "price": 110,
+            "section": "Starters"
+          },
+          {
+            "name": "Chook Up burger",
+            "price": 110,
+            "section": "Burgers"
+          },
+          {
+            "name": "Sapi Penyet burger",
+            "price": 140,
+            "section": "Burgers"
+          },
+          {
+            "name": "Yellowfin burger",
+            "price": 140,
+            "section": "Burgers"
+          },
+          {
+            "name": "Mango & passionfruit pavlova",
+            "price": 80,
+            "section": "Desserts"
+          },
+          {
+            "name": "Burnt Basque cheesecake",
+            "price": 80,
+            "section": "Desserts"
+          },
+          {
+            "name": "Banoffee pie",
+            "price": 80,
+            "section": "Desserts"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for recommendations and price anchor.",
+      "Exact production row and duplicate state remain unverified.",
+      "The showcase is weight-based and can change; retain the PDF caveat verbatim."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

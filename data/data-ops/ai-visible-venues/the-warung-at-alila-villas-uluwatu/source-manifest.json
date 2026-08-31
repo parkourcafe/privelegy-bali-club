@@ -1,0 +1,40 @@
+{
+  "artifactId": "the-warung-at-alila-villas-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-the-warung-at-alila-villas-uluwatu-official",
+      "type": "official_website",
+      "url": "https://www.alilahotels.com/uluwatu/dining/the-warung/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-the-warung-at-alila-villas-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/the-warung-at-alila-villas-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-the-warung-at-alila-villas-uluwatu-booking",
+      "type": "official_booking_page",
+      "url": "https://www.tablecheck.com/en/alila-villas-uluwatu-the-warung/reserve",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-the-warung-at-alila-villas-uluwatu-official-menu",
+      "type": "official_website",
+      "url": "https://www.alilahotels.com/uluwatu/dining/the-warung/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_MENU_ASSET",
+      "note": "First-party page captured; publication remains forbidden."
+    }
+  ]
+}

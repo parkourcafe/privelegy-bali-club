@@ -1,0 +1,40 @@
+{
+  "artifactId": "artisan-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-artisan-uluwatu-official",
+      "type": "official_instagram",
+      "url": "https://www.instagram.com/artisan.bali/",
+      "capturedAt": "2026-08-30",
+      "status": "HOLD_OFFICIAL_MENU_VERIFICATION",
+      "note": "First-party identity source located; stable current menu text/image was not captured. No menu facts promoted."
+    },
+    {
+      "id": "src-artisan-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/artisan-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-artisan-uluwatu-booking",
+      "type": "official_booking_page",
+      "url": "https://www.chope.co/bali-restaurants/restaurant/artisan-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_HANDOFF_ONLY",
+      "note": "Booking handoff only; availability not asserted."
+    },
+    {
+      "id": "src-artisan-uluwatu-official-menu",
+      "type": "official_menu_pdf",
+      "url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party Artisan Group PDF; preserve tax/service wording and verify freshness before publication."
+    }
+  ]
+}

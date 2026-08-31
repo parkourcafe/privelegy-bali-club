@@ -50,3 +50,8 @@ next-env.d.ts
 # sees them present-and-under-budget and skips them.
 public/scenes/*.webp
 shots*/
+
+# vendored GEO analysis scripts install their python deps into a local venv
+# (.agents/skills/geo-seo/scripts/requirements.txt). Optional helpers, not a gate.
+.agents/skills/geo-seo/scripts/.venv/
+__pycache__/

@@ -1,0 +1,21 @@
+{
+  "artifactId": "single-fin-entity-consistency-20260830",
+  "generatedAt": "2026-08-30T05:46:16Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "venueName": "Single Fin",
+  "canonicalCandidate": {"name": "Single Fin", "category": "bar", "district": "uluwatu", "locality": "Suluban, Pecatu", "officialUrl": "https://www.singlefinbali.com/", "proposedSlug": "single-fin", "slugState": "existing_public_card"},
+  "surfaces": [
+    {"surface": "official_website", "sourceManifestId": "src-single-fin-official-home", "state": "verified_current", "observed": {"name": "Single Fin", "positioning": "cliffside beach bar", "address": "Pantai Suluban, Jl. Labuan Sait, Pecatu, Uluwatu, Kuta Selatan, Kabupaten Badung, Bali 80361", "hours": "Mon/Tue/Thu/Fri/Sat 8am-10pm; Wed/Sun 8am-2am"}, "limitations": ["No phone number was captured in this run."]},
+    {"surface": "official_menu", "sourceManifestId": "src-single-fin-official-menu", "state": "verified_current_text_menu", "observed": {"format": "HTML text", "currency": "IDR", "taxAndService": "included"}, "limitations": ["The draft contains a representative transcription, not every menu item."]},
+    {"surface": "other_bali_public_card", "sourceManifestId": "src-single-fin-otherbali-public", "state": "verified_live_stale_fields", "observed": {"slug": "single-fin", "category": "bar", "district": "uluwatu", "lastChecked": "2026-07-12"}, "limitations": ["Hours and menu text are not currently exposed."]},
+    {"surface": "booking_provider", "sourceManifestId": "src-single-fin-sevenrooms", "state": "verified_handoff", "observed": {"provider": "SevenRooms", "entity": "singlefinuluwatu"}, "limitations": ["No live availability claim is made."]}
+  ],
+  "conflicts": [
+    {"field": "what_to_order", "state": "stale_existing_value", "existing": "pizza; tacos; sliders", "currentEvidence": "No slider was present in the captured official menu; replacement proposal uses named current dishes.", "resolution": "editor_review_required"},
+    {"field": "structured_hours", "state": "implementation_conflict", "official": "Wednesday and Sunday close at 02:00", "repositoryParser": "overnight ranges normalize to 23:59", "resolution": "leave_opening_hours_json_null"}
+  ],
+  "unresolvedFields": ["Phone", "Exact production row identity", "Structured overnight-hours representation", "Current recurring-event schedule"]
+}

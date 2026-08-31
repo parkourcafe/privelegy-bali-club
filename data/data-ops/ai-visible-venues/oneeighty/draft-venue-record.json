@@ -1,0 +1,164 @@
+{
+  "artifactId": "oneeighty-draft-venue-record-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "schemaVersion": 1,
+  "dataUseState": "draft_operator_review_only",
+  "reviewState": "editor_and_owner_review_required",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForOperatorReview": true,
+  "readyForImportDryRun": false,
+  "readyToPublish": false,
+  "candidate": {
+    "candidateId": "oneeighty-20260830",
+    "name": "oneeighty°",
+    "proposedSlug": "oneeighty",
+    "slugState": "existing_public_card_exact_production_row_unverified",
+    "proposedCategory": "beach_club",
+    "district": "uluwatu",
+    "area": "Pecatu cliffs",
+    "locality": "Jl Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu, Bali 80361, Indonesia",
+    "address": "Jl Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu, Bali 80361, Indonesia",
+    "officialUrl": "https://oneeightybali.com/",
+    "instagramUrl": "https://www.instagram.com/oneeightybali/",
+    "gmapsUrl": "https://www.google.com/maps/search/?api=1&query=oneeighty%C2%B0%20Pecatu%20cliffs%20Bali",
+    "cuisine": "International cuisine with some local dishes",
+    "phone": "+62 821 4463 2077",
+    "photoUrl": null,
+    "openingHoursText": "Daily 10:00am-9:00pm; last order 8:00pm",
+    "opening_hours_json": null,
+    "last_verified_at": "2026-08-30",
+    "verificationStatus": "verified_draft_with_editorial_hold",
+    "sourceManifestIds": [
+      "src-oneeighty-official",
+      "src-oneeighty-otherbali"
+    ],
+    "fieldEvidence": {
+      "name": [
+        "src-oneeighty-official",
+        "src-oneeighty-otherbali"
+      ],
+      "proposedCategory": [
+        "src-oneeighty-otherbali"
+      ],
+      "district": [
+        "src-oneeighty-otherbali"
+      ],
+      "area": [
+        "src-oneeighty-otherbali"
+      ],
+      "locality": [
+        "src-oneeighty-official-menu"
+      ],
+      "address": [
+        "src-oneeighty-official-menu"
+      ],
+      "officialUrl": [
+        "src-oneeighty-official"
+      ],
+      "instagramUrl": [
+        "src-oneeighty-official"
+      ],
+      "gmapsUrl": [
+        "src-oneeighty-otherbali"
+      ],
+      "cuisine": [
+        "src-oneeighty-official-menu"
+      ],
+      "phone": [
+        "src-oneeighty-official-menu"
+      ],
+      "photoUrl": [],
+      "openingHoursText": [
+        "src-oneeighty-official-menu"
+      ],
+      "opening_hours_json": [],
+      "last_verified_at": [
+        "src-oneeighty-official",
+        "src-oneeighty-otherbali"
+      ],
+      "editorial.why_its_here": [
+        "src-oneeighty-official-menu"
+      ],
+      "editorial.best_for": [
+        "src-oneeighty-official-menu"
+      ],
+      "editorial.not_for": [
+        "src-oneeighty-official-menu"
+      ],
+      "editorial.price_anchor": [
+        "src-oneeighty-official-menu"
+      ],
+      "editorial.what_to_order": [
+        "src-oneeighty-official-menu"
+      ]
+    },
+    "editorial": {
+      "why_its_here": "Clifftop dayclub at The Edge with a glass-bottom sky pool above the Indian Ocean.",
+      "best_for": "Daypass, pool time and cliff views; confirm access and seating before travel.",
+      "not_for": "A conventional dinner-only stop or a quiet low-cost meal.",
+      "price_anchor": "Daypass F&B credit begins at IDR 600,000 per person; cabanas are IDR 4,000,000–7,000,000 per bed.",
+      "what_to_order": [
+        "Regular admission",
+        "Pool cabana",
+        "Deluxe private cabana"
+      ],
+      "jobs": []
+    },
+    "actions": [
+      {
+        "id": "action-oneeighty-website",
+        "kind": "website",
+        "label": "Official website",
+        "provider": "official_website",
+        "url": "https://oneeightybali.com/",
+        "status": "draft",
+        "confirmationRequired": false,
+        "sourceManifestId": "src-oneeighty-official"
+      },
+      {
+        "id": "action-oneeighty-directions",
+        "kind": "directions",
+        "label": "Directions",
+        "provider": "google_maps",
+        "url": "https://www.google.com/maps/search/?api=1&query=oneeighty%C2%B0%20Pecatu%20cliffs%20Bali",
+        "status": "draft",
+        "confirmationRequired": true,
+        "sourceManifestId": "src-oneeighty-otherbali"
+      }
+    ],
+    "menus": [
+      {
+        "id": "menu-oneeighty-official-20260830",
+        "kind": "official_html_text",
+        "status": "draft_verified_first_party_transcription",
+        "sourceManifestId": "src-oneeighty-official-menu",
+        "currency": "IDR",
+        "priceUnit": "thousand_idr_or_explicit_idr",
+        "taxAndService": "Preserve the official page wording; do not recalculate absent a complete menu capture.",
+        "items": [
+          {
+            "name": "Regular admission — IDR 700,000 per person (includes IDR 600,000 F&B credit)",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Pool cabana — IDR 4,000,000 per bed (includes IDR 2,000,000 F&B credit)",
+            "price": null,
+            "section": "official page representative capture"
+          },
+          {
+            "name": "Deluxe private cabana — IDR 7,000,000 per bed (includes IDR 5,000,000 F&B credit)",
+            "price": null,
+            "section": "official page representative capture"
+          }
+        ]
+      }
+    ],
+    "blockers": [
+      "Editorial approval is required for proposed copy and recommendations.",
+      "Exact production row and duplicate state remain unverified."
+    ],
+    "recommendedNextAction": "Capture and hash the current first-party menu, transcribe it with provenance, then complete editorial review before a guarded data change."
+  }
+}

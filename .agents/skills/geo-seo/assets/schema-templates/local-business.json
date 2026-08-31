@@ -1,0 +1,39 @@
+{
+  "_otherbali_note": "REFERENCE SHAPE ONLY — not approved markup. Actual venue JSON-LD is governed by .agents/skills/otherbali-schema-markup/SKILL.md and emitted by app/places/[slug]/page.tsx, where every field passes a gate and a missing value omits the key. Upstream's aggregateRating and review blocks have been REMOVED and must not be restored: guardrail #2 forbids republishing Google ratings or review-derived claims, and we hold no first-party rating, so any value here would be either scraped or invented. Strip this key before using the shape.",
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://www.otherbali.com/places/SLUG#place",
+  "name": "VENUE_NAME",
+  "url": "https://www.otherbali.com/places/SLUG",
+  "image": "MEDIA_ASSET_URL — via venuePhotoUrlForDisplay, never a raw column",
+  "description": "VENUE_DESCRIPTION — from the venue record, evidence-backed",
+  "telephone": "+62-XXX-XXXX-XXXX",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "_gate": "streetAddress only via publishableStreetAddress — venues.full_address mostly holds an area note and has published an operator working note before",
+    "streetAddress": "STREET_ADDRESS_IF_PUBLISHABLE",
+    "addressLocality": "MICRO_AREA or DISTRICT_LABEL or Bali",
+    "addressRegion": "Bali",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "_gate": "both present and finite, or omit the whole geo object",
+    "latitude": "-8.XXXXXX",
+    "longitude": "115.XXXXXX"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "_gate": "buildOpeningHoursSpec(opening_hours_json) — the only form that can carry two services in one day; never hand-write from opening_hours text",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "22:00"
+    }
+  ],
+  "sameAs": [
+    "OFFICIAL_URL — validated",
+    "INSTAGRAM_URL — validated"
+  ]
+}

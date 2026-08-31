@@ -1,0 +1,22 @@
+{
+  "artifactId": "waatu-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "WAATU",
+      "slug": "waatu",
+      "sourceManifestId": "src-waatu-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "WAATU",
+      "slug": "waatu",
+      "sourceManifestId": "src-waatu-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

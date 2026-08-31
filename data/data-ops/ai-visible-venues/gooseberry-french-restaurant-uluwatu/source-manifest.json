@@ -1,0 +1,32 @@
+{
+  "artifactId": "gooseberry-french-restaurant-uluwatu-source-manifest-20260830",
+  "generatedAt": "2026-08-30T06:00:00Z",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "sources": [
+    {
+      "id": "src-gooseberry-french-restaurant-uluwatu-official",
+      "type": "official_website",
+      "url": "https://www.gooseberry-restaurant.com/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_IDENTITY_AND_MENU_REVIEW",
+      "note": "First-party page captured; menu evidence is represented below with explicit scope and any remaining image-transcription gap."
+    },
+    {
+      "id": "src-gooseberry-french-restaurant-uluwatu-otherbali",
+      "type": "otherbali_public_card",
+      "url": "https://www.otherbali.com/places/gooseberry-french-restaurant-uluwatu",
+      "capturedAt": "2026-08-30",
+      "status": "BEFORE_STATE_ONLY",
+      "note": "Existing public card; not production/database proof."
+    },
+    {
+      "id": "src-gooseberry-french-restaurant-uluwatu-official-menu",
+      "type": "official_website",
+      "url": "https://www.gooseberry-restaurant.com/",
+      "capturedAt": "2026-08-30",
+      "status": "DRAFT_MENU_CAPTURED",
+      "note": "First-party menu page or official menu content captured for draft transcription; publication remains forbidden."
+    }
+  ]
+}

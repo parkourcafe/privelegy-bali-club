@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "__VENUE_SLUG__-menu-implementation-candidate",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "readyForImportDryRun": false,
+  "databaseIdentityState": "hold_database_dedupe_required",
+  "menu": {
+    "id": "menu-__VENUE_SLUG__-v1",
+    "venueSlug": "__VENUE_SLUG__",
+    "title": "__VENUE_NAME__ menu highlights",
+    "version": 1,
+    "status": "draft",
+    "completeness": "partial",
+    "kind": "food",
+    "sourceUrl": "__OFFICIAL_MENU_URL__",
+    "sourceLabel": "__VENUE_NAME__ official menu",
+    "capturedAt": "__CAPTURED_AT__",
+    "verifiedAt": null,
+    "expiresAt": "__REVIEW_DEADLINE__",
+    "sourceManifestIds": ["__SOURCE_MANIFEST_ID__"],
+    "sections": []
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Other Bali AI-visible Venue"
+  short_description: "Evidence-to-measurement workflow for one venue"
+  default_prompt: "Use $otherbali-ai-visible-venue to prepare and record an evidence-backed AI visibility run for one Other Bali venue without publishing unverified facts."

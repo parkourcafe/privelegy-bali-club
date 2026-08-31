@@ -1,0 +1,22 @@
+{
+  "artifactId": "ulu-fishmarket-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "Ulu Fishmarket",
+      "slug": "ulu-fishmarket",
+      "sourceManifestId": "src-ulu-fishmarket-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "Ulu Fishmarket",
+      "slug": "ulu-fishmarket",
+      "sourceManifestId": "src-ulu-fishmarket-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}

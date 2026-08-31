@@ -1,0 +1,22 @@
+{
+  "artifactId": "zali-uluwatu-entity-consistency-20260830",
+  "forbiddenToPublish": true,
+  "publicationAllowed": false,
+  "surfaces": [
+    {
+      "surface": "otherbali_public_card",
+      "identity": "ZALI Uluwatu",
+      "slug": "zali-uluwatu",
+      "sourceManifestId": "src-zali-uluwatu-otherbali"
+    },
+    {
+      "surface": "official_source",
+      "identity": "ZALI Uluwatu",
+      "slug": "zali-uluwatu",
+      "sourceManifestId": "src-zali-uluwatu-official"
+    }
+  ],
+  "conflicts": [
+    "Exact production row and duplicate state not verified."
+  ]
+}
