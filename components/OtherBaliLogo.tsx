@@ -5,6 +5,16 @@
 // color="#E7B7AE" (rose) per the spec.
 // Ported from the design system's other-bali-logo.js: Gloock cap ≈ 0.75em,
 // so font-size = size / 0.75.
+//
+// Text-extraction contract: the element's textContent must read exactly
+// "OTHER BALI". The ring draws the leading O, so the visible glyphs are only
+// "THER BALI"; a crawler or AI extractor that ignores CSS and aria-hidden reads
+// raw text, and this used to sit next to a separate sr-only "Other Bali",
+// yielding "Other BaliTHER BALI" — a brand name with a duplicated fragment.
+// Supplying just the missing "O" as visually-hidden text makes the two glyph
+// runs concatenate correctly while leaving the design untouched. Screen readers
+// are unaffected either way: role="img" + aria-label names the element and its
+// children are not announced.
 export default function OtherBaliLogo({
   size = 24,
   color = "#2B1A13",
@@ -18,10 +28,9 @@ export default function OtherBaliLogo({
   return (
     <span
       role="img"
-      aria-label="OTHER BALI"
+      aria-label="Other Bali"
       style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}
     >
-      <span className="sr-only">Other Bali</span>
       <span
         aria-hidden="true"
         style={{
@@ -45,6 +54,8 @@ export default function OtherBaliLogo({
           }}
         />
       </span>
+      {/* The O the ring draws — hidden from sight, present in the text. */}
+      <span className="sr-only">O</span>
       <span
         aria-hidden="true"
         style={{

@@ -7,8 +7,8 @@ import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import GlobalHeader from "@/components/GlobalHeader";
 import MobileNav from "@/components/MobileNav";
-import { getLocale } from "@/lib/i18n/server";
-import { LOCALE_META } from "@/lib/i18n/locales";
+import LocaleHtmlLang from "@/components/LocaleHtmlLang";
+import { DEFAULT_LOCALE, LOCALE_META } from "@/lib/i18n/locales";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 import {
   CANONICAL_SITE_ORIGIN,
@@ -110,13 +110,18 @@ const siteJsonLd = {
   ],
 };
 
-export default async function RootLayout({
+// Deliberately synchronous and free of headers()/cookies(): a dynamic API read
+// in the ROOT layout makes every route below it request-rendered, which is what
+// left the whole public site uncacheable (`private, no-cache, no-store`, Vercel
+// MISS, multi-second TTFB) and silently defeated the `revalidate` exports on 13
+// pages. The chrome locale now resolves client-side — see lib/i18n/client.ts.
+// Do not reintroduce a dynamic API here.
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const locale = await getLocale();
   return (
     <html
-      lang={LOCALE_META[locale].htmlLang}
+      lang={LOCALE_META[DEFAULT_LOCALE].htmlLang}
       className={`h-full antialiased ${hanken.variable} ${young.variable} ${gloock.variable}`}
     >
       <body className="min-h-full flex flex-col">
@@ -124,9 +129,10 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
-        <GlobalHeader locale={locale} />
+        <LocaleHtmlLang />
+        <GlobalHeader />
         {children}
-        <MobileNav locale={locale} />
+        <MobileNav />
         <SourceCapture />
         <ServiceWorkerRegister />
         <Analytics />

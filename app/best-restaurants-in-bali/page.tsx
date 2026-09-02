@@ -6,6 +6,15 @@ import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
 import { getGuide, guideMetadata } from "@/lib/guides";
 import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
+import GuidePickList from "@/components/GuidePickList";
+import { lastCheckedFrom, selectCurated } from "@/lib/seo/curated-list";
+
+// A "best" page is a decision guide, not the category. This one used to render
+// every indexable restaurant in the catalogue — 700+ names, each a bare link —
+// and list all of them in its ItemList. Cap it, require a real card behind each
+// pick, and send the rest to the filtered catalogue.
+const MAX_PICKS = 36;
+const MAX_PER_AREA = 6;
 
 // Taste sub-groups within each area (design feedback, 2026-07-20): a flat
 // alphabetical wall of restaurant names doesn't help anyone choose — group by
@@ -53,35 +62,56 @@ export default async function BestRestaurantsPage() {
   const [all, liveSlugs] = await Promise.all([getPublishedVenues(), liveCollectionSlugs()]);
   const liveSet = new Set(liveSlugs);
   const restaurants = all.filter((v) => v.category === "restaurant" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => {
-    const venues = restaurants
-      .filter((v) => v.district === area.key)
-      .sort((a, b) => a.name.localeCompare(b.name));
 
-    // Sub-group by the first matching taste collection; a residual "More
-    // kitchens" bucket holds anything that matches no defined cuisine —
-    // never force-fit, never dropped.
-    const groups = new Map<string, VenueWithPerk[]>();
-    const more: VenueWithPerk[] = [];
-    for (const v of venues) {
-      const slug = tasteGroupFor(v);
-      if (!slug) {
-        more.push(v);
-        continue;
+  // Curate per area first, so one dense district cannot consume the whole page,
+  // then cap the page as a whole.
+  const perArea = AREA_ORDER.map((area) => ({
+    ...area,
+    selection: selectCurated(
+      restaurants.filter((v) => v.district === area.key),
+      { limit: MAX_PER_AREA },
+    ),
+  }));
+  // Spend the page-wide budget in area order, before building any view model.
+  const allotted: { area: (typeof perArea)[number]; venues: VenueWithPerk[] }[] = [];
+  let budget = MAX_PICKS;
+  for (const area of perArea) {
+    const venues = area.selection.picks.slice(0, Math.max(0, budget));
+    budget -= venues.length;
+    allotted.push({ area, venues });
+  }
+
+  const byArea = allotted
+    .map(({ area, venues }) => {
+      // Sub-group by the first matching taste collection; a residual "More
+      // kitchens" bucket holds anything that matches no defined cuisine —
+      // never force-fit, never dropped.
+      const groups = new Map<string, VenueWithPerk[]>();
+      const more: VenueWithPerk[] = [];
+      for (const v of venues) {
+        const slug = tasteGroupFor(v);
+        if (!slug) {
+          more.push(v);
+          continue;
+        }
+        const list = groups.get(slug) ?? [];
+        list.push(v);
+        groups.set(slug, list);
       }
-      const list = groups.get(slug) ?? [];
-      list.push(v);
-      groups.set(slug, list);
-    }
-    const tasteGroups = TASTE_COLLECTIONS.filter((c) => groups.has(c.slug)).map((c) => ({
-      slug: c.slug,
-      label: c.taste,
-      href: liveSet.has(c.slug) ? `/collections/${c.slug}` : null,
-      venues: groups.get(c.slug)!,
-    }));
+      const tasteGroups = TASTE_COLLECTIONS.filter((c) => groups.has(c.slug)).map((c) => ({
+        slug: c.slug,
+        label: c.taste,
+        href: liveSet.has(c.slug) ? `/collections/${c.slug}` : null,
+        venues: groups.get(c.slug)!,
+      }));
 
-    return { ...area, venues, tasteGroups, more };
-  }).filter((a) => a.venues.length > 0);
+      return { ...area, venues, tasteGroups, more };
+    })
+    .filter((a) => a.venues.length > 0);
+
+  const shown = byArea.flatMap((a) => a.venues);
+  const remaining = Math.max(0, restaurants.length - shown.length);
+  const lastChecked = lastCheckedFrom(shown);
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best restaurants in Bali" }];
 
@@ -99,9 +129,14 @@ export default async function BestRestaurantsPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Best restaurants in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
+      // Only what the page actually renders. An ItemList of hundreds of names
+      // the reader never sees is a claim the page does not keep.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -118,6 +153,12 @@ export default async function BestRestaurantsPage() {
             densest dinner scenes, Ubud the jungle-view and plant-forward kitchens,
             and Jimbaran the classic grilled seafood on the sand. Here are the
             restaurants we stand behind, by area — tap any for the details.
+          </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} restaurants, each one written up on the record with a
+            reason to go and who it does not suit. Nobody can pay to be on this
+            list or to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
           </p>
           <GuideHeroMedia seed="best restaurants in bali dinner warung" />
         </header>
@@ -147,16 +188,7 @@ export default async function BestRestaurantsPage() {
                     </Link>
                   ) : null}
                 </div>
-                <ul className="mt-2 space-y-2 text-sm">
-                  {group.venues.map((v) => (
-                    <li key={v.slug}>
-                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                        {v.name}
-                      </Link>
-                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                    </li>
-                  ))}
-                </ul>
+                <GuidePickList venues={group.venues} />
               </div>
             ))}
 
@@ -165,20 +197,21 @@ export default async function BestRestaurantsPage() {
                 <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
                   More kitchens
                 </h3>
-                <ul className="mt-2 space-y-2 text-sm">
-                  {area.more.map((v) => (
-                    <li key={v.slug}>
-                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                        {v.name}
-                      </Link>
-                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                    </li>
-                  ))}
-                </ul>
+                <GuidePickList venues={area.more} />
               </div>
             )}
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            restaurants are published with verified details —{" "}
+            <Link href="/places?category=restaurant" className="quiet-link">
+              browse every restaurant →
+            </Link>
+          </p>
+        ) : null}
 
         <p className="text-sm text-[var(--muted)]">
           Looking for a mood rather than a cuisine — date night, a big group

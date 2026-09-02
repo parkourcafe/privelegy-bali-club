@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_GROUPS, NAV_SECONDARY_LINKS } from "@/lib/navigation";
 import { t } from "@/lib/i18n/dictionaries";
-import type { PublicLocale } from "@/lib/i18n/locales";
+import { useLocale } from "@/lib/i18n/client";
 
 // Mobile bottom navigation (IA spec v1 §5.2): Explore · Search · Saved · Plan.
 // Explore opens a full category sheet built from the shared navigation
@@ -47,7 +47,8 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-export default function MobileNav({ locale }: { locale: PublicLocale }) {
+export default function MobileNav() {
+  const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);

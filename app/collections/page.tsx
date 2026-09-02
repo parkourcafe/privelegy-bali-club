@@ -33,21 +33,9 @@ export default async function CollectionsHubPage() {
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Collections" }];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((c, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: c.name,
-      ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-    })),
-  };
-
   return (
     <div>
       <main className="site-shell">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
         <header className="guide-hero">
           <Breadcrumbs items={crumbs} />

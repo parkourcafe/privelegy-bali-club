@@ -3,6 +3,10 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import { curateByArea } from "@/lib/seo/curated-list";
+
+const MAX_PICKS = 30;
+const MAX_PER_AREA = 6;
 import { getGuide, guideMetadata } from "@/lib/guides";
 import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
 
@@ -28,14 +32,27 @@ function tasteGroupFor(v: VenueWithPerk): string | null {
 function VenueLi({ v }: { v: VenueWithPerk }) {
   return (
     <li>
-      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-        {v.name}
-      </Link>
-      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+      <p>
+        <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
+          {v.name}
+        </Link>
+        {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
+      </p>
+      {v.whyItsHere ? <p className="mt-1 leading-relaxed">{v.whyItsHere}</p> : null}
+      {v.bestFor ? (
+        <p className="mt-1">
+          <strong>Best for:</strong> {v.bestFor}
+        </p>
+      ) : null}
+      {v.notFor ? (
+        <p className="mt-1 text-[var(--muted)]">
+          <strong>Not for:</strong> {v.notFor}
+        </p>
+      ) : null}
       {v.whatToOrder ? (
-        <span className="block text-[13px] leading-snug text-[var(--muted)]">
+        <p className="mt-1 text-[13px] leading-snug text-[var(--muted)]">
           {v.whatToOrder.charAt(0).toUpperCase() + v.whatToOrder.slice(1).replace(/;\s*/g, ", ")}
-        </span>
+        </p>
       ) : null}
     </li>
   );
@@ -79,10 +96,15 @@ export default async function BestWarungsPage() {
   const [all, liveSlugs] = await Promise.all([getPublishedVenues(), liveCollectionSlugs()]);
   const liveSet = new Set(liveSlugs);
   const warungs = all.filter((v) => isWarung(v) && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => {
-    const venues = warungs
-      .filter((v) => v.district === area.key)
-      .sort((a, b) => a.name.localeCompare(b.name));
+  // Shortlist, not the category.
+  const curated = curateByArea(warungs, AREA_ORDER, {
+    maxPicks: MAX_PICKS,
+    maxPerArea: MAX_PER_AREA,
+  });
+  const { shown, remaining, lastChecked } = curated;
+
+  const byArea = curated.areas.map((area) => {
+    const venues = area.venues;
 
     const groups = new Map<string, VenueWithPerk[]>();
     const more: VenueWithPerk[] = [];
@@ -104,7 +126,7 @@ export default async function BestWarungsPage() {
     }));
 
     return { ...area, venues, tasteGroups, more };
-  }).filter((a) => a.venues.length > 0);
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best warungs in Bali" }];
 
@@ -122,9 +144,13 @@ export default async function BestWarungsPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Best warungs & local food in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
+      // Only what the page renders.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -141,6 +167,12 @@ export default async function BestWarungsPage() {
             family-run local eateries — serve nasi campur, babi guling and
             home-style Balinese and Indonesian plates for a fraction of café
             prices. Here are the ones we stand behind, district by district.
+          </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} warungs, each one written up on the record with a
+            reason to go and who it does not suit. Nobody can pay to be on this
+            list or to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
           </p>
         </header>
 
@@ -173,7 +205,7 @@ export default async function BestWarungsPage() {
                     </Link>
                   ) : null}
                 </div>
-                <ul className="mt-2 space-y-2 text-sm">
+                <ul className="mt-2 space-y-4 text-sm">
                   {group.venues.map((v) => (
                     <VenueLi key={v.slug} v={v} />
                   ))}
@@ -186,7 +218,7 @@ export default async function BestWarungsPage() {
                 <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
                   More warungs
                 </h3>
-                <ul className="mt-2 space-y-2 text-sm">
+                <ul className="mt-2 space-y-4 text-sm">
                   {area.more.map((v) => (
                     <VenueLi key={v.slug} v={v} />
                   ))}
@@ -195,6 +227,16 @@ export default async function BestWarungsPage() {
             )}
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            local eateries are published with verified details —{" "}
+            <Link href="/places?category=warung" className="quiet-link">
+              browse every warung →
+            </Link>
+          </p>
+        ) : null}
 
         <p className="text-sm text-[var(--muted)]">
           Looking for a mood rather than a dish — a quiet local table, easy on

@@ -90,16 +90,7 @@ export default async function CollectionPage({
         .flatMap((a) => a.venues)
         .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: crumbs.map((c, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: c.name,
-        ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-      })),
-    },
+
   ];
 
   return (

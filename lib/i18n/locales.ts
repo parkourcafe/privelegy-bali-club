@@ -9,10 +9,15 @@ export const DEFAULT_LOCALE = "en" as const;
 // client-side LocaleSwitcher (writes it directly to skip a round trip).
 export const LOCALE_COOKIE = "ob_locale";
 
-// Internal request header proxy.ts stamps with the resolved locale so Server
-// Components (via lib/i18n/server.ts's getLocale()) see the right locale even
-// on the very first request, before any cookie exists.
-export const LOCALE_HEADER = "x-ob-locale";
+// There is deliberately no locale request header any more. proxy.ts used to
+// stamp one so Server Components could read it, but a request-header read in
+// the ROOT layout opts every route below it out of static rendering — which is
+// what made the whole public site uncacheable. Locale is client-side only now
+// (lib/i18n/client.ts); do not reintroduce a server-side locale read.
+
+// Broadcast when the visitor picks a locale, so the client components that
+// render translated chrome re-read the cookie without a server round trip.
+export const LOCALE_CHANGE_EVENT = "ob:locale-change";
 
 // Tourist-facing locales, in switcher display order. Selection rationale is
 // recorded in AGENTS.md: en/zh/ko/fr map to real BPS 2025 top-10 arrivals;
@@ -52,5 +57,15 @@ export function setLocaleCookie(next: PublicLocale): void {
   if (typeof document === "undefined") return;
   const maxAge = 60 * 60 * 24 * 365;
   document.cookie = `${LOCALE_COOKIE}=${next}; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
+  window.dispatchEvent(new Event(LOCALE_CHANGE_EVENT));
+}
+
+/** Client-only: the locale the visitor explicitly chose, or English. Reads the
+ * same first-party cookie proxy.ts and setLocaleCookie write. */
+export function readLocaleCookie(): PublicLocale {
+  if (typeof document === "undefined") return DEFAULT_LOCALE;
+  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE}=([^;]*)`));
+  const value = match ? decodeURIComponent(match[1]) : null;
+  return isPublicLocale(value) ? value : DEFAULT_LOCALE;
 }
 

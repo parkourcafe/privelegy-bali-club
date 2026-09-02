@@ -3,6 +3,11 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { getPublishedVenues, type VenueWithPerk } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import GuidePickList from "@/components/GuidePickList";
+import { curateByArea } from "@/lib/seo/curated-list";
+
+const MAX_PICKS = 30;
+const MAX_PER_AREA = 6;
 import { getGuide, guideMetadata } from "@/lib/guides";
 import { COLLECTIONS, blobOf, liveCollectionSlugs } from "@/lib/collections";
 
@@ -53,10 +58,15 @@ export default async function BestCafesPage() {
   const [all, liveSlugs] = await Promise.all([getPublishedVenues(), liveCollectionSlugs()]);
   const liveSet = new Set(liveSlugs);
   const cafes = all.filter((v) => v.category === "cafe" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => {
-    const venues = cafes
-      .filter((v) => v.district === area.key)
-      .sort((a, b) => a.name.localeCompare(b.name));
+  // Shortlist, not the category.
+  const curated = curateByArea(cafes, AREA_ORDER, {
+    maxPicks: MAX_PICKS,
+    maxPerArea: MAX_PER_AREA,
+  });
+  const { shown, remaining, lastChecked } = curated;
+
+  const byArea = curated.areas.map((area) => {
+    const venues = area.venues;
 
     const groups = new Map<string, VenueWithPerk[]>();
     const more: VenueWithPerk[] = [];
@@ -78,7 +88,7 @@ export default async function BestCafesPage() {
     }));
 
     return { ...area, venues, tasteGroups, more };
-  }).filter((a) => a.venues.length > 0);
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best cafés in Bali" }];
 
@@ -96,9 +106,13 @@ export default async function BestCafesPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Best cafés in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
+      // Only what the page renders.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -115,6 +129,12 @@ export default async function BestCafesPage() {
             capital — brunch spots and specialty roasters on every corner — while
             Ubud leans healthy and jungle-green and Seminyak stays polished. Here
             are the cafés we stand behind, by area — tap any for the details.
+          </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} cafés, each one written up on the record with a reason
+            to go and who it does not suit. Nobody can pay to be on this list or
+            to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
           </p>
         </header>
 
@@ -142,16 +162,7 @@ export default async function BestCafesPage() {
                     </Link>
                   ) : null}
                 </div>
-                <ul className="mt-2 space-y-2 text-sm">
-                  {group.venues.map((v) => (
-                    <li key={v.slug}>
-                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                        {v.name}
-                      </Link>
-                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                    </li>
-                  ))}
-                </ul>
+                <GuidePickList venues={group.venues} />
               </div>
             ))}
 
@@ -160,20 +171,21 @@ export default async function BestCafesPage() {
                 <h3 className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
                   More cafés
                 </h3>
-                <ul className="mt-2 space-y-2 text-sm">
-                  {area.more.map((v) => (
-                    <li key={v.slug}>
-                      <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                        {v.name}
-                      </Link>
-                      {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                    </li>
-                  ))}
-                </ul>
+                <GuidePickList venues={area.more} />
               </div>
             )}
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            cafés are published with verified details —{" "}
+            <Link href="/places?category=cafe" className="quiet-link">
+              browse every café →
+            </Link>
+          </p>
+        ) : null}
 
         <p className="text-sm text-[var(--muted)]">
           Working from a café rather than choosing by taste? See{" "}

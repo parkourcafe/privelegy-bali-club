@@ -5,6 +5,10 @@ import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import SceneImage from "@/components/landing/SceneImage";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import { curateByArea } from "@/lib/seo/curated-list";
+
+const MAX_PICKS = 30;
+const MAX_PER_AREA = 6;
 import { getGuide, guideMetadata } from "@/lib/guides";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
@@ -126,10 +130,11 @@ const FAQ = [
 export default async function SunsetPage() {
   const all = await getPublishedVenues();
   const picks = all.filter((v) => isSunset(v) && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => ({
-    ...area,
-    venues: picks.filter((v) => v.district === area.key).sort((a, b) => a.name.localeCompare(b.name)),
-  })).filter((a) => a.venues.length > 0);
+  // Shortlist, not the category.
+  const { areas: byArea, shown, remaining, lastChecked } = curateByArea(picks, AREA_ORDER, {
+    maxPicks: MAX_PICKS,
+    maxPerArea: MAX_PER_AREA,
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Where to watch the sunset in Bali" }];
 
@@ -147,9 +152,13 @@ export default async function SunsetPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Where to watch the sunset in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
+      // Only what the page renders.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -166,6 +175,12 @@ export default async function SunsetPage() {
             clifftop bars are the most dramatic, Seminyak and Canggu have the
             beachfront clubs, and the southern bays do a calmer golden hour. Sanur
             faces east — that&apos;s the sunrise coast.
+          </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} sunset spots, each one written up on the record with a
+            reason to go and who it does not suit. Nobody can pay to be on this
+            list or to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
           </p>
           <GuideHeroMedia seed="where to watch sunset in bali golden hour coast" />
         </header>
@@ -275,6 +290,11 @@ export default async function SunsetPage() {
                   <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                     {venue.bestFor || venue.whyItsHere || "Open the place page for current details before you go."}
                   </p>
+                  {venue.notFor ? (
+                    <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">
+                      <strong>Not for:</strong> {venue.notFor}
+                    </p>
+                  ) : null}
                   <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[var(--line)] pt-3 text-xs font-bold text-[var(--lagoon-strong)]">
                     {venue.priceAnchor ? <span className="text-[var(--muted)]">{venue.priceAnchor}</span> : null}
                     {venue.gmapsUrl ? (
@@ -289,6 +309,16 @@ export default async function SunsetPage() {
             </div>
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            sunset-facing places are published with verified details —{" "}
+            <Link href="/places" className="quiet-link">
+              browse the full catalogue →
+            </Link>
+          </p>
+        ) : null}
 
         <FaqBlock items={FAQ} heading="Good to know" />
 

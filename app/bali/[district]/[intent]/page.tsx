@@ -11,11 +11,11 @@ import {
 } from "@/lib/hub";
 import VenueCard from "@/components/VenueCard";
 
-// The root layout resolves the explicit locale from a request header. Keep this
-// dynamic route request-rendered: attempting on-demand ISR without request
-// context turns a legitimate notFound() into DYNAMIC_SERVER_USAGE/500. Public
-// venue reads retain their own bounded data cache.
-export const dynamic = "force-dynamic";
+// ISR. The DYNAMIC_SERVER_USAGE hazard this route guarded against came from the
+// root layout reading a request header for the locale; that read is gone, so
+// on-demand rendering is safe and notFound() stays a real 404. Public venue
+// reads keep their own bounded data cache underneath.
+export const revalidate = 300;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

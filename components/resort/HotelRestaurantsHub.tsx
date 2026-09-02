@@ -7,8 +7,6 @@ import {
   previewEnabled,
 } from "@/lib/domain/resort-repo";
 
-const BASE = "https://www.otherbali.com";
-
 // Category hub for hotel/resort restaurants (IA spec v1 §11.1). Renders the
 // PUBLIC (whitelisted + gated) set as an indexable page when the §13.2 hub gate
 // passes; otherwise the page is noindex and, in owner-prelaunch mode only,
@@ -42,16 +40,6 @@ export default function HotelRestaurantsHub({
 
   const jsonLd = indexable
     ? [
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: crumbs.map((c, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            name: c.name,
-            ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-          })),
-        },
         {
           "@context": "https://schema.org",
           "@type": "ItemList",
