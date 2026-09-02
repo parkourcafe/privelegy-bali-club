@@ -37,12 +37,29 @@ import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-compl
 import { quickDecisionRows } from "@/lib/quick-decision";
 import { normalizeInstagramProfileUrl } from "@/lib/external-links";
 
-// The root layout resolves the explicit locale cookie through a request header.
-// This route therefore cannot use on-demand ISR: Next.js would try to prerender
-// it without request context and fail with DYNAMIC_SERVER_USAGE. Keep the HTML
-// request-rendered while the venue, menu, action and similar-place repositories
-// retain their bounded five-minute data caches.
-export const dynamic = "force-dynamic";
+// ISR. The root layout no longer reads a request header for the locale (that
+// single read is what forced every public route to render per request), so this
+// page can be cached. Five minutes matches the venue, menu, action and
+// similar-place data caches, so publication edits in Supabase surface on the
+// same bounded schedule as before.
+export const revalidate = 300;
+
+// `revalidate` alone is not enough: Next only registers a dynamic route for
+// incremental caching when it declares generateStaticParams. Without it the
+// route stays fully server-rendered and every request pays the full render —
+// which is what these 1 600-odd pages, the site's highest-traffic surface, were
+// doing.
+//
+// The list is deliberately empty rather than every published slug. Prerendering
+// the whole catalogue would make each build run thousands of venue, menu and
+// action reads for pages most of which are never requested in a given window.
+// An empty list plus dynamicParams registers the route with a blocking
+// fallback: the first request for a slug renders it, and every request for the
+// next five minutes is served from the cache.
+export function generateStaticParams(): { slug: string }[] {
+  return [];
+}
+export const dynamicParams = true;
 
 const BASE = "https://www.otherbali.com";
 

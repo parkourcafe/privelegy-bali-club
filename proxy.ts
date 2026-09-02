@@ -14,7 +14,6 @@ import {
   isVercelDeploymentHost,
   shouldNoindexHost,
 } from "@/lib/site-origin-policy";
-import { DEFAULT_LOCALE, LOCALE_COOKIE, LOCALE_HEADER, isPublicLocale } from "@/lib/i18n/locales";
 
 const REVIEW_REALM = "Other Bali App Review";
 
@@ -95,26 +94,16 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  // Locale resolution (Multi-locale public UI rule v2, AGENTS.md 2026-07-20;
-  // Accept-Language auto-detect removed 2026-07-20 per founder decision — a
-  // visitor always lands on English and switches locale explicitly via
-  // LocaleSwitcher, which writes LOCALE_COOKIE directly). Stamped as a
-  // request header so Server Components see the right locale via
-  // lib/i18n/server.ts's getLocale() even on the very first request, before
-  // any cookie exists.
-  const cookieLocale = req.cookies.get(LOCALE_COOKIE)?.value;
-  const locale = isPublicLocale(cookieLocale) ? cookieLocale : DEFAULT_LOCALE;
-
+  // Locale is resolved entirely client-side now (lib/i18n/client.ts). The proxy
+  // deliberately neither stamps a locale header nor seeds a default locale
+  // cookie: a locale header read in the root layout is what made every public
+  // page request-rendered, and seeding the default cookie would put a Set-Cookie
+  // on every cookie-less crawl for a value that is already the default.
+  // Behaviour is unchanged for visitors — English on first visit, explicit
+  // switching via LocaleSwitcher, which writes LOCALE_COOKIE directly
+  // (Multi-locale public UI rule v2, AGENTS.md 2026-07-20).
   const requestHeaders = requestHeadersWithCorrelationId(req.headers, requestId);
-  requestHeaders.set(LOCALE_HEADER, locale);
   const res = NextResponse.next({ request: { headers: requestHeaders } });
-  if (!isPublicLocale(cookieLocale)) {
-    res.cookies.set(LOCALE_COOKIE, locale, {
-      maxAge: 60 * 60 * 24 * 365,
-      sameSite: "lax",
-      path: "/",
-    });
-  }
   if (shouldNoindexHost({ host, vercelEnv })) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }

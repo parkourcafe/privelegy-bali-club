@@ -4,6 +4,11 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import GuidePickList from "@/components/GuidePickList";
+import { curateByArea } from "@/lib/seo/curated-list";
+
+const MAX_PICKS = 30;
+const MAX_PER_AREA = 6;
 import { getGuide, guideMetadata } from "@/lib/guides";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
@@ -36,12 +41,11 @@ const FAQ = [
 export default async function BestBeachClubsPage() {
   const all = await getPublishedVenues();
   const clubs = all.filter((v) => v.category === "beach_club" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => ({
-    ...area,
-    venues: clubs
-      .filter((v) => v.district === area.key)
-      .sort((a, b) => a.name.localeCompare(b.name)),
-  })).filter((a) => a.venues.length > 0);
+  // Shortlist, not the category.
+  const { areas: byArea, shown, remaining, lastChecked } = curateByArea(clubs, AREA_ORDER, {
+    maxPicks: MAX_PICKS,
+    maxPerArea: MAX_PER_AREA,
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best beach clubs in Bali" }];
 
@@ -59,14 +63,13 @@ export default async function BestBeachClubsPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Best beach clubs in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.name,
-          url: `${BASE}/places/${v.slug}`,
-        })),
+      // Only what the page renders.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -89,6 +92,12 @@ export default async function BestBeachClubsPage() {
             tap any for the details, and book a table ahead for golden hour in
             high season.
           </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} beach clubs, each one written up on the record with a
+            reason to go and who it does not suit. Nobody can pay to be on this
+            list or to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
+          </p>
           <GuideHeroMedia seed="best beach clubs in bali sunset coast" />
         </header>
 
@@ -104,18 +113,19 @@ export default async function BestBeachClubsPage() {
             </div>
             <GuideSectionMedia seed={`best beach clubs ${area.key} ${area.name}`} index={index} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <ul className="mt-3 space-y-2 text-sm">
-              {area.venues.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                    {v.name}
-                  </Link>
-                  {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                </li>
-              ))}
-            </ul>
+            <GuidePickList venues={area.venues} />
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            beach clubs are published with verified details —{" "}
+            <Link href="/places?category=beach_club" className="quiet-link">
+              browse every beach club →
+            </Link>
+          </p>
+        ) : null}
 
         <FaqBlock items={FAQ} heading="Good to know" />
 

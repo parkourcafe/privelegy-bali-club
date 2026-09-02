@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { PUBLIC_LOCALES, LOCALE_META, setLocaleCookie, type PublicLocale } from "@/lib/i18n/locales";
 
 // Visible language switcher (Multi-locale public UI rule v2). Writes the
-// same first-party cookie middleware.ts reads, then refreshes so every
-// Server Component re-renders with the new locale on this same page — no
-// full navigation, no URL change (Phase A is chrome-only, not URL-localized).
+// same first-party cookie proxy.ts reads; setLocaleCookie then broadcasts
+// LOCALE_CHANGE_EVENT and the chrome re-renders in place — no server refresh,
+// no full navigation, no URL change (Phase A is chrome-only, not
+// URL-localized). The refresh() this used to call would now be a wasted round
+// trip: no Server Component reads the locale any more.
 //
 // The trigger shows a short locale code (EN/ID/ZH/…), not the full native
 // name — "Bahasa Indonesia" alone is wider than the whole rest of the header
@@ -15,7 +16,6 @@ import { PUBLIC_LOCALES, LOCALE_META, setLocaleCookie, type PublicLocale } from 
 // the same overflow. Full native + English names stay in the dropdown, which
 // has room for them.
 export default function LocaleSwitcher({ locale }: { locale: PublicLocale }) {
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -38,7 +38,6 @@ export default function LocaleSwitcher({ locale }: { locale: PublicLocale }) {
   function choose(next: PublicLocale) {
     setLocaleCookie(next);
     setOpen(false);
-    router.refresh();
   }
 
   return (

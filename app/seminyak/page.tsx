@@ -107,22 +107,10 @@ export default async function SeminyakPillarPage() {
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Seminyak" }];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((c, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: c.name,
-      ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-    })),
-  };
-
   return (
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug="seminyak" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

@@ -4,6 +4,10 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+// Drop // line and /* block */ comments so a ban on an API cannot be tripped by
+// a comment explaining why that API is banned.
+const stripComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+
 test("public cache has a bounded five-minute revalidation window", async () => {
   const source = await read("lib/data/public-cache.ts");
   assert.match(source, /PUBLIC_CACHE_REVALIDATE_SECONDS = 300/);
@@ -94,30 +98,66 @@ test("large menus defer closed-section items and keep publication gates", async 
   assert.match(sectionRoute, /getPublishedMenuSection/);
 });
 
-test("venue detail uses request rendering for locale while public data stays cached", async () => {
+// The root layout must stay free of dynamic APIs. One headers()/cookies() read
+// there marks every route below it dynamic, which is what previously answered
+// `private, no-cache, no-store` on all 144 public pages and silently defeated
+// the `revalidate` exports. This is the regression guard for that.
+test("root layout renders statically so public pages can be CDN-cached", async () => {
+  // Assert against code, not prose: this file's own comments name the very
+  // APIs being banned.
+  const rootLayout = stripComments(await read("app/layout.tsx"));
+  const proxy = stripComments(await read("proxy.ts"));
+  assert.doesNotMatch(rootLayout, /next\/headers/);
+  assert.doesNotMatch(rootLayout, /\bheaders\(\)|\bcookies\(\)/);
+  assert.doesNotMatch(rootLayout, /getLocale/);
+  assert.doesNotMatch(rootLayout, /export default async function RootLayout/);
+  // The locale header is gone entirely — nothing may reintroduce a server read.
+  assert.doesNotMatch(proxy, /LOCALE_HEADER/);
+});
+
+test("chrome locale resolves client-side without breaking hydration", async () => {
+  const client = await read("lib/i18n/client.ts");
+  const header = await read("components/GlobalHeader.tsx");
+  const nav = await read("components/MobileNav.tsx");
+  const locales = await read("lib/i18n/locales.ts");
+  // First render (server and client alike) must be the default locale, or the
+  // prerendered HTML and the hydrated tree disagree.
+  assert.match(client, /useState<PublicLocale>\(DEFAULT_LOCALE\)/);
+  assert.match(client, /LOCALE_CHANGE_EVENT/);
+  assert.match(locales, /export function readLocaleCookie/);
+  for (const source of [header, nav]) {
+    assert.match(source, /^"use client";/);
+    assert.match(source, /const locale = useLocale\(\)/);
+    assert.doesNotMatch(source, /\{ locale \}: \{ locale: PublicLocale \}/);
+  }
+});
+
+test("venue detail is statically rendered while public data stays cached", async () => {
   const venuePage = await read("app/places/[slug]/page.tsx");
-  const rootLayout = await read("app/layout.tsx");
-  const localeServer = await read("lib/i18n/server.ts");
   const saveRoute = await read("app/api/save/route.ts");
-  assert.match(venuePage, /export const dynamic = "force-dynamic"/);
-  assert.doesNotMatch(venuePage, /export async function generateStaticParams\(\)/);
-  assert.doesNotMatch(venuePage, /export const revalidate\s*=/);
-  assert.match(rootLayout, /await getLocale\(\)/);
-  assert.match(localeServer, /await headers\(\)/);
+  assert.match(venuePage, /export const revalidate = 300/);
+  assert.doesNotMatch(venuePage, /force-dynamic/);
+  // `revalidate` alone leaves a dynamic route out of the incremental cache
+  // entirely — Next only registers it when generateStaticParams is declared.
+  // Without both, these pages are rendered afresh on every request.
+  assert.match(venuePage, /export function generateStaticParams/);
+  assert.match(venuePage, /export const dynamicParams = true/);
   assert.match(venuePage, /buildVenueMetadata\(\{/);
+  // Guest identity must never enter the cached render scope.
   assert.doesNotMatch(venuePage, /readGuestRef|getSavedSlugs/);
   assert.match(saveRoute, /export async function GET/);
   assert.match(saveRoute, /private, no-store/);
 });
 
-test("programmatic Bali hubs request-render locale and preserve real 404s", async () => {
+test("programmatic Bali hubs revalidate and preserve real 404s", async () => {
   const districtPage = await read("app/bali/[district]/page.tsx");
   const intentPage = await read("app/bali/[district]/[intent]/page.tsx");
   const data = await read("lib/data.ts");
   for (const source of [districtPage, intentPage]) {
-    assert.match(source, /export const dynamic = "force-dynamic"/);
+    assert.match(source, /export const revalidate = 300/);
+    assert.match(source, /export const dynamicParams = true/);
     assert.match(source, /notFound\(\)/);
-    assert.doesNotMatch(source, /export const revalidate\s*=/);
+    assert.doesNotMatch(source, /force-dynamic/);
   }
   assert.match(data, /const getCachedPublishedVenues = unstable_cache/);
 });
@@ -139,6 +179,7 @@ test("routes are pre-generated and public plan and Uluwatu reads revalidate", as
   const plan = await read("app/plan/page.tsx");
   const uluwatu = await read("app/uluwatu/layout.tsx");
   assert.match(route, /export async function generateStaticParams/);
+  assert.doesNotMatch(route, /force-dynamic/);
   assert.match(plan, /export const revalidate = 300/);
   assert.doesNotMatch(plan, /force-dynamic/);
   assert.match(uluwatu, /export const revalidate = 300/);

@@ -107,16 +107,6 @@ export default async function MyDayPage({
   const jsonLd = [
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: crumbs.map((c, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: c.name,
-        ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-      })),
-    },
-    {
-      "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Today in Bali",
       itemListElement: active

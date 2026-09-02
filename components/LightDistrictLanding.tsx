@@ -6,8 +6,6 @@ import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { guidesForDistrict } from "@/lib/guides";
 import { getLightDistrict, LIGHT_DISTRICT_REVIEW_DATE } from "@/lib/light-districts";
 
-const BASE = "https://www.otherbali.com";
-
 // Shared renderer for the lightweight editorial district landings (Sidemen,
 // Amed, Munduk, Lovina). One component so the four thin routes stay identical
 // in structure and can't drift; all copy comes from lib/light-districts.ts.
@@ -24,22 +22,10 @@ export default function LightDistrictLanding({ slug }: { slug: string }) {
     { name: d.name },
   ];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((c, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: c.name,
-      ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-    })),
-  };
-
   return (
     <div>
       <main className="site-shell">
         <PageViewTracker event="district_page_view" slug={slug} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
         <Breadcrumbs items={crumbs} />
 

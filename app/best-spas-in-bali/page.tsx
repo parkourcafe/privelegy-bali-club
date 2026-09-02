@@ -4,6 +4,11 @@ import { FaqBlock, RelatedGuides, GuideFooter } from "@/components/GuideBlocks";
 import { GuideHeroMedia, GuideSectionMedia } from "@/components/GuideMedia";
 import { getPublishedVenues } from "@/lib/data";
 import { isVenueIndexable } from "@/lib/publication";
+import GuidePickList from "@/components/GuidePickList";
+import { curateByArea } from "@/lib/seo/curated-list";
+
+const MAX_PICKS = 30;
+const MAX_PER_AREA = 6;
 import { getGuide, guideMetadata } from "@/lib/guides";
 
 // ISR: statically cached for speed/SEO, regenerated at most every 5 min so
@@ -34,10 +39,11 @@ const FAQ = [
 export default async function BestSpasPage() {
   const all = await getPublishedVenues();
   const spas = all.filter((v) => v.category === "spa" && isVenueIndexable(v));
-  const byArea = AREA_ORDER.map((area) => ({
-    ...area,
-    venues: spas.filter((v) => v.district === area.key).sort((a, b) => a.name.localeCompare(b.name)),
-  })).filter((a) => a.venues.length > 0);
+  // Shortlist, not the category — this page used to render every published spa.
+  const { areas: byArea, shown, remaining, lastChecked } = curateByArea(spas, AREA_ORDER, {
+    maxPicks: MAX_PICKS,
+    maxPerArea: MAX_PER_AREA,
+  });
 
   const crumbs: Crumb[] = [{ name: "Home", href: "/" }, { name: "Best spas in Bali" }];
 
@@ -55,9 +61,13 @@ export default async function BestSpasPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Best spas & wellness in Bali",
-      itemListElement: byArea
-        .flatMap((a) => a.venues)
-        .map((v, i) => ({ "@type": "ListItem", position: i + 1, name: v.name, url: `${BASE}/places/${v.slug}` })),
+      // Only what the page renders.
+      itemListElement: shown.map((v, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: v.name,
+        url: `${BASE}/places/${v.slug}`,
+      })),
     },
   ];
 
@@ -76,6 +86,12 @@ export default async function BestSpasPage() {
             and recovery. Here are the spas we stand behind, by area — tap any for
             the details.
           </p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">
+            {shown.length} spas, each one written up on the record with a reason
+            to go and who it does not suit. Nobody can pay to be on this list or
+            to sit higher on it.
+            {lastChecked ? ` Last checked ${lastChecked}.` : ""}
+          </p>
           <GuideHeroMedia seed="best spas in bali ubud wellness" />
         </header>
 
@@ -91,18 +107,19 @@ export default async function BestSpasPage() {
             </div>
             <GuideSectionMedia seed={`best spas ${area.key} ${area.name}`} index={index} />
             <p className="text-sm leading-relaxed text-[var(--muted)]">{area.note}</p>
-            <ul className="mt-3 space-y-2 text-sm">
-              {area.venues.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/places/${v.slug}`} className="font-semibold text-[var(--ink)]">
-                    {v.name}
-                  </Link>
-                  {v.area ? <span className="text-[var(--muted)]"> · {v.area}</span> : null}
-                </li>
-              ))}
-            </ul>
+            <GuidePickList venues={area.venues} />
           </section>
         ))}
+
+        {remaining > 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            This page is the shortlist, not the catalogue. Another {remaining}{" "}
+            spas are published with verified details —{" "}
+            <Link href="/places?category=spa" className="quiet-link">
+              browse every spa →
+            </Link>
+          </p>
+        ) : null}
 
         <FaqBlock items={FAQ} heading="Good to know" />
 

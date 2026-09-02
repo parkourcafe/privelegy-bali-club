@@ -39,15 +39,6 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "BreadcrumbList",
-        itemListElement: crumbs.map((c, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: c.name,
-          ...(c.href ? { item: `${BASE}${c.href}` } : {}),
-        })),
-      },
-      {
         "@type": "ItemList",
         name: guide.h1,
         itemListElement: venues.map((v, i) => ({
