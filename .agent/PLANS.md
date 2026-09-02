@@ -33,3 +33,19 @@ Discovery note: the clean branch starts at production merge `d79aaba`. The repos
 - [completed] Phase 9: focused commit, push, draft PR and protected preview; no merge or production without new authority.
 
 Constraints: no invented claims; no HOLD route; no automatic merge, redirect, retirement or production deployment.
+
+## Uluwatu wellness cluster — 2026-09-02
+
+Goal: evaluate the one Uluwatu topic the 2026-07-23 cluster never examined — yoga and pilates — now that a mature GSC window exists. The July run and the OS registry both record `needs_gsc_review` / `editorial_hypothesis` because no window was usable then; this is the first pipeline run with real Search Console data.
+
+Discovery note: `ULUWATU_UNIFIED_CLUSTER_DECISION_V1.md` contains no occurrence of wellness, yoga, pilates, spa, gym or fitness. Measured demand is 2 675 impressions on Uluwatu-scoped wellness queries, of which the category tail (`yoga uluwatu`, `reformer pilates uluwatu`, …) sits at positions 46–63 with zero clicks and is answered only by individual `/places/` cards competing with one another at 68–87. Every other district has a wellness page; those rank 16–18.
+
+- [completed] Phase 1: inventory Uluwatu routes and confirm no wellness owner exists.
+- [completed] Phase 2: intent map from GSC; live SERP inspection recorded as a gate (network policy blocks it).
+- [blocked] Phase 3: evidence and entity closure — needs database access for drop-in prices, timetables and verification dates; needs the `reform-*` duplicate question resolved.
+- [completed] Phase 4: cluster decision — `/uluwatu/yoga-pilates` as P0_CREATE, publication BLOCKED pending phase 3; spa and gym topics HOLD.
+- [ ] Phase 5: briefs and claim ledger.
+- [ ] Phase 6: implement.
+- [ ] Phases 7–9: QA, review, commit and preview.
+
+Constraints: do not amend the July unified decision; do not touch other districts; no page ships without per-studio prices from verified records.
