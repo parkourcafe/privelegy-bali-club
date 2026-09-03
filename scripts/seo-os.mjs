@@ -9,7 +9,7 @@ import {
   inspectHtmlDocument,
   mergePageRegistryAnnotations,
   normalizeOrigin,
-  parseSitemapLocations,
+  parseSitemapDocument,
   validateIndexableHtmlInspection,
   validateEvidenceRegistry,
   validateApprovedPageEvidence,
@@ -81,20 +81,51 @@ function configuredOrigin(value) {
   return normalizedOrigin;
 }
 
-async function fetchSitemap(origin) {
-  const normalizedOrigin = configuredOrigin(origin);
-  const sitemapUrl = `${normalizedOrigin}/sitemap.xml`;
+async function fetchSitemapDocument(sitemapUrl, normalizedOrigin) {
   const response = await fetch(sitemapUrl, {
     headers: { "user-agent": "OtherBali-SEO-OS/1.0" },
     redirect: "manual",
     signal: AbortSignal.timeout(30_000),
   });
-  if (!response.ok) throw new Error(`Sitemap returned HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`${sitemapUrl} returned HTTP ${response.status}`);
   if (new URL(response.url).origin !== normalizedOrigin) {
     throw new Error("Sitemap response escaped the configured origin");
   }
-  const parsed = parseSitemapLocations(await response.text(), { expectedOrigin: normalizedOrigin });
-  return { sitemapUrl, ...parsed };
+  return parseSitemapDocument(await response.text(), { expectedOrigin: normalizedOrigin });
+}
+
+async function fetchSitemap(origin) {
+  const normalizedOrigin = configuredOrigin(origin);
+  const sitemapUrl = `${normalizedOrigin}/sitemap.xml`;
+  const root = await fetchSitemapDocument(sitemapUrl, normalizedOrigin);
+  if (root.type === "urlset") return { sitemapUrl, ...root };
+  if (root.duplicates.length || root.foreignOrigins.length) {
+    throw new Error("Refusing to read a sitemap index with duplicate or foreign child URLs");
+  }
+
+  const children = await Promise.all(
+    root.locations.map(async (childUrl) => {
+      const child = await fetchSitemapDocument(childUrl, normalizedOrigin);
+      if (child.type !== "urlset") throw new Error(`Nested sitemap index is not supported: ${childUrl}`);
+      return child;
+    }),
+  );
+  const locations = [];
+  const seen = new Set();
+  const duplicates = [];
+  const foreignOrigins = [];
+  for (const child of children) {
+    duplicates.push(...child.duplicates);
+    foreignOrigins.push(...child.foreignOrigins);
+    for (const location of child.locations) {
+      if (seen.has(location)) duplicates.push(location);
+      else {
+        seen.add(location);
+        locations.push(location);
+      }
+    }
+  }
+  return { sitemapUrl, type: root.type, locations, duplicates, foreignOrigins };
 }
 
 async function snapshot(options) {

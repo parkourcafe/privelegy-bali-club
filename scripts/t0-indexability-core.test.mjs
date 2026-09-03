@@ -51,12 +51,12 @@ function fakeResponse({ status, url, body, headers = {} }) {
   };
 }
 
-function makeFakeFetch({ samples = manifest.samples, mutate } = {}) {
+function makeFakeFetch({ samples = manifest.samples, mutate, sitemapIndex = false } = {}) {
   const calls = [];
-  const sitemapLocations = samples
+  const sitemapLocationEntries = samples
     .filter((sample) => sample.expectation === "indexable")
-    .map((sample) => `<url><loc>${origin}/places/${sample.slug}</loc></url>`)
-    .join("");
+    .map((sample) => `<url><loc>${origin}/places/${sample.slug}</loc></url>`);
+  const sitemapLocations = sitemapLocationEntries.join("");
 
   const fetchImpl = async (input, init = {}) => {
     const url = String(input);
@@ -67,7 +67,13 @@ function makeFakeFetch({ samples = manifest.samples, mutate } = {}) {
     if (pathname === "/robots.txt") {
       response = { status: 200, url, body: "User-agent: *\nAllow: /\nDisallow: /admin/", headers: { "content-type": "text/plain" } };
     } else if (pathname === "/sitemap.xml") {
-      response = { status: 200, url, body: `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapLocations}</urlset>`, headers: { "content-type": "application/xml" } };
+      response = sitemapIndex
+        ? { status: 200, url, body: `<sitemapindex><sitemap><loc>${origin}/sitemaps/one.xml</loc></sitemap><sitemap><loc>${origin}/sitemaps/two.xml</loc></sitemap></sitemapindex>`, headers: { "content-type": "application/xml" } }
+        : { status: 200, url, body: `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapLocations}</urlset>`, headers: { "content-type": "application/xml" } };
+    } else if (sitemapIndex && pathname === "/sitemaps/one.xml") {
+      response = { status: 200, url, body: `<urlset>${sitemapLocationEntries.filter((_, index) => index % 2 === 0).join("")}</urlset>`, headers: { "content-type": "application/xml" } };
+    } else if (sitemapIndex && pathname === "/sitemaps/two.xml") {
+      response = { status: 200, url, body: `<urlset>${sitemapLocationEntries.filter((_, index) => index % 2 === 1).join("")}</urlset>`, headers: { "content-type": "application/xml" } };
     } else {
       const slug = pathname.replace(/^\/places\//, "");
       const sample = samples.find((entry) => entry.slug === slug);
@@ -93,11 +99,20 @@ test("manifest locks the 12 indexable production samples and the factual-only ne
   );
   assert.deepEqual(
     manifest.samples.filter((sample) => sample.expectation === "not_found").map((sample) => sample.slug),
-    ["adda-yoga"],
+    ["other-bali-t0-negative-control"],
   );
   assert.deepEqual(manifest.branchTargets, [
     { slug: "big-dragon-villas-ubud", expectation: "indexable", expectedH1: "Big Dragon Villas Ubud" },
   ]);
+});
+
+test("sitemap index children are merged before membership checks", async () => {
+  const { fetchImpl, calls } = makeFakeFetch({ sitemapIndex: true });
+  const report = await runT0IndexabilityAudit({ fetchImpl, baseUrl: origin, manifest });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.sitemap, { status: 200, urlCount: 12, childCount: 2 });
+  assert.equal(calls.filter((call) => call.url.startsWith(`${origin}/sitemaps/`)).length, 2);
 });
 
 test("offline fake fetch proves the complete positive and negative T0 contract for all three exact user agents", async () => {
@@ -205,7 +220,7 @@ test("positive checks fail independently for status, useful venue HTML, title, c
 });
 
 test("negative control requires 404, noindex, sitemap absence, and three-UA equivalent bodies", async (t) => {
-  const sample = { slug: "adda-yoga", expectation: "not_found" };
+  const sample = { slug: "other-bali-t0-negative-control", expectation: "not_found" };
   const cases = [
     {
       name: "404",

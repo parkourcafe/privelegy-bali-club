@@ -7,6 +7,7 @@ import {
   diffSitemapAndRegistry,
   inspectHtmlDocument,
   mergePageRegistryAnnotations,
+  parseSitemapDocument,
   parseSitemapLocations,
   validateApprovedPageEvidence,
   validateEvidenceRegistry,
@@ -62,6 +63,21 @@ test("parses unique sitemap locations and reports duplicates and foreign origins
   ]);
   assert.deepEqual(parsed.duplicates, [origin]);
   assert.deepEqual(parsed.foreignOrigins, ["https://other.example/page"]);
+});
+
+test("parses sitemap index locations without treating them as page URLs", () => {
+  const parsed = parseSitemapDocument(`<?xml version="1.0"?><sitemapindex>
+    <sitemap><loc>${origin}/sitemap/places.xml</loc></sitemap>
+    <sitemap><loc>https://other.example/sitemap.xml</loc></sitemap>
+  </sitemapindex>`, { expectedOrigin: origin });
+
+  assert.equal(parsed.type, "index");
+  assert.deepEqual(parsed.locations, [
+    `${origin}/sitemap/places.xml`,
+    "https://other.example/sitemap.xml",
+  ]);
+  assert.deepEqual(parsed.foreignOrigins, ["https://other.example/sitemap.xml"]);
+  assert.throws(() => parseSitemapLocations("<sitemapindex><loc>https://example.com/sitemap.xml</loc></sitemapindex>"));
 });
 
 test("builds a non-enforcing shadow registry", () => {

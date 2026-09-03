@@ -126,10 +126,14 @@ export function classifySeoPath(pathname) {
   return "editorial";
 }
 
-export function parseSitemapLocations(xml, { expectedOrigin } = {}) {
-  if (typeof xml !== "string" || !xml.includes("<urlset")) {
-    throw new Error("Expected a sitemap urlset XML document");
-  }
+export function parseSitemapDocument(xml, { expectedOrigin } = {}) {
+  const type =
+    typeof xml === "string" && xml.includes("<urlset")
+      ? "urlset"
+      : typeof xml === "string" && xml.includes("<sitemapindex")
+        ? "index"
+        : null;
+  if (!type) throw new Error("Expected a sitemap urlset or sitemap index XML document");
 
   const normalizedExpectedOrigin = expectedOrigin ? normalizeOrigin(expectedOrigin) : null;
   const observed = [];
@@ -156,7 +160,17 @@ export function parseSitemapLocations(xml, { expectedOrigin } = {}) {
   }
 
   if (observed.length === 0) throw new Error("Sitemap contains no <loc> entries");
-  return { locations: observed, duplicates, foreignOrigins };
+  return { type, locations: observed, duplicates, foreignOrigins };
+}
+
+export function parseSitemapLocations(xml, options = {}) {
+  const parsed = parseSitemapDocument(xml, options);
+  if (parsed.type !== "urlset") throw new Error("Expected a sitemap urlset XML document");
+  return {
+    locations: parsed.locations,
+    duplicates: parsed.duplicates,
+    foreignOrigins: parsed.foreignOrigins,
+  };
 }
 
 export function buildShadowPageRegistry({

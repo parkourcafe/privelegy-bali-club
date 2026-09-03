@@ -20,7 +20,11 @@ import SceneImage from "@/components/landing/SceneImage";
 import HeroLoop from "@/components/landing/HeroLoop";
 import { MOMENT_BY_SLUG } from "@/lib/catalogue-moments";
 import { DISTRICT_GUIDE } from "@/lib/districts";
-import { parsePlacesPageNumber, placesCanonical } from "@/lib/seo/places-indexing";
+import {
+  parsePlacesPageNumber,
+  placesCanonical,
+  placesPaginationWindow,
+} from "@/lib/seo/places-indexing";
 
 const PAGE_SIZE = 24;
 
@@ -275,17 +279,23 @@ export default async function PlacesPage({
   // PAGE_SIZE pagination survives only for the already-indexed unfiltered
   // ?page=N URLs (the SEO crawl path), which page 1 still links into.
   const pageSize = hasAnyFilter ? Number.MAX_SAFE_INTEGER : PAGE_SIZE;
-  const totalPages = Math.max(1, Math.ceil(paginatedMatches.length / pageSize));
   const requestedPage = parsePlacesPageNumber(firstParam(params.page).trim());
-  if (requestedPage === null || requestedPage > totalPages) notFound();
+  if (requestedPage === null) notFound();
   const page = requestedPage;
   // Default landing (no filters, page 1) renders as an island directory —
   // every district visible at once with a scored preview — because the old
   // flat page 1 was, alphabetically, just "all Canggu", which read as a bug.
   const isDirectory = !hasAnyFilter && page === 1;
+  const pagination = placesPaginationWindow({
+    itemCount: paginatedMatches.length,
+    page,
+    pageSize,
+    firstPageIsDirectory: !hasAnyFilter,
+  });
+  if (page > pagination.totalPages) notFound();
   const pageVenues = isDirectory
     ? []
-    : paginatedMatches.slice((page - 1) * pageSize, page * pageSize);
+    : paginatedMatches.slice(pagination.start, pagination.end);
   // District chips and the directory below share one order: by DISTRICT_GUIDE
   // (curated coverage / popularity — Canggu, Ubud, Seminyak…), not alphabetical,
   // so the row never leads with a fringe area like "Amed". Slugs missing from
@@ -424,7 +434,7 @@ export default async function PlacesPage({
           totalMatches={filtered.length}
           totalVenues={venues.length}
           page={page}
-          totalPages={totalPages}
+          totalPages={pagination.totalPages}
         />
 
         <p className="mt-16 border-t border-[var(--line)] pt-6 text-xs text-[var(--muted)]">
