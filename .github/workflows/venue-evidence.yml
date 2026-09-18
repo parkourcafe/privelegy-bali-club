@@ -4,11 +4,7 @@ name: Venue evidence validation
 # them with the local structural gate without installing the full web/mobile
 # dependency tree or running Android builds.
 on:
-  pull_request:
-    paths:
-      - "data/data-ops/ai-visible-venues/**"
-      - ".agents/skills/otherbali-ai-visible-venue/**"
-      - ".claude/skills/otherbali-ai-visible-venue/**"
+  workflow_dispatch:
 concurrency:
   group: venue-evidence-${{ github.ref }}
   cancel-in-progress: true
