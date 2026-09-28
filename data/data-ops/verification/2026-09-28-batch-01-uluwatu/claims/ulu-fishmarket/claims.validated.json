@@ -1,0 +1,616 @@
+{
+  "slug": "ulu-fishmarket",
+  "validatedAt": "2026-09-28T06:26:52.854Z",
+  "claims": [
+    {
+      "claim_id": "ulu-fishmarket-01",
+      "field": "name",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Ulu Fishmarket",
+      "proposed": "Ulu Fishmarket",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Copyright © 2026 ULU Fishmarket",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official site also writes 'Ulu Fish Market' in prose.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-02",
+      "field": "copy:verdict#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Casual open-air seafood with Hawaiian roots — sushi, grilled daily catch and live music in a Labuan Sait garden.",
+      "proposed": null,
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Ulu Fish Market it’s a combination of the Paia Fish Market (est. 1989) with a fusion Japanese and Peruvian sushi cuisine.",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Hawaiian roots, sushi, daily catch ('fresh fish caught daily'), garden ('Take refuge in our greenery') are supported. 'live music' appears on no official page; 'open-air' is not stated (about page says 'Cozy indoor').",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-03",
+      "field": "copy:whyHere#1",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "A rare thing on the Bukit: relaxed, family-friendly seafood that still takes fish seriously.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Fit judgement; 'family-friendly' is not stated officially but is not a quality warning.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-04",
+      "field": "copy:whyHere#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "The Hawaiian Paia Fish Market lineage shows in the fresh-catch counter; the garden setting and live music keep it easy rather than formal.",
+      "proposed": null,
+      "source_url": "https://ulufishmarket.com/about-us/",
+      "source_date": "2026-09-28",
+      "quote": "Nestled in the heart of a sleepy fishing town on Maui’s north coast, Paia Fish Market quickly captured the hearts of locals and wanderers alike",
+      "snapshot_sha256": "1a197fd3cc669b2828a86bf951dc99aec51e6993e710d8fde24911e87120a95b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Paia lineage and garden are supported; 'fresh-catch counter' and 'live music' are not on any official page.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-05",
+      "field": "copy:whatToExpect#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Open-air tables in a tropical garden, a Japanese-Peruvian-Hawaiian menu (sashimi, rolls, grilled mahi mahi) and a walk-in-friendly rhythm.",
+      "proposed": null,
+      "source_url": "https://ulufishmarket.com/menu-copy/",
+      "source_date": "2026-09-28",
+      "quote": "Savor the taste of the ocean with our selection of fresh fish caught daily.",
+      "snapshot_sha256": "374099612f46afffed307312b88120d54a833e48c9e942e195a9f3042be076d6",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Sashimi and rolls are on the official menu page; 'grilled mahi mahi' is not (menu lists 'Fresh Catch Plates' without naming mahi mahi). The site pushes reservations ('Book A Table Now', Chope link) rather than walk-ins.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-06",
+      "field": "copy:whatToExpect#2",
+      "target": "CODE",
+      "class": "E",
+      "action": "keep",
+      "live_value": "Kids fit here without anyone flinching.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "needs_visit_attestation",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-07",
+      "field": "copy:practicalNote#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Labuansait No.10 area, Pecatu — same strip as MASONRY.",
+      "proposed": null,
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait, 10 – Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Address supported; the relation to MASONRY is not on an official page.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-08",
+      "field": "copy:reservations#1",
+      "target": "CODE",
+      "class": "E",
+      "action": "keep",
+      "live_value": "Walk-ins work most nights; contact the venue directly for groups.",
+      "proposed": null,
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Telephone Reservations\n+62 (822)-6646-9790",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "needs_visit_attestation for 'walk-ins work most nights'. Official site offers phone/WhatsApp reservations and a Chope 'BOOK A TABLE' link.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-09",
+      "field": "bestFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "early family dinners; group dinners over shared fish",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-10",
+      "field": "notFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "a hushed anniversary table",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-11",
+      "field": "whatToOrder",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "live_value": "sashimi trio; tuna tataki; miso ramen",
+      "proposed": "white crunchy roll; tuna tartare; hot phila roll",
+      "source_url": "https://ulufishmarket.com/menu-copy/",
+      "source_date": "2026-09-28",
+      "quote": "WHITE CRUNCHY ROLL\nWhite fish tempura, cucumber, tobiko, crunchy spicy mayo wrapped white fish and\ncrunchy butter crumble",
+      "snapshot_sha256": "374099612f46afffed307312b88120d54a833e48c9e942e195a9f3042be076d6",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "None of 'sashimi trio', 'tuna tataki', 'miso ramen' appear on the official menu page; the proposed items do ('TUNA TARTARE', 'HOT PHILA ROLL'). The home page names 'White Crunchy Roll' as a signature. Caveat: the page title is 'Menu - old'; the 'FULL MENU' PDF (Dropbox, 13 MB, image-only) could not be transcribed here.",
+      "category": "restaurant",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "ulu-fishmarket-12",
+      "field": "priceBand",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "$$",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "No prices on the official menu page; the full menu PDF is image-only and unreadable in this environment. No price anchor.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-13",
+      "field": "address",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Labuansait No.10, Pecatu",
+      "proposed": "Jl. Labuansait 10, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait, 10 – Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-14",
+      "field": "hours",
+      "target": "CODE",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.00pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.00pm"
+        ],
+        "Friday": [
+          "12.00pm-11.00pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.00pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.00pm"
+        ]
+      },
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Opening Hours\nMonday to Sunday\n12pm - 11pm",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Registry openingHours is null while the live card already renders 12:00–23:00 from the DB; official site confirms.",
+      "category": "restaurant",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "ulu-fishmarket-15",
+      "field": "opening_hours_json",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Mo 12:00-23:00, Tu 12:00-23:00, We 12:00-23:00, Th 12:00-23:00, Fr 12:00-23:00, Sa 12:00-23:00, Su 12:00-23:00",
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.00pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.00pm"
+        ],
+        "Friday": [
+          "12.00pm-11.00pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.00pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.00pm"
+        ]
+      },
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "source_date": "2026-09-28",
+      "quote": "Opening Hours\nMonday to Sunday\n12pm - 11pm",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-16",
+      "field": "officialUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://ulufishmarket.com/",
+      "proposed": "https://ulufishmarket.com/",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Home - ULU Fishmarket",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "200 today.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-17",
+      "field": "instagramUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.instagram.com/ulu.fishmarket/",
+      "proposed": "https://www.instagram.com/ulu.fishmarket/",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "Follow us",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official footer 'Instagram' link href is https://www.instagram.com/ulu.fishmarket/ (stored .html); Instagram itself not fetched.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-18",
+      "field": "bookingUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "https://cho.pe/ulufishmarket.ig",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "BOOK A TABLE",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": "BOOK A TABLE",
+      "status": "ready",
+      "note": "Official 'BOOK A TABLE' href is https://cho.pe/ulufishmarket.ig, which 308s to https://booking.chope.co/booking_index?rid=ulufishmarket2509bal&source=rest_Instagram.ulufishmarket (200 today). Chope is the venue's own chosen provider; the short link is what the site publishes.",
+      "category": "restaurant",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "ulu-fishmarket-19",
+      "field": "menuUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "https://ulufishmarket.com/menu-copy/",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "FULL MENU",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Two candidates: the on-site menu page https://ulufishmarket.com/menu-copy/ (200, but page title 'Menu - old', no prices) and the 'FULL MENU' Dropbox PDF https://www.dropbox.com/scl/fi/rflfvpkb6etke1v35ezm1/ulu_fishmarket_menu_web.pdf?rlkey=l02t7gsvrahwhksav3x00f2vv&st=u074toay&dl=0 (13 MB image PDF, stored as cdc4c2d40fa0cc77.pdf). Acceptor to choose; Dropbox share links are fragile.",
+      "category": "restaurant",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "ulu-fishmarket-20",
+      "field": "phone",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "+6282266469790",
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "source_date": "2026-09-28",
+      "quote": "Reservations\n+62 (822)-6646-9790",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Same number as the official WhatsApp href (wa.me/+6282266469790).",
+      "category": "restaurant",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "ulu-fishmarket-21",
+      "field": "full_address",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Labuansait No.10, Pecatu",
+      "proposed": "Jl. Labuansait 10, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait, 10 – Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-22",
+      "field": "coordinates",
+      "target": "DB",
+      "class": "F",
+      "action": "unknown",
+      "live_value": null,
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "not_found",
+      "note": "Official 'Get Direction' is a maps.app.goo.gl short link; no lat/lng published.",
+      "category": "restaurant",
+      "validator": "fail",
+      "reasons": [
+        "no source_url — a row without a source is not accepted"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-23",
+      "field": "category",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "restaurant",
+      "proposed": "restaurant",
+      "source_url": "https://ulufishmarket.com/",
+      "source_date": "2026-09-28",
+      "quote": "I recently visited a newly opened restaurant",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "The only 'restaurant' wording on the official site sits inside a customer testimonial; the site otherwise describes itself as a fish market / sushi cuisine. Category is consistent with the menu (starters, rolls, pasta, dessert) but not self-labelled.",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "ulu-fishmarket-24",
+      "field": "lastVerifiedAt",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "2026-07-12",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reconcile decides the date",
+      "category": "restaurant",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    }
+  ]
+}

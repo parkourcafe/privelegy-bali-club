@@ -1,0 +1,616 @@
+{
+  "slug": "tropical-temptation-adult-only-beach-club",
+  "validatedAt": "2026-09-28T06:26:52.659Z",
+  "claims": [
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-01",
+      "field": "name",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Tropical Temptation Beach Club",
+      "proposed": "Tropical Temptation Beach Club",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Copyright © 2026 Tropical Temptation Beach Club | Collections of Wonderspace",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-02",
+      "field": "copy:verdict#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Melasti's adults-only club — three infinity pools, a beachfront bar and a spa, with no one under 18 on the daybeds.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "ARE KIDS ALLOWED?\nTo provide an exclusive atmosphere, our venue is reserved for adults only, ensuring a sophisticated experience tailored just for adults.",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Adults-only, bar and spa are supported ('our spa', 'BAR STOOL' on the home page). 'three infinity pools' is not supported — official pages refer to 'the infinity pool' (singular); the age threshold 'under 18' is not stated (only 'adults only'). Acceptor: consider trimming the pool count.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-03",
+      "field": "copy:whyHere#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "If the point of the day is a pool, a drink and actual quiet from other people's kids, this is the Bukit's dedicated answer: 18+ entry, direct Melasti beach access and an on-site spa, all inside the same cliff-walled bay as White Rock.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/blog/tropical-temptation-beach-club-balis-adult-only-escape-with-direct-melasti-beach-access/",
+      "source_date": "2025-04-14",
+      "quote": "Located directly on Melasti Beach , one of Bali’s most picturesque and less crowded coastlines, the club offers direct beach access from its elevated position.",
+      "snapshot_sha256": "16abc32386818ad18d1c3f3165d8eb0548bd22697c73ae227b4d904298b5fc0a",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Adults-only, direct Melasti beach access and spa are supported. '18+' age is not stated officially (site says 'adults only'); 'same cliff-walled bay as White Rock' is not on any official page.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-04",
+      "field": "copy:whatToExpect#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "A more grown-up register than the big clubs: three pools stepping toward the beach, a restaurant and bar, and Svaha Spa on site.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/",
+      "source_date": "2026-09-28",
+      "quote": "Set within the energy of Tropical Temptation, our spa lets you take a moment to unwind without stepping away from the beach club experience.",
+      "snapshot_sha256": "7d38ba0e61f815a861d0b4fba25a687600e523a6c09043143256b80fed9c24f1",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "'three pools' and the spa brand name 'Svaha' are not on the official site (it says 'the infinity pool' and 'our spa'). Restaurant/bar supported (Eat & Drink page, 'BAR STOOL').",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-05",
+      "field": "copy:whatToExpect#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "live_value": "Doors run 10:00–21:00, so it is a day-into-sunset venue rather than a late-night one.",
+      "proposed": "Doors run 07:00–21:00 (official FAQ: 'open daily MONDAY – SUNDAY 7 AM – 9 PM'); the day-into-sunset framing holds.",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "WHAT ARE THE HOURS OF OPERATION AT TROPICAL TEMPTATION BEACH CLUB?\nWe are open daily MONDAY – SUNDAY 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Live opening time is wrong: official opens 7 AM, not 10:00. Home page also advertises 'Morning Temptation ... Daily · 7:00 AM – 10:30 AM'.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-06",
+      "field": "copy:whatToExpect#3",
+      "target": "CODE",
+      "class": "F",
+      "action": "remove",
+      "live_value": "It opened as Cattamaran in 2021 and was renamed in 2022 — older reviews may use the old name.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/",
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": "7d38ba0e61f815a861d0b4fba25a687600e523a6c09043143256b80fed9c24f1",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "No official page (home, FAQ, eat-and-drink, blog) mentions 'Cattamaran' or an opening/rename year; the only source in the leads is a third-party blog, which is not evidence. Remove unless the acceptor finds official support.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": [
+        "remove: acceptor must try to find support on official domains"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-07",
+      "field": "copy:practicalNote#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jalan Melasti Beach 88, Ungasan — same bay as White Rock.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Melasti Beach 88, Ungasan, Bali",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Address supported; 'same bay as White Rock' not on any official page.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-08",
+      "field": "copy:reservations#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Book daybeds via the club's own reservation site.",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "IS RESERVATION REQUIRED?\nYes, it will better to make advanced reservation for having the best table as expected",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official 'Reserve' buttons link https://bookings.ttbeach.club/ (own subdomain). FAQ: 'There is no entrance fee to enjoy our venue. However, a minimum spend is required for selected daybeds.'",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-09",
+      "field": "bestFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "couples' pool days; sunset drinks without the family crowd",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-10",
+      "field": "notFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "families — entry is 18+ by policy",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Fit context; official wording is 'reserved for adults only' without an explicit age.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-11",
+      "field": "whatToOrder",
+      "target": "CODE",
+      "class": "F",
+      "action": "unknown",
+      "live_value": null,
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "not_found",
+      "note": "Official menu PDF (drinkandfood.pdf, 15 MB) is image-only; no text extraction and no PDF renderer in this environment.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "no source_url — a row without a source is not accepted"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-12",
+      "field": "priceBand",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "$$$",
+      "proposed": null,
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "IS THERE AN ENTRANCE FEE?\nThere is no entrance fee to enjoy our venue. However, a minimum spend is required for selected daybeds.",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "No menu price readable (image-only PDF); no price anchor. Live band cannot be confirmed or refuted.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-13",
+      "field": "address",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jalan Melasti Beach 88, Ungasan",
+      "proposed": "Jl. Melasti Beach 88, Ungasan, Bali",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Melasti Beach 88, Ungasan, Bali",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-14",
+      "field": "hours",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "live_value": "Daily 10:00–21:00",
+      "proposed": {
+        "Monday": [
+          "7.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-9.00pm"
+        ],
+        "Thursday": [
+          "7.00am-9.00pm"
+        ],
+        "Friday": [
+          "7.00am-9.00pm"
+        ],
+        "Saturday": [
+          "7.00am-9.00pm"
+        ],
+        "Sunday": [
+          "7.00am-9.00pm"
+        ]
+      },
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "WHAT ARE THE HOURS OF OPERATION AT TROPICAL TEMPTATION BEACH CLUB?\nWe are open daily MONDAY – SUNDAY 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Live says 10:00 open; official is 7 AM – 9 PM daily (FAQ and site footer).",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-15",
+      "field": "opening_hours_json",
+      "target": "DB",
+      "class": "F",
+      "action": "replace",
+      "live_value": "Mo-Su 10:00-21:00",
+      "proposed": {
+        "Monday": [
+          "7.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-9.00pm"
+        ],
+        "Thursday": [
+          "7.00am-9.00pm"
+        ],
+        "Friday": [
+          "7.00am-9.00pm"
+        ],
+        "Saturday": [
+          "7.00am-9.00pm"
+        ],
+        "Sunday": [
+          "7.00am-9.00pm"
+        ]
+      },
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Melasti Beach 88, Ungasan, Bali Open Daily : 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Same correction as hours; FAQ body: 'open daily MONDAY – SUNDAY 7 AM – 9 PM'.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-16",
+      "field": "officialUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://ttbeach.club/",
+      "proposed": "https://ttbeach.club/",
+      "source_url": "https://ttbeach.club/",
+      "source_date": "2026-09-28",
+      "quote": "Tropical Temptation Beach Club Uluwatu | Sunset & Ocean Views",
+      "snapshot_sha256": "7d38ba0e61f815a861d0b4fba25a687600e523a6c09043143256b80fed9c24f1",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "200 today.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-17",
+      "field": "instagramUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.instagram.com/tropicaltemptation/",
+      "proposed": "https://www.instagram.com/tropicaltemptation/",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "INSTAGRAM FACEBOOK TIKTOK TRIPADVISOR",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Footer 'INSTAGRAM' link href is https://www.instagram.com/tropicaltemptation on the official site (seen in stored .html).",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-18",
+      "field": "bookingUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "replace",
+      "live_value": "https://reserve.ttbeach.club/",
+      "proposed": "https://bookings.ttbeach.club/",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Reserve",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reserve.ttbeach.club now 301s to https://bookings.ttbeach.club/ (200, page title 'Welcome to Tropical Temptation Beach Club, Uluwatu - Book Online & Save'); the official site's 'Reserve' buttons link bookings.ttbeach.club directly.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-19",
+      "field": "menuUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "https://ttbeach.club/menus/drinkandfood.pdf",
+      "source_url": "https://ttbeach.club/menus/drinkandfood.pdf",
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": "301cf1181d8da907d88084aefd7f4232aa53573d20067aa4d627651eb33b3c37",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Official footer 'Menu' link href is /menus/drinkandfood.pdf; it returns 200 application/pdf (15 MB) today and is stored. The PDF is image-only so no verbatim quote is possible; a breakfast menu also exists at https://ttbeach.club/menu-breakfast.pdf (not fetched).",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "no quote"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-20",
+      "field": "phone",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "+6281238868631",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "+62 812-3886-8631 info@ttbeach.club",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Same number given for WhatsApp/lost-and-found in the FAQ. The wa.me/6281222201688 number in leads.json is not on the official site.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-21",
+      "field": "full_address",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jalan Melasti Beach 88, Ungasan",
+      "proposed": "Jl. Melasti Beach 88, Ungasan, Bali",
+      "source_url": "https://ttbeach.club/faq",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Melasti Beach 88, Ungasan, Bali",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-22",
+      "field": "coordinates",
+      "target": "DB",
+      "class": "F",
+      "action": "unknown",
+      "live_value": null,
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "not_found",
+      "note": "Official site links only a goo.gl/maps short link; no lat/lng published.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "no source_url — a row without a source is not accepted"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-23",
+      "field": "category",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "beach_club",
+      "proposed": "beach_club",
+      "source_url": "https://ttbeach.club/",
+      "source_date": "2026-09-28",
+      "quote": "an inviting beach club in Uluwatu where people meet beneath the same sun",
+      "snapshot_sha256": "7d38ba0e61f815a861d0b4fba25a687600e523a6c09043143256b80fed9c24f1",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-24",
+      "field": "lastVerifiedAt",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "2026-07-12",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reconcile decides the date",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    }
+  ]
+}

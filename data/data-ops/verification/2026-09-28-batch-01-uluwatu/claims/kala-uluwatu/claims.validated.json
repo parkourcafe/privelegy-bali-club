@@ -1,0 +1,618 @@
+{
+  "slug": "kala-uluwatu",
+  "validatedAt": "2026-09-28T06:17:48.704Z",
+  "claims": [
+    {
+      "claim_id": "kala-uluwatu-01",
+      "live_value": "KALA Uluwatu",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/",
+      "source_date": "2026-09-28",
+      "quote": "KALA ULUWATU - Greek Inspired Neighborhood Grill",
+      "snapshot_sha256": "9e5bd0d4811fc81aa8f58387dcb1f074c2dd833c91463c607350ff8b12fe1542",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "field": "name",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-02",
+      "live_value": "Minimalist Greek-inspired grill steps from Padang Padang — wood fire, natural wine and the Bukit's most confident new dinner room.",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "A modern Greek-inspired grill, where hospitality leads, wood-fired cooking happens, and memorable gatherings come naturally",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "'the Bukit's most confident new dinner room' is quality language (Q) — removal candidate. Supported parts: Greek-inspired grill, wood fire (home.jsx marquee 'Wood-Fire Grill'), 'Natural Wine'. 'steps from Padang Padang' and 'dinner room' are not on the official site (site says 12 PM open, 'Long lunches'). Suggest rewrite without superlative. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "copy:verdict#1",
+      "target": "CODE",
+      "class": "Q",
+      "action": "remove",
+      "claim_text": "Minimalist Greek-inspired grill steps from Padang Padang — wood fire, natural wine and the Bukit's most confident new dinner room.",
+      "validator": "pass",
+      "reasons": [
+        "remove: acceptor must try to find support on official domains"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-03",
+      "live_value": "Opened in June 2024 by Bali hospitality veterans, KALA cooks Greek-leaning food over an open wood grill in a pared-back room near Padang Padang Beach.",
+      "proposed": "KALA cooks Greek-inspired food over an open wood-fire grill on Jl. Labuansait in Pecatu.",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "A modern Greek-inspired grill, where hospitality leads, wood-fired cooking happens, and memorable gatherings come naturally",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "'Opened in June 2024' and 'Bali hospitality veterans' have no official-site support (only '© 2024 KALA'; the June 2024 date comes from a bali.com press release, not admissible). 'near Padang Padang Beach' not on official site. Wood-fire grill and Greek-inspired are supported. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "copy:whyHere#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-04",
+      "live_value": "It filled a real gap: a serious, single-idea dinner venue between the surf cafés and the cliff clubs.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "editorial; note 'dinner venue' sits awkwardly with official 'Daily · 12 PM — 11:30 PM' and 'Long lunches' (nav.jsx/home.jsx)",
+      "field": "copy:whyHere#2",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-05",
+      "live_value": "An open kitchen, flatbreads and lamb off the fire, feta tempura that shows the kitchen's playfulness, and a cocktail/natural-wine list built for the food.",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_date": "2026-09-28",
+      "quote": "feta tempura  lemon ma rmalad e, cap er meri ngue 120",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "PDF text extraction is letter-spaced; quote is verbatim from the stored .txt. Menu also lists 'la mb shoul der  chickpea s, tomatoes 290', flatbread with meze, cocktails and wine. 'Open Kitchen' in home.jsx marquee. 'natural' wine: home.jsx marquee 'Natural Wine'.",
+      "field": "copy:whatToExpect#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-06",
+      "live_value": "It is an afternoon-into-evening venue — plan it as dinner, not lunch.",
+      "proposed": "Open daily from noon to 11.30pm — it works for a long lunch as well as dinner.",
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "source_date": "2026-09-28",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official nav lists 'Daily · 12 PM — 11:30 PM' and home.jsx says 'Long lunches, vinyl nights'; the live 'not lunch' framing is contradicted. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "copy:whatToExpect#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-07",
+      "live_value": "date nights; food-led group dinners",
+      "proposed": null,
+      "source_url": null,
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "field": "bestFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-08",
+      "live_value": "early-morning or laptop hours — it opens for the evening trade",
+      "proposed": "early-morning or laptop hours — it opens at noon",
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "source_date": "2026-09-28",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "fit context is fine, but 'opens for the evening trade' is a checkable fact contradicted by the official 12 PM opening. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "notFor",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-09",
+      "live_value": "Jl. Labuansait, Pecatu — steps from Padang Padang Beach.",
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu.",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official footer gives house number 99; 'steps from Padang Padang Beach' is not stated on the official site. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "copy:practicalNote#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-10",
+      "live_value": "Reservations via SevenRooms — recommended for dinner.",
+      "proposed": "Reservations via TableCheck; groups of more than 7 are asked to contact the venue on WhatsApp.",
+      "source_url": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "source_date": "2026-09-28",
+      "quote": "For group booking more than 7 pax please do not hesitate to contact us directly to WhatsApp.",
+      "snapshot_sha256": "bcafa55e53fd6103e91445597f3cbfa5ea8c393a5dec32be02a3ce9766da883e",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": "['Reservations', 'https://www.tablecheck.com/en/kalauluwatu/reserve/message'] (home.jsx footer 'Visit Us'; nav.jsx 'Reservations' → same URL; booking.jsx BOOKING_URL)",
+      "status": "ready",
+      "note": "SevenRooms URL returns 404 today (snapshot sha 12e0bfbf…); official site links TableCheck.",
+      "field": "copy:reservations#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "kala-uluwatu-11",
+      "live_value": "wood-fired flatbreads; feta tempura; lamb",
+      "proposed": "feta tempura; lamb shoulder; grilled octopus",
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_date": "2026-09-28",
+      "quote": "feta tempura  lemon ma rmalad e, cap er meri ngue 120",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "PDF (headed SEPTEMBER) also lists 'la mb shoul der  chickpea s, tomatoes 290' and 'gril led octopus  baby potato, pep eronata sau ce 260' (extraction letter-spaced); menu.jsx lists 'Lamb Shoulder', 'Grilled Octopus', 'Feta Tempura' as menu items.",
+      "field": "whatToOrder",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "kala-uluwatu-12",
+      "live_value": "$$$",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_date": "2026-09-28",
+      "quote": "la mb shoul der  chickpea s, tomatoes 290",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "mains 160–350 (thousand IDR) on the official menu PDF → $$$",
+      "field": "priceBand",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-13",
+      "live_value": null,
+      "proposed": "lamb shoulder 290K IDR; feta tempura 120K IDR (official menu PDF headed SEPTEMBER, captured 2026-09-28)",
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_date": "2026-09-28",
+      "quote": "la mb shoul der  chickpea s, tomatoes 290",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "PDF states prices 'are in thousands of rupiah' and subject to 10% tax + 7% service (letter-spaced in extraction).",
+      "field": "price_anchor",
+      "target": "CODE",
+      "class": "F",
+      "action": "add",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "kala-uluwatu-14",
+      "live_value": "Jl. Labuansait, Pecatu",
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "address",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-15",
+      "live_value": null,
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu, Bali 80361",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "full_address",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-16",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.30pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.30pm"
+        ],
+        "Friday": [
+          "12.00pm-11.30pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.30pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.30pm"
+        ]
+      },
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "source_date": "2026-09-28",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "CODE text rendering: \"Daily 12pm–11.30pm\". official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "hours",
+      "target": "CODE",
+      "class": "F",
+      "action": "add",
+      "category": "restaurant",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-17",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.30pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.30pm"
+        ],
+        "Friday": [
+          "12.00pm-11.30pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.30pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.30pm"
+        ]
+      },
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "source_date": "2026-09-28",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "opening_hours_json",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "category": "restaurant",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-18",
+      "live_value": "https://kalauluwatu.com/",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/",
+      "source_date": "2026-09-28",
+      "quote": "KALA ULUWATU - Greek Inspired Neighborhood Grill",
+      "snapshot_sha256": "9e5bd0d4811fc81aa8f58387dcb1f074c2dd833c91463c607350ff8b12fe1542",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "200 today",
+      "field": "officialUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-19",
+      "live_value": "https://www.instagram.com/kala.uluwatu/",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "href=\"https://www.instagram.com/kala.uluwatu\"",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "official footer links this handle (without trailing slash). Instagram itself not fetched (not a source). official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "instagramUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-20",
+      "live_value": "https://www.sevenrooms.com/explore/kalauluwatu/reservations/create/search/",
+      "proposed": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "source_url": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "source_date": "2026-09-28",
+      "quote": "KALA Uluwatu - TableCheck",
+      "snapshot_sha256": "bcafa55e53fd6103e91445597f3cbfa5ea8c393a5dec32be02a3ce9766da883e",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": "['Reservations', 'https://www.tablecheck.com/en/kalauluwatu/reserve/message'] (home.jsx footer; booking.jsx const BOOKING_URL)",
+      "status": "ready",
+      "note": "live SevenRooms URL is 404 today ('Looks like this page is off the menu.', sha 12e0bfbf…); TableCheck is the provider linked from the official site.",
+      "field": "bookingUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "replace",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "kala-uluwatu-21",
+      "live_value": null,
+      "proposed": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "source_date": "2026-09-28",
+      "quote": "MEZE",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "linked from nav.jsx: { t:'The Menu Card', d:'View the full menu (PDF)', href:'assets/kala-menu.pdf' }; 200 today, application/pdf",
+      "field": "menuUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "kala-uluwatu-22",
+      "live_value": null,
+      "proposed": "+6285337702422",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "source_date": "2026-09-28",
+      "quote": "WhatsApp +62 853 3770 2422",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "evidence_kind": "jsx",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "published as WhatsApp number in official footer. official site is a client-rendered React SPA: the visible text lives in the stored .jsx file (saved as .bin, no textFile), so validate-claims cannot check the quote automatically; acceptor/founder must open the stored file",
+      "field": "phone",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-23",
+      "live_value": null,
+      "proposed": null,
+      "source_url": null,
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "not_found",
+      "note": "official site links a maps.app.goo.gl short link only; no lat/lng published",
+      "field": "coordinates",
+      "target": "DB",
+      "class": "F",
+      "action": "unknown",
+      "validator": "fail",
+      "reasons": [
+        "no source_url — a row without a source is not accepted"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-24",
+      "live_value": "restaurant",
+      "proposed": null,
+      "source_url": "https://kalauluwatu.com/",
+      "source_date": "2026-09-28",
+      "quote": "Greek Inspired Neighborhood Grill",
+      "snapshot_sha256": "9e5bd0d4811fc81aa8f58387dcb1f074c2dd833c91463c607350ff8b12fe1542",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "field": "category",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "kala-uluwatu-25",
+      "live_value": "2026-07-12",
+      "proposed": null,
+      "source_url": null,
+      "source_date": "2026-09-28",
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reconcile decides the date",
+      "field": "lastVerifiedAt",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "slug": "artisan-uluwatu",
+  "acceptedAt": "2026-09-28T06:31:49.330Z",
+  "verdicts": [
+    {
+      "claim_id": "artisan-uluwatu-12",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "quote_found": true,
+      "note": "Menu PDF on artisangroup.id headed U L U W A T U; SAFFRON BENEDICT 100, CROISSANT (bakery section) and LINGUINE & CLAMS 130 (dinner) all present in the extracted text"
+    },
+    {
+      "claim_id": "artisan-uluwatu-14",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "quote_found": true,
+      "note": "SAFFRON BENEDICT 100 in breakfast section and CHARCOAL ROASTED CHICKEN 150 in the DINNER 6PM - 10:30PM section of the Uluwatu PDF; anchor names items, currency and states the PDF is undated (upload 2024/11); captured 2026-09-28"
+    },
+    {
+      "claim_id": "artisan-uluwatu-16",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "quote_found": true,
+      "note": "Quote is the breakfast service window (7AM - 3PM); the PDF only gives service windows (breakfast 7-3, lunch 12-5, dinner 6-10:30) with no days of week and a 5-6pm gap; 7am-10:30pm daily is a composite, not stated venue hours"
+    },
+    {
+      "claim_id": "artisan-uluwatu-24",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "k-artisa-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "ok",
+      "refetch_sha256": "cd2ae189c9f38b2dbd57cf8a19cf10696e386e345d0145f41b46478f15b5cc17",
+      "quote_found": true,
+      "note": "elsky-bali.com is a third-party guide page about Sundays Beach Club; value is not an address"
+    },
+    {
+      "claim_id": "artisan-uluwatu-23",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "artisan-uluwatu-04",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Editorial sentence; not a fact a website proves"
+    },
+    {
+      "claim_id": "artisan-uluwatu-18",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); artisangroup.id homepage returned HTTP 500 on refetch"
+    },
+    {
+      "claim_id": "artisan-uluwatu-02",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Editorial verdict sentence ('most ambitious pastry counter'); bakery/dinner service is consistent with the Uluwatu menu PDF but the sentence is not a source fact"
+    },
+    {
+      "claim_id": "artisan-uluwatu-22",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "artisan-uluwatu-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "quote_found": true,
+      "note": "PDF on official artisangroup.id domain, headed ULUWATU, quoted tax line present; sha256 matches"
+    },
+    {
+      "claim_id": "artisan-uluwatu-17",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "k-artisa-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": "e3b0deebe01f23a605d0d874babc1b8dfa573077b063286683cab82ddca392cd",
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator (refetch 403); no named item"
+    },
+    {
+      "claim_id": "k-artisa-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "quote_found": false,
+      "note": "Quote 'Open daily 7 AM - 11 PM...' does not appear in the Uluwatu menu PDF text (sha matches); PDF only lists service windows"
+    },
+    {
+      "claim_id": "artisan-uluwatu-20",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "artisan-uluwatu-15",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    }
+  ]
+}

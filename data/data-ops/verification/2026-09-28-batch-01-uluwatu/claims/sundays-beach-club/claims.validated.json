@@ -1,0 +1,693 @@
+{
+  "slug": "sundays-beach-club",
+  "validatedAt": "2026-09-28T06:26:52.461Z",
+  "claims": [
+    {
+      "claim_id": "sundays-beach-club-01",
+      "field": "name",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Sundays Beach Club",
+      "proposed": "Sundays Beach Club",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "&copy; Copyright Sundays Beach Club 2026",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-02",
+      "field": "copy:verdict#1",
+      "target": "CODE",
+      "class": "Q",
+      "action": "remove",
+      "live_value": "A private white-sand cove at the foot of the Ungasan cliffs — the Bukit's one true toes-in-the-sand beach club.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Below the cliffs, guests have exclusive access to the celebrated Sundays Beach Club, where white sand, calm waters and relaxed dining create the perfect coastal escape.",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "First half (white-sand cove below the Ungasan cliffs, resort-private access) is supported by the quote. 'the Bukit's one true toes-in-the-sand beach club' is a comparative superlative about competitors that no official source can support — removal candidate for that clause only.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": [
+        "remove: acceptor must try to find support on official domains"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-03",
+      "field": "copy:whyHere#1",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "Most 'beach clubs' on this peninsula sit on cliffs.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Editorial context about other venues; no quality warning.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-04",
+      "field": "copy:whyHere#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Sundays actually gets you onto the sand: a funicular carries you down to a sheltered lagoon with daybeds, watersports and evening bonfires.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Your journey to the water’s edge at Sundays is as spectacular as the destination itself thanks to our custom inclinator lift.",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official term is 'inclinator', not 'funicular'. Lagoon: 'Explore the crystal clear lagoon'; bonfires: 'We fire up our beach bonfires daily at sunset'; daybeds: 'Beyond the shade of our daybeds' (social caption on the official page); walk-in pass includes 'Bean Bag & Beach Umbrella on the Sand'.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-05",
+      "field": "copy:whyHere#3",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "For families and beach days it is the district's clearest answer.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Fit judgement; pass page lists 'Kids Painting & Activities' and child pricing.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-06",
+      "field": "copy:whatToExpect#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Entry works as a daily beach pass with food-and-drink credit.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "7.30am to 10pm – Daily Beach Pass Includes:\nEntry via Inclinator Ride\nWelcome Drink upon Arrival\nBean Bag & Beach Umbrella on the Sand\nFood & Beverage Credit",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-07",
+      "field": "copy:whatToExpect#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Below the cliff you get calm, swimmable water (tide-dependent), kayaks and snorkelling gear, a beachfront kitchen, and bonfires after sunset.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Kayaks, stand up paddle boards, snorkeling or swimming – everything you need is on us. Subject to tides and availability.",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Bonfires: 'We fire up our beach bonfires daily at sunset ... Daily from 6:30 PM.' Kitchen/dining: 'From our ocean-view bar to your spot on the sand'.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-08",
+      "field": "copy:whatToExpect#3",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "It is part of The Ungasan resort; the ride down is half the fun.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "The Ungasan Clifftop Resort\nLuxury Villas",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "'Below the cliffs, guests have exclusive access to the celebrated Sundays Beach Club' on the same page. Second clause is editorial tone.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-09",
+      "field": "copy:practicalNote#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Beach access is via the resort's inclinator from the clifftop.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "Entry via Inclinator Ride",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-10",
+      "field": "copy:practicalNote#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Check tides for swimming.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "Bean bag availability and Watersports are tide dependent.",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official site also publishes a monthly Tide Chart page.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-11",
+      "field": "copy:reservations#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Daily beach passes are walk-in; cabanas and VIP set-ups are pre-booked.",
+      "proposed": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Daily Beach Passes are always available via walk-in general admission. You can also pre-book a VIP Experience with reserved spaces and premium inclusions for a more personalised day.",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official VIP tiers are named Sundecks / Bungalow / Beach house, not 'cabanas'. VIP booking runs through SevenRooms links on the official page.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-12",
+      "field": "bestFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "beach days with kids; sunset bonfires; couples who want sand, not concrete",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-13",
+      "field": "notFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "a quick cheap stop — the pass model rewards staying the day",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Fit context only; pass pricing on the official page (adults IDR 800K) supports it.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-14",
+      "field": "whatToOrder",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "mahi mahi tacos; BBQ lobster; wood-fired pizza",
+      "proposed": "crispy mahi mahi taco; bbq whole lobster; woodfired pizza",
+      "source_url": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "source_date": "2026-06-01",
+      "quote": "crispy mahi mahi taco + black pepper cabbage + avocado + hot sauce",
+      "snapshot_sha256": "dc2900eb5b2943171386eddd5ce5e8a4e69ad7f706db2a2e577cd76ceac2cade",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "All three exist on the June 2026 menu PDF: 'crispy mahi mahi taco', BBQ section 'whole lobster + xo chilli butter + lemon', 'WOODFIRED PIZZ A' section. The live card currently renders whatToOrder as null although the registry holds these values. PDF is on the official domain; the site's 'View Menus' button goes to linktr.ee/sundaysmenu (link-tree, not used).",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-15",
+      "field": "priceBand",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "$$$",
+      "proposed": "$$$",
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "Adults\nIDR 800K per person\n500K F&B Credit for our Breakfast, Lunch and Dinner Menu",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "price_anchor: Daily Beach Pass adults IDR 800K per person (includes 500K F&B credit), 2026-09-28. Menu PDF prints prices 'in thousands of rupiah' with BBQ mains and pizzas in the 185–1,200 range, but the PDF text extraction separates prices from item names so a single item→price pair cannot be quoted verbatim.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-16",
+      "field": "address",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan",
+      "proposed": "Jalan Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan 80362",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Jalan Pantai Selatan Gau Banjar Wijaya\nKusuma Ungasan 80362 Bali\nIndonesia",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official footer adds postcode 80362.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-17",
+      "field": "hours",
+      "target": "CODE",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "OPEN DAILY FROM 7:30 AM TO 10 PM",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "sundays-beach-club-18",
+      "field": "opening_hours_json",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "7.30am to 10pm – Daily Beach Pass Includes:",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Home page: 'OPEN DAILY FROM 7:30 AM TO 10 PM'.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "sundays-beach-club-19",
+      "field": "officialUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.sundaysbeachclub.com/",
+      "proposed": "https://www.sundaysbeachclub.com/",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Sundays Beach Club - Uluwatu Beach Club Bali",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "200 today.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-20",
+      "field": "instagramUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.instagram.com/sundaysbeachclub/",
+      "proposed": "https://www.instagram.com/sundaysbeachclub/",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Get Social\n@sundaysbeachclub",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Handle printed on the official page; Instagram itself not fetched.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-21",
+      "field": "bookingUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "proposed": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "Walk-in admission from 7.30am. Entry is first come, first served.",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "200 today. Official page also links SevenRooms (https://www.sevenrooms.com/explore/sundaysbeachclub/reservations/create/search/) for VIP bookings; the daily pass itself is walk-in.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-22",
+      "field": "menuUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "source_url": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "source_date": "2026-06-01",
+      "quote": "All prices are in thousands of rupiah. Subject to 21 % service charge and government tax.",
+      "snapshot_sha256": "dc2900eb5b2943171386eddd5ce5e8a4e69ad7f706db2a2e577cd76ceac2cade",
+      "evidence_kind": "pdf",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "First-party PDF on the official domain, 200 today, dated June 2026 in its filename. Site's 'View Menus' button points to linktr.ee/sundaysmenu; the PDF is not linked directly from the HTML.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "sundays-beach-club-23",
+      "field": "phone",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "+6282144057406",
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "source_date": "2026-09-28",
+      "quote": "Contact Us",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Number appears only as a WhatsApp href (wa.me/6282144057406) on the official daily-beach-pass page, not in visible text — the validator's text check cannot see it. Acceptor may confirm from the stored .html.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "sundays-beach-club-24",
+      "field": "full_address",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan",
+      "proposed": "Jalan Pantai Selatan Gau, Banjar Wijaya Kusuma, Ungasan 80362",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Jalan Pantai Selatan Gau Banjar Wijaya\nKusuma Ungasan 80362 Bali",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-25",
+      "field": "coordinates",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": [
+        -8.8472658,
+        115.150859
+      ],
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "!3d-8.8472658!4d115.150859",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Official 'Get directions' href is a google.com.au/maps/place link carrying @-8.846834,115.1498795 (viewport) and !3d-8.8472658!4d115.150859 (pin). The pair sits in the href only, not in visible text, so the validator cannot match it; acceptor may confirm from the stored .html. Not scraped from Google Maps.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "quote not found verbatim in the snapshot text"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-26",
+      "field": "category",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "beach_club",
+      "proposed": "beach_club",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "source_date": "2026-09-28",
+      "quote": "Sundays Beach Club - Uluwatu Beach Club Bali",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "sundays-beach-club-27",
+      "field": "lastVerifiedAt",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "2026-07-12",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reconcile decides the date",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    }
+  ]
+}

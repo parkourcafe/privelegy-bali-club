@@ -1,0 +1,676 @@
+{
+  "slug": "el-kabron-bali",
+  "validatedAt": "2026-09-28T06:16:01.734Z",
+  "claims": [
+    {
+      "claim_id": "el-kabron-bali-01",
+      "field": "name",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "El Kabrón",
+      "proposed": "El Kabrón",
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "El Kabron Bali is a Luxury Party Beach Club & Mediterranean Oceanfront Restaurant in Uluwatu",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Official site writes 'El Kabron Bali' without the accent; the accented form is an accepted variant, not a mismatch.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-02",
+      "field": "copy:verdict#1",
+      "target": "CODE",
+      "class": "Q",
+      "action": "remove",
+      "live_value": "Spanish cliff club above Pecatu's west coast — paella, an edge-of-the-world pool and Bali's most theatrical sunset seating.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "'Bali's most theatrical sunset seating' is a superlative; paella, pool and the 'Sunset Theater' area are supported by the official site, so a version without the superlative would be F-supported.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": [
+        "remove: acceptor must try to find support on official domains"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-03",
+      "field": "copy:whyHere#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "El Kabrón has run its 'Sunset Theater' on this cliff since 2011: a Spanish restaurant and pool set on a west-facing edge with nothing between you and the horizon.",
+      "proposed": null,
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "Established in the heart of Uluwatu in 2011, El Kabron Bali offers a unique hedonistic paradise under the palms with phenomenal sunsets all year round, high-end oceanfront dining, and signature daily Sunset Parties with live performances.",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "2011, Sunset Theater and infinity pool are official; 'west-facing' is implied by sunset orientation.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-04",
+      "field": "copy:whyHere#2",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "It is the occasion venue of the district — anniversaries, proposals, last-night blowouts.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-05",
+      "field": "copy:whatToExpect#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Minimum-spend seating tiers around a cliff-edge pool, a full Spanish kitchen (oysters, paella, tomahawk), and a sunset hour that books out.",
+      "proposed": null,
+      "source_url": "https://elkabron.com/pricelist",
+      "source_date": "2026-09-28",
+      "quote": "Elevate your trip to Bali with fresh oysters on ice, grilled seafood, caviar, Spanish paella with giant lobster, tomahawk steak and other signature El Kabron dishes",
+      "snapshot_sha256": "bcf122650c11f20c165c1f8f4393d7c76ee4432e73533e3dc01658b05d58ffc3",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Minimum spend: FAQ 'Minimum spend applies to all guests including children (over 5 years old)'. 'books out' is experiential.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-06",
+      "field": "copy:whatToExpect#2",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Despite the 'beach club' label there is no beach access — this is a cliff venue.",
+      "proposed": null,
+      "source_url": "https://elkabron.com/pricelist",
+      "source_date": "2026-09-28",
+      "quote": "Located on the cliffs of Uluwatu, it's the perfect setting for couples, groups, and celebrations",
+      "snapshot_sha256": "bcf122650c11f20c165c1f8f4393d7c76ee4432e73533e3dc01658b05d58ffc3",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Cliff location is official; 'no beach access' is not stated explicitly on any official page.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-07",
+      "field": "copy:whatToExpect#3",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "Budget accordingly: it is one of the area's priciest tickets.",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Price context; official markup carries priceRange $$$.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-08",
+      "field": "bestFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "special occasions; sunset dinner dates; celebratory groups",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-09",
+      "field": "notFor",
+      "target": "CODE",
+      "class": "O",
+      "action": "keep",
+      "live_value": "casual walk-in beers or families after a beach day",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Consistent with official 'adult-oriented venue' policy.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-10",
+      "field": "copy:practicalNote#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Pantai Cemongkak, Pecatu — between Bingin and Uluwatu.",
+      "proposed": null,
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "Location El Kabron Bali is located at Jl. Pantai Cemongkak, Pecatu, Bali 80361.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-11",
+      "field": "copy:reservations#1",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Reservations with deposit via the official Book Now page — essential at sunset.",
+      "proposed": null,
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "All reservations are non-refundable and non-transferrable to another date.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Official pages say reservations are non-refundable and minimum spend applies; the word 'deposit' does not appear. Book Now page is official.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-12",
+      "field": "whatToOrder",
+      "target": "CODE",
+      "class": "F",
+      "action": "replace",
+      "live_value": "oysters; tomahawk",
+      "proposed": "oysters; seafood paella; rib-eye steak",
+      "source_url": "https://elkabron.com/menu/el-kabron-bali-uluwatu-food-menu.webp",
+      "source_date": "2026-09-28",
+      "quote": "SEAFOOD PAELLA",
+      "snapshot_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "evidence_kind": "image",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Food menu image lists OYSTERS (3/6/12 pcs - 85), SEAFOOD PAELLA (355 / 1 person) and RIB-EYE STEAK (925); no tomahawk on the current food menu (tomahawk is only mentioned in price-list prose). Transcribed from the stored food-menu image (snapshot 5a23b8280ae704db.webp, sha256 8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e); the validator cannot text-match an image, so it will report fail — acceptor should open the image.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-13",
+      "field": "priceBand",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "$$$",
+      "proposed": "$$$",
+      "source_url": "https://elkabron.com/menu/el-kabron-bali-uluwatu-food-menu.webp",
+      "source_date": "2026-09-28",
+      "quote": "SEAFOOD PAELLA",
+      "snapshot_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "evidence_kind": "image",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Mains 285-925 ('000 IDR) on the food menu image. Transcribed from the stored food-menu image (snapshot 5a23b8280ae704db.webp, sha256 8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e); the validator cannot text-match an image, so it will report fail — acceptor should open the image.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-14",
+      "field": "price_anchor",
+      "target": "DB",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "Seafood paella IDR 355K per person; Rib-eye steak IDR 925K (official food menu image, 2026-09-28; prices in '000 subject to 10% service and 10% tax)",
+      "source_url": "https://elkabron.com/menu/el-kabron-bali-uluwatu-food-menu.webp",
+      "source_date": "2026-09-28",
+      "quote": "All prices shown are in Indonesian rupiah quoted in '000' and subject to 10% service charge and 10% government tax",
+      "snapshot_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "evidence_kind": "image",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Transcribed from the stored food-menu image (snapshot 5a23b8280ae704db.webp, sha256 8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e); the validator cannot text-match an image, so it will report fail — acceptor should open the image.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "no 200 snapshot with text for this source_url (run snapshot.mjs)"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-15",
+      "field": "address",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Pantai Cemongkak, Pecatu",
+      "proposed": "Jl. Pantai Cemongkak, Pecatu",
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "Location El Kabron Bali is located at Jl. Pantai Cemongkak, Pecatu, Bali 80361.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-16",
+      "field": "hours",
+      "target": "CODE",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": {
+        "Monday": [
+          "11.00am-23.59pm"
+        ],
+        "Tuesday": [
+          "11.00am-23.59pm"
+        ],
+        "Wednesday": [
+          "11.00am-23.59pm"
+        ],
+        "Thursday": [
+          "11.00am-23.59pm"
+        ],
+        "Friday": [
+          "11.00am-23.59pm"
+        ],
+        "Saturday": [
+          "11.00am-23.59pm"
+        ],
+        "Sunday": [
+          "11.00am-23.59pm"
+        ]
+      },
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "Hours of Operation Every day from 11:00 until midnight.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Registry openingHours is null; live page already shows 11:00-23:59 from DB. Midnight close stored as 23.59pm per brief.",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "el-kabron-bali-17",
+      "field": "opening_hours_json",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Mo 11:00-23:59, Tu 11:00-23:59, We 11:00-23:59, Th 11:00-23:59, Fr 11:00-23:59, Sa 11:00-23:59, Su 11:00-23:59",
+      "proposed": {
+        "Monday": [
+          "11.00am-23.59pm"
+        ],
+        "Tuesday": [
+          "11.00am-23.59pm"
+        ],
+        "Wednesday": [
+          "11.00am-23.59pm"
+        ],
+        "Thursday": [
+          "11.00am-23.59pm"
+        ],
+        "Friday": [
+          "11.00am-23.59pm"
+        ],
+        "Saturday": [
+          "11.00am-23.59pm"
+        ],
+        "Sunday": [
+          "11.00am-23.59pm"
+        ]
+      },
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "Hours of Operation Every day from 11:00 until midnight.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-18",
+      "field": "officialUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://elkabron.com/",
+      "proposed": "https://elkabron.com/",
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "© 2019–2026 El Kabron. Official website. All rights reserved.",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-19",
+      "field": "instagramUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://www.instagram.com/elkabronbali/",
+      "proposed": null,
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "© 2019–2026 El Kabron. Official website.",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "instagram_only for verification of the account itself; the official site links https://www.instagram.com/elkabronbali/ in markup (and JSON-LD sameAs).",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-20",
+      "field": "bookingUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "keep",
+      "live_value": "https://elkabron.com/book-now",
+      "proposed": "https://elkabron.com/book-now",
+      "source_url": "https://elkabron.com/book-now",
+      "source_date": "2026-09-28",
+      "quote": "Reservations should be made through the official El Kabron Bali website or directly with the El Kabron Bali Reservations Team.",
+      "snapshot_sha256": "04f60331801ac28f0d08be63dac7044d967cc1a289c61404a6f2c9a5db63cd10",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-21",
+      "field": "menuUrl",
+      "target": "BOTH",
+      "class": "F",
+      "action": "add",
+      "live_value": null,
+      "proposed": "https://elkabron.com/menu/food",
+      "source_url": "https://elkabron.com/menu/food",
+      "source_date": "2026-09-28",
+      "quote": "Food Menu | El Kabron Bali Beach Club & Restaurant in Uluwatu",
+      "snapshot_sha256": "d44a579b0fde57ffc452f006ec9266fc6c18c6a6a8d27116f605e34aeaabc30b",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Page renders the menu as an image (el-kabron-bali-uluwatu-food-menu.webp).",
+      "category": "beach_club",
+      "validator": "pass",
+      "reasons": []
+    },
+    {
+      "claim_id": "el-kabron-bali-22",
+      "field": "phone",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "+62 813-3723-5750",
+      "proposed": "+6281337235750",
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "Contact us via WhatsApp at: +62 813-3723-5750",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Book Now page also prints a second number +62 813-1196-4273 for WhatsApp.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-23",
+      "field": "full_address",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "Jl. Pantai Cemongkak, Pecatu",
+      "proposed": "Jl. Pantai Cemongkak, Pecatu, Bali 80361",
+      "source_url": "https://elkabron.com/faq",
+      "source_date": "2026-09-28",
+      "quote": "Location El Kabron Bali is located at Jl. Pantai Cemongkak, Pecatu, Bali 80361.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": null,
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-24",
+      "field": "coordinates",
+      "target": "DB",
+      "class": "F",
+      "action": "replace",
+      "live_value": [
+        -8.8020351,
+        115.1174783
+      ],
+      "proposed": [
+        -8.8094,
+        115.1109
+      ],
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "LOCATION\nJl. Pantai Cemongkak, Pecatu, Bali 80361 - Indonesia",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "unclear",
+      "note": "Official home-page JSON-LD publishes geo latitude -8.8094, longitude 115.1109 (in stored HTML only, 4 decimals — below the 5-decimal bound). Live value derives from a Google Maps place link, which is not an allowed source. Do not publish either without a 5-decimal official value.",
+      "category": "beach_club",
+      "validator": "fail",
+      "reasons": [
+        "bound: fewer than 5 decimals"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-25",
+      "field": "category",
+      "target": "DB",
+      "class": "F",
+      "action": "keep",
+      "live_value": "beach_club",
+      "proposed": "beach_club",
+      "source_url": "https://elkabron.com/",
+      "source_date": "2026-09-28",
+      "quote": "El Kabron Bali is a Luxury Party Beach Club & Mediterranean Oceanfront Restaurant in Uluwatu",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "evidence_kind": "html",
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "Registry says beach_club; live JSON-LD emits Restaurant. Official self-description covers both.",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    },
+    {
+      "claim_id": "el-kabron-bali-26",
+      "field": "lastVerifiedAt",
+      "target": "CODE",
+      "class": "F",
+      "action": "keep",
+      "live_value": "2026-07-12",
+      "proposed": null,
+      "source_url": null,
+      "source_date": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "evidence_kind": null,
+      "multi_branch": false,
+      "branch_evidence": null,
+      "booking_link_quote": null,
+      "status": "ready",
+      "note": "reconcile decides the date",
+      "category": "beach_club",
+      "validator": "skip",
+      "reasons": [
+        "keep: nothing to verify"
+      ]
+    }
+  ]
+}

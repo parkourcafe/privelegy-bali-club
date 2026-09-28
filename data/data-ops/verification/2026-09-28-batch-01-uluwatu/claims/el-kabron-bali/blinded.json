@@ -1,0 +1,155 @@
+{
+  "slug": "el-kabron-bali",
+  "officialDomains": [
+    "elkabron.com"
+  ],
+  "category": "beach_club",
+  "claims": [
+    {
+      "claim_id": "el-kabron-bali-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "oysters; seafood paella; rib-eye steak",
+      "claim_text": null,
+      "source_url": "https://elkabron.com/menu/el-kabron-bali-uluwatu-food-menu.webp",
+      "quote": "SEAFOOD PAELLA",
+      "snapshot_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "el-kabron-bali-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Spanish cliff club above Pecatu's west coast — paella, an edge-of-the-world pool and Bali's most theatrical sunset seating.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "el-kabron-bali-24",
+      "field": "coordinates",
+      "action": "replace",
+      "proposed": [
+        -8.8094,
+        115.1109
+      ],
+      "claim_text": null,
+      "source_url": "https://elkabron.com/",
+      "quote": "LOCATION\nJl. Pantai Cemongkak, Pecatu, Bali 80361 - Indonesia",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "el-kabron-bali-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "11.00am-23.59pm"
+        ],
+        "Tuesday": [
+          "11.00am-23.59pm"
+        ],
+        "Wednesday": [
+          "11.00am-23.59pm"
+        ],
+        "Thursday": [
+          "11.00am-23.59pm"
+        ],
+        "Friday": [
+          "11.00am-23.59pm"
+        ],
+        "Saturday": [
+          "11.00am-23.59pm"
+        ],
+        "Sunday": [
+          "11.00am-23.59pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://elkabron.com/faq",
+      "quote": "Hours of Operation Every day from 11:00 until midnight.",
+      "snapshot_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-el-kab-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-el-kab-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-el-kabron-bali",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-el-kab-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://elkabron.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "el-kabron-bali-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://elkabron.com/menu/food",
+      "claim_text": null,
+      "source_url": "https://elkabron.com/menu/food",
+      "quote": "Food Menu | El Kabron Bali Beach Club & Restaurant in Uluwatu",
+      "snapshot_sha256": "d44a579b0fde57ffc452f006ec9266fc6c18c6a6a8d27116f605e34aeaabc30b",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "el-kabron-bali-14",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "Seafood paella IDR 355K per person; Rib-eye steak IDR 925K (official food menu image, 2026-09-28; prices in '000 subject to 10% service and 10% tax)",
+      "claim_text": null,
+      "source_url": "https://elkabron.com/menu/el-kabron-bali-uluwatu-food-menu.webp",
+      "quote": "All prices shown are in Indonesian rupiah quoted in '000' and subject to 10% service charge and 10% government tax",
+      "snapshot_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "category": "beach_club"
+    }
+  ]
+}
