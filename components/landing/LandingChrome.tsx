@@ -65,7 +65,7 @@ export function LandingNav() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--ob-line)] text-[var(--ob-sand)] md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >

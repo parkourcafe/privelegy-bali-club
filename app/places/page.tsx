@@ -390,7 +390,7 @@ export default async function PlacesPage({
                 <BrandHomeLink tone="dark" />
                 <Link
                   href="/plan"
-                  className="text-sm font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
+                  className="inline-flex min-h-11 items-center text-sm font-medium text-[rgba(250,246,239,0.9)] transition-colors hover:text-white"
                 >
                   Need a trip plan? →
                 </Link>

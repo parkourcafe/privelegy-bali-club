@@ -46,3 +46,31 @@ test("Plan moment picker wraps on phones instead of scrolling sideways", () => {
   assert.match(mobile[1], /display:\s*grid/);
   assert.match(mobile[1], /overflow-x:\s*visible/);
 });
+
+// T-OB-05: the second 360 px pass found these below 44 px. Logo, footer links
+// and breadcrumbs are excluded on purpose — sizing them is an owner decision.
+test("link forms of .chip and .topline honour the 44 px minimum", () => {
+  assert.match(ruleBody("a.chip"), /display:\s*inline-flex/);
+  assert.ok(minHeightPx("a.topline") >= 44, "a.topline is below 44 px");
+  assert.ok(minHeightPx(".ob-site-nav a") >= 44, ".ob-site-nav a is below 44 px");
+});
+
+test("tap targets found at 32–40 px on /my-day, /places and / are 44 px", () => {
+  const cases = [
+    ["components/my-day/DayBuilderForm.tsx", /min-h-11 items-center gap-1\.5[^"]*"\s*>\s*📍/],
+    ["app/places/PlacesView.tsx", /inline-flex min-h-11 items-center rounded-full[^"]*"\s*>\s*All \{section\.total\} →/],
+    ["app/places/page.tsx", /inline-flex min-h-11 items-center[^"]*"\s*>\s*Need a trip plan\? →/],
+    ["app/page.tsx", /min-h-11 items-center[^"]*"\s*>\s*Explore Bali areas →/],
+    ["app/page.tsx", /min-h-11 items-center[^"]*"\s*>\s*See all Bali plans →/],
+    ["components/SimilarPlaces.tsx", /button-secondary min-h-11/],
+    ["components/landing/LandingChrome.tsx", /h-11 w-11 items-center justify-center rounded-full/],
+    ["components/PropertySubmissionForm.tsx", /min-h-11 rounded-full px-4/],
+    ["app/partner/page.tsx", /inline-flex min-h-11 items-center/],
+  ];
+  for (const [file, pattern] of cases) {
+    assert.match(readFileSync(file, "utf8"), pattern, `${file} lost its 44 px target`);
+  }
+  for (const file of ["components/my-day/DayBuilderForm.tsx", "components/SimilarPlaces.tsx", "components/PropertySubmissionForm.tsx", "app/partner/page.tsx"]) {
+    assert.doesNotMatch(readFileSync(file, "utf8"), /\bmin-h-(8|9|10)\b/, `${file} still has a sub-44 px min-h`);
+  }
+});

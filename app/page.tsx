@@ -273,7 +273,7 @@ export default function HomePage() {
                   </Link>
                   .
                 </p>
-                <Link href="/bali" className="mt-5 inline-flex font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
+                <Link href="/bali" className="mt-5 inline-flex min-h-11 items-center font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
                   Explore Bali areas →
                 </Link>
               </div>
@@ -311,7 +311,7 @@ export default function HomePage() {
                     </HomeAnalyticsLink>
                   ))}
                 </div>
-                <Link href="/plan" className="mt-5 inline-flex font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
+                <Link href="/plan" className="mt-5 inline-flex min-h-11 items-center font-semibold text-[#005962] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#005962]">
                   See all Bali plans →
                 </Link>
               </div>

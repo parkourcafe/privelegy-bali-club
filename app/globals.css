@@ -121,6 +121,11 @@ html {
   text-decoration: none;
 }
 
+/* .topline also labels plain paragraphs; only its link form is a tap target. */
+a.topline {
+  min-height: 44px;
+}
+
 .quiet-link {
   display: inline-flex;
   min-height: 44px;
@@ -420,6 +425,13 @@ html {
   font-size: 13px;
   font-weight: 700;
   transition: transform 160ms ease, color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+/* A chip rendered as a link is inline by default, which ignores min-height;
+   outside a flex parent it measured 35 px (T-OB-05). */
+a.chip {
+  display: inline-flex;
+  align-items: center;
 }
 
 .chip:hover {
@@ -3687,7 +3699,7 @@ html {
 .ob-site-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   border-radius: 999px;
   white-space: nowrap;

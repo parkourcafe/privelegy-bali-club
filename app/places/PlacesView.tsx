@@ -406,7 +406,7 @@ export default function PlacesView({
                   {section.total > section.items.length ? (
                     <Link
                       href={catalogueHref(filters, { district: section.slug })}
-                      className="rounded-full border border-[rgba(250,246,239,0.5)] bg-black/25 px-4 py-2 text-xs font-bold text-[var(--ob-sand)] backdrop-blur-sm transition-colors hover:bg-black/45"
+                      className="inline-flex min-h-11 items-center rounded-full border border-[rgba(250,246,239,0.5)] bg-black/25 px-4 py-2 text-xs font-bold text-[var(--ob-sand)] backdrop-blur-sm transition-colors hover:bg-black/45"
                     >
                       All {section.total} →
                     </Link>
