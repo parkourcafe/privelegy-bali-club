@@ -67,6 +67,11 @@ jobs:
           cache: gradle
 
       - uses: android-actions/setup-android@v3
+        with:
+          # The default also installs the legacy 'tools' package, which
+          # cmdline-tools 16.0 no longer ships; sdkmanager then exits 1.
+          # Platform and build-tools come from the next step.
+          packages: 'platform-tools'
 
       - name: Install Android SDK 36
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
