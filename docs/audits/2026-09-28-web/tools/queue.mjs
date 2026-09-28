@@ -19,30 +19,38 @@ const DIR = resolve(val("--dir", ".."));
 const TODAY = Date.parse("2026-09-28");
 
 function parseCsv(text) {
-  const lines = text.split("\n").filter((l) => l && !l.startsWith("#"));
-  const parse = (line) => {
-    const out = [];
-    let cur = "";
-    let q = false;
-    for (let i = 0; i < line.length; i += 1) {
-      const ch = line[i];
-      if (q) {
-        if (ch === '"' && line[i + 1] === '"') {
-          cur += '"';
-          i += 1;
-        } else if (ch === '"') q = false;
-        else cur += ch;
-      } else if (ch === '"') q = true;
-      else if (ch === ",") {
-        out.push(cur);
-        cur = "";
-      } else cur += ch;
-    }
-    out.push(cur);
-    return out;
-  };
-  const header = parse(lines[0]);
-  return lines.slice(1).map((l) => Object.fromEntries(parse(l).map((v, i) => [header[i], v])));
+  // Full CSV state machine: quoted fields may contain commas, quotes and newlines.
+  text = text.replace(/^(#[^\n]*\n)+/, ""); // leading "# одна строка = …" comment lines
+  const records = [];
+  let row = [];
+  let cur = "";
+  let q = false;
+  for (let i = 0; i < text.length; i += 1) {
+    const ch = text[i];
+    if (q) {
+      if (ch === '"' && text[i + 1] === '"') {
+        cur += '"';
+        i += 1;
+      } else if (ch === '"') q = false;
+      else cur += ch;
+    } else if (ch === '"') q = true;
+    else if (ch === ",") {
+      row.push(cur);
+      cur = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && text[i + 1] === "\n") i += 1;
+      row.push(cur);
+      cur = "";
+      if (!(row.length === 1 && row[0] === "") && !(row.length === 1 && row[0].startsWith("#"))) records.push(row);
+      row = [];
+    } else cur += ch;
+  }
+  if (cur !== "" || row.length) {
+    row.push(cur);
+    records.push(row);
+  }
+  const header = records[0];
+  return records.slice(1).map((r) => Object.fromEntries(r.map((v, i) => [header[i], v])));
 }
 
 const places = parseCsv(await readFile(join(DIR, "places.csv"), "utf8"));

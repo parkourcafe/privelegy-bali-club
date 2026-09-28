@@ -205,8 +205,8 @@
         "note": "Site footer '© Papi Sapi 2026'; Bali branch on Jl. Labuansait, second branch on Lombok."
       },
       "identityOk": true,
-      "accepted": 0,
-      "hold": 12,
+      "accepted": 8,
+      "hold": 4,
       "rejected": 0,
       "keep": 13,
       "manual": 0
@@ -225,8 +225,8 @@
         "note": "Single site; footer copyright 2026; hours, address and phone published."
       },
       "identityOk": true,
-      "accepted": 0,
-      "hold": 13,
+      "accepted": 11,
+      "hold": 2,
       "rejected": 0,
       "keep": 13,
       "manual": 0
@@ -245,8 +245,8 @@
         "note": "Official site live (© 2026), per-day hours, phone and menus published; event page lists Uluwatu Single Fin Classic 2026."
       },
       "identityOk": true,
-      "accepted": 0,
-      "hold": 10,
+      "accepted": 7,
+      "hold": 3,
       "rejected": 0,
       "keep": 17,
       "manual": 0
@@ -282,11 +282,11 @@
         "note": "Group site By/Suka lists Suka Ubud and Suka Uluwatu; this page is the Uluwatu branch and carries a September 2026 promotion ('Aperol Week is back (13–21 September)')."
       },
       "identityOk": true,
-      "accepted": 0,
-      "hold": 12,
+      "accepted": 5,
+      "hold": 4,
       "rejected": 0,
       "keep": 13,
-      "manual": 0
+      "manual": 3
     },
     "sundays-beach-club": {
       "identity": {
@@ -491,9 +491,9 @@
   },
   "totals": {
     "KEEP": 378,
-    "HOLD": 213,
-    "ACCEPTED": 37,
-    "MANUAL_REVIEW": 4,
+    "HOLD": 179,
+    "ACCEPTED": 68,
+    "MANUAL_REVIEW": 7,
     "REJECTED": 1
   },
   "canaries": [
@@ -703,6 +703,111 @@
     {
       "slug": "oneeighty",
       "claim_id": "k-oneeig-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "papi-sapi",
+      "claim_id": "k-papi-s-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "papi-sapi",
+      "claim_id": "k-papi-s-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "papi-sapi",
+      "claim_id": "k-papi-s-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "seed-bingin",
+      "claim_id": "k-seed-b-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "seed-bingin",
+      "claim_id": "k-seed-b-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "seed-bingin",
+      "claim_id": "k-seed-b-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "single-fin",
+      "claim_id": "k-single-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "single-fin",
+      "claim_id": "k-single-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "single-fin",
+      "claim_id": "k-single-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "son-of-a-baker",
+      "claim_id": "k-son-of-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "son-of-a-baker",
+      "claim_id": "k-son-of-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "son-of-a-baker",
+      "claim_id": "k-son-of-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "suka-espresso",
+      "claim_id": "k-suka-e-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "suka-espresso",
+      "claim_id": "k-suka-e-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "suka-espresso",
+      "claim_id": "k-suka-e-3",
       "kind": "wrong_venue_source",
       "acceptor": "reject",
       "caught": true

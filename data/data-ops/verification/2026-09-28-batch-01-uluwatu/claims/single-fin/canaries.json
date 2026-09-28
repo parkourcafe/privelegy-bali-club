@@ -1,0 +1,20 @@
+{
+  "slug": "single-fin",
+  "canaries": [
+    {
+      "claim_id": "k-single-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-single-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-single-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "sundays-beach-club"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "slug": "suka-espresso",
+  "officialDomains": [
+    "bysuka.com"
+  ],
+  "category": "cafe",
+  "claims": [
+    {
+      "claim_id": "suka-espresso-22",
+      "field": "phone",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "salmon scramble; chicken katsu sando; wagyu beef burger",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "quote": "SALMON SCRAMBLE (CD)",
+      "snapshot_sha256": "344e7b3df90163aec5898ab28615c3d46bd72b69097ba25716df94017314ec4c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-suka-e-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "big brekky 98K + service and tax (morning menu, 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "quote": "BIG BREKKY (CD)\nSMOKED BACON, EGGS THE WAY YOU LIKE IT, HOLLANDAISE, HASHBROWN, HERB\n\n98",
+      "snapshot_sha256": "344e7b3df90163aec5898ab28615c3d46bd72b69097ba25716df94017314ec4c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-suka-e-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-suka-espresso",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-07",
+      "field": "copy:practicalNote#1",
+      "action": "replace",
+      "proposed": "Jl. Labuansait, Uluwatu — part of the By/Suka collective (sister branch in Ubud).",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/suka-uluwatu",
+      "quote": "Suka Ubud & Suka Uluwatu.",
+      "snapshot_sha256": "7123aabc1f9087f30aab722c2dc0576c0e0f11e4b229667c90bf0e398ccde444",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/suka-uluwatu",
+      "quote": "HOURS: 7:30AM - 10PM",
+      "snapshot_sha256": "7123aabc1f9087f30aab722c2dc0576c0e0f11e4b229667c90bf0e398ccde444",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-05",
+      "field": "copy:whatToExpect#1",
+      "action": "replace",
+      "proposed": "Australian café standards done properly — salmon scramble, chicken katsu sando, burgers — with a steady laptop crowd off-peak.",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "quote": "CHICKEN KATSU SANDO (CD)",
+      "snapshot_sha256": "344e7b3df90163aec5898ab28615c3d46bd72b69097ba25716df94017314ec4c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "quote": "SUKA ULUWATU\n\nGOOD DAILY",
+      "snapshot_sha256": "344e7b3df90163aec5898ab28615c3d46bd72b69097ba25716df94017314ec4c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-15",
+      "field": "full_address",
+      "action": "replace",
+      "proposed": "Jl. Labuansait, Uluwatu",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/suka-uluwatu",
+      "quote": "lOCATION: Jl. Labuansait, ULUWATU",
+      "snapshot_sha256": "7123aabc1f9087f30aab722c2dc0576c0e0f11e4b229667c90bf0e398ccde444",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-suka-e-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/s/NEW_MORNING_ULUWATU.pdf",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "344e7b3df90163aec5898ab28615c3d46bd72b69097ba25716df94017314ec4c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/suka-uluwatu",
+      "quote": "HOURS: 7:30AM - 10PM",
+      "snapshot_sha256": "7123aabc1f9087f30aab722c2dc0576c0e0f11e4b229667c90bf0e398ccde444",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "suka-espresso-14",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Jl. Labuansait, Uluwatu",
+      "claim_text": null,
+      "source_url": "https://www.bysuka.com/suka-uluwatu",
+      "quote": "lOCATION: Jl. Labuansait, ULUWATU",
+      "snapshot_sha256": "7123aabc1f9087f30aab722c2dc0576c0e0f11e4b229667c90bf0e398ccde444",
+      "category": "cafe"
+    }
+  ]
+}
