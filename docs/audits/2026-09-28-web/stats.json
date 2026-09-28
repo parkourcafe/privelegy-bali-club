@@ -1,0 +1,331 @@
+{
+  "measured_at": "2026-09-28",
+  "requests": 1862,
+  "sitemapUrls": 1770,
+  "statusCounts": {
+    "200": 1850,
+    "404": 12
+  },
+  "htmlPages200": 1841,
+  "noStore": 1840,
+  "cacheable": 1,
+  "ttfb": {
+    "p50": 322,
+    "p90": 569,
+    "p95": 866,
+    "max": 1744,
+    "n": 1841,
+    "edge": [
+      "iad1::sin1",
+      "iad1::nx4cr-1790573810629-47fe5f7a4acc"
+    ]
+  },
+  "places": 1609,
+  "completeness": {
+    "Amed": {
+      "places": 6,
+      "why": 6,
+      "bestFor": 6,
+      "notFor": 0,
+      "priceDigits": 3,
+      "hours": 0,
+      "streetAddress": 2,
+      "website": 6,
+      "lastChecked": 6,
+      "telephone": 4,
+      "geo": 0,
+      "photo": 5,
+      "menu": 0
+    },
+    "Bali": {
+      "places": 53,
+      "why": 53,
+      "bestFor": 36,
+      "notFor": 5,
+      "priceDigits": 5,
+      "hours": 14,
+      "streetAddress": 24,
+      "website": 40,
+      "lastChecked": 50,
+      "telephone": 23,
+      "geo": 29,
+      "photo": 47,
+      "menu": 2
+    },
+    "Canggu": {
+      "places": 281,
+      "why": 281,
+      "bestFor": 256,
+      "notFor": 133,
+      "priceDigits": 86,
+      "hours": 126,
+      "streetAddress": 87,
+      "website": 233,
+      "lastChecked": 280,
+      "telephone": 112,
+      "geo": 84,
+      "photo": 262,
+      "menu": 38
+    },
+    "Jimbaran": {
+      "places": 73,
+      "why": 71,
+      "bestFor": 62,
+      "notFor": 4,
+      "priceDigits": 5,
+      "hours": 15,
+      "streetAddress": 22,
+      "website": 58,
+      "lastChecked": 63,
+      "telephone": 30,
+      "geo": 17,
+      "photo": 66,
+      "menu": 7
+    },
+    "Kuta & Legian": {
+      "places": 132,
+      "why": 120,
+      "bestFor": 67,
+      "notFor": 7,
+      "priceDigits": 16,
+      "hours": 62,
+      "streetAddress": 88,
+      "website": 96,
+      "lastChecked": 131,
+      "telephone": 82,
+      "geo": 81,
+      "photo": 117,
+      "menu": 11
+    },
+    "Lovina": {
+      "places": 9,
+      "why": 9,
+      "bestFor": 9,
+      "notFor": 1,
+      "priceDigits": 3,
+      "hours": 0,
+      "streetAddress": 2,
+      "website": 8,
+      "lastChecked": 8,
+      "telephone": 4,
+      "geo": 3,
+      "photo": 7,
+      "menu": 0
+    },
+    "Munduk": {
+      "places": 12,
+      "why": 12,
+      "bestFor": 12,
+      "notFor": 1,
+      "priceDigits": 3,
+      "hours": 0,
+      "streetAddress": 2,
+      "website": 12,
+      "lastChecked": 12,
+      "telephone": 7,
+      "geo": 0,
+      "photo": 11,
+      "menu": 0
+    },
+    "Nusa Dua": {
+      "places": 136,
+      "why": 131,
+      "bestFor": 93,
+      "notFor": 22,
+      "priceDigits": 22,
+      "hours": 42,
+      "streetAddress": 57,
+      "website": 120,
+      "lastChecked": 122,
+      "telephone": 80,
+      "geo": 54,
+      "photo": 125,
+      "menu": 12
+    },
+    "Nusa Penida": {
+      "places": 8,
+      "why": 6,
+      "bestFor": 1,
+      "notFor": 0,
+      "priceDigits": 0,
+      "hours": 6,
+      "streetAddress": 5,
+      "website": 8,
+      "lastChecked": 8,
+      "telephone": 8,
+      "geo": 8,
+      "photo": 8,
+      "menu": 4
+    },
+    "Sanur": {
+      "places": 103,
+      "why": 91,
+      "bestFor": 82,
+      "notFor": 27,
+      "priceDigits": 16,
+      "hours": 31,
+      "streetAddress": 41,
+      "website": 74,
+      "lastChecked": 87,
+      "telephone": 46,
+      "geo": 36,
+      "photo": 85,
+      "menu": 11
+    },
+    "Seminyak": {
+      "places": 225,
+      "why": 206,
+      "bestFor": 147,
+      "notFor": 51,
+      "priceDigits": 31,
+      "hours": 113,
+      "streetAddress": 129,
+      "website": 193,
+      "lastChecked": 220,
+      "telephone": 138,
+      "geo": 110,
+      "photo": 208,
+      "menu": 38
+    },
+    "Sidemen": {
+      "places": 7,
+      "why": 7,
+      "bestFor": 7,
+      "notFor": 0,
+      "priceDigits": 5,
+      "hours": 0,
+      "streetAddress": 2,
+      "website": 7,
+      "lastChecked": 7,
+      "telephone": 3,
+      "geo": 0,
+      "photo": 7,
+      "menu": 0
+    },
+    "Ubud": {
+      "places": 375,
+      "why": 334,
+      "bestFor": 238,
+      "notFor": 89,
+      "priceDigits": 59,
+      "hours": 162,
+      "streetAddress": 224,
+      "website": 323,
+      "lastChecked": 365,
+      "telephone": 215,
+      "geo": 203,
+      "photo": 333,
+      "menu": 60
+    },
+    "Uluwatu": {
+      "places": 189,
+      "why": 180,
+      "bestFor": 162,
+      "notFor": 39,
+      "priceDigits": 22,
+      "hours": 40,
+      "streetAddress": 77,
+      "website": 165,
+      "lastChecked": 181,
+      "telephone": 66,
+      "geo": 51,
+      "photo": 172,
+      "menu": 19
+    }
+  },
+  "lastCheckedTop": [
+    [
+      "2026-07-28",
+      633
+    ],
+    [
+      "2026-08-25",
+      337
+    ],
+    [
+      "2026-08-07",
+      123
+    ],
+    [
+      "2026-07-29",
+      104
+    ],
+    [
+      "2026-08-08",
+      94
+    ],
+    [
+      "2026-08-04",
+      75
+    ],
+    [
+      "2026-07-30",
+      57
+    ],
+    [
+      "2026-07-20",
+      28
+    ],
+    [
+      "2026-07-12",
+      24
+    ],
+    [
+      "2026-08-11",
+      17
+    ]
+  ],
+  "outbound": {
+    "ok": 1486,
+    "not_checked": 137,
+    "not_found": 57,
+    "server_error": 4,
+    "redirect_other_domain": 23,
+    "dns_fail": 10,
+    "other": 2,
+    "ok_on_retry": 6,
+    "skipped_by_policy": 2583
+  },
+  "dupes": 297,
+  "missingFromCatalogue": 8,
+  "llmsLinks": 94,
+  "c1": {
+    "pages": 53,
+    "fails": 242,
+    "falseFails": 2
+  },
+  "instancesBySeverity": {
+    "P2": 446,
+    "P3": 2120,
+    "P0": 15,
+    "P1": 100
+  },
+  "instancesByCheck": {
+    "T2 P2": 1,
+    "T9 P2": 14,
+    "T9 P3": 82,
+    "T10 P2": 15,
+    "T4 P2": 20,
+    "T4 P3": 763,
+    "T5 P0": 15,
+    "T7 P3": 171,
+    "T6 P1": 2,
+    "T7 P2": 65,
+    "T8 P2": 3,
+    "G6 P3": 36,
+    "G1 P1": 30,
+    "G4 P3": 46,
+    "G5 P2": 36,
+    "G8 P3": 106,
+    "G9 P2": 1,
+    "G7 P3": 533,
+    "G7 P1": 1,
+    "G7 P2": 1,
+    "G5 P3": 383,
+    "D1 P2": 19,
+    "O1 P1": 67,
+    "O1 P2": 29,
+    "L1 P2": 2,
+    "C1 P2": 240
+  }
+}

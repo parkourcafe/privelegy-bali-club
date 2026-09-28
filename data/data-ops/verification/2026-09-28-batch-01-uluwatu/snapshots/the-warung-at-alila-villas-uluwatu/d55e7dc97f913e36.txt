@@ -1,0 +1,52 @@
+Hyatt Hotels and Resorts We’re sorry.
+Your browser did something unexpected and we were unable to process your request.
+Es tut uns leid
+Ihr Browser hat etwas Unerwartetes getan und wir konnten Ihre Anfrage nicht verarbeiten.
+Lo sentimos.
+Su navegador hizo algo inesperado y no pudimos procesar su solicitud.
+Nous sommes désolés.
+Votre navigateur a fait quelque chose d'inattendu et nous n'avons pas pu traiter votre demande.
+Lamentamos.
+Seu navegador fez algo inesperado e não conseguimos processar sua solicitação.
+Сожалеем!
+Ваш браузер сделал что-то неожиданное, и мы не смогли обработать ваш запрос.
+申し訳ございません。
+ブラウザが予期しない動作をしたため、リクエストを処理できませんでした。
+죄송합니다.
+귀하의 브라우저에서 예상치 못한 일이 발생하여 요청을 처리할 수 없습니다.
+非常抱歉。
+您的浏览器发生了意外事件，我们无法处理您的请求。
+非常抱歉，
+您的瀏覽器執行了意外操作，我們無法處理您的要求。
+For reservation assistance, please call:
+1-800-720-0059 (within the U.S.)
++1-402-593-5064 (outside the U.S.)
+Für Hilfe bei der Reservierung:
+1 800 720 0059 (in den USA)
++(1) 402 593 5064 (außerhalb USA)
+Para asistencia con reservas, llame al:
+1-800-720-0059 (en EE. UU.)
++1-402-593-5064 (fuera de EE. UU.)
+Pour obtenir une assistance à la réservation, veuillez appeler le :
++1 800 720 0059 (aux États-Unis)
++1 402 593 5064 (en dehors des États-Unis)
+Para ajuda sobre sua reserva, ligue para:
+1-800-720-0059 (nos EUA)
++1-402-593-5064 (fora dos EUA)
+Для получения помощи с бронированием звоните:
+1-800-720-0059 (в США)
++1-402-593-5064 (за пределами США)
+ご予約につきましては、以下の番号にお電話でお問い合わせください。
+米国内およびカナダ：1-800-720-0059
+それ以外の地域：+(1) 402-593-5064
+예약 문의는 아래 번호로 연락하시기 바랍니다.
++(1) 800 720 0059(미국 내)
++(1) 402 593 5064(미국 이외 지역)
+如需协助预订，请致电：
+1-800-720-0059（美国境内）
++1-402-593-5064（美国境外）
+如需協助訂房，請致電：
+1-800-720-0059（美國境內）
++1-402-593-5064（美國境外）
+Error: E6020
+Reference: 0.b00a3517.1790574885.3aff17ee

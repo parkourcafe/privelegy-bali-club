@@ -1,0 +1,10 @@
+# Raw source bytes stay local: text extracts + sha256 in index.jsonl are the committed evidence.
+# Raw files for accepted F-claims are added explicitly at hand-over.
+snapshots/**/*.html
+snapshots/**/*.pdf
+snapshots/**/*.jpeg
+snapshots/**/*.jpg
+snapshots/**/*.png
+snapshots/**/*.webp
+snapshots/**/*.bin
+snapshots-acceptor/

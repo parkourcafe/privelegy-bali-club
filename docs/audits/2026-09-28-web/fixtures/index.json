@@ -1,0 +1,74 @@
+{
+ "place-registry-single-fin": {
+  "url": "https://www.otherbali.com/places/single-fin",
+  "status": 200,
+  "sha256": "9b4d4c207153e78676feb42a1e6c6698336feba17d9b0b88ec30593f2e01adf0",
+  "fetchedAt": "2026-09-28T05:41:43.177Z"
+ },
+ "place-db-milu-by-nook": {
+  "url": "https://www.otherbali.com/places/milu-by-nook",
+  "status": 200,
+  "sha256": "d10941ca7241914eebde5c09b32a72d6c0d52bcd6ab73dc20553ca77804fb41a",
+  "fetchedAt": "2026-09-28T05:37:52.975Z"
+ },
+ "place-actions-menu-billy-ho": {
+  "url": "https://www.otherbali.com/places/billy-ho-japanese-restaurant",
+  "status": 200,
+  "sha256": "18d66d62cd6098f62caf133a4e22cee92df12c6fe9571812bb90d701da65d397",
+  "fetchedAt": "2026-09-28T05:37:34.785Z"
+ },
+ "place-menu-avli": {
+  "url": "https://www.otherbali.com/places/avli-bali",
+  "status": 200,
+  "sha256": "b0a6a807957b311bb8f1ec43f72c762b203441dab30d3036700f136ac866aefd",
+  "fetchedAt": "2026-09-28T05:41:26.186Z"
+ },
+ "place-no-bestfor-sisi-gege": {
+  "url": "https://www.otherbali.com/places/sisi-gege-restaurant-at-pramana-zahill",
+  "status": 200,
+  "sha256": "80c10e59b39ad0bed4863b4a3ff4d6eb045ac55eb79625af8914f176f29df91f",
+  "fetchedAt": "2026-09-28T05:37:26.765Z"
+ },
+ "not-found-gildak-renon": {
+  "url": "https://www.otherbali.com/places/gildak-renon",
+  "status": 404,
+  "sha256": "ad3f24da654ca34062b47b4cb2a4b058040bd292f2f944d54d7f1825666052ca",
+  "fetchedAt": "2026-09-28T05:42:41.078Z"
+ },
+ "best-restaurants": {
+  "url": "https://www.otherbali.com/best-restaurants-in-bali",
+  "status": 200,
+  "sha256": "64c3e1c371f8a39121c8a06e9b4b33f4e23a6debf8a6a2b4b8b0d108897bb2be",
+  "fetchedAt": "2026-09-28T05:36:59.029Z"
+ },
+ "hub-uluwatu": {
+  "url": "https://www.otherbali.com/uluwatu",
+  "status": 200,
+  "sha256": "7c5666b6dbe33b4b9c04359771a2057ec45cdfeb79035cce437f954c5e1db991",
+  "fetchedAt": "2026-09-28T05:37:09.062Z"
+ },
+ "bali-district-kuta-legian": {
+  "url": "https://www.otherbali.com/bali/kuta-legian",
+  "status": 200,
+  "sha256": "57138ff18a41dbbaf121f6270b4c4b08cdebde84f74f92fe8916ed9d6755096e",
+  "fetchedAt": "2026-09-28T05:36:52.827Z"
+ },
+ "guide-canggu-best-brunch": {
+  "url": "https://www.otherbali.com/canggu/best-brunch",
+  "status": 200,
+  "sha256": "96c91e8f5a1b99dcabc9b71daa53c87163cb1421ea7fc54ec9d8fe89f061c716",
+  "fetchedAt": "2026-09-28T05:37:06.112Z"
+ },
+ "catalogue-places": {
+  "url": "https://www.otherbali.com/places",
+  "status": 200,
+  "sha256": "3bfbc68e0d2d5d06500d3f127fd640081d0bb9a3cb6186e0fe8c6a2fb7de8aaf",
+  "fetchedAt": "2026-09-28T05:37:25.434Z"
+ },
+ "offer-holiday-inn-fun-day-pass": {
+  "url": "https://www.otherbali.com/day-passes/holiday-inn-resort-bali-nusa-dua--fun-day-pass",
+  "status": 200,
+  "sha256": "18a7ba5606a045f4a57cccb0d792b39f5e6d49cf6a5b0c1d996a0d78aa08b0b0",
+  "fetchedAt": "2026-09-28T05:42:07.040Z"
+ }
+}
