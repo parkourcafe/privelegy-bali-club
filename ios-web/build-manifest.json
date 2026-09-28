@@ -38,5 +38,5 @@
     "plugins/offline-mapbox/dist/esm/index.js",
     "scripts/build-mobile-shell.mjs"
   ],
-  "sourceHash": "b8e7423f7cb6646acff3ef529e90fd41487987d6bc233d70663f1715a14cc592"
+  "sourceHash": "76a33b9cf5d9966f5be9fc090da55aacd9578021682750abf8411d93f9305701"
 }
