@@ -4,6 +4,7 @@ import { getRoute, getRoutes } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
 import { GuideHeroMedia } from "@/components/GuideMedia";
 import { DISTRICT_GUIDE } from "@/lib/districts";
+import { clipMetaDescription } from "@/lib/seo/meta-description";
 
 // Route pages are ordered sequences. Back-links return to the relevant area
 // guide, not /plan, so Plan can stay the future-trip surface.
@@ -66,7 +67,7 @@ export async function generateMetadata({
     route.subtitle || `A ${route.stops.length}-stop day in ${districtName}.`;
   return {
     title: route.title,
-    description: description.slice(0, 158),
+    description: clipMetaDescription(description),
     alternates: { canonical: `/route/${slug}` },
     openGraph: {
       title: `${route.title} · Other Bali`,
