@@ -153,3 +153,77 @@ npm run build        exit 0 — prebuild: fetch-scenes получил HTTP 403 �
    минимальная правка с тестом).
 2. Без доступа к проду можно сделать отдельными PR: обрезку meta description
    по границе слова (§9.5) и три замечания ревью #309 — каждое с тестом.
+
+---
+
+## Запуск 2 — 2026-09-28
+
+```yaml
+base_sha: beff274 (origin/main не изменился)
+branch: claude/autonomy-ob-01
+pr: https://github.com/parkourcafe/privelegy-bali-club/pull/311 (draft)
+```
+
+### O1 — draft PR и CI
+
+- Draft PR #311 уже существовал (создан прошлым запуском); новый не открывался.
+- **BLOCKED_DECISION: CI.** На PR 0 check runs. Причина — коммит `c2f0aa3`
+  (#310, «disable automatic runs»): в `.github/workflows/ci.yml` остался только
+  `workflow_dispatch`. Запускать вручную не стал: правила запрещают включать
+  отключённый CI, а владелец выключил автозапуски намеренно. Нужно решение:
+  разрешить один ручной запуск `CI` на ветке `claude/autonomy-ob-01`, или
+  принять локальные проверки ниже как достаточные для этого PR.
+
+### O2 — индексация (часть 1 журнала)
+
+- Статус прежний: **BLOCKED_EXTERNAL**, выгрузок GSC в репозитории нет
+  (`reports/` содержит только импорт и chope; `docs/seo/` — планы без
+  выгрузок). Инструменты Ahrefs `gsc-*` в сессии есть, но это платный API —
+  не вызывались.
+- Что выгрузить: GSC → Indexing → Pages, по каждой причине исключения
+  (Not found 404, Soft 404, Redirect error, Duplicate/Alternate canonical,
+  Excluded by noindex, Crawled/Discovered – not indexed) кнопкой Export → CSV;
+  положить в `docs/seo/gsc/2026-09-XX/`.
+
+### next_step из журнала: §9.5 — обрезка meta description
+
+**DONE_CODE, TESTED_LOCAL** (коммит `8fdf245`).
+
+- Новый `lib/seo/meta-description.ts` → `clipMetaDescription(text, 158)`:
+  короткий текст без изменений; длинный — срез по последнему пробелу,
+  без висящей пунктуации, с `…`; одно сверхдлинное слово режется жёстко.
+- Подключено: `app/places/[slug]/page.tsx` (generateMetadata),
+  `app/route/[slug]/page.tsx` (description; OG-описание 200 символов не трогал).
+- Тест `lib/seo/meta-description.test.ts` (6 кейсов) добавлен в `npm test`.
+- `lib/hub.ts:119`, `:171` не менял — там свой срез с `…`; при желании
+  перевести на ту же функцию отдельным коммитом.
+- Раздел 10 `docs/HANDOFF_2026-09-02.md`, строка 5 обновлена.
+
+### Команды и результаты (запуск 2, Node v22, `npm ci` прошёл)
+
+```txt
+node --import tsx --test lib/seo/meta-description.test.ts   6 pass, 0 fail
+npm run typecheck    exit 0
+npm run lint         exit 0 — 0 errors, 3 warnings (те же, что в запуске 1)
+npm test             exit 0 — pretest 72/72 pass; основной набор 598 tests, 597 pass, 0 fail, 1 skipped;
+                     seo-os validate "errors": []
+npm run build        exit 0 — /places/[slug] ● , /route/[slug] ●
+```
+
+Сборка изменяет `ios-web/build-manifest.json` — откатил, в коммит не попал.
+Живую выдачу (сниппет в Google) не проверял — BLOCKED_EXTERNAL, сайт закрыт
+сетевой политикой.
+
+### Не проверено
+
+- Как новый description выглядит в реальной выдаче; прод не деплоился.
+- CI на GitHub (см. O1).
+
+### next_step (запуск 3)
+
+1. O3 — мобильный путь Today / Explore / Plan / My Bali: `npm run dev` на
+   seed-данных + Playwright (Chromium есть) на 390×844; если не поднимется —
+   чек-лист владельцу.
+2. Затем O4 (QR-пилот, прод-БД только чтение — если доступ дан) и O5 (посевы).
+3. Три замечания ревью Codex к #309 (см. таблицу выше) — отдельные коммиты
+   с тестами, если оркестратор поставит их выше O3.
