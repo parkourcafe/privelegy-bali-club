@@ -1,0 +1,922 @@
+{
+  "perVenue": {
+    "alchemy-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "Alchemy Uluwatu",
+        "branch_ok": true,
+        "multi_branch": true,
+        "evidence": {
+          "quote": "Alchemy Uluwatu\nJalan Pantai Bingin No 8\nPecatu Uluwatu - Bali\nIndonesia - 80361\n+62 811 3888 143\nhi@alchemybali.co\nMonday - Sunday 07:30 - 22:00",
+          "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact"
+        },
+        "note": "alchemybali.com now 301s to alchemybali.co; contact page lists Ubud, Uluwatu and Canggu restaurants separately."
+      },
+      "identityOk": true,
+      "accepted": 7,
+      "hold": 4,
+      "rejected": 0,
+      "keep": 14,
+      "manual": 0
+    },
+    "artisan-uluwatu": {
+      "identity": {
+        "operating": null,
+        "current_name": "Artisan Uluwatu (menu header: ULUWATU; visual menu handle @ulu.artisan)",
+        "branch_ok": true,
+        "multi_branch": true,
+        "evidence": {
+          "quote": "U L U W A T U\n\nBREAKFAST MENU\n\n7AM - 3PM",
+          "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf"
+        },
+        "note": "Operating status cannot be confirmed: source_unreachable_env: artisangroup.id root, /uluwatu/ and /menu/ return HTTP 500/503 today; only the menu PDF on that domain is reachable, and it is undated (upload path 2024/11). Chope says 'this restaurant is not accepting reservations on Chope'; Dish Cult page is 404. Reconcile should HOLD."
+      },
+      "identityOk": false,
+      "accepted": 0,
+      "hold": 13,
+      "rejected": 0,
+      "keep": 13,
+      "manual": 0
+    },
+    "bgs-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "BGS Uluwatu",
+        "branch_ok": true,
+        "multi_branch": true,
+        "evidence": {
+          "quote": "Visit Our Store\nBGS Uluwatu\nOpened in late 2019, BGS Uluwatu sits just minutes from Uluwatu Beach",
+          "source_url": "https://bgsbali.com/store/bgs-uluwatu/"
+        },
+        "note": "Branch-specific official store page."
+      },
+      "identityOk": true,
+      "accepted": 1,
+      "hold": 7,
+      "rejected": 0,
+      "keep": 18,
+      "manual": 0
+    },
+    "el-kabron-bali": {
+      "identity": {
+        "operating": true,
+        "current_name": "El Kabron Bali",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Established in the heart of Uluwatu in 2011, El Kabron Bali offers a unique hedonistic paradise under the palms",
+          "source_url": "https://elkabron.com/"
+        }
+      },
+      "identityOk": true,
+      "accepted": 1,
+      "hold": 5,
+      "rejected": 0,
+      "keep": 20,
+      "manual": 0
+    },
+    "gooseberry-french-restaurant-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "Gooseberry French Restaurant",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Gooseberry\nFrench Restaurant\nA modern French restaurant, rooted in classic French technique and offering seasonal cuisine.\nOpen Daily · 8 am – 10:30 pm",
+          "source_url": "https://www.gooseberry-restaurant.com/"
+        },
+        "note": "Official home page dateModified 2026-09-10 (JSON-LD)."
+      },
+      "identityOk": true,
+      "accepted": 9,
+      "hold": 3,
+      "rejected": 0,
+      "keep": 14,
+      "manual": 0
+    },
+    "kala-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "KALA Uluwatu",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "KALA ULUWATU - Greek Inspired Neighborhood Grill",
+          "source_url": "https://kalauluwatu.com/",
+          "snapshot_sha256": "9e5bd0d4811fc81aa8f58387dcb1f074c2dd833c91463c607350ff8b12fe1542",
+          "note": "single venue; sister restaurant My Dear Clara is a different brand 1 km away (home.jsx). Site footer '© 2024 KALA · Clean Plates Collective'; TableCheck page live under 'KALA Uluwatu'."
+        }
+      },
+      "identityOk": true,
+      "accepted": 2,
+      "hold": 11,
+      "rejected": 0,
+      "keep": 9,
+      "manual": 3
+    },
+    "laggas-uluwatu": {
+      "identity": {
+        "operating": null,
+        "current_name": "Laggas",
+        "branch_ok": null,
+        "multi_branch": false,
+        "evidence": null,
+        "note": "no official source reachable: Instagram-only venue. Probed laggasbali.com (ENOTFOUND), laggas.com (503), laggas.id (ENOTFOUND), laggasuluwatu.com (placeholder WordPress site with default 'Hello world!' content — not the venue). thebaliguideline.com snapshot is a third-party guide and not evidence."
+      },
+      "identityOk": false,
+      "accepted": 0,
+      "hold": 8,
+      "rejected": 0,
+      "keep": 17,
+      "manual": 0
+    },
+    "mana-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "Mana Uluwatu",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Mana Uluwatu proudly stands amidst the stunning grounds of Uluwatu Surf Villas and is open to outside guests.",
+          "source_url": "https://uluwatusurfvillas.com/restaurant/",
+          "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+          "note": "parent-property official site names the venue; TableCheck page 'Mana Uluwatu Restaurant & Bar - Uluwatu Surf Villas' live today"
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 13,
+      "rejected": 0,
+      "keep": 12,
+      "manual": 0
+    },
+    "masonry-restaurant": {
+      "identity": {
+        "operating": true,
+        "current_name": "MASONRY Uluwatu (site also uses 'M. Uluwatu' and 'MASONRY. Grill & Bar')",
+        "branch_ok": true,
+        "multi_branch": true,
+        "branch_evidence": "URL is branch-specific (/uluwatu); page states 'MASONRY ULUWATU HAS JUST OPENED ITS DOORS'",
+        "evidence": {
+          "quote": "THE MUCH ANTICIPATED MASONRY ULUWATU HAS JUST OPENED ITS DOORS. A SISTER RESTAURANT FOR THE CANGGU FAVOURITE HAS JUST ARRIVED IN THE BUKIT PENINSULA",
+          "source_url": "https://masonrybali.com/uluwatu/about-us",
+          "snapshot_sha256": "839b21d36a21f54ff7d3266c3ff919b68c9ed0201a13e3709eccd65f43ee9a17",
+          "note": "trap noted: the brand presents as 'M.' / 'M. MASON' on some pages; official Uluwatu pages under masonrybali.com/uluwatu are live with a 2025 copyright; bookings page embeds sevenrooms.com/reservations/masonryuluwatu"
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 12,
+      "rejected": 0,
+      "keep": 14,
+      "manual": 0
+    },
+    "oneeighty": {
+      "identity": {
+        "operating": true,
+        "current_name": "oneeighty°",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "oneeighty° is a clifftop day club celebrating sophisticated beach culture 162 metres above the Indian Ocean.",
+          "source_url": "https://oneeightybali.com/",
+          "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+          "note": "www.oneeightybali.com 301s to oneeightybali.com (200). Trap noted ('two phone numbers'): today the official site publishes a single number, +62 82144632077."
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 17,
+      "rejected": 0,
+      "keep": 9,
+      "manual": 0
+    },
+    "papi-sapi": {
+      "identity": {
+        "operating": true,
+        "current_name": "Papi Sapi",
+        "branch_ok": true,
+        "multi_branch": true,
+        "branch_evidence": "Home and contact pages list two locations (Bali / Lombok); the Bali block reads 'Bali +62 851 9590 3719 hello@papisapi.com Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361'.",
+        "evidence": {
+          "quote": "Bali\n+62 851 9590 3719 hello@papisapi.com Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+          "source_url": "https://papisapi.com/"
+        },
+        "note": "Site footer '© Papi Sapi 2026'; Bali branch on Jl. Labuansait, second branch on Lombok."
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 12,
+      "rejected": 0,
+      "keep": 13,
+      "manual": 0
+    },
+    "seed-bingin": {
+      "identity": {
+        "operating": true,
+        "current_name": "Seed",
+        "branch_ok": true,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": {
+          "quote": "© 2026 Seed Restaurant · Bingin, Bali",
+          "source_url": "https://seedbingin.com/"
+        },
+        "note": "Single site; footer copyright 2026; hours, address and phone published."
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 13,
+      "rejected": 0,
+      "keep": 13,
+      "manual": 0
+    },
+    "single-fin": {
+      "identity": {
+        "operating": true,
+        "current_name": "Single Fin",
+        "branch_ok": true,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": {
+          "quote": "Single Fin Bali\nPantai Suluban, Jl. Labuan Sait, Pecatu",
+          "source_url": "https://www.singlefinbali.com/contact/"
+        },
+        "note": "Official site live (© 2026), per-day hours, phone and menus published; event page lists Uluwatu Single Fin Classic 2026."
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 10,
+      "rejected": 0,
+      "keep": 17,
+      "manual": 0
+    },
+    "son-of-a-baker": {
+      "identity": {
+        "operating": null,
+        "current_name": null,
+        "branch_ok": null,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": null,
+        "note": "Identity cannot be established: instagram_only: no official website is known (registry: 'No official website; Instagram is the primary channel'); leads are Instagram and Wanderlog only. Instagram is unreachable here and aggregators are not sources. Not verifiable in this run. Reconcile should HOLD everything."
+      },
+      "identityOk": false,
+      "accepted": 0,
+      "hold": 12,
+      "rejected": 0,
+      "keep": 15,
+      "manual": 0
+    },
+    "suka-espresso": {
+      "identity": {
+        "operating": true,
+        "current_name": "Suka Espresso - Uluwatu (page header: SUKA - ULUWATU)",
+        "branch_ok": true,
+        "multi_branch": true,
+        "branch_evidence": "Branch-specific URL bysuka.com/suka-uluwatu; page header 'SUKA - ULUWATU'; info block 'lOCATION: Jl. Labuansait, ULUWATU'; menu PDF header 'SUKA ULUWATU'.",
+        "evidence": {
+          "quote": "Suka Espresso - Uluwatu / By/Suka Collective",
+          "source_url": "https://www.bysuka.com/suka-uluwatu"
+        },
+        "note": "Group site By/Suka lists Suka Ubud and Suka Uluwatu; this page is the Uluwatu branch and carries a September 2026 promotion ('Aperol Week is back (13–21 September)')."
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 12,
+      "rejected": 0,
+      "keep": 13,
+      "manual": 0
+    },
+    "sundays-beach-club": {
+      "identity": {
+        "operating": true,
+        "current_name": "Sundays Beach Club",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Sundays Beach Club – Uluwatu Beach Club Bali\nBali's Best Day on the Beach\nOPEN DAILY FROM 7:30 AM TO 10 PM",
+          "source_url": "https://www.sundaysbeachclub.com/",
+          "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+          "note": "Official site live today; footer address 'Jalan Pantai Selatan Gau Banjar Wijaya Kusuma Ungasan 80362'; part of The Ungasan Clifftop Resort."
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 6,
+      "rejected": 0,
+      "keep": 21,
+      "manual": 0
+    },
+    "the-warung-at-alila-villas-uluwatu": {
+      "identity": {
+        "operating": null,
+        "current_name": null,
+        "branch_ok": null,
+        "multi_branch": false,
+        "evidence": {
+          "quote": null,
+          "source_url": "https://www.alilahotels.com/uluwatu/dining/the-warung/",
+          "snapshot_sha256": "6f49318d1ea7caef3d5cecaa0ab2886b6521c0d282969c8676488e4eaba25739",
+          "note": "alilahotels.com 301s to hyatt.com, which returns 403 to this environment (also for the /dining/the-warung page and the menu PDF). No official page could be read today. TableCheck page 'The Warung - Alila Villas Uluwatu' is live (200) but a booking provider counts only when the official site links to it, which cannot be checked. Identity unknown → HOLD."
+        }
+      },
+      "identityOk": false,
+      "accepted": 0,
+      "hold": 6,
+      "rejected": 0,
+      "keep": 20,
+      "manual": 0
+    },
+    "tropical-temptation-adult-only-beach-club": {
+      "identity": {
+        "operating": true,
+        "current_name": "Tropical Temptation Beach Club",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Address\nJl. Melasti Beach 88, Ungasan, Bali Open Daily : 7 AM – 9 PM\nContact Us\n+62 812-3886-8631 info@ttbeach.club",
+          "source_url": "https://ttbeach.club/faq",
+          "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+          "note": "Official site live today with 2026 copyright; single venue."
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 9,
+      "rejected": 0,
+      "keep": 15,
+      "manual": 0
+    },
+    "ulu-artisan-ungasan": {
+      "identity": {
+        "operating": null,
+        "current_name": null,
+        "branch_ok": null,
+        "multi_branch": true,
+        "evidence": {
+          "quote": null,
+          "source_url": "https://artisangroup.id/",
+          "snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "note": "source_unreachable_env: artisangroup.id returns HTTP 500 (empty body) and www.artisangroup.id 503 today; the Ungasan menu PDF on that domain also 500s. Remaining leads are Instagram, Chope and SevenRooms — booking providers count only when linked from an official page, which cannot be checked. Multi-branch brand (Artisan Uluwatu vs Artisan Ungasan): branch cannot be tied to an official page. Identity unknown → HOLD. Registry publication is 'review' and the card is not in the live crawl."
+        }
+      },
+      "identityOk": false,
+      "accepted": 0,
+      "hold": 7,
+      "rejected": 0,
+      "keep": 14,
+      "manual": 0
+    },
+    "ulu-fishmarket": {
+      "identity": {
+        "operating": true,
+        "current_name": "ULU Fishmarket",
+        "branch_ok": true,
+        "multi_branch": false,
+        "evidence": {
+          "quote": "Our Location\nJl. Labuansait, 10 – Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+          "source_url": "https://ulufishmarket.com/",
+          "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+          "note": "Official site live with 2026 copyright; www.ulufishmarket.com 301s to the apex. Single location."
+        }
+      },
+      "identityOk": true,
+      "accepted": 0,
+      "hold": 6,
+      "rejected": 0,
+      "keep": 18,
+      "manual": 0
+    },
+    "ulu-garden": {
+      "identity": {
+        "operating": true,
+        "current_name": "ULU Garden",
+        "branch_ok": true,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": {
+          "quote": "ULU Garden\nSept 24th, 2026\nArchipelago Night",
+          "source_url": "https://ulutribe.com/ulu-garden/"
+        },
+        "note": "Official ulutribe.com page live (© 2026) with September 2026 events, FAQ, contact page with hours/phone. Single venue on Jl. Pantai Padang-Padang. drive.google.com is listed as an official domain only because the menu PDFs are hosted there and linked from the official site's Menu button."
+      },
+      "identityOk": true,
+      "accepted": 5,
+      "hold": 5,
+      "rejected": 1,
+      "keep": 14,
+      "manual": 0
+    },
+    "waatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "Waatu",
+        "branch_ok": true,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": {
+          "quote": "waatu is Uluwatu’s yakitori & open flame grill.",
+          "source_url": "https://waatu.com/"
+        },
+        "note": "Official waatu.com live; JSON-LD dateModified 2026-09-02; event dated September 18th; menus dated July/August 2026. waatuprd.wpenginepowered.com is the site's own WP Engine upload host for the menu PDFs linked from waatu.com."
+      },
+      "identityOk": true,
+      "accepted": 5,
+      "hold": 6,
+      "rejected": 0,
+      "keep": 12,
+      "manual": 1
+    },
+    "white-rock-beach-club": {
+      "identity": {
+        "operating": true,
+        "current_name": "White Rock Beach Club",
+        "branch_ok": true,
+        "multi_branch": false,
+        "branch_evidence": null,
+        "evidence": {
+          "quote": "Welcome to White Rock Beach Club, where we proudly stand as the preeminent and the best beachfront club in Bali.\nLocation\nMelasti Beach\nUngasan 80361",
+          "source_url": "https://whiterockbali.com/"
+        },
+        "note": "Official site live with NYE 2026 page, FAQ, bookings subdomain showing arrival date 28 September 2026. Single venue at Melasti Beach."
+      },
+      "identityOk": true,
+      "accepted": 3,
+      "hold": 7,
+      "rejected": 0,
+      "keep": 15,
+      "manual": 0
+    },
+    "yuki-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "YUKI Uluwatu",
+        "branch_ok": true,
+        "multi_branch": true,
+        "branch_evidence": "'You are booking for YUKI ULUWATU.' on https://www.yuki-bali.com/ulu-reservations; footer block 'ULUWATU / Location / 53MV+5H5 / Jl Labuansait, Pecatu' with phone +62-811-3960-8557",
+        "evidence": {
+          "quote": "You are booking for YUKI ULUWATU.",
+          "source_url": "https://www.yuki-bali.com/ulu-reservations"
+        },
+        "note": "Multi-branch brand (Canggu, Uluwatu, Ubud). Branch-specific pages /uluwatu and /ulu-reservations are live; /menu is shared across branches."
+      },
+      "identityOk": true,
+      "accepted": 2,
+      "hold": 4,
+      "rejected": 0,
+      "keep": 20,
+      "manual": 0
+    },
+    "zali-uluwatu": {
+      "identity": {
+        "operating": true,
+        "current_name": "ZALI Uluwatu",
+        "branch_ok": true,
+        "multi_branch": true,
+        "branch_evidence": "'Bali - Uluwatu / All day dining experience and bar, indoor and outdoor seating.' on https://www.zalirestaurant.com/branches; footer 'Uluwatu / +62 877 7813 7273 / Everyday 8:00AM – 12:00AM'",
+        "evidence": {
+          "quote": "Bali - Uluwatu\nAll day dining experience and bar, indoor and outdoor seating.",
+          "source_url": "https://www.zalirestaurant.com/branches"
+        },
+        "note": "Three branches (Pererenan, Uluwatu, Abu Dhabi). Official site names the Uluwatu branch with its own phone and hours but publishes no street address or map link for it (the embedded Google Maps link is the Pererenan branch). Stored text keeps the HTML entity '&ndash;' literally."
+      },
+      "identityOk": true,
+      "accepted": 2,
+      "hold": 5,
+      "rejected": 0,
+      "keep": 18,
+      "manual": 0
+    }
+  },
+  "totals": {
+    "KEEP": 378,
+    "HOLD": 213,
+    "ACCEPTED": 37,
+    "MANUAL_REVIEW": 4,
+    "REJECTED": 1
+  },
+  "canaries": [
+    {
+      "slug": "alchemy-uluwatu",
+      "claim_id": "k-alchem-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "alchemy-uluwatu",
+      "claim_id": "k-alchem-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "alchemy-uluwatu",
+      "claim_id": "k-alchem-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "artisan-uluwatu",
+      "claim_id": "k-artisa-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "artisan-uluwatu",
+      "claim_id": "k-artisa-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "artisan-uluwatu",
+      "claim_id": "k-artisa-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "bgs-uluwatu",
+      "claim_id": "k-bgs-ul-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "bgs-uluwatu",
+      "claim_id": "k-bgs-ul-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "bgs-uluwatu",
+      "claim_id": "k-bgs-ul-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "el-kabron-bali",
+      "claim_id": "k-el-kab-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "el-kabron-bali",
+      "claim_id": "k-el-kab-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "el-kabron-bali",
+      "claim_id": "k-el-kab-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "claim_id": "k-gooseb-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "claim_id": "k-gooseb-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "gooseberry-french-restaurant-uluwatu",
+      "claim_id": "k-gooseb-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "kala-uluwatu",
+      "claim_id": "k-kala-u-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "kala-uluwatu",
+      "claim_id": "k-kala-u-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "kala-uluwatu",
+      "claim_id": "k-kala-u-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "laggas-uluwatu",
+      "claim_id": "k-laggas-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "laggas-uluwatu",
+      "claim_id": "k-laggas-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "laggas-uluwatu",
+      "claim_id": "k-laggas-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "mana-uluwatu",
+      "claim_id": "k-mana-u-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "mana-uluwatu",
+      "claim_id": "k-mana-u-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "mana-uluwatu",
+      "claim_id": "k-mana-u-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "masonry-restaurant",
+      "claim_id": "k-masonr-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "masonry-restaurant",
+      "claim_id": "k-masonr-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "masonry-restaurant",
+      "claim_id": "k-masonr-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "oneeighty",
+      "claim_id": "k-oneeig-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "oneeighty",
+      "claim_id": "k-oneeig-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "oneeighty",
+      "claim_id": "k-oneeig-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "sundays-beach-club",
+      "claim_id": "k-sunday-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "sundays-beach-club",
+      "claim_id": "k-sunday-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "sundays-beach-club",
+      "claim_id": "k-sunday-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "claim_id": "k-the-wa-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "claim_id": "k-the-wa-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "the-warung-at-alila-villas-uluwatu",
+      "claim_id": "k-the-wa-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "claim_id": "k-tropic-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "claim_id": "k-tropic-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "tropical-temptation-adult-only-beach-club",
+      "claim_id": "k-tropic-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-artisan-ungasan",
+      "claim_id": "k-ulu-ar-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-artisan-ungasan",
+      "claim_id": "k-ulu-ar-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-artisan-ungasan",
+      "claim_id": "k-ulu-ar-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-fishmarket",
+      "claim_id": "k-ulu-fi-1",
+      "kind": "fabricated_quote",
+      "acceptor": "hold",
+      "caught": true
+    },
+    {
+      "slug": "ulu-fishmarket",
+      "claim_id": "k-ulu-fi-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-fishmarket",
+      "claim_id": "k-ulu-fi-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-garden",
+      "claim_id": "k-ulu-ga-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-garden",
+      "claim_id": "k-ulu-ga-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "ulu-garden",
+      "claim_id": "k-ulu-ga-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "waatu",
+      "claim_id": "k-waatu-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "waatu",
+      "claim_id": "k-waatu-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "waatu",
+      "claim_id": "k-waatu-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "white-rock-beach-club",
+      "claim_id": "k-white--1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "white-rock-beach-club",
+      "claim_id": "k-white--2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "white-rock-beach-club",
+      "claim_id": "k-white--3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "yuki-uluwatu",
+      "claim_id": "k-yuki-u-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "yuki-uluwatu",
+      "claim_id": "k-yuki-u-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "yuki-uluwatu",
+      "claim_id": "k-yuki-u-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "zali-uluwatu",
+      "claim_id": "k-zali-u-1",
+      "kind": "fabricated_quote",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "zali-uluwatu",
+      "claim_id": "k-zali-u-2",
+      "kind": "aggregator_source",
+      "acceptor": "reject",
+      "caught": true
+    },
+    {
+      "slug": "zali-uluwatu",
+      "claim_id": "k-zali-u-3",
+      "kind": "wrong_venue_source",
+      "acceptor": "reject",
+      "caught": true
+    }
+  ],
+  "canariesMissed": []
+}

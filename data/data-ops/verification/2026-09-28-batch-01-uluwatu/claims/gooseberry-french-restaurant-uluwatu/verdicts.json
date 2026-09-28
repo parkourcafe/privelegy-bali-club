@@ -1,0 +1,141 @@
+{
+  "slug": "gooseberry-french-restaurant-uluwatu",
+  "acceptedAt": "2026-09-28T06:35:12.988Z",
+  "verdicts": [
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-23",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Official homepage: Gang Pirta Pecatu, Kecamatan Kuta Selatan, Kabupaten Badung, Bali 80361; Gang marker present, no working notes; page names Bingin Beach / Uluwatu"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-12",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Onglet Classique 465, Parmentier de Canard Confit 325 and Joue de boeuf braisee 575 all listed in the a la carte on the official homepage"
+    },
+    {
+      "claim_id": "k-gooseb-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "ok",
+      "refetch_sha256": "b5352eb87564bd20b0f2f0cda71df46ad59633ee89cd91cc127f2e6e1ff671f1",
+      "quote_found": true,
+      "note": "elsky-bali.com is a third-party guide page about Sundays Beach Club; value is not an address"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-14",
+      "verdict": "hold",
+      "reason_code": "BOUND_FAIL",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Items and numbers (465, 325) are on the official page, but the site shows bare numbers with no currency or '000 marker anywhere; 'IDR 465K' is an inference. Founder to confirm the unit"
+    },
+    {
+      "claim_id": "k-gooseb-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": "4bd545312bc38c0a17a6f5780a269ee0bbc6050768788304d0bb3f698a44ac57",
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator (refetch 403); no named item"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-10",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Address block gives Gang Pirta Pecatu and the same page says 'A hidden gem above Bingin' / 'above the pristine shores of Bingin Beach'"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-17",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Official homepage: Opening Hours Monday - Sunday 8 am - 10:30 pm; 7 days covered, plausible restaurant window"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-04",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Editorial comparison ('widest arc of any dinner venue here'); not a fact a website proves"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-22",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Quoted text has no digits, but the official page's Call Us / WhatsApp links are tel:+6282144823166 and wa.me/6282144823166; single-branch venue"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-24",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Coordinates are the Google Maps embed centre in the official homepage HTML (!2d115.11612367686756!3d-8.812029591240924); inside the Bukit box, >=5 decimals"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Same official block as -17: Monday - Sunday 8 am - 10:30 pm"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Official homepage has id=\"menu\" section holding the a la carte; quoted 'Discover The Menus A la Carte' present"
+    },
+    {
+      "claim_id": "k-gooseb-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": false,
+      "note": "Quote 'Open daily 7 AM - 11 PM...' not on the official homepage (sha matches), which says 8 am - 10:30 pm"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-20",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-15",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "quote_found": true,
+      "note": "Short form of the official address block: Gang Pirta, Pecatu"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "the-warung-at-alila-villas-uluwatu",
+  "acceptedAt": "2026-09-28T08:05:00Z",
+  "acceptor_note": "snapshot.mjs could not be executed in this acceptor session (shell tool unavailable for the whole run); no source was re-fetched. Nothing is accepted. Non-official sources are rejected on the source rule, which needs no fetch; 'unknown' claims carry no value and are held.",
+  "verdicts": [
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-19",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-17",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-16",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-24",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "k-the-wa-1",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com is a third-party guide, not alilahotels.com/hyatt.com; the value is a sentence about Suka Espresso, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-21",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "k-the-wa-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "thebaliguideline.com is a third-party guide about Laggas Bali, another venue; the value is a page title, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-the-wa-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator; price anchor also names no item and no date — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-22",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    }
+  ]
+}

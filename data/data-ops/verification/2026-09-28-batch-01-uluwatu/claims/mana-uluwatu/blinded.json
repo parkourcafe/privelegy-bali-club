@@ -1,0 +1,251 @@
+{
+  "slug": "mana-uluwatu",
+  "officialDomains": [
+    "uluwatusurfvillas.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "mana-uluwatu-12",
+      "field": "priceBand",
+      "action": "replace",
+      "proposed": "$$",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/wp-content/uploads/2026/03/Dinner.jpg",
+      "quote": "Grilled Market Fish line caught market fish, north sumatran curry sauce, pineapple sambal, steamed rice 145",
+      "snapshot_sha256": "0e6c1f0541493ec196f6129197f37e142f06a15a76b82b55f2ee4d84132dfdcc",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "grilled market fish 145K IDR; 1/2 skillet roasted chicken 175K IDR (dinner menu image uploaded 2026-03, captured 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/wp-content/uploads/2026/03/Dinner.jpg",
+      "quote": "Grilled Market Fish line caught market fish, north sumatran curry sauce, pineapple sambal, steamed rice 145",
+      "snapshot_sha256": "0e6c1f0541493ec196f6129197f37e142f06a15a76b82b55f2ee4d84132dfdcc",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-15",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jalan Pantai Suluban, Uluwatu, Pecatu, Bali, Indonesia",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/contact/",
+      "quote": "Address: Jalan Pantai Suluban, Uluwatu, Pecatu, Bali , Indonesia",
+      "snapshot_sha256": "97ef67f0295ab2b8f5d973be854b79fea2b92a4560959d9f615338ed85f9ca0f",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-24",
+      "field": "category",
+      "action": "replace",
+      "proposed": "restaurant",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "Mana Uluwatu Restaurant | Uluwatu Surf Villas | Sunset & Surf Views",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-mana-u-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "crispy pork belly tacos; tuna nachos; beef rendang tacos",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/wp-content/uploads/2026/03/Dinner.jpg",
+      "quote": "Crispy Pork Belly bbq onions, chipotle mayo, salted cucumbers 75",
+      "snapshot_sha256": "0e6c1f0541493ec196f6129197f37e142f06a15a76b82b55f2ee4d84132dfdcc",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "Open from 7am-11pm daily serving breakfast, lunch & dinner with ocean views and sea breezes.",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-10",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Open to outside guests; reservations via TableCheck (linked from the official page).",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "is open to outside guests",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+62817555365",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "+62 817 555 365\nmana@uluwatusurfvillas.com",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://uluwatusurfvillas.com/restaurant/",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "Menus\nRestaurant Breakfast & Lunch\nRestaurant Dinner\nKids Menu\nPoolside\nDessert\nBeverages\nWine & Spirits",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/restaurant/",
+      "quote": "Open from 7am-11pm daily serving breakfast, lunch & dinner with ocean views and sea breezes.",
+      "snapshot_sha256": "46e14f6d302840ac906e205e4923daae364694f92e0c120a9df97357582622c9",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-mana-u-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-mana-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-mana-u-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/contact/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "97ef67f0295ab2b8f5d973be854b79fea2b92a4560959d9f615338ed85f9ca0f",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.tablecheck.com/en/uluwatu-surf-villas-mana/reserve/message?utm_source=website",
+      "claim_text": null,
+      "source_url": "https://www.tablecheck.com/en/uluwatu-surf-villas-mana/reserve/message?utm_source=website",
+      "quote": "Mana Uluwatu Restaurant & Bar - Uluwatu Surf Villas - TableCheck",
+      "snapshot_sha256": "27e614f9a1fe419e054d914036f3824758b59c9559fdbb1cc282aad31c4114c4",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "mana-uluwatu-14",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Jalan Pantai Suluban, Pecatu, Uluwatu",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/contact/",
+      "quote": "Address: Jalan Pantai Suluban, Uluwatu, Pecatu, Bali , Indonesia",
+      "snapshot_sha256": "97ef67f0295ab2b8f5d973be854b79fea2b92a4560959d9f615338ed85f9ca0f",
+      "category": "restaurant"
+    }
+  ]
+}

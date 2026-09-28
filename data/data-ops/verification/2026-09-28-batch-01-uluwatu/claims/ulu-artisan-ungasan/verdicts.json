@@ -1,0 +1,97 @@
+{
+  "slug": "ulu-artisan-ungasan",
+  "acceptedAt": "2026-09-28T08:05:00Z",
+  "acceptor_note": "snapshot.mjs could not be executed in this acceptor session (shell tool unavailable for the whole run); no source was re-fetched. Nothing is accepted. Non-official sources are rejected on the source rule, which needs no fetch; 'unknown' claims carry no value and are held.",
+  "verdicts": [
+    {
+      "claim_id": "ulu-artisan-ungasan-12",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-19",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-13",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-11",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-16",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "k-ulu-ar-1",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com is a third-party guide, not artisangroup.id; the value is a sentence about Suka Espresso, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-15",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "k-ulu-ar-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "thebaliguideline.com is a third-party guide about Laggas Bali, another venue; the value is a page title, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-ulu-ar-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator; price anchor also names no item and no date — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "ulu-artisan-ungasan-17",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    }
+  ]
+}
