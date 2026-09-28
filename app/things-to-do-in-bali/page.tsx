@@ -20,7 +20,7 @@ type SceneVariant = "sunset" | "ridge" | "surf" | "night";
 // Area guides this hub links into — the district things-to-do pages and pillars.
 const BY_AREA: { href: string; title: string; blurb: string }[] = [
   { href: "/ubud/things-to-do", title: "Things to do in Ubud", blurb: "Rice terraces, the ridge walk, temples and the Monkey Forest." },
-  { href: "/uluwatu", title: "Uluwatu & the Bukit", blurb: "Clifftop temples, the sunset Kecak and world-class surf." },
+  { href: "/uluwatu", title: "Uluwatu & the Bukit", blurb: "Clifftop temples, the sunset Kecak and reef-break surf." },
   { href: "/jimbaran/things-to-do", title: "Things to do in Jimbaran", blurb: "The fish market, Tegal Wangi tide pools and GWK." },
   { href: "/nusa-dua/things-to-do", title: "Things to do in Nusa Dua", blurb: "The promenade, Water Blow and Tanjung Benoa watersports." },
   { href: "/sanur/things-to-do", title: "Things to do in Sanur", blurb: "Sunrise walks, the beach path and the Nusa fast boats." },

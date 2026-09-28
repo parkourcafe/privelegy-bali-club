@@ -47,7 +47,7 @@ const AREAS = [
   {
     href: "/uluwatu",
     name: "Uluwatu",
-    tag: "Clifftops, sunsets and world-class surf",
+    tag: "Clifftops, sunsets and reef-break surf",
     forWho: "Sunset-and-view seekers, surfers, and couples who want a bit of drama.",
     body: "The southern Bukit peninsula — limestone cliffs, turquoise coves and clifftop bars where the sunset is the whole event. It's beautiful and spread out, so you'll scooter or drive between spots, and it's a longer haul from the airport and the rest of the island.",
     notFor: "walking everywhere or a lively town centre",
@@ -202,7 +202,7 @@ export default function WhereToStayPage() {
           links={[
             { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
             { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
-            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
             { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
             { href: "/sanur", title: "The Sanur guide", blurb: "A calm, walkable, sunrise base with easy island connections." },
             { href: "/first-time-in-bali", title: "First time in Bali", blurb: "Your first day, without the rookie mistakes." },

@@ -326,7 +326,7 @@ export default async function SunsetPage() {
           heading="Keep planning"
           links={[
             { href: "/best-beach-clubs-in-bali", title: "The best beach clubs in Bali", blurb: "Where to spend golden hour, by area." },
-            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
             { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
             { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
           ]}
