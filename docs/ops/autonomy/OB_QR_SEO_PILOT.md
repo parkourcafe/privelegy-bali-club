@@ -169,3 +169,19 @@ Request indexing. Лимит ~10 URL в сутки (`docs/MASTER_PLAN_304_TRIAGE
 2. Перк в Canggu для первой записи подтверждения.
 3. Подтвердить или заменить набор из 10 страниц для запроса индексации.
 4. Выдать доступ к GSC (или сделать запросы самостоятельно и выгрузить результат).
+
+## 6. Проверка ссылок и мест (T-OB-04, 2026-09-28)
+
+Подробности, SQL и чек-лист — `docs/ops/autonomy/tasks/T-OB-04.md`.
+
+| Пункт | Итог | Статус |
+| --- | --- | --- |
+| 11 URL пилота + `/villas`, `/hotels` существуют в коде и рендерятся локальной prod-сборкой | 200 и self-canonical, кроме трёх, зависящих от данных | TESTED_LOCAL |
+| `/uluwatu/beach-clubs-sunset` | 404, если хоть одно из 7 заведений гейта не опубликовано в БД; в реестре кода все 7 `published` | TESTED_LOCAL по коду; прод BLOCKED_EXTERNAL (SQL 1) |
+| `/places/jari-menari-seminyak`, `/places/pizza-fabbrica` | зависят от строки в прод-БД | BLOCKED_EXTERNAL (SQL 2) |
+| `/?s=` с UTM | 200, canonical `/`, дубль не создаётся | TESTED_LOCAL |
+| Гейт `check-page.mjs` | провалы в коде на 6 из 7 проверенных гайдов (FAQ < 5, нет `.guide-answer`, «world-class»); чисто только `/canggu/best-brunch` | TESTED_LOCAL |
+| Метка `OB-VIL-…` из GTM-спеки | отклоняется валидатором (400, молча); нужна строчная | BLOCKED_DECISION |
+| Две конвенции UTM в репозитории | не согласованы | BLOCKED_DECISION |
+| Текст постера «Find your Canggu day» при площадке вне Canggu | не совпадёт с посадкой `/` | BLOCKED_DECISION |
+| Площадка (вилла или отель) | не названа | BLOCKED_DECISION |

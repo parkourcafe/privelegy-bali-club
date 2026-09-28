@@ -4,7 +4,7 @@ import test from "node:test";
 
 // AGENTS.md §7: mobile action targets are at least 44–46 px and no
 // horizontal-scroll UI may hide required choices. These are the tap targets a
-// 360 px Playwright pass (T-OB-02, 2026-09-28) measured below 44 px.
+// 360 px Playwright pass (T-OB-03, 2026-09-28) measured below 44 px.
 const css = readFileSync("app/globals.css", "utf8");
 
 function ruleBody(selector) {
