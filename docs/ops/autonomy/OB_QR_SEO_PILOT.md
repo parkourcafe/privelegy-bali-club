@@ -185,3 +185,17 @@ Request indexing. Лимит ~10 URL в сутки (`docs/MASTER_PLAN_304_TRIAGE
 | Две конвенции UTM в репозитории | не согласованы | BLOCKED_DECISION |
 | Текст постера «Find your Canggu day» при площадке вне Canggu | не совпадёт с посадкой `/` | BLOCKED_DECISION |
 | Площадка (вилла или отель) | не названа | BLOCKED_DECISION |
+
+## 7. Кандидаты площадок и план посевов (T-OB-06, 2026-09-29)
+
+Подробности — `docs/ops/autonomy/seeding/OB_SEEDING_2026-09-29.md` и
+`docs/ops/autonomy/tasks/T-OB-06.md`. §2.4 выше не меняется: площадка по-прежнему
+не выбрана, источник не назначен.
+
+| Пункт | Итог | Статус |
+| --- | --- | --- |
+| Кандидаты на первый QR в Canggu | Chesa Canggu (бутик-отель, Batu Bolong), Sokkool (коливинг, Berawa), Matra Bali (коливинг, Berawa/Semat) — все «кандидат — не связывались, согласия нет»; факты по выдаче поиска, сайты закрыты сетевой политикой | BLOCKED_DECISION (выбор) + BLOCKED_EXTERNAL (согласие) |
+| Источник за площадкой | не назначен, пустое место `s=______` | BLOCKED_DECISION + BLOCKED_EXTERNAL |
+| Путь `/?s=` → `POST /api/source` | локально доходит; без Supabase 422 (источник не выпущен); прописная метка → 400 | TESTED_LOCAL (фикстурный режим) |
+| Запись `source_scan` и воронка `/admin` | нужен Supabase | NOT_VERIFIED |
+| Открытие маршрута `/route/<slug>` | события в коде нет | DONE_CODE (факт), решение о событии — BLOCKED_DECISION |
