@@ -3,10 +3,159 @@ import test from "node:test";
 
 import {
   publishableStreetAddress,
+  resolveVenueSchemaType,
   venueCategoryLabel,
   venueCoverAssetCategory,
   venueSchemaType,
 } from "./venue-presentation";
+
+test("resolves accommodation from the venue name before the editorial category", () => {
+  const cases = [
+    ["Ecosfera Hotel", "", "spa", "Hotel"],
+    ["Hotel Uyah Amed Spa Resort", "", "spa", "Hotel"],
+    ["Bali Dream Villa Resort", "", "beauty", "Resort"],
+    ["Secret Garden", "A boutique villa in Canggu", "spa", "LodgingBusiness"],
+    ["Beach Club Resort", "", "beach_club", "Resort"],
+    ["Example Resort & Spa", "", "spa", "Resort"],
+  ] as const;
+
+  for (const [name, description, category, schemaType] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category }), schemaType);
+  }
+});
+
+test("keeps a hosted sub-venue distinct from the hotel or resort named around it", () => {
+  const cases = [
+    [
+      "Sunset Beach Bar and Grill",
+      "The open-air beach bar of the InterContinental Bali Resort",
+      "bar",
+      "BarOrPub",
+    ],
+    [
+      "Warnakali Restaurant at Adiwana Warnakali Resort",
+      "Restaurant in Nusa Islands",
+      "restaurant",
+      "Restaurant",
+    ],
+    ["DaLa Spa at Alaya Resort Ubud", "Beauty services and massage", "spa", "DaySpa"],
+  ] as const;
+
+  for (const [name, description, category, schemaType] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category }), schemaType);
+  }
+});
+
+test("does not classify a restaurant as the spa of its parent resort", () => {
+  // Real restaurant record from data/data-ops/hours-input-clean.json.
+  assert.equal(
+    resolveVenueSchemaType({
+      name: "Amateras Restaurant at Jannata Resort & Spa",
+      category: "restaurant",
+    }),
+    "Restaurant",
+  );
+});
+
+test("keeps a branded restaurant distinct from its parent without a restaurant name keyword", () => {
+  // Real restaurant record from data/data-ops/hours-input-clean.json.
+  assert.equal(
+    resolveVenueSchemaType({
+      name: "Kawa Hibachi at Kastara Resort and Spa",
+      category: "restaurant",
+    }),
+    "Restaurant",
+  );
+});
+
+test("does not invent lodging when the venue identity contains only spa evidence", () => {
+  assert.equal(
+    resolveVenueSchemaType({
+      name: "Blue Karma Village",
+      description:
+        "Wellness spa in Canggu. The published treatment list includes Balinese Massage, Yoga and Pilates.",
+      category: "spa",
+    }),
+    "DaySpa",
+  );
+});
+
+test("resolves nightlife, wellness, salon, and attraction keywords before category fallback", () => {
+  const cases = [
+    ["Example Night Club", "", "restaurant", "NightClub"],
+    ["The Rooftop Bar", "Cocktails at sunset", "restaurant", "BarOrPub"],
+    ["Blue Earth Village", "Massage and spa treatments", "spa", "DaySpa"],
+    ["Studio S Salon", "Hair and manicure studio", "spa", "BeautySalon"],
+    ["Tegenungan Waterfall", "A popular natural attraction", "restaurant", "TouristAttraction"],
+  ] as const;
+
+  for (const [name, description, category, schemaType] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category }), schemaType);
+  }
+});
+
+test("does not infer nightlife from beach clubs or generic club evidence", () => {
+  const cases = [
+    // Real restaurant record from data/resort-import/venues.json.
+    ["Reef Beach Club Restaurant", "", "restaurant", "Restaurant"],
+    ["Example Beach Club", "", "beach_club", "LocalBusiness"],
+    ["Example Place", "A beach club with daybeds and beachfront dining.", "beach_club", "LocalBusiness"],
+    ["Example Place", "Club for surfers and families.", "surf", "SportsActivityLocation"],
+    ["Example Club", "A club with a pool and dining.", "beach_club", "LocalBusiness"],
+    ["Pavilion Surf Club", "", "bar", "BarOrPub"],
+  ] as const;
+
+  for (const [name, description, category, schemaType] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category }), schemaType, name);
+  }
+});
+
+test("keeps explicit nightclub evidence for beach-club records", () => {
+  const cases = [
+    ["Example Nightclub", ""],
+    ["Example Night Club", ""],
+    ["Example Club", "A nightclub with a dance floor."],
+  ] as const;
+
+  for (const [name, description] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category: "beach_club" }), "NightClub");
+  }
+});
+
+test("does not classify a yoga studio by the club mentioned in its description", () => {
+  assert.equal(
+    resolveVenueSchemaType({
+      name: "Example Yoga Studio",
+      description: "Yoga studio inside the Bay Club at a resort.",
+      category: "yoga",
+    }),
+    "SportsActivityLocation",
+  );
+});
+
+test("uses the defining bar description before an ambiguous club name", () => {
+  assert.equal(
+    resolveVenueSchemaType({
+      name: "Pavilion Surf Club",
+      description: "Bar in Legian. Cold beer for the game and cocktails at sunset.",
+      category: "bar",
+    }),
+    "BarOrPub",
+  );
+});
+
+test("falls back to the established editorial category mapping", () => {
+  const cases = [
+    ["Crate", "All-day breakfast", "cafe", "CafeOrCoffeeShop"],
+    ["Locavore", "Seasonal tasting menu", "restaurant", "Restaurant"],
+    ["Radiantly Alive", "Movement classes", "yoga", "SportsActivityLocation"],
+    ["Unknown Place", "No matching description", "unknown", "LocalBusiness"],
+  ] as const;
+
+  for (const [name, description, category, schemaType] of cases) {
+    assert.equal(resolveVenueSchemaType({ name, description, category }), schemaType);
+  }
+});
 
 test("presents villa venues with lodging metadata and the existing hotel cover", () => {
   assert.equal(venueCategoryLabel("villa"), "Villa");
