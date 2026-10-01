@@ -83,7 +83,7 @@ export default function SimilarPlaces({ venue }: { venue: VenueWithPerk }) {
                 href={s.gmapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="button-secondary min-h-8 px-2.5 py-1 text-xs"
+                className="button-secondary min-h-11 px-3 py-1 text-xs"
               >
                 {googleMapsHandoffLabel(s.gmapsUrl) ?? "Open in Maps"}
               </a>

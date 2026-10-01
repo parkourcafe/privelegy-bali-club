@@ -33,6 +33,7 @@ import {
   venueSchemaType,
 } from "@/lib/venue-presentation";
 import { buildVenueMetadata } from "@/lib/seo/venue-metadata";
+import { clipMetaDescription } from "@/lib/seo/meta-description";
 import { publicVenueVerifiedAt, publicWhatToOrderItems } from "@/lib/venue-completeness";
 import { quickDecisionRows } from "@/lib/quick-decision";
 import { normalizeInstagramProfileUrl } from "@/lib/external-links";
@@ -180,9 +181,8 @@ export async function generateMetadata({
   const name = content?.displayName ?? venue?.name ?? "Place";
   const area = content?.microArea ?? venue?.area;
   const district = districtLabel[venue?.district ?? ULUWATU_DB_SLUG] ?? "Bali";
-  const description = (content?.verdict ?? venue?.whyItsHere ??
-    `${name} — ${venueCategoryLabel(venue?.category ?? "restaurant")} in ${district}, Bali.`)
-    .slice(0, 158);
+  const description = clipMetaDescription(content?.verdict ?? venue?.whyItsHere ??
+    `${name} — ${venueCategoryLabel(venue?.category ?? "restaurant")} in ${district}, Bali.`);
   // Index every venue whose page passes the publication bar — the Uluwatu
   // registry, or the decision-ready editorial bar for other districts. Falls
   // back to the slug-only Uluwatu check when there's no DB row.

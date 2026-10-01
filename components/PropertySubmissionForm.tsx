@@ -279,7 +279,7 @@ export default function PropertySubmissionForm({
                 type="button"
                 onClick={() => setKind(k)}
                 aria-pressed={kind === k}
-                className={`min-h-10 rounded-full px-4 text-sm font-bold ${
+                className={`min-h-11 rounded-full px-4 text-sm font-bold ${
                   kind === k
                     ? "bg-[var(--lagoon-strong)] text-white"
                     : "text-[var(--muted)]"

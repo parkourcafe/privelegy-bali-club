@@ -28,7 +28,7 @@ export default async function PartnerWorkspacePage() {
             <li key={venue.venueSlug} className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
               <p className="font-semibold text-stone-900">{venue.name}</p>
               <p className="mt-1 text-xs uppercase tracking-wide text-stone-500">{venue.district} · {venue.role}</p>
-              <Link href={`/partner/venues/${venue.venueSlug}`} className="mt-4 inline-flex min-h-10 items-center rounded-xl bg-cyan-700 px-3 py-2 text-sm font-semibold text-white">Open workspace</Link>
+              <Link href={`/partner/venues/${venue.venueSlug}`} className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-cyan-700 px-3 py-2 text-sm font-semibold text-white">Open workspace</Link>
             </li>
           ))}
         </ul>

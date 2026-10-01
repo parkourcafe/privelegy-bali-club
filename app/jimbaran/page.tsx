@@ -270,7 +270,7 @@ export default async function JimbaranPillarPage() {
         <RelatedGuides
           links={[
             { href: "/jimbaran/things-to-do", title: "Best things to do in Jimbaran", blurb: "The fish market, Tegal Wangi tide pools, Rock Bar and GWK." },
-            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets and world-class surf, just south." },
+            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets and reef-break surf, just south." },
             { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "The calm resort enclave, next door to the east." },
             { href: "/places", title: "All Bali places", blurb: "The full curated map by district." },
           ]}

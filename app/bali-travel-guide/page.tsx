@@ -44,7 +44,7 @@ const CLUSTERS: Cluster[] = [
     links: [
       { href: "/canggu", title: "Canggu", blurb: "Surf mornings, café work, sunset beach clubs." },
       { href: "/ubud", title: "Ubud", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
-      { href: "/uluwatu", title: "Uluwatu & the Bukit", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+      { href: "/uluwatu", title: "Uluwatu & the Bukit", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
       { href: "/seminyak", title: "Seminyak", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
       { href: "/sanur", title: "Sanur", blurb: "A calm, walkable base and the fast-boat gateway to the Nusas." },
       { href: "/nusa-dua", title: "Nusa Dua", blurb: "Calm resort beaches, fine dining and big resort spas." },
