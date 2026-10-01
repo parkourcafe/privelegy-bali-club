@@ -1,3 +1,7 @@
+-- SUPERSEDED on 2026-10-01 by apply-2026-10-01.sql — DO NOT RUN.
+-- This draft predates re-confirmation: it still carries "8.00am-23.59pm" hours (rejected by the
+-- site parser), Single Fin rows now on hold, and no P0 block.
+
 -- Batch 1 (Uluwatu 25) — DRAFT, NOT EXECUTED. Generated 2026-09-28 from change-list.csv (decision = ACCEPTED, target DB/BOTH → DB columns).
 -- Before running: (1) SELECT the current values below and paste each into /*EXPECTED_FROM_PREFLIGHT*/; (2) dry-run ONE row inside begin/rollback;
 -- (3) state the expected row count. A replace never runs without the live current value. See .agents/skills/otherbali-supabase-write/SKILL.md.
