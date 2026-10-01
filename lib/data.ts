@@ -34,7 +34,7 @@ import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
 } from "./data/public-cache";
-import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
+import { parseSharedTripEntries, resolveSavedTripRead, type SavedTripState, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
 import { schemaOpeningHours } from "./opening-hours";
 import { readAllPages, type PageResult } from "./read-all-pages";
@@ -320,16 +320,12 @@ function mapInternalPerk(r: Row): Perk | null {
   };
 }
 
-// A build-time public-read fetch must never reject the whole render/build.
-// If Supabase is briefly unreachable (paused project, a network blip during
-// `generateStaticParams`, a transient 5xx), an uncaught rejection here crashes
-// the entire static build — blocking every deploy over a few data pages. Every
-// public read below therefore catches, logs, and degrades to its safe fallback
-// (empty when a DB is configured — fail closed, never substitute stale seed;
-// pages regenerate on the next good build/revalidate).
+// Public reads log failures. Optional editorial enhancements may fall back;
+// cached primary venue and catalogue reads rethrow so an outage cannot become
+// a successful empty page or 404 in the cache.
 function warnPublicReadFailed(label: string, e: unknown): void {
   console.warn(
-    `[public-read:${label}] fetch failed, degrading to fallback: ${
+    `[public-read:${label}] fetch failed: ${
       (e as Error)?.message ?? e
     }`,
   );
@@ -452,7 +448,7 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
     perk = undefined;
     try {
       const sb = anonClient()!;
-      const [{ data: v }, { data: p }] = await Promise.all([
+      const [venueRead, perkRead] = await Promise.allSettled([
         sb
           .from("venues")
           .select(PUBLIC_PLACES_VENUE_COLUMNS)
@@ -468,12 +464,20 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
           .limit(1)
           .maybeSingle(),
       ]);
+      if (venueRead.status === "rejected") throw venueRead.reason;
+      if (venueRead.value.error) throw venueRead.value.error;
+      const v = venueRead.value.data;
       if (v) venue = mapVenue(v as unknown as Row);
-      if (p) perk = mapPublicPerk(p as Row) ?? undefined;
+      if (perkRead.status === "rejected") {
+        warnPublicReadFailed(`perk:${slug}`, perkRead.reason);
+      } else if (perkRead.value.error) {
+        warnPublicReadFailed(`perk:${slug}`, perkRead.value.error);
+      } else if (perkRead.value.data) {
+        perk = mapPublicPerk(perkRead.value.data as Row) ?? undefined;
+      }
     } catch (e) {
       warnPublicReadFailed(`venue:${slug}`, e);
-      venue = undefined;
-      perk = undefined;
+      throw e;
     }
   }
 
@@ -493,7 +497,7 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
 
 const getCachedVenueWithPerk = unstable_cache(
   fetchVenueWithPerk,
-  ["public-venue-with-perk-v1"],
+  ["public-venue-with-perk-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
@@ -1214,15 +1218,17 @@ async function buildRoute(slug: string): Promise<RouteDetail | null> {
 export const getRoute = reactCache(buildRoute);
 
 // ---- Traveller saves & sharing (master §6c) ----
-// Anonymous by default: guest ref = httpOnly cookie. All best-effort — if the
-// migrations (0019/0020) aren't applied yet they fail silently and the UI stays
-// usable. Rung 3 (saveGuestContact) is the only PII path, opt-in + consent.
+// Anonymous by default: guest ref = httpOnly cookie. Reads distinguish an
+// empty list from unavailable storage; writes return explicit failures.
+// Rung 3 (saveGuestContact) is the only PII path, opt-in + consent.
 
 export async function getSavedSlugs(guestRef: string | null): Promise<string[]> {
+  if (!guestRef) return [];
   const sb = serviceClient();
-  if (!sb || !guestRef) return [];
+  if (!sb) throw new Error("saved_places_unavailable");
   const { data, error } = await sb.rpc("saved_places_for", { p_guest_ref: guestRef });
-  if (error || !Array.isArray(data)) return [];
+  if (error) throw error;
+  if (!Array.isArray(data)) throw new Error("saved_places_unavailable");
   return data as string[];
 }
 
@@ -1266,26 +1272,33 @@ export interface TripVenueEntry extends TripEntry {
   venue: VenueWithPerk;
 }
 
-export async function getSavedTrip(guestRef: string | null): Promise<TripEntry[]> {
+export type SavedTripVenueState = SavedTripState<TripVenueEntry> & { unavailableCount: number };
+
+export async function getSavedTripState(guestRef: string | null): Promise<SavedTripState<TripEntry>> {
+  if (!guestRef) return { status: "ready", entries: [] };
   const sb = serviceClient();
-  if (!sb || !guestRef) return [];
-  const { data, error } = await sb.rpc("saved_trip_for", { p_guest_ref: guestRef });
-  if (!error) return parseTripEntries(data);
-  return (await getSavedSlugs(guestRef)).map((venueSlug, index) => ({
-    venueSlug,
-    day: null,
-    position: index + 1,
-  }));
+  if (!sb) throw new Error("saved_trip_unavailable");
+  const read = await sb.rpc("saved_trip_for", { p_guest_ref: guestRef });
+  return resolveSavedTripRead(read, () => getSavedSlugs(guestRef));
 }
 
-export async function getSavedTripVenues(guestRef: string | null): Promise<TripVenueEntry[]> {
-  const entries = await getSavedTrip(guestRef);
+export async function getSavedTrip(guestRef: string | null): Promise<TripEntry[]> {
+  return (await getSavedTripState(guestRef)).entries;
+}
+
+export async function getSavedTripVenuesState(guestRef: string | null): Promise<SavedTripVenueState> {
+  const { entries, status } = await getSavedTripState(guestRef);
   const venues = await getVenuesBySlugs(entries.map((entry) => entry.venueSlug));
   const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
-  return entries.flatMap((entry) => {
+  const availableEntries = entries.flatMap((entry) => {
     const venue = bySlug.get(entry.venueSlug);
     return venue ? [{ ...entry, venue }] : [];
   });
+  return { status, entries: availableEntries, unavailableCount: entries.length - availableEntries.length };
+}
+
+export async function getSavedTripVenues(guestRef: string | null): Promise<TripVenueEntry[]> {
+  return (await getSavedTripVenuesState(guestRef)).entries;
 }
 
 async function tripMutation(

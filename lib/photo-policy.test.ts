@@ -13,6 +13,7 @@ import {
   venuePhotoUrlForDisplay,
   type PhotoCandidate,
 } from "./photo-policy.ts";
+import { approvedPhotoDeliveryUrl } from "./photo-submission-policy.ts";
 
 test("audience mode fails closed to tourist_public (§9)", () => {
   assert.equal(parseAudienceMode(undefined), "tourist_public");
@@ -80,6 +81,18 @@ test("MEDIA-002 never publishes an arbitrary bucket URL or a legacy URL", () => 
   const base = { venueStatus: "active", publicationStatus: "published" };
   assert.equal(resolveVenuePhoto({ ...base, photoUrl: "https://egkdapqwkfprtyqvvnso.supabase.co/storage/v1/object/public/other-bucket/x.webp" }).mediaState, "blocked");
   assert.equal(resolveVenuePhoto({ ...base, photoUrl: "https://xvhxyohqkkpaynrgrvvb.supabase.co/storage/v1/object/public/venue-photos/draft/x.webp" }).mediaState, "blocked");
+});
+
+test("approved owner upload delivery URL renders only for a published venue", () => {
+  const id = "11111111-1111-4111-8111-111111111111";
+  const photoUrl = approvedPhotoDeliveryUrl(id, "https://www.otherbali.com");
+  assert.ok(photoUrl);
+  const base = { photoUrl, venueStatus: "active", publicationStatus: "published" };
+  assert.deepEqual(resolveVenuePhoto(base), { src: photoUrl, mediaState: "ready" });
+  assert.equal(resolveVenuePhoto({ ...base, photoStatus: "revoked" }).reason, "hard_blocked");
+  assert.equal(resolveVenuePhoto({ ...base, publicationStatus: "review" }).reason, "not_published");
+  assert.equal(resolveVenuePhoto({ ...base, photoUrl: `https://evil.example/api/venue-photo/${id}` }).reason, "invalid_url");
+  assert.equal(resolveVenuePhoto({ ...base, photoUrl: `${photoUrl}?other=1` }).reason, "invalid_url");
 });
 
 test("MEDIA-002 requires active published venue context and preserves hard blocks", () => {

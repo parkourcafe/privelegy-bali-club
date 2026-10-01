@@ -1076,7 +1076,13 @@ a.chip {
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
-}.place-card:hover {
+}
+
+.place-card {
+  position: relative;
+}
+
+.place-card:hover {
   border-color: var(--line-strong);
   box-shadow: var(--shadow-lift);
   transform: translateY(-2px);

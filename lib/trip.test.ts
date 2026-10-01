@@ -6,6 +6,7 @@ import {
   normalizeVenueSlug,
   parseSharedTripEntries,
   parseTripEntries,
+  resolveSavedTripRead,
 } from "./trip";
 
 test("venue slugs are normalized and reject unsafe or oversized input", () => {
@@ -61,5 +62,36 @@ test("structured shared entries preserve day and order", () => {
       { venueSlug: "breakfast-stop", day: 2, position: 1 },
       { venueSlug: "sunset-stop", day: 2, position: 2 },
     ],
+  );
+});
+
+test("saved trip read keeps day grouping and distinguishes an empty trip", async () => {
+  const readLegacySlugs = async () => { throw new Error("legacy read should not run"); };
+  assert.deepEqual(await resolveSavedTripRead({ data: [], error: null }, readLegacySlugs), {
+    status: "ready", entries: [],
+  });
+  assert.deepEqual(await resolveSavedTripRead({
+    data: [{ venue_slug: "breakfast-stop", day_number: 2, position: 1 }],
+    error: null,
+  }, readLegacySlugs), {
+    status: "ready",
+    entries: [{ venueSlug: "breakfast-stop", day: 2, position: 1 }],
+  });
+});
+
+test("saved trip read uses a labelled legacy fallback only for a missing RPC", async () => {
+  assert.deepEqual(await resolveSavedTripRead(
+    { data: null, error: { code: "PGRST202" } },
+    async () => ["breakfast-stop"],
+  ), {
+    status: "legacy",
+    entries: [{ venueSlug: "breakfast-stop", day: null, position: 1 }],
+  });
+  await assert.rejects(
+    resolveSavedTripRead({ data: null, error: { code: "PGRST001" } }, async () => ["breakfast-stop"]),
+  );
+  await assert.rejects(
+    resolveSavedTripRead({ data: null, error: null }, async () => []),
+    /saved_trip_unavailable/,
   );
 });

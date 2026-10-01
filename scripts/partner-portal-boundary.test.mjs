@@ -45,3 +45,14 @@ test("bookings are represented by the TablePilot aggregate bridge, not a local r
   assert.match(tablepilot, /reservationId/);
   assert.doesNotMatch(tablepilot, /create table|from\(["']reservations["']\)/i);
 });
+
+test("public venue intake cannot update or attach media to another applicant's request", async () => {
+  const migration = await load("supabase/migrations/0067_submission_intake_ownership.sql");
+  const route = await load("app/api/venue-submission/route.ts");
+  assert.match(migration, /on conflict \(lower\(btrim\(name\)\), coalesce\(lower\(btrim\(district\)\), ''\)\) do nothing/i);
+  assert.doesNotMatch(migration, /on conflict[^;]*do update/i);
+  assert.match(migration, /if v_id is null then\s+return jsonb_build_object\('ok', true, 'duplicate', true\)/i);
+  assert.match(migration, /create or replace function public\.submit_venue_application_v2\(/i);
+  assert.match(route, /sb\.rpc\("submit_venue_application_v2"/);
+  assert.match(route, /!r\.duplicate && typeof r\.id === "string"/);
+});

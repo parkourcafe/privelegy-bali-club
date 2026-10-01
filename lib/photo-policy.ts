@@ -14,6 +14,8 @@
 //    official_provisional_preview (allowed surfaces only) → designed_fallback;
 //    revoked/expired/broken never selected.
 
+import { CANONICAL_SITE_ORIGIN, resolveSiteOrigin } from "./site-origin-policy";
+
 export type AudienceMode = "owner_prelaunch" | "tourist_public";
 
 export const CURRENT_MEDIA_PROJECT_REF = "egkdapqwkfprtyqvvnso";
@@ -103,6 +105,28 @@ export function parseVenuePublicMediaUrl(
   }
 }
 
+function isApprovedPhotoDeliveryUrl(photoUrl: string): boolean {
+  try {
+    const url = new URL(photoUrl);
+    const previewOrigin = resolveSiteOrigin({
+      vercelEnv: process.env.VERCEL_ENV,
+      vercelUrl: process.env.VERCEL_URL,
+    });
+    const approvedOrigins = new Set([CANONICAL_SITE_ORIGIN, previewOrigin]);
+    return (
+      url.protocol === "https:" &&
+      approvedOrigins.has(url.origin) &&
+      !url.username &&
+      !url.password &&
+      !url.search &&
+      !url.hash &&
+      /^\/api\/venue-photo\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Resolve the single venue-bound photo carrier for public venue surfaces.
  * MEDIA-002 permits current-project inventory media even when its storage path
@@ -123,7 +147,7 @@ export function resolveVenuePhoto(
   if (HARD_BLOCKED_MEDIA_STATES.has(normalized(input.photoStatus))) {
     return { mediaState: "blocked", reason: "hard_blocked" };
   }
-  if (!parseVenuePublicMediaUrl(input.photoUrl)) {
+  if (!parseVenuePublicMediaUrl(input.photoUrl) && !isApprovedPhotoDeliveryUrl(input.photoUrl)) {
     return { mediaState: "blocked", reason: "invalid_url" };
   }
   return { src: input.photoUrl, mediaState: "ready" };

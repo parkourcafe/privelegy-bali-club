@@ -4,11 +4,15 @@ import { readFileSync } from "node:fs";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
-test("five pilot district pages mount Start your shortlist", () => {
+test("five pilot district pages offer a shortlist entry point", () => {
   for (const district of ["canggu", "ubud", "uluwatu", "sanur", "seminyak"]) {
     const source = read(`app/${district}/page.tsx`);
-    assert.match(source, /<StartYourShortlist/);
-    assert.match(source, new RegExp(`district="${district[0].toUpperCase()}${district.slice(1)}"`));
+    if (district === "ubud") {
+      assert.match(source, /<DecisionRail area="ubud" areaLabel="Ubud"/);
+    } else {
+      assert.match(source, /<StartYourShortlist/);
+      assert.match(source, new RegExp(`district="${district[0].toUpperCase()}${district.slice(1)}"`));
+    }
   }
   assert.match(read("components/StartYourShortlist.tsx"), /event="shortlist_generated"/);
 });
@@ -20,15 +24,16 @@ test("venue detail uses evidence-only QuickDecision projection", () => {
   assert.doesNotMatch(source, /reservationNote:\s*Boolean\(bookHref/);
 });
 
-test("for-venues honours the pilot freeze and reports bounded metrics", () => {
+test("for-venues describes review, editorial control and intent accurately", () => {
   const source = read("app/for-venues/page.tsx");
-  assert.match(source, /Pilot free through 21 September 2026/);
-  assert.match(source, /nothing is charged automatically/);
-  assert.match(source, /organic order\s+is never for sale/);
-  assert.match(source, /Aggregate card views, saves, Maps clicks, WhatsApp clicks/);
+  assert.match(source, /Free pilot review/);
+  assert.match(source, /no card, no automatic charge/);
+  assert.match(source, /Organic order and editorial fit cannot be bought/);
+  assert.match(source, /A request starts review; it does not guarantee publication or paid placement/);
+  assert.match(source, /Aggregate clicks can be reported as intent only/);
   assert.doesNotMatch(source, /a light subscription or a small commission/);
   assert.doesNotMatch(source, /we guarantee\s+(traffic|bookings?|visits?|sales?)/i);
-  assert.match(source, /not a guaranteed\s+booking, visit or sale/i);
+  assert.match(source, /not reported as a guaranteed booking, visit or sale/i);
   assert.doesNotMatch(source, /one way to reach you/i);
   assert.doesNotMatch(source, /and we publish/i);
 });

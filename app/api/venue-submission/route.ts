@@ -66,7 +66,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "submission_storage_unconfigured" }, { status: 503 });
   }
 
-  const { data, error } = await sb.rpc("submit_venue_application", {
+  const { data, error } = await sb.rpc("submit_venue_application_v2", {
     p_name: name,
     p_category: body.category?.trim() || null,
     p_district: body.district?.trim() || null,
@@ -100,7 +100,7 @@ export async function POST(req: Request) {
   // may attach media (photos/video) to THIS submission — and no other. Absent
   // (e.g. the RPC predates the id return, or the secret is unset) => the client
   // simply won't show the uploader; the request still succeeded.
-  const submissionId = typeof r.id === "string" ? r.id : null;
+  const submissionId = !r.duplicate && typeof r.id === "string" ? r.id : null;
   const mediaToken = submissionId ? mintMediaToken(submissionId, Date.now()) : null;
 
   // Best-effort operator notification (no-ops if email isn't configured).
@@ -126,10 +126,10 @@ export async function POST(req: Request) {
 
   return NextResponse.json({
     ok: true,
-    stored: true,
+    stored: !r.duplicate,
     duplicate: Boolean(r.duplicate),
-    reference: r.reference ?? null,
-    status: r.status ?? null,
+    reference: r.duplicate ? null : r.reference ?? null,
+    status: r.duplicate ? null : r.status ?? null,
     submissionId: mediaToken ? submissionId : null,
     mediaToken,
   });

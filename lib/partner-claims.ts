@@ -31,26 +31,51 @@ export async function claimVenueForUser(token: string, userId: string): Promise<
     .eq("token_hash", tokenHash)
     .maybeSingle();
   if (previousError) return { ok: false, error: "schema_unavailable" };
-  if (previous && !previous.revoked_at && previous.claimed_by !== userId) {
-    return { ok: false, error: "already_claimed" };
+  if (previous) {
+    if (previous.revoked_at || previous.claimed_by !== userId) {
+      return { ok: false, error: "already_claimed" };
+    }
+    // A repeated claim is read-only. It must never restore a suspended or
+    // demoted membership to active owner.
+    const { data: membership, error: membershipError } = await client
+      .from("venue_memberships")
+      .select("status")
+      .eq("venue_slug", invite.venue_slug)
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (membershipError) return { ok: false, error: "schema_unavailable" };
+    return membership?.status === "active"
+      ? { ok: true, venueSlug: invite.venue_slug }
+      : { ok: false, error: "already_claimed" };
   }
 
-  const { error: claimError } = await client.from("venue_onboarding_claims").upsert({
+  const { data: existingMembership, error: existingMembershipError } = await client
+    .from("venue_memberships")
+    .select("id")
+    .eq("venue_slug", invite.venue_slug)
+    .eq("user_id", userId)
+    .maybeSingle();
+  if (existingMembershipError) return { ok: false, error: "schema_unavailable" };
+  if (existingMembership) return { ok: false, error: "already_claimed" };
+
+  const { error: claimError } = await client.from("venue_onboarding_claims").insert({
     venue_slug: invite.venue_slug,
     token_hash: tokenHash,
     claimed_by: userId,
     claimed_at: new Date().toISOString(),
-    revoked_at: null,
-  }, { onConflict: "token_hash" });
-  if (claimError) return { ok: false, error: "schema_unavailable" };
+  });
+  if (claimError) return {
+    ok: false,
+    error: claimError.code === "23505" ? "already_claimed" : "schema_unavailable",
+  };
 
-  const { error: membershipError } = await client.from("venue_memberships").upsert({
+  const { error: membershipError } = await client.from("venue_memberships").insert({
     venue_slug: invite.venue_slug,
     user_id: userId,
     role: "owner",
     status: "active",
     updated_at: new Date().toISOString(),
-  }, { onConflict: "venue_slug,user_id" });
+  });
   if (membershipError) return { ok: false, error: "schema_unavailable" };
 
   return { ok: true, venueSlug: invite.venue_slug };

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { readGuestRef } from "@/lib/guest-server";
-import { getMyRedemptions, getSavedTripVenues } from "@/lib/data";
+import { getMyRedemptions, getSavedTripVenuesState, type TripVenueEntry } from "@/lib/data";
 import ShareButton from "@/components/ShareButton";
 import TripPlanner from "@/components/TripPlanner";
 
@@ -18,8 +18,15 @@ export const metadata = {
 export default async function MyPerksPage() {
   const ref = await readGuestRef();
   const [perks, saved] = ref
-    ? await Promise.all([getMyRedemptions(ref), getSavedTripVenues(ref)])
-    : [[], []];
+    ? await Promise.all([
+        getMyRedemptions(ref),
+        getSavedTripVenuesState(ref).catch((): { status: "unavailable"; entries: TripVenueEntry[]; unavailableCount: number } => ({
+          status: "unavailable",
+          entries: [],
+          unavailableCount: 0,
+        })),
+      ])
+    : [[], { status: "ready" as const, entries: [] as TripVenueEntry[], unavailableCount: 0 }];
 
   return (
     <div className="page-dark">
@@ -33,7 +40,16 @@ export default async function MyPerksPage() {
           Your private shortlist and trip, saved anonymously on this device.
         </p>
 
-        {saved.length === 0 ? (
+        {saved.status === "unavailable" ? (
+          <div role="alert" className="mt-6 rounded-xl border border-[var(--line)] p-6 text-center text-sm">
+            Your saved places could not be loaded. Please try again.
+            <div className="mt-3"><a href="/me" className="button-secondary inline-flex min-h-11 items-center">Retry My Bali →</a></div>
+          </div>
+        ) : saved.entries.length === 0 && saved.unavailableCount > 0 ? (
+          <div role="status" className="mt-6 rounded-xl border border-[var(--line)] p-6 text-center text-sm">
+            Your saved places are currently unavailable to display. Try again later.
+          </div>
+        ) : saved.entries.length === 0 ? (
           <div className="mt-6 rounded-xl border border-dashed border-[var(--line)] p-6 text-center text-sm text-[var(--muted)]">
             Nothing saved yet. Tap ♡ on any place to build your list.
             <div className="mt-3">
@@ -42,7 +58,17 @@ export default async function MyPerksPage() {
           </div>
         ) : (
           <>
-            <TripPlanner entries={saved} />
+            {saved.unavailableCount > 0 && (
+              <p role="status" className="mt-6 text-sm text-[var(--muted)]">
+                Some saved places are currently unavailable to display.
+              </p>
+            )}
+            {saved.status === "legacy" && (
+              <p role="status" className="mt-6 text-sm text-[var(--muted)]">
+                Your saved places are available, but trip days cannot be loaded right now.
+              </p>
+            )}
+            <TripPlanner entries={saved.entries} />
             <div className="mt-4">
               <ShareButton />
             </div>
