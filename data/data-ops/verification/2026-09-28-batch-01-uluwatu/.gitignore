@@ -8,3 +8,10 @@ snapshots/**/*.png
 snapshots/**/*.webp
 snapshots/**/*.bin
 snapshots-acceptor/
+snapshots-reconfirm/**/*.html
+snapshots-reconfirm/**/*.pdf
+snapshots-reconfirm/**/*.jpeg
+snapshots-reconfirm/**/*.jpg
+snapshots-reconfirm/**/*.png
+snapshots-reconfirm/**/*.webp
+snapshots-reconfirm/**/*.bin

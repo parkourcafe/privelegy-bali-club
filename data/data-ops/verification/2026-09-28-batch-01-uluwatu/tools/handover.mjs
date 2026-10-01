@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Founder-facing hand-over for batch 1: CHANGE-LIST.md (Russian), draft-changes.sql
 // (guarded, never executed here) and registry-changes.md (code edits blocked
-// until a deploy decision). Reads change-list.csv from reconcile.mjs, before.json
-// and codex-proposals.json.
+// until a deploy decision). Reads change-list.csv from reconcile.mjs and
+// codex-proposals.json.
 //
 //   node handover.mjs --batch <dir>
 
@@ -50,13 +50,10 @@ function parseCsv(text) {
 }
 
 const rows = parseCsv(await readFile(join(BATCH, "change-list.csv"), "utf8"));
-const before = JSON.parse(await readFile(join(BATCH, "before.json"), "utf8"));
 const codex = JSON.parse(await readFile(join(BATCH, "codex-proposals.json"), "utf8"));
 const summary = JSON.parse(await readFile(join(BATCH, "reconcile-summary.json"), "utf8"));
-const byVenue = new Map(before.venues.map((v) => [v.slug, v]));
 const sqlLit = (v) => `'${String(v).replace(/'/g, "''")}'`;
 const DB_FIELDS = { opening_hours_json: "opening_hours_json", phone: "phone", full_address: "full_address", coordinates: null, price_anchor: "price_anchor", category: "category", officialUrl: "official_url", instagramUrl: "instagram_url", menuUrl: null, bookingUrl: null };
-const CODE_FIELDS = new Set(["name", "verdict", "whyHere", "whatToExpect", "bestFor", "notFor", "practicalNote", "reservations", "whatToOrder", "priceBand", "address", "hours", "officialUrl", "instagramUrl", "bookingUrl", "menuUrl", "lastVerifiedAt"]);
 const isOpenEnded = (v) => /late|last guest/i.test(String(v)) && !String(v).startsWith("{");
 
 // ---------- per-venue markdown

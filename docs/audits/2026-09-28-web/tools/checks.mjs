@@ -78,7 +78,6 @@ const parsed = parsedAll.filter((p) => !p.recordTag);
 const parsedByUrl = new Map(parsed.map((p) => [p.requestUrl, p]));
 const sitemapUrls = new Set(Object.values(sitemaps).flatMap((s) => s.locations));
 const sitemapLastmod = Object.assign({}, ...Object.values(sitemaps).map((s) => s.lastmod));
-const sectionOf = (url) => Object.entries(sitemaps).find(([, s]) => s.locations.includes(url))?.[0] ?? null;
 
 // ---------------------------------------------------------------- T1–T3, T9, T10: technical
 
@@ -329,10 +328,10 @@ for (const p of places) {
   if (bf && bf.length < 12) hit("G5", "P2", { url: p.requestUrl, slug: pl.slug, field: "Best for", observed: bf, rule: "Best for короче 12 символов" });
 }
 const brands = (list) => new Set(list.map((pl) => norm(pl.name).split(" ").slice(0, 2).join(" ")));
-for (const [text, list] of bestForGroups) {
+for (const [, list] of bestForGroups) {
   if (list.length >= 3 && brands(list).size >= 3) hit("G5", "P2", { slug: list.map((x) => x.slug).join(" | "), field: "Best for", observed: `${list.length} мест: ${list[0].blocks["Quick decision"].pairs.find((x) => x.label === "Best for").value}`, rule: "одинаковый Best for у 3+ разных брендов (шаблон)" });
 }
-for (const [text, list] of verdictGroups) {
+for (const [, list] of verdictGroups) {
   if (list.length >= 3 && brands(list).size >= 3) hit("G5", "P2", { slug: list.map((x) => x.slug).join(" | "), field: "verdict", observed: `${list.length} мест: ${list[0].verdict}`, rule: "одинаковый вердикт у 3+ разных брендов (шаблон)" });
 }
 // near-duplicate verdict clusters (5-gram word shingles, Jaccard >= 0.8)
