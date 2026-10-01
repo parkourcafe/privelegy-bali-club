@@ -4,6 +4,27 @@ export interface TripEntry {
   position: number;
 }
 
+export type SavedTripState<T> = { status: "ready" | "legacy"; entries: T[] };
+
+export async function resolveSavedTripRead(
+  read: { data: unknown; error: { code?: string } | null },
+  readLegacySlugs: () => Promise<string[]>,
+): Promise<SavedTripState<TripEntry>> {
+  if (!read.error) {
+    if (!Array.isArray(read.data)) throw new Error("saved_trip_unavailable");
+    return { status: "ready", entries: parseTripEntries(read.data) };
+  }
+  // A missing RPC is a known migration gap; all other errors leave the saved
+  // plan unavailable rather than flattening day assignments into a new state.
+  if (read.error.code !== "PGRST202" && read.error.code !== "42883") throw read.error;
+  const entries = (await readLegacySlugs()).map((venueSlug, index) => ({
+    venueSlug,
+    day: null,
+    position: index + 1,
+  }));
+  return { status: "legacy", entries };
+}
+
 const VENUE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export function normalizeVenueSlug(value: unknown): string | null {

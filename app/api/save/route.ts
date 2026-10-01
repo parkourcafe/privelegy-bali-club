@@ -13,11 +13,15 @@ export async function GET(req: Request) {
   }
   const guestRef = await readGuestRef();
   if (!guestRef) return NextResponse.json({ saved: false });
-  const savedSlugs = await getSavedSlugs(guestRef);
-  return NextResponse.json(
-    { saved: savedSlugs.includes(venueSlug) },
-    { headers: { "Cache-Control": "private, no-store" } },
-  );
+  try {
+    const savedSlugs = await getSavedSlugs(guestRef);
+    return NextResponse.json(
+      { saved: savedSlugs.includes(venueSlug) },
+      { headers: { "Cache-Control": "private, no-store" } },
+    );
+  } catch {
+    return NextResponse.json({ error: "unavailable" }, { status: 503, headers: { "Cache-Control": "private, no-store" } });
+  }
 }
 
 // Desired-state writes are idempotent, so a retry cannot invert the saved state.

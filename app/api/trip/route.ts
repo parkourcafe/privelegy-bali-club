@@ -13,10 +13,14 @@ async function isPublicVenue(venueSlug: string): Promise<boolean> {
 
 export async function GET() {
   const ref = await readGuestRef();
-  return NextResponse.json(
-    { entries: await getSavedTrip(ref) },
-    { headers: { "Cache-Control": "private, no-store" } },
-  );
+  try {
+    return NextResponse.json(
+      { entries: await getSavedTrip(ref) },
+      { headers: { "Cache-Control": "private, no-store" } },
+    );
+  } catch {
+    return NextResponse.json({ error: "unavailable" }, { status: 503, headers: { "Cache-Control": "private, no-store" } });
+  }
 }
 
 export async function PUT(req: Request) {

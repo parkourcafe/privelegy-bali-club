@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
 import PropertyMediaUploader from "@/components/PropertyMediaUploader";
+import { OTHER_BALI_CONTACT_EMAIL } from "@/lib/site-origin-policy";
 
 // Unified villa/hotel property submission form (mockup "Add your property").
 // A partner fills in what they can + their own links, and sends a review
@@ -220,14 +221,21 @@ export default function PropertySubmissionForm({
   if (status.kind === "success") {
     return (
       <div className="form-note-success" role="status">
-        <p className="text-lg font-bold">Thank you — it&apos;s with us.</p>
-        <p className="mt-1">
-          We&apos;ll prepare your page and send it back for review before anything
-          is published.
+        <p className="text-lg font-bold">
+          {status.duplicate ? "This place already has a request." : "Thank you — it’s with us."}
         </p>
-        <p className="mt-3 text-sm font-semibold text-[var(--lagoon-strong)]">
-          Status: In review — we curate by hand
-        </p>
+        {status.duplicate ? (
+          <p className="mt-1">
+            We did not change that request. If this is your place, email{" "}
+            <a href={`mailto:${OTHER_BALI_CONTACT_EMAIL}`} className="font-semibold underline">{OTHER_BALI_CONTACT_EMAIL}</a>{" "}
+            from an official account so we can review an update.
+          </p>
+        ) : (
+          <>
+            <p className="mt-1">We&apos;ll prepare your page and send it back for review before anything is published.</p>
+            <p className="mt-3 text-sm font-semibold text-[var(--lagoon-strong)]">Status: In review — we curate by hand</p>
+          </>
+        )}
         {status.reference && (
           <p className="mt-1 text-sm text-[var(--muted)]">
             Reference:{" "}
@@ -235,11 +243,13 @@ export default function PropertySubmissionForm({
             — quote it if you reply to us.
           </p>
         )}
-        <ul className="mt-2 space-y-1 text-sm text-[var(--muted)]">
-          <li>We reply on WhatsApp or email, usually within a couple of days.</li>
-          <li>Want to add more photos? Just reply to our message.</li>
-          <li>Nothing goes live until you approve the draft — no fees, and travellers never pay.</li>
-        </ul>
+        {!status.duplicate && (
+          <ul className="mt-2 space-y-1 text-sm text-[var(--muted)]">
+            <li>We reply on WhatsApp or email, usually within a couple of days.</li>
+            <li>Want to add more photos? Just reply to our message.</li>
+            <li>Nothing goes live until you approve the draft — no fees, and travellers never pay.</li>
+          </ul>
+        )}
         {status.submissionId && status.mediaToken && (
           <div className="mt-5 rounded-2xl border-2 border-[var(--lagoon-strong)] bg-[var(--tint-best-bg)] p-4">
             <p className="text-base font-extrabold text-[var(--ink)]">

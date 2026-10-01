@@ -268,6 +268,12 @@ export function extractSitemapUrls(xml, baseUrl = DEFAULT_T0_ORIGIN) {
   return urls;
 }
 
+function sitemapDocumentType(xml) {
+  if (String(xml).includes("<urlset")) return "urlset";
+  if (String(xml).includes("<sitemapindex")) return "index";
+  return null;
+}
+
 async function requestText(fetchImpl, url, userAgent, timeoutMs) {
   try {
     const response = await fetchImpl(url, {
@@ -337,7 +343,6 @@ export async function runT0IndexabilityAudit({
     }))),
     requestText(fetchImpl, sitemapUrl, genericAgent, timeoutMs),
   ]);
-  const sitemapUrls = extractSitemapUrls(sitemapResponse.body, origin);
   const violations = [];
   const addViolation = (code, message, slug = null, agent = null) => {
     violations.push({ code, ...(slug ? { slug } : {}), ...(agent ? { agent } : {}), message });
@@ -367,6 +372,38 @@ export async function runT0IndexabilityAudit({
   }
   if (sitemapResponse.error) addViolation("SITEMAP_FETCH_FAILED", sitemapResponse.error);
   if (sitemapResponse.status !== 200) addViolation("SITEMAP_STATUS", `sitemap.xml returned ${sitemapResponse.status ?? "no status"}, expected 200`);
+  const rootSitemapType = sitemapDocumentType(sitemapResponse.body);
+  let sitemapUrls = new Set();
+  let sitemapChildCount = 0;
+  if (sitemapResponse.status === 200 && !rootSitemapType) {
+    addViolation("SITEMAP_FORMAT", "sitemap.xml is neither a urlset nor a sitemap index");
+  } else if (rootSitemapType === "urlset") {
+    sitemapUrls = extractSitemapUrls(sitemapResponse.body, origin);
+  } else if (rootSitemapType === "index") {
+    const childUrls = [...extractSitemapUrls(sitemapResponse.body, origin)];
+    sitemapChildCount = childUrls.length;
+    const allowedChildren = childUrls.filter((childUrl) => {
+      if (new URL(childUrl).origin === origin) return true;
+      addViolation("SITEMAP_CHILD_ORIGIN", `Sitemap child escaped the configured origin: ${childUrl}`);
+      return false;
+    });
+    const childResponses = await mapWithConcurrency(allowedChildren, concurrency, (childUrl) =>
+      requestText(fetchImpl, childUrl, genericAgent, timeoutMs));
+    for (let index = 0; index < childResponses.length; index += 1) {
+      const childUrl = allowedChildren[index];
+      const response = childResponses[index];
+      if (response.error) addViolation("SITEMAP_CHILD_FETCH_FAILED", `${childUrl}: ${response.error}`);
+      if (response.status !== 200) {
+        addViolation("SITEMAP_CHILD_STATUS", `${childUrl} returned ${response.status ?? "no status"}, expected 200`);
+        continue;
+      }
+      if (sitemapDocumentType(response.body) !== "urlset") {
+        addViolation("SITEMAP_CHILD_FORMAT", `${childUrl} is not a sitemap urlset`);
+        continue;
+      }
+      for (const pageUrl of extractSitemapUrls(response.body, origin)) sitemapUrls.add(pageUrl);
+    }
+  }
   if (sitemapResponse.status === 200 && sitemapUrls.size === 0) {
     addViolation("SITEMAP_EMPTY", "sitemap.xml contains no readable <loc> entries");
   }
@@ -488,6 +525,7 @@ export async function runT0IndexabilityAudit({
     sitemap: {
       status: sitemapResponse.status,
       urlCount: sitemapUrls.size,
+      childCount: sitemapChildCount,
     },
     totals: {
       positive: positiveCount,

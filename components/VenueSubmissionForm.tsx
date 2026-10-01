@@ -9,7 +9,7 @@ import PropertyMediaUploader from "@/components/PropertyMediaUploader";
 // - all four contact channels are required (website + Instagram + WhatsApp +
 //   email) — founder decision 2026-07-20, enforced here and server-side;
 // - honeypot field ("website") for spam;
-// - duplicate submissions are handled server-side (update, not multiply);
+// - duplicate submissions are acknowledged without changing another request;
 // - honest success copy: a submission is a REQUEST — we review by hand and
 //   never promise a listing or claim anything was published.
 
@@ -224,7 +224,7 @@ export default function VenueSubmissionForm() {
       <div className="form-note-success" role="status">
         <p className="font-bold">
           {status.duplicate
-            ? "Got it — we've updated your details. Thanks!"
+            ? "A request for this place is already in review. Contact us from an official account to update it."
             : "Thanks — your place is in our review queue."}
         </p>
         <p className="mt-1">
