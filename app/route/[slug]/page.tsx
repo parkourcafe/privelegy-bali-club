@@ -3,7 +3,9 @@ import Link from "next/link";
 import { getRoute, getRoutes } from "@/lib/data";
 import VenueCard from "@/components/VenueCard";
 import { GuideHeroMedia } from "@/components/GuideMedia";
+import PageViewTracker from "@/components/PageViewTracker";
 import { DISTRICT_GUIDE } from "@/lib/districts";
+import { routeViewTracking } from "@/lib/route-view-event";
 import { clipMetaDescription } from "@/lib/seo/meta-description";
 
 // Route pages are ordered sequences. Back-links return to the relevant area
@@ -100,10 +102,14 @@ export default async function RoutePage({
   }
 
   const back = backLinkFor(route.district);
+  // Only a resolved route counts as an opening; the not-found branch above
+  // returns before this and writes nothing.
+  const view = routeViewTracking(route);
 
   return (
     <div className="page-dark">
     <main className="site-shell-narrow">
+      {view && <PageViewTracker event={view.event} slug={view.slug} />}
       <Link href={back.href} className="quiet-link">
         ← {back.label}
       </Link>

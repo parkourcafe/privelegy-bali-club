@@ -13,6 +13,25 @@ Connect SEO, Local SEO, and AI-search work to observable behavior without collec
 | Partner acquisition | `/for-venues`, `/villas`, `/hotels`, `/list-your-property` leads | Guide lead / venue submission events | Track source page and partner type. |
 | AI/search attribution | Referral, source capture, self-reported source where available | SourceCapture / server logs / CRM | Crawl activity is diagnostic, not outcome proof. |
 
+## Page-View Subjects (internal event store)
+
+Page openings share one bounded event family; the subject (`venueSlug` in the
+`/api/event` body, `venue_slug` in `events`) says which page. The type registry
+lives in `log_event` (`supabase/migrations/0058_shortlist_generated_event.sql`),
+so a new page kind reuses an existing type rather than adding one.
+
+| Page | Event type | Subject | Mounted from |
+|---|---|---|---|
+| District guide (`/canggu/<guide>` and the other districts) | `editorial_page_view` | `<district>/<guide>` | `components/*GuideView.tsx` |
+| Place card (`/places/<slug>`) | `venue_detail_view` | `<slug>` | `app/places/[slug]/page.tsx` |
+| Route (`/route/<slug>`, 2026-10-01) | `editorial_page_view` | `route/<slug>` | `app/route/[slug]/page.tsx` via `lib/route-view-event.ts` |
+
+Rules: the event fires once per mount through `components/PageViewTracker.tsx`,
+only after analytics consent (client and server gates), and never from a
+"not found" render. A route opening is a growth signal, not partner proof.
+To count route openings: `select venue_slug, source, count(*) from events where
+type = 'editorial_page_view' and venue_slug like 'route/%' group by 1, 2`.
+
 ## UTM Contract
 
 Use stable UTM values for GBP, partner profiles, and editorial outreach:
