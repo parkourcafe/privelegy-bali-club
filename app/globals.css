@@ -121,10 +121,15 @@ html {
   text-decoration: none;
 }
 
+/* .topline also labels plain paragraphs; only its link form is a tap target. */
+a.topline {
+  min-height: 44px;
+}
+
 .quiet-link {
   display: inline-flex;
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 44px;
+  min-width: 44px;
   align-items: center;
   color: var(--lagoon-strong);
   font-size: 13px;
@@ -411,7 +416,7 @@ html {
 }
 
 .chip {
-  min-height: 40px;
+  min-height: 44px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: rgba(255, 250, 241, 0.9);
@@ -420,6 +425,13 @@ html {
   font-size: 13px;
   font-weight: 700;
   transition: transform 160ms ease, color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+/* A chip rendered as a link is inline by default, which ignores min-height;
+   outside a flex parent it measured 35 px (T-OB-05). */
+a.chip {
+  display: inline-flex;
+  align-items: center;
 }
 
 .chip:hover {
@@ -449,7 +461,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 40px;
+  min-height: 44px;
   border: 1px solid var(--lagoon);
   border-radius: 999px;
   background: rgba(0, 89, 98, 0.08);
@@ -478,7 +490,7 @@ html {
 }
 
 .criteria-clear {
-  min-height: 40px;
+  min-height: 44px;
   padding: 6px 10px;
   color: var(--muted);
   font-size: 12px;
@@ -1638,6 +1650,22 @@ html {
   overflow-x: auto;
   padding: 2px 16px 10px 2px;
   scroll-snap-type: x proximity;
+}
+
+/* Phones: the seven moments are the Plan picker's required choices, so they
+   wrap instead of hiding five of them behind a sideways scroll (AGENTS §7). */
+@media (max-width: 640px) {
+  .moment-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-right: 0;
+    overflow-x: visible;
+    padding: 2px 0 10px;
+  }
+
+  .moment-strip .moment-card {
+    min-width: 0;
+  }
 }
 
 .moment-card {
@@ -3314,7 +3342,7 @@ html {
 
 .lead-form .check-pill {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 44px;
   align-items: center;
   gap: 7px;
   border: 1px solid var(--line);
@@ -3671,7 +3699,7 @@ html {
 .ob-site-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   border-radius: 999px;
   white-space: nowrap;
@@ -4003,7 +4031,7 @@ html {
 }
 .ob-compact-link {
   display: block;
-  min-height: 40px;
+  min-height: 44px;
   padding: 9px 10px;
   border-radius: 10px;
   color: var(--ink);
@@ -4226,7 +4254,7 @@ html {
 .decision-moments, .decision-view-toggle { display: flex; flex-wrap: wrap; gap: 8px; }
 .decision-moments { margin-top: 18px; }
 .decision-moments button, .decision-view-toggle button {
-  min-height: 42px;
+  min-height: 44px;
   padding: 8px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;

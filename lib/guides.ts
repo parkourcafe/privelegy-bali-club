@@ -47,7 +47,7 @@ const PILLAR_LINKS: GuideRelated[] = [
   { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "An honest, practical safety guide — scooters, sea, scams." },
   { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
   { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, slow dinners." },
-  { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+  { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
 ];
 
 export const GUIDES: Guide[] = [
@@ -562,7 +562,7 @@ export const GUIDES: Guide[] = [
         heading: "Days 8–10: add the islands or the Bukit",
         paras: [
           "For turquoise water and a change of scene, take the fast boat from Sanur to Nusa Penida or Nusa Lembongan for two or three nights.",
-          "Prefer to stay on the mainland? Base in Uluwatu on the southern Bukit for clifftop sunsets and world-class surf beaches.",
+          "Prefer to stay on the mainland? Base in Uluwatu on the southern Bukit for clifftop sunsets and surf beaches.",
         ],
       },
       {
@@ -701,7 +701,7 @@ export const GUIDES: Guide[] = [
       { q: "Where's the best sunset for a couple?", a: "The west and south coasts — Uluwatu, Seminyak and Canggu all face the sunset. Uluwatu's clifftop bars are the most dramatic." },
     ],
     related: [
-      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
       { href: "/ubud", title: "The Ubud guide", blurb: "Jungle mornings, rice-terrace calm, long slow dinners." },
       { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
       { href: "/romantic-bali", title: "Romantic Bali", blurb: "Plan a couples' trip around the right moments." },
@@ -760,8 +760,8 @@ export const GUIDES: Guide[] = [
     eyebrow: "Canggu vs Uluwatu",
     title: "Canggu vs Uluwatu: which should you choose?",
     description:
-      "Canggu for cafés, nightlife and a walkable-ish hub; Uluwatu for clifftop sunsets, cleaner beaches and world-class surf. How to pick between them.",
-    lede: "Choose Canggu for energy — cafés, co-working, beach clubs and a big dinner-and-nightlife scene in one busy hub. Choose Uluwatu for scenery — clifftop sunsets, turquoise coves and world-class surf, spread out across the southern Bukit. Canggu is more convenient; Uluwatu is more beautiful and more of an escape.",
+      "Canggu for cafés, nightlife and a walkable-ish hub; Uluwatu for clifftop sunsets, cleaner beaches and reef-break surf. How to pick between them.",
+    lede: "Choose Canggu for energy — cafés, co-working, beach clubs and a big dinner-and-nightlife scene in one busy hub. Choose Uluwatu for scenery — clifftop sunsets, turquoise coves and reef-break surf, spread out across the southern Bukit. Canggu is more convenient; Uluwatu is more beautiful and more of an escape.",
     sections: [
       {
         heading: "Choose Canggu if…",
@@ -787,11 +787,11 @@ export const GUIDES: Guide[] = [
     faq: [
       { q: "Is Canggu or Uluwatu better for a first trip?", a: "Canggu if you want cafés, nightlife and everything close; Uluwatu if you want clifftop sunsets, cleaner beaches and surf. Many first-timers do a few nights of each." },
       { q: "Which has better beaches, Canggu or Uluwatu?", a: "Uluwatu — white-sand coves and turquoise water below the cliffs. Canggu's beaches are grey-sand and more about surf and beach clubs than swimming." },
-      { q: "Which is better for surfing?", a: "Both are strong, but Uluwatu's reef breaks are world-class and better for experienced surfers; Canggu has more beginner-friendly beach breaks and surf schools." },
+      { q: "Which is better for surfing?", a: "Both work, but Uluwatu's reef breaks suit experienced surfers; Canggu has more beginner-friendly beach breaks and surf schools." },
     ],
     related: [
       { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
-      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
       { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },
     ],
   },
@@ -948,7 +948,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Uluwatu — for surfers who work",
         paras: [
-          "The Bukit suits remote workers whose day bends around the surf: work in the mornings or between sessions, with clifftop cafés and world-class breaks. It's quieter and more spread out, so you'll rely on a scooter.",
+          "The Bukit suits remote workers whose day bends around the surf: work in the mornings or between sessions, with clifftop cafés and reef breaks. It's quieter and more spread out, so you'll rely on a scooter.",
         ],
       },
       {
@@ -1382,7 +1382,7 @@ export const GUIDES: Guide[] = [
     ],
     related: [
       { href: "/things-to-do-in-bali", title: "Best things to do in Bali", blurb: "The island icons and what to do in each area." },
-      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and world-class sunsets." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and ocean sunsets." },
       { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, temples included." },
       { href: "/is-bali-safe", title: "Is Bali safe?", blurb: "Practical basics, including temple etiquette and monkeys." },
       { href: "/uluwatu-sunset-kecak", title: "Uluwatu sunset & Kecak day trip", blurb: "Picked your temple — here's whether the whole day around it fits." },
@@ -1557,7 +1557,7 @@ export const GUIDES: Guide[] = [
     ],
     related: [
       { href: "/bali-day-trips", title: "Bali day trip ideas", blurb: "Compare routes by region, mood and starting point." },
-      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and world-class sunsets." },
+      { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Clifftop temple, the Kecak dance and ocean sunsets." },
       { href: "/bali-temples-which-one", title: "Which Bali temple should you visit?", blurb: "Uluwatu vs Tanah Lot vs Tirta Empul vs Lempuyang — pick by what you want." },
       { href: "/where-to-watch-sunset-in-bali", title: "Where to watch the sunset in Bali", blurb: "Golden-hour spots across the island, temples included." },
     ],

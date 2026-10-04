@@ -52,9 +52,11 @@ test("Canggu food and rainy-day routes extend the existing route engine", () => 
   assert.match(migration, /insert into public\.routes/);
   assert.match(migration, /canggu-food-route/);
   assert.match(migration, /canggu-rainy-day/);
+  // Stop resolution lives in lib/route-stops.ts so listing and detail share it.
+  const engine = read("lib/route-stops.ts");
+  assert.match(engine, /canggu-food-route/);
+  assert.match(engine, /canggu-rainy-day/);
   const data = read("lib/data.ts");
-  assert.match(data, /canggu-food-route/);
-  assert.match(data, /canggu-rainy-day/);
   assert.match(data, /const all = await getPublishedVenues\(\)/);
 });
 

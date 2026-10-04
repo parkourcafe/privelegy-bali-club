@@ -132,7 +132,7 @@ export default async function BestBeachClubsPage() {
         <RelatedGuides
           heading="Keep planning"
           links={[
-            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, world-class surf, dinners with a view." },
+            { href: "/uluwatu", title: "The Uluwatu guide", blurb: "Cliff-edge sunsets, reef-break surf, dinners with a view." },
             { href: "/seminyak", title: "The Seminyak guide", blurb: "Dining, sunset beach clubs and Bali's densest spa scene." },
             { href: "/canggu", title: "The Canggu guide", blurb: "Surf mornings, café work, sunset beach clubs." },
             { href: "/where-to-stay-in-bali", title: "Where to stay in Bali", blurb: "All five first-timer areas, compared." },

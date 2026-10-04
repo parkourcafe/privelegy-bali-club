@@ -160,7 +160,7 @@ export default function DayBuilderForm({ initial }: { initial: DayAnswers }) {
               type="button"
               onClick={useMyLocation}
               disabled={geo.kind === "locating"}
-              className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[var(--lagoon)] px-4 text-sm font-bold text-[var(--lagoon-strong)] disabled:opacity-60"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--lagoon)] px-4 text-sm font-bold text-[var(--lagoon-strong)] disabled:opacity-60"
             >
               📍 {geo.kind === "locating" ? "Locating…" : "Use my location"}
             </button>
