@@ -20,10 +20,14 @@ const ts = require("typescript");
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const REPO = resolve(HERE, "../..");
 export const DEFAULT_GLOBS = ["lib/**/*.ts", "app/**/page.tsx", "components/**/*.tsx"];
-export const SKIP_FILES = /shader-background|i18n\/|\/api\/|\/admin|\/dev\/|partner|privacy|terms|\.test\./;
+// lib/seed.ts is the offline fallback catalogue, never served when the database is configured.
+export const SKIP_FILES = /shader-background|i18n\/|\/api\/|\/admin|\/dev\/|partner|privacy|terms|\.test\.|lib\/seed\.ts/;
 // `alt` is kept on purpose: it is read aloud and indexed, so it is public copy.
 const SKIP_JSX_ATTRS = /^(className|href|src|id|key|type|rel|aria-[\w-]+|data-[\w-]+)$/;
-const SKIP_KEYS = new Set(["slug", "href", "url", "icon", "kind", "category", "src", "evidence", "note", "source", "quote", "sourceUrl", "gmapsUrl", "image", "canonical"]);
+// `note` is not skipped: on the best-of guides, district pages and route stops
+// it renders as public text under the headings. Working notes in evidence
+// records are skipped by INTERNAL_CONTAINERS / the ev() call instead.
+const SKIP_KEYS = new Set(["slug", "href", "url", "icon", "kind", "category", "src", "evidence", "source", "quote", "sourceUrl", "gmapsUrl", "image", "canonical"]);
 // `ev` is the evidence-record constructor in lib/uluwatu/venues.ts; its notes
 // are working records, never rendered.
 const INTERNAL_CALLS = /^(console\.\w+|assert(\.\w+)?|warn|debug|invariant|require|ev)$/;

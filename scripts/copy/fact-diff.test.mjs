@@ -358,3 +358,10 @@ test("CLI exits 0 on PASS, 1 on REJECT and 2 on usage errors", () => {
   assert.equal(usage.status, 2);
   assert.match(usage.stderr, /--after/);
 });
+
+test("a range starting at 12 keeps the stated half of the day", () => {
+  assert.equal(factDiff("Best around 12–3pm.", "Best from noon to 3pm.").verdict, "PASS");
+  assert.equal(factDiff("Open 12–3am on weekends.", "Open midnight to 3am on weekends.").verdict, "PASS");
+  assert.equal(factDiff("Best around 12–3pm.", "Best from midnight to 3pm.").verdict, "REJECT");
+  assert.equal(factDiff("Lunch 11–2pm.", "Lunch 11am to 2pm.").verdict, "PASS");
+});

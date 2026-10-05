@@ -517,8 +517,9 @@ function extractSentenceFacts(sentence, sentenceIndex, context) {
     const hour2 = meridiemHour(Number(h2), meridiem);
     if (hour2 === null || Number(h1) < 1 || Number(h1) > 12) return;
     // "8–11am" shares the meridiem; "11–2pm" crosses noon, so the first end
-    // takes the other half of the day.
-    const sameHalf = Number(h1) < Number(h2);
+    // takes the other half of the day. A first end of 12 sits on the boundary
+    // of the stated half: "12–3pm" is noon to 3pm, "12–3am" midnight to 3am.
+    const sameHalf = Number(h1) < Number(h2) || Number(h1) === 12;
     const inferred = sameHalf ? meridiem : (meridiem.toLowerCase() === "a" ? "p" : "a");
     const hour1 = meridiemHour(Number(h1), inferred);
     const minute1 = Number(min1 ?? 0);
