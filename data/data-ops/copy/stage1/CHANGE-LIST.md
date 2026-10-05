@@ -2,11 +2,11 @@
 
 Дата подготовки: 2026-10-05. Ничего не записано в базу. Правки кода лежат в ветке `claude/pensive-ritchie-f9kkhp` и не выезжают на сайт (деплой только из main).
 
-Файлы: `change-list.csv` (35 строк) и `stubs-99.csv` (99 строк заглушек `best_for`). Колонка `decision` пустая — заполняется ДА / НЕТ / ПРАВКА построчно. Генератор SQL берёт только `db` + `ДА`.
+Файлы: `change-list.csv` (31 строка: 27 по базе, 4 по коду) и `stubs-99.csv` (99 строк заглушек `best_for`). Колонка `decision` пустая — заполняется ДА / НЕТ / ПРАВКА построчно. Генератор SQL берёт только `db` + `ДА`.
 
 **Как читать «before».** Это текст с живого сайта по краулу 28.09, а не из базы. В сессии с коннектором генератор `scripts/copy/build-copy-sql.mjs` сверит каждую строку с экспортом базы: если «до» не совпало — строка не пишется, уходит в `holds.csv`.
 
-## A. Код — применено в ветке (2 правки)
+## A. Код — применено в ветке (3 правки)
 
 | # | Где | Было | Стало | Почему |
 |---|---|---|---|---|
@@ -14,7 +14,7 @@
 | S1-002 | `lib/hub.ts` spokeMetaDescription | «…N brunch spots with what to order and prices. Free to use; travellers never pay.» | «…N brunch spots picked by Other Bali. Free to use; travellers never pay.» | та же ложь в `<meta description>` |
 | S1-040 | `lib/uluwatu/venues.ts:1348` Warung Bu Jonny, whyHere | «…popular with surf instructors and resort staff for cheap, freshly cooked Indonesian plates and a well-regarded house sambal.» | «…listed among the Bukit's surfer warungs: cheap, freshly cooked Indonesian plates and a house sambal.» | «well-regarded», «popular with» — язык отзывов (guardrail #2). «resort staff» удалено: источника в evidence нет. Новая формулировка — дословно из записи evidence |
 
-## B. База — ждёт «да» (33 строки + 99 заглушек)
+## B. База — ждёт «да» (27 строк + 99 заглушек)
 
 ### B1. Заглушки вместо описания (7 строк, S1-010…016) → NULL
 Шесть карточек с текстом вида «A verified Bali restaurant listing with table reservations handled externally by Chope» / «X is a verified dining venue in Y» и Sarong с служебной фразой «remains under review» (плюс её best_for про «confirm the current format»).
@@ -38,10 +38,31 @@ Ubud 39, Seminyak 19, Kuta & Legian 12, Sanur 12, Uluwatu 9, Nusa Dua 5, Jimbara
 
 **Что я не знаю:** какой гейт работает на проде (прод ≠ main). На проде эти карточки отдаются с `index,follow`. После первой записи — проверить одну карточку `curl`: robots, meta, отсутствие «Best for».
 
+### B4. Дополнение 05.10 — язык отзывов, который нашёл детектор (5 строк, S1-050…054)
+Аудит 28.09 искал узкий список слов. Детектор (`scripts/copy/lint.mjs`) по тем же карточкам нашёл ещё пять:
+
+| Карточка | Поле | Убрано |
+|---|---|---|
+| nasi-bali-men-weti | why_its_here | «legendary» |
+| warung-mak-beng | best_for | «famous», «legendary» |
+| jimbaran-warrior | why_its_here | «popular with locals and long-stayers» |
+| the-practice-bali-canggu | why_its_here | «beloved», «known for», «warm» |
+| toko-kopi-tuku | why_its_here | «cult», «that made Tuku famous»; «first Bali store» — в список проверки фактов |
+
+Все пять прошли сторож фактов (`fact-diff`: PASS, удалённые слова названы) и линтер (0 FAIL после правки).
+
+## C. Код — предложение, ждёт «да» (1 строка, S1-060)
+Гайд `/mount-batur-sunrise-jeep-hot-spring`, раздел «How Other Bali would make this route better»:
+- было: «A better Mount Batur page shouldn't sell sunrise as universally magical — it should explain the cost: early pickup, cold morning conditions, weather uncertainty, terrain and safety checks. …»
+- стало: «Sunrise on Mount Batur does not suit everyone. It means an early pickup, a cold morning, uncertain weather, the terrain and the safety checks. For some travellers a daytime Kintamani route may be a better fit.»
+
+Почему: «a better … page» читается как редакционная заметка о самой странице. В трёх соседних гайдах тот же раздел говорит «version» или «route». Факты те же. Заголовок раздела общий для четырёх гайдов — его не трогаю; одинаковый каркас этих четырёх разделов пойдёт в волну гайдов.
+
 ## Решения для основательницы
 1. B1: NULL у 7 заглушек (с уходом Sarong в noindex) — да / нет?
-2. B2: 15 строк построчно; отдельно S1-022 (часы Men Agus из Tripadvisor): NULL или HOLD?
+2. B2 + B4: 20 строк построчно; отдельно S1-022 (часы Men Agus из Tripadvisor): NULL или HOLD?
 3. B3: NULL у 99 заглушек — да / нет?
+4. C: правка абзаца Mount Batur — да / нет / свой вариант?
 
 ## Как применяется после «да»
 Сессия с Supabase-коннектором: read-only экспорт → `node scripts/copy/build-copy-sql.mjs --changes change-list.csv --export <export.csv> --out stage1/apply --date <дата>` (и то же для `stubs-99.csv`) → preflight → dry-run одной строки в `begin…rollback` → DO-блок (каждый оператор проверяет `row_count = 1`) → verify → `curl` трёх страниц → запись в RUNLOG. `rollback-<дата>.sql` лежит рядом.
