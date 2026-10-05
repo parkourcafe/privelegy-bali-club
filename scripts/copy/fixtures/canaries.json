@@ -1,0 +1,354 @@
+[
+  {
+    "id": "m01-changed-money",
+    "before": "Day spa in Amed. Foot Reflexology is 190K IDR for 60 minutes.",
+    "after": "Day spa in Amed. Foot reflexology costs 180K IDR for 60 minutes.",
+    "expect": "REJECT",
+    "why": "A changed price is a changed fact: MONEY:180000 is not in the source."
+  },
+  {
+    "id": "m02-money-format-k",
+    "before": "Foot Reflexology is 190K IDR for 60 minutes.",
+    "after": "Foot reflexology is Rp 190k for 60 minutes.",
+    "expect": "PASS",
+    "why": "190K IDR and Rp 190k canonicalise to the same integer IDR."
+  },
+  {
+    "id": "m03-money-format-dotted",
+    "before": "A plate of nasi campur is IDR 190,000 at the resort warung.",
+    "after": "A plate of nasi campur is Rp190.000 at the resort warung.",
+    "expect": "PASS",
+    "why": "Indonesian dotted thousands and comma thousands are the same number."
+  },
+  {
+    "id": "m04-time-format",
+    "before": "Opens at 7:00am. Cash only.",
+    "after": "Opens at 07:00. Cash only.",
+    "expect": "PASS",
+    "why": "7:00am and 07:00 are the same clock time."
+  },
+  {
+    "id": "m05-duration-format",
+    "before": "Day spa in Amed. Foot Reflexology is 100K IDR for 60 minutes.",
+    "after": "A day spa in Amed. An hour of foot reflexology costs 100K IDR.",
+    "expect": "PASS",
+    "why": "60 minutes and an hour are the same duration; lowercasing a treatment name is not a fact change."
+  },
+  {
+    "id": "m06-added-proper-noun",
+    "before": "Day spa in Amed. Booking is by WhatsApp.",
+    "after": "Day spa in Amed near Jemeluk Bay. Booking is by WhatsApp.",
+    "expect": "REJECT",
+    "why": "Jemeluk Bay is a place name the source never mentions."
+  },
+  {
+    "id": "m07-added-amenity",
+    "before": "Day spa in Amed. Booking is by WhatsApp.",
+    "after": "Day spa in Amed with a pool. Booking is by WhatsApp.",
+    "expect": "REJECT",
+    "why": "An amenity the record does not carry is an invented fact."
+  },
+  {
+    "id": "m08-added-fit-small",
+    "before": "Day spa in Amed. Foot Reflexology is 100K IDR for 60 minutes.",
+    "after": "A small day spa in Amed. An hour of foot reflexology costs 100K IDR.",
+    "expect": "REJECT",
+    "why": "The spec's worked example: 'small' is a fit evaluation nobody verified."
+  },
+  {
+    "id": "m09-added-fit-cosy",
+    "before": "Warung in Sanur. Nasi campur is 25K IDR.",
+    "after": "Cosy warung in Sanur. Nasi campur is 25K IDR.",
+    "expect": "REJECT",
+    "why": "Fit words are hard tokens even when they open the sentence."
+  },
+  {
+    "id": "m10-added-claim-best",
+    "before": "Specialty coffee roaster in Canggu. Opens at 7am.",
+    "after": "The best specialty coffee roaster in Canggu. Opens at 7am.",
+    "expect": "REJECT",
+    "why": "A superlative is a claim; claims need evidence, not a rewriter."
+  },
+  {
+    "id": "m11-added-claim-popular",
+    "before": "Beach club on Melasti Beach. Day beds from 500K IDR.",
+    "after": "Popular beach club on Melasti Beach. Day beds from 500K IDR.",
+    "expect": "REJECT",
+    "why": "'popular' asserts demand the record does not measure."
+  },
+  {
+    "id": "m12-added-food",
+    "before": "Flat white 45K IDR, batch brew 35K IDR.",
+    "after": "Flat white 45K IDR, batch brew 35K IDR, with sourdough on the side.",
+    "expect": "REJECT",
+    "why": "A dish that exists only in the rewrite was invented."
+  },
+  {
+    "id": "m13-flipped-polarity",
+    "before": "Kids are not allowed after 7pm.",
+    "after": "Kids are allowed after 7pm.",
+    "expect": "PASS",
+    "assert": "polarity",
+    "why": "Same hard tokens, opposite meaning: the guard cannot reject on words alone but must warn."
+  },
+  {
+    "id": "m14-dropped-fact",
+    "before": "Day spa in Amed. Foot Reflexology is 100K IDR for 60 minutes. Booking is by WhatsApp.",
+    "after": "Day spa in Amed. Foot Reflexology is 100K IDR for 60 minutes.",
+    "expect": "PASS",
+    "assert": "dropped",
+    "why": "Deleting a fact is allowed but must be named so the change list can own the deletion."
+  },
+  {
+    "id": "m15-reordered-sentences",
+    "before": "Open 8am–4pm daily. Cash only. Nasi campur is 25K IDR.",
+    "after": "Nasi campur is 25K IDR. Cash only. Open 8am–4pm daily.",
+    "expect": "PASS",
+    "why": "Order is style; the fact set is unchanged."
+  },
+  {
+    "id": "m16-connective-synonym",
+    "before": "Open 8am–4pm daily, but cash only.",
+    "after": "Open 8am–4pm daily, though cash only.",
+    "expect": "PASS",
+    "why": "Connectives are not facts."
+  },
+  {
+    "id": "m17-blind-spot-preposition",
+    "before": "Warung next to the beach in Sanur.",
+    "after": "Warung on the beach in Sanur.",
+    "expect": "PASS",
+    "why": "Documented blind spot: prepositions are not hard tokens, so 'next to the beach' becoming 'on the beach' passes even though the location claim strengthened. Human review of the change list still owns this."
+  },
+  {
+    "id": "m18-changed-time",
+    "before": "Opens at 7am. Cash only.",
+    "after": "Opens at 8am. Cash only.",
+    "expect": "REJECT",
+    "why": "A wrong opening time is the most damaging thing a travel page can carry."
+  },
+  {
+    "id": "m19-changed-duration",
+    "before": "Foot Reflexology is 100K IDR for 60 minutes.",
+    "after": "Foot reflexology is 100K IDR for 90 minutes.",
+    "expect": "REJECT",
+    "why": "DURATION:90 is not in the source."
+  },
+  {
+    "id": "m20-changed-count",
+    "before": "The treatment list runs to 18 items.",
+    "after": "The treatment list runs to 20 items.",
+    "expect": "REJECT",
+    "why": "Bare integers are facts."
+  },
+  {
+    "id": "m21-distance-format",
+    "before": "The beach is 170m away.",
+    "after": "The beach is 170 metres away.",
+    "expect": "PASS",
+    "why": "Lowercase m without a currency prefix is metres, and 170m equals 170 metres."
+  },
+  {
+    "id": "m22-address-abbreviation",
+    "before": "The spa is on Jl. Raya Ubud, not far from the palace.",
+    "after": "It sits on Jl. Raya Ubud, not far from the palace.",
+    "expect": "PASS",
+    "why": "Jl. must not split the sentence or turn Raya into a new sentence-initial name."
+  },
+  {
+    "id": "m23-distance-km-format",
+    "before": "2 km from Ubud Palace.",
+    "after": "2,000 metres from Ubud Palace.",
+    "expect": "PASS",
+    "why": "Kilometres canonicalise to metres."
+  },
+  {
+    "id": "m24-money-range-format",
+    "before": "Mains are 35–70K.",
+    "after": "Mains run Rp 35,000–70,000.",
+    "expect": "PASS",
+    "why": "In a range the unit of either end applies to both; 35–70K is 35,000 and 70,000."
+  },
+  {
+    "id": "m25-money-range-changed",
+    "before": "Mains are 35–70K.",
+    "after": "Mains are 35–80K.",
+    "expect": "REJECT",
+    "why": "The upper bound moved."
+  },
+  {
+    "id": "m26-added-day",
+    "before": "Open 8am–4pm.",
+    "after": "Open 8am–4pm, closed on Mondays.",
+    "expect": "REJECT",
+    "why": "A closing day the source never stated."
+  },
+  {
+    "id": "m27-added-year",
+    "before": "Family-run warung in Sanur.",
+    "after": "Family-run warung in Sanur since 2009.",
+    "expect": "REJECT",
+    "why": "A founding year is a fact."
+  },
+  {
+    "id": "m28-added-percent",
+    "before": "Prices include tax.",
+    "after": "Prices include tax and a 10% service charge.",
+    "expect": "REJECT",
+    "why": "A percentage is a fact."
+  },
+  {
+    "id": "m29-proper-case-change",
+    "before": "Foot Reflexology is 100K IDR.",
+    "after": "Foot reflexology is 100K IDR.",
+    "expect": "PASS",
+    "why": "Case is style: the name still appears, word for word."
+  },
+  {
+    "id": "m30-accent-change",
+    "before": "Kabrón sits on the cliff at Uluwatu.",
+    "after": "Kabron sits on the cliff at Uluwatu.",
+    "expect": "PASS",
+    "why": "NFKD with combining marks stripped makes Kabrón and Kabron the same name."
+  },
+  {
+    "id": "p01-day-spa-amed",
+    "before": "Day spa in Amed. The published treatment list runs to 18 items — Traditional Massage, Shirodhara and Deep Tissue. Foot Reflexology is 100K IDR for 60 minutes. Booking is by WhatsApp.",
+    "after": "A day spa in Amed with 18 treatments on the list, from traditional massage to shirodhara and deep tissue. An hour of foot reflexology costs 100K IDR. Book by WhatsApp.",
+    "expect": "PASS",
+    "why": "House-voice paraphrase from the brief: same facts, no hype."
+  },
+  {
+    "id": "p02-warung-sanur",
+    "before": "Warung in Sanur. Nasi campur is 25K IDR. Open 8am–4pm daily. Cash only.",
+    "after": "A Sanur warung. Nasi campur costs 25K IDR. Open daily from 8am to 4pm. Cash only.",
+    "expect": "PASS",
+    "why": "Range connector changed from a dash to 'from … to'."
+  },
+  {
+    "id": "p03-beach-club-melasti",
+    "before": "Beach club on Melasti Beach. Day beds from 500K IDR, redeemable against food and drink. DJ sets from 4pm on weekends. Kids welcome until sunset.",
+    "after": "A beach club on Melasti Beach where day beds start at 500K IDR and the amount is redeemable against food and drink. A DJ plays from 4pm on weekends. Kids are welcome until sunset.",
+    "expect": "PASS",
+    "why": "Sentences merged and expanded without new facts."
+  },
+  {
+    "id": "p04-coffee-roaster-canggu",
+    "before": "Specialty coffee roaster in Canggu. Flat white 45K IDR, batch brew 35K IDR. Beans roasted on site. Opens at 7am.",
+    "after": "Specialty coffee roaster in Canggu that roasts its own beans on site. A flat white is 45K IDR and batch brew 35K IDR. Doors open at 7am.",
+    "expect": "PASS",
+    "why": "'Doors open' is a sentence-initial common word, not a name."
+  },
+  {
+    "id": "p05-yoga-studio-ubud",
+    "before": "Yoga studio in Ubud with two shalas. Drop-in classes are 150K IDR; a 10-class pass is 1.2M IDR. Mats are provided. Classes run from 7am to 7pm daily.",
+    "after": "A two-shala yoga studio in Ubud. A drop-in class costs 150K IDR and a 10-class pass 1.2M IDR, mats included. Classes run daily between 7am and 7pm.",
+    "expect": "PASS",
+    "why": "Number words, hyphenated counts and an M multiplier survive restructuring."
+  },
+  {
+    "id": "p06-surf-school-batu-bolong",
+    "before": "Surf school at Batu Bolong. A 2-hour group lesson is 450K IDR including board and rash vest. Lessons start at 7am, 10am and 3pm. Book a day ahead by WhatsApp.",
+    "after": "Surf school at Batu Bolong. Two hours in a group lesson cost 450K IDR, board and rash vest included. Lessons go out at 7am, 10am and 3pm; book a day ahead by WhatsApp.",
+    "expect": "PASS",
+    "why": "'2-hour' and 'Two hours' are the same duration."
+  },
+  {
+    "id": "p07-cliff-bar-uluwatu",
+    "before": "Cliff bar at Uluwatu. Sunset is the draw; arrive by 5pm for a front-row table. Cocktails are 150–180K IDR. There is a 100K IDR minimum spend at the front tables.",
+    "after": "A cliff bar at Uluwatu where sunset is the draw. Get there by 5pm for a front-row table; the front tables carry a 100K IDR minimum spend. Cocktails run 150–180K IDR.",
+    "expect": "PASS",
+    "why": "Clauses moved between sentences."
+  },
+  {
+    "id": "p08-bakery-berawa",
+    "before": "Bakery in Berawa. Sourdough loaves are 65K IDR and croissants 35K IDR. Everything sells out by noon on weekends.",
+    "after": "Berawa bakery. A sourdough loaf is 65K IDR, a croissant 35K IDR. On weekends everything is gone by noon.",
+    "expect": "PASS",
+    "why": "Plural to singular on food words keeps the same canonical."
+  },
+  {
+    "id": "p09-rooftop-bar-seminyak",
+    "before": "Rooftop bar above a hotel in Seminyak. Happy hour runs 5–7pm with two-for-one cocktails. Live music on Fridays from 8pm. Dress code is smart casual.",
+    "after": "A hotel rooftop bar in Seminyak. Two-for-one cocktails during happy hour, 5–7pm. Live music from 8pm on Fridays, and the dress code is smart casual.",
+    "expect": "PASS",
+    "why": "A mixed range '5–7pm' resolves both ends to the evening."
+  },
+  {
+    "id": "p10-dive-centre-tulamben",
+    "before": "Dive centre in Tulamben, 5 minutes' walk from the USAT Liberty wreck. Two guided dives are 1.5M IDR including gear. Groups are capped at four divers per guide.",
+    "after": "Tulamben dive centre a 5-minute walk from the USAT Liberty wreck. Two guided dives cost 1.5M IDR with gear included; groups are capped at four divers per guide.",
+    "expect": "PASS",
+    "why": "Possessive and hyphenated durations match; the multi-word name is intact."
+  },
+  {
+    "id": "p11-night-market-gianyar",
+    "before": "Night market in Gianyar. Stalls open from 5pm until about 11pm. Babi guling and sate lilit are 20–35K IDR a plate. Cash only; no cards.",
+    "after": "Gianyar's night market. Stalls run from 5pm to about 11pm, with babi guling and sate lilit at 20–35K IDR a plate. Cash only, no cards.",
+    "expect": "PASS",
+    "why": "A possessive on a place name is still the same name."
+  },
+  {
+    "id": "p12-resort-pool-nusa-dua",
+    "before": "Day pass to the pool at a resort in Nusa Dua. 350K IDR per adult, 175K IDR per child, redeemable against food and drink. Towels and loungers are included. Open 9am–6pm.",
+    "after": "Pool day pass at a Nusa Dua resort. Adults pay 350K IDR and children 175K IDR, all of it redeemable against food and drink, with towels and loungers included. Open 9am–6pm.",
+    "expect": "PASS",
+    "why": "'child' and 'children' share one canonical."
+  },
+  {
+    "id": "p13-cooking-class-ubud",
+    "before": "Cooking class in Ubud. The morning session starts at 8am with a market visit and runs about 4 hours. 450K IDR per person, vegetarian menu available. Pick-up from central Ubud is included.",
+    "after": "Ubud cooking class. The morning session begins at 8am with a market visit and lasts around 4 hours. It costs 450K IDR per person and a vegetarian menu is available, with pick-up from central Ubud included.",
+    "expect": "PASS",
+    "why": "Verb synonyms only."
+  },
+  {
+    "id": "p14-warung-padang-padang",
+    "before": "Warung on the road down to Padang Padang. Nasi campur is 30K IDR, fresh juices 20K IDR. Open 8am–9pm. Scooter parking out front.",
+    "after": "A warung on the road down to Padang Padang. Nasi campur costs 30K IDR and fresh juices 20K IDR. Open 8am–9pm, with scooter parking out front.",
+    "expect": "PASS",
+    "why": "Fragments joined into sentences."
+  },
+  {
+    "id": "p15-spa-seminyak",
+    "before": "Spa in Seminyak with six treatment rooms. A 90-minute Balinese massage is 350K IDR. Couples rooms available. Last booking at 8pm.",
+    "after": "Seminyak spa with six treatment rooms. The 90-minute Balinese massage is 350K IDR, and couples rooms are available. Last booking is at 8pm.",
+    "expect": "PASS",
+    "why": "Articles and copulas added."
+  },
+  {
+    "id": "p16-gelato-canggu",
+    "before": "Gelato shop in Canggu. Around 16 flavours daily, 35K IDR for one scoop and 55K IDR for two. Dairy-free options are marked. Open until 11pm.",
+    "after": "Canggu gelato shop with around 16 flavours daily. One scoop is 35K IDR, two scoops 55K IDR. Dairy-free options are marked, and it stays open until 11pm.",
+    "expect": "PASS",
+    "why": "Sentence-initial 'One' is a count, not a name; 'Dairy-free' does not trip the polarity word 'free'."
+  },
+  {
+    "id": "p17-hostel-canggu",
+    "before": "Hostel in Canggu, 400m from Batu Bolong beach. Dorm beds from 180K IDR, private rooms from 450K IDR. Pool, co-working desks and a rooftop deck. Check-in from 2pm.",
+    "after": "Canggu hostel 400 metres from Batu Bolong beach. A dorm bed starts at 180K IDR and a private room at 450K IDR. There is a pool, co-working desks and a rooftop deck; check-in is from 2pm.",
+    "expect": "PASS",
+    "why": "Metres spelled out; amenities unchanged."
+  },
+  {
+    "id": "p18-temple-pecatu",
+    "before": "Hindu temple on a sea cliff near Pecatu. Entry is 50K IDR for adults and 30K IDR for children; a sarong is included. Kecak dance at 6pm daily, 150K IDR. Macaques take sunglasses and phones.",
+    "after": "Sea-cliff Hindu temple near Pecatu. Adults pay 50K IDR and children 30K IDR to enter, sarong included. The Kecak dance runs daily at 6pm and costs 150K IDR. Macaques will take sunglasses and phones.",
+    "expect": "PASS",
+    "why": "Names move from sentence start to mid-sentence and back."
+  },
+  {
+    "id": "p19-italian-sanur",
+    "before": "Italian restaurant in Sanur with a wood-fired oven. Pizzas are 95–140K IDR, pasta 85–120K IDR. Reservations recommended on weekends. Closed on Mondays.",
+    "after": "Wood-fired Italian restaurant in Sanur. Pizzas run 95–140K IDR and pasta 85–120K IDR. Reservations are recommended at weekends; closed Mondays.",
+    "expect": "PASS",
+    "why": "Two ranges, a weekend token and a closing day all preserved."
+  },
+  {
+    "id": "p20-scooter-rental-ubud",
+    "before": "Scooter rental in Ubud. Automatic 125cc bikes are 80K IDR a day or 450K IDR a week, helmets included. Delivery to villas within 3 km is free.",
+    "after": "Ubud scooter rental. An automatic 125cc bike is 80K IDR a day or 450K IDR a week with helmets included, and delivery is free to villas within 3 km.",
+    "expect": "PASS",
+    "why": "An alphanumeric spec (125cc) and a per-day rate survive the merge."
+  }
+]

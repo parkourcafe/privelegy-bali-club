@@ -158,16 +158,25 @@ function indexExport(exportRows) {
   return bySlug;
 }
 
+// unit_id and slug are printed into `--` comments of the apply file, where a
+// newline would turn the rest of the cell into executable SQL. Both have a
+// fixed alphabet, so anything else is a malformed list, not a value to escape.
+const UNIT_ID = /^[\p{L}\p{N}_.:#\-/[\]]+$/u;
+const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 export function selectChanges(changeRows, exportRows) {
   const exportBySlug = indexExport(exportRows);
   const emitted = [];
   const held = [];
   const notApplied = [];
+  const decidedBy = new Map();
   for (const row of changeRows) {
     if (row.surface.trim().toLowerCase() !== "db") continue;
     const unitId = row.unit_id.trim();
     const slug = row.slug_or_path.trim();
     const field = row.field.trim();
+    if (!UNIT_ID.test(unitId)) throw new Error(`unit_id ${JSON.stringify(unitId)} has characters outside letters, digits and _ . : # - / [ ]`);
+    if (!SLUG.test(slug)) throw new Error(`${unitId}: slug ${JSON.stringify(slug)} is not a lowercase-hyphen slug`);
     const decision = row.decision.trim().toUpperCase();
     if (decision !== "ДА") {
       notApplied.push({ unit_id: unitId, slug, field, decision: row.decision.trim(), reason: row.reason });
@@ -176,6 +185,12 @@ export function selectChanges(changeRows, exportRows) {
     // A wrong column or action is a malformed change list, not a hold: holding it would let the
     // rest of the batch go out while the reviewer believes the row is merely waiting.
     if (!COPY_FIELDS.includes(field)) throw new Error(`${unitId}: field ${JSON.stringify(field)} is not one of ${COPY_FIELDS.join("|")}`);
+    // Two approved edits of one field cannot both hold the same `before`: the
+    // second statement would match 0 rows and roll the whole block back at
+    // apply time, so the clash is reported here instead.
+    const key = `${slug}\u0000${field}`;
+    if (decidedBy.has(key)) throw new Error(`${unitId}: ${slug}.${field} is already changed by ${decidedBy.get(key)} in this list; keep one change per field per batch`);
+    decidedBy.set(key, unitId);
     const action = row.action.trim().toLowerCase();
     if (!ACTIONS.includes(action)) throw new Error(`${unitId}: action ${JSON.stringify(row.action)} is not replace|null`);
     const before = normaliseText(row.before);
@@ -368,7 +383,8 @@ export function renderVerifyLive(emitted) {
 export function buildCopySql(changeRows, exportRows, options) {
   const { date, inputs = {} } = options;
   assertDate(date);
-  const label = (options.label ?? "").trim() || `copy-${date}`;
+  // The label is printed into comment lines; one line only, for the same reason as unit_id.
+  const label = oneLine(options.label ?? "") || `copy-${date}`;
   const selection = selectChanges(changeRows, exportRows);
   const ctx = { ...selection, date, label, inputs };
   return {

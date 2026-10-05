@@ -1,0 +1,942 @@
+{
+  "date": "2026-10-05",
+  "note": "Per code file and resort page: words, FAIL counts by rule, WARN hits. Lower it after an approved rewrite wave; never raise it to make a test pass.",
+  "files": {
+    "app/amed/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/bali-travel-guide/page.tsx": {
+      "words": 714,
+      "fails": {},
+      "warns": 18
+    },
+    "app/bali/[district]/page.tsx": {
+      "words": 20,
+      "fails": {},
+      "warns": 0
+    },
+    "app/bali/page.tsx": {
+      "words": 160,
+      "fails": {},
+      "warns": 8
+    },
+    "app/best-beach-clubs-in-bali/page.tsx": {
+      "words": 302,
+      "fails": {},
+      "warns": 3
+    },
+    "app/best-cafes-in-bali/page.tsx": {
+      "words": 314,
+      "fails": {},
+      "warns": 8
+    },
+    "app/best-coffee-in-bali/page.tsx": {
+      "words": 234,
+      "fails": {},
+      "warns": 7
+    },
+    "app/best-restaurants-in-bali/page.tsx": {
+      "words": 351,
+      "fails": {},
+      "warns": 7
+    },
+    "app/best-spas-in-bali/page.tsx": {
+      "words": 289,
+      "fails": {},
+      "warns": 9
+    },
+    "app/best-warungs-in-bali/page.tsx": {
+      "words": 291,
+      "fails": {},
+      "warns": 8
+    },
+    "app/canggu/beach-clubs-sunset/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/canggu/best-brunch/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/canggu/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/canggu/best-spas/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/canggu/best-warungs/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/canggu/page.tsx": {
+      "words": 491,
+      "fails": {},
+      "warns": 14
+    },
+    "app/canggu/work-friendly-cafes/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/collections/[taste]/page.tsx": {
+      "words": 84,
+      "fails": {},
+      "warns": 1
+    },
+    "app/collections/page.tsx": {
+      "words": 118,
+      "fails": {},
+      "warns": 5
+    },
+    "app/for-venues/page.tsx": {
+      "words": 550,
+      "fails": {},
+      "warns": 8
+    },
+    "app/guides/page.tsx": {
+      "words": 99,
+      "fails": {},
+      "warns": 4
+    },
+    "app/hotel-restaurants/page.tsx": {
+      "words": 65,
+      "fails": {},
+      "warns": 3
+    },
+    "app/hotels/page.tsx": {
+      "words": 629,
+      "fails": {},
+      "warns": 25
+    },
+    "app/jimbaran/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/jimbaran/page.tsx": {
+      "words": 636,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 16
+    },
+    "app/jimbaran/spas-wellness/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/jimbaran/things-to-do/page.tsx": {
+      "words": 224,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 5
+    },
+    "app/list-your-property/page.tsx": {
+      "words": 237,
+      "fails": {},
+      "warns": 11
+    },
+    "app/list/[slug]/page.tsx": {
+      "words": 27,
+      "fails": {},
+      "warns": 0
+    },
+    "app/lovina/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/me/page.tsx": {
+      "words": 44,
+      "fails": {},
+      "warns": 0
+    },
+    "app/munduk/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/my-day/page.tsx": {
+      "words": 271,
+      "fails": {},
+      "warns": 3
+    },
+    "app/nusa-dua/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/nusa-dua/hotel-restaurants/page.tsx": {
+      "words": 68,
+      "fails": {},
+      "warns": 6
+    },
+    "app/nusa-dua/page.tsx": {
+      "words": 660,
+      "fails": {},
+      "warns": 19
+    },
+    "app/nusa-dua/spas-wellness/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/nusa-dua/things-to-do/page.tsx": {
+      "words": 235,
+      "fails": {},
+      "warns": 9
+    },
+    "app/nusa-penida/page.tsx": {
+      "words": 732,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 27
+    },
+    "app/onboard/[token]/page.tsx": {
+      "words": 171,
+      "fails": {},
+      "warns": 2
+    },
+    "app/page.tsx": {
+      "words": 280,
+      "fails": {},
+      "warns": 7
+    },
+    "app/places/[slug]/page.tsx": {
+      "words": 81,
+      "fails": {},
+      "warns": 2
+    },
+    "app/places/page.tsx": {
+      "words": 114,
+      "fails": {},
+      "warns": 6
+    },
+    "app/plan/page.tsx": {
+      "words": 234,
+      "fails": {},
+      "warns": 0
+    },
+    "app/plan/shared/page.tsx": {
+      "words": 77,
+      "fails": {},
+      "warns": 1
+    },
+    "app/review/page.tsx": {
+      "words": 136,
+      "fails": {},
+      "warns": 1
+    },
+    "app/route/[slug]/page.tsx": {
+      "words": 36,
+      "fails": {},
+      "warns": 0
+    },
+    "app/sanur/best-hotels/page.tsx": {
+      "words": 215,
+      "fails": {},
+      "warns": 6
+    },
+    "app/sanur/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/sanur/cafes-and-bars/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/sanur/page.tsx": {
+      "words": 503,
+      "fails": {},
+      "warns": 1
+    },
+    "app/sanur/spas-wellness/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/sanur/things-to-do/page.tsx": {
+      "words": 195,
+      "fails": {},
+      "warns": 7
+    },
+    "app/sanur/where-to-stay/page.tsx": {
+      "words": 484,
+      "fails": {},
+      "warns": 4
+    },
+    "app/seminyak/beach-clubs-sunset/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/seminyak/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/seminyak/cafes-coffee/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/seminyak/page.tsx": {
+      "words": 397,
+      "fails": {},
+      "warns": 9
+    },
+    "app/seminyak/spas-salons-wellness/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/sidemen/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/support/page.tsx": {
+      "words": 87,
+      "fails": {},
+      "warns": 3
+    },
+    "app/things-to-do-in-bali/page.tsx": {
+      "words": 422,
+      "fails": {},
+      "warns": 5
+    },
+    "app/ubud/best-cafes-coffee/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/ubud/best-restaurants/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/ubud/best-warungs/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/ubud/best-yoga-wellness/page.tsx": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "app/ubud/itinerary/page.tsx": {
+      "words": 446,
+      "fails": {},
+      "warns": 14
+    },
+    "app/ubud/page.tsx": {
+      "words": 530,
+      "fails": {},
+      "warns": 3
+    },
+    "app/ubud/things-to-do/page.tsx": {
+      "words": 378,
+      "fails": {},
+      "warns": 12
+    },
+    "app/uluwatu/48-hours/page.tsx": {
+      "words": 507,
+      "fails": {},
+      "warns": 25
+    },
+    "app/uluwatu/beach-clubs-sunset/page.tsx": {
+      "words": 390,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 12
+    },
+    "app/uluwatu/best-brunch/page.tsx": {
+      "words": 435,
+      "fails": {},
+      "warns": 12
+    },
+    "app/uluwatu/best-restaurants/page.tsx": {
+      "words": 514,
+      "fails": {},
+      "warns": 15
+    },
+    "app/uluwatu/date-night-restaurants/page.tsx": {
+      "words": 454,
+      "fails": {},
+      "warns": 17
+    },
+    "app/uluwatu/page.tsx": {
+      "words": 525,
+      "fails": {},
+      "warns": 7
+    },
+    "app/v/[venue]/redeem/page.tsx": {
+      "words": 30,
+      "fails": {},
+      "warns": 1
+    },
+    "app/villas/page.tsx": {
+      "words": 574,
+      "fails": {},
+      "warns": 23
+    },
+    "app/where-to-stay-in-bali/page.tsx": {
+      "words": 805,
+      "fails": {},
+      "warns": 19
+    },
+    "app/where-to-watch-sunset-in-bali/page.tsx": {
+      "words": 479,
+      "fails": {},
+      "warns": 7
+    },
+    "components/actions/VenueActionPanel.tsx": {
+      "words": 28,
+      "fails": {},
+      "warns": 0
+    },
+    "components/AddToTripButton.tsx": {
+      "words": 9,
+      "fails": {},
+      "warns": 0
+    },
+    "components/CangguGuideView.tsx": {
+      "words": 40,
+      "fails": {},
+      "warns": 0
+    },
+    "components/CangguNow.tsx": {
+      "words": 34,
+      "fails": {},
+      "warns": 0
+    },
+    "components/ConsentBanner.tsx": {
+      "words": 19,
+      "fails": {},
+      "warns": 0
+    },
+    "components/DecisionRail.tsx": {
+      "words": 44,
+      "fails": {},
+      "warns": 0
+    },
+    "components/GuideArticle.tsx": {
+      "words": 5,
+      "fails": {},
+      "warns": 0
+    },
+    "components/GuideLeadForm.tsx": {
+      "words": 182,
+      "fails": {},
+      "warns": 11
+    },
+    "components/JimbaranGuideView.tsx": {
+      "words": 22,
+      "fails": {},
+      "warns": 1
+    },
+    "components/landing/BrowseBar.tsx": {
+      "words": 4,
+      "fails": {},
+      "warns": 0
+    },
+    "components/landing/DayIntentBuilder.tsx": {
+      "words": 159,
+      "fails": {},
+      "warns": 9
+    },
+    "components/LightDistrictLanding.tsx": {
+      "words": 17,
+      "fails": {},
+      "warns": 1
+    },
+    "components/menu/DeferredMenuSection.tsx": {
+      "words": 11,
+      "fails": {},
+      "warns": 0
+    },
+    "components/menu/MenuItem.tsx": {
+      "words": 13,
+      "fails": {},
+      "warns": 0
+    },
+    "components/menu/MenuStates.tsx": {
+      "words": 71,
+      "fails": {},
+      "warns": 0
+    },
+    "components/menu/StructuredMenu.tsx": {
+      "words": 43,
+      "fails": {},
+      "warns": 1
+    },
+    "components/MobileNav.tsx": {
+      "words": 5,
+      "fails": {},
+      "warns": 0
+    },
+    "components/my-day/DayBuilderForm.tsx": {
+      "words": 47,
+      "fails": {},
+      "warns": 6
+    },
+    "components/NusaDuaGuideView.tsx": {
+      "words": 23,
+      "fails": {},
+      "warns": 1
+    },
+    "components/PlanRouteCard.tsx": {
+      "words": 4,
+      "fails": {},
+      "warns": 0
+    },
+    "components/PropertyMediaUploader.tsx": {
+      "words": 136,
+      "fails": {},
+      "warns": 5
+    },
+    "components/PropertySubmissionForm.tsx": {
+      "words": 362,
+      "fails": {},
+      "warns": 14
+    },
+    "components/resort/HotelRestaurantsHub.tsx": {
+      "words": 142,
+      "fails": {},
+      "warns": 5
+    },
+    "components/resort/OfferDetail.tsx": {
+      "words": 25,
+      "fails": {},
+      "warns": 0
+    },
+    "components/ResortFnbHub.tsx": {
+      "words": 47,
+      "fails": {},
+      "warns": 1
+    },
+    "components/SanurGuideView.tsx": {
+      "words": 21,
+      "fails": {},
+      "warns": 0
+    },
+    "components/SaveButton.tsx": {
+      "words": 21,
+      "fails": {},
+      "warns": 0
+    },
+    "components/ScenarioView.tsx": {
+      "words": 38,
+      "fails": {},
+      "warns": 0
+    },
+    "components/SeminyakGuideView.tsx": {
+      "words": 18,
+      "fails": {},
+      "warns": 0
+    },
+    "components/SimilarPlaces.tsx": {
+      "words": 5,
+      "fails": {},
+      "warns": 1
+    },
+    "components/SiteFooter.tsx": {
+      "words": 92,
+      "fails": {},
+      "warns": 1
+    },
+    "components/StartYourShortlist.tsx": {
+      "words": 11,
+      "fails": {},
+      "warns": 0
+    },
+    "components/TripPlanner.tsx": {
+      "words": 7,
+      "fails": {},
+      "warns": 0
+    },
+    "components/UbudGuideView.tsx": {
+      "words": 17,
+      "fails": {},
+      "warns": 0
+    },
+    "components/venue/HotelSections.tsx": {
+      "words": 52,
+      "fails": {},
+      "warns": 4
+    },
+    "components/VenueCard.tsx": {
+      "words": 7,
+      "fails": {},
+      "warns": 0
+    },
+    "components/VenueSubmissionForm.tsx": {
+      "words": 281,
+      "fails": {},
+      "warns": 11
+    },
+    "lib/actions/resolve-actions.ts": {
+      "words": 39,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/bali-things.ts": {
+      "words": 953,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 26
+    },
+    "lib/canggu-guides.ts": {
+      "words": 1098,
+      "fails": {},
+      "warns": 23
+    },
+    "lib/collections.ts": {
+      "words": 1802,
+      "fails": {},
+      "warns": 55
+    },
+    "lib/contact.ts": {
+      "words": 85,
+      "fails": {},
+      "warns": 1
+    },
+    "lib/contracts/errors-v1.2.ts": {
+      "words": 124,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/contracts/hotel-fixture.ts": {
+      "words": 88,
+      "fails": {},
+      "warns": 1
+    },
+    "lib/contracts/menu-action.fixtures.ts": {
+      "words": 4,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/contracts/package-v1.1/menu-action.fixtures.ts": {
+      "words": 12,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/data.ts": {
+      "words": 7,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/day-builder.ts": {
+      "words": 76,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/districts.ts": {
+      "words": 127,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/domain/resort.ts": {
+      "words": 18,
+      "fails": {},
+      "warns": 2
+    },
+    "lib/external-links.ts": {
+      "words": 8,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/guides.ts": {
+      "words": 16386,
+      "fails": {
+        "H1": 3,
+        "R2": 1
+      },
+      "warns": 491
+    },
+    "lib/homepage.ts": {
+      "words": 169,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/hub.ts": {
+      "words": 146,
+      "fails": {},
+      "warns": 5
+    },
+    "lib/integrations/routing-provider.ts": {
+      "words": 38,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/integrations/whatsapp.ts": {
+      "words": 30,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/intents.ts": {
+      "words": 46,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/jimbaran-guides.ts": {
+      "words": 368,
+      "fails": {},
+      "warns": 15
+    },
+    "lib/jimbaran/content.ts": {
+      "words": 755,
+      "fails": {},
+      "warns": 24
+    },
+    "lib/journey/adaptive-companion.ts": {
+      "words": 52,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/light-districts.ts": {
+      "words": 1938,
+      "fails": {},
+      "warns": 63
+    },
+    "lib/mobile-api/discovery.ts": {
+      "words": 38,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/mobile-api/http.ts": {
+      "words": 15,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/moments.ts": {
+      "words": 42,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/navigation.ts": {
+      "words": 62,
+      "fails": {},
+      "warns": 1
+    },
+    "lib/nusa-dua-guides.ts": {
+      "words": 305,
+      "fails": {},
+      "warns": 12
+    },
+    "lib/nusa-dua/content.ts": {
+      "words": 684,
+      "fails": {},
+      "warns": 20
+    },
+    "lib/nusa-penida/content.ts": {
+      "words": 938,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 18
+    },
+    "lib/pillars.ts": {
+      "words": 239,
+      "fails": {},
+      "warns": 1
+    },
+    "lib/read-all-pages.ts": {
+      "words": 15,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/resort-fnb/index.ts": {
+      "words": 6,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/runtime-v1.2/route-runtime.ts": {
+      "words": 57,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/sanur-guides.ts": {
+      "words": 404,
+      "fails": {},
+      "warns": 17
+    },
+    "lib/sanur/content.ts": {
+      "words": 841,
+      "fails": {
+        "R2": 1
+      },
+      "warns": 19
+    },
+    "lib/scenarios.ts": {
+      "words": 941,
+      "fails": {},
+      "warns": 25
+    },
+    "lib/seed.ts": {
+      "words": 210,
+      "fails": {},
+      "warns": 3
+    },
+    "lib/seminyak-guides.ts": {
+      "words": 520,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 22
+    },
+    "lib/seo/venue-metadata.ts": {
+      "words": 3,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/site-origin-policy.ts": {
+      "words": 31,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/start-shortlist.ts": {
+      "words": 26,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/trip-missions.ts": {
+      "words": 28,
+      "fails": {},
+      "warns": 0
+    },
+    "lib/ubud-guides.ts": {
+      "words": 596,
+      "fails": {},
+      "warns": 30
+    },
+    "lib/ubud-things.ts": {
+      "words": 564,
+      "fails": {},
+      "warns": 11
+    },
+    "lib/uluwatu/venues.ts": {
+      "words": 4019,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 112
+    },
+    "lib/venue-validation.ts": {
+      "words": 9,
+      "fails": {},
+      "warns": 0
+    },
+    "resort:bali-free-beach-clubs": {
+      "words": 730,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 20
+    },
+    "resort:bali-hotel-brunches": {
+      "words": 365,
+      "fails": {},
+      "warns": 6
+    },
+    "resort:bali-resort-day-passes": {
+      "words": 422,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 9
+    },
+    "resort:bali-sunset-clubs": {
+      "words": 478,
+      "fails": {},
+      "warns": 16
+    },
+    "resort:canggu-beach-club-day-passes": {
+      "words": 347,
+      "fails": {},
+      "warns": 9
+    },
+    "resort:jimbaran-hotel-brunches": {
+      "words": 221,
+      "fails": {},
+      "warns": 3
+    },
+    "resort:jimbaran-resort-day-passes": {
+      "words": 356,
+      "fails": {},
+      "warns": 7
+    },
+    "resort:jimbaran-sunset-seafood": {
+      "words": 381,
+      "fails": {},
+      "warns": 6
+    },
+    "resort:nusa-dua-hotel-brunches": {
+      "words": 751,
+      "fails": {},
+      "warns": 16
+    },
+    "resort:nusa-dua-resort-day-passes": {
+      "words": 543,
+      "fails": {},
+      "warns": 12
+    },
+    "resort:sanur-hotel-brunches": {
+      "words": 314,
+      "fails": {},
+      "warns": 4
+    },
+    "resort:sanur-resort-day-passes": {
+      "words": 691,
+      "fails": {},
+      "warns": 21
+    },
+    "resort:seminyak-beach-club-day-passes": {
+      "words": 344,
+      "fails": {
+        "H1": 2
+      },
+      "warns": 7
+    },
+    "resort:seminyak-hotel-brunches": {
+      "words": 244,
+      "fails": {},
+      "warns": 4
+    },
+    "resort:ubud-hotel-brunches": {
+      "words": 241,
+      "fails": {},
+      "warns": 4
+    },
+    "resort:ubud-jungle-pool-day-passes": {
+      "words": 397,
+      "fails": {
+        "H1": 2
+      },
+      "warns": 10
+    },
+    "resort:uluwatu-resort-pool-day-passes": {
+      "words": 379,
+      "fails": {
+        "H1": 1
+      },
+      "warns": 8
+    }
+  }
+}

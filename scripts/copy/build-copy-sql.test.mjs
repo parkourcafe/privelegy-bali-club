@@ -15,6 +15,7 @@ import {
   normaliseText,
   parseCsv,
   readCsvObjects,
+  selectChanges,
 } from "./build-copy-sql.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -377,4 +378,41 @@ test("CLI refuses a bad date or a missing argument with exit code 1 and writes n
   } finally {
     await rm(out, { recursive: true, force: true });
   }
+});
+
+// ---------------------------------------------------------------- hardening (2026-10-05 probes)
+
+const hardeningExport = [
+  { slug: "a-cafe", name: "A", district: "Canggu", status: "active", publication_status: "published", why_its_here: "Old A", best_for: "Old A best", not_for: "", price_anchor: "", what_to_order: "" },
+];
+const hardChange = (over) => ({ unit_id: "U1", surface: "db", slug_or_path: "a-cafe", field: "why_its_here", before: "Old A", after: "New A", action: "replace", reason: "r", source: "s", decision: "ДА", ...over });
+
+test("a newline in unit_id or slug is refused: it would end the comment and run as SQL", () => {
+  assert.throws(() => selectChanges([hardChange({ unit_id: "U1\ndrop table venues;" })], hardeningExport), /unit_id/);
+  assert.throws(() => selectChanges([hardChange({ slug_or_path: "a-cafe\n; drop table venues" })], hardeningExport), /slug/);
+  assert.throws(() => selectChanges([hardChange({ slug_or_path: "d'cafe" })], hardeningExport), /slug/);
+});
+
+test("two approved edits of one field in one list are refused before they reach the database", () => {
+  assert.throws(
+    () => selectChanges([hardChange({ field: "best_for", before: "Old A best", after: "One" }), hardChange({ unit_id: "U2", field: "best_for", before: "Old A best", after: "Two" })], hardeningExport),
+    /already changed by U1/,
+  );
+});
+
+test("only a plain ДА, in any case and with spaces trimmed, approves a row", () => {
+  for (const decision of ["ДА", " да ", "Да"]) assert.equal(selectChanges([hardChange({ decision })], hardeningExport).emitted.length, 1, decision);
+  for (const decision of ["ДА?", "да, но поправить", "yes", "ПРАВКА", "НЕТ", ""]) {
+    const r = selectChanges([hardChange({ decision })], hardeningExport);
+    assert.equal(r.emitted.length, 0, decision);
+    assert.equal(r.notApplied.length, 1, decision);
+  }
+});
+
+test("a multi-line --label is folded to one comment line", () => {
+  const out = buildCopySql([hardChange({})], hardeningExport, { date: "2026-10-05", label: "batch\ndrop table venues;" });
+  const apply = out.files["apply-2026-10-05.sql"];
+  const hits = apply.split("\n").filter((line) => line.includes("drop table venues"));
+  assert.ok(hits.length > 0);
+  for (const line of hits) assert.match(line.trim(), /^--|raise exception/);
 });
