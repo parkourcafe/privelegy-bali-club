@@ -127,7 +127,7 @@ guard found nothing added:
 - Guide paragraph ("How many days in Bali"):
   - ❌ "A week is the sweet spot for a first trip. The classic split is three or
     four nights in Ubud…"
-  - ✅ "A week is the length most first trips should be. The usual split is
+  - ✅ "A week works well for a first trip. The usual split is
     three or four nights in Ubud…"
 
 What changed is never the facts. A cliché goes ("hole-in-the-wall", "sweet

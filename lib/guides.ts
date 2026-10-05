@@ -333,7 +333,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "7 days: one inland + one coastal base",
         paras: [
-          "A week is the length most first trips should be. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
+          "A week works well for a first trip. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
           "Two bases, one move. That transfer costs you half a day. Add a third move and the trip starts to be about logistics.",
         ],
       },

@@ -420,7 +420,7 @@
     "Arrival and departure each eat most of a day, so you have three full days. Spend them settling in, not crossing the island on a scooter for a photo."
    ],
    "s2": [
-    "A week is the length most first trips should be. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
+    "A week works well for a first trip. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
     "Two bases, one move. That transfer costs you half a day. Add a third move and the trip starts to be about logistics."
    ],
    "s3": [
@@ -510,5 +510,5 @@
   }
  },
  "_reader_note": "Blind read 2026-10-05 (reader-verdicts.json) was on after_v1_blind_read. The reader flagged the 'Not for: X, because it is Y' tail recurring in 5 of 10 cards; v2 varies it (full stop, colon, dash, semicolon, one 'because'). Facts unchanged between v1 and v2.",
- "_v3_note": "v3 (2026-10-05): fact-diff rejected 'a quiet, intimate dinner for two' (milk-and-madu: new count), 'at one table' (kilig: new count) and 'resort pool' (Nusa Dua meta: new amenity). By hand: fair-warung 'What you pay for lunch' narrowed 'restaurant proceeds' to lunch, a relation change the guard cannot see. Also: kilig keeps 'calm', sensorium keeps 'late', wulan loses 'proper', atlas splits a 30-word sentence, Nusa Dua masthead drops the 'This guide covers…' scaffold. The blind read (reader-verdicts.json) was on v1 (after_v1_blind_read); v2 varied the not_for endings; v3 changes no fact. bali-buda: the dietary list stays in best_for only, so why_its_here carries one list, not two."
+ "_v3_note": "v3 (2026-10-05): fact-diff rejected 'a quiet, intimate dinner for two' (milk-and-madu: new count), 'at one table' (kilig: new count) and 'resort pool' (Nusa Dua meta: new amenity). By hand: fair-warung 'What you pay for lunch' narrowed 'restaurant proceeds' to lunch, a relation change the guard cannot see. Also: kilig keeps 'calm', sensorium keeps 'late', wulan loses 'proper', atlas splits a 30-word sentence, Nusa Dua masthead drops the 'This guide covers…' scaffold. The blind read (reader-verdicts.json) was on v1 (after_v1_blind_read); v2 varied the not_for endings; v3 changes no fact. bali-buda: the dietary list stays in best_for only, so why_its_here carries one list, not two. Guide s2[0]: 'the length most first trips should be' → 'works well for a first trip' — the stricter per-unit gate flagged 'most' as a new claim word."
 }

@@ -1733,7 +1733,7 @@
     {
      "type": "POLARITY",
      "token": "first",
-     "sentence": "A week is the length most first trips should be."
+     "sentence": "A week works well for a first trip."
     },
     {
      "type": "POLARITY",
@@ -2384,12 +2384,6 @@
       "token": "three",
       "canonical": "COUNT:3",
       "sentence": 8
-     },
-     {
-      "type": "LEX",
-      "token": "most",
-      "canonical": "LEX:most",
-      "sentence": 10
      },
      {
       "type": "LEX",
