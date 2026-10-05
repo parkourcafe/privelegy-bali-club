@@ -17,12 +17,12 @@ import { VILLAS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 export const metadata: Metadata = {
   title: { absolute: "For villas — partner with Other Bali" },
   description:
-    "Independent villa or boutique stay in Bali? Partner with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — completely free.",
+    "Partner your independent Bali villa or boutique stay with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — completely free.",
   alternates: { canonical: "/villas" },
   openGraph: {
     title: "For villas · Other Bali",
     description:
-      "Partner with Other Bali — add your own details and photos, we review and publish, and travellers reach you directly. Completely free.",
+      "Partner with Other Bali: add your own details and photos, we review and publish, and travellers reach you directly. Completely free.",
     url: "https://www.otherbali.com/villas",
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "For villas · Other Bali",
     description:
-      "Partner with Other Bali — you add your details and photos, we review and publish. Completely free.",
+      "Partner with Other Bali: you add your details and photos, and we review and publish. Completely free.",
   },
 };
 
@@ -59,22 +59,22 @@ const WHY = [
   },
   {
     title: "A concierge for your guests",
-    body: "One trusted link for restaurants, beaches, wellness, activities and delivery — picked by residents.",
+    body: "One trusted link for restaurants, beaches, wellness, activities and delivery, picked by residents.",
   },
   {
     title: "A better guest experience",
-    body: "Fewer repeat questions at reception, faster guest decisions — no concierge platform to build.",
+    body: "Fewer repeat questions at reception and faster guest decisions, with no concierge platform to build.",
   },
 ];
 
 const STEPS = [
   {
     title: "You add your villa",
-    body: "Send us your details and your own photos (ones you have the rights to share) — right here on WhatsApp. You fill it in, so the page is genuinely yours.",
+    body: "Send us your details and your own photos (ones you have the rights to share) right here on WhatsApp. You fill it in, so the page is yours.",
   },
   {
     title: "We review and polish",
-    body: "We tidy the page — wording, layout, translation — and check everything reads right. We never invent facts or add photos you didn't send.",
+    body: "We tidy the page (wording, layout, translation) and check everything reads right. We never invent facts or add photos you didn't send.",
   },
   {
     title: "You approve, we publish",
@@ -82,7 +82,7 @@ const STEPS = [
   },
   {
     title: "You share the guide with guests",
-    body: "A QR code, welcome link or check-in message — one trusted local guide for their whole stay.",
+    body: "A QR code, welcome link or check-in message: one trusted local guide for their whole stay.",
   },
 ];
 
@@ -105,8 +105,8 @@ export default function VillasPage() {
           <h1 className="guide-title">Partner your villa with Other Bali.</h1>
           <p className="guide-standfirst">
             Get discovered by more travellers, and give every guest a better Bali
-            experience. Travellers reach you directly — website, WhatsApp or
-            booking page — and your guests get one trusted local guide.
+            experience. Travellers reach you directly through your website,
+            WhatsApp or booking page, and your guests get one trusted local guide.
             Completely free, as a simple partnership.
           </p>
           <div className="hero-actions" style={{ marginTop: 18 }}>
@@ -135,7 +135,7 @@ export default function VillasPage() {
           <h2>A partnership that works both ways</h2>
           <p className="guide-lede">
             No fees, no commission, no booking-volume promises. We grow together:
-            travellers find you through us — your guests discover Bali through you.
+            travellers find you through us, and your guests discover Bali through you.
             Travellers never pay.
           </p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">

@@ -9,12 +9,12 @@ const BASE = "https://www.otherbali.com";
 export const metadata: Metadata = {
   title: "Bali travel guides — planning, areas and best-of",
   description:
-    "Free Bali travel guides: how many days, when to go, how to get around, where to stay by area, and island-wide best-of picks. Practical, honest, no fluff.",
+    "Free Bali travel guides: how many days, when to go, how to get around, where to stay by area, and island-wide best-of picks.",
   alternates: { canonical: "/guides" },
   openGraph: {
     title: "Bali travel guides · Other Bali",
     description:
-      "Planning, where to stay, and island-wide best-of — the guides that help you decide.",
+      "Guides that help you decide: planning, where to stay and island-wide best-of.",
     url: `${BASE}/guides`,
     type: "website",
   },
@@ -59,12 +59,11 @@ export default function GuidesIndexPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">Bali travel guides</h1>
           <p className="guide-lede">
-            Practical, honest guides to help you decide — how long to go and
-            when, where to stay for the trip you&apos;re taking, and the
-            island-wide best-of. No fluff, just what actually helps you plan.
+            Practical guides to help you decide how long to go and when, where
+            to stay for the trip you&apos;re taking, and the island-wide best-of.
           </p>
           <p className="mt-3 text-sm text-[var(--muted)]">
-            Looking for a specific district? Start with the deep area guides for{" "}
+            For a specific district, start with the deep area guides for{" "}
             <Link href="/canggu">Canggu</Link>,{" "}
             <Link href="/uluwatu">Uluwatu</Link>,{" "}
             <Link href="/ubud">Ubud</Link>,{" "}

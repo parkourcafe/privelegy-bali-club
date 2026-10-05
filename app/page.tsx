@@ -21,7 +21,7 @@ import { serializeJsonLd } from "@/lib/seo/json-ld";
 export const metadata: Metadata = {
   title: { absolute: "Other Bali — the right place for the moment you’re in" },
   description:
-    "Verified Bali places with real menus, prices and Best for / Not for context — so you know why to go today. No ads, no paid ranking. Less searching. More Bali.",
+    "Verified Bali places with real menus, prices and Best for / Not for context, so you know why to go today. No ads, no paid ranking. Less searching. More Bali.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Other Bali — the right place for the moment you’re in",
@@ -262,7 +262,7 @@ export default function HomePage() {
                 {/* Island-wide pages that earn impressions but had no link from
                     the homepage. Same reasoning as the Canggu paragraph above. */}
                 <p className="mt-5 text-base leading-relaxed text-[#44352b]">
-                  Staying longer than a holiday? Read{" "}
+                  For a stay longer than a holiday, read{" "}
                   <Link href="/bali-for-a-month" className="font-semibold text-[#005962] underline underline-offset-4">
                     Bali for a month
                   </Link>{" "}
@@ -383,7 +383,7 @@ export default function HomePage() {
               most of its weight — these pages had none of it. Kept as
               sentences, not a menu, so the anchor text says what the page is. */}
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#44352b]">
-            Landing this week? The{" "}
+            When you land this week, the{" "}
             <Link href="/route/first-day" className="font-semibold text-[#005962] underline underline-offset-4">
               Canggu first-day route
             </Link>{" "}

@@ -34,7 +34,7 @@ export default async function JimbaranGuideView({ guide }: { guide: JimbaranGuid
   };
 
   const related = [
-    { href: "/jimbaran", title: "The Jimbaran guide", blurb: "The seafood bay — grills, sunset bars, resort dining and how to plan a night." },
+    { href: "/jimbaran", title: "The Jimbaran guide", blurb: "The seafood bay: grills, sunset bars, resort dining and how to plan a night." },
     ...JIMBARAN_GUIDES.filter((g) => g.slug !== guide.slug).map((g) => ({
       href: `/jimbaran/${g.slug}`,
       title: g.h1,

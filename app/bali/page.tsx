@@ -12,12 +12,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Where to Eat & Go in Bali — by District",
   description:
-    "Curated Bali district guides — deep, hand-crafted guides for Canggu, Uluwatu, Ubud and Sanur, plus quick hubs for Seminyak, Jimbaran and Nusa Dua. Free; travellers never pay.",
+    "Bali by district: in-depth guides to Canggu, Uluwatu, Ubud and Sanur, plus quick hubs for Seminyak, Jimbaran and Nusa Dua. Free; travellers never pay.",
   alternates: { canonical: "/bali" },
   openGraph: {
     title: "Where to Eat & Go in Bali — by District · Other Bali",
     description:
-      "Curated Bali guides by district — real places, prices and routes. Free to use.",
+      "Bali guides by district, with real places, prices and routes. Free to use.",
     url: `${SITE_ORIGIN}/bali`,
     type: "website",
   },
@@ -65,9 +65,9 @@ export default async function BaliIndexPage() {
           <div>
             <h1 className="hero-title">Where to eat &amp; go in Bali</h1>
             <p className="hero-copy mt-3">
-              Curated, district by district. We plan island-wide and go deep one
-              area at a time — here are the districts with enough on the ground to
-              guide a real day. Free to use; travellers never pay.
+              We plan island-wide and go deep one area at a time, district by
+              district. These are the districts with enough on the ground to guide a
+              real day. Free to use; travellers never pay.
             </p>
           </div>
           <div className="editorial-signal" aria-label="Bali districts signal">
@@ -80,7 +80,7 @@ export default async function BaliIndexPage() {
         <section className="mt-10">
           <h2 className="section-title">Deep district guides</h2>
           <p className="mt-1 text-sm text-[var(--muted)]">
-            Hand-crafted, resident-curated guides for our deepest districts.
+            Resident-curated guides for the districts we cover in depth.
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {PILLARS.map((p) => (
@@ -123,7 +123,8 @@ export default async function BaliIndexPage() {
               <Link href="/collections" className="quiet-link">All collections →</Link>
             </div>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Not an area — a craving. Cuisine shortlists across the whole island.
+              Start from a craving instead of an area. These cuisine shortlists
+              cover the whole island.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {tasteCollections.map((c) => (
@@ -137,8 +138,8 @@ export default async function BaliIndexPage() {
 
         <h2 className="section-title mt-12">Quiet corners of Bali</h2>
         <p className="mt-1 text-sm text-[var(--muted)]">
-          Slower, further-out areas worth planning around — the valley, the
-          dive coast, the highlands and the north.
+          Slower, further-out areas worth planning around: the valley, the dive
+          coast, the highlands and the north.
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {LIGHT_DISTRICTS.map((d) => (

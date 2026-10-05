@@ -77,19 +77,19 @@ function isWarung(v: { slug: string; category: string; name: string }): boolean 
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
   { key: "canggu", name: "Canggu", note: "Nasi campur stalls and babi guling around Batu Bolong, Berawa and Pererenan.", pillar: "/canggu/best-warungs" },
   { key: "ubud", name: "Ubud", note: "Home-style and vegetarian warungs in Bali's culture capital.", pillar: "/ubud/best-warungs" },
-  { key: "seminyak", name: "Seminyak", note: "Local plates tucked off the polished dining strip.", pillar: "/seminyak" },
+  { key: "seminyak", name: "Seminyak", note: "Local plates just off the polished dining strip.", pillar: "/seminyak" },
   { key: "sanur", name: "Sanur", note: "Easy, walkable local eateries on the calm east coast.", pillar: "/sanur" },
   { key: "jimbaran", name: "Jimbaran", note: "Beachside ikan bakar (grilled-fish) warungs.", pillar: undefined },
   { key: "nusa-dua", name: "Nusa Dua", note: "Bualu-village babi guling and local plates outside the resort gates.", pillar: "/nusa-dua" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Village warungs inland from the surf beaches.", pillar: "/uluwatu" },
-  { key: "denpasar", name: "Denpasar", note: "The capital's everyday nasi campur Bali and local institutions — where the city actually eats.", pillar: undefined },
+  { key: "denpasar", name: "Denpasar", note: "The capital's everyday nasi campur Bali and local institutions, where the city actually eats.", pillar: undefined },
 ];
 
 const FAQ = [
-  { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food — nasi campur (build-your-own mixed rice), satay, and daily home-style dishes. They're the backbone of everyday eating in Bali." },
-  { q: "Where is the best local food in Bali?", a: "Every district has its warungs — Canggu and Ubud have the deepest clusters, and each area has its own specialities. The picks here are sorted by district." },
-  { q: "Is warung food cheap?", a: "Yes — warungs are among the best value in Bali, with generous plates for a fraction of café or restaurant prices." },
-  { q: "What is babi guling?", a: "Babi guling is Balinese roast suckling pig, served with rice, crispy crackling, lawar and sambal — a local celebration dish and a hearty, affordable warung plate." },
+  { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food: nasi campur (build-your-own mixed rice), satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
+  { q: "Where is the best local food in Bali?", a: "Every district has its warungs. Canggu and Ubud have the deepest clusters, and each area has its own specialities. The picks here are sorted by district." },
+  { q: "Is warung food cheap?", a: "Yes. Warungs are among the best value in Bali, with generous plates for a fraction of café or restaurant prices." },
+  { q: "What is babi guling?", a: "Babi guling is Balinese roast suckling pig, served with rice, crispy crackling, lawar and sambal. It's a local celebration dish and also a hearty, affordable warung plate." },
 ];
 
 export default async function BestWarungsPage() {
@@ -163,10 +163,10 @@ export default async function BestWarungsPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            The best food in Bali is often the cheapest. Warungs — small,
-            family-run local eateries — serve nasi campur, babi guling and
+            The best food in Bali is often the cheapest. Warungs are small,
+            family-run local eateries serving nasi campur, babi guling and
             home-style Balinese and Indonesian plates for a fraction of café
-            prices. Here are the ones we stand behind, district by district.
+            prices. Below are the ones we stand behind, district by district.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} warungs, each one written up on the record with a
@@ -231,7 +231,7 @@ export default async function BestWarungsPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            local eateries are published with verified details —{" "}
+            local eateries are published with verified details:{" "}
             <Link href="/places?category=warung" className="quiet-link">
               browse every warung →
             </Link>
@@ -239,8 +239,8 @@ export default async function BestWarungsPage() {
         ) : null}
 
         <p className="text-sm text-[var(--muted)]">
-          Looking for a mood rather than a dish — a quiet local table, easy on
-          the budget? See{" "}
+          To pick by mood rather than dish (a quiet local table, easy on the
+          budget), see{" "}
           <Link href="/collections" className="quiet-link">
             curated collections →
           </Link>

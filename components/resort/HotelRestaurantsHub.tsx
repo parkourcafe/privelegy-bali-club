@@ -130,7 +130,7 @@ export default function HotelRestaurantsHub({
           items={[
             {
               q: "Can non-guests eat at hotel restaurants in Bali?",
-              a: "Often yes — many resort restaurants take outside reservations, but some are guest-only and a few need advance booking. Each listing says whether non-guest access is confirmed; when it isn't, confirm directly with the hotel.",
+              a: "Often yes. Many resort restaurants take outside reservations, but some are guest-only and a few need advance booking. Each listing says whether non-guest access is confirmed; when it isn't, confirm directly with the hotel.",
             },
             {
               q: "How do you verify prices and access?",

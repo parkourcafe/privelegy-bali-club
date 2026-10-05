@@ -728,7 +728,7 @@ export default async function VenuePage({
             {verifiedAt && (
               <p className="verification-note">
                 Information last checked: {verifiedAt}. Details like
-                hours and menus change — confirm big plans with the venue.
+                hours and menus change, so confirm big plans with the venue.
               </p>
             )}
           </div>
@@ -778,7 +778,7 @@ export default async function VenuePage({
                 {spend && (
                   <div>
                     <dt>Spend</dt>
-                    <dd>{spend}{content?.priceBand ? " — relative to the area" : ""}</dd>
+                    <dd>{spend}{content?.priceBand ? ", relative to the area" : ""}</dd>
                   </div>
                 )}
                 {practicalTags.length > 0 && (

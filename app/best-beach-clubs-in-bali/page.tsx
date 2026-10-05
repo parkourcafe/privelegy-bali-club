@@ -24,18 +24,18 @@ export const metadata = guideMetadata(guide);
 // venue links are driven live from the catalogue so the list can't go stale;
 // the per-area framing is editorial.
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Clifftop and cove clubs where the sunset is the whole event — the most dramatic scenery on the island.", pillar: "/uluwatu" },
+  { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Clifftop and cove clubs where the sunset is the whole event, and the scenery is the most dramatic on the island.", pillar: "/uluwatu" },
   { key: "seminyak", name: "Seminyak", note: "The originals: beachfront clubs on the sand where Bali's beach-club scene began.", pillar: "/seminyak" },
-  { key: "canggu", name: "Canggu", note: "The Echo Beach and Batu Bolong line-up — sunset sessions, DJs and surf out front.", pillar: "/canggu" },
+  { key: "canggu", name: "Canggu", note: "The Echo Beach and Batu Bolong line-up: sunset sessions, DJs and surf out front.", pillar: "/canggu" },
   { key: "jimbaran", name: "Jimbaran", note: "Calm-bay clubs on soft sand, good for an easy sunset and a family-friendly evening." },
-  { key: "nusa-dua", name: "Nusa Dua", note: "Resort-side clubs on reef-protected water — the calm, easy option in the south." },
+  { key: "nusa-dua", name: "Nusa Dua", note: "Resort-side clubs on reef-protected water. This is the calm, easy option in the south." },
 ];
 
 const FAQ = [
-  { q: "Where are the best beach clubs in Bali?", a: "Uluwatu has the most dramatic clifftop and cove clubs, Seminyak has the beachfront originals, and Canggu has the Echo Beach sunset line-up. Jimbaran and Nusa Dua are calmer, more family-friendly." },
-  { q: "Do beach clubs in Bali cost money to enter?", a: "Most are free to walk into, but daybeds, sofas and cabanas usually carry a minimum spend, especially at the popular sunset clubs. A table or bar stool is the budget-friendly way in." },
-  { q: "Which beach clubs are best for sunset?", a: "The west and south coasts face the sunset — Seminyak, Canggu and the Uluwatu cliffs. Book a table ahead for golden hour in high season." },
-  { q: "Are Bali beach clubs family-friendly?", a: "Some are, some are adults-only — it varies by venue. Jimbaran and Nusa Dua skew calmer and more family-friendly; check each club's page before you go." },
+  { q: "Where are the best beach clubs in Bali?", a: "For the most dramatic setting, go to Uluwatu's clifftop and cove clubs. Seminyak has the beachfront originals and Canggu the Echo Beach sunset line-up. Jimbaran and Nusa Dua are calmer and more family-friendly." },
+  { q: "Do beach clubs in Bali cost money to enter?", a: "Most are free to walk into, but daybeds, sofas and cabanas usually carry a minimum spend, especially at the sunset clubs. A table or bar stool is the budget-friendly way in." },
+  { q: "Which beach clubs are best for sunset?", a: "The west and south coasts face the sunset: Seminyak, Canggu and the Uluwatu cliffs. Book a table ahead for golden hour in high season." },
+  { q: "Are Bali beach clubs family-friendly?", a: "It varies by venue: some are, and some are adults-only. Jimbaran and Nusa Dua skew calmer and more family-friendly. Check each club's page before you go." },
 ];
 
 export default async function BestBeachClubsPage() {
@@ -86,11 +86,11 @@ export default async function BestBeachClubsPage() {
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
             Bali&apos;s beach clubs split by coast. Uluwatu and the Bukit have the
-            clifftop drama, Seminyak has the beachfront originals, and Canggu has
-            the Echo Beach sunset sessions. Jimbaran and Nusa Dua are the calmer,
-            family-friendly end. Here are the ones we stand behind, by area —
-            tap any for the details, and book a table ahead for golden hour in
-            high season.
+            clifftop drama. Seminyak has the beachfront originals, and Canggu the
+            Echo Beach sunset sessions. Jimbaran and Nusa Dua are the calmer,
+            family-friendly end. Below are the ones we stand behind, by area. Tap
+            any for the details, and book a table ahead for golden hour in high
+            season.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} beach clubs, each one written up on the record with a
@@ -120,7 +120,7 @@ export default async function BestBeachClubsPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            beach clubs are published with verified details —{" "}
+            beach clubs are published with verified details:{" "}
             <Link href="/places?category=beach_club" className="quiet-link">
               browse every beach club →
             </Link>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/collections" },
   openGraph: {
     title: "Curated Bali collections · Other Bali",
-    description: "Published shortlists by taste and moment — a focused Explore surface.",
+    description: "Published shortlists by taste and moment, a focused part of Explore.",
     url: `${BASE}/collections`,
     type: "website",
   },
@@ -84,7 +84,7 @@ export default async function CollectionsHubPage() {
         })}
         {live.length === 0 && (
           <p className="text-sm text-[var(--muted)]">
-            Collections are being curated — check back soon.
+            Collections are being curated. Check back soon.
           </p>
         )}
 
