@@ -15,6 +15,7 @@ import {
   normaliseText,
   parseCsv,
   readCsvObjects,
+  readExportJson,
   selectChanges,
 } from "./build-copy-sql.mjs";
 
@@ -415,4 +416,13 @@ test("a multi-line --label is folded to one comment line", () => {
   const hits = apply.split("\n").filter((line) => line.includes("drop table venues"));
   assert.ok(hits.length > 0);
   for (const line of hits) assert.match(line.trim(), /^--|raise exception/);
+});
+
+test("a JSON export from the connector reads like the CSV one, with SQL NULL as empty", () => {
+  const rows = readExportJson(JSON.stringify([{ slug: "a-cafe", name: "A", district: "canggu", status: "active", publication_status: "published", why_its_here: "Old A", best_for: null, not_for: null, price_anchor: null, what_to_order: null }]));
+  assert.equal(rows[0].best_for, "");
+  const r = selectChanges([hardChange({ field: "best_for", before: "", after: "Surfers after a session" })], rows);
+  assert.equal(r.emitted.length, 1);
+  assert.throws(() => readExportJson(JSON.stringify([{ slug: "a-cafe" }])), /missing column/);
+  assert.throws(() => readExportJson("[]"), /non-empty/);
 });

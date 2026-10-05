@@ -113,6 +113,27 @@ Before → after:
 The second version has no adjective doing the work of a fact, no dash holding
 three things together, and nothing a reader could not check on the spot.
 
+Two pairs from the 2026-10-05 pilot, approved as the reference for the rewrite
+programme. In a blind read the second version won every pair, and the fact
+guard found nothing added:
+
+- Card (Wulan Vegetarian Warung, Ubud):
+  - ❌ "A small, hole-in-the-wall all-vegan warung in the Peliatan area of Ubud,
+    cash-only, serving an Indonesian menu of nasi goreng, tempeh, smoothies, and
+    vegan sweets at very low prices."
+  - ✅ "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating
+    and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and
+    vegan sweets, at very low prices."
+- Guide paragraph ("How many days in Bali"):
+  - ❌ "A week is the sweet spot for a first trip. The classic split is three or
+    four nights in Ubud…"
+  - ✅ "A week is the length most first trips should be. The usual split is
+    three or four nights in Ubud…"
+
+What changed is never the facts. A cliché goes ("hole-in-the-wall", "sweet
+spot"), one long sentence becomes two, and a detail that was buried (floor
+cushions) moves to where a reader deciding would look for it.
+
 ---
 
 ## 6. Structure of a standard article
@@ -200,8 +221,9 @@ disagree, fix the file and then this text.
 - **Intensifiers** over 1 per 100 words — really, very, truly, genuinely,
   absolutely, incredibly.
 - **Em dashes** over 1 per 50 words, or two in one sentence. In Best for / Not
-  for the first dash is free until the founder settles that format (open
-  decision, 2026-10-05).
+  for one dash is allowed; how Not for joins its reason is deliberately not
+  fixed (founder decision, 2026-10-05; see the record standard's
+  `field-standard.md`).
 - **Lists of three** — two or more "X, Y and Z" in one short paragraph.
 - **Rhetorical questions** in body prose (FAQ questions and headings are fine).
 - **Sentences over 25 words.**

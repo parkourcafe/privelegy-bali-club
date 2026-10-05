@@ -23,7 +23,7 @@ const BASE = "https://www.otherbali.com";
 export const metadata: Metadata = {
   title: "Nusa Dua guide — the calm, polished resort enclave",
   description:
-    "A resident-curated Nusa Dua guide: who the gated resort enclave suits, its calm swimmable beaches, the best things to do, resort fine dining and some of Bali's biggest spas.",
+    "Who the gated Nusa Dua resort enclave suits: calm swimmable beaches, things to do, resort fine dining and some of Bali's biggest spas.",
   alternates: { canonical: "/nusa-dua" },
   openGraph: {
     title: "The Nusa Dua guide · Other Bali",
@@ -112,7 +112,7 @@ export default async function NusaDuaPillarPage() {
           variant="surf"
           kicker="Nusa Dua · South-east coast"
           title="Nusa Dua, the calm resort enclave"
-          copy="A gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip: calm swimmable beaches, a walkable seafront promenade, resort fine dining and some of the island's biggest spas. It's the low-friction, family-safe end of Bali — this guide covers who it suits, its beaches, what to do, where to eat and where to be looked after, curated from places we actually rate."
+          copy="Nusa Dua is a gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip. The beaches are calm enough to swim, and a walkable promenade runs along the seafront. The resorts hold the fine dining and some of the island's biggest spas. It is the easy, family-safe end of Bali."
           meta={`Editorial review: ${NUSA_DUA_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
           actions={
             <Link

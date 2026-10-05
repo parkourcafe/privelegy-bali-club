@@ -182,9 +182,9 @@
       "warns": 6
     },
     "app/nusa-dua/page.tsx": {
-      "words": 660,
+      "words": 642,
       "fails": {},
-      "warns": 19
+      "warns": 15
     },
     "app/nusa-dua/spas-wellness/page.tsx": {
       "words": 6,
@@ -663,12 +663,12 @@
       "warns": 0
     },
     "lib/guides.ts": {
-      "words": 16386,
+      "words": 16403,
       "fails": {
-        "H1": 3,
+        "H1": 2,
         "R2": 1
       },
-      "warns": 491
+      "warns": 478
     },
     "lib/homepage.ts": {
       "words": 169,

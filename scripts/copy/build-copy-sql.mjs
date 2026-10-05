@@ -415,11 +415,23 @@ export function parseArgs(argv) {
   return args;
 }
 
+// The Supabase connector returns rows as a JSON array; accepting that file as
+// is avoids a hand conversion to CSV between the read and the build. SQL NULL
+// arrives as null and is the same empty value the CSV path produces.
+export function readExportJson(text) {
+  const rows = JSON.parse(text);
+  if (!Array.isArray(rows) || !rows.length) throw new Error("venues export: expected a non-empty JSON array of rows");
+  const missing = EXPORT_COLUMNS.filter((c) => !(c in rows[0]));
+  if (missing.length) throw new Error(`venues export: missing column(s) ${missing.join(", ")}`);
+  return rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, v === null || v === undefined ? "" : String(v)])));
+}
+
 export function main(argv) {
   const args = parseArgs(argv);
   assertDate(args.date);
   const changeRows = readCsvObjects(readFileSync(args.changes, "utf8"), CHANGE_COLUMNS, "change list");
-  const exportRows = readCsvObjects(readFileSync(args.export, "utf8"), EXPORT_COLUMNS, "venues export");
+  const exportText = readFileSync(args.export, "utf8");
+  const exportRows = args.export.endsWith(".json") ? readExportJson(exportText) : readCsvObjects(exportText, EXPORT_COLUMNS, "venues export");
   const result = buildCopySql(changeRows, exportRows, {
     date: args.date,
     label: args.label,

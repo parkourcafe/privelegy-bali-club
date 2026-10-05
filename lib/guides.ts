@@ -320,42 +320,42 @@ export const GUIDES: Guide[] = [
     eyebrow: "How many days in Bali",
     title: "How many days do you need in Bali?",
     description:
-      "For a first trip, plan 7–10 days in Bali: a few inland in Ubud and a few by the sea. Here's what fits in 5, 7, 10 and 14 days.",
-    lede: "For a first trip, plan on 7 to 10 days in Bali — enough to split your time between one inland base and one by the sea without living in traffic. Five days works if you stay in a single area; two weeks lets you add the islands or the east without rushing.",
+      "For a first trip, plan 7–10 days in Bali: a few nights inland in Ubud, a few by the sea. What fits in 5, 7, 10 and 14 days, and how many bases to keep.",
+    lede: "For a first trip, plan on 7 to 10 days in Bali. That is enough to split your time between one inland base and one by the sea without spending the holiday in traffic. Five days works if you stay in a single area. Two weeks lets you add the islands or the east coast without rushing.",
     sections: [
       {
         heading: "5 days: pick one base",
         paras: [
-          "Five days is a single-area trip. Choose one place — Canggu or Seminyak for beach-and-café energy, Ubud for jungle and culture — and go deep rather than wide.",
-          "You'll lose most of a day each to arrival and departure, so you really have three full days. Spend them settling in, not scootering across the island for a photo.",
+          "Five days is a single-area trip. Choose one place and stay there: Canggu or Seminyak for beach and cafés, Ubud for jungle and culture.",
+          "Arrival and departure each eat most of a day, so you have three full days. Spend them settling in, not crossing the island on a scooter for a photo.",
         ],
       },
       {
         heading: "7 days: one inland + one coastal base",
         paras: [
-          "A week is the sweet spot for a first trip. The classic split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
-          "Two bases, one move. That single transfer costs you a half-day; anything more and the trip becomes about logistics.",
+          "A week is the length most first trips should be. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
+          "Two bases, one move. That transfer costs you half a day. Add a third move and the trip starts to be about logistics.",
         ],
       },
       {
         heading: "10 days: add a third pace",
         paras: [
-          "Ten days lets you add a slower coastal stretch — Sanur as a calm family base and launchpad to the Nusa islands, or Uluwatu for clifftop sunsets — on top of the Ubud-plus-beach core.",
-          "This is the most comfortable length for a first visit: room for a rest day, a day trip, and a spontaneous afternoon.",
+          "Ten days lets you add a slower stretch of coast on top of Ubud and a beach base. Sanur is the calm family option and the boat to the Nusa islands leaves from there; Uluwatu is the clifftop-sunset option.",
+          "This is the most comfortable length for a first visit. There is room for a rest day, a day trip and an afternoon with no plan.",
         ],
       },
       {
         heading: "14 days: go wider",
         paras: [
-          "Two weeks opens up the quieter side of Bali — the east (Amed, Sidemen), the Nusa islands, or a few nights on Gili or Lombok — without cutting the first-timer highlights.",
-          "Even here, keep bases to three or four. Distance in Bali is measured in traffic, not kilometres.",
+          "Two weeks opens up the quieter side of Bali: the east (Amed, Sidemen), the Nusa islands, or a few nights on Gili or Lombok, with the first-timer highlights still in.",
+          "Even then, keep it to three or four bases. Distance in Bali is measured in traffic, not kilometres.",
         ],
       },
     ],
     faq: [
-      { q: "Is 5 days enough for Bali?", a: "Enough for one area done well — pick a single base and don't try to see the whole island. For Ubud plus a beach area, you want at least 7 days." },
-      { q: "Is a week enough for Bali?", a: "Yes. Seven days is the sweet spot for a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them." },
-      { q: "How long to see Bali and the islands?", a: "Plan 10–14 days if you want to add the Nusa islands, the east coast, or Gili/Lombok on top of the mainland first-timer route." },
+      { q: "Is 5 days enough for Bali?", a: "Enough for one area done well. Pick a single base and don't try to see the whole island. For Ubud plus a beach area you want at least 7 days." },
+      { q: "Is a week enough for Bali?", a: "Yes. Seven days covers a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them." },
+      { q: "How long to see Bali and the islands?", a: "Plan 10–14 days if you want the Nusa islands, the east coast or Gili and Lombok on top of the mainland first-timer route." },
       { q: "How many places should I stay in?", a: "One or two on a short trip, three or four on two weeks. Each move costs the better part of a day in traffic, so fewer bases means more Bali." },
     ],
     related: PILLAR_LINKS,
@@ -1656,7 +1656,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "How Other Bali would make this route better",
         paras: [
-          "A better Mount Batur page shouldn't sell sunrise as universally magical — it should explain the cost: early pickup, cold morning conditions, weather uncertainty, terrain and safety checks. For some travellers, a daytime Kintamani route may be a better fit.",
+          "Sunrise on Mount Batur does not suit everyone. It means an early pickup, a cold morning, uncertain weather, the terrain and the safety checks. For some travellers a daytime Kintamani route may be a better fit.",
         ],
       },
       {

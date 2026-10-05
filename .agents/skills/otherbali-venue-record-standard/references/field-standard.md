@@ -78,11 +78,13 @@ don't mind a crowd", that is the negative wearing a disguise — it belongs in
 the record and the one competitors do not publish.
 
 **Format:** one clause with the reason attached — "A quiet table, because it is
-loud and busy" beats "Not for quiet". Whether the reason hangs off an em dash
-("A quiet table — it is loud and busy") or a "because" is an open founder
-decision (2026-10-05); until it is settled the linter allows one dash in this
-field and no more. Thirty-three live cards share "A budget massage — the list
-starts at NK IDR" word for word, which is how a format becomes a template.
+loud and busy" beats "Not for quiet". How the reason is joined is not fixed
+(founder decision, 2026-10-05): a "because", a colon, a full stop or one em dash
+are all fine, as long as the field holds at most one dash and three neighbouring
+cards do not use the same joint. A fixed joint is how a format becomes a
+template: thirty-three live cards share "A budget massage — the list starts at NK
+IDR" word for word, and the blind read of the 2026-10-05 pilot flagged "…,
+because it is …" once it closed five cards in a row.
 
 **The line that must not be crossed:** this is *fit context*, never a quality
 warning (`AGENTS.md` guardrail #9). The test that settles every borderline case:
