@@ -63,7 +63,7 @@ export const NUSA_DUA_THINGS_TO_DO: NusaDuaThing[] = [
     title: "Walk the beachfront promenade",
     zone: "Central · Nusa Dua Beach",
     blurb:
-      "A paved coastal path (commonly cited at around 5 km) runs behind the beachfront and links the resorts, beaches and public access points. The defining low-effort Nusa Dua ritual — flat, shaded in parts and genuinely walkable, which is rare in south Bali.",
+      "A paved coastal path (commonly cited at around 5 km) runs behind the beachfront and links the resorts and beaches with the public access points. It's the low-effort Nusa Dua ritual: flat, shaded in parts and walkable, which is rare in south Bali.",
     mapsUrl: mapsLink("Nusa Dua Beach promenade"),
   },
   {
@@ -77,14 +77,14 @@ export const NUSA_DUA_THINGS_TO_DO: NusaDuaThing[] = [
     title: "Geger Beach & Pura Geger",
     zone: "South · near Mulia",
     blurb:
-      "The quieter, more local beach at the south end, with the clifftop Pura Geger temple above it. One of the few South Bali spots where traditional seaweed farming still shows at low tide — swim at high tide, wander the temple (sarong etiquette) outside ceremony days.",
+      "The quieter, more local beach at the south end, with the clifftop Pura Geger temple above it. It's one of the few South Bali spots where traditional seaweed farming still shows at low tide. Swim at high tide, and wander the temple (sarong etiquette) outside ceremony days.",
     mapsUrl: mapsLink("Geger Beach Nusa Dua"),
   },
   {
     title: "Museum Pasifika",
     zone: "Central · Bali Collection (Block P)",
     blurb:
-      "An art museum holding a large Asia–Pacific collection — paintings and sculpture from Indonesia, the Pacific, Polynesia and Indochina, plus European artists who worked in the region (Le Mayeur, Theo Meier). Themed rooms; open daily, roughly 10am–6pm.",
+      "An art museum holding a large Asia–Pacific collection: paintings and sculpture from Indonesia, the Pacific, Polynesia and Indochina. The collection also covers European artists who worked in the region (Le Mayeur, Theo Meier). Themed rooms; open daily, roughly 10am–6pm.",
     mapsUrl: mapsLink("Museum Pasifika Nusa Dua"),
   },
   {
@@ -98,28 +98,28 @@ export const NUSA_DUA_THINGS_TO_DO: NusaDuaThing[] = [
     title: "Glass-bottom boat to Turtle Island (Pulau Penyu)",
     zone: "North · departs Tanjung Benoa",
     blurb:
-      "A standard Tanjung Benoa half-day trip: a glass-bottom boat over the shallows to a turtle conservation island in Benoa harbour, where you can see sea turtles and other animals. An easy add-on to a watersports morning.",
+      "A standard Tanjung Benoa half-day trip: a glass-bottom boat over the shallows to a turtle conservation island in Benoa harbour. You can see sea turtles and other animals there. It's an easy add-on to a watersports morning.",
     mapsUrl: mapsLink("Turtle Island Pulau Penyu Tanjung Benoa"),
   },
   {
     title: "Devdan Show",
     zone: "Central · Bali Nusa Dua Theatre",
     blurb:
-      "A theatrical stage production — traditional and contemporary Indonesian dance, aerial acrobatics, costume and illusion, themed around the archipelago (Bali, Java, Sumatra, Borneo, Papua). Runs Mon/Wed/Fri/Sat at 7.30pm; book ahead.",
+      "A theatrical stage production of traditional and contemporary Indonesian dance, aerial acrobatics, costume and illusion, themed around the archipelago (Bali, Java, Sumatra, Borneo, Papua). Runs Mon/Wed/Fri/Sat at 7.30pm; book ahead.",
     mapsUrl: mapsLink("Bali Nusa Dua Theatre Devdan Show"),
   },
   {
     title: "Bali Collection",
     zone: "Central · ITDC complex",
     blurb:
-      "The enclave's open-air shopping-and-dining complex — fashion outlets, restaurants, spas and services, with occasional cultural performances and a free shuttle loop serving the Nusa Dua and Tanjung Benoa resorts.",
+      "The enclave's open-air shopping-and-dining complex: fashion outlets, restaurants, spas and services. There are occasional cultural performances, and a free shuttle loop serves the Nusa Dua and Tanjung Benoa resorts.",
     mapsUrl: mapsLink("Bali Collection Nusa Dua"),
   },
   {
     title: "Puja Mandala",
     zone: "Inland · Bualu / Kampial",
     blurb:
-      "A single compound of five side-by-side places of worship — mosque, Catholic church, Protestant church, Buddhist vihara and Hindu temple — built as a symbol of religious harmony. A short, quietly striking stop just inland from the resorts.",
+      "A single compound of five side-by-side places of worship, built as a symbol of religious harmony. There's a mosque, a Catholic church, a Protestant church, a Buddhist vihara and a Hindu temple. It's a short stop just inland from the resorts.",
     mapsUrl: mapsLink("Puja Mandala Bualu Nusa Dua"),
   },
 ];
@@ -131,18 +131,18 @@ export const NUSA_DUA_FAQ = [
   },
   {
     q: "Are Nusa Dua's beaches good for swimming?",
-    a: "Yes — the enclave sits inside a reef-protected bay, so unlike Bali's exposed west and south surf coasts the water is calm and family-safe for much of the year. Mengiat (Nusa Dua Beach) is the main resort strip; Geger to the south is quieter and more natural, best swum at high tide when the seaweed flats are covered.",
+    a: "Yes. The enclave sits inside a reef-protected bay, so the water is calm and family-safe for much of the year. That's unlike Bali's exposed west and south surf coasts. Mengiat (Nusa Dua Beach) is the main resort strip. Geger to the south is quieter and more natural, best swum at high tide when the seaweed flats are covered.",
   },
   {
     q: "Is Nusa Dua walkable or lively?",
-    a: "It's manicured and quiet rather than lively — great for a stroll along the ~5 km beach promenade or the Bali Collection shops, but independent nightlife and cafés live elsewhere. Tanjung Benoa, just north, is the watersports hub.",
+    a: "It's manicured and quiet rather than lively. It's great for a stroll along the ~5 km beach promenade or the Bali Collection shops, but independent nightlife and cafés live elsewhere. Tanjung Benoa, just north, is the watersports hub.",
   },
   {
     q: "What is there to do in Nusa Dua besides the resort?",
-    a: "More than it looks: the beach promenade, the Water Blow, Geger Beach and its clifftop temple, Museum Pasifika at the Bali Collection, the Devdan Show, watersports and a glass-bottom boat to Turtle Island at Tanjung Benoa, and the five-faith Puja Mandala inland.",
+    a: "More than it looks: the beach promenade, the Water Blow, Geger Beach and its clifftop temple, and Museum Pasifika at the Bali Collection. Tanjung Benoa has watersports and a glass-bottom boat to Turtle Island. There's also the Devdan Show and, inland, the five-faith Puja Mandala.",
   },
   {
     q: "Where do you go for watersports in Nusa Dua?",
-    a: "Tanjung Benoa, the peninsula immediately north. Its calm, shallow, reef-sheltered lagoon is Bali's main motorised-watersports zone — parasailing, jet ski, banana boat, flyboard, sea walker and glass-bottom-boat trips, mostly beginner-friendly.",
+    a: "Tanjung Benoa, the peninsula immediately north. Its calm, shallow, reef-sheltered lagoon is Bali's main motorised-watersports zone. Expect parasailing, jet ski, banana boat, flyboard, sea walker and glass-bottom-boat trips, mostly beginner-friendly.",
   },
 ];

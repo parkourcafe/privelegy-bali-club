@@ -43,7 +43,7 @@ export const NUSA_PENIDA_ZONES: NusaPenidaZone[] = [
     key: "east",
     label: "East · quieter and just as dramatic",
     character:
-      "At least as beautiful as the west and far less crowded: Diamond and Atuh beaches under east-facing cliffs, the Thousand Islands viewpoint and the rolling Teletubbies Hills. Usually a separate day because of the drive.",
+      "Diamond and Atuh beaches under east-facing cliffs, the Thousand Islands viewpoint and the rolling Teletubbies Hills. It's at least as beautiful as the west and far less crowded. Because of the drive, it's usually a separate day.",
     bestFor: "A second day, or anyone trading crowds for steep-stair effort.",
   },
   {
@@ -67,7 +67,7 @@ export const NUSA_PENIDA_THINGS_TO_DO: NusaPenidaThing[] = [
     title: "Kelingking Beach viewpoint",
     zone: "West · the T-Rex cliff",
     blurb:
-      "The image that put Nusa Penida on every feed: a green headland shaped like a dinosaur's back above a curl of white sand. The clifftop viewpoint is a short walk; the descent to the beach is steep, strenuous and optional, and swimming below is forbidden — the currents are deadly. Come early to beat the parking and photo queues.",
+      "A green headland shaped like a dinosaur's back, above a curl of white sand. The clifftop viewpoint is a short walk. The descent to the beach is steep, strenuous and optional, and swimming below is forbidden because the currents are deadly. Come early to beat the parking and photo queues.",
     mapsUrl: mapsLink("Kelingking Beach viewpoint"),
   },
   {
@@ -88,14 +88,14 @@ export const NUSA_PENIDA_THINGS_TO_DO: NusaPenidaThing[] = [
     title: "Crystal Bay",
     zone: "West · calm swim & sunset",
     blurb:
-      "The calm, palm-lined west-side beach — the island's easiest swim and snorkel, and its best sunset. Also a common stop on manta snorkelling trips. The one west-coast spot built for slowing down rather than climbing stairs.",
+      "The calm, palm-lined west-side beach, with the island's easiest swim and snorkel and its best sunset. It's also a common stop on manta snorkelling trips, and the one west-coast spot built for slowing down rather than climbing stairs.",
     mapsUrl: mapsLink("Crystal Bay"),
   },
   {
     title: "Diamond Beach",
     zone: "East · carved cliff stairway",
     blurb:
-      "A dramatic white-sand cove under east-facing cliffs, reached by a steep carved stairway past rock pinnacles. One of the island's signature east-side sights; the climb back up is a real effort in the heat, so go earlier and carry water.",
+      "A dramatic white-sand cove under east-facing cliffs, reached by a steep carved stairway past rock pinnacles. The climb back up is a real effort in the heat, so go earlier and carry water.",
     mapsUrl: mapsLink("Diamond Beach"),
   },
   {
@@ -109,21 +109,21 @@ export const NUSA_PENIDA_THINGS_TO_DO: NusaPenidaThing[] = [
     title: "Thousand Islands viewpoint (Raja Lima)",
     zone: "East · Raja Lima headland",
     blurb:
-      "A clifftop lookout over a scatter of green islets in a blue sea, with the famous cliffside tree house nearby. One of the east's defining views and an easy add-on to a Diamond and Atuh day.",
+      "A clifftop lookout over a scatter of green islets in a blue sea, with the cliffside tree house nearby. It's one of the east's defining views, and an easy add-on to a Diamond and Atuh day.",
     mapsUrl: mapsLink("Thousand Islands viewpoint Raja Lima"),
   },
   {
     title: "Snorkelling with manta rays",
     zone: "Water · Manta Point / Manta Bay",
     blurb:
-      "A genuine headline: a half-day boat trip to the manta cleaning stations, usually stopping at three or four spots among Manta Point or Manta Bay, Crystal Bay and Gamat Bay. Mantas are present essentially year-round, so sightings are very likely — though never guaranteed. Manta Point water is often colder and choppier, so a rash guard and seasickness precautions help.",
+      "A half-day boat trip to the manta cleaning stations. It usually stops at three or four spots among Manta Point or Manta Bay, Crystal Bay and Gamat Bay. Mantas are present essentially year-round, so sightings are likely, though never guaranteed. Manta Point water is often colder and choppier. A rash guard and seasickness precautions help.",
     mapsUrl: mapsLink("Manta Point snorkelling"),
   },
   {
     title: "Teletubbies Hills",
     zone: "East · inland",
     blurb:
-      "Rolling green mounds named for their resemblance to the children's show — a quiet, uncrowded stop that shows a softer, greener side of an island best known for its cliffs. Greenest in and just after the wet season.",
+      "Rolling green mounds named for their resemblance to the children's show. It's a quiet, uncrowded stop that shows a softer, greener side of an island best known for its cliffs. Greenest in and just after the wet season.",
     mapsUrl: mapsLink("Teletubbies Hills"),
   },
 ];
@@ -131,26 +131,26 @@ export const NUSA_PENIDA_THINGS_TO_DO: NusaPenidaThing[] = [
 export const NUSA_PENIDA_FAQ = [
   {
     q: "What is Nusa Penida best for?",
-    a: "Dramatic cliff-and-cove scenery and manta snorkelling. It's a rugged island off Bali's south-east coast, famous for the Kelingking 'T-Rex' cliff, Angel's Billabong, Broken Beach and Diamond Beach, plus year-round manta rays. It's about big landscapes and adventure over comfort — the roads are rough and it's short on the polished resorts of mainland Bali.",
+    a: "Dramatic cliff-and-cove scenery and manta snorkelling. It's a rugged island off Bali's south-east coast, with the Kelingking 'T-Rex' cliff, Angel's Billabong, Broken Beach and Diamond Beach, plus year-round manta rays. Come for big landscapes and adventure over comfort. The roads are rough, and the island is short on the polished resorts of mainland Bali.",
   },
   {
     q: "Should you visit the west or the east side?",
-    a: "The west (Kelingking, Angel's Billabong, Broken Beach, Crystal Bay) is closest to the harbour and holds the postcard icons — the natural choice for a single day. The east (Diamond, Atuh, Thousand Islands) is quieter and just as beautiful but a longer drive, so it's usually a second day. Trying to combine both in one day means spending most of it in the car.",
+    a: "The west (Kelingking, Angel's Billabong, Broken Beach, Crystal Bay) is closest to the harbour and holds the postcard icons. It's the natural choice for a single day. The east (Diamond, Atuh, Thousand Islands) is quieter and just as beautiful but a longer drive, so it's usually a second day. Trying to combine both in one day means spending most of it in the car.",
   },
   {
     q: "Can you swim at Nusa Penida's beaches?",
-    a: "At some, not others. Swimming is forbidden at Kelingking (deadly currents), and Angel's Billabong is only safe to enter at low tide — never on a rising tide, where people have been swept out. Crystal Bay is the calm, swimmable west-side beach; Diamond and Atuh are cove beaches better for scenery than serious swimming.",
+    a: "At some, not others. Swimming is forbidden at Kelingking because of deadly currents. Angel's Billabong is only safe to enter at low tide. Never go in on a rising tide; people have been swept out. Crystal Bay is the calm, swimmable west-side beach. Diamond and Atuh are cove beaches, better for scenery than for a real swim.",
   },
   {
     q: "Is one day enough for Nusa Penida?",
-    a: "For one side of the island, yes. A day trip from Sanur is what most people do and it comfortably covers the west or a manta snorkel plus a couple of sights — but it's a rushed day on rough roads. If you can spare a night, staying over lets you see both sides and reach the headline spots near-empty, before and after the day boats.",
+    a: "For one side of the island, yes. Most people do a day trip from Sanur, and it comfortably covers the west or a manta snorkel plus a couple of sights. It's a rushed day on rough roads, though. If you can spare a night, staying over lets you see both sides and reach the headline spots near-empty, before and after the day boats.",
   },
   {
     q: "Can you see manta rays around Nusa Penida?",
-    a: "Yes — snorkelling with manta rays is one of the island's headline experiences, on a half-day boat trip to the cleaning stations around Manta Point or Manta Bay. Mantas are present essentially year-round, so sightings are very likely, though never guaranteed. The water there is often colder and choppier than the calm bays.",
+    a: "Yes, on a half-day boat trip to the cleaning stations around Manta Point or Manta Bay. Snorkelling with manta rays is one of the island's headline experiences. Mantas are present essentially year-round, so sightings are likely, though never guaranteed. The water there is often colder and choppier than the calm bays.",
   },
   {
     q: "How do you get around Nusa Penida?",
-    a: "The roads are genuinely rough, and there's no Grab, Gojek or taxi network on the island. For most visitors a hired car with a driver or an organised tour is the safer, easier choice over a self-drive scooter — the descents to beaches like Kelingking are steep enough to overwhelm scooter brakes. Bring plenty of cash, since ATMs are few and often empty.",
+    a: "The roads are rough, and there's no Grab, Gojek or taxi network on the island. For most visitors, a hired car with a driver or an organised tour is safer and easier than a self-drive scooter. The descents to beaches like Kelingking are steep enough to overwhelm scooter brakes. Bring plenty of cash. ATMs are few and often empty.",
   },
 ];
