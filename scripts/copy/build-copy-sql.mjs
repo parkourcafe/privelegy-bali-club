@@ -1,0 +1,432 @@
+#!/usr/bin/env node
+// Turns a reviewed copy change list into the SQL a human runs against production, in the
+// shape of data/data-ops/verification/2026-09-28-batch-01-uluwatu/apply-2026-10-01.sql:
+// preflight SELECTs, a one-statement dry run, one DO block whose every statement is guarded
+// by the current text and asserts row_count = 1, a verify SELECT. This tool has no database
+// access and writes files only.
+//
+//   node scripts/copy/build-copy-sql.mjs --changes <change-list.csv> --export <venues-export.csv> \
+//     --out <dir> --date YYYY-MM-DD [--label <text>]
+
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+export const COPY_FIELDS = ["why_its_here", "best_for", "not_for", "price_anchor", "what_to_order"];
+export const HOLD_REASONS = ["already applied", "before mismatch", "not published", "slug missing"];
+export const STATUS_GUARD = "status = 'active' and publication_status = 'published'";
+
+const CHANGE_COLUMNS = ["unit_id", "surface", "slug_or_path", "field", "before", "after", "action", "reason", "source", "decision"];
+const EXPORT_COLUMNS = ["slug", "status", "publication_status", ...COPY_FIELDS];
+const ACTIONS = ["replace", "null"];
+const SITE = "https://www.otherbali.com/places/";
+
+// Price copy legitimately contains "$$" (price bands), which would end an untagged
+// `do $$ … $$` body in the middle of a string literal.
+const DOLLAR_TAG = "$apply$";
+
+// What the place page prints beside each field (lib/quick-decision.ts labels and the h2s in
+// app/places/[slug]/page.tsx), so the live check of a NULL write has something to count.
+const NULL_LABELS = {
+  best_for: "Best for",
+  not_for: "Not for",
+  why_its_here: "Why it's here",
+  what_to_order: "What to order",
+};
+
+// ---------------------------------------------------------------- CSV
+
+export function parseCsv(text) {
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+  const records = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+  let started = false;
+  for (let i = 0; i < text.length; i += 1) {
+    const ch = text[i];
+    if (quoted) {
+      if (ch === '"' && text[i + 1] === '"') {
+        cell += '"';
+        i += 1;
+      } else if (ch === '"') quoted = false;
+      else cell += ch;
+      continue;
+    }
+    if (ch === "#" && !started) {
+      while (i < text.length && text[i] !== "\n") i += 1;
+      continue;
+    }
+    if (ch === '"') {
+      quoted = true;
+      started = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+      started = true;
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && text[i + 1] === "\n") i += 1;
+      if (started) {
+        row.push(cell);
+        records.push(row);
+      }
+      row = [];
+      cell = "";
+      started = false;
+    } else {
+      cell += ch;
+      started = true;
+    }
+  }
+  if (quoted) throw new Error("CSV: unterminated quoted field");
+  if (started) {
+    row.push(cell);
+    records.push(row);
+  }
+  return records;
+}
+
+export function readCsvObjects(text, required, what) {
+  const records = parseCsv(text);
+  if (!records.length) throw new Error(`${what}: no header row`);
+  const header = records[0].map((h) => h.trim().toLowerCase());
+  const missing = required.filter((c) => !header.includes(c));
+  if (missing.length) throw new Error(`${what}: missing column(s) ${missing.join(", ")}`);
+  return records.slice(1).map((cells, index) => {
+    if (cells.length !== header.length) {
+      throw new Error(`${what}: record ${index + 2} has ${cells.length} cells, header has ${header.length}`);
+    }
+    return Object.fromEntries(header.map((h, i) => [h, cells[i]]));
+  });
+}
+
+function csvCell(value) {
+  const s = String(value ?? "");
+  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+// ---------------------------------------------------------------- text and SQL helpers
+
+export function normaliseText(value) {
+  return String(value ?? "").replace(/\r\n?/g, "\n").replace(/\s+$/u, "");
+}
+
+export const lit = (value) => `'${String(value).replace(/'/g, "''")}'`;
+const literalOrNull = (value) => (value === "" ? "null" : lit(value));
+const oneLine = (value) => String(value ?? "").replace(/\s*\r?\n\s*/g, " ").trim();
+const shellSingleQuoted = (value) => `'${String(value).replace(/'/g, "'\\''")}'`;
+
+export function assertDate(date) {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  const real = /^\d{4}-\d{2}-\d{2}$/.test(date ?? "") && !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === date;
+  if (!real) throw new Error(`--date must be a real YYYY-MM-DD date, got ${JSON.stringify(date)}`);
+}
+
+// An empty `before` means the column is unknown — NULL or blank, which the export cannot tell
+// apart — so the guard accepts both rather than failing on the representation.
+function fieldGuard(field, before) {
+  return before === "" ? `(${field} is null or length(trim(${field})) = 0)` : `${field} = ${lit(before)}`;
+}
+
+export function updateSql(e) {
+  return `update venues set ${e.field} = ${literalOrNull(e.after)} where slug = ${lit(e.slug)} and ${STATUS_GUARD} and ${fieldGuard(e.field, e.before)}`;
+}
+
+export function rollbackSql(e) {
+  return `update venues set ${e.field} = ${literalOrNull(e.before)} where slug = ${lit(e.slug)} and ${STATUS_GUARD} and ${e.field} is not distinct from ${literalOrNull(e.after)}`;
+}
+
+// React's server renderer escapes ' " & < > in text, so a snippet containing one of them never
+// matches the live HTML. Of the clean runs inside the first 30 characters the longest is kept:
+// it is the most specific substring that can still be found on the page.
+export function grepPattern(text) {
+  const head = normaliseText(text).split("\n")[0].slice(0, 30);
+  const runs = head.split(/['"&<>]/).map((s) => s.trim()).filter(Boolean);
+  return runs.sort((a, b) => b.length - a.length)[0] ?? head.trim();
+}
+
+// ---------------------------------------------------------------- selection
+
+function indexExport(exportRows) {
+  const bySlug = new Map();
+  for (const row of exportRows) {
+    const slug = row.slug.trim();
+    if (!slug) continue;
+    if (bySlug.has(slug)) throw new Error(`export: slug ${slug} appears twice; the current value is ambiguous`);
+    bySlug.set(slug, row);
+  }
+  return bySlug;
+}
+
+export function selectChanges(changeRows, exportRows) {
+  const exportBySlug = indexExport(exportRows);
+  const emitted = [];
+  const held = [];
+  const notApplied = [];
+  for (const row of changeRows) {
+    if (row.surface.trim().toLowerCase() !== "db") continue;
+    const unitId = row.unit_id.trim();
+    const slug = row.slug_or_path.trim();
+    const field = row.field.trim();
+    const decision = row.decision.trim().toUpperCase();
+    if (decision !== "ДА") {
+      notApplied.push({ unit_id: unitId, slug, field, decision: row.decision.trim(), reason: row.reason });
+      continue;
+    }
+    // A wrong column or action is a malformed change list, not a hold: holding it would let the
+    // rest of the batch go out while the reviewer believes the row is merely waiting.
+    if (!COPY_FIELDS.includes(field)) throw new Error(`${unitId}: field ${JSON.stringify(field)} is not one of ${COPY_FIELDS.join("|")}`);
+    const action = row.action.trim().toLowerCase();
+    if (!ACTIONS.includes(action)) throw new Error(`${unitId}: action ${JSON.stringify(row.action)} is not replace|null`);
+    const before = normaliseText(row.before);
+    const after = normaliseText(row.after);
+    if (action === "null" && after !== "") throw new Error(`${unitId}: action null but after is not empty`);
+    if (action === "replace" && after === "") throw new Error(`${unitId}: action replace but after is empty (use action null to clear)`);
+    for (const value of [before, after, slug]) {
+      if (value.includes(DOLLAR_TAG)) throw new Error(`${unitId}: value contains ${DOLLAR_TAG}, which would end the DO block`);
+    }
+    const current = exportBySlug.get(slug);
+    if (!current) {
+      held.push({ unit_id: unitId, slug, field, reason: "slug missing", export_value: "" });
+      continue;
+    }
+    const exportValue = normaliseText(current[field]);
+    if (current.status.trim() !== "active" || current.publication_status.trim() !== "published") {
+      held.push({ unit_id: unitId, slug, field, reason: "not published", export_value: exportValue });
+      continue;
+    }
+    if (exportValue === after) {
+      held.push({ unit_id: unitId, slug, field, reason: "already applied", export_value: exportValue });
+      continue;
+    }
+    if (exportValue !== before) {
+      held.push({ unit_id: unitId, slug, field, reason: "before mismatch", export_value: exportValue });
+      continue;
+    }
+    emitted.push({
+      unit_id: unitId,
+      slug,
+      field,
+      action,
+      before,
+      after,
+      source: row.source.trim(),
+      district: (current.district ?? "").trim(),
+    });
+  }
+  return { emitted, held, notApplied };
+}
+
+// ---------------------------------------------------------------- renderers
+
+const unique = (values) => [...new Set(values)];
+const touchedFields = (emitted) => COPY_FIELDS.filter((f) => emitted.some((e) => e.field === f));
+const touchedSlugs = (emitted) => unique(emitted.map((e) => e.slug));
+
+function renderStatement(e, n, label) {
+  // `%` is a format placeholder inside raise exception, so a literal one in the label is doubled.
+  const where = `${label} #${n} (${e.slug} · ${e.field})`.replace(/%/g, "%%");
+  const comment = [e.unit_id, e.slug, e.field, e.action].join(" · ") + (e.source ? ` · source ${oneLine(e.source)}` : "");
+  return [
+    `  -- ${n}. ${comment}`,
+    `  ${updateSql(e)};`,
+    "  get diagnostics n = row_count;",
+    `  if n <> 1 then raise exception ${lit(`${where}: expected 1 row, got %`)}, n; end if;`,
+  ].join("\n");
+}
+
+function renderDoBlock(emitted, label) {
+  const body = emitted.map((e, i) => renderStatement(e, i + 1, label)).join("\n\n");
+  return `do ${DOLLAR_TAG}\ndeclare n int;\nbegin\n${body}\nend ${DOLLAR_TAG};`;
+}
+
+function renderNotes(notApplied, held) {
+  const lines = ["-- Not applied (surface = db, decision <> ДА):"];
+  if (!notApplied.length) lines.push("--   (none)");
+  for (const r of notApplied) {
+    lines.push(`--   ${r.unit_id} · ${r.slug} · ${r.field} · decision=${r.decision || "(empty)"}${r.reason ? ` · ${oneLine(r.reason)}` : ""}`);
+  }
+  lines.push("", "-- Held (see holds.csv):");
+  if (!held.length) lines.push("--   (none)");
+  for (const r of held) lines.push(`--   ${r.unit_id} · ${r.slug} · ${r.field} · ${r.reason}`);
+  return lines.join("\n");
+}
+
+export function renderApply({ emitted, held, notApplied, date, label, inputs }) {
+  const slugs = touchedSlugs(emitted);
+  const fields = touchedFields(emitted);
+  const replaced = emitted.filter((e) => e.action === "replace").length;
+  const out = [];
+  out.push(`-- ${label} — venue copy (${COPY_FIELDS.join(", ")}): apply file for the session WITH production database access.
+-- Generated ${date} by scripts/copy/build-copy-sql.mjs. NOT executed by the tool that wrote it (no DB access).
+-- Inputs: changes=${inputs.changes ?? "(in memory)"} · export=${inputs.export ?? "(in memory)"}
+-- Counts: ${emitted.length} statement(s) (${replaced} replace, ${emitted.length - replaced} null) · ${held.length} held (holds.csv) · ${notApplied.length} not applied (decision <> ДА)
+-- Only the five copy columns above are written. Publication state and verification timestamps are not touched.
+--
+-- Order (otherbali-supabase-write):
+--   0. Preflight (read-only): 0a every slug exists (expect 0 rows); 0b current values of the touched columns
+--      for all slugs — compare with the \`before\` guard of every statement; a difference means the export is stale.
+--   1. Dry-run: run section 1, ONE statement inside begin … rollback — expect UPDATE 1.
+--   2. Run section 2, a single DO block: every statement asserts it touched exactly 1 row, and any
+--      mismatch raises and rolls the whole block back.
+--   3. Run the verify SELECT (section 3); then check the live pages with verify-live.txt.
+--   To undo: rollback-${date}.sql restores every \`before\`.
+`);
+  if (!emitted.length) {
+    out.push("-- Nothing to apply: no surface=db row with decision ДА passed the export checks.\n");
+    out.push(renderNotes(notApplied, held));
+    return `${out.join("\n")}\n`;
+  }
+  const slugList = slugs.map(lit).join(", ");
+  out.push(`-- ===================== 0. PREFLIGHT (read-only) =====================
+
+-- 0a. Every slug exists (expect 0 rows)
+select d.slug from (values ${slugs.map((s) => `(${lit(s)})`).join(", ")}) as d(slug)
+left join venues v on v.slug = d.slug where v.slug is null;
+
+-- 0b. Current values of every column this file writes (expect ${slugs.length} rows; compare with the \`before\` guards)
+select slug, status, publication_status, ${fields.join(", ")}
+from venues where slug in (${slugList})
+order by slug;
+`);
+  out.push(`-- ===================== 1. DRY-RUN (one statement, rolled back) =====================
+begin;
+${updateSql(emitted[0])};
+-- expect: UPDATE 1
+rollback;
+`);
+  out.push(`-- ===================== 2. APPLY — ${emitted.length} statement(s), one DO block =====================\n`);
+  out.push(renderDoBlock(emitted, label));
+  out.push(`\n-- ===================== 3. VERIFY (expect ${slugs.length} rows) =====================
+select slug, ${fields.join(", ")}
+from venues where slug in (${slugList})
+order by slug;
+`);
+  out.push(renderNotes(notApplied, held));
+  return `${out.join("\n")}\n`;
+}
+
+export function renderRollback({ emitted, date, label }) {
+  const lines = [
+    `-- ${label} — rollback for apply-${date}.sql: restores every \`before\` where the written value is still in place.`,
+    `-- Generated ${date} by scripts/copy/build-copy-sql.mjs. Each statement is expected to report UPDATE 1;`,
+    "-- UPDATE 0 means the column has changed since the apply and must be looked at by hand, not forced.",
+    "",
+  ];
+  if (!emitted.length) lines.push("-- Nothing to roll back.");
+  emitted.forEach((e, i) => {
+    lines.push(`-- ${i + 1}. ${e.unit_id} · ${e.slug} · ${e.field} · restore ${e.before === "" ? "NULL" : "before"}`);
+    lines.push(`${rollbackSql(e)};`);
+    lines.push("-- expect: UPDATE 1", "");
+  });
+  return `${lines.join("\n").trimEnd()}\n`;
+}
+
+export function renderHolds(held) {
+  const header = ["unit_id", "slug", "field", "reason", "export_value"];
+  const rows = held.map((h) => header.map((k) => csvCell(h[k])).join(","));
+  return `${[header.join(","), ...rows].join("\n")}\n`;
+}
+
+export function buildSummary({ emitted, held }) {
+  const count = (items, key) => {
+    const acc = {};
+    for (const item of items) {
+      const k = item[key] || "(unknown)";
+      acc[k] = (acc[k] ?? 0) + 1;
+    }
+    return acc;
+  };
+  const byField = Object.fromEntries(COPY_FIELDS.map((f) => [f, emitted.filter((e) => e.field === f).length]));
+  const byReason = Object.fromEntries(HOLD_REASONS.map((r) => [r, held.filter((h) => h.reason === r).length]));
+  const districts = count(emitted, "district");
+  const byDistrict = Object.fromEntries(Object.keys(districts).sort().map((d) => [d, districts[d]]));
+  return { emitted: emitted.length, held: held.length, byField, byDistrict, byReason };
+}
+
+// One line per slug. A replace gives positive evidence (the new text should be on the page), so
+// it wins over a null, whose only observable effect is a count that falls.
+export function renderVerifyLive(emitted) {
+  const lines = [];
+  for (const slug of touchedSlugs(emitted)) {
+    const forSlug = emitted.filter((e) => e.slug === slug);
+    const lead = forSlug.find((e) => e.action === "replace") ?? forSlug[0];
+    const pattern = lead.action === "replace"
+      ? grepPattern(lead.after)
+      : grepPattern(NULL_LABELS[lead.field] ?? lead.before);
+    const note = lead.action === "replace"
+      ? `${lead.unit_id} ${lead.field} replaced; expect >= 1`
+      : `${lead.unit_id} ${lead.field} -> null; expect the count to fall`;
+    const others = forSlug.filter((e) => e !== lead).map((e) => `${e.unit_id} ${e.field} ${e.action}`);
+    lines.push(`curl -s ${SITE}${slug} | grep -c -F ${shellSingleQuoted(pattern || slug)}  # ${note}${others.length ? `; also ${others.join(", ")}` : ""}`);
+  }
+  return lines.length ? `${lines.join("\n")}\n` : "";
+}
+
+// ---------------------------------------------------------------- entry points
+
+export function buildCopySql(changeRows, exportRows, options) {
+  const { date, inputs = {} } = options;
+  assertDate(date);
+  const label = (options.label ?? "").trim() || `copy-${date}`;
+  const selection = selectChanges(changeRows, exportRows);
+  const ctx = { ...selection, date, label, inputs };
+  return {
+    ...selection,
+    label,
+    files: {
+      [`apply-${date}.sql`]: renderApply(ctx),
+      [`rollback-${date}.sql`]: renderRollback(ctx),
+      "holds.csv": renderHolds(selection.held),
+      "summary.json": `${JSON.stringify(buildSummary(selection), null, 2)}\n`,
+      "verify-live.txt": renderVerifyLive(selection.emitted),
+    },
+  };
+}
+
+export function parseArgs(argv) {
+  const args = {};
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    const key = { "--changes": "changes", "--export": "export", "--out": "out", "--date": "date", "--label": "label" }[arg];
+    if (!key) throw new Error(`Unknown argument: ${arg}`);
+    if (i + 1 >= argv.length) throw new Error(`${arg} needs a value`);
+    args[key] = argv[++i];
+  }
+  for (const key of ["changes", "export", "out", "date"]) {
+    if (!args[key]) throw new Error(`--${key} is required`);
+  }
+  return args;
+}
+
+export function main(argv) {
+  const args = parseArgs(argv);
+  assertDate(args.date);
+  const changeRows = readCsvObjects(readFileSync(args.changes, "utf8"), CHANGE_COLUMNS, "change list");
+  const exportRows = readCsvObjects(readFileSync(args.export, "utf8"), EXPORT_COLUMNS, "venues export");
+  const result = buildCopySql(changeRows, exportRows, {
+    date: args.date,
+    label: args.label,
+    inputs: { changes: args.changes, export: args.export },
+  });
+  const outDir = resolve(args.out);
+  mkdirSync(outDir, { recursive: true });
+  const written = [];
+  for (const [name, content] of Object.entries(result.files)) {
+    const path = join(outDir, name);
+    writeFileSync(path, content);
+    written.push(path);
+  }
+  return { summary: JSON.parse(result.files["summary.json"]), notApplied: result.notApplied.length, written };
+}
+
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  try {
+    const { summary, notApplied, written } = main(process.argv.slice(2));
+    console.log(JSON.stringify({ ...summary, notApplied, written }, null, 2));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exitCode = 1;
+  }
+}

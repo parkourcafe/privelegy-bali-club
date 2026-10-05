@@ -10,7 +10,7 @@
     "not_for": "Couples seeking an intimate, quiet dining atmosphere."
    },
    "after": {
-    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. It is spacious and shaded by palms, and there is a kids' play area. The kitchen does brunch classics and lava-stone pizzas.",
+    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. The room is spacious and shaded by palms, with a kids' play area, and the kitchen does brunch classics and lava-stone pizzas.",
     "best_for": "Families with young children and groups, from brunch to an early dinner or the daily sunset session",
     "not_for": "A quiet, intimate dinner for two"
    },
@@ -20,7 +20,12 @@
    "tells_before": [
     "one sentence carrying six facts",
     "well-known"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. It is spacious and shaded by palms, and there is a kids' play area. The kitchen does brunch classics and lava-stone pizzas.",
+    "best_for": "Families with young children and groups, from brunch to an early dinner or the daily sunset session",
+    "not_for": "A quiet, intimate dinner for two"
+   }
   },
   {
    "slug": "atlas-beach-club",
@@ -42,7 +47,12 @@
    "tells_before": [
     "colon list",
     "'Guests wanting' opener in not_for"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A large beachfront complex on Jl. Pantai Berawa with four venues on one site: a beach club, the Super Club, a wellness club and a padel club. Its own website calls it the world's biggest beach club; we have not checked that. You enter on a day pass, and daybeds and sofas are booked separately.",
+    "best_for": "A big, lively day out with a group, or sunset drinks in a party crowd",
+    "not_for": "A small, quiet or intimate evening"
+   }
   },
   {
    "slug": "nook-umalas",
@@ -66,7 +76,12 @@
     "'escape'",
     "'bustle'",
     "semicolon-chained best_for of three parts"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An open-air café and restaurant beside the Umalas rice fields, open 8am to 11pm. The menu runs Western and Indonesian all day, from breakfast to late, with vegetarian, vegan and gluten-free dishes. Seminyak and its bustle are a short hop away.",
+    "best_for": "A calm breakfast or brunch looking at rice fields, for couples or a group staying off the strip",
+    "not_for": "Polished fine dining, a beachfront setting or a night out"
+   }
   },
   {
    "slug": "ji-restaurant-bali",
@@ -88,7 +103,12 @@
    "tells_before": [
     "'sweeping ocean views'",
     "'one of Canggu's most atmospheric'"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "Japanese-contemporary dining at Hotel Tugu, right on Batu Bolong beach. The room is a reconstructed antique temple, and the terrace looks straight at the ocean. Sushi, Asian-fusion plates and cocktails.",
+    "best_for": "A sunset dinner with a view, a date, or a special occasion by the sea",
+    "not_for": ""
+   }
   },
   {
    "slug": "sensorium-bali",
@@ -101,7 +121,7 @@
    "after": {
     "why_its_here": "A daytime cafe on Jl. Pantai Batu Mejan run by a chef trained in Australian fine dining. The food is Australian cafe cooking with Japanese flavours, and the room is minimalist.",
     "best_for": "Brunch or lunch in a calm, design-led room, or a daytime stop with a laptop",
-    "not_for": "Dinner or anything after dark, because it keeps daytime hours only"
+    "not_for": "Dinner or anything after dark — it keeps daytime hours only"
    },
    "dropped": [
     "'fusion' ×2 (label; the specific description stays)",
@@ -110,7 +130,12 @@
    "tells_before": [
     "'blending'",
     "'fusion cafe culture'"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A daytime cafe on Jl. Pantai Batu Mejan run by a chef trained in Australian fine dining. The food is Australian cafe cooking with Japanese flavours, and the room is minimalist.",
+    "best_for": "Brunch or lunch in a calm, design-led room, or a daytime stop with a laptop",
+    "not_for": "Dinner or anything after dark, because it keeps daytime hours only"
+   }
   },
   {
    "slug": "fair-warung-bale",
@@ -123,7 +148,7 @@
    "after": {
     "why_its_here": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation. What you pay for lunch funds free medical consultations for local people. The menu is Indonesian, Asian-fusion and vegetarian, every day.",
     "best_for": "A casual lunch or early dinner that also funds free medical consultations locally",
-    "not_for": "Upscale dining or a sunset view, because it is a simple ten-table warung"
+    "not_for": "Upscale dining or a sunset view. It is a simple ten-table warung"
    },
    "dropped": [
     "'social-enterprise' (label; the mechanism is stated instead)",
@@ -133,7 +158,12 @@
     "'Travellers wanting' opener",
     "semicolon lists",
     "'Diners seeking'"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation. What you pay for lunch funds free medical consultations for local people. The menu is Indonesian, Asian-fusion and vegetarian, every day.",
+    "best_for": "A casual lunch or early dinner that also funds free medical consultations locally",
+    "not_for": "Upscale dining or a sunset view, because it is a simple ten-table warung"
+   }
   },
   {
    "slug": "warung-mendez",
@@ -146,7 +176,7 @@
    "after": {
     "why_its_here": "A small warung in Penestanan village, northwest of central Ubud, with an all-women kitchen team. The cooking is Indonesian and Javanese, made without MSG and with little plastic.",
     "best_for": "A quiet, home-style Indonesian meal away from the main Ubud strip",
-    "not_for": "A quick stop in the centre of town, because Penestanan takes finding"
+    "not_for": "A quick stop in the centre of town; Penestanan takes finding"
    },
    "dropped": [
     "'tucked in' (hype opener)",
@@ -156,7 +186,12 @@
     "'tucked'",
     "'ethos'",
     "'travelers wanting' / 'those wanting' openers"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A small warung in Penestanan village, northwest of central Ubud, with an all-women kitchen team. The cooking is Indonesian and Javanese, made without MSG and with little plastic.",
+    "best_for": "A quiet, home-style Indonesian meal away from the main Ubud strip",
+    "not_for": "A quick stop in the centre of town, because Penestanan takes finding"
+   }
   },
   {
    "slug": "wulan-vegetarian-warung",
@@ -169,7 +204,7 @@
    "after": {
     "why_its_here": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and vegan sweets, at very low prices.",
     "best_for": "Vegan or vegetarian travellers on a budget who want simple Indonesian food",
-    "not_for": "Paying by card or sitting at a proper table, because it is cash only with floor cushions"
+    "not_for": "Card payments or a proper table: it is cash only, with floor cushions"
    },
    "dropped": [
     "'hole-in-the-wall' (cliché)",
@@ -179,7 +214,12 @@
     "'hole-in-the-wall'",
     "'authentic'",
     "'very' intensifier kept: it qualifies a price band the record states"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and vegan sweets, at very low prices.",
+    "best_for": "Vegan or vegetarian travellers on a budget who want simple Indonesian food",
+    "not_for": "Paying by card or sitting at a proper table, because it is cash only with floor cushions"
+   }
   },
   {
    "slug": "bali-buda-ubud",
@@ -205,7 +245,12 @@
     "'Bali's only'",
     "'Travelers seeking' opener",
     "em dash"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An organic grocery and bakery with an all-day restaurant attached, in Ubud since 1994. The kitchen covers raw vegan, Italian and traditional Indonesian dishes, with vegetarian, vegan and gluten-free options across the menu.",
+    "best_for": "A long stay or a mixed group that needs one big menu with vegetarian, vegan and gluten-free choices",
+    "not_for": "A special occasion or an intimate dinner, because it is a casual health-food restaurant and shop"
+   }
   },
   {
    "slug": "kilig-bali",
@@ -226,7 +271,12 @@
    "tells_before": [
     "'stands out'",
     "semicolon list of four fragments in best_for"
-   ]
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A Filipino warung in Peliatan, in a bamboo hut looking over rice fields. The cooking is home-style Filipino comfort food, in an area where the menus are otherwise Balinese and Western.",
+    "best_for": "Filipino comfort food shared at one table, or a family dinner with a rice-field view",
+    "not_for": "A quick stop from central Ubud, or anyone avoiding rich, pork-heavy dishes"
+   }
   }
  ],
  "templates_not_rewritten": [
@@ -406,5 +456,6 @@
    "text": "Other Bali tracks N places in <District> — <mix>, clustered around A, B and C. <moment> Best for <list>.",
    "recommendation": "control — no change; every token is a count or a name from the data"
   }
- }
+ },
+ "_reader_note": "Blind read 2026-10-05 (reader-verdicts.json) was on after_v1_blind_read. The reader flagged the 'Not for: X, because it is Y' tail recurring in 5 of 10 cards; v2 varies it (full stop, colon, dash, semicolon, one 'because'). Facts unchanged between v1 and v2."
 }
