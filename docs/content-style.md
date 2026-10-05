@@ -107,9 +107,11 @@ Nobody reads top-to-bottom on a phone. Build for skimming:
 Before → after:
 - ❌ "Nestled in the vibrant heart of Canggu, this stunning café offers a truly
   unforgettable culinary experience for discerning travellers."
-- ✅ "A loud, industrial all-day café on Batu Bolong — big smoothie bowls, a
-  menu chalked on the wall, and a table you'll actually get before noon if you
-  come early."
+- ✅ "A loud all-day café on Batu Bolong. Big smoothie bowls, and the menu is
+  chalked on the wall. Come before noon if you want a table."
+
+The second version has no adjective doing the work of a fact, no dash holding
+three things together, and nothing a reader could not check on the spot.
 
 ---
 
@@ -148,6 +150,76 @@ Write to the topic, not a word count. A tight "Where to watch sunset in Uluwatu"
 might be 600 words; "Where to stay in Bali for the first time" earns 1,500+
 because it genuinely compares five areas. Never pad to hit a number — padding is
 exactly what Google's helpful-content signals punish.
+
+---
+
+## 9. Machine patterns (the one list)
+
+The site was audited on 2026-09-28: 419 cards opened "Restaurant on Jl. X in Y,
+open daily…", 99 carried the same "Travellers looking for a verified place to
+eat in <district>", 389 shared their Best for word for word with another card,
+and the guides averaged one em dash per 60 words. Readers and answer engines
+both read that as one generator. This section is the single list of what
+counts as machine writing here. **The executable copy is
+`scripts/copy/patterns.mjs`**; `check-page.mjs` and `scripts/copy/lint.mjs`
+import it, so there is one list, not four. If this prose and that file
+disagree, fix the file and then this text.
+
+### Blocks publication (FAIL)
+
+- **Ratings and review language** — any star or score, "highly rated",
+  "top-rated", "well-regarded", "beloved", "renowned", "legendary", "cult
+  following", "popular with/for", "famous for", "local favourite", "reviewers
+  note". Guardrail #2. Not excused inside a quotation.
+- **Quality warnings** in Best for / Not for — "slow service", "overpriced",
+  "mediocre". Guardrail #9. Fit, not quality.
+- **Hype filler** — stunning, hidden gem, must-visit, must-try, world-class,
+  nestled, tucked away, vibrant, unforgettable, iconic, breathtaking, paradise,
+  oasis, idyllic, magical, unparalleled, best-kept secret, Instagrammable,
+  culinary journey/experience, elevate(d), indulge, boasts, a testament to,
+  landmark, best in Bali. A venue *named* "Hidden Gem" is not hype; the linter
+  masks names before matching.
+- **Stubs and internal text** — "verified dining venue", "verified place to
+  eat", "remains under review", "handled externally by", TODO, TBD.
+- **Best for openers** — "Perfect for", "Ideal for", "Great for", "Travellers
+  looking for", "Those who", "Visitors wanting". Start with the moment or the
+  person, not with an adjective about the venue.
+- **For new copy only:** opening with the category formula ("Restaurant on
+  Jl.…", "Day spa in Ubud."), and any field that duplicates another venue's
+  word for word. Three cards in a row on one scheme is a template, however
+  warm the words.
+
+### Counted (WARN) — density must not rise, and a rewrite must lower it
+
+- **AI phrasing** — "whether you're … or …", "here's the thing/what/why",
+  "the honest catch", "sweet spot", "not just X but Y", "more than just",
+  "worth noting", "when it comes to", closers "in short / overall /
+  ultimately", "that said", "offers a", "delve", "embark", "seamless",
+  "picture this", "game-changer", "look no further", "a true gem".
+- **Stacked transitions** — moreover, furthermore, additionally, notably.
+- **Intensifiers** over 1 per 100 words — really, very, truly, genuinely,
+  absolutely, incredibly.
+- **Em dashes** over 1 per 50 words, or two in one sentence. In Best for / Not
+  for the first dash is free until the founder settles that format (open
+  decision, 2026-10-05).
+- **Lists of three** — two or more "X, Y and Z" in one short paragraph.
+- **Rhetorical questions** in body prose (FAQ questions and headings are fine).
+- **Sentences over 25 words.**
+- **Staccato** — three or more verbless sentences in a row ("Day spa in Amed.
+  Eighteen treatments. Booking by WhatsApp.").
+- **Soft words** over 1 per 100 words — signature, serious, reliable, proper,
+  go-to, solid, decent.
+- **Same opening word** on three consecutive sentences.
+
+### What this list is not
+
+It is a hygiene floor, not proof that a person wrote the text. A paragraph can
+pass every rule and still read like a brochure. The judges of "human" are the
+founder's blind A/B read and the second reader in the rewrite loop; no AI
+detector score is used, because those scores are noise. And the rules never
+license a fact: a rewrite that passes the linter but adds a number, a dish or a
+"small"/"cosy" the record did not hold is rejected by `scripts/copy/fact-diff.mjs`
+before anyone reads it.
 
 ---
 

@@ -150,3 +150,11 @@ produced from one template are the same problem as the placeholder they
 replace, and search engines penalise them. If a request asks for a collection
 run over `why_its_here`, `best_for` or `not_for`, redirect it to the record
 standard and say why.
+
+The same applies to a *rewrite* run. A batch of rewritten fields is accepted
+only if no three of them share the same shape: `scripts/copy/lint.mjs` compares
+the new texts of a batch by 5-word shingles (Jaccard ≥ 0.8, the method of the
+2026-09-28 audit) and a cluster of three or more fails the batch. "Warmer"
+wording on one scheme is still one scheme — the 2026-08 brief that replaced
+"X is a verified dining venue in Y" produced 419 cards reading "Restaurant on
+Jl. X in Y, open daily…", and the audit counted them as one template.

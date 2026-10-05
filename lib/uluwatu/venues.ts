@@ -1345,7 +1345,7 @@ export const ULUWATU_VENUES: UluwatuVenueContent[] = [
     microArea: "Pecatu (near the Bingin surf spots)",
     publication: "published",
     verdict: "A simple cook-to-order roadside warung near the Pecatu surf beaches, favoured by local surf instructors.",
-    whyHere: "A no-frills local warung near Bingin and Pecatu, popular with surf instructors and resort staff for cheap, freshly cooked Indonesian plates and a well-regarded house sambal.",
+    whyHere: "A no-frills local warung near Bingin and Pecatu, listed among the Bukit's surfer warungs: cheap, freshly cooked Indonesian plates and a house sambal.",
     whatToExpect: "A short list of home-style dishes cooked to order; roadside seating; takeaway common.",
     bestFor: "a cheap post-surf refuel; travellers wanting an unfussy authentic local meal; takeaway",
     notFor: "diners wanting ambience, comfortable seating or a broad menu",

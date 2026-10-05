@@ -1,0 +1,100 @@
+[
+ {
+  "pair": 1,
+  "id": "fair-warung-bale",
+  "kind": "card",
+  "A": "before",
+  "B": "after"
+ },
+ {
+  "pair": 2,
+  "id": "canary:milk-and-madu",
+  "kind": "canary",
+  "A": "before",
+  "B": "after"
+ },
+ {
+  "pair": 3,
+  "id": "ji-restaurant-bali",
+  "kind": "card",
+  "A": "before",
+  "B": "after"
+ },
+ {
+  "pair": 4,
+  "id": "pillar:nusa-dua",
+  "kind": "pillar",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 5,
+  "id": "kilig-bali",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 6,
+  "id": "guide:how-many-days-in-bali",
+  "kind": "guide",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 7,
+  "id": "wulan-vegetarian-warung",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 8,
+  "id": "milk-and-madu-beach-road",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 9,
+  "id": "atlas-beach-club",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 10,
+  "id": "nook-umalas",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 11,
+  "id": "warung-mendez",
+  "kind": "card",
+  "A": "before",
+  "B": "after"
+ },
+ {
+  "pair": 12,
+  "id": "canary:fair-warung-bale",
+  "kind": "canary",
+  "A": "before",
+  "B": "after"
+ },
+ {
+  "pair": 13,
+  "id": "bali-buda-ubud",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ },
+ {
+  "pair": 14,
+  "id": "sensorium-bali",
+  "kind": "card",
+  "A": "after",
+  "B": "before"
+ }
+]

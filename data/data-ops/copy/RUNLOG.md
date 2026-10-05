@@ -1,0 +1,18 @@
+# RUNLOG — программа «человеческий текст» (copy)
+
+План: `/root/.claude/plans/idempotent-drifting-meadow.md` в сессии 2026-10-04 (копия ключевых решений ниже).
+Условие основательницы: ничего не публиковать и не писать в базу, пока она не увидит конкретный список изменений.
+
+## 2026-10-04 — D0, опора
+- Ветка `claude/pensive-ritchie-f9kkhp`; `origin/main` влит мержем (`9b11894`), без конфликтов. main = `520ed13` (PR #316 от 01.10 снова включил сборку main на Vercel; PR #311 — meta description по границе слова, «world-class» убран из `lib/guides.ts`).
+- **Какой коммит обслуживает www — не известно.** На 04.10 прод ≠ main (sitemap-index; карточки с пустым `why_its_here` отдаются с `index,follow`). Вопрос основательнице / Vercel. До ответа: мерж в main считается возможной публикацией → «да» нужно перед мержем.
+- Экспорта базы нет (сессия без коннектора). Для отчётов — краул 28.09 `docs/audits/2026-09-28-web/places.csv`. Для SQL-guard'ов краул не используется: генератор `scripts/copy/build-copy-sql.mjs` читает экспорт и держит строку в HOLD, если «до» в базе не совпало с «до» в списке.
+- Открытые PR на те же файлы: #314 (draft; `lib/guides.ts`, `app/places/[slug]/page.tsx`, where-to-stay, things-to-do, bali-travel-guide, where-to-watch-sunset), #313 (новый гайд). Решение до волны по гайдам.
+
+## 2026-10-05 — перезапуск среды; D1 и D2
+- Контейнер перезапустился; первая фоновая сборка `scripts/copy/*` погибла до записи файлов. Перезапущена тремя субагентами (lint+patterns+extract, fact-diff, build-copy-sql).
+- **D1 (ложь и заглушки):** `stage1/change-list.csv` (35 строк) + `stage1/stubs-99.csv` (99) + `stage1/CHANGE-LIST.md`. В коде применено: `lib/hub.ts` — убрано ложное «Each pick below lists what to order and the price anchor» и «with what to order and prices» (VenueCard их не показывает); `lib/uluwatu/venues.ts:1348` — Warung Bu Jonny без «well-regarded» / «popular with». База — ждёт «да».
+- **D2 (один стандарт):** `docs/content-style.md` §9 «Machine patterns» (единый список, исполняемая копия — `scripts/copy/patterns.mjs`), §5 пример без тире и тройки; `otherbali-venue-record-standard/SKILL.md` — «одно утверждение на предложение» вместо формулы, пример Crate Cafe переписан, абзац «формула ≠ голос», Step 4 с lint/fact-diff, Step 5 с guard на точный текст и rollback; `references/field-standard.md` — одна норма длины (1–3 предложения, 20–45 слов), формат `not_for` помечен как открытое решение; `otherbali-guide-page-standard/SKILL.md` — та же формулировка; `acceptance-rules.md` — запрет повторной шаблонизации (Jaccard); `docs/BRIEF_VENUE_DESCRIPTIONS.md` — баннер «заменено»; `geo-seo/references/otherbali-overlay.md` §11 — баллы за moreover/furthermore игнорируются.
+- **check-page.mjs** теперь импортирует `HYPE` и `mask()` из `scripts/copy/patterns.mjs` и маскирует названия заведений (h3 карточек + `name` из JSON-LD) перед проверкой. Повод: на сохранённой странице best-restaurants-in-bali расширенный список ловил «Swan Paradise», «The 1O1 Bali Oasis», «Hidden Gem Uluwatu» — названия, не наш текст. На hub-uluwatu — «an elevated dinner» в карточке: настоящая находка.
+- `package.json`: `copy:lint`, `copy:test`; три теста `scripts/copy/*.test.mjs` добавлены в `test`.
+- Пилот: `pilot/units-cards.json` (10 карточек: milk-and-madu-beach-road, atlas-beach-club, nook-umalas, ji-restaurant-bali, sensorium-bali; fair-warung-bale, warung-mendez, wulan-vegetarian-warung, bali-buda-ubud, kilig-bali), `pilot/drafts.json` (черновики «после» + названные удаления), `pilot/reader-sheet.md` (14 пар: 12 + 2 канарейки с подменённым фактом), `pilot/ab-key.json` (ключ), `pilot/ab-sheet.md` (12 пар для основательницы). Слепой читатель запущен отдельным агентом, который видит только reader-sheet.md.

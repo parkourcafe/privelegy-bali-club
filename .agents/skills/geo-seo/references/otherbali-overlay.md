@@ -209,3 +209,19 @@ the file as stray config, and do not widen it to `"off"` without a reason:
 
 Consolidating upstream's 14 skills into this one (see `UPSTREAM.md`) removed
 the internal collisions. This setting removes the external one.
+
+## 11. The citability scorer rewards words we count as machine writing
+
+`scripts/citability_scorer.py` (line 146) adds points when a passage contains
+"first", "second", "finally", "additionally", "moreover" or "furthermore" —
+upstream treats them as structure signals. `docs/content-style.md` §9 counts
+"moreover / furthermore / additionally" as a WARN pattern, because stacked
+transitions are one of the clearest tells of generated prose and the 2026-09-28
+audit found them concentrated in exactly the cards that read as templates.
+
+So: ignore that component of the score. A passage must not gain
+"additionally" to score higher, and a rewrite that removes a "moreover" and
+loses a point has got better, not worse. If the scorer is ever made to drive a
+gate, strip that clause first. Ordinal structure ("first… then…") is fine where
+a sequence is real; the problem is the transition word standing in for a
+reason.

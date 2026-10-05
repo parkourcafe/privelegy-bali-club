@@ -82,8 +82,8 @@ submission, or a recorded editorial visit. Publishable. If it is volatile
 
 **Rung 2 — Restatement.** The same fact the record already carries, said
 differently or from the other side. The record says "all-day vegetarian and
-vegan cafe", so `not_for: "Diners set on meat or seafood — the menu is entirely
-vegetarian and vegan"` is that fact as fit context, not a new claim.
+vegan cafe", so `not_for: "Diners set on meat or seafood, because the menu is
+entirely vegetarian and vegan"` is that fact as fit context, not a new claim.
 Publishable, but **it is not fresh verification** — see `last_verified_at`
 below.
 
@@ -101,9 +101,13 @@ correct. A guessed field renders a lie.
 
 Three habits do most of the work, in priority order.
 
-**One sentence, one fact.** A sentence that bundles atmosphere, location, menu
-and history gives an extraction engine nothing to lift. Split it and each part
-becomes liftable on its own.
+**One claim per sentence.** A sentence that bundles atmosphere, location, menu
+and history gives an extraction engine nothing to lift. Split it so each part
+is liftable on its own — but join a fact to its consequence when the reader
+needs both ("cash only, so bring enough for two"). The failure on the other
+side is the staccato: "Day spa in Amed. Eighteen treatments. Booking by
+WhatsApp." Three verbless fragments in a row read as a generator, and the
+2026-09-28 audit found ~328 cards written exactly that way.
 
 **Numbers instead of adjectives.** "Affordable" is an opinion; "35,000–70,000
 IDR" is a fact. Prefer the number wherever the record supports one.
@@ -130,14 +134,24 @@ best_for:     Backpackers and surfers wanting a lively, affordable brunch after
 "don't mind a crowd" move to `not_for`, where they answer a question:
 
 ```
-why_its_here: All-day breakfast on Jl. Batu Bolong. Smoothie bowls, and a menu
-              rewritten daily on the wall behind the counter.
+why_its_here: An all-day breakfast place on Jl. Batu Bolong that has been there
+              long enough to be an institution. Smoothie bowls are the order,
+              and the menu is rewritten on the wall behind the counter every day.
 best_for:     Surfers and backpackers after a morning in the water.
-not_for:      A quiet table or focused laptop work — it is loud and busy.
+not_for:      A quiet table or focused laptop work, because it is loud and busy.
 price_anchor: 35k-70k IDR
 ```
 
 Nothing was researched to make this change. It is rung 2 throughout.
+
+**A formula is not a voice.** The shape above — what it is, the thing to
+order, one practical detail — is a checklist of what the record must carry,
+not a sentence pattern to repeat. Written three times on one scheme it becomes
+the template the 2026-09-28 audit found on 419 cards ("Restaurant on Jl. X in
+Y, open daily…"). Vary the opening, let one sentence carry a reason, and read
+the three neighbouring cards before writing the fourth. The machine-pattern
+list in `docs/content-style.md` §9 (executable copy: `scripts/copy/patterns.mjs`)
+is the floor every field must pass.
 
 ## Step 4 — Check before you write
 
@@ -146,8 +160,14 @@ Nothing was researched to make this change. It is rung 2 throughout.
 - [ ] `not_for` is fit context ("not for a quiet table"), never a quality
       warning ("service is slow") — guardrail #9. The test: would the owner
       read it and agree it is accurate? Fit passes that test; quality does not.
-- [ ] No hype filler: "stunning", "hidden gem", "must-visit", "nestled".
+- [ ] No machine patterns: `node scripts/copy/lint.mjs --text "<field text>" --field <field>`
+      reports 0 FAIL (the list is `docs/content-style.md` §9; hype, review
+      language, stubs, "Perfect for" openers, the category formula).
 - [ ] No Google ratings, review counts, or review-derived claims — guardrail #2.
+- [ ] For a rewrite of an existing field: `node scripts/copy/fact-diff.mjs
+      --before "<old>" --after "<new>"` reports PASS — no number, name, dish or
+      evaluative word appears that the old text did not hold, and every fact I
+      dropped is named as a deliberate deletion in the change list.
 - [ ] `last_verified_at` is only bumped if I actually re-checked the source.
 - [ ] I know which public surface will render each field I touched.
 
@@ -157,13 +177,30 @@ Content changes go in `data/data-ops/<scope>-<what>-<date>.sql` and are applied
 by the founder, not from an agent session. Three properties make a file safe to
 hand over:
 
-**Guard on empty, so re-running is harmless.** A hand-edit after the first run
-must survive a second run.
+**Guard on the current value, so re-running is harmless.** A hand-edit after
+the first run must survive a second run. For a field that is empty today, guard
+on empty:
 
 ```sql
 update venues set not_for = 'A budget breakfast -- mains run 100,000-250,000 IDR.'
   where slug = 'milu-by-nook' and (not_for is null or length(trim(not_for)) = 0);
 ```
+
+For a **rewrite** of a field that already has text, the empty guard is wrong —
+it would skip the row silently. Guard on the exact old text instead, and ship
+the reverse statement next to it:
+
+```sql
+update venues set why_its_here = '<new text>'
+  where slug = 'soma-fight-club-canggu'
+    and status = 'active' and publication_status = 'published'
+    and why_its_here = '<exact old text>';
+-- rollback-<date>.sql: the same statement with old and new swapped.
+```
+
+`scripts/copy/build-copy-sql.mjs` generates both files from a change list and
+a read-only export of the current rows; it refuses a row whose current value no
+longer matches the list, so a hand edit made in between is never overwritten.
 
 **Leave `last_verified_at` alone for rung-2 copy.** That date drives the public
 "Last checked" line and the sitemap `lastmod`. Bumping it for derived copy
