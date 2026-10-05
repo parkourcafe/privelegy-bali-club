@@ -365,3 +365,7 @@ test("a range starting at 12 keeps the stated half of the day", () => {
   assert.equal(factDiff("Best around 12–3pm.", "Best from midnight to 3pm.").verdict, "REJECT");
   assert.equal(factDiff("Lunch 11–2pm.", "Lunch 11am to 2pm.").verdict, "PASS");
 });
+
+test("a sentence opening with If is not read as a name", () => {
+  assert.equal(factDiff("Start from the trip you are taking, whatever you came for.", "If you came for something specific, start from the trip you are taking.").rejects.filter((r) => r.type === "PROPER").length, 0);
+});
