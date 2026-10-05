@@ -476,14 +476,14 @@
   },
   "after": {
    "masthead_copy": "Nusa Dua is a gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip. The beaches are calm enough to swim, and a walkable promenade runs along the seafront. The resorts hold the fine dining and some of the island's biggest spas. It is the easy, family-safe end of Bali.",
-   "meta_description": "Who Nusa Dua suits, which of its calm beaches to pick, what to do beyond the resorts, and where to eat and be looked after in the gated resort enclave."
+   "meta_description": "Who the gated Nusa Dua resort enclave suits: calm swimmable beaches, things to do, resort fine dining and some of Bali's biggest spas."
   },
   "dropped": [
    "'curated from places we actually rate' (self-praise, no fact)",
    "'low-friction' (jargon) → 'easy'",
    "'resident-curated' (brand line; stays on the page chrome, not in the meta)",
    "'This guide covers who it suits, its beaches, what to do, where to eat and where to be looked after' (page scaffold; the blind reader flagged it in both versions, and the chips below the masthead already list the sections)",
-   "'the best things to do' in the meta (ranking word)"
+   "'A resident-curated' and 'the best' in the meta (brand line and ranking word); the concrete 'resort fine dining and some of Bali's biggest spas' stays — the v3 draft's 'where to eat and be looked after' was vaguer than the original"
   ],
   "tells_before": [
    "colon list of five",

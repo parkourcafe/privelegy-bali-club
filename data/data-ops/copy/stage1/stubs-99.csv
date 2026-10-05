@@ -1,101 +1,101 @@
 # одна строка = одна карточка с заглушкой best_for «Travellers looking for a verified place to eat in <район>.»; before — текст с живого сайта 28.09; after пустой = NULL; у всех why_its_here на сайте пуст (под гейтом main — noindex)
 unit_id,surface,slug_or_path,field,before,after,action,reason,source,decision
-S1-101,db,jaansan-beach-house-restaurant-bar-and-lounge-at-kelan-beach,best_for,Travellers looking for a verified place to eat in Jimbaran.,,null,Заглушка best_for; why_its_here пуст; район Jimbaran.,аудит G5,
-S1-102,db,la-santa-rosa,best_for,Travellers looking for a verified place to eat in Jimbaran.,,null,Заглушка best_for; why_its_here пуст; район Jimbaran.,аудит G5,
-S1-103,db,aribar-tapas-cantina,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-104,db,big-fish-grill,best_for,"Travellers looking for a verified place to eat in Kuta, Legian.",,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-105,db,boardwalk-restaurant-bali,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-106,db,daily-social,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-107,db,envy-restaurant,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-108,db,kabar-grill,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-109,db,ocean-terrace-restaurant-at-legian-beach-hotel,best_for,"Travellers looking for a verified place to eat in Kuta, Legian.",,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-110,db,rosso-vivo-dine-and-lounge,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-111,db,temple-by-ginger-moon,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-112,db,the-bandha-hotel-and-suites,best_for,Travellers looking for a verified place to eat in Legian.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-113,db,the-naked-tiger,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-114,db,warung-damar,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,
-S1-115,db,burma-noodles-and-curry,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,
-S1-116,db,cliff-at-canna,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,
-S1-117,db,momo-bar-at-the-courtyard-by-marriott-bali-nusa-dua,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,
-S1-118,db,sapa-seafood-and-grill-nusa-dua,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,
-S1-119,db,tenji-sushi,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,
-S1-120,db,amok-sunset-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Nusa Penida.,,null,Заглушка best_for; why_its_here пуст; район Nusa Penida.,аудит G5,
-S1-121,db,arunika-restaurant-by-the-meru-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-122,db,costa-beach-restaurant,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-123,db,kayumanis-seaside-restaurant-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-124,db,kimukatsu-icon-bali,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-125,db,lava-gastrobar-grill,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-126,db,luca-bali-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-127,db,mozza-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-128,db,sumitra-luxury-villas-and-resort-by-pramana,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-129,db,the-1o1-bali-oasis-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-130,db,the-village-cucina-italiana,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-131,db,tree-bar-at-maya-sanur-resort-and-spa,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-132,db,tsune-japanese-restaurant-bali-by-wonderspace,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,
-S1-133,db,amber-resto-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-134,db,casa-blanca-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-135,db,casadia-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-136,db,cocoon-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-137,db,fu-house-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-138,db,huge-restaurant,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-139,db,infinity-beach-club,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-140,db,isaya-teppanyaki-boutique-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-141,db,jackson-lily-s-by-ginger-moon,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-142,db,la-favela-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-143,db,malverde-tequileria-and-nightclub,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-144,db,mase-kitchen-and-bar,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-145,db,noaa-asian-bistro,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-146,db,saltlick,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-147,db,satoshi,best_for,Travellers looking for a verified place to eat in Kerobokan.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-148,db,shooters-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-149,db,the-butchers-club-steakhouse,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-150,db,the-grumpy-butcher,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-151,db,the-island-grill-and-lounge,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,
-S1-152,db,arya-arkananta-resort-and-spa,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-153,db,avocuts-coffee-and-eatery,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-154,db,bulan-madu-restaurant-at-amora-ubud-boutique-villas,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-155,db,cafe-lotus,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-156,db,cherry-pepper-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-157,db,deeva-restaurant-at-the-udaya,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-158,db,desa-swan-villas-and-spa-keramas,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-159,db,dice-at-the-craft-hotel,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-160,db,dining-corner-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-161,db,ely-s-kitchen-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-162,db,fermeto-ubud-restaurant,best_for,Travellers looking for a verified place to eat in Ubud; Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-163,db,ferro-grill-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-164,db,flame-bar-and-grill-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-165,db,flamingo-beach-club-bali,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-166,db,honey-and-smoke,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-167,db,jingga-restaurant-at-bumi-kinar,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-168,db,kepitu-restaurant-by-the-kayon-resort,best_for,Travellers looking for a verified place to eat in Ubud; Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-169,db,kepitu-restaurant-by-the-kayon-valley-resort,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-170,db,kukusan-bali-restaurant-at-the-artini-dijiwa-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-171,db,moonstone-beach-lounge,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-172,db,natti-s-indian-specialty-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-173,db,pasir-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-174,db,sacred-rice-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-175,db,sayan-valley,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-176,db,semara-grill-at-inara-alas-harum,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-177,db,seres-springs-resort-and-spa-singakerta-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-178,db,shinraku-teppanyaki,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-179,db,spice-by-blake,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-180,db,sunset-bloom-restaurant-at-swan-paradise-a-pramana-experience,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-181,db,the-cepaka-bistro-bali,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-182,db,the-sankara-suites-and-villas,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-183,db,the-sayan-house-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-184,db,the-tempayan-at-tanah-gajah-a-resort-by-hadiprana,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-185,db,three-elements-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-186,db,tree-bar-at-maya-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-187,db,uma-cucina,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-188,db,wanna-jungle-pool-and-bar-at-the-kayon-jungle-resort,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-189,db,whisper-cove-bar-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-190,db,wild-ginger-restaurant-at-nandini-jungle-by-hanging-gardens,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,
-S1-191,db,di-mare-restaurant-karma-kandara,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-192,db,enchante,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-193,db,kokoon-uluwatu-at-vanara-resort-and-spa,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-194,db,mensa-asian-bistro-and-bar,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-195,db,natys-restaurant-jimbaran,best_for,"Travellers looking for a verified place to eat in Uluwatu, Jimbaran.",,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-196,db,sana-uluwatu,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-197,db,tacos-aqui-uluwatu,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-198,db,tarabelle,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
-S1-199,db,wet-plate-kitchen,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,
+S1-101,db,jaansan-beach-house-restaurant-bar-and-lounge-at-kelan-beach,best_for,Travellers looking for a verified place to eat in Jimbaran.,,null,Заглушка best_for; why_its_here пуст; район Jimbaran.,аудит G5,ДА
+S1-102,db,la-santa-rosa,best_for,Travellers looking for a verified place to eat in Jimbaran.,,null,Заглушка best_for; why_its_here пуст; район Jimbaran.,аудит G5,ДА
+S1-103,db,aribar-tapas-cantina,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-104,db,big-fish-grill,best_for,"Travellers looking for a verified place to eat in Kuta, Legian.",,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-105,db,boardwalk-restaurant-bali,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-106,db,daily-social,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-107,db,envy-restaurant,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-108,db,kabar-grill,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-109,db,ocean-terrace-restaurant-at-legian-beach-hotel,best_for,"Travellers looking for a verified place to eat in Kuta, Legian.",,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-110,db,rosso-vivo-dine-and-lounge,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-111,db,temple-by-ginger-moon,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-112,db,the-bandha-hotel-and-suites,best_for,Travellers looking for a verified place to eat in Legian.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-113,db,the-naked-tiger,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-114,db,warung-damar,best_for,Travellers looking for a verified place to eat in Kuta.,,null,Заглушка best_for; why_its_here пуст; район Kuta & Legian.,аудит G5,ДА
+S1-115,db,burma-noodles-and-curry,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,ДА
+S1-116,db,cliff-at-canna,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,ДА
+S1-117,db,momo-bar-at-the-courtyard-by-marriott-bali-nusa-dua,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,ДА
+S1-118,db,sapa-seafood-and-grill-nusa-dua,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,ДА
+S1-119,db,tenji-sushi,best_for,Travellers looking for a verified place to eat in Nusa Dua.,,null,Заглушка best_for; why_its_here пуст; район Nusa Dua.,аудит G5,ДА
+S1-120,db,amok-sunset-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Nusa Penida.,,null,Заглушка best_for; why_its_here пуст; район Nusa Penida.,аудит G5,ДА
+S1-121,db,arunika-restaurant-by-the-meru-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-122,db,costa-beach-restaurant,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-123,db,kayumanis-seaside-restaurant-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-124,db,kimukatsu-icon-bali,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-125,db,lava-gastrobar-grill,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-126,db,luca-bali-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-127,db,mozza-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-128,db,sumitra-luxury-villas-and-resort-by-pramana,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-129,db,the-1o1-bali-oasis-sanur,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-130,db,the-village-cucina-italiana,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-131,db,tree-bar-at-maya-sanur-resort-and-spa,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-132,db,tsune-japanese-restaurant-bali-by-wonderspace,best_for,Travellers looking for a verified place to eat in Sanur.,,null,Заглушка best_for; why_its_here пуст; район Sanur.,аудит G5,ДА
+S1-133,db,amber-resto-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-134,db,casa-blanca-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-135,db,casadia-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-136,db,cocoon-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-137,db,fu-house-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-138,db,huge-restaurant,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-139,db,infinity-beach-club,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-140,db,isaya-teppanyaki-boutique-seminyak,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-141,db,jackson-lily-s-by-ginger-moon,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-142,db,la-favela-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-143,db,malverde-tequileria-and-nightclub,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-144,db,mase-kitchen-and-bar,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-145,db,noaa-asian-bistro,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-146,db,saltlick,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-147,db,satoshi,best_for,Travellers looking for a verified place to eat in Kerobokan.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-148,db,shooters-bali,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-149,db,the-butchers-club-steakhouse,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-150,db,the-grumpy-butcher,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-151,db,the-island-grill-and-lounge,best_for,Travellers looking for a verified place to eat in Seminyak.,,null,Заглушка best_for; why_its_here пуст; район Seminyak.,аудит G5,ДА
+S1-152,db,arya-arkananta-resort-and-spa,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-153,db,avocuts-coffee-and-eatery,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-154,db,bulan-madu-restaurant-at-amora-ubud-boutique-villas,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-155,db,cafe-lotus,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-156,db,cherry-pepper-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-157,db,deeva-restaurant-at-the-udaya,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-158,db,desa-swan-villas-and-spa-keramas,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-159,db,dice-at-the-craft-hotel,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-160,db,dining-corner-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-161,db,ely-s-kitchen-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-162,db,fermeto-ubud-restaurant,best_for,Travellers looking for a verified place to eat in Ubud; Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-163,db,ferro-grill-restaurant-and-bar,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-164,db,flame-bar-and-grill-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-165,db,flamingo-beach-club-bali,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-166,db,honey-and-smoke,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-167,db,jingga-restaurant-at-bumi-kinar,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-168,db,kepitu-restaurant-by-the-kayon-resort,best_for,Travellers looking for a verified place to eat in Ubud; Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-169,db,kepitu-restaurant-by-the-kayon-valley-resort,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-170,db,kukusan-bali-restaurant-at-the-artini-dijiwa-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-171,db,moonstone-beach-lounge,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-172,db,natti-s-indian-specialty-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-173,db,pasir-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-174,db,sacred-rice-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-175,db,sayan-valley,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-176,db,semara-grill-at-inara-alas-harum,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-177,db,seres-springs-resort-and-spa-singakerta-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-178,db,shinraku-teppanyaki,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-179,db,spice-by-blake,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-180,db,sunset-bloom-restaurant-at-swan-paradise-a-pramana-experience,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-181,db,the-cepaka-bistro-bali,best_for,Travellers looking for a verified place to eat in Gianyar.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-182,db,the-sankara-suites-and-villas,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-183,db,the-sayan-house-restaurant-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-184,db,the-tempayan-at-tanah-gajah-a-resort-by-hadiprana,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-185,db,three-elements-restaurant,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-186,db,tree-bar-at-maya-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-187,db,uma-cucina,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-188,db,wanna-jungle-pool-and-bar-at-the-kayon-jungle-resort,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-189,db,whisper-cove-bar-ubud,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-190,db,wild-ginger-restaurant-at-nandini-jungle-by-hanging-gardens,best_for,Travellers looking for a verified place to eat in Ubud.,,null,Заглушка best_for; why_its_here пуст; район Ubud.,аудит G5,ДА
+S1-191,db,di-mare-restaurant-karma-kandara,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-192,db,enchante,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-193,db,kokoon-uluwatu-at-vanara-resort-and-spa,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-194,db,mensa-asian-bistro-and-bar,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-195,db,natys-restaurant-jimbaran,best_for,"Travellers looking for a verified place to eat in Uluwatu, Jimbaran.",,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-196,db,sana-uluwatu,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-197,db,tacos-aqui-uluwatu,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-198,db,tarabelle,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА
+S1-199,db,wet-plate-kitchen,best_for,Travellers looking for a verified place to eat in Uluwatu.,,null,Заглушка best_for; why_its_here пуст; район Uluwatu.,аудит G5,ДА

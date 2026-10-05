@@ -1,0 +1,61 @@
+# Запись правок текста в базу — инструкция для сессии с доступом
+
+Решение основательницы 2026-10-05: «Делай по своим рекомендациям». Это «ДА» по трём спискам; колонка `decision` в них уже заполнена:
+
+| Список | Строк в базу | Что |
+|---|---|---|
+| `stage1/change-list.csv` | 27 | 7 заглушек → NULL; 20 правок языка отзывов (в т.ч. S1-022 «Closes 8pm» из Tripadvisor → NULL) |
+| `stage1/stubs-99.csv` | 99 | best_for «Travellers looking for a verified place to eat in …» → NULL |
+| `pilot/change-list.csv` | 29 | 10 карточек пилота, версия v3 |
+
+Сессия 05.10 записать не смогла: Supabase-коннектор в ней видел три других проекта (aether-medium, remhaos.com, Petid.care), а на `egkdapqwkfprtyqvvnso` отвечал «нет прав». Ничего не записано.
+
+## 0. Перед началом
+1. Подтянуть ветку `claude/pensive-ritchie-f9kkhp`. Прочитать этот файл и `.agents/skills/otherbali-supabase-write/SKILL.md`.
+2. `list_projects` должен показывать `egkdapqwkfprtyqvvnso`. Если нет — остановиться.
+3. **Сначала батч 1 Uluwatu**, одобренный 01.10: `data/data-ops/verification/2026-09-28-batch-01-uluwatu/DB-APPLY-NEXT-SESSION.md`. Он пишет часы, адреса, телефоны, цены и снимает ссылки на гемблинг. Колонки текста, которые пишет эта инструкция, батч 1 не трогает, так что порядок не важен. Но он одобрен раньше — пусть идёт первым.
+
+## 1. Экспорт (только чтение)
+- `export-query.sql`:
+  - E0 должен вернуть 0 строк;
+  - E1 — все slug из списков.
+- Вывод E1 сохранить как есть в `data/data-ops/copy/<дата>/venues-export.json`. Генератор читает JSON коннектора без конвертации.
+- `has_owner_note = true` — не повод останавливаться: `owner_note` эти списки не трогают. Просто знать.
+
+## 2. Сборка SQL (по одному каталогу на список)
+```sh
+D=<дата>; E=data/data-ops/copy/$D/venues-export.json
+node scripts/copy/build-copy-sql.mjs --changes data/data-ops/copy/stage1/change-list.csv --export $E --out data/data-ops/copy/$D/stage1 --date $D --label copy-stage1-$D
+node scripts/copy/build-copy-sql.mjs --changes data/data-ops/copy/stage1/stubs-99.csv   --export $E --out data/data-ops/copy/$D/stubs  --date $D --label copy-stubs-$D
+node scripts/copy/build-copy-sql.mjs --changes data/data-ops/copy/pilot/change-list.csv --export $E --out data/data-ops/copy/$D/pilot  --date $D --label copy-pilot-$D
+```
+- `before` в списках — текст живого сайта по краулу 28.09, а не база. Где база с тех пор изменилась или страница показывает другой источник, строка уходит в `holds.csv` с причиной `before mismatch`. Её **не форсировать**: записать в RUNLOG и вернуть в следующий список.
+- Ожидание по прогону на краул-экспорте: 27 / 99 / 29 операторов, 0 HOLD. На настоящем экспорте HOLD возможны.
+
+## 3. Пробный прогон
+Раздел 1 каждого `apply-<дата>.sql` — один оператор внутри `begin … rollback`. Ожидается `UPDATE 1`. Он ловит ограничения, которых нет в миграциях.
+
+## 4. Запись
+- Раздел 2 каждого файла — один DO-блок. Каждый оператор проверяет `row_count = 1`; любое расхождение откатывает весь блок с номером строки в сообщении.
+- Порядок: stage1 → stubs → pilot.
+- `last_verified_at`, `status`, `publication_status` не меняются: это переписывание текста, не новая проверка.
+
+## 5. Проверка
+- **SQL.** Раздел 3 (verify) каждого файла.
+- **Живые страницы.** Прод отдаёт `no-store`, база видна сразу. Запустить строки `verify-live.txt`, плюс руками:
+  - одна карточка из B1 (например, `/places/merah-putih`): что отдаёт `robots` и `<meta name="description">` — пустой ли он или шаблон;
+  - одна из 99 заглушек: строки «Best for» на карточке больше нет;
+  - одна карточка пилота: новый текст на месте.
+- **Повторный линт.** Свежий экспорт → `node scripts/copy/lint.mjs --export <csv> --date <дата> --out docs/audits/copy-lint/<дата>`. Число S1 должно упасть со 108 почти до нуля, R2 по базе — до 0.
+
+## 6. Записать результат
+- В `RUNLOG.md`: время, итог E0/E1, holds по каждому списку, результат пробного прогона, итог A/B, проверку страниц.
+- Закоммитить в ту же ветку вместе с каталогом `data/data-ops/copy/<дата>/` (экспорт, apply, rollback, holds).
+
+## Откат
+`rollback-<дата>.sql` в каждом каталоге. Он возвращает `before` там, где в поле всё ещё записанное значение; ручные правки, сделанные позже, не перезатирает.
+
+## Что изменится для читателя
+- **7 карточек B1** теряют описание (заглушку). Под гейтом main они без `why_its_here`, значит noindex и не попадают в best-*. Какой гейт стоит на проде — проверить по одной карточке после записи (шаг 5).
+- **Sarong** теряет и описание, и best_for. Это карточка, подтверждённая владельцем; новый текст — после сбора фактов.
+- **99 карточек** без строки «Best for». Описания у них и так нет, индексация под гейтом main не меняется.

@@ -2844,9 +2844,21 @@
       "sentence": 4
      },
      {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 4
+     },
+     {
       "type": "PROPER",
       "token": "Nusa Dua",
       "canonical": "PROPER:nusa dua",
+      "sentence": 4
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
       "sentence": 4
      }
     ]

@@ -38,6 +38,27 @@ for (const v of verdicts) {
 }
 
 const codes = (r) => [...r.fails.map((f) => f.code), ...r.warns.map((w) => w.code)].join(" ");
+
+// A rebuild must not wipe decisions already taken, and must not carry a "ДА"
+// over to a text it was not given for: a decision survives only while the
+// row's before and after are byte-identical to the ones it was recorded on.
+const previous = new Map();
+try {
+  const old = readFileSync(join(PILOT, "change-list.csv"), "utf8").split("\n").filter((l) => !l.startsWith("#")).join("\n");
+  const { parseCsv } = await import(join(REPO, "scripts/copy/build-copy-sql.mjs"));
+  const [head, ...body] = parseCsv(old);
+  for (const cells of body) {
+    const r = Object.fromEntries(head.map((h, i) => [h, cells[i] ?? ""]));
+    previous.set(`${r.unit_id}\u0000${r.field}`, r);
+  }
+} catch {
+  // first build: nothing to carry
+}
+const carried = (row) => {
+  const was = previous.get(`${row.unit_id}\u0000${row.field}`);
+  if (!was || !was.decision || ["HOLD", "NO CHANGE"].includes(was.decision)) return row.decision;
+  return was.before === row.before && was.after === row.after ? was.decision : "";
+};
 const lintOf = (text, field, ctx) => lintText(text, { field, names: ctx.names, areas: ctx.areas, isNew: true });
 
 const rows = [];
@@ -126,7 +147,13 @@ for (const c of drafts.controls) {
   rows.push({ unit_id: `P-control-${c.slug}`, surface: "db", slug_or_path: c.slug, field: "why_its_here", before: c.why_its_here, after: c.why_its_here, words_before: c.why_its_here.split(/\s+/).length, words_after: c.why_its_here.split(/\s+/).length, lint_before: codes(lintText(c.why_its_here, { field: "why_its_here" })), lint_after: "", fact_diff: "", reader_same_facts: "", reader_prefers: "", dropped_named: "", decision: "NO CHANGE", note: c.recommendation });
 }
 
-const header = ["unit_id", "surface", "slug_or_path", "field", "before", "after", "words_before", "words_after", "lint_before", "lint_after", "fact_diff", "reader_same_facts", "reader_prefers", "dropped_named", "decision", "note"];
+for (const r of rows) {
+  r.action = r.after ? "replace" : "null";
+  r.reason = [r.dropped_named, r.note].filter(Boolean).join(" | ");
+  r.source = "pilot v3: style rewrite of the record's own text (rung 2); facts not re-verified";
+  r.decision = carried(r);
+}
+const header = ["unit_id", "surface", "slug_or_path", "field", "before", "after", "action", "reason", "source", "decision", "words_before", "words_after", "lint_before", "lint_after", "fact_diff", "reader_same_facts", "reader_prefers", "dropped_named", "note"];
 const preamble = "# одна строка = одно поле одной единицы пилота; before — текст с живого сайта (краул 28.09) или из кода; after — черновик v2; decision заполняет основательница: ДА / НЕТ / ПРАВКА (HOLD и NO CHANGE проставлены заранее)";
 writeFileSync(join(PILOT, "change-list.csv"), `${preamble}\n${header.join(",")}\n${rows.map((r) => header.map((h) => csvCell(r[h])).join(",")).join("\n")}\n`);
 writeFileSync(join(PILOT, "gates.json"), JSON.stringify(gates, null, 1));
