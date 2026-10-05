@@ -7,7 +7,7 @@ import { NUSA_DUA_REVIEW_DATE, NUSA_DUA_THINGS_TO_DO } from "@/lib/nusa-dua/cont
 export const metadata: Metadata = {
   title: "Best things to do in Nusa Dua — beyond the resort pool",
   description:
-    "Nusa Dua is more than a resort strip: the 5 km beach promenade, the Water Blow, Geger Beach and its clifftop temple, Museum Pasifika, the Devdan Show and Tanjung Benoa watersports.",
+    "Nusa Dua beyond the resorts: 5 km beach promenade, Water Blow, Geger Beach and its clifftop temple, Museum Pasifika, Devdan Show, Tanjung Benoa watersports.",
   alternates: { canonical: "/nusa-dua/things-to-do" },
   openGraph: {
     title: "Best things to do in Nusa Dua · Other Bali",
@@ -50,10 +50,10 @@ export default function NusaDuaThingsToDoPage() {
           <h1 className="guide-title">Best things to do in Nusa Dua</h1>
           <p className="guide-standfirst">
             Nusa Dua reads as a resort strip, but there&apos;s a real half-day or
-            two out here: a walkable seafront, a natural coastal spectacle, a
-            clifftop temple, a serious art museum, an evening show and the
-            watersports peninsula next door. Calm, easy, family-safe — the enclave
-            at its best.
+            two out here. The seafront is walkable, and there&apos;s a natural
+            coastal spectacle, a clifftop temple and an art museum. Add an evening
+            show and the watersports peninsula next door. The enclave is calm and
+            easy, and it&apos;s family-safe.
           </p>
           <p className="guide-meta-line">Editorial review: {NUSA_DUA_REVIEW_DATE}</p>
         </header>
@@ -87,12 +87,13 @@ export default function NusaDuaThingsToDoPage() {
           <h2>The short version</h2>
           <div className="guide-prose">
             <p>
-              One easy day: a morning on the promenade and Mengiat Beach, the
-              Water Blow, and Museum Pasifika at the Bali Collection, with the
-              Devdan Show in the evening. Add a day: a calmer beach morning at
-              Geger and its temple, then a watersports session or the glass-bottom
-              boat to Turtle Island over at Tanjung Benoa. Low-adrenaline by
-              design — that&apos;s the point of Nusa Dua.
+              For one easy day, spend the morning on the promenade and Mengiat
+              Beach. Then see the Water Blow and Museum Pasifika at the Bali
+              Collection, and the Devdan Show in the evening. Add a day and start
+              with a calmer beach morning at Geger and its temple. Then try a
+              watersports session or the glass-bottom boat to Turtle Island over at
+              Tanjung Benoa. It&apos;s low-adrenaline by design, and that&apos;s
+              the point of Nusa Dua.
             </p>
           </div>
         </section>

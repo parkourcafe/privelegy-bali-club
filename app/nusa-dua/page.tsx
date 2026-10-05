@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/nusa-dua" },
   openGraph: {
     title: "The Nusa Dua guide · Other Bali",
-    description: "The resort enclave — calm beaches, things to do, fine dining and big resort spas.",
+    description: "The resort enclave: calm beaches, things to do, fine dining and big resort spas.",
     url: `${BASE}/nusa-dua`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
     title: "The Nusa Dua guide · Other Bali",
-    description: "The resort enclave — calm beaches, things to do, fine dining and big resort spas.",
+    description: "The resort enclave: calm beaches, things to do, fine dining and big resort spas.",
   },
 };
 
@@ -169,16 +169,16 @@ export default async function NusaDuaPillarPage() {
           <div className="guide-prose">
             <p>
               <strong>It suits</strong> families with young children, couples on a
-              relaxed break, first-time visitors who want easy and secure
-              logistics, and anyone who values a calm, swimmable beach and a
-              polished resort over an independent scene.
+              relaxed break and first-time visitors who want easy and secure
+              logistics. It also suits anyone who values a calm, swimmable beach
+              and a polished resort over an independent scene.
             </p>
             <p>
               <strong>It frustrates</strong> travellers who want nightlife, a
-              dense strip of independent cafés, or a walkable local neighbourhood —
-              the enclave is intentionally manicured and quiet, and most character
-              beyond the resorts sits a short drive away. Surfers belong on the
-              west coast or the Bukit.
+              dense strip of independent cafés or a walkable local neighbourhood.
+              The enclave is intentionally manicured and quiet, and most of the
+              character beyond the resorts sits a short drive away. Surfers belong
+              on the west coast or the Bukit.
             </p>
           </div>
         </section>
@@ -187,7 +187,7 @@ export default async function NusaDuaPillarPage() {
           <h2>The beaches: three zones</h2>
           <p className="guide-lede">
             Nusa Dua and its neighbours sit inside a reef-protected bay, so the
-            water is genuinely calm — unusual for south Bali. Pick the zone by mood.
+            water is calm. That&apos;s unusual for south Bali. Pick the zone by mood.
           </p>
           <div className="compare-table-wrap">
             <table className="compare-table">
@@ -238,14 +238,14 @@ export default async function NusaDuaPillarPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <strong>The water really is calm.</strong> A reef fronts the bay,
-                so Nusa Dua and Tanjung Benoa are among the safest swimming beaches
-                in south Bali — a big part of why families choose it.
+                <strong>The water is calm.</strong> A reef fronts the bay, so Nusa
+                Dua and Tanjung Benoa are among the safest swimming beaches in
+                south Bali. That&apos;s a big part of why families choose it.
               </li>
               <li>
                 <strong>Time the tide at Geger.</strong> The southern beach is
-                lovely but shows seaweed flats and rock pools at low tide; go at
-                high tide for a proper swim.
+                lovely, but it shows seaweed flats and rock pools at low tide. Go
+                at high tide if you want to swim.
               </li>
               <li>
                 <strong>It&apos;s a base for calm, not chaos.</strong> Expect
@@ -255,7 +255,7 @@ export default async function NusaDuaPillarPage() {
               </li>
               <li>
                 <strong>Watersports mean Tanjung Benoa.</strong> The peninsula
-                just north is the hub — parasailing, jet ski, banana boat and the
+                just north is the hub. Parasailing, jet ski, banana boat and the
                 glass-bottom boat to Turtle Island all launch from there.
               </li>
               <li>
@@ -281,9 +281,9 @@ export default async function NusaDuaPillarPage() {
         <div className="cta-band">
           <h2>Use Nusa Dua as your calm base</h2>
           <p>
-            Swim from a reef-protected beach, walk the promenade to dinner, and
-            still reach the Bukit&apos;s cliffs and watersports in minutes. Start
-            with the zone that fits your trip, then pick the resort.
+            Swim from a reef-protected beach and walk the promenade to dinner.
+            The Bukit&apos;s cliffs and the watersports are still minutes away.
+            Start with the zone that fits your trip, then pick the resort.
           </p>
           <Link href="/nusa-dua/things-to-do" className="cta-band-action">
             See the things-to-do guide →

@@ -52,7 +52,7 @@ const visualChoices = [
 export const metadata: Metadata = {
   title: "Jimbaran guide — the seafood bay, sunset bars & resort dining",
   description:
-    "A resident-curated Jimbaran guide: grilled seafood on the bay at sunset, cliff-edge sunset bars, calm swimmable beaches near the airport, and some of Bali's most serious resort spas.",
+    "Jimbaran: grilled seafood on the bay at sunset, cliff-edge sunset bars, calm swimmable beaches near the airport, and resort spas.",
   alternates: { canonical: "/jimbaran" },
   openGraph: {
     title: "The Jimbaran guide · Other Bali",
@@ -113,7 +113,7 @@ export default async function JimbaranPillarPage() {
           variant="sunset"
           kicker="Jimbaran · South coast"
           title="Jimbaran, the seafood bay"
-          copy="A calm, west-facing bay a short hop from the airport, famous for one thing above all: grilled seafood eaten near the sand at sunset. Above it, the headland holds cliff-edge sunset bars and some of Bali's most serious resort spas. This guide covers who it suits, its beaches, what to do, where to eat and where to be looked after — curated from places we actually rate, never a directory."
+          copy="A calm, west-facing bay a short hop from the airport. You come here for one thing above all: grilled seafood eaten near the sand at sunset. Above it, the headland holds cliff-edge sunset bars and resort spas. This guide covers who it suits, its beaches, what to do, where to eat and where to be looked after. It's curated from places we actually rate, never a directory."
           meta={`Editorial review: ${JIMBARAN_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
           actions={
             <Link
@@ -171,15 +171,15 @@ export default async function JimbaranPillarPage() {
           <div className="guide-prose">
             <p>
               <strong>It suits</strong> couples and families who want a calm,
-              swimmable bay, the famous grilled-seafood dinner on the sand, and a
-              quiet resort base — plus anyone who wants the closest relaxed area to
-              the airport for a first or last night.
+              swimmable bay, the grilled-seafood dinner on the sand and a quiet
+              resort base. It also suits anyone who wants the closest relaxed area
+              to the airport for a first or last night.
             </p>
             <p>
               <strong>It frustrates</strong> travellers after nightlife, a walkable
-              café strip or an independent scene — Jimbaran is a seafood-and-resort
-              bay, not a hangout district. For that energy, Canggu and Seminyak are
-              up the coast; the surf and cliffs are on the Bukit, just south.
+              café strip or an independent scene. Jimbaran is a seafood-and-resort
+              bay, not a hangout district. For that energy, head up the coast to
+              Canggu and Seminyak. The surf and cliffs are on the Bukit, just south.
             </p>
           </div>
         </section>
@@ -187,8 +187,8 @@ export default async function JimbaranPillarPage() {
         <section className="guide-section">
           <h2>The beaches</h2>
           <p className="guide-lede">
-            Jimbaran is a west-facing bay sheltered by its own curve — which is why
-            the water is calm where the surf coast is not.
+            Jimbaran is a west-facing bay sheltered by its own curve. That&apos;s
+            why the water is calm where the surf coast is not.
           </p>
           <div className="compare-table-wrap">
             <table className="compare-table">
@@ -239,8 +239,8 @@ export default async function JimbaranPillarPage() {
             <ul>
               <li>
                 <strong>Closest calm base to the airport.</strong> Roughly 15–30
-                minutes from Ngurah Rai depending on which end — an easy first or
-                last night.
+                minutes from Ngurah Rai, depending on which end, so it&apos;s an
+                easy first or last night.
               </li>
               <li>
                 <strong>Agree the seafood price by weight first.</strong> The bay
@@ -248,14 +248,14 @@ export default async function JimbaranPillarPage() {
                 goes on the coals.
               </li>
               <li>
-                <strong>The bay is genuinely swimmable.</strong> Its shape blocks
-                the swell that hits the surf coast, so it&apos;s calm and
-                family-safe — a real contrast with nearby Balangan or the Bukit.
+                <strong>The bay is swimmable.</strong> Its shape blocks the swell
+                that hits the surf coast, so it&apos;s calm and family-safe.
+                That&apos;s a real contrast with nearby Balangan or the Bukit.
               </li>
               <li>
                 <strong>Tegal Wangi is tide-dependent.</strong> The natural rock
-                pools only work at low tide, and the access path is a steep,
-                rocky descent — wear proper shoes.
+                pools only work at low tide. The access path is a steep, rocky
+                descent, so wear shoes with grip.
               </li>
               <li>
                 <strong>Eat and be looked after.</strong> See the{" "}
@@ -279,9 +279,9 @@ export default async function JimbaranPillarPage() {
         <div className="cta-band">
           <h2>Use Jimbaran for the seafood-and-sunset night</h2>
           <p>
-            Swim the calm bay by day, watch the light drop from a table on the
-            sand, and stay ten minutes from the airport. Start with the beach that
-            fits your evening, then pick the grill.
+            Swim the calm bay by day, then watch the light drop from a table on
+            the sand. Stay here and you&apos;re ten minutes from the airport. Start
+            with the beach that fits your evening, then pick the grill.
           </p>
           <Link href="/jimbaran/things-to-do" className="cta-band-action">
             See the things-to-do guide →

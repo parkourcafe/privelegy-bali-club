@@ -15,7 +15,7 @@ const reviewDate = "2026-07-23";
 export const metadata: Metadata = {
   title: "Ubud Bali guide: is it the right base for you?",
   description:
-    "Decide whether Ubud's central-Bali culture, arts and rice-field setting fits your trip, then continue to focused activity, itinerary and food guides.",
+    "Decide whether Ubud's central-Bali culture, arts and rice-field setting fits your trip. Focused guides cover activities and food, plus an itinerary.",
   alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Ubud Bali guide: is it the right base for you?",

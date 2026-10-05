@@ -12,12 +12,12 @@ import {
 export const metadata: Metadata = {
   title: "Best hotels in Sanur — beachfront classics by zone",
   description:
-    "Where to stay in Sanur, sorted by position on the coast: harbour-side, central beachfront classics, and quieter south-end resorts. Verified facilities, honest booking notes.",
+    "Where to stay in Sanur, sorted by position on the coast: harbour-side, central beachfront classics and quieter south-end resorts. Verified facilities and booking notes.",
   alternates: { canonical: "/sanur/best-hotels" },
   openGraph: {
     title: "Best hotels in Sanur · Other Bali",
     description:
-      "Harbour-side, central beachfront, and south-end resorts — chosen by zone and travel style.",
+      "Harbour-side, central beachfront and south-end resorts chosen by zone and travel style.",
     url: "https://www.otherbali.com/sanur/best-hotels",
     type: "article",
   },
@@ -62,10 +62,9 @@ export default function SanurHotelsPage() {
           <h1 className="guide-title">Best hotels in Sanur</h1>
           <p className="guide-standfirst">
             Sanur hotels make more sense sorted by position on the coast than by
-            star rating alone. The real question is not &quot;which is
-            nicest&quot; but &quot;do you want harbour convenience, central
-            walkability, or a quieter southern base?&quot; Pick the zone, then
-            the hotel.
+            star rating alone. Instead of asking which is nicest, decide what you
+            want: harbour convenience, central walkability or a quieter southern
+            base. Pick the zone, then the hotel.
           </p>
           <p className="guide-meta-line">
             Editorial review: {SANUR_REVIEW_DATE} · facilities verified · rates
@@ -127,8 +126,8 @@ export default function SanurHotelsPage() {
               </li>
               <li>
                 <strong>Read booking details carefully.</strong> Across the big
-                chains, cancellation terms usually vary by rate, not by hotel —
-                so there is rarely one fixed rule per property.
+                chains, cancellation terms usually vary by rate, not by hotel. So
+                there is rarely one fixed rule per property.
               </li>
             </ul>
           </div>

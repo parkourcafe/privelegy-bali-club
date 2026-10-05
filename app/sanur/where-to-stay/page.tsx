@@ -9,7 +9,7 @@ const reviewDate = "2026-07-22";
 
 export const metadata: Metadata = {
   title: "Where to stay in Sanur: north, central or south",
-  description: "Choose the right part of Sanur before choosing a hotel. Compare central, south and north Sanur, plus beachfront, near-promenade and inland trade-offs.",
+  description: "Choose the right part of Sanur before choosing a hotel. Compare central, south and north Sanur, and weigh beachfront stays against near-promenade and inland ones.",
   alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Where to stay in Sanur: north, central or south",
@@ -66,7 +66,7 @@ export default function WhereToStayInSanurPage() {
 
       <section className="guide-section">
         <h2>South Sanur: quieter and more resort-led</h2>
-        <div className="guide-prose"><p>South Sanur is better framed for a quieter, more resort-led stay. Do not assume that every beach segment has the same swimming conditions or that every resort has the same access to the promenade.</p></div>
+        <div className="guide-prose"><p>South Sanur suits a quieter, more resort-led stay. Do not assume that every beach segment has the same swimming conditions or that every resort has the same access to the promenade.</p></div>
       </section>
 
       <section className="guide-section">
@@ -76,7 +76,7 @@ export default function WhereToStayInSanurPage() {
 
       <section className="guide-section">
         <h2>Beachfront, near-promenade or inland?</h2>
-        <div className="guide-prose"><p>Beachfront or near-promenade stays make Sanur&apos;s core experience easier; inland options can work but are a trade-off. Klumpu Bali Resort is one inland example, with an official address at Jalan Kesari No. 16B.</p><p>Prime Plaza Hotel Sanur is better treated as an edge or inland Sanur case, not a core beachfront stay. Exact walking times require a route check, and unconfirmed Maps links are intentionally not included here.</p></div>
+        <div className="guide-prose"><p>Beachfront or near-promenade stays make Sanur&apos;s core experience easier; inland options can work but are a trade-off. Klumpu Bali Resort is one inland example, with an official address at Jalan Kesari No. 16B.</p><p>Treat Prime Plaza Hotel Sanur as an edge or inland Sanur case, not a core beachfront stay. Exact walking times require a route check, and unconfirmed Maps links are intentionally not included here.</p></div>
       </section>
 
       <section className="guide-section">
