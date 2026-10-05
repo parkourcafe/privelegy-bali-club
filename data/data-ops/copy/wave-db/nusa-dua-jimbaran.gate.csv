@@ -1,0 +1,77 @@
+slug,verdict,problems,notes,warn_before,warn_after
+akua-mediterranean,PASS,,,1,0
+arkipela-spa-at-mo-venpick-jimbaran-jimbaran,PASS,,dropped PROPER:Visitors,0,0
+arwana,PASS,,,1,0
+ayana-fitness-centre,PASS,,,2,0
+azure-beach-restaurant,PASS,,,1,0
+bali-barber-jimbaran,PASS,,,2,0
+bali-beauty-salon-nusa-dua,PASS,,,0,0
+balquisse-heritage-hotel-yoga-jimbaran,PASS,,,0,0
+balquisse-spa-jimbaran,PASS,,,0,0
+bawang-merah-beachfront,PASS,,,1,0
+bejana-ritz-carlton,PASS,,,2,0
+brook-nusa-dua,PASS,,,3,0
+bumbu-bali,PASS,,"dropped LEX:authentic, PROPER:Travellers",1,0
+camino-resto-and-bar,PASS,,,1,0
+canna-beach-club,PASS,,,1,0
+club-med-bali-fitness,PASS,,dropped PROPER:Guests,2,0
+conrad-bali-fitness-centre,PASS,,,1,0
+courtyard-by-marriott-nusa-dua-gym,PASS,,,1,0
+cuca-restaurant,PASS,,,2,0
+dava-steak-and-seafood,PASS,,,2,0
+dua-kafe-nusa-dua,PASS,,,0,0
+fore-coffee-jimbaran,PASS,,dropped LEX:largest,3,0
+four-seasons-jimbaran-fitness-centre,PASS,,,2,0
+four-seasons-jimbaran-yoga,PASS,,dropped PROPER:Guests,2,0
+gourmet-and-cafe-nusa-dua,PASS,,,0,0
+grand-hyatt-bali-yoga,PASS,,,1,0
+healing-village-spa-at-four-seasons-jimbaran-jimbaran,PASS,,,1,0
+intercontinental-bali-resort-beauty-services-jimbaran,PASS,,,0,0
+izakaya-by-oku,PASS,,,1,0
+jimbaran-bay-beach-resort-spa-jimbaran,PASS,,,0,0
+jimbaran-hair-beauty-studio,PASS,,dropped PROPER:Visitors | why_its_here is 12 words (standard: 20–45),0,0
+karma-spa-at-karma-jimbaran-jimbaran,PASS,,,0,0
+kayumanis-resto-jimbaran,PASS,,,3,0
+kayuputi,PASS,,dropped LEX:upscale,2,0
+kenja-ikan-bakar-nusa-dua,PASS,,,2,0
+koral,PASS,,dropped LEX:first,1,0
+kriya-spa-at-grand-hyatt-bali-nusa-dua,PASS,,,1,0
+kubu-garden-restaurant,PASS,,,2,0
+manarai-beach-house,PASS,,"dropped PROPER:ISMAYA Group, LEX:best",1,0
+martha-tilaar-salon-day-spa-jimbaran,PASS,,dropped LEX:authentic,0,0
+mulia-fitness-centre-nusa-dua,PASS,,,3,0
+mulia-spa-nusa-dua,PASS,,"dropped LEX:largest, LEX:most, PROPER:Bali's, PROPER:Travellers",4,0
+nasi-banjar-mbok-mang,PASS,,dropped LEX:authentic,1,0
+nusa-dua-beach-grill,PASS,,,3,0
+nyoman-cafe,PASS,,dropped LEX:beachfront,1,0
+pantai-jimbaran,PASS,,,0,0
+piasan,PASS,,dropped PROPER:ITDC,3,0
+piramid-spa,PASS,,,1,0
+radja-seafood-cafe,PASS,,dropped FOOD:snapper,1,0
+rev-v-wellness-resort-fitness,PASS,,,0,0
+revi-vo-spa-wellness-nusa-dua,PASS,,dropped PROPER:Travellers,1,0
+revi-vo-yoga-mindfulness-nusa-dua,PASS,,,1,0
+signa-cafe,PASS,,dropped PROPER:Dine,2,0
+sofitel-bali-fitness-centre-nusa-dua,PASS,,dropped PROPER:Travellers,3,0
+sofitel-bali-yoga,PASS,,,2,0
+soleil-at-mulia,PASS,,dropped LEX:best,3,0
+st-regis-bali-athletic-club,PASS,,,2,0
+sundara,PASS,,,1,0
+sunset-beach-bar-and-grill,PASS,,,1,0
+tetaring,PASS,,,1,0
+the-apurva-kempinski-fitness-centre-nusa-dua,PASS,,,1,0
+the-apurva-kempinski-yoga-nusa-dua,PASS,,dropped PROPER:Guests,2,0
+the-apurva-spa-nusa-dua,PASS,,"dropped LEX:award-winning, PROPER:Guests, PROPER:Travellers",4,0
+the-bale-nusa-dua-yoga,PASS,,dropped PROPER:Guests,1,0
+the-beach-grill-ritz-carlton,PASS,,,2,0
+thermes-marins-bali-spa-at-ayana-jimbaran,PASS,,"dropped LEX:best, LEX:famous",1,0
+unique-rooftop-bar-and-restaurant,PASS,,,1,0
+warung-batan-bekul,PASS,,,0,0
+warung-dobiel-nusa-dua,PASS,,"dropped LEX:famous, LEX:authentic, PROPER:Travellers",2,0
+warung-halme-ikan-bakar-ala-jimbaran,PASS,,,0,0
+warung-mami-ikan-bakar,PASS,,dropped PROPER:Travellers,4,0
+warung-nasi-ayam-bu-oki,PASS,,dropped LEX:authentic,2,0
+warung-ramayana-ikan-bakar,PASS,,,2,0
+westin-nusa-dua-fitness-studio,PASS,,,1,0
+westin-nusa-dua-yoga,PASS,,,2,0
+white-orchid-nusa-dua,PASS,,dropped PROPER:Relaxed,1,0
