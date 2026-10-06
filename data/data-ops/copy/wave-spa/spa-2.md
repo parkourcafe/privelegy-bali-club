@@ -35,3 +35,26 @@ WARN после переписывания: 0 на каждой карточке
 - **Йога-студии со «списком процедур»:** у the-path-yoga-center есть метка «Spa Package». У the-freebird-studio «Core Circuit» похоже на фитнес-класс. В записи такие позиции названы «treatments», а в тексте я назвал их «sessions».
 - **Метки вместо процедур:** в списках встречаются «Nails», «Recovery», «Spa Package», «Detox Treatment», «Body Treatment». Это категории генератора, а не названия процедур.
 - **Пары:** у glory-massage и sean-spa «couple treatment» есть только в best_for, в списке процедур в why_its_here её нет.
+
+## Проверка 2 (скептик)
+
+Исправлены 13 подтверждённых замечаний. Изменены 60 строк `spa-2.csv`: колонки `after` и `reason`, у каждой правки в `reason` есть пометка `skeptic pass 2026-10-06`. Колонка `before` и формат CSV не тронуты. Новых фактов нет, всё взято из собственных фактов карточки.
+
+Гейт: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-spa/spa-2.csv` →
+`45 cards · 0 FAIL · batch problems 0`, код выхода 0. WARN ни на одной карточке не вырос. fact-diff отмечает выпавшие токены: «Tired» ×7 (заготовка про уставшие ноги), «budget» и «Super Relaxing Foot Massage». Оба последних были выпадением ещё в первом проходе.
+
+**Длительность, привязанная к процедуре** (jimbaran-puri, tyce, bamboo, citrine, the-ark, th-home, revitalize, а также freebird, у которой та же ошибка). Максимум по списку больше не стоит рядом с названной процедурой или парой. Он перенесён в why_its_here, а best_for пишется из списка процедур. Пример: jimbaran-puri — «Couples, or anyone booking the abhyanga», 180 минут теперь в why. Так же перенесены 180 минут у tonic, 240 у galuh и glow.
+
+**Момент «после ходьбы»** (19 best_for). Теперь он остался в одной карточке, cozy-spa-bali («An hour of foot reflexology after a walk around Legian»): у неё ножная процедура названа и оценена. Предложенные lux, kokuo, putu и de-wave тоже переписаны без ходьбы, потому что их формулировки почти дословно повторяли другие партии: spa-4 asha-wellness и spa-3 hotel-nikko («after a long walk»), spa-6 shiki-spa («when walking has worn you out»), spa-4 bali-wellness (putu), spa-6 spa-shell (de-wave). Остальные написаны из своего списка: shiatsu/facial у glow, hair treatment у body-worship, scalp treatment и cream bath у therapy, manicure у revive и т. д. У calma и respawn ножных процедур нет, у них «уставшие ноги» убраны совсем.
+
+**«Booked the same day»** (10 карточек: six-senses, the-path, umalas, urban-oasis, wave-house, balangan, bombora, the-lotus-spa, anjali, ministry-of-villas). Утверждение снято из всех десяти, усиления «today», «last-minute», «spur-of-the-moment» и «at short notice» тоже ушли. В `reason` стоит пометка needs_verification. Вернуть его можно только по данным провайдера (AGENTS §11).
+
+**«from X to Y» в why_its_here.** Было 21 из 45, осталось 3: revive (manicures → body scrubs), the-path (yoga → spa package) и bombora (sports massage → hair treatments). В этих трёх между пунктами есть реальный разброс. Остальные 18 переписаны через «include», «including», «among them», «covering» или «alongside».
+
+**Повтор внутри страницы Kuta & Legian:** galuh и glow больше не совпадают («A spa package, or a traditional massage» и «An hour of shiatsu, or one of the facials»). Длительность у обеих перенесена в why_its_here.
+
+### Что не исправлялось и остаётся риском
+
+- Теперь в большинстве best_for одна схема: «процедура, или другая процедура». Каждая пара процедур своя и взята из списка карточки, но читатель, который видит три такие строки подряд, может принять их за шаблон. Без новых фактов (кто ходит, когда, сколько стоит) этот выбор сильно не разнообразить.
+- Best_for, построенные только на длительности, остались у avisha («up to two and a half hours»), bali-green («four hours of treatments») и bali-orchid («up to three hours of treatments»). В замечаниях скептика их не было, но по форме они повторяют такие же строки в spa-1, spa-3, spa-4, spa-5 и spa-6. Их стоит смотреть вместе со всей волной, а не по одной партии.
+- Сомнения из первого прохода (дубль swara, тип и место заведений, подозрительные цены и длительности) остаются в силе. В этом проходе факты не перепроверялись.

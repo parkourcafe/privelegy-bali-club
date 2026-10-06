@@ -41,3 +41,59 @@
   - у Wapa di Ume из 4 позиций названа только йога.
 - **Atman Spa Kerobokan.** В названии Kerobokan, а район в записи Seminyak.
 - **Executive Bali Massage.** 90 минут балийского массажа за 300K IDR, это дешевле часа у большинства соседей. Правдоподобно, но стоит проверить.
+
+## Проверка 2 (скептик), 2026-10-06
+
+Скептик подтвердил пять замечаний: три о сдвиге факта, одно о шаблоне и одно о приписанном признаке. Ниже то, что исправлено в `spa-4.csv`. Менялись только колонки `after` и `reason`. Колонки `before`, `action`, `source` и `decision` не тронуты. Пункт «Booked the same day» в разделе «Сомнительные факты» выше больше не действует: заготовка не пересказана, а убрана.
+
+### Итог правки
+
+- **Изменено:** 17 строк в 17 карточках.
+  - `best_for`: 16;
+  - `not_for`: 1 (Chatraka).
+- **Проверка:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-spa/spa-4.csv` завершилась с кодом 0.
+  - 45 карточек, 0 FAIL, 0 проблем на уровне пакета.
+  - fact-diff: PASS по всем карточкам. Из отброшенного в заметках только «120 minutes» у Terra (см. п. 5).
+  - WARN не выросли: по-прежнему 0.
+  - Первая версия SPA BALI («The Serenity Couple Escape for two, …») не прошла fact-diff: «two» читается как новое число. Слова «for two» убраны.
+- **Сверка дублей.** Ни одно новое значение не совпадает дословно со значениями в остальных CSV и JSON под `data/data-ops/copy/` (`wave-db`, `wave-spa/spa-1…3, 5, 6`, `pilot`, `stage1`).
+
+### Сдвиг факта: склеены два факта заготовки
+
+В заготовке было два отдельных факта: «в списке есть процедура для пар» и «процедуры идут до N минут». Переписанный текст склеил их, и максимальная длительность стала читаться как длительность парной процедуры. Теперь факты снова раздельно.
+
+1. **Alaya Ubud.** Было «Couples who can give it two and a half hours». Это расходится с `why_its_here` той же карточки: Dala Couple Ritual длится 90 минут. Стало «Couples booking the Dala Couple Ritual, or a visit of up to two and a half hours».
+2. **Ortus Wellness.** Было «Couples in Seminyak with a two-hour window». Стало «Couples, or a session of up to two hours».
+3. **SPA BALI.** Было «Couples, with treatments that stretch to six hours». В `why_its_here` Serenity Couple Escape длится 150 минут. Стало «The Serenity Couple Escape, or a day of treatments up to six hours».
+
+### Сдвиг факта: Chatraka, `not_for`
+
+4. Было «Couples hoping to spend less than 900K IDR, which is where prices start.». Порог цены для всего списка был привязан к парам. Из-за этого 900K читалось как цена на двоих, а `not_for` противоречил `best_for` («Booking a couple massage while in Ubud»). Стало «A budget massage; 900K IDR is the lowest price at Chatraka Spa.». Дословного совпадения с Nikara (spa-1), из-за которого текст меняли 2026-10-05, нет.
+
+### Приписанный признак «для одного»
+
+5. **Terra Spa & Wellness и Spa Bali Moon.** В карточке не сказано, что двухчасовая процедура для одного человека. Скептик заметил и общую форму: «пары + два часа для себя».
+   - Terra: было «The couple treatment, or a solo session of up to two hours». Стало «The couple treatment, or Thai or deep tissue massage». Факт «до 120 минут» отброшен: это максимум списка, а не тип гостя. Если оставить его отдельно, повторилась бы форма Ortus и Spa Bali Moon. В `reason` это записано как «dropped».
+   - Spa Bali Moon: было «Two hours to yourself, or a massage with your partner». Стало «A couple massage, or up to two hours of treatments».
+
+### Шаблон «[процедура] + [глагол] + same day»
+
+6. Было 11 значений `best_for` одной формы. Менялся только глагол: arranged, booked, sorted out, fixed up, «the same day», «on the day», «that day». У The Care и Bali Spirit был тот же смысл другими словами: «without planning days ahead», «booked the day you want it». Свидетельства о записи в тот же день в карточках нет. Теперь таких значений 0. Заготовка убрана, а не пересказана. `best_for` собран из процедур самой карточки, канал записи из `why_its_here` не повторяется.
+
+   | Карточка | Стало |
+   |---|---|
+   | Deanna Spa & Café | A cream bath or a facial |
+   | Hotel Indigo Bali Seminyak Beach | Acupressure or a body scrub at the hotel spa |
+   | Jari Menari Spa | Traditional massage at a Seminyak day spa |
+   | No.1 Wellness | Body treatments and traditional massage |
+   | The Seminyak Beach Resort & Spa | A facial or body treatment at the resort spa |
+   | The Shampoo Lounge | Scalp and hair care, or an Ayurvedic treatment |
+   | Wellness by The Legian | Yoga at The Legian, or a spa package |
+   | Wapa di Ume Sidemen | Yoga in Sidemen |
+   | Banyan Tree Spa Macau | Facials and hot stone treatments |
+   | The Care Day Spa | Deep tissue or hot stone massage in Seminyak |
+   | Bali Spirit Hotel and Spa | Aromatherapy, or a traditional Balinese massage |
+
+   - The Care и Bali Spirit в списке слагов этого замечания не стояли, но в его тексте названы среди одиннадцати. Поэтому они исправлены в этом же проходе.
+   - У Jari Menari и Wapa di Ume в карточке названа только одна процедура. `best_for` держится на ней и на типе места или районе. Пустым поле не оставлено: процедура названа в самой карточке.
+   - Banyan Tree: название заведения в тексте по-прежнему не повторяется. Вопрос про меню из Макао (см. «Сомнительные факты») остаётся открытым.
