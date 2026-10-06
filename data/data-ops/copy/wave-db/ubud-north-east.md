@@ -69,3 +69,40 @@
 
 ## Как применять
 После `ДА` в `decision`: `scripts/copy/build-copy-sql.mjs --changes data/data-ops/copy/wave-db/ubud-north-east.csv …` по порядку из `../DB-APPLY-NEXT-SESSION.md`. `before` = текст краула 28.09; где база с тех пор изменилась, строка уйдёт в HOLD.
+
+## Проверка 2 (скептик)
+2026-10-05. Применены все 9 подтверждённых замечаний. Изменено 14 ячеек `after`, в тех же строках обновлён `reason`. `before` и остальные колонки не тронуты. Гейт `check-cards.mjs`: 87 PASS, 0 FAIL, 0 batch problems, WARN по изменённым полям 0, exit 0. `ubud-north-east.gate.csv` не перегенерирован (файл не в моей зоне); отчёт лежит в scratchpad.
+
+**Что исправлено** (во всех случаях вернул смысл оригинала, факты не добавлялись):
+- **milk-and-madu-ubud, `why_its_here`.** «Breakfast comes as a 110K set» читалось как «завтрак только сетом». Теперь просто сказано, что сет за 110K есть. Убрано и «set up for families and groups»: остались детское меню и брони групп до 20 человек.
+- **milk-and-madu-ubud, `best_for`.** Четыре отдельных случая снова перечислены через «или», без «over a fixed breakfast».
+- **monkey-bar-bali.** «With the fee credited toward food» утверждало, что в зачёт еды идёт весь входной билет. Сумма в записи не указана, поэтому теперь «it includes credit toward food».
+- **sayuri-healing-food, `why_its_here` и `not_for`.** Вернул «raw-vegan and plant-based» и оговорку «leans» («leans towards raw», «the kitchen leans raw»). Приготовленные блюда больше не исключены.
+- **the-yoga-barn, `best_for`.** «First-timers» читалось как «новички в йоге». Теперь «First-time visitors to Ubud», а вторая аудитория (ecstatic dance, sound healing) снова отдельная, через «or».
+- **suka-espresso-ubud, `best_for`.** Снова три отдельных случая: первый бранч в Ubud, еда в одиночку или вдвоём, короткая работа с ноутбуком.
+- **gelato-secrets-ubud, `best_for`.** Вернул обе аудитории («for families and everyone else») и «for example» перед улицами.
+- **jaens-spa, `best_for`.** «As a couple or on your own» вместо одних пар. «Polished but affordable» вернул, как в оригинале.
+- **ubud-sari-health-resort.** «Cooks raw food» заменено на «serves raw food».
+- **Тот же класс в `best_for`** («и» вместо «или»):
+  - alchemy: «a plant-based, gluten-free meal, a breakfast after yoga, or laptop time off-peak»;
+  - mango-tree: «A splurge or a romantic spa day»;
+  - cantika-zest: «A treatment» вместо «A massage»: у спа есть ещё facials, scrubs и flower baths;
+  - warung-biah-biah: «a casual, budget Balinese meal», nasi campur как пример, а не единственное блюдо.
+
+**Где формулировка отличается от предложенной скептиком:**
+- gelato: вариант «with or without kids» гейт отклонил (новое слово `LEX:kids`).
+- suka: «a solo or couple's breakfast» сужало до завтрака, поэтому «a meal on your own or as a couple».
+- the-yoga-barn: оставлено «the full range» из оригинала вместо «every kind of».
+- jaens: «polished but affordable», как в оригинале, вместо «polished, affordable».
+
+**Не применено:** ничего.
+
+**Тот же класс, не в списке подтверждённых.** Не менял, передаю на следующую проверку. В `best_for` объединены пункты списка через точку с запятой, и часть аудитории или случаев могла выпасть:
+- alchemy-yoga-meditation-center: выпали «meditation, sound healing or teacher training»;
+- bebek-bengil: выпал «rice-paddy garden dinner»; Monkey Forest теперь привязан к групповому ужину;
+- melting-wok-warung: «intimate dinner» и «coconut curries» слиты в одно;
+- sayuri-healing-food: выпали «wellness-minded visitors»; «relaxed daytime meals» и «long cafe sits» слиты в одно;
+- tukies-coconut-shop: выпали «vegan dessert» и «fresh coconut drinks»;
+- watercress-ubud: «early breakfast» и «couples who want to talk» слиты в одно;
+- zest-ubud: выпали «Vegan diners»;
+- air-terjun-tegenungan и seniman-coffee-studio: похоже, смысл сохранён, но стоит перечитать.

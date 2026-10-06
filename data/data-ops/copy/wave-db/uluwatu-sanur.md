@@ -126,3 +126,21 @@
 - `uluwatu-sanur.csv`: 200 строк, колонка `decision` пустая.
 - `uluwatu-sanur.gate.csv`: отчёт проверки, 90 PASS.
 - Черновики и вспомогательные скрипты лежат во временной папке сессии и в репозиторий не входят.
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил два замечания уровня low. Оба исправлены в `uluwatu-sanur.csv`. Колонка `before` не менялась, колонка `decision` по-прежнему пустая.
+
+- **`gong-restaurant` / `why_its_here` — сдвиг смысла.**
+  - В исходнике «focused on traditional dishes», то есть в основном традиционные блюда.
+  - Переписанное «the menu sticks to traditional dishes» означает «только традиционные». Это более сильное утверждение о меню, чем есть в записи. У ресторана при курорте, открытого с 7 утра до 10 вечера, вполне могут быть и другие блюда.
+  - Исправлено на «the menu centres on traditional dishes». Пояснение в колонке `reason` дополнено.
+- **`six-senses-uluwatu-yoga-pavilion` / `best_for` — потерянная оговорка.**
+  - Бесплатные короткие занятия доступны только гостям курорта.
+  - В переписанном `best_for` не было слов «Resort guests», поэтому «free short sessions» читалось как предложение для всех. Карточка в режиме visualFirst (`PlaceCard.tsx`) показывает `best_for` без `why_its_here`.
+  - Исправлено на «Resort guests after a daily indoor practice out of the Bukit heat, with free short sessions and longer paid ones».
+  - Связка «and» оставлена, как в исходнике («both … and»), а не «or» из предложенной правки: в исходнике сказано, что доступны оба вида занятий, а не одно из двух. Пояснение в `reason` переписано.
+
+Отклонённых замечаний нет.
+
+Проверка: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/uluwatu-sanur.csv` — 90 карточек, 0 FAIL, проблем по пакету 0, код выхода 0. Файл `uluwatu-sanur.gate.csv` не перегенерировался.

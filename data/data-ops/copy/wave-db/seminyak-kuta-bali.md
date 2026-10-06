@@ -141,3 +141,11 @@
 ## Заметка по инструменту
 
 `scripts/copy/fact-diff.mjs` читает «12–1pm» и «12–3pm» как 00:00–13:00 и 00:00–15:00: при диапазоне через полдень 12 считается полуночью. Здесь это безвредно — «до» и «после» читаются одинаково. Но верная замена «12–3pm» → «noon to 3pm» будет ложно отклонена (проверено: REJECT). Файл общий, я его не правила.
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил одну находку (низкая важность), исправлено.
+
+- **you-spa-umalas / why_its_here.** В правке было «The specials include a Sport Massage and a "Black Room" treatment.» На карточке спа или ресторана «specials» обычно читается как акция или скидка. Такого предложения в записи нет, а граница Offer в V3.1 строгая (guardrail #10). Кроме того, «experience» → «treatment» без доказательств записывало Black Room в процедуры. Стало: «The spa's own options include a Sport Massage and a "Black Room" session.» «The spa's own» передаёт смысл исходного «signature» (собственные позиции спа) без слова из списка A10. «session» нейтрально и Black Room не переклассифицирует. Колонку reason обновила, колонку before не трогала.
+- Вариант скептика («Its own treatments include… session») не взят дословно: в предыдущем предложении уже стоит «Treatments include», и повтор снова назвал бы Black Room процедурой.
+- `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/seminyak-kuta-bali.csv`: 108 карточек, 0 FAIL, проблем пакета 0, exit 0.
