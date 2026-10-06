@@ -52,7 +52,7 @@ export default function BrowsePill({
         ))}
       </div>
 
-      <div className="ob-browse-panel" role="region" aria-label={`Browse by ${active}`}>
+      <div className="ob-browse-panel" role="region" aria-label={AXES.find((axis) => axis.key === active)?.hint}>
         {options.map((o) => (
           <Link key={o.href + o.label} href={o.href} className="ob-browse-chip">
             {o.label}

@@ -70,7 +70,7 @@ export default async function BaliIndexPage() {
               real day. Free to use; travellers never pay.
             </p>
           </div>
-          <div className="editorial-signal" aria-label="Bali districts signal">
+          <div className="editorial-signal" aria-label="Number of district guides">
             <p className="editorial-signal-label">
               {PILLARS.length + hubs.length} district guides.
             </p>

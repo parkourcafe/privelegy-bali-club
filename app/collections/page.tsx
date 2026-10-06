@@ -96,7 +96,7 @@ export default async function CollectionsHubPage() {
               once we have enough decision-ready places across enough of the
               island. These are on the way.
             </p>
-            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Collections in research">
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Collections we are still building">
               {inResearch.map((c) => (
                 <li
                   key={c.slug}

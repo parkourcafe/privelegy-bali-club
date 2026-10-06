@@ -122,7 +122,7 @@ export default async function NusaPenidaPillarPage() {
           }
         />
 
-        <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Penida guide">
+        <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Penida topics">
           {NUSA_PENIDA_CHIPS.map((c) => (
             <Link key={c.href} href={c.href} className="chip">
               {c.label}

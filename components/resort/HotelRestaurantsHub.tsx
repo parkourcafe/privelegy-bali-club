@@ -108,7 +108,7 @@ export default function HotelRestaurantsHub({
         )}
 
         {showPreview && preview.length > 0 ? (
-          <section className="guide-section" aria-label="Operator preview">
+          <section className="guide-section" aria-label="Imported rows awaiting review, not public">
             <h2>Operator preview · not public</h2>
             <p className="text-sm text-[var(--muted)]">
               {preview.length} imported rows awaiting review. Visible only in
