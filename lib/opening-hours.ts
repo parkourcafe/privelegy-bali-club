@@ -133,3 +133,74 @@ export function buildOpeningHoursSpec(json: unknown): OpeningHoursSpec[] {
   }
   return out;
 }
+
+const DISPLAY_DAY: Record<string, string> = {
+  Mo: "Mon",
+  Tu: "Tue",
+  We: "Wed",
+  Th: "Thu",
+  Fr: "Fri",
+  Sa: "Sat",
+  Su: "Sun",
+};
+const DAY_CODES = DAYS.map(([, code]) => code as string);
+const RULE = /^([A-Z][a-z])(?:-([A-Z][a-z]))? ([0-2]\d:[0-5]\d)-([0-2]\d:[0-5]\d)$/;
+
+/**
+ * Часы для людей: «Mo 07:00-23:00, Tu 07:00-23:00, …» -> «Daily 07:00–23:00»,
+ * а разные часы — группами подряд идущих дней: «Mon–Fri 08:00–22:00 ·
+ * Sat–Sun 09:00–23:00». Только для видимого текста; разметка получает
+ * schemaOpeningHours как есть.
+ *
+ * Факт не добавляется: день, которого нет в строке, не называется ни
+ * закрытым, ни открытым — он просто не попадает в группы. «23:59» остаётся
+ * «23:59»: это может быть и полночь, и «до последнего гостя», источник
+ * этого не говорит. Если хоть одна часть строки не разбирается, отдаём
+ * исходную строку целиком.
+ */
+export function humanOpeningHours(value: string | null | undefined): string | undefined {
+  const raw = typeof value === "string" ? value.trim() : "";
+  if (!raw) return undefined;
+
+  const perDay = new Map<string, string[]>();
+  for (const rule of raw.split(/,\s*/)) {
+    const m = RULE.exec(rule.trim());
+    if (!m) return raw;
+    const from = DAY_CODES.indexOf(m[1]);
+    const to = m[2] ? DAY_CODES.indexOf(m[2]) : from;
+    if (from < 0 || to < 0 || to < from) return raw;
+    for (let i = from; i <= to; i += 1) {
+      const code = DAY_CODES[i];
+      perDay.set(code, [...(perDay.get(code) ?? []), `${m[3]}–${m[4]}`]);
+    }
+  }
+
+  const groups: { first: string; last: string; hours: string }[] = [];
+  let previous: string | null = null;
+  for (const code of DAY_CODES) {
+    const ranges = perDay.get(code);
+    if (!ranges) {
+      previous = null;
+      continue;
+    }
+    const hours = ranges.join(", ");
+    const open = groups[groups.length - 1];
+    if (open && previous === open.last && open.hours === hours) {
+      open.last = code;
+    } else {
+      groups.push({ first: code, last: code, hours });
+    }
+    previous = code;
+  }
+
+  if (groups.length === 1 && groups[0].first === "Mo" && groups[0].last === "Su") {
+    return `Daily ${groups[0].hours}`;
+  }
+  return groups
+    .map(({ first, last, hours }) =>
+      first === last
+        ? `${DISPLAY_DAY[first]} ${hours}`
+        : `${DISPLAY_DAY[first]}–${DISPLAY_DAY[last]} ${hours}`,
+    )
+    .join(" · ");
+}
