@@ -1,0 +1,22 @@
+curl -s https://www.otherbali.com/places/loloan-coastal-peruvian-raffles-bali | grep -c -F 'Why it'  # S1-010 why_its_here -> null; expect the count to fall
+curl -s https://www.otherbali.com/places/merah-putih | grep -c -F 'Why it'  # S1-011 why_its_here -> null; expect the count to fall
+curl -s https://www.otherbali.com/places/dining-corner-kayumanis-ubud | grep -c -F 'Why it'  # S1-012 why_its_here -> null; expect the count to fall
+curl -s https://www.otherbali.com/places/pasar-senggol-at-grand-hyatt-bali | grep -c -F 'Why it'  # S1-013 why_its_here -> null; expect the count to fall
+curl -s https://www.otherbali.com/places/hedonist-space-restaurant-lounge-bar | grep -c -F 'Why it'  # S1-014 why_its_here -> null; expect the count to fall
+curl -s https://www.otherbali.com/places/sarong | grep -c -F 'Why it'  # S1-015 why_its_here -> null; expect the count to fall; also S1-016 best_for null
+curl -s https://www.otherbali.com/places/cafe-vida-healthy-organic-restaurant-canggu | grep -c -F 'An organic restaurant on Jl. P'  # S1-020 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/babi-guling-men-agus | grep -c -F 'A roadside babi guling warung'  # S1-021 why_its_here replaced; expect >= 1; also S1-022 not_for null
+curl -s https://www.otherbali.com/places/babi-guling-men-lari | grep -c -F 'A babi guling warung in the Ca'  # S1-023 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/lopodo-catering-and-events | grep -c -F 'Lopodo is a Halal-certified ca'  # S1-024 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/soma-fight-club-canggu | grep -c -F 'A Canggu combat-sports and fun'  # S1-025 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/tonic-day-spa-botanicals-canggu | grep -c -F 'A Berawa day spa with a botani'  # S1-026 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/dala-spa-at-alaya-resort-ubud | grep -c -F 'The DaLa Spa at Alaya Resort U'  # S1-027 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/jaens-spa-ubud-ubud | grep -c -F 'An Ubud day spa with Balinese'  # S1-028 why_its_here replaced; expect >= 1; also S1-029 best_for replace
+curl -s https://www.otherbali.com/places/svaha-spa-bisma-ubud | grep -c -F 'The Bisma branch of Svaha Spa'  # S1-030 why_its_here replaced; expect >= 1; also S1-031 best_for replace
+curl -s https://www.otherbali.com/places/svaha-spa-beauty-ubud-ubud | grep -c -F 'Nails, waxing or a facial near'  # S1-032 best_for replaced; expect >= 1
+curl -s https://www.otherbali.com/places/dorsey-s-barber-shop-uluwatu | grep -c -F 'A barbershop inside Habitat Vi'  # S1-033 why_its_here replaced; expect >= 1; also S1-034 best_for replace
+curl -s https://www.otherbali.com/places/nasi-bali-men-weti | grep -c -F 'A Balinese nasi campur breakfa'  # S1-050 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/warung-mak-beng | grep -c -F 'a fast one-plate seafood lunch'  # S1-051 best_for replaced; expect >= 1
+curl -s https://www.otherbali.com/places/jimbaran-warrior | grep -c -F 'A no-frills strength-and-condi'  # S1-052 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/the-practice-bali-canggu | grep -c -F 'A Batu Bolong yoga studio with'  # S1-053 why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/toko-kopi-tuku | grep -c -F 'A Jakarta neighbourhood coffee'  # S1-054 why_its_here replaced; expect >= 1
