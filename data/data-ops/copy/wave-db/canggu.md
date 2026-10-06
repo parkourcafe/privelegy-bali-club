@@ -75,3 +75,43 @@
   - «°C.» читается как сокращение: предложения склеиваются, и срабатывает A7.
   - fact-diff принимает слово в начале предложения, которого нет в исходном тексте, за имя (Sister, Daytime, Turning, Using, Fight).
 - **`scripts/copy/fact-diff.mjs` изменился на диске во время сессии** (не мной). Финальный прогон ворот сделан на текущей версии.
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил девять замечаний. Исправления минимальные, только в колонке `after` (21 строка), скриптом через модуль csv. Колонка `before` и формат CSV не тронуты. Новых фактов нет: в каждой карточке использован только её собственный живой текст.
+
+**Сдвиг смысла фактов:**
+- **body-factory-bali-canggu / best_for.** «Recovery in one visit» больше не привязано к любому пассу: раньше это противоречило `not_for`, где recovery — отдельный тариф. Стало: «A gym or HYROX session on a 1, 3, 7 or 14-day pass or a four-week membership». Recovery остаётся в `not_for`.
+- **beach-boy-canggu / why_its_here.** «Vegan» возвращено к кухне: «…steaks, seafood and pasta, with a vegan list; the cocktail and mocktail list is long.»
+- **face-therapy-spa-pererenan / best_for.** Формула «после перелёта» относится только к jetlag-процедуре: «A jetlag-recovery face treatment after a long flight, or gua sha and buccal sculpting».
+- **smoke-grill-master-and-barbeque-bali / why_its_here.** Условие «10+ гостей, бронь за 48 часов» снова относится и к barn, и к chef's table.
+- **ruko-cafe.**
+  - `why_its_here`: убрано «open daily» — часов в карточке нет.
+  - `not_for`: «it is a daytime cafe». Как в живом тексте, без утверждения «только завтрак и бранч».
+  - `best_for`: вернулись coffee и «after the beach».
+
+**Сужение аудитории:**
+- **jungle-padel-canggu-shortcut / best_for.** Урок теперь доступен и без группы из четырёх.
+- **ulekan-berawa / best_for.** «A sit-down dinner of classic Indonesian dishes, shared as a group or as an accessible introduction to the cuisine». Вариант «first taste» ворота отклонили (LEX:first).
+- **То же через «or» исправлено в:**
+  - woods-bali: cosy dinner и date night разделены;
+  - the-loft-bali: plant-based больше не условие для бранча и ноутбука;
+  - satu-satu-coffee-company: кофе и «после сёрфа» разделены.
+- **yema-kitchen / best_for.** «Tajine, couscous or pastilla, at the café by day or the bar by night». Убран выдуманный «day-into-night meal».
+
+**Тик «X and Y as well as Z, plus W»:**
+- Это обход A5. Заменён на простые одиночные списки в 8 карточках:
+  - nirvana-strength-tibubeneng;
+  - saya-club;
+  - surya-fitness-gym;
+  - sushimi-bali;
+  - wrong-gym-pererenan;
+  - top-gym;
+  - bali-mma-canggu;
+  - lowcal-cheatery-and-bar.
+- У Nirvana класс-лист больше не висит на приложении. Открытие стало «Nirvana Strength, a wellness club…, runs…», а не «<Name> is a»: соседи seseh и nude уже начинаются с «is a».
+- the-slow оставлен: «for breakfast as well as an evening out» — естественная пара, а не разбитый список.
+
+**Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/canggu.csv` → 148 cards · 0 FAIL · batch problems 0, exit 0. Число WARN не выросло.
+
+**Остаётся открытым (не трогалось):** lowcal-cheatery-and-bar — «a low-calorie menu that also covers paleolithic and ketogenic eating» делает low-calorie главным, хотя в источнике все три равноправны. Проверить в следующем проходе.

@@ -80,3 +80,33 @@
 - **Открытия `why_its_here`.** До правки «The fitness centre at…» открывало 5 карточек, «A beachfront seafood…» — 4. После правки ни одна тройка первых слов не встречается больше двух раз. Формулу «<Category> on Jl. X in Y» или «<Category> in Y» убрали у BROOK, Kenja, Kubu, Piramid, Signa и Warung Mami.
 - **Форма `best_for`.** 47 начинаются с момента, 11 — «люди + after», 10 — «момент, for …», 9 — «люди who want». Трёх соседей подряд с одной формой нет.
 - **Швы `not_for`.** 20 заполненных полей: because 6, двоеточие 6, точка 4, тире 4. Трёх соседей с одним швом нет. Хвост «this is a …» остался один раз (Kenja).
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил шесть замечаний: три уровня medium и три уровня low. Все исправлены в `nusa-dua-jimbaran.csv` скриптом через модуль csv. Изменены только колонки `after` и `reason` в шести строках. Колонка `before` не менялась, `decision` по-прежнему пустая.
+
+- **`kayumanis-resto-jimbaran` / `best_for` — сужена аудитория (medium).**
+  - В исходнике «for couples or travellers wanting an alternative». После удаления стокового «travellers» осталось «for couples», и карточка читалась как ресторан для пар.
+  - Исправлено на «…in a resort garden, as a change from Jimbaran Bay's beachfront seafood grills». Аудитория не названа вовсе. Вариант скептика «when you want» не взят, чтобы не вводить обращение на «you».
+- **`the-beach-grill-ritz-carlton` / `best_for` — сдвиг смысла (medium).**
+  - «private beach dinners for two included» читалось как «ужин на пляже входит в стоимость». В исходнике «including» значило «среди вариантов».
+  - Исправлено на «…after a grilled-seafood lunch, a candlelit oceanfront dinner or a private beach dinner for two», как предложил скептик.
+- **`revi-vo-yoga-mindfulness-nusa-dua` / `best_for` — сужена аудитория (medium).**
+  - Без «and travellers» поле называло только гостей ретрита. Рядом с `not_for` («retreat-style programme») это читалось как ограничение доступа, которого в записи нет.
+  - Исправлено на «Structured yoga, aerial yoga and guided mindfulness on a cliff top, for retreat guests and other travellers». Форма поля поменялась с «люди + after» на «момент, for …».
+- **`warung-halme-ikan-bakar-ala-jimbaran` / `best_for` — сужена аудитория (low).**
+  - Три отдельных сценария из исходника слились в «A group sharing…», и карточка подходила только компаниям.
+  - Исправлено на «Jimbaran-style grilled fish and prawns close to Nusa Dua and Benoa at lunch or dinner, including for a group sharing». Сохранены все три сценария. Хвост скептика «shared as a group or not» заменён на более гладкий, по смыслу то же.
+- **`warung-nasi-ayam-bu-oki` / `not_for` — непараллельный список и причина не покрывала ужин (low).**
+  - Человек («Anyone avoiding chicken») стоял в одном ряду с вещами («a quiet sit-down meal or full dinner service»). «Busy» не объясняло отсутствие ужина. «Chicken» повторялось на обоих концах.
+  - Исправлено на «Anyone avoiding chicken or after a quiet sit-down dinner, because the plates are built around chicken and the warung is a busy breakfast and lunch stop».
+  - Отличие от варианта скептика: он убирал «full dinner service». Здесь оно сохранено как «sit-down dinner», а причина взята из собственного `best_for` карточки («breakfast or lunch»). Шов «because» оставлен, чтобы не сдвигать счёт швов.
+- **`mulia-spa-nusa-dua` / `best_for` — остаток списка через точку с запятой (low).**
+  - Единственное `best_for` в пакете, где осталась точка с запятой, и вторая часть не связана с первой.
+  - Исправлено на «…with pools, saunas and a long massage, for couples staying on the Nusa Dua/Sawangan strip», как предложил скептик.
+
+Отклонённых замечаний нет. Новых фактов не добавлено: каждая правка опирается на текст своей же карточки.
+
+Счёт форм `best_for` в разделе «Открытия и швы» после этих правок не пересчитывался. Сдвиги: Kayumanis «момент, for …» → «момент», REVĪVŌ «люди + after» → «момент, for …», Halme «люди» → «момент», Mulia → «момент, for …». Счёт швов `not_for` не изменился.
+
+Проверка: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/nusa-dua-jimbaran.csv` — 76 карточек, 0 FAIL, проблем по пакету 0, код выхода 0. Файл `nusa-dua-jimbaran.gate.csv` не перегенерировался.
