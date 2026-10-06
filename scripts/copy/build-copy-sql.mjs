@@ -5,9 +5,16 @@
 // by the current text and asserts row_count = 1, a verify SELECT. This tool has no database
 // access and writes files only.
 //
+// paste-<date>.sql is the same DO block in the form a person copies out of a chat window: no
+// preflight, md5 guards, ASCII-only literals, a check that returns no rows when every write
+// landed. preflight-<date>.sql proves it read-only: every guard matches exactly one card and
+// every new text decodes to the intended bytes. dryrun-<date>.sql runs the block and its check
+// and then raises, for a connector that may run writes.
+//
 //   node scripts/copy/build-copy-sql.mjs --changes <change-list.csv> --export <venues-export.csv> \
 //     --out <dir> --date YYYY-MM-DD [--label <text>]
 
+import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -136,6 +143,38 @@ export function rollbackSql(e) {
   return `update venues set ${e.field} = ${literalOrNull(e.before)} where slug = ${lit(e.slug)} and ${STATUS_GUARD} and ${e.field} is not distinct from ${literalOrNull(e.after)}`;
 }
 
+export const md5 = (text) => createHash("md5").update(String(text), "utf8").digest("hex");
+
+// The paste file travels through a chat window and a clipboard, which swap curly quotes, dashes
+// and non-breaking spaces without saying so. Every character outside printable ASCII is
+// therefore written as a U& escape: the statement is pure ASCII and decodes to the exact text.
+export function asciiLit(value) {
+  const text = String(value);
+  if (/^[\x20-\x7e]*$/.test(text)) return lit(text);
+  let body = "";
+  for (const ch of text) {
+    const cp = ch.codePointAt(0);
+    if (ch === "'") body += "''";
+    else if (ch === "\\") body += "\\\\";
+    else if (cp >= 0x20 && cp <= 0x7e) body += ch;
+    else if (cp > 0xffff) body += `\\+${cp.toString(16).toUpperCase().padStart(6, "0")}`;
+    else body += `\\${cp.toString(16).toUpperCase().padStart(4, "0")}`;
+  }
+  return `U&'${body}'`;
+}
+
+// Same exactness as the full-text guard, a fraction of the length: md5 of the exported bytes.
+function pasteGuard(e) {
+  return e.exportRaw === "" ? `(${e.field} is null or length(trim(${e.field})) = 0)` : `md5(${e.field}) = '${md5(e.exportRaw)}'`;
+}
+
+const pasteWhere = (e) => `slug = ${lit(e.slug)} and ${STATUS_GUARD} and ${pasteGuard(e)}`;
+
+export function pasteUpdateSql(e) {
+  const value = e.after === "" ? "null" : asciiLit(e.after);
+  return `update venues set ${e.field} = ${value} where ${pasteWhere(e)}`;
+}
+
 // React's server renderer escapes ' " & < > in text, so a snippet containing one of them never
 // matches the live HTML. Of the clean runs inside the first 30 characters the longest is kept:
 // it is the most specific substring that can still be found on the page.
@@ -227,6 +266,9 @@ export function selectChanges(changeRows, exportRows) {
       after,
       source: row.source.trim(),
       district: (current.district ?? "").trim(),
+      // The column exactly as exported, before normaliseText: the paste guard hashes these
+      // bytes, so trailing whitespace the comparison above forgave still has to match.
+      exportRaw: String(current[field] ?? ""),
     });
   }
   return { emitted, held, notApplied };
@@ -378,6 +420,89 @@ export function renderVerifyLive(emitted) {
   return lines.length ? `${lines.join("\n")}\n` : "";
 }
 
+// ---------------------------------------------------------------- paste file
+
+const asciiComment = (value) => oneLine(value).replace(/[^\x20-\x7e]/g, "?");
+
+function pasteStatements(emitted, label) {
+  return emitted.map((e, i) => {
+    const where = asciiComment(`${label} #${i + 1} (${e.slug} ${e.field})`).replace(/%/g, "%%").replace(/'/g, "''");
+    return [
+      `  -- ${i + 1}. ${e.slug} / ${e.field} / ${e.action}`,
+      `  ${pasteUpdateSql(e)};`,
+      `  get diagnostics n = row_count; if n <> 1 then raise exception '${where}: expected 1 row, got %', n; end if;`,
+    ].join("\n");
+  }).join("\n");
+}
+
+const MD5_OF = (field) => `md5(v.${field})`;
+
+// Rows whose column does not hold what the batch meant to write. A null write wants a null.
+function pasteCheckFrom(emitted) {
+  const values = emitted.map((e) => `(${lit(e.slug)}, ${lit(e.field)}, ${e.after === "" ? "null" : `'${md5(e.after)}'`})`).join(",\n  ");
+  const pick = `case d.field ${COPY_FIELDS.map((f) => `when '${f}' then ${MD5_OF(f)}`).join(" ")} end`;
+  return `from (values\n  ${values}\n) as d(slug, field, want)\nleft join venues v on v.slug = d.slug\nwhere v.slug is null or ${pick} is distinct from d.want`;
+}
+
+// What the founder pastes into the Supabase SQL editor: one DO block, nothing to fill in, then a
+// check that should return no rows. Preflight and dry run are done by the session beforehand.
+export function renderPaste({ emitted, date, label }) {
+  const head = [
+    `-- ${asciiComment(label)}: ${emitted.length} statement(s). Paste into the Supabase SQL editor and run.`,
+    "-- Every statement must change exactly 1 row; if one does not, the whole block rolls back and nothing is written.",
+    `-- Generated ${date} by scripts/copy/build-copy-sql.mjs. Guards: md5 of the current text; every literal is ASCII.`,
+  ];
+  if (!emitted.length) return `${head.join("\n")}\n-- Nothing to apply.\n`;
+  return `${head.join("\n")}
+do ${DOLLAR_TAG}
+declare n int;
+begin
+${pasteStatements(emitted, label)}
+end ${DOLLAR_TAG};
+
+-- Check: expect 0 rows.
+select d.slug, d.field
+${pasteCheckFrom(emitted)}
+order by 1, 2;
+`;
+}
+
+// Read-only proof of the paste file, for a connector that will not run writes unattended: every
+// statement's WHERE matches exactly one card, and every new text decodes to the intended bytes.
+export function renderPreflight({ emitted, date, label }) {
+  if (!emitted.length) return "-- Nothing to check.\n";
+  const rows = emitted.map((e, i) => {
+    const textOk = e.after === "" ? "true" : `md5(${asciiLit(e.after)}) = '${md5(e.after)}'`;
+    return `(${i + 1}, ${lit(e.slug)}, ${lit(e.field)}, (select count(*)::int from venues where ${pasteWhere(e)}), ${textOk})`;
+  }).join(",\n  ");
+  return `-- ${asciiComment(label)}: read-only preflight of paste-${date}.sql. Expect 0 rows; a row names a statement whose
+-- guard does not match exactly one card, or whose new text does not decode to the intended bytes.
+select t.n, t.slug, t.field, t.rows_matched, t.text_ok
+from (values
+  ${rows}
+) as t(n, slug, field, rows_matched, text_ok)
+where t.rows_matched <> 1 or not t.text_ok
+order by t.n;
+`;
+}
+
+// The paste block's statements plus its check, closed by a raise so the transaction always rolls
+// back, for a session whose connector may run writes.
+export function renderDryRun({ emitted, date, label }) {
+  if (!emitted.length) return "-- Nothing to dry-run.\n";
+  return `-- ${asciiComment(label)}: dry run of paste-${date}.sql. Always ends in an exception, so nothing is kept.
+do ${DOLLAR_TAG}
+declare n int;
+begin
+${pasteStatements(emitted, label)}
+  select count(*) into n
+  ${pasteCheckFrom(emitted).replace(/\n/g, "\n  ")};
+  if n <> 0 then raise exception 'check: % field(s) differ from the intended text', n; end if;
+  raise exception 'DRY RUN OK: % statement(s) applied and checked, rolled back', ${emitted.length};
+end ${DOLLAR_TAG};
+`;
+}
+
 // ---------------------------------------------------------------- entry points
 
 export function buildCopySql(changeRows, exportRows, options) {
@@ -396,6 +521,9 @@ export function buildCopySql(changeRows, exportRows, options) {
       "holds.csv": renderHolds(selection.held),
       "summary.json": `${JSON.stringify(buildSummary(selection), null, 2)}\n`,
       "verify-live.txt": renderVerifyLive(selection.emitted),
+      [`paste-${date}.sql`]: renderPaste(ctx),
+      [`preflight-${date}.sql`]: renderPreflight(ctx),
+      [`dryrun-${date}.sql`]: renderDryRun(ctx),
     },
   };
 }

@@ -10,8 +10,10 @@ import test from "node:test";
 import {
   COPY_FIELDS,
   STATUS_GUARD,
+  asciiLit,
   buildCopySql,
   grepPattern,
+  md5,
   normaliseText,
   parseCsv,
   readCsvObjects,
@@ -292,12 +294,15 @@ test("a price band with $$ does not end the DO block", () => {
 
 test("nothing to apply still produces every file and says so", () => {
   const result = build([change({ decision: "НЕТ" })], [exported()]);
-  assert.deepEqual(Object.keys(result.files).sort(), ["apply-2026-10-05.sql", "holds.csv", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
+  assert.deepEqual(Object.keys(result.files).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
   assert.ok(result.files[`apply-${DATE}.sql`].includes("-- Nothing to apply"));
   assert.ok(!result.files[`apply-${DATE}.sql`].includes("do $apply$"));
   assert.ok(result.files[`rollback-${DATE}.sql`].includes("-- Nothing to roll back."));
   assert.equal(result.files["holds.csv"], "unit_id,slug,field,reason,export_value\n");
   assert.equal(result.files["verify-live.txt"], "");
+  assert.ok(result.files[`paste-${DATE}.sql`].includes("-- Nothing to apply."));
+  assert.equal(result.files[`dryrun-${DATE}.sql`], "-- Nothing to dry-run.\n");
+  assert.equal(result.files[`preflight-${DATE}.sql`], "-- Nothing to check.\n");
   assert.equal(JSON.parse(result.files["summary.json"]).emitted, 0);
 });
 
@@ -334,7 +339,7 @@ test("grepPattern stops before characters React escapes and keeps to the first l
 
 // ---------------------------------------------------------------- CLI
 
-test("CLI writes the five files into --out and prints the summary", async () => {
+test("CLI writes the eight files into --out and prints the summary", async () => {
   const out = await mkdtemp(path.join(os.tmpdir(), "copy-sql-"));
   try {
     const { stdout } = await execFileAsync(process.execPath, [
@@ -349,8 +354,8 @@ test("CLI writes the five files into --out and prints the summary", async () => 
     assert.equal(printed.emitted, 4);
     assert.equal(printed.held, 2);
     assert.equal(printed.notApplied, 1);
-    assert.equal(printed.written.length, 5);
-    assert.deepEqual((await readdir(out)).sort(), ["apply-2026-10-05.sql", "holds.csv", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
+    assert.equal(printed.written.length, 8);
+    assert.deepEqual((await readdir(out)).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
     const apply = await readFile(path.join(out, `apply-${DATE}.sql`), "utf8");
     assert.ok(apply.includes("raise exception 'Sample wave #1 (warung-lembah-canggu · why_its_here): expected 1 row, got %'"));
     assert.ok(apply.includes(`Inputs: changes=${fixture("change-list.sample.csv")} · export=${fixture("venues-export.sample.csv")}`));
@@ -425,4 +430,94 @@ test("a JSON export from the connector reads like the CSV one, with SQL NULL as 
   assert.equal(r.emitted.length, 1);
   assert.throws(() => readExportJson(JSON.stringify([{ slug: "a-cafe" }])), /missing column/);
   assert.throws(() => readExportJson("[]"), /non-empty/);
+});
+
+// ---------------------------------------------------------------- paste file
+
+// Postgres reads U&'…' as: '' is a quote, \\ a backslash, \XXXX and \+XXXXXX a code point.
+function decodeLiteral(sql) {
+  const plain = /^'((?:[^']|'')*)'$/.exec(sql);
+  if (plain) return plain[1].replace(/''/g, "'");
+  const unicode = /^U&'((?:[^']|'')*)'$/.exec(sql);
+  assert.ok(unicode, `not a SQL string literal: ${sql}`);
+  return unicode[1]
+    .replace(/''/g, "'")
+    .replace(/\\(\\|\+[0-9A-F]{6}|[0-9A-F]{4})/g, (_, x) => (x === "\\" ? "\\" : String.fromCodePoint(parseInt(x.replace("+", ""), 16))));
+}
+
+test("asciiLit: pure ASCII that decodes back to the exact text", () => {
+  const texts = [
+    "Plain text, no quotes",
+    "Canggu's warung — 7am–3pm",
+    "it\u2019s \u201cquoted\u201d a\u00a0b",
+    "two\nlines",
+    "back\\slash then \\0041",
+    "palm \u{1F334} here",
+    "é0041 is not an escape",
+  ];
+  for (const text of texts) {
+    const sql = asciiLit(text);
+    assert.match(sql, /^[\x20-\x7e]*$/, text);
+    assert.equal(decodeLiteral(sql), text);
+  }
+  assert.equal(asciiLit("It's plain"), "'It''s plain'");
+});
+
+test("paste file: one ASCII DO block, md5 guards on the exported text, a check that wants the new text", () => {
+  const result = buildFixtures();
+  const paste = result.files[`paste-${DATE}.sql`];
+  assert.match(paste, /^[\x00-\x7f]*$/);
+  const block = doBlock(paste);
+  assert.equal(count(block, "update venues set"), result.emitted.length);
+  assert.equal(count(block, "get diagnostics n = row_count; if n <> 1 then raise exception"), result.emitted.length);
+  for (const e of result.emitted) {
+    if (e.exportRaw) assert.ok(block.includes(`and md5(${e.field}) = '${md5(e.exportRaw)}';`), e.unit_id);
+    assert.ok(paste.includes(`('${e.slug}', '${e.field}', ${e.after === "" ? "null" : `'${md5(e.after)}'`})`), e.unit_id);
+  }
+  assert.ok(paste.includes("-- Check: expect 0 rows."));
+});
+
+test("paste guard hashes the raw exported bytes; an empty column is guarded as null-or-blank", () => {
+  const trailing = build([change()], [exported({ best_for: "Old  " })]);
+  assert.equal(trailing.emitted.length, 1);
+  assert.ok(trailing.files[`paste-${DATE}.sql`].includes(`and md5(best_for) = '${md5("Old  ")}';`));
+  const empty = build([change({ field: "not_for", before: "", after: "Groups over eight" })], [exported()]);
+  assert.ok(empty.files[`paste-${DATE}.sql`].includes("and (not_for is null or length(trim(not_for)) = 0);"));
+});
+
+test("paste file: a null write sets null and its check wants null", () => {
+  const paste = build([change({ after: "", action: "null" })], [exported()]).files[`paste-${DATE}.sql`];
+  assert.ok(paste.includes("update venues set best_for = null where slug = 'slug-a' and status = 'active' and publication_status = 'published' and md5(best_for) = "));
+  assert.ok(paste.includes("('slug-a', 'best_for', null)"));
+});
+
+test("paste file: a label with an apostrophe, % and a dash stays one valid exception message", () => {
+  const paste = build([change()], [exported()], { label: "Ubud's wave (50% done) — v2" }).files[`paste-${DATE}.sql`];
+  assert.ok(paste.includes("raise exception 'Ubud''s wave (50%% done) ? v2 #1 (slug-a best_for): expected 1 row, got %', n;"));
+  assert.match(paste, /^[\x00-\x7f]*$/);
+});
+
+test("dry-run file: the paste statements, the check inside the block, and a closing raise", () => {
+  const result = buildFixtures();
+  const paste = doBlock(result.files[`paste-${DATE}.sql`]);
+  const dry = result.files[`dryrun-${DATE}.sql`];
+  const updates = paste.split("\n").filter((l) => l.trim().startsWith("update venues"));
+  assert.equal(updates.length, result.emitted.length);
+  for (const line of updates) assert.ok(dry.includes(line));
+  assert.ok(dry.includes("if n <> 0 then raise exception 'check: % field(s) differ from the intended text', n; end if;"));
+  assert.ok(dry.includes(`raise exception 'DRY RUN OK: % statement(s) applied and checked, rolled back', ${result.emitted.length};`));
+  assert.match(dry, /^[\x00-\x7f]*$/);
+});
+
+test("preflight file: read-only, one row per statement counting its WHERE and checking its decoded text", () => {
+  const result = buildFixtures();
+  const pre = result.files[`preflight-${DATE}.sql`];
+  assert.match(pre, /^[\x00-\x7f]*$/);
+  assert.ok(!/\b(update|insert|delete)\s/i.test(pre.replace(/^--.*$/gm, "")), "no write keyword outside comments");
+  for (const [i, e] of result.emitted.entries()) {
+    const where = e.exportRaw ? `md5(${e.field}) = '${md5(e.exportRaw)}'` : `(${e.field} is null or length(trim(${e.field})) = 0)`;
+    assert.ok(pre.includes(`(${i + 1}, '${e.slug}', '${e.field}', (select count(*)::int from venues where slug = '${e.slug}' and ${STATUS_GUARD} and ${where}), `), e.unit_id);
+    assert.ok(pre.includes(e.after === "" ? `${where}), true)` : `, md5(${asciiLit(e.after)}) = '${md5(e.after)}')`), e.unit_id);
+  }
+  assert.ok(pre.includes("where t.rows_matched <> 1 or not t.text_ok"));
 });
