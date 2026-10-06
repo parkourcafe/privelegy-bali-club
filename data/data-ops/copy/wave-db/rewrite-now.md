@@ -57,3 +57,35 @@
 - **ula-cafe.** `not_for` ссылается на закрытие в 16:00 по выходным, но часов на карточке нет. Проверить, что они есть в `opening_hours_json`.
 - **manga-madu.** `where` = «Ubud», адреса нет. «close to central Ubud» и «budget» ($) не проверены.
 - **made-s-bakery-cafe-playground** «open since 2025», **porch** «thirteen kinds». Без даты проверки.
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил три замечания. Все три исправлены в `rewrite-now.csv`. Колонки `before`, `unit_id`, `source` и `decision` не тронуты. Поменялись только `after` и `reason` у 11 строк. Формат прежний: CRLF, 17 строк.
+
+**1. Новый шаблон в начале карточки.** В первой версии 10 из 13 `why_its_here` начинались одинаково: «<Name> is a <category> on/at Jl. …». Строки 1–6 шли подряд. Значит, фраза «Формы начала разнесены» выше была неверной. Теперь у 11 карт новое начало. Нигде больше двух карт подряд не начинаются одинаково:
+- **меню / товар:** amavi («The menu at AMAVI goes from…»), mavammy («Mavammy's dessert counter…»), porch («Thirteen kinds of cheesecake are the reason to come to Porch…»), mamu («Darkside, Musthave and Duft are on the shisha list at MAMU…»), lemanja («Breakfast at Lemanjá Uluwatu starts at 07:30.»);
+- **история / человек:** pranava («Vicki and Yuni opened Pranava Yoga in April 2016…»), ula («Chef Mags builds the menu…»). Made's без изменений («…grew out of a small warung…»);
+- **адрес впереди:** cafe-coach («On Jl. Nelayan in Canggu, Cafe Coach is…»);
+- **«At …»:** uluwatu-collective («At Uluwatu Collective, CrossFit… run as group classes.»);
+- **приложение (название, место):** dewas и humans без изменений, de-maison («De Maison Bali Restaurant & Bar, in Renon, Denpasar, is a coffee shop…»). Dewas и humans стоят рядом, это две подряд, третьей нет.
+
+Формы «<Name> is a <category> on Jl.» в выходе больше нет. Порядок строк такой: меню, адрес, меню, товар, история, товар, приложение, приложение, товар, история, человек, «At», приложение.
+
+**2. porch: добавлен факт.** «…the cheesecake, which it makes in thirteen kinds» говорило, что чизкейк пекут сами. В записи этого нет. Теперь: «Thirteen kinds of cheesecake are the reason to come to Porch, a coffee shop on Jl. Raya Semat.» Слова исходного текста, утверждения о производстве нет.
+
+**3. cafe-coach: грамматика и сдвиг смысла.**
+- `why_its_here`: «The large menu runs from breakfast to dinner (benedicts, poke bowls, burgers), with coffee and cocktails.» Блюда снова примеры, а не концы диапазона. Лишнего «from» нет.
+- `best_for`: «Breakfast, or dinner that runs into cocktails». Формулировка «a big breakfast» убрана: исходное «big breakfast menu» говорило о размере меню, а не порции. Фраза снова о моменте, а не о меню. «dinner into cocktails» взято из исходного текста. Слова «big» и «coffee» из `best_for` ушли, это видно в отчёте (dropped LEX:big). «coffee» остаётся в `why_its_here`. «large menu» там тоже есть.
+
+**Ворота:**
+- `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/rewrite-now.csv`: 14 карт, 0 FAIL, batch problems 0, exit 0.
+- WARN по картам: 8 → 4. В первой версии было 5. Ни на одной карте WARN не вырос. Остались списки из трёх в исходных составах (mamu, lemanja, ula, uluwatu-collective).
+- Fact-diff по каждой строке отдельно, before → after. REJECT дают только две вещи: название места, которое берётся из имени записи, и «budget» в `not_for` manga-madu, которое пришло из `best_for` той же карты. Обе на уровне карты разрешены, `check-cards` их пропускает. Чисел, цен, времени и блюд сверх исходного текста нет.
+- Новое значение `best_for` у cafe-coach нигде в `data/` и в краул-файле `places.csv` больше не встречается.
+- `node scripts/copy/check-rewrite.mjs … --ref HEAD`: exit 1, 37 «FAIL». Эти ворота к CSV не применимы. `extract-code-prose.mjs` разбирает файл как TypeScript, поэтому единицы `<expr>` режутся по кавычкам CSV и сопоставляются вслепую: `before` одной колонки сравнивается с `reason` или `after` другой строки. В первом проходе файла не было в HEAD, и ворота дали 0 единиц. Теперь он есть в коммите 207e38f, и вывод — шум разбора. Для данных карточек правильные ворота — `check-cards` (выше).
+- `npx eslint` на CSV: файл не входит в конфигурацию, 0 ошибок, 1 предупреждение «ignored».
+- `node --test scripts/copy/*.test.mjs`: 152 pass, 0 fail. Тесты не менялись. Ни одна строка этого CSV не закреплена тестом.
+
+**Оставлено дословно:** manga-madu (`best_for`, `not_for`), dewas, humans, made's. Цены, время и числа те же: 07:30; 20,000 IDR; 1,450,000 IDR; thirteen; April 2016; 2025.
+
+**Новых сомнительных фактов не найдено.** Список выше в силе. Одна мелочь: в mamu слово «lounge» стоит дважды («shisha lounge» и «air-conditioned lounge»). Так было и в исходном тексте, фактом это не является.

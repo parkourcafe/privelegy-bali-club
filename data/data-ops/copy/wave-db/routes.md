@@ -69,3 +69,21 @@
 - **Тот же текст есть в коде.** Его надо синхронизировать отдельной задачей владельца этих файлов, иначе фолбэк при недоступной базе покажет старые формулировки:
   - `lib/seed.ts:157–225` — фолбэк маршрутов, там тире «—» вместо «--»;
   - `app/dev/route-preview/page.tsx` — dev-превью.
+
+## Проверка 2 (скептик)
+
+**Замечание (medium, re-templated).** Три подзаголовка из восьми — first-day, canggu-food-route, canggu-rainy-day — оказались в одной схеме: вступление, двоеточие, список из трёх пунктов. Раньше так был построен только canggu-food. First-day и rainy-day автор правки сам привёл к этой схеме — к тому же «reveal colon», который убирал из заметок к остановкам. На /plan все три стоят рядом как карточки Канггу. Кроме того, «Your first day:» на `/route/first-day` повторяет H1 «First day in Canggu», который стоит прямо над подзаголовком.
+
+**Исправлено (2 строки в `routes.csv`):**
+- first-day: «Your first day: land, settle in and eat well» → «Land, settle in and eat well». Вступление снято, три глагола остаются одной фразой с «and». Вариант «Settle in after the flight…» не взят: «after the flight» есть только в заметке остановки из 0007, а факты между полями не переносим.
+- canggu-rainy-day: «For when the weather turns: covered cafés, somewhere to reset and an easy dinner.» → «Covered cafés, somewhere to reset and an easy dinner when the weather turns.» Порядок исходника возвращён. Из правки осталась только замена жаргона «reset stops» → «somewhere to reset».
+- canggu-food-route не трогал. Двоеточие там было в исходнике, и теперь такой подзаголовок один.
+- `reason` у обеих строк сокращён до подмножества старого текста. Объяснение выбора записано здесь, а не в CSV: `check-rewrite` разбирает CSV как код и прогоняет fact-diff по ячейкам `reason`. С новыми словами в `reason` («H1», «one», «First») он выдавал REJECT, а с запятой ячейка попадала в кавычки и сдвигала пары юнитов.
+
+**Гейты (повторно):**
+- построчный прогон (`lintText` + `factDiff`, скрипт в scratchpad `wf-now/routes-fix/build.mjs`): 15 строк, FAIL 0, REJECT 0, WARN 0 → 0. У rainy-day по-прежнему NEW_TERM `somewhere` — это пересказ «reset stops», а не факт;
+- `node scripts/copy/check-rewrite.mjs data/data-ops/copy/wave-db/routes.csv --ref HEAD`: exit 0, «2 changed · 0 FAIL · WARN 3 → 3». Файл теперь лежит в HEAD (коммит 207e38f), поэтому сравнение идёт с ним. Dropped: `first` — слово «first day» ушло из подзаголовка, в названии маршрута и в H1 оно есть;
+- eslint не применим: JS/TS не трогал. Тесты не менял, ни одна из этих строк тестами не закреплена (grep по `scripts/` и `*.test.*` пустой);
+- в базу ничего не записано, коммита нет.
+
+**Сомнительные факты:** новых нет, список выше не изменился.
