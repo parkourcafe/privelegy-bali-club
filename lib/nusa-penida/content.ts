@@ -116,7 +116,7 @@ export const NUSA_PENIDA_THINGS_TO_DO: NusaPenidaThing[] = [
     title: "Snorkelling with manta rays",
     zone: "Water · Manta Point / Manta Bay",
     blurb:
-      "A half-day boat trip to the manta cleaning stations. It usually stops at three or four spots among Manta Point or Manta Bay, Crystal Bay and Gamat Bay. Mantas are present essentially year-round, so sightings are likely, though never guaranteed. Manta Point water is often colder and choppier. A rash guard and seasickness precautions help.",
+      "A half-day boat trip to the manta cleaning stations. It usually stops at three or four spots among Manta Point or Manta Bay, Crystal Bay and Gamat Bay. Mantas are present essentially year-round, so sightings are highly likely, though never guaranteed. Manta Point water is often colder and choppier. A rash guard and seasickness precautions help.",
     mapsUrl: mapsLink("Manta Point snorkelling"),
   },
   {
@@ -147,7 +147,7 @@ export const NUSA_PENIDA_FAQ = [
   },
   {
     q: "Can you see manta rays around Nusa Penida?",
-    a: "Yes, on a half-day boat trip to the cleaning stations around Manta Point or Manta Bay. Snorkelling with manta rays is one of the island's headline experiences. Mantas are present essentially year-round, so sightings are likely, though never guaranteed. The water there is often colder and choppier than the calm bays.",
+    a: "Yes, on a half-day boat trip to the cleaning stations around Manta Point or Manta Bay. Snorkelling with manta rays is one of the island's headline experiences. Mantas are present essentially year-round, so sightings are highly likely, though never guaranteed. The water there is often colder and choppier than the calm bays.",
   },
   {
     q: "How do you get around Nusa Penida?",

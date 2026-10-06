@@ -46,7 +46,7 @@ export const BALI_ICONS: BaliThing[] = [
     title: "Ulun Danu Beratan",
     region: "Bedugul highlands, Tabanan",
     blurb:
-      "The lake temple whose shrines appear to float on Lake Beratan when the water is high. It's the scene on the 50,000-rupiah note. At about 1,200m the mornings are cool and misty, so go early for calm-water reflections.",
+      "The lake temple whose shrines appear to float on Lake Beratan when the water is high. It's the scene on the 50,000-rupiah note. At about 1,200m the mornings are cool and misty. Go early for calm-water reflections.",
     mapsUrl: maps("Ulun Danu Beratan Temple Bedugul"),
   },
   {

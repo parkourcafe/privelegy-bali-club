@@ -83,3 +83,22 @@
 - `check-rewrite.mjs` сопоставляет JSX-юниты по порядку внутри пути `<JSX>`. Если строка становится прозой или перестаёт ею быть (например, исчезает «?» в начале), все последующие пары сдвигаются и дают ложные REJECT. На /hotels абзац пришлось перестроить так, чтобы число юнитов не изменилось.
 - fact-diff считает «If» в начале фразы именем, если в исходной строке нет строчного «if». В файлах, где «If» уже начинает какую-то фразу, гейт его пропускает (так на /for-venues).
 - Ключ `note` гейт пропускает целиком, хотя на best-*-страницах и в /bali-travel-guide это публичный текст под H2. Стоит убрать `note` из `SKIP_KEYS` или проверять такие строки отдельно.
+
+## Проверка 2 (скептик)
+
+Подтверждено и исправлено 2 замечания (pages-b):
+
+- app/page.tsx, абзац со ссылками на Canggu под кнопкой «Start with Canggu now»: «When you land this week, the …» → «If you land this week, the …». Исходный вопрос «Landing this week?» был условием для тех, кто прилетает на этой неделе; «When» превращал его в допущение для всех читателей главной. «If» возвращает условие и не создаёт риторического вопроса; вторая половина абзаца («Working from here, …») снова звучит параллельно.
+- app/where-to-stay-in-bali/page.tsx, AREAS[0].forWho (Canggu) и AREAS[1].forWho (Seminyak): двоеточие заменено обратно на исходное тире. На странице строка выводится после «Best for:», и получалось два двоеточия в одной короткой строке. content-style.md §9 разрешает одно тире в Best for / Not for, так что правка не требовалась гейтом; строки теперь совпадают с 3e40897.
+
+Гейт `check-rewrite.mjs` по всем 14 файлам области (--ref 3e40897): exit 0, 0 FAIL, WARN ни в одном файле не вырос. `npx eslint` по двум изменённым файлам: без ошибок.
+
+## Проверка 2 (скептик) — pages-a
+
+Подтверждено и исправлено 3 замечания (pages-a):
+
+- app/hotels/page.tsx, metadata.description: фраза об условиях партнёрства возвращена дословно: «You add your own details and photos, we review and publish, and travellers reach you directly». Цепочка с точками с запятой и выпавшее «your own» убраны. «your own» указывает, что фото должны быть свои, с правом на публикацию (это есть в STEPS и в OG-описании). Переписано только вступление, вопрос заменён на «Partner your Bali hotel, resort or boutique property with Other Bali, the resident-curated guide.», как на /villas. Хвост «— for your rooms and your restaurant, pool, spa and day pass» в мета-описание не вернул: этот охват сохранён в OG-описании и в standfirst страницы, а описание без него короче. Гейт даёт здесь +1 WARN A5: два перечня «X, Y и Z», и один из них сидит в неизменяемой фразе условий. Общий WARN по файлу 25 → 11.
+- app/best-beach-clubs-in-bali/page.tsx, FAQ «Do beach clubs in Bali cost money to enter?»: возвращено «especially at the popular sunset clubs». Здесь «popular» сужает охват до востребованных клубов. Без него требование минимального чека распространялось на все закатные клубы, то есть почти на весь список. Это не запрещённый шаблон «popular with/for». Вариант «busiest» отклонён: fact-diff считает «busy/busiest» новым словом-утверждением.
+- app/guides/page.tsx, guide-lede: исправлена грамматика. Было «help you decide … and the island-wide best-of», то есть «best-of» становился дополнением к «decide». Стало «Practical guides to help you decide how long to go and when, and where to stay for the trip you're taking, plus the island-wide best-of.» Слово «lists» не добавлял, потому что с ним предложение становится длиннее 25 слов (A7). Число JSX-блоков не изменилось.
+
+Гейт `check-rewrite.mjs` по всем 14 файлам области (--ref 3e40897): exit 0, 0 FAIL, ни в одном файле WARN не выше исходного (beach clubs 6 → 0, guides 4 → 1, hotels 25 → 11). `npx eslint` по трём изменённым файлам: без ошибок.

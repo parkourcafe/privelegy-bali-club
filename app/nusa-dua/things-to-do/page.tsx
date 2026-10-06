@@ -88,8 +88,8 @@ export default function NusaDuaThingsToDoPage() {
           <div className="guide-prose">
             <p>
               For one easy day, spend the morning on the promenade and Mengiat
-              Beach. Then see the Water Blow and Museum Pasifika at the Bali
-              Collection, and the Devdan Show in the evening. Add a day and start
+              Beach. Then see the Water Blow, and Museum Pasifika at the Bali
+              Collection, with the Devdan Show in the evening. Add a day and start
               with a calmer beach morning at Geger and its temple. Then try a
               watersports session or the glass-bottom boat to Turtle Island over at
               Tanjung Benoa. It&apos;s low-adrenaline by design, and that&apos;s

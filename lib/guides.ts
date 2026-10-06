@@ -259,7 +259,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Snorkelling with manta rays",
         paras: [
-          "Snorkelling with manta rays is a common half-day boat trip. It usually stops at three or four spots, depending on the day's water. Manta Point or Manta Bay, Crystal Bay and Gamat Bay are among them. Mantas are present at the cleaning stations essentially year-round, so there's no strictly wrong season. Sightings are likely rather than guaranteed.",
+          "Snorkelling with manta rays is a common half-day boat trip. It usually stops at three or four spots, depending on the day's water. Manta Point or Manta Bay, Crystal Bay and Gamat Bay are among them. Mantas are present at the cleaning stations essentially year-round, so there's no strictly wrong season. Sightings are very likely rather than guaranteed.",
           "Manta Point water is often colder and choppier than the calmer bays. A rash guard helps, and seasickness precautions are worth taking if you're prone.",
         ],
       },
@@ -304,7 +304,7 @@ export const GUIDES: Guide[] = [
       { q: "Is one day enough for Nusa Penida?", a: "For one side of the island, yes. Combining the west (Kelingking, Angel's Billabong) and the east (Diamond, Atuh) in one day means spending most of it in the car on rough roads. Pick one side, or stay a night." },
       { q: "Can you swim at Nusa Penida's beaches?", a: "At some, not others. Swimming is forbidden at Kelingking (deadly currents). Angel's Billabong is only safe to enter at low tide. Never go in on a rising tide: people have been swept out there. Crystal Bay is the calm, swimmable west-side beach." },
       { q: "Should you rent a scooter in Nusa Penida?", a: "Only if you're a confident, experienced rider. The roads are rough and the descents to the beaches are steep enough to overwhelm scooter brakes. For most visitors a hired driver or an organised tour is the safer, easier choice, and there's no Grab or taxi network on the island." },
-      { q: "Can you see manta rays in Nusa Penida?", a: "Yes. Snorkelling with manta rays is a common half-day boat trip, and mantas are present at the cleaning stations essentially year-round. Sightings are likely but never guaranteed." },
+      { q: "Can you see manta rays in Nusa Penida?", a: "Yes. Snorkelling with manta rays is a common half-day boat trip, and mantas are present at the cleaning stations essentially year-round. Sightings are very likely but never guaranteed." },
       { q: "Do you need cash in Nusa Penida?", a: "Yes, bring plenty. ATMs are few, often don't accept foreign cards and frequently run empty, and most tours, rentals and eateries are cash-only. Withdraw on mainland Bali before you cross." },
     ],
     related: [
@@ -862,7 +862,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Do both — the classic combo",
         paras: [
-          "The most popular first-timer route is a few nights inland in Ubud for culture and calm. Then a few in Canggu for surf and the coast. One transfer, roughly 1.5–2 hours, and you get both sides of Bali.",
+          "The most popular first-timer route is a few nights in Ubud for culture and calm, then a few in Canggu for surf and the coast. One transfer, roughly 1.5–2 hours, and you get both sides of Bali.",
         ],
       },
     ],
@@ -999,7 +999,7 @@ export const GUIDES: Guide[] = [
         heading: "By area: where to go indoors",
         paras: [
           "Canggu: a spa or recovery session, a long café brunch, a gym, boutique shopping, and an easy dinner. It has the deepest café-and-wellness scene for a low-effort day.",
-          "Ubud: a spa, sound healing, a cooking class, or a jewellery or craft workshop. Or an art gallery, or a calm hotel day with a tea or coffee tasting. Ubud does the slow, restorative rainy day best.",
+          "Ubud: a spa, sound healing, a cooking class, or a jewellery or craft workshop. Art galleries and a calm hotel day with a tea or coffee tasting work too. Ubud does the slow, restorative rainy day best.",
           "Seminyak & Sanur: covered restaurants, spas and shopping, with short, walkable hops between them so you're not soaked getting around.",
         ],
       },
@@ -1225,7 +1225,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Choose Sanur if…",
         paras: [
-          "You want a low-key coastal town, not a resort bubble. Sanur has a roughly 5 km flat, paved beachfront path made for walking, cycling and strollers. The water on the sunrise coast is calm and swimmable. Local warungs and cafés have a neighbourhood feel.",
+          "You want a low-key coastal town, not a resort bubble. Sanur has a roughly 5 km flat, paved beachfront path made for walking, cycling and strollers. Its water on the sunrise coast is calm and swimmable. Its local warungs and cafés have a neighbourhood feel.",
           "It's also the main fast-boat gateway to Nusa Penida and Lembongan, so it doubles as a springboard for island day-trips. Best for travellers who want calm plus a bit of real Bali texture.",
         ],
       },
@@ -1650,7 +1650,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Best starting areas",
         paras: [
-          "Likely easier from Ubud, Kintamani, Amed or Sidemen depending on the route, or Sanur with an early pickup. Needs more caution from Uluwatu, Nusa Dua/Jimbaran, or Canggu/Seminyak if you dislike early transfers.",
+          "Likely easier from Ubud, Kintamani, Amed or Sidemen depending on the route, or Sanur with an early pickup. Needs more caution from Uluwatu, Nusa Dua/Jimbaran, or Canggu/Seminyak if you dislike very early transfers.",
         ],
       },
       {

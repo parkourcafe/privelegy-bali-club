@@ -62,7 +62,7 @@ const FAQ = [
   },
   {
     q: "Where do I eat Indonesian food in Uluwatu?",
-    a: "Go to The Warung at Alila Villas for the megibung banquet, or to Ulu Garden for contemporary Indonesian with weekly Balinese cultural programming.",
+    a: "The Warung at Alila Villas cooks Indonesian, with the megibung banquet as its signature format. Ulu Garden cooks contemporary Indonesian with weekly Balinese cultural programming.",
   },
   {
     q: "What does $$ / $$$ mean on your pages?",

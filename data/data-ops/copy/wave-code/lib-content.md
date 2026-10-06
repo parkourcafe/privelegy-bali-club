@@ -63,3 +63,11 @@
 - **Frozen:** title, metaTitle, h1, heading, sectionHeading, eyebrow, ctaLabel, вопросы FAQ, лейблы зон и регионов — не тронуты.
 - **Политика дословно:** `CURATION_NOTE` («No ratings, no paid placements — …»), «Travellers never pay.» во всех meta scenarios. В Canggu «Reserve a table in a tap where you see the Reserve button» формулировка сохранена, только отделена точкой.
 - **Оставлено, хотя можно спорить** (линтер молчит, правки были бы вкусовыми): «honest, cheap/affordable warungs» в lede варунгов Canggu и Ubud, «hidden coves» в теглайне Nusa Penida (`pillars`), «add texture to a stay» (Le Mayeur), «tucked just off the main street» (Saraswati), «best known for» (Lovina, Teletubbies Hills), «most-photographed» в intro romantic (там это аргумент про толпы), spec-строки отелей Sanur (fact/bestFor), фрагменты-открытия коллекций («Low light, a good bottle…»).
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил две находки. Исправлены обе, правки минимальные.
+
+- **`lib/bali-things.ts`, Ulun Danu Beratan (`BALI_ICONS[2].blurb`).** После переписывания фраза «cool and misty, so go early for calm-water reflections» стала объяснять ранний приезд туманом, а туман отражения скорее прячет. В оригинале это были два отдельных утверждения: высота даёт прохладные туманные утра, а ехать рано стоит из-за спокойной воды. Разбил на два предложения: «At about 1,200m the mornings are cool and misty. Go early for calm-water reflections.»
+- **`lib/nusa-penida/content.ts`, манты (блёрб в `NUSA_PENIDA_THINGS_TO_DO` и ответ в `NUSA_PENIDA_FAQ`).** Замена «very likely → likely ×2» из раздела про интенсификаторы выше была ошибкой: это оценка шансов, а не усилитель, и после замены читатель видел вероятность ниже исходной. Сначала вернул «very likely», но «very» даёт WARN A3 (плотность интенсификаторов: 1 на 52–56 слов при лимите 1 на 100). Поэтому в обоих местах стоит «sightings are highly likely, though never guaranteed»: сила утверждения та же, линтер молчит.
+- Гейт `node scripts/copy/check-rewrite.mjs <16 файлов> --ref 3e40897` прошёл с exit 0 и 0 FAIL во всех файлах. WARN: `bali-things` 29 → 4, `nusa-penida/content` 18 → 0.

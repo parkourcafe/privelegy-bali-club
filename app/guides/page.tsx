@@ -59,8 +59,9 @@ export default function GuidesIndexPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">Bali travel guides</h1>
           <p className="guide-lede">
-            Practical guides to help you decide how long to go and when, where
-            to stay for the trip you&apos;re taking, and the island-wide best-of.
+            Practical guides to help you decide how long to go and when, and
+            where to stay for the trip you&apos;re taking, plus the island-wide
+            best-of.
           </p>
           <p className="mt-3 text-sm text-[var(--muted)]">
             For a specific district, start with the deep area guides for{" "}

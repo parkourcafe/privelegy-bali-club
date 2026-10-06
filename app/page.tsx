@@ -383,7 +383,7 @@ export default function HomePage() {
               most of its weight — these pages had none of it. Kept as
               sentences, not a menu, so the anchor text says what the page is. */}
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#44352b]">
-            When you land this week, the{" "}
+            If you land this week, the{" "}
             <Link href="/route/first-day" className="font-semibold text-[#005962] underline underline-offset-4">
               Canggu first-day route
             </Link>{" "}

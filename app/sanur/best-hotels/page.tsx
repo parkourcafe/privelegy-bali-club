@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Best hotels in Sanur — beachfront classics by zone",
   description:
-    "Where to stay in Sanur, sorted by position on the coast: harbour-side, central beachfront classics and quieter south-end resorts. Verified facilities and booking notes.",
+    "Where to stay in Sanur, sorted by position on the coast: harbour-side, central beachfront classics and quieter south-end resorts. Facilities verified; booking terms vary by rate.",
   alternates: { canonical: "/sanur/best-hotels" },
   openGraph: {
     title: "Best hotels in Sanur · Other Bali",

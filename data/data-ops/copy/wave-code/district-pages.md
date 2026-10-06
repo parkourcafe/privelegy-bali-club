@@ -76,3 +76,18 @@
 ## Находка про инструмент
 
 `extract-code-prose.mjs` держит `note` в `SKIP_KEYS`, поэтому публичные строки `note:` (остановки маршрутов в `ubud/itinerary` и `uluwatu/48-hours`) не попадают ни в гейт, ни в ratchet. Предлагаю отдельной правкой сузить пропуск (это не мой файл).
+
+## Проверка 2 (скептик)
+
+Исправлено по двум подтверждённым находкам (district-a):
+
+- `app/sanur/best-hotels/page.tsx`, `metadata.description`: «Verified facilities and booking notes.» → «Facilities verified; booking terms vary by rate.» В прежней правке «Verified» стало относиться и к условиям бронирования. Страница этого не утверждает: в meta-line «facilities verified · rates & cancellation vary by rate — confirm directly». Теперь «verified» стоит только при facilities. Оговорка про условия взята из той же meta-line. Длина 178 знаков, в оригинале было 187.
+- `app/nusa-dua/things-to-do/page.tsx`, «The short version»: «Then see the Water Blow and Museum Pasifika at the Bali Collection, and the Devdan Show…» → «Then see the Water Blow, and Museum Pasifika at the Bali Collection, with the Devdan Show in the evening.» Без запятой получалось, что Water Blow находится в Bali Collection. По `lib/nusa-dua/content.ts` он на Peninsula Island, и запятая из оригинала разделяет эти места. Вернул оригинальные запятую и оборот «with the Devdan Show». Вариант «Catch the Devdan Show…» гейт отклонил: новое слово в начале предложения (PROPER:Catch).
+
+Гейт `check-rewrite.mjs` по всем десяти файлам района на `--ref 3e40897` завершился с exit 0, FAIL нет. `npx eslint` по двум изменённым файлам тоже прошёл.
+
+Исправлено по одной подтверждённой находке (district-b):
+
+- `app/uluwatu/best-restaurants/page.tsx`, ответ FAQ «Where do I eat Indonesian food in Uluwatu?»: «Go to The Warung at Alila Villas for the megibung banquet, or to Ulu Garden for contemporary Indonesian…» → «The Warung at Alila Villas cooks Indonesian, with the megibung banquet as its signature format. Ulu Garden cooks contemporary Indonesian with weekly Balinese cultural programming.» После прежней правки The Warung читался как место только для банкета, и читателя, которому нужно обычное индонезийское меню, отправляло в Ulu Garden. В оригинале и в записи (`lib/uluwatu/venues.ts`, whatToExpect: «the menu runs classic Indonesian … with the megibung banquet as the signature format») это индонезийский ресторан, а банкет — его signature format. Вернул эту связку. «Serious» и «the district's» не вернул. «Main» и «known for» не добавлял, как советовал скептик. «Classic» из записи тоже не взял: в исходном ответе FAQ этого слова не было, гейт помечал его как NEW_TERM. «Signature» оставил, потому что так в оригинале и в записи. Это один A10 WARN, гейт его допускает (по файлу WARN 16 → 4). Утверждение про megibung по-прежнему не проверено (source_unreachable_env), но оно было и в оригинале.
+
+Гейт `check-rewrite.mjs` по всем одиннадцати файлам district-b на `--ref 3e40897` завершился с exit 0, FAIL нет. `npx eslint app/uluwatu/best-restaurants/page.tsx` прошёл.

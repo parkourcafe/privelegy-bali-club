@@ -22,7 +22,7 @@ import { HOTELS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 export const metadata: Metadata = {
   title: { absolute: "Partner your hotel with Other Bali" },
   description:
-    "Partner your Bali hotel, resort or boutique property with Other Bali. You add details and photos; we review and publish; travellers reach you directly. Completely free.",
+    "Partner your Bali hotel, resort or boutique property with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly. Completely free.",
   alternates: { canonical: "/hotels" },
   openGraph: {
     title: "Partner your hotel with Other Bali",
