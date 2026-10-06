@@ -49,3 +49,59 @@ WARN после переписывания: 0 на каждой карточке
 - **Длительности:** earthbound до 360 минут. 3d-relaxation, frangipani и sekar-jagat до 300 минут.
 - **Пары:** у rnd, santhika, 3d-relaxation, royal-orchid, the-ritz-carlton, blissful-senja и bali-dream «couple treatment» был только в best_for, в трёх названных процедурах его нет.
 - **Метки вместо процедур:** «Spa Package», «Recovery», «Detox Treatment», «Body Treatment», «Hair Treatment». Это категории генератора. У sofitel-spa-with-clarins всего 5 позиций для отельного спа, список, возможно, неполный.
+
+## Проверка 2 (скептик), 2026-10-06
+
+Скептик подтвердил 15 замечаний. Три касаются сдвига факта (frangipani `not_for`, MIM, Ayu), восемь касаются склеенных фактов («пары + N часов», «ноги + N часов»), четыре пакетных относятся к шаблонам. Ниже то, что исправлено в `spa-3.csv`. Менялись только колонки `after` и `reason`: к `reason` дописано «check 2 (skeptic) 2026-10-06: …». Колонки `before`, `action`, `source` и `decision` не тронуты. Использованы только факты из `spa-3.input.json`.
+
+### Итог правки
+
+- **Изменено:** 68 строк в 42 карточках.
+  - `why_its_here`: 31;
+  - `best_for`: 36;
+  - `not_for`: 1 (frangipani).
+- **Без изменений:** heavenly-spa, munduk-moding-plantation, sofitel-spa-with-clarins.
+- **Проверка:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-spa/spa-3.csv` завершилась с кодом 0.
+  - 45 карточек, 0 FAIL, 0 проблем на уровне пакета.
+  - fact-diff: PASS по всем карточкам.
+  - WARN по-прежнему 0 на каждой карточке.
+  - Промежуточные версии не прошли fact-diff: «Sessions …» в начале предложения читалось как имя собственное, «under one roof» как число, «Choosing …» как имя. Эти слова заменены.
+- **Сверка дублей** по `wave-db` и `wave-spa` (скрипты `xwave.mjs` и `near.mjs` из общего scratchpad, `dedupe/`):
+  - дословных совпадений 0;
+  - пар с Jaccard ≥ 0,7 у spa-3 не осталось.
+  - Первая версия frangipani `best_for` («A couple massage booked over WhatsApp») дословно совпала с svaha-spa (spa-4). У mondo и nikko нашлись близкие пары в clean-b и spa-4. Все три переписаны.
+
+### Сдвиг факта
+
+1. **frangipani, `not_for`.** Было «Couples on a budget, since even the quick couple massage costs 800K IDR». Факт о нижней границе всего списка стал фактом об одной процедуре, предупреждение сузилось до пар, а «even» намекал, что другие процедуры дешевле. Стало «Anyone on a budget, because every treatment here costs 800K IDR or more». Это снова факт о нижней границе списка, и адресован он всем.
+   - Вариант скептика «A budget massage, because the list starts at 800K IDR» не взят. 2026-10-05 его уже меняли из-за дубля с andre-bali-spa (spa-1). Кроме того, он почти совпадает с «A budget massage: the list starts at 770K IDR» (padma, clean-b, Jaccard 0,73) и «…, since the list starts at 618K IDR» (bali-tropic, clean-a).
+   - Сомнение «800K может быть ценой на двоих» в текст не внесено. Оно остаётся в разделе «Сомнительные факты» выше, его нужно проверить.
+2. **MIM, `why_its_here`.** «fill the 26-treatment list» → «lists 26 treatments, traditional massage, facials and detox treatments among them». Три примера больше не выдаются за весь список.
+3. **Ayu, `best_for`.** «A facial or a haircut fitted in on the day» → «A facial or a haircut in Sanur». Заявление «в тот же день» снято. На стрижки оно не распространяется.
+
+### Склеенные факты
+
+Заготовка держала «в списке есть процедура для пар» и «процедуры идут до N минут» как два отдельных факта. Переписанный текст склеил их в одну фразу «пары + N часов».
+
+- **Где склеено:** 3d-relaxation, royal-orchid, samuh-beach, zahra, blissful-senja, rnd. У massage-sanur, tunjungsari и munduk-tentrem так же склеены «ноги + N часов».
+- **Как исправлено:** длительность перенесена в `why_its_here` отдельным предложением или отдельной частью предложения, не рядом с парной процедурой. «Пары» тоже перенесены в `why_its_here` там, где их там не было: rnd, santhika, 3d, royal-orchid, the-ritz-carlton, blissful-senja.
+- **Что теперь в `best_for`:** один факт карточки. Например, 3d: «Getting a manicure and a traditional massage at the same spa». royal-orchid: «Shirodhara, or the royal traditional Balinese massage». blissful-senja: «Deep tissue massage in Sanur». massage-sanur: «Anyone who wants a hot stone massage». Ножной процедуры в этой карточке нет, поэтому «ноги» сняты.
+- **Длительность в `best_for`** осталась у трёх карточек: samantha, sekar-jagat, sofitel. У них нет «пар» и «ног», так что склеивать не с чем.
+
+### Шаблоны (пакет)
+
+- **«Ноги после ходьбы» в `best_for`:** было 27 из 45, стало 3. Остались yes-spa («A foot and leg massage for tired legs»), mahony («The Munduk foot ritual when your feet have had a long day») и chi («Foot reflexology when the walking is over»). Во всех трёх фраза начинается с названной процедуры.
+  - 4-грамма «a day of walking» во всём `spa-3.csv` встречается 0 раз.
+  - «Walked-out» убрано: у tunjungsari и bali-relaxing-resort-spa.
+  - Остальные `best_for` опираются на свой факт карточки: lomi lomi (karma), four-hands (mondo), flower bath (bali-relaxing-resort-spa), add-ons (koa), Fresha (kayumanis), shirodhara (serene), pedicure (griya) и т. д.
+- **«Couples + N часов»:** «Couples» открывает 2 `best_for` из 45, было 10: bali-dream и the-ritz-carlton. Длительность списка (максимум) есть в 3 `best_for` из 45, было 24. Ещё 3 называют длительность одной процедуры: rnd («an hour»), the-u-spa («45-minute»), tunjungsari («an hour of shiatsu»).
+- **Открытие `why_its_here`:**
+  - формула «<Name> is a <type> in <District> with N treatments, from X to Y» больше не встречается;
+  - «from … to …» и «range from» по трём примерам: 0, было 13. Вместо них «including», «among them», «also on the list»;
+  - порядок сломан: у 12 карточек цена процедуры стоит в первом предложении (yes-spa, jaya, mahony, chi, ijen, kayumanis, merusaka, sekar-jagat, the-u-spa, tunjungsari, blissful-senja, griya). У 8 переписанных карточек первым идёт список процедур (rnd, sanctua, 3d, royal-orchid, samuh-beach, the-ritz-carlton, ayu, massage-sanur), у 4 впереди способ записи (bali-dream, putu, mybalihealing, koa).
+- **Фраза о записи:** «own website/site» осталось на 5 карточках, было 27. Фраза о записи по-прежнему стоит в конце у большинства карточек. Вперёд или в середину она перенесена у bali-dream, putu, mybalihealing, koa, kayumanis и ayu.
+
+### Что осталось открытым
+
+- **Заготовка «same day»** осталась на munduk-moding-plantation («A same-day Balinese massage at the resort») и heavenly-spa («Same-day yoga at the Westin in Nusa Dua»). Скептик их не отмечал, поэтому они не правились. Основание у них такое же слабое, как было у Ayu. Нужно решение: снять заготовку или оставить `HOLD`, пока запись в тот же день не подтверждена.
+- **Цена frangipani.** Остаётся сомнение «800K за пару?» (см. «Сомнительные факты»).
