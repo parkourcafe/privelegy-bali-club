@@ -68,3 +68,11 @@
 - Замороженные поля не трогались: title, metaTitle, h1, card h3, вопросы FAQ, checkedNote, цены, метки [OFFICIAL]/verify, даты, названия.
 - Meta description на 10 страницах (jimbaran ×2, nusa dua ×2, sanur brunches, seminyak ×2, ubud ×2, uluwatu) остались на общей рамке «X compared: …, and how to book. Names. Checked July 2026.». Каждая читается нормально, но вместе это шаблон. Кандидаты на следующий проход, если нужно.
 - Первая фраза answer «… run from about IDR X to Y per adult» на районных страницах сохранена: это задуманный answer-first блок для цитирования.
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил одну находку. Она исправлена.
+
+- **bali-resort-day-passes, FAQ «Do you earn commission on these day passes?»** (source HTML, строка 58, и `pages.generated.json` faq[2]). Это заявление о комиссии и платном размещении, а такие фразы по правилу программы остаются байт в байт. В первом проходе тире заменили точкой, сделали «We» с заглавной и добавили «them». Смысл не изменился, но текст политики менять копирайтингом нельзя. Восстановлен исходник на 3e40897: «No. These district guides are coverage — we list passes so you can compare in one place, with no paid placement and no cut of the booking.» Тире оставлено: убирать его можно только с согласия владельца политики.
+- Заодно проверены остальные фразы политики на resort-страницах. Плашка «Coverage, not commission.» (её первая фраза) и все «resident-curated, no paid placement.» в `.checked` совпадают с 3e40897. Во второй фразе плашки («Prices are checked … , so always confirm …») говорится о ценах, а не о политике, поэтому правка оставлена.
+- После правки: `python3 scripts/resort-fnb/extract.py`, затем `node scripts/copy/check-rewrite.mjs --resort --ref 3e40897`. Код выхода 0: 125 changed, 0 FAIL, WARN 162 → 25.
