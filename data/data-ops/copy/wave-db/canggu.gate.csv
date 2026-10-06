@@ -9,7 +9,7 @@ baked-berawa,PASS,,dropped LEX:only,1,0
 baked-pererenan,PASS,,,1,0
 bali-barber-canggu,PASS,,,1,0
 bali-buda-canggu,PASS,,,2,0
-bali-mma-canggu,PASS,,dropped PROPER:Canggu,2,0
+bali-mma-canggu,PASS,,dropped PROPER:Canggu,2,1
 bar-vera-bistro-and-wine-bar,PASS,,,1,0
 beach-boy-canggu,PASS,,,1,0
 beachtown-grocer,PASS,,,1,0
@@ -62,7 +62,7 @@ kecambah-restaurant-at-lalasa-villas,PASS,,,2,0
 kopiten,PASS,,,0,0
 la-brisa-bali,PASS,,"dropped LEX:Best, LEX:laid-back",1,0
 loop-cafe,PASS,,,1,0
-lowcal-cheatery-and-bar,PASS,,dropped PROPER:Diners,1,0
+lowcal-cheatery-and-bar,PASS,,dropped PROPER:Diners,1,1
 lulu-bistrot,PASS,,,0,0
 luma,PASS,,dropped PROPER:Draught,3,0
 lyma-beach,PASS,,,0,0
@@ -80,7 +80,7 @@ murmur-restaurant-lounge,PASS,,,1,0
 nail-lesss-canggu,PASS,,dropped PROPER:Travellers,1,0
 neighbourhood-food-berawa,PASS,,dropped LEX:laid-back,1,0
 neighbourhood-food-seseh,PASS,,dropped LEX:laid-back,1,0
-nirvana-strength-tibubeneng,PASS,,,1,0
+nirvana-strength-tibubeneng,PASS,,,1,1
 nude-berawa,PASS,,dropped LEX:popular,1,0
 obsidian-gym-bali-canggu,PASS,,dropped PROPER:Serious,1,0
 only-nails-pererenan,PASS,,dropped PROPER:Travellers,1,0
@@ -96,14 +96,14 @@ riviera-bistro-berawa,PASS,,,1,0
 riviera-cafe-cemagi,PASS,,,0,0
 riviera-trattoria-pererenan,PASS,,dropped LEX:authentic,0,0
 rize-cafe,PASS,,dropped PROPER:Diners,2,0
-ruko-cafe,PASS,,dropped PROPER:Post,2,0
+ruko-cafe,PASS,,"dropped DAY:daily, PROPER:Post",2,1
 sa-mesa-canggu-experience-dining,PASS,,,2,0
 sama-sama-prime,PASS,,dropped COUNT:two,2,0
 samadi-bali,PASS,,,1,0
 samesa-canggu,PASS,,,1,0
 santanera,PASS,,,1,0
 satu-satu-coffee-company,PASS,,,2,0
-saya-club,PASS,,,1,0
+saya-club,PASS,,,1,1
 secana-rooftop-bali,PASS,,,2,0
 secret-spot-bali,PASS,,dropped PROPER:Extras,0,0
 seseh-general-store,PASS,,dropped LEX:laid-back,1,0
@@ -112,10 +112,10 @@ shichirin-japanese-restaurant-canggu,PASS,,,1,0
 shosan-holistic-spa-canggu,PASS,,,1,1
 sia-grill-and-seafood-bar,PASS,,,1,0
 skool-kitchen,PASS,,,2,0
-smoke-grill-master-and-barbeque-bali,PASS,,,1,0
+smoke-grill-master-and-barbeque-bali,PASS,,,1,1
 spring-spa-canggu,PASS,,dropped PROPER:Visitors,2,0
-surya-fitness-gym,PASS,,,1,0
-sushimi-bali,PASS,,,1,0
+surya-fitness-gym,PASS,,,1,1
+sushimi-bali,PASS,,,1,1
 swarna-spa-and-wellness,PASS,,"dropped LEX:authentic, PROPER:Travellers",3,0
 the-avocado-factory,PASS,,,1,0
 the-canggu-studio-canggu,PASS,,,0,0
@@ -143,7 +143,7 @@ warung-nonii,PASS,,,1,0
 warung-sika,PASS,,"dropped LEX:most, LEX:popular, PROPER:Canggu's, LEX:authentic",0,0
 woods-bali,PASS,,,0,0
 workmates-coworking-space-and-cafe,PASS,,,1,0
-wrong-gym-pererenan,PASS,,,2,0
+wrong-gym-pererenan,PASS,,,2,1
 yema-kitchen,PASS,,,3,0
 yuki-canggu,PASS,,dropped LEX:laid-back,2,0
 zin-cafe-canggu,PASS,,,2,0

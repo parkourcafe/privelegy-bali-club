@@ -115,3 +115,29 @@
 **Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/canggu.csv` → 148 cards · 0 FAIL · batch problems 0, exit 0. Число WARN не выросло.
 
 **Остаётся открытым (не трогалось):** lowcal-cheatery-and-bar — «a low-calorie menu that also covers paleolithic and ketogenic eating» делает low-calorie главным, хотя в источнике все три равноправны. Проверить в следующем проходе.
+
+## Разнообразие начал (2026-10-06)
+
+Повод: после проверки 2 описания всё ещё открывались шаблоном «<Name> is a/an/the …» (включая «<Name>, приложение, is a» и «The <branch> of X is a»), местами по три соседние карточки подряд. Ворота этого не видят. План взят из черновика предыдущего агента, но список строк пересчитан по текущему CSV, уже после правок скептика.
+
+- **Счёт** (первое предложение `why_its_here` в порядке файла, 140 карточек):
+  - было: 68 «<Name> is a/an/the», 14 соседних пар, 5 троек подряд;
+  - стало: 23, соседних пар 0, троек 0.
+- **Оставлены как есть (23).** Ни одна не стоит рядом с другой: beachtown-grocer, bonito, chow-chow, cutiepai, e-a-r-t-h, finns-recreation, goldust-spa, ju-bali, la-brisa, lyma-beach, miel, murmur, pizza-fabbrica, riviera-bistro, samadi, secret-spot, skool-kitchen, the-flow, hairshop, tropical-nomad, warung-local, workmates, zin.
+- **Переписано 45 первых предложений.** Только перестановка слов самой карточки, без нового факта и без оценочных слов. Формы:
+  - место впереди («On/At/Near/Among…», инверсия у Warung Nonii) — 11;
+  - имя + глагол («has / pairs / serves / keeps…») — 10;
+  - приложение «X, a …, глагол» — 12;
+  - факт как подлежащее («Spices are ground daily at Rize…», «Weights and machines fill…») — 7;
+  - вводный оборот («From early morning…», «Trading as MASONRY.…») — 2;
+  - «A …, X глагол» — 3.
+
+  Первое предложение по-прежнему говорит, что это за место (оно же мета-описание). Длина — не больше 25 слов, «offers» нет. Формулы «<Category> on Jl.» нет. У каждой изменённой карточки форма начала отличается от обоих соседей. Заметок ворот о пяти одинаковых первых трёх словах нет: чаще всего встречается «on jl pantai», 3 раза.
+- **Udara / Organic Ocean.** Во второе предложение перенесено «open daily to guests and visitors»: оно стало концом первого. Слова те же.
+- **Обход ловушки A5.** Три приложения («Swarna, a spa and wellness…», «Yema Kitchen, a café and restaurant…», «7AM Bakers… outlet, a bakery and…») давали ложный «X, Y and Z». Их переписали иначе, и WARN по карточкам не вырос: 10 → 10.
+- **`best_for`.** Шли серии из 3–7 соседних карточек на «A …». Разорваны в 16 строках: ashe, baked-pererenan, bar-vera, billy-ho, copenhagen, dandelion, e-a-r-t-h, face-therapy, flex, home-by-chef-wayan, neighbourhood-food-berawa, revolver, riviera-cafe-cemagi, samesa, secret-spot, victory.
+  - Приём: множественное число или неисчисляемое без артикля («Late dinners…», «Brunch, coffee or…»), либо вперёд выносится еда или люди («Japanese small plates and cocktails over a long lunch…», «Tables that mix meat, seafood and vegan eaters…»).
+  - Теперь подряд не больше двух «A …».
+  - Дублей с другими `wave-db/*.csv` и `wave-spa/*.csv` нет.
+- **Как правили.** Скрипт на модуле csv. Сначала проверено, что файл читается и записывается обратно байт в байт. Менялась только колонка `after` (61 строка: 45 `why_its_here` и 16 `best_for`). В `reason` дописана пометка прохода. `before` не изменён.
+- **Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/canggu.csv` → 148 cards · 0 FAIL · batch problems 0, exit 0. `canggu.gate.csv` не обновлялся.
