@@ -463,7 +463,7 @@
       "warns": 0
     },
     "components/menu/MenuItem.tsx": {
-      "words": 13,
+      "words": 8,
       "fails": {},
       "warns": 0
     },
@@ -818,6 +818,11 @@
         "H1": 1
       },
       "warns": 99
+    },
+    "lib/venue-display.ts": {
+      "words": 8,
+      "fails": {},
+      "warns": 0
     },
     "lib/venue-validation.ts": {
       "words": 9,
