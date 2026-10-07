@@ -101,4 +101,19 @@
 - Блок 1, батч 1 Uluwatu (32 оператора: 10 в пустые поля, 16 замен, 6 снятых сайтов-казино) — 0 расхождений.
 - Блок 2, stage1 (27) — 0 расхождений.
 - Блок 3, заглушки (101 × 2 поля) — в базе 0 заглушек. Ошибка «stubs: expected 101 rows, got 0» пришла от повторного запуска уже применённого блока: защита сработала, второй запуск ничего не изменил.
-- Блок 4, пилот (29) — ждёт запуска.
+- Блок 4, пилот (29) — 0 расхождений.
+- Все 101 карточка бывших заглушек по-прежнему опубликованы; оба поля у них NULL.
+
+**Живые страницы (`curl`, 07.10):**
+- mozza-sanur (заглушка): нет ни «Travellers looking», ни «owner-confirmed». Meta description — шаблон. robots — `index, follow`: гейт прода индексацию не снял, в отличие от гейта main.
+- merah-putih (B1): meta-шаблон, `index, follow`.
+- cafe-vida (B2), nook-umalas, atlas, kilig (пилот): новый текст на месте.
+- alchemy-uluwatu: часы есть в JSON-LD (`openingHoursSpecification`).
+- gooseberry-french-restaurant-uluwatu: телефон и координаты в разметке.
+- the-elephant: ссылки на elephantbali больше нет.
+
+**Кэш.** Сайт держит данные до 5 минут: `revalidate = 300` на `/places/[slug]` и `unstable_cache` с `PUBLIC_CACHE_REVALIDATE_SECONDS = 300` (`lib/data/public-cache.ts`). Nook Umalas сначала показал старый текст, через несколько минут — новый. Запись в базу видна не сразу, но без деплоя.
+
+**Отметки «база: применено 2026-10-07»:** `stage1/CHANGE-LIST.md` (там же решение 06.10 по 101 заглушке), `pilot/CHANGE-LIST.md`, `verification/2026-09-28-batch-01-uluwatu/CHANGE-LIST.md` и его `RUNLOG.md`. Обе инструкции `DB-APPLY-NEXT-SESSION.md` помечены как выполненные.
+
+**Дальше.** Волновые списки (районы, clean-a/b, спа 1–6, rewrite-now, маршруты) в базу не пишутся, пока основательница не посмотрит их построчно на странице просмотра и не скажет «да» по каждому списку.
