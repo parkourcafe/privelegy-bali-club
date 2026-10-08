@@ -105,3 +105,37 @@
 ### Сверка дублей
 
 Гейт проверяет дубли только внутри `spa-6`. Поэтому новые `best_for` дополнительно сверены поиском по CSV и JSON в `data/data-ops/copy/`: дословных совпадений нет. Близкие по смыслу формулировки (не дословные) не сверялись.
+
+## Решение основательницы 08.10
+
+Правила: 1 — противоречие данным самой карточки или прошедший срок убирается; 2 — неподтверждённые заявления о престиже убираются. Менялись только `after` и `reason`, к `reason` дописано «2026-10-08 founder rule …». Новых строк нет. Гейт: `43 cards · 0 FAIL · batch problems 0`.
+
+- **villa-sonia-ubud-ubud, `why_its_here`** — убрано «A Balinese Deluxe room is listed at 3491K IDR, and» (правило 1). Цена номера не процедура и не может быть ценой спа-списка, так же как ужин у Bali Dream в spa-1. Стало «… Booking is on the venue's own website.»
+- **villa-sonia-ubud-ubud, `best_for`** — убрано «booked on a whim» (правило 1, заготовка «same day» без опоры в записи).
+
+Заготовка «booked the same day» в пересказанном виде убрана ещё у десяти карточек (правило 1, в записи нет ничего о записи в тот же день):
+
+- **atmos-bodylab-uluwatu-bukit** — убрано «for today».
+- **bali-surfing-camp-uluwatu-bukit** — убрано «booked for the same day».
+- **bali-yoga-uluwatu-bukit** — убрано «on the day you feel like it». Осталось «Yoga».
+- **flex-flow-uluwatu-bukit** — убрано «sorted out the same day».
+- **holiday-inn-resort-baruna-bali-tea-tree-spa-uluwatu-bukit** — убрано «booked that day».
+- **laia-spa-uluwatu-bukit** — убрано «the same day you decide you want it». Осталось «A traditional massage».
+- **rose-petal-beauty-center-uluwatu-bukit** — убрано «same-day». Осталось «A facial, booked on Fresha».
+- **salty-face-bali-uluwatu-bukit** — убрано «at short notice». Осталось «A facial».
+- **supernatural-wellbeing-uluwatu-bukit** — убрано «unplanned». Осталось «A Swedish massage in the Bukit».
+- **wrong-gym-uluwatu-bukit** — убрано «you can book on the day». Осталось «An ice bath».
+
+Так пункт «Booked the same day» в разделе «Сомнительные факты» закрыт для всех 11 карточек.
+
+Правило 2: в `after` нет ни одного заявления о престиже.
+
+Сознательно не тронуто:
+- **villa-sonia, `not_for`** «Anyone counting rupiah, with 3341K IDR as the lowest price listed». Ни одна цена в карточке этому порогу не противоречит, поэтому правило 1 не применимо. Но 3341K, скорее всего, тоже цена номера. **До публикации нужно проверить источник; решение за основательницей.**
+- **The Wellness Spa 605K** за массаж стоп — это цена, она идёт в очередь сбора фактов.
+- **Мотив ходьбы** у AYANA, Luhur, Shiki, Spa Shell, Spring Spa, The Resting Koala, Sohamsa, Piccolina, D’Nailbar, Win и Pandawa. Процедура для ног или рефлексология названа в карточке, мотив опирается на запись.
+- **Пороги в `not_for`** у Anantara (750K) и ATMOS (700K). Совпадают с ценами в тексте, противоречий нет.
+- **Категории** Ubud Home Massage Service, Bali Surfing Camp, Pandawa, Sohamsa, маникюр у Bali Yoga и The Istana Spa, а также позиция «Recovery» у ATMOS решаются отдельно.
+- **Карточки без способа записи или без длительности.** Ничего не добавлялось.
+- **OAZA Uluwatu** — дубль записи из spa-2 (Legian). Решается отдельно.
+- villa-sonia-ubud-ubud — `not_for` очищено целиком (правило 1): 3341K IDR — почти наверняка цена номера, как 3491K у Balinese Deluxe room, а не цена процедуры.

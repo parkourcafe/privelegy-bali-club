@@ -97,3 +97,28 @@
    - The Care и Bali Spirit в списке слагов этого замечания не стояли, но в его тексте названы среди одиннадцати. Поэтому они исправлены в этом же проходе.
    - У Jari Menari и Wapa di Ume в карточке названа только одна процедура. `best_for` держится на ней и на типе места или районе. Пустым поле не оставлено: процедура названа в самой карточке.
    - Banyan Tree: название заведения в тексте по-прежнему не повторяется. Вопрос про меню из Макао (см. «Сомнительные факты») остаётся открытым.
+
+## Решение основательницы 08.10
+
+Правила: 1 — противоречие данным самой карточки или прошедший срок убирается; 2 — неподтверждённые заявления о престиже убираются. Менялись только `after` и `reason`, к `reason` дописано «2026-10-08 founder rule …». Новых строк нет. Гейт: `45 cards · 0 FAIL · batch problems 0`.
+
+Заготовка «tired feet after a day of walking» убрана у всех восьми карточек, где в записи нет процедуры для ног (правило 1, заготовка без опоры в записи):
+
+- **body-soul-massage-seminyak, `best_for`** — убрано «after a long day on foot». Стало «A two-hour session».
+- **executive-bali-massage-seminyak, `best_for`** — убрано «or for feet that have walked all day». Стало «A massage as a couple».
+- **one-eleven-luxe-spa-seminyak, `best_for`** — убрано «for legs that walked Seminyak all day». Стало «A sports massage».
+- **spa-at-peppers-seminyak-seminyak, `best_for`** — убрано «once the day's walking is done». Стало «A Balinese massage».
+- **ssamaya-day-spa-seminyak, `best_for`** — убрано «after a day on foot». Стало «Shiatsu or a facial in Seminyak».
+- **the-lotus-spa-seminyak, `best_for`** — убрано «when your feet are tired». Стало «Up to 160 minutes of treatments».
+- **lattranaya-sidemen, `best_for`** — убрано «after a long day of walking». Стало «Reiki or sound healing».
+- **bali-tao-center-ubud, `best_for`** — убрано «Feet worn out from walking, or». Стало «A couple treatment».
+
+Правило 2: в `after` нет ни одного заявления о престиже.
+
+Сознательно не тронуто:
+- **Мотив ходьбы** у Sari, The Nest Beachside, The Nest Boutique, Asha, Bodyworks, Coolcontours, Grand Seminyak, Jazb, Kapha, Alam Shanti, Bali Botanica, Bali Wellness и Balian Springs. У каждой в карточке названа рефлексология, массаж или уход для ног, так что мотив опирается на запись. «Booked the same day» снята ещё проверкой 2.
+- **Banyan Tree Spa Macau** (возможно, меню из Макао) — вопрос, своя ли это запись. Решается отдельно, источник надо проверить до публикации.
+- **Grand Seminyak 605K и Executive 300K за 90 минут** — это цены, они идут в очередь сбора фактов.
+- **Пороги в `not_for`** у Atman, No.1, SPA BALI, The Seminyak Beach Resort, The Samaya, Alaya и Chatraka. Сверено с ценами в тексте карточек, противоречий нет.
+- **Lattranaya без массажа, Anandinii и отели или виллы, помеченные как спа** — вопрос категории, решается отдельно.
+- **Atman Spa Kerobokan в Seminyak.** Текст совпадает с полем district, расхождение есть между названием и районом внутри записи.

@@ -95,3 +95,20 @@
 - **Другие файлы волны.** Мотив ходьбы и скелет «same day» остаются в `spa-2…spa-6`: по счёту скептика, около 98 значений с ходьбой. Эти файлы ведут другие исполнители, нужна та же правка.
 - **Сомнительные факты из первой части** не тронуты: Andre 850K, ужин у Bali Dream, Jaya 847K, Fajar 505K, Maja, категории Blue Earth, Nomads, Candi и Air Seseh.
 - **Как fact-diff читает текст.** Слово с заглавной буквы в начале `best_for`, которого нет в записи, считается новым именем. Так были отклонены «Sore…», «Choosing…» и «Keeping…». «One» считается числом, а «not» меняет полярность. Начинать `best_for` лучше со слова из самой карточки.
+
+## Решение основательницы 08.10
+
+Правила: 1 — противоречие данным самой карточки или прошедший срок убирается; 2 — неподтверждённые заявления о престиже убираются. Менялись только `after` и `reason`, к `reason` дописано «2026-10-08 founder rule …». Новых строк нет: все непустые живые поля этой части уже есть в CSV. Гейт: `45 cards · 0 FAIL · batch problems 0`.
+
+- **andre-bali-spa-karangasem, `not_for`** — убрано «since that is where the list begins» (правило 1). В списке карточки есть маникюр и педикюр, а 850K IDR стоит один массаж. Это не нижняя граница списка. Осталось «A massage for less than 850K IDR».
+- **bali-dream-villa-resort-echo-beach-canggu-canggu, `why_its_here`** — убрано предложение «The Sweet Couple Dinner on the same list costs 1500K IDR.» (правило 1). Ужин не процедура и не может быть ценой спа-списка.
+- **bali-dream-villa-resort-echo-beach-canggu-canggu, `best_for`** — убрано «and the Sweet Couple Dinner» (правило 1), по той же причине. Осталось «Couples, with a couple massage on the list».
+
+Правило 2: в `after` этой части нет ни одного заявления о престиже (first, only, oldest, award, famous, iconic и т. п.). Убирать нечего.
+
+Сознательно не тронуто:
+- **Мотив ходьбы** у Alala, Hotel Uyah, Aquaria, Bloo, The Green Spa, Beach House, Espace, Hati Thai и Manori. У каждой в карточке названа процедура для ног или рефлексология, так что мотив опирается на запись. Заготовка «booked the same day» в этой части уже снята проверкой 2.
+- **Цены Jaya (847K) и Fajar (505K), порог Maja (1080K).** Это цены, они идут в отдельную очередь сбора фактов. Противоречия с другими данными карточки нет.
+- **Пороги Korra (650K) и Nikara (500K).** В карточке нет более дешёвой цены, которая бы им противоречила.
+- **Категории Blue Earth, Nomads Haus, Candi и Air Seseh** решаются отдельно, как вопрос категории.
+- **Only Nails Bali.** Срабатывание POLARITY ложное, это название.
