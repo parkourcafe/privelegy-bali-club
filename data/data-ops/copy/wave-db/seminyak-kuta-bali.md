@@ -149,3 +149,33 @@
 - **you-spa-umalas / why_its_here.** В правке было «The specials include a Sport Massage and a "Black Room" treatment.» На карточке спа или ресторана «specials» обычно читается как акция или скидка. Такого предложения в записи нет, а граница Offer в V3.1 строгая (guardrail #10). Кроме того, «experience» → «treatment» без доказательств записывало Black Room в процедуры. Стало: «The spa's own options include a Sport Massage and a "Black Room" session.» «The spa's own» передаёт смысл исходного «signature» (собственные позиции спа) без слова из списка A10. «session» нейтрально и Black Room не переклассифицирует. Колонку reason обновила, колонку before не трогала.
 - Вариант скептика («Its own treatments include… session») не взят дословно: в предыдущем предложении уже стоит «Treatments include», и повтор снова назвал бы Black Room процедурой.
 - `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/seminyak-kuta-bali.csv`: 108 карточек, 0 FAIL, проблем пакета 0, exit 0.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки (часы, адрес, район, другое поле) или прошедшей дате. Правило 2 — убрать непроверенные претензии на первенство, размер, награды и известность. Ничего не заменялось и не добавлялось. Колонка `before` не менялась. Каждая правка отмечена в `reason` своей строки.
+
+Изменено 11 карточек: 9 существующих строк и 2 новые строки.
+
+- **crossfit-seminyak** / why_its_here — убрано «near Seminyak beach». Район карточки Kuta & Legian (правило 1).
+- **sangsaka** / why_its_here — убрано «on Jl. Petitenget». В адресе карточки Jalan Raya Pangkung Sari No.100X (правило 1).
+- **the-goat-seminyak** / best_for — убрано «, not a full sit-down meal». Собственное why_its_here говорит, что бар открыт на завтрак, обед и ужин (правило 1).
+- **pavilion-surf-club-kuta-legian** / best_for — убрано «, not a full sit-down meal». Собственное why_its_here говорит «wine with dinner» (правило 1).
+- **makan-place-kuta-legian** / why_its_here — **новая строка**. Убраны «Asparagouz Soup and Grilled Chickec – Honey Edition»: названия блюд в самом источнике сломаны (правило 1). Без изменений строка попала под ворота. Вводное «Restaurant in Legian.» давало A9 FAIL, поэтому слито со следующим предложением: «A Legian restaurant whose kitchen is described as modern Indonesian.» Новых слов и фактов нет.
+- **the-laneway-restaurant-seminyak** / why_its_here — **новая строка**. Убрано «The kitchen is described as fine dining.»: ярлык противоречит записи, где траты $$, а позиции барные. Убран список «— Berawa Cocktail, In-Villa BBQ and Wednesday Night Market»: это ошибка разбора, и Berawa находится в Canggu, а не в Seminyak (правило 1). Вводное «Restaurant in Seminyak.» слито со следующим предложением по той же причине A9.
+- **kilo-kitchen-bali-seminyak** / why_its_here — убрано «the first overseas» («first overseas outpost»). Стало «This outpost of Singapore's Kilo is on Jl. Drupadi in Seminyak.» (правило 2).
+- **shichirin-japanese-restaurant-seminyak** / why_its_here — убрано «the third Shichirin on the island after Ubud and Canggu». Дата открытия «January 2025» осталась: она в прошлом и ничему в карточке не противоречит (правило 2).
+- **desa-wisata-tenganan** / why_its_here — убрано «one of Bali's oldest». Стало «is a Bali Aga village» (правило 2).
+- **rip-curl-surf-school-kuta-legian** / why_its_here — убрано «is one of the classic places to learn to surf in Bali». Это утверждение о репутации без источника. Осталось «Kuta's beach break is long and gentle.» (правило 2).
+- **rai-fitness-sunset-road-seminyak** / why_its_here — убрано «Indonesian bodybuilder». Это остаток непроверенного «bodybuilding icon». Стало «founded by Ade Rai» (правило 2). В соседней Rai Fitness Sunset Bali «world bodybuilding champion» был удалён ещё в первом проходе.
+
+**Сознательно не тронуто:**
+- **Medewi (desa-wisata-medewi).** Карточка называется «Tourism Village», а весь текст описывает пляж и серф-брейк. Противоречащую фразу вырезать нельзя: под удаление попадает весь текст. Оставлено основательнице, придумывать описание деревни нельзя.
+- **The Laneway / best_for.** «A special-occasion dinner, not a quick casual meal.» выведено из снятого ярлыка «fine dining». Само по себе оно ничему в карточке не противоречит, поэтому оставлено. Стоит пересмотреть вместе со сбором фактов.
+- **Anika Gym и Drifter.** Текст совпадает с адресом (Padangsambian Klod, Denpasar; Jl. Kayu Aya, в названии карточки тоже Kayu Aya). Неверно только поле `district` (Kuta & Legian). Это очередь data-ops.
+- **«Eat Street» у Boy'N'Cow, Natys и Corner House.** Каждая карточка согласуется со своим адресом, а расходятся они только между собой. Это не противоречие внутри карточки.
+- **Naughty Nuri's «its Ubud original»** и **Bali Barber «original location dates from 2012»** — родословная бренда, а не претензия на первенство или награду. Оставлено. Если основательница считает это правилом 2, удалить надо только эти обороты.
+- **Rai Fitness Sunset Bali «mega gym»** и **Sunset Road «enormous … weight floor»** — описание формата и размера без сравнения («largest» и подобного нет). Оставлено.
+- **Изменчивые данные** (Rai Fitness 55 000 / 699 000 IDR, BO$$MAN «until roughly 5am», Pavilion 140K 1+1, THE GOAT Cake Cups 75K, Fire устрицы 75K, Kros «open around the clock», Warung Melati «12–1pm») — уходят в очередь сбора фактов.
+- **Дубли записей** (Rai Fitness, Think Pink, Yoga 108, Prana ×3, Soham ×4) решаются отдельно.
+
+Ворота: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/seminyak-kuta-bali.csv` — 110 карточек, 0 FAIL, проблем пакета 0, exit 0. Стало 110 вместо 108, потому что Makan Place и The Laneway теперь проходят ворота.

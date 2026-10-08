@@ -110,3 +110,21 @@
 Счёт форм `best_for` в разделе «Открытия и швы» после этих правок не пересчитывался. Сдвиги: Kayumanis «момент, for …» → «момент», REVĪVŌ «люди + after» → «момент, for …», Halme «люди» → «момент», Mulia → «момент, for …». Счёт швов `not_for` не изменился.
 
 Проверка: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/nusa-dua-jimbaran.csv` — 76 карточек, 0 FAIL, проблем по пакету 0, код выхода 0. Файл `nusa-dua-jimbaran.gate.csv` не перегенерировался.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки или прошедшей дате. Правило 2 — убрать непроверенные претензии на первенство, размер, награды и известность. Ничего не заменялось и не добавлялось. Колонка `before` не менялась, новых строк нет.
+
+Изменено 2 карточки, 2 строки.
+
+- **cuca-restaurant** / why_its_here — убрано предложение «It is in the 2025 Michelin Green Guide.» Это включение в гид Michelin без источника в записи (правило 2).
+- **kriya-spa-at-grand-hyatt-bali-nusa-dua** / why_its_here — убран непроверенный перевод «whose name means 'rituals'». Стало «Kriya Spa sits in the Grand Hyatt Bali's…» (правило 2).
+
+**Сознательно не тронуто:**
+- **Koral, Mulia Spa, The Apurva Spa, Fore Coffee, Thermes Marins.** Претензии («Bali's first», «largest and most decorated», «award-winning», «one of Indonesia's largest», «best-known») удалены ещё в первом проходе. В текущем `after` их нет.
+- **Cuca «formerly of elBulli, Arzak and Daniel».** Это биография шефа, а не награда и не рейтинг. Оставлено. Если основательница сочтёт это правилом 2, удалить надо только этот оборот.
+- **Westin «open since April 2026» / «added in April 2026».** Дата в прошлом, и утверждение остаётся верным: речь о том, с какого момента работает этаж, а не об обещании на будущее. Это не правило 1, оставлено как изменчивый факт.
+- **Часы, цены и условия в прозе** (п. 8 списка сомнительных фактов: Arkipela и Karma Spa совпадают с видимыми часами карточек; Courtyard 06:00–23:00, BROOK с 14:00, Warung Mami около 13:00, Warung Dobiel около 9:00, Bawang Merah 19–21, бранч Soleil 11am–3pm, Sofitel Yoga IDR 150,000++, Manarai, Azure) — уходят в очередь сбора фактов. Противоречий видимым часам карточек нет.
+- **Адреса.** Azure, Bawang Merah (Kelan Beach), BROOK, Signa (Benoa), Piasan, Kenja: текст согласуется с адресом своей карточки.
+
+Ворота: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/nusa-dua-jimbaran.csv` — 76 карточек, 0 FAIL, проблем пакета 0, exit 0.
