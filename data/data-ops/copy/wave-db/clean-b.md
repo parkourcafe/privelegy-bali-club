@@ -136,3 +136,23 @@
   - **Moonlite.** «A couple's rooftop dinner…».
 - **Длина `why_its_here` после правок:** от 12 слов (LuxMe, Usadha) до 77 (Prime Plaza). Короче 20 слов — 25 описаний, длиннее 45 — два.
 - **Не исправлялось, вне находок:** `not_for` у Padma («the list starts at 770K») и Ubud Bodyworks («the list starts at 750K»). Обе цены остаются в разделе «Сомнительные факты» и требуют проверки по источнику.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки (часы, адрес, район, другое поле) или дате, которая уже прошла. Правило 2 — убрать «первый / единственный / крупнейший», рейтинги и награды без названного проверяемого источника в записи. Ничего не добавлялось. Изменены 5 полей в 5 карточках: 2 существующие строки и 3 новых (у этих полей в CSV не было строки; `before` взят из живого текста, `source` = `founder decision 2026-10-08`). Ворота: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/clean-b.csv` — 104 cards · 0 FAIL · batch problems 0.
+
+- **pole-studio-bali** (`why_its_here`) — убрано «in Seminyak»: район карточки — Kuta & Legian, адреса в записи нет. Правило 1.
+- **reform-pilates-bingin** (новая строка `why_its_here`) — убрано «The first»; теперь «A reformer pilates studio in Bingin, opened in 2023 by Abbey». Правило 2.
+- **s2s-crossfit** (`why_its_here`) — убрано «and the first CrossFit affiliate on the island». Правило 2.
+- **swan-restaurant-keramas-desa-swan-villas-and-spa** (новая строка `why_its_here`) — убрано «, Ubud»: адрес карточки — Keramas Beach, Gianyar, это побережье, а не Убуд. Правило 1. Неверный район в метаданных (Ubud) остаётся в очереди data-ops.
+- **tsune-japanese-restaurant-sanur-by-wonderspace** (новая строка `why_its_here`) — убрано «Indonesia's first»; теперь «with floating sushi». Правило 2.
+
+### Сомнительные факты, которые сознательно не тронуты
+
+- **mychef-canggu (850K = Wine Pairing), Padma (770K), Ubud Bodyworks (750K), The Garcia (690K)** — цены. Ими занимается отдельная очередь сбора фактов. У Padma `not_for` говорит о массаже, хотя `why_its_here` называет только hair treatment. Строка в `not_for` — ценовой факт без источника, а не опровержение другого поля. Оставлена для сбора фактов.
+- **Moonlite** — расхождение «nightly / most nights» уже снято второй проверкой: частота осталась только в `why_its_here`.
+- **Prime Plaza** — трактовка «sauna and hot tub included» уже снята второй проверкой.
+- **Reform Pilates Bingin** — «Pre- and post-natal … for the first and second trimesters». Фраза противоречит сама себе. Правило 1 тут не срабатывает: данных карточки, с которыми она спорит, нет, а убрать одну из половин значило бы выбрать факт. Нужна проверка по источнику.
+- **Luxury Spa, Mû Boutique Resort** («список» — только pilates или yoga) — ошибка данных генератора, очередь сбора фактов.
+- **Заготовки «in <деревня>, Ubud» с адресом в Payangan / Tegallalang** (the-kelusa, paoman, t-dung) — «Ubud» здесь название большого района. Это ошибка района в метаданных, очередь data-ops. Swan — исключение: Keramas находится на побережье.
+- **mapogu** — «live music plays at weekends» при кухне, закрытой в воскресенье. Это не противоречие: музыка может быть в субботу, а закрыта кухня, а не заведение.

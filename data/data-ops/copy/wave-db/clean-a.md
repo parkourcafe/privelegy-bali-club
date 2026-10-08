@@ -187,3 +187,28 @@
 - fresh (10) сведён в одно предложение.
 
 Других фактов в этих записях нет. Ворота считают это заметкой, а не ошибкой. Карточки ждут сбора фактов. Цифры о длине в разделе «Итог» выше относятся к первому проходу.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки (часы, адрес, район, другое поле) или дате, которая уже прошла. Правило 2 — убрать «первый / единственный / крупнейший / старейший», рейтинги и награды без названного проверяемого источника в записи. Ничего не добавлялось. Изменены 8 полей в 7 карточках: 2 существующие строки и 6 новых (у этих полей в CSV не было строки; `before` взят из живого текста, `source` = `founder decision 2026-10-08`). Ворота: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/clean-a.csv` — 78 cards · 0 FAIL · batch problems 0.
+
+- **brie-restaurant-and-cheesery** (новая строка `why_its_here`) — убрано «The only restaurant in Bali»; теперь «A restaurant with its own cheesery». Правило 2.
+- **celebrity-fitness** (новая строка `why_its_here`) — убрано «The first … to open in Bali»; теперь «An international gym chain at Lippo Plaza on Sunset Road». Правило 2.
+- **chaskaa-modern-indian-cuisine-and-bar-at-jimbaran** (новая строка `why_its_here`) — убрано «in Uluwatu Bukit»: адрес карточки — Uluwatu St, Jimbaran. Правило 1. Неверный район в метаданных (Uluwatu) остаётся в очереди data-ops.
+- **desa-wisata-besakih** (новая строка `why_its_here` и существующая `best_for`) — убрано «Bali's largest and holiest» и «Bali's holiest». Правило 2.
+- **desa-wisata-bugbug** (новая строка `why_its_here`) — убрано «One of Karangasem's largest and oldest». Правило 2.
+- **jatiluwih** (новая строка `why_its_here`) — убрано «among the largest and most intact … landscapes on the island». Слова переставлены, новых нет: «UNESCO-listed subak (traditional irrigation) rice terraces…». Правило 2. «UNESCO-listed» оставлено: источник назван и проверяем.
+- **ku-de-ta** (`why_its_here`) — убрано «Bali's original». Правило 2.
+
+### Сомнительные факты, которые сознательно не тронуты
+
+- **anantara (2850K), celestine (1300K без процедур), inklusiv-warung (150K)** — цены. Ими занимается отдельная очередь сбора фактов.
+- **bali-yoga-school-ubud** — сомнение в типе места, а не противоречие и не престиж. Нужна проверка фактов.
+- **desa-wisata-sanur-kauh** — «faces north, so it catches both sunrise and sunset». Это сомнение в географии: адреса, часов или другого поля, с которыми фраза расходится, в карточке нет. Нужна проверка по источнику.
+- **chupacabras / chaskaa** (вероятные дубли) — отдельная очередь дублей.
+- **hawa-gym-tukad-yeh-aya** — текст называет Renon, Denpasar, и это адрес из самой записи. Неверен район Sanur в метаданных. Очередь data-ops.
+- **bokashi** («closed until further notice»), **cocomo** («recently»), **bali-beach-hotel-fitness-centre** («new») — изменчивые факты без даты, поэтому прошедшей даты нет. **alma** («February 2026 menu») — датированная ссылка на меню, а не истёкшее обещание. Всё это — очередь сбора фактов.
+- **Заготовки со сломанной строкой места** (house-of-tundra, jack-fruit, cabana-lounge, ikan) — строка плохо собрана, но адресу не противоречит. Решение A, чинить при сборе фактов.
+- **Заготовки «in <деревня>, Ubud» с адресом в соседнем кечаматане**: begawan-biji, cabana-lounge, glow-restaurant, jack-fruit (Payangan), botanist (Tegallalang), citrus, collina-kawi (Tampaksiring / Pejeng). Здесь «Ubud» — название большого района, и сами курорты в Payangan подают себя как Ubud. Это ошибка района в метаданных, а не текст, который спорит с адресом. Очередь data-ops. Самые спорные — Tampaksiring и Pejeng.
+- **bali-padel-academy** — «international headquarters of the NOX Future Academy». Это не превосходная степень, и фраза прямо приписана сайту заведения. Оставлено.
+- **amplitude** — «the largest an Olympic-size 10ft» говорит о самой большой из трёх чаш, а не о ранге. Оставлено.
