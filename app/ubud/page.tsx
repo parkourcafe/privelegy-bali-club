@@ -65,7 +65,7 @@ const placeLinks = [
   { href: "/places/svaha-spa-bisma-ubud", label: "Svaha Spa Bisma", category: "Wellness" },
   { href: "/places/taksu-spa-ubud", label: "Taksu Spa", category: "Wellness" },
   { href: "/places/taksu-spa-beauty-ubud", label: "Taksu Spa Beauty", category: "Beauty" },
-  { href: "/places/taksu-yoga-ubud", label: "Taksu Yoga & Wellness Center", category: "Yoga & wellness" },
+  { href: "/places/taksu-yoga", label: "Taksu Yoga & Wellness Center", category: "Yoga & wellness" },
   { href: "/places/titi-batu-ubud-club-ubud", label: "Titi Batu Ubud Club", category: "Fitness" },
   { href: "/places/ubud-beauty-salon", label: "Ubud Beauty Salon", category: "Beauty" },
   { href: "/places/ubud-fitness-center", label: "Ubud Fitness Center", category: "Fitness" },
