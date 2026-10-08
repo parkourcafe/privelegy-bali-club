@@ -19,6 +19,11 @@ test("public cache has a bounded five-minute revalidation window", async () => {
 test("published reads are cached while guest identity remains outside cache scopes", async () => {
   const source = await read("lib/data.ts");
   assert.match(source, /unstable_cache\(\s*fetchPublishedVenues/);
+  assert.match(source, /published-venues-v3/);
+  assert.match(source, /if \(v\.length === 0\) throw new Error\("published-venues-empty"\)/);
+  assert.match(source, /return await getCachedPublishedVenues\(\)/);
+  assert.match(source, /reactCache\(getPublishedVenuesFailClosed\)/);
+  assert.match(source, /warnPublicReadFailed\("published-venues", e\);\s*return \[\];/);
   assert.match(source, /unstable_cache\(\s*fetchVenueWithPerk/);
   assert.match(source, /export async function getSavedSlugs/);
   assert.doesNotMatch(source, /unstable_cache\(\s*getSavedSlugs/);
