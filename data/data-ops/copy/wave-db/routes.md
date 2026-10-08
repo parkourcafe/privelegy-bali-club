@@ -87,3 +87,18 @@
 - в базу ничего не записано, коммита нет.
 
 **Сомнительные факты:** новых нет, список выше не изменился.
+
+## Решение основательницы 08.10
+
+Правило 2: превосходные степени и заявления о статусе без названного источника в записи удаляются. Взамен ничего не пишется. Изменены 2 строки маршрута **east-bali-heritage-day**. Колонка `before` не тронута, причина каждой правки дописана в `reason`.
+
+- **east-bali-heritage-day / subtitle** (правило 2). Удалено «Bali's holiest». Стало: «A temple, then a Bali Aga weaving village». `action` сменился с `keep` на `replace`. Раньше «holiest» оставляли как статус храма, но к нему относится то же правило, что к «largest» в заметке той же остановки. Подзаголовок стал тоньше. Название храма из заметки не переносилось: факты между полями не переносим.
+- **east-bali-heritage-day/desa-wisata-besakih#10 / note** (правило 2). Удалено «Bali's largest». Стало: «Start at the temple complex. Go early for the managed route up to the gate.»
+
+**Ворота:** `check-cards.mjs` к этому списку не применяется. Проверено построчно: изменились только `after`, `reason` и `action` у одной строки. `before` совпадает с HEAD.
+
+**Сознательно не тронуто:**
+- **desa-wisata-tenganan**, «a Bali Aga village known for double-ikat weaving». «known for» говорит о том, что в деревне делают, а не о первенстве или рейтинге. Под правило 2 по букве не попадает. Если основательница считает «known for» той же рамкой известности, что «famous», минимальная правка такая: «…to a Bali Aga village».
+- **bangli-temple-village-day**, «Bangli's state temple». Это административный статус храма, а не превосходная степень.
+- **air-terjun-tegenungan** «no trek required», **tirta-empul** «before the tour buses», **pura-kehen** «quieter … away from the south-Bali circuit». Это не противоречие данным записи и не заявление о первенстве. Их нужно проверить в очереди сбора фактов.
+- **besakih**, «managed route up to the gate». Это не правило 1 и не правило 2.

@@ -89,3 +89,22 @@
 **Оставлено дословно:** manga-madu (`best_for`, `not_for`), dewas, humans, made's. Цены, время и числа те же: 07:30; 20,000 IDR; 1,450,000 IDR; thirteen; April 2016; 2025.
 
 **Новых сомнительных фактов не найдено.** Список выше в силе. Одна мелочь: в mamu слово «lounge» стоит дважды («shisha lounge» и «air-conditioned lounge»). Так было и в исходном тексте, фактом это не является.
+
+## Решение основательницы 08.10
+
+Строки `rewrite-now.csv` проверены по правилам 1 и 2:
+- правило 1 — фраза противоречит часам, адресу или другому полю карточки, или дата в ней уже прошла;
+- правило 2 — заявления «первый / единственный / крупнейший», награды, рейтинги, известность без названного источника.
+
+**Карточек изменено: 0. CSV не менялся.** У карточек этого списка в `rewrite-now.input.json` нет видимых часов (`context_not_for_copy`), так что противоречить часам нечему. Все улицы и районы в тексте совпадают с `where`. Единственное заявление о первенстве («One of the widest shisha lists on the island», mamu) было удалено ещё при переписывании.
+
+**Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/rewrite-now.csv` → `14 cards · 0 FAIL · batch problems 0`.
+
+**Сознательно не тронуто** (пункты из «Сомнительные факты»):
+- **de-maison-bali-restaurant-and-bar.** Запись называет место «coffee shop», хотя в названии «Restaurant & Bar». `best_for` про работу из кафе в записи ничем не подкреплён. Это вопрос категории и сбора фактов: прямого противоречия данным карточки нет, а без этих слов поле пустеет.
+- **pranava-yoga, «below the premium Canggu studios».** Это сравнение цен, а не первенство, награда или рейтинг. Цена — изменчивый факт и уходит в очередь сбора.
+- **ula-cafe** («closes at 16:00 on Saturday and Sunday») и **uluwatu-collective** («closes at 19:00»). Часов на карточке нет, противоречия нет. Нужно проверить `opening_hours_json` в очереди сбора фактов.
+- **uluwatu-collective** «1,450,000 IDR» и **lemanja-uluwatu** «from 20,000 IDR». Это цены, они уходят в очередь сбора.
+- **made-s-bakery-cafe-playground** «since 2025» и **porch** «thirteen kinds». Даты, которые уже прошли, здесь нет. Это изменчивые факты.
+- **manga-madu** «close to central Ubud», «budget». С `where` = «Ubud» не расходится.
+- **mavammy**, **lemanja-uluwatu**, **amavi-canggu-bali**. Моменты «afternoon», «before the surf» и «long lunches» взяты из живого `best_for` и данным карточки не противоречат.

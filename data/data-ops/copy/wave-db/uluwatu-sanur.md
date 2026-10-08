@@ -144,3 +144,25 @@
 Отклонённых замечаний нет.
 
 Проверка: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/uluwatu-sanur.csv` — 90 карточек, 0 FAIL, проблем по пакету 0, код выхода 0. Файл `uluwatu-sanur.gate.csv` не перегенерировался.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки (часы, адрес, район, другое поле, прошедшая дата). Правило 2 — убрать первенство, рекорды, награды и рейтинги без проверяемого источника в записи. Ничего не заменялось и не добавлялось. `before` не менялся, причина дописана в `reason` каждой строки. Изменено 7 карточек: 5 существующих строк `after` и 2 новые строки. Гейт `check-cards.mjs`: 92 карточки, 0 FAIL, проблем по пакету 0.
+
+- **garuda-wisnu-kencana, `why_its_here`.** Убрано «, one of the tallest statues in the world». Правило 2: высоты и источника в записи нет.
+- **spring-spa-uluwatu, `why_its_here`.** Убрано предложение «It was named Asia's Best Day Spa at the 2025 World Spa Awards.». Правило 2.
+- **six-senses-spa-uluwatu, `why_its_here`.** Убрано число «eight»: «has treatment rooms, a yoga pavilion and a gym». Правило 1: карточка фитнес-центра называет 10 кабинетов.
+- **six-senses-uluwatu-fitness-centre, `why_its_here`.** Убрано число «ten»: «holds treatment rooms, a relaxation lounge…». Правило 1: карточка спа называет 8. Сами кабинеты в обеих карточках остались, ушло только спорное число.
+- **piccolina, `best_for`.** Убрано «, with an easygoing wine-bar feel», осталось «An expert cut or colour for men or women». Правило 1: в `why_its_here` — «small wine bottle shop», а не бар. Нейтральная часть оставлена.
+- **marramba-fitness, `why_its_here`** (новая строка; карточка в волне не менялась). Убрано предложение «The owner is a former professional bodybuilding champion.». Правило 2: чемпионский титул без названного источника. В списке выше этого не было, найдено при сканировании.
+- **the-asa-maia-pilates, `best_for`** (новая строка). Убрано «reformer-style»: «…including work on the Cadillac». Правило 1: Cadillac — не реформер. Гейт требует, чтобы `best_for` не кончался точкой, поэтому точка в конце тоже снята.
+
+**Сознательно не тронуто:**
+- **marramba-fitness, «in Renon, close to Sanur».** Адреса в записи нет, район карточки — Sanur. Renon граничит с Sanur, поэтому «close to Sanur» данным карточки не противоречит. Не правил.
+- **ours-bali-uluwatu-bukit.** «All-day restaurant» и категория «Bar» — это вопрос категории в метаданных, а не противоречие между текстами. Ушло в data-ops.
+- **terrace-sanur-the-1o1-bali-oasis-sanur.** «THE 1O1» и «The 101» — написание бренда, а не разные факты.
+- **Дубли** (morning-light-yoga, la-tribu, power-of-now, andaz / shankha) — отдельная очередь.
+- **Летучие факты** (часы, цены, happy hour, расписание Linga Longa) — оставлены по решению, очередь сбора фактов. Текст ни одной из этих карточек не противоречит видимым часам.
+- **«accredited by Yoga Alliance» (power-of-now-oasis), «Yoga Alliance 200/300-hour» (ulu-yoga)** — названа конкретная проверяемая организация, остаётся.
+- **«Certified therapists» (maya-sanur-spa), «internationally trained» (the-istana-yoga)** — квалификация персонала, а не первенство, рейтинг или награда. Под правило 2 в узком смысле не подпадает. Если основательница считает это тем же классом, это две правки по одному слову.
+- **«opened in 2021» (the-asa-maia-fitness), «opened in Bingin in 2023» (reform-pilates), «founded in 2012» (bali-barber)** — прошедшие события, а не сроки, которые истекли.

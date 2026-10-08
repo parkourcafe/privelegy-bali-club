@@ -141,3 +141,43 @@
   - Дублей с другими `wave-db/*.csv` и `wave-spa/*.csv` нет.
 - **Как правили.** Скрипт на модуле csv. Сначала проверено, что файл читается и записывается обратно байт в байт. Менялась только колонка `after` (61 строка: 45 `why_its_here` и 16 `best_for`). В `reason` дописана пометка прохода. `before` не изменён.
 - **Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/canggu.csv` → 148 cards · 0 FAIL · batch problems 0, exit 0. `canggu.gate.csv` не обновлялся.
+
+## Решение основательницы 08.10
+
+Правило 1: фраза, которая противоречит данным самой карточки (видимым часам, адресу, другому полю) или дате, которая уже прошла, удаляется из `after`. Взамен ничего не пишется. Правило 2: заявления «первый / единственный / крупнейший», награды, рейтинги и слава без названного источника в записи удаляются. Остаётся только то, что уже подано как слова самого заведения.
+
+Правка затронула 9 карточек. Изменено 8 существующих строк `after`, добавлено 5 новых строк (`source` = `founder decision 2026-10-08`). Колонка `before` не тронута. Причина каждой правки дописана в `reason`.
+
+- **saya-club** (правило 1). Видимые часы: пн–вс 06:00–22:00.
+  - `why_its_here`: удалено «open around the clock».
+  - `best_for`: новая строка, правка живого текста. Удалено «at any hour, including the middle of the night». Осталось одно слово «Training»: его можно оставить, но поле стало пустым по смыслу.
+- **sia-grill-and-seafood-bar** (правило 1). Видимые часы начинаются в 09:00.
+  - `why_its_here`: удалено «From midday to 11pm daily». Оборот снят целиком, без него фраза не держится.
+  - `not_for`: новая строка, `action null`. Поле «Breakfast — the kitchen opens at midday.» целиком держится на «midday», после удаления ничего не остаётся.
+- **mia-asian-modern-inspired-restaurant-and-bar** (правило 1). В `why_its_here` удалено «from evening»: с пн по чт место открывается в 12:00. Фраза «into the early hours at weekends» осталась. Выходные в видимых часах не показаны, так что ей противоречить нечему.
+- **bonito-restaurant** (правило 1). `not_for`: новая строка, `action null`. «Lunch — current hours are dinner-only, Monday to Saturday.» противоречит часам с 12:00, и после удаления от поля ничего не остаётся.
+- **bottega-italiana** (правило 1). Видимые часы: пн–пт 11:00–13:00.
+  - `why_its_here`: новая строка. Удалено предложение «The Berawa location ("Origano") on Jl. Pantai Berawa runs all day.» Без сказуемого «runs all day» в нём не остаётся утверждения. Описание сократилось до 17 слов.
+  - `best_for`: удалено «through the day, or a casual dinner». Осталось «Families and groups sharing pasta».
+  - `not_for`: новая строка, удалено «, last order 11:30pm».
+- **yuki-canggu** (правило 1). В `why_its_here` удалено «, and bookings are essential»: `not_for` той же карточки говорит «reservations are recommended». Убрана более сильная из двух формулировок.
+- **the-avocado-factory** (правило 1). В `why_its_here` удалено «Berawa-area»: адрес — Jl. Pantai Batu Mejan.
+- **brunch-club-pererenan** (правило 1). В `why_its_here` удалено «and lists Berawa as reopening mid-2026»: дата уже прошла.
+- **mosto-berawa** (правило 2). В `why_its_here` удалено «Billed as Indonesia's first natural wine bar». Источник в записи не назван, а «billed as» не приписывает слова самому заведению.
+
+**Ворота:** `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/canggu.csv` → `148 cards · 0 FAIL · batch problems 0`. `canggu.gate.csv` не обновлялся.
+
+**Перед применением.**
+- Пять новых строк взяли `before` из `canggu.input.json`. `check-cards` подтвердил, что он совпадает с текстом краула. Перед записью нужно сверить его с живой строкой, как и остальные.
+- Для двух строк с `action null` (`sia-grill-and-seafood-bar`, `bonito-restaurant`, поле `not_for`) `build-copy-sql.mjs` выдаст `set not_for = null`.
+
+**Сознательно не тронуто:**
+- **the-avocado-factory, «bills itself as South East Asia's first avocado bar».** В `after` утверждение уже подано как слова самого заведения, поэтому по правилу 2 его можно оставить. Но в живом тексте стоит «Billed as», без указания, кто так говорит. Приписка «itself» появилась при переписывании. У Mosto та же формулировка удалена. Если формулировку «bills itself» не принимать, нужно удалить и это утверждение: «…at The Avocado Factory, a cafe.»
+- **murmur-restaurant-lounge, «the room stays open to 2am».** В видимых часах пн–пт до 23:59, а суббота и воскресенье не показаны. При этом 23:59 у других карточек обозначает закрытие после полуночи: у 12 Urban так записана полночь, у MiA — «1am at weekends». Противоречие не доказано.
+- **obsidian-gym-bali-canggu, «top-tier kit»** (`best_for`). Это оценка качества, а не первенство, награда или рейтинг. Под правило 2 не попадает. Решение за основательницей.
+- **ju-bali** («Umalas» при адресе Jl. Bumbak Dauh, Kerobokan). **deus-ex-machina**, **pizza-fabbrica** и **samadi-bali**: улица названа точнее, чем широкое `where` («Canggu/Batu Bolong/Berawa»). Прямого противоречия адресу нет.
+- **bottega-italiana, «Origano».** Вопрос о названии ушёл вместе с удалённым предложением. Сами видимые часы 11:00–13:00 выглядят неправдоподобно. Это вопрос к сбору фактов, а не к тексту.
+- **Дубли и служебные пометки** (пункты 9–13 списка выше): sa-mesa / samesa, jungle-padel ×2, desa-seni-yoga, the-shampoo-lounge / HairShop, therapy ×2. Ими занимается отдельная очередь.
+- **lowcal-cheatery-and-bar.** Перекос акцента в описании — вопрос стиля, а не правило 1 или 2.
+- **Цены, часы и happy hour в прозе** (449k, 1100K IDR и др.) уходят в очередь сбора фактов.
+- the-avocado-factory — после проверки убрано и «bills itself as South East Asia's first avocado bar» (правило 2). Самоназвание без источника, так же как у Mosto.

@@ -106,3 +106,28 @@
 - watercress-ubud: «early breakfast» и «couples who want to talk» слиты в одно;
 - zest-ubud: выпали «Vegan diners»;
 - air-terjun-tegenungan и seniman-coffee-studio: похоже, смысл сохранён, но стоит перечитать.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки (часы, адрес, район, другое поле, прошедшая дата). Правило 2 — убрать первенство, рекорды, награды и рейтинги без проверяемого источника в записи. Ничего не заменялось и не добавлялось. `before` не менялся, причина дописана в `reason` каждой строки. Изменено 10 карточек: 8 существующих строк `after` и 2 новые строки. Гейт `check-cards.mjs`: 88 карточек, 0 FAIL, проблем по пакету 0.
+
+- **gajah-putih-ubud, `not_for`** (новая строка; живое поле в CSV раньше не входило). Убрано «— the menu starts at 400K IDR», осталось «A cheap casual meal». Правило 1: 400K — цена Pairing Wine Malam (поле spend и `why_its_here` той же карточки), а не нижняя граница меню.
+- **monkey-bar-bali, `why_its_here`.** Убрано «Klungkung», осталось «Up in the hills of East Bali». Правило 1: район карточки — Amed (Karangasem).
+- **sakti-dining-room-fivelements-retreat-bali, `why_its_here`** (новая строка; карточка в волне не менялась). Убрано «, Ubud», осталось «Restaurant in Fivelements Retreat Bali.». Правило 1: адрес — Banjar Baturning, Mambal, Abiansemal (Badung).
+- **sayuri-healing-food, `why_its_here`.** Убрано «central», осталось «cafe in Ubud». Правило 1: адрес — Jl. Sukma Kesuma, Peliatan.
+- **locavore-nxt, `why_its_here`.** Убрано предложение «It is ranked among Asia's 50 Best Restaurants.». Правило 2.
+- **gelato-secrets-ubud, `why_its_here`.** Убрано «first Bali»: «opened its shop in Ubud in 2009». Год оставлен, первенство убрано. Правило 2.
+- **kojin-teppanyaki-restaurant-ubud-by-wonderspace, `why_its_here`.** Убрано «is billed as the first irori grill in Bali»: «It opens for lunch and dinner.». Правило 2.
+- **shichirin-japanese-restaurant-ubud, `why_its_here`.** Убрано «The first Shichirin on the island»: текст начинается с «A Japanese grill restaurant on Jl. Bisma.». Правило 2.
+- **spring-spa-ubud, `why_its_here`.** Убрано «The largest»: «A Spring Spa outlet among rice terraces…». Правило 2.
+- **sacred-river-spa-at-four-seasons-sayan-ubud, `best_for`.** Убрано «five-star»: «A spa day by the river». Правило 2 (звёздность без источника). В списке скептика не было, найдено при сканировании.
+
+**Сознательно не тронуто:**
+- **kemukus-restaurant-kuwarasan-a-pramana-experience.** В тексте «Jalan Cinta, Ubud». В поле `where` полностью: «…Jalan Cinta, Penusuan, Tegallalang, Ubud, Bali 80561». И Jalan Cinta, и Ubud есть в самом адресе, район карточки тоже Ubud. Противоречия с данными карточки нет. Пункт 3 выше называл только «Tegallalang» и пропускал «Ubud» из адреса. Если основательница всё же хочет убрать «Ubud», это одна новая строка.
+- **8lements-spa-saranam.** «Bedugul highlands», а район карточки — Munduk, адреса нет. Munduk и Bedugul — одно нагорье у озёр. Это скорее неточный район в метаданных (очередь data-ops), чем противоречие в тексте. Не правил.
+- **Jaens: «'affordable luxury'».** Это формулировка самого спа в кавычках, по решению остаётся.
+- **Дубли записей** (alchemy, room-4-dessert / room4dessert, taksu-yoga / taksu-yoga-ubud) — отдельная очередь.
+- **Часы Taksu 09:00–12:00** — контекстное поле, а не текст. Тексты Taksu часам не противоречат. Очередь data-ops.
+- **Bebek Bengil, Mango Tree, Svaha, Zuna** — заявления уже были удалены в волне. Новых правок не нужно.
+- **«opened in 2025» (big-dragon-villas), «relaunched in 2024» (bali-botanica), «December 2023» (locavore-nxt)** — прошедшие события, а не сроки, которые истекли. Противоречия нет.
+- **«luxury», «ultra-luxury» (COMO, Mandapa, Mango Tree)** — описание класса, а не первенство, рейтинг или награда. Под правило 2 не подпадает.
