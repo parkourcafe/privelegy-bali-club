@@ -503,6 +503,45 @@ end ${DOLLAR_TAG};
 `;
 }
 
+// ---------------------------------------------------------------- set file
+
+// The paste file spends ~400 bytes of boilerplate per row; a wave of 2 000 rows would not fit
+// through a connector call. Here each field is one UPDATE … FROM (VALUES …) with the same md5
+// guard per row and a single row-count assertion, so a list costs little more than its text.
+function setStatement(field, rows, label) {
+  const values = rows.map((e) => `(${lit(e.slug)}, ${e.exportRaw === "" ? "null::text" : `'${md5(e.exportRaw)}'`}, ${e.after === "" ? "null::text" : asciiLit(e.after)})`).join(",\n    ");
+  const where = asciiComment(`${label} ${field}`).replace(/%/g, "%%").replace(/'/g, "''");
+  return `  update venues v set ${field} = d.val
+  from (values
+    ${values}
+  ) as d(slug, old_md5, val)
+  where v.slug = d.slug and v.status = 'active' and v.publication_status = 'published'
+    and case when d.old_md5 is null then (v.${field} is null or length(trim(v.${field})) = 0) else md5(v.${field}) = d.old_md5 end;
+  get diagnostics n = row_count; if n <> ${rows.length} then raise exception '${where}: expected ${rows.length} rows, got %', n; end if;`;
+}
+
+export function renderSet({ emitted, date, label }) {
+  const head = [
+    `-- ${asciiComment(label)}: ${emitted.length} field(s) in one DO block, one UPDATE per column.`,
+    "-- Each UPDATE must change exactly the number of rows it lists; if one does not, the whole block rolls back.",
+    `-- Generated ${date} by scripts/copy/build-copy-sql.mjs. Guards: md5 of the current text; every literal is ASCII.`,
+  ];
+  if (!emitted.length) return `${head.join("\n")}\n-- Nothing to apply.\n`;
+  const body = touchedFields(emitted).map((f) => setStatement(f, emitted.filter((e) => e.field === f), label)).join("\n\n");
+  return `${head.join("\n")}
+do ${DOLLAR_TAG}
+declare n int;
+begin
+${body}
+end ${DOLLAR_TAG};
+
+-- Check: expect 0 rows.
+select d.slug, d.field
+${pasteCheckFrom(emitted)}
+order by 1, 2;
+`;
+}
+
 // ---------------------------------------------------------------- entry points
 
 export function buildCopySql(changeRows, exportRows, options) {
@@ -524,6 +563,7 @@ export function buildCopySql(changeRows, exportRows, options) {
       [`paste-${date}.sql`]: renderPaste(ctx),
       [`preflight-${date}.sql`]: renderPreflight(ctx),
       [`dryrun-${date}.sql`]: renderDryRun(ctx),
+      [`set-${date}.sql`]: renderSet(ctx),
     },
   };
 }

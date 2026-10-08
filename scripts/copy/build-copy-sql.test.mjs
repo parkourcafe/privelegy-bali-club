@@ -294,7 +294,7 @@ test("a price band with $$ does not end the DO block", () => {
 
 test("nothing to apply still produces every file and says so", () => {
   const result = build([change({ decision: "НЕТ" })], [exported()]);
-  assert.deepEqual(Object.keys(result.files).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
+  assert.deepEqual(Object.keys(result.files).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "set-2026-10-05.sql", "summary.json", "verify-live.txt"]);
   assert.ok(result.files[`apply-${DATE}.sql`].includes("-- Nothing to apply"));
   assert.ok(!result.files[`apply-${DATE}.sql`].includes("do $apply$"));
   assert.ok(result.files[`rollback-${DATE}.sql`].includes("-- Nothing to roll back."));
@@ -339,7 +339,7 @@ test("grepPattern stops before characters React escapes and keeps to the first l
 
 // ---------------------------------------------------------------- CLI
 
-test("CLI writes the eight files into --out and prints the summary", async () => {
+test("CLI writes the nine files into --out and prints the summary", async () => {
   const out = await mkdtemp(path.join(os.tmpdir(), "copy-sql-"));
   try {
     const { stdout } = await execFileAsync(process.execPath, [
@@ -354,8 +354,8 @@ test("CLI writes the eight files into --out and prints the summary", async () =>
     assert.equal(printed.emitted, 4);
     assert.equal(printed.held, 2);
     assert.equal(printed.notApplied, 1);
-    assert.equal(printed.written.length, 8);
-    assert.deepEqual((await readdir(out)).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "summary.json", "verify-live.txt"]);
+    assert.equal(printed.written.length, 9);
+    assert.deepEqual((await readdir(out)).sort(), ["apply-2026-10-05.sql", "dryrun-2026-10-05.sql", "holds.csv", "paste-2026-10-05.sql", "preflight-2026-10-05.sql", "rollback-2026-10-05.sql", "set-2026-10-05.sql", "summary.json", "verify-live.txt"]);
     const apply = await readFile(path.join(out, `apply-${DATE}.sql`), "utf8");
     assert.ok(apply.includes("raise exception 'Sample wave #1 (warung-lembah-canggu · why_its_here): expected 1 row, got %'"));
     assert.ok(apply.includes(`Inputs: changes=${fixture("change-list.sample.csv")} · export=${fixture("venues-export.sample.csv")}`));
@@ -520,4 +520,38 @@ test("preflight file: read-only, one row per statement counting its WHERE and ch
     assert.ok(pre.includes(e.after === "" ? `${where}), true)` : `, md5(${asciiLit(e.after)}) = '${md5(e.after)}')`), e.unit_id);
   }
   assert.ok(pre.includes("where t.rows_matched <> 1 or not t.text_ok"));
+});
+
+test("set file: one UPDATE per column with md5 guards, an exact row count, and the shared check", () => {
+  const result = buildFixtures();
+  const set = result.files[`set-${DATE}.sql`];
+  assert.match(set, /^[\x00-\x7f]*$/);
+  const block = doBlock(set);
+  const fields = [...new Set(result.emitted.map((e) => e.field))];
+  assert.equal(count(block, "update venues v set"), fields.length);
+  for (const f of fields) {
+    const n = result.emitted.filter((e) => e.field === f).length;
+    assert.ok(block.includes(`update venues v set ${f} = d.val`), f);
+    assert.ok(block.includes(`if n <> ${n} then raise exception`), f);
+  }
+  for (const e of result.emitted) {
+    if (e.exportRaw) assert.ok(block.includes(`('${e.slug}', '${md5(e.exportRaw)}', `), e.unit_id);
+  }
+  assert.ok(block.includes("v.status = 'active' and v.publication_status = 'published'"));
+  assert.ok(set.includes("-- Check: expect 0 rows."));
+});
+
+test("set file: an empty before is guarded as null-or-blank and a null write stays null", () => {
+  const add = build([change({ field: "not_for", before: "", after: "Groups over eight" })], [exported()]).files[`set-${DATE}.sql`];
+  assert.ok(add.includes("('slug-a', null::text, 'Groups over eight')"));
+  assert.ok(add.includes("case when d.old_md5 is null then (v.not_for is null or length(trim(v.not_for)) = 0) else md5(v.not_for) = d.old_md5 end"));
+  const clear = build([change({ after: "", action: "null" })], [exported()]).files[`set-${DATE}.sql`];
+  assert.ok(clear.includes(`('slug-a', '${md5("Old")}', null::text)`));
+});
+
+test("set file: non-ASCII text decodes back exactly", () => {
+  const after = "Caf\u00e9 \u2014 Pererenan\u2019s";
+  const set = build([change({ after })], [exported()]).files[`set-${DATE}.sql`];
+  assert.match(set, /^[\x00-\x7f]*$/);
+  assert.ok(set.includes(asciiLit(after)));
 });
