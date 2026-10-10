@@ -12,7 +12,7 @@
 // Dropped facts are listed, never blocked: a deliberate deletion is allowed but
 // has to be visible.
 //
-//   node scripts/copy/check-rewrite.mjs <file> [<file> …] [--ref HEAD] [--report out.csv]
+//   node scripts/copy/check-rewrite.mjs <file> [<file> …] [--ref HEAD] [--report out.csv] [--allow-structure <file>[:<path>]]
 //   node scripts/copy/check-rewrite.mjs --resort [--ref HEAD] [--report out.csv]
 //
 // Exit 1 when any changed unit fails.
@@ -134,6 +134,20 @@ function resort(ref) {
   return { label: RESORT_JSON, ...checkUnits(before, after, { label: RESORT_JSON }) };
 }
 
+// A unit that appears or disappears has no partner to be checked against, so
+// it would skip the fact, pinned-copy and frozen-heading checks. It fails the
+// gate unless the run names it with --allow-structure "<file>" (or
+// "<file>:<path>") after a person has looked at the change.
+export function structuralVerdicts(result, allowed) {
+  const unaccepted = [];
+  const accepted = [];
+  for (const s of result.structural) {
+    const ok = allowed.some((a) => a === result.label || `${result.label}:${s}`.startsWith(a));
+    (ok ? accepted : unaccepted).push(s);
+  }
+  return { unaccepted, accepted };
+}
+
 const csvCell = (v) => {
   const s = String(v ?? "");
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -150,6 +164,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   };
   const ref = take("--ref") ?? "HEAD";
   const report = take("--report");
+  const allowed = [];
+  for (let a = take("--allow-structure"); a !== null; a = take("--allow-structure")) allowed.push(a);
   const wantResort = args.includes("--resort");
   const files = args.filter((a) => !a.startsWith("--"));
   const results = [...files.map((f) => codeFile(f, ref)), ...(wantResort ? [resort(ref)] : [])];
@@ -158,12 +174,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   for (const r of results) {
     const fails = r.rows.filter((x) => x.verdict === "FAIL");
     failed += fails.length;
+    const { unaccepted, accepted } = structuralVerdicts(r, allowed);
+    failed += unaccepted.length;
     const warnRise = r.warnAfter > r.warnBefore;
     if (warnRise) failed += 1;
     all.push(...r.rows);
     console.log(`${r.label}: ${r.rows.length} changed · ${fails.length} FAIL · WARN ${r.warnBefore} → ${r.warnAfter}${warnRise ? " (ROSE)" : ""}`);
     for (const x of fails) console.log(`  FAIL ${x.path}: ${x.problems}\n    after: ${x.after.slice(0, 160)}`);
-    for (const s of r.structural) console.log(`  STRUCTURE ${s}`);
+    for (const s of unaccepted) console.log(`  STRUCTURE FAIL ${s}`);
+    for (const s of accepted) console.log(`  STRUCTURE accepted ${s}`);
     for (const d of r.dropped) console.log(`  dropped ${d}`);
   }
   if (report) {
