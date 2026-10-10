@@ -1,0 +1,11 @@
+# Sample change list for scripts/copy/build-copy-sql.mjs — synthetic venues and copy, not venue truth.
+# One row = one field of one record. Only surface=db with decision=ДА is turned into SQL.
+unit_id,surface,slug_or_path,field,before,after,action,reason,source,decision
+U-01,db,warung-lembah-canggu,why_its_here,"All-day warung with a big menu and a lively crowd.","Canggu's longest-running warung — a 25-dish menu served from 7am to 3pm.
+Portions are large; the kitchen's rice bowls are the anchor.",replace,"Split the bundled sentence; the impressions move to not_for.",editorial visit 2026-09-14; menu board photo,ДА
+U-02,db,kopi-tebing-uluwatu,best_for,Groups,"Long brunches for groups of 6–10 — the terrace tables seat ten.",replace,Replace the one-word label with the fact the record carries.,official site /about (read 2026-09-20),ДА
+U-03,db,warung-lembah-canggu,not_for,"Anyone after a quiet laptop session — it's loud by 10am",,null,Impression without a source; cleared until a visit records it.,,ДА
+U-04,db,sari-garden-ubud,best_for,Everyone,,null,A Best for that fits everyone fits no one.,,ДА
+U-05,db,pasar-senja-seminyak,price_anchor,"IDR 50,000–90,000 mains","Mains IDR 55,000–95,000 (menu board, 2026-09-14)",replace,Prices re-read from the menu board.,menu board photo 2026-09-14,ДА
+U-06,db,blue-door-sanur,what_to_order,,"Smoked marlin sandwich; the 7am sourdough",replace,Items from the printed menu.,printed menu 2026-09-18,ДА
+U-07,db,nasi-pagi-jimbaran,why_its_here,"Classic Jimbaran seafood on the sand.","Jimbaran's seafood row at its plainest: grilled fish by weight, tables on the sand.",replace,Owner disputes 'plainest'.,editorial visit 2026-09-10,НЕТ

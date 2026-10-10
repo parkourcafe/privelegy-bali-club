@@ -10,6 +10,10 @@
 //
 // Exits 1 on any FAIL so it can gate a deploy. WARN never fails the run.
 
+// The hype list is shared with scripts/copy/lint.mjs so the two gates cannot
+// drift apart again (four different lists existed before 2026-10-05).
+import { HYPE, mask } from "../../../../scripts/copy/patterns.mjs";
+
 const args = process.argv.slice(2);
 const asJson = args.includes("--json");
 const fileIdx = args.indexOf("--file");
@@ -136,8 +140,14 @@ const long = sentences.filter((s) => s.split(" ").length > 25);
 add("WARN", "no sentence over 25 words in the opening",
     long.length === 0, long.length ? `${long.length} long: "${long[0].slice(0, 80)}..."` : "all under 25");
 
-const HYPE = /\b(stunning|hidden gem|must-visit|world-class|nestled|vibrant|unforgettable|iconic|breathtaking)\b/gi;
-const hype = [...new Set(text.match(HYPE) ?? [])];
+// Venue names are not our prose: "Hidden Gem Uluwatu", "Swan Paradise" and
+// "The 1O1 Bali Oasis" all tripped this gate in the 2026-09-28 audit. Names are
+// taken from the page's own card headings and JSON-LD before matching.
+const venueNames = [
+  ...[...html.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)].map((m) => strip(m[1])),
+  ...[...JSON.stringify(ldBlocks).matchAll(/"name":"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]),
+].filter(Boolean);
+const hype = [...new Set((mask(text, { names: venueNames }).match(HYPE) ?? []).map((w) => w.toLowerCase()))];
 add("FAIL", "no hype filler adjectives", hype.length === 0, hype.length ? hype.join(", ") : "none");
 
 // ---------------------------------------------------------------- report

@@ -1,0 +1,363 @@
+<title>Волны текста Other Bali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Young+Serif&display=swap">
+<style>
+/* Layout: a proof-reading desk — list rail on the left, galley of cards on the right; one column on a phone. Tokens follow app/globals.css. */
+:root {
+  --paper: #FAF6EF; --card: #FFFFFF; --ink: #2B1A13; --muted: #5c4a3c; --caption: #8a7a68;
+  --line: #EDE4D6; --line-strong: #DCD2C2; --accent: #005962; --accent-strong: #003f46; --accent-wash: #E6F0EE;
+  --del-bg: #F7E3DA; --del-ink: #8E3B1E; --ins-bg: #DCEEE8; --ins-ink: #0B4A42;
+  --warn-bg: #FBF0D9; --warn-line: #E9CF94; --warn-ink: #7A5410;
+  --yes: #1F6B4A; --yes-bg: #E2F1E8; --no: #A3402A; --no-bg: #F8E4DD; --later: #6C5A2E; --later-bg: #F2EBD7;
+  --font-body: "Hanken Grotesk", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Young Serif", "Iowan Old Style", Georgia, serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #16100c; --card: #211913; --ink: #F4ECE0; --muted: #CDBFA9; --caption: #A39582;
+  --line: #3A2E25; --line-strong: #4C3E33; --accent: #5FB8BF; --accent-strong: #8AD3D8; --accent-wash: #17302F;
+  --del-bg: #4A2418; --del-ink: #F3B7A0; --ins-bg: #173A33; --ins-ink: #A9E3D4;
+  --warn-bg: #3A2D12; --warn-line: #6B5420; --warn-ink: #F0D28A;
+  --yes: #8FD6AE; --yes-bg: #183A28; --no: #F2A48F; --no-bg: #44221A; --later: #E3CF95; --later-bg: #3A3016;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #16100c; --card: #211913; --ink: #F4ECE0; --muted: #CDBFA9; --caption: #A39582;
+  --line: #3A2E25; --line-strong: #4C3E33; --accent: #5FB8BF; --accent-strong: #8AD3D8; --accent-wash: #17302F;
+  --del-bg: #4A2418; --del-ink: #F3B7A0; --ins-bg: #173A33; --ins-ink: #A9E3D4;
+  --warn-bg: #3A2D12; --warn-line: #6B5420; --warn-ink: #F0D28A;
+  --yes: #8FD6AE; --yes-bg: #183A28; --no: #F2A48F; --no-bg: #44221A; --later: #E3CF95; --later-bg: #3A3016;
+  color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font: 15px/1.5 var(--font-body); padding-inline: 16px; padding-block: 20px 60px }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 20px }
+h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0 }
+h1 { font-size: 30px; line-height: 1.15 }
+h2 { font-size: 24px; line-height: 1.2 }
+a { color: var(--accent) }
+a:hover { color: var(--accent-strong) }
+button, select, input, textarea { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.lede { color: var(--muted); max-width: 70ch; margin: 6px 0 0 }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 18px; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px }
+.stats b { color: var(--ink); font-weight: 600 }
+.banner { border: 1px solid var(--warn-line); background: var(--warn-bg); color: var(--warn-ink); border-radius: var(--radius); padding: 10px 14px; font-size: 14px }
+.layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 24px; align-items: start }
+.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); display: grid; gap: 14px; max-height: calc(100vh - 24px); overflow: auto; padding-right: 4px }
+.rail h3 { margin: 0 0 4px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--caption); font-weight: 600 }
+.rail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px }
+.rail button { width: 100%; text-align: left; border: 0; background: transparent; padding: 7px 10px; border-radius: 8px; cursor: pointer; display: flex; gap: 8px; align-items: center; justify-content: space-between }
+.rail button:hover { background: var(--accent-wash) }
+.rail button[aria-current="true"] { background: var(--card); box-shadow: inset 0 0 0 1px var(--line-strong) }
+.rail .count { color: var(--caption); font-size: 13px; font-variant-numeric: tabular-nums }
+.picker { display: none }
+.chip { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .02em; padding: 2px 8px; border-radius: 999px; white-space: nowrap }
+.chip.wait { background: var(--line); color: var(--muted) }
+.chip.yes { background: var(--yes-bg); color: var(--yes) }
+.chip.no { background: var(--no-bg); color: var(--no) }
+.chip.later { background: var(--later-bg); color: var(--later) }
+.chip.flag { background: var(--warn-bg); color: var(--warn-ink) }
+.chip.hold { background: var(--no-bg); color: var(--no) }
+main { display: grid; gap: 16px; min-width: 0 }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; min-width: 0 }
+.meta { color: var(--muted); font-size: 14px }
+.summary { font-size: 14px; color: var(--ink) }
+.summary ul, .notes ul { margin: 4px 0; padding-left: 20px }
+.summary p, .notes p { margin: 6px 0 }
+.notes { font-size: 14px; border-top: 1px solid var(--line); padding-top: 8px }
+.notes h4 { margin: 14px 0 4px; font-size: 14px }
+.notes h5 { margin: 10px 0 2px; font-size: 13px; color: var(--muted) }
+code { font-family: var(--font-mono); font-size: .9em; background: var(--paper); padding: 0 3px; border-radius: 4px; overflow-wrap: anywhere }
+details > summary { cursor: pointer; color: var(--accent); font-size: 14px; font-weight: 500 }
+.decide { display: grid; gap: 10px; border-top: 1px solid var(--line); padding-top: 12px }
+.decide .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.btn { border: 1px solid var(--line-strong); background: var(--card); border-radius: 8px; padding: 9px 14px; min-height: 44px; cursor: pointer; font-weight: 600 }
+.btn:hover { border-color: var(--accent) }
+.btn.yes[aria-pressed="true"] { background: var(--yes); border-color: var(--yes); color: var(--card) }
+.btn.no[aria-pressed="true"] { background: var(--no); border-color: var(--no); color: var(--card) }
+.btn.later[aria-pressed="true"] { background: var(--later); border-color: var(--later); color: var(--card) }
+.btn.ghost { font-weight: 500; color: var(--muted) }
+.btn:disabled { opacity: .5; cursor: not-allowed }
+textarea, input[type="search"] { width: 100%; border: 1px solid var(--line-strong); border-radius: 8px; padding: 9px 11px; background: var(--paper) }
+textarea { min-height: 64px; resize: vertical }
+.saved { font-size: 13px; color: var(--caption) }
+.listflags { display: grid; gap: 6px }
+.flagbox { border-left: 3px solid var(--warn-line); background: var(--warn-bg); color: var(--ink); padding: 8px 12px; border-radius: 0 8px 8px 0; font-size: 14px }
+.flagbox .src { display: block; font-size: 12px; color: var(--warn-ink); font-weight: 600; margin-bottom: 2px }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center }
+.toolbar label { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; cursor: pointer; min-height: 44px }
+.toolbar .search { flex: 1 1 220px; min-width: 0 }
+.cards { display: grid; gap: 14px }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 12px; min-width: 0 }
+.card.held { border-color: var(--no); box-shadow: inset 4px 0 0 var(--no) }
+.card header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline }
+.card h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.25; overflow-wrap: anywhere }
+.card .sub { color: var(--muted); font-size: 13px; overflow-wrap: anywhere }
+.ctx { font-size: 13px; color: var(--muted); background: var(--paper); border-radius: 8px; padding: 6px 10px; overflow-wrap: anywhere }
+.ctx b { font-weight: 600; color: var(--ink) }
+.field { display: grid; gap: 6px; min-width: 0 }
+.field .fname { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--caption); font-weight: 600 }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.pair > div { min-width: 0; border-radius: 8px; padding: 9px 11px; border: 1px solid var(--line); overflow-wrap: anywhere }
+.pair .lbl { display: block; font-size: 12px; color: var(--caption); font-weight: 600; margin-bottom: 2px }
+.pair .empty { color: var(--caption); font-style: italic }
+del { background: var(--del-bg); color: var(--del-ink); text-decoration: line-through; text-decoration-thickness: 1px; border-radius: 3px }
+ins { background: var(--ins-bg); color: var(--ins-ink); text-decoration: none; border-radius: 3px }
+.why { font-size: 13px; color: var(--muted) }
+.why p { margin: 4px 0 0 }
+.gatenote { font-size: 13px; color: var(--caption) }
+.cardfoot { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; border-top: 1px dashed var(--line); padding-top: 10px }
+.holdform { display: grid; gap: 8px; width: 100% }
+.empty-state { color: var(--muted); padding: 20px; text-align: center }
+.more { justify-self: center }
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr) }
+  .rail { display: none }
+  .picker { display: block; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--paper); padding-block: 8px }
+  .picker select { width: 100%; min-height: 44px; border: 1px solid var(--line-strong); border-radius: 8px; padding: 8px 10px; background: var(--card) }
+  .pair { grid-template-columns: minmax(0, 1fr) }
+  h1 { font-size: 25px }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Волны текста — просмотр перед записью в базу</h1>
+    <p class="lede">По каждой карточке — текст, который сейчас на сайте («Было»), и переписанный («Стало»). Отметьте каждый список: «Да», «Нет» или «Отложить». Карточку, которую писать не нужно, исключите кнопкой «Не писать». Пока вы не скажете «Да» и мы не договоримся о записи, в базу ничего не попадает.</p>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div class="banner" id="banner" hidden></div>
+  <div class="picker"><label for="listPicker" class="meta">Список</label> <select id="listPicker"></select></div>
+  <div class="layout">
+    <nav class="rail" id="rail" aria-label="Списки"></nav>
+    <main id="main" aria-live="polite"></main>
+  </div>
+</div>
+
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script>
+(() => {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const state = { list: null, onlyFlagged: false, q: "", shown: 40, decisions: {}, holds: {}, canWrite: false, db: null, openHold: null };
+  const $ = (s, el = document) => el.querySelector(s);
+  const h = (tag, attrs = {}, ...kids) => {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v; else if (k === "html") el.innerHTML = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v); else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    return el;
+  };
+  const FIELD = { why_its_here: "Описание (why it's here)", best_for: "Best for", not_for: "Not for", subtitle: "Подзаголовок маршрута" };
+  const DEC = { yes: ["yes", "Да"], no: ["no", "Нет"], later: ["later", "Отложено"] };
+  const holdId = (listId, slug) => `${listId}~${slug}`;
+  const fmtTime = (iso) => { try { return new Date(iso).toLocaleString("ru-RU", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }); } catch { return iso; } };
+
+  // Word-level diff (LCS over word and space tokens).
+  function diff(a, b) {
+    const A = a.match(/\S+|\s+/g) || [], B = b.match(/\S+|\s+/g) || [];
+    const n = A.length, m = B.length, L = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+    for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) L[i][j] = A[i] === B[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+    const left = [], right = [];
+    let i = 0, j = 0;
+    while (i < n && j < m) {
+      if (A[i] === B[j]) { left.push(["=", A[i]]); right.push(["=", B[j]]); i++; j++; }
+      else if (L[i + 1][j] >= L[i][j + 1]) left.push(["-", A[i++]]); else right.push(["+", B[j++]]);
+    }
+    while (i < n) left.push(["-", A[i++]]); while (j < m) right.push(["+", B[j++]]);
+    const paint = (parts, tag) => { const frag = document.createDocumentFragment(); for (const [op, t] of parts) frag.append(op === "=" || !t.trim() ? document.createTextNode(t) : h(tag, {}, t)); return frag; };
+    return [paint(left, "del"), paint(right, "ins")];
+  }
+
+  const listById = new Map(DATA.lists.map((l) => [l.id, l]));
+  const holdCount = (l) => l.cards.filter((c) => state.holds[holdId(l.id, c.slug)]).length;
+
+  function renderStats() {
+    const lists = DATA.lists, dec = (k) => lists.filter((l) => state.decisions[l.id]?.decision === k).length;
+    const wait = lists.length - dec("yes") - dec("no") - dec("later");
+    const holds = Object.keys(state.holds).length;
+    $("#stats").replaceChildren(
+      h("span", {}, h("b", {}, lists.length), " списков · ", h("b", {}, DATA.totals.cards), " карточек · ", h("b", {}, DATA.totals.rows), " правок"),
+      h("span", {}, "Да: ", h("b", {}, dec("yes")), " · Нет: ", h("b", {}, dec("no")), " · Отложено: ", h("b", {}, dec("later")), " · Ждут: ", h("b", {}, wait)),
+      h("span", {}, "Исключено карточек: ", h("b", {}, holds)),
+      h("span", {}, "Сверено с базой: ", DATA.checkedAt));
+  }
+
+  function chipFor(l) {
+    const d = state.decisions[l.id]?.decision;
+    return d ? h("span", { class: `chip ${DEC[d][0]}` }, DEC[d][1]) : h("span", { class: "chip wait" }, "ждёт");
+  }
+
+  function renderRail() {
+    const groups = [...new Set(DATA.lists.map((l) => l.group))];
+    $("#rail").replaceChildren(...groups.map((g) => h("section", {}, h("h3", {}, g), h("ul", {}, DATA.lists.filter((l) => l.group === g).map((l) =>
+      h("li", {}, h("button", { type: "button", "aria-current": String(state.list === l.id), onclick: () => openList(l.id) },
+        h("span", {}, l.title, " ", h("span", { class: "count" }, l.cards.length)), chipFor(l))))))));
+    const sel = $("#listPicker");
+    sel.replaceChildren(...groups.map((g) => h("optgroup", { label: g }, DATA.lists.filter((l) => l.group === g).map((l) => {
+      const d = state.decisions[l.id]?.decision;
+      return h("option", { value: l.id, selected: state.list === l.id }, `${l.title} · ${l.cards.length} · ${d ? DEC[d][1] : "ждёт"}`);
+    }))));
+  }
+
+  async function saveDecision(l, decision) {
+    if (!state.canWrite) return;
+    const note = $("#listNote")?.value ?? "";
+    const status = $("#decStatus");
+    status.textContent = "Сохраняю…";
+    try {
+      await state.db.collection("lists").doc(l.id).set({ decision, note, cards: l.cards.length, rows: l.rows, at: new Date().toISOString() });
+      status.textContent = "Сохранено";
+    } catch (e) { status.textContent = `Не сохранилось (${e?.code || "ошибка"}). Попробуйте ещё раз.`; }
+  }
+  async function clearDecision(l) {
+    if (!state.canWrite) return;
+    try { await state.db.collection("lists").doc(l.id).delete(); } catch (e) { $("#decStatus").textContent = `Не сохранилось (${e?.code || "ошибка"}).`; }
+  }
+  async function setHold(l, c, note) {
+    if (!state.canWrite) return;
+    try { await state.db.collection("holds").doc(holdId(l.id, c.slug)).set({ list: l.id, slug: c.slug, name: c.name, note, at: new Date().toISOString() }); state.openHold = null; }
+    catch (e) { alertCard(c, `Не сохранилось (${e?.code || "ошибка"}).`); }
+  }
+  async function clearHold(l, c) {
+    if (!state.canWrite) return;
+    try { await state.db.collection("holds").doc(holdId(l.id, c.slug)).delete(); } catch (e) { alertCard(c, `Не сохранилось (${e?.code || "ошибка"}).`); }
+  }
+  function alertCard(c, msg) { const el = document.getElementById(`st-${c.slug}`); if (el) el.textContent = msg; }
+
+  function renderListHead(l) {
+    const d = state.decisions[l.id];
+    const held = holdCount(l);
+    const btn = (k, label) => h("button", { type: "button", class: `btn ${k}`, "aria-pressed": String(d?.decision === k), disabled: !state.canWrite, onclick: () => saveDecision(l, k) }, label);
+    return h("section", { class: "panel" },
+      h("div", { class: "meta" }, `${l.group} · ${l.cards.length} ${l.kind === "routes" ? "маршрутов" : "карточек"} · ${l.rows} правок · файл ${l.file}`),
+      h("h2", {}, l.title),
+      l.gate ? h("div", { class: "meta" }, `Проверка текста: ${l.gate.fail} ошибок, ${l.gate.batch} проблем пакета; машинных признаков было ${l.gate.warnBefore} → стало ${l.gate.warnAfter}.`) : null,
+      l.summaryHtml ? h("div", { class: "summary", html: l.summaryHtml }) : null,
+      l.listFlags.length ? h("div", { class: "listflags" }, h("div", { class: "meta" }, "Заметки к списку, без привязки к карточке:"),
+        l.listFlags.map((f) => h("div", { class: "flagbox" }, h("span", { class: "src" }, f.s), h("span", { html: f.html })))) : null,
+      h("details", {}, h("summary", {}, "Полные заметки переписчика и ревьюера"), h("div", { class: "notes", html: l.notesHtml })),
+      h("div", { class: "decide" },
+        h("label", { for: "listNote", class: "meta" }, "Заметка к решению (необязательно)"),
+        h("textarea", { id: "listNote", disabled: !state.canWrite, placeholder: "Например: да, но без карточек про часы работы" }, d?.note ?? ""),
+        h("div", { class: "row" }, btn("yes", "Да — записать список"), btn("no", "Нет"), btn("later", "Отложить"),
+          d ? h("button", { type: "button", class: "btn ghost", disabled: !state.canWrite, onclick: () => clearDecision(l) }, "Снять отметку") : null),
+        h("div", { class: "saved", id: "decStatus" }, d ? `Отмечено: ${DEC[d.decision][1]}, ${fmtTime(d.at)}.` : "Решения ещё нет.",
+          held ? ` Исключено карточек: ${held} — они не будут записаны даже при «Да».` : "")));
+  }
+
+  function renderCard(l, c) {
+    const held = state.holds[holdId(l.id, c.slug)];
+    const fields = c.rows.map((r) => {
+      const [left, right] = diff(r.b, r.a);
+      return h("div", { class: "field" },
+        h("span", { class: "fname" }, r.label || FIELD[r.f] || r.f),
+        h("div", { class: "pair" },
+          h("div", {}, h("span", { class: "lbl" }, "Было"), r.b ? left : h("span", { class: "empty" }, "пусто")),
+          h("div", {}, h("span", { class: "lbl" }, "Стало"), r.a ? right : h("span", { class: "empty" }, "пусто"))),
+        r.r ? h("details", { class: "why" }, h("summary", {}, "Почему изменено"), h("p", {}, r.r)) : null);
+    });
+    const ctx = c.ctx?.length ? h("div", { class: "ctx" }, c.ctx.map(([k, v], i) => [i ? " · " : "", h("b", {}, k + ": "), v])) : null;
+    let foot;
+    if (held) {
+      foot = h("div", { class: "cardfoot" }, h("span", { class: "chip hold" }, "Не пишется"), held.note ? h("span", { class: "meta" }, held.note) : null,
+        h("button", { type: "button", class: "btn ghost", disabled: !state.canWrite, onclick: () => clearHold(l, c) }, "Вернуть в список"), h("span", { class: "saved", id: `st-${c.slug}` }));
+    } else if (state.openHold === c.slug) {
+      const id = `hn-${c.slug}`;
+      foot = h("div", { class: "cardfoot" }, h("div", { class: "holdform" },
+        h("label", { for: id, class: "meta" }, "Почему не писать (необязательно)"),
+        h("textarea", { id, placeholder: "Например: проверить часы" }),
+        h("div", { class: "row toolbar" },
+          h("button", { type: "button", class: "btn no", onclick: () => setHold(l, c, $("#" + CSS.escape(id)).value) }, "Не писать эту карточку"),
+          h("button", { type: "button", class: "btn ghost", onclick: () => { state.openHold = null; renderCards(); } }, "Отмена"),
+          h("span", { class: "saved", id: `st-${c.slug}` }))));
+    } else {
+      foot = h("div", { class: "cardfoot" }, h("button", { type: "button", class: "btn ghost", disabled: !state.canWrite, onclick: () => { state.openHold = c.slug; renderCards(); } }, "Не писать…"));
+    }
+    return h("article", { class: `card${held ? " held" : ""}`, id: `card-${c.slug}` },
+      h("header", {}, h("div", {}, h("h3", {}, c.name), h("div", { class: "sub" }, [c.district, c.where].filter(Boolean).join(" · "))),
+        h("a", { href: c.url, target: "_blank", rel: "noopener" }, "Открыть на сайте")),
+      c.flags.length ? h("div", { class: "listflags" }, c.flags.map((f) => h("div", { class: "flagbox" }, h("span", { class: "src" }, f.s), h("span", { html: f.html })))) : null,
+      ctx, ...fields,
+      c.notes.length ? h("div", { class: "gatenote" }, c.notes.join(" · ")) : null,
+      foot);
+  }
+
+  function visibleCards(l) {
+    const q = state.q.trim().toLowerCase();
+    return l.cards.filter((c) => (!state.onlyFlagged || c.flags.length) && (!q || c.name.toLowerCase().includes(q) || c.slug.includes(q)));
+  }
+
+  function renderCards() {
+    const l = listById.get(state.list);
+    const box = $("#cards");
+    if (!l || !box) return;
+    const all = visibleCards(l), list = all.slice(0, state.shown);
+    box.replaceChildren(...(list.length ? list.map((c) => renderCard(l, c)) : [h("div", { class: "empty-state" }, "Нет карточек под этот фильтр.")]),
+      ...(all.length > list.length ? [h("button", { type: "button", class: "btn more", onclick: () => { state.shown += 60; renderCards(); } }, `Показать ещё (${all.length - list.length})`)] : []));
+    $("#shownCount").textContent = `Показано ${list.length} из ${all.length}`;
+  }
+
+  function renderMain() {
+    const l = listById.get(state.list);
+    if (!l) return;
+    const flagged = l.cards.filter((c) => c.flags.length).length;
+    $("#main").replaceChildren(renderListHead(l),
+      h("div", { class: "toolbar" },
+        h("label", {}, h("input", { type: "checkbox", id: "onlyFlagged", checked: state.onlyFlagged, onchange: (e) => { state.onlyFlagged = e.target.checked; state.shown = 40; renderCards(); } }),
+          "Только с пометками ", h("span", { class: "chip flag" }, flagged)),
+        h("div", { class: "search" }, h("input", { type: "search", id: "q", placeholder: "Поиск по названию", value: state.q, "aria-label": "Поиск по названию",
+          oninput: (e) => { state.q = e.target.value; state.shown = 40; renderCards(); } })),
+        h("span", { class: "meta", id: "shownCount" })),
+      h("div", { class: "cards", id: "cards" }));
+    renderCards();
+  }
+
+  function openList(id) {
+    if (!listById.has(id)) return;
+    state.list = id; state.shown = 40; state.q = ""; state.onlyFlagged = false; state.openHold = null;
+    try { history.replaceState(null, "", "#" + id); } catch {}
+    try { localStorage.setItem("wave-review-list", id); } catch {}
+    renderRail(); renderMain(); window.scrollTo({ top: 0 });
+  }
+
+  function refreshDecisions() {
+    renderStats(); renderRail();
+    const l = listById.get(state.list);
+    if (!l) return;
+    // Keep what the viewer is typing: re-render the head only, the cards only when holds changed.
+    const note = $("#listNote"); const typing = document.activeElement === note ? note.value : null;
+    const head = $("#main > .panel"); if (head) { const fresh = renderListHead(l); head.replaceWith(fresh); if (typing != null) { const n = $("#listNote"); n.value = typing; n.focus(); } }
+  }
+
+  $("#listPicker").addEventListener("change", (e) => openList(e.target.value));
+  let start = location.hash.slice(1);
+  if (!listById.has(start)) { try { start = localStorage.getItem("wave-review-list") || ""; } catch { start = ""; } }
+  state.list = listById.has(start) ? start : DATA.lists[0].id;
+  renderStats(); renderRail(); renderMain();
+
+  const banner = (msg) => { const b = $("#banner"); b.textContent = msg; b.hidden = !msg; };
+  banner("Подключаю сохранение решений…");
+  (async () => {
+    const [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]).catch(() => [null, null]);
+    if (!db) { banner("В этом просмотре решения не сохраняются: откройте страницу в Claude, войдя в свой аккаунт. Смотреть списки можно и так."); return; }
+    state.db = db;
+    const owner = user ? await user.isOwner().catch(() => false) : false;
+    state.canWrite = owner;
+    banner(owner ? "" : "Решения отмечает владелец страницы. Вам видны списки и уже принятые решения.");
+    db.collection("lists").onSnapshot((snap) => {
+      state.decisions = Object.fromEntries(snap.docs.filter((d) => d.exists).map((d) => [d.id, d.data()]));
+      refreshDecisions();
+    }, (e) => banner(`Решения не загрузились (${e.code}). Обновите страницу.`));
+    db.collection("holds").onSnapshot((snap) => {
+      state.holds = Object.fromEntries(snap.docs.filter((d) => d.exists).map((d) => [d.id, d.data()]));
+      renderStats(); renderRail(); refreshDecisions(); renderCards();
+    }, (e) => banner(`Исключения не загрузились (${e.code}). Обновите страницу.`));
+    renderRail(); refreshDecisions(); renderCards();
+  })();
+})();
+</script>

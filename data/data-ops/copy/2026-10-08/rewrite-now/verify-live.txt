@@ -1,0 +1,14 @@
+curl -s https://www.otherbali.com/places/amavi-canggu-bali | grep -c -F 'The menu at AMAVI goes from na'  # W-amavi-canggu-bali-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/cafe-coach | grep -c -F 'On Jl. Nelayan in Canggu, Cafe'  # W-cafe-coach-why_its_here why_its_here replaced; expect >= 1; also W-cafe-coach-best_for best_for replace
+curl -s https://www.otherbali.com/places/mavammy | grep -c -F 's dessert counter is b'  # W-mavammy-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/porch | grep -c -F 'Thirteen kinds of cheesecake a'  # W-porch-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/pranava-yoga | grep -c -F 'Vicki and Yuni opened Pranava'  # W-pranava-yoga-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/mamu-ubud-cafe-shisha-hookah | grep -c -F 'Darkside, Musthave and Duft ar'  # W-mamu-ubud-cafe-shisha-hookah-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/dewas-landing-cafe | grep -c -F 'Dewas Landing Cafe, on Jl. Ray'  # W-dewas-landing-cafe-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/humans-cafe | grep -c -F 'HUMANS CAFE, on Jl. Bali Cliff'  # W-humans-cafe-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/lemanja-uluwatu | grep -c -F 'Breakfast at Lemanjá Uluwatu s'  # W-lemanja-uluwatu-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/made-s-bakery-cafe-playground | grep -c -F 'Made’s Bakery Cafe Playground'  # W-made-s-bakery-cafe-playground-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/ula-cafe | grep -c -F 'Chef Mags builds the menu from'  # W-ula-cafe-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/uluwatu-collective | grep -c -F 'At Uluwatu Collective, CrossFi'  # W-uluwatu-collective-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/de-maison-bali-restaurant-and-bar | grep -c -F 'De Maison Bali Restaurant'  # W-de-maison-bali-restaurant-and-bar-why_its_here why_its_here replaced; expect >= 1
+curl -s https://www.otherbali.com/places/manga-madu | grep -c -F 'A budget meal of classic Indon'  # W-manga-madu-best_for best_for replaced; expect >= 1; also W-manga-madu-not_for not_for replace

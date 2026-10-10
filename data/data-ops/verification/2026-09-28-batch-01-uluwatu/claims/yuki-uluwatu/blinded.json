@@ -1,0 +1,130 @@
+{
+  "slug": "yuki-uluwatu",
+  "officialDomains": [
+    "yuki-bali.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "yuki-uluwatu-14",
+      "field": "price_anchor",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "yuki-uluwatu-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "wagyu beef sando; prawn tempura maki roll; yakitori",
+      "claim_text": null,
+      "source_url": "https://www.yuki-bali.com/menu",
+      "quote": "WAGYU BEEF SANDO",
+      "snapshot_sha256": "e16efa17a5e50af18a322bd531c02b6a016fbe02c130665de72e64a7bb94b692",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "yuki-uluwatu-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "yuki-uluwatu-18",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": "Daily 11.00am until late",
+      "claim_text": null,
+      "source_url": "https://www.yuki-bali.com/ulu-reservations",
+      "quote": "OPEN 11AM - LATE 7 DAYS WEEK",
+      "snapshot_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-yuki-u-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-yuki-u-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-yuki-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-yuki-u-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.yuki-bali.com/menu",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "e16efa17a5e50af18a322bd531c02b6a016fbe02c130665de72e64a7bb94b692",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "yuki-uluwatu-23",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6281139608557",
+      "claim_text": null,
+      "source_url": "https://www.yuki-bali.com/ulu-reservations",
+      "quote": "ULUWATU\nLocation\n53MV+5H5",
+      "snapshot_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "yuki-uluwatu-16",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Labuansait, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali",
+      "claim_text": null,
+      "source_url": "https://www.yuki-bali.com/ulu-reservations",
+      "quote": "Jl Labuansait, Pecatu, Kec. Kuta Selatan, Kabupaten Badung, Bali, Indonesia",
+      "snapshot_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "category": "restaurant"
+    }
+  ]
+}

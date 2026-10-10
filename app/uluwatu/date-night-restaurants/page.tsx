@@ -20,12 +20,12 @@ import {
 export const metadata: Metadata = {
   title: "Date-night restaurants in Uluwatu — quiet, view or occasion",
   description:
-    "The Uluwatu dinners that actually work as dates: quiet-conversation rooms, cliff views, food-led kitchens and true special-occasion tables — separated from the group-party venues.",
+    "The Uluwatu dinners that work as dates: quiet-conversation rooms, cliff views, food-led kitchens and true special-occasion tables, separated from the group-party venues.",
   alternates: { canonical: "/uluwatu/date-night-restaurants" },
   openGraph: {
     title: "Date-night restaurants in Uluwatu · Other Bali",
     description:
-      "Quiet conversation, a view, or a kitchen worth the trip — the honest date-night taxonomy.",
+      "Quiet conversation, a view, or a kitchen worth the trip: the date-night taxonomy.",
     url: "https://www.otherbali.com/uluwatu/date-night-restaurants",
     type: "article",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Date-night restaurants in Uluwatu · Other Bali",
     description:
-      "Quiet conversation, a view, or a kitchen worth the trip — the honest date-night taxonomy.",
+      "Quiet conversation, a view, or a kitchen worth the trip: the date-night taxonomy.",
   },
 };
 
@@ -51,11 +51,11 @@ const ALL_DATE = [
 const FAQ = [
   {
     q: "What's the single best date-night restaurant in Uluwatu?",
-    a: "Depends on the date. Food-first: KALA. Mood-first: Gooseberry. View-first: Mana at golden hour. If it's a proposal-grade occasion, The Warung at Alila or El Kabrón's sunset seating — both need proper reservations.",
+    a: "It depends on the date. For food first, go to KALA; for mood, Gooseberry; for the view, Mana at golden hour. For a proposal-grade occasion, book The Warung at Alila or El Kabrón's sunset seating. Both need reservations.",
   },
   {
     q: "Which rooms are quiet enough to actually talk?",
-    a: "Gooseberry (screen-free by design), Seed in Bingin, and The Warung at Alila. WAATU is focused rather than loud. YUKI and MASONRY are great dinners but social-loud — take them for third dates, not first conversations.",
+    a: "Gooseberry (screen-free by design), Seed in Bingin, and The Warung at Alila. WAATU is focused rather than loud. YUKI and MASONRY are great dinners but social-loud, so take them for third dates, not first conversations.",
   },
   {
     q: "Can we do sunset drinks and dinner in one place?",
@@ -94,11 +94,11 @@ export default function DateNightPage() {
           <p className="guide-kicker">Uluwatu · Evenings for two</p>
           <h1 className="guide-title">Date night, separated properly</h1>
           <p className="guide-standfirst">
-            “Romantic restaurant” means four different things: a room quiet
-            enough to talk, a view doing half the work, a kitchen worth
+            “Romantic restaurant” means four different things. It can be a room
+            quiet enough to talk, a view doing half the work, a kitchen worth
             dressing for, or a full occasion production. Uluwatu has verified
-            answers to each — and a couple of famous rooms that are actually
-            group venues in date-night clothing.
+            answers to each. It also has a couple of rooms that are group venues
+            in date-night clothing.
           </p>
           <p className="guide-meta-line">
             8 places · verified 2026-07-12 · editorial order, no paid ranking
@@ -134,8 +134,8 @@ export default function DateNightPage() {
           <div className="guide-prose">
             <p>
               Anniversary-grade:{" "}
-              <PlaceLink slug="the-warung-at-alila-villas-uluwatu" /> (reserve —
-              it sits inside a gated resort),{" "}
+              <PlaceLink slug="the-warung-at-alila-villas-uluwatu" /> (reserve,
+              since it sits inside a gated resort),{" "}
               <PlaceLink slug="el-kabron-bali" /> (sunset seating with deposit),
               and <PlaceLink slug="waatu" /> when the occasion deserves fire.
               All three reward booking days ahead, not hours.
@@ -149,9 +149,9 @@ export default function DateNightPage() {
             <p>
               <PlaceLink slug="yuki-uluwatu" /> is the right call when the date
               wants energy: sharing plates, music, a room with momentum. The
-              same quality makes it — like{" "}
+              same quality makes it, like{" "}
               <PlaceLink slug="masonry-restaurant" /> and{" "}
-              <PlaceLink slug="ulu-fishmarket" /> — a better group dinner than a
+              <PlaceLink slug="ulu-fishmarket" />, a better group dinner than a
               first-date room. If the goal is conversation, start at the quiet
               list above; if the goal is fun, start here.
             </p>
@@ -165,7 +165,7 @@ export default function DateNightPage() {
             {
               href: "/uluwatu/beach-clubs-sunset",
               title: "Sunset drinks first",
-              blurb: "Seven golden-hour venues compared — pick the pre-dinner cliff.",
+              blurb: "Seven golden-hour venues, compared. Pick the pre-dinner cliff.",
             },
             {
               href: "/uluwatu/best-restaurants",
@@ -184,7 +184,7 @@ export default function DateNightPage() {
           <h2>Make the date a whole day</h2>
           <p>
             The 48-hour plan builds the beach afternoon and the cliff sunset
-            around dinner — so the evening starts long before the table.
+            around dinner, so the evening starts long before the table.
           </p>
           <Link href="/uluwatu/48-hours" className="cta-band-action">
             See the 48-hour plan →

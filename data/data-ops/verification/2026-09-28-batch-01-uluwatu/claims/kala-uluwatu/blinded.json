@@ -1,0 +1,284 @@
+{
+  "slug": "kala-uluwatu",
+  "officialDomains": [
+    "kalauluwatu.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "kala-uluwatu-08",
+      "field": "notFor",
+      "action": "replace",
+      "proposed": "early-morning or laptop hours — it opens at noon",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-14",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-kala-u-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-09",
+      "field": "copy:practicalNote#1",
+      "action": "replace",
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu.",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "feta tempura; lamb shoulder; grilled octopus",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "quote": "feta tempura  lemon ma rmalad e, cap er meri ngue 120",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-kala-u-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-kala-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "quote": "MEZE",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6285337702422",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "WhatsApp +62 853 3770 2422",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-03",
+      "field": "copy:whyHere#1",
+      "action": "replace",
+      "proposed": "KALA cooks Greek-inspired food over an open wood-fire grill on Jl. Labuansait in Pecatu.",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "A modern Greek-inspired grill, where hospitality leads, wood-fired cooking happens, and memorable gatherings come naturally",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-06",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Open daily from noon to 11.30pm — it works for a long lunch as well as dinner.",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Minimalist Greek-inspired grill steps from Padang Padang — wood fire, natural wine and the Bukit's most confident new dinner room.",
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "A modern Greek-inspired grill, where hospitality leads, wood-fired cooking happens, and memorable gatherings come naturally",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.30pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.30pm"
+        ],
+        "Friday": [
+          "12.00pm-11.30pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.30pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "claim_text": null,
+      "source_url": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "quote": "KALA Uluwatu - TableCheck",
+      "snapshot_sha256": "bcafa55e53fd6103e91445597f3cbfa5ea8c393a5dec32be02a3ce9766da883e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "lamb shoulder 290K IDR; feta tempura 120K IDR (official menu PDF headed SEPTEMBER, captured 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/assets/kala-menu.pdf",
+      "quote": "la mb shoul der  chickpea s, tomatoes 290",
+      "snapshot_sha256": "20c7684eb6715c2afd443f38b777149e88e41472f21e44ff3b5afc2f3af1cc88",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.30pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.30pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.30pm"
+        ],
+        "Friday": [
+          "12.00pm-11.30pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.30pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/nav.jsx",
+      "quote": "{ t:'Opening Hours', d:'Daily · 12 PM — 11:30 PM', href:'index.html#contact' }",
+      "snapshot_sha256": "67b5ab1f77461fc719634847d5995a2845f70504f0efccc3db9716135abbc207",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-kala-u-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "9e5bd0d4811fc81aa8f58387dcb1f074c2dd833c91463c607350ff8b12fe1542",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-15",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Labuansait No. 99, Pecatu, Uluwatu, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://kalauluwatu.com/home.jsx",
+      "quote": "Jl. Labuansait No. 99<br />Pecatu, Uluwatu<br />Bali 80361",
+      "snapshot_sha256": "7997013d08c49a3aae1ad6a50a0c46795aba9d28b149e4ab2602a3a69bcdcec6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "kala-uluwatu-10",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Reservations via TableCheck; groups of more than 7 are asked to contact the venue on WhatsApp.",
+      "claim_text": null,
+      "source_url": "https://www.tablecheck.com/en/kalauluwatu/reserve/message",
+      "quote": "For group booking more than 7 pax please do not hesitate to contact us directly to WhatsApp.",
+      "snapshot_sha256": "bcafa55e53fd6103e91445597f3cbfa5ea8c393a5dec32be02a3ce9766da883e",
+      "category": "restaurant"
+    }
+  ]
+}

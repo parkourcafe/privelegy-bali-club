@@ -1,0 +1,230 @@
+{
+  "slug": "ulu-garden",
+  "officialDomains": [
+    "ulutribe.com",
+    "drive.google.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "k-ulu-ga-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "nasi goreng (rice bowl) 145K IDR; roasted chicken 195K IDR — Night Menu VF.pdf, prices in thousands IDR excl. 10% tax & 7% service, file dated Sep 15, 2025",
+      "claim_text": null,
+      "source_url": "https://drive.google.com/uc?export=download&id=13AdY5yQJPKIW98QLFA22vR8-tobmJqe3",
+      "quote": "Prices are in thousands Indonesian Rupiah. Excluding gov. taxes 10% & service 7%",
+      "snapshot_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "rice rolls; nasi goreng; smoked snapper",
+      "claim_text": null,
+      "source_url": "https://drive.google.com/uc?export=download&id=13AdY5yQJPKIW98QLFA22vR8-tobmJqe3",
+      "quote": "Rice rolls. smoky chicken or tempeh",
+      "snapshot_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ulutribe.com/contact/",
+      "quote": "Garden 7AM – 11PM",
+      "snapshot_sha256": "0b0b51c83e4d414506a30da37aab8f544974eb6b24675adb6110945649e828d3",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-08",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Book online (SevenRooms) for event nights and Sundays.",
+      "claim_text": null,
+      "source_url": "https://ulutribe.com/ulu-garden/",
+      "quote": "Reservations can be made through our booking form or via the link in our Instagram bio.",
+      "snapshot_sha256": "399aa60ffe6ecaa3fdb3e6e21df9447ed5e734912c28fc8136252c5713f24144",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6281339545241",
+      "claim_text": null,
+      "source_url": "https://ulutribe.com/contact/",
+      "quote": "ULU GARDEN +62 813 3954 52 41",
+      "snapshot_sha256": "0b0b51c83e4d414506a30da37aab8f544974eb6b24675adb6110945649e828d3",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-05",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Food is seasonal and local-leaning (rice rolls, rice bowls, nasi goreng); programming changes weekly, so check their page for what's on.",
+      "claim_text": null,
+      "source_url": "https://drive.google.com/uc?export=download&id=13AdY5yQJPKIW98QLFA22vR8-tobmJqe3",
+      "quote": "Rice rolls. smoky chicken or tempeh . wild salad . peanut herbs . sweet lime chili",
+      "snapshot_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link",
+      "claim_text": null,
+      "source_url": "https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link",
+      "quote": "Night Menu VF.pdf",
+      "snapshot_sha256": "283e1392d49f9a05eb218790d26c9ffc04758c890d3c8576157ae29f90629f1d",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ulutribe.com/contact/",
+      "quote": "Opening Hours\nGarden 7AM – 11PM",
+      "snapshot_sha256": "0b0b51c83e4d414506a30da37aab8f544974eb6b24675adb6110945649e828d3",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-ulu-ga-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-ulu-garden",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-ulu-ga-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "283e1392d49f9a05eb218790d26c9ffc04758c890d3c8576157ae29f90629f1d",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-20",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.sevenrooms.com/reservations/ulugarden",
+      "claim_text": null,
+      "source_url": "https://www.sevenrooms.com/reservations/ulugarden",
+      "quote": "SevenRooms",
+      "snapshot_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-garden-15",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Pantai Padang-Padang, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://ulutribe.com/contact/",
+      "quote": "Jl. Pantai Padang-Padang, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "snapshot_sha256": "0b0b51c83e4d414506a30da37aab8f544974eb6b24675adb6110945649e828d3",
+      "category": "restaurant"
+    }
+  ]
+}

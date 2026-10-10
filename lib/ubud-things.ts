@@ -21,21 +21,21 @@ export const UBUD_THINGS_TO_DO: UbudThing[] = [
     title: "Walk the Campuhan Ridge",
     area: "Central Ubud",
     blurb:
-      "A free, easy ridge walk on a paved path between two river valleys, with open grass hills on either side. Go at sunrise or late afternoon — there's little shade, so the middle of the day is hot.",
+      "A free, easy ridge walk on a paved path between two river valleys, with open grass hills on either side. Go at sunrise or late afternoon. There's little shade, so the middle of the day is hot.",
     mapsUrl: maps("Campuhan Ridge Walk"),
   },
   {
     title: "Sacred Monkey Forest Sanctuary",
     area: "Central Ubud (Padangtegal)",
     blurb:
-      "A forest temple complex in the middle of town, home to hundreds of long-tailed macaques among ancient banyans and moss-covered shrines. Keep bags zipped and don't carry loose food — the monkeys are bold.",
+      "A forest temple complex in the middle of town, home to hundreds of long-tailed macaques among ancient banyans and moss-covered shrines. Keep bags zipped and don't carry loose food, because the monkeys are bold.",
     mapsUrl: maps("Sacred Monkey Forest Sanctuary"),
   },
   {
     title: "Tegallalang Rice Terraces",
     area: "North of Ubud (~30 min)",
     blurb:
-      "The famous stepped rice valley carved along the traditional Balinese subak irrigation system. Go early to beat the crowds and the heat; expect small donation gates and swings on the way down into the terraces.",
+      "A stepped rice valley carved along the traditional Balinese subak irrigation system. Go early to beat the crowds and the heat; expect small donation gates and swings on the way down into the terraces.",
     mapsUrl: maps("Tegallalang Rice Terraces"),
   },
   {
@@ -56,7 +56,7 @@ export const UBUD_THINGS_TO_DO: UbudThing[] = [
     title: "Browse Ubud Art Market",
     area: "Central Ubud (opposite the palace)",
     blurb:
-      "Pasar Seni Ubud sells crafts, textiles, baskets and souvenirs across two floors, busiest in the morning. Prices are negotiable — bargaining is expected.",
+      "Pasar Seni Ubud sells crafts, textiles, baskets and souvenirs across two floors, busiest in the morning. Prices are negotiable, and bargaining is expected.",
     mapsUrl: maps("Ubud Art Market Pasar Seni"),
   },
   {
@@ -77,7 +77,7 @@ export const UBUD_THINGS_TO_DO: UbudThing[] = [
     title: "See Balinese art at a museum",
     area: "Central Ubud & Peliatan",
     blurb:
-      "Ubud is Bali's art heartland. Museum Puri Lukisan (in town), ARMA (Agung Rai Museum of Art, Peliatan) and the Blanco Renaissance Museum each hold strong collections of Balinese and Indonesian painting.",
+      "Ubud is Bali's art heartland. Museum Puri Lukisan (in town) and ARMA (Agung Rai Museum of Art, Peliatan) hold strong collections of Balinese and Indonesian painting. So does the Blanco Renaissance Museum.",
     mapsUrl: maps("Museum Puri Lukisan"),
   },
   {
@@ -100,37 +100,37 @@ export const UBUD_ZONES: UbudZone[] = [
   {
     label: "Central Ubud",
     character:
-      "The walkable core around Jl. Raya Ubud, the Palace, the market and Monkey Forest Road — everything within about a 10-minute walk. Also the busiest, with a congested one-way loop in the evenings.",
+      "The walkable core around Jl. Raya Ubud, the Palace, the market and Monkey Forest Road, with everything within about a 10-minute walk. It's also the busiest, with a congested one-way loop in the evenings.",
     bestFor: "First-timers and short stays who want to walk everywhere.",
   },
   {
     label: "Nyuh Kuning",
     character:
-      "A quiet, clean village just south of the Monkey Forest — you can walk to the centre through the forest. One of the few Ubud areas where you barely need a scooter.",
+      "A quiet, clean village just south of the Monkey Forest. You can walk to the centre through the forest, and it's one of the few Ubud areas where you barely need a scooter.",
     bestFor: "Calm and residential, but still walkable to the centre.",
   },
   {
     label: "Penestanan",
     character:
-      "The hillside painters' village west of the centre, above the Campuhan ravine, ringed by rice paddies — quieter, with pedestrian lanes and a long art history. About 15–20 minutes' walk in (uphill back).",
+      "The hillside painters' village west of the centre, above the Campuhan ravine, is ringed by rice paddies. It's quieter, with pedestrian lanes and a long art history. About 15–20 minutes' walk in (uphill back).",
     bestFor: "Yoga, longer stays and a quieter, arty base near town.",
   },
   {
     label: "Sanggingan / Campuhan",
     character:
-      "The gallery-and-ridge belt northwest of the centre — the Campuhan Ridge Walk, the Blanco and Neka art museums, and some more spacious upscale hotels. Walkable to town via the ridge.",
+      "The gallery-and-ridge belt northwest of the centre: the Campuhan Ridge Walk, the Blanco and Neka art museums, and some more spacious upscale hotels. It's walkable to town via the ridge.",
     bestFor: "Art and museums, ridge scenery, and centre-accessible upscale stays.",
   },
   {
     label: "Peliatan",
     character:
-      "A traditional-arts village a short hop east of downtown — painting, gamelan and especially Legong dance, with regular evening performances at the Peliatan Palace. Quieter and more local.",
+      "A traditional-arts village a short hop east of downtown: painting, gamelan and especially Legong dance, with regular evening performances at the Peliatan Palace. It's quieter and more local.",
     bestFor: "Traditional-arts immersion and a lower-key, local base.",
   },
   {
     label: "Sayan / Kedewatan / Payangan / Keliki",
     character:
-      "The river-valley luxury belt outside the centre — dramatic Ayung and Wos gorge settings and Bali's original jungle-resort cluster. Secluded and scenic; you'll drive to town.",
+      "The river-valley luxury belt outside the centre, with dramatic Ayung and Wos gorge settings and Bali's original jungle-resort cluster. It's secluded and scenic, and you'll drive to town.",
     bestFor: "Secluded luxury and honeymoon jungle-gorge resorts.",
   },
 ];

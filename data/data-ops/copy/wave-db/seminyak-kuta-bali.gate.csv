@@ -1,0 +1,109 @@
+slug,verdict,problems,notes,warn_before,warn_after
+15fit-seminyak,PASS,,,0,0
+2befit-bali,PASS,,dropped PROPER:Visitors,0,0
+anika-gym,PASS,,,0,0
+avenue-fitness-bali,PASS,,dropped PROPER:Travellers,1,0
+azul-beach-club-legian,PASS,,,1,0
+babi-guling-pak-malen,PASS,,dropped LEX:late,1,0
+bali-barber-seminyak-seminyak,PASS,,dropped PROPER:Travellers,2,0
+bali-fitness-seminyak-seminyak,PASS,,"dropped LEX:first, PROPER:Bali, PROPER:Travellers",2,0
+bali-green-surf,PASS,,,1,0
+bambu,PASS,,,2,0
+biku,PASS,,dropped LEX:best,2,1
+bk-wellness-studio-umalas-by-blue-karma-secrets,PASS,,,0,0
+bodyworks-beauty-seminyak-seminyak,PASS,,dropped PROPER:Visitors,0,0
+bodyworks-spa-seminyak,PASS,,"dropped PROPER:Combines, PROPER:Travellers",0,0
+bossman-burgers,PASS,,dropped LEX:casual,1,0
+boyncow,PASS,,dropped LEX:premium,2,0
+caseys-spa-beauty-salon-legian,PASS,,,0,0
+cocoon-medical-spa-seminyak-seminyak,PASS,,,0,0
+coffee-cartel-legian,PASS,,,0,0
+corner-house-bali,PASS,,,0,0
+crossfit-seminyak,PASS,,,2,1
+de-nyuh-spa-seminyak,PASS,,,0,0
+desa-potato-head-wellness,PASS,,"dropped PROPER:Seminyak, PROPER:Library",1,0
+desa-wisata-medewi,PASS,,,0,0
+desa-wisata-penglipuran,PASS,,,0,0
+desa-wisata-tembuku,PASS,,,1,0
+desa-wisata-tenganan,PASS,,,0,0
+desa-wisata-undisan,PASS,,dropped PROPER:Balinese,1,0
+drifter-kayu-aya,PASS,,,1,1
+engine-room-legian,PASS,,,1,0
+expat-roasters,PASS,,,1,0
+fire-restaurant-seminyak,PASS,,"dropped PROPER:Restaurant, FOOD:bread, PROPER:Fresh Lombok",1,0
+gambinos-bali,PASS,,,1,0
+ginger-moon-canteen,PASS,,,0,0
+glo-day-spa-salon-seminyak-seminyak,PASS,,"dropped COUNT:one, PROPER:Travellers",2,1
+gusto-gelato,PASS,,dropped FOOD:dessert,2,0
+hammerhead-fitness,PASS,,,2,0
+hog-wild-with-chef-bruno,PASS,,dropped PROPER:Signature,1,0
+izzi-rooftop-lounge-and-restaurant-and-bar-and-shisha,PASS,,,1,0
+jari-menari-seminyak,PASS,,dropped PROPER:Travellers,3,0
+jasmine-aromatic-house,PASS,,,3,0
+jiwa-bikram-yoga-bali-seminyak,PASS,,"dropped LEX:first, PROPER:Bali's",1,0
+kilo-kitchen-bali-seminyak,PASS,,,2,1
+kros-tennis-bali,PASS,,,1,0
+kynd-community,PASS,,"dropped PROPER:Seminyak's, LEX:iconic",1,0
+la-casetta-bali,PASS,,dropped LEX:laid-back,1,0
+lagoon-spa-seminyak-seminyak,PASS,,"dropped PROPER:Known, PROPER:Guests",0,0
+ling-lings-bali,PASS,,dropped PROPER:Seminyak,2,0
+mades-warung-kuta,PASS,,dropped LEX:oldest,1,0
+mades-warung-seminyak,PASS,,"dropped PROPER:Restaurant, LEX:Authentic",0,0
+mamasan-bali,PASS,,,2,0
+mauri-restaurant,PASS,,dropped PROPER:Seminyak,1,0
+merah-putih-indonesian-restaurant,PASS,,dropped PROPER:Seminyak,2,1
+motion-fitness-bali-seminyak,PASS,,,0,0
+natys-restaurant-seminyak,PASS,,dropped PROPER:Seminyak,2,0
+naughty-nuris-warung-seminyak,PASS,,dropped PROPER:Seminyak,2,0
+norii-japanese-restaurant-seminyak,PASS,,,2,1
+pantai-kuta,PASS,,"dropped LEX:best, PROPER:Bali's",0,0
+pavilion-surf-club-kuta-legian,PASS,,dropped PROPER:SPECIAL,1,0
+pison-petitenget,PASS,,,3,0
+potato-head-beach-club,PASS,,"dropped PROPER:Seminyak's, LEX:best",2,0
+prana-spa-seminyak,PASS,,"dropped LEX:largest, LEX:most, PROPER:Bali's, PROPER:Guests, PROPER:Travellers",2,1
+prana-spa-yoga-fitness-adjacent-seminyak,PASS,,dropped LEX:famous,0,0
+prana-yoga-seminyak,PASS,,"dropped LEX:largest, PROPER:Seminyak's",2,0
+pura-kehen,PASS,,,0,0
+rai-fitness-sunset-bali,PASS,,"dropped LEX:first, PROPER:Bali, LEX:garden",2,1
+rai-fitness-sunset-road-seminyak,PASS,,"dropped PROPER:Bali's, PROPER:Serious",3,0
+rejuvie-aesthetic-bali-seminyak-seminyak,PASS,,dropped PROPER:Visitors,0,0
+revive-pilates-umalas,PASS,,dropped COUNT:one,3,0
+revolver-seminyak,PASS,,"dropped PROPER:Seminyak's, PROPER:Known",2,0
+rip-curl-surf-school-kuta-legian,PASS,,,1,0
+rob-peetoom-hair-spa-bali-seminyak,PASS,,dropped PROPER:Travellers,1,0
+saia-wellness-saia-pilates-umalas,PASS,,dropped COUNT:one,1,0
+sangsaka,PASS,,,2,0
+sardine,PASS,,,1,0
+sate-khas-senayan-beachwalk,PASS,,dropped LEX:authentic,2,0
+sea-circus,PASS,,,2,1
+seminyak-yoga-shala,PASS,,dropped PROPER:Visitors,0,0
+shichirin-japanese-restaurant-seminyak,PASS,,,1,0
+sisterfields,PASS,,,3,1
+soham-pilates-class-program-seminyak,PASS,,,0,0
+soham-wellness-center-seminyak,PASS,,dropped PROPER:Travellers,1,0
+soham-wellness-spa-seminyak,PASS,,dropped PROPER:Visitors,0,0
+soham-yoga-seminyak,PASS,,dropped PROPER:Guests,0,0
+spring-spa-seminyak,PASS,,dropped PROPER:Visitors,1,0
+sundari-day-spa-seminyak,PASS,,dropped PROPER:Visitors,1,1
+the-goat-seminyak,PASS,,,1,0
+the-legian-seminyak-wellness-yoga,PASS,,"dropped PROPER:Studio, LEX:only, PROPER:Seminyak",1,0
+the-shampoo-lounge-seminyak-seminyak,PASS,,"dropped LEX:largest, PROPER:Billed, PROPER:Bali's",2,1
+therapy-hair-spa-seminyak,PASS,,,1,0
+think-pink-nails-seminyak,PASS,,,2,0
+think-pink-salon-and-nails-bali,PASS,,,1,0
+to-the-moon-cafe,PASS,,,3,0
+vincent-nigita,PASS,,dropped LEX:calm,0,0
+w-bali-wellness-yoga,PASS,,"dropped PROPER:Seminyak, PROPER:HIIT, PROPER:Access",1,0
+waroeng-bernadette,PASS,,,3,0
+waroeng-sulawesi-petitenget,PASS,,dropped PROPER:Known,1,0
+warung-enys,PASS,,,2,0
+warung-kampung-legian,PASS,,,0,0
+warung-melati-nakula,PASS,,"dropped TIME:midday, LEX:best",1,0
+warung-murah-petitenget,PASS,,dropped LEX:best,0,0
+warung-nia-balinese-food-and-pork-ribs,PASS,,"dropped LEX:best, LEX:authentic",1,0
+warung-taman-bambu,PASS,,,1,0
+warung-wardani,PASS,,dropped LEX:authentic,0,0
+watercress-seminyak,PASS,,,1,0
+yoga-108-bali-kuta-legian,PASS,,,0,0
+yoga-108-bali-seminyak,PASS,,dropped LEX:authentic,2,1
+you-spa-umalas,PASS,,dropped PROPER:Signature,3,0

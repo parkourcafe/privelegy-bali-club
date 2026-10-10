@@ -59,7 +59,7 @@ const visualChoices = [
     alt: "Illustrative calm reef-sheltered shoreline and shaded coastal path in Sanur",
     label: "Calm coast",
     title: "Choose an easier base",
-    copy: "Look for the exact beach segment, walking route and hotel facilities — not just the Sanur label.",
+    copy: "Look past the Sanur label to the exact beach segment, walking route and hotel facilities.",
   },
   {
     href: "/nusa-penida-day-trip",

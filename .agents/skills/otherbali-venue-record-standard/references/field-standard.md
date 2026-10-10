@@ -19,13 +19,20 @@ before/after. All examples are actual production records.
 **Job:** what this place is, and the facts that decide it. The editorial line on
 every card.
 
-**Format:** two to four short sentences, one fact each. Present tense. No
-opening throat-clear ("Nestled in…", "Known for its…").
+**Format:** one to three sentences, 20–45 words, present tense. The first
+sentence says what the place is — it is also the page's `<meta description>`
+(cut at a word boundary near 158 characters), so it has to stand alone. No
+opening throat-clear ("Nestled in…", "Known for its…") and no category formula
+("Restaurant on Jl. X in Y"). This is the one length rule; the older "1–2
+sentences", "2–4 sentences" and "3 sentences / 30–45 words" versions in other
+documents are superseded by this line.
 
 **Evidence:** rung 1 or 2. Everything here is public copy.
 
-The failure mode is a single sentence carrying location, atmosphere, menu and
-history at once. It reads fine and extracts to nothing.
+Two failure modes, opposite in shape. A single sentence carrying location,
+atmosphere, menu and history at once reads fine and extracts to nothing. Three
+verbless fragments in a row ("Day spa in Amed. Eighteen treatments. Booking by
+WhatsApp.") extract fine and read as a generator. Write between them.
 
 **Before** (Bali Buda Canggu, real):
 
@@ -70,8 +77,14 @@ don't mind a crowd", that is the negative wearing a disguise — it belongs in
 **Job:** who or what this place does **not** suit. The highest-value field on
 the record and the one competitors do not publish.
 
-**Format:** one clause, ideally with the reason attached — "A quiet table — it
-is loud and busy" beats "Not for quiet".
+**Format:** one clause with the reason attached — "A quiet table, because it is
+loud and busy" beats "Not for quiet". How the reason is joined is not fixed
+(founder decision, 2026-10-05): a "because", a colon, a full stop or one em dash
+are all fine, as long as the field holds at most one dash and three neighbouring
+cards do not use the same joint. A fixed joint is how a format becomes a
+template: thirty-three live cards share "A budget massage — the list starts at NK
+IDR" word for word, and the blind read of the 2026-10-05 pilot flagged "…,
+because it is …" once it closed five cards in a row.
 
 **The line that must not be crossed:** this is *fit context*, never a quality
 warning (`AGENTS.md` guardrail #9). The test that settles every borderline case:

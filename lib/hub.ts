@@ -157,17 +157,18 @@ export function spokeTitle(spoke: IntentSpoke): string {
   return `Best ${spoke.intent.label} in ${spoke.districtName}`;
 }
 
-// Answer-first, quotable first sentence — real count + areas, no hype.
+// Answer-first, quotable first sentence — real count + areas, no hype. The
+// cards on this page (VenueCard) never render what_to_order or the price
+// anchor, so the intro must not promise them.
 export function spokeIntro(spoke: IntentSpoke): string {
   const areas = topAreas(spoke.venues, 3);
-  const lead = `Other Bali tracks ${spoke.venues.length} ${spoke.intent.noun} in ${spoke.districtName}${
+  return `Other Bali tracks ${spoke.venues.length} ${spoke.intent.noun} in ${spoke.districtName}${
     areas.length ? `, clustered around ${listJoin(areas)}` : ""
   } — for ${spoke.intent.blurb}.`;
-  return `${lead} Each pick below lists what to order and the price anchor.`;
 }
 
 export function spokeMetaDescription(spoke: IntentSpoke): string {
-  const base = `Best ${spoke.intent.label.toLowerCase()} in ${spoke.districtName}, Bali — ${spoke.venues.length} ${spoke.intent.noun} with what to order and prices. Free to use; travellers never pay.`;
+  const base = `Best ${spoke.intent.label.toLowerCase()} in ${spoke.districtName}, Bali — ${spoke.venues.length} ${spoke.intent.noun} picked by Other Bali. Free to use; travellers never pay.`;
   return base.length <= 158 ? base : base.slice(0, 155).trimEnd() + "…";
 }
 

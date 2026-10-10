@@ -25,7 +25,7 @@ import TrackedOutboundLink from "@/components/TrackedOutboundLink";
 export const metadata: Metadata = {
   title: "48 hours in Uluwatu — a realistic two-day plan",
   description:
-    "Two Uluwatu days that never cross the Bukit twice: west-cliff sunsets, a Bingin morning, a Melasti beach afternoon — with booking notes and rain alternatives.",
+    "Two Uluwatu days that never cross the Bukit twice: west-cliff sunsets, a Bingin morning and a Melasti beach afternoon. With booking notes and rain alternatives.",
   alternates: { canonical: "/uluwatu/48-hours" },
   openGraph: {
     title: "48 hours in Uluwatu · Other Bali",
@@ -77,7 +77,7 @@ const DAY1: Stop[] = [
     time: "17:00",
     slug: "single-fin",
     title: "Single Fin — the sunset",
-    note: "Arrive 60–90 minutes before the sun for a rail spot. Wednesday or Sunday? That's the party — book instead.",
+    note: "Arrive 60–90 minutes before the sun for a rail spot. On Wednesday or Sunday it's the party night, so book instead.",
   },
   {
     time: "19:30",
@@ -92,7 +92,7 @@ const DAY2: Stop[] = [
     time: "07:30",
     slug: "son-of-a-baker",
     title: "Son of a Baker — first-light pastry",
-    note: "Open from around 6 a.m. (closed Mondays — check their Instagram). Swap: Alchemy for the plant-based version.",
+    note: "Open from around 6 a.m. (closed Mondays; check their Instagram). For the plant-based version, swap in Alchemy.",
   },
   {
     time: "09:00",
@@ -114,28 +114,28 @@ const DAY2: Stop[] = [
   {
     time: "17:30",
     title: "Sunset from the south side",
-    note: "Stay put: bonfires at Sundays, or daybeds at the Melasti clubs. Do NOT race back to the west cliffs — that's the classic 48-hour mistake.",
+    note: "Stay put: bonfires at Sundays, or daybeds at the Melasti clubs. Don't race back to the west cliffs. That's the classic 48-hour mistake.",
   },
   {
     time: "19:30",
     slug: "waatu",
     title: "WAATU — fire-cooked dinner above the cove",
-    note: "Directly above Sundays at The Ungasan — zero transit from beach to table. Book ahead.",
+    note: "Directly above Sundays at The Ungasan, so there's zero transit from beach to table. Book ahead.",
   },
 ];
 
 const FAQ = [
   {
     q: "Only have 24 hours?",
-    a: "Run Day 1 and swap its dinner for WAATU or Gooseberry if you want the meal to be the memory. The west cliffs give you the densest version of Uluwatu: surf, strip, sunset, serious dinner — all within minutes.",
+    a: "Run Day 1 and swap its dinner for WAATU or Gooseberry if you want the meal to be the memory. The west cliffs give you the densest version of Uluwatu: surf, the strip, sunset and dinner, all within minutes.",
   },
   {
     q: "What if it rains?",
-    a: "Our research tags real covered fallbacks: Suka, Artisan, YUKI, ZALI, Gooseberry, Mana and El Kabrón all handle a wet afternoon. Beach hours move indoors; sunset becomes a long dinner. The plan bends, it doesn't break.",
+    a: "Our research tags real covered fallbacks: Suka, Artisan, YUKI, ZALI, Gooseberry, Mana and El Kabrón all handle a wet afternoon. Beach hours move indoors, and sunset becomes a long dinner.",
   },
   {
     q: "Scooter or driver?",
-    a: "Scooter if you're confident — the cliff lanes are narrow and parking at Suluban is tight. With kids or bags, a driver for the Melasti half-day is money well spent. Either way, one zone per half-day.",
+    a: "Scooter if you're confident, but the cliff lanes are narrow and parking at Suluban is tight. With kids or bags, a driver for the Melasti half-day is money well spent. Either way, keep to one zone per half-day.",
   },
   {
     q: "Why is there nothing about the temple or surf schools?",
@@ -208,8 +208,8 @@ export default function FortyEightHoursPage() {
           <h1 className="guide-title">48 hours in Uluwatu</h1>
           <p className="guide-standfirst">
             The Bukit punishes zigzagging: its zones look close and drive far.
-            This plan gives each day one side of the peninsula — west cliffs
-            first, Bingin-to-Melasti second — so you spend the hours on beaches
+            This plan gives each day one side of the peninsula. West cliffs come
+            first, Bingin-to-Melasti second, so you spend the hours on beaches
             and tables, not on the road. Every stop is a verified place with
             its own page and booking note.
           </p>
@@ -240,19 +240,19 @@ export default function FortyEightHoursPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <PlaceLink slug="kala-uluwatu" /> — reserve dinner via
+                <PlaceLink slug="kala-uluwatu" />: reserve dinner via
                 SevenRooms, especially weekends.
               </li>
               <li>
-                <PlaceLink slug="waatu" /> — book the Day-2 dinner ahead; it’s
+                <PlaceLink slug="waatu" />: book the Day-2 dinner ahead; it’s
                 a destination room.
               </li>
               <li>
-                <PlaceLink slug="single-fin" /> — walk-in normally, but book if
+                <PlaceLink slug="single-fin" />: walk-in normally, but book if
                 your sunset lands on Wednesday or Sunday.
               </li>
               <li>
-                <PlaceLink slug="sundays-beach-club" /> — passes are walk-in;
+                <PlaceLink slug="sundays-beach-club" />: passes are walk-in;
                 cabanas and VIP set-ups pre-book.
               </li>
             </ul>
@@ -262,7 +262,7 @@ export default function FortyEightHoursPage() {
         <section className="guide-section" id="get-the-guide">
           <h2>Keep this plan with you</h2>
           <p className="guide-lede">
-            Leave your details and the guide stays yours — plus you’ll get the
+            Leave your details and the guide stays yours. You’ll also get the
             next district plans as they pass verification. The full plan is
             already on this page; the form never hides it.
           </p>
@@ -281,7 +281,7 @@ export default function FortyEightHoursPage() {
             {
               href: "/uluwatu/beach-clubs-sunset",
               title: "Swap the beach day",
-              blurb: "Seven golden-hour venues compared honestly.",
+              blurb: "Seven golden-hour venues, compared.",
             },
             {
               href: "/uluwatu/best-brunch",
@@ -295,7 +295,7 @@ export default function FortyEightHoursPage() {
           <h2>Planning more than a weekend?</h2>
           <p>
             The pillar guide breaks Uluwatu into micro-areas with quick picks
-            for every situation — and the island catalogue covers the rest of
+            for every situation. The island catalogue covers the rest of
             Bali.
           </p>
           <Link href="/uluwatu" className="cta-band-action">

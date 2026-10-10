@@ -1,0 +1,152 @@
+{
+  "slug": "ulu-fishmarket",
+  "officialDomains": [
+    "ulufishmarket.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "ulu-fishmarket-14",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "12.00pm-11.00pm"
+        ],
+        "Tuesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Wednesday": [
+          "12.00pm-11.00pm"
+        ],
+        "Thursday": [
+          "12.00pm-11.00pm"
+        ],
+        "Friday": [
+          "12.00pm-11.00pm"
+        ],
+        "Saturday": [
+          "12.00pm-11.00pm"
+        ],
+        "Sunday": [
+          "12.00pm-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/",
+      "quote": "Opening Hours\nMonday to Sunday\n12pm - 11pm",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-fishmarket-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "white crunchy roll; tuna tartare; hot phila roll",
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/menu-copy/",
+      "quote": "WHITE CRUNCHY ROLL\nWhite fish tempura, cucumber, tobiko, crunchy spicy mayo wrapped white fish and\ncrunchy butter crumble",
+      "snapshot_sha256": "374099612f46afffed307312b88120d54a833e48c9e942e195a9f3042be076d6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-fishmarket-22",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-fishmarket-19",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://ulufishmarket.com/menu-copy/",
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/",
+      "quote": "FULL MENU",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-ulu-fi-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-ulu-fi-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-ulu-fishmarket",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-ulu-fi-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-fishmarket-20",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6282266469790",
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/?page_id=163",
+      "quote": "Reservations\n+62 (822)-6646-9790",
+      "snapshot_sha256": "87c5c9ba0315faaa8c151ebc4b7856d5434adc51ce676472f1037b5308c43836",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "ulu-fishmarket-18",
+      "field": "bookingUrl",
+      "action": "add",
+      "proposed": "https://cho.pe/ulufishmarket.ig",
+      "claim_text": null,
+      "source_url": "https://ulufishmarket.com/",
+      "quote": "BOOK A TABLE",
+      "snapshot_sha256": "ac8a4142fc1e4591e6127da99647f00e3064d0e6a93e2161fd8acae5eb55314b",
+      "category": "restaurant"
+    }
+  ]
+}

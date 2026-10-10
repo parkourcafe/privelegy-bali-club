@@ -1,0 +1,229 @@
+{
+  "slug": "artisan-uluwatu",
+  "officialDomains": [
+    "artisangroup.id"
+  ],
+  "category": "cafe",
+  "claims": [
+    {
+      "claim_id": "artisan-uluwatu-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "croissant; saffron benedict; linguine & clams",
+      "claim_text": null,
+      "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "quote": "SAFFRON BENEDICT │100     V GF\nPOACHED EGGS, SAFFRON HOLLANDAISE, GRILLED\nASPARAGUS, POTATO ROSTI",
+      "snapshot_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-14",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "Saffron Benedict IDR 100K (breakfast); Charcoal roasted chicken IDR 150K (dinner) — menu PDF, undated (upload 2024/11)",
+      "claim_text": null,
+      "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "quote": "SAFFRON BENEDICT │100     V GF",
+      "snapshot_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-10.30pm"
+        ],
+        "Tuesday": [
+          "7.00am-10.30pm"
+        ],
+        "Wednesday": [
+          "7.00am-10.30pm"
+        ],
+        "Thursday": [
+          "7.00am-10.30pm"
+        ],
+        "Friday": [
+          "7.00am-10.30pm"
+        ],
+        "Saturday": [
+          "7.00am-10.30pm"
+        ],
+        "Sunday": [
+          "7.00am-10.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "quote": "BREAKFAST MENU\n\n7AM - 3PM",
+      "snapshot_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-artisa-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-23",
+      "field": "full_address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Few Bukit cafés survive that transition; this one does.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-18",
+      "field": "officialUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Bakery-café by day, wood-fired dining by night — the Suluban strip's most ambitious pastry counter.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-22",
+      "field": "phone",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "claim_text": null,
+      "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "quote": "Subject to 10% govt tax & 5% service charge",
+      "snapshot_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-artisa-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-artisan-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-artisa-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://artisangroup.id/wp-content/uploads/2024/11/ULUWATU-MENU-FOR-SOCIALS.pdf",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "f119a32c5f20e83a5ca784baf50a618d8bb5caae9c0ed2ed63d2f8ae51abcec2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "artisan-uluwatu-15",
+      "field": "address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    }
+  ]
+}

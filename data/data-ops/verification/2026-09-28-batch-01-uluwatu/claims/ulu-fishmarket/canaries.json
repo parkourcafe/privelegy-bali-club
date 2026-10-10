@@ -1,0 +1,20 @@
+{
+  "slug": "ulu-fishmarket",
+  "canaries": [
+    {
+      "claim_id": "k-ulu-fi-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-ulu-fi-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-ulu-fi-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "suka-espresso"
+    }
+  ]
+}

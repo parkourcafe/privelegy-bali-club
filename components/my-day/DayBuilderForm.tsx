@@ -116,11 +116,11 @@ export default function DayBuilderForm({ initial }: { initial: DayAnswers }) {
       : geo.kind === "found"
         ? `You're near ${geo.name}.`
         : geo.kind === "outside"
-          ? "You seem to be outside our covered areas — building for all Bali."
+          ? "You seem to be outside our covered areas, so we're building for all Bali."
           : geo.kind === "denied"
-            ? "No problem — just pick your area below."
+            ? "No problem. Just pick your area below."
             : geo.kind === "unavailable"
-              ? "Location isn't available on this device — pick your area below."
+              ? "Location isn't available on this device. Pick your area below."
               : null;
 
   return (
@@ -182,7 +182,7 @@ export default function DayBuilderForm({ initial }: { initial: DayAnswers }) {
             Build my day →
           </button>
           <span className="text-xs text-[var(--muted)]">
-            Tap only what matters — skip the rest. Nothing is stored.
+            Tap only what matters and skip the rest. Nothing is stored.
           </span>
         </div>
       </div>

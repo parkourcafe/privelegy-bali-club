@@ -1,0 +1,20 @@
+{
+  "slug": "oneeighty",
+  "canaries": [
+    {
+      "claim_id": "k-oneeig-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-oneeig-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-oneeig-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "sundays-beach-club"
+    }
+  ]
+}

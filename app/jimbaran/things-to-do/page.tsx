@@ -7,7 +7,7 @@ import { JIMBARAN_REVIEW_DATE, JIMBARAN_THINGS_TO_DO } from "@/lib/jimbaran/cont
 export const metadata: Metadata = {
   title: "Best things to do in Jimbaran — beyond the seafood dinner",
   description:
-    "Jimbaran is more than grilled seafood: the Kedonganan fish market, Tegal Wangi's hidden tide pools, a swim and sunset at Muaya, the cliff-base Rock Bar, and the GWK Cultural Park.",
+    "Jimbaran beyond grilled seafood: Kedonganan fish market, Tegal Wangi's tide pools, Muaya for a swim and sunset, cliff-base Rock Bar and GWK Cultural Park.",
   alternates: { canonical: "/jimbaran/things-to-do" },
   openGraph: {
     title: "Best things to do in Jimbaran · Other Bali",
@@ -49,10 +49,11 @@ export default function JimbaranThingsToDoPage() {
           <p className="guide-kicker">Jimbaran · What to do</p>
           <h1 className="guide-title">Best things to do in Jimbaran</h1>
           <p className="guide-standfirst">
-            Jimbaran is famous for one dinner, but there&apos;s a real day or two
-            around it: a working fish market at dawn, a hidden cove with natural
-            tide pools, a calm swimming bay, a cliff-base sunset bar and a giant
-            cultural park up the hill. Calm, west-facing, family-easy.
+            You probably know Jimbaran for one dinner, but there&apos;s a real day
+            or two around it. There&apos;s a working fish market at dawn, a hidden
+            cove with natural tide pools and a calm swimming bay. There&apos;s also
+            a cliff-base sunset bar, and a giant cultural park up the hill.
+            It&apos;s calm, west-facing and family-easy.
           </p>
           <p className="guide-meta-line">Editorial review: {JIMBARAN_REVIEW_DATE}</p>
         </header>
@@ -86,11 +87,12 @@ export default function JimbaranThingsToDoPage() {
           <h2>The short version</h2>
           <div className="guide-prose">
             <p>
-              One easy day: the Kedonganan fish market early, a calm swim at Muaya,
-              Tegal Wangi&apos;s tide pools at low tide, then seafood on the sand at
-              sunset. Add time: the Rock Bar for sundowners, the GWK Cultural Park
-              and its evening Kecak up in Ungasan, and the village temple Pura Ulun
-              Siwi. Low-key by design — that&apos;s the bay&apos;s appeal.
+              For one easy day, start at the Kedonganan fish market early. Then take
+              a calm swim at Muaya and see Tegal Wangi&apos;s tide pools at low tide.
+              End with seafood on the sand at sunset. With more time, add the Rock
+              Bar for sundowners and the village temple, Pura Ulun Siwi. Up in
+              Ungasan, the GWK Cultural Park has an evening Kecak. The bay is
+              low-key by design, and that&apos;s its appeal.
             </p>
           </div>
         </section>

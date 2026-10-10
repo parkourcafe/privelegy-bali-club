@@ -20,25 +20,25 @@ const BASE = "https://www.otherbali.com";
 export const metadata: Metadata = {
   title: "Seminyak guide — where to eat, drink at sunset and be looked after",
   description:
-    "A resident-curated Seminyak guide: how the area feels, the restaurants and beach clubs worth your time, the sunset spots, and the island's densest spa-and-salon scene.",
+    "How Seminyak feels, the restaurants and beach clubs worth your time, where to watch the sunset, and the island's densest spa-and-salon scene.",
   alternates: { canonical: "/seminyak" },
   openGraph: {
     title: "The Seminyak guide · Other Bali",
-    description: "Dining, beach clubs, sunset spots and spas — how to plan Seminyak.",
+    description: "How to plan Seminyak: dining, beach clubs, sunset spots and spas.",
     url: `${BASE}/seminyak`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
     title: "The Seminyak guide · Other Bali",
-    description: "Dining, beach clubs, sunset spots and spas — how to plan Seminyak.",
+    description: "How to plan Seminyak: dining, beach clubs, sunset spots and spas.",
   },
 };
 
 const FAQ = [
   {
     q: "What is Seminyak best for?",
-    a: "Polished Bali: the original dining strip, beachfront sunset clubs, boutique shopping and the island's densest spa-and-salon scene. It's walkable and stylish — a more urban base than Canggu, calmer than Kuta.",
+    a: "Polished Bali: the original dining strip, beachfront sunset clubs, boutique shopping and the island's densest spa-and-salon scene. It's walkable and stylish. It's a more urban base than Canggu, and calmer than Kuta.",
   },
   {
     q: "Which beaches are in Seminyak?",
@@ -46,7 +46,7 @@ const FAQ = [
   },
   {
     q: "Is Seminyak walkable?",
-    a: "The core around Jl. Kayu Aya (Eat Street), Petitenget and Seminyak Square is walkable; anything toward Umalas, Batu Belig or Sunset Road is a short scooter or taxi.",
+    a: "The core is walkable, from Jl. Kayu Aya (Eat Street) to Petitenget and Seminyak Square. Anything toward Umalas, Batu Belig or Sunset Road is a short scooter or taxi ride.",
   },
 ];
 
@@ -119,7 +119,7 @@ export default async function SeminyakPillarPage() {
           variant="sunset"
           kicker="Seminyak · West coast"
           title="Seminyak, Bali's polished coast"
-          copy="The island's original style strip: Eat Street dining, beachfront sunset clubs along Double Six and Petitenget, boutique shopping and Bali's densest spa-and-salon scene. This guide covers where to eat, where to catch the sunset and where to be looked after — curated from places we actually rate."
+          copy="The island's original style strip: Eat Street dining, beachfront sunset clubs along Double Six and Petitenget, boutique shopping and Bali's densest spa-and-salon scene. This guide covers where to eat, where to catch the sunset and where to be looked after. It's curated from places we actually rate."
           actions={
             <Link
               href="/places?district=seminyak"
@@ -163,7 +163,7 @@ export default async function SeminyakPillarPage() {
         <TopPicks title="Best restaurants" note="Eat Street rooms, sharing tables and honest warungs." venues={restaurants} href="/seminyak/best-restaurants" />
         <TopPicks title="Beach clubs & sunset" note="Where to be for golden hour on the sand." venues={beachClubs} href="/seminyak/beach-clubs-sunset" />
         <TopPicks title="Cafés & coffee" note="Specialty coffee and long brunches." venues={cafes} href="/seminyak/cafes-coffee" />
-        <TopPicks title="Spas, salons & wellness" note="Massage, beauty, yoga and fitness — Bali's spa capital." venues={wellness} href="/seminyak/spas-salons-wellness" />
+        <TopPicks title="Spas, salons & wellness" note="Massage, beauty, yoga and fitness in Bali's spa capital." venues={wellness} href="/seminyak/spas-salons-wellness" />
 
         <FaqBlock items={FAQ} />
         <RelatedGuides

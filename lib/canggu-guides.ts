@@ -47,8 +47,8 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     h1: "Best brunch in Canggu",
     metaTitle: "Best brunch in Canggu — cafés, all-day spots and beachfront",
     metaDescription:
-      "The best brunch in Canggu, sorted by the morning you want: café brunch and specialty coffee, all-day and weekend spreads, or a table by the beach.",
-    lede: "Brunch is Canggu's best meal. These are the spots we rate, sorted by the morning you're after — a laptop-and-coffee café, a proper weekend spread, or toes-near-sand by the beach.",
+      "The best brunch in Canggu by the morning you want: café brunch and specialty coffee, all-day and weekend spreads, or a table by the beach.",
+    lede: "Brunch is Canggu's best meal. These are the spots we rate, sorted by the morning you're after: a laptop-and-coffee café, a weekend spread, or toes-near-sand by the beach.",
     answer: {
       picks: [
         { slug: "hungry-bird-coffee", want: "Specialty coffee", why: "Roasts its own beans in Tibubeneng, direct from local farms, since 2013." },
@@ -81,7 +81,7 @@ export const CANGGU_GUIDES: CangguGuide[] = [
       { q: "Where is the best vegan brunch in Canggu?", a: "Secret Spot is fully plant-based, vegan croissants included. Roots builds a bowl from 50+ ingredients. The Shady Shack is vegetarian and vegan over the Berawa rice fields. Oma Jamu is the cheapest of them. CAFE VIDA has a vegan and raw section, with no palm oil, cane sugar or wheat flour." },
       { q: "Where can I work over brunch in Canggu?", a: "ZIN Cafe is a free coworking space with power at most tables. MIEL has spacious tables, a quiet room and fast wifi. Tropical Nomad is a coworking space with its own open-air café. 7AM Bakers has strong wifi and two floors. Crate Cafe is not the one — it is loud and busy." },
       { q: "Is there brunch in Canggu for kids?", a: "Milk & Madu Beach Road has a kids' play area. Brunch Club in Pererenan is open-sided with room to move under the mango tree. Milu by Nook has a garden over a rice paddy. Bali Buda Canggu is a calm wholefoods café with groceries on the way out." },
-      { q: "Which part of Canggu is best for brunch?", a: "Berawa has the most choice on this list. Batu Bolong is the beach-road strip, closest to the surf and the busiest. Pererenan, Umalas and Seseh sit further out and quieter, with rice fields instead of traffic." },
+      { q: "Which part of Canggu is best for brunch?", a: "Berawa has the most choice on this list. Batu Bolong, the beach-road strip, is closest to the surf and the busiest. Pererenan, Umalas and Seseh sit further out and quieter, with rice fields instead of traffic." },
     ],
   },
   {
@@ -99,8 +99,8 @@ export const CANGGU_GUIDES: CangguGuide[] = [
       { key: "babi", heading: "Babi guling & roast pork", note: "Balinese suckling pig with rice, crackling and sambal.", match: (v) => /babi/i.test(v.name) },
     ],
     faq: [
-      { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food — nasi campur, satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
-      { q: "Where do you eat cheap local food in Canggu?", a: "At the warungs and babi guling stalls above — clustered around Batu Bolong, Pererenan and Padang Linjong. Nasi campur (build-your-own mixed rice) is the everyday plate; babi guling is the Balinese roast-pork specialty." },
+      { q: "What is a warung?", a: "A warung is a small, family-run Indonesian eatery serving affordable local food: nasi campur, satay and daily home-style dishes. They're the backbone of everyday eating in Bali." },
+      { q: "Where do you eat cheap local food in Canggu?", a: "At the warungs and babi guling stalls above, clustered around Batu Bolong, Pererenan and Padang Linjong. Nasi campur (build-your-own mixed rice) is the everyday plate; babi guling is the Balinese roast-pork specialty." },
       { q: "What is babi guling?", a: "Babi guling is Balinese roast suckling pig, served with rice, crispy crackling, lawar and sambal. It's a local celebration dish and a hearty, affordable warung plate." },
     ],
   },
@@ -119,8 +119,8 @@ export const CANGGU_GUIDES: CangguGuide[] = [
       { key: "occasion", heading: "Special occasion", note: "When the dinner is the event. Book ahead.", match: (v) => venueHasJob(v, ["special-occasion"]) },
     ],
     faq: [
-      { q: "Do Canggu restaurants take reservations?", a: "The popular dinner rooms do, and weekends book out — reserve a table in a tap where you see the Reserve button. Casual and warung spots are walk-in." },
-      { q: "Where's good for a group dinner in Canggu?", a: "Look under Groups & sharing — rooms with the space and sharing menus that actually work for a full table." },
+      { q: "Do Canggu restaurants take reservations?", a: "The popular dinner rooms do, and weekends book out. Reserve a table in a tap where you see the Reserve button. Casual and warung spots are walk-in." },
+      { q: "Where's good for a group dinner in Canggu?", a: "Look under Groups & sharing for rooms with the space and sharing menus that work for a full table." },
     ],
   },
   {
@@ -128,8 +128,8 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     h1: "Work-friendly cafés in Canggu",
     metaTitle: "Work-friendly cafés in Canggu — wifi, sockets, a seat that lasts",
     metaDescription:
-      "Where to actually work in Canggu: cafés with wifi, sockets, AC and a seat you can hold — plus the calm morning spots before the brunch rush. Resident-curated.",
-    lede: "Canggu runs on laptops. These are the cafés that hold up for a work morning — not every pretty brunch spot does.",
+      "Where to work in Canggu: cafés with wifi, sockets, AC and a seat you can hold, plus the calm morning spots before the brunch rush. Resident-curated.",
+    lede: "Canggu runs on laptops. These are the cafés that hold up for a work morning, and not every pretty brunch spot does.",
     // §13: a café alone isn't a work café — require the verified work/morning job.
     base: (v) => v.category === "cafe" || venueHasJob(v, ["quiet-work-cafe", "brunch-after-surf"]),
     groups: [
@@ -137,7 +137,7 @@ export const CANGGU_GUIDES: CangguGuide[] = [
       { key: "coffee", heading: "Coffee & a slow start", note: "Serious coffee, calmer mornings.", match: (v) => venueHasJob(v, ["brunch-after-surf"]) || v.category === "cafe" },
     ],
     faq: [
-      { q: "Which Canggu cafés are best for working?", a: "We tag the ones with the wifi, sockets and seating to actually work — a packed brunch café at 10am usually isn't one of them." },
+      { q: "Which Canggu cafés are best for working?", a: "We tag the ones with the wifi, sockets and seating to work from. A packed brunch café at 10am usually isn't one of them." },
     ],
   },
   {
@@ -145,14 +145,14 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     h1: "Best spas & wellness in Canggu",
     metaTitle: "Best spas in Canggu — massage, reset and recovery",
     metaDescription:
-      "Where to reset in Canggu: massage, spa and recovery spots worth booking. Resident-curated, honest about what each is best for.",
+      "Where to reset in Canggu: massage, spa and recovery spots worth booking. Resident-curated, and we say what each is best for.",
     lede: "After the surf and the scooters, Canggu is built for a reset. These are the spa and wellness spots we send people to.",
     base: (v) => v.category === "spa",
     groups: [
       { key: "reset", heading: "Massage & reset", note: "A proper wind-down after beach and board.", match: () => true },
     ],
     faq: [
-      { q: "Should I book a spa in Canggu ahead?", a: "For evenings and weekends, yes — the good rooms fill. Book where you can, and walk in earlier in the day." },
+      { q: "Should I book a spa in Canggu ahead?", a: "Yes, for evenings and weekends, when the good rooms fill. Book where you can, and walk in earlier in the day." },
     ],
   },
   {
@@ -160,15 +160,15 @@ export const CANGGU_GUIDES: CangguGuide[] = [
     h1: "Canggu beach clubs & sunset spots",
     metaTitle: "Canggu beach clubs & sunset — where to be for golden hour",
     metaDescription:
-      "Canggu beach clubs and sunset spots compared: pool-and-day-club energy vs a quiet sunset drink, and whether you should reserve. Resident-curated.",
-    lede: "Canggu's sunset stretch runs from big day clubs to quiet beach bars. Here's where to be, by the evening you want.",
+      "Canggu beach clubs and sunset spots compared: pool-and-day-club energy vs a quiet sunset drink, and whether to reserve. Resident-curated.",
+    lede: "Canggu's sunset stretch runs from big day clubs to quiet beach bars. Choose where to be by the evening you want.",
     base: (v) => v.category === "beach_club" || v.category === "bar" || venueHasJob(v, ["sunset-drinks-view"]),
     groups: [
       { key: "sunset", heading: "Sunset drinks & views", note: "Be there before golden hour.", match: (v) => venueHasJob(v, ["sunset-drinks-view"]) || hasTag(v, "view", "vibe") },
       { key: "lively", heading: "Day clubs & lively", note: "Pool, music, a bigger night.", match: (v) => hasTag(v, "lively", "vibe") || v.category === "beach_club" },
     ],
     faq: [
-      { q: "Do Canggu beach clubs need a booking?", a: "Daybeds and weekend sunsets, usually yes — reserve where you can. Beach bars are mostly walk-in." },
+      { q: "Do Canggu beach clubs need a booking?", a: "Usually yes for daybeds and weekend sunsets, so reserve where you can. Beach bars are mostly walk-in." },
     ],
   },
 ];

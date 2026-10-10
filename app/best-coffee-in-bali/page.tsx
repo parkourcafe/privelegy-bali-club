@@ -28,17 +28,17 @@ const COFFEE_SLUGS = new Set([
 ]);
 
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "canggu", name: "Canggu", note: "Bali's specialty-coffee heartland — pioneering roasters and laptop-friendly cafés a short ride apart.", pillar: "/canggu" },
-  { key: "seminyak", name: "Seminyak", note: "Where Bali's third-wave coffee scene got started, tucked off the Oberoi strip.", pillar: "/seminyak" },
+  { key: "canggu", name: "Canggu", note: "Bali's specialty-coffee heartland, with pioneering roasters and laptop-friendly cafés a short ride apart.", pillar: "/canggu" },
+  { key: "seminyak", name: "Seminyak", note: "Where Bali's third-wave coffee scene got started, just off the Oberoi strip.", pillar: "/seminyak" },
   { key: "ubud", name: "Ubud", note: "Origin-focused roasters treating Indonesian beans as the craft, in a calmer setting.", pillar: "/ubud" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Strong coffee to fuel a surf day, from the Bukit's better cafés.", pillar: "/uluwatu" },
 ];
 
 const FAQ = [
   { q: "Where is the best coffee in Bali?", a: "Canggu is the specialty-coffee heartland, with pioneering roasters like Revolver and Crate. Ubud has origin-focused roasters such as Seniman, and Seminyak and Uluwatu have strong cafés too." },
-  { q: "Does Bali have good specialty coffee?", a: "Yes — Bali has a deep third-wave scene, with local roasters sourcing and roasting Indonesian single-origin beans and pouring espresso and filter to a high standard." },
-  { q: "Where can I buy Bali coffee beans to take home?", a: "Several of the roasters below sell their own beans by the bag to take home. Ask at the counter — most roast locally and stock retail bags." },
-  { q: "Is Bali coffee the same as Kopi Luwak?", a: "No. The specialty scene here is about ethically sourced, locally roasted single-origin beans and skilled brewing — not the novelty Kopi Luwak (civet coffee) sold to tourists." },
+  { q: "Does Bali have good specialty coffee?", a: "Yes. Bali has a deep third-wave scene. Local roasters source and roast Indonesian single-origin beans and pour espresso and filter to a high standard." },
+  { q: "Where can I buy Bali coffee beans to take home?", a: "Several of the roasters below sell their own beans by the bag to take home. Ask at the counter: most roast locally and stock retail bags." },
+  { q: "Is Bali coffee the same as Kopi Luwak?", a: "No. Kopi Luwak (civet coffee) is the novelty sold to tourists. The specialty scene here is about ethically sourced, locally roasted single-origin beans and skilled brewing." },
 ];
 
 export default async function BestCoffeePage() {
@@ -90,11 +90,11 @@ export default async function BestCoffeePage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            Bali takes coffee seriously. Canggu is the heartland of the island&apos;s
-            specialty scene, with local roasters and laptop-friendly cafés; Ubud
-            has the origin-focused roasters, and Seminyak and Uluwatu hold their
-            own. Here are the coffee-forward spots we stand behind — the ones
-            roasting and pouring with real care, by area.
+            Canggu is the heartland of Bali&apos;s specialty coffee scene. You&apos;ll
+            find local roasters and laptop-friendly cafés there, while Ubud has the
+            origin-focused roasters. Seminyak and Uluwatu hold their own. Below are
+            the coffee-forward spots we stand behind, by area: the ones roasting and
+            pouring with real care.
           </p>
         </header>
 

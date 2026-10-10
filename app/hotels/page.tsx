@@ -22,12 +22,12 @@ import { HOTELS_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 export const metadata: Metadata = {
   title: { absolute: "Partner your hotel with Other Bali" },
   description:
-    "Hotel, resort or boutique property in Bali? Partner with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly — for your rooms and your restaurant, pool, spa and day pass. Completely free.",
+    "Partner your Bali hotel, resort or boutique property with Other Bali, the resident-curated guide. You add your own details and photos, we review and publish, and travellers reach you directly. Completely free.",
   alternates: { canonical: "/hotels" },
   openGraph: {
     title: "Partner your hotel with Other Bali",
     description:
-      "Get discovered by more travellers — for your rooms and your restaurant, pool, spa and day pass. Add your own details and photos, we review and publish, travellers reach you directly. Completely free.",
+      "Get discovered by more travellers for your rooms and your restaurant, pool, spa and day pass. Add your own details and photos; we review and publish; travellers reach you directly. Completely free.",
     url: "https://www.otherbali.com/hotels",
     type: "website",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Partner your hotel with Other Bali",
     description:
-      "Partner with Other Bali — you add your details and photos, we review and publish. Completely free, no commission, travellers never pay.",
+      "Partner with Other Bali: you add your details and photos, and we review and publish. Completely free, no commission, travellers never pay.",
   },
 };
 
@@ -56,7 +56,7 @@ const PHOTO_SLOTS = [
 const YOU_GET = [
   "A dedicated hotel page with your photos, description and direct links",
   "Travellers who reach you directly — no marketplace, no commission",
-  "A personalised guest QR — one link for restaurants, beaches, wellness",
+  "A personalised guest QR: one link for restaurants, beaches and wellness",
 ];
 const WE_ASK = [
   "A link to Other Bali on your hotel website",
@@ -67,7 +67,7 @@ const WE_ASK = [
 const STEPS = [
   {
     title: "You add your hotel",
-    body: "Fill the short form on this page with your details and your own photos (ones you have the rights to share). You fill it in, so the page is genuinely yours.",
+    body: "Fill the short form on this page with your details and your own photos (ones you have the rights to share). You fill it in, so the page is yours.",
   },
   {
     title: "We review and polish",
@@ -79,7 +79,7 @@ const STEPS = [
   },
   {
     title: "Share the guide with guests",
-    body: "A QR code, welcome link or check-in message — one trusted local guide for their whole stay.",
+    body: "A QR code, welcome link or check-in message: one trusted local guide for their whole stay.",
   },
 ];
 
@@ -145,8 +145,8 @@ export default function HotelsPage() {
           <p className="guide-kicker">For hotels · resorts · boutique properties</p>
           <h1 className="guide-title">Partner your hotel with Other Bali.</h1>
           <p className="guide-standfirst">
-            Get discovered by more travellers — for your rooms and your
-            restaurant, pool, spa and day pass — and give every guest a better
+            Get discovered by more travellers for your rooms and your
+            restaurant, pool, spa and day pass, and give every guest a better
             Bali experience. Completely free, as a simple partnership.
           </p>
           <div className="hero-actions" style={{ marginTop: 18 }}>
@@ -194,7 +194,7 @@ export default function HotelsPage() {
           <h2>A partnership that works in both directions</h2>
           <p className="guide-lede">
             No fees, no commission, no booking-volume promises. We grow together:
-            travellers find you through us — your guests discover Bali through you.
+            travellers find you through us, and your guests discover Bali through you.
             Travellers never pay.
           </p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -243,14 +243,14 @@ export default function HotelsPage() {
               <h3 className="text-lg font-bold">Digital concierge for guests</h3>
               <p className="mt-2 text-sm text-[var(--muted)]">
                 One trusted link for restaurants, beaches, wellness, activities and
-                delivery — picked by residents.
+                delivery, picked by residents.
               </p>
             </div>
             <div className="rounded-2xl border border-[var(--line)] bg-[var(--paper-soft)] p-5">
               <h3 className="text-lg font-bold">Better guest experience</h3>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Fewer repeat questions at reception, faster guest decisions — no
-                concierge platform to build.
+                Fewer repeat questions at reception and faster guest decisions, with
+                no concierge platform to build.
               </p>
             </div>
           </div>
@@ -267,7 +267,8 @@ export default function HotelsPage() {
             </h3>
             <p className="mt-2 text-sm text-[var(--tint-best-text)]">
               Unlike a villa, a hotel has facilities worth discovering on their
-              own. Run a{" "}
+              own, so you&apos;re found for more than your rooms. Our guides send
+              readers straight to your{" "}
               <Link href="/best-restaurants-in-bali" className="font-semibold">
                 restaurant
               </Link>
@@ -287,8 +288,7 @@ export default function HotelsPage() {
               <Link href="/best-beach-clubs-in-bali" className="font-semibold">
                 beach club
               </Link>
-              ? We send our guides&apos; readers straight to it — you&apos;re found
-              for your rooms and everything around the pool.
+              .
             </p>
           </div>
         </section>
@@ -360,7 +360,7 @@ export default function HotelsPage() {
         <section className="guide-section" id="add">
           <h2>Add your hotel</h2>
           <p className="guide-lede">
-            Tell us about your hotel — rooms, facilities and your own links. We
+            Tell us about your hotel: rooms, facilities and your own links. We
             review and polish the page, and nothing goes live until you approve
             it. It takes a few minutes — no fees, and travellers never pay.
           </p>
@@ -377,7 +377,7 @@ export default function HotelsPage() {
             guarantee booking volume.
           </p>
           <p className="mt-3 text-sm text-[var(--muted)]">
-            Prefer to ask a question first?{" "}
+            You can also ask a question first.{" "}
             <TrackedOutboundLink
               href={HOTELS_WHATSAPP_URL}
               event="whatsapp_guide_click"

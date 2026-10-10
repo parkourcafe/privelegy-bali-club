@@ -1,0 +1,2862 @@
+[
+ {
+  "unit": "milk-and-madu-beach-road",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "room",
+     "sentence": "The room is spacious and shaded by palms, with a kids' play area, and the kitchen does brunch classics and lava-stone pizzas."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "kitchen",
+     "sentence": "The room is spacious and shaded by palms, with a kids' play area, and the kitchen does brunch classics and lava-stone pizzas."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "kids",
+      "canonical": "LEX:kids",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "play area",
+      "canonical": "LEX:playground",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "pizzas",
+      "canonical": "FOOD:pizza",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Batu Bolong",
+      "canonical": "PROPER:batu bolong",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Milk & Madu",
+      "canonical": "PROPER:milk madu",
+      "sentence": 0
+     },
+     {
+      "type": "DAY",
+      "token": "daily",
+      "canonical": "DAY:daily",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "children",
+      "canonical": "LEX:kids",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "early",
+      "canonical": "LEX:early",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 2
+     }
+    ],
+    "after": [
+     {
+      "type": "PROPER",
+      "token": "Batu Bolong",
+      "canonical": "PROPER:batu bolong",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Milk & Madu",
+      "canonical": "PROPER:milk madu",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "kids",
+      "canonical": "LEX:kids",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "play area",
+      "canonical": "LEX:playground",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "pizzas",
+      "canonical": "FOOD:pizza",
+      "sentence": 1
+     },
+     {
+      "type": "DAY",
+      "token": "daily",
+      "canonical": "DAY:daily",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "children",
+      "canonical": "LEX:kids",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "early",
+      "canonical": "LEX:early",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "atlas-beach-club",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "PROPER",
+     "token": "Guests",
+     "canonical": "PROPER:guests"
+    }
+   ],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "website",
+     "sentence": "Its own website calls it the world's biggest beach club; we have not checked that."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "crowd",
+     "sentence": "A big, lively day out with a group, or sunset drinks in a party crowd"
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "large",
+      "canonical": "LEX:large",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Jl. Pantai Berawa",
+      "canonical": "PROPER:jl pantai berawa",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Beach Club",
+      "canonical": "PROPER:beach club",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Super Club",
+      "canonical": "PROPER:super club",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Wellness Club",
+      "canonical": "PROPER:wellness club",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "big",
+      "canonical": "LEX:big",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "lively",
+      "canonical": "LEX:lively",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "large",
+      "canonical": "LEX:large",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 4
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 4
+     },
+     {
+      "type": "PROPER",
+      "token": "Guests",
+      "canonical": "PROPER:guests",
+      "sentence": 4
+     }
+    ],
+    "after": [
+     {
+      "type": "LEX",
+      "token": "large",
+      "canonical": "LEX:large",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Jl. Pantai Berawa",
+      "canonical": "PROPER:jl pantai berawa",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Super Club",
+      "canonical": "PROPER:super club",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "big",
+      "canonical": "LEX:big",
+      "sentence": 4
+     },
+     {
+      "type": "LEX",
+      "token": "lively",
+      "canonical": "LEX:lively",
+      "sentence": 4
+     },
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 5
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 5
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "nook-umalas",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "PROPER",
+     "token": "Long",
+     "canonical": "PROPER:long"
+    },
+    {
+     "type": "PROPER",
+     "token": "Known",
+     "canonical": "PROPER:known"
+    }
+   ],
+   "warns": [],
+   "facts": {
+    "before": [
+     {
+      "type": "TIME",
+      "token": "8am",
+      "canonical": "TIME:08:00",
+      "sentence": 0
+     },
+     {
+      "type": "TIME",
+      "token": "11pm",
+      "canonical": "TIME:23:00",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "late",
+      "canonical": "LEX:late",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Long",
+      "canonical": "PROPER:long",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Umalas",
+      "canonical": "PROPER:umalas",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Western",
+      "canonical": "PROPER:western",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Known",
+      "canonical": "PROPER:known",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Seminyak's",
+      "canonical": "PROPER:seminyak",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "gluten-free",
+      "canonical": "LEX:gluten-free",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 3
+     }
+    ],
+    "after": [
+     {
+      "type": "TIME",
+      "token": "8am",
+      "canonical": "TIME:08:00",
+      "sentence": 0
+     },
+     {
+      "type": "TIME",
+      "token": "11pm",
+      "canonical": "TIME:23:00",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Umalas",
+      "canonical": "PROPER:umalas",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "late",
+      "canonical": "LEX:late",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "gluten-free",
+      "canonical": "LEX:gluten-free",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Western",
+      "canonical": "PROPER:western",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 3
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 4
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "ji-restaurant-bali",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "LEX",
+     "token": "most",
+     "canonical": "LEX:most"
+    },
+    {
+     "type": "PROPER",
+     "token": "Canggu's",
+     "canonical": "PROPER:canggu"
+    }
+   ],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "room",
+     "sentence": "The room is a reconstructed antique temple, and the terrace looks straight at the ocean."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "straight",
+     "sentence": "The room is a reconstructed antique temple, and the terrace looks straight at the ocean."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "terrace",
+      "canonical": "LEX:terrace",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "ocean views",
+      "canonical": "LEX:ocean view",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Hotel Tugu",
+      "canonical": "PROPER:hotel tugu",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Batu Bolong",
+      "canonical": "PROPER:batu bolong",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "Sushi",
+      "canonical": "FOOD:sushi",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "cocktails",
+      "canonical": "LEX:cocktails",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "most",
+      "canonical": "LEX:most",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Asian",
+      "canonical": "PROPER:asian",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Canggu's",
+      "canonical": "PROPER:canggu",
+      "sentence": 1
+     }
+    ],
+    "after": [
+     {
+      "type": "PROPER",
+      "token": "Hotel Tugu",
+      "canonical": "PROPER:hotel tugu",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Batu Bolong",
+      "canonical": "PROPER:batu bolong",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "terrace",
+      "canonical": "LEX:terrace",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "Sushi",
+      "canonical": "FOOD:sushi",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "cocktails",
+      "canonical": "LEX:cocktails",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Asian",
+      "canonical": "PROPER:asian",
+      "sentence": 2
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "sensorium-bali",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "cooking",
+     "sentence": "The food is Australian cafe cooking with Japanese flavours, and the room is minimalist."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "PROPER",
+      "token": "Jl. Pantai Batu Mejan",
+      "canonical": "PROPER:jl pantai batu mejan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Australian",
+      "canonical": "PROPER:australian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Japanese",
+      "canonical": "PROPER:japanese",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Australian",
+      "canonical": "PROPER:australian",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "late",
+      "canonical": "LEX:late",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "only",
+      "canonical": "LEX:only",
+      "sentence": 2
+     }
+    ],
+    "after": [
+     {
+      "type": "PROPER",
+      "token": "Jl. Pantai Batu Mejan",
+      "canonical": "PROPER:jl pantai batu mejan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Australian",
+      "canonical": "PROPER:australian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Australian",
+      "canonical": "PROPER:australian",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Japanese",
+      "canonical": "PROPER:japanese",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "late",
+      "canonical": "LEX:late",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "only",
+      "canonical": "LEX:only",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "fair-warung-bale",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "PROPER",
+     "token": "Travellers",
+     "canonical": "PROPER:travellers"
+    },
+    {
+     "type": "PROPER",
+     "token": "Diners",
+     "canonical": "PROPER:diners"
+    }
+   ],
+   "warns": [
+    {
+     "type": "POLARITY",
+     "token": "Jalan Sriwedari",
+     "sentence": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation."
+    },
+    {
+     "type": "POLARITY",
+     "token": "casual",
+     "sentence": "A casual lunch or early dinner that also funds free medical consultations locally"
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "people",
+     "sentence": "What you pay here funds free medical consultations for local people."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "DAY",
+      "token": "daily",
+      "canonical": "DAY:daily",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Jalan Sriwedari",
+      "canonical": "PROPER:jalan sriwedari",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Taman Kaja",
+      "canonical": "PROPER:taman kaja",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Fair Future Foundation",
+      "canonical": "PROPER:fair future foundation",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali Sari Foundation",
+      "canonical": "PROPER:bali sari foundation",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Asian",
+      "canonical": "PROPER:asian",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "casual",
+      "canonical": "LEX:casual",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "early",
+      "canonical": "LEX:early",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Travellers",
+      "canonical": "PROPER:travellers",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "upscale",
+      "canonical": "LEX:upscale",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "ten",
+      "canonical": "COUNT:10",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Diners",
+      "canonical": "PROPER:diners",
+      "sentence": 2
+     }
+    ],
+    "after": [
+     {
+      "type": "COUNT",
+      "token": "ten",
+      "canonical": "COUNT:10",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Jalan Sriwedari",
+      "canonical": "PROPER:jalan sriwedari",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Taman Kaja",
+      "canonical": "PROPER:taman kaja",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Fair Future Foundation",
+      "canonical": "PROPER:fair future foundation",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali Sari Foundation",
+      "canonical": "PROPER:bali sari foundation",
+      "sentence": 0
+     },
+     {
+      "type": "DAY",
+      "token": "every day",
+      "canonical": "DAY:daily",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Asian",
+      "canonical": "PROPER:asian",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "casual",
+      "canonical": "LEX:casual",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "early",
+      "canonical": "LEX:early",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "Upscale",
+      "canonical": "LEX:upscale",
+      "sentence": 4
+     },
+     {
+      "type": "COUNT",
+      "token": "ten",
+      "canonical": "COUNT:10",
+      "sentence": 5
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "warung-mendez",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [],
+   "warns": [
+    {
+     "type": "POLARITY",
+     "token": "Indonesian",
+     "sentence": "The cooking is Indonesian and Javanese, made without MSG and with little plastic."
+    },
+    {
+     "type": "POLARITY",
+     "token": "Indonesian",
+     "sentence": "A quiet, home-style Indonesian meal away from the main Ubud strip"
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "cooking",
+     "sentence": "The cooking is Indonesian and Javanese, made without MSG and with little plastic."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "little",
+     "sentence": "The cooking is Indonesian and Javanese, made without MSG and with little plastic."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "quick",
+     "sentence": "A quick stop in the centre of town; Penestanan takes finding"
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "stop",
+     "sentence": "A quick stop in the centre of town; Penestanan takes finding"
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "centre",
+     "sentence": "A quick stop in the centre of town; Penestanan takes finding"
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Penestanan",
+      "canonical": "PROPER:penestanan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Javanese",
+      "canonical": "PROPER:javanese",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "MSG",
+      "canonical": "PROPER:msg",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Penestanan",
+      "canonical": "PROPER:penestanan",
+      "sentence": 1
+     }
+    ],
+    "after": [
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Penestanan",
+      "canonical": "PROPER:penestanan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Javanese",
+      "canonical": "PROPER:javanese",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "MSG",
+      "canonical": "PROPER:msg",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "quiet",
+      "canonical": "LEX:quiet",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Penestanan",
+      "canonical": "PROPER:penestanan",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "wulan-vegetarian-warung",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "LEX",
+     "token": "authentic",
+     "canonical": "LEX:authentic"
+    }
+   ],
+   "warns": [
+    {
+     "type": "POLARITY",
+     "token": "small",
+     "sentence": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "travellers",
+     "sentence": "Vegan or vegetarian travellers on a budget who want simple Indonesian food"
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "nasi goreng",
+      "canonical": "FOOD:nasi goreng",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "tempeh",
+      "canonical": "FOOD:tempeh",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "smoothies",
+      "canonical": "FOOD:smoothie",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Peliatan",
+      "canonical": "PROPER:peliatan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "budget",
+      "canonical": "LEX:budget",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "authentic",
+      "canonical": "LEX:authentic",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     }
+    ],
+    "after": [
+     {
+      "type": "LEX",
+      "token": "small",
+      "canonical": "LEX:small",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "only",
+      "canonical": "LEX:only",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Peliatan",
+      "canonical": "PROPER:peliatan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "FOOD",
+      "token": "nasi goreng",
+      "canonical": "FOOD:nasi goreng",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "tempeh",
+      "canonical": "FOOD:tempeh",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "smoothies",
+      "canonical": "FOOD:smoothie",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "Vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "budget",
+      "canonical": "LEX:budget",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "only",
+      "canonical": "LEX:only",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "bali-buda-ubud",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "PROPER",
+     "token": "Bali",
+     "canonical": "PROPER:bali"
+    },
+    {
+     "type": "LEX",
+     "token": "only",
+     "canonical": "LEX:only"
+    },
+    {
+     "type": "FOOD",
+     "token": "pizza",
+     "canonical": "FOOD:pizza"
+    },
+    {
+     "type": "PROPER",
+     "token": "Travelers",
+     "canonical": "PROPER:travelers"
+    }
+   ],
+   "warns": [
+    {
+     "type": "POLARITY",
+     "token": "gluten-free",
+     "sentence": "A long stay or a mixed group that needs one big menu with vegetarian, vegan and gluten-free choices"
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "attached",
+     "sentence": "An organic grocery and bakery with an all-day restaurant attached, in Ubud since 1994."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "kitchen",
+     "sentence": "The kitchen covers raw vegan, Italian and traditional Indonesian dishes."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "YEAR",
+      "token": "1994",
+      "canonical": "YEAR:1994",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Italian",
+      "canonical": "PROPER:italian",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "big",
+      "canonical": "LEX:big",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "gluten-free",
+      "canonical": "LEX:gluten-free",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "only",
+      "canonical": "LEX:only",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "gluten-free",
+      "canonical": "LEX:gluten-free",
+      "sentence": 1
+     },
+     {
+      "type": "FOOD",
+      "token": "pizza",
+      "canonical": "FOOD:pizza",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "casual",
+      "canonical": "LEX:casual",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Travelers",
+      "canonical": "PROPER:travelers",
+      "sentence": 2
+     }
+    ],
+    "after": [
+     {
+      "type": "YEAR",
+      "token": "1994",
+      "canonical": "YEAR:1994",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Italian",
+      "canonical": "PROPER:italian",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Indonesian",
+      "canonical": "PROPER:indonesian",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "big",
+      "canonical": "LEX:big",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegetarian",
+      "canonical": "LEX:vegetarian",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "vegan",
+      "canonical": "LEX:vegan",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "gluten-free",
+      "canonical": "LEX:gluten-free",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "casual",
+      "canonical": "LEX:casual",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "kilig-bali",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "heavy",
+     "sentence": "A quick stop from central Ubud, or anyone avoiding rich, pork-heavy dishes"
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Filipino",
+      "canonical": "PROPER:filipino",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Peliatan",
+      "canonical": "PROPER:peliatan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Filipino",
+      "canonical": "PROPER:filipino",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Filipino",
+      "canonical": "PROPER:filipino",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Balinese",
+      "canonical": "PROPER:balinese",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Western",
+      "canonical": "PROPER:western",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 2
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 2
+     },
+     {
+      "type": "FOOD",
+      "token": "pork",
+      "canonical": "FOOD:pork",
+      "sentence": 3
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 3
+     },
+     {
+      "type": "PROPER",
+      "token": "Peliatan",
+      "canonical": "PROPER:peliatan",
+      "sentence": 3
+     }
+    ],
+    "after": [
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Filipino",
+      "canonical": "PROPER:filipino",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Peliatan",
+      "canonical": "PROPER:peliatan",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Filipino",
+      "canonical": "PROPER:filipino",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Balinese",
+      "canonical": "PROPER:balinese",
+      "sentence": 1
+     },
+     {
+      "type": "PROPER",
+      "token": "Western",
+      "canonical": "PROPER:western",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 2
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 2
+     },
+     {
+      "type": "FOOD",
+      "token": "pork",
+      "canonical": "FOOD:pork",
+      "sentence": 3
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 3
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "guide:how-many-days-in-bali",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [],
+   "warns": [
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "For a first trip, plan 7–10 days in Bali: a few nights inland in Ubud, a few by the sea."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "For a first trip, plan on 7 to 10 days in Bali."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "A week works well for a first trip."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "This is the most comfortable length for a first visit."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "Two weeks opens up the quieter side of Bali: the east (Amed, Sidemen), the Nusa islands, or a few nights on Gili or Lombok, with the first-timer highlights still in."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "Seven days covers a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them."
+    },
+    {
+     "type": "POLARITY",
+     "token": "first",
+     "sentence": "Plan 10–14 days if you want the Nusa islands, the east coast or Gili and Lombok on top of the mainland first-timer route."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "holiday",
+     "sentence": "That is enough to split your time between one inland base and one by the sea without spending the holiday in traffic."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "crossing",
+     "sentence": "Spend them settling in, not crossing the island on a scooter for a photo."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "third",
+     "sentence": "Add a third move and the trip starts to be about logistics."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "boat",
+     "sentence": "Sanur is the calm family option and the boat to the Nusa islands leaves from there; Uluwatu is the clifftop-sunset option."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "covers",
+     "sentence": "Seven days covers a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "5",
+      "canonical": "COUNT:5",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "14",
+      "canonical": "COUNT:14",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "Five",
+      "canonical": "COUNT:5",
+      "sentence": 3
+     },
+     {
+      "type": "COUNT",
+      "token": "two",
+      "canonical": "COUNT:2",
+      "sentence": 3
+     },
+     {
+      "type": "COUNT",
+      "token": "Five",
+      "canonical": "COUNT:5",
+      "sentence": 4
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 5
+     },
+     {
+      "type": "PROPER",
+      "token": "Canggu",
+      "canonical": "PROPER:canggu",
+      "sentence": 5
+     },
+     {
+      "type": "PROPER",
+      "token": "Seminyak",
+      "canonical": "PROPER:seminyak",
+      "sentence": 5
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 5
+     },
+     {
+      "type": "LEX",
+      "token": "most",
+      "canonical": "LEX:most",
+      "sentence": 6
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 6
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 8
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 9
+     },
+     {
+      "type": "LEX",
+      "token": "terraces",
+      "canonical": "LEX:terrace",
+      "sentence": 9
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 9
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 9
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 9
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 9
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 9
+     },
+     {
+      "type": "PROPER",
+      "token": "Canggu",
+      "canonical": "PROPER:canggu",
+      "sentence": 9
+     },
+     {
+      "type": "PROPER",
+      "token": "Seminyak",
+      "canonical": "PROPER:seminyak",
+      "sentence": 9
+     },
+     {
+      "type": "PROPER",
+      "token": "Uluwatu",
+      "canonical": "PROPER:uluwatu",
+      "sentence": 9
+     },
+     {
+      "type": "COUNT",
+      "token": "Two",
+      "canonical": "COUNT:2",
+      "sentence": 10
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 10
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 12
+     },
+     {
+      "type": "COUNT",
+      "token": "Ten",
+      "canonical": "COUNT:10",
+      "sentence": 12
+     },
+     {
+      "type": "PROPER",
+      "token": "Sanur",
+      "canonical": "PROPER:sanur",
+      "sentence": 12
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 12
+     },
+     {
+      "type": "PROPER",
+      "token": "Uluwatu",
+      "canonical": "PROPER:uluwatu",
+      "sentence": 12
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 12
+     },
+     {
+      "type": "LEX",
+      "token": "most",
+      "canonical": "LEX:most",
+      "sentence": 13
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 13
+     },
+     {
+      "type": "LEX",
+      "token": "quieter",
+      "canonical": "LEX:quiet",
+      "sentence": 14
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 14
+     },
+     {
+      "type": "COUNT",
+      "token": "Two",
+      "canonical": "COUNT:2",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Amed",
+      "canonical": "PROPER:amed",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Sidemen",
+      "canonical": "PROPER:sidemen",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Gili",
+      "canonical": "PROPER:gili",
+      "sentence": 14
+     },
+     {
+      "type": "PROPER",
+      "token": "Lombok",
+      "canonical": "PROPER:lombok",
+      "sentence": 14
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 15
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 15
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 16
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 17
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 18
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 18
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 20
+     },
+     {
+      "type": "COUNT",
+      "token": "Seven",
+      "canonical": "COUNT:7",
+      "sentence": 20
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 20
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 20
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 21
+     },
+     {
+      "type": "COUNT",
+      "token": "14",
+      "canonical": "COUNT:14",
+      "sentence": 21
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 21
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 21
+     },
+     {
+      "type": "PROPER",
+      "token": "Gili",
+      "canonical": "PROPER:gili",
+      "sentence": 21
+     },
+     {
+      "type": "PROPER",
+      "token": "Lombok",
+      "canonical": "PROPER:lombok",
+      "sentence": 21
+     },
+     {
+      "type": "COUNT",
+      "token": "One",
+      "canonical": "COUNT:1",
+      "sentence": 22
+     },
+     {
+      "type": "COUNT",
+      "token": "two",
+      "canonical": "COUNT:2",
+      "sentence": 22
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 22
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 22
+     },
+     {
+      "type": "COUNT",
+      "token": "two",
+      "canonical": "COUNT:2",
+      "sentence": 22
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 23
+     }
+    ],
+    "after": [
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "5",
+      "canonical": "COUNT:5",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "14",
+      "canonical": "COUNT:14",
+      "sentence": 1
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 2
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 3
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 3
+     },
+     {
+      "type": "COUNT",
+      "token": "Five",
+      "canonical": "COUNT:5",
+      "sentence": 4
+     },
+     {
+      "type": "COUNT",
+      "token": "Two",
+      "canonical": "COUNT:2",
+      "sentence": 5
+     },
+     {
+      "type": "COUNT",
+      "token": "Five",
+      "canonical": "COUNT:5",
+      "sentence": 6
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 7
+     },
+     {
+      "type": "PROPER",
+      "token": "Canggu",
+      "canonical": "PROPER:canggu",
+      "sentence": 7
+     },
+     {
+      "type": "PROPER",
+      "token": "Seminyak",
+      "canonical": "PROPER:seminyak",
+      "sentence": 7
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 7
+     },
+     {
+      "type": "LEX",
+      "token": "most",
+      "canonical": "LEX:most",
+      "sentence": 8
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 8
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 10
+     },
+     {
+      "type": "FOOD",
+      "token": "rice",
+      "canonical": "FOOD:rice",
+      "sentence": 11
+     },
+     {
+      "type": "LEX",
+      "token": "terraces",
+      "canonical": "LEX:terrace",
+      "sentence": 11
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 11
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 11
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 11
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 11
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 11
+     },
+     {
+      "type": "PROPER",
+      "token": "Canggu",
+      "canonical": "PROPER:canggu",
+      "sentence": 11
+     },
+     {
+      "type": "PROPER",
+      "token": "Seminyak",
+      "canonical": "PROPER:seminyak",
+      "sentence": 11
+     },
+     {
+      "type": "PROPER",
+      "token": "Uluwatu",
+      "canonical": "PROPER:uluwatu",
+      "sentence": 11
+     },
+     {
+      "type": "COUNT",
+      "token": "Two",
+      "canonical": "COUNT:2",
+      "sentence": 12
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 12
+     },
+     {
+      "type": "COUNT",
+      "token": "Ten",
+      "canonical": "COUNT:10",
+      "sentence": 15
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 15
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 16
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 16
+     },
+     {
+      "type": "PROPER",
+      "token": "Uluwatu",
+      "canonical": "PROPER:uluwatu",
+      "sentence": 16
+     },
+     {
+      "type": "LEX",
+      "token": "most",
+      "canonical": "LEX:most",
+      "sentence": 17
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 17
+     },
+     {
+      "type": "LEX",
+      "token": "quieter",
+      "canonical": "LEX:quiet",
+      "sentence": 19
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 19
+     },
+     {
+      "type": "COUNT",
+      "token": "Two",
+      "canonical": "COUNT:2",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Amed",
+      "canonical": "PROPER:amed",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Sidemen",
+      "canonical": "PROPER:sidemen",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Gili",
+      "canonical": "PROPER:gili",
+      "sentence": 19
+     },
+     {
+      "type": "PROPER",
+      "token": "Lombok",
+      "canonical": "PROPER:lombok",
+      "sentence": 19
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 20
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 20
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 21
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 22
+     },
+     {
+      "type": "COUNT",
+      "token": "7",
+      "canonical": "COUNT:7",
+      "sentence": 24
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 24
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 26
+     },
+     {
+      "type": "COUNT",
+      "token": "Seven",
+      "canonical": "COUNT:7",
+      "sentence": 26
+     },
+     {
+      "type": "COUNT",
+      "token": "one",
+      "canonical": "COUNT:1",
+      "sentence": 26
+     },
+     {
+      "type": "PROPER",
+      "token": "Ubud",
+      "canonical": "PROPER:ubud",
+      "sentence": 26
+     },
+     {
+      "type": "COUNT",
+      "token": "10",
+      "canonical": "COUNT:10",
+      "sentence": 27
+     },
+     {
+      "type": "COUNT",
+      "token": "14",
+      "canonical": "COUNT:14",
+      "sentence": 27
+     },
+     {
+      "type": "LEX",
+      "token": "first",
+      "canonical": "LEX:first",
+      "sentence": 27
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa",
+      "canonical": "PROPER:nusa",
+      "sentence": 27
+     },
+     {
+      "type": "PROPER",
+      "token": "Gili",
+      "canonical": "PROPER:gili",
+      "sentence": 27
+     },
+     {
+      "type": "PROPER",
+      "token": "Lombok",
+      "canonical": "PROPER:lombok",
+      "sentence": 27
+     },
+     {
+      "type": "COUNT",
+      "token": "One",
+      "canonical": "COUNT:1",
+      "sentence": 28
+     },
+     {
+      "type": "COUNT",
+      "token": "two",
+      "canonical": "COUNT:2",
+      "sentence": 28
+     },
+     {
+      "type": "COUNT",
+      "token": "three",
+      "canonical": "COUNT:3",
+      "sentence": 28
+     },
+     {
+      "type": "COUNT",
+      "token": "four",
+      "canonical": "COUNT:4",
+      "sentence": 28
+     },
+     {
+      "type": "COUNT",
+      "token": "two",
+      "canonical": "COUNT:2",
+      "sentence": 28
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 29
+     }
+    ]
+   }
+  }
+ },
+ {
+  "unit": "pillar:nusa-dua",
+  "factDiff": {
+   "verdict": "PASS",
+   "rejects": [],
+   "dropped": [
+    {
+     "type": "LEX",
+     "token": "best",
+     "canonical": "LEX:best"
+    }
+   ],
+   "warns": [
+    {
+     "type": "NEW_TERM",
+     "token": "swim",
+     "sentence": "The beaches are calm enough to swim, and a walkable promenade runs along the seafront."
+    },
+    {
+     "type": "NEW_TERM",
+     "token": "easy",
+     "sentence": "It is the easy, family-safe end of Bali."
+    }
+   ],
+   "facts": {
+    "before": [
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "five",
+      "canonical": "COUNT:5",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "best",
+      "canonical": "LEX:best",
+      "sentence": 2
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa Dua",
+      "canonical": "PROPER:nusa dua",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
+      "sentence": 2
+     }
+    ],
+    "after": [
+     {
+      "type": "LEX",
+      "token": "beachfront",
+      "canonical": "LEX:beachfront",
+      "sentence": 0
+     },
+     {
+      "type": "COUNT",
+      "token": "five",
+      "canonical": "COUNT:5",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Dua",
+      "canonical": "PROPER:dua",
+      "sentence": 0
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
+      "sentence": 0
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 1
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 2
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali",
+      "canonical": "PROPER:bali",
+      "sentence": 3
+     },
+     {
+      "type": "LEX",
+      "token": "calm",
+      "canonical": "LEX:calm",
+      "sentence": 4
+     },
+     {
+      "type": "LEX",
+      "token": "biggest",
+      "canonical": "LEX:big",
+      "sentence": 4
+     },
+     {
+      "type": "PROPER",
+      "token": "Nusa Dua",
+      "canonical": "PROPER:nusa dua",
+      "sentence": 4
+     },
+     {
+      "type": "PROPER",
+      "token": "Bali's",
+      "canonical": "PROPER:bali",
+      "sentence": 4
+     }
+    ]
+   }
+  }
+ }
+]

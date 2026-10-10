@@ -1,0 +1,1454 @@
+[
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-beach-clubs-in-bali",
+    "check": "no hype filler adjectives",
+    "detail": "world-class",
+    "falseFail": "ложный FAIL: слово только в навигации/общих карточках"
+  },
+  {
+    "url": "https://www.otherbali.com/best-coffee-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-coffee-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-coffee-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-coffee-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-coffee-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/where-to-watch-sunset-in-bali",
+    "check": "no hype filler adjectives",
+    "detail": "world-class",
+    "falseFail": "ложный FAIL: слово только в навигации/общих карточках"
+  },
+  {
+    "url": "https://www.otherbali.com/best-spas-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-spas-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-spas-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-spas-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-spas-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-warungs-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-warungs-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-warungs-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-warungs-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-warungs-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-restaurants-in-bali",
+    "check": "no hype filler adjectives",
+    "detail": "Hidden Gem",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-cafes-in-bali",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-cafes-in-bali",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-cafes-in-bali",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-cafes-in-bali",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/best-cafes-in-bali",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-warungs",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-warungs",
+    "check": "5-8 Good to know questions",
+    "detail": "3 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-warungs",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-spas",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-spas",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "28/116 = 24%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-spas",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/best-spas",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/work-friendly-cafes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/work-friendly-cafes",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/work-friendly-cafes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-clubs-sunset",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-clubs-sunset",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-clubs-sunset",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-brunch",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-brunch",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/best-brunch",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
+    "check": "no hype filler adjectives",
+    "detail": "iconic",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/date-night-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/date-night-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/date-night-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/things-to-do",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/things-to-do",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/things-to-do",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/things-to-do",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/things-to-do",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/48-hours",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/48-hours",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/48-hours",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/48-hours",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/48-hours",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/itinerary",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/itinerary",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/itinerary",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/itinerary",
+    "check": "5-8 Good to know questions",
+    "detail": "4 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/itinerary",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-warungs",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-warungs",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/22 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-warungs",
+    "check": "5-8 Good to know questions",
+    "detail": "3 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-warungs",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-restaurants",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/204 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-restaurants",
+    "check": "no raw price ranges without a band",
+    "detail": "unbanded: 75k-200k IDR",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/26 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+    "check": "no raw price ranges without a band",
+    "detail": "unbanded: 50k-150k IDR",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-cafes-coffee",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "FAQPage JSON-LD emitted",
+    "detail": "missing",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/where-to-stay",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-hotels",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-hotels",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/26 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-hotels",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-hotels",
+    "check": "FAQPage JSON-LD emitted",
+    "detail": "missing",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-hotels",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-yoga-wellness",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-yoga-wellness",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/92 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-yoga-wellness",
+    "check": "5-8 Good to know questions",
+    "detail": "3 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/best-yoga-wellness",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "FAQPage JSON-LD emitted",
+    "detail": "missing",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/things-to-do",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-restaurants",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/64 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/cafes-and-bars",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/cafes-and-bars",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/14 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/cafes-and-bars",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/cafes-and-bars",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/spas-wellness",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/spas-wellness",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/60 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/spas-wellness",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/spas-wellness",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-clubs-sunset",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-clubs-sunset",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/4 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-clubs-sunset",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-clubs-sunset",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/cafes-coffee",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/cafes-coffee",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/24 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/cafes-coffee",
+    "check": "5-8 Good to know questions",
+    "detail": "1 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/cafes-coffee",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/cafes-coffee",
+    "check": "no hype filler adjectives",
+    "detail": "iconic",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/best-restaurants",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/124 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/spas-salons-wellness",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/spas-salons-wellness",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/142 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/spas-salons-wellness",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/spas-salons-wellness",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "FAQPage JSON-LD emitted",
+    "detail": "missing",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/things-to-do",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/spas-wellness",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/spas-wellness",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/114 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/spas-wellness",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/spas-wellness",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/best-restaurants",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/64 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "FAQPage JSON-LD emitted",
+    "detail": "missing",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/things-to-do",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/best-restaurants",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/best-restaurants",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/38 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/best-restaurants",
+    "check": "5-8 Good to know questions",
+    "detail": "3 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/best-restaurants",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/spas-wellness",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/spas-wellness",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/80 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/spas-wellness",
+    "check": "5-8 Good to know questions",
+    "detail": "2 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/spas-wellness",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-club-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-club-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-club-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-club-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/canggu/beach-club-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/hotel-brunches",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/hotel-brunches",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/hotel-brunches",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/hotel-brunches",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/hotel-brunches",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/resort-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/resort-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/resort-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/resort-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/resort-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/sunset-seafood",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/sunset-seafood",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/sunset-seafood",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/sunset-seafood",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/jimbaran/sunset-seafood",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/hotel-brunches",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/hotel-brunches",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/hotel-brunches",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/hotel-brunches",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/hotel-brunches",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/resort-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/resort-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/resort-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/resort-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/nusa-dua/resort-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/hotel-brunches",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/hotel-brunches",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/hotel-brunches",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/hotel-brunches",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/hotel-brunches",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/resort-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/resort-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/resort-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/resort-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/sanur/resort-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/beach-club-day-passes",
+    "check": "no hype filler adjectives",
+    "detail": "Iconic, iconic",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/hotel-brunches",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/hotel-brunches",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/hotel-brunches",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/hotel-brunches",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/seminyak/hotel-brunches",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/hotel-brunches",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/hotel-brunches",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/hotel-brunches",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/hotel-brunches",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/hotel-brunches",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/ubud/jungle-pool-day-passes",
+    "check": "no hype filler adjectives",
+    "detail": "Iconic, iconic",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "answer block present before the list",
+    "detail": "no .guide-answer section in the HTML source",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "cards carry Best for",
+    "detail": "0 cards",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "Not for covers >=60% of Best for",
+    "detail": "0/0 = 0%",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "5-8 Good to know questions",
+    "detail": "0 questions",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "visible last-checked date",
+    "detail": "no 'Last checked' line",
+    "falseFail": null
+  },
+  {
+    "url": "https://www.otherbali.com/uluwatu/resort-pool-day-passes",
+    "check": "no hype filler adjectives",
+    "detail": "Iconic",
+    "falseFail": null
+  }
+]

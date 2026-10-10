@@ -1,0 +1,221 @@
+{
+  "slug": "papi-sapi",
+  "officialDomains": [
+    "papisapi.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "papi-sapi-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+62 851 9590 3719",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": "Bali\n+62 851 9590 3719 hello@papisapi.com",
+      "snapshot_sha256": "b668241b401236639f94204ca3680a9a355d29ce411e703b50293b494b732068",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-08",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Book a table via the official site (SevenRooms).",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": "BOOK A TABLE",
+      "snapshot_sha256": "b668241b401236639f94204ca3680a9a355d29ce411e703b50293b494b732068",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-papi-s-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "sapi penyet; croquetas jamón serrano; grilled octopus skewer",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/menu-bali",
+      "quote": "CROQUETAS JAMÓN SERRANO",
+      "snapshot_sha256": "76e49812777368dd38386a04b6626414b1553436800cb6c37046ac4a70ca58e7",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-papi-s-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-papi-sapi",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-05",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Cuts from the showcase at the centre, easy sides around them, and a second branch on Lombok if the name looks familiar from another trip.",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": "OUR LOCATIONS\nBali\n+62 851 9590 3719 hello@papisapi.com Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361\nLombok",
+      "snapshot_sha256": "b668241b401236639f94204ca3680a9a355d29ce411e703b50293b494b732068",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-15",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/contact/",
+      "quote": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "snapshot_sha256": "5aa6b2853cef35a78d02aa7da872b768e7d5a8dd10e1aa126814e5d52ef1b3c8",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-02",
+      "field": "copy:verdict#1",
+      "action": "replace",
+      "proposed": "Dinner-only neighbourhood grill on Labuan Sait — meat, seafood and vegetables chosen from the showcase and grilled to order.",
+      "claim_text": null,
+      "source_url": "https://cdn.prod.website-files.com/6a6458cf557c2d545dde4567/6a75b499618cda3073b88cf3_Menu_IGSTORY_Bali.pdf",
+      "quote": "Step up to the showcase OR SCan the qr: meat, seafood, and vegetables, ready \nfor the grill. Some things are portioned, some go by weight. Nothing's on the \nmenu because nothing's set in stone.",
+      "snapshot_sha256": "5ac4d9dfe4d5d7dc5db880c48ad95e17b695c1150ea715bf56ccaa6ceecd4b17",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-21",
+      "field": "menuUrl",
+      "action": "replace",
+      "proposed": "https://papisapi.com/menu-bali",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/menu-bali",
+      "quote": "Menu - Bali | Papi Sapi",
+      "snapshot_sha256": "76e49812777368dd38386a04b6626414b1553436800cb6c37046ac4a70ca58e7",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-23",
+      "field": "coordinates",
+      "action": "add",
+      "proposed": [
+        -8.8124375,
+        115.1068125
+      ],
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "sapi penyet burger 140K (menu-bali, 2026-09-28; grill cuts priced by weight at the showcase)",
+      "claim_text": null,
+      "source_url": "https://papisapi.com/menu-bali",
+      "quote": "SAPI PENYET\nTwo super smashed australian beef patties, caramelised white onion, american cheese, pickles, Papi Sapi sauce\n140",
+      "snapshot_sha256": "76e49812777368dd38386a04b6626414b1553436800cb6c37046ac4a70ca58e7",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-20",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.sevenrooms.com/reservations/papisapibali",
+      "claim_text": null,
+      "source_url": "https://www.sevenrooms.com/reservations/papisapibali",
+      "quote": "SevenRooms",
+      "snapshot_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-papi-s-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "b668241b401236639f94204ca3680a9a355d29ce411e703b50293b494b732068",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "4.00pm-11.30pm"
+        ],
+        "Tuesday": [
+          "4.00pm-11.30pm"
+        ],
+        "Wednesday": [
+          "4.00pm-11.30pm"
+        ],
+        "Thursday": [
+          "4.00pm-11.30pm"
+        ],
+        "Friday": [
+          "4.00pm-11.30pm"
+        ],
+        "Saturday": [
+          "4.00pm-11.30pm"
+        ],
+        "Sunday": [
+          "4.00pm-11.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://papisapi.com/",
+      "quote": "OPENING HOURS\nEveryday\n04 : 00 pm - 11:30 pm",
+      "snapshot_sha256": "b668241b401236639f94204ca3680a9a355d29ce411e703b50293b494b732068",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "papi-sapi-12",
+      "field": "priceBand",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": "https://cdn.prod.website-files.com/6a6458cf557c2d545dde4567/6a75b499618cda3073b88cf3_Menu_IGSTORY_Bali.pdf",
+      "quote": "Some things are portioned, some go by weight. Nothing's on the \nmenu because nothing's set in stone.",
+      "snapshot_sha256": "5ac4d9dfe4d5d7dc5db880c48ad95e17b695c1150ea715bf56ccaa6ceecd4b17",
+      "category": "restaurant"
+    }
+  ]
+}

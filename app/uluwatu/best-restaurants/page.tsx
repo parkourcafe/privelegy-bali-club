@@ -19,12 +19,12 @@ import {
 export const metadata: Metadata = {
   title: "Best restaurants in Uluwatu — chosen by decision, not by list",
   description:
-    "The 12 verified restaurants worth your Uluwatu dinners: date night, groups, families, special occasions and sunset tables — with booking notes for each.",
+    "The 12 verified restaurants worth your Uluwatu dinners: date night, groups, families, special occasions and sunset tables, each with booking notes.",
   alternates: { canonical: "/uluwatu/best-restaurants" },
   openGraph: {
     title: "Best restaurants in Uluwatu · Other Bali",
     description:
-      "Twelve verified dinner rooms sorted by the decision you're making — date night, groups, family, occasion.",
+      "Twelve verified dinner rooms sorted by the decision you're making: date night, groups, family, occasion.",
     url: "https://www.otherbali.com/uluwatu/best-restaurants",
     type: "article",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Best restaurants in Uluwatu · Other Bali",
     description:
-      "Twelve verified dinner rooms sorted by decision — date night, groups, family, occasion.",
+      "Twelve verified dinner rooms sorted by decision: date night, groups, family, occasion.",
   },
 };
 
@@ -58,11 +58,11 @@ const FAQ = [
   },
   {
     q: "Which restaurants work with children?",
-    a: "ZALI, Ulu Fishmarket, Ulu Garden and Laggas are genuinely comfortable with kids — sharing formats, garden space, early-evening rhythm. Gooseberry is screen-free with no children's menu, so it suits older kids at earlier slots at most.",
+    a: "ZALI, Ulu Fishmarket, Ulu Garden and Laggas are comfortable with kids: sharing formats, garden space, an early-evening rhythm. Gooseberry is screen-free with no children's menu, so it suits older kids at earlier slots at most.",
   },
   {
     q: "Where do I eat Indonesian food in Uluwatu?",
-    a: "The Warung at Alila Villas is the district's serious Indonesian table (the megibung banquet is the signature format), and Ulu Garden cooks contemporary Indonesian with weekly Balinese cultural programming.",
+    a: "The Warung at Alila Villas cooks Indonesian, with the megibung banquet as its signature format. Ulu Garden cooks contemporary Indonesian with weekly Balinese cultural programming.",
   },
   {
     q: "What does $$ / $$$ mean on your pages?",
@@ -115,7 +115,7 @@ export default function BestRestaurantsPage() {
           <h2>Date night</h2>
           <p className="guide-lede">
             Rooms where the food and the mood both hold up. For the full
-            romantic taxonomy — quiet vs view vs occasion — see the{" "}
+            romantic taxonomy (quiet vs view vs occasion), see the{" "}
             <Link href="/uluwatu/date-night-restaurants" className="font-bold text-[var(--lagoon-strong)]">
               date-night guide
             </Link>
@@ -146,7 +146,7 @@ export default function BestRestaurantsPage() {
           <h2>Special occasion</h2>
           <p className="guide-lede">
             When the dinner is the point of the day. Two of these are inside
-            resorts — reserve so the gate expects you.
+            resorts. Reserve so the gate expects you.
           </p>
           <VenuePicks slugs={["the-warung-at-alila-villas-uluwatu", "waatu", "gooseberry-french-restaurant-uluwatu"]} columns={3} />
         </section>
@@ -154,7 +154,7 @@ export default function BestRestaurantsPage() {
         <section className="guide-section">
           <h2>Casual dinners</h2>
           <p className="guide-lede">
-            No ceremony, good cooking — the weeknight answers.
+            No ceremony, good cooking: the weeknight answers.
           </p>
           <VenuePicks slugs={["papi-sapi", "laggas-uluwatu", "ulu-fishmarket", "seed-bingin"]} />
         </section>
@@ -183,9 +183,8 @@ export default function BestRestaurantsPage() {
               <PlaceLink slug="the-warung-at-alila-villas-uluwatu" /> (refined,
               resort-level, the megibung banquet) and{" "}
               <PlaceLink slug="ulu-garden" /> (contemporary Indonesian with
-              Balinese dance and market nights). For everyday warung food the
-              honest answer is that our verified inventory doesn’t cover it yet
-              — it’s on the research list.
+              Balinese dance and market nights). Our verified inventory
+              doesn’t cover everyday warung food yet. It’s on the research list.
             </p>
           </div>
         </section>
@@ -197,7 +196,7 @@ export default function BestRestaurantsPage() {
             {
               href: "/uluwatu/date-night-restaurants",
               title: "Date night, separated properly",
-              blurb: "Quiet vs view vs occasion — not every nice room is a date room.",
+              blurb: "Quiet vs view vs occasion: not every nice room is a date room.",
             },
             {
               href: "/uluwatu/48-hours",
@@ -216,7 +215,7 @@ export default function BestRestaurantsPage() {
           <h2>Don’t plan dinner in a vacuum</h2>
           <p>
             The 48-hour plan slots these rooms into days that already include
-            the beach, the coffee and the sunset — in an order that works.
+            the beach, the coffee and the sunset, in an order that works.
           </p>
           <Link href="/uluwatu/48-hours" className="cta-band-action">
             See the 48-hour plan →

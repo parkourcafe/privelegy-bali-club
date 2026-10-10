@@ -1,0 +1,128 @@
+{
+  "slug": "laggas-uluwatu",
+  "officialDomains": [],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "laggas-uluwatu-16",
+      "field": "hours",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-18",
+      "field": "officialUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-15",
+      "field": "full_address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-laggas-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Please let us know if you have any questions. We will get back to you !",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/contact/",
+      "quote": "Please let us know if you have any questions. We will get back to you !",
+      "snapshot_sha256": "97ef67f0295ab2b8f5d973be854b79fea2b92a4560959d9f615338ed85f9ca0f",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-laggas-1",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-22",
+      "field": "phone",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-laggas-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-laggas-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "laggas-uluwatu-21",
+      "field": "menuUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    }
+  ]
+}

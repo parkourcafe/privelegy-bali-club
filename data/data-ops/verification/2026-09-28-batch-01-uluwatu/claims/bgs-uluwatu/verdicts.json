@@ -1,0 +1,105 @@
+{
+  "slug": "bgs-uluwatu",
+  "acceptedAt": "2026-09-28T06:35:12.860Z",
+  "verdicts": [
+    {
+      "claim_id": "bgs-uluwatu-16",
+      "verdict": "hold",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "5f033c0451b239f90ac49ef7c71dec351f6158101a8832283bc8590625f6010f",
+      "quote_found": true,
+      "note": "Official /store/bgs-uluwatu/ page gives Open Hours 06:30 - 22:00 as a single window with no days of week; the 7-day coverage is inferred, not stated. Window itself is plausible for a cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-23",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "5f033c0451b239f90ac49ef7c71dec351f6158101a8832283bc8590625f6010f",
+      "quote_found": true,
+      "note": "Official Uluwatu store page: Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361; street marker present, no working notes, branch named in URL and text"
+    },
+    {
+      "claim_id": "bgs-uluwatu-17",
+      "verdict": "hold",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "5f033c0451b239f90ac49ef7c71dec351f6158101a8832283bc8590625f6010f",
+      "quote_found": true,
+      "note": "Same as -16: 06:30 - 22:00 on the official Uluwatu store page, days of week not stated"
+    },
+    {
+      "claim_id": "bgs-uluwatu-14",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "bgs-uluwatu-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "766ce2d57025607dd86a5dea850f69974c11d24a4861b80a850a70d5239a6664",
+      "quote_found": true,
+      "note": "store.bgsbali.com is a subdomain of the official domain; page title names Uluwatu & Canggu, quoted title present"
+    },
+    {
+      "claim_id": "bgs-uluwatu-24",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "k-bgs-ul-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "ok",
+      "refetch_sha256": "ad301f423c1e7bb2ebffad0f5442e84505aea105ee8a73d544208a8188f298b6",
+      "quote_found": true,
+      "note": "elsky-bali.com is a third-party guide page about Sundays Beach Club; value is not an address"
+    },
+    {
+      "claim_id": "k-bgs-ul-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": "bc684ad3c951856e0ec5e78f2ba6f397976faf9b99e4ad0cd51157bc9b3a7c02",
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator (refetch 403); no named item"
+    },
+    {
+      "claim_id": "k-bgs-ul-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "5f033c0451b239f90ac49ef7c71dec351f6158101a8832283bc8590625f6010f",
+      "quote_found": false,
+      "note": "Quote 'Open daily 7 AM - 11 PM...' not on the official Uluwatu store page, which says 06:30 - 22:00"
+    },
+    {
+      "claim_id": "bgs-uluwatu-22",
+      "verdict": "hold",
+      "reason_code": "BOUND_FAIL",
+      "refetch": "ok",
+      "refetch_sha256": "5f033c0451b239f90ac49ef7c71dec351f6158101a8832283bc8590625f6010f",
+      "quote_found": true,
+      "note": "+62 878-6181-3103 is listed on the Uluwatu store page but the official Canggu store page (/store/bgs-canggu/) lists the identical number, so it is a shared brand line, not the Uluwatu venue's own"
+    },
+    {
+      "claim_id": "bgs-uluwatu-20",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    }
+  ]
+}

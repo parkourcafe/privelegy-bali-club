@@ -20,19 +20,19 @@ const BASE = "https://www.otherbali.com";
 export const metadata: Metadata = {
   title: "Canggu guide — where to eat, work, reset and watch the sunset",
   description:
-    "A resident-curated Canggu guide: how the areas differ, the best restaurants, work-friendly cafés, spas and sunset spots — and where to book a table in a tap.",
+    "How the Canggu areas differ, plus the best restaurants, work-friendly cafés, spas and sunset spots, and where to book a table in a tap.",
   alternates: { canonical: "/canggu" },
   openGraph: {
     title: "The Canggu guide · Other Bali",
     description:
-      "Areas, the best restaurants, work-friendly cafés, spas and sunset spots — sorted by the decision you're making.",
+      "Areas, the best restaurants, work-friendly cafés, spas and sunset spots, sorted by the decision you're making.",
     url: `${BASE}/canggu`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
     title: "The Canggu guide · Other Bali",
-    description: "Restaurants, work cafés, spas and sunset — sorted by decision.",
+    description: "Restaurants, work cafés, spas and sunset, sorted by decision.",
   },
 };
 
@@ -74,7 +74,7 @@ const CANGGU_PRACTICAL_CARDS = [
   },
   {
     title: "Surf, not swimming",
-    copy: "Gentle swim? Choose another coast.",
+    copy: "For a gentle swim, choose another coast.",
     imageSrc: "/scenes/canggu-practical-surf.webp",
   },
   {
@@ -125,7 +125,7 @@ const CANGGU_GUIDE_MEDIA: Record<string, Pick<GuideLink, "mediaSrc" | "blurb">> 
     blurb: "Choose the base that fits the trip.",
   },
   "/best-coffee-in-bali": {
-    blurb: "Serious coffee across Bali.",
+    blurb: "Where to drink coffee across Bali.",
   },
   "/where-to-watch-sunset-in-bali": {
     mediaSrc: "/scenes/guide-jimbaran-bay-sunset.webp",
@@ -140,23 +140,23 @@ function withCangguGuideMedia(links: GuideLink[]): GuideLink[] {
 const FAQ = [
   {
     q: "What is Canggu best for?",
-    a: "Surf, café-and-laptop mornings, sunset beach bars and a deep dinner scene. It's the island's busiest expat-and-traveller hub — energetic and walkable-ish in patches, with real traffic between areas.",
+    a: "Surf, café-and-laptop mornings, sunset beach bars and a deep dinner scene. It's the island's busiest expat-and-traveller hub, with plenty of energy. Some patches are walkable-ish, but there's real traffic between areas.",
   },
   {
     q: "Do I need to book restaurants in Canggu?",
-    a: "For the popular dinner rooms and weekend sunsets, yes — reserve a table in a tap where you see the Reserve button. Cafés, warungs and casual spots are walk-in.",
+    a: "Yes, for the popular dinner rooms and weekend sunsets. Reserve a table in a tap where you see the Reserve button. Cafés, warungs and casual spots are walk-in.",
   },
   {
     q: "Which area of Canggu should I stay in?",
-    a: "Batu Bolong for walk-everywhere convenience; Berawa for beach clubs and an upscale scene; Pererenan for a calmer, greener base; Echo Beach and the village for surf and a more local feel. The guides below sort places by decision so you can plan around wherever you land.",
+    a: "Pick Batu Bolong if you want to walk everywhere, or Berawa for beach clubs and an upscale scene. Pererenan makes a calmer, greener base. Echo Beach and the village have the surf and a more local feel. The guides below sort places by decision, so you can plan around wherever you land.",
   },
   {
     q: "Is Canggu walkable, or do I need a scooter?",
-    a: "You can walk within an area — Batu Bolong especially — but getting between Berawa, Batu Bolong, Pererenan and Echo Beach means real traffic on narrow roads. Most people rent a scooter or use ride apps; leave extra time at sunset and on weekends.",
+    a: "You can walk within an area, especially Batu Bolong. Getting between Berawa, Batu Bolong, Pererenan and Echo Beach means real traffic on narrow roads. Most people rent a scooter or use ride apps. Leave extra time at sunset and on weekends.",
   },
   {
     q: "Is Canggu good for families or for nightlife?",
-    a: "Both, in parts — Berawa's beach clubs and Canggu's bars run late for a night out, while the calmer Pererenan and village sides and daytime beach clubs suit families. It's less family-gentle than Sanur or Nusa Dua, and less of a party than the old Kuta scene.",
+    a: "Both, in parts. Berawa's beach clubs and Canggu's bars run late for a night out. The calmer Pererenan and village sides suit families, and so do daytime beach clubs. It's less family-gentle than Sanur or Nusa Dua, and less of a party than the old Kuta scene.",
   },
 ];
 
@@ -237,7 +237,7 @@ export default async function CangguPillarPage() {
           variant="surf"
           kicker="Canggu · Other Bali beta"
           title="Choose your Canggu day"
-          copy="Eat, work, reset or catch sunset — start with the decision you are making now."
+          copy="Eat, work, reset or catch sunset. Start with the decision you are making now."
           actions={
             <Link
               href="/plan#canggu-day-builder"

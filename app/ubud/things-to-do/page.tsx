@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best things to do in Ubud · Other Bali",
     description:
-      "Ridge walks, the Monkey Forest, rice terraces, temples, waterfalls, art and yoga — Ubud's culture-and-nature highlights.",
+      "Ubud's culture-and-nature highlights: ridge walks, the Monkey Forest, rice terraces, temples, waterfalls, art and yoga.",
     url: `${BASE}/ubud/things-to-do`,
     type: "article",
   },
@@ -26,10 +26,10 @@ export const metadata: Metadata = {
 };
 
 const FAQ = [
-  { q: "What is Ubud best known for?", a: "Culture and nature: rice terraces, temples, the Monkey Forest, Balinese art and dance, waterfalls, and a deep yoga-and-wellness scene — all in cooler, greener hills inland from the coast." },
-  { q: "How many days do you need in Ubud?", a: "Two or three days covers the highlights comfortably — a ridge walk, the Monkey Forest and a temple, a rice-terrace morning, a waterfall, and an evening dance performance, with time to rest." },
-  { q: "Is there a beach in Ubud?", a: "No — Ubud is inland, about an hour from the coast. Most travellers pair it with a beach area like Canggu or Sanur." },
-  { q: "What's the best free thing to do in Ubud?", a: "The Campuhan Ridge Walk — an easy, scenic paved path between two river valleys, best at sunrise or late afternoon when it's cooler." },
+  { q: "What is Ubud best known for?", a: "Culture and nature: rice terraces, temples, the Monkey Forest, Balinese art and dance, waterfalls and a deep yoga-and-wellness scene. It's all in cooler, greener hills inland from the coast." },
+  { q: "How many days do you need in Ubud?", a: "Two or three days covers the highlights comfortably, with time to rest. Walk the ridge, then see the Monkey Forest and a temple. Spend a morning in the rice terraces, find a waterfall and catch an evening dance performance." },
+  { q: "Is there a beach in Ubud?", a: "No. Ubud is inland, about an hour from the coast. Most travellers pair it with a beach area like Canggu or Sanur." },
+  { q: "What's the best free thing to do in Ubud?", a: "The Campuhan Ridge Walk. It's an easy, scenic paved path between two river valleys, best at sunrise or late afternoon when it's cooler." },
 ];
 
 const jsonLd = [
@@ -75,7 +75,7 @@ export default function UbudThingsToDoPage() {
           <p className="guide-standfirst">
             Ubud is Bali&apos;s culture-and-nature heart: rice terraces, temples,
             the Monkey Forest, art and a deep wellness scene, all in cooler, greener
-            hills. Go early for the big sights — mornings beat both the heat and
+            hills. Go early for the big sights. Mornings beat both the heat and
             the tour buses.
           </p>
           <p className="guide-meta-line">Editorial review: {UBUD_REVIEW_DATE}</p>
@@ -105,11 +105,12 @@ export default function UbudThingsToDoPage() {
           <h2>The short version</h2>
           <div className="guide-prose">
             <p>
-              One full day: a sunrise Campuhan Ridge walk, breakfast in town, the
-              Monkey Forest and Saraswati Temple, a rice-terrace afternoon, and an
-              evening dance performance at the palace. Two or three days: add a
-              waterfall, an art museum, and a yoga or cooking class. Ubud rewards a
-              slower pace — don&apos;t try to cram it.
+              For one full day, start with a sunrise Campuhan Ridge walk and
+              breakfast in town. Then see the Monkey Forest and Saraswati Temple.
+              Spend the afternoon in the rice terraces and end with an evening dance
+              performance at the palace. With two or three days, add a waterfall, an
+              art museum and a yoga or cooking class. Ubud rewards a slower pace, so
+              don&apos;t try to cram it.
             </p>
           </div>
         </section>

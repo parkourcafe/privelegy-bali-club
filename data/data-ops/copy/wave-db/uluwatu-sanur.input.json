@@ -1,0 +1,1933 @@
+[
+ {
+  "slug": "360-move-uluwatu",
+  "name": "360 Move Uluwatu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A community-focused gym and training centre on Jalan Pantai Suluban in Pecatu with two levels of equipment and an outdoor workout area. It is known for its wide class timetable spanning strength and conditioning, Hot Pilates, spin, HIIT, Muay Thai and BJJ.",
+  "best_for": "Travellers who want variety in one place, from open-gym sessions to group classes across many disciplines.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ami-studio",
+  "name": "Ami Studio",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A boutique reformer Pilates studio in Uluwatu with an ocean-view space, running reformer Pilates, mat Pilates and barre classes with a focus on strength, balance and controlled movement.",
+  "best_for": "Those seeking a calm, small-group boutique studio for reformer and barre.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those seeking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "andaz-bali-fitness-centre",
+  "name": "Andaz Bali Fitness Centre",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "Andaz Bali in Sanur has no gym of its own. Guests train at the Shankha Spa fitness centre in the adjoining Hyatt Regency, reached through a side entrance linking the two resorts and open 24 hours. The floor runs to about 2,000 sq ft of Precor cardio and strength machines, with a yoga studio, sauna, steam and hydrotherapy pools in the same complex. Free sunrise yoga runs on the beach.",
+  "best_for": "Andaz guests who want a full 24-hour gym and are happy to walk next door for it.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "aroma-spa-retreat-sanur",
+  "name": "Aroma Spa Retreat Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A long-standing garden day spa in Sanur offering Balinese massage and treatments in a quiet retreat setting.",
+  "best_for": "Sanur stayers wanting an unhurried, good-value massage.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "babi-guling-odah-sanur",
+  "name": "Babi Guling Odah Sanur",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "A dedicated Balinese roast-pork warung near Pasar Sindhu offering an unusually wide babi guling range, finished with its house sambal tabia (chili, roasted shrimp paste, lime).",
+  "best_for": "babi guling specialists and pork lovers; a quick, cheap, authentically Balinese lunch; solo diners",
+  "not_for": "vegetarians, non-pork and halal diets; travellers wanting a broad or Western menu",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · plate ~30–55K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-barber-sanur-sanur",
+  "name": "Bali Barber Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "The Sanur branch of the Bali Barber brand (established 2012), a men's barbershop on Jl. Danau Tamblingan for cuts, classic hot-towel shaves, beard work and dreadlocks, co-located with The Shampoo Lounge and skilled with all international hair types.",
+  "best_for": "Male travellers wanting a proper barber cut, shave or beard trim in a relaxed shop where you can grab a coffee, beer or cocktail while you wait.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "best_for:A5",
+   "best_for:A7",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "balique-restaurant",
+  "name": "Balique",
+  "district": "Uluwatu",
+  "where": "Uluwatu St No.39, Jimbaran, South Kuta, Badung Regency, Bali 80361",
+  "why_its_here": "A roadside cafe-restaurant on Jalan Raya Uluwatu in the Jimbaran fishing village, opened in 2012 by Belgian design-and-restaurateur couple Blaise Samoy and Zohra Boukhari, in a vintage-European-meets-colonial interior full of antiques the pair collected across the archipelago; the menu is Indonesian-led, with a multi-dish rijsttafel as the signature spread, rounded out by European and fusion plates.",
+  "best_for": "A relaxed, atmospheric lunch or dinner for travellers who want Indonesian home-style cooking and characterful décor away from the beachfront.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "signature",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo 11:00-23:00, Tu 11:00-23:00, We 11:00-23:00, Th 11:00-23:00, Fr 11:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bambu-fitness-bali",
+  "name": "Bambu Fitness Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A large open-plan gym in the Pecatu/Bingin area with bamboo architecture, equipped with Rogue and Eleiko gear across zones for Olympic weightlifting, functional fitness and cardio. It is known for group classes including CrossFit and Hyrox, plus an on-site cafe and a sauna-and-cold-plunge recovery area.",
+  "best_for": "Serious lifters and CrossFit or Hyrox fans who want a full-featured strength gym with a social atmosphere.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "banana-lounge-bali-uluwatu-bukit",
+  "name": "Banana Lounge Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Beach club in the Bukit. Relax & Unwind With Us in a beautifully designed tropical setting offering lounges and sunbeds, tasty food offerings, and impressive beverages. Booking is on the venue's own site.",
+  "best_for": "A day of sun loungers, pool and drinks by the beach.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bella-cucina",
+  "name": "Bella Cucina",
+  "district": "Uluwatu",
+  "where": "Uluwatu St No.45, Jimbaran, South Kuta, Badung Regency, Bali 80361",
+  "why_its_here": "The Italian fine-dining restaurant at the InterContinental Bali Resort in Jimbaran, serving handmade pastas and Mediterranean-inflected mains from an open kitchen in an air-conditioned, chandelier-lit room, with a Sunday brunch featuring live music.",
+  "best_for": "A dressed-up dinner or leisurely Sunday brunch for couples and families wanting composed Italian cooking in a resort setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "featuring"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 12:00-15:00, Mo 18:30-23:00, Tu 12:00-15:00, Tu 18:30-23:00, We 12:00-15:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bluvana-reformer-studio",
+  "name": "Bluvana Reformer Studio",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Reformer studio on Jl. Pantai Cemongkak in Pecatu. Six reformers per class and eight signature 50-minute formats, each aimed at a zone or an energy level. Morning and evening sessions run daily, booked online.",
+  "best_for": "Picking a format rather than a generic class",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "d-nailbar-spa-uluwatu",
+  "name": "D'Nailbar Spa Uluwatu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A boutique nail bar on Jl. Labuansait near Padang Padang, offering gel, BIAB, extensions and nail art alongside lash and brow work — often described as one of the first dedicated nail bars in the Uluwatu area.",
+  "best_for": "Travellers near Padang Padang or Uluwatu town who want a gel manicure or nail art; book ahead via WhatsApp as it fills up.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "fisherman-s-club",
+  "name": "Fisherman's Club",
+  "district": "Sanur",
+  "where": "Andaz Bali, Jalan Danau Tamblingan No.89A, Sanur, Denpasar Selatan, Denpasar, Bali 80228, Indonesia",
+  "why_its_here": "Fisherman’s Club is a beachfront seafood restaurant at Andaz Bali in Sanur.",
+  "best_for": "Travellers looking for a seafood meal beside Sanur beach.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "travellers looking"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "fitness-plus",
+  "name": "Fitness plus",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The first 24-hour gym in Sanur, on Bypass Ngurah Rai. Modern equipment, locker rooms and a sauna. Group classes and personal training with local trainers.",
+  "best_for": "A workout at an hour nothing else is open",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "garuda-wisnu-kencana",
+  "name": "Garuda Wisnu Kencana",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A cultural park in Ungasan, Badung, built around a giant bronze Vishnu-and-Garuda statue — one of the tallest statues in the world — with an amphitheatre and event spaces on the grounds.",
+  "best_for": "seeing the GWK statue up close; combining with a Bukit-peninsula day out",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "genius-cafe",
+  "name": "Genius Cafe",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Beachfront cafe and co-working space on Mertasari Beach in south Sanur, with fast Wi-Fi, an all-day plant-forward menu, and toes-in-the-sand seating without a beach-club minimum. Open daily 7am–10pm.",
+  "best_for": "remote workers and long-stay visitors wanting a laptop-friendly beach cafe; healthy/plant-based eaters; relaxed daytime coffee or smoothie by the sand",
+  "not_for": "anyone after a formal sit-down dinner or a traditional local warung",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "glo-day-spa-salon-sanur-sanur",
+  "name": "Glo Day Spa & Salon Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "An Australian-owned, Western-style one-stop salon and day spa on Sanur's main strip, part of the Glo group (Canggu, Seminyak, Echo Beach, Lembongan) known for hair, nails, bridal and massage under one roof.",
+  "best_for": "Travellers who want familiar Western salon standards in one visit — a haircut, mani-pedi, waxing or brow work alongside a relaxing massage; brides and bridal parties prepping for an event.",
+  "not_for": "Anyone after a traditional Balinese temple-style spa ritual rather than a modern salon experience.",
+  "lint": [
+   "best_for:A7",
+   "best_for:F1",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "experience",
+   "known for",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 10:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gong-restaurant",
+  "name": "Gong Restaurant",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Signature Indonesian and Balinese restaurant of Kayumanis Sanur (Jl. Tirta Akasa No. 28), offering an intimate resort setting focused on traditional dishes. Open daily 7am–10pm.",
+  "best_for": "couples and small parties wanting a stylish traditional-Balinese dinner; a special evening centred on local cuisine",
+  "not_for": "a quick casual bite or a large, loud group",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "offering",
+   "signature",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "good-hair-day-sanur",
+  "name": "Good Hair Day Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A Sanur hair salon known for cuts and colour by English-speaking stylists.",
+  "best_for": "Visitors wanting a dependable haircut along the Sanur strip.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "known for",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "holiday-inn-bali-sanur-gym",
+  "name": "Holiday Inn Bali Sanur Gym",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The gym at Holiday Inn Bali Sanur, on the second floor and open 24 hours to hotel guests only. It is a small room: an upright bike, dumbbells, yoga mats and trainer balls. Guests describe it as basic but adequate for keeping a routine going.",
+  "best_for": "Hotel guests who need to keep a light routine ticking over, not a full training session.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "island-grooming-barbershop",
+  "name": "Island Grooming Barbershop",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A men's barbershop with locations on Jl. Labuansait in Pecatu and on Jl. Pantai Bingin, focused on precision cuts, fades and grooming — widely cited as one of Uluwatu's most established barbershops.",
+  "best_for": "Men wanting a reliable haircut, fade or beard trim near either Uluwatu town or Bingin beach.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "karma-spa-at-karma-kandara",
+  "name": "Karma Spa at Karma Kandara",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A clifftop resort spa at Karma Kandara in Ungasan with a sauna and saltwater pool, offering massages, facials and wellness-focused treatments high above the ocean. It is known for its dramatic cliff setting and biohacking-style options.",
+  "best_for": "Those wanting a full spa-day escape with cliff views and access to sauna and pool facilities.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for",
+   "offering",
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ko-japanese-teppanyaki-and-sushi",
+  "name": "KO Japanese Restaurant, Teppanyaki and Sushi",
+  "district": "Uluwatu",
+  "where": "Uluwatu St No.45, Jimbaran, South Kuta, Badung Regency, Bali 80361",
+  "why_its_here": "The Japanese restaurant at the InterContinental Bali Resort in Jimbaran, headed by chef Mitsuaki Senoo, serving teppanyaki grilled at open counters alongside a sushi and sashimi bar, with a private tatami room and a Balinese-Japanese interior.",
+  "best_for": "Couples or groups wanting an interactive teppanyaki dinner or fresh sushi in a polished resort setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 12:00-15:00, Mo 18:30-23:00, Tu 12:00-15:00, Tu 18:30-23:00, We 12:00-15:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "koa-shala-sanur",
+  "name": "Koa Shala",
+  "district": "Sanur",
+  "where": "Central/South Sanur",
+  "why_its_here": "A boutique yoga shala and holistic wellness centre in a tropical garden off Jl. Danau Tamblingan, running three daily open-air yoga classes plus meditation in a peaceful courtyard sanctuary.",
+  "best_for": "Travellers based in central Sanur who want daily drop-in yoga in a calm garden, ideal for a morning practice before exploring the coast.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "ideal for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "koa-shala-spa-sanur",
+  "name": "Koa Shala Spa",
+  "district": "Sanur",
+  "where": "Central/South Sanur",
+  "why_its_here": "The spa side of Koa Shala, a boutique garden wellness centre down a banana-palm-lined lane off Jl. Danau Tamblingan, offering Balinese and holistic massage in a quiet courtyard sanctuary.",
+  "best_for": "Visitors staying central in Sanur who want a calm, unhurried massage in a garden setting, often paired with a yoga class at the same address.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kuu-izakaya-dining",
+  "name": "Kuu Izakaya Bali at Maya Sanur",
+  "district": "Sanur",
+  "where": "Jl. Danau Tamblingan No.89M, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228",
+  "why_its_here": "Japanese izakaya-style restaurant at Maya Sanur Resort & Spa serving sushi, sashimi, robatayaki skewers and tempura, with sake and cocktails.",
+  "best_for": "groups sharing Japanese plates; couples wanting a stylish evening out; diners after quality sushi and grilled skewers",
+  "not_for": "anyone wanting a quick, casual or budget meal",
+  "lint": [],
+  "stock_phrases": [
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 11:00-22:00, Tu 11:00-22:00, We 11:00-22:00, Th 11:00-22:00, Fr 11:00-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "la-tribu",
+  "name": "La Tribu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Yoga and movement studio on Jl. Buana Sari, Pecatu, in an open-air space. Vinyasa, yin, power, kundalini and hatha, plus surf-conditioning yoga. Movement classes cover calisthenics, mobility, contemporary dance and capoeira. Classes run for adults and children, and there is a 50-hour teacher training.",
+  "best_for": "Families who want classes for adults and children",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "la-tribu-bali",
+  "name": "La Tribu Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A creative yoga and movement studio on Jl. Buana Sari in Pecatu, near Bingin. Alongside vinyasa, yin and mobility classes it teaches handstands, arm balances and hosts artistic workshops such as pottery and painting.",
+  "best_for": "Movement-curious practitioners who want playful classes and creative workshops.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "leha-leha-spa-sanur",
+  "name": "Leha Leha Spa Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A relaxed neighbourhood day spa in Sanur offering massage and treatments at local prices.",
+  "best_for": "Those wanting an easy, affordable massage near the beach path.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "relaxed",
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "lilla-pantai",
+  "name": "Lilla Pantai",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A beachfront restaurant directly on the Sanur paved coastal walk (Jalan Duyung), serving Indonesian and European dishes plus seafood, cooked without MSG, with tables facing the sea. Open all day from breakfast to late evening.",
+  "best_for": "couples and families wanting relaxed seafront tables; long-stay visitors after an easy, calm sit-down meal; anyone who wants toes-near-sand dining without a resort setting",
+  "not_for": "anyone needing a quiet indoor space to work",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "linga-longa-bar",
+  "name": "Linga Longa Bar",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A long-running live-music bar with bands nightly across rock, pop and Top 40 — the main sets from around 8:30pm, with late rock sessions running past midnight — plus a Babi Guling (suckling pig) buffet on set days (Wednesdays and Sundays).",
+  "best_for": "night out with live music and drinks; groups who want to sing along and stay late",
+  "not_for": "anyone after a quiet dinner or an early night",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mantra-wellness",
+  "name": "Mantra Wellness",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Wellness centre a short walk from Padang Padang beach. Movement in yoga and pilates, recovery in a sauna, cold plunge and mandala pool, plus a healthy cafe and coworking. Rooms on site are adults-only.",
+  "best_for": "Recovery after a surf session",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "marramba-fitness",
+  "name": "Marramba Fitness",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "Old-school bodybuilding gym in Renon, close to Sanur. The owner is a former professional bodybuilding champion. A full set of iron, personal training and clean showers. Upstairs there is a karate section for young people.",
+  "best_for": "Plain heavy training without a club atmosphere",
+  "not_for": "A Sunday session - the gym is closed",
+  "lint": [],
+  "stock_phrases": [
+   "atmosphere"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "martha-tilaar-salon-day-spa-sanur",
+  "name": "Martha Tilaar Salon Day Spa Sanur",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "The Sanur outlet of Martha Tilaar, offering the Indonesian brand's signature herbal spa rituals plus hair, nails and beauty basics.",
+  "best_for": "Visitors wanting authentic Indonesian spa rituals from a trusted local brand.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "offering",
+   "signature",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "maya-sanur-spa-sanur",
+  "name": "Maya Sanur Spa",
+  "district": "Sanur",
+  "where": "Central-south beachfront",
+  "why_its_here": "The beachfront spa at Maya Sanur Resort & Spa, a garden sanctuary of six private double suites offering traditional massage, body scrubs and facials from certified therapists.",
+  "best_for": "Couples and travellers wanting a polished resort-spa treatment by the beach; guests looking to combine a massage with a facial in a serene, upscale setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "serene",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "maya-sanur-yoga-studio",
+  "name": "Maya Sanur Yoga Studio",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The yoga studio at Maya Sanur Resort & Spa, air-conditioned and contemporary, with several complimentary programmes for in-house guests: free style, restorative, aqua yoga and sun salutation, pitched at all levels of flexibility. Daily sessions also run at the beachfront plaza and the rooftop garden.",
+  "best_for": "Sanur guests who want a free daily class and a choice between an air-conditioned room, the beach plaza or the roof.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mona-lisa-cafe",
+  "name": "Mona Lisa Cafe",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Long-running casual cafe on Jl. Danau Tamblingan serving Indonesian staples alongside international dishes, with vegetarian, vegan and halal options.",
+  "best_for": "families and long-stay visitors wanting an easy all-rounder; travellers after familiar Indonesian dishes in a relaxed setting",
+  "not_for": "anyone seeking a special-occasion or fine-dining evening",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "morning-light-yoga",
+  "name": "Morning Light Yoga",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A small independent yoga studio on the Bukit running scheduled classes -- a low-key alternative to Uluwatu's larger retreat centres.",
+  "best_for": "an early yoga class on the Bukit",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "morning-light-yoga-studio",
+  "name": "Morning Light Yoga Studio",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An open-air, reclaimed-teak shala at Uluwatu Surf Villas on the clifftop above Balangan and the Uluwatu coastline. It runs a single daily morning class (a different style each day) known for its ocean views and a complimentary coconut afterwards at the Mana cafe.",
+  "best_for": "Travellers wanting one scenic sunrise clifftop class rather than a full studio timetable.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "nelayan-restaurant-and-puri-bar",
+  "name": "Nelayan Restaurant and Puri Bar at Jimbaran Puri, A Belmond Hotel, Bali",
+  "district": "Uluwatu",
+  "where": "Uluwatu St Jl. Yoga Perkanthi, Jimbaran, Puri, Badung Regency, Bali 80361",
+  "why_its_here": "The open-air beachfront restaurant and bar at Belmond Jimbaran Puri, set directly on the sand of Jimbaran Bay, serving grilled seafood and Mediterranean dishes with Indonesian spices and French technique; Puri Bar pours tropical cocktails and local arak with feet-in-the-sand views west across the bay at sunset.",
+  "best_for": "A sunset cocktail or unhurried seafood dinner on the beach for couples and resort guests wanting a calmer alternative to Jimbaran's crowded grill row.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 12:00-22:30, Tu 12:00-22:30, We 12:00-22:30, Th 12:00-22:30, Fr 12:00-22:30, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "oranje-bar",
+  "name": "Oranje Bar",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Small, cosy Dutch-run bar a short walk from Sindhu beach, good for a relaxed beer and snacks; known for Dutch bar food.",
+  "best_for": "a casual beer and snacks after the beach; couples or solo travellers wanting a low-key spot",
+  "not_for": "large groups after a full sit-down dinner",
+  "lint": [],
+  "stock_phrases": [
+   "cosy",
+   "known for",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · snacks/small plates",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ours-bali-uluwatu-bukit",
+  "name": "Ours Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Bar in the Bukit. The 4–6 PM window at Ours Bali is well-known for discounted cocktails and wines served in a celebrated all-day restaurant with a warm, open atmosphere. Happy hour: 4–6 PM Daily. Booking is on the venue's own site.",
+  "best_for": "An evening out for drinks, not a full sit-down meal.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "atmosphere",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ours-spa-boutique",
+  "name": "Ours Spa & Boutique",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A neighbourhood day spa on Jalan Labuan Sait known for Dermalogica facials, nails, hair and massage, with a sister cafe next door. It works largely with vegan and cruelty-free product lines.",
+  "best_for": "Travellers wanting facials, nails and beauty services alongside massage without leaving the Uluwatu strip.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "piccolina",
+  "name": "Piccolina",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A hair-first salon on Jl. Labuansait offering precision cuts, colour, keratin and blow-dries to European standards, with manicures and massage available; the space doubles as a small wine bottle shop.",
+  "best_for": "Those after an expert cut or colour for men or women, with an easygoing wine-bar atmosphere.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "power-of-now-oasis-sanur",
+  "name": "Power of Now Oasis",
+  "district": "Sanur",
+  "where": "Mertasari / South Sanur",
+  "why_its_here": "A Yoga Alliance-accredited yoga and retreat centre established in 2010 in a striking 100% bamboo beachfront shala on Sanur's Mertasari beach, running daily classes, teacher trainings and holistic treatments, with an organic cafe on site.",
+  "best_for": "Yoga travellers in south Sanur who want daily beachfront classes in an eco bamboo studio, or a deeper 200-hour teacher training or retreat.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "Mo-Su 07:30-18:30",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "power-of-now-yoga",
+  "name": "Power Of Now (Yoga)",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "Bamboo shala in a coconut grove on Sanur beach, open-sided and facing the lagoon. Hatha flow, vinyasa and sunrise yoga. Four classes a day at 100,000 IDR, no booking - arrive ten minutes early. Below the studio sit a garden with hammocks, a juice bar, a teahouse and a restaurant.",
+  "best_for": "Sunrise yoga a few steps from the water",
+  "not_for": "An evening class - the last one ends by 17:30",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "puri-santrian-spa-sanur",
+  "name": "Puri Santrian Spa",
+  "district": "Sanur",
+  "where": "South Sanur",
+  "why_its_here": "The spa at Puri Santrian, a long-standing family-owned beach resort in south Sanur, with nine double treatment rooms offering Balinese massage, aromatherapy, reflexology and facials using Phytomer and Sothys products.",
+  "best_for": "Travellers staying in south Sanur who want a full menu of classic and modern treatments in a beachfront resort; those pairing a massage with the resort's morning beach yoga.",
+  "not_for": "",
+  "lint": [
+   "best_for:A7",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "puri-santrian-yoga-wellness",
+  "name": "Puri Santrian Yoga / Wellness",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "A complimentary morning yoga class on the beach at Puri Santrian in south Sanur, open to in-house guests and led by the resort's resident yoga master, built around gentle stretching and breathing. The property has a fitness suite, bicycles, and a spa with nine double treatment rooms using fresh fruit, herbs and plant material alongside Sothys Paris products.",
+  "best_for": "Sanur guests who want an unhurried free beach class in the morning rather than a studio workout.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "raw-gym-uluwatu",
+  "name": "Raw Gym Uluwatu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An open-air, warehouse-style gym on Jalan Raya Uluwatu with a boxing ring and dedicated martial-arts space. It is known for Muay Thai, boxing and BJJ coaching alongside strength training, with membership valid across Raw Gym's other Bali locations.",
+  "best_for": "People focused on combat sports and no-frills, high-intensity training.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "reform-pilates-bali",
+  "name": "Reform Pilates Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A reformer Pilates studio that opened in Bingin in 2023 and later added a larger flagship near Suluban Beach with twelve reformers and a rooftop cafe. It is known for daily group reformer classes, private sessions and duets, with class packs usable across both locations.",
+  "best_for": "Reformer Pilates regulars who want daily group classes or 1:1 sessions.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rose-petal",
+  "name": "Rose Petal",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A full beauty centre on Jl. Labuansait bringing hair, facials, lashes, brows, nails and body treatments under one roof, with a lounge and sunset terrace; its colourists are trained in European and Asian techniques including balayage and lived-in colour.",
+  "best_for": "Someone wanting hair colour or a fuller beauty day in an upmarket setting with a lounge to linger in.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sala-bistro",
+  "name": "Sala Bistro",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Modern bistro and specialty-coffee spot on Jl. Danau Tamblingan serving western-Asian comfort food, with distinct brunch and dinner menus.",
+  "best_for": "brunch and coffee sessions; casual laptop-friendly daytime stops; travellers wanting comfort food in a relaxed setting",
+  "not_for": "anyone after traditional Balinese or a large-group banquet",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "segara-the-seaside",
+  "name": "Segara the Seaside",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A beachfront bar and restaurant on Sanur's shore at Jl. Segara Ayu, serving seafood, pasta, Indonesian dishes and pizza with ocean views, beach happy hour and live music.",
+  "best_for": "groups wanting beachfront tables with drinks and live music; families dining early by the sea; a relaxed seafront meal",
+  "not_for": "anyone wanting a quiet dinner with no music",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shankha-spa-and-fitness-at-hyatt-regency-bali",
+  "name": "Shankha Spa & Fitness at Hyatt Regency Bali",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The fitness centre inside Shankha Spa at Hyatt Regency Bali in Sanur, open 24 hours, with roughly 2,000 sq ft of Precor cardio and strength equipment and natural light over the spa lagoon. The wider complex is the largest wellness facility in Sanur: ten freestanding spa villas around a lily pond, sauna, steam, hot and cold plunge pools, a 15.5-metre outdoor lap pool, an adults-only pool and a juice bar serving kombucha and jamu.",
+  "best_for": "Sanur guests who want a serious 24-hour gym with a full hydrotherapy circuit and lap pool attached.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shankha-spa-hyatt-regency-bali-yoga",
+  "name": "Shankha Spa / Hyatt Regency Bali Yoga",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The open-air yoga studio in the Fitness Pavilion at Shankha Spa, Hyatt Regency Bali in Sanur. The schedule includes a sunrise class pitched at beginners and Hatha sessions, set in the spa's garden alongside the lap pool.",
+  "best_for": "Sanur guests who want an open-air sunrise class that does not assume prior experience.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "experience",
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "six-senses-spa-uluwatu",
+  "name": "Six Senses Spa Uluwatu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The destination spa at Six Senses Uluwatu with eight treatment rooms, a yoga pavilion, gym and wellness screening, using the Ila product line and locally inspired rituals. It is built around bespoke wellness programmes and biomarker screening.",
+  "best_for": "Guests wanting a comprehensive wellness day with screening, yoga and treatments at a clifftop resort.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "six-senses-uluwatu-fitness-centre",
+  "name": "Six Senses Uluwatu Fitness Centre",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The resort gym at Six Senses Uluwatu, open 24 hours, with cardio and weight machines alongside functional training equipment, plus outdoor fitness circuits on the clifftop grounds. It sits within a wellness area that also holds ten treatment rooms, a relaxation lounge, spa bath, sauna and steam room.",
+  "best_for": "Guests staying on the Bukit who want a round-the-clock gym without leaving the resort.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "six-senses-uluwatu-yoga-pavilion",
+  "name": "Six Senses Uluwatu Yoga Pavilion",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An air-conditioned yoga pavilion at Six Senses Uluwatu. The resort includes complimentary daily meditation and an intro-to-yoga session of 30 minutes each; longer 45 to 60 minute sessions such as Yoga Nidra, traditional yoga and a yogic intestinal cleanse are charged separately.",
+  "best_for": "Resort guests who want a daily practice indoors, out of the Bukit heat, with both free short sessions and longer paid ones.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "snowcat-bali-ussr-cuisine",
+  "name": "Snowcat Bali USSR Cuisine",
+  "district": "Uluwatu",
+  "where": "Jl. Raya Uluwatu No.93, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Post-Soviet kitchen on Jl. Raya Uluwatu in Ungasan. Herring under a fur coat, pelmeni, olivier and draniki. Large portions and homemade infusions. Delivery, dine-in and bookings.",
+  "best_for": "Russian-speaking guests who want food from home",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "soul-on-the-beach",
+  "name": "Soul on the Beach",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "A beachfront restaurant on Sanur's Sindhu Beach (next to INNA Sindhu Beach Hotel), serving Indonesian, Asian and Western food from breakfast to dinner, with a swimmable white-sand beach and views toward Mount Agung and Nusa Penida. Vegetarian and vegan options available.",
+  "best_for": "families and groups wanting all-day beachfront dining; a relaxed seafront breakfast or early dinner; visitors wanting a swim-and-eat spot",
+  "not_for": "anyone wanting a formal or fine-dining setting",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "spa-at-mu",
+  "name": "Spa at Mu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An open-air cliffside spa at Mu Bali resort overlooking Bingin beach and the Impossibles surf break, using natural and organic oils. It is known for al fresco massages with an ocean and temple view.",
+  "best_for": "Couples and surfers wanting a scenic outdoor massage on the Bingin cliffs.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "spring-spa-uluwatu",
+  "name": "Spring Spa Uluwatu",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A polished day spa on Jalan Labuan Sait with treatment rooms, a Davines hair salon and mani-pedi stations, using brands such as CODAGE Paris and Davines. It was named Asia's Best Day Spa at the 2025 World Spa Awards.",
+  "best_for": "Those wanting a reliable full-service day of massage, facials, hair and nails in central Uluwatu.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "studio-fondue",
+  "name": "Studio Fondue",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A boutique Pilates studio in Uluwatu offering Reformer, Mat and Barre classes in a design-led space, with drop-in classes starting from 250K IDR.",
+  "best_for": "Pilates-goers wanting a stylish boutique studio for reformer or mat sessions.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sudajiva-spa-at-sudamala-sanur-sanur",
+  "name": "Sudajiva Spa at Sudamala Sanur",
+  "district": "Sanur",
+  "where": "South Sanur / Sudamala",
+  "why_its_here": "Sudajiva Spa (\"Water of Life\") is the 572 sqm spa at Sudamala Suites & Villas Sanur, blending traditional and modern healing techniques in an intimate boutique-resort setting.",
+  "best_for": "Guests and visitors wanting a signature resort spa ritual in a quiet, boutique atmosphere away from Sanur's busier stretches.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "blending",
+   "signature",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sudamala-resort-sanur-wellness-yoga-sanur",
+  "name": "Sudamala Resort Sanur Wellness / Yoga",
+  "district": "Sanur",
+  "where": "South Sanur / Sudamala",
+  "why_its_here": "The wellness and yoga programme at Sudamala Suites & Villas Sanur, centred on a garden Yoga Pavilion with instructor-led classes and evening meditation, plus longer holistic Balinese-tradition journeys (melukat purification, jamu and boreh workshops).",
+  "best_for": "Resort guests and wellness-minded visitors wanting gentle garden yoga, meditation, or a full-day holistic Balinese wellness journey in a boutique setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "supreme-indian-restaurant",
+  "name": "Supreme Indian Restaurant",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A North and South Indian restaurant and bar on Jl. Raya Uluwatu in Ungasan, with an air-conditioned dining room and a broad vegetarian and vegan menu alongside tandoor dishes and curries.",
+  "best_for": "A comfortable, well-spiced Indian sit-down dinner in Uluwatu, including for vegetarians.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "svaha-spa-bingin",
+  "name": "Svaha Spa Bingin",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A cliffside day spa above Bingin with ocean views and a sustainable, holistic focus, offering Balinese massage, scrubs and jacuzzi rituals. It is widely reviewed as one of the best-value ocean-view spas on the Bukit.",
+  "best_for": "Surfers and beach-day travellers wanting a well-priced ocean-view treatment near Bingin and Impossibles.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "taru-pramana-spa-sanur",
+  "name": "Taru Pramana Spa & Wellness",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "The day spa at The Meru Sanur, open to non-guests with 24-hour advance booking, offering Balinese massage, singing-bowl treatments and longer ritual packages. Daily 9am to 9pm.",
+  "best_for": "A booked spa ritual or massage in Sanur, including signature and Swissline facial options.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [
+   "offering",
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "terrace-sanur-the-1o1-bali-oasis-sanur",
+  "name": "Terrace Sanur (The 1O1 Bali Oasis Sanur)",
+  "district": "Sanur",
+  "where": "The 101 Bali Oasis Sanur, Jalan Danau Tamblingan No. 136 A, Sanur, Bali 80228",
+  "why_its_here": "Terrace Sanur is the dining outlet at THE 1O1 Bali Oasis Sanur on Jalan Danau Tamblingan. The hotel setting is organised around a lagoon-style pool and landscaped grounds.",
+  "best_for": "A hotel meal during a stay in central Sanur.",
+  "not_for": "Travellers without a Sanur stop or diners seeking an independent street-side venue.",
+  "lint": [],
+  "stock_phrases": [
+   "oasis"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-asa-maia",
+  "name": "The Asa Maia",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An adults-only wellness retreat in Uluwatu with a small spa, contrast therapy, infrared sauna and cold and hot plunge pools, using local and natural products. Its signature massage and tailored wellness approach are frequently praised.",
+  "best_for": "Wellness-minded travellers wanting contrast therapy, yoga and a signature massage in one visit.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A10",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "retreat",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-asa-maia-fitness",
+  "name": "The Asa Maia Fitness",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The gym at The Asa Maia, a family-owned adults-only wellness retreat in Uluwatu opened in 2021. It sits in the central pavilion and is fitted with a treadmill, power rack, barbell, kettlebells, dumbbells, slam balls, a stepper, a TRX system and a Pilates Cadillac. An infrared sauna is on site.",
+  "best_for": "Retreat guests who want real strength equipment rather than a token hotel gym, within a structured wellness stay.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-asa-maia-pilates",
+  "name": "The Asa Maia Pilates",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Pilates runs daily at The Asa Maia in Uluwatu, with classes built around strength, balance and flexibility and adapted to each guest's level. A Pilates Cadillac is part of the retreat's gym equipment.",
+  "best_for": "Retreat guests who want daily pilates as part of a structured programme, including reformer-style work on the Cadillac.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-asa-maia-yoga",
+  "name": "The Asa Maia Yoga",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Daily yoga at The Asa Maia, held in a shala on the top level of the central pavilion. Instructors run Hatha, Yin and Vinyasa classes and adapt them to each guest's level. SOMA breathwork is the retreat's signature practice, with Indonesian martial arts and Qi Gong also on the programme.",
+  "best_for": "Guests on a wellness stay in Uluwatu who want daily guided practice matched to their level rather than a fixed drop-in schedule.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "retreat",
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-bvlgari-spa",
+  "name": "The Bvlgari Spa",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The spa at Bvlgari Resort Bali, set in a reconstructed antique Javanese joglo on the Uluwatu cliff about 150m above the sea, with eight whirlpool treatment rooms. It is known for its Royal Lulur couples ritual and beachside treatment option.",
+  "best_for": "Luxury travellers wanting a signature high-end ritual with cliff or beach settings.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "set in",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-istana-wellness-club",
+  "name": "The Istana Wellness Club",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A clifftop meditation and biohacking centre in Uluwatu, open daily 07:00-21:00. Alongside the yoga programme it runs a whole-body cryotherapy chamber, saunas and a spa, and hosts 10-day silent retreats. Membership runs in one-month blocks, and biohacking slots are booked online in advance.",
+  "best_for": "Visitors on the Bukit who want cryotherapy and sauna-based recovery alongside a serious meditation programme, with month-long membership rather than a hotel day pass.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-istana-yoga",
+  "name": "The Istana Yoga",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The yoga programme at The Istana on the Uluwatu cliffs, with around 20 class formats including Vinyasa, Qigong, Rebirthing Breathwork and Yoga Nidra, taught by internationally trained instructors. Teacher training runs in 200- and 300-hour formats. Drop-in classes start from 150,000 IDR, and Sunday sessions are donation-based.",
+  "best_for": "Practitioners on the Bukit who want breadth of styles and a route into teacher training, with a donation-based Sunday class as a low-cost way in.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-space-bali",
+  "name": "The Space Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A community hub in the Bingin/Uluwatu area with two upstairs bamboo shalas over a downstairs coworking cafe. It offers a broad daily schedule of vinyasa, yin, mobility and surf-mobility classes plus teacher trainings.",
+  "best_for": "Digital nomads and longer-stay travellers who want daily classes and a work-plus-yoga base.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A1"
+  ],
+  "stock_phrases": [
+   "offers",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-temple-lodge",
+  "name": "The Temple Lodge",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A long-running family-run guesthouse on the Bingin clifftop overlooking Impossibles and Bingin, geared to a balanced surf-and-yoga lifestyle. It holds daily yoga in a clifftop shala (open to outside guests) with an on-site spa and healthy restaurant.",
+  "best_for": "Surfers and couples wanting relaxed clifftop yoga tied to a laid-back stay.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "laid-back",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-yoga-rescue",
+  "name": "The Yoga Rescue",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A quiet garden studio set between Ungasan and Jimbaran in the wider Uluwatu area, away from the busier clifftop crowds. It runs daily Hatha, Vinyasa, Ashtanga, Yin and aerial classes plus private sessions and workshops.",
+  "best_for": "Locals and repeat visitors wanting an unpretentious daily class close to Ungasan.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ulu-active-recovery",
+  "name": "ULU Active & Recovery",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "An open-air fitness and recovery centre in Uluwatu combining functional training, group classes and holistic wellness, pairing strength, HIIT, yoga, Pilates and mobility with a recovery zone of sauna, steam rooms and hot-and-cold plunge pools, plus a cafe.",
+  "best_for": "Those who want to combine training with structured recovery in one visit.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ulu-yoga-bali",
+  "name": "ULU Yoga Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A dedicated yoga school on Jl. Pantai Cemongkak in Pecatu, a few minutes inland from Bingin and Dreamland, in a modern air-conditioned ocean-view shala. It is best known for Yoga Alliance 200/300-hour and aerial teacher trainings alongside multi-style drop-in classes.",
+  "best_for": "Those pursuing teacher training or structured multi-style practice including aerial and acro.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "vela-spa",
+  "name": "Vela Spa",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "The intimate spa at The Ungasan Clifftop Resort, with treatment rooms overlooking the Indian Ocean and a menu of Balinese massage, scrubs and deep-tissue work. It is known for attentive resort-standard service on the Ungasan clifftop.",
+  "best_for": "Couples wanting an upmarket ocean-view treatment, often paired with a Sundays Beach Club visit.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-babi-guling-sanur-bypass",
+  "name": "Warung Babi Guling Sanur",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "A well-known roadside Balinese babi guling warung on the Bypass, serving classic roast pork with rice and trimmings for dine-in, takeaway and delivery.",
+  "best_for": "a fast, cheap babi guling plate; travellers passing along the Bypass; takeaway or delivery",
+  "not_for": "vegetarians, non-pork and halal diets; those wanting a beachside or atmospheric setting",
+  "lint": [],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · plate ~30–55K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-blanjong",
+  "name": "Warung Blanjong",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "A family-run warung open around 25 years, best known locally for its nasi campur and Balinese home cooking alongside some Indonesian and Western dishes.",
+  "best_for": "nasi campur and Balinese home cooking in a relaxed sit-down setting; mixed groups where some want Western options; travellers in south Sanur",
+  "not_for": "purists wanting a strictly local menu with no Western items",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · mains ~40–75K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-coconut-tree",
+  "name": "Warung Coconut Tree",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Long-standing Indonesian warung (since 2012) with a bohemian recycled-boat-timber interior, serving generous home-style Balinese plates; live music some evenings.",
+  "best_for": "relaxed local dinner; travellers wanting authentic Indonesian food with atmosphere",
+  "not_for": "anyone wanting a quiet room on the nights live music plays",
+  "lint": [],
+  "stock_phrases": [
+   "atmosphere",
+   "authentic",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · warung mains",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-little-bird",
+  "name": "Warung Little Bird",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Laid-back, budget-friendly warung on Sanur's main artery serving authentic Balinese and Indonesian dishes; easily walkable from the beach area.",
+  "best_for": "cheap, relaxed local meal; long-stay travellers and solo diners",
+  "not_for": "anyone after a formal or upscale dinner",
+  "lint": [],
+  "stock_phrases": [
+   "authentic",
+   "laid-back",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · mains ~40–80K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-makan-little-mars",
+  "name": "Warung Makan Little Mars",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Small, tidy family-run warung serving Balinese, Indonesian and some Western dishes with plenty of vegetarian options, plus local coffee and fresh cocktails.",
+  "best_for": "relaxed local meal; vegetarians; travellers wanting a home-style, no-fuss dinner",
+  "not_for": "large groups (it's a very small space)",
+  "lint": [
+   "not_for:A3",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · warung mains",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-pregina",
+  "name": "Pregina Warung",
+  "district": "Sanur",
+  "where": "",
+  "why_its_here": "A long-running sit-down Balinese warung on the main Danau Tamblingan strip, known for home-style Balinese cooking built around duck and roast pork, in a traditional wood interior.",
+  "best_for": "a sit-down dinner of authentic Balinese classics; families and small groups; travellers wanting table-service rather than a hawker stall",
+  "not_for": "grab-and-go or ultra-cheap street-stall budgets; diners who want a fast counter meal",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "known for",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · mains ~45–95K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "white-orchid-sanur",
+  "name": "White Orchid (Sanur)",
+  "district": "Sanur",
+  "where": "Sanur",
+  "why_its_here": "Pan-Asian (\"a Taste of Asia\") restaurant on Jl. Danau Tamblingan No. 85, serving shareable Asian plates with live music in the evenings.",
+  "best_for": "groups wanting to share a range of Asian dishes; couples and long-stay visitors after a relaxed evening with live music",
+  "not_for": "anyone wanting a silent, low-key dinner on live-music nights",
+  "lint": [],
+  "stock_phrases": [
+   "a range of",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "white-rabbit-lounge-uluwatu-bukit",
+  "name": "White Rabbit Lounge",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "Bar in the Bukit. White Rabbit strives to be a world-class cocktail bar in Uluwatu Bali. A place you feel like you're drinking with friends, even when you're here by yourself. Booking is on the venue's own site.",
+  "best_for": "An evening out for drinks, not a full sit-down meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:H1"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yinside-yoga",
+  "name": "YinSide Yoga",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A small yin-focused studio and eco yoga shop on Jl. Pantai Bingin specialising in Yin Yoga classes, workshops, retreats and 50-hour yin teacher trainings. It also runs a boutique of locally made, plant-based yoga wear and props.",
+  "best_for": "Practitioners seeking slow, restorative yin practice and sustainable yoga gear.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yoga-searcher-bali",
+  "name": "Yoga Searcher Bali",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A yoga-focused eco-lodge on Jl. Labuan Sait near Padang Padang and Suluban, built from recycled-wood villas around a pool. It runs a daily yoga schedule with a plant-forward restaurant and spa, aimed at retreat-style stays.",
+  "best_for": "Guests wanting an all-in-one yoga retreat stay near the Suluban surf beaches.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yoga-the-istana",
+  "name": "Yoga @ The Istana",
+  "district": "Uluwatu",
+  "where": "",
+  "why_its_here": "A clifftop yoga studio on Jl. Pantai Suluban with ocean views, hosting a resident yoga school and classes led by visiting teachers. It is paired with a wellness spa featuring sauna, steam and cold plunge.",
+  "best_for": "Travellers wanting cliff-edge classes combined with spa and cold-plunge recovery.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "featuring",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ }
+]

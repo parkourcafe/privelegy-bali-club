@@ -265,7 +265,7 @@ export default function DayIntentBuilder() {
       {expanded && (
         <div id="day-builder-fine-tune" className="mt-5 border-t border-[var(--ob-line)] pt-5">
           <p className="text-xs font-semibold text-[var(--ob-sand-dim)]">
-            Tap only what matters — skip the rest. The list updates as you choose.
+            Tap only what matters and skip the rest. The list updates as you choose.
           </p>
 
           <div className="mt-4 space-y-4">
@@ -290,7 +290,7 @@ export default function DayIntentBuilder() {
               Your map brief
             </p>
             <p className="mt-1 font-display text-sm italic text-[var(--ob-sand)]">
-              {hasBrief ? summary : "Nothing preselected — tap only what matters, skip the rest."}
+              {hasBrief ? summary : "Nothing is preselected. Tap only what matters and skip the rest."}
             </p>
           </div>
 

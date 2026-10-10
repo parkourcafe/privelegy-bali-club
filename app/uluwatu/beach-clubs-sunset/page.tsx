@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Uluwatu beach clubs & sunset, compared · Other Bali",
     description:
-      "Beach access, cliff views, adults-only policies, family fit and booking models — the honest comparison.",
+      "Beach access, cliff views, adults-only policies, family fit and booking models, compared.",
     url: "https://www.otherbali.com/uluwatu/beach-clubs-sunset",
     type: "article",
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Uluwatu beach clubs & sunset, compared · Other Bali",
     description:
-      "Beach access, adults-only policies, family fit and booking models — compared honestly.",
+      "Beach access, adults-only policies, family fit and booking models, compared.",
   },
 };
 
@@ -51,19 +51,19 @@ const ALL_SUNSET = [
 const FAQ = [
   {
     q: "Which Uluwatu beach clubs have actual beach access?",
-    a: "Three: Sundays (private cove reached by funicular), White Rock and Tropical Temptation (both directly on Melasti Beach). El Kabrón and oneeighty° are clifftop venues — spectacular, but you won't touch sand.",
+    a: "Three: Sundays (private cove reached by funicular), White Rock and Tropical Temptation (both directly on Melasti Beach). El Kabrón and oneeighty° are clifftop venues. They're spectacular, but you won't touch sand.",
   },
   {
     q: "Is any club adults-only?",
-    a: "Tropical Temptation is 18+ by policy — stated on the venue's own site. oneeighty° is often mislabeled adults-only; in fact only its VIP deck restricts under-12s.",
+    a: "Tropical Temptation is 18+ by policy, stated on the venue's own site. oneeighty° is often mislabeled adults-only; in fact only its VIP deck restricts under-12s.",
   },
   {
     q: "What do day passes cost?",
-    a: "We don't publish prices we can't keep current. The models are stable though: Sundays sells a daily beach pass with food-and-drink credit, White Rock and Tropical Temptation reserve daybeds against minimum spends, and oneeighty° runs a capped day pass. Exact rates are on each venue's official booking page — linked from our place pages.",
+    a: "We don't publish prices we can't keep current. The models are stable, though. Sundays sells a daily beach pass with food-and-drink credit. White Rock and Tropical Temptation reserve daybeds against minimum spends, and oneeighty° runs a capped day pass. Exact rates are on each venue's official booking page, linked from our place pages.",
   },
   {
     q: "Where do I watch the sunset without paying for a club?",
-    a: "Single Fin is a walk-in bar above the Suluban break — arrive 60–90 minutes early for a rail spot. Mana next door trades some chaos for a calmer table (book at golden hour).",
+    a: "Single Fin is a walk-in bar above the Suluban break. Arrive 60–90 minutes early for a rail spot. Mana next door trades some chaos for a calmer table (book at golden hour).",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function BeachClubsSunsetPage() {
               Tropical Temptation
             </PlaceLink>
             ; the occasion sunset → <PlaceLink slug="el-kabron-bali">El Kabrón</PlaceLink>;
-            the free iconic one → <PlaceLink slug="single-fin">Single Fin</PlaceLink>.
+            the free one → <PlaceLink slug="single-fin">Single Fin</PlaceLink>.
             The full comparison below sticks to what we could verify.
           </p>
           <p className="guide-meta-line">
@@ -201,7 +201,7 @@ export default function BeachClubsSunsetPage() {
         <section className="guide-section">
           <h2>The cliff-bar sunset</h2>
           <p className="guide-lede">
-            No pass, no daybed — just the break below and a drink in hand.
+            No pass, no daybed. Just the break below and a drink in hand.
           </p>
           <VenuePicks slugs={["single-fin", "mana-uluwatu", "el-kabron-bali"]} columns={3} />
         </section>
@@ -212,7 +212,7 @@ export default function BeachClubsSunsetPage() {
             <ul>
               <li>
                 <strong>Melasti is its own trip.</strong> The Melasti clubs sit
-                on the south side of the peninsula — combine them with WAATU or
+                on the south side of the peninsula. Combine them with WAATU or
                 Sundays for the evening rather than racing back to the west
                 cliffs for sunset.
               </li>
@@ -237,7 +237,7 @@ export default function BeachClubsSunsetPage() {
             {
               href: "/uluwatu/best-restaurants",
               title: "All twelve dinner rooms",
-              blurb: "Groups, families, occasions — sorted by decision.",
+              blurb: "Groups, families and occasions, sorted by decision.",
             },
             {
               href: "/uluwatu",
@@ -251,7 +251,7 @@ export default function BeachClubsSunsetPage() {
           <h2>One beach day, one cliff day</h2>
           <p>
             The 48-hour plan pairs a Melasti beach afternoon with a west-cliff
-            sunset day — in the order that avoids crossing the Bukit twice.
+            sunset day, in the order that avoids crossing the Bukit twice.
           </p>
           <Link href="/uluwatu/48-hours" className="cta-band-action">
             See the 48-hour plan →

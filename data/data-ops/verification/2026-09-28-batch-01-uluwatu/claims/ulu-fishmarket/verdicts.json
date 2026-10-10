@@ -1,0 +1,88 @@
+{
+  "slug": "ulu-fishmarket",
+  "acceptedAt": "2026-09-28T08:05:00Z",
+  "acceptor_note": "snapshot.mjs could not be executed in this acceptor session (shell tool unavailable for the whole run); no source was re-fetched. Every official-source claim is held as SOURCE_BLOCKED for a re-run, not accepted. Non-official sources are rejected on the source rule, which needs no fetch.",
+  "verdicts": [
+    {
+      "claim_id": "ulu-fishmarket-14",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "7-day 12:00–23:00 quoted from the official homepage 'Opening Hours' block, plausible for a dinner-led restaurant; could not re-fetch ulufishmarket.com — re-run"
+    },
+    {
+      "claim_id": "ulu-fishmarket-11",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Quote covers only 'White Crunchy Roll'; 'tuna tartare' and 'hot phila roll' are not in the quote and the menu page could not be re-fetched — re-run and quote all three items"
+    },
+    {
+      "claim_id": "ulu-fishmarket-22",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "ulu-fishmarket-19",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Quote 'FULL MENU' is anchor text; the link target /menu-copy/ must be seen in the official homepage HTML, which could not be re-fetched — re-run"
+    },
+    {
+      "claim_id": "k-ulu-fi-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com is a third-party guide, not ulufishmarket.com; the value is a sentence about Suka Espresso, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-ulu-fi-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator; price anchor also names no item and no date — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-ulu-fi-1",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Official domain but the quote (7 AM – 11 PM, kitchen 10:30 PM) contradicts the 12pm – 11pm block cited in claim 14 from the same page, and 07:00 is implausible for a fish restaurant; could not re-fetch to test — not accepted"
+    },
+    {
+      "claim_id": "ulu-fishmarket-20",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "+62 (822)-6646-9790 quoted under 'Reservations' on an official page, converts cleanly to +6282266469790; could not re-fetch to confirm the quote — re-run"
+    },
+    {
+      "claim_id": "ulu-fishmarket-18",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Chope link (cho.pe) is allowed only if the official site links to it; quote 'BOOK A TABLE' is anchor text and the homepage HTML could not be re-fetched to see the href — re-run"
+    }
+  ]
+}

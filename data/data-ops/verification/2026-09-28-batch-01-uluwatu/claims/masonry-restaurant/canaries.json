@@ -1,0 +1,20 @@
+{
+  "slug": "masonry-restaurant",
+  "canaries": [
+    {
+      "claim_id": "k-masonr-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-masonr-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-masonr-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "sundays-beach-club"
+    }
+  ]
+}

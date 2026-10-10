@@ -311,7 +311,7 @@ export default function PlacesView({
       </div>
 
       {activeCriteria.length > 0 ? (
-        <div className="criteria-row" aria-label="Your active brief — choose a chip to remove it">
+        <div className="criteria-row" aria-label="Your brief: the filters and search words you chose. Select one to remove it.">
           <span className="chip-label">Your brief</span>
           {activeCriteria.map((criterion) => (
             <Link key={criterion.key} href={criterion.href} className="criteria-chip">
@@ -343,7 +343,7 @@ export default function PlacesView({
         <section className="slot-section">
           <div className="slot-heading">
             <h2>Top picks for your brief</h2>
-            <p>{briefLabel || "Best fit first — widen below for the rest."}</p>
+            <p>{briefLabel || "These are the closest matches. The rest are further down."}</p>
           </div>
           <div className="pick-grid">
             {topPicks.map((pick, index) => (
@@ -369,17 +369,17 @@ export default function PlacesView({
       <div className="mt-4 text-sm text-[var(--muted)]" aria-live="polite">
         <p>
           {directory
-            ? `${directory.length} districts · ${totalVenues} published places — every district below, strongest cards first. Pick a district or narrow with the filters above.`
+            ? `${directory.length} districts · ${totalVenues} published places. Each district below starts with its strongest cards. Pick a district, or narrow the list with the filters above.`
             : `Showing ${venues.length + topPicks.length} of ${totalMatches} matches · ${totalVenues} published places total.`}
         </p>
         {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length > 0 && topPicks.length < 3 ? (
           <p className="mt-1">
-            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief — remove a criterion to widen it.
+            Only {topPicks.length} strong match{topPicks.length === 1 ? "" : "es"} for your full brief. Remove a filter or search word to see more.
           </p>
         ) : null}
         {filters.intentMode && (tokens.length > 0 || filters.category) && topPicks.length === 0 && totalMatches > 0 ? (
           <p className="mt-1">
-            No ranked shortlist for this brief — showing everything that fits.
+            No ranked shortlist for this brief. Everything that fits is below.
           </p>
         ) : null}
       </div>
@@ -487,7 +487,7 @@ export default function PlacesView({
 
       {totalMatches === 0 ? (
         <p className="py-10 text-center text-sm text-[var(--muted)]">
-          Nothing matches that combination yet{nearby.length > 0 ? " inside this district — but your brief matched nearby:" : ". Clear a filter to widen the map."}
+          Nothing matches that combination yet{nearby.length > 0 ? " in this district. These places nearby match your brief:" : ". Clear a filter to see more."}
         </p>
       ) : null}
 
@@ -495,7 +495,7 @@ export default function PlacesView({
         // The same brief matched just outside the active district. Each card
         // names its own district; no travel-time claims — navigation and ETA
         // belong to Google Maps (guardrail #1).
-        <section className="nearby-section" aria-label={`Nearby — outside ${districtLabel[filters.district] ?? filters.district}`}>
+        <section className="nearby-section" aria-label={`Places nearby, outside ${districtLabel[filters.district] ?? filters.district}`}>
           <div className="nearby-rule">
             <span>Nearby — outside {districtLabel[filters.district] ?? filters.district}</span>
           </div>

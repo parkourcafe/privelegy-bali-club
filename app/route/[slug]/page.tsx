@@ -66,7 +66,8 @@ export async function generateMetadata({
   if (!route) return { title: "Route not found", robots: { index: false, follow: false } };
   const districtName = DISTRICT_GUIDE.find((d) => d.slug === route.district)?.name ?? "Bali";
   const description =
-    route.subtitle || `A ${route.stops.length}-stop day in ${districtName}.`;
+    route.subtitle ||
+    `A day in ${districtName}: ${route.stops.length} ${route.stops.length === 1 ? "stop" : "stops"}, in order.`;
   return {
     title: route.title,
     description: clipMetaDescription(description),

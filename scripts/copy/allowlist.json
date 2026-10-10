@@ -1,0 +1,26 @@
+{
+  "shape": "entries[] = { unit, code, match, reason, approvedBy }; an entry suppresses one rule code for one exact match text in one unit (db: <slug>#<field>, code: <file>:<line>:<col>, resort: <slug>#<path>) and nothing else",
+  "entries": [
+    {
+      "unit": "nusa-dua-resort-day-passes#tableRows[9][0]",
+      "code": "H1",
+      "match": "Paradise",
+      "reason": "Product name: Hilton Bali sells its day pass as 'A Day in Paradise'. Naming the product is not our hype.",
+      "approvedBy": "agent 2026-10-05, pending founder review"
+    },
+    {
+      "unit": "beautyfulspa-canggu#why_its_here",
+      "code": "H1",
+      "match": "Paradise",
+      "reason": "Treatment name on the venue's own menu: 'Bali Paradise Massage'. The card is a spa-formula template queued for a full rewrite after evidence collection; the name stays if the treatment is kept.",
+      "approvedBy": "agent 2026-10-05, pending founder review"
+    },
+    {
+      "unit": "app/review/page.tsx:70:15",
+      "code": "R2",
+      "match": "Reviewers",
+      "reason": "The /review page addresses App Store and Play reviewers (the people testing the app), not venue reviews.",
+      "approvedBy": "agent 2026-10-05, pending founder review"
+    }
+  ]
+}

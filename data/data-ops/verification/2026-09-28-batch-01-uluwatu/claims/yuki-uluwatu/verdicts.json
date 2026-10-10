@@ -1,0 +1,88 @@
+{
+  "slug": "yuki-uluwatu",
+  "acceptedAt": "2026-09-28T06:53:31.090Z",
+  "acceptor": "blind acceptor (Claude, snapshots-acceptor root)",
+  "verdicts": [
+    {
+      "claim_id": "yuki-uluwatu-14",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for price_anchor: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "yuki-uluwatu-12",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "e16efa17a5e50af18a322bd531c02b6a016fbe02c130665de72e64a7bb94b692",
+      "quote_found": true,
+      "note": "WAGYU BEEF SANDO and PRAWN TEMPURA MAKI ROLL are on yuki-bali.com/menu; 'yakitori' appears nowhere on the page; menu page is shared by Canggu and Uluwatu"
+    },
+    {
+      "claim_id": "yuki-uluwatu-24",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for coordinates: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "yuki-uluwatu-18",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "quote_found": true,
+      "note": "OPEN 11AM - LATE 7 DAYS WEEK directly under the Uluwatu block ('You are booking for YUKI ULUWATU', +62 811 3960 8557); 'until late' free-text form allowed"
+    },
+    {
+      "claim_id": "k-yuki-u-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com (also names another venue, Suka Espresso) is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "k-yuki-u-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "tripadvisor.com is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "k-yuki-u-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "e16efa17a5e50af18a322bd531c02b6a016fbe02c130665de72e64a7bb94b692",
+      "quote_found": false,
+      "note": "'Open daily 7 AM – 11 PM, kitchen closes 10:30 PM' not on yuki-bali.com/menu"
+    },
+    {
+      "claim_id": "yuki-uluwatu-23",
+      "verdict": "hold",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "quote_found": true,
+      "note": "quote (ULUWATU / Location / 53MV+5H5) contains no phone; the page does list +62 811-3960-8557 under ULUWATU (Canggu is …8556) — resubmit with that line as the quote"
+    },
+    {
+      "claim_id": "yuki-uluwatu-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "f50a0e4fc12e22f655ffd3931508428fd3fce8401dc10a4a51d665679d9bd00e",
+      "quote_found": true,
+      "note": "address verbatim under the ULUWATU block on the Uluwatu reservations page; Jl marker, no working notes"
+    }
+  ]
+}

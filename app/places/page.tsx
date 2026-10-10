@@ -71,7 +71,7 @@ export async function generateMetadata({
   return {
     title,
     description:
-      "Explore published Bali places by district, type and moment — cafés, restaurants, beach clubs, bars and wellness, with clear fit notes and practical actions.",
+      "Explore published Bali places by district, type and moment: cafés, restaurants, beach clubs, bars and wellness, with clear fit notes and practical actions.",
     alternates: { canonical },
     robots: hasFilters || parsedPage === null
       ? { index: false, follow: true }
@@ -404,9 +404,9 @@ export default async function PlacesPage({
                 </h1>
                 <p className="hero-copy max-w-xl text-[#FAF6EF] drop-shadow-[0_2px_14px_rgba(0,0,0,0.92)]">
                   Use Explore when you want to compare published places across
-                  Bali by district, type or moment. Open a card when you are
-                  ready to decide, save, or hand off to Maps or a verified venue
-                  action.
+                  Bali by district, type or moment. Open a card when you&apos;re
+                  ready to decide. From there you can save it or hand off to Maps
+                  or a verified venue action.
                 </p>
               </div>
             </div>

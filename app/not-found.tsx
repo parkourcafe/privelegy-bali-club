@@ -32,8 +32,8 @@ export default function NotFound() {
         This page slipped off the map.
       </h1>
       <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--ob-sand-dim)]">
-        The link may be old or mistyped. Nothing is lost — pick up your day from
-        one of these.
+        The link may be old or mistyped. You can carry on planning from one of
+        these.
       </p>
 
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
@@ -52,7 +52,7 @@ export default function NotFound() {
       </div>
 
       <nav
-        aria-label="Popular districts"
+        aria-label="District guides"
         className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] text-[var(--ob-sand-dim)]"
       >
         {[

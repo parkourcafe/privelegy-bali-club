@@ -94,7 +94,7 @@ export default async function Plan({
             <p className="hero-note">No signup. Planning stays separate from paid placement.</p>
           </div>
         </div>
-        <div className="editorial-signal" aria-label="Plan page role">
+        <div className="editorial-signal" aria-label="Planning steps">
           <p className="editorial-signal-label">
             Future trip → itinerary → routes → saved plan.
           </p>

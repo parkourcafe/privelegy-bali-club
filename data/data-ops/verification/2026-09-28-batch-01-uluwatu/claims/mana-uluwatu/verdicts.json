@@ -1,0 +1,23 @@
+{
+  "slug": "mana-uluwatu",
+  "acceptedAt": "2026-09-28T07:05:00Z",
+  "note": "Acceptor re-fetch was impossible for this venue: the sandbox command runner (Bash) refused every snapshot.mjs invocation with a transient policy-classifier error (8 consecutive failures). No official page was re-fetched, so every official-source claim is held as SOURCE_BLOCKED rather than accepted on the collector's word. Re-run this acceptor once the runner is available; the source-rule rejects stand regardless.",
+  "verdicts": [
+    {"claim_id": "mana-uluwatu-12", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Dinner.jpg on official domain not re-fetched (runner unavailable). Also weak: a single 145K main does not by itself establish a $$ band."},
+    {"claim_id": "mana-uluwatu-13", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Menu image not re-fetched; image must be visually read to confirm 145 / 175 and the 'thousands IDR' convention."},
+    {"claim_id": "mana-uluwatu-15", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "/contact/ not re-fetched. Format passes (Jalan, no working notes) if the quote is confirmed."},
+    {"claim_id": "mana-uluwatu-24", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "/restaurant/ title not re-fetched."},
+    {"claim_id": "k-mana-u-3", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "elsky-bali.com is a third-party beach-club guide (Sundays Beach Club page), not uluwatusurfvillas.com; value is an hours string, not an address."},
+    {"claim_id": "mana-uluwatu-23", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify; field stays null."},
+    {"claim_id": "mana-uluwatu-11", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched. Also: the quote names 'Crispy Pork Belly' only; 'tacos', 'tuna nachos' and 'beef rendang tacos' are not in the quote and need their own lines from the image."},
+    {"claim_id": "mana-uluwatu-17", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "/restaurant/ not re-fetched. 7-day 07:00–23:00 JSON is within restaurant bounds if the quote is confirmed."},
+    {"claim_id": "mana-uluwatu-10", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; the TableCheck link from the official page must be seen before this sentence can stand."},
+    {"claim_id": "mana-uluwatu-22", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched. If confirmed, +62 817 555 365 is paired with mana@ email so it is the restaurant's own line."},
+    {"claim_id": "mana-uluwatu-21", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched."},
+    {"claim_id": "mana-uluwatu-16", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Same evidence as -17; not re-fetched."},
+    {"claim_id": "k-mana-u-2", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "TripAdvisor is a review aggregator; not an allowed source."},
+    {"claim_id": "k-mana-u-1", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "/contact/ not re-fetched so the quote could not be checked. Suspicious: same wording ('kitchen closes 10:30 PM') as identical claims filed for other venues in this batch; treat as unverified."},
+    {"claim_id": "mana-uluwatu-20", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "TableCheck page and the official page that must link to it were not re-fetched."},
+    {"claim_id": "mana-uluwatu-14", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "/contact/ not re-fetched; format passes if confirmed."}
+  ]
+}

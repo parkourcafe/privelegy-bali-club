@@ -1,0 +1,83 @@
+# Этап 1 — ложь и заглушки: список изменений на утверждение
+
+Дата подготовки: 2026-10-05. Ничего не записано в базу. Правки кода лежат в ветке `claude/pensive-ritchie-f9kkhp` и не выезжают на сайт (деплой только из main).
+
+Файлы: `change-list.csv` (31 строка: 27 по базе, 4 по коду) и `stubs-99.csv` (99 строк заглушек `best_for`). Колонка `decision` пустая — заполняется ДА / НЕТ / ПРАВКА построчно. Генератор SQL берёт только `db` + `ДА`.
+
+**Как читать «before».** Это текст с живого сайта по краулу 28.09, а не из базы. В сессии с коннектором генератор `scripts/copy/build-copy-sql.mjs` сверит каждую строку с экспортом базы: если «до» не совпало — строка не пишется, уходит в `holds.csv`.
+
+## A. Код — применено в ветке (3 правки)
+
+| # | Где | Было | Стало | Почему |
+|---|---|---|---|---|
+| S1-001 | `lib/hub.ts` spokeIntro | «…Each pick below lists what to order and the price anchor.» | предложение убрано | Карточки на `/bali/<район>/<intent>` (VenueCard) не показывают ни «что заказать», ни цену — обещание ложное на каждой из страниц |
+| S1-002 | `lib/hub.ts` spokeMetaDescription | «…N brunch spots with what to order and prices. Free to use; travellers never pay.» | «…N brunch spots picked by Other Bali. Free to use; travellers never pay.» | та же ложь в `<meta description>` |
+| S1-040 | `lib/uluwatu/venues.ts:1348` Warung Bu Jonny, whyHere | «…popular with surf instructors and resort staff for cheap, freshly cooked Indonesian plates and a well-regarded house sambal.» | «…listed among the Bukit's surfer warungs: cheap, freshly cooked Indonesian plates and a house sambal.» | «well-regarded», «popular with» — язык отзывов (guardrail #2). «resort staff» удалено: источника в evidence нет. Новая формулировка — дословно из записи evidence |
+
+## B. База — ждёт «да» (27 строк + 99 заглушек)
+
+### B1. Заглушки вместо описания (7 строк, S1-010…016) → NULL
+Шесть карточек с текстом вида «A verified Bali restaurant listing with table reservations handled externally by Chope» / «X is a verified dining venue in Y» и Sarong с служебной фразой «remains under review» (плюс её best_for про «confirm the current format»).
+
+Последствие: под гейтом main (`lib/publication.ts:40-42`) карточка без `why_its_here` уходит в `noindex` и из best-*-списков. У пяти из шести `best_for` уже пуст — они под этим гейтом и так noindex. Sarong теряет индексацию (у неё была и заглушка best_for).
+
+Альтернатива: написать настоящие описания — но фактов в записях нет (пустые spend, hours, reservations). Это работа сбора фактов, не правки текста.
+
+### B2. Язык отзывов и Tripadvisor как источник (15 строк, S1-020…034) → переписано минимально
+Правило: убрать только то, что выведено из отзывов или названо со ссылкой на агрегатор; остальные факты не трогать и не перепроверять (это этап фактов, не этот). Каждое удаление названо в колонке `reason`.
+
+Примеры:
+- Cafe Vida: убраны два предложения про Tripadvisor (в т.ч. смена названия — тоже из агрегатора).
+- Babi Guling Men Agus: убрано предложение «Its Tripadvisor listing shows an inexpensive price band and hours of 8am to 8pm daily»; **not_for «Closes 8pm» (S1-022) выведен из того же источника** — предлагаю NULL или HOLD до проверки часов по месту. Это решение отдельное.
+- Jaens Spa: «highly rated», «great-value», «long-standing local favourite» убраны; цена «from around 295k» оставлена как была.
+- Dorsey's Barber: убрано всё, что «reviewers note», и «don't mind paying a little more» из best_for.
+- Три `best_for` (S1-029, -031, -032) переписаны с «Visitors wanting…» на момент («A massage without resort prices») — по стандарту best_for.
+
+### B3. 99 заглушек best_for «Travellers looking for a verified place to eat in <район>.» → NULL (`stubs-99.csv`)
+Ubud 39, Seminyak 19, Kuta & Legian 12, Sanur 12, Uluwatu 9, Nusa Dua 5, Jimbaran 2, Nusa Penida 1. У всех 99 на сайте пустой `why_its_here` — под гейтом main они уже noindex, индексация не меняется, уходит только видимый читателю текст. Писать NULL, не пустую строку: `''` даёт пустой `<meta description>`.
+
+**Что я не знаю:** какой гейт работает на проде (прод ≠ main). На проде эти карточки отдаются с `index,follow`. После первой записи — проверить одну карточку `curl`: robots, meta, отсутствие «Best for».
+
+### B4. Дополнение 05.10 — язык отзывов, который нашёл детектор (5 строк, S1-050…054)
+Аудит 28.09 искал узкий список слов. Детектор (`scripts/copy/lint.mjs`) по тем же карточкам нашёл ещё пять:
+
+| Карточка | Поле | Убрано |
+|---|---|---|
+| nasi-bali-men-weti | why_its_here | «legendary» |
+| warung-mak-beng | best_for | «famous», «legendary» |
+| jimbaran-warrior | why_its_here | «popular with locals and long-stayers» |
+| the-practice-bali-canggu | why_its_here | «beloved», «known for», «warm» |
+| toko-kopi-tuku | why_its_here | «cult», «that made Tuku famous»; «first Bali store» — в список проверки фактов |
+
+Все пять прошли сторож фактов (`fact-diff`: PASS, удалённые слова названы) и линтер (0 FAIL после правки).
+
+## C. Код — предложение, ждёт «да» (1 строка, S1-060)
+Гайд `/mount-batur-sunrise-jeep-hot-spring`, раздел «How Other Bali would make this route better»:
+- было: «A better Mount Batur page shouldn't sell sunrise as universally magical — it should explain the cost: early pickup, cold morning conditions, weather uncertainty, terrain and safety checks. …»
+- стало: «Sunrise on Mount Batur does not suit everyone. It means an early pickup, a cold morning, uncertain weather, the terrain and the safety checks. For some travellers a daytime Kintamani route may be a better fit.»
+
+Почему: «a better … page» читается как редакционная заметка о самой странице. В трёх соседних гайдах тот же раздел говорит «version» или «route». Факты те же. Заголовок раздела общий для четырёх гайдов — его не трогаю; одинаковый каркас этих четырёх разделов пойдёт в волну гайдов.
+
+## Решение 05.10
+Основательница: «Делай по своим рекомендациям». Значит:
+- B1, B2, B3, B4 — **ДА**; S1-022 («Closes 8pm» — часы из Tripadvisor) → **NULL**, потому что источник — агрегатор отзывов.
+- C (Mount Batur) — **ДА**, применено в коде ветки.
+- Формат `not_for` — **без фиксированного шва**: причина всегда приложена, шов любой («because», двоеточие, точка, одно тире), но не одинаковый у трёх соседних карточек (`field-standard.md`).
+- ~750 шаблонных карточек — **вариант A**: ждут сбора фактов батчами и пишутся по одной. Если после сбора у карточки нет ничего сверх Google Maps — вариант B (NULL), отдельным списком.
+- База: в сессии 05.10 нет доступа к проекту `egkdapqwkfprtyqvvnso` (коннектор видит другие проекты), запись — по `../DB-APPLY-NEXT-SESSION.md`.
+
+## База: применено 2026-10-07
+- **27 строк `change-list.csv`** (B1, B2, B4) записаны блоком `../2026-10-06/stage1/paste-2026-10-06.sql`. Проверка через коннектор (только чтение): 0 расхождений с «после».
+- **Заглушки — 101, а не 99.** Экспорт 06.10 показал: в базе у этих карточек `why_its_here` не пустой, там тоже заглушка — «<Name> is an owner-confirmed dining venue in <район>.» (у двух — «in Unknown»). Прод её прятал, но код main показал бы её главным текстом и в meta description. Значит, фраза в B3 «у всех 99 пустой `why_its_here`» верна для сайта, но не для базы. К 99 из `stubs-99.csv` добавлены ещё две карточки с той же парой: blue-mountains-bali и casa-bambu-cantina.
+- **Решение 06.10 — «обнулить обе»:** у всех 101 `why_its_here` и `best_for` → NULL. Записано блоком `../2026-10-06/stubs/paste-2026-10-06.sql`: один UPDATE с проверкой md5 обоих полей и `row_count = 101`. Итог: 101 из 101 с обоими полями NULL, все по-прежнему опубликованы.
+- **Индексация на проде не изменилась:** mozza-sanur и merah-putih отдают `index, follow` с шаблонным meta description. Гейт main (`lib/publication.ts`) уведёт их в noindex, когда прод соберётся из main.
+- Откат: `../2026-10-06/stage1/rollback-2026-10-06.sql` и `../2026-10-06/stubs/rollback-2026-10-06.sql`.
+
+## Решения для основательницы (вопросы, на которые ответ выше)
+1. B1: NULL у 7 заглушек (с уходом Sarong в noindex) — да / нет?
+2. B2 + B4: 20 строк построчно; отдельно S1-022 (часы Men Agus из Tripadvisor): NULL или HOLD?
+3. B3: NULL у 99 заглушек — да / нет?
+4. C: правка абзаца Mount Batur — да / нет / свой вариант?
+
+## Как применяется после «да»
+Сессия с Supabase-коннектором: read-only экспорт → `node scripts/copy/build-copy-sql.mjs --changes change-list.csv --export <export.csv> --out stage1/apply --date <дата>` (и то же для `stubs-99.csv`) → preflight → dry-run одной строки в `begin…rollback` → DO-блок (каждый оператор проверяет `row_count = 1`) → verify → `curl` трёх страниц → запись в RUNLOG. `rollback-<дата>.sql` лежит рядом.

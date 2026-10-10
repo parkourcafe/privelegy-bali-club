@@ -22,18 +22,18 @@ const BASE = "https://www.otherbali.com";
 export const metadata: Metadata = {
   title: "Nusa Penida guide — cliffs, coves and manta rays",
   description:
-    "A resident-curated Nusa Penida guide: who the island suits, the west and east loops, the headline viewpoints (Kelingking, Angel's Billabong, Broken Beach, Diamond Beach), manta snorkelling, and the water-safety you need before you go.",
+    "Nusa Penida's west and east loops, from Kelingking and Angel's Billabong to Broken Beach and Diamond Beach. Also covers manta snorkelling and water safety.",
   alternates: { canonical: "/nusa-penida" },
   openGraph: {
     title: "The Nusa Penida guide · Other Bali",
-    description: "Cliffs, coves and manta rays — the west and east loops, the icons, and how to visit well.",
+    description: "Cliffs, coves and manta rays: the west and east loops, and how to visit well.",
     url: `${BASE}/nusa-penida`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
     title: "The Nusa Penida guide · Other Bali",
-    description: "Cliffs, coves and manta rays — the west and east loops, the icons, and how to visit well.",
+    description: "Cliffs, coves and manta rays: the west and east loops, and how to visit well.",
   },
 };
 
@@ -110,7 +110,7 @@ export default async function NusaPenidaPillarPage() {
           variant="surf"
           kicker="Nusa Penida · Off the south-east coast"
           title="Nusa Penida, the island of cliffs and mantas"
-          copy={`A rugged island a 30–45 minute fast boat off Bali's south-east coast, and the source of its most-photographed view: the Kelingking “T-Rex” cliff. It's big-landscape, adventure Bali — dramatic coves, clifftop stairways and year-round manta rays over comfort and polish. This guide covers who it suits, the two loops (west and east), the headline sights and the water-safety that genuinely matters here, curated from verified research — not sponsored.`}
+          copy={`A rugged island a 30–45 minute fast boat off Bali's south-east coast. Bali's most-photographed view is here: the Kelingking “T-Rex” cliff. This is big-landscape adventure Bali, where dramatic coves, clifftop stairways and year-round manta rays come before comfort and polish. The guide covers who it suits and the two loops (west and east). It also covers the headline sights and the water safety that matters here. It's curated from verified research — not sponsored.`}
           meta={`Editorial review: ${NUSA_PENIDA_REVIEW_DATE} · researched, not sponsored · no paid ranking`}
           actions={
             <Link
@@ -122,7 +122,7 @@ export default async function NusaPenidaPillarPage() {
           }
         />
 
-        <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Penida guide">
+        <nav className="mt-6 flex flex-wrap gap-2" aria-label="Nusa Penida topics">
           {NUSA_PENIDA_CHIPS.map((c) => (
             <Link key={c.href} href={c.href} className="chip">
               {c.label}
@@ -152,16 +152,16 @@ export default async function NusaPenidaPillarPage() {
           <div className="guide-prose">
             <p>
               <strong>It suits</strong> travellers chasing big, dramatic
-              scenery, keen snorkellers and divers who want mantas, and anyone
-              happy to trade comfort for adventure and rough roads to reach
-              near-empty viewpoints early or late in the day.
+              scenery, and keen snorkellers and divers who want mantas. It also
+              suits anyone happy to trade comfort for adventure and rough roads to
+              reach near-empty viewpoints early or late in the day.
             </p>
             <p>
               <strong>It frustrates</strong> anyone after a polished, low-effort
               beach holiday. There&apos;s little of mainland Bali&apos;s resort
-              infrastructure, the roads are genuinely rough, the headline sights
-              involve steep stairways, and several famous spots are for looking,
-              not swimming. Come for the landscape, not the loungers.
+              infrastructure, and the roads are rough. The headline sights involve
+              steep stairways, and several spots are for looking, not swimming.
+              Come for the landscape, not the loungers.
             </p>
           </div>
         </section>
@@ -171,7 +171,7 @@ export default async function NusaPenidaPillarPage() {
           <p className="guide-lede">
             Nusa Penida is bigger and rougher than it looks on a map, so most
             visitors see one side per day. Pick your loop by what you&apos;re
-            after — and read the{" "}
+            after, and read the{" "}
             <Link href="/nusa-penida-day-trip" className="font-bold text-[var(--lagoon-strong)]">
               day-trip guide
             </Link>{" "}
@@ -202,9 +202,8 @@ export default async function NusaPenidaPillarPage() {
         <section id="things-to-do" className="guide-section">
           <h2>The headline sights</h2>
           <p className="guide-lede">
-            The icons the island is famous for — cliffs, coves and manta points.
-            A few come with real water-danger, flagged below and in the safety
-            notes.
+            Expect cliffs, coves and manta points. A few come with real water
+            danger. They&apos;re flagged below and in the safety notes.
           </p>
           <ul className="guide-prose">
             {NUSA_PENIDA_THINGS_TO_DO.map((t) => (
@@ -215,7 +214,7 @@ export default async function NusaPenidaPillarPage() {
           </ul>
         </section>
 
-        <TopPicks title="Curated places on the island" note="Stays and tables we stand behind — added as we verify them." venues={venues} href="/places?district=nusa-islands" />
+        <TopPicks title="Curated places on the island" note="Stays and tables we stand behind, added as we verify them." venues={venues} href="/places?district=nusa-islands" />
 
         <section id="practical" className="guide-section">
           <h2>Water safety & practical notes (read before you go)</h2>
@@ -223,20 +222,20 @@ export default async function NusaPenidaPillarPage() {
             <ul>
               <li>
                 <strong>Take the water seriously.</strong> Swimming is forbidden
-                at Kelingking (deadly currents), and Angel&apos;s Billabong is
-                safe to enter only at low tide — never on a rising tide, where
-                people have been swept out. Check the tide and obey the signs.
+                at Kelingking (deadly currents). Angel&apos;s Billabong is safe to
+                enter only at low tide. Never go in on a rising tide; people have
+                been swept out. Check the tide and obey the signs.
               </li>
               <li>
                 <strong>The stairways are a real climb.</strong> Diamond, Atuh
                 and Kelingking all involve steep descents and hot climbs back up.
-                Wear proper shoes, carry water, and go early before the heat and
+                Wear shoes with grip and carry water. Go early to beat the heat and
                 the crowds.
               </li>
               <li>
                 <strong>No Grab, Gojek or taxis.</strong> Hire a car with a
                 driver or take an organised tour rather than a self-drive
-                scooter — the descents are steep enough to overwhelm scooter
+                scooter. The descents are steep enough to overwhelm scooter
                 brakes. Arrange it before you arrive.
               </li>
               <li>
@@ -246,7 +245,7 @@ export default async function NusaPenidaPillarPage() {
               </li>
               <li>
                 <strong>One side per day.</strong> Don&apos;t try to combine west
-                and east in a single day — the drive eats it. If you can spare a
+                and east in a single day: the drive eats it. If you can spare a
                 night, staying over is the biggest upgrade there is.
               </li>
             </ul>
@@ -267,9 +266,10 @@ export default async function NusaPenidaPillarPage() {
         <div className="cta-band">
           <h2>Do Nusa Penida without the rushed day</h2>
           <p>
-            Pick one side, start on the first morning boat, and take the water
+            Pick one side and start on the first morning boat. Take the water
             safety seriously. If you can spare a night, you&apos;ll get the
-            headline cliffs near-empty — the single biggest upgrade to the trip.
+            headline cliffs near-empty. That&apos;s the single biggest upgrade to
+            the trip.
           </p>
           <Link href="/nusa-penida-day-trip" className="cta-band-action">
             Read the day-trip guide →

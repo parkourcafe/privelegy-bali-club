@@ -1,0 +1,87 @@
+{
+  "slug": "el-kabron-bali",
+  "acceptedAt": "2026-09-28T06:35:12.922Z",
+  "verdicts": [
+    {
+      "claim_id": "el-kabron-bali-12",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "quote_found": true,
+      "note": "Official menu image (elkabron.com, filename names Uluwatu) is legible: OYSTERS section, SEAFOOD PAELLA 355/1 person, RIB-EYE STEAK 925 all visible; image evidence, founder checks the file"
+    },
+    {
+      "claim_id": "el-kabron-bali-02",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Editorial verdict sentence ('most theatrical sunset seating'); paella, pool and sunset are on the official site but the sentence is not a source fact"
+    },
+    {
+      "claim_id": "el-kabron-bali-24",
+      "verdict": "hold",
+      "reason_code": "BOUND_FAIL",
+      "refetch": "ok",
+      "refetch_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "quote_found": true,
+      "note": "-8.8094, 115.1109 appear in the official homepage JSON-LD geo block (inside the Bukit box) but carry only 4 decimals, below the 5-decimal bound; the quoted text is an address, not coordinates"
+    },
+    {
+      "claim_id": "el-kabron-bali-16",
+      "verdict": "hold",
+      "reason_code": "BOUND_FAIL",
+      "refetch": "ok",
+      "refetch_sha256": "2a1a130ad4e674d8b37090dc31f9b32ffd1562cc45cde561006170faff977608",
+      "quote_found": true,
+      "note": "Official FAQ says 'Every day from 11:00 until midnight' (supports 11:00-23:59 daily), but the proposed string '11.00am-23.59pm' mixes a 24h value with a pm suffix; re-express as 11.00am-11.59pm before publishing"
+    },
+    {
+      "claim_id": "k-el-kab-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "ok",
+      "refetch_sha256": "e996c01ba1e18b08f34b32eff3e32098672a13eb3a7ea25926ec1743bcb8a47d",
+      "quote_found": true,
+      "note": "elsky-bali.com is a third-party guide page about Sundays Beach Club; value is not an address"
+    },
+    {
+      "claim_id": "k-el-kab-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": "4c225ab8a7c3754cbbeb9fbd972087ce75f667025b924149adb72969d1be84d2",
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator (refetch 403); no named item"
+    },
+    {
+      "claim_id": "k-el-kab-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "45a2871c7168bd332efb36593d7f5fb1faae7ec531ce3ebc25406fc27562f005",
+      "quote_found": false,
+      "note": "Quote 'Open daily 7 AM - 11 PM...' not on elkabron.com homepage (sha matches); FAQ says 11:00 until midnight"
+    },
+    {
+      "claim_id": "el-kabron-bali-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "d44a579b0fde57ffc452f006ec9266fc6c18c6a6a8d27116f605e34aeaabc30b",
+      "quote_found": true,
+      "note": "Official domain; page title 'Food Menu | El Kabron Bali Beach Club & Restaurant in Uluwatu' present"
+    },
+    {
+      "claim_id": "el-kabron-bali-14",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "8ffc59603d0b056dcb2f798e7ef9b3b8411da35a9eb952208325b8bd4c640b7e",
+      "quote_found": true,
+      "note": "Menu image footer reads exactly the quoted '000/10%/10% line; SEAFOOD PAELLA 355 / 1 person and RIB-EYE STEAK 925 visible; anchor names items, currency and capture date; image evidence, founder checks the file"
+    }
+  ]
+}

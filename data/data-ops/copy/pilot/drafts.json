@@ -1,0 +1,514 @@
+{
+ "_note": "Pilot drafts, 2026-10-05. Mode: style rewrite — no fact may be added; dropped facts are named per unit. 'before' is the live text (crawl 2026-09-28). Nothing here is published.",
+ "cards": [
+  {
+   "slug": "milk-and-madu-beach-road",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "A spacious, palm-shaded all-day cafe on Batu Bolong beach road with a kids' play area, brunch classics and lava-stone pizzas, part of the well-known Milk & Madu group.",
+    "best_for": "Families with young children and groups; brunch through to an easy early dinner, plus daily sunset sessions.",
+    "not_for": "Couples seeking an intimate, quiet dining atmosphere."
+   },
+   "after": {
+    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. The room is spacious and shaded by palms, with a kids' play area, and the kitchen does brunch classics and lava-stone pizzas.",
+    "best_for": "Families with young children and groups, from brunch to an early dinner or the daily sunset session",
+    "not_for": "Couples after a quiet, intimate dinner"
+   },
+   "dropped": [
+    "well-known (popularity claim, no source)"
+   ],
+   "tells_before": [
+    "one sentence carrying six facts",
+    "well-known"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. It is spacious and shaded by palms, and there is a kids' play area. The kitchen does brunch classics and lava-stone pizzas.",
+    "best_for": "Families with young children and groups, from brunch to an early dinner or the daily sunset session",
+    "not_for": "A quiet, intimate dinner for two"
+   },
+   "after_v2": {
+    "why_its_here": "An all-day cafe on Batu Bolong beach road, part of the Milk & Madu group. The room is spacious and shaded by palms, with a kids' play area, and the kitchen does brunch classics and lava-stone pizzas.",
+    "best_for": "Families with young children and groups, from brunch to an early dinner or the daily sunset session",
+    "not_for": "A quiet, intimate dinner for two"
+   }
+  },
+  {
+   "slug": "atlas-beach-club",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "A large beachfront entertainment complex on Jl. Pantai Berawa running four venues on one site: Beach Club, Super Club, Wellness Club and a padel club. Its own site markets it as the world's biggest beach club; we have not verified that claim. Entry is by day pass, with daybeds and sofas bookable separately.",
+    "best_for": "A big lively day out or event with a group; sunset drinks in a large party setting",
+    "not_for": "Guests wanting a small, quiet or intimate venue"
+   },
+   "after": {
+    "why_its_here": "A large beachfront complex on Jl. Pantai Berawa. It runs four venues on one site: a beach club, the Super Club, a wellness club and a padel club. Its own website calls it the world's biggest beach club; we have not checked that. You enter on a day pass, and daybeds and sofas are booked separately.",
+    "best_for": "A big, lively day out with a group, or sunset drinks in a party crowd",
+    "not_for": "A small, quiet or intimate evening"
+   },
+   "dropped": [
+    "'entertainment' (label, no fact)",
+    "'event' in best_for (no detail behind it)"
+   ],
+   "tells_before": [
+    "colon list",
+    "'Guests wanting' opener in not_for"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A large beachfront complex on Jl. Pantai Berawa with four venues on one site: a beach club, the Super Club, a wellness club and a padel club. Its own website calls it the world's biggest beach club; we have not checked that. You enter on a day pass, and daybeds and sofas are booked separately.",
+    "best_for": "A big, lively day out with a group, or sunset drinks in a party crowd",
+    "not_for": "A small, quiet or intimate evening"
+   },
+   "after_v2": {
+    "why_its_here": "A large beachfront complex on Jl. Pantai Berawa with four venues on one site: a beach club, the Super Club, a wellness club and a padel club. Its own website calls it the world's biggest beach club; we have not checked that. You enter on a day pass, and daybeds and sofas are booked separately.",
+    "best_for": "A big, lively day out with a group, or sunset drinks in a party crowd",
+    "not_for": "A small, quiet or intimate evening"
+   }
+  },
+  {
+   "slug": "nook-umalas",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "Long-running open-air café/restaurant set beside Umalas rice fields, serving all-day Western and Indonesian food from breakfast to late (8am–11pm). Known as a calm rice-paddy escape a short hop from Seminyak's bustle.",
+    "best_for": "relaxed rice-field brunch or breakfast; couples/groups wanting a calm all-day meal off the strip; vegetarian/vegan and gluten-free diners",
+    "not_for": "anyone wanting a polished fine-dining or beachfront setting; nightlife seekers"
+   },
+   "after": {
+    "why_its_here": "An open-air café and restaurant beside the Umalas rice fields, open 8am to 11pm. The menu runs Western and Indonesian all day, from breakfast to late, with vegetarian, vegan and gluten-free dishes. Seminyak and its bustle are a short hop away.",
+    "best_for": "A calm breakfast or brunch looking at rice fields, for couples or a group staying off the strip",
+    "not_for": "Polished fine dining, a beachfront setting or a night out"
+   },
+   "dropped": [
+    "'Long-running' (no date in the record)",
+    "'Known as a calm rice-paddy escape' (review-shaped claim)"
+   ],
+   "tells_before": [
+    "'Known as'",
+    "'escape'",
+    "'bustle'",
+    "semicolon-chained best_for of three parts"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An open-air café and restaurant beside the Umalas rice fields, open 8am to 11pm. The menu runs Western and Indonesian all day, from breakfast to late, with vegetarian, vegan and gluten-free dishes. Seminyak and its bustle are a short hop away.",
+    "best_for": "A calm breakfast or brunch looking at rice fields, for couples or a group staying off the strip",
+    "not_for": "Polished fine dining, a beachfront setting or a night out"
+   },
+   "after_v2": {
+    "why_its_here": "An open-air café and restaurant beside the Umalas rice fields, open 8am to 11pm. The menu runs Western and Indonesian all day, from breakfast to late, with vegetarian, vegan and gluten-free dishes. Seminyak and its bustle are a short hop away.",
+    "best_for": "A calm breakfast or brunch looking at rice fields, for couples or a group staying off the strip",
+    "not_for": "Polished fine dining, a beachfront setting or a night out"
+   }
+  },
+  {
+   "slug": "ji-restaurant-bali",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "Japanese-contemporary dining set in a reconstructed antique temple at Hotel Tugu, right on Batu Bolong beach, with a terrace and sweeping ocean views. Sushi, Asian-fusion plates and cocktails in one of Canggu's most atmospheric settings.",
+    "best_for": "Sunset dinner with a view; date night; a special occasion by the sea.",
+    "not_for": ""
+   },
+   "after": {
+    "why_its_here": "Japanese-contemporary dining at Hotel Tugu, right on Batu Bolong beach. The room is a reconstructed antique temple, and the terrace looks straight at the ocean. Sushi, Asian-fusion plates and cocktails.",
+    "best_for": "A sunset dinner with a view, a date, or a special occasion by the sea",
+    "not_for": ""
+   },
+   "dropped": [
+    "'sweeping' (adjective)",
+    "'one of Canggu's most atmospheric settings' (ranking claim, no source)"
+   ],
+   "tells_before": [
+    "'sweeping ocean views'",
+    "'one of Canggu's most atmospheric'"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "Japanese-contemporary dining at Hotel Tugu, right on Batu Bolong beach. The room is a reconstructed antique temple, and the terrace looks straight at the ocean. Sushi, Asian-fusion plates and cocktails.",
+    "best_for": "A sunset dinner with a view, a date, or a special occasion by the sea",
+    "not_for": ""
+   },
+   "after_v2": {
+    "why_its_here": "Japanese-contemporary dining at Hotel Tugu, right on Batu Bolong beach. The room is a reconstructed antique temple, and the terrace looks straight at the ocean. Sushi, Asian-fusion plates and cocktails.",
+    "best_for": "A sunset dinner with a view, a date, or a special occasion by the sea",
+    "not_for": ""
+   }
+  },
+  {
+   "slug": "sensorium-bali",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "A daytime fusion cafe on Jl. Pantai Batu Mejan blending Australian cafe culture with Japanese-influenced flavours and minimalist design, from a chef with Australian fine-dining training.",
+    "best_for": "A brunch or lunch of fusion cafe dishes in a calm, design-led room; a laptop-friendly daytime stop.",
+    "not_for": "Dinner or late-night dining (it runs daytime hours only)."
+   },
+   "after": {
+    "why_its_here": "A daytime cafe on Jl. Pantai Batu Mejan run by a chef trained in Australian fine dining. The food is Australian cafe cooking with Japanese flavours, and the room is minimalist.",
+    "best_for": "Brunch or lunch in a calm, design-led room, or a daytime stop with a laptop",
+    "not_for": "Dinner or late-night plans — it keeps daytime hours only"
+   },
+   "dropped": [
+    "'fusion' ×2 (label; the specific description stays)",
+    "'blending … culture' (brochure verb)"
+   ],
+   "tells_before": [
+    "'blending'",
+    "'fusion cafe culture'"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A daytime cafe on Jl. Pantai Batu Mejan run by a chef trained in Australian fine dining. The food is Australian cafe cooking with Japanese flavours, and the room is minimalist.",
+    "best_for": "Brunch or lunch in a calm, design-led room, or a daytime stop with a laptop",
+    "not_for": "Dinner or anything after dark, because it keeps daytime hours only"
+   },
+   "after_v2": {
+    "why_its_here": "A daytime cafe on Jl. Pantai Batu Mejan run by a chef trained in Australian fine dining. The food is Australian cafe cooking with Japanese flavours, and the room is minimalist.",
+    "best_for": "Brunch or lunch in a calm, design-led room, or a daytime stop with a laptop",
+    "not_for": "Dinner or anything after dark — it keeps daytime hours only"
+   }
+  },
+  {
+   "slug": "fair-warung-bale",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "A social-enterprise warung on Jalan Sriwedari (Taman Kaja) run by the Fair Future Foundation/Bali Sari Foundation, where restaurant proceeds fund free medical consultations for the local community; serves Indonesian, Asian-fusion and vegetarian dishes daily.",
+    "best_for": "Travellers wanting an easy, good-value Indonesian meal that also funds a local healthcare program; casual lunch or early dinner.",
+    "not_for": "Diners seeking upscale fine dining or a view/sunset setting (a simple, ten-table warung)."
+   },
+   "after": {
+    "why_its_here": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation. What you pay here funds free medical consultations for local people. The menu is Indonesian, Asian-fusion and vegetarian, every day.",
+    "best_for": "A casual lunch or early dinner that also funds free medical consultations locally",
+    "not_for": "Upscale dining or a sunset view. It is a simple ten-table warung"
+   },
+   "dropped": [
+    "'social-enterprise' (label; the mechanism is stated instead)",
+    "'easy, good-value' (evaluation)"
+   ],
+   "tells_before": [
+    "'Travellers wanting' opener",
+    "semicolon lists",
+    "'Diners seeking'"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation. What you pay for lunch funds free medical consultations for local people. The menu is Indonesian, Asian-fusion and vegetarian, every day.",
+    "best_for": "A casual lunch or early dinner that also funds free medical consultations locally",
+    "not_for": "Upscale dining or a sunset view, because it is a simple ten-table warung"
+   },
+   "after_v2": {
+    "why_its_here": "A ten-table warung on Jalan Sriwedari in Taman Kaja, run by the Fair Future Foundation and Bali Sari Foundation. What you pay for lunch funds free medical consultations for local people. The menu is Indonesian, Asian-fusion and vegetarian, every day.",
+    "best_for": "A casual lunch or early dinner that also funds free medical consultations locally",
+    "not_for": "Upscale dining or a sunset view. It is a simple ten-table warung"
+   }
+  },
+  {
+   "slug": "warung-mendez",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "A small warung tucked in Penestanan village northwest of central Ubud, run by an all-women kitchen team, serving Indonesian and Javanese-influenced dishes with an MSG-free, low-plastic ethos.",
+    "best_for": "travelers wanting a quiet, home-style Indonesian meal off the main Ubud strip in Penestanan",
+    "not_for": "those wanting a central, easy-to-find location right in town"
+   },
+   "after": {
+    "why_its_here": "A small warung in Penestanan village, northwest of central Ubud, with an all-women kitchen team. The cooking is Indonesian and Javanese, made without MSG and with little plastic.",
+    "best_for": "A quiet, home-style Indonesian meal away from the main Ubud strip",
+    "not_for": "A quick stop in the centre of town; Penestanan takes finding"
+   },
+   "dropped": [
+    "'tucked in' (hype opener)",
+    "'ethos' (brochure noun; the two practices are stated)"
+   ],
+   "tells_before": [
+    "'tucked'",
+    "'ethos'",
+    "'travelers wanting' / 'those wanting' openers"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A small warung in Penestanan village, northwest of central Ubud, with an all-women kitchen team. The cooking is Indonesian and Javanese, made without MSG and with little plastic.",
+    "best_for": "A quiet, home-style Indonesian meal away from the main Ubud strip",
+    "not_for": "A quick stop in the centre of town, because Penestanan takes finding"
+   },
+   "after_v2": {
+    "why_its_here": "A small warung in Penestanan village, northwest of central Ubud, with an all-women kitchen team. The cooking is Indonesian and Javanese, made without MSG and with little plastic.",
+    "best_for": "A quiet, home-style Indonesian meal away from the main Ubud strip",
+    "not_for": "A quick stop in the centre of town; Penestanan takes finding"
+   }
+  },
+  {
+   "slug": "wulan-vegetarian-warung",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "A small, hole-in-the-wall all-vegan warung in the Peliatan area of Ubud, cash-only, serving an Indonesian menu of nasi goreng, tempeh, smoothies, and vegan sweets at very low prices.",
+    "best_for": "budget-conscious vegan and vegetarian travelers wanting simple, authentic Indonesian dishes",
+    "not_for": "diners wanting to pay by card or a polished sit-down setting — it's cash-only, floor-cushion seating"
+   },
+   "after": {
+    "why_its_here": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and vegan sweets, at very low prices.",
+    "best_for": "Vegan or vegetarian travellers on a budget who want simple Indonesian food",
+    "not_for": "Card payments or a table and chairs: it is cash only, with floor cushions"
+   },
+   "dropped": [
+    "'hole-in-the-wall' (cliché)",
+    "'authentic' (evaluation)"
+   ],
+   "tells_before": [
+    "'hole-in-the-wall'",
+    "'authentic'",
+    "'very' intensifier kept: it qualifies a price band the record states"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and vegan sweets, at very low prices.",
+    "best_for": "Vegan or vegetarian travellers on a budget who want simple Indonesian food",
+    "not_for": "Paying by card or sitting at a proper table, because it is cash only with floor cushions"
+   },
+   "after_v2": {
+    "why_its_here": "A small all-vegan warung in Peliatan, Ubud, with floor-cushion seating and cash only. The menu is Indonesian: nasi goreng, tempeh, smoothies and vegan sweets, at very low prices.",
+    "best_for": "Vegan or vegetarian travellers on a budget who want simple Indonesian food",
+    "not_for": "Card payments or a proper table: it is cash only, with floor cushions"
+   }
+  },
+  {
+   "slug": "bali-buda-ubud",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "Long-running Bali wholefoods institution (operating in Ubud since 1994) combining an organic grocery/bakery with an all-day restaurant covering raw vegan, Italian, and traditional Indonesian dishes.",
+    "best_for": "Health-conscious travelers, longer-stay visitors, and mixed groups wanting a big menu with vegetarian, vegan, and gluten-free options (including Bali's only gluten-free pizza base) in one place.",
+    "not_for": "Travelers seeking an intimate fine-dining or special-occasion setting — it's a casual, functional health-food restaurant and shop."
+   },
+   "after": {
+    "why_its_here": "An organic grocery and bakery with an all-day restaurant attached, in Ubud since 1994. The kitchen covers raw vegan, Italian and traditional Indonesian dishes.",
+    "best_for": "A long stay or a mixed group that needs one big menu with vegetarian, vegan and gluten-free choices",
+    "not_for": "A special occasion or an intimate dinner, because it is a casual health-food restaurant and shop"
+   },
+   "dropped": [
+    "'institution' (evaluation)",
+    "'Long-running' (the year says it)",
+    "'Bali's only gluten-free pizza base' (an 'only' claim with no source in the record — moved to the fact-check side list, not republished)",
+    "'Health-conscious travelers' (label)"
+   ],
+   "tells_before": [
+    "'institution'",
+    "'Bali's only'",
+    "'Travelers seeking' opener",
+    "em dash"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "An organic grocery and bakery with an all-day restaurant attached, in Ubud since 1994. The kitchen covers raw vegan, Italian and traditional Indonesian dishes, with vegetarian, vegan and gluten-free options across the menu.",
+    "best_for": "A long stay or a mixed group that needs one big menu with vegetarian, vegan and gluten-free choices",
+    "not_for": "A special occasion or an intimate dinner, because it is a casual health-food restaurant and shop"
+   },
+   "after_v2": {
+    "why_its_here": "An organic grocery and bakery with an all-day restaurant attached, in Ubud since 1994. The kitchen covers raw vegan, Italian and traditional Indonesian dishes, with vegetarian, vegan and gluten-free options across the menu.",
+    "best_for": "A long stay or a mixed group that needs one big menu with vegetarian, vegan and gluten-free choices",
+    "not_for": "A special occasion or an intimate dinner, because it is a casual health-food restaurant and shop"
+   }
+  },
+  {
+   "slug": "kilig-bali",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "A Filipino warung in Peliatan set in a bamboo hut with rice-field views, cooking home-style Filipino comfort food. It stands out as a dedicated Filipino kitchen in an area dominated by Balinese and Western menus.",
+    "best_for": "filipino comfort food; calm rice-field setting; shared table meals; family dinner",
+    "not_for": "a quick central-Ubud stop given the Peliatan location; anyone avoiding rich, pork-forward dishes"
+   },
+   "after": {
+    "why_its_here": "A Filipino warung in Peliatan, in a bamboo hut looking over rice fields. The cooking is home-style Filipino comfort food, in an area where the menus are otherwise Balinese and Western.",
+    "best_for": "Filipino comfort food at a shared table, or a calm family dinner looking over rice fields",
+    "not_for": "A quick stop from central Ubud, or anyone avoiding rich, pork-heavy dishes"
+   },
+   "dropped": [
+    "'It stands out as' (self-praise frame; the fact stays)"
+   ],
+   "tells_before": [
+    "'stands out'",
+    "semicolon list of four fragments in best_for"
+   ],
+   "after_v1_blind_read": {
+    "why_its_here": "A Filipino warung in Peliatan, in a bamboo hut looking over rice fields. The cooking is home-style Filipino comfort food, in an area where the menus are otherwise Balinese and Western.",
+    "best_for": "Filipino comfort food shared at one table, or a family dinner with a rice-field view",
+    "not_for": "A quick stop from central Ubud, or anyone avoiding rich, pork-heavy dishes"
+   },
+   "after_v2": {
+    "why_its_here": "A Filipino warung in Peliatan, in a bamboo hut looking over rice fields. The cooking is home-style Filipino comfort food, in an area where the menus are otherwise Balinese and Western.",
+    "best_for": "Filipino comfort food shared at one table, or a family dinner with a rice-field view",
+    "not_for": "A quick stop from central Ubud, or anyone avoiding rich, pork-heavy dishes"
+   }
+  }
+ ],
+ "templates_not_rewritten": [
+  {
+   "slug": "air-cafe-and-lounge-at-the-sebali-resort",
+   "district": "Ubud",
+   "before": {
+    "why_its_here": "Restaurant on Jl. Kepitu in Ubud, open daily 7:00am-11:00pm.",
+    "best_for": "",
+    "not_for": ""
+   },
+   "why_not_yet": "The only facts are a street and hours; both already show elsewhere on the card. Any 'warmer' sentence would be invented. Waits for the evidence batch (stage-b-queue) before it gets prose."
+  },
+  {
+   "slug": "alma-spa-canggu",
+   "district": "Canggu",
+   "before": {
+    "why_its_here": "Spa in Canggu. The published treatment list runs to 8 items — Spa Package, Balinese Massage and Aromatherapy. Booking runs through Fresha.",
+    "best_for": "Tired feet after a day of walking.",
+    "not_for": ""
+   },
+   "why_not_yet": "The spa formula: a count, three menu names, a booking channel, and a best_for shared with 70 other cards. Rewriting it 'by hand' would still produce the same thin sentence, because there is nothing else in the record. Evidence first."
+  }
+ ],
+ "controls": [
+  {
+   "slug": "artisan-pererenan",
+   "why_its_here": "Modern Italian cooking in Pererenan. The fourth Artisan outlet on the island, after Uluwatu, Ungasan and Bingin. Golden risotto with grilled prawn, and gnocchi with duck and porcini ragu.",
+   "best_for": "A sit-down Italian dinner in Pererenan",
+   "recommendation": "no change — three plain facts, named dishes, no tells"
+  },
+  {
+   "slug": "at06",
+   "why_its_here": "Restaurant, coworking space and gym on one site in Canggu. European-Asian menu with vegetarian and vegan options. The gym has a cold plunge and a jacuzzi. Rebranded from Kajan Eatery in September 2024.",
+   "best_for": "A work morning and a gym session in the same place",
+   "recommendation": "no change — dated fact, concrete amenities"
+  },
+  {
+   "slug": "bali-climbing-bouldering-gym",
+   "why_its_here": "Bouldering gym and cafe at Kima Surf in Canggu. Routes from beginner to expert, plus free weights, bars, rings and ropes. Shoes and chalk are on site, kids classes run, and routes reset often.",
+   "best_for": "Climbing on a day the surf is flat",
+   "recommendation": "no change — the best_for is a real moment, the facts are checkable"
+  }
+ ],
+ "guide": {
+  "slug": "how-many-days-in-bali",
+  "file": "lib/guides.ts",
+  "before": {
+   "description": "For a first trip, plan 7–10 days in Bali: a few inland in Ubud and a few by the sea. Here's what fits in 5, 7, 10 and 14 days.",
+   "lede": "For a first trip, plan on 7 to 10 days in Bali — enough to split your time between one inland base and one by the sea without living in traffic. Five days works if you stay in a single area; two weeks lets you add the islands or the east without rushing.",
+   "s1": [
+    "Five days is a single-area trip. Choose one place — Canggu or Seminyak for beach-and-café energy, Ubud for jungle and culture — and go deep rather than wide.",
+    "You'll lose most of a day each to arrival and departure, so you really have three full days. Spend them settling in, not scootering across the island for a photo."
+   ],
+   "s2": [
+    "A week is the sweet spot for a first trip. The classic split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
+    "Two bases, one move. That single transfer costs you a half-day; anything more and the trip becomes about logistics."
+   ],
+   "s3": [
+    "Ten days lets you add a slower coastal stretch — Sanur as a calm family base and launchpad to the Nusa islands, or Uluwatu for clifftop sunsets — on top of the Ubud-plus-beach core.",
+    "This is the most comfortable length for a first visit: room for a rest day, a day trip, and a spontaneous afternoon."
+   ],
+   "s4": [
+    "Two weeks opens up the quieter side of Bali — the east (Amed, Sidemen), the Nusa islands, or a few nights on Gili or Lombok — without cutting the first-timer highlights.",
+    "Even here, keep bases to three or four. Distance in Bali is measured in traffic, not kilometres."
+   ],
+   "faq": [
+    {
+     "q": "Is 5 days enough for Bali?",
+     "a": "Enough for one area done well — pick a single base and don't try to see the whole island. For Ubud plus a beach area, you want at least 7 days."
+    },
+    {
+     "q": "Is a week enough for Bali?",
+     "a": "Yes. Seven days is the sweet spot for a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them."
+    },
+    {
+     "q": "How long to see Bali and the islands?",
+     "a": "Plan 10–14 days if you want to add the Nusa islands, the east coast, or Gili/Lombok on top of the mainland first-timer route."
+    },
+    {
+     "q": "How many places should I stay in?",
+     "a": "One or two on a short trip, three or four on two weeks. Each move costs the better part of a day in traffic, so fewer bases means more Bali."
+    }
+   ]
+  },
+  "after": {
+   "description": "For a first trip, plan 7–10 days in Bali: a few nights inland in Ubud, a few by the sea. What fits in 5, 7, 10 and 14 days, and how many bases to keep.",
+   "lede": "For a first trip, plan on 7 to 10 days in Bali. That is enough to split your time between one inland base and one by the sea without spending the holiday in traffic. Five days works if you stay in a single area. Two weeks lets you add the islands or the east coast without rushing.",
+   "s1": [
+    "Five days is a single-area trip. Choose one place and stay there: Canggu or Seminyak for beach and cafés, Ubud for jungle and culture.",
+    "Arrival and departure each eat most of a day, so you have three full days. Spend them settling in, not crossing the island on a scooter for a photo."
+   ],
+   "s2": [
+    "A week works well for a first trip. The usual split is three or four nights in Ubud for temples, rice terraces and yoga, then three or four by the sea in Canggu, Seminyak or Uluwatu.",
+    "Two bases, one move. That transfer costs you half a day. Add a third move and the trip starts to be about logistics."
+   ],
+   "s3": [
+    "Ten days lets you add a slower stretch of coast on top of Ubud and a beach base. Sanur is the calm family option and the boat to the Nusa islands leaves from there; Uluwatu is the clifftop-sunset option.",
+    "This is the most comfortable length for a first visit. There is room for a rest day, a day trip and an afternoon with no plan."
+   ],
+   "s4": [
+    "Two weeks opens up the quieter side of Bali: the east (Amed, Sidemen), the Nusa islands, or a few nights on Gili or Lombok, with the first-timer highlights still in.",
+    "Even then, keep it to three or four bases. Distance in Bali is measured in traffic, not kilometres."
+   ],
+   "faq": [
+    {
+     "q": "Is 5 days enough for Bali?",
+     "a": "Enough for one area done well. Pick a single base and don't try to see the whole island. For Ubud plus a beach area you want at least 7 days."
+    },
+    {
+     "q": "Is a week enough for Bali?",
+     "a": "Yes. Seven days covers a first trip: a few nights inland in Ubud and a few by the sea, with one transfer between them."
+    },
+    {
+     "q": "How long to see Bali and the islands?",
+     "a": "Plan 10–14 days if you want the Nusa islands, the east coast or Gili and Lombok on top of the mainland first-timer route."
+    },
+    {
+     "q": "How many places should I stay in?",
+     "a": "One or two on a short trip, three or four on two weeks. Each move costs the better part of a day in traffic, so fewer bases means more Bali."
+    }
+   ]
+  },
+  "dropped": [
+   "'sweet spot' ×2",
+   "'Here's'",
+   "'really'",
+   "'go deep rather than wide' (slogan)",
+   "'launchpad'",
+   "'spontaneous' → 'with no plan'"
+  ],
+  "tells_before": [
+   "sweet spot ×2",
+   "Here's",
+   "7 em dashes in ~330 words",
+   "really",
+   "classic split",
+   "launchpad"
+  ],
+  "facts_check": "No number, place name or claim added. 'the boat to the Nusa islands leaves from there' restates 'launchpad to the Nusa islands'."
+ },
+ "pillar": {
+  "file": "app/nusa-dua/page.tsx",
+  "before": {
+   "masthead_copy": "A gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip: calm swimmable beaches, a walkable seafront promenade, resort fine dining and some of the island's biggest spas. It's the low-friction, family-safe end of Bali — this guide covers who it suits, its beaches, what to do, where to eat and where to be looked after, curated from places we actually rate.",
+   "meta_description": "A resident-curated Nusa Dua guide: who the gated resort enclave suits, its calm swimmable beaches, the best things to do, resort fine dining and some of Bali's biggest spas."
+  },
+  "after": {
+   "masthead_copy": "Nusa Dua is a gated, manicured enclave of beachfront five-star resorts on Bali's south-east tip. The beaches are calm enough to swim, and a walkable promenade runs along the seafront. The resorts hold the fine dining and some of the island's biggest spas. It is the easy, family-safe end of Bali.",
+   "meta_description": "Who the gated Nusa Dua resort enclave suits: calm swimmable beaches, things to do, resort fine dining and some of Bali's biggest spas."
+  },
+  "dropped": [
+   "'curated from places we actually rate' (self-praise, no fact)",
+   "'low-friction' (jargon) → 'easy'",
+   "'resident-curated' (brand line; stays on the page chrome, not in the meta)",
+   "'This guide covers who it suits, its beaches, what to do, where to eat and where to be looked after' (page scaffold; the blind reader flagged it in both versions, and the chips below the masthead already list the sections)",
+   "'A resident-curated' and 'the best' in the meta (brand line and ranking word); the concrete 'resort fine dining and some of Bali's biggest spas' stays — the v3 draft's 'where to eat and be looked after' was vaguer than the original"
+  ],
+  "tells_before": [
+   "colon list of five",
+   "em dash",
+   "'actually rate'",
+   "'low-friction'"
+  ]
+ },
+ "hub_templates": {
+  "file": "lib/hub.ts",
+  "spokeIntro": {
+   "before": "Other Bali tracks N <noun> in <District>, clustered around A, B and C — for <blurb>. Each pick below lists what to order and the price anchor.",
+   "after": "Other Bali tracks N <noun> in <District>, clustered around A, B and C — for <blurb>.",
+   "status": "applied in branch (S1-001): the second sentence was false"
+  },
+  "spokeMetaDescription": {
+   "before": "Best <label> in <District>, Bali — N <noun> with what to order and prices. Free to use; travellers never pay.",
+   "after": "Best <label> in <District>, Bali — N <noun> picked by Other Bali. Free to use; travellers never pay.",
+   "status": "applied in branch (S1-002)"
+  },
+  "hubIntro": {
+   "text": "Other Bali tracks N places in <District> — <mix>, clustered around A, B and C. <moment> Best for <list>.",
+   "recommendation": "control — no change; every token is a count or a name from the data"
+  }
+ },
+ "_reader_note": "Blind read 2026-10-05 (reader-verdicts.json) was on after_v1_blind_read. The reader flagged the 'Not for: X, because it is Y' tail recurring in 5 of 10 cards; v2 varies it (full stop, colon, dash, semicolon, one 'because'). Facts unchanged between v1 and v2.",
+ "_v3_note": "v3 (2026-10-05): fact-diff rejected 'a quiet, intimate dinner for two' (milk-and-madu: new count), 'at one table' (kilig: new count) and 'resort pool' (Nusa Dua meta: new amenity). By hand: fair-warung 'What you pay for lunch' narrowed 'restaurant proceeds' to lunch, a relation change the guard cannot see. Also: kilig keeps 'calm', sensorium keeps 'late', wulan loses 'proper', atlas splits a 30-word sentence, Nusa Dua masthead drops the 'This guide covers…' scaffold. The blind read (reader-verdicts.json) was on v1 (after_v1_blind_read); v2 varied the not_for endings; v3 changes no fact. bali-buda: the dietary list stays in best_for only, so why_its_here carries one list, not two. Guide s2[0]: 'the length most first trips should be' → 'works well for a first trip' — the stricter per-unit gate flagged 'most' as a new claim word."
+}

@@ -40,8 +40,8 @@ export default function Error({
         Something went sideways.
       </h1>
       <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--ob-sand-dim)]">
-        A hiccup on our end, not yours. Try again — or head back and keep
-        planning.
+        The problem is on our side, not yours. Try again, or browse places and
+        keep planning.
       </p>
 
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">

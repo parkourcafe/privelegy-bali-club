@@ -88,13 +88,13 @@ export const COLLECTIONS: Collection[] = [
     title: "Real Balinese food, island-wide",
     metaTitle: "Real Balinese & local food in Bali — island-wide",
     metaDescription:
-      "Babi guling, nasi campur, bebek betutu — the island's own kitchen, calm and inexpensive. A resident-curated map of real Balinese and local food, by area.",
+      "Babi guling, nasi campur, bebek betutu: the island's own kitchen, calm and inexpensive. A resident-curated map of real Balinese and local food, by area.",
     intro:
-      "Babi guling before noon, nasi campur the way a warung makes it, bebek betutu ordered a day ahead. This is the island's own kitchen — calm, generous and inexpensive — and where to find it done right.",
+      "Babi guling before noon, nasi campur the way a warung makes it, bebek betutu ordered a day ahead. This is the island's own kitchen: calm, generous and inexpensive. These are the places that do it right.",
     faq: [
-      { q: "Where can I find authentic Balinese food?", a: "In warungs and family kitchens across the island — Ubud and the villages inland for the most traditional cooking, and pockets of Canggu, Sanur and Uluwatu for local food alongside the international scene. The places here are sorted by area." },
-      { q: "What Balinese dishes should I try?", a: "Babi guling (suckling pig), nasi/mie goreng, nasi campur (a rice plate of small dishes), bebek betutu (slow-cooked duck, often ordered a day ahead) and sate lilit. Each venue's page notes what to order." },
-      { q: "Is local food in Bali cheap?", a: "Yes — a warung meal is one of the best-value plates in Asia. Each place shows its price band; for the cheapest authentic spots see our best warungs guide." },
+      { q: "Where can I find authentic Balinese food?", a: "In warungs and family kitchens across the island. Go to Ubud and the villages inland for the most traditional cooking. Canggu, Sanur and Uluwatu have pockets of local food alongside the international scene. The places here are sorted by area." },
+      { q: "What Balinese dishes should I try?", a: "Try babi guling (suckling pig), nasi/mie goreng and nasi campur (a rice plate of small dishes). Also look for bebek betutu (slow-cooked duck, often ordered a day ahead) and sate lilit. Each venue's page notes what to order." },
+      { q: "Is local food in Bali cheap?", a: "Yes. A warung meal is one of the best-value plates in Asia. Each place shows its price band; for the cheapest authentic spots, see our best warungs guide." },
     ],
     related: ["seafood", "brunch-and-breakfast"],
     // Deliberately specific: warungs plus Balinese-defining dishes. Generic
@@ -134,7 +134,7 @@ export const COLLECTIONS: Collection[] = [
     intro:
       "Grilled fish on Jimbaran sand, beachfront warungs in Sanur, fine-dining raw bars in Seminyak. Where the catch is fresh and the setting earns the ride.",
     faq: [
-      { q: "Where is the best seafood in Bali?", a: "Jimbaran Bay is the classic — grilled fish on the sand at sunset. Sanur has easy beachfront warungs, and Seminyak the polished raw bars and fine dining. The places here are sorted by area." },
+      { q: "Where is the best seafood in Bali?", a: "Jimbaran Bay is the classic: grilled fish on the sand at sunset. Sanur has easy beachfront warungs, and Seminyak the polished raw bars and fine dining. The places here are sorted by area." },
       { q: "How much does a Jimbaran seafood dinner cost?", a: "It ranges from casual warung plates to upmarket beachfront set menus. Each venue's page shows its price band; confirm per-kg pricing before you order on the beach." },
     ],
     related: ["balinese-and-local-food", "brunch-and-breakfast"],
@@ -148,11 +148,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Japanese in Bali: sushi to izakaya",
     metaTitle: "Japanese food in Bali — sushi, izakaya & ramen",
     metaDescription:
-      "A short, honest list — Bali's Japanese scene is small but serious. Izakaya evenings, sushi counters and ramen, chosen the way residents choose them.",
+      "A short list, because Bali's Japanese scene is small. Izakaya evenings, sushi counters and ramen, chosen the way residents choose them.",
     intro:
-      "A short, honest list — Bali's Japanese scene is small but serious. Izakaya evenings, sushi counters and ramen for a rainy day, chosen the way residents choose them.",
+      "A short list, because Bali's Japanese scene is small. Izakaya evenings, sushi counters and ramen for a rainy day, chosen the way residents choose them.",
     faq: [
-      { q: "Is there good Japanese food in Bali?", a: "Yes, though the scene is small — a handful of serious sushi counters, izakayas and ramen spots, concentrated in Seminyak, Canggu and the south. The places here are the ones residents return to." },
+      { q: "Is there good Japanese food in Bali?", a: "Yes, though the scene is small: a handful of sushi counters and izakayas, plus ramen spots, concentrated in Seminyak, Canggu and the south. The places here are the ones residents return to." },
     ],
     related: ["seafood", "brunch-and-breakfast"],
     match: (b) => rx("japanese|sushi|izakaya|ramen|sashimi|omakase|yakitori|donburi").test(b),
@@ -164,9 +164,9 @@ export const COLLECTIONS: Collection[] = [
     title: "The sweet map of Bali",
     metaTitle: "The best desserts, gelato & pastry in Bali",
     metaDescription:
-      "Proper gelato after a beach day, pastry that survives the humidity, dessert tasting rooms. A resident-curated sweet map of Bali, by area.",
+      "Real gelato after a beach day, pastry that survives the humidity, dessert tasting rooms. A resident-curated sweet map of Bali, by area.",
     intro:
-      "Proper gelato after a beach day, pastry that survives the humidity, dessert tasting rooms worth dressing up for. The island's sweetest stops, mapped by area.",
+      "Real gelato after a beach day, pastry that survives the humidity, dessert tasting rooms worth dressing up for. The island's sweetest stops, mapped by area.",
     faq: [
       { q: "Where can I find good dessert in Bali?", a: "The café belts of Canggu, Seminyak and Ubud carry the pastry and gelato scene, with a few dedicated dessert rooms. The spots here are sorted by area." },
     ],
@@ -180,11 +180,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Vegetarian Bali, done properly",
     metaTitle: "Vegetarian & plant-based food in Bali — done properly",
     metaDescription:
-      "From Ubud's pioneering plant-based tables to Canggu's health cafés — the places where vegetarian is the point, not the compromise. Resident-curated, by area.",
+      "From Ubud's pioneering plant-based tables to Canggu's health cafés: the places where vegetarian is the point, not the compromise. Resident-curated, by area.",
     intro:
-      "Bali might be the easiest island in Asia to eat green — if you know which kitchens actually care. From Ubud's pioneering plant-based tables to Canggu's health cafés, these are the places where vegetarian is the point, not the compromise.",
+      "Bali might be the easiest island in Asia to eat green, if you know which kitchens care. From Ubud's pioneering plant-based tables to Canggu's health cafés, these are the places where vegetarian is the point, not the compromise.",
     faq: [
-      { q: "Is Bali good for vegetarians?", a: "Very — Ubud in particular is one of Asia's best places to eat plant-based, and Canggu's health-café scene is strong. The places here put vegetarian food at the centre, not as an afterthought." },
+      { q: "Is Bali good for vegetarians?", a: "Yes. Ubud in particular is one of Asia's best places to eat plant-based, and Canggu's health-café scene is strong. The places here put vegetarian food at the centre, not as an afterthought." },
       { q: "Which area has the best vegetarian food?", a: "Ubud leads for dedicated plant-based and raw-food kitchens; Canggu for health cafés and smoothie bowls. Both are covered here, by area." },
     ],
     related: ["brunch-and-breakfast", "balinese-and-local-food"],
@@ -215,11 +215,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Big tables, good nights",
     metaTitle: "The best group-dinner restaurants in Bali",
     metaDescription:
-      "Sharing plates, big tables, a room that can take the noise. Where a group of eight still gets looked after — across Bali, by area.",
+      "Sharing plates, big tables, a room that can take the noise. The places across Bali where a group of eight still gets looked after, by area.",
     intro:
       "Sharing plates, big tables, a room that can take the noise. Where a group of eight still gets looked after.",
     faq: [
-      { q: "Where can a big group eat in Bali?", a: "Canggu and Seminyak have the most rooms built for sharing plates and larger tables; beach clubs work for a celebration. Booking ahead is worth it for six or more — each venue's page notes if it takes reservations." },
+      { q: "Where can a big group eat in Bali?", a: "Canggu and Seminyak have the most rooms built for sharing plates and larger tables; beach clubs work for a celebration. Book ahead for six or more. Each venue's page notes if it takes reservations." },
     ],
     related: ["special-occasion", "date-night"],
     match: (_b, v) => hasJob(v, "group_dinner_share"),
@@ -231,11 +231,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Easy dinners with kids",
     metaTitle: "Family-friendly, kid-easy restaurants in Bali",
     metaDescription:
-      "Space to move, food that lands fast, no waiting out a tasting menu. Relaxed early dinners in Bali that actually work with children — by area.",
+      "Space to move, food that lands fast, no waiting out a tasting menu. Relaxed early dinners in Bali that work with children, by area.",
     intro:
-      "Space to move, food that lands fast, and no waiting out a tasting menu. Relaxed early dinners that work with children — no fuss, no drama.",
+      "Space to move, food that lands fast, and no waiting out a tasting menu. Relaxed early dinners that work with children.",
     faq: [
-      { q: "Which restaurants in Bali are good with kids?", a: "Casual, open-air places with room to move — many in Canggu, Sanur and Ubud. Sanur and Nusa Dua are the easiest family bases. The spots here are grouped by area." },
+      { q: "Which restaurants in Bali are good with kids?", a: "Casual, open-air places with room to move, many of them in Canggu, Sanur and Ubud. Sanur and Nusa Dua are the easiest family bases. The spots here are grouped by area." },
     ],
     related: ["group-dinners", "cheap-and-brilliant"],
     match: (_b, v) => hasJob(v, "family_early_dinner"),
@@ -247,11 +247,11 @@ export const COLLECTIONS: Collection[] = [
     title: "For the big occasion",
     metaTitle: "Special-occasion restaurants in Bali",
     metaDescription:
-      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables — the rooms, the views and the kitchens worth dressing up for.",
+      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables: the rooms, the views and the kitchens worth dressing up for.",
     intro:
-      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables — the rooms, the views and the kitchens worth dressing up for.",
+      "A birthday, an anniversary, the night that has to land. Bali's special-occasion tables: the rooms, the views and the kitchens worth dressing up for.",
     faq: [
-      { q: "Where to celebrate a special occasion in Bali?", a: "Uluwatu for clifftop views, Seminyak and Ubud for signature dining rooms and tasting menus. Book well ahead for the headline tables — each venue's page shows whether it needs a reservation." },
+      { q: "Where to celebrate a special occasion in Bali?", a: "Uluwatu for clifftop views, Seminyak and Ubud for dining rooms and tasting menus. Book well ahead for the headline tables. Each venue's page shows whether it needs a reservation." },
     ],
     related: ["date-night", "worth-the-splurge"],
     match: (_b, v) => hasJob(v, "special_occasion"),
@@ -263,11 +263,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Cafés that let you stay",
     metaTitle: "Work-friendly cafés in Bali — where you can settle in",
     metaDescription:
-      "A plug you can reach, a seat no one hurries you out of, and coffee worth staying for. The Bali cafés where people settle in to work — by area.",
+      "A plug you can reach, a seat no one hurries you out of, and coffee worth staying for. The Bali cafés where people settle in to work, by area.",
     intro:
-      "A plug you can actually reach, a seat no one hurries you out of, and coffee worth staying for. The cafés where a coffee turns into a productive morning.",
+      "A plug you can reach, a seat no one hurries you out of, and coffee worth staying for. The cafés where a coffee turns into a productive morning.",
     faq: [
-      { q: "Which cafés in Bali are good for working?", a: "Canggu and Ubud have the deepest work-café scenes, with Sanur and Uluwatu catching up. These are places where people settle in to work — comfortable seating and an unhurried welcome, rather than a promised connection speed. Check with the venue for current conditions." },
+      { q: "Which cafés in Bali are good for working?", a: "Canggu and Ubud have the deepest work-café scenes, with Sanur and Uluwatu catching up. These are places where people settle in to work. Expect comfortable seating and an unhurried welcome rather than a promised connection speed. Check with the venue for current conditions." },
     ],
     related: ["brunch-and-breakfast", "local-and-calm"],
     match: (_b, v) => hasJob(v, "quiet_work_cafe"),
@@ -279,9 +279,9 @@ export const COLLECTIONS: Collection[] = [
     title: "Where the sunset lands",
     metaTitle: "The best sunset spots & bars in Bali",
     metaDescription:
-      "The west coast does this best — cliff edges, beach sand and rooftop rails where the day signs off. Bali's sunset drinks, mapped for golden hour.",
+      "The west coast does this best: cliff edges, beach sand and rooftop rails where the day signs off. Bali's sunset drinks, mapped for golden hour.",
     intro:
-      "The west coast does this best. Cliff edges, beach sand and rooftop rails where the day signs off — timed and mapped for golden hour.",
+      "The west coast does this best. Cliff edges, beach sand and rooftop rails where the day signs off. Timed and mapped for golden hour.",
     faq: [
       { q: "Where is the best sunset in Bali?", a: "The west and south-west coast: Uluwatu's cliffs, the Canggu and Seminyak beaches, and Jimbaran Bay. The east coast (Sanur) faces sunrise, so it isn't in this list. Arrive early in peak season for the front-row tables." },
     ],
@@ -298,11 +298,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Quiet local tables",
     metaTitle: "Quiet, calm local restaurants in Bali",
     metaDescription:
-      "Local food, unhurried. Family warungs and calm neighbourhood kitchens where the plate is honest, the bill is small and no one rushes you — by area.",
+      "Local food, unhurried. Family warungs and calm neighbourhood kitchens where the plate is honest, the bill is small and no one rushes you, sorted by area.",
     intro:
       "Local food, unhurried. Family warungs and calm neighbourhood kitchens where the plate is honest, the bill is small and no one rushes you.",
     faq: [
-      { q: "Where can I eat calm, local food in Bali?", a: "Away from the busiest strips — quiet warungs and neighbourhood kitchens across Ubud, Sanur, Canggu and the south. The spots here are chosen for a calm, local meal, sorted by area." },
+      { q: "Where can I eat calm, local food in Bali?", a: "Away from the busiest strips: quiet warungs and neighbourhood kitchens across Ubud, Sanur, Canggu and the south. The spots here are chosen for a calm, local meal, sorted by area." },
     ],
     related: ["balinese-and-local-food", "cheap-and-brilliant"],
     match: (_b, v) => hasJob(v, "local_food_calm"),
@@ -314,11 +314,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Your first night in Bali",
     metaTitle: "Where to eat your first night in Bali — easy, no-fuss",
     metaDescription:
-      "Jet-lagged, hungry, don't want a project. Easy, nearby, no-fuss first dinners in Bali for the night you arrive — by area.",
+      "Jet-lagged, hungry, don't want a project. Easy, nearby, no-fuss first dinners in Bali for the night you arrive, by area.",
     intro:
       "Jet-lagged, hungry, and you don't want a project. Easy, nearby, no-fuss first dinners for the night you arrive.",
     faq: [
-      { q: "Where should I eat on my first night in Bali?", a: "Somewhere easy and close to where you're staying — a relaxed local kitchen or a reliable all-rounder, not a big night out. The picks here are grouped by area so you can find one near your first hotel." },
+      { q: "Where should I eat on my first night in Bali?", a: "Somewhere easy and close to where you're staying: a relaxed local kitchen or an all-rounder, not a big night out. The picks here are grouped by area so you can find one near your first hotel." },
     ],
     related: ["local-and-calm", "cheap-and-brilliant"],
     match: (_b, v) => hasJob(v, "just_landed_easy_dinner"),
@@ -331,11 +331,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Cheap eats that punch above",
     metaTitle: "The best cheap eats in Bali — big flavour, small bills",
     metaDescription:
-      "Small bills, big flavour. The warungs and street kitchens where a handful of rupiah still buys one of the best plates of your trip — across Bali, by area.",
+      "Small bills, big flavour. The warungs and street kitchens where a handful of rupiah still buys one of the best plates of your trip. Across Bali, by area.",
     intro:
       "Small bills, big flavour. The warungs and street kitchens where a handful of rupiah still buys one of the best plates of your trip.",
     faq: [
-      { q: "Where are the cheapest good eats in Bali?", a: "Local warungs, island-wide — a full plate for the price of a coffee back home. These are the budget spots we stand behind, sorted by area; each page shows its price band." },
+      { q: "Where are the cheapest good eats in Bali?", a: "Local warungs, island-wide: a full plate for the price of a coffee back home. These are the budget spots we stand behind, sorted by area; each page shows its price band." },
     ],
     related: ["local-and-calm", "balinese-and-local-food"],
     match: (_b, v) => isCheap(v),
@@ -347,11 +347,11 @@ export const COLLECTIONS: Collection[] = [
     title: "Worth dressing up for",
     metaTitle: "Fine dining in Bali — worth the splurge",
     metaDescription:
-      "For the night you go all in. Tasting menus, clifftop rooms and signature kitchens in Bali where the bill is real and the evening earns it — by area.",
+      "For the night you go all in. Tasting menus, clifftop rooms and kitchens in Bali where the bill is real and the evening earns it, by area.",
     intro:
-      "For the night you go all in. Tasting menus, clifftop rooms and signature kitchens where the bill is real and the evening earns it.",
+      "For the night you go all in. Tasting menus, clifftop rooms and kitchens where the bill is real and the evening earns it.",
     faq: [
-      { q: "Where is the best fine dining in Bali?", a: "Seminyak, Ubud and the Uluwatu cliffs hold most of the island's signature tasting menus and destination dining rooms. Book well ahead — each venue's page shows its price band and whether it needs a reservation." },
+      { q: "Where is the best fine dining in Bali?", a: "Seminyak, Ubud and the Uluwatu cliffs hold most of the island's headline tasting menus and destination dining rooms. Book well ahead. Each venue's page shows its price band and whether it needs a reservation." },
     ],
     related: ["special-occasion", "date-night"],
     match: (_b, v) => isSplurge(v),
