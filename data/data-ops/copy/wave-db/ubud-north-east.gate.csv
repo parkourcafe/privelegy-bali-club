@@ -1,0 +1,88 @@
+slug,verdict,problems,notes,warn_before,warn_after
+8lements-spa-saranam,PASS,,,1,0
+air-terjun-tegenungan,PASS,,,2,0
+akar-ubud,PASS,,"dropped PROPER:Travellers, PROPER:People",0,0
+alchemy,PASS,,dropped PROPER:Ubud's,1,0
+alchemy-yoga-and-meditation-center-ubud,PASS,,,1,0
+alchemy-yoga-meditation-center,PASS,,,3,0
+anomali-coffee-ubud,PASS,,dropped PROPER:Travelers,1,0
+bali-barber-ubud,PASS,,,2,0
+bali-bohemia,PASS,,"dropped PROPER:Health, PROPER:Guests",1,0
+bali-botanica-spa,PASS,,dropped PROPER:Travellers,1,0
+bebek-bengil,PASS,,,0,0
+big-dragon-villas-ubud,PASS,,,1,0
+cafe-wayan-and-bakery,PASS,,"dropped PROPER:Established, PROPER:Ubud, PROPER:Diners",1,0
+cantika-zest,PASS,,"dropped PROPER:Streamside, PROPER:Eco",1,0
+casa-luna,PASS,,"dropped LEX:most, LEX:authentic, PROPER:Travellers, LEX:budget",2,0
+cascades,PASS,,dropped PROPER:Travellers,1,0
+clear-cafe,PASS,,dropped PROPER:People,0,0
+coco-nails-ubud,PASS,,why_its_here is 14 words (standard: 20–45),0,0
+como-shambhala-at-como-uma-ubud-yoga-ubud,PASS,,,0,0
+como-uma-ubud-fitness,PASS,,,1,0
+dala-spa-beauty-at-alaya-ubud-ubud,PASS,,,0,0
+dicarik-warung,PASS,,"dropped PROPER:Subak Juwuk Manis, PROPER:ID",1,0
+donna-ubud,PASS,,dropped PROPER:Guests,1,0
+four-seasons-resort-bali-at-sayan-fitness,PASS,,"dropped COUNT:536, PROPER:Seasons Resort Bali, COUNT:75, PROPER:Complimentary, PROPER:Life Fitness, PROPER:Prima Fit, PROPER:PEMF, PROPER:Locker, PROPER:Fit Bar, PROPER:Ubud",1,0
+gajah-putih-ubud,PASS,,dropped PROPER:Lingkaran,1,0
+gelato-secrets-ubud,PASS,,dropped PROPER:Artisanal Italian,1,0
+heart-space-bali,PASS,,dropped PROPER:Practitioners,0,0
+hujan-locale,PASS,,"dropped PROPER:Ubud Center, PROPER:Travellers, PROPER:Diners",2,0
+ibu-rai,PASS,,"dropped PROPER:Travellers, PROPER:Guests",1,0
+jaens-spa,PASS,,dropped LEX:Popular,1,0
+karsa-spa,PASS,,dropped PROPER:Travellers,2,0
+kojin-teppanyaki-restaurant-ubud-by-wonderspace,PASS,,,1,0
+kush-ayurveda-yoga-barn,PASS,,"dropped PROPER:Ayurveda, LEX:authentic",1,0
+la-portal-to-shamballah,PASS,,,2,0
+laka-leke,PASS,,,1,0
+locavore-nxt,PASS,,"dropped LEX:famous, PROPER:Ubud's, LEX:Casual",1,0
+mandapa-spa-ubud,PASS,,"dropped LEX:most, PROPER:Ubud's | why_its_here is 14 words (standard: 20–45)",0,0
+mango-tree-spa-loccitane,PASS,,"dropped LEX:largest, PROPER:Bali",1,0
+maya-ubud-spa-ubud,PASS,,,1,0
+melting-wok-warung,PASS,,dropped PROPER:Ubud,0,0
+milk-and-madu-ubud,PASS,,dropped PROPER:Ubud,2,0
+moksa,PASS,,dropped PROPER:Visitors | why_its_here is 13 words (standard: 20–45),0,0
+monkey-bar-bali,PASS,,,1,0
+mozaic,PASS,,,1,0
+nasi-ayam-kedewatan-ibu-mangku,PASS,,dropped PROPER:Travellers,0,0
+norii-japanese-restaurant-ubud,PASS,,,2,0
+oneworld-ayurveda,PASS,,"dropped LEX:authentic, PROPER:Travellers",0,0
+onion-collective,PASS,,,2,0
+pinstripe-bar-ubud,PASS,,,0,0
+putri-bali-spa,PASS,,dropped PROPER:Travellers,0,0
+pyramids-of-chi,PASS,,,2,0
+radiantly-alive,PASS,,dropped PROPER:Movement,0,0
+room-4-dessert,PASS,,,0,0
+room4dessert,PASS,,,2,0
+sacred-river-spa-at-four-seasons-sayan-ubud,PASS,,"dropped LEX:most, PROPER:Sacred River Spa, PROPER:Ubud's | why_its_here is 13 words (standard: 20–45)",0,0
+sang-spa,PASS,,"dropped PROPER:Long, LEX:authentic",0,0
+sawobali,PASS,,"dropped PROPER:Ubud, PROPER:Travelers",1,0
+sayuri-healing-food,PASS,,,1,0
+secret-garden-restaurant,PASS,,,0,0
+seeds-of-life,PASS,,"dropped PROPER:Ubud Center, PROPER:Travelers",1,0
+seniman-coffee-studio,PASS,,dropped PROPER:Travelers,2,0
+shichirin-japanese-restaurant-ubud,PASS,,,1,0
+spring-spa-ubud,PASS,,dropped PROPER:Travellers,1,0
+suka-espresso-ubud,PASS,,,2,0
+svaha-spa,PASS,,"dropped LEX:Award-winning, PROPER:Travellers",4,0
+taksu-spa-beauty-ubud,PASS,,,0,0
+taksu-spa-ubud,PASS,,,0,0
+taksu-yoga,PASS,,,2,0
+taksu-yoga-ubud,PASS,,,0,0
+the-elephant,PASS,,dropped PROPER:Ubud,1,0
+the-shala-bali,PASS,,"dropped PROPER:Visitors, LEX:only, PROPER:Travellers",0,0
+the-westin-resort-and-spa-ubud-fitness-studio,PASS,,"dropped PROPER:The Westin Resort & Spa Ubud, COUNT:five, COUNT:four",1,0
+the-yoga-barn,PASS,,"dropped LEX:largest, LEX:best, PROPER:Ubud's, PROPER:People",2,0
+tukies-coconut-shop,PASS,,,1,0
+ubud-beauty-salon,PASS,,dropped PROPER:Visitors | why_its_here is 12 words (standard: 20–45),0,0
+ubud-gym,PASS,,,0,0
+ubud-pilates,PASS,,why_its_here is 11 words (standard: 20–45),0,0
+ubud-sari-health-resort,PASS,,,1,0
+ubud-traditional-spa,PASS,,"dropped LEX:authentic, PROPER:Travellers",1,0
+ubud-yoga-house,PASS,,,0,0
+warung-biah-biah,PASS,,"dropped LEX:authentic, PROPER:Known",0,0
+warung-semesta,PASS,,,0,0
+warung-siam,PASS,,"dropped PROPER:Westernized, LEX:authentic",1,0
+watercress-ubud,PASS,,"dropped LEX:most, PROPER:Ubud",1,0
+whos-who,PASS,,,1,0
+zest-ubud,PASS,,dropped PROPER:Ubud,1,0
+zuna-yoga-ubud,PASS,,why_its_here is 12 words (standard: 20–45),0,0

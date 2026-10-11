@@ -1,0 +1,27 @@
+{
+  "slug": "oneeighty",
+  "acceptedAt": "2026-09-28T07:05:00Z",
+  "note": "Acceptor re-fetch was impossible for this venue: the sandbox command runner (Bash) refused every snapshot.mjs invocation with a transient policy-classifier error. No official page was re-fetched, so official-source claims are held as SOURCE_BLOCKED. Re-run this acceptor once the runner is available; the source-rule rejects stand regardless.",
+  "verdicts": [
+    {"claim_id": "oneeighty-12", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Menu PDF is hosted on storage.googleapis.com, not the official domain; acceptable only if oneeightybali.com/menu is seen to link it — neither was re-fetched. Quote covers 'sate babi bumbu bali' only."},
+    {"claim_id": "oneeighty-17", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "oneeightybali.com/ not re-fetched. 7-day 10:00–21:00 JSON is within beach-club bounds if the quote is confirmed."},
+    {"claim_id": "oneeighty-11", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; the Chope link must be seen on the official site."},
+    {"claim_id": "oneeighty-14", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched. Anchor mixes a PDF price (prawns 320) and a site admission price (700K / 600K credit); each needs its own confirmed quote."},
+    {"claim_id": "k-oneeig-3", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "elsky-bali.com is a third-party beach-club guide (Sundays Beach Club page), not oneeightybali.com/theedgebali.com; value is an hours string, not an address."},
+    {"claim_id": "oneeighty-15", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; format passes (Jl., Banjar, Pecatu, no working notes) if confirmed."},
+    {"claim_id": "k-oneeig-2", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "TripAdvisor is a review aggregator; not an allowed source."},
+    {"claim_id": "oneeighty-23", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; +62 format passes if confirmed."},
+    {"claim_id": "oneeighty-24", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify; field stays null."},
+    {"claim_id": "oneeighty-04", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Removal: the admission/credit fact could not be checked on the official page; 'most extreme viewpoint' is editorial either way."},
+    {"claim_id": "oneeighty-06", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched."},
+    {"claim_id": "oneeighty-25", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched."},
+    {"claim_id": "oneeighty-02", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Removal: glass-bottom sky pool / cliff-height facts could not be checked on the official page; '162-metre' needs its own official figure."},
+    {"claim_id": "oneeighty-21", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "cho.pe (Chope) is allowed only if linked from the official site; neither page was re-fetched."},
+    {"claim_id": "oneeighty-22", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched."},
+    {"claim_id": "oneeighty-16", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; format passes if confirmed."},
+    {"claim_id": "oneeighty-20", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Handle sourced to a PDF on storage.googleapis.com, not the official domain; not re-fetched."},
+    {"claim_id": "k-oneeig-1", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched so the quote could not be checked. Suspicious: contradicts the '10 AM - 9 PM' quote filed for the same page and repeats wording used for other venues in this batch."},
+    {"claim_id": "oneeighty-19", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched."},
+    {"claim_id": "oneeighty-13", "verdict": "hold", "reason_code": "SOURCE_BLOCKED", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Not re-fetched; a single 320K item is thin evidence for a $$$ band in any case."}
+  ]
+}

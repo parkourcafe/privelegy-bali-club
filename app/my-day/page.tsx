@@ -190,7 +190,7 @@ export default async function MyDayPage({
               </p>
               {f.widened && areaLabel && (
                 <p className="mt-1 text-sm text-[var(--muted)]">
-                  Nothing decision-ready for this in {areaLabel} yet — showing
+                  Nothing decision-ready for this in {areaLabel} yet, so these are
                   island-wide picks.
                 </p>
               )}

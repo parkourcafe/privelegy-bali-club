@@ -1,0 +1,243 @@
+{
+  "slug": "gooseberry-french-restaurant-uluwatu",
+  "officialDomains": [
+    "gooseberry-restaurant.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-23",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Gang Pirta, Pecatu, Kecamatan Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Address\nGang Pirta Pecatu\nKecamatan Kuta Selatan\nKabupaten Badung\nBali 80361\nOpening Hours\nMonday – Sunday\n8 am – 10:30 pm",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "onglet classique; parmentier de canard confit; joue de boeuf braisée",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Onglet Classique, Frites & Salade 465",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-gooseb-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-14",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "Onglet Classique, Frites & Salade IDR 465K; Parmentier de Canard Confit IDR 325K (official à la carte on gooseberry-restaurant.com, 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Parmentier de Canard Confit, Choux Braisé & Truffe 325",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-gooseb-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-gooseberry-french-restaurant-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-10",
+      "field": "copy:practicalNote#1",
+      "action": "replace",
+      "proposed": "Gang Pirta, Pecatu — above Bingin Beach.",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Address\nGang Pirta Pecatu\nKecamatan Kuta Selatan\nKabupaten Badung\nBali 80361\nOpening Hours\nMonday – Sunday\n8 am – 10:30 pm",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "8.00am-10.30pm"
+        ],
+        "Tuesday": [
+          "8.00am-10.30pm"
+        ],
+        "Wednesday": [
+          "8.00am-10.30pm"
+        ],
+        "Thursday": [
+          "8.00am-10.30pm"
+        ],
+        "Friday": [
+          "8.00am-10.30pm"
+        ],
+        "Saturday": [
+          "8.00am-10.30pm"
+        ],
+        "Sunday": [
+          "8.00am-10.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Address\nGang Pirta Pecatu\nKecamatan Kuta Selatan\nKabupaten Badung\nBali 80361\nOpening Hours\nMonday – Sunday\n8 am – 10:30 pm",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "It covers the widest arc of any dinner venue here — brunch through late dinner — without dropping its standards.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6282144823166",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Talk To Us\nCall Us\nText Us on WhatsApp",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-24",
+      "field": "coordinates",
+      "action": "add",
+      "proposed": [
+        -8.812029591240924,
+        115.11612367686756
+      ],
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Location\nFind Your Way Here\nGooseberry\nModern French Restaurant · Bingin Beach",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "8.00am-10.30pm"
+        ],
+        "Tuesday": [
+          "8.00am-10.30pm"
+        ],
+        "Wednesday": [
+          "8.00am-10.30pm"
+        ],
+        "Thursday": [
+          "8.00am-10.30pm"
+        ],
+        "Friday": [
+          "8.00am-10.30pm"
+        ],
+        "Saturday": [
+          "8.00am-10.30pm"
+        ],
+        "Sunday": [
+          "8.00am-10.30pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Address\nGang Pirta Pecatu\nKecamatan Kuta Selatan\nKabupaten Badung\nBali 80361\nOpening Hours\nMonday – Sunday\n8 am – 10:30 pm",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://www.gooseberry-restaurant.com/#menu",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Discover\nThe Menus\nÀ la Carte",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-gooseb-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "gooseberry-french-restaurant-uluwatu-15",
+      "field": "address",
+      "action": "add",
+      "proposed": "Gang Pirta, Pecatu",
+      "claim_text": null,
+      "source_url": "https://www.gooseberry-restaurant.com/",
+      "quote": "Address\nGang Pirta Pecatu\nKecamatan Kuta Selatan\nKabupaten Badung\nBali 80361\nOpening Hours\nMonday – Sunday\n8 am – 10:30 pm",
+      "snapshot_sha256": "1e2461d65c2c673fc99160cd9d66230179f24a9ede2f480d3a2518afd00d0e41",
+      "category": "restaurant"
+    }
+  ]
+}

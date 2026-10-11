@@ -56,7 +56,7 @@ export default function HotelSections({
       {dining && (
         <section className="guide-section" aria-labelledby="hotel-dining">
           <h2 id="hotel-dining">Restaurant</h2>
-          <p className="guide-lede">Open to non-guests — the hotel&apos;s own kitchen.</p>
+          <p className="guide-lede">The hotel&apos;s own kitchen, open to non-guests.</p>
           <div className="mt-4">
             <StructuredMenu menu={dining} venueSlug={venueSlug} />
           </div>
@@ -66,7 +66,7 @@ export default function HotelSections({
       {spa && (
         <section className="guide-section" aria-labelledby="hotel-spa">
           <h2 id="hotel-spa">Spa</h2>
-          <p className="guide-lede">Treatments and prices — open to visitors.</p>
+          <p className="guide-lede">Treatments and prices. The spa is open to visitors.</p>
           <div className="mt-4">
             <StructuredMenu menu={spa} venueSlug={venueSlug} eyebrow="Spa menu" hideAllergenNote />
           </div>
@@ -77,7 +77,7 @@ export default function HotelSections({
         <section className="guide-section" aria-labelledby="hotel-daypass">
           <h2 id="hotel-daypass">Open to visitors — day pass &amp; pool</h2>
           <p className="guide-lede">
-            You don&apos;t have to stay here — the pool and facilities are open on a day pass.
+            You don&apos;t have to stay here. The pool and facilities are open on a day pass.
           </p>
           <div className="mt-4">
             <StructuredMenu menu={dayPass} venueSlug={venueSlug} eyebrow="Day passes" hideAllergenNote />

@@ -98,11 +98,10 @@ export default function ThingsToDoInBaliPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">Best things to do in Bali</h1>
           <p className="guide-lede">
-            Bali&apos;s sights are spread across the island, so the smart move is to
-            plan around your base rather than chase everything. Here are the icons
-            worth building a day around — temples, a volcano sunrise, waterfalls
-            and the Nusa Penida cliffs — and then what to do in each area you might
-            stay in.
+            Bali&apos;s sights are spread across the island, so plan around your
+            base rather than chase everything. Below are the icons worth building a
+            day around: temples, a volcano sunrise, waterfalls and the Nusa Penida
+            cliffs. After that comes what to do in each area you might stay in.
           </p>
           <p className="guide-meta-line">
             Editorial review: {BALI_THINGS_REVIEW_DATE} · researched, not sponsored · no paid ranking
@@ -211,7 +210,7 @@ export default function ThingsToDoInBaliPage() {
           <div className="guide-prose">
             <ul>
               <li>
-                <strong>Plan around your base.</strong> The icons are scattered —
+                <strong>Plan around your base.</strong> The icons are scattered:
                 temples in the east, Batur and terraces in the highlands, Nusa
                 Penida off the south-east. Cluster them by direction so you&apos;re
                 not crossing the island twice.
@@ -219,12 +218,12 @@ export default function ThingsToDoInBaliPage() {
               <li>
                 <strong>Some sights now require a guide.</strong> Besakih, the
                 Mount Batur sunrise trek and Sekumpul waterfall all use a mandatory
-                local guide — factor it into time and cost.
+                local guide, so factor it into time and cost.
               </li>
               <li>
                 <strong>Carry a sarong and cash.</strong> Temples need a sarong
                 (most provide one) and charge small cash entry fees in rupiah.
-                Bali also has a one-time foreign-tourist levy — pay it via the
+                Bali also has a one-time foreign-tourist levy. Pay it via the
                 official Love Bali site and check current amounts.
               </li>
               <li>

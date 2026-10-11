@@ -1,0 +1,172 @@
+{
+  "slug": "son-of-a-baker",
+  "officialDomains": [],
+  "category": "cafe",
+  "claims": [
+    {
+      "claim_id": "son-of-a-baker-14",
+      "field": "priceBand",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-15",
+      "field": "price_anchor",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-18",
+      "field": "hours",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-son-of-1",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-17",
+      "field": "full_address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-25",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "The 'Art & Bakehouse' framing is earned — the room doubles as a small gallery.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-20",
+      "field": "officialUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Art-house bakery opening at six — the earliest proper coffee and pastry on the Bukit.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-24",
+      "field": "phone",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-23",
+      "field": "menuUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-19",
+      "field": "opening_hours_json",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-son-of-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Please let us know if you have any questions. We will get back to you !",
+      "claim_text": null,
+      "source_url": "https://uluwatusurfvillas.com/contact/",
+      "quote": "Please let us know if you have any questions. We will get back to you !",
+      "snapshot_sha256": "97ef67f0295ab2b8f5d973be854b79fea2b92a4560959d9f615338ed85f9ca0f",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-son-of-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-son-of-a-baker",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "son-of-a-baker-22",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    }
+  ]
+}

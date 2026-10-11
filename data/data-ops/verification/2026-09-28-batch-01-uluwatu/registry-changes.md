@@ -1,0 +1,41 @@
+# Правки реестра lib/uluwatu/venues.ts — заблокированы до решения о деплое
+
+Сгенерировано 2026-09-28 из change-list.csv (ACCEPTED, target CODE/BOTH). Не применены. Каждая правка — одно поле одной записи реестра; вместе с ней в `evidence[]` добавляется запись {field, sourceType: "official_website" | "official_booking_page", sourceUrl, verifiedAt: "2026-09-28", status: "VERIFIED"} — иначе ссылки останутся скрытыми (TTL 30/60 дней).
+
+- **alchemy-uluwatu** · `whatToOrder` · replace: → `breakfast bowl; salad bar; margherita pizza; alchemy kombucha` — источник https://www.alchemybali.com/alchemymenu?menu=alchemy-uluwatu-menu
+- **alchemy-uluwatu** · `hours` · add: → `{"Monday":["7.30am-10.00pm"],"Tuesday":["7.30am-10.00pm"],"Wednesday":["7.30am-10.00pm"],"Thursday":["7.30am-10.00pm"],"Friday":["7.30am-10.00pm"],"Saturday":["` — источник https://www.alchemybali.co/alchemy-ubud-bali-contact
+- **alchemy-uluwatu** · `menuUrl` · add: → `https://www.alchemybali.co/alchemymenu?menu=alchemy-uluwatu-menu` — источник https://www.alchemybali.com/alchemymenu?menu=alchemy-uluwatu-menu
+- **el-kabron-bali** · `menuUrl` · add: → `https://elkabron.com/menu/food` — источник https://elkabron.com/menu/food
+- **gooseberry-french-restaurant-uluwatu** · `practicalNote` · replace: предложение «Above Bingin Beach (Jl. Pantai Bingin area), Pecatu.» → «Gang Pirta, Pecatu — above Bingin Beach.» — источник https://www.gooseberry-restaurant.com/
+- **gooseberry-french-restaurant-uluwatu** · `whatToOrder` · replace: → `onglet classique; parmentier de canard confit; joue de boeuf braisée` — источник https://www.gooseberry-restaurant.com/
+- **gooseberry-french-restaurant-uluwatu** · `address` · add: → `Gang Pirta, Pecatu` — источник https://www.gooseberry-restaurant.com/
+- **gooseberry-french-restaurant-uluwatu** · `hours` · add: → `{"Monday":["8.00am-10.30pm"],"Tuesday":["8.00am-10.30pm"],"Wednesday":["8.00am-10.30pm"],"Thursday":["8.00am-10.30pm"],"Friday":["8.00am-10.30pm"],"Saturday":["` — источник https://www.gooseberry-restaurant.com/
+- **gooseberry-french-restaurant-uluwatu** · `menuUrl` · add: → `https://www.gooseberry-restaurant.com/#menu` — источник https://www.gooseberry-restaurant.com/
+- **kala-uluwatu** · `reservations` · replace: предложение «Reservations via SevenRooms — recommended for dinner.» → «Reservations via TableCheck; groups of more than 7 are asked to contact the venue on WhatsApp.» — источник https://www.tablecheck.com/en/kalauluwatu/reserve/message
+- **kala-uluwatu** · `bookingUrl` · replace: → `https://www.tablecheck.com/en/kalauluwatu/reserve/message` — источник https://www.tablecheck.com/en/kalauluwatu/reserve/message
+- **papi-sapi** · `whatToExpect` · replace: предложение «Premium cuts (wagyu rib eye, picanha) at the centre, easy sides around them, and a second » → «Cuts from the showcase at the centre, easy sides around them, and a second branch on Lombok if the name looks familiar f» — источник https://papisapi.com/
+- **papi-sapi** · `reservations` · replace: предложение «Book a table via the official site (ResDiary widget).» → «Book a table via the official site (SevenRooms).» — источник https://papisapi.com/
+- **papi-sapi** · `bookingUrl` · replace: → `https://www.sevenrooms.com/reservations/papisapibali` — источник https://www.sevenrooms.com/reservations/papisapibali
+- **papi-sapi** · `menuUrl` · replace: → `https://papisapi.com/menu-bali` — источник https://papisapi.com/menu-bali
+- **seed-bingin** · `verdict` · replace: предложение «Farm-to-table French-Asian two minutes from the Bingin steps — garden produce, wood fire a» → «Farm-to-table French-Asian a short walk from the Bingin steps — garden produce, wood fire and a proper breakfast.» — источник https://seedbingin.com/
+- **seed-bingin** · `whatToExpect` · replace: предложение «Mornings are calm (open from around 7); evenings shift into date-night territory — rendang» → «Mornings are calm (open from 7); evenings shift into date-night territory — rendang, seasonal plates, house-made dessert» — источник https://seedbingin.com/food-menu
+- **seed-bingin** · `practicalNote` · replace: предложение «Jl. Pantai Bingin, Pecatu — 2 minutes from the Bingin Beach steps.» → «Jl. Pantai Bingin, Pecatu — a short walk up from Bingin Beach.» — источник https://seedbingin.com/
+- **seed-bingin** · `reservations` · replace: предложение «Contact the venue directly for dinner reservations; breakfast is walk-in.» → «Reserve online via SevenRooms (linked from the official site); dinner reservations essential.» — источник https://seedbingin.com/
+- **seed-bingin** · `whatToOrder` · replace: → `sumatran beef rendang; tuna crudo; soft shell crab tempura` — источник https://seedbingin.com/food-menu
+- **seed-bingin** · `hours` · add: → `{"Monday":["7.00am-11.00pm"],"Tuesday":["7.00am-11.00pm"],"Wednesday":["7.00am-11.00pm"],"Thursday":["7.00am-11.00pm"],"Friday":["7.00am-11.00pm"],"Saturday":["` — источник https://seedbingin.com/
+- **seed-bingin** · `bookingUrl` · replace: → `https://www.sevenrooms.com/explore/seedbingin/reservations/create/search/` — источник https://www.sevenrooms.com/explore/seedbingin/reservations/create/search/
+- **seed-bingin** · `menuUrl` · add: → `https://seedbingin.com/food-menu` — источник https://seedbingin.com/food-menu
+- **single-fin** · `whatToOrder` · replace: → `margherita pizza; tempura fish taco; nasi goreng single fin` — источник https://www.singlefinbali.com/eat-drinks/
+- **single-fin** · `hours` · add: → `{"Monday":["8.00am-10.00pm"],"Tuesday":["8.00am-10.00pm"],"Wednesday":["8.00am-23.59pm"],"Thursday":["8.00am-10.00pm"],"Friday":["8.00am-10.00pm"],"Saturday":["` — источник https://www.singlefinbali.com/
+- **single-fin** · `menuUrl` · add: → `https://www.singlefinbali.com/eat-drinks/` — источник https://www.singlefinbali.com/eat-drinks/
+- **suka-espresso** · `practicalNote` · replace: предложение «Jl. Labuansait, Pecatu — part of the By/Suka group (second location in Uluwatu).» → «Jl. Labuansait, Uluwatu — part of the By/Suka collective (sister branch in Ubud).» — источник https://www.bysuka.com/suka-uluwatu
+- **suka-espresso** · `address` · replace: → `Jl. Labuansait, Uluwatu` — источник https://www.bysuka.com/suka-uluwatu
+- **suka-espresso** · `hours` · add: → `{"Monday":["7.30am-10.00pm"],"Tuesday":["7.30am-10.00pm"],"Wednesday":["7.30am-10.00pm"],"Thursday":["7.30am-10.00pm"],"Friday":["7.30am-10.00pm"],"Saturday":["` — источник https://www.bysuka.com/suka-uluwatu
+- **ulu-garden** · `hours` · add: → `{"Monday":["7.00am-11.00pm"],"Tuesday":["7.00am-11.00pm"],"Wednesday":["7.00am-11.00pm"],"Thursday":["7.00am-11.00pm"],"Friday":["7.00am-11.00pm"],"Saturday":["` — источник https://ulutribe.com/contact/
+- **ulu-garden** · `bookingUrl` · replace: → `https://www.sevenrooms.com/reservations/ulugarden` — источник https://www.sevenrooms.com/reservations/ulugarden
+- **ulu-garden** · `menuUrl` · add: → `https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link` — источник https://drive.google.com/drive/folders/1RjWQo9qGTmgGaSqvuJxhWXY_-_WYGxpo?usp=drive_link
+- **waatu** · `hours` · add: → `Daily 7.30am until late` — источник https://waatu.com/
+- **waatu** · `bookingUrl` · replace: → `https://www.sevenrooms.com/explore/waatu/reservations/create/search` — источник https://www.sevenrooms.com/explore/waatu/reservations/create/search/landing
+- **waatu** · `menuUrl` · add: → `https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/07/Waatu-Dinner-Menu-July-2026.pdf` — источник https://waatu.com/
+- **white-rock-beach-club** · `menuUrl` · add: → `https://whiterockbali.com/menu/` — источник https://whiterockbali.com/menu/
+- **zali-uluwatu** · `hours` · replace: → `{"Monday":["8.00am-23.59pm"],"Tuesday":["8.00am-23.59pm"],"Wednesday":["8.00am-23.59pm"],"Thursday":["8.00am-23.59pm"],"Friday":["8.00am-23.59pm"],"Saturday":["` — источник https://www.zalirestaurant.com/

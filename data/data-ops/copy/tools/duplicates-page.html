@@ -1,0 +1,151 @@
+<title>Дубли карточек Other Bali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Young+Serif&display=swap">
+<style>
+/*__BASE_STYLE__*/
+/* Duplicates page: one column of group sheets; each sheet lists its records as rows and ends in a decision bar. */
+.single { max-width: 980px; margin: 0 auto; display: grid; gap: 18px }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.filters .btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--card) }
+.group { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 12px; min-width: 0 }
+.group.done { border-color: var(--line-strong) }
+.group header { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; justify-content: space-between }
+.group h2 { font-size: 21px }
+.gid { font-family: var(--font-mono); font-size: 13px; color: var(--caption); margin-right: 6px }
+.chip.high { background: var(--yes-bg); color: var(--yes) }
+.chip.medium { background: var(--later-bg); color: var(--later) }
+.chip.low { background: var(--no-bg); color: var(--no) }
+.evidence { font-size: 14px; color: var(--ink) }
+.records { display: grid; gap: 8px }
+.rec { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 4px; min-width: 0 }
+.rec.keep { border-color: var(--yes); box-shadow: inset 4px 0 0 var(--yes) }
+.rec.review { opacity: .75 }
+.rec .top { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; justify-content: space-between }
+.rec .name { font-weight: 600 }
+.rec .slug { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere }
+.rec .facts { font-size: 13px; color: var(--muted); overflow-wrap: anywhere }
+.single > *, .cards > * { min-width: 0 }
+.decide select { width: 100%; min-height: 44px; border: 1px solid var(--line-strong); border-radius: 8px; padding: 8px 10px; background: var(--card); max-width: 100% }
+.btn.merge[aria-pressed="true"] { background: var(--yes); border-color: var(--yes); color: var(--card) }
+.btn.distinct[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--card) }
+.btn.check[aria-pressed="true"] { background: var(--later); border-color: var(--later); color: var(--card) }
+.chip.merge { background: var(--yes-bg); color: var(--yes) }
+.chip.distinct { background: var(--accent-wash); color: var(--accent) }
+.chip.check { background: var(--later-bg); color: var(--later) }
+</style>
+
+<div class="single">
+  <header>
+    <h1>Дубли карточек — решение по каждой группе</h1>
+    <p class="lede">Одно и то же место заведено в базе несколькими карточками. По каждой группе выберите одно из трёх: «Оставить одну» — выберите какую, остальные опубликованные карточки будут сняты с публикации; «Это разные места» — ничего не меняем; «Проверить» — нужен источник. Пока вы не скажете «да» по SQL, в базе ничего не меняется.</p>
+  </header>
+  <div class="stats" id="stats"></div>
+  <div class="banner" id="banner" hidden></div>
+  <div class="filters" id="filters"></div>
+  <main id="groups" class="cards"></main>
+  <section class="panel"><h2>Что, скорее всего, не дубль</h2><div class="notes" id="notDup"></div></section>
+</div>
+
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script>
+(() => {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const state = { filter: "all", decisions: {}, canWrite: false, db: null, drafts: {} };
+  const $ = (s, el = document) => el.querySelector(s);
+  const h = (tag, attrs = {}, ...kids) => {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v; else if (k === "html") el.innerHTML = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v); else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    return el;
+  };
+  const CONF = { high: "уверенность высокая", medium: "уверенность средняя", low: "уверенность низкая" };
+  const DEC = { merge: "Оставить одну", distinct: "Разные места", check: "Проверить" };
+  const fmtTime = (iso) => { try { return new Date(iso).toLocaleString("ru-RU", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }); } catch { return iso; } };
+
+  function renderStats() {
+    const n = (k) => DATA.groups.filter((g) => state.decisions[g.id]?.decision === k).length;
+    const off = DATA.groups.reduce((s, g) => { const d = state.decisions[g.id]; return d?.decision === "merge" ? s + g.records.filter((r) => r.published && r.slug !== d.keep).length : s; }, 0);
+    $("#stats").replaceChildren(
+      h("span", {}, h("b", {}, DATA.groups.length), " групп · ", h("b", {}, DATA.records), " карточек (опубликовано ", h("b", {}, DATA.published), ")"),
+      h("span", {}, "Оставить одну: ", h("b", {}, n("merge")), " · Разные: ", h("b", {}, n("distinct")), " · Проверить: ", h("b", {}, n("check")), " · Ждут: ", h("b", {}, DATA.groups.length - n("merge") - n("distinct") - n("check"))),
+      h("span", {}, "Будет снято с публикации: ", h("b", {}, off)));
+  }
+
+  function renderFilters() {
+    const f = (k, label) => h("button", { type: "button", class: "btn", "aria-pressed": String(state.filter === k), onclick: () => { state.filter = k; renderFilters(); renderGroups(); } }, label);
+    const counts = (c) => DATA.groups.filter((g) => g.confidence === c).length;
+    $("#filters").replaceChildren(f("all", `Все (${DATA.groups.length})`), f("high", `Высокая (${counts("high")})`), f("medium", `Средняя (${counts("medium")})`), f("low", `Низкая (${counts("low")})`), f("todo", "Без решения"));
+  }
+
+  async function save(g, decision) {
+    if (!state.canWrite) return;
+    const st = document.getElementById(`st-${g.id}`);
+    const keep = decision === "merge" ? (document.getElementById(`keep-${g.id}`)?.value || g.suggestedKeep) : null;
+    const note = document.getElementById(`note-${g.id}`)?.value ?? "";
+    st.textContent = "Сохраняю…";
+    try { await state.db.collection("groups").doc(g.id).set({ decision, keep, note, at: new Date().toISOString() }); delete state.drafts[g.id]; st.textContent = "Сохранено"; }
+    catch (e) { st.textContent = `Не сохранилось (${e?.code || "ошибка"}). Попробуйте ещё раз.`; }
+  }
+  async function clear(g) {
+    if (!state.canWrite) return;
+    try { await state.db.collection("groups").doc(g.id).delete(); } catch (e) { document.getElementById(`st-${g.id}`).textContent = `Не сохранилось (${e?.code || "ошибка"}).`; }
+  }
+
+  function renderGroup(g) {
+    const d = state.decisions[g.id];
+    const draftKeep = state.drafts[g.id]?.keep;
+    const keep = draftKeep || d?.keep || g.suggestedKeep;
+    const published = g.records.filter((r) => r.published);
+    const btn = (k) => h("button", { type: "button", class: `btn ${k}`, "aria-pressed": String(d?.decision === k), disabled: !state.canWrite, onclick: () => save(g, k) }, DEC[k]);
+    return h("article", { class: `group${d ? " done" : ""}`, id: `g-${g.id}` },
+      h("header", {}, h("h2", {}, h("span", { class: "gid" }, g.id), g.title),
+        h("span", {}, h("span", { class: `chip ${g.confidence}` }, CONF[g.confidence] || g.confidence), " ", d ? h("span", { class: `chip ${d.decision}` }, DEC[d.decision]) : h("span", { class: "chip wait" }, "ждёт"))),
+      g.warnings.length ? h("div", { class: "listflags" }, g.warnings.map((w) => h("div", { class: "flagbox" }, h("span", { class: "src" }, "Перед снятием"), w))) : null,
+      h("div", { class: "evidence" }, h("b", {}, "Почему похоже на одно место. "), g.evidence),
+      h("div", { class: "records" }, g.records.map((r) => h("div", { class: `rec${r.slug === keep ? " keep" : ""}${r.published ? "" : " review"}` },
+        h("div", { class: "top" }, h("span", { class: "name" }, r.name),
+          r.published ? h("a", { href: `https://www.otherbali.com/places/${r.slug}`, target: "_blank", rel: "noopener" }, "Открыть на сайте") : h("span", { class: "chip wait" }, "не опубликована")),
+        h("span", { class: "slug" }, r.slug, r.slug === g.suggestedKeep ? " · рекомендуем оставить" : ""),
+        h("span", { class: "facts" }, [r.district, r.address, r.phone, r.site].filter(Boolean).join(" · ") || "нет адреса и контактов")))),
+      h("div", { class: "decide" },
+        published.length > 1 ? h("div", { class: "row" }, h("label", { for: `keep-${g.id}`, class: "meta" }, "Если «оставить одну» — какую:"),
+          h("select", { id: `keep-${g.id}`, disabled: !state.canWrite, onchange: (e) => { state.drafts[g.id] = { keep: e.target.value }; renderGroups(); } },
+            published.map((r) => h("option", { value: r.slug, selected: r.slug === keep }, `${r.name} — ${r.slug}`)))) : null,
+        h("textarea", { id: `note-${g.id}`, disabled: !state.canWrite, placeholder: "Заметка (необязательно)", "aria-label": "Заметка" }, d?.note ?? ""),
+        h("div", { class: "row" }, btn("merge"), btn("distinct"), btn("check"),
+          d ? h("button", { type: "button", class: "btn ghost", disabled: !state.canWrite, onclick: () => clear(g) }, "Снять отметку") : null),
+        h("div", { class: "saved", id: `st-${g.id}` }, d ? `Отмечено ${fmtTime(d.at)}${d.decision === "merge" ? `: оставить ${d.keep}` : ""}.` : "Решения ещё нет.")));
+  }
+
+  function renderGroups() {
+    const list = DATA.groups.filter((g) => state.filter === "all" || (state.filter === "todo" ? !state.decisions[g.id] : g.confidence === state.filter));
+    const focused = document.activeElement?.id;
+    const typing = focused?.startsWith("note-") ? [focused, document.activeElement.value] : null;
+    $("#groups").replaceChildren(...(list.length ? list.map(renderGroup) : [h("div", { class: "empty-state" }, "Нет групп под этот фильтр.")]));
+    if (typing) { const el = document.getElementById(typing[0]); if (el) { el.value = typing[1]; el.focus(); } }
+    renderStats();
+  }
+
+  $("#notDup").innerHTML = DATA.notDuplicateHtml;
+  renderFilters(); renderGroups();
+  const banner = (msg) => { const b = $("#banner"); b.textContent = msg; b.hidden = !msg; };
+  banner("Подключаю сохранение решений…");
+  (async () => {
+    const [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]).catch(() => [null, null]);
+    if (!db) { banner("В этом просмотре решения не сохраняются: откройте страницу в Claude, войдя в свой аккаунт. Смотреть группы можно и так."); return; }
+    state.db = db;
+    state.canWrite = user ? await user.isOwner().catch(() => false) : false;
+    banner(state.canWrite ? "" : "Решения отмечает владелец страницы. Вам видны группы и уже принятые решения.");
+    db.collection("groups").onSnapshot((snap) => {
+      state.decisions = Object.fromEntries(snap.docs.filter((x) => x.exists).map((x) => [x.id, x.data()]));
+      renderGroups();
+    }, (e) => banner(`Решения не загрузились (${e.code}). Обновите страницу.`));
+    renderGroups();
+  })();
+})();
+</script>

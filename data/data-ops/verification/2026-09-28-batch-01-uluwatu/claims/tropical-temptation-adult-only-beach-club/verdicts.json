@@ -1,0 +1,115 @@
+{
+  "slug": "tropical-temptation-adult-only-beach-club",
+  "acceptedAt": "2026-09-28T08:05:00Z",
+  "acceptor_note": "snapshot.mjs could not be executed in this acceptor session (shell tool unavailable for the whole run); no source was re-fetched. Every official-source claim is held as SOURCE_BLOCKED for a re-run, not accepted. Non-official sources are rejected on the source rule, which needs no fetch.",
+  "verdicts": [
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-06",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Removal of the 'opened as Cattamaran in 2021, renamed 2022' sentence: a history fact the official site could support or not; could not re-fetch ttbeach.club to search — re-run"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-11",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-20",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "+62 812-3886-8631 quoted from the official FAQ next to info@ttbeach.club, in +62 form; could not re-fetch to confirm the quote — re-run"
+    },
+    {
+      "claim_id": "k-tropic-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com is a third-party guide, not ttbeach.club; the value is a sentence about Suka Espresso, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-05",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Copy rewrite citing the FAQ hours (Mon–Sun 7 AM – 9 PM); could not re-fetch ttbeach.club/faq to confirm the quote — re-run"
+    },
+    {
+      "claim_id": "k-tropic-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator; price anchor also names no item and no date — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-22",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown: no value, source or quote proposed; nothing to verify, field stays null"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-15",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "7-day 07:00–21:00 from the official FAQ footer (Jl. Melasti Beach 88, Ungasan — branch named); plausible for a beach club; could not re-fetch to confirm the quote — re-run"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-19",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Menu PDF on the official domain, no quote given; could not re-fetch to confirm the file exists and is linked from an official page — re-run"
+    },
+    {
+      "claim_id": "k-tropic-1",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "reserve.ttbeach.club is an official subdomain, but the quote (7 AM – 11 PM, kitchen 10:30 PM) contradicts the FAQ's 7 AM – 9 PM cited in claims 05/14/15; could not re-fetch to test whether the quote exists — not accepted"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-18",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Quote 'Reserve' is anchor text; the link target bookings.ttbeach.club must be seen in the official page's HTML, which could not be re-fetched — re-run"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-14",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "7-day 07:00–21:00 from the official FAQ hours answer; plausible for a beach club; could not re-fetch to confirm the quote — re-run"
+    }
+  ]
+}

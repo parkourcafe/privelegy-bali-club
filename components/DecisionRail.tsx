@@ -89,7 +89,7 @@ export default function DecisionRail({
           <h2 id={`${area}-decision-title`}>What fits right now in {areaLabel}?</h2>
         </div>
         {places.length > 0 ? (
-          <div className="decision-view-toggle" aria-label="Result view">
+          <div className="decision-view-toggle" aria-label="Show results as a list or a map">
             <button type="button" aria-pressed={view === "list"} onClick={() => setView("list")}>List</button>
             <button type="button" aria-pressed={view === "map"} onClick={() => setView("map")}>Map</button>
           </div>

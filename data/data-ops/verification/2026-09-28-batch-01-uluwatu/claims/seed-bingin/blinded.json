@@ -1,0 +1,251 @@
+{
+  "slug": "seed-bingin",
+  "officialDomains": [
+    "seedbingin.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "seed-bingin-08",
+      "field": "copy:practicalNote#1",
+      "action": "replace",
+      "proposed": "Jl. Pantai Bingin, Pecatu — a short walk up from Bingin Beach.",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "a short walk up from Bingin Beach",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-09",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Reserve online via SevenRooms (linked from the official site); dinner reservations essential.",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "You can reserve a table online through Seed's SevenRooms booking page, linked from every \"Book a table\" button on seedbingin.com.",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-13",
+      "field": "priceBand",
+      "action": "replace",
+      "proposed": "$$$",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/food-menu",
+      "quote": "Sumatran Beef Rendang Slow cooked beef cheek in a rich blend of fresh spices.\n210k",
+      "snapshot_sha256": "3f4155921d63124565b775fa240dbb386e91b9a4cafa283030fac339ffb0d460",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-seed-b-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-22",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://seedbingin.com/food-menu",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/food-menu",
+      "quote": "Menu · Seed Restaurant, Farm to Table in Bingin Uluwatu",
+      "snapshot_sha256": "3f4155921d63124565b775fa240dbb386e91b9a4cafa283030fac339ffb0d460",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-06",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Mornings are calm (open from 7); evenings shift into date-night territory — rendang, seasonal plates, house-made desserts.",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/food-menu",
+      "quote": "Sumatran Beef Rendang Slow cooked beef cheek in a rich blend of fresh spices.",
+      "snapshot_sha256": "3f4155921d63124565b775fa240dbb386e91b9a4cafa283030fac339ffb0d460",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-16",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jalan Pantai Bingin, Pecatu, South Kuta, Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "Jalan Pantai Bingin\nPecatu, South Kuta\nBadung, Bali 80361",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-02",
+      "field": "copy:verdict#1",
+      "action": "replace",
+      "proposed": "Farm-to-table French-Asian a short walk from the Bingin steps — garden produce, wood fire and a proper breakfast.",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "It is a short walk up from the beach itself.",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-21",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.sevenrooms.com/explore/seedbingin/reservations/create/search/",
+      "claim_text": null,
+      "source_url": "https://www.sevenrooms.com/explore/seedbingin/reservations/create/search/",
+      "quote": "SevenRooms",
+      "snapshot_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-18",
+      "field": "opening_hours_json",
+      "action": "replace",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "Open Daily\n7 AM to 11 PM",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-14",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "sumatran beef rendang 210k ++ (dinner menu, 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/food-menu",
+      "quote": "Sumatran Beef Rendang Slow cooked beef cheek in a rich blend of fresh spices.\n210k",
+      "snapshot_sha256": "3f4155921d63124565b775fa240dbb386e91b9a4cafa283030fac339ffb0d460",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-seed-b-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-seed-bingin",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-seed-b-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-17",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/",
+      "quote": "Open Daily\n7 AM to 11 PM",
+      "snapshot_sha256": "a9dcd6e34c1de1f4a150f979c599f743ac6c9dcc8ccd03d696dc23a5bca33b8e",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "seed-bingin-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "sumatran beef rendang; tuna crudo; soft shell crab tempura",
+      "claim_text": null,
+      "source_url": "https://seedbingin.com/food-menu",
+      "quote": "Sumatran Beef Rendang",
+      "snapshot_sha256": "3f4155921d63124565b775fa240dbb386e91b9a4cafa283030fac339ffb0d460",
+      "category": "restaurant"
+    }
+  ]
+}

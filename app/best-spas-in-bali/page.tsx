@@ -21,19 +21,19 @@ const guide = getGuide("best-spas-in-bali")!;
 export const metadata = guideMetadata(guide);
 
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "ubud", name: "Ubud", note: "Bali's wellness capital — healing spas, Ayurveda, yoga and sound in the hills.", pillar: "/ubud" },
-  { key: "seminyak", name: "Seminyak", note: "The polished spa strip — day spas, massage and beauty a short walk apart.", pillar: "/seminyak" },
-  { key: "canggu", name: "Canggu", note: "Recovery after surf and board — massage, sauna and modern wellness studios.", pillar: "/canggu" },
+  { key: "ubud", name: "Ubud", note: "Bali's wellness capital, with healing spas, Ayurveda, yoga and sound in the hills.", pillar: "/ubud" },
+  { key: "seminyak", name: "Seminyak", note: "The polished spa strip, with day spas, massage and beauty a short walk apart.", pillar: "/seminyak" },
+  { key: "canggu", name: "Canggu", note: "Recovery after surf and board: massage, sauna and modern wellness studios.", pillar: "/canggu" },
   { key: "sanur", name: "Sanur", note: "Calm, unhurried spa time on the quiet east coast.", pillar: "/sanur" },
   { key: "nusa-dua", name: "Nusa Dua", note: "Big resort spas and signature treatments in the gated south.", pillar: "/nusa-dua" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Clifftop and resort spas to unwind after a surf day.", pillar: "/uluwatu" },
 ];
 
 const FAQ = [
-  { q: "Where are the best spas in Bali?", a: "Ubud is the wellness capital — healing spas, Ayurveda and yoga. Seminyak has the polished day-spa strip, and every coastal area has strong massage and recovery options. The picks above are sorted by area." },
-  { q: "How much does a massage cost in Bali?", a: "Prices span a wide band — simple local massages are very affordable, while resort and signature spa treatments cost more. Each venue's page shows its price band." },
+  { q: "Where are the best spas in Bali?", a: "Ubud is the wellness capital, with healing spas, Ayurveda and yoga. Seminyak has the polished day-spa strip, and every coastal area has strong massage and recovery options. The picks above are sorted by area." },
+  { q: "How much does a massage cost in Bali?", a: "Prices span a wide band. Simple local massages are affordable, while resort spa treatments cost more. Each venue's page shows its price band." },
   { q: "Do I need to book a spa in Bali?", a: "For the popular day spas and resort treatments, booking ahead secures your slot, especially in high season. Smaller massage places often take walk-ins." },
-  { q: "Which area is best for a wellness trip?", a: "Ubud — it's built around yoga, healing and slow mornings, with the deepest cluster of wellness venues on the island." },
+  { q: "Which area is best for a wellness trip?", a: "Ubud. It's built around yoga, healing and slow mornings, and it has the deepest cluster of wellness venues on the island." },
 ];
 
 export default async function BestSpasPage() {
@@ -80,11 +80,10 @@ export default async function BestSpasPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            Wellness is one of Bali&apos;s great strengths. Ubud is the healing
-            capital — Ayurveda, yoga and sound in the hills — while Seminyak has
-            the polished day-spa strip and every coastal area has serious massage
-            and recovery. Here are the spas we stand behind, by area — tap any for
-            the details.
+            Ubud is Bali&apos;s healing capital, with Ayurveda, yoga and sound in
+            the hills. Seminyak has the polished day-spa strip, and every coastal
+            area has massage and recovery. Below are the spas we stand behind, by
+            area. Tap any for the details.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} spas, each one written up on the record with a reason
@@ -114,7 +113,7 @@ export default async function BestSpasPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            spas are published with verified details —{" "}
+            spas are published with verified details:{" "}
             <Link href="/places?category=spa" className="quiet-link">
               browse every spa →
             </Link>

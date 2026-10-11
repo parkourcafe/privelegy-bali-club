@@ -11,7 +11,8 @@ import {
   ULUWATU_PUBLIC_BASE,
 } from "@/lib/uluwatu/venues";
 import { isVenueIndexable } from "@/lib/publication";
-import { buildOpeningHoursSpec } from "@/lib/opening-hours";
+import { buildOpeningHoursSpec, humanOpeningHours } from "@/lib/opening-hours";
+import { practicalTagsLine, venueKickerLine } from "@/lib/venue-display";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import PlaceCard from "@/components/PlaceCard";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -490,7 +491,7 @@ export default async function VenuePage({
     notFor: quickNotFor,
     whyGo: whyHereText ?? heroVerdict,
     whatToOrder: whatToOrderItems,
-    practicalNote: content?.visitContext ?? (practicalTags.length ? practicalTags.join(" · ") : null),
+    practicalNote: content?.visitContext ?? (practicalTags.length ? practicalTagsLine(practicalTags) : null),
     // An explicit evidence-registry field only. Never infer reservation need
     // from the presence of a booking button.
     reservationNote: content?.reservation,
@@ -517,14 +518,12 @@ export default async function VenuePage({
             a designed typographic masthead (kicker + name + verdict laid over
             a category-graded field with film grain), never an empty box. */}
         {(() => {
-          const kicker = [
-            catLabel,
-            microArea,
-            districtLabel[venue.district] ?? venue.district,
-            content?.priceBand ?? undefined,
-          ]
-            .filter(Boolean)
-            .join(" · ");
+          const kicker = venueKickerLine({
+            category: catLabel,
+            area: microArea,
+            district: venue.district,
+            priceBand: content?.priceBand,
+          });
           const verdict = heroVerdict;
           return (
             <figure className="venue-masthead-figure">
@@ -728,7 +727,7 @@ export default async function VenuePage({
             {verifiedAt && (
               <p className="verification-note">
                 Information last checked: {verifiedAt}. Details like
-                hours and menus change — confirm big plans with the venue.
+                hours and menus change, so confirm big plans with the venue.
               </p>
             )}
           </div>
@@ -772,19 +771,19 @@ export default async function VenuePage({
                 {(content?.openingHours ?? venue.openingHours) && (
                   <div>
                     <dt>Hours</dt>
-                    <dd>{content?.openingHours ?? venue.openingHours}</dd>
+                    <dd>{content?.openingHours ?? humanOpeningHours(venue.openingHours)}</dd>
                   </div>
                 )}
                 {spend && (
                   <div>
                     <dt>Spend</dt>
-                    <dd>{spend}{content?.priceBand ? " — relative to the area" : ""}</dd>
+                    <dd>{spend}{content?.priceBand ? ", relative to the area" : ""}</dd>
                   </div>
                 )}
                 {practicalTags.length > 0 && (
                   <div>
                     <dt>Good to know</dt>
-                    <dd>{practicalTags.join(" · ")}</dd>
+                    <dd>{practicalTagsLine(practicalTags)}</dd>
                   </div>
                 )}
                 {officialUrl && (

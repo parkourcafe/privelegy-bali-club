@@ -1,0 +1,20 @@
+{
+  "slug": "ulu-artisan-ungasan",
+  "canaries": [
+    {
+      "claim_id": "k-ulu-ar-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": "suka-espresso"
+    },
+    {
+      "claim_id": "k-ulu-ar-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-ulu-ar-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "laggas-uluwatu"
+    }
+  ]
+}

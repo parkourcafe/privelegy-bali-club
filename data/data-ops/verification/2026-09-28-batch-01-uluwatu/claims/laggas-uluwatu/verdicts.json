@@ -1,0 +1,17 @@
+{
+  "slug": "laggas-uluwatu",
+  "acceptedAt": "2026-09-28T06:55:00Z",
+  "verdicts": [
+    {"claim_id": "laggas-uluwatu-16", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source, no quote, no official domain known for this venue — nothing to verify; field stays null."},
+    {"claim_id": "laggas-uluwatu-17", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify; field stays null."},
+    {"claim_id": "laggas-uluwatu-23", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — coordinates may only come from an official site and none is known."},
+    {"claim_id": "laggas-uluwatu-18", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — no official URL proposed; nothing to verify."},
+    {"claim_id": "laggas-uluwatu-15", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify."},
+    {"claim_id": "k-laggas-3", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "uluwatusurfvillas.com is another venue's site (Mana / Uluwatu Surf Villas), not an official domain for Laggas; the quote is a contact-form message, not an address. Source rule decides before re-fetch."},
+    {"claim_id": "k-laggas-1", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "elsky-bali.com is a third-party beach-club guide (Sundays Beach Club page), not Laggas' official site; value is an hours string, not an address. Source rule decides before re-fetch."},
+    {"claim_id": "laggas-uluwatu-20", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify."},
+    {"claim_id": "laggas-uluwatu-22", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify."},
+    {"claim_id": "k-laggas-2", "verdict": "reject", "reason_code": "SOURCE_NOT_OFFICIAL", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "TripAdvisor is a review aggregator; not an allowed source regardless of fetch result."},
+    {"claim_id": "laggas-uluwatu-21", "verdict": "hold", "reason_code": "NOT_A_SOURCE_FACT", "refetch": "blocked", "refetch_sha256": null, "quote_found": false, "note": "Action 'unknown', no source — nothing to verify."}
+  ]
+}

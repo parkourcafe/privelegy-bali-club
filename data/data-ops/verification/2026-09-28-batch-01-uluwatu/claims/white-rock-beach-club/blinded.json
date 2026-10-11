@@ -1,0 +1,218 @@
+{
+  "slug": "white-rock-beach-club",
+  "officialDomains": [
+    "whiterockbali.com"
+  ],
+  "category": "beach_club",
+  "claims": [
+    {
+      "claim_id": "white-rock-beach-club-12",
+      "field": "priceBand",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-11",
+      "field": "whatToOrder",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-white--3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "10.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "10.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "10.00am-9.00pm"
+        ],
+        "Thursday": [
+          "10.00am-9.00pm"
+        ],
+        "Friday": [
+          "10.00am-9.00pm"
+        ],
+        "Saturday": [
+          "10.00am-9.00pm"
+        ],
+        "Sunday": [
+          "10.00am-9.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://whiterockbali.com/",
+      "quote": "OPEN DAILY: 10AM UNTIL 9PM (FREE ENTRANCE)",
+      "snapshot_sha256": "a0c60ae03729af3e274d33c0e8344c9d062abf183c03c5cae367c34bad336112",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+628113803003",
+      "claim_text": null,
+      "source_url": "https://whiterockbali.com/",
+      "quote": "[+62] 811 3803 003",
+      "snapshot_sha256": "a0c60ae03729af3e274d33c0e8344c9d062abf183c03c5cae367c34bad336112",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-03",
+      "field": "copy:whyHere#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Melasti's cliff amphitheatre is the south Bukit's most dramatic beach, and White Rock is the largest way to spend a whole day on it: infinity pools, rows of daybeds, dining decks and a proper events stage, day into night.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://whiterockbali.com/menu/",
+      "claim_text": null,
+      "source_url": "https://whiterockbali.com/menu/",
+      "quote": "FOOD MENU\nDRINKS MENU\nSHISHA MENU",
+      "snapshot_sha256": "c9f6df1ef8183aeb736799e5f83663f2bdd4d81eca100e032d61155bd6a25ed9",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-15",
+      "field": "full_address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-white--2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-white-rock-beach-club",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-white--1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://bookings.whiterockbali.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "a6fdcd9cd0f8490ac492cf8bc0fb209b6b0db78758e3485aecda4bd8ca4043ef",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "10.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "10.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "10.00am-9.00pm"
+        ],
+        "Thursday": [
+          "10.00am-9.00pm"
+        ],
+        "Friday": [
+          "10.00am-9.00pm"
+        ],
+        "Saturday": [
+          "10.00am-9.00pm"
+        ],
+        "Sunday": [
+          "10.00am-9.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://whiterockbali.com/",
+      "quote": "OPEN DAILY: 10AM UNTIL 9PM (FREE ENTRANCE)",
+      "snapshot_sha256": "a0c60ae03729af3e274d33c0e8344c9d062abf183c03c5cae367c34bad336112",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "white-rock-beach-club-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "single sofa (2 pax) min. spend IDR 500K++; single bed (2 pax) min. spend IDR 2,000K++ — whiterockbali.com, 2026-09-28",
+      "claim_text": null,
+      "source_url": "https://whiterockbali.com/",
+      "quote": "SINGLE SOFA (2 pax)\nMIN. SPEND IDR 500K++",
+      "snapshot_sha256": "a0c60ae03729af3e274d33c0e8344c9d062abf183c03c5cae367c34bad336112",
+      "category": "beach_club"
+    }
+  ]
+}

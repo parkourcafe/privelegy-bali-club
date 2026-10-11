@@ -1,0 +1,20 @@
+{
+  "slug": "suka-espresso",
+  "canaries": [
+    {
+      "claim_id": "k-suka-e-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-suka-e-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-suka-e-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "sundays-beach-club"
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+{
+ "brunches__sofitel-bali-nusa-dua-beach-resort--cucina-sunday-brunch": {
+  "url": "https://www.otherbali.com/brunches/sofitel-bali-nusa-dua-beach-resort--cucina-sunday-brunch",
+  "status": 200,
+  "sha256": "e4ec58d20e1f7154b683c7dc461a60e8e875e438db2f63a8ea8753b0f9cfd4ca",
+  "fetchedAt": "2026-09-28T05:42:08.646Z"
+ },
+ "brunches__the-apurva-kempinski-bali--brunchcation-at-pala": {
+  "url": "https://www.otherbali.com/brunches/the-apurva-kempinski-bali--brunchcation-at-pala",
+  "status": 200,
+  "sha256": "38330c64131ebb2d2555ea959eb85ee21b0c1adec905b82081c2756e65cc6fab",
+  "fetchedAt": "2026-09-28T05:42:08.476Z"
+ },
+ "brunches__the-apurva-kempinski-bali--dim-sum-brunch-at-bai-yun": {
+  "url": "https://www.otherbali.com/brunches/the-apurva-kempinski-bali--dim-sum-brunch-at-bai-yun",
+  "status": 200,
+  "sha256": "4a7e071b42aca4afb65491e24c77b78ac4e5a7c8d076b39571dfc0c3c44865f1",
+  "fetchedAt": "2026-09-28T05:42:08.851Z"
+ },
+ "brunches__the-apurva-kempinski-bali--izakaya-journey": {
+  "url": "https://www.otherbali.com/brunches/the-apurva-kempinski-bali--izakaya-journey",
+  "status": 200,
+  "sha256": "df4e3e6dda0e1346962d5fadddea25b3970af334129b81b6b6e275896d212e85",
+  "fetchedAt": "2026-09-28T05:42:09.012Z"
+ },
+ "brunches__the-st-regis-bali-resort--astor-brunch-at-kayuputi": {
+  "url": "https://www.otherbali.com/brunches/the-st-regis-bali-resort--astor-brunch-at-kayuputi",
+  "status": 200,
+  "sha256": "01f3c875331e56cde8697fbe7a43483e4c6484136373d2781b1c62ed29815d47",
+  "fetchedAt": "2026-09-28T05:42:08.953Z"
+ },
+ "brunches__the-st-regis-bali-resort--boneka-sunday-brunch": {
+  "url": "https://www.otherbali.com/brunches/the-st-regis-bali-resort--boneka-sunday-brunch",
+  "status": 200,
+  "sha256": "ceaec082a53eca6013087311e43ed5d0118d44e94b4d268ec6f733b91a78f518",
+  "fetchedAt": "2026-09-28T05:42:09.377Z"
+ },
+ "brunches__the-st-regis-bali-resort--the-st-regis-bali-brunch-at-kayuputi": {
+  "url": "https://www.otherbali.com/brunches/the-st-regis-bali-resort--the-st-regis-bali-brunch-at-kayuputi",
+  "status": 200,
+  "sha256": "f534ed0717f0875469ef4493789bdfddcfeb526cdeba0f5e36f887f3e936b4f8",
+  "fetchedAt": "2026-09-28T05:42:09.272Z"
+ },
+ "brunches__the-westin-resort-nusa-dua-bali--prego-monthly-brunch": {
+  "url": "https://www.otherbali.com/brunches/the-westin-resort-nusa-dua-bali--prego-monthly-brunch",
+  "status": 200,
+  "sha256": "65b79a9e35190331a3e0964a05df36ac1a70b0c63d487b01c11b1f3c8e35d151",
+  "fetchedAt": "2026-09-28T05:42:09.313Z"
+ },
+ "canggu__best-brunch": {
+  "url": "https://www.otherbali.com/canggu/best-brunch",
+  "status": 200,
+  "sha256": "96c91e8f5a1b99dcabc9b71daa53c87163cb1421ea7fc54ec9d8fe89f061c716",
+  "fetchedAt": "2026-09-28T05:37:06.112Z"
+ },
+ "canggu__best-spas": {
+  "url": "https://www.otherbali.com/canggu/best-spas",
+  "status": 200,
+  "sha256": "14e474485c05ac9f5ac2bf1a2e00bc3e2edfe4502ccb76d01884aee7be4955d6",
+  "fetchedAt": "2026-09-28T05:37:07.353Z"
+ },
+ "canggu__best-warungs": {
+  "url": "https://www.otherbali.com/canggu/best-warungs",
+  "status": 200,
+  "sha256": "8092a3b7f4e3b11135d9f097d1484bc92290c9acb5a48d9a804d49e8264665ba",
+  "fetchedAt": "2026-09-28T05:37:06.590Z"
+ },
+ "canggu__work-friendly-cafes": {
+  "url": "https://www.otherbali.com/canggu/work-friendly-cafes",
+  "status": 200,
+  "sha256": "e38bc806ecd74ff70935d8b6d5af3464bfc3ad6c2a0abf685b0940c7a41fd2e0",
+  "fetchedAt": "2026-09-28T05:37:07.778Z"
+ },
+ "collections__balinese-and-local-food": {
+  "url": "https://www.otherbali.com/collections/balinese-and-local-food",
+  "status": 200,
+  "sha256": "8a4edfbeb87b50fe6812e9cbf5c070e7d2695137d60c1f7e3c22c47d5cbe6b7a",
+  "fetchedAt": "2026-09-28T05:41:57.444Z"
+ },
+ "collections__brunch-and-breakfast": {
+  "url": "https://www.otherbali.com/collections/brunch-and-breakfast",
+  "status": 200,
+  "sha256": "cbb04fcb8fb25dc0a950a5c72bbb7700f7a8ab56ab14808a0e0088ee0a8b097c",
+  "fetchedAt": "2026-09-28T05:41:57.025Z"
+ },
+ "collections__local-and-calm": {
+  "url": "https://www.otherbali.com/collections/local-and-calm",
+  "status": 200,
+  "sha256": "63f0ce9af689179da6bcba77b1d0e9bace51c9de8d5fe212d413f00feec4eb56",
+  "fetchedAt": "2026-09-28T05:42:02.538Z"
+ },
+ "day-passes__holiday-inn-resort-bali-nusa-dua--fun-day-pass": {
+  "url": "https://www.otherbali.com/day-passes/holiday-inn-resort-bali-nusa-dua--fun-day-pass",
+  "status": 200,
+  "sha256": "18a7ba5606a045f4a57cccb0d792b39f5e6d49cf6a5b0c1d996a0d78aa08b0b0",
+  "fetchedAt": "2026-09-28T05:42:07.040Z"
+ },
+ "day-passes__hotel-nikko-bali-benoa-beach--nikko-day-pass": {
+  "url": "https://www.otherbali.com/day-passes/hotel-nikko-bali-benoa-beach--nikko-day-pass",
+  "status": 200,
+  "sha256": "18c64762382adb539aac19d5540ac1796c43f9be51333e70f061e3063812ec53",
+  "fetchedAt": "2026-09-28T05:42:07.059Z"
+ },
+ "day-passes__novotel-bali-benoa--day-pass": {
+  "url": "https://www.otherbali.com/day-passes/novotel-bali-benoa--day-pass",
+  "status": 200,
+  "sha256": "b041bf47ed31a060b2348b6a46a630a8ca34ff40b1da8ab0ef958ac9c3620ea4",
+  "fetchedAt": "2026-09-28T05:42:07.800Z"
+ },
+ "day-passes__samabe-bali-suites-and-villas--a-day-at-beach-cabanas": {
+  "url": "https://www.otherbali.com/day-passes/samabe-bali-suites-and-villas--a-day-at-beach-cabanas",
+  "status": 200,
+  "sha256": "00731c553dc1f65613949b2e8c65ebd352e6abd2a56d8c4069671f7043caece1",
+  "fetchedAt": "2026-09-28T05:42:07.588Z"
+ },
+ "day-passes__the-royal-santrian--day-dream-experience": {
+  "url": "https://www.otherbali.com/day-passes/the-royal-santrian--day-dream-experience",
+  "status": 200,
+  "sha256": "dc07e4d67c388f7c4953ba95df283164fd50899218537ec2b8a268c98dcc5861",
+  "fetchedAt": "2026-09-28T05:42:08.120Z"
+ },
+ "day-passes__the-royal-santrian--dip-and-dine": {
+  "url": "https://www.otherbali.com/day-passes/the-royal-santrian--dip-and-dine",
+  "status": 200,
+  "sha256": "4aaa541a36d32232946d897ea8d71752038f0c509119c72545040fc36016168c",
+  "fetchedAt": "2026-09-28T05:42:08.108Z"
+ },
+ "day-passes__the-sakala-resort-bali--sakala-beach-club-day-pass": {
+  "url": "https://www.otherbali.com/day-passes/the-sakala-resort-bali--sakala-beach-club-day-pass",
+  "status": 200,
+  "sha256": "0173993d009dbbd71d903e8075ba965b8bae03530b0a1743ea73aa7121169961",
+  "fetchedAt": "2026-09-28T05:42:08.339Z"
+ },
+ "places__alchemy-uluwatu": {
+  "url": "https://www.otherbali.com/places/alchemy-uluwatu",
+  "status": 200,
+  "sha256": "525c7ab917ab878acbeee80d26a10cbb9274dd035c6398f3988acd4518b89978",
+  "fetchedAt": "2026-09-28T05:41:24.928Z"
+ },
+ "places__artisan-uluwatu": {
+  "url": "https://www.otherbali.com/places/artisan-uluwatu",
+  "status": 200,
+  "sha256": "2ea17419f53723bcf20022340c7699acac435ed4b29d0e78f02f972434f28d8a",
+  "fetchedAt": "2026-09-28T05:41:25.918Z"
+ },
+ "places__babi-guling-men-agus": {
+  "url": "https://www.otherbali.com/places/babi-guling-men-agus",
+  "status": 200,
+  "sha256": "951e5dcabc24a1149100478a2769781c674375c50826c38436752722e6e68e00",
+  "fetchedAt": "2026-09-28T05:37:31.070Z"
+ },
+ "places__babi-guling-men-lari": {
+  "url": "https://www.otherbali.com/places/babi-guling-men-lari",
+  "status": 200,
+  "sha256": "f37f655653958fda6d352c471b83671931d184fdfcf7bb724b299a6a691a1615",
+  "fetchedAt": "2026-09-28T05:37:31.656Z"
+ },
+ "places__bgs-uluwatu": {
+  "url": "https://www.otherbali.com/places/bgs-uluwatu",
+  "status": 200,
+  "sha256": "044c9d32315ea9bb9a624f4879a4a63191de79454a43772966e2b942c3da27c3",
+  "fetchedAt": "2026-09-28T05:41:28.371Z"
+ },
+ "places__cafe-vida-healthy-organic-restaurant-canggu": {
+  "url": "https://www.otherbali.com/places/cafe-vida-healthy-organic-restaurant-canggu",
+  "status": 200,
+  "sha256": "ad65a3e4f7f072688f6a46d18b6439e9215d256e90334e289a4c78ce9b4f4c7c",
+  "fetchedAt": "2026-09-28T05:37:36.480Z"
+ },
+ "places__dala-spa-at-alaya-resort-ubud": {
+  "url": "https://www.otherbali.com/places/dala-spa-at-alaya-resort-ubud",
+  "status": 200,
+  "sha256": "5c27fa089a17e0584e5a5368513e0814d3d3bd5431d3f978c3855f057141a30a",
+  "fetchedAt": "2026-09-28T05:40:34.638Z"
+ },
+ "places__desa-seni-yoga": {
+  "url": "https://www.otherbali.com/places/desa-seni-yoga",
+  "status": 200,
+  "sha256": "aa8ac665437089b237bd1e93f4019c7c78c7609c5545701a172c7083ebe869c4",
+  "fetchedAt": "2026-09-28T05:37:39.323Z"
+ },
+ "places__dorsey-s-barber-shop-uluwatu": {
+  "url": "https://www.otherbali.com/places/dorsey-s-barber-shop-uluwatu",
+  "status": 200,
+  "sha256": "9a9af995be61e29c4ba2fe6373e563a825c05345eaadcd28ab447c7b83fd9378",
+  "fetchedAt": "2026-09-28T05:41:30.368Z"
+ },
+ "places__el-kabron-bali": {
+  "url": "https://www.otherbali.com/places/el-kabron-bali",
+  "status": 200,
+  "sha256": "bdfa2be2f4eb7cf7d6fb966a3be615e9e64335bd594a02206f35d14477e4593d",
+  "fetchedAt": "2026-09-28T05:41:30.741Z"
+ },
+ "places__gooseberry-french-restaurant-uluwatu": {
+  "url": "https://www.otherbali.com/places/gooseberry-french-restaurant-uluwatu",
+  "status": 200,
+  "sha256": "13bb20b3de88cae5f4269bf7437f4829036dbf915340dc9f379c4b14be7c09bb",
+  "fetchedAt": "2026-09-28T05:41:31.812Z"
+ },
+ "places__jaens-spa-ubud-ubud": {
+  "url": "https://www.otherbali.com/places/jaens-spa-ubud-ubud",
+  "status": 200,
+  "sha256": "6dca35c1e2b1d6441ee7e8db3dce6d7f46515f13ddcb2017b06926483ae08836",
+  "fetchedAt": "2026-09-28T05:40:43.828Z"
+ },
+ "places__jungle-padel-canggu-canggu": {
+  "url": "https://www.otherbali.com/places/jungle-padel-canggu-canggu",
+  "status": 200,
+  "sha256": "0f81c39ccad2d8a6ac84b0183751797580bfcbac616a4b7417d845b4e6ab4483",
+  "fetchedAt": "2026-09-28T05:37:47.617Z"
+ },
+ "places__kala-uluwatu": {
+  "url": "https://www.otherbali.com/places/kala-uluwatu",
+  "status": 200,
+  "sha256": "f7eccd369f761123d30c4eb645a469fbff8d316052092a1d7803d49705d88867",
+  "fetchedAt": "2026-09-28T05:41:32.877Z"
+ },
+ "places__laggas-uluwatu": {
+  "url": "https://www.otherbali.com/places/laggas-uluwatu",
+  "status": 200,
+  "sha256": "20c00266386aa05bf226610c9296aa014e2fcc8ca36b3853b56a1ff65b9e6d49",
+  "fetchedAt": "2026-09-28T05:41:34.361Z"
+ },
+ "places__lopodo-catering-and-events": {
+  "url": "https://www.otherbali.com/places/lopodo-catering-and-events",
+  "status": 200,
+  "sha256": "b985439dfefcd701dff0cfee18feb3cc24f93ed762424cbeb43c9c36753f94c1",
+  "fetchedAt": "2026-09-28T05:37:49.931Z"
+ },
+ "places__mana-uluwatu": {
+  "url": "https://www.otherbali.com/places/mana-uluwatu",
+  "status": 200,
+  "sha256": "c7f336e1bfddccad5e91a335f7d85551f3f1035845711ed15ef28f89a54d6449",
+  "fetchedAt": "2026-09-28T05:41:35.376Z"
+ },
+ "places__masonry-restaurant": {
+  "url": "https://www.otherbali.com/places/masonry-restaurant",
+  "status": 200,
+  "sha256": "94befdc0862a90678297210528c651c0090c647d30dd30576544df448abb8776",
+  "fetchedAt": "2026-09-28T05:41:36.088Z"
+ },
+ "places__oneeighty": {
+  "url": "https://www.otherbali.com/places/oneeighty",
+  "status": 200,
+  "sha256": "dff323af326b332a360ca01d34dcc7f0779b6e1184cc4b8f86cf56d4ba76cc7d",
+  "fetchedAt": "2026-09-28T05:41:37.865Z"
+ },
+ "places__papi-sapi": {
+  "url": "https://www.otherbali.com/places/papi-sapi",
+  "status": 200,
+  "sha256": "8775a11d5f5f5d24ca3f27630caf0fa76ecf7c0a32f4bb4c8252a60a32694425",
+  "fetchedAt": "2026-09-28T05:41:39.301Z"
+ },
+ "places__seed-bingin": {
+  "url": "https://www.otherbali.com/places/seed-bingin",
+  "status": 200,
+  "sha256": "41124e2115d4fe22e219fc63c9da27a9ec07b6e2c0819a8c6f48c6b76d96ada2",
+  "fetchedAt": "2026-09-28T05:41:42.356Z"
+ },
+ "places__single-fin": {
+  "url": "https://www.otherbali.com/places/single-fin",
+  "status": 200,
+  "sha256": "9b4d4c207153e78676feb42a1e6c6698336feba17d9b0b88ec30593f2e01adf0",
+  "fetchedAt": "2026-09-28T05:41:43.177Z"
+ },
+ "places__soma-fight-club-canggu": {
+  "url": "https://www.otherbali.com/places/soma-fight-club-canggu",
+  "status": 200,
+  "sha256": "daf59bc8790e103aaa01612dd6bb781f90c5136584a5e007c7092e77e0420219",
+  "fetchedAt": "2026-09-28T05:38:04.798Z"
+ },
+ "places__son-of-a-baker": {
+  "url": "https://www.otherbali.com/places/son-of-a-baker",
+  "status": 200,
+  "sha256": "fa758fd05d5ed53b2688e9f5d9e8b2fe2b5269b5c931a2022628bd0f70016409",
+  "fetchedAt": "2026-09-28T05:41:44.348Z"
+ },
+ "places__suka-espresso": {
+  "url": "https://www.otherbali.com/places/suka-espresso",
+  "status": 200,
+  "sha256": "162c94f629e6247dd2c3df3eb5110f942374b29df5b0a7bcb9ae531654322675",
+  "fetchedAt": "2026-09-28T05:41:45.383Z"
+ },
+ "places__sundays-beach-club": {
+  "url": "https://www.otherbali.com/places/sundays-beach-club",
+  "status": 200,
+  "sha256": "ebfe446eb79ff4da31257bc3512549e6502d3070beb8e3c28521471992260763",
+  "fetchedAt": "2026-09-28T05:41:45.962Z"
+ },
+ "places__svaha-spa-bisma-ubud": {
+  "url": "https://www.otherbali.com/places/svaha-spa-bisma-ubud",
+  "status": 200,
+  "sha256": "7c17e8cd4b322c0d15c3353d4aac20e5cc5e383d4bc0d7f41aa6d88a0e1aa584",
+  "fetchedAt": "2026-09-28T05:41:07.322Z"
+ },
+ "places__the-warung-at-alila-villas-uluwatu": {
+  "url": "https://www.otherbali.com/places/the-warung-at-alila-villas-uluwatu",
+  "status": 200,
+  "sha256": "2b9a07fa0e2fcc426dfbf61b18469705bea75889f70d4f4d6bb5045dcefcaba8",
+  "fetchedAt": "2026-09-28T05:41:49.682Z"
+ },
+ "places__tonic-day-spa-botanicals-canggu": {
+  "url": "https://www.otherbali.com/places/tonic-day-spa-botanicals-canggu",
+  "status": 200,
+  "sha256": "b3d3485f71657e8b483354cb92064289df015df39f9094b3e12edf58a0b47f53",
+  "fetchedAt": "2026-09-28T05:38:09.343Z"
+ },
+ "places__tropical-temptation-adult-only-beach-club": {
+  "url": "https://www.otherbali.com/places/tropical-temptation-adult-only-beach-club",
+  "status": 200,
+  "sha256": "03886e87d6fd9467c55d11fd5eac4c8e47c1524240e144bb2c59349ae6c5768e",
+  "fetchedAt": "2026-09-28T05:41:50.223Z"
+ },
+ "places__ulu-fishmarket": {
+  "url": "https://www.otherbali.com/places/ulu-fishmarket",
+  "status": 200,
+  "sha256": "12d2f0dceb16bc301b406ad93d5e90c86a0872048e11a055d9a4522f73f18792",
+  "fetchedAt": "2026-09-28T05:41:50.934Z"
+ },
+ "places__ulu-garden": {
+  "url": "https://www.otherbali.com/places/ulu-garden",
+  "status": 200,
+  "sha256": "edea2ecc43480abcd639a079c430f80cc355c9da18bb02a67205345fc7ec5012",
+  "fetchedAt": "2026-09-28T05:41:50.945Z"
+ },
+ "places__waatu": {
+  "url": "https://www.otherbali.com/places/waatu",
+  "status": 200,
+  "sha256": "a130b5bea774de0ca1dfe025ceb60cc446fffcfaa4afdc19e4c23b20592b4505",
+  "fetchedAt": "2026-09-28T05:41:52.138Z"
+ },
+ "places__warung-bu-jonny-uluwatu": {
+  "url": "https://www.otherbali.com/places/warung-bu-jonny-uluwatu",
+  "status": 200,
+  "sha256": "8423747ba82bcb265e73542f8afe90a028c69f16c785de83cfce1d33b5ac3b94",
+  "fetchedAt": "2026-09-28T05:41:52.124Z"
+ },
+ "places__white-rock-beach-club": {
+  "url": "https://www.otherbali.com/places/white-rock-beach-club",
+  "status": 200,
+  "sha256": "fa30d2a2d2849844ca289f90afbdeabb0dc6f691e263eb96a7d47969d3b10586",
+  "fetchedAt": "2026-09-28T05:41:53.705Z"
+ },
+ "places__yuki-uluwatu": {
+  "url": "https://www.otherbali.com/places/yuki-uluwatu",
+  "status": 200,
+  "sha256": "3715b36ad2562eaa8d772c8a1b19963ebea7e9edc3cbd36ad0523ff499d87b7e",
+  "fetchedAt": "2026-09-28T05:41:54.926Z"
+ },
+ "places__zali-uluwatu": {
+  "url": "https://www.otherbali.com/places/zali-uluwatu",
+  "status": 200,
+  "sha256": "5132ec847cb741ba32222a58f1615b5c601f2b3e9cca0ff8a514e3ac2c3a212c",
+  "fetchedAt": "2026-09-28T05:41:55.243Z"
+ },
+ "places_page=10": {
+  "url": "https://www.otherbali.com/places?page=10",
+  "status": 200,
+  "sha256": "da9a28e5cec3e7444902a101aee60b4d4e23790af0a8028fa07313f02280ff53",
+  "fetchedAt": "2026-09-28T05:42:14.327Z"
+ },
+ "places_page=11": {
+  "url": "https://www.otherbali.com/places?page=11",
+  "status": 200,
+  "sha256": "471de19230d2e190886083d85a2fc34d7acbfdb0e32809568492b8d5829920a8",
+  "fetchedAt": "2026-09-28T05:42:14.688Z"
+ },
+ "places_page=2": {
+  "url": "https://www.otherbali.com/places?page=2",
+  "status": 200,
+  "sha256": "fbf3b7983af34b5b84a80ee9e2793055f9f7aa1745804093a3bf2092c39d5794",
+  "fetchedAt": "2026-09-28T05:42:11.479Z"
+ },
+ "places_page=3": {
+  "url": "https://www.otherbali.com/places?page=3",
+  "status": 200,
+  "sha256": "70a0024ee2da9e2032b771d3c5c7c5d19d0e8737a597ada52235ff3877e45320",
+  "fetchedAt": "2026-09-28T05:42:11.003Z"
+ },
+ "places_page=47": {
+  "url": "https://www.otherbali.com/places?page=47",
+  "status": 200,
+  "sha256": "39c90f55de31eaabf2c702e6f9a46c4ae09b5d89dba2e14a89738456b04f27fd",
+  "fetchedAt": "2026-09-28T05:42:30.728Z"
+ },
+ "places_page=50": {
+  "url": "https://www.otherbali.com/places?page=50",
+  "status": 200,
+  "sha256": "759e24345966440894308e29db90db44346720b196a4c6791bf4a38540cf2775",
+  "fetchedAt": "2026-09-28T05:42:32.092Z"
+ },
+ "places_page=56": {
+  "url": "https://www.otherbali.com/places?page=56",
+  "status": 200,
+  "sha256": "4156b1048758b62757f9820e5bc11b9667db8aa61b1ea6ec4a6c8c47a50f6212",
+  "fetchedAt": "2026-09-28T05:42:34.799Z"
+ },
+ "places_page=6": {
+  "url": "https://www.otherbali.com/places?page=6",
+  "status": 200,
+  "sha256": "33a6f24967a91e3520da18374933343f14c812ca900878bd1bf9a2cdf9349010",
+  "fetchedAt": "2026-09-28T05:42:12.282Z"
+ },
+ "places_page=61": {
+  "url": "https://www.otherbali.com/places?page=61",
+  "status": 200,
+  "sha256": "1d05486f9b40ef582e7723cd6f1de549913d27ce1fe605576f1804b237d63eb3",
+  "fetchedAt": "2026-09-28T05:42:36.683Z"
+ },
+ "route__cafe-work": {
+  "url": "https://www.otherbali.com/route/cafe-work",
+  "status": 200,
+  "sha256": "c561cc96ba9691c5d853d531900cccd648ddf9d3b604595200fdd15de33d682a",
+  "fetchedAt": "2026-09-28T05:37:23.923Z"
+ },
+ "ubud__best-yoga-wellness": {
+  "url": "https://www.otherbali.com/ubud/best-yoga-wellness",
+  "status": 200,
+  "sha256": "0f5c951663236d30c77cde41f4562144ed2fa1089979b9388daa505a8bcfcabb",
+  "fetchedAt": "2026-09-28T05:37:13.987Z"
+ }
+}

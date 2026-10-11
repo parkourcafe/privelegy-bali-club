@@ -1,0 +1,97 @@
+{
+  "slug": "zali-uluwatu",
+  "acceptedAt": "2026-09-28T06:53:31.090Z",
+  "acceptor": "blind acceptor (Claude, snapshots-acceptor root)",
+  "verdicts": [
+    {
+      "claim_id": "k-zali-u-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com (also names another venue, Suka Espresso) is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "zali-uluwatu-13",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for price_anchor: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "zali-uluwatu-12",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for priceBand: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "zali-uluwatu-20",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for bookingUrl: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "zali-uluwatu-23",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for coordinates: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "zali-uluwatu-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1c68502ed6679f93215ccffa70bff917f824c256c52750dacb160e5ae1dc4ee3",
+      "quote_found": true,
+      "note": "zalirestaurant.com lists 'Uluwatu / +62 877 7813 7273 / Everyday 8:00AM &ndash; 12:00AM' (entity literal in text); 12:00AM = midnight, truncated to 23:59 per midnight rule; span written '8.00am-23.59pm' parses as 08:00–23:59 but '8.00am-11.59pm' is the cleaner form"
+    },
+    {
+      "claim_id": "k-zali-u-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "tripadvisor.com is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "k-zali-u-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "1c68502ed6679f93215ccffa70bff917f824c256c52750dacb160e5ae1dc4ee3",
+      "quote_found": false,
+      "note": "'Open daily 7 AM – 11 PM, kitchen closes 10:30 PM' not on zalirestaurant.com"
+    },
+    {
+      "claim_id": "zali-uluwatu-17",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "1c68502ed6679f93215ccffa70bff917f824c256c52750dacb160e5ae1dc4ee3",
+      "quote_found": true,
+      "note": "same evidence as zali-uluwatu-16; branch named (Uluwatu) in the quote"
+    },
+    {
+      "claim_id": "zali-uluwatu-15",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for full_address: no proposed value, no source, nothing to verify; field stays null"
+    }
+  ]
+}

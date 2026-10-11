@@ -1,0 +1,274 @@
+{
+  "slug": "oneeighty",
+  "officialDomains": [
+    "oneeightybali.com",
+    "theedgebali.com"
+  ],
+  "category": "beach_club",
+  "claims": [
+    {
+      "claim_id": "oneeighty-12",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "sate babi bumbu bali; banana churros; the cliff burger",
+      "claim_text": null,
+      "source_url": "https://storage.googleapis.com/production-gator-v1-0-8/648/1022648/7wJcS29F/b541301aa204436d9be799e0f1030af2?fileName=January%20Oneeighty%20Food%20Menu%20A3.1%20-2026.pdf",
+      "quote": "sate babi bumbu bali",
+      "snapshot_sha256": "190e48deb42b5319c136522fd53cba0c8ff397e7752020d32a6cdad42e43e6e1",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-17",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "10.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "10.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "10.00am-9.00pm"
+        ],
+        "Thursday": [
+          "10.00am-9.00pm"
+        ],
+        "Friday": [
+          "10.00am-9.00pm"
+        ],
+        "Saturday": [
+          "10.00am-9.00pm"
+        ],
+        "Sunday": [
+          "10.00am-9.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "OPENING HOURS: FROM 10 AM - 9 PM\nLast order : 8 pm",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-11",
+      "field": "copy:reservations#1",
+      "action": "replace",
+      "proposed": "Book a day pass ahead (Chope, linked from the official site) — deposits are required to secure a booking.",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Booking and Deposit payment are require to secure the booking",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-14",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "giant papuan prawns 320K IDR; seafood pizza 230K IDR (food menu PDF titled 'January Oneeighty Food Menu A3.1 -2026'); regular admission IDR 700,000 incl. IDR 600,000 F&B credit (official site)",
+      "claim_text": null,
+      "source_url": "https://storage.googleapis.com/production-gator-v1-0-8/648/1022648/7wJcS29F/b541301aa204436d9be799e0f1030af2?fileName=January%20Oneeighty%20Food%20Menu%20A3.1%20-2026.pdf",
+      "quote": "giant papuan prawns                                       320",
+      "snapshot_sha256": "190e48deb42b5319c136522fd53cba0c8ff397e7752020d32a6cdad42e43e6e1",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-oneeig-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-15",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Jl. Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Jl Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-oneeig-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-oneeighty",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-23",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6282144632077",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Phone\n+62 82144632077",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "oneeighty° is the day-club as spectacle — a day pass with food-and-drink credit buys you the most extreme viewpoint on the peninsula.",
+      "source_url": "https://oneeightybali.com/",
+      "quote": "IDR 700.000 per person (includes IDR 600.000 F&B credit )",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-06",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Day passes include a food-and-drink credit, and bookings need a deposit to be secured.",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Booking up to 6 persons, deposit payment are require to secure the booking",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-25",
+      "field": "category",
+      "action": "replace",
+      "proposed": "beach_club",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "oneeighty° is a clifftop day club",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Glass-bottomed sky pool jutting off a 162-metre cliff at The Edge — the Bukit's most vertiginous day club.",
+      "source_url": "https://oneeightybali.com/",
+      "quote": "spilling into a jaw-dropping glass-bottom sky pool extending 6 metres over the cliff edge",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-21",
+      "field": "bookingUrl",
+      "action": "add",
+      "proposed": "https://cho.pe/oneeighty.web",
+      "claim_text": null,
+      "source_url": "https://cho.pe/oneeighty.web",
+      "quote": "Widget",
+      "snapshot_sha256": "5430ad32d1775e1265a88512ca3c03872baa7be0b73cc9762974b1b11ee72fe8",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-22",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://oneeightybali.com/menu",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/menu",
+      "quote": "Our Menus",
+      "snapshot_sha256": "5bc9bb5179d278571fbb09c8cdb79531c6ed705c4f508ac1a193a6835c62d2c9",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-16",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Jl Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Uluwatu\nBali 80361, ID",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-20",
+      "field": "instagramUrl",
+      "action": "add",
+      "proposed": "https://www.instagram.com/oneeightybali/",
+      "claim_text": null,
+      "source_url": "https://storage.googleapis.com/production-gator-v1-0-8/648/1022648/7wJcS29F/b541301aa204436d9be799e0f1030af2?fileName=January%20Oneeighty%20Food%20Menu%20A3.1%20-2026.pdf",
+      "quote": "@oneeightybali",
+      "snapshot_sha256": "190e48deb42b5319c136522fd53cba0c8ff397e7752020d32a6cdad42e43e6e1",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-oneeig-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-19",
+      "field": "officialUrl",
+      "action": "replace",
+      "proposed": "https://oneeightybali.com/",
+      "claim_text": null,
+      "source_url": "https://oneeightybali.com/",
+      "quote": "Home - One Eighty Dayclub",
+      "snapshot_sha256": "86058b5daf134f352cad74cb93d93d36f22439c26acdc05c194763aa5a9b2177",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "oneeighty-13",
+      "field": "priceBand",
+      "action": "add",
+      "proposed": "$$$",
+      "claim_text": null,
+      "source_url": "https://storage.googleapis.com/production-gator-v1-0-8/648/1022648/7wJcS29F/b541301aa204436d9be799e0f1030af2?fileName=January%20Oneeighty%20Food%20Menu%20A3.1%20-2026.pdf",
+      "quote": "giant papuan prawns                                       320",
+      "snapshot_sha256": "190e48deb42b5319c136522fd53cba0c8ff397e7752020d32a6cdad42e43e6e1",
+      "category": "beach_club"
+    }
+  ]
+}

@@ -1,0 +1,3019 @@
+[
+ {
+  "slug": "12-urban-cafe-breakfast-and-dinner-movie-night-cocktail-bar-canggu",
+  "name": "12 Urban Cafe - Breakfast & Dinner | Movie night | Cocktail Bar Canggu",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Mejan No.12c, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "An all-day cafe and cocktail bar on Jalan Pantai Batu Mejan, open 8am to midnight every day. The main menu runs from pasta and risotto to schnitzel, seafood and a rib eye steak, with separate brunch, bar and wine-cocktail menus. Tables can be booked through the site or Chope.",
+  "best_for": "A long menu at one address: breakfast from 8am, steaks and pasta until midnight",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 95-380K · Prices exclude 10% tax and 7% service",
+   "hours_visible": "Mo 08:00-23:59, Tu 08:00-23:59, We 08:00-23:59, Th 08:00-23:59, Fr 08:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "7am-bakers-umalas",
+  "name": "7AM Bakers Umalas",
+  "district": "Canggu",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A bakery and all-day cafe on Jalan Bumbak Dauh in Umalas, one of seven 7AM Bakers outlets across Bali and Jakarta. Its own outlet page describes freshly baked artisan pastries, specialty coffee and international dishes, with delivery through GoFood and GrabFood and online table booking.",
+  "best_for": "A bakery-cafe sit-down in Umalas: pastries, coffee and all-day food",
+  "not_for": "Daytime only - closes in the evening, no late dinner",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "adda-yoga",
+  "name": "Adda Yoga",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A yoga studio on Jalan Kayu Manis in Canggu, above the Awan co-working space. The schedule covers vinyasa, ashtanga, hatha, yin and restorative classes plus pranayama, meditation, sound healing and kundalini sessions, and the studio runs 200- and 300-hour teacher trainings. Drop-in rates are tiered by tourist visa, KITAS and Indonesian ID.",
+  "best_for": "Walk-in yoga in Canggu with KITAS and local pricing; sound and kundalini sessions",
+  "not_for": "No online booking or payment - register and pay at the counter",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Drop-in 160K tourist visa / 110K KITAS / 80K Indonesian · 12-class pack 1,300K · 30 days 2,000K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "amo-spa-canggu-canggu",
+  "name": "AMO Spa Canggu",
+  "district": "Canggu",
+  "where": "Batu Bolong / Canggu",
+  "why_its_here": "A Batu Bolong wellness spot pairing traditional Balinese spa treatments with AMO Baths -- a self-guided sauna, ice-bath and mineral-soak recovery circuit -- plus clinical facials and a cold-pressed juice cafe, running since 2008.",
+  "best_for": "A slow, personalized massage or facial, or the hot-cold AMO Baths circuit.",
+  "not_for": "A quick 30-minute treatment — sessions are built for an unhurried pace.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 08:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ashe-grill-and-bar",
+  "name": "Ashe Grill & Bar",
+  "district": "Canggu",
+  "where": "Jl. Pantai Pererenan No.156, Canggu, Kec. Mengwi, Kabupaten Badung, Pererenan, Kec. Mengwi, Bali, 80351",
+  "why_its_here": "A wood-fired grill and bar on Jl. Pantai Pererenan, open evenings only. The venue describes a kitchen built around live fire, with cooking drawn from Global South traditions, and takes its name from a Yoruba concept meaning life force. It opened in December 2025.",
+  "best_for": "Wood-fired grill cooking at a late dinner on the Pererenan beach road",
+  "not_for": "Dinner only; kitchen opens 5pm",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Per person 100-250K (Chope price range); no dish prices published",
+   "hours_visible": "Mo 17:00-23:00, Tu 17:00-23:00, We 17:00-23:00, Th 17:00-23:00, Fr 17:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "aunty-ji-s",
+  "name": "Aunty Ji's",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong No.83, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "why_its_here": "A Mumbai-inspired Indian kitchen on Batu Bolong, built around family aunty recipes -- curries, biryani, naan and street food like vada pav -- open to midnight with GoFood/GrabFood delivery.",
+  "best_for": "Indian comfort food — curries, biryani, vada pav — plus weekend brunch.",
+  "not_for": "A quiet meal — casual room built around sharing plates.",
+  "lint": [
+   "best_for:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 12:00-23:59, Tu 12:00-23:59, We 12:00-23:59, Th 12:00-23:59, Fr 12:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "baked-berawa",
+  "name": "BAKED. Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa / Semat",
+  "why_its_here": "An artisanal bakehouse and specialty-coffee cafe on Jl. Raya Semat in Berawa (Tibubeneng), one of several BAKED. outlets in Bali. The brand's own site describes the offer as gourmet breads, laminated pastries and specialty coffee across breakfast, brunch and lunch.",
+  "best_for": "Brunch, coffee and pastries, and morning meet-ups.",
+  "not_for": "Closes 7pm — daytime only, not a dinner spot.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "baked-pererenan",
+  "name": "BAKED Pererenan",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "The Pererenan outpost of BAKED., an artisanal bakehouse and specialty-coffee brand with several Bali locations, on Jl. Pantai Pererenan. The brand's own site describes the offer as gourmet breads, laminated pastries and specialty coffee across breakfast, brunch and lunch.",
+  "best_for": "Morning brunch and a pastry-and-coffee stop on the Pererenan beach road.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-barber-canggu",
+  "name": "Bali Barber Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The Canggu outpost of the Bali Barber chain, doing scissor cuts, clipper fades, beard work and classic hot-towel shaves for men in a relaxed setting.",
+  "best_for": "Men wanting a reliable, walk-in barber in central Canggu.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-buda-canggu",
+  "name": "Bali Buda Canggu",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "The Canggu branch of Bali Buda, an organic wholefoods cafe and shop that its own site calls Bali's original source for eating well and living simply, operating on the island for over 25 years. The menu runs wholefood breakfasts, bowls, salads, mains, bakery items, juices and smoothies, with vegan, gluten-free and paleo options marked.",
+  "best_for": "Wholefoods brunch or lunch with an organic shop to raid on the way out.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Fr 09:00-17:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-mma-canggu",
+  "name": "Bali MMA",
+  "district": "Canggu",
+  "where": "Jalan Raya Padonan No.6, Canggu, Badung, Bali",
+  "why_its_here": "Bali MMA is a dedicated combat-sports gym on Jalan Raya Padonan in Canggu, with boxing, Muay Thai, BJJ, no-gi grappling and MMA sparring across daily sessions (Mon-Fri 6am-10pm, Sat-Sun 7am-6pm), plus a weight room, ice bath and sauna. Open to all levels, with kids classes too.",
+  "best_for": "Boxing, Muay Thai, BJJ and MMA sparring in Padonan — day passes from 240K.",
+  "not_for": "A low-impact workout — sparring and grappling sessions get physical fast.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Day pass 240K (list 300K) · Monthly 2,320K",
+   "hours_visible": "Mo-Fr 06:00-22:00, Sa-Su 07:00-18:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bar-vera-bistro-and-wine-bar",
+  "name": "Bar Vera Bistro & Wine Bar",
+  "district": "Canggu",
+  "where": "Pererenan / Pantai Pererenan",
+  "why_its_here": "A 65-seat European bistro and wine bar on Jl. Pantai Pererenan, drawing on the new generation of European wine bars with classic technique and produce-driven food. The wine list is European-focused, with a separate cocktail and aperitif card and a lunch menu that runs to breakfast plates and coffee. Bookings go through the venue's own site via SevenRooms.",
+  "best_for": "A relaxed date night or late dinner built around European wine and bistro plates.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "Snacks 35-240K · Small plates 35-90K · Mains 90-190K · Cocktails 150-180K · Wine by the glass 130-250K · Set menu 450K++ pp · +10% tax +7% service",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "beach-boy-canggu",
+  "name": "Beach Boy Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Munduk Catu",
+  "why_its_here": "A restaurant and cocktail bar on Jl. Munduk Catu seating up to 132 across five indoor and outdoor areas, including a rooftop. The kitchen runs steaks, seafood and pasta alongside a long cocktail, mocktail and vegan list. Live acoustic sessions run on Saturdays, and happy hour is 4-7pm daily, buy two get one free on cocktails.",
+  "best_for": "Date-night and group dinners, birthdays and events; Saturday live acoustic sessions.",
+  "not_for": "A quiet solo laptop session or a fast grab-and-go lunch.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Starters 75-135K · Pasta 115-125K · Mains 90-475K · Cocktails 129-149K · Bintang 39K · +10% tax +6% service",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "beachtown-grocer",
+  "name": "Beachtown Grocer",
+  "district": "Canggu",
+  "where": "Jl. Pemelisan Agung Jl. Pantai Berawa, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Beachtown Grocer is a New York deli-style café and grocery counter inside Secana Beachtown in Berawa, open 6am-11pm with a rotating 99K daily special, indoor and alfresco seating, and grab-and-go breakfast and grocery items.",
+  "best_for": "A 99K daily-special menu, deli breakfasts, and a grab-and-go grocery counter in Berawa.",
+  "not_for": "A quiet solo breakfast — the alfresco section allows smoking and gets social.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Daily special 99K",
+   "hours_visible": "Mo 06:00-23:00, Tu 06:00-23:00, We 06:00-23:00, Th 06:00-23:00, Fr 06:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "billy-ho-japanese-restaurant",
+  "name": "Billy Ho Japanese Restaurant",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A modern Japanese kitchen and cocktail bar on Batu Bolong -- yakitori, sushi and shareable plates through a long lunch-to-dinner run, with weekend DJs and hand-carved ice for the cocktail list.",
+  "best_for": "Modern Japanese small plates and cocktails for a long lunch into dinner.",
+  "not_for": "A quiet dinner — weekend DJs push the energy up late.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 11:00-23:00, Tu 11:00-23:00, We 11:00-23:00, Th 11:00-23:00, Fr 11:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "body-factory-bali-canggu",
+  "name": "Body Factory Bali",
+  "district": "Canggu",
+  "where": "Nelayan / Canggu",
+  "why_its_here": "A large gym at Jl. Nelayan No.27 in Canggu, open 6am-10pm daily, with 50+ classes covering HYROX, strength, boxing, mat pilates, mobility and yoga. A recovery area adds hot tub, sauna, ice bath, cold plunge and pool. Membership runs in four-week blocks, with 1, 3, 7 and 14-day passes also sold.",
+  "best_for": "A full gym plus HYROX classes and ice-bath, sauna and pool recovery in one visit.",
+  "not_for": "Recovery (ice bath, sauna) is a separate pass tier from gym access.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "4-week membership: Bronze 1,996,000 IDR++, Silver 2,490,000 IDR++, Gold 3,594,000 IDR++ (excludes 10% tax and 5% service). Day-pass prices not published in readable text.",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "body-factory-bali-recovery-canggu",
+  "name": "Body Factory Bali Recovery",
+  "district": "Canggu",
+  "where": "Nelayan / Canggu",
+  "why_its_here": "The recovery wing of Body Factory in Nelayan — ice baths, sauna and bodywork aimed at post-training recovery, open 6am–10pm.",
+  "best_for": "Active travellers who want cold plunge and sauna recovery rather than a traditional spa.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bonito-restaurant",
+  "name": "Bonito Restaurant",
+  "district": "Canggu",
+  "where": "Jl. Bumbak Dauh No.88, Kerobokan, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A rooftop seafood-and-Mediterranean kitchen atop the Kleo Hotel in Kerobokan Kelod, from the team behind MAURI Seminyak -- handmade pasta, daily fresh seafood, and a Thursday all-you-can-eat oyster-and-pasta night.",
+  "best_for": "A rooftop dinner over Mediterranean seafood and pasta, shared or tasting-menu style.",
+  "not_for": "Lunch — current hours are dinner-only, Monday to Saturday.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$ · Taste of Bonito tasting menu 450K++/person (min 2 people)",
+   "hours_visible": "Mo 12:00-23:00, Tu 12:00-23:00, We 12:00-23:00, Th 12:00-23:00, Fr 12:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bottega-italiana",
+  "name": "Bottega Italiana",
+  "district": "Canggu",
+  "where": "Canggu/Batu Bolong/Berawa",
+  "why_its_here": "Gourmet Italian home-cooking from the Zibiru group (running since 2015), making its own fresh pasta, bread, cheese and desserts. The Berawa location (\"Origano\") on Jl. Pantai Berawa runs all day.",
+  "best_for": "Relaxed all-day Italian for families and groups sharing pasta, or a casual dinner.",
+  "not_for": "Breakfast — the kitchen opens at 11am, last order 11:30pm.",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Fr 11:00-13:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "brother-gym",
+  "name": "Brother Gym",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A weights and machines gym at Jl. Raya Babakan No.14 in Canggu, open 6.30am-10pm daily, selling day passes as well as weekly, monthly and annual memberships. Personal training is sold by the session or in packs. An in-house counter serves juices, protein shakes, coffee and supplements by the scoop.",
+  "best_for": "A low-cost weights gym with day passes and an in-house juice and coffee bar.",
+  "not_for": "First visit adds a one-off 30K admin fee; locker key needs a 50K deposit.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Day pass 75K · 1 week 400K · 1 month 600K · 3 months 1,700K · 1 year 6,500K · One-off first-visit admin fee 30K · PT 250K per 60-min session · Towel 10K",
+   "hours_visible": "Mo-Su 06:30-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "brunch-club-pererenan",
+  "name": "Brunch Club Pererenan",
+  "district": "Canggu",
+  "where": "Pererenan / Pantai Pererenan",
+  "why_its_here": "An all-day, family-friendly cafe on Jl. Pantai Pererenan serving brunch, lunch and cocktails. It is the Pererenan branch of Brunch Club Bali, which also runs a Legian site and a Berawa site the group lists as reopening mid-2026. The signature is a stacked pancake the group calls Porncakes, sold in 14 flavours as a two- or three-stack.",
+  "best_for": "All-day brunch with friends or family; big sweet and savoury plates plus cocktails",
+  "not_for": "Brunch and lunch only; no dinner service listed",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "Porncakes 75-100K · Benedicts 70-245K · Burgers 95-285K · Coffee 30-50K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cafe-del-mar-bali",
+  "name": "Café del Mar Bali",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "The Bali site of the Café del Mar brand, a beachfront club on Jl. Subak Sari in Tibubeneng with an infinity pool, DJ sets and events. Its kitchen describes itself as premium casual dining drawn from the cuisines of the Mediterranean Basin, alongside signature desserts and cocktails. Open daily 11:00-20:00.",
+  "best_for": "Sunset drinks and a pool day with an Ibiza-style atmosphere; groups after the beach",
+  "not_for": "Closes 8pm daily; not a late-night venue",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "canggu-club-tennis-centre",
+  "name": "Canggu Club Tennis Centre",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Tennis centre at FINNS Recreation Club on Jl. Pantai Berawa, formerly the Canggu Club. Three indoor floodlit courts with a Flexipave surface, a pro shop, cafe and bar. Coaches, hitting partners and ball boys are on hand. Day passes and memberships are both open to the public.",
+  "best_for": "Tennis out of the sun on a floodlit court",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 00:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "canggu-yoga-centre-canggu",
+  "name": "Canggu Yoga Centre",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A yoga studio in Pererenan running Ashtanga, hot yoga and hot-pilates-style HIIT from early morning, with showers, a cafe and gear on-site. The published timetable shifts, so confirm the day's classes before turning up.",
+  "best_for": "An accessible morning practice — Ashtanga, hot yoga or hot pilates — in Pererenan.",
+  "not_for": "A fixed weekly timetable — confirm the day’s classes before going.",
+  "lint": [
+   "best_for:A4",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Fr 07:00-14:00, Sa-Su 07:30-14:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "chow-chow-bali",
+  "name": "Chow Chow Bali",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong Gg. Nyepi No.22, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Chow Chow Bali is a contemporary Asian-fusion restaurant in Batu Bolong — sushi rolls, bao buns, slow-cooked pork ribs, and poke bowls, open daily from late morning to midnight with cocktails and a kids menu.",
+  "best_for": "Asian-fusion sushi, bao, and poke bowls in Batu Bolong, lunch to late night.",
+  "not_for": "A silent dinner — cocktails and a lively alley-side scene carry into the night.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Poke bowl 90K · Margarita 50K",
+   "hours_visible": "Mo 11:00-23:59, Tu 11:00-23:59, We 11:00-23:59, Th 11:00-23:59, Fr 11:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "como-beach-club-canggu",
+  "name": "COMO Beach Club Canggu",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "The beach club and restaurant at COMO Uma Canggu, on the sand at Batu Mejan, running breakfast through to a 10pm dinner close with live music and DJ sets. It works from separate menus for the main kitchen, a seafood BBQ, the COMO Shambhala Kitchen and a Sunday family-style brunch billed at 680K per person.",
+  "best_for": "A polished sunset dinner or special occasion by the ocean; a leisurely Sunday brunch",
+  "not_for": "Reservations required for non-staying guests",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 150-610K · Small plates 60-190K · Sunday brunch 680K pp · +21% tax and service",
+   "hours_visible": "Mo 07:00-22:00, Tu 07:00-22:00, We 07:00-22:00, Th 07:00-22:00, Fr 07:00-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "como-uma-canggu-wellness-spa-canggu",
+  "name": "COMO Uma Canggu Wellness / Spa",
+  "district": "Canggu",
+  "where": "Echo Beach / Canggu",
+  "why_its_here": "The COMO Shambhala Retreat at COMO Uma Canggu, the resort's spa and wellness floor near Echo Beach, open 10am to 7pm. The treatment menu runs massages and body therapies alongside Sundari and Guinot facial lines, nail care, and privately booked yoga, Pilates, meditation and breathwork sessions.",
+  "best_for": "75-90 minute resort massages, Guinot and Sundari facials, private yoga and Pilates",
+  "not_for": "Appointment-based; open 10am-7pm only",
+  "lint": [
+   "best_for:A5",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "Massages IDR 450,000 (30 min) to 1,300,000 (90 min) · Facials 550,000-1,850,000 · Packages from 1,450,000 · +10% service +11% tax",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "copenhagen-cafe-berawa",
+  "name": "Copenhagen CAFE Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "A Nordic-inspired cafe and bakery built around a build-your-own feast - a board of small dishes ticked off a menu card - alongside smørrebrød, lunch bowls and house-baked pastries. Berawa is one of two cafe sites; the group also runs bakeries at Padonan, Pererenan and Seseh. Feast service runs 6am-6pm, with Berawa lunch from 12pm.",
+  "best_for": "Daytime brunch and coffee; build-your-own Nordic breakfast boards from 6am",
+  "not_for": "Laptop-free cafe; food service ends 6pm, no dinner",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "crate-cafe",
+  "name": "Crate Cafe",
+  "district": "Canggu",
+  "where": "Batu Bolong",
+  "why_its_here": "A high-energy, industrial-style all-day breakfast institution on Jl. Batu Bolong, known for big smoothie bowls and a rotating menu chalked on the wall behind the counter.",
+  "best_for": "A loud, affordable all-day brunch on Batu Bolong, busiest straight after a surf.",
+  "not_for": "A quiet sit-down or laptop work — it's a crowded, high-turnover room.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "institution",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 07:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cutiepai-nails",
+  "name": "CutiePai Nails",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "CutiePai Nails is a cosy home-based nail salon in Pererenan, minutes from central Canggu, specialising in BIAB, gel nails, extensions, manicures, pedicures and custom hand-painted nail art, with sanitised tools between clients. Open daily 9am-7pm, appointment-based, with a mobile/home-visit option too.",
+  "best_for": "Travellers wanting a relaxed, appointment-based nail session (BIAB/gel/nail art) in a small private Pererenan setting, open seven days.",
+  "not_for": "A walk-in visit — it's appointment-based, home-studio seating only.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "cosy",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "Gel manicure 200K · Gel pedicure 350K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "dandelion",
+  "name": "Casa Tua",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong No.10, Canggu",
+  "why_its_here": "A long-running (est. 2014) Indonesian restaurant on Batu Bolong serving Balinese family-recipe dishes in a romantic, plant-filled setting split between open-air tables and cosy indoor nooks -- known for its free-roaming resident rabbits. Previously traded as Dandelion; same venue, team and menu, now under the Casa Tua name.",
+  "best_for": "Balinese home cooking in a plant-filled room on Batu Bolong, with resident rabbits.",
+  "not_for": "Free-running rabbits share the dining area.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "cosy",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-seni-yoga",
+  "name": "Desa Seni Yoga",
+  "district": "Canggu",
+  "where": "Berawa boundary / verify pin",
+  "why_its_here": "The yoga programme at Desa Seni, a village-style resort near Berawa, running daily classes in an open-air wooden shala that has long been one of Canggu's most atmospheric places to practise.",
+  "best_for": "Travellers who want a serene, well-taught drop-in class in a garden setting, ideally paired with the resort's organic café.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "serene",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "deus-ex-machina",
+  "name": "Deus Ex Machina",
+  "district": "Canggu",
+  "where": "Canggu/Batu Bolong/Berawa",
+  "why_its_here": "The flagship Deus \"Temple of Enthusiasm\" on Jl. Pantai Batu Mejan, combining a Pan-Asian cafe and bar with a motorcycle workshop, retail store, gallery and live-music venue, open from morning coffee until late.",
+  "best_for": "Coffee and brunch by day, live music and a crowd by night, on Batu Mejan.",
+  "not_for": "A quiet or intimate dinner — Tuesdays and Sundays run live-music nights.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "downtown-kedungu-restaurant-and-bar",
+  "name": "Downtown Kedungu - Restaurant & Bar",
+  "district": "Canggu",
+  "where": "Jl. Pantai Kedungu, Kedungu, Belalang, Kec. Kediri, Kabupaten Tabanan, Bali 82121",
+  "why_its_here": "Downtown Kedungu is a Latin American restaurant and bar at Kedungu beach in Tabanan, about twenty minutes up the coast from Canggu, running a different themed special every day of the week.",
+  "best_for": "Latin American plates and a daily themed special, 20 minutes up the coast from Canggu.",
+  "not_for": "A spontaneous Sunday — the roast sells out and the site asks you to book ahead.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Tuesday tacos 30K · Fajita + margarita 200K",
+   "hours_visible": "Mo 08:00-23:00, Tu 08:00-23:00, We 08:00-23:00, Th 08:00-23:00, Fr 08:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "e-a-r-t-h-by-ulaman",
+  "name": "E.A.R.T.H Restaurant & Lounge",
+  "district": "Canggu",
+  "where": "Ulaman Road, Buwit, Kec. Kediri, Kabupaten Tabanan, Bali 82121",
+  "why_its_here": "E.A.R.T.H is the restaurant and lounge of the Ulaman Eco Luxury Resort in Buwit, Tabanan, built in bamboo among jungle, river and waterfalls. Chef Alvin's kitchen works Balinese and Nusantara cooking alongside Italian, Thai and international dishes, with set experiences from a chef's selection to a waterfall-deck dinner.",
+  "best_for": "Balinese and Nusantara plates inside the Ulaman eco resort, in a jungle setting.",
+  "not_for": "Families with young children — the resort advises against under-12s.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "À la carte 65-200K · Chef's selection from 350K/person · plus 21% tax and service",
+   "hours_visible": "Mo 07:00-23:00, Tu 07:00-23:00, We 07:00-23:00, Th 07:00-23:00, Fr 07:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ecosfera-yoga-canggu-canggu",
+  "name": "Ecosfera Yoga Canggu",
+  "district": "Canggu",
+  "where": "Batu Mejan / Echo Beach",
+  "why_its_here": "The yoga programme at Ecosfera near Echo Beach, running classes in an eco-styled shala by the water.",
+  "best_for": "Practitioners who want a laid-back class near Batu Mejan / Echo Beach.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "laid-back"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ele-restaurant-bar-and-terrace",
+  "name": "ELE Restaurant, Bar and Terrace",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong, 12, Canggu 80361",
+  "why_its_here": "ELE is an all-day restaurant, bar and terrace on Jl. Pantai Batu Bolong in Canggu, serving breakfast through late dinner. The venue publishes no website — only a link page — so our record of it is thinner than most: the format and the address are confirmed, the menu is not.",
+  "best_for": "An all-day room on Batu Bolong — breakfast through late dinner.",
+  "not_for": "Booking ahead online — reservations go through WhatsApp only.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 08:00-23:59, Tu 08:00-23:59, We 08:00-23:59, Th 08:00-23:59, Fr 08:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "espace-spa-canggu-canggu",
+  "name": "Espace Spa Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A day spa on Jl. Pura Batu Mejan near Batu Bolong, with a published price list covering aromatherapy massage, body scrubs and wraps, facials, cream bath, manicure and pedicure, and sugaring hair removal. It also runs private massage classes and sells massage tables and chairs.",
+  "best_for": "Fixed-price massage, scrub, facial and nails menu bookable online in Batu Bolong.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Massages 299-715K · Facials 275-356K · Scrubs and wraps 546-566K · Packages 475-767K",
+   "hours_visible": "Mo-Su 10:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "estetica-belle",
+  "name": "Estetica Belle",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A beauty studio at Jl. Pantai Pererenan No.69 covering lashes and brows, nails, waxing, permanent make-up, skin needling, laser tattoo removal and clinical facials using Dermalogica, Doctor Babor and Mesoestetic products. Its skin-treatment price list is published on its own site.",
+  "best_for": "Lashes, brows, nails, waxing and clinical facials in one Pererenan studio.",
+  "not_for": "Closes 6pm daily; treatments are booked by appointment.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Dermalogica facials 660-2,230K · Doctor Babor facials 1,130K · Mesopeel peels 580K · Lash lift 400K · Gel pedicure 410K · Skin-treatment prices exclude 6.5% service charge",
+   "hours_visible": "Mo-Su 10:00-18:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "f45-training-canggu-canggu",
+  "name": "F45 Training Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The Canggu studio of the global F45 franchise, at Jl. Pantai Batu Bolong No.83, running 45-minute classes that combine HIIT, circuit and functional training. Its ClassPass schedule rotates cardio on Mondays and Wednesdays, resistance on Tuesdays, Thursdays and Sundays, and hybrid sessions on Fridays and Saturdays.",
+  "best_for": "Coached 45-minute HIIT and circuit classes on a fixed daily timetable.",
+  "not_for": "Fixed class timetable; sessions must be booked in advance.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "face-therapy-spa-pererenan",
+  "name": "Face Therapy Spa Pererenan",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A face-massage spa on Jl. Tukad Pingai in Pererenan, open 8am to 10pm daily, with a menu of gua sha, buccal sculpting, lymphatic and jetlag-recovery face treatments. Its Fresha listing marks it woman-owned, kid-friendly and pet-friendly, and names a second branch in Umalas.",
+  "best_for": "Face massage specialists: gua sha, buccal sculpting and lymphatic work.",
+  "not_for": "Appointment-based; treatments run 60-120 minutes.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Face treatments 690K (60 min) to 1,495K (120 min) · Two-person session 1,380K",
+   "hours_visible": "Mo-Su 08:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "finns-beach-club",
+  "name": "FINNS Beach Club",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa near Finns",
+  "why_its_here": "One of Canggu's biggest and best-known day clubs, on a 170m stretch of Berawa beachfront with three pools (including swim-up bars), many bars and kitchens, and a daily lineup of DJs and live vocalists. The high-energy, pool-party end of the Canggu beach-club spectrum.",
+  "best_for": "A lively pool day and sunset party with a group; big-group high-energy days out",
+  "not_for": "Under-16s — entry is restricted to over-16s.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Free entry, no minimum spend · Party bed from 1.5M · Party super bed from 2.5M",
+   "hours_visible": "Mo-Su 11:00-24:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "finns-recreation-club-finns-lifestyle-village",
+  "name": "FINNS Recreation Club / FINNS Lifestyle Village",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "FINNS Recreation Club is the large membership sport, leisure and wellness club at FINNS Lifestyle Village in Berawa, combining a full gym, Olympic-sized pool, tennis and padel courts, a kids' club, recovery facilities (ice baths, infrared sauna, compression therapy) and a full-service Balinese spa under one roof.",
+  "best_for": "Families and active travellers on a longer Canggu/Berawa stay who want gym, pool, courts, kids' club and spa/recovery in one place; day-pass or membership visitors.",
+  "not_for": "Travellers wanting a quiet, intimate boutique-spa atmosphere rather than a big multi-facility club.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "fitness-plus-canggu",
+  "name": "Fitness Plus Canggu",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A 24-hour gym at Jl. Tanah Barak No.19 in Canggu, part of the Indonesian Fitness Plus chain. Its branch site lists 100+ machines, a sauna, lockers, showers, towels and parking, and eight group programmes including Les Mills BodyPump, RPM, BodyCombat and Ceremony, Positive Spin, Mat Pilates, yoga and Zumba.",
+  "best_for": "24-hour gym floor with Les Mills classes, on Jl. Tanah Barak in Canggu.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "flex-gym-bali",
+  "name": "Flex Gym Bali",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A single-location gym on Gang Heliconia off Jl. Raya Canggu. The floor is split between strength equipment - squat racks and machines - and a cardio area with treadmills, rowers and air bikes, alongside lockers, changing rooms and parking. Passes run from a single day to twelve months.",
+  "best_for": "Drop-in strength training on a 150K day pass; squat racks, 06:30 weekday opens.",
+  "not_for": "Weekend hours are shorter: closes 18:00 Saturday and Sunday.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Day pass 150K · 7 days 450K · 14 days 650K · 1 month 850K · 12 months 4,990K · Personal training from 450K",
+   "hours_visible": "Mo-Fr 06:30-21:00, Sa-Su 07:00-18:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "genius-bistro",
+  "name": "Genius Bistro",
+  "district": "Canggu",
+  "where": "Jl. Sempol, Pererenan, Canggu, Kabupaten Badung, Bali 80351",
+  "why_its_here": "A French, Mediterranean and steakhouse bistro on Jl. Sempol, set among rice fields north of central Canggu, with indoor and al fresco seating for about 50. The kitchen leans French: duck served at the table, braised lamb shank, duck a l'orange. Reservations run through Chope.",
+  "best_for": "Sit-down French cooking and steak in the rice fields north of central Canggu.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set among"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 08:00-23:00, Tu 08:00-23:00, We 08:00-23:00, Th 08:00-23:00, Fr 08:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "glo-day-spa-salon-canggu-canggu",
+  "name": "Glo Day Spa & Salon Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "One of five Bali branches of Glo Salon & Beauty, formerly Glo Day Spa & Salon, at Jl. Subak Sari 90 opposite Popular supermarket. The Canggu salon covers hair, facials, nails, waxing and threading, lash and brow, spray tanning and makeup, and opens 10am to 8pm.",
+  "best_for": "Hair, nails, waxing and facials in one Canggu salon, open 10am to 8pm.",
+  "not_for": "Opens 10am, closes 8pm - no early-morning or late-evening slots.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 10:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "goldust-beauty-facials-canggu",
+  "name": "Goldust Beauty / Facials",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The facial-and-beauty side of Goldust, a polished Canggu day spa known for results-focused treatments like its Express Lifting Facial.",
+  "best_for": "Anyone after a serious facial or skin treatment rather than a quick massage.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "goldust-spa-canggu",
+  "name": "Goldust Spa",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A day spa on Gg. Nyepi off Jl. Pantai Batu Bolong, laid out as one venue with massage suites, a poolside lounge, a nail lounge and a couple's room. The list runs from 30-minute poolside massages to 24k Gold facials and two-and-a-half-hour couple's packages, with sports, lymphatic drainage and Madero body sculpting among the named bodywork.",
+  "best_for": "Those wanting therapeutic, sports-oriented bodywork rather than a basic massage.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "Massages 280-650K (60min), 380-950K (90min) · Facials 350K-1,750K · Luxury manicure 300K · Spray tan 400K · All exclude 5% service + 15% government tax",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gravity-stretching-canggu",
+  "name": "Gravity Stretching Canggu",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A stretching studio built on suspended ropes: the exercises are done in relaxation rather than tension, so gravity takes the load off the muscles. The Bali operation runs studios in Canggu and Ubud, offering group classes, private Gravity Therapy sessions and a children's class.",
+  "best_for": "Rope-suspension stretching for stiff backs and hips; drop-in group or private",
+  "not_for": "Appointment-based: classes booked through the studio app or WhatsApp",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "Group class 300K · 6-class loyalty card 1,500K · Private session 1,200K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "green-spot-cafe",
+  "name": "Green Spot Cafe",
+  "district": "Canggu",
+  "where": "Echo Beach Villa and Apartment, Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "The cafe attached to Ecosfera Hotel on Jl. Batu Mejan at Echo Beach, serving an all-day international menu of breakfasts, burgers, bowls and grills. Its own menu page lists breakfast from 35K and lunch mains up to 115K, and runs fixed weekly deals including a Wednesday burger-and-drink and Sunday two-for-one smoothies.",
+  "best_for": "Big low-priced breakfasts and burgers at Echo Beach; all-day kitchen to 11pm",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Breakfast 35-70K · Lunch mains 60-115K · Menu prints figures in thousands of IDR, with no tax or service note",
+   "hours_visible": "Mo 07:00-23:00, Tu 07:00-23:00, We 07:00-23:00, Th 07:00-23:00, Fr 07:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "guan-yin-yoga-canggu",
+  "name": "Guan Yin Yoga Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A yoga shala on the upper floor of Hotel Tugu Bali, on Jl. Pantai Batu Bolong at Canggu Beach. The published timetable runs Vinyasa, Yin, Hatha Flow, Ashtanga, Kundalini, Qigong, gentle Pilates and guided meditation, and classes are open to non-guests on a walk-in basis.",
+  "best_for": "Small drop-in yoga upstairs at Hotel Tugu, Batu Bolong; walk-ins welcome",
+  "not_for": "Timetabled classes only; check the weekly schedule before turning up",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Walk-in class 150K · 10-day pass 1,350K · Private class 750K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "home-by-chef-wayan",
+  "name": "HOME by Chef Wayan",
+  "district": "Canggu",
+  "where": "Jl. Pantai Pererenan No. 92, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "why_its_here": "Modern Balinese cooking from Chef Wayan Kresna Yasa, on Jl. Pantai Pererenan near the beach, reworking family and island recipes with contemporary technique. The menu marks vegan dishes across every course, alongside sate, seafood and traditional mains.",
+  "best_for": "A considered Balinese dinner; a table mixing meat, seafood and vegan diners",
+  "not_for": "The restaurant asks you to book a table in advance",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 95-180K · Sate 25-85K per stick · Five-course set 395K · Excl. 10% tax and 5% service",
+   "hours_visible": "Mo-Su 12:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "indigo",
+  "name": "Indigo",
+  "district": "Canggu",
+  "where": "Jl. Pantai Berawa No.7A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Indigo has been serving Japanese food in Berawa since 2017, under Kyoto-trained chef Morita Shigehiko — a sushi and sashimi selection alongside yakimono cooked over charcoal. The room is small and deliberately plain: shoji-style doors, timeworn teak, indigo denim cushions.",
+  "best_for": "Japanese sushi and charcoal-grilled yakimono in a small, quiet Berawa room.",
+  "not_for": "An afternoon meal — closed 15:00-18:00 between services, and all day Sunday.",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 12:00-15:00, Mo 18:00-22:00, Tu 12:00-15:00, Tu 18:00-22:00, We 12:00-15:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "isla-by-earth-island",
+  "name": "ISLA by Earth Island",
+  "district": "Canggu",
+  "where": "Canggu / Canggu shortcut / Subak Canggu",
+  "why_its_here": "The all-day cafe attached to Earth Island's surf shop at Jl. Subak Canggu No.77, on the Canggu shortcut. Its own menu runs from breakfast and coffee through seafood snacks, grilled mains and cocktails. The site also describes it as a space for events, music, art and film.",
+  "best_for": "Post-surf breakfast and seafood snacks at the Earth Island surf shop.",
+  "not_for": "Closes 7pm Sun-Thu; only Fri and Sat run to 9pm.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 90-250K - Snacks 50-140K - Coffee 30-40K - plus 10% tax and 5% service",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jet-black-ginger-canggu-canggu",
+  "name": "Jet Black Ginger Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A Canggu hair salon specialising in cut and colour for all hair types, with online appointment booking.",
+  "best_for": "Travellers who want a proper cut or colour by stylists used to international hair.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ju-bali",
+  "name": "Ju Bali",
+  "district": "Canggu",
+  "where": "80361, Jl. Bumbak Dauh No.8, Kerobokan, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Casual restaurant in Umalas with a jacuzzi club. International comfort food with a Balinese turn: pasta, burgers and wood-fired pizza. Vegetarian and vegan plates include tandoori cauliflower and mushroom tagliatelle. 200 seats, a kids menu and parking for cars and scooters.",
+  "best_for": "Families and groups who need space and parking",
+  "not_for": "A quiet dinner for two - it seats 200 as a family venue",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 08:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jungle-padel-canggu-canggu",
+  "name": "Jungle Padel Canggu",
+  "district": "Canggu",
+  "where": "Canggu shortcut / verify branch",
+  "why_its_here": "Canggu padel courts open early until late, offering court hire and social games of the fast-growing racket sport.",
+  "best_for": "Groups and couples who want a fun, active session on court rather than a gym.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jungle-padel-canggu-shortcut",
+  "name": "Jungle Padel Canggu Shortcut",
+  "district": "Canggu",
+  "where": "Canggu / Canggu shortcut",
+  "why_its_here": "A dedicated padel racket-sport club on the Canggu shortcut with panoramic glass-walled courts set in tropical greenery. Courts are booked by the hour through the Jungle Padel app, with racket hire, coaching, a pro shop, changing rooms and an on-site café.",
+  "best_for": "active travellers who want a padel game between beach sessions; groups of four booking a court together; players needing rental rackets or a lesson",
+  "not_for": "total downtime or a spa-style wellness stop; anyone without a pre-booked court at peak times",
+  "lint": [],
+  "stock_phrases": [
+   "set in",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · court ~350–450K/hr (racket hire ~50K)",
+   "hours_visible": "Mo-Su 07:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kecambah-restaurant-at-lalasa-villas",
+  "name": "Kecambah Restaurant at Lalasa Villas",
+  "district": "Canggu",
+  "where": "Jl. Pemelisan Agung Pantai Berawa No.12 Canggu Kuta, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Kecambah is the street-front restaurant of Lalasa Villas on Pantai Berawa — a casual all-day room serving breakfast through late, with an Indonesian emphasis alongside Western dishes, plus a Balinese rijsttafel evening and a booked-ahead afternoon tea.",
+  "best_for": "An all-day, street-front breakfast-to-late menu at Lalasa Villas in Berawa.",
+  "not_for": "Same-day afternoon tea — the villa asks for a day's notice on that menu.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kopiten",
+  "name": "Kopiten",
+  "district": "Canggu",
+  "where": "Jl. Raya Tumbakbayuh - Pererenan, Tumbak Bayuh, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "why_its_here": "A small casual coffee shop in the Tumbakbayuh-Pererenan part of Canggu, open 07:30-20:00, serving espresso drinks alongside a short toast-based menu.",
+  "best_for": "Remote workers and long-stay visitors who want a quiet, low-key coffee stop away from the busier Canggu cafes.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "la-brisa-bali",
+  "name": "La Brisa Bali",
+  "district": "Canggu",
+  "where": "Canggu / Echo Beach",
+  "why_its_here": "A rustic, sustainability-minded beach club on the foreshore of Echo Beach, hand-built from reclaimed wood salvaged from old Indonesian fishing boats, with a saltwater pool, a raw/oyster bar and wood-fired Mediterranean food. Best known for its driftwood aesthetic and long, open sunset views over the surf break.",
+  "best_for": "Sunset drinks and a laid-back beach day with friends; a relaxed shared meal by the water",
+  "not_for": "Daybeds and cabanas carry a 1M-3.5M++ minimum spend after 4pm.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "laid-back",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "Pizzas 150-215K · Large plates 170-285K · Cocktails 150K · plus 8% service, 10% tax",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "loop-cafe",
+  "name": "LOOP cafe",
+  "district": "Canggu",
+  "where": "Jl. Dalem Lingsir No.12, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+  "why_its_here": "High-protein breakfast cafe in Pererenan. The menu is built on eggs, salmon, chicken, cottage cheese, Greek yoghurt, oats and sourdough. Six protein shakes for after training. Specialty coffee, smoothie bowls, wraps and vegan options.",
+  "best_for": "Breakfast before the gym or after a surf",
+  "not_for": "Dinner - the kitchen closes at 18:00",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 06:00-18:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "lowcal-cheatery-and-bar",
+  "name": "LowCal, Cheatery and Bar",
+  "district": "Canggu",
+  "where": "Jalan Pantai Batu Bolong, No.94, Canggu, Bali 80361",
+  "why_its_here": "LowCal builds its menu around low-calorie, paleolithic and ketogenic options. The venue trains and employs deaf team members across kitchen, bar and service roles. Dinner choices include chicken, pork, fish and vegetarian dishes with low-carb sides.",
+  "best_for": "Health-led dining that includes low-carb choices and an inclusive service team.",
+  "not_for": "Diners seeking a traditional Balinese warung meal.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "lulu-bistrot",
+  "name": "Lulu Bistrot",
+  "district": "Canggu",
+  "where": "Canggu / Batu Bolong",
+  "why_its_here": "A French bistro on Jl. Pantai Batu Bolong serving classic bistro cooking made with local, seasonal ingredients in a relaxed, grand-cafe-inspired room and bar. It opens in the evenings with an early happy hour.",
+  "best_for": "Couples and small groups wanting an unhurried French dinner and drinks in the evening.",
+  "not_for": "Not a quick warung stop or a budget meal.",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "luma",
+  "name": "Luma",
+  "district": "Canggu",
+  "where": "Canggu / Batu Bolong",
+  "why_its_here": "An intimate, 30-seat open-air spot on Batu Bolong doing rustic Mediterranean small plates — Spanish- and Italian-style grazing — from chefs Cameron Emirali (10 Greek Street, London) and Kieran Morland (Merah Putih, Sangsaka). Draught beer, cocktails on tap and vinyl DJs on weekends.",
+  "best_for": "Golden-hour drinks and small plates; date night; a lively pre-dinner stop that becomes the evening.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "lyma-beach",
+  "name": "Lyma Beach",
+  "district": "Canggu",
+  "where": "Pererenan / Mengwi / Pantai Lima / Seseh-Cemagi route",
+  "why_its_here": "A beachfront bar and restaurant on Pantai Lima where the river meets the ocean, known for sunset views, cocktails and live entertainment through the week.",
+  "best_for": "Sunset drinks by the beach, group get-togethers, and a relaxed beachfront meal with live music.",
+  "not_for": "A quiet work session or an intimate fine-dining evening.",
+  "lint": [],
+  "stock_phrases": [
+   "known for",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "manhattan-cocktail-hookah-kitchen",
+  "name": "Manhattan Cocktail Hookah Kitchen",
+  "district": "Canggu",
+  "where": "Jalan Pantai Batu Bolong No.58, Canggu, Bali 80361",
+  "why_its_here": "Manhattan is a cocktail bar with shisha service and a kitchen on Jl. Pantai Batu Bolong. It publishes no website — only a link page — and its menu is not readable online, so what we can confirm is the format, the address and that booking runs through WhatsApp.",
+  "best_for": "Cocktails and shisha with a kitchen attached, on Batu Bolong.",
+  "not_for": "A smoke-free room — hookah is part of the format, by the venue's own name.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 10:00-23:59, Tu 10:00-23:59, We 10:00-23:59, Th 10:00-23:59, Fr 10:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mason",
+  "name": "Mason",
+  "district": "Canggu",
+  "where": "Batu Bolong",
+  "why_its_here": "A moody, minimalist grill on Batu Bolong (trading as MASONRY.) built around wood-fired, Mediterranean-leaning cooking, in-house charcuterie and a serious wine and cocktail list. It's one of Canggu's go-to rooms for a proper sit-down dinner.",
+  "best_for": "Wood-fired grill and charcuterie with a serious wine list, from midday to late.",
+  "not_for": "The Chop House room — it runs dinner only, Tuesday to Saturday.",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "go-to"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mia-asian-modern-inspired-restaurant-and-bar",
+  "name": "MiA - Asian Modern-Inspired Restaurant & Bar",
+  "district": "Canggu",
+  "where": "Jl. Raya Semat, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "MiA is a modern Asian restaurant and bar off Jl. Raya Semat, built around a sharing format — sushi rolls, raw plates, curries, wok and grill — running from evening into the early hours at weekends.",
+  "best_for": "Modern Asian sharing plates and sushi, dinner into late, off Jl. Raya Semat.",
+  "not_for": "A quiet dinner — it runs to midnight, and to 1am at weekends.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Sharing plates 135-265K · Edamame 65K · Wagyu ribeye 1,095K",
+   "hours_visible": "Mo 12:00-23:59, Tu 12:00-23:59, We 12:00-23:59, Th 12:00-23:59, Fr 18:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "miel-specialty-coffee-canggu",
+  "name": "MIEL Specialty Coffee Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Batu Bolong",
+  "why_its_here": "A serious specialty-coffee cafe on Batu Bolong with a dedicated brew bar (V60, pour-over, cold brew) built on quality beans, set in a bright, plant-filled, high-ceilinged space. Spacious tables, quiet room and fast wifi make it a genuine work spot as much as a coffee stop.",
+  "best_for": "Coffee-focused solo travellers and remote workers who want a proper filter coffee and a calm table to sit and work for a few hours; also an easy morning brunch.",
+  "not_for": "Best in the daytime rather than as an evening or late-night hangout.",
+  "lint": [
+   "best_for:A10",
+   "best_for:A7",
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "milk-and-madu-berawa",
+  "name": "Milk & Madu Berawa",
+  "district": "Canggu",
+  "where": "Berawa / Tegal Gundul",
+  "why_its_here": "The Berawa flagship of Milk & Madu, a long-running all-day Canggu cafe brand doing hearty brunch, lava-stone pizzas and family-friendly dinners. A dependable, crowd-pleasing all-rounder.",
+  "best_for": "Families and groups; a big post-surf brunch; an easy all-day meal that suits fussy and hungry tables alike.",
+  "not_for": "Couples seeking an intimate, quiet dining atmosphere.",
+  "lint": [],
+  "stock_phrases": [
+   "atmosphere"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "milu-by-nook",
+  "name": "Milu by Nook",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "A long-standing Berawa restaurant set in a garden overlooking a small rice paddy on Jl. Pantai Berawa, serving Balinese-Western dishes and coffee from morning until night.",
+  "best_for": "A calm garden brunch or dinner over a Berawa rice paddy.",
+  "not_for": "A budget breakfast — mains run 100-250K.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mission-flow-studio",
+  "name": "Mission Flow Studio",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "Mission Flow Studio is a yoga and conscious-movement studio in Pererenan, set in a light-filled space with panoramic windows minutes from the sea, offering Vinyasa flow, Yin and Restorative classes with a rotating roster of experienced teachers.",
+  "best_for": "Travellers and locals wanting varied yoga classes (strong Vinyasa to gentle Yin/Restorative) in a serene Pererenan studio; drop-ins and regular practitioners.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "serene",
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "moana-fish-eatery",
+  "name": "Moana Fish Eatery",
+  "district": "Canggu",
+  "where": "Batu Bolong",
+  "why_its_here": "A Tahitian-Polynesian fish eatery on Jl. Pantai Batu Bolong serving fresh seafood — poke bowls, sashimi, carpaccio, tartare and BBQ fish — in a laid-back setting, open from morning until late.",
+  "best_for": "Tahitian-Polynesian raw fish and poke, casual, from morning to late.",
+  "not_for": "A red-meat dinner — the kitchen is built around fish.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "laid-back"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 09:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mosto-berawa",
+  "name": "Mosto Berawa",
+  "district": "Canggu",
+  "where": "Berawa / Pantai Berawa",
+  "why_its_here": "An intimate neo-bistro and natural wine bar in the heart of Berawa, billed as Indonesia's first natural wine bar, with a compact room of around 60 covers and a curated list of 70+ natural-wine labels from small producers alongside ingredient-focused food. An evenings-only spot for food and wine lovers.",
+  "best_for": "A date or intimate dinner centred on natural wine; a small group of wine lovers",
+  "not_for": "Large groups or anyone after a big beachfront party scene",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "curated",
+   "spot for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "motion-cafe",
+  "name": "Motion Cafe",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "A fitness-focused cafe in the Berawa area from Motion Fitness Foods, built around healthy, customizable meals, meal prep and macro-friendly plates.",
+  "best_for": "Gym-goers and fitness-minded travellers wanting clean, protein-forward food and healthy breakfasts.",
+  "not_for": "Diners looking for a rich, indulgent or traditional dining experience.",
+  "lint": [],
+  "stock_phrases": [
+   "experience",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:30-12:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "murmur-restaurant-lounge",
+  "name": "Murmur Restaurant Lounge",
+  "district": "Canggu",
+  "where": "Jl. Anggrek No.2, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Murmur is a two-storey all-day restaurant and lounge on Jl. Anggrek with over a hundred seats, a VIP room for eleven, and tables looking over the rice fields at sunset. Breakfast runs to 4pm, then the kitchen switches to the dinner menu and the room stays open to 2am.",
+  "best_for": "A two-floor all-day room over the rice fields — breakfast to 4pm, then dinner.",
+  "not_for": "Breakfast after 4pm — the kitchen switches to the dinner menu then.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Freelancer's lunch: bowl + drink 299K (4-7pm)",
+   "hours_visible": "Mo 08:00-23:59, Tu 08:00-23:59, We 08:00-23:59, Th 08:00-23:59, Fr 08:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "nail-lesss-canggu",
+  "name": "Nail Lesss Canggu",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "Nail Lesss is a nail salon on Jalan Pantai Pererenan offering manicures, gel and acrylic extensions and classic eyelash extensions, known for a clean space and detailed, unhurried work.",
+  "best_for": "Travellers wanting careful gel/acrylic manicures or lash extensions in Pererenan by appointment.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "neighbourhood-food-berawa",
+  "name": "Neighbourhood Food Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa near Finns",
+  "why_its_here": "A neighbourhood cafe and coffee shop in the heart of Berawa on Jl. Pantai Berawa, serving slow breakfasts, laid-back snacks and simple wholesome dishes made from local produce; daytime hours.",
+  "best_for": "A relaxed brunch, coffee and healthy casual daytime eating.",
+  "not_for": "Not an evening dinner venue - the Berawa branch closes at 6pm.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "laid-back",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "neighbourhood-food-seseh",
+  "name": "Neighbourhood Food Seseh",
+  "district": "Canggu",
+  "where": "Seseh / Cemagi / Mengwi / Seseh",
+  "why_its_here": "A local eatery and coffee shop set among the tranquil Seseh fields, serving slow breakfasts, laid-back afternoon snacks and weekend dinners with fresh, simple dishes from local produce.",
+  "best_for": "A relaxed breakfast or brunch, an easy weekend dinner, and calm coffee stops away from the crowds.",
+  "not_for": "A high-energy party or beach-club atmosphere.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "laid-back",
+   "relaxed",
+   "set among",
+   "tranquil"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "nirvana-strength-tibubeneng",
+  "name": "Nirvana Strength Tibubeneng",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Wellness club on Jl. Pantai Berawa with more than 100 classes a week: strength, yoga, pilates, mobility, breathwork and sound. Recovery runs to ice baths, saunas, steam rooms, hot tubs and pools. A day pass covers 20+ classes and the recovery spa.",
+  "best_for": "A day pass that covers training and recovery",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 06:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "nude-berawa",
+  "name": "NÜDE Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "A popular healthy cafe at a busy Berawa junction on Jl. Pantai Berawa, serving wholesome bowls, salads, wraps, smoothies and coffee from breakfast to evening; part of a small Bali group.",
+  "best_for": "A healthy brunch or casual all-day meal - good for digital nomads and families.",
+  "not_for": "A quiet, tucked-away table — it sits on a busy Berawa junction.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "tucked"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 07:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "obsidian-gym-bali-canggu",
+  "name": "Obsidian Gym Bali",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A premium, design-led Canggu gym with high-end equipment and recovery facilities, open 6am–10pm daily.",
+  "best_for": "Serious lifters who want top-tier kit and don't mind a premium day pass (449k).",
+  "not_for": "",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "only-nails-pererenan",
+  "name": "Only Nails Pererenan",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "Only Nails is a nail salon on Jl. Raya Tiyingtutul in Pererenan specialising in the Russian manicure technique and long-wear gel systems, with an option for 4-hands manicure-and-pedicure service in a calm, retreat-like space.",
+  "best_for": "Travellers wanting a precise Russian manicure or long-lasting gel work, including quick 4-hands mani-pedi sessions, in Pererenan.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 10:00-19:30",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "paed-thai-canggu",
+  "name": "Paed Thai — Canggu",
+  "district": "Canggu",
+  "where": "Jl. Canggu Padang Linjong No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Thai restaurant on Jl. Canggu Padang Linjong, part of the Wonderspace group. Tom yum goong, pad thai, green curry and mango sticky rice. Indoor and outdoor seating facing rice fields.",
+  "best_for": "Thai food at the end of a Canggu day",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 11:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pizza-fabbrica",
+  "name": "Pizza Fabbrica",
+  "district": "Canggu",
+  "where": "Canggu/Batu Bolong/Berawa",
+  "why_its_here": "A Neapolitan pizzeria on Jl. Batu Mejan turning out wood-fired, thin and light pizzas plus fresh pasta in an industrial-chic space, with a second branch in Umalas.",
+  "best_for": "A casual pizza dinner with friends or family, and groups sharing.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "chic"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "poule-de-luxe-bali",
+  "name": "Poule de Luxe Bali",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "French patisserie and bakery on Jl. Batu Belig serving authentic pastries; best known for its cream puffs, plus macarons, tarts and viennoiserie. Take-away/eat-in, and supplies desserts to villas, parties and restaurants.",
+  "best_for": "a pastry or coffee stop and sweet take-away; celebration/letter cakes and gifts; grab-and-go breakfast pastries",
+  "not_for": "anyone wanting a full sit-down meal or savoury dinner",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · pastries ~25–45K each",
+   "hours_visible": "Mo-Su 07:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "revolver-canggu",
+  "name": "Revolver Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Central Canggu / shortcut approach",
+  "why_its_here": "The Canggu outpost of Revolver, a homegrown Bali coffee brand (est. 2012) that roasts its own beans. An all-day cafe on Jl. Nelayan doing serious espresso, full brunch and heavier evening plates, turning bar-ish after dark.",
+  "best_for": "Coffee-led brunch after surf; a laptop-friendly morning; an easy all-day sit-down.",
+  "not_for": "A calm evening meal -- it turns bar-ish after dark.",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rise-and-shine-cafe",
+  "name": "Rise and Shine Cafe",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "A long-running, colourful all-day breakfast and lunch cafe on Jl. Padang Linjong in Canggu (open since 2017) serving fresh, health-conscious comfort food, coffee and juices in an open-air, al-fresco setting.",
+  "best_for": "A bright, casual morning-after-the-beach breakfast or brunch, good for solo travellers, couples and small groups wanting healthy plates.",
+  "not_for": "A daytime breakfast-and-lunch spot rather than an evening dinner or drinks venue.",
+  "lint": [
+   "best_for:A5",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rite-bali",
+  "name": "Rite Bali",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A wellness club on Jl. Pantai Pererenan combining a gym, yoga classes and a recovery zone with a sauna, a cold plunge held at 7-9°C, a jacuzzi and a steam room. Recovery and gym access are bundled on a day pass (500k).",
+  "best_for": "Active travellers and athletes who want training, yoga and contrast recovery in one Pererenan spot.",
+  "not_for": "Anyone looking for a traditional pampering spa rather than an active recovery and fitness space.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rite-bali-recovery-canggu",
+  "name": "RITE Bali Recovery",
+  "district": "Canggu",
+  "where": "Pererenan",
+  "why_its_here": "The recovery-and-spa side of RITE Bali in Pererenan — sauna, ice bath and bodywork bundled with gym access on a day pass (500k).",
+  "best_for": "Fitness travellers who want training plus contrast recovery in one Pererenan spot.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rite-bali-yoga-canggu",
+  "name": "RITE Bali Yoga",
+  "district": "Canggu",
+  "where": "Pererenan",
+  "why_its_here": "The yoga strand of RITE Bali in Pererenan, offering classes alongside the club's gym and recovery facilities.",
+  "best_for": "Members and visitors who want yoga bundled with training and recovery.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "riviera-bistro-berawa",
+  "name": "Riviera Bistro Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "A modern Mediterranean bistro and wine bar in Berawa (open since 2020) with whitewashed arches, an extensive wine list and a daily Aperitivo hour; open from late morning until late, with a Saturday DJ night.",
+  "best_for": "Date night, aperitivo and dinner with drinks, and lively evenings.",
+  "not_for": "Not a quiet or budget spot.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "riviera-cafe-cemagi",
+  "name": "Riviera Cafe Cemagi",
+  "district": "Canggu",
+  "where": "Cemagi / Mengwi / Cemagi",
+  "why_its_here": "A tranquil garden cafe in quiet Cemagi from the Riviera Group, leaning Mediterranean-Italian, with cozy interiors, greenery and live acoustic music on Saturday evenings.",
+  "best_for": "A calm, unhurried breakfast, lunch or relaxed evening meal away from the Canggu crowds; couples wanting a low-key setting.",
+  "not_for": "Beachfront views or a high-energy party scene.",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed",
+   "tranquil"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "riviera-trattoria-pererenan",
+  "name": "Riviera Trattoria Pererenan",
+  "district": "Canggu",
+  "where": "Pererenan / Mengwi / Pererenan north",
+  "why_its_here": "The Riviera Group's Pererenan trattoria for authentic Italian: hand-rolled pastas, Neapolitan pizzas and an extensive wine and cocktail list in a cozy, lively room.",
+  "best_for": "Date night, group dinners over shared Italian plates and wine, and a lively casual evening.",
+  "not_for": "A quiet daytime work cafe or beachfront setting.",
+  "lint": [],
+  "stock_phrases": [
+   "authentic"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rize-cafe",
+  "name": "Rize Cafe",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A Pererenan cafe serving contemporary Indian home cooking alongside brunch classics, craft cocktails and house chai, with spices ground daily and dishes rooted in family recipes.",
+  "best_for": "Spice lovers wanting Indian food, a distinctive brunch, or cocktails and chai in a relaxed setting; small groups sharing dishes.",
+  "not_for": "Diners after a beach-club or sunset-view scene.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ruko-cafe",
+  "name": "Ruko Cafe",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "An Australian-style neighbourhood cafe about 300m from Berawa beach, serving locally sourced healthy food and its own Indonesian coffee blend, with 40-50% local organic produce. A reliable daily breakfast and brunch stop.",
+  "best_for": "Post-beach breakfast, brunch and coffee for solo travellers, couples and families who want fresh, organic-leaning food near Berawa.",
+  "not_for": "A daytime cafe rather than an evening or dinner destination.",
+  "lint": [
+   "best_for:A5",
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sa-mesa-canggu-experience-dining",
+  "name": "Sa'Mesa Canggu | Experience Dining",
+  "district": "Canggu",
+  "where": "Jalan Tanah Barak No.1e, Canggu, Bali 80351",
+  "why_its_here": "An Italian communal-dining restaurant in Canggu, open since early 2021 and built around a single long table. There is no menu: guests are served a set procession of roughly 14-18 shared dishes that changes daily, with plates such as tuna crudo, grilled octopus and house fettuccine placed down the middle of the table.",
+  "best_for": "Groups and solo travellers up for a set-menu Italian dinner where you share one table with strangers rather than order for yourself.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sama-sama-prime",
+  "name": "Sama Sama Prime",
+  "district": "Canggu",
+  "where": "Jl. Raya Semat No.99, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80360",
+  "why_its_here": "Sama Sama Prime is a steakhouse and sushi bar on Jl. Raya Semat, part of the Sama Sama group. Its own site describes it two ways — a steakhouse sushi bar on the homepage, a modern premium Japanese restaurant on the about page — and we have left that unreconciled rather than pick one.",
+  "best_for": "Steak and sushi under one roof, on Jl. Raya Semat in Canggu.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 12:00-23:00, Tu 12:00-23:00, We 12:00-23:00, Th 12:00-23:00, Fr 12:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "samadi-bali",
+  "name": "Samadi Bali",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "A yoga and wellness hub on Jl. Padang Linjong in Canggu's Batu Bolong area, with an organic vegetarian cafe certified by the Slow Food movement, serving superfood bowls and traditional Indian dishes.",
+  "best_for": "Yoga-goers and wellness travellers wanting a calm, plant-based meal before or after a class.",
+  "not_for": "Anyone after meat dishes, alcohol or a high-energy social scene.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "samesa-canggu",
+  "name": "Sa'Mesa Canggu",
+  "district": "Canggu",
+  "where": "Jl. Canggu Padang Linjong No.1e, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+  "why_its_here": "A one-of-a-kind communal Italian dinner: everyone shares one long table for a multi-course, family-style set menu inspired by an Italian grandmother's table. Dinner only, one seating, book ahead — it's an event as much as a meal.",
+  "best_for": "A communal Italian set-menu dinner at one long shared table, one seating a night.",
+  "not_for": "Walking in — booking only, dinner only, one 7:30pm seating.",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "599k++ per guest",
+   "hours_visible": "Mo 18:00-23:00, Tu 18:00-23:00, We 18:00-23:00, Th 18:00-23:00, Fr 17:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "santanera",
+  "name": "Santanera",
+  "district": "Canggu",
+  "where": "Canggu / Tanah Barak",
+  "why_its_here": "A stylish Latin American dining room and rooftop bar on Jl. Tanah Barak, blending Latin flavours with European technique and local ingredients across a sharing-focused menu. Contemporary artwork, a big seated room and a late-night bar make it a full evening out.",
+  "best_for": "Date night; group dinners built around shared plates; a special evening with cocktails on the rooftop.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "blending",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "satu-satu-coffee-company",
+  "name": "Satu-Satu Coffee Company",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "A family-run specialty coffee company in Berawa built on the Sudana family's Balinese single-origin beans, roasted in-house, with a bright, eco-minded white space and a simple all-day menu of bowls, sandwiches and smoothies for the post-surf crowd.",
+  "best_for": "Coffee lovers and post-surf travellers wanting well-pulled espresso built on Indonesian single origins plus a healthy breakfast or lunch bowl.",
+  "not_for": "A daytime coffee-and-brunch spot rather than an evening venue.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "saya-club",
+  "name": "Saya Club",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Gym and coworking space in Berawa, open around the clock. Personal training and classes in pilates, reformer, boxing and yoga. Ice bath, sauna, pool and a cafe-bar on site.",
+  "best_for": "Training at any hour, including the middle of the night",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "secana-rooftop-bali",
+  "name": "Secana Rooftop",
+  "district": "Canggu",
+  "where": "Jl. Pemelisan Agung Jl. Pantai Berawa, Canggu, Kec. Kuta Utara, Tibubeneng, Berawa, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Secana Rooftop sits on top of the Secana Beachtown resort in Berawa — a pool bar and restaurant open from morning to 11pm, with daybeds by day, a menu moving between Mediterranean and comfort cooking, and DJ sunset sessions on Fridays and Sundays.",
+  "best_for": "A rooftop pool bar in Berawa — daybeds by day, DJ sunsets Friday and Sunday.",
+  "not_for": "A cheap drop-in — pool daybeds carry a 350K++ per-person minimum spend.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Pool daybed minimum spend 350K+++ per person",
+   "hours_visible": "Mo 09:00-23:00, Tu 09:00-23:00, We 09:00-23:00, Th 09:00-23:00, Fr 09:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "secret-spot-bali",
+  "name": "Secret Spot",
+  "district": "Canggu",
+  "where": "Jl. Tanah Barak No. 7, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A fully plant-based cafe serving vegan breakfast through dinner, with vegan croissants, bowls, curries and ramen, plus coffee roasted weekly on the island. Extras like Monday pasta nights with live jazz and a chicory coffee alternative round out the character.",
+  "best_for": "vegan breakfast and brunch; plant-based croissants and pastries; island-roasted coffee; relaxed all-day dining",
+  "not_for": "diners set on meat or seafood dishes; anyone wanting a fast grab-and-go stop",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "seseh-general-store",
+  "name": "Seseh General Store",
+  "district": "Canggu",
+  "where": "Seseh / Cemagi / Mengwi / Seseh",
+  "why_its_here": "An Aussie-owned corner cafe bringing Melbourne coffee culture to coastal Cemagi/Seseh, doing well-made breads, sandwiches and salads a short step from the beach, with a community-hub feel.",
+  "best_for": "A morning coffee and pastry, a casual sandwich-and-salad lunch, and a laid-back neighbourhood cafe stop after the beach.",
+  "not_for": "A sit-down dinner or a formal evening out.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "laid-back"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shelter-restaurant",
+  "name": "Shelter Restaurant",
+  "district": "Canggu",
+  "where": "Pererenan / Pantai Pererenan",
+  "why_its_here": "A wood-fired Middle Eastern and Mediterranean restaurant in Pererenan built inside a Balinese joglo with open, plant-filled architecture, a UK chef and a rotating calendar of BBQs and vinyl DJ nights. Reservations recommended.",
+  "best_for": "Date night, group dinners and special occasions with an atmospheric, reservation-led setting.",
+  "not_for": "A walk-in quick lunch or a solo laptop session.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 12:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-canggu",
+  "name": "Shichirin Japanese Restaurant — Canggu",
+  "district": "Canggu",
+  "where": "Jl. Pemelisan Agung Pantai Berawa no.88 Canggu Kuta, Utara, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Japanese grill restaurant in Berawa, part of the Wonderspace group. Teppanyaki, gyukatsu and izakaya plates, with sushi and sashimi. Black cod in saikyo miso and breaded Santuri wagyu are signatures.",
+  "best_for": "A grill dinner with a group",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 11:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shosan-holistic-spa-canggu",
+  "name": "Shosan Holistic Spa",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Wellness spa in Canggu. The published list covers Head Massage and Traditional Massage. Shosan Signature Massage is 1100K IDR for 90 minutes. Booking runs through Fresha.",
+  "best_for": "Head massage booked the same day.",
+  "not_for": "A budget massage — the list starts at 1100K IDR.",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$ · Shosan Signature Massage 90 min 1100K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sia-grill-and-seafood-bar",
+  "name": "SIA - Grill & Seafood Bar",
+  "district": "Canggu",
+  "where": "Jl. Subak Canggu, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "SIA is a casual seafood and grill bar on the Canggu Shortcut, working fresh fish with Balinese ingredients and Asian influences, with a cocktail programme alongside. Open from midday to 11pm daily.",
+  "best_for": "Fresh seafood and grill with a cocktail bar, on the Canggu Shortcut.",
+  "not_for": "Breakfast — the kitchen opens at midday.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 09:00-23:00, Tu 09:00-23:00, We 09:00-23:00, Th 09:00-23:00, Fr 09:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "skool-kitchen",
+  "name": "SKOOL Kitchen",
+  "district": "Canggu",
+  "where": "Batu Bolong Beach, Canggu",
+  "why_its_here": "An open-flame kitchen on Jl. Pura Dalem in Canggu, cooking meats and seafood over wood and charcoal — a tasting menu alongside à la carte plates and cuts priced by weight. Dinner only, from 5pm. It shares its address with The Lawn Canggu; both are Project Black venues.",
+  "best_for": "A special-occasion or date-night dinner with a beachside setting and drinks.",
+  "not_for": "Daytime — it opens at 5pm daily.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Tasting menu 895K per person · à la carte 100-860K · plus 10% tax, 7% service",
+   "hours_visible": "Mo-Su 17:00-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "smoke-grill-master-and-barbeque-bali",
+  "name": "SMOKE – GRILL MASTER & BARBEQUE BALI",
+  "district": "Canggu",
+  "where": "Echo Beach, Jl. Pantai Batu Mejan Indonesia No.69, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "SMOKE is an open-fire barbecue restaurant at Echo Beach, seating guests outdoors, in a tent or indoors, with a private backyard barn and a chef's table for groups of ten or more booked 48 hours ahead.",
+  "best_for": "Open-fire barbecue at Echo Beach — tent, indoor or garden seating.",
+  "not_for": "Booking the garden or deck — reservations cover tent and indoor only.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo 11:45-23:00, Tu 11:45-23:00, We 11:45-23:00, Th 11:45-23:00, Fr 11:45-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "spring-spa-canggu",
+  "name": "Spring Spa Canggu",
+  "district": "Canggu",
+  "where": "Batu Bolong / Canggu",
+  "why_its_here": "A dependable branch of the island-wide Spring Spa chain on the Batu Bolong strip, doing brisk, well-priced manicures, waxing, massage and facials in a bright, clean salon a short walk from Canggu's cafés.",
+  "best_for": "Visitors who want a reliable walk-in mani-pedi or a quick massage between beach and brunch, without committing to a hotel spa.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "surya-fitness-gym",
+  "name": "Surya Fitness Gym",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Gym and fight club in Pererenan. Equipment from Life Fitness, Hammer Strength and TechnoGym: racks, barbells, bumpers, kettlebells, benches and conditioning machines. The fight club runs boxing, Muay Thai, pad work and sparring. A rooftop for stretching, a cafe and billiards sit on site. Memberships include air conditioning, water, towels, showers and lockers.",
+  "best_for": "Lifting and striking under one roof",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sushimi-bali",
+  "name": "Sushimi Bali",
+  "district": "Canggu",
+  "where": "Jl. Pantai Berawa No.101C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+  "why_its_here": "A sushi-train restaurant on Jl. Pantai Berawa serving classic and creative sushi and maki plus an izakaya-style a la carte range. The menu extends to poke bowls, donburi, sushi burritos and sushi donuts, with gluten-free, vegan and vegetarian options.",
+  "best_for": "casual sushi with friends; interactive sushi-train dining; solo diners; mixed dietary groups",
+  "not_for": "a formal or high-end omakase occasion; a quiet intimate dinner; anyone wanting a sea view",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 11:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "swarna-spa-and-wellness",
+  "name": "Swarna Spa and Wellness",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A complete spa and wellness destination in Pererenan offering authentic Balinese and hot stone massage, facials and a signature thermal ritual combining hot plunge, cold immersion and infrared sauna.",
+  "best_for": "Travellers wanting a full pampering session of massage, facial and thermal/contrast therapy in one calm venue.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "offering",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-avocado-factory",
+  "name": "The Avocado Factory",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Mejan, Canggu, Kuta Utara, Badung, Bali 80351, Indonesia",
+  "why_its_here": "Billed as South East Asia's first avocado bar, this Berawa-area cafe builds an entire menu around avocado, from truffle eggs benedict to avo pancakes and avocado basque cheesecake, with an eco-conscious build.",
+  "best_for": "Avocado and brunch lovers; a novelty-led daytime spot that also runs late with burgers into the evening.",
+  "not_for": "Anyone who dislikes avocado or wants a strictly traditional local menu.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-canggu-studio-canggu",
+  "name": "The Canggu Studio",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "A boutique Canggu studio for reformer Pilates, small-group training and mat yoga, on a tidy Mon-Sat timetable (drop-in 170k).",
+  "best_for": "Those who prefer low-impact reformer Pilates and intimate, well-taught classes over a big gym.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Fr 08:00-20:00, Sa 08:00-16:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-canggu-studio-yoga-canggu",
+  "name": "The Canggu Studio Yoga",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The yoga-and-mat side of The Canggu Studio, offering small-group classes on a clean Mon–Sat timetable (drop-in 170k).",
+  "best_for": "Those who like intimate, well-taught classes over big drop-in halls.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Fr 08:00-20:00, Sa 08:00-16:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-flow-bali",
+  "name": "The Flow Bali",
+  "district": "Canggu",
+  "where": "Jl. Munduk Kedungu Br. Pengembungan No.42, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351",
+  "why_its_here": "The Flow Bali is a char-grill restaurant in Pererenan working modern plates with Mediterranean and Asian influences, from croquettas and carpaccio up to prime cuts on the wood fire.",
+  "best_for": "Char-grilled Mediterranean-Asian plates and prime cuts in Pererenan.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 110-390K · Pasta 90-190K · Tomahawk 1,700K",
+   "hours_visible": "Mo 09:00-14:00, Mo 16:00-23:00, Tu 09:00-14:00, Tu 16:00-23:00, We 09:00-14:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-lawn-canggu-beach-club",
+  "name": "The Lawn Canggu Beach Club",
+  "district": "Canggu",
+  "where": "Canggu / Batu Bolong Beach",
+  "why_its_here": "A lifestyle beach club set directly on the black sand of Batu Bolong Beach, with an ocean-facing infinity pool, daybeds and a bar-restaurant known for sunset sessions and DJs over the Indian Ocean. A long-running Canggu spot for daytime lounging that shifts into golden-hour drinks.",
+  "best_for": "Sunset cocktails from a daybed; an easy day between surf sessions on Batu Bolong",
+  "not_for": "A full beach club rather than a quick, cheap breakfast stop.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "spot for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-loft-bali",
+  "name": "The Loft",
+  "district": "Canggu",
+  "where": "Jl. Pantai Batu Bolong No. 50A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A Bondi-inspired all-day brunch cafe on Batu Bolong with specialty coffee and a large plant-based selection. It leans to healthy breakfast staples, bowls and toasts in a relaxed Canggu setting.",
+  "best_for": "a slow brunch after the beach; specialty coffee and a laptop; plant-based and healthy breakfast eaters",
+  "not_for": "anyone seeking a quiet non-touristy local spot or a traditional balinese meal",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-shady-shack",
+  "name": "The Shady Shack",
+  "district": "Canggu",
+  "where": "Canggu/Berawa",
+  "why_its_here": "A breezy all-day vegetarian and vegan cafe overlooking the Berawa rice fields, from the team behind Betelnut. Big wholefood menu — all-day breakfast, smoothies, salads, share plates and vegan desserts — in a leafy, open setting.",
+  "best_for": "A healthy post-surf brunch; plant-based eaters; a relaxed early dinner with a rice-field view.",
+  "not_for": "Diners set on meat or seafood -- the menu is entirely vegetarian and vegan.",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 08:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-shampoo-lounge-canggu",
+  "name": "HairShop Canggu",
+  "district": "Canggu",
+  "where": "Tegal Gundul Square, Jl. Pantai Berawa No.52 Unit 10, Tibubeneng, Kuta Utara, Bali 80361",
+  "why_its_here": "A long-running Bali hair-salon brand's Canggu outpost, known for reliable cuts, colour and blow-outs by English-speaking stylists in a relaxed, air-conditioned space.",
+  "best_for": "Visitors who want a trustworthy haircut or colour on the road, with easy WhatsApp booking.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "known for",
+   "relaxed",
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 10:00-18:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-slow",
+  "name": "The Slow",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The restaurant, bar and gallery inside The Slow, a design-led boutique hotel on Batu Bolong. The internationally-inspired kitchen runs all day and the room doubles as an art and events space, so it works as both a stylish breakfast stop and an evening destination.",
+  "best_for": "A design-led brunch or dinner inside The Slow hotel on Batu Bolong.",
+  "not_for": "A standalone street venue — it sits inside The Slow hotel.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "therapy-canggu-canggu",
+  "name": "Therapy Canggu",
+  "district": "Canggu",
+  "where": "Batu Bolong / Canggu",
+  "why_its_here": "The Batu Bolong flagship of the Therapy group, blending massage, facials and beauty in a calm, well-run space (9am–8pm).",
+  "best_for": "Anyone wanting spa and beauty together near the Batu Bolong strip.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "blending"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "therapy-day-spa-pererenan",
+  "name": "Therapy Day Spa Pererenan",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A day spa on Jl. Pantai Pererenan built around plant-derived, toxin-free and cruelty-free rituals, offering massages, facials, body scrubs and scalp treatments in a calm sanctuary setting.",
+  "best_for": "Travellers wanting a natural, clean-ingredient massage or facial in a serene Pererenan setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "serene",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "therapy-hair-spa-canggu-canggu",
+  "name": "Therapy Hair & Spa Canggu",
+  "district": "Canggu",
+  "where": "Canggu",
+  "why_its_here": "The Canggu salon of the Therapy group, pairing hairdressing — cuts, colour, blow-outs — with spa-style facials and massage (9am–8pm).",
+  "best_for": "Anyone wanting hair and beauty under one roof near Batu Bolong.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "top-gym",
+  "name": "Top Gym",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "Boutique gym of 400 square metres near Batu Bolong, with rice field views. TechnoGym equipment throughout. The recovery area has a panoramic terrace, two ice baths, a sauna, a smoothie bar and loungers. Group classes cover stretching, yoga, pilates, functional training, boxing and dance.",
+  "best_for": "Training and recovery in one stop",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 07:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "touche-cafe-and-restaurant",
+  "name": "Touché Cafe & Restaurant",
+  "district": "Canggu",
+  "where": "Pererenan / Mengwi / Pererenan north",
+  "why_its_here": "An island-chic all-day cafe near Pererenan beach with design-led interiors and an urban-leaning menu, open from early morning to late.",
+  "best_for": "A stylish brunch, a coffee-and-laptop daytime stop, and a relaxed casual meal.",
+  "not_for": "A beach-club scene or a big group party.",
+  "lint": [],
+  "stock_phrases": [
+   "chic",
+   "relaxed",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:30-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "tropical-nomad",
+  "name": "Tropical Nomad",
+  "district": "Canggu",
+  "where": "Canggu / Canggu shortcut / Subak Canggu",
+  "why_its_here": "A long-running Canggu-shortcut coworking space with an integrated open-air cafe overlooking rice fields and garden, built for people who want to eat, sit with a laptop and stay a while.",
+  "best_for": "Digital nomads and remote workers who want fast wifi, big shared tables and a laptop-friendly cafe; casual daytime coffee stops.",
+  "not_for": "A romantic dinner or a special-occasion night out.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "two-face-canggu",
+  "name": "TWO FACE Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Munduk Catu",
+  "why_its_here": "A specialty coffee and brunch spot on Jl. Munduk Catu in Canggu, focused on well-made coffee, creative brunch dishes and a relaxed community atmosphere.",
+  "best_for": "Coffee-focused travellers wanting a solid morning brunch and specialty coffee in a welcoming space.",
+  "not_for": "Late-night diners; the kitchen is a daytime brunch operation.",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "udara-bali",
+  "name": "Udara Bali",
+  "district": "Canggu",
+  "where": "Badung / Seseh (Adjacent Pererenan)",
+  "why_its_here": "Organic Ocean, the plant-forward restaurant at the Udara wellness retreat in Seseh, focused on healthy, community- and earth-conscious cooking, open daily to guests and visitors.",
+  "best_for": "Wellness- and health-minded diners wanting calm, organic food; a quiet, restorative meal near the beach.",
+  "not_for": "A lively nightlife scene or a heavy meat-and-cocktails night out.",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 07:30-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "udara-bali-yoga-detox-and-spa-organic-ocean",
+  "name": "Udara Bali Yoga Detox & Spa / Organic Ocean",
+  "district": "Canggu",
+  "where": "Seseh / Mengwi / Seseh",
+  "why_its_here": "Udara Bali is an integrated yoga, detox and wellness retreat resort at Seseh Beach near Canggu, with five ocean-view yoga shalas, Quantum Sound Domes for sound healing, a spa with a water-healing pool, seawater pools and the plant-forward Organic Ocean restaurant; it is adults-only (14+).",
+  "best_for": "Travellers wanting a dedicated wellness/detox or yoga retreat, sound healing and spa in a quiet adults-only oceanfront setting near Canggu; day-spa and retreat guests.",
+  "not_for": "Families with young children (adults-only, minimum age 14); anyone wanting a lively town-centre location.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 07:30-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ulekan-berawa",
+  "name": "Ulekan Berawa",
+  "district": "Canggu",
+  "where": "Tibubeneng / Canggu / Berawa",
+  "why_its_here": "A sit-down Indonesian restaurant in Berawa celebrating dishes from across the archipelago — hand-ground spices, no MSG or palm oil, ingredients sourced from small-scale farmers and fishermen. A pretty, fairy-lit garden setting.",
+  "best_for": "A relaxed dinner of traditional Indonesian food; groups sharing classic dishes; an accessible introduction to the country's cuisine.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "victory-fitness-club",
+  "name": "Victory Fitness Club",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A budget gym at Jl. Pantai Pererenan No.89 in Canggu, open daily 07:00-20:30. Equipment is spread over two floors, with a punching bag and loan gloves upstairs and a smoothie bar on the ground floor; an ice bath and sauna are also on site. Day access runs around EUR 3. Reviews are consistent on the value and mixed on cleanliness.",
+  "best_for": "Travellers in Pererenan who want a cheap, no-frills lifting session with ice bath and sauna and do not mind a rough-around-the-edges gym.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "wanderlust-fitness-village-canggu",
+  "name": "Wanderlust Fitness Village",
+  "district": "Canggu",
+  "where": "Canggu / Padonan",
+  "why_its_here": "A sprawling open-air fitness village in Padonan with gym, functional zones, classes and a café, on an all-inclusive day-pass model (350k).",
+  "best_for": "Visitors who want a full day of varied training and community vibe in one spot.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "vibe",
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Fr 07:00-20:00, Sa-Su 07:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-local",
+  "name": "Warung Local",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A semi-open Indonesian warung on the Batu Bolong strip serving Halal local staples — nasi campur, nasi goreng and satay — with an outdoor seating section. Open daily 10am–10pm.",
+  "best_for": "Halal diners; a central Batu Bolong location; casual dinner as well as lunch; travellers wanting familiar local staples in an easy setting",
+  "not_for": "anyone specifically after pork dishes (Halal kitchen); diners seeking a quiet, no-scene warung",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · mains ~35–70K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-nonii",
+  "name": "Warung Nonii",
+  "district": "Canggu",
+  "where": "Canggu/Batu Bolong/Berawa",
+  "why_its_here": "A long-running, affordable Indonesian warung (Waroeng Nonii) just up from Batu Bolong beach on Jl. Pantai Batu Bolong, open breakfast through dinner with nasi campur as its house plate and takeaway available.",
+  "best_for": "A cheap, easy local Indonesian meal at any time of day, including a low-key just-landed dinner.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-sika",
+  "name": "Warung Sika",
+  "district": "Canggu",
+  "where": "",
+  "why_its_here": "A family-run point-and-pick nasi campur warung where you choose rice then add vegetables and meats from the display. One of Canggu's most popular local rice stalls, open daily 9am–9pm.",
+  "best_for": "cheap authentic nasi campur; solo diners and quick lunches; build-your-own plate eaters; first-timers who want a low-friction, English-friendly setup",
+  "not_for": "diners wanting table service or a quiet sit-down dinner; anyone avoiding a busy, canteen-style room",
+  "lint": [],
+  "stock_phrases": [
+   "authentic"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · plate ~30–60K depending on choices",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "woods-bali",
+  "name": "Woods Bali",
+  "district": "Canggu",
+  "where": "Badung / Pererenan",
+  "why_its_here": "A rustic Pererenan restaurant built entirely from reclaimed wood, serving a Mediterranean menu in a warm, greenery-filled chalet setting. Cafe by day, dinner room by night, with live jazz and vinyl evenings.",
+  "best_for": "A cosy, atmospheric dinner; date night; groups who want a relaxed evening with live music.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "cosy",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 08:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "workmates-coworking-space-and-cafe",
+  "name": "Workmates Coworking Space & Cafe",
+  "district": "Canggu",
+  "where": "Gg. Bonton No.8A, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80363, Indonesia",
+  "why_its_here": "Coworking space and cafe in Canggu, part of the Wonderspace group. Desks, fast wifi and a poolside view. The kitchen does chicken parmigiana, Indonesian plates and bowls.",
+  "best_for": "A full day of work with lunch on site",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "wrong-gym-pererenan",
+  "name": "Wrong Gym Pererenan",
+  "district": "Canggu",
+  "where": "Pererenan / Mengwi / Pererenan north",
+  "why_its_here": "The Wrong Gym is an all-inclusive gym and lifestyle club on Jl. Pantai Pererenan (opened 2023) with a large outdoor training area, functional/jungle gym, fitness classes, and recovery facilities including sauna, ice bath, swimming pool, yoga and spa.",
+  "best_for": "Fitness-focused travellers and digital nomads on a longer Pererenan stay wanting a full-service gym plus classes and recovery (sauna, ice bath, spa).",
+  "not_for": "Travellers wanting a budget drop-in gym or a purely passive spa visit.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Fr 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yema-kitchen",
+  "name": "Yema Kitchen",
+  "district": "Canggu",
+  "where": "Jl. Tanah Barak No.31, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+  "why_its_here": "Yema Kitchen is a café and restaurant on Jl. Tanah Barak that calls itself Mediterranean but cooks closer to North African and Levantine — tajine, couscous, pastilla, shawarma, pide — running as a café by day and a bar by night.",
+  "best_for": "North African and Levantine cooking — tajine, couscous, pastilla — day into night.",
+  "not_for": "A smoke-free room — shisha is a priced line on the menu.",
+  "lint": [
+   "best_for:A4",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "Mains 110-295K · Tajine 155-320K · plus 11% tax and 6% service",
+   "hours_visible": "Mo 11:00-23:00, Tu 11:00-23:00, We 11:00-23:00, Th 11:00-23:00, Fr 11:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yuki-canggu",
+  "name": "YUKI Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Batu Bolong Beach",
+  "why_its_here": "A modern Japanese izakaya steps from Batu Bolong beach serving fusion sushi, wood-fired specialties and signature cocktails in a stylish yet laid-back room; bookings are essential.",
+  "best_for": "A stylish date night, special occasion or group dinner with cocktails.",
+  "not_for": "Not a budget or walk-in-anytime spot - reservations recommended.",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "laid-back",
+   "signature",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "zin-cafe-canggu",
+  "name": "ZIN Cafe Canggu",
+  "district": "Canggu",
+  "where": "Canggu / Nelayan",
+  "why_its_here": "An open-air bamboo cafe near Nelayan Beach that doubles as a genuinely free coworking space, with power outlets at most tables, fast wifi, a quiet upper room and in-house-roasted organic coffee.",
+  "best_for": "Digital nomads and remote workers wanting to work over breakfast and coffee; also good for a calm, healthy meal near the beach.",
+  "not_for": "Anyone wanting a lively bar scene or a fully quiet fine-dining room.",
+  "lint": [
+   "why_its_here:A3",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "Mo-Su 06:30-23:59",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ }
+]

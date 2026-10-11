@@ -16,7 +16,7 @@ import { WHATSAPP_NUMBER_DISPLAY, whatsappLink } from "@/lib/contact";
 export const metadata: Metadata = {
   title: { absolute: "Add your property — partner with Other Bali" },
   description:
-    "Villa, hotel or resort in Bali? Add it to Other Bali, the resident-curated guide. Fill in your details and your own links, we build the page, and publish only once you approve — completely free.",
+    "Add your Bali villa, hotel or resort to Other Bali, the resident-curated guide. Fill in your details and your own links, we build the page, and publish only once you approve — completely free.",
   alternates: { canonical: "/list-your-property" },
   openGraph: {
     title: "Add your property · Other Bali",
@@ -100,8 +100,8 @@ export default async function ListYourPropertyPage({
         <section className="guide-section">
           <h2>Already have a page with us?</h2>
           <p className="guide-lede">
-            Use the private link we sent on WhatsApp to confirm it — no need to
-            submit again. Can&apos;t find the message?{" "}
+            Use the private link we sent on WhatsApp to confirm it. There&apos;s no
+            need to submit again. Can&apos;t find the message?{" "}
             <a
               href={PROPERTY_WHATSAPP_URL}
               target="_blank"

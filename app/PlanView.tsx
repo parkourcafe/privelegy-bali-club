@@ -128,7 +128,7 @@ export default function PlanView({
               <p className="topline">Decision-first view</p>
               <h2 id="result-triptych-title">Start with the best fits, then open detail if needed.</h2>
               <p>
-                We show one strong fit per daypart first. The full list stays below for travellers who want to compare more.
+                We show one strong fit for each part of the day first. The full list is below if you want to compare more.
               </p>
             </div>
             <div className="result-triptych-grid">

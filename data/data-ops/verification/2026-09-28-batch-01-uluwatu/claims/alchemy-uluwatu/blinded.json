@@ -1,0 +1,230 @@
+{
+  "slug": "alchemy-uluwatu",
+  "officialDomains": [
+    "alchemybali.com",
+    "alchemybali.co"
+  ],
+  "category": "cafe",
+  "claims": [
+    {
+      "claim_id": "k-alchem-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-15",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact",
+      "quote": "Alchemy Uluwatu\nJalan Pantai Bingin No 8\nPecatu Uluwatu - Bali\nIndonesia - 80361\n+62 811 3888 143\nhi@alchemybali.co\nMonday - Sunday 07:30 - 22:00",
+      "snapshot_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-13",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "Poke bowl IDR 105,000; Margherita pizza IDR 105,000 (official Uluwatu menu, 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.com/alchemymenu?menu=alchemy-uluwatu-menu",
+      "quote": "POKE BOWL\nRice/grain or choice, edamame, cucumber, sesame nori, platbased \"tuna\", avocado, Asian slaw, pickled ginger, Asian aminos and wasabi mayo. IDR 105,000",
+      "snapshot_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-20",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://www.alchemybali.co/alchemymenu?menu=alchemy-uluwatu-menu",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.com/alchemymenu?menu=alchemy-uluwatu-menu",
+      "quote": "ALCHEMY ULUWATU MENU All prices on this menu are subject to\n6% service charge and 10% government tax",
+      "snapshot_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-11",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "breakfast bowl; salad bar; margherita pizza; alchemy kombucha",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.com/alchemymenu?menu=alchemy-uluwatu-menu",
+      "quote": "MARGHERITA\nTomato sauce, home made tofu mozzarella & basil. IDR 105,000",
+      "snapshot_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-03",
+      "field": "copy:whyHere#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Alchemy has run Bali's benchmark raw/vegan kitchen since 2011 in Ubud; the Uluwatu outpost brings it to the surf side with a ~150-seat garden, a holistic clinic, an organic grocery and an attached yoga shala.",
+      "source_url": "https://www.alchemybali.com/",
+      "quote": "With two welcoming premises, one in Canggu and one in Ubud, guests are able to choose the setting that best supports their healing journey",
+      "snapshot_sha256": "93dddef7f53c27b2c4868f4870d9ce675376baa09b4acc9d7431d5dad612c7ac",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-22",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jalan Pantai Bingin No 8, Pecatu, Uluwatu, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact",
+      "quote": "Alchemy Uluwatu\nJalan Pantai Bingin No 8\nPecatu Uluwatu - Bali\nIndonesia - 80361\n+62 811 3888 143\nhi@alchemybali.co\nMonday - Sunday 07:30 - 22:00",
+      "snapshot_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-24",
+      "field": "category",
+      "action": "replace",
+      "proposed": "restaurant",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact",
+      "quote": "ALCHEMY RESTAURANTS\nAlchemy Ubud",
+      "snapshot_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-19",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-alchem-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-alchemy-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-alchem-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.com/?lang=es",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "1ef844ecea11ba48c74cccbd0f813427fd3024102d5ccb25f18396571bdd9da2",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-21",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+628113888143",
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact",
+      "quote": "Alchemy Uluwatu\nJalan Pantai Bingin No 8\nPecatu Uluwatu - Bali\nIndonesia - 80361\n+62 811 3888 143\nhi@alchemybali.co\nMonday - Sunday 07:30 - 22:00",
+      "snapshot_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-16",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.alchemybali.co/alchemy-ubud-bali-contact",
+      "quote": "Alchemy Uluwatu\nJalan Pantai Bingin No 8\nPecatu Uluwatu - Bali\nIndonesia - 80361\n+62 811 3888 143\nhi@alchemybali.co\nMonday - Sunday 07:30 - 22:00",
+      "snapshot_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "category": "cafe"
+    }
+  ]
+}

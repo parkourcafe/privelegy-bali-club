@@ -1,0 +1,4090 @@
+{
+  "date": "2026-10-05",
+  "isNew": false,
+  "inputs": {
+    "places": "docs/audits/2026-09-28-web/places.csv",
+    "export": null,
+    "code": true,
+    "resort": true,
+    "names": 1598,
+    "areas": 14,
+    "allowlist": 3
+  },
+  "totals": {
+    "units": 7311,
+    "words": 117927,
+    "FAIL": 197,
+    "WARN": 2027,
+    "OK": 5087,
+    "fails": {
+      "F1": 143,
+      "R2": 24,
+      "S1": 108,
+      "H1": 27
+    },
+    "warns": {
+      "A7": 634,
+      "A4": 1347,
+      "A5": 308,
+      "A8": 20,
+      "A10": 174,
+      "A3": 61,
+      "A1": 22,
+      "A6": 84,
+      "A11": 5
+    },
+    "unitsWithCode": {
+      "A7": 606,
+      "F1": 143,
+      "R2": 22,
+      "A4": 1347,
+      "A5": 308,
+      "S1": 105,
+      "A8": 20,
+      "A10": 174,
+      "A3": 61,
+      "H1": 27,
+      "A1": 22,
+      "A6": 59,
+      "A11": 5
+    },
+    "densityPer1000": {
+      "F1": 1.21,
+      "R2": 0.2,
+      "S1": 0.92,
+      "H1": 0.23,
+      "A7": 5.38,
+      "A4": 11.42,
+      "A5": 2.61,
+      "A8": 0.17,
+      "A10": 1.48,
+      "A3": 0.52,
+      "A1": 0.19,
+      "A6": 0.71,
+      "A11": 0.04
+    }
+  },
+  "bySurface": {
+    "code": {
+      "units": 3696,
+      "words": 54518,
+      "FAIL": 12,
+      "WARN": 1122,
+      "OK": 2562,
+      "fails": {
+        "R2": 7,
+        "H1": 6
+      },
+      "warns": {
+        "A7": 277,
+        "A10": 78,
+        "A4": 842,
+        "A5": 160,
+        "A3": 46,
+        "A1": 21,
+        "A6": 84,
+        "A8": 1,
+        "A11": 5
+      },
+      "unitsWithCode": {
+        "R2": 7,
+        "A7": 264,
+        "A10": 78,
+        "A4": 842,
+        "A5": 160,
+        "H1": 6,
+        "A3": 46,
+        "A1": 21,
+        "A6": 59,
+        "A8": 1,
+        "A11": 5
+      },
+      "densityPer1000": {
+        "R2": 0.13,
+        "H1": 0.11,
+        "A7": 5.08,
+        "A10": 1.43,
+        "A4": 15.44,
+        "A5": 2.93,
+        "A3": 0.84,
+        "A1": 0.39,
+        "A6": 1.54,
+        "A8": 0.02,
+        "A11": 0.09
+      }
+    },
+    "db": {
+      "units": 3096,
+      "words": 56205,
+      "FAIL": 178,
+      "WARN": 782,
+      "OK": 2136,
+      "fails": {
+        "F1": 143,
+        "R2": 17,
+        "S1": 108,
+        "H1": 14
+      },
+      "warns": {
+        "A7": 308,
+        "A4": 400,
+        "A5": 145,
+        "A8": 18,
+        "A10": 95,
+        "A3": 12,
+        "A1": 1
+      },
+      "unitsWithCode": {
+        "A7": 303,
+        "F1": 143,
+        "R2": 15,
+        "A4": 400,
+        "A5": 145,
+        "S1": 105,
+        "A8": 18,
+        "A10": 95,
+        "A3": 12,
+        "H1": 14,
+        "A1": 1
+      },
+      "densityPer1000": {
+        "F1": 2.54,
+        "R2": 0.3,
+        "S1": 1.92,
+        "H1": 0.25,
+        "A7": 5.48,
+        "A4": 7.12,
+        "A5": 2.58,
+        "A8": 0.32,
+        "A10": 1.69,
+        "A3": 0.21,
+        "A1": 0.02
+      }
+    },
+    "resort": {
+      "units": 519,
+      "words": 7204,
+      "FAIL": 7,
+      "WARN": 123,
+      "OK": 389,
+      "fails": {
+        "H1": 7
+      },
+      "warns": {
+        "A4": 105,
+        "A7": 49,
+        "A3": 3,
+        "A5": 3,
+        "A8": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "H1": 7,
+        "A4": 105,
+        "A7": 39,
+        "A3": 3,
+        "A5": 3,
+        "A8": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "H1": 0.97,
+        "A4": 14.58,
+        "A7": 6.8,
+        "A3": 0.42,
+        "A5": 0.42,
+        "A8": 0.14,
+        "A10": 0.14
+      }
+    }
+  },
+  "byDistrict": {
+    "Amed": {
+      "units": 12,
+      "words": 263,
+      "FAIL": 0,
+      "WARN": 6,
+      "OK": 6,
+      "fails": {},
+      "warns": {
+        "A4": 5,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 5,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 19.01,
+        "A7": 3.8
+      }
+    },
+    "Bali": {
+      "units": 94,
+      "words": 1539,
+      "FAIL": 1,
+      "WARN": 18,
+      "OK": 75,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A7": 2,
+        "A4": 17
+      },
+      "unitsWithCode": {
+        "A7": 2,
+        "A4": 17,
+        "R2": 1
+      },
+      "densityPer1000": {
+        "R2": 0.65,
+        "A7": 1.3,
+        "A4": 11.05
+      }
+    },
+    "Canggu": {
+      "units": 670,
+      "words": 13288,
+      "FAIL": 12,
+      "WARN": 183,
+      "OK": 475,
+      "fails": {
+        "F1": 9,
+        "R2": 3
+      },
+      "warns": {
+        "A5": 61,
+        "A7": 88,
+        "A4": 63,
+        "A10": 19,
+        "A3": 1,
+        "A8": 3
+      },
+      "unitsWithCode": {
+        "A5": 61,
+        "A7": 86,
+        "F1": 9,
+        "R2": 3,
+        "A4": 63,
+        "A10": 19,
+        "A3": 1,
+        "A8": 3
+      },
+      "densityPer1000": {
+        "F1": 0.68,
+        "R2": 0.23,
+        "A5": 4.59,
+        "A7": 6.62,
+        "A4": 4.74,
+        "A10": 1.43,
+        "A3": 0.08,
+        "A8": 0.23
+      }
+    },
+    "Jimbaran": {
+      "units": 137,
+      "words": 2762,
+      "FAIL": 9,
+      "WARN": 41,
+      "OK": 87,
+      "fails": {
+        "F1": 6,
+        "S1": 4,
+        "R2": 1,
+        "H1": 1
+      },
+      "warns": {
+        "A3": 1,
+        "A7": 19,
+        "A4": 21,
+        "A5": 4,
+        "A10": 6,
+        "A8": 1
+      },
+      "unitsWithCode": {
+        "F1": 6,
+        "A3": 1,
+        "A7": 19,
+        "A4": 21,
+        "A5": 4,
+        "A10": 6,
+        "S1": 3,
+        "R2": 1,
+        "H1": 1,
+        "A8": 1
+      },
+      "densityPer1000": {
+        "F1": 2.17,
+        "S1": 1.45,
+        "R2": 0.36,
+        "H1": 0.36,
+        "A3": 0.36,
+        "A7": 6.88,
+        "A4": 7.6,
+        "A5": 1.45,
+        "A10": 2.17,
+        "A8": 0.36
+      }
+    },
+    "Kuta & Legian": {
+      "units": 194,
+      "words": 2932,
+      "FAIL": 12,
+      "WARN": 34,
+      "OK": 148,
+      "fails": {
+        "S1": 12,
+        "F1": 12
+      },
+      "warns": {
+        "A5": 6,
+        "A8": 3,
+        "A7": 6,
+        "A4": 21,
+        "A10": 3
+      },
+      "unitsWithCode": {
+        "A5": 6,
+        "A8": 3,
+        "A7": 6,
+        "S1": 12,
+        "F1": 12,
+        "A4": 21,
+        "A10": 3
+      },
+      "densityPer1000": {
+        "S1": 4.09,
+        "F1": 4.09,
+        "A5": 2.05,
+        "A8": 1.02,
+        "A7": 2.05,
+        "A4": 7.16,
+        "A10": 1.02
+      }
+    },
+    "Lovina": {
+      "units": 19,
+      "words": 349,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 12,
+      "fails": {},
+      "warns": {
+        "A4": 7
+      },
+      "unitsWithCode": {
+        "A4": 7
+      },
+      "densityPer1000": {
+        "A4": 20.06
+      }
+    },
+    "Munduk": {
+      "units": 25,
+      "words": 459,
+      "FAIL": 0,
+      "WARN": 9,
+      "OK": 16,
+      "fails": {},
+      "warns": {
+        "A4": 8,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 8,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 17.43,
+        "A7": 2.18
+      }
+    },
+    "Nusa Dua": {
+      "units": 246,
+      "words": 4778,
+      "FAIL": 12,
+      "WARN": 76,
+      "OK": 158,
+      "fails": {
+        "F1": 8,
+        "H1": 3,
+        "S1": 6
+      },
+      "warns": {
+        "A5": 10,
+        "A7": 36,
+        "A10": 10,
+        "A4": 42,
+        "A3": 2,
+        "A8": 2
+      },
+      "unitsWithCode": {
+        "A5": 10,
+        "A7": 36,
+        "A10": 10,
+        "F1": 8,
+        "A4": 42,
+        "H1": 3,
+        "S1": 6,
+        "A3": 2,
+        "A8": 2
+      },
+      "densityPer1000": {
+        "F1": 1.67,
+        "H1": 0.63,
+        "S1": 1.26,
+        "A5": 2.09,
+        "A7": 7.53,
+        "A10": 2.09,
+        "A4": 8.79,
+        "A3": 0.42,
+        "A8": 0.42
+      }
+    },
+    "Nusa Penida": {
+      "units": 7,
+      "words": 64,
+      "FAIL": 1,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {
+        "S1": 1,
+        "F1": 1
+      },
+      "warns": {},
+      "unitsWithCode": {
+        "S1": 1,
+        "F1": 1
+      },
+      "densityPer1000": {
+        "S1": 15.63,
+        "F1": 15.63
+      }
+    },
+    "Sanur": {
+      "units": 200,
+      "words": 3867,
+      "FAIL": 18,
+      "WARN": 40,
+      "OK": 142,
+      "fails": {
+        "S1": 12,
+        "F1": 16,
+        "R2": 2
+      },
+      "warns": {
+        "A7": 25,
+        "A10": 6,
+        "A5": 9,
+        "A3": 1,
+        "A4": 10,
+        "A8": 1
+      },
+      "unitsWithCode": {
+        "S1": 12,
+        "F1": 16,
+        "A7": 22,
+        "A10": 6,
+        "A5": 9,
+        "A3": 1,
+        "A4": 10,
+        "R2": 2,
+        "A8": 1
+      },
+      "densityPer1000": {
+        "S1": 3.1,
+        "F1": 4.14,
+        "R2": 0.52,
+        "A7": 6.46,
+        "A10": 1.55,
+        "A5": 2.33,
+        "A3": 0.26,
+        "A4": 2.59,
+        "A8": 0.26
+      }
+    },
+    "Seminyak": {
+      "units": 404,
+      "words": 7060,
+      "FAIL": 41,
+      "WARN": 98,
+      "OK": 265,
+      "fails": {
+        "F1": 33,
+        "S1": 22,
+        "H1": 6
+      },
+      "warns": {
+        "A4": 49,
+        "A7": 42,
+        "A5": 21,
+        "A10": 20,
+        "A8": 2,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "F1": 33,
+        "A4": 49,
+        "S1": 21,
+        "H1": 6,
+        "A7": 42,
+        "A5": 21,
+        "A10": 20,
+        "A8": 2,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "F1": 4.67,
+        "S1": 3.12,
+        "H1": 0.85,
+        "A4": 6.94,
+        "A7": 5.95,
+        "A5": 2.97,
+        "A10": 2.83,
+        "A8": 0.28,
+        "A3": 0.14
+      }
+    },
+    "Sidemen": {
+      "units": 14,
+      "words": 242,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A4": 5
+      },
+      "unitsWithCode": {
+        "A4": 5
+      },
+      "densityPer1000": {
+        "A4": 20.66
+      }
+    },
+    "Ubud": {
+      "units": 661,
+      "words": 10279,
+      "FAIL": 57,
+      "WARN": 137,
+      "OK": 467,
+      "fails": {
+        "R2": 7,
+        "F1": 47,
+        "S1": 41,
+        "H1": 3
+      },
+      "warns": {
+        "A7": 48,
+        "A4": 80,
+        "A3": 2,
+        "A10": 8,
+        "A5": 13,
+        "A8": 5
+      },
+      "unitsWithCode": {
+        "A7": 48,
+        "R2": 6,
+        "F1": 47,
+        "A4": 80,
+        "S1": 40,
+        "A3": 2,
+        "A10": 8,
+        "A5": 13,
+        "H1": 3,
+        "A8": 5
+      },
+      "densityPer1000": {
+        "R2": 0.68,
+        "F1": 4.57,
+        "S1": 3.99,
+        "H1": 0.29,
+        "A7": 4.67,
+        "A4": 7.78,
+        "A3": 0.19,
+        "A10": 0.78,
+        "A5": 1.26,
+        "A8": 0.49
+      }
+    },
+    "Uluwatu": {
+      "units": 413,
+      "words": 8323,
+      "FAIL": 15,
+      "WARN": 128,
+      "OK": 270,
+      "fails": {
+        "R2": 3,
+        "S1": 10,
+        "F1": 11,
+        "H1": 1
+      },
+      "warns": {
+        "A5": 21,
+        "A7": 40,
+        "A4": 72,
+        "A10": 23,
+        "A3": 4,
+        "A8": 1,
+        "A1": 1
+      },
+      "unitsWithCode": {
+        "R2": 2,
+        "A5": 21,
+        "A7": 40,
+        "A4": 72,
+        "S1": 10,
+        "F1": 11,
+        "A10": 23,
+        "A3": 4,
+        "H1": 1,
+        "A8": 1,
+        "A1": 1
+      },
+      "densityPer1000": {
+        "R2": 0.36,
+        "S1": 1.2,
+        "F1": 1.32,
+        "H1": 0.12,
+        "A5": 2.52,
+        "A7": 4.81,
+        "A4": 8.65,
+        "A10": 2.76,
+        "A3": 0.48,
+        "A8": 0.12,
+        "A1": 0.12
+      }
+    }
+  },
+  "byFile": {
+    "app/amed/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/bali-travel-guide/page.tsx": {
+      "units": 64,
+      "words": 714,
+      "FAIL": 0,
+      "WARN": 11,
+      "OK": 53,
+      "fails": {},
+      "warns": {
+        "A3": 1,
+        "A5": 2,
+        "A7": 6,
+        "A4": 6,
+        "A1": 3
+      },
+      "unitsWithCode": {
+        "A3": 1,
+        "A5": 2,
+        "A7": 5,
+        "A4": 6,
+        "A1": 3
+      },
+      "densityPer1000": {
+        "A3": 1.4,
+        "A5": 2.8,
+        "A7": 8.4,
+        "A4": 8.4,
+        "A1": 4.2
+      }
+    },
+    "app/bali/[district]/page.tsx": {
+      "units": 4,
+      "words": 20,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 4,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/bali/page.tsx": {
+      "units": 14,
+      "words": 160,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 7,
+      "fails": {},
+      "warns": {
+        "A4": 7,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A4": 7,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A4": 43.75,
+        "A5": 6.25
+      }
+    },
+    "app/best-beach-clubs-in-bali/page.tsx": {
+      "units": 21,
+      "words": 302,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 18,
+      "fails": {},
+      "warns": {
+        "A4": 3
+      },
+      "unitsWithCode": {
+        "A4": 3
+      },
+      "densityPer1000": {
+        "A4": 9.93
+      }
+    },
+    "app/best-cafes-in-bali/page.tsx": {
+      "units": 26,
+      "words": 314,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 19,
+      "fails": {},
+      "warns": {
+        "A4": 6,
+        "A6": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A4": 6,
+        "A6": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A4": 19.11,
+        "A6": 3.18,
+        "A10": 3.18
+      }
+    },
+    "app/best-coffee-in-bali/page.tsx": {
+      "units": 19,
+      "words": 234,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 15,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A7": 2,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A7": 2,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A4": 17.09,
+        "A7": 8.55,
+        "A5": 4.27
+      }
+    },
+    "app/best-restaurants-in-bali/page.tsx": {
+      "units": 26,
+      "words": 351,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 21,
+      "fails": {},
+      "warns": {
+        "A4": 5,
+        "A6": 1,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "A4": 5,
+        "A6": 1,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "A4": 14.25,
+        "A6": 2.85,
+        "A3": 2.85
+      }
+    },
+    "app/best-spas-in-bali/page.tsx": {
+      "units": 23,
+      "words": 289,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 18,
+      "fails": {},
+      "warns": {
+        "A4": 5,
+        "A3": 1,
+        "A10": 2,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 5,
+        "A3": 1,
+        "A10": 2,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 17.3,
+        "A3": 3.46,
+        "A10": 6.92,
+        "A7": 3.46
+      }
+    },
+    "app/best-warungs-in-bali/page.tsx": {
+      "units": 26,
+      "words": 291,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 19,
+      "fails": {},
+      "warns": {
+        "A4": 7,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A4": 7,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A4": 24.05,
+        "A6": 3.44
+      }
+    },
+    "app/canggu/beach-clubs-sunset/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/canggu/best-brunch/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/canggu/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/canggu/best-spas/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/canggu/best-warungs/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/canggu/page.tsx": {
+      "units": 48,
+      "words": 491,
+      "FAIL": 0,
+      "WARN": 12,
+      "OK": 36,
+      "fails": {},
+      "warns": {
+        "A10": 1,
+        "A4": 9,
+        "A7": 3,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A10": 1,
+        "A4": 9,
+        "A7": 3,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A10": 2.04,
+        "A4": 18.33,
+        "A7": 6.11,
+        "A6": 2.04
+      }
+    },
+    "app/canggu/work-friendly-cafes/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/collections/[taste]/page.tsx": {
+      "units": 10,
+      "words": 84,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A5": 11.9
+      }
+    },
+    "app/collections/page.tsx": {
+      "units": 8,
+      "words": 118,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A4": 33.9,
+        "A6": 8.47
+      }
+    },
+    "app/for-venues/page.tsx": {
+      "units": 46,
+      "words": 550,
+      "FAIL": 0,
+      "WARN": 6,
+      "OK": 40,
+      "fails": {},
+      "warns": {
+        "A6": 3,
+        "A4": 1,
+        "A5": 3,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A6": 3,
+        "A4": 1,
+        "A5": 3,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A6": 5.45,
+        "A4": 1.82,
+        "A5": 5.45,
+        "A7": 1.82
+      }
+    },
+    "app/guides/page.tsx": {
+      "units": 6,
+      "words": 99,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A4": 3,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A4": 3,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A4": 30.3,
+        "A6": 10.1
+      }
+    },
+    "app/hotel-restaurants/page.tsx": {
+      "units": 4,
+      "words": 65,
+      "FAIL": 0,
+      "WARN": 2,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A4": 2,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A4": 2,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A4": 30.77,
+        "A10": 15.38
+      }
+    },
+    "app/hotels/page.tsx": {
+      "units": 56,
+      "words": 629,
+      "FAIL": 0,
+      "WARN": 21,
+      "OK": 35,
+      "fails": {},
+      "warns": {
+        "A4": 19,
+        "A5": 2,
+        "A6": 2,
+        "A7": 1,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "A4": 19,
+        "A5": 2,
+        "A6": 2,
+        "A7": 1,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "A4": 30.21,
+        "A5": 3.18,
+        "A6": 3.18,
+        "A7": 1.59,
+        "A3": 1.59
+      }
+    },
+    "app/jimbaran/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/jimbaran/page.tsx": {
+      "units": 49,
+      "words": 636,
+      "FAIL": 1,
+      "WARN": 10,
+      "OK": 38,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A7": 3,
+        "A10": 3,
+        "A4": 8,
+        "A5": 1,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A7": 3,
+        "A10": 3,
+        "A4": 8,
+        "A5": 1,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "R2": 1.57,
+        "A7": 4.72,
+        "A10": 4.72,
+        "A4": 12.58,
+        "A5": 1.57,
+        "A3": 1.57
+      }
+    },
+    "app/jimbaran/spas-wellness/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/jimbaran/things-to-do/page.tsx": {
+      "units": 14,
+      "words": 224,
+      "FAIL": 1,
+      "WARN": 3,
+      "OK": 10,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A7": 3,
+        "A5": 1,
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A7": 3,
+        "A5": 1,
+        "A4": 1
+      },
+      "densityPer1000": {
+        "R2": 4.46,
+        "A7": 13.39,
+        "A5": 4.46,
+        "A4": 4.46
+      }
+    },
+    "app/list-your-property/page.tsx": {
+      "units": 17,
+      "words": 237,
+      "FAIL": 0,
+      "WARN": 8,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A6": 3,
+        "A4": 7,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A6": 3,
+        "A4": 7,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A6": 12.66,
+        "A4": 29.54,
+        "A5": 4.22
+      }
+    },
+    "app/list/[slug]/page.tsx": {
+      "units": 4,
+      "words": 27,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 4,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/lovina/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/me/page.tsx": {
+      "units": 4,
+      "words": 44,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 4,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/munduk/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/my-day/page.tsx": {
+      "units": 22,
+      "words": 271,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 19,
+      "fails": {},
+      "warns": {
+        "A5": 1,
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A5": 1,
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A5": 3.69,
+        "A4": 7.38
+      }
+    },
+    "app/nusa-dua/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/nusa-dua/hotel-restaurants/page.tsx": {
+      "units": 4,
+      "words": 68,
+      "FAIL": 0,
+      "WARN": 2,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A1": 1,
+        "A4": 2,
+        "A5": 1,
+        "A7": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A1": 1,
+        "A4": 2,
+        "A5": 1,
+        "A7": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A1": 14.71,
+        "A4": 29.41,
+        "A5": 14.71,
+        "A7": 14.71,
+        "A10": 14.71
+      }
+    },
+    "app/nusa-dua/page.tsx": {
+      "units": 51,
+      "words": 660,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 37,
+      "fails": {},
+      "warns": {
+        "A5": 2,
+        "A7": 6,
+        "A4": 8,
+        "A3": 2,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A5": 2,
+        "A7": 5,
+        "A4": 8,
+        "A3": 2,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A5": 3.03,
+        "A7": 9.09,
+        "A4": 12.12,
+        "A3": 3.03,
+        "A10": 1.52
+      }
+    },
+    "app/nusa-dua/spas-wellness/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/nusa-dua/things-to-do/page.tsx": {
+      "units": 15,
+      "words": 235,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 11,
+      "fails": {},
+      "warns": {
+        "A5": 2,
+        "A7": 4,
+        "A4": 2,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A5": 2,
+        "A7": 3,
+        "A4": 2,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A5": 8.51,
+        "A7": 17.02,
+        "A4": 8.51,
+        "A10": 4.26
+      }
+    },
+    "app/nusa-penida/page.tsx": {
+      "units": 51,
+      "words": 732,
+      "FAIL": 1,
+      "WARN": 16,
+      "OK": 34,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A4": 12,
+        "A5": 7,
+        "A3": 2,
+        "A7": 5,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A4": 12,
+        "A5": 7,
+        "A3": 2,
+        "A7": 5,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "R2": 1.37,
+        "A4": 16.39,
+        "A5": 9.56,
+        "A3": 2.73,
+        "A7": 6.83,
+        "A10": 1.37
+      }
+    },
+    "app/onboard/[token]/page.tsx": {
+      "units": 11,
+      "words": 171,
+      "FAIL": 0,
+      "WARN": 2,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A4": 11.7
+      }
+    },
+    "app/page.tsx": {
+      "units": 30,
+      "words": 280,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 23,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A6": 3
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A6": 3
+      },
+      "densityPer1000": {
+        "A4": 14.29,
+        "A6": 10.71
+      }
+    },
+    "app/places/[slug]/page.tsx": {
+      "units": 9,
+      "words": 81,
+      "FAIL": 0,
+      "WARN": 2,
+      "OK": 7,
+      "fails": {},
+      "warns": {
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A4": 24.69
+      }
+    },
+    "app/places/page.tsx": {
+      "units": 8,
+      "words": 114,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A6": 1,
+        "A5": 2,
+        "A4": 3
+      },
+      "unitsWithCode": {
+        "A6": 1,
+        "A5": 2,
+        "A4": 3
+      },
+      "densityPer1000": {
+        "A6": 8.77,
+        "A5": 17.54,
+        "A4": 26.32
+      }
+    },
+    "app/plan/page.tsx": {
+      "units": 25,
+      "words": 234,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 25,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/plan/shared/page.tsx": {
+      "units": 6,
+      "words": 77,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 5,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 12.99
+      }
+    },
+    "app/review/page.tsx": {
+      "units": 9,
+      "words": 136,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 8,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 7.35
+      }
+    },
+    "app/route/[slug]/page.tsx": {
+      "units": 4,
+      "words": 36,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 4,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/sanur/best-hotels/page.tsx": {
+      "units": 18,
+      "words": 215,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 13,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A6": 1,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A6": 1,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 18.6,
+        "A6": 4.65,
+        "A7": 4.65
+      }
+    },
+    "app/sanur/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/sanur/cafes-and-bars/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/sanur/page.tsx": {
+      "units": 42,
+      "words": 503,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 41,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 1.99
+      }
+    },
+    "app/sanur/spas-wellness/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/sanur/things-to-do/page.tsx": {
+      "units": 12,
+      "words": 195,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 7,
+      "fails": {},
+      "warns": {
+        "A7": 2,
+        "A4": 4,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A7": 2,
+        "A4": 4,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A7": 10.26,
+        "A4": 20.51,
+        "A5": 5.13
+      }
+    },
+    "app/sanur/where-to-stay/page.tsx": {
+      "units": 40,
+      "words": 484,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 36,
+      "fails": {},
+      "warns": {
+        "A5": 2,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A5": 2,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A5": 4.13,
+        "A6": 4.13
+      }
+    },
+    "app/seminyak/beach-clubs-sunset/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/seminyak/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/seminyak/cafes-coffee/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/seminyak/page.tsx": {
+      "units": 32,
+      "words": 397,
+      "FAIL": 0,
+      "WARN": 8,
+      "OK": 24,
+      "fails": {},
+      "warns": {
+        "A4": 6,
+        "A5": 2,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 6,
+        "A5": 2,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 15.11,
+        "A5": 5.04,
+        "A7": 2.52
+      }
+    },
+    "app/seminyak/spas-salons-wellness/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/sidemen/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/support/page.tsx": {
+      "units": 5,
+      "words": 87,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A6": 2,
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A6": 2,
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A6": 22.99,
+        "A4": 11.49
+      }
+    },
+    "app/things-to-do-in-bali/page.tsx": {
+      "units": 43,
+      "words": 422,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 39,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 9.48,
+        "A7": 2.37
+      }
+    },
+    "app/ubud/best-cafes-coffee/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/ubud/best-restaurants/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/ubud/best-warungs/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/ubud/best-yoga-wellness/page.tsx": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "app/ubud/itinerary/page.tsx": {
+      "units": 40,
+      "words": 446,
+      "FAIL": 0,
+      "WARN": 9,
+      "OK": 31,
+      "fails": {},
+      "warns": {
+        "A4": 8,
+        "A5": 3,
+        "A7": 3
+      },
+      "unitsWithCode": {
+        "A4": 8,
+        "A5": 3,
+        "A7": 3
+      },
+      "densityPer1000": {
+        "A4": 17.94,
+        "A5": 6.73,
+        "A7": 6.73
+      }
+    },
+    "app/ubud/page.tsx": {
+      "units": 46,
+      "words": 530,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 43,
+      "fails": {},
+      "warns": {
+        "A5": 2,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A5": 2,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A5": 3.77,
+        "A6": 1.89
+      }
+    },
+    "app/ubud/things-to-do/page.tsx": {
+      "units": 28,
+      "words": 378,
+      "FAIL": 0,
+      "WARN": 8,
+      "OK": 20,
+      "fails": {},
+      "warns": {
+        "A4": 7,
+        "A5": 2,
+        "A7": 3
+      },
+      "unitsWithCode": {
+        "A4": 7,
+        "A5": 2,
+        "A7": 3
+      },
+      "densityPer1000": {
+        "A4": 18.52,
+        "A5": 5.29,
+        "A7": 7.94
+      }
+    },
+    "app/uluwatu/48-hours/page.tsx": {
+      "units": 45,
+      "words": 507,
+      "FAIL": 0,
+      "WARN": 22,
+      "OK": 23,
+      "fails": {},
+      "warns": {
+        "A4": 21,
+        "A10": 2,
+        "A7": 1,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A4": 21,
+        "A10": 2,
+        "A7": 1,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A4": 41.42,
+        "A10": 3.94,
+        "A7": 1.97,
+        "A6": 1.97
+      }
+    },
+    "app/uluwatu/beach-clubs-sunset/page.tsx": {
+      "units": 31,
+      "words": 390,
+      "FAIL": 1,
+      "WARN": 11,
+      "OK": 19,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A4": 10,
+        "A7": 2
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A4": 10,
+        "A7": 2
+      },
+      "densityPer1000": {
+        "H1": 2.56,
+        "A4": 25.64,
+        "A7": 5.13
+      }
+    },
+    "app/uluwatu/best-brunch/page.tsx": {
+      "units": 37,
+      "words": 435,
+      "FAIL": 0,
+      "WARN": 11,
+      "OK": 26,
+      "fails": {},
+      "warns": {
+        "A4": 9,
+        "A7": 2,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A4": 9,
+        "A7": 2,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A4": 20.69,
+        "A7": 4.6,
+        "A10": 2.3
+      }
+    },
+    "app/uluwatu/best-restaurants/page.tsx": {
+      "units": 40,
+      "words": 514,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 26,
+      "fails": {},
+      "warns": {
+        "A4": 13,
+        "A3": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A4": 13,
+        "A3": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A4": 25.29,
+        "A3": 1.95,
+        "A10": 1.95
+      }
+    },
+    "app/uluwatu/date-night-restaurants/page.tsx": {
+      "units": 33,
+      "words": 454,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 19,
+      "fails": {},
+      "warns": {
+        "A4": 14,
+        "A8": 1,
+        "A10": 1,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 14,
+        "A8": 1,
+        "A10": 1,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 30.84,
+        "A8": 2.2,
+        "A10": 2.2,
+        "A7": 2.2
+      }
+    },
+    "app/uluwatu/page.tsx": {
+      "units": 41,
+      "words": 525,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 36,
+      "fails": {},
+      "warns": {
+        "A1": 1,
+        "A5": 2,
+        "A7": 3,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A1": 1,
+        "A5": 2,
+        "A7": 3,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A1": 1.9,
+        "A5": 3.81,
+        "A7": 5.71,
+        "A6": 1.9
+      }
+    },
+    "app/v/[venue]/redeem/page.tsx": {
+      "units": 3,
+      "words": 30,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 33.33
+      }
+    },
+    "app/villas/page.tsx": {
+      "units": 50,
+      "words": 574,
+      "FAIL": 0,
+      "WARN": 20,
+      "OK": 30,
+      "fails": {},
+      "warns": {
+        "A4": 20,
+        "A6": 1,
+        "A7": 1,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "A4": 20,
+        "A6": 1,
+        "A7": 1,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "A4": 34.84,
+        "A6": 1.74,
+        "A7": 1.74,
+        "A3": 1.74
+      }
+    },
+    "app/where-to-stay-in-bali/page.tsx": {
+      "units": 57,
+      "words": 805,
+      "FAIL": 0,
+      "WARN": 15,
+      "OK": 42,
+      "fails": {},
+      "warns": {
+        "A4": 12,
+        "A1": 1,
+        "A6": 2,
+        "A7": 2,
+        "A5": 2
+      },
+      "unitsWithCode": {
+        "A4": 12,
+        "A1": 1,
+        "A6": 2,
+        "A7": 2,
+        "A5": 2
+      },
+      "densityPer1000": {
+        "A4": 14.91,
+        "A1": 1.24,
+        "A6": 2.48,
+        "A7": 2.48,
+        "A5": 2.48
+      }
+    },
+    "app/where-to-watch-sunset-in-bali/page.tsx": {
+      "units": 37,
+      "words": 479,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 30,
+      "fails": {},
+      "warns": {
+        "A4": 7
+      },
+      "unitsWithCode": {
+        "A4": 7
+      },
+      "densityPer1000": {
+        "A4": 14.61
+      }
+    },
+    "components/actions/VenueActionPanel.tsx": {
+      "units": 3,
+      "words": 28,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 3,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/AddToTripButton.tsx": {
+      "units": 2,
+      "words": 9,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/CangguGuideView.tsx": {
+      "units": 3,
+      "words": 40,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 3,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/CangguNow.tsx": {
+      "units": 6,
+      "words": 34,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/ConsentBanner.tsx": {
+      "units": 1,
+      "words": 19,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/DecisionRail.tsx": {
+      "units": 6,
+      "words": 44,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/GuideArticle.tsx": {
+      "units": 1,
+      "words": 5,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/GuideLeadForm.tsx": {
+      "units": 16,
+      "words": 182,
+      "FAIL": 0,
+      "WARN": 10,
+      "OK": 6,
+      "fails": {},
+      "warns": {
+        "A4": 8,
+        "A7": 1,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A4": 8,
+        "A7": 1,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A4": 43.96,
+        "A7": 5.49,
+        "A6": 10.99
+      }
+    },
+    "components/JimbaranGuideView.tsx": {
+      "units": 2,
+      "words": 22,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 1,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 45.45
+      }
+    },
+    "components/landing/BrowseBar.tsx": {
+      "units": 1,
+      "words": 4,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/landing/DayIntentBuilder.tsx": {
+      "units": 25,
+      "words": 159,
+      "FAIL": 0,
+      "WARN": 9,
+      "OK": 16,
+      "fails": {},
+      "warns": {
+        "A6": 7,
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A6": 7,
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A6": 44.03,
+        "A4": 12.58
+      }
+    },
+    "components/LightDistrictLanding.tsx": {
+      "units": 3,
+      "words": 17,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 58.82
+      }
+    },
+    "components/menu/DeferredMenuSection.tsx": {
+      "units": 1,
+      "words": 11,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/menu/MenuItem.tsx": {
+      "units": 3,
+      "words": 13,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 3,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/menu/MenuStates.tsx": {
+      "units": 6,
+      "words": 71,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/menu/StructuredMenu.tsx": {
+      "units": 4,
+      "words": 43,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 23.26
+      }
+    },
+    "components/MobileNav.tsx": {
+      "units": 1,
+      "words": 5,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/my-day/DayBuilderForm.tsx": {
+      "units": 6,
+      "words": 47,
+      "FAIL": 0,
+      "WARN": 6,
+      "OK": 0,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A4": 85.11,
+        "A6": 42.55
+      }
+    },
+    "components/NusaDuaGuideView.tsx": {
+      "units": 3,
+      "words": 23,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 2,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 43.48
+      }
+    },
+    "components/PlanRouteCard.tsx": {
+      "units": 1,
+      "words": 4,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/PropertyMediaUploader.tsx": {
+      "units": 16,
+      "words": 136,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 11,
+      "fails": {},
+      "warns": {
+        "A4": 5
+      },
+      "unitsWithCode": {
+        "A4": 5
+      },
+      "densityPer1000": {
+        "A4": 36.76
+      }
+    },
+    "components/PropertySubmissionForm.tsx": {
+      "units": 36,
+      "words": 362,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 22,
+      "fails": {},
+      "warns": {
+        "A4": 12,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A4": 12,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A4": 33.15,
+        "A6": 5.52
+      }
+    },
+    "components/resort/HotelRestaurantsHub.tsx": {
+      "units": 9,
+      "words": 142,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 4,
+      "fails": {},
+      "warns": {
+        "A4": 3,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A4": 3,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A4": 21.13,
+        "A6": 14.08
+      }
+    },
+    "components/resort/OfferDetail.tsx": {
+      "units": 4,
+      "words": 25,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 4,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/ResortFnbHub.tsx": {
+      "units": 4,
+      "words": 47,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 21.28
+      }
+    },
+    "components/SanurGuideView.tsx": {
+      "units": 2,
+      "words": 21,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/SaveButton.tsx": {
+      "units": 5,
+      "words": 21,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 5,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/ScenarioView.tsx": {
+      "units": 6,
+      "words": 38,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/SeminyakGuideView.tsx": {
+      "units": 2,
+      "words": 18,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/SimilarPlaces.tsx": {
+      "units": 1,
+      "words": 5,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 0,
+      "fails": {},
+      "warns": {
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A6": 200
+      }
+    },
+    "components/SiteFooter.tsx": {
+      "units": 8,
+      "words": 92,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 7,
+      "fails": {},
+      "warns": {
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A7": 10.87
+      }
+    },
+    "components/StartYourShortlist.tsx": {
+      "units": 1,
+      "words": 11,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/TripPlanner.tsx": {
+      "units": 1,
+      "words": 7,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/UbudGuideView.tsx": {
+      "units": 2,
+      "words": 17,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/venue/HotelSections.tsx": {
+      "units": 7,
+      "words": 52,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A4": 4
+      },
+      "unitsWithCode": {
+        "A4": 4
+      },
+      "densityPer1000": {
+        "A4": 76.92
+      }
+    },
+    "components/VenueCard.tsx": {
+      "units": 1,
+      "words": 7,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "components/VenueSubmissionForm.tsx": {
+      "units": 24,
+      "words": 281,
+      "FAIL": 0,
+      "WARN": 11,
+      "OK": 13,
+      "fails": {},
+      "warns": {
+        "A4": 9,
+        "A6": 2
+      },
+      "unitsWithCode": {
+        "A4": 9,
+        "A6": 2
+      },
+      "densityPer1000": {
+        "A4": 32.03,
+        "A6": 7.12
+      }
+    },
+    "lib/actions/resolve-actions.ts": {
+      "units": 8,
+      "words": 39,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 8,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/bali-things.ts": {
+      "units": 34,
+      "words": 953,
+      "FAIL": 1,
+      "WARN": 17,
+      "OK": 16,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A4": 12,
+        "A7": 12,
+        "A5": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A4": 12,
+        "A7": 10,
+        "A5": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "R2": 1.05,
+        "A4": 12.59,
+        "A7": 12.59,
+        "A5": 1.05,
+        "A10": 1.05
+      }
+    },
+    "lib/canggu-guides.ts": {
+      "units": 66,
+      "words": 1098,
+      "FAIL": 0,
+      "WARN": 21,
+      "OK": 45,
+      "fails": {},
+      "warns": {
+        "A4": 16,
+        "A7": 2,
+        "A1": 1,
+        "A10": 1,
+        "A11": 2,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A4": 16,
+        "A7": 2,
+        "A1": 1,
+        "A10": 1,
+        "A11": 2,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A4": 14.57,
+        "A7": 1.82,
+        "A1": 0.91,
+        "A10": 0.91,
+        "A11": 1.82,
+        "A5": 0.91
+      }
+    },
+    "lib/collections.ts": {
+      "units": 104,
+      "words": 1802,
+      "FAIL": 0,
+      "WARN": 45,
+      "OK": 59,
+      "fails": {},
+      "warns": {
+        "A4": 41,
+        "A10": 10,
+        "A5": 1,
+        "A3": 1,
+        "A7": 2
+      },
+      "unitsWithCode": {
+        "A4": 41,
+        "A10": 10,
+        "A5": 1,
+        "A3": 1,
+        "A7": 2
+      },
+      "densityPer1000": {
+        "A4": 22.75,
+        "A10": 5.55,
+        "A5": 0.55,
+        "A3": 0.55,
+        "A7": 1.11
+      }
+    },
+    "lib/contact.ts": {
+      "units": 4,
+      "words": 85,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 3,
+      "fails": {},
+      "warns": {
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A7": 11.76
+      }
+    },
+    "lib/contracts/errors-v1.2.ts": {
+      "units": 17,
+      "words": 124,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 17,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/contracts/hotel-fixture.ts": {
+      "units": 15,
+      "words": 88,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 14,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 11.36
+      }
+    },
+    "lib/contracts/menu-action.fixtures.ts": {
+      "units": 1,
+      "words": 4,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/contracts/package-v1.1/menu-action.fixtures.ts": {
+      "units": 2,
+      "words": 12,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/data.ts": {
+      "units": 1,
+      "words": 7,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/day-builder.ts": {
+      "units": 11,
+      "words": 76,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 11,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/districts.ts": {
+      "units": 20,
+      "words": 127,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 20,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/domain/resort.ts": {
+      "units": 2,
+      "words": 18,
+      "FAIL": 0,
+      "WARN": 2,
+      "OK": 0,
+      "fails": {},
+      "warns": {
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A4": 111.11
+      }
+    },
+    "lib/external-links.ts": {
+      "units": 2,
+      "words": 8,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/guides.ts": {
+      "units": 823,
+      "words": 16386,
+      "FAIL": 3,
+      "WARN": 311,
+      "OK": 509,
+      "fails": {
+        "H1": 3,
+        "R2": 1
+      },
+      "warns": {
+        "A4": 191,
+        "A7": 133,
+        "A5": 84,
+        "A10": 13,
+        "A3": 18,
+        "A6": 35,
+        "A1": 14,
+        "A11": 3
+      },
+      "unitsWithCode": {
+        "H1": 3,
+        "A4": 191,
+        "A7": 127,
+        "R2": 1,
+        "A5": 84,
+        "A10": 13,
+        "A3": 18,
+        "A6": 10,
+        "A1": 14,
+        "A11": 3
+      },
+      "densityPer1000": {
+        "H1": 0.18,
+        "R2": 0.06,
+        "A4": 11.66,
+        "A7": 8.12,
+        "A5": 5.13,
+        "A10": 0.79,
+        "A3": 1.1,
+        "A6": 2.14,
+        "A1": 0.85,
+        "A11": 0.18
+      }
+    },
+    "lib/homepage.ts": {
+      "units": 33,
+      "words": 169,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 33,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/hub.ts": {
+      "units": 13,
+      "words": 146,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A4": 4,
+        "A6": 1
+      },
+      "unitsWithCode": {
+        "A4": 4,
+        "A6": 1
+      },
+      "densityPer1000": {
+        "A4": 27.4,
+        "A6": 6.85
+      }
+    },
+    "lib/integrations/routing-provider.ts": {
+      "units": 3,
+      "words": 38,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 3,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/integrations/whatsapp.ts": {
+      "units": 5,
+      "words": 30,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 5,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/intents.ts": {
+      "units": 8,
+      "words": 46,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 8,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/jimbaran-guides.ts": {
+      "units": 21,
+      "words": 368,
+      "FAIL": 0,
+      "WARN": 12,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A4": 10,
+        "A7": 2,
+        "A10": 1,
+        "A5": 1,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "A4": 10,
+        "A7": 2,
+        "A10": 1,
+        "A5": 1,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "A4": 27.17,
+        "A7": 5.43,
+        "A10": 2.72,
+        "A5": 2.72,
+        "A3": 2.72
+      }
+    },
+    "lib/jimbaran/content.ts": {
+      "units": 29,
+      "words": 755,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 15,
+      "fails": {},
+      "warns": {
+        "A4": 10,
+        "A7": 9,
+        "A5": 2,
+        "A10": 3
+      },
+      "unitsWithCode": {
+        "A4": 10,
+        "A7": 9,
+        "A5": 2,
+        "A10": 3
+      },
+      "densityPer1000": {
+        "A4": 13.25,
+        "A7": 11.92,
+        "A5": 2.65,
+        "A10": 3.97
+      }
+    },
+    "lib/journey/adaptive-companion.ts": {
+      "units": 7,
+      "words": 52,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 7,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/light-districts.ts": {
+      "units": 97,
+      "words": 1938,
+      "FAIL": 0,
+      "WARN": 47,
+      "OK": 50,
+      "fails": {},
+      "warns": {
+        "A4": 38,
+        "A7": 10,
+        "A10": 4,
+        "A3": 4,
+        "A5": 7
+      },
+      "unitsWithCode": {
+        "A4": 38,
+        "A7": 9,
+        "A10": 4,
+        "A3": 4,
+        "A5": 7
+      },
+      "densityPer1000": {
+        "A4": 19.61,
+        "A7": 5.16,
+        "A10": 2.06,
+        "A3": 2.06,
+        "A5": 3.61
+      }
+    },
+    "lib/mobile-api/discovery.ts": {
+      "units": 5,
+      "words": 38,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 5,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/mobile-api/http.ts": {
+      "units": 3,
+      "words": 15,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 3,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/moments.ts": {
+      "units": 7,
+      "words": 42,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 7,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/navigation.ts": {
+      "units": 13,
+      "words": 62,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 12,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 16.13
+      }
+    },
+    "lib/nusa-dua-guides.ts": {
+      "units": 19,
+      "words": 305,
+      "FAIL": 0,
+      "WARN": 10,
+      "OK": 9,
+      "fails": {},
+      "warns": {
+        "A4": 9,
+        "A10": 2,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A4": 9,
+        "A10": 2,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A4": 29.51,
+        "A10": 6.56,
+        "A5": 3.28
+      }
+    },
+    "lib/nusa-dua/content.ts": {
+      "units": 29,
+      "words": 684,
+      "FAIL": 0,
+      "WARN": 11,
+      "OK": 18,
+      "fails": {},
+      "warns": {
+        "A7": 9,
+        "A4": 8,
+        "A5": 2,
+        "A3": 1
+      },
+      "unitsWithCode": {
+        "A7": 8,
+        "A4": 8,
+        "A5": 2,
+        "A3": 1
+      },
+      "densityPer1000": {
+        "A7": 13.16,
+        "A4": 11.7,
+        "A5": 2.92,
+        "A3": 1.46
+      }
+    },
+    "lib/nusa-penida/content.ts": {
+      "units": 34,
+      "words": 938,
+      "FAIL": 1,
+      "WARN": 11,
+      "OK": 22,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A3": 3,
+        "A5": 2,
+        "A7": 9,
+        "A4": 2,
+        "A10": 2
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A3": 3,
+        "A5": 2,
+        "A7": 9,
+        "A4": 2,
+        "A10": 2
+      },
+      "densityPer1000": {
+        "R2": 1.07,
+        "A3": 3.2,
+        "A5": 2.13,
+        "A7": 9.59,
+        "A4": 2.13,
+        "A10": 2.13
+      }
+    },
+    "lib/pillars.ts": {
+      "units": 38,
+      "words": 239,
+      "FAIL": 0,
+      "WARN": 1,
+      "OK": 37,
+      "fails": {},
+      "warns": {
+        "A4": 1
+      },
+      "unitsWithCode": {
+        "A4": 1
+      },
+      "densityPer1000": {
+        "A4": 4.18
+      }
+    },
+    "lib/read-all-pages.ts": {
+      "units": 1,
+      "words": 15,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/resort-fnb/index.ts": {
+      "units": 2,
+      "words": 6,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/runtime-v1.2/route-runtime.ts": {
+      "units": 10,
+      "words": 57,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 10,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/sanur-guides.ts": {
+      "units": 26,
+      "words": 404,
+      "FAIL": 0,
+      "WARN": 13,
+      "OK": 13,
+      "fails": {},
+      "warns": {
+        "A4": 13,
+        "A3": 1,
+        "A10": 2,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A4": 13,
+        "A3": 1,
+        "A10": 2,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A4": 32.18,
+        "A3": 2.48,
+        "A10": 4.95,
+        "A5": 2.48
+      }
+    },
+    "lib/sanur/content.ts": {
+      "units": 49,
+      "words": 841,
+      "FAIL": 1,
+      "WARN": 13,
+      "OK": 35,
+      "fails": {
+        "R2": 1
+      },
+      "warns": {
+        "A4": 12,
+        "A5": 3,
+        "A7": 2,
+        "A3": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "R2": 1,
+        "A4": 12,
+        "A5": 3,
+        "A7": 2,
+        "A3": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "R2": 1.19,
+        "A4": 14.27,
+        "A5": 3.57,
+        "A7": 2.38,
+        "A3": 1.19,
+        "A10": 1.19
+      }
+    },
+    "lib/scenarios.ts": {
+      "units": 60,
+      "words": 941,
+      "FAIL": 0,
+      "WARN": 23,
+      "OK": 37,
+      "fails": {},
+      "warns": {
+        "A6": 1,
+        "A4": 19,
+        "A7": 3,
+        "A5": 1,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "A6": 1,
+        "A4": 19,
+        "A7": 3,
+        "A5": 1,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "A6": 1.06,
+        "A4": 20.19,
+        "A7": 3.19,
+        "A5": 1.06,
+        "A10": 1.06
+      }
+    },
+    "lib/seed.ts": {
+      "units": 36,
+      "words": 210,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 33,
+      "fails": {},
+      "warns": {
+        "A4": 3
+      },
+      "unitsWithCode": {
+        "A4": 3
+      },
+      "densityPer1000": {
+        "A4": 14.29
+      }
+    },
+    "lib/seminyak-guides.ts": {
+      "units": 34,
+      "words": 520,
+      "FAIL": 1,
+      "WARN": 18,
+      "OK": 15,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A4": 17,
+        "A10": 3,
+        "A5": 2
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A4": 17,
+        "A10": 3,
+        "A5": 2
+      },
+      "densityPer1000": {
+        "H1": 1.92,
+        "A4": 32.69,
+        "A10": 5.77,
+        "A5": 3.85
+      }
+    },
+    "lib/seo/venue-metadata.ts": {
+      "units": 1,
+      "words": 3,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 1,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/site-origin-policy.ts": {
+      "units": 2,
+      "words": 31,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/start-shortlist.ts": {
+      "units": 6,
+      "words": 26,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/trip-missions.ts": {
+      "units": 6,
+      "words": 28,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 6,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    },
+    "lib/ubud-guides.ts": {
+      "units": 39,
+      "words": 596,
+      "FAIL": 0,
+      "WARN": 22,
+      "OK": 17,
+      "fails": {},
+      "warns": {
+        "A4": 19,
+        "A3": 1,
+        "A5": 3,
+        "A10": 2,
+        "A7": 5
+      },
+      "unitsWithCode": {
+        "A4": 19,
+        "A3": 1,
+        "A5": 3,
+        "A10": 2,
+        "A7": 5
+      },
+      "densityPer1000": {
+        "A4": 31.88,
+        "A3": 1.68,
+        "A5": 5.03,
+        "A10": 3.36,
+        "A7": 8.39
+      }
+    },
+    "lib/ubud-things.ts": {
+      "units": 27,
+      "words": 564,
+      "FAIL": 0,
+      "WARN": 11,
+      "OK": 16,
+      "fails": {},
+      "warns": {
+        "A4": 10,
+        "A7": 1
+      },
+      "unitsWithCode": {
+        "A4": 10,
+        "A7": 1
+      },
+      "densityPer1000": {
+        "A4": 17.73,
+        "A7": 1.77
+      }
+    },
+    "lib/uluwatu/venues.ts": {
+      "units": 234,
+      "words": 4019,
+      "FAIL": 1,
+      "WARN": 91,
+      "OK": 142,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A4": 73,
+        "A10": 15,
+        "A7": 16,
+        "A5": 4,
+        "A3": 4
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A4": 73,
+        "A10": 15,
+        "A7": 16,
+        "A5": 4,
+        "A3": 4
+      },
+      "densityPer1000": {
+        "H1": 0.25,
+        "A4": 18.16,
+        "A10": 3.73,
+        "A7": 3.98,
+        "A5": 1,
+        "A3": 1
+      }
+    },
+    "lib/venue-validation.ts": {
+      "units": 2,
+      "words": 9,
+      "FAIL": 0,
+      "WARN": 0,
+      "OK": 2,
+      "fails": {},
+      "warns": {},
+      "unitsWithCode": {},
+      "densityPer1000": {}
+    }
+  },
+  "byPage": {
+    "bali-free-beach-clubs": {
+      "units": 40,
+      "words": 730,
+      "FAIL": 1,
+      "WARN": 13,
+      "OK": 26,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A4": 10,
+        "A7": 7,
+        "A3": 3
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A4": 10,
+        "A7": 4,
+        "A3": 3
+      },
+      "densityPer1000": {
+        "H1": 1.37,
+        "A4": 13.7,
+        "A7": 9.59,
+        "A3": 4.11
+      }
+    },
+    "bali-hotel-brunches": {
+      "units": 21,
+      "words": 365,
+      "FAIL": 0,
+      "WARN": 6,
+      "OK": 15,
+      "fails": {},
+      "warns": {
+        "A7": 1,
+        "A4": 5
+      },
+      "unitsWithCode": {
+        "A7": 1,
+        "A4": 5
+      },
+      "densityPer1000": {
+        "A7": 2.74,
+        "A4": 13.7
+      }
+    },
+    "bali-resort-day-passes": {
+      "units": 23,
+      "words": 422,
+      "FAIL": 1,
+      "WARN": 5,
+      "OK": 17,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A4": 5,
+        "A7": 4
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A4": 5,
+        "A7": 2
+      },
+      "densityPer1000": {
+        "H1": 2.37,
+        "A4": 11.85,
+        "A7": 9.48
+      }
+    },
+    "bali-sunset-clubs": {
+      "units": 35,
+      "words": 478,
+      "FAIL": 0,
+      "WARN": 10,
+      "OK": 25,
+      "fails": {},
+      "warns": {
+        "A7": 7,
+        "A4": 7,
+        "A5": 2
+      },
+      "unitsWithCode": {
+        "A7": 6,
+        "A4": 7,
+        "A5": 2
+      },
+      "densityPer1000": {
+        "A7": 14.64,
+        "A4": 14.64,
+        "A5": 4.18
+      }
+    },
+    "canggu-beach-club-day-passes": {
+      "units": 25,
+      "words": 347,
+      "FAIL": 0,
+      "WARN": 7,
+      "OK": 18,
+      "fails": {},
+      "warns": {
+        "A4": 6,
+        "A7": 2,
+        "A8": 1
+      },
+      "unitsWithCode": {
+        "A4": 6,
+        "A7": 2,
+        "A8": 1
+      },
+      "densityPer1000": {
+        "A4": 17.29,
+        "A7": 5.76,
+        "A8": 2.88
+      }
+    },
+    "jimbaran-hotel-brunches": {
+      "units": 19,
+      "words": 221,
+      "FAIL": 0,
+      "WARN": 3,
+      "OK": 16,
+      "fails": {},
+      "warns": {
+        "A7": 1,
+        "A4": 2
+      },
+      "unitsWithCode": {
+        "A7": 1,
+        "A4": 2
+      },
+      "densityPer1000": {
+        "A7": 4.52,
+        "A4": 9.05
+      }
+    },
+    "jimbaran-resort-day-passes": {
+      "units": 26,
+      "words": 356,
+      "FAIL": 0,
+      "WARN": 6,
+      "OK": 20,
+      "fails": {},
+      "warns": {
+        "A7": 2,
+        "A4": 5
+      },
+      "unitsWithCode": {
+        "A7": 2,
+        "A4": 5
+      },
+      "densityPer1000": {
+        "A7": 5.62,
+        "A4": 14.04
+      }
+    },
+    "jimbaran-sunset-seafood": {
+      "units": 26,
+      "words": 381,
+      "FAIL": 0,
+      "WARN": 5,
+      "OK": 21,
+      "fails": {},
+      "warns": {
+        "A7": 2,
+        "A4": 4
+      },
+      "unitsWithCode": {
+        "A7": 2,
+        "A4": 4
+      },
+      "densityPer1000": {
+        "A7": 5.25,
+        "A4": 10.5
+      }
+    },
+    "nusa-dua-hotel-brunches": {
+      "units": 64,
+      "words": 751,
+      "FAIL": 0,
+      "WARN": 14,
+      "OK": 50,
+      "fails": {},
+      "warns": {
+        "A7": 3,
+        "A4": 13
+      },
+      "unitsWithCode": {
+        "A7": 3,
+        "A4": 13
+      },
+      "densityPer1000": {
+        "A7": 3.99,
+        "A4": 17.31
+      }
+    },
+    "nusa-dua-resort-day-passes": {
+      "units": 42,
+      "words": 543,
+      "FAIL": 0,
+      "WARN": 8,
+      "OK": 34,
+      "fails": {},
+      "warns": {
+        "A7": 4,
+        "A4": 7,
+        "A5": 1
+      },
+      "unitsWithCode": {
+        "A7": 3,
+        "A4": 7,
+        "A5": 1
+      },
+      "densityPer1000": {
+        "A7": 7.37,
+        "A4": 12.89,
+        "A5": 1.84
+      }
+    },
+    "sanur-hotel-brunches": {
+      "units": 24,
+      "words": 314,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 20,
+      "fails": {},
+      "warns": {
+        "A4": 4
+      },
+      "unitsWithCode": {
+        "A4": 4
+      },
+      "densityPer1000": {
+        "A4": 12.74
+      }
+    },
+    "sanur-resort-day-passes": {
+      "units": 49,
+      "words": 691,
+      "FAIL": 0,
+      "WARN": 16,
+      "OK": 33,
+      "fails": {},
+      "warns": {
+        "A4": 16,
+        "A7": 5
+      },
+      "unitsWithCode": {
+        "A4": 16,
+        "A7": 4
+      },
+      "densityPer1000": {
+        "A4": 23.15,
+        "A7": 7.24
+      }
+    },
+    "seminyak-beach-club-day-passes": {
+      "units": 25,
+      "words": 344,
+      "FAIL": 2,
+      "WARN": 5,
+      "OK": 18,
+      "fails": {
+        "H1": 2
+      },
+      "warns": {
+        "A4": 4,
+        "A7": 3
+      },
+      "unitsWithCode": {
+        "H1": 2,
+        "A4": 4,
+        "A7": 3
+      },
+      "densityPer1000": {
+        "H1": 5.81,
+        "A4": 11.63,
+        "A7": 8.72
+      }
+    },
+    "seminyak-hotel-brunches": {
+      "units": 21,
+      "words": 244,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 17,
+      "fails": {},
+      "warns": {
+        "A4": 4
+      },
+      "unitsWithCode": {
+        "A4": 4
+      },
+      "densityPer1000": {
+        "A4": 16.39
+      }
+    },
+    "ubud-hotel-brunches": {
+      "units": 20,
+      "words": 241,
+      "FAIL": 0,
+      "WARN": 4,
+      "OK": 16,
+      "fails": {},
+      "warns": {
+        "A7": 1,
+        "A4": 3
+      },
+      "unitsWithCode": {
+        "A7": 1,
+        "A4": 3
+      },
+      "densityPer1000": {
+        "A7": 4.15,
+        "A4": 12.45
+      }
+    },
+    "ubud-jungle-pool-day-passes": {
+      "units": 35,
+      "words": 397,
+      "FAIL": 2,
+      "WARN": 7,
+      "OK": 26,
+      "fails": {
+        "H1": 2
+      },
+      "warns": {
+        "A7": 4,
+        "A4": 5,
+        "A10": 1
+      },
+      "unitsWithCode": {
+        "H1": 2,
+        "A7": 3,
+        "A4": 5,
+        "A10": 1
+      },
+      "densityPer1000": {
+        "H1": 5.04,
+        "A7": 10.08,
+        "A4": 12.59,
+        "A10": 2.52
+      }
+    },
+    "uluwatu-resort-pool-day-passes": {
+      "units": 24,
+      "words": 379,
+      "FAIL": 1,
+      "WARN": 6,
+      "OK": 17,
+      "fails": {
+        "H1": 1
+      },
+      "warns": {
+        "A7": 3,
+        "A4": 5
+      },
+      "unitsWithCode": {
+        "H1": 1,
+        "A7": 2,
+        "A4": 5
+      },
+      "densityPer1000": {
+        "H1": 2.64,
+        "A7": 7.92,
+        "A4": 13.19
+      }
+    }
+  },
+  "families": {
+    "total": {
+      "street-template": 383,
+      "spa-formula": 408,
+      "stub-best-for": 99,
+      "budget-massage": 33
+    },
+    "bySurface": {
+      "db": {
+        "street-template": 383,
+        "spa-formula": 408,
+        "stub-best-for": 99,
+        "budget-massage": 33
+      }
+    }
+  },
+  "duplicateBestFor": {
+    "groups": 33,
+    "slugs": 367,
+    "samples": [
+      {
+        "text": "Tired feet after a day of walking.",
+        "count": 64,
+        "slugs": [
+          "palm-garden-spa-amed",
+          "aliya-salon-and-day-spa-canggu",
+          "alma-spa-canggu",
+          "ameline-beauty-spa-canggu",
+          "bali-serene-nature-canggu"
+        ]
+      },
+      {
+        "text": "Travellers looking for a verified place to eat in Ubud.",
+        "count": 32,
+        "slugs": [
+          "arya-arkananta-resort-and-spa",
+          "avocuts-coffee-and-eatery",
+          "bulan-madu-restaurant-at-amora-ubud-boutique-villas",
+          "cafe-lotus",
+          "cherry-pepper-ubud"
+        ]
+      },
+      {
+        "text": "Balinese massage booked the same day.",
+        "count": 22,
+        "slugs": [
+          "amo-spa-canggu",
+          "serenity-bali-yogi-spa-canggu",
+          "wave-house-bali-canggu",
+          "balangan-surf-resort-jimbaran",
+          "anjali-spa-kuta-legian"
+        ]
+      },
+      {
+        "text": "Traditional massage booked the same day.",
+        "count": 20,
+        "slugs": [
+          "alam-wellness-bali-canggu",
+          "beautyfulspa-canggu",
+          "como-shambhala-uma-canggu-canggu",
+          "ecosfera-hotel-canggu",
+          "umalas-canggu"
+        ]
+      },
+      {
+        "text": "A long reset — treatments run up to 120 minutes; tired feet after a day of walking.",
+        "count": 19,
+        "slugs": [
+          "amed-roda-spa-amed",
+          "hati-thai-canggu",
+          "korra-spa-canggu",
+          "manori-spa-canggu",
+          "tyce-spa-bali-canggu"
+        ]
+      },
+      {
+        "text": "A long reset — treatments run up to 180 minutes; tired feet after a day of walking.",
+        "count": 18,
+        "slugs": [
+          "alala-amed-spa-boutique-amed",
+          "hotel-uyah-amed-spa-resort-amed",
+          "beach-house-by-tonic-canggu",
+          "therapy-day-spa-canggu",
+          "tonic-canggu-canggu"
+        ]
+      },
+      {
+        "text": "Travellers looking for a verified place to eat in Seminyak.",
+        "count": 18,
+        "slugs": [
+          "amber-resto-seminyak",
+          "casa-blanca-bali",
+          "casadia-restaurant-and-bar",
+          "cocoon-seminyak",
+          "fu-house-seminyak"
+        ]
+      },
+      {
+        "text": "Couples — the list includes a couple treatment.",
+        "count": 14,
+        "slugs": [
+          "bali-dream-villa-resort-echo-beach-canggu-canggu",
+          "fajar-bali-luxury-spa-canggu",
+          "swara-spa-canggu",
+          "sean-spa-bali-jimbaran",
+          "swara-spa-jimbaran"
+        ]
+      },
+      {
+        "text": "A long reset — treatments run up to 120 minutes.",
+        "count": 13,
+        "slugs": [
+          "koya-spa-canggu",
+          "maja-canggu",
+          "the-ark-recovery-canggu",
+          "the-freebird-studio-canggu",
+          "celestine-spa-kuta-legian"
+        ]
+      },
+      {
+        "text": "Travellers looking for a verified place to eat in Sanur.",
+        "count": 12,
+        "slugs": [
+          "arunika-restaurant-by-the-meru-sanur",
+          "costa-beach-restaurant",
+          "kayumanis-seaside-restaurant-sanur",
+          "kimukatsu-icon-bali",
+          "lava-gastrobar-grill"
+        ]
+      },
+      {
+        "text": "Travellers looking for a verified place to eat in Kuta.",
+        "count": 9,
+        "slugs": [
+          "aribar-tapas-cantina",
+          "boardwalk-restaurant-bali",
+          "daily-social",
+          "envy-restaurant",
+          "kabar-grill"
+        ]
+      },
+      {
+        "text": "A long reset — treatments run up to 180 minutes.",
+        "count": 9,
+        "slugs": [
+          "bali-orchid-spa-kuta-legian",
+          "kayumanis-spa-nusa-dua-nusa-dua",
+          "sofitel-spa-with-clarins-nusa-dua",
+          "pelangi-villa-sidemen-sidemen",
+          "aura-therapy-spa-ubud"
+        ]
+      },
+      {
+        "text": "Couples — the list includes a couple treatment; a long reset — treatments run up to 120 minutes.",
+        "count": 9,
+        "slugs": [
+          "rnd-lovina-spa-lovina",
+          "blissful-senja-sanur",
+          "ortus-wellness-seminyak",
+          "spa-bali-moon-seminyak",
+          "terra-spa-wellness-seminyak"
+        ]
+      },
+      {
+        "text": "Couples — the list includes a couple treatment; a long reset — treatments run up to 180 minutes.",
+        "count": 8,
+        "slugs": [
+          "bamboo-spa-jimbaran",
+          "jimbaran-puri-spa-jimbaran",
+          "samuh-beach-nusa-dua",
+          "wellness-spa-at-the-sakala-resort-bali-nusa-dua",
+          "atman-spa-kerobokan-seminyak"
+        ]
+      },
+      {
+        "text": "Yoga booked the same day.",
+        "count": 8,
+        "slugs": [
+          "candi-beach-resort-spa-karangasem",
+          "heavenly-spa-by-westin-nusa-dua",
+          "wapa-di-ume-sidemen-sidemen",
+          "empower-balance-tabanan",
+          "swatma-ubud"
+        ]
+      }
+    ]
+  },
+  "exactDuplicates": {
+    "groups": 70,
+    "units": 447,
+    "byField": {
+      "best_for": {
+        "groups": 44,
+        "units": 389
+      },
+      "not_for": {
+        "groups": 9,
+        "units": 22
+      },
+      "why_its_here": {
+        "groups": 17,
+        "units": 36
+      }
+    }
+  }
+}

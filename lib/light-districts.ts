@@ -50,18 +50,18 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
     title: "Sidemen guide — Bali's quiet green valley",
     tagline: "Sidemen · East Bali valleys",
     metaDescription:
-      "A resident-curated Sidemen guide: the terraced rice-field valley under Mount Agung, who it suits, its slow village days, weaving heritage and the walks — often called the Ubud of a generation ago.",
+      "Sidemen, the rice-terrace valley under Mount Agung often called the Ubud of a generation ago: slow village days, weaving heritage and walks. Resident-curated.",
     intro:
-      "Sidemen is a quiet river valley in east Bali, an hour or so beyond Ubud, where terraced rice fields climb toward Mount Agung and the pace drops to almost nothing. It's often described as the Ubud of a generation ago — the same emerald terraces and village calm, without the traffic or the crowds. Come for the view, the walks and the quiet; not for beaches, nightlife or a dense café strip.",
+      "Sidemen is a quiet river valley in east Bali, about an hour beyond Ubud. Terraced rice fields climb toward Mount Agung and the pace drops to almost nothing. It's often described as the Ubud of a generation ago: the same green terraces and village calm without the traffic or the crowds. Come for the view, the walks and the quiet. Don't come for beaches or nightlife, or a dense café strip.",
     suits:
-      "Slow travellers, couples and photographers who want rice-terrace scenery, gentle valley walks and a genuinely quiet base — and anyone curious about traditional Balinese weaving, which the valley has long been known for.",
+      "Slow travellers, couples and photographers who want rice-terrace scenery and gentle valley walks from a quiet base. Also anyone curious about traditional Balinese weaving, which the valley has long been known for.",
     frustrates:
       "Anyone after beaches, nightlife, a walkable centre or lots to “do”. Sidemen is about landscape and stillness, and everything is spread out along winding valley roads.",
     knownFor: [
       {
         title: "Rice-terrace valley walks",
         blurb:
-          "The reason to come: green terraces stepping up the valley, with Mount Agung at the head on a clear morning. Gentle, unhurried walks rather than serious hikes.",
+          "The reason to come: green terraces stepping up the valley, with Mount Agung at the head on a clear morning. The walks are gentle and unhurried rather than tough hikes.",
         mapsUrl: mapsLink("Sidemen rice terraces Bali"),
       },
       {
@@ -84,19 +84,19 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       },
     ],
     practical: [
-      "It's spread out — you'll want a scooter or a hired driver; there's no walkable centre.",
-      "Come for a clear morning — Agung and the terraces show best early, before the valley clouds over.",
-      "Pair it with the east — Besakih, Tirta Gangga and the road to Amed all link from here.",
-      "It's rural — ATMs, shops and dining are limited and mostly at guesthouses, so bring what you need.",
+      "It's spread out, so you'll want a scooter or a hired driver. There's no walkable centre.",
+      "Come for a clear morning. Agung and the terraces show best early, before the valley clouds over.",
+      "Pair it with the east: Besakih, Tirta Gangga and the road to Amed all link from here.",
+      "It's rural. ATMs, shops and dining are limited and mostly at guesthouses, so bring what you need.",
     ],
     faq: [
       {
         q: "What is Sidemen best for?",
-        a: "Quiet rice-terrace scenery and slow village days in east Bali — often called the Ubud of a generation ago. It suits couples, photographers and anyone who wants stillness and green valley views over sights and nightlife.",
+        a: "Quiet rice-terrace scenery and slow village days in east Bali. It's often called the Ubud of a generation ago. It suits couples, photographers and anyone who wants stillness and green valley views over sights and nightlife.",
       },
       {
         q: "Is Sidemen worth visiting?",
-        a: "If you want landscape and calm, yes — the terraced valley under Mount Agung is among Bali's prettiest and far quieter than Ubud. If you want beaches, nightlife or lots to do, it isn't the base for you.",
+        a: "If you want landscape and calm, yes. The terraced valley under Mount Agung is among Bali's prettiest and far quieter than Ubud. If you want beaches, nightlife or lots to do, it isn't the base for you.",
       },
       {
         q: "How many days do you need in Sidemen?",
@@ -108,7 +108,7 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       },
     ],
     related: [
-      { href: "/ubud", title: "The Ubud guide", blurb: "The busier, greener culture hub an hour west — jungle, terraces and long dinners." },
+      { href: "/ubud", title: "The Ubud guide", blurb: "The busier, greener culture hub an hour west, with jungle, terraces and long dinners." },
       { href: "/amed", title: "The Amed guide", blurb: "The calm black-sand dive coast the valley road runs down to." },
     ],
   },
@@ -121,22 +121,22 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
     metaDescription:
       "A resident-curated Amed guide: the black-sand fishing villages of Bali's far-east coast, easy shore snorkelling, the Tulamben Liberty wreck, freediving and a slow, low-key pace.",
     intro:
-      "Amed is a string of black-sand fishing villages along Bali's dry, quiet far-east coast, where traditional jukung outriggers still line the beach and the sea is calm and clear. It's the island's easy underwater base — snorkelling straight off the beach, coral gardens, and, just up the coast at Tulamben, the USAT Liberty shipwreck, one of the world's most accessible wreck dives. Come for the water, the sunrises and the low-key pace.",
+      "Amed is a string of black-sand fishing villages along Bali's dry, quiet far-east coast. Traditional jukung outriggers still line the beach, and the sea is calm and clear. It's the island's easy underwater base, with snorkelling straight off the beach and coral gardens. Just up the coast at Tulamben is the USAT Liberty shipwreck, one of the world's most accessible wreck dives. Come for the water, the sunrises and the low-key pace.",
     suits:
-      "Snorkellers, freedivers and divers, and travellers who want a calm sea and a slow, unpolished coast — sunrise over the water with Mount Agung rising behind.",
+      "Snorkellers, freedivers and divers, and travellers who want a calm sea and a slow, unpolished coast. Expect sunrise over the water, with Mount Agung rising behind.",
     frustrates:
       "Anyone after surf, nightlife or a resort scene. Amed is spread out and rustic, and its beaches are black volcanic sand and pebble rather than white.",
     knownFor: [
       {
         title: "Snorkelling off the beach",
         blurb:
-          "Jemeluk Bay's coral garden and a small sunken Japanese wreck are reachable straight from shore — some of Bali's easiest, most rewarding snorkelling.",
+          "Jemeluk Bay's coral garden and a small sunken Japanese wreck are reachable straight from shore. It's some of Bali's easiest, most rewarding snorkelling.",
         mapsUrl: mapsLink("Jemeluk Bay Amed snorkelling"),
       },
       {
         title: "The USAT Liberty wreck at Tulamben",
         blurb:
-          "A large WWII-era shipwreck lying in shallow water just up the coast, dived and even snorkelled from the beach. One of Bali's signature dive sites.",
+          "A large WWII-era shipwreck lying in shallow water just up the coast, dived and even snorkelled from the beach.",
         mapsUrl: mapsLink("USAT Liberty wreck Tulamben"),
       },
       {
@@ -153,23 +153,23 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       },
     ],
     practical: [
-      "It's a long, spread-out coast — “Amed” covers several villages over roughly 10 km, so pick your bay and expect to scooter between them.",
+      "It's a long, spread-out coast. “Amed” covers several villages over roughly 10 km, so pick your bay and expect to scooter between them.",
       "The sea is generally calm and beginner-friendly, but always check local conditions before you get in.",
-      "Bring cash — ATMs are limited along the coast.",
-      "Pair it with the east — Sidemen, Tirta Gangga and the round-the-east road all connect from here.",
+      "Bring cash. ATMs are limited along the coast.",
+      "Pair it with the east: Sidemen, Tirta Gangga and the round-the-east road all connect from here.",
     ],
     faq: [
       {
         q: "What is Amed best for?",
-        a: "Snorkelling and diving. It's a calm, quiet stretch of black-sand fishing villages on Bali's far-east coast, with coral gardens off the beach and the famous USAT Liberty wreck nearby at Tulamben.",
+        a: "Snorkelling and diving. It's a calm, quiet stretch of black-sand fishing villages on Bali's far-east coast. There are coral gardens off the beach and the USAT Liberty wreck nearby at Tulamben.",
       },
       {
         q: "Is Amed good for snorkelling?",
-        a: "Yes — it's among Bali's best and easiest. Jemeluk Bay has coral and a small wreck reachable straight from the beach, and the Tulamben Liberty wreck is a short drive up the coast.",
+        a: "Yes, it's among Bali's best and easiest. Jemeluk Bay has coral and a small wreck reachable straight from the beach, and the Tulamben Liberty wreck is a short drive up the coast.",
       },
       {
         q: "Is Amed worth visiting?",
-        a: "For divers, snorkellers and travellers who want a slow, low-key coast, very much so. It's quiet and spread out with black-sand beaches rather than white — not a resort or party base.",
+        a: "For divers, snorkellers and travellers who want a slow, low-key coast, yes. It's quiet and spread out, with black-sand beaches rather than white. It's not a resort or party base.",
       },
       {
         q: "How do you get to Amed?",
@@ -190,16 +190,16 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
     metaDescription:
       "A resident-curated Munduk guide: the cool mountain village above Bali's twin northern lakes, its cluster of waterfalls, coffee country and cool-climate hiking.",
     intro:
-      "Munduk is a mountain village in Bali's cool northern highlands, set among coffee and clove plantations above the twin crater lakes of Buyan and Tamblingan. It's waterfall-and-hiking country — misty mornings, forest trails and a string of falls within a short drive — at an altitude where you'll actually want a jumper at night. Come for the green, the cool and the walks.",
+      "Munduk is a mountain village in Bali's cool northern highlands. It sits among coffee and clove plantations above the twin crater lakes of Buyan and Tamblingan. It's waterfall-and-hiking country: misty mornings and forest trails, with a string of falls within a short drive. At this altitude you'll want a jumper at night. Come for the green, the cool and the walks.",
     suits:
-      "Hikers, nature lovers and travellers who want cool air, waterfalls and lake scenery — a complete change of climate from the hot coast.",
+      "Hikers and nature lovers, and travellers who want cool air, waterfalls and lake scenery. It's a complete change of climate from the hot coast.",
     frustrates:
       "Beach and nightlife travellers. It's remote and quiet, often misty or wet, and the highlands are for slow days outdoors rather than dining or shopping.",
     knownFor: [
       {
         title: "Waterfalls",
         blurb:
-          "Munduk is ringed by falls — the Munduk and Melanting falls and the Banyumala twin waterfalls among them — several linked by short forest walks.",
+          "Munduk is ringed by falls, among them the Munduk and Melanting falls and the Banyumala twin waterfalls. Several are linked by short forest walks.",
         mapsUrl: mapsLink("Munduk waterfall Bali"),
       },
       {
@@ -217,24 +217,24 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       {
         title: "The Bedugul lakes nearby",
         blurb:
-          "The Bedugul highlands, including the much-photographed Ulun Danu Beratan lake temple, are within reach on the main north road.",
+          "The Bedugul highlands, including the Ulun Danu Beratan lake temple, are within reach on the main north road.",
         mapsUrl: mapsLink("Ulun Danu Beratan temple Bali"),
       },
     ],
     practical: [
-      "Bring a layer — it's high and cool, especially mornings and evenings, and rain is common.",
+      "Bring a layer. It's high and cool, especially mornings and evenings, and rain is common.",
       "Roads are winding mountain switchbacks; allow more time than the distance suggests.",
-      "Waterfall trails can be steep and slippery — wear shoes with grip.",
-      "Pair it with Bedugul — the lake temple and the highlands sit on the same north road.",
+      "Waterfall trails can be steep and slippery, so wear shoes with grip.",
+      "Pair it with Bedugul: the lake temple and the highlands sit on the same north road.",
     ],
     faq: [
       {
         q: "What is Munduk best for?",
-        a: "Waterfalls, hiking and cool mountain air. It's a highland village above Bali's twin northern lakes, surrounded by coffee plantations and a cluster of accessible waterfalls.",
+        a: "Waterfalls, hiking and cool mountain air. It's a highland village above Bali's twin northern lakes. Coffee plantations and a cluster of accessible waterfalls surround it.",
       },
       {
         q: "Is Munduk worth visiting?",
-        a: "If you like nature, walks and a cool change from the coast, yes — it's one of Bali's prettiest highland areas. It's remote and quiet, so it suits beach and nightlife travellers less.",
+        a: "If you like nature, walks and a cool change from the coast, yes. It's one of Bali's prettiest highland areas. It's remote and quiet, so it's less suited to travellers after beaches or nightlife.",
       },
       {
         q: "What is there to do in Munduk?",
@@ -242,7 +242,7 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       },
       {
         q: "How cold does Munduk get?",
-        a: "Cool by Bali standards — the altitude means comfortable days and genuinely chilly, often misty mornings and evenings. Bring a warm layer and a rain jacket.",
+        a: "Cool by Bali standards. The altitude means comfortable days and chilly, often misty mornings and evenings. Bring a warm layer and a rain jacket.",
       },
     ],
     related: [
@@ -257,44 +257,44 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
     title: "Lovina guide — Bali's quiet north coast",
     tagline: "Lovina · North coast",
     metaDescription:
-      "A resident-curated Lovina guide: the calm black-sand beaches of Bali's quiet north coast, who it suits, the dawn dolphin trips (and their welfare caveat), hot springs and nearby temples.",
+      "A resident-curated Lovina guide: calm black-sand beaches on Bali's quiet north coast, hot springs, nearby temples and the dawn dolphin trips, with their welfare caveat.",
     intro:
-      "Lovina is a stretch of calm, black-sand beach on Bali's quiet north coast, centred on the village of Kalibukbuk. It's a slower, cheaper, far less crowded side of the island — flat, gentle sea, low-key evenings, and a handful of hot springs and temples nearby. It's best known for its dawn dolphin boat trips, though those come with a welfare caveat worth reading before you book. Come for calm and quiet, not for surf or a scene.",
+      "Lovina is a stretch of calm, black-sand beach on Bali's quiet north coast, centred on the village of Kalibukbuk. It's a slower, cheaper, far less crowded side of the island, with a flat, gentle sea. Evenings are low-key, and a handful of hot springs and temples are nearby. It's best known for its dawn dolphin boat trips, though those come with a welfare caveat worth reading before you book. Come for calm and quiet, not for surf or a scene.",
     suits:
-      "Budget and long-stay travellers, and anyone wanting a genuinely quiet, low-key base far from the southern crowds, with calm water and easy mornings.",
+      "Budget and long-stay travellers, and anyone wanting a quiet, low-key base far from the southern crowds, with calm water and easy mornings.",
     frustrates:
       "Travellers after white-sand beaches, surf or nightlife. The sea is calm and the sand is black volcanic, and the north is a long way from the south's sights.",
     knownFor: [
       {
         title: "The quiet north-coast beach",
         blurb:
-          "Calm, flat black-sand shoreline — good for easy swims, long stays and slow mornings well away from the southern crowds.",
+          "Calm, flat black-sand shoreline, good for easy swims, long stays and slow mornings well away from the southern crowds.",
         mapsUrl: mapsLink("Lovina Beach Kalibukbuk Bali"),
       },
       {
         title: "Dawn dolphin trips — know before you book",
         blurb:
-          "The local signature: small boats head out at sunrise to see wild dolphins. They're popular but have drawn criticism for crowding and pressuring the animals — if you go, choose an operator that keeps a respectful distance, and many travellers now skip it on welfare grounds.",
+          "Small boats head out at sunrise to see wild dolphins. The trips are popular but have drawn criticism for crowding and pressuring the animals. If you go, choose an operator that keeps a respectful distance. Many travellers now skip them on welfare grounds.",
         mapsUrl: mapsLink("Lovina dolphin tour Bali"),
       },
       {
         title: "Banjar hot springs",
         blurb:
-          "Natural sulphur hot-spring pools in a garden setting, a short drive west — an easy, relaxed half-day from the beach.",
+          "Natural sulphur hot-spring pools in a garden setting, a short drive west. It's an easy, relaxed half-day from the beach.",
         mapsUrl: mapsLink("Banjar hot springs Bali"),
       },
       {
         title: "Brahmavihara-Arama",
         blurb:
-          "Bali's largest Buddhist monastery, set in the hills nearby with valley views — a quiet, contemplative stop.",
+          "Bali's largest Buddhist monastery, set in the hills nearby with valley views. It's a quiet, contemplative stop.",
         mapsUrl: mapsLink("Brahmavihara Arama monastery Bali"),
       },
     ],
     practical: [
-      "It's a long way from the south — roughly three hours by car over the central mountains; plan it as its own leg, not a day trip.",
-      "Black sand and calm sea — gentle for swimming, but not a surf or white-sand beach.",
-      "Choose dolphin trips carefully — if you go, pick a responsible operator; many travellers now skip the trip on welfare grounds.",
-      "Pair it with the highlands — Munduk, the lakes and the hot springs make a natural north-Bali loop.",
+      "It's a long way from the south: roughly three hours by car over the central mountains. Plan it as its own leg, not a day trip.",
+      "Black sand and calm sea: gentle for swimming, but not a surf or white-sand beach.",
+      "Choose dolphin trips carefully. If you go, pick a responsible operator; many travellers now skip the trip on welfare grounds.",
+      "Pair it with the highlands: Munduk, the lakes and the hot springs make a natural north-Bali loop.",
     ],
     faq: [
       {
@@ -303,19 +303,19 @@ export const LIGHT_DISTRICTS: LightDistrict[] = [
       },
       {
         q: "Is Lovina worth visiting?",
-        a: "If you want quiet and calm water far from the crowds — and you're happy with black sand over white — yes. It's remote from the south's sights, so it works best as part of a north-Bali loop.",
+        a: "Yes, if you want quiet and calm water far from the crowds and you're happy with black sand over white. It's remote from the south's sights, so it works best as part of a north-Bali loop.",
       },
       {
         q: "Are the Lovina dolphin tours ethical?",
-        a: "They're the area's signature trip but controversial: boats can crowd and pressure the wild dolphins. If you go, choose an operator that keeps a respectful distance — and be aware many travellers now skip it on welfare grounds.",
+        a: "They're controversial: boats can crowd and pressure the wild dolphins. If you go, choose an operator that keeps a respectful distance. Be aware that many travellers now skip them on welfare grounds.",
       },
       {
         q: "How do you get to Lovina?",
-        a: "By car over the central mountains from the south, roughly three hours, often combined with Munduk and the lakes. There's no fast route — it's the far north coast.",
+        a: "By car over the central mountains from the south, roughly three hours, often combined with Munduk and the lakes. There's no fast route to the far north coast.",
       },
     ],
     related: [
-      { href: "/munduk", title: "The Munduk guide", blurb: "The waterfall highlands just up the mountain road — a natural north-Bali pairing." },
+      { href: "/munduk", title: "The Munduk guide", blurb: "The waterfall highlands just up the mountain road make a natural north-Bali pairing." },
       { href: "/ubud", title: "The Ubud guide", blurb: "The central hub most travellers pass through on the way north." },
     ],
   },

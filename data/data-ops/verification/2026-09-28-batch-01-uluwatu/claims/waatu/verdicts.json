@@ -1,0 +1,142 @@
+{
+  "slug": "waatu",
+  "acceptedAt": "2026-09-28T06:53:31.090Z",
+  "acceptor": "blind acceptor (Claude, snapshots-acceptor root)",
+  "verdicts": [
+    {
+      "claim_id": "waatu-21",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": false,
+      "note": "claim carries no quote; +62 811 3830 6286 appears in waatu.com HTML (tel link) but not in visible text — resubmit with a quote or the link as evidence"
+    },
+    {
+      "claim_id": "waatu-06",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "quote supports 7.30 until late only; 'Sundays below' (Sundays Beach Club) appears nowhere on waatu.com"
+    },
+    {
+      "claim_id": "k-waatu-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com (also names another venue, Suka Espresso) is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "waatu-10",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "quote_found": true,
+      "note": "YAKITORI / KUSHIYAKI, woodfired flatbread (fl ligature in PDF) and RICE BOWLS all in the April PDF and in the current July 2026 dinner PDF linked from waatu.com"
+    },
+    {
+      "claim_id": "k-waatu-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "tripadvisor.com is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "waatu-05",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "quote_found": true,
+      "note": "flatbread/wood oven/coals supported; 'clifftop room at The Ungasan resort' not on the menu or waatu.com (only the street address mentions Ungasan)"
+    },
+    {
+      "claim_id": "waatu-15",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "OPEN 7.30 AM TIL LATE on waatu.com; no day qualifier on page, read as daily; 'until late' free-text form allowed"
+    },
+    {
+      "claim_id": "waatu-04",
+      "verdict": "accept",
+      "reason_code": "REMOVAL_UNSUPPORTED",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "waatu.com names Lachlan Budd as Head Chef; 'Viles' appears nowhere on the site — the factual core of the sentence is unsupported"
+    },
+    {
+      "claim_id": "waatu-20",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "Dinner 'View Menu' on waatu.com links the July 2026 dinner PDF (seen in HTML); PDF fetched 200"
+    },
+    {
+      "claim_id": "waatu-22",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for coordinates: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "waatu-14",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "address verbatim in footer 'find us here'; Jl. marker, no working notes"
+    },
+    {
+      "claim_id": "waatu-19",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "quote_found": true,
+      "note": "waatu.com 'reserve table' links sevenrooms.com/explore/waatu/reservations/create/search and /landing (seen in HTML)"
+    },
+    {
+      "claim_id": "k-waatu-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": false,
+      "note": "'Open daily 7 AM – 11 PM, kitchen closes 10:30 PM' not on waatu.com"
+    },
+    {
+      "claim_id": "waatu-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "quote_found": true,
+      "note": "same evidence as waatu-15: OPEN 7.30 AM TIL LATE; no day qualifier, read as daily"
+    },
+    {
+      "claim_id": "waatu-12",
+      "verdict": "hold",
+      "reason_code": "BOUND_FAIL",
+      "refetch": "ok",
+      "refetch_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "quote_found": true,
+      "note": "April 2026 menu is superseded: waatu.com now links the July 2026 dinner PDF; bbq market fish 350 persists in July, wagyu beef yakitori 85 confirmed only in April (July price column order unreadable in extraction) — re-anchor to the July PDF"
+    }
+  ]
+}

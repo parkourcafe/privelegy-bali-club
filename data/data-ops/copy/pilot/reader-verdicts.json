@@ -1,0 +1,128 @@
+[
+  {
+    "pair": 1,
+    "same_facts": true,
+    "fact_difference": "One-sided only: A calls it a 'social-enterprise' warung and 'good-value'; B has neither label. B says 'what you pay for lunch funds' where A says 'restaurant proceeds fund'.",
+    "prefers": "B",
+    "reads_human": { "A": 2, "B": 4 },
+    "distinguishable": true,
+    "note": "Street, hamlet, both foundations, free medical consultations, cuisine, daily opening and ten tables all match; B drops the 'good-value' and 'social-enterprise' labels (omission, not contradiction) and its short plain sentences read as told by someone, while A is one semicolon-and-slash brochure sentence."
+  },
+  {
+    "pair": 2,
+    "same_facts": false,
+    "fact_difference": "A: lava-stone pizzas; B: wood-fired pizzas. Also one-sided: A calls Milk & Madu 'well-known', B does not.",
+    "prefers": "B",
+    "reads_human": { "A": 2, "B": 3 },
+    "distinguishable": true,
+    "note": "The oven type is a contradiction, not a rewording; B's sentences are plainer but 'It is spacious and shaded by palms, and there is a kids' play area' still reads like a template rewrite, and neither version names a dish or a price."
+  },
+  {
+    "pair": 3,
+    "same_facts": true,
+    "fact_difference": "One-sided only: A claims 'one of Canggu's most atmospheric settings' and 'sweeping ocean views'; B says the terrace 'looks straight at the ocean' and makes no ranking claim.",
+    "prefers": "B",
+    "reads_human": { "A": 2, "B": 4 },
+    "distinguishable": true,
+    "note": "Hotel Tugu, Batu Bolong beach, reconstructed antique temple, terrace, sushi, Asian-fusion plates and cocktails match; A's 'most atmospheric' superlative is brochure filler that B omits, and the temple room alone makes the place unmistakable."
+  },
+  {
+    "pair": 4,
+    "same_facts": true,
+    "fact_difference": "One-sided only: A names Nusa Dua in the text, B does not; B adds 'walkable' to the promenade and the meta line 'curated from places we actually rate'; B says 'low-friction' where A says 'easy'.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Same enclave, resorts, calm swimmable beaches, promenade, fine dining and spas; A uses four plain sentences of varied length, B is a colon-stacked list with an em-dash carrying the verb and 'low-friction' jargon, and both share the same 'this guide covers who it suits...' scaffold, which reads templated in either."
+  },
+  {
+    "pair": 5,
+    "same_facts": true,
+    "fact_difference": "One-sided only: B adds 'calm' to the rice-field setting and 'dedicated Filipino kitchen'; A 'pork-heavy' vs B 'pork-forward' is a rewording.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Peliatan, bamboo hut, rice-field view, home-style Filipino comfort food, shared table, family dinner, not a quick stop from central Ubud and the pork warning all match; A writes full sentences, B stacks lowercase semicolon fragments and 'pork-forward' is food-writer filler; the only Filipino kitchen in the area is distinguishable by definition."
+  },
+  {
+    "pair": 6,
+    "same_facts": true,
+    "fact_difference": "",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 3 },
+    "distinguishable": true,
+    "note": "Every number (7-10 days, 5 days, three full days, 3-4 nights each side, half-day transfer, 10-14 days with islands, 3-4 bases), every place and every Q&A answer matches; B leans on em-dashes, 'sweet spot' twice, 'beach-and-cafe energy', 'launchpad' and 'go deep rather than wide', A says the same things plainly, and either version lets you pick a trip length and bases."
+  },
+  {
+    "pair": 7,
+    "same_facts": true,
+    "fact_difference": "One-sided only: B adds 'hole-in-the-wall' and 'authentic'; A has nothing B lacks.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Small, all-vegan, Peliatan in Ubud, floor cushions, cash only, nasi goreng, tempeh, smoothies, vegan sweets and very low prices all match; 'authentic' is an unsupported adjective in B, A's 'because it is cash only with floor cushions' is a person explaining, and a cash-only vegan floor-cushion warung is a clear picture even without a price."
+  },
+  {
+    "pair": 8,
+    "same_facts": true,
+    "fact_difference": "One-sided only: B calls the Milk & Madu group 'well-known'; A does not. Both say lava-stone pizzas.",
+    "prefers": "A",
+    "reads_human": { "A": 3, "B": 2 },
+    "distinguishable": true,
+    "note": "Same venue as Pair 2 with the sides swapped and the oven claim now consistent; I prefer the plain-sentence version here as there, though 'It is spacious ... and there is a kids' play area' still reads as a rewrite template and neither version names a dish or a price."
+  },
+  {
+    "pair": 9,
+    "same_facts": true,
+    "fact_difference": "One-sided only: B adds 'entertainment' to 'complex' and 'or event' to the Best for; A 'we have not checked that' vs B 'we have not verified that claim' is a rewording.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 3 },
+    "distinguishable": true,
+    "note": "Jl. Pantai Berawa, four venues including the Super Club and a padel club, the unverified 'world's biggest beach club' claim, day-pass entry and separately booked daybeds all match; A's 'You enter on a day pass' and 'we have not checked that' are more conversational, B capitalises the venue names like a brochure, and the padel club plus the disclaimed claim make it unmistakable."
+  },
+  {
+    "pair": 10,
+    "same_facts": true,
+    "fact_difference": "One-sided only: B adds 'long-running' and 'Known as a calm rice-paddy escape'; A puts 'calm' only in the Best for. Hours 8am-11pm, cuisine and vegetarian/vegan/gluten-free match.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Umalas rice fields, open-air, 8am to 11pm, Western and Indonesian, breakfast to late, dietary options and 'a short hop' from Seminyak match; B's slashes, semicolon lists and 'Known as' read generated, A reads plain, though 'a short hop' and 'off the strip' are stock phrases in both and no dish or price is named."
+  },
+  {
+    "pair": 11,
+    "same_facts": true,
+    "fact_difference": "Rewordings only: A 'Javanese-influenced dishes' vs B 'Indonesian and Javanese'; A 'MSG-free, low-plastic ethos' vs B 'without MSG and with little plastic'; A 'tucked ... not easy-to-find' vs B 'Penestanan takes finding'.",
+    "prefers": "B",
+    "reads_human": { "A": 2, "B": 4 },
+    "distinguishable": true,
+    "note": "Penestanan, northwest of central Ubud, all-women kitchen, MSG-free, low plastic and the off-the-strip warning all match; B's 'because Penestanan takes finding' is how a person talks, A's 'ethos' and 'travelers wanting' are listing-speak, and an all-women MSG-free warung in Penestanan is identifiable."
+  },
+  {
+    "pair": 12,
+    "same_facts": false,
+    "fact_difference": "A: ten-table warung; B: twenty-table warung (stated twice in B). Also one-sided: A has 'social-enterprise' and 'good-value', B has neither.",
+    "prefers": "B",
+    "reads_human": { "A": 2, "B": 4 },
+    "distinguishable": true,
+    "note": "Same venue as Pair 1 with the table count doubled in B, a plain contradiction in a number; prose preference is unchanged (B's short sentences over A's slash-and-semicolon brochure line), but B as written is not publishable until the table count is checked."
+  },
+  {
+    "pair": 13,
+    "same_facts": false,
+    "fact_difference": "B claims 'Bali's only gluten-free pizza base'; A makes no such claim. B also calls it a 'Bali wholefoods institution'. Shared: Ubud since 1994, organic grocery and bakery, all-day restaurant, raw vegan / Italian / traditional Indonesian, vegetarian/vegan/gluten-free options.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Marked false because an island-wide 'only' superlative appears in one version and not the other and I cannot tell blind whether it was invented or dropped, so it needs checking against the key and a source; A's sentences are plain, B's 'Long-running Bali wholefoods institution' with slashes and a parenthetical boast reads generated, and a grocery-bakery-restaurant in Ubud since 1994 is unmistakable."
+  },
+  {
+    "pair": 14,
+    "same_facts": true,
+    "fact_difference": "Rewording only: B labels it a 'fusion cafe' with 'Australian cafe culture with Japanese-influenced flavours' where A says 'Australian cafe cooking with Japanese flavours'.",
+    "prefers": "A",
+    "reads_human": { "A": 4, "B": 2 },
+    "distinguishable": true,
+    "note": "Jl. Pantai Batu Mejan, daytime only, Australian-fine-dining-trained chef, Japanese flavours, minimalist room and laptop-friendly all match; A is three plain sentences, B is one 'blending ... with ... and ...' brochure sentence; the Japanese angle separates it from neighbouring brunch cafes but this is the thinnest venue on the sheet, with no dish, price or hours in either version and 'calm, design-led room' as a stock phrase in both."
+  }
+]

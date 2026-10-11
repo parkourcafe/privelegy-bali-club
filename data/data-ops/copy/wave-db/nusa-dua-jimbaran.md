@@ -1,0 +1,130 @@
+# Волна wave-db: Nusa Dua + Jimbaran — черновик правок карточек
+
+Дата: 2026-10-05. **В базу ничего не записано.** Режим: стилевое переписывание собственного текста записи (rung 2), факты не перепроверялись, `last_verified_at` не трогается.
+
+- `nusa-dua-jimbaran.csv` — 160 строк, колонка `decision` пустая. `before` побайтно совпадает с живым текстом (вход и краул 28.09).
+- `nusa-dua-jimbaran.gate.csv` — отчёт ворот.
+
+## Итог
+- Карточек на входе 77. Изменено 76, без изменений 1: **Wellness Spa at The Sakala Resort Bali**. Это шаблон spa-formula («Wellness spa in Nusa Dua. The published list covers…»), и по решению A от 05.10 он ждёт сбора фактов.
+- Изменено 160 полей:
+  - `why_its_here` — 70;
+  - `best_for` — 73, из них в 12 снята только точка в конце, текст тот же;
+  - `not_for` — 17: 14 переписаны с причиной из самой записи, 3 новых только переносом из `best_for`. Это Izakaya by OKU («reservation-only»), Kubu Garden («without a scene or a view») и Tetaring («rather than a beachfront scene»). Для пустого поля генератор SQL ставит guard «null или пусто».
+- Ворота `check-cards.mjs`: 76/76 PASS, проблем партии 0, exit 0. Отметки WARN по изменённым полям: 106 → 0.
+- Длина `why_its_here`: до правки 20 карточек длиннее 45 слов (максимум 63), после — ни одной. 10 карточек короче 20 слов: фактов в записи больше нет, добавлять нечего.
+- Без изменений оставлены, потому что уже простые и конкретные:
+  - `why_its_here`: Arkipela, Bali Beauty Salon, Nasi Banjar Mbok Mang, REVĪVŌ Fitness, REVĪVŌ Spa, Warung Batan Bekul;
+  - `not_for`: BROOK, Mulia Fitness, Warung Dobiel.
+
+## Что удалено намеренно
+Каждое удаление названо в колонке `reason` своей строки.
+
+**Популярность и репутация:**
+- «known for» — 7 карточек;
+- famous — 2;
+- best-known, go-to, well-made;
+- institution, hole-in-the-wall — 2.
+
+**Утверждения без источника** (см. список ниже):
+- «Bali's first» — Koral;
+- «one of Bali's largest and most decorated» — Mulia Spa;
+- award-winning — The Apurva Spa;
+- «one of Indonesia's largest» — Fore.
+
+**Хайп и мягкие слова:**
+- signature — 9;
+- relaxed — 11;
+- authentic — 5;
+- landmark — 3;
+- elevated, stylish — по 2;
+- genuinely — 3;
+- reliable, serious — по 2;
+- proper, chic, marquee, tranquil, top-tier, sanctuary, dramatic.
+
+**Оценки цены и сервиса:**
+- well-priced, good-value;
+- «friendly, attentive service» — White Orchid, оценка качества в стиле отзывов.
+
+**Стоковые обороты про людей:** travellers/visitors wanting|who, those who/wanting/seeking — 28 вхождений, в основном в начале `best_for`.
+
+**Факты, убранные ради нормы 20–45 слов:**
+- AYANA Fitness: салон, кафе, бильярд;
+- Club Med: баскетбол, бадминтон, настольный теннис, пляжный волейбол;
+- DAVA: куда ужин переходит после Martini Bar;
+- Piasan: «inside the ITDC resort enclave»;
+- Sofitel Yoga: пункты списка, не относящиеся к йоге;
+- Radja: snapper — он стоял внутри «known for».
+
+**Перенесено между полями, не потеряно:**
+- блюда Cuca → `best_for`;
+- две недели в месяц у приглашённого мастера Four Seasons Yoga → `best_for`;
+- day pass Westin остался только в `best_for`.
+
+## Сомнительные факты
+В тексте не исправлялись, нужен источник.
+1. **Cuca** — «included in the 2025 Michelin Green Guide» оставлено как в записи. Green Guide — туристический путеводитель Michelin, а не ресторанный гид, и источника в записи нет.
+2. **Koral** — «Bali's first aquarium restaurant». Из текста удалено.
+3. **Mulia Spa** — «one of Bali's largest and most decorated resort spas». Удалено.
+4. **The Apurva Spa** — «award-winning», награда не названа. Удалено.
+5. **Fore Coffee** — «one of Indonesia's largest specialty-coffee chains». Удалено.
+6. **Thermes Marins** — «among Bali's best-known destination spas». Удалено как утверждение о популярности.
+7. **Kriya Spa** — «Kriya, meaning 'rituals'» оставлено. Kriya обычно переводят как «действие» или «ремесло», стоит сверить с сайтом отеля.
+8. **Изменчивые факты в прозе без даты.** Оставлены, но по стандарту им нужна дата или отдельное поле.
+   - Часы: Arkipela 09:00–21:00, Karma Spa 09:00–19:00, персонал Courtyard 06:00–23:00, BROOK с 14:00, Warung Mami около 13:00, Warung Dobiel около 9:00, танцы в Bawang Merah около 19–21, бранч Soleil 11am–3pm.
+   - Цена: Sofitel Yoga IDR 150,000++.
+   - Условия: «no entrance fee or minimum spend» у Manarai, «no cover charge» у Azure.
+   - Дата: «since April 2026» у Westin.
+
+## Открытия и швы
+- **Открытия `why_its_here`.** До правки «The fitness centre at…» открывало 5 карточек, «A beachfront seafood…» — 4. После правки ни одна тройка первых слов не встречается больше двух раз. Формулу «<Category> on Jl. X in Y» или «<Category> in Y» убрали у BROOK, Kenja, Kubu, Piramid, Signa и Warung Mami.
+- **Форма `best_for`.** 47 начинаются с момента, 11 — «люди + after», 10 — «момент, for …», 9 — «люди who want». Трёх соседей подряд с одной формой нет.
+- **Швы `not_for`.** 20 заполненных полей: because 6, двоеточие 6, точка 4, тире 4. Трёх соседей с одним швом нет. Хвост «this is a …» остался один раз (Kenja).
+
+## Проверка 2 (скептик)
+
+Скептик подтвердил шесть замечаний: три уровня medium и три уровня low. Все исправлены в `nusa-dua-jimbaran.csv` скриптом через модуль csv. Изменены только колонки `after` и `reason` в шести строках. Колонка `before` не менялась, `decision` по-прежнему пустая.
+
+- **`kayumanis-resto-jimbaran` / `best_for` — сужена аудитория (medium).**
+  - В исходнике «for couples or travellers wanting an alternative». После удаления стокового «travellers» осталось «for couples», и карточка читалась как ресторан для пар.
+  - Исправлено на «…in a resort garden, as a change from Jimbaran Bay's beachfront seafood grills». Аудитория не названа вовсе. Вариант скептика «when you want» не взят, чтобы не вводить обращение на «you».
+- **`the-beach-grill-ritz-carlton` / `best_for` — сдвиг смысла (medium).**
+  - «private beach dinners for two included» читалось как «ужин на пляже входит в стоимость». В исходнике «including» значило «среди вариантов».
+  - Исправлено на «…after a grilled-seafood lunch, a candlelit oceanfront dinner or a private beach dinner for two», как предложил скептик.
+- **`revi-vo-yoga-mindfulness-nusa-dua` / `best_for` — сужена аудитория (medium).**
+  - Без «and travellers» поле называло только гостей ретрита. Рядом с `not_for` («retreat-style programme») это читалось как ограничение доступа, которого в записи нет.
+  - Исправлено на «Structured yoga, aerial yoga and guided mindfulness on a cliff top, for retreat guests and other travellers». Форма поля поменялась с «люди + after» на «момент, for …».
+- **`warung-halme-ikan-bakar-ala-jimbaran` / `best_for` — сужена аудитория (low).**
+  - Три отдельных сценария из исходника слились в «A group sharing…», и карточка подходила только компаниям.
+  - Исправлено на «Jimbaran-style grilled fish and prawns close to Nusa Dua and Benoa at lunch or dinner, including for a group sharing». Сохранены все три сценария. Хвост скептика «shared as a group or not» заменён на более гладкий, по смыслу то же.
+- **`warung-nasi-ayam-bu-oki` / `not_for` — непараллельный список и причина не покрывала ужин (low).**
+  - Человек («Anyone avoiding chicken») стоял в одном ряду с вещами («a quiet sit-down meal or full dinner service»). «Busy» не объясняло отсутствие ужина. «Chicken» повторялось на обоих концах.
+  - Исправлено на «Anyone avoiding chicken or after a quiet sit-down dinner, because the plates are built around chicken and the warung is a busy breakfast and lunch stop».
+  - Отличие от варианта скептика: он убирал «full dinner service». Здесь оно сохранено как «sit-down dinner», а причина взята из собственного `best_for` карточки («breakfast or lunch»). Шов «because» оставлен, чтобы не сдвигать счёт швов.
+- **`mulia-spa-nusa-dua` / `best_for` — остаток списка через точку с запятой (low).**
+  - Единственное `best_for` в пакете, где осталась точка с запятой, и вторая часть не связана с первой.
+  - Исправлено на «…with pools, saunas and a long massage, for couples staying on the Nusa Dua/Sawangan strip», как предложил скептик.
+
+Отклонённых замечаний нет. Новых фактов не добавлено: каждая правка опирается на текст своей же карточки.
+
+Счёт форм `best_for` в разделе «Открытия и швы» после этих правок не пересчитывался. Сдвиги: Kayumanis «момент, for …» → «момент», REVĪVŌ «люди + after» → «момент, for …», Halme «люди» → «момент», Mulia → «момент, for …». Счёт швов `not_for` не изменился.
+
+Проверка: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/nusa-dua-jimbaran.csv` — 76 карточек, 0 FAIL, проблем по пакету 0, код выхода 0. Файл `nusa-dua-jimbaran.gate.csv` не перегенерировался.
+
+## Решение основательницы 08.10
+
+Правило 1 — убрать то, что противоречит данным самой карточки или прошедшей дате. Правило 2 — убрать непроверенные претензии на первенство, размер, награды и известность. Ничего не заменялось и не добавлялось. Колонка `before` не менялась, новых строк нет.
+
+Изменено 2 карточки, 2 строки.
+
+- **cuca-restaurant** / why_its_here — убрано предложение «It is in the 2025 Michelin Green Guide.» Это включение в гид Michelin без источника в записи (правило 2).
+- **kriya-spa-at-grand-hyatt-bali-nusa-dua** / why_its_here — убран непроверенный перевод «whose name means 'rituals'». Стало «Kriya Spa sits in the Grand Hyatt Bali's…» (правило 2).
+
+**Сознательно не тронуто:**
+- **Koral, Mulia Spa, The Apurva Spa, Fore Coffee, Thermes Marins.** Претензии («Bali's first», «largest and most decorated», «award-winning», «one of Indonesia's largest», «best-known») удалены ещё в первом проходе. В текущем `after` их нет.
+- **Cuca «formerly of elBulli, Arzak and Daniel».** Это биография шефа, а не награда и не рейтинг. Оставлено. Если основательница сочтёт это правилом 2, удалить надо только этот оборот.
+- **Westin «open since April 2026» / «added in April 2026».** Дата в прошлом, и утверждение остаётся верным: речь о том, с какого момента работает этаж, а не об обещании на будущее. Это не правило 1, оставлено как изменчивый факт.
+- **Часы, цены и условия в прозе** (п. 8 списка сомнительных фактов: Arkipela и Karma Spa совпадают с видимыми часами карточек; Courtyard 06:00–23:00, BROOK с 14:00, Warung Mami около 13:00, Warung Dobiel около 9:00, Bawang Merah 19–21, бранч Soleil 11am–3pm, Sofitel Yoga IDR 150,000++, Manarai, Azure) — уходят в очередь сбора фактов. Противоречий видимым часам карточек нет.
+- **Адреса.** Azure, Bawang Merah (Kelan Beach), BROOK, Signa (Benoa), Piasan, Kenja: текст согласуется с адресом своей карточки.
+
+Ворота: `node scripts/copy/check-cards.mjs data/data-ops/copy/wave-db/nusa-dua-jimbaran.csv` — 76 карточек, 0 FAIL, проблем пакета 0, exit 0.

@@ -1,0 +1,133 @@
+{
+  "slug": "ulu-garden",
+  "acceptedAt": "2026-09-28T06:53:31.090Z",
+  "acceptor": "blind acceptor (Claude, snapshots-acceptor root)",
+  "verdicts": [
+    {
+      "claim_id": "k-ulu-ga-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com (also names another venue, Suka Espresso) is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "ulu-garden-13",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "quote_found": true,
+      "note": "PDF sha matches; Nasi goreng 145 (4th of RICE BOWLS 115/145/125/145) and Roasted chicken 195 (1st of FIRE & SPICE 195/185/195/275/345) read by column position; folder lists Night Menu VF.pdf (id 13AdY5…) modified Sep 15, 2025; ulutribe.com/contact links this folder"
+    },
+    {
+      "claim_id": "ulu-garden-11",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "quote_found": true,
+      "note": "quote found; Nasi goreng (RICE BOWLS) and Smoked snapper (FIRE & SPICE) also present in the same PDF; folder linked from ulutribe.com"
+    },
+    {
+      "claim_id": "ulu-garden-17",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "5e0cc72ba5090fccd7f95e6f7f0c0a6e0dfdb92906f8f43d0b9bc4e8807461ea",
+      "quote_found": true,
+      "note": "contact page: Opening Hours — Garden 7AM – 11PM (Shop and Active have separate windows; value is the Garden's); no day qualifier on page, read as daily; page sha differs from collector's snapshot but quote unchanged"
+    },
+    {
+      "claim_id": "ulu-garden-08",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "d9c234f0d4b7275a40f0cf43b34bfaca0f20b45e5c5461ff766a394d446768a9",
+      "quote_found": true,
+      "note": "quote says booking form or Instagram-bio link; page FAQ says walk-ins welcome, reservation recommended at peak hours; nothing supports 'for event nights and Sundays'"
+    },
+    {
+      "claim_id": "ulu-garden-22",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "5e0cc72ba5090fccd7f95e6f7f0c0a6e0dfdb92906f8f43d0b9bc4e8807461ea",
+      "quote_found": true,
+      "note": "ULU GARDEN +62 813 3954 52 41 is the Garden's own line (Shop/Active have different numbers) → +6281339545241"
+    },
+    {
+      "claim_id": "ulu-garden-05",
+      "verdict": "reject",
+      "reason_code": "VALUE_NOT_SUPPORTED_BY_QUOTE",
+      "refetch": "ok",
+      "refetch_sha256": "72463be0054e9a9531d876b7c735c195066a4551d7f04fa378aebefcba0aea41",
+      "quote_found": true,
+      "note": "menu quote supports rice rolls/rice bowls/nasi goreng only; 'seasonal' and 'programming changes weekly' unsupported — ulutribe.com/ulu-garden says events are curated each month"
+    },
+    {
+      "claim_id": "ulu-garden-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "c16734cecb4f85845198d4c0a7dabe27987ab07c89896d857532e8baa949f1c3",
+      "quote_found": true,
+      "note": "Drive folder is linked from ulutribe.com/contact and /ulu-garden (seen in HTML); folder lists Night Menu VF.pdf; folder sha differs from collector's (listing changes)"
+    },
+    {
+      "claim_id": "ulu-garden-23",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for coordinates: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "ulu-garden-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "5e0cc72ba5090fccd7f95e6f7f0c0a6e0dfdb92906f8f43d0b9bc4e8807461ea",
+      "quote_found": true,
+      "note": "same evidence as ulu-garden-17: Opening Hours — Garden 7AM – 11PM; no day qualifier, read as daily"
+    },
+    {
+      "claim_id": "k-ulu-ga-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "tripadvisor.com is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "k-ulu-ga-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "c16734cecb4f85845198d4c0a7dabe27987ab07c89896d857532e8baa949f1c3",
+      "quote_found": false,
+      "note": "'Open daily 7 AM – 11 PM, kitchen closes 10:30 PM' not on the Drive folder page"
+    },
+    {
+      "claim_id": "ulu-garden-20",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "quote_found": true,
+      "note": "ulutribe.com/contact and /ulu-garden link https://www.sevenrooms.com/reservations/ulugarden (seen in HTML); redirects to explore/ulugarden/reservations/create/search"
+    },
+    {
+      "claim_id": "ulu-garden-15",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "5e0cc72ba5090fccd7f95e6f7f0c0a6e0dfdb92906f8f43d0b9bc4e8807461ea",
+      "quote_found": true,
+      "note": "address verbatim under Location on contact page; Jl. marker, no working notes"
+    }
+  ]
+}

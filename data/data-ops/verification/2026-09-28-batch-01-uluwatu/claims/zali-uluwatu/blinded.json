@@ -1,0 +1,185 @@
+{
+  "slug": "zali-uluwatu",
+  "officialDomains": [
+    "zalirestaurant.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "k-zali-u-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-13",
+      "field": "price_anchor",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-12",
+      "field": "priceBand",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-23",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-16",
+      "field": "hours",
+      "action": "replace",
+      "proposed": {
+        "Monday": [
+          "8.00am-23.59pm"
+        ],
+        "Tuesday": [
+          "8.00am-23.59pm"
+        ],
+        "Wednesday": [
+          "8.00am-23.59pm"
+        ],
+        "Thursday": [
+          "8.00am-23.59pm"
+        ],
+        "Friday": [
+          "8.00am-23.59pm"
+        ],
+        "Saturday": [
+          "8.00am-23.59pm"
+        ],
+        "Sunday": [
+          "8.00am-23.59pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.zalirestaurant.com/",
+      "quote": "Uluwatu\n+62 877 7813 7273\nEveryday 8:00AM &ndash; 12:00AM",
+      "snapshot_sha256": "beb781e194ab9455e5e2f59850d3b40da28a1b69662b860232e5c2a2a64741c2",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-zali-u-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-zali-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-zali-u-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.zalirestaurant.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "beb781e194ab9455e5e2f59850d3b40da28a1b69662b860232e5c2a2a64741c2",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "replace",
+      "proposed": {
+        "Monday": [
+          "8.00am-23.59pm"
+        ],
+        "Tuesday": [
+          "8.00am-23.59pm"
+        ],
+        "Wednesday": [
+          "8.00am-23.59pm"
+        ],
+        "Thursday": [
+          "8.00am-23.59pm"
+        ],
+        "Friday": [
+          "8.00am-23.59pm"
+        ],
+        "Saturday": [
+          "8.00am-23.59pm"
+        ],
+        "Sunday": [
+          "8.00am-23.59pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.zalirestaurant.com/",
+      "quote": "Uluwatu\n+62 877 7813 7273\nEveryday 8:00AM &ndash; 12:00AM",
+      "snapshot_sha256": "beb781e194ab9455e5e2f59850d3b40da28a1b69662b860232e5c2a2a64741c2",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "zali-uluwatu-15",
+      "field": "full_address",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    }
+  ]
+}

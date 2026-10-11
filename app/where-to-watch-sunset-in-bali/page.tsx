@@ -39,7 +39,7 @@ const AREA_ORDER: SunsetArea[] = [
   {
     key: "uluwatu-bukit",
     name: "Uluwatu & the Bukit",
-    note: "The most dramatic sunsets on the island — clifftop bars high above the surf.",
+    note: "The most dramatic sunsets on the island, from clifftop bars high above the surf.",
     pillar: "/uluwatu",
     scene: "district-uluwatu-bukit",
     variant: "sunset",
@@ -57,7 +57,7 @@ const AREA_ORDER: SunsetArea[] = [
   {
     key: "canggu",
     name: "Canggu",
-    note: "Echo Beach and Batu Bolong — sunset sessions with a surf out front.",
+    note: "Echo Beach and Batu Bolong: sunset sessions with a surf out front.",
     pillar: "/canggu",
     scene: "canggu-sunset-illustrative",
     variant: "sunset",
@@ -122,9 +122,9 @@ const SUNSET_BANDS: { months: string; time: string }[] = [
 
 const FAQ = [
   { q: "Where is the best sunset in Bali?", a: "The west and south coasts face the sunset. Uluwatu's clifftop bars are the most dramatic; Seminyak and Canggu have the beachfront clubs. Sanur faces east (sunrise), and Ubud is inland." },
-  { q: "What time is sunset in Bali?", a: "Bali sits near the equator, so sunset barely drifts — from just before 6pm in June–August to about 6:40pm in December–February. Golden hour starts 30–45 minutes earlier; arrive an hour ahead for a good spot in high season." },
-  { q: "Do I need to book a sunset spot?", a: "For the popular clifftop and beach clubs, yes — a table for golden hour fills up, especially in July and August. Daybeds and sofas usually carry a minimum spend." },
-  { q: "Can you watch the sunset in Sanur?", a: "Sanur faces east, so it's a sunrise coast — beautiful mornings rather than sunsets. For sunset, head to the west or south coasts below." },
+  { q: "What time is sunset in Bali?", a: "Bali sits near the equator, so sunset barely drifts: from just before 6pm in June–August to about 6:40pm in December–February. Golden hour starts 30–45 minutes earlier. Arrive an hour ahead for a good spot in high season." },
+  { q: "Do I need to book a sunset spot?", a: "At the popular clifftop and beach clubs, yes. A table for golden hour fills up, especially in July and August. Daybeds and sofas usually carry a minimum spend." },
+  { q: "Can you watch the sunset in Sanur?", a: "Sanur faces east, so it's a sunrise coast: think mornings, not sunsets. For sunset, head to the west or south coasts below." },
 ];
 
 export default async function SunsetPage() {
@@ -172,9 +172,9 @@ export default async function SunsetPage() {
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
             Sunset in Bali is a west-and-south-coast decision. Uluwatu&apos;s
-            clifftop bars are the most dramatic, Seminyak and Canggu have the
-            beachfront clubs, and the southern bays do a calmer golden hour. Sanur
-            faces east — that&apos;s the sunrise coast.
+            clifftop bars are the most dramatic, and Seminyak and Canggu have the
+            beachfront clubs. The southern bays do a calmer golden hour. Sanur
+            faces east, so it&apos;s the sunrise coast.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} sunset spots, each one written up on the record with a
@@ -216,7 +216,7 @@ export default async function SunsetPage() {
           <h2>When to be there</h2>
           <GuideSectionMedia seed="sunset bali when to be there" index={0} />
           <p className="text-sm leading-relaxed text-[var(--muted)]">
-            This close to the equator, sunset barely moves through the year —
+            This close to the equator, sunset barely moves through the year:
             roughly just before 6 to about 6:40pm. Golden hour opens 30–45
             minutes earlier, so aim to be settled by then for the light and a
             good seat.
@@ -229,7 +229,7 @@ export default async function SunsetPage() {
             ))}
           </ul>
           <p className="mt-2 text-xs text-[var(--muted)]">
-            Approximate local times (WITA), ±10 min by exact spot — check on the
+            Approximate local times (WITA), ±10 min by exact spot. Check on the
             day before you set out.
           </p>
         </section>
@@ -313,7 +313,7 @@ export default async function SunsetPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            sunset-facing places are published with verified details —{" "}
+            sunset-facing places are published with verified details:{" "}
             <Link href="/places" className="quiet-link">
               browse the full catalogue →
             </Link>

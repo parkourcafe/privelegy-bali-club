@@ -52,19 +52,19 @@ const ALL_BRUNCH = [
 const FAQ = [
   {
     q: "What opens earliest for breakfast in Uluwatu?",
-    a: "Son of a Baker starts around first light (current listings show 6 a.m., Mondays off — check their Instagram before an early mission), and BGS pours pre-surf coffee at the Suluban entrance from early morning. Most other kitchens start between 7 and 8.",
+    a: "Son of a Baker starts around first light. Current listings show 6 a.m. and Mondays off, so check their Instagram before an early mission. BGS pours pre-surf coffee at the Suluban entrance from early morning. Most other kitchens start between 7 and 8.",
   },
   {
     q: "Where can I work from a café in Uluwatu?",
-    a: "Suka Espresso has air-con and a steady laptop crowd off-peak, Alchemy's garden is calm through the morning, and Son of a Baker works for a quiet hour. None of them are dedicated coworking spaces — peak brunch hours belong to brunch.",
+    a: "Suka Espresso has air-con and a steady laptop crowd off-peak. Alchemy's garden is calm through the morning, and Son of a Baker works for a quiet hour. None of them are dedicated coworking spaces, and peak brunch hours belong to brunch.",
   },
   {
     q: "What are the healthy or plant-based options?",
-    a: "Alchemy Uluwatu is fully plant-based (raw and gluten-free options, organic shop on site) and Seed cooks farm-to-table from its own garden. Both serve proper breakfasts, not just juices.",
+    a: "Alchemy Uluwatu is fully plant-based (raw and gluten-free options, organic shop on site) and Seed cooks farm-to-table from its own garden. Both serve real breakfasts, not just juices.",
   },
   {
     q: "Do I need to book brunch?",
-    a: "No — every café here is walk-in. The only booking-worthy morning is Gooseberry's French brunch if you want a specific poolside table; peak Suka hours may mean a short wait.",
+    a: "No. Every café here is walk-in. The only booking-worthy morning is Gooseberry's French brunch, if you want a specific poolside table. Peak Suka hours may mean a short wait.",
   },
 ];
 
@@ -99,8 +99,8 @@ export default function BestBrunchPage() {
             is the dependable all-rounder,{" "}
             <PlaceLink slug="son-of-a-baker">Son of a Baker</PlaceLink> owns the
             early start, and <PlaceLink slug="alchemy-uluwatu">Alchemy</PlaceLink>{" "}
-            covers the plant-based morning. Seven spots below, each verified
-            for actual breakfast service — not just for being a café.
+            covers the plant-based morning. The seven spots below are each
+            verified for actual breakfast service. Being a café wasn&apos;t enough.
           </p>
           <p className="guide-meta-line">
             7 places · verified 2026-07-12 · editorial order, no paid ranking
@@ -118,7 +118,7 @@ export default function BestBrunchPage() {
         <section className="guide-section">
           <h2>Post-surf breakfast</h2>
           <p className="guide-lede">
-            Real plates near the breaks — earned calories, short scooter rides.
+            Real plates near the breaks: earned calories, short scooter rides.
           </p>
           <VenuePicks slugs={["suka-espresso", "artisan-uluwatu", "drifter-surf-cafe"]} columns={3} />
         </section>
@@ -135,12 +135,12 @@ export default function BestBrunchPage() {
           <h2>Work-friendly hours</h2>
           <div className="guide-prose">
             <p>
-              The honest hierarchy: <PlaceLink slug="suka-espresso" /> for
+              In order: <PlaceLink slug="suka-espresso" /> for
               air-con and sockets outside peak brunch,{" "}
               <PlaceLink slug="alchemy-uluwatu" /> for calm garden mornings,{" "}
               <PlaceLink slug="son-of-a-baker" /> for an early focused hour
-              before the case sells out. Uluwatu has no true coworking café —
-              if the whole day is calls, that’s a Canggu job.
+              before the case sells out. Uluwatu has no true coworking café. If
+              the whole day is calls, that’s a Canggu job.
             </p>
           </div>
         </section>
@@ -151,7 +151,7 @@ export default function BestBrunchPage() {
             <p>
               One outlier belongs here despite being a dinner room:{" "}
               <PlaceLink slug="gooseberry-french-restaurant-uluwatu" /> runs its
-              kitchen from breakfast onward above Bingin, and a poolside French
+              kitchen from breakfast onward above Bingin. A poolside French
               brunch after a surf is exactly the kind of morning the Bukit does
               well. Book if you care where you sit.
             </p>
@@ -171,7 +171,7 @@ export default function BestBrunchPage() {
             {
               href: "/uluwatu/beach-clubs-sunset",
               title: "After the flat white: the sunset",
-              blurb: "Seven golden-hour venues compared honestly.",
+              blurb: "Seven golden-hour venues, compared.",
             },
             {
               href: "/uluwatu",
@@ -184,7 +184,7 @@ export default function BestBrunchPage() {
         <div className="cta-band">
           <h2>Mornings sorted — now the other 20 hours</h2>
           <p>
-            The 48-hour plan starts at these counters and ends on a cliff —
+            The 48-hour plan starts at these counters and ends on a cliff,
             with every stop sequenced so you never backtrack.
           </p>
           <Link href="/uluwatu/48-hours" className="cta-band-action">

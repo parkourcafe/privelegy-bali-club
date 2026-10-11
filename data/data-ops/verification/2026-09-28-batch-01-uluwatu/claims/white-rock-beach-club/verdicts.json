@@ -1,0 +1,124 @@
+{
+  "slug": "white-rock-beach-club",
+  "acceptedAt": "2026-09-28T06:53:31.090Z",
+  "acceptor": "blind acceptor (Claude, snapshots-acceptor root)",
+  "verdicts": [
+    {
+      "claim_id": "white-rock-beach-club-12",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for priceBand: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "white-rock-beach-club-11",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for whatToOrder: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "k-white--3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com (also names another venue, Suka Espresso) is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "white-rock-beach-club-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "88086ad092238b5dc0e20a829a30611a6476c6d8a343b36c32fc03bc028d08c3",
+      "quote_found": true,
+      "note": "OPEN DAILY: 10AM UNTIL 9PM (FREE ENTRANCE) on whiterockbali.com; beach-club window plausible; page sha differs from collector's but quote unchanged"
+    },
+    {
+      "claim_id": "white-rock-beach-club-22",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "88086ad092238b5dc0e20a829a30611a6476c6d8a343b36c32fc03bc028d08c3",
+      "quote_found": true,
+      "note": "[+62] 811 3803 003 on whiterockbali.com → +628113803003; single venue"
+    },
+    {
+      "claim_id": "white-rock-beach-club-03",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": "88086ad092238b5dc0e20a829a30611a6476c6d8a343b36c32fc03bc028d08c3",
+      "quote_found": false,
+      "note": "editorial sentence; official pages support Melasti Beach and daybeds/suites, but infinity pools, dining decks and an events stage are not in the fetched text — founder decides"
+    },
+    {
+      "claim_id": "white-rock-beach-club-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "98ece1555c9d7c324b962acfcc35d4c15acf49e7e699aeebb0b3be35cce934d5",
+      "quote_found": true,
+      "note": "FOOD MENU / DRINKS MENU / SHISHA MENU on whiterockbali.com/menu/"
+    },
+    {
+      "claim_id": "white-rock-beach-club-23",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for coordinates: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "white-rock-beach-club-15",
+      "verdict": "hold",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "action=unknown for full_address: no proposed value, no source, nothing to verify; field stays null"
+    },
+    {
+      "claim_id": "k-white--2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": null,
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "tripadvisor.com is not an official domain for this venue; not fetched (source rule fails before fetch)"
+    },
+    {
+      "claim_id": "k-white--1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "9102aeae15ffb5534fa0cd1d959450caf214f05fbeaf7a65f003137d923af879",
+      "quote_found": false,
+      "note": "bookings.whiterockbali.com fetched; 'Open daily 7 AM – 11 PM…' not on the page"
+    },
+    {
+      "claim_id": "white-rock-beach-club-17",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "88086ad092238b5dc0e20a829a30611a6476c6d8a343b36c32fc03bc028d08c3",
+      "quote_found": true,
+      "note": "same evidence as -16: OPEN DAILY: 10AM UNTIL 9PM"
+    },
+    {
+      "claim_id": "white-rock-beach-club-13",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "88086ad092238b5dc0e20a829a30611a6476c6d8a343b36c32fc03bc028d08c3",
+      "quote_found": true,
+      "note": "SINGLE SOFA (2 pax) MIN. SPEND IDR 500K++ and SINGLE BED (2 pax) MIN. SPEND IDR 2,000K++ both on whiterockbali.com; dated; values are minimum spends, not menu prices"
+    }
+  ]
+}

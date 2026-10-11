@@ -1,0 +1,109 @@
+{
+  "slug": "the-warung-at-alila-villas-uluwatu",
+  "officialDomains": [
+    "alilahotels.com",
+    "hyatt.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-19",
+      "field": "instagramUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-16",
+      "field": "hours",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-the-wa-1",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-21",
+      "field": "menuUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-the-wa-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Laggas Bali — Best Restaurant in Uluwatu | The Bali Guideline",
+      "claim_text": null,
+      "source_url": "https://thebaliguideline.com/dine/uluwatu/laggas-bali",
+      "quote": "Laggas Bali — Best Restaurant in Uluwatu | The Bali Guideline",
+      "snapshot_sha256": "53ebb99b7efbbe68f66a6cce22781b3de4c1510c955f6e266f508d9414f416e8",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-the-wa-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-the-warung-at-alila-villas-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "the-warung-at-alila-villas-uluwatu-22",
+      "field": "phone",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    }
+  ]
+}

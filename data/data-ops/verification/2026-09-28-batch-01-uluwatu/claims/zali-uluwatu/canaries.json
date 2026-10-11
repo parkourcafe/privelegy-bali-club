@@ -1,0 +1,20 @@
+{
+  "slug": "zali-uluwatu",
+  "canaries": [
+    {
+      "claim_id": "k-zali-u-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-zali-u-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-zali-u-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "suka-espresso"
+    }
+  ]
+}

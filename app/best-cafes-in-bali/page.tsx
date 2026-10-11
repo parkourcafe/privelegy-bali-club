@@ -38,7 +38,7 @@ const guide = getGuide("best-cafes-in-bali")!;
 export const metadata = guideMetadata(guide);
 
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "canggu", name: "Canggu", note: "Bali's café capital — laptop-friendly brunch spots, specialty roasters and all-day breakfast on nearly every corner.", pillar: "/canggu" },
+  { key: "canggu", name: "Canggu", note: "Bali's café capital, with laptop-friendly brunch spots, specialty roasters and all-day breakfast on nearly every corner.", pillar: "/canggu" },
   { key: "ubud", name: "Ubud", note: "Health-food cafés, smoothie bowls and jungle-view breakfasts in the cool hills.", pillar: "/ubud" },
   { key: "seminyak", name: "Seminyak", note: "Polished all-day cafés and considered brunch between the boutiques.", pillar: "/seminyak" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Surf-and-coffee cafés and clifftop breakfast spots between sessions.", pillar: "/uluwatu" },
@@ -48,10 +48,10 @@ const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[]
 ];
 
 const FAQ = [
-  { q: "Where are the best cafés in Bali?", a: "Canggu is the island's café capital — laptop-friendly brunch spots and specialty roasters everywhere. Ubud is strongest for health-food and smoothie-bowl cafés, and Seminyak for polished all-day spots. The picks above are sorted by area." },
-  { q: "Which area is best for café work?", a: "Canggu — it's Bali's digital-nomad hub, with the deepest cluster of laptop-friendly cafés (power, wifi, all-day seating). See our work-friendly cafés in Canggu guide for the specific spots." },
-  { q: "Where is the best brunch in Bali?", a: "Canggu and Seminyak have the biggest brunch scenes — smoothie bowls, big breakfasts and specialty coffee — while Ubud leans healthy and plant-forward. Most open early and run through midday." },
-  { q: "Do Bali cafés have good coffee?", a: "Yes — Bali has a serious specialty-coffee scene with local roasters and skilled baristas, strongest in Canggu, Ubud and Seminyak. For the coffee-first spots specifically, see our best specialty coffee in Bali guide." },
+  { q: "Where are the best cafés in Bali?", a: "Canggu is the island's café capital, with laptop-friendly brunch spots and specialty roasters everywhere. Ubud is strongest for health-food and smoothie-bowl cafés, and Seminyak for polished all-day spots. The picks above are sorted by area." },
+  { q: "Which area is best for café work?", a: "Canggu. It's Bali's digital-nomad hub, with the deepest cluster of laptop-friendly cafés (power, wifi, all-day seating). Our work-friendly cafés in Canggu guide has the specific spots." },
+  { q: "Where is the best brunch in Bali?", a: "Canggu and Seminyak have the biggest brunch scenes: smoothie bowls, big breakfasts and specialty coffee. Ubud leans healthy and plant-forward. Most open early and run through midday." },
+  { q: "Do Bali cafés have good coffee?", a: "Yes. Bali has a real specialty-coffee scene with local roasters and skilled baristas. It's strongest in Canggu, Ubud and Seminyak. For the coffee-first spots, see our best specialty coffee in Bali guide." },
 ];
 
 export default async function BestCafesPage() {
@@ -125,10 +125,10 @@ export default async function BestCafesPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            Café culture is one of Bali&apos;s great pleasures. Canggu is the
-            capital — brunch spots and specialty roasters on every corner — while
-            Ubud leans healthy and jungle-green and Seminyak stays polished. Here
-            are the cafés we stand behind, by area — tap any for the details.
+            Canggu is Bali&apos;s café capital, with brunch spots and specialty
+            roasters on every corner. Ubud leans healthy and jungle-green, and
+            Seminyak stays polished. Below are the cafés we stand behind, by area.
+            Tap any for the details.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} cafés, each one written up on the record with a reason
@@ -180,7 +180,7 @@ export default async function BestCafesPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            cafés are published with verified details —{" "}
+            cafés are published with verified details:{" "}
             <Link href="/places?category=cafe" className="quiet-link">
               browse every café →
             </Link>
@@ -188,7 +188,7 @@ export default async function BestCafesPage() {
         ) : null}
 
         <p className="text-sm text-[var(--muted)]">
-          Working from a café rather than choosing by taste? See{" "}
+          To work from a café rather than choose by taste, see{" "}
           <Link href="/canggu/work-friendly-cafes" className="quiet-link">
             work-friendly cafés in Canggu →
           </Link>

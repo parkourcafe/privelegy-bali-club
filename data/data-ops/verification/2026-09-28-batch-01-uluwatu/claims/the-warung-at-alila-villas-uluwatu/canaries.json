@@ -1,0 +1,20 @@
+{
+  "slug": "the-warung-at-alila-villas-uluwatu",
+  "canaries": [
+    {
+      "claim_id": "k-the-wa-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": "suka-espresso"
+    },
+    {
+      "claim_id": "k-the-wa-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-the-wa-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "laggas-uluwatu"
+    }
+  ]
+}

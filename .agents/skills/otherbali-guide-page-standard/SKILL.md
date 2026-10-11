@@ -45,9 +45,12 @@ something true and useful.
 
 Three habits follow, and they are the mechanism, not decoration:
 
-1. **One sentence, one fact.** Bundled sentences are unliftable. "A
+1. **One claim per sentence.** Bundled sentences are unliftable. "A
    high-energy, industrial-style all-day breakfast institution known for big
-   smoothie bowls" carries four things and yields none.
+   smoothie bowls" carries four things and yields none. The opposite failure
+   is three verbless fragments in a row — liftable, and unmistakably
+   generated. The machine-pattern list that settles this is
+   `docs/content-style.md` §9; the gate below imports it.
 2. **A number beats an adjective, always.** "Affordable" is an opinion no
    engine can cite. "35,000–70,000 IDR" is a fact it will paste into an answer.
 3. **Name the venue in the sentence.** "One café opens at 07:00" is unusable.

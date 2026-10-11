@@ -108,7 +108,7 @@ export default function HotelRestaurantsHub({
         )}
 
         {showPreview && preview.length > 0 ? (
-          <section className="guide-section" aria-label="Operator preview">
+          <section className="guide-section" aria-label="Imported rows awaiting review, not public">
             <h2>Operator preview · not public</h2>
             <p className="text-sm text-[var(--muted)]">
               {preview.length} imported rows awaiting review. Visible only in
@@ -130,7 +130,7 @@ export default function HotelRestaurantsHub({
           items={[
             {
               q: "Can non-guests eat at hotel restaurants in Bali?",
-              a: "Often yes — many resort restaurants take outside reservations, but some are guest-only and a few need advance booking. Each listing says whether non-guest access is confirmed; when it isn't, confirm directly with the hotel.",
+              a: "Often yes. Many resort restaurants take outside reservations, but some are guest-only and a few need advance booking. Each listing says whether non-guest access is confirmed; when it isn't, confirm directly with the hotel.",
             },
             {
               q: "How do you verify prices and access?",

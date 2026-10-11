@@ -1,0 +1,91 @@
+slug,verdict,problems,notes,warn_before,warn_after
+360-move-uluwatu,PASS,,dropped PROPER:Travellers,0,0
+ami-studio,PASS,,,2,0
+andaz-bali-fitness-centre,PASS,,"dropped COUNT:two, LEX:pools",2,0
+aroma-spa-retreat-sanur,PASS,,,0,0
+babi-guling-odah-sanur,PASS,,,1,0
+bali-barber-sanur-sanur,PASS,,dropped PROPER:Male,4,0
+balique-restaurant,PASS,,dropped PROPER:Jalan Raya Uluwatu,2,0
+bambu-fitness-bali,PASS,,dropped PROPER:Serious,3,0
+banana-lounge-bali-uluwatu-bukit,PASS,,dropped PROPER:Relax & Unwind With Us,0,0
+bella-cucina,PASS,,,1,0
+bluvana-reformer-studio,PASS,,,1,0
+d-nailbar-spa-uluwatu,PASS,,"dropped LEX:first, PROPER:Travellers",2,0
+fisherman-s-club,PASS,,dropped PROPER:Travellers,0,0
+fitness-plus,PASS,,"dropped LEX:first, DURATION:an hour",1,0
+garuda-wisnu-kencana,PASS,,,2,0
+genius-cafe,PASS,,,0,0
+glo-day-spa-salon-sanur-sanur,PASS,,dropped PROPER:Travellers,3,0
+gong-restaurant,PASS,,dropped PROPER:Signature Indonesian,1,0
+good-hair-day-sanur,PASS,,dropped PROPER:Visitors,0,0
+holiday-inn-bali-sanur-gym,PASS,,,1,0
+island-grooming-barbershop,PASS,,dropped LEX:most,3,0
+karma-spa-at-karma-kandara,PASS,,,0,0
+ko-japanese-teppanyaki-and-sushi,PASS,,,1,0
+koa-shala-sanur,PASS,,dropped PROPER:Travellers,1,0
+koa-shala-spa-sanur,PASS,,dropped PROPER:Visitors,1,0
+kuu-izakaya-dining,PASS,,,0,0
+la-tribu,PASS,,,1,1
+la-tribu-bali,PASS,,dropped PROPER:Alongside,1,0
+leha-leha-spa-sanur,PASS,,,0,0
+lilla-pantai,PASS,,dropped LEX:calm,1,0
+linga-longa-bar,PASS,,,2,0
+mantra-wellness,PASS,,dropped PROPER:Movement,1,0
+martha-tilaar-salon-day-spa-sanur,PASS,,"dropped LEX:authentic, PROPER:Visitors",1,0
+maya-sanur-spa-sanur,PASS,,dropped LEX:upscale,1,0
+maya-sanur-yoga-studio,PASS,,,2,0
+mona-lisa-cafe,PASS,,,0,0
+morning-light-yoga,PASS,,,0,0
+morning-light-yoga-studio,PASS,,dropped PROPER:Travellers,1,0
+nelayan-restaurant-and-puri-bar,PASS,,dropped LEX:beachfront,1,0
+oranje-bar,PASS,,"dropped LEX:cosy, LEX:casual",0,0
+ours-bali-uluwatu-bukit,PASS,,,0,0
+ours-spa-boutique,PASS,,dropped PROPER:Travellers,0,0
+piccolina,PASS,,,2,0
+power-of-now-oasis-sanur,PASS,,,1,0
+puri-santrian-spa-sanur,PASS,,dropped PROPER:Travellers,2,0
+puri-santrian-yoga-wellness,PASS,,"dropped COUNT:nine, PROPER:Sothys Paris",3,0
+raw-gym-uluwatu,PASS,,dropped PROPER:People,0,0
+reform-pilates-bali,PASS,,,1,0
+rose-petal,PASS,,,2,0
+sala-bistro,PASS,,,0,0
+segara-the-seaside,PASS,,dropped LEX:ocean views,2,0
+shankha-spa-and-fitness-at-hyatt-regency-bali,PASS,,"dropped LEX:largest, FOOD:juice, FOOD:kombucha, FOOD:jamu",4,0
+shankha-spa-hyatt-regency-bali-yoga,PASS,,,0,0
+six-senses-spa-uluwatu,PASS,,dropped PROPER:Guests,1,0
+six-senses-uluwatu-fitness-centre,PASS,,"dropped PROPER:Guests, PROPER:Bukit",2,0
+six-senses-uluwatu-yoga-pavilion,PASS,,,1,0
+snowcat-bali-ussr-cuisine,PASS,,,2,0
+soul-on-the-beach,PASS,,,1,0
+spa-at-mu,PASS,,,0,0
+spring-spa-uluwatu,PASS,,,2,0
+studio-fondue,PASS,,,0,0
+sudajiva-spa-at-sudamala-sanur-sanur,PASS,,dropped PROPER:Guests,2,0
+sudamala-resort-sanur-wellness-yoga-sanur,PASS,,dropped PROPER:Resort,1,0
+supreme-indian-restaurant,PASS,,,1,0
+svaha-spa-bingin,PASS,,"dropped LEX:best, PROPER:Bukit, PROPER:Surfers",0,0
+taru-pramana-spa-sanur,PASS,,,1,0
+terrace-sanur-the-1o1-bali-oasis-sanur,PASS,,"dropped PROPER:Bali Oasis Sanur, PROPER:Travellers",0,0
+the-asa-maia,PASS,,,3,0
+the-asa-maia-fitness,PASS,,,1,0
+the-asa-maia-yoga,PASS,,,2,0
+the-bvlgari-spa,PASS,,,2,0
+the-istana-wellness-club,PASS,,dropped PROPER:Visitors,1,0
+the-istana-yoga,PASS,,"dropped PROPER:Practitioners, PROPER:Bukit",1,0
+the-space-bali,PASS,,,1,0
+the-temple-lodge,PASS,,dropped LEX:laid-back,0,0
+the-yoga-rescue,PASS,,dropped PROPER:Uluwatu,0,0
+ulu-active-recovery,PASS,,,2,0
+ulu-yoga-bali,PASS,,dropped LEX:best,0,0
+vela-spa,PASS,,,0,0
+warung-babi-guling-sanur-bypass,PASS,,,0,0
+warung-blanjong,PASS,,dropped LEX:best,0,0
+warung-coconut-tree,PASS,,"dropped PROPER:Long, LEX:authentic",0,0
+warung-little-bird,PASS,,dropped LEX:authentic,0,0
+warung-makan-little-mars,PASS,,,2,0
+warung-pregina,PASS,,dropped LEX:authentic,1,0
+white-orchid-sanur,PASS,,dropped PROPER:Taste of Asia,0,0
+white-rabbit-lounge-uluwatu-bukit,PASS,,"dropped LEX:world-class, PROPER:Uluwatu Bali",0,0
+yinside-yoga,PASS,,dropped PROPER:Practitioners,1,0
+yoga-searcher-bali,PASS,,dropped PROPER:Guests,0,0
+yoga-the-istana,PASS,,dropped PROPER:Travellers,0,0

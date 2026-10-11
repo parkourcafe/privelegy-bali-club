@@ -1,0 +1,27 @@
+{
+  "emitted": 27,
+  "held": 0,
+  "byField": {
+    "why_its_here": 20,
+    "best_for": 6,
+    "not_for": 1,
+    "price_anchor": 0,
+    "what_to_order": 0
+  },
+  "byDistrict": {
+    "canggu": 8,
+    "denpasar": 1,
+    "jimbaran": 2,
+    "nusa-dua": 1,
+    "sanur": 2,
+    "seminyak": 3,
+    "ubud": 7,
+    "uluwatu-bukit": 3
+  },
+  "byReason": {
+    "already applied": 0,
+    "before mismatch": 0,
+    "not published": 0,
+    "slug missing": 0
+  }
+}

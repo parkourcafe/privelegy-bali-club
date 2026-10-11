@@ -1,0 +1,20 @@
+{
+  "emitted": 89,
+  "held": 0,
+  "byField": {
+    "why_its_here": 43,
+    "best_for": 43,
+    "not_for": 3,
+    "price_anchor": 0,
+    "what_to_order": 0
+  },
+  "byDistrict": {
+    "(unknown)": 89
+  },
+  "byReason": {
+    "already applied": 0,
+    "before mismatch": 0,
+    "not published": 0,
+    "slug missing": 0
+  }
+}

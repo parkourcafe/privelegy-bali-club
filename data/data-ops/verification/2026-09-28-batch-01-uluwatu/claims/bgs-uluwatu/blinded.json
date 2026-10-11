@@ -1,0 +1,196 @@
+{
+  "slug": "bgs-uluwatu",
+  "officialDomains": [
+    "bgsbali.com"
+  ],
+  "category": "cafe",
+  "claims": [
+    {
+      "claim_id": "bgs-uluwatu-16",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "6.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "6.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "6.30am-10.00pm"
+        ],
+        "Thursday": [
+          "6.30am-10.00pm"
+        ],
+        "Friday": [
+          "6.30am-10.00pm"
+        ],
+        "Saturday": [
+          "6.30am-10.00pm"
+        ],
+        "Sunday": [
+          "6.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "quote": "Store Info\nAddress\nJl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361\nOpen Hours\n06:30 – 22:00\nPhone\n+62 878-6181-3103",
+      "snapshot_sha256": "ae81f57d5f0290e98832efd6e83329ea846e1d8f4fbb352af3950610ed34f7e6",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-23",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "quote": "Store Info\nAddress\nJl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361\nOpen Hours\n06:30 – 22:00\nPhone\n+62 878-6181-3103",
+      "snapshot_sha256": "ae81f57d5f0290e98832efd6e83329ea846e1d8f4fbb352af3950610ed34f7e6",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-17",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "6.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "6.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "6.30am-10.00pm"
+        ],
+        "Thursday": [
+          "6.30am-10.00pm"
+        ],
+        "Friday": [
+          "6.30am-10.00pm"
+        ],
+        "Saturday": [
+          "6.30am-10.00pm"
+        ],
+        "Sunday": [
+          "6.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "quote": "Store Info\nAddress\nJl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361\nOpen Hours\n06:30 – 22:00\nPhone\n+62 878-6181-3103",
+      "snapshot_sha256": "ae81f57d5f0290e98832efd6e83329ea846e1d8f4fbb352af3950610ed34f7e6",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-14",
+      "field": "price_anchor",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-21",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://store.bgsbali.com/pages/menu",
+      "claim_text": null,
+      "source_url": "https://store.bgsbali.com/pages/menu",
+      "quote": "BGS Bali Coffee Bar Menu - Drinks, Lunch, Dinner at Uluwatu & Canggu",
+      "snapshot_sha256": "5e8b7f17340e40e60408ac56bd8b1f713e7def3ef582a9f6d2157defbfbd0e9c",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-24",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-bgs-ul-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-bgs-ul-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-bgs-uluwatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "cafe"
+    },
+    {
+      "claim_id": "k-bgs-ul-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "ae81f57d5f0290e98832efd6e83329ea846e1d8f4fbb352af3950610ed34f7e6",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-22",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6287861813103",
+      "claim_text": null,
+      "source_url": "https://bgsbali.com/store/bgs-uluwatu/",
+      "quote": "Store Info\nAddress\nJl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361\nOpen Hours\n06:30 – 22:00\nPhone\n+62 878-6181-3103",
+      "snapshot_sha256": "ae81f57d5f0290e98832efd6e83329ea846e1d8f4fbb352af3950610ed34f7e6",
+      "category": "cafe"
+    },
+    {
+      "claim_id": "bgs-uluwatu-20",
+      "field": "bookingUrl",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "cafe"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ export default async function NusaDuaGuideView({ guide }: { guide: NusaDuaGuide 
   };
 
   const related = [
-    { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "The resort enclave — beaches, dining and how to plan a calm stay." },
+    { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "The resort enclave: beaches, dining and how to plan a calm stay." },
     ...NUSA_DUA_GUIDES.filter((g) => g.slug !== guide.slug).map((g) => ({
       href: `/nusa-dua/${g.slug}`,
       title: g.h1,

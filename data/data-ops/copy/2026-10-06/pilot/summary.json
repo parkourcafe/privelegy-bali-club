@@ -1,0 +1,21 @@
+{
+  "emitted": 29,
+  "held": 0,
+  "byField": {
+    "why_its_here": 10,
+    "best_for": 10,
+    "not_for": 9,
+    "price_anchor": 0,
+    "what_to_order": 0
+  },
+  "byDistrict": {
+    "canggu": 14,
+    "ubud": 15
+  },
+  "byReason": {
+    "already applied": 0,
+    "before mismatch": 0,
+    "not published": 0,
+    "slug missing": 0
+  }
+}

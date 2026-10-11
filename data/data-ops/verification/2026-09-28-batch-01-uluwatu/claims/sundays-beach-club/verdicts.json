@@ -1,0 +1,88 @@
+{
+  "slug": "sundays-beach-club",
+  "acceptedAt": "2026-09-28T08:05:00Z",
+  "acceptor_note": "snapshot.mjs could not be executed in this acceptor session (shell tool unavailable for the whole run); no source was re-fetched. Every official-source claim is held as SOURCE_BLOCKED for a re-run, not accepted. Non-official sources are rejected on the source rule, which needs no fetch.",
+  "verdicts": [
+    {
+      "claim_id": "sundays-beach-club-17",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Official domain, 7-day 07:30–22:00 window plausible for a beach club, but the acceptor could not re-fetch sundaysbeachclub.com; quote unverified — re-run"
+    },
+    {
+      "claim_id": "sundays-beach-club-02",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Removal of a verdict sentence: could not search the official homepage for support (no re-fetch); the cited quote would partly support 'white sand' and 'below the cliffs' if present — founder/re-run"
+    },
+    {
+      "claim_id": "sundays-beach-club-25",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Coordinates inside the Uluwatu box with 6-7 decimals, quoted from an embedded map URL on the official site; could not re-fetch to confirm the fragment is on the page — re-run"
+    },
+    {
+      "claim_id": "sundays-beach-club-22",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Menu PDF on the official domain; could not re-fetch the PDF to confirm the quote or that it is linked from an official page — re-run"
+    },
+    {
+      "claim_id": "k-sunday-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "satusatu.com is a third-party guide, not a Sundays domain; the value is a sentence about Suka Espresso, not an address — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-sunday-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator; price anchor also names no item and no date — not fetched, rejected on the source rule"
+    },
+    {
+      "claim_id": "k-sunday-1",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Official domain but the quote (7 AM – 11 PM, kitchen 10:30 PM) contradicts the 7:30 AM – 10 PM window cited in claims 17/18 from the same site; could not re-fetch to test which is on the page — not accepted"
+    },
+    {
+      "claim_id": "sundays-beach-club-23",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Quote 'Contact Us' contains no number, so it cannot by itself support +6282144057406; page not re-fetched to look for the number — re-run and quote the number itself"
+    },
+    {
+      "claim_id": "sundays-beach-club-18",
+      "verdict": "hold",
+      "reason_code": "SOURCE_BLOCKED",
+      "refetch": "blocked",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Official daily-beach-pass page, 7-day 07:30–22:00; quote reads as beach-pass hours which may equal venue hours — could not re-fetch; re-run"
+    }
+  ]
+}

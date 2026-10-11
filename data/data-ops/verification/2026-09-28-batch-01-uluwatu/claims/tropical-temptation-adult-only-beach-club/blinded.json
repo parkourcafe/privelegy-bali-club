@@ -1,0 +1,207 @@
+{
+  "slug": "tropical-temptation-adult-only-beach-club",
+  "officialDomains": [
+    "ttbeach.club"
+  ],
+  "category": "beach_club",
+  "claims": [
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-06",
+      "field": "copy:whatToExpect#3",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "It opened as Cattamaran in 2021 and was renamed in 2022 — older reviews may use the old name.",
+      "source_url": "https://ttbeach.club/",
+      "quote": null,
+      "snapshot_sha256": "7d38ba0e61f815a861d0b4fba25a687600e523a6c09043143256b80fed9c24f1",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-11",
+      "field": "whatToOrder",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-20",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6281238868631",
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/faq",
+      "quote": "+62 812-3886-8631 info@ttbeach.club",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-tropic-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-05",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Doors run 07:00–21:00 (official FAQ: 'open daily MONDAY – SUNDAY 7 AM – 9 PM'); the day-into-sunset framing holds.",
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/faq",
+      "quote": "WHAT ARE THE HOURS OF OPERATION AT TROPICAL TEMPTATION BEACH CLUB?\nWe are open daily MONDAY – SUNDAY 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-tropic-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-tropical-temptation-adult-only-beach-club",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-22",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-15",
+      "field": "opening_hours_json",
+      "action": "replace",
+      "proposed": {
+        "Monday": [
+          "7.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-9.00pm"
+        ],
+        "Thursday": [
+          "7.00am-9.00pm"
+        ],
+        "Friday": [
+          "7.00am-9.00pm"
+        ],
+        "Saturday": [
+          "7.00am-9.00pm"
+        ],
+        "Sunday": [
+          "7.00am-9.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/faq",
+      "quote": "Jl. Melasti Beach 88, Ungasan, Bali Open Daily : 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-19",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://ttbeach.club/menus/drinkandfood.pdf",
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/menus/drinkandfood.pdf",
+      "quote": null,
+      "snapshot_sha256": "301cf1181d8da907d88084aefd7f4232aa53573d20067aa4d627651eb33b3c37",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-tropic-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://reserve.ttbeach.club/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "108c79ec77cff3632012e69df046184ffb9c3abccd8daf14bb0e6d0a91dbac3d",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-18",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://bookings.ttbeach.club/",
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/faq",
+      "quote": "Reserve",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "tropical-temptation-adult-only-beach-club-14",
+      "field": "hours",
+      "action": "replace",
+      "proposed": {
+        "Monday": [
+          "7.00am-9.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-9.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-9.00pm"
+        ],
+        "Thursday": [
+          "7.00am-9.00pm"
+        ],
+        "Friday": [
+          "7.00am-9.00pm"
+        ],
+        "Saturday": [
+          "7.00am-9.00pm"
+        ],
+        "Sunday": [
+          "7.00am-9.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://ttbeach.club/faq",
+      "quote": "WHAT ARE THE HOURS OF OPERATION AT TROPICAL TEMPTATION BEACH CLUB?\nWe are open daily MONDAY – SUNDAY 7 AM – 9 PM",
+      "snapshot_sha256": "9612b6886756b84ddb3731520e3ca45da3067a8000b73817b392b238174770d7",
+      "category": "beach_club"
+    }
+  ]
+}

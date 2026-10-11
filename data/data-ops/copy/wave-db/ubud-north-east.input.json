@@ -1,0 +1,1848 @@
+[
+ {
+  "slug": "8lements-spa-saranam",
+  "name": "8LEMENTS Spa at HOMM Saranam",
+  "district": "Munduk",
+  "where": "",
+  "why_its_here": "The spa at HOMM Saranam in the Bedugul highlands, run under Banyan Group's 8LEMENTS wellness brand with Banyan Tree Academy-trained therapists, set on a rooftop overlooking rice terraces and mountains. Open to non-guests.",
+  "best_for": "A highland spa session with a rice-terrace view, on a Bedugul or North Bali day trip.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "air-terjun-tegenungan",
+  "name": "Air Terjun Tegenungan",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "A waterfall about 10 kilometres outside Ubud, next to Tegenungan village, Gianyar — big falls with steps down, one of the easiest waterfalls on the island to reach.",
+  "best_for": "an easy waterfall stop near Ubud; travellers who want falls without a trek",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "akar-ubud",
+  "name": "Akar Ubud",
+  "district": "Ubud",
+  "where": "Cebok Main Road, Kedisan, Tegallalang, Ubud, Gianyar 80561",
+  "why_its_here": "A jungle-setting restaurant north of Ubud with a clear breakfast-and-dinner decision and a special-occasion atmosphere.",
+  "best_for": "Travellers looking for jungle views and a destination dinner.",
+  "not_for": "People wanting a central Ubud walk-in lunch.",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "travellers looking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "alchemy",
+  "name": "Alchemy",
+  "district": "Ubud",
+  "where": "Penestanan, Ubud",
+  "why_its_here": "Ubud's clearest dietary-first breakfast — a fully plant-based, gluten-free menu with a customisable raw breakfast bar and transparent pricing.",
+  "best_for": "Plant-based and gluten-free diners; a post-yoga breakfast; a customisable healthy start; off-peak laptop time",
+  "not_for": "A conventional sit-down brunch, or families needing kids' facilities",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · bowls and wraps 95–139K",
+   "hours_visible": "Mo-Su 07:30-21:30",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "alchemy-yoga-and-meditation-center-ubud",
+  "name": "Alchemy Yoga and Meditation Center",
+  "district": "Ubud",
+  "where": "Penestanan",
+  "why_its_here": "A Penestanan yoga and meditation centre rooted in tantra and Hatha yoga, with a full daily class menu, meditation, sound healing and a weekly ecstatic-dance night; affiliated with the well-known Alchemy raw-vegan cafe next door.",
+  "best_for": "Practitioners drawn to tantra-influenced yoga, meditation and community events like ecstatic dance, with a plant-based meal next door.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "alchemy-yoga-meditation-center",
+  "name": "Alchemy Yoga & Meditation Center",
+  "district": "Ubud",
+  "where": "Jl. Penestanan Kelod No. 75, Penestanan, Ubud, Gianyar 80571",
+  "why_its_here": "A yoga and meditation centre in Penestanan, Ubud with two bamboo shalas, running daily drop-in classes across Hatha and Tantra vinyasa, Yin, meditation, ecstatic dance and sound-healing ceremonies, plus multi-class passes and Yoga Alliance 200hr and 300hr teacher trainings.",
+  "best_for": "drop-in practitioners staying in Ubud or Penestanan; travellers wanting a varied daily class schedule without committing to a retreat; those interested in meditation, sound healing or teacher training",
+  "not_for": "anyone after a gym-style or purely fitness workout; visitors wanting a beach or nightlife scene",
+  "lint": [
+   "best_for:A7",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat",
+   "travellers wanting",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · drop-in class ~165K (multi-class passes and unlimited monthly available)",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "anomali-coffee-ubud",
+  "name": "Anomali Coffee Ubud",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "An Indonesian specialty-coffee roaster founded in Jakarta in 2007, now with outlets across Indonesia; its Ubud cafe pours single-origin beans sourced from across the archipelago with a rotating regional-origin selection.",
+  "best_for": "Coffee-focused travelers who want to compare Indonesian single-origin beans (Aceh, Bali, Toraja, Java) in one sitting, plus casual all-day breakfast.",
+  "not_for": "Travelers wanting a jungle or rice-field view setting — this is a street-front, town-café atmosphere on Jalan Raya Ubud.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "travelers wanting",
+   "travelers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-barber-ubud",
+  "name": "Bali Barber Ubud",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "Bali Barber's central-Ubud shop, where men can get a proper cut, beard work or a traditional hot-towel shave.",
+  "best_for": "Men wanting a reliable walk-in barber in central Ubud.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-bohemia",
+  "name": "Bali Bohemia",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A boutique-hotel restaurant and bakery next to the Sacred Monkey Forest Sanctuary, built around fresh, wholesome East-Mediterranean-inspired cooking with a plant-forward focus, plus a standalone bakery arm and live-music evenings.",
+  "best_for": "Health-conscious travellers wanting a plant-forward breakfast, bakery pastries, or a relaxed dinner with live music in a colourful, creative setting.",
+  "not_for": "Guests wanting a strictly local Balinese/Indonesian menu or a quiet, music-free dinner.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-botanica-spa",
+  "name": "Bali Botanica by Oneworld Ayurveda",
+  "district": "Ubud",
+  "where": "Jl. Raya Sanggingan, Kedewatan, Ubud",
+  "why_its_here": "Day spa established in 2006 on the Sanggingan ridge overlooking jungle and rice fields; relaunched in 2024 under Oneworld Ayurveda as an Ayurvedic day spa combining Balinese and Ayurvedic treatments and programs.",
+  "best_for": "Travellers wanting Ayurvedic treatments or day programs in a jungle-and-rice-field setting on the Sanggingan side of Ubud.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bebek-bengil",
+  "name": "Bebek Bengil",
+  "district": "Ubud",
+  "where": "Jl. Hanoman, Padang Tegal, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "why_its_here": "The Ubud restaurant that popularised Balinese-style crispy duck, open since 1990, set among rice-paddy garden pavilions. The duck is steamed in Indonesian spices then deep-fried until the skin crackles while the meat stays tender.",
+  "best_for": "first taste of balinese crispy duck; rice-paddy garden dinner; groups sharing regional dishes; visitors near monkey forest",
+  "not_for": "diners who want a quiet hidden local warung; vegetarians, since the menu centres on duck and meat",
+  "lint": [],
+  "stock_phrases": [
+   "set among"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "big-dragon-villas-ubud",
+  "name": "Big Dragon Villas Ubud",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "A boutique villa retreat in the rice paddies at Pejeng near Tampaksiring, a short drive from central Ubud, with 17 rooms and suites set around an infinity pool. Opened in 2025.",
+  "best_for": "A quiet, nature-facing stay near Ubud with pool and rice-field views, away from the town centre.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cafe-wayan-and-bakery",
+  "name": "Cafe Wayan & Bakery",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "Established in 1986 on Monkey Forest Road, a long-running Ubud institution with a bakery out front and a rice-paddy-view garden behind, serving a wide Indonesian/Thai/Italian menu plus a Sunday-evening traditional Balinese buffet.",
+  "best_for": "Groups or families wanting an easy, established garden restaurant with a broad menu and a well-known dessert to share.",
+  "not_for": "Diners seeking a quiet, intimate table (it's a large, high-turnover tourist institution).",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "institution"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cantika-zest",
+  "name": "Cantika Zest",
+  "district": "Ubud",
+  "where": "Jl. Raya Katik Lantang, Penestanan Kelod, Ubud",
+  "why_its_here": "Streamside jungle spa at the edge of Penestanan village that makes and uses its own organic, garden-sourced skincare products across massage, facials, scrubs and outdoor flower baths, with a garden tour option.",
+  "best_for": "Eco-minded travellers who want natural, organic products in a quiet Penestanan garden setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "casa-luna",
+  "name": "Casa Luna",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "Ubud's most enduring restaurant, opened in 1992 by food writer Janet DeNeefe on Jalan Raya Ubud; the menu moves between authentic Balinese cuisine (nasi campur, ceremonial curries, slow-cooked spice-paste dishes) and a modern Mediterranean side, with pastries from the sister Honeymoon Bakery.",
+  "best_for": "Travellers wanting a genuine, long-established Balinese dining experience in the centre of Ubud, from breakfast through dinner.",
+  "not_for": "Very budget-conscious travellers looking for street-warung prices (a well-known, mid-range destination restaurant).",
+  "lint": [
+   "not_for:A3",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "experience",
+   "travellers looking",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cascades",
+  "name": "CasCades",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "The gourmet restaurant of Viceroy Bali (also branded as part of CasCades Suites), perched atop the Valley of the Kings about five minutes' drive from central Ubud, pairing panoramic jungle-valley views with a Balinese Rijsttafel tasting menu and Western dishes built on produce from its own organic gardens.",
+  "best_for": "Couples or small groups wanting a scenic, sit-down valley-view meal with a curated Indonesian tasting format.",
+  "not_for": "Travellers without their own transport looking for a walk-in meal in central Ubud, or budget diners.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "curated"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "clear-cafe",
+  "name": "Clear Café",
+  "district": "Ubud",
+  "where": "Jl. Hanoman No.8, Ubud, Bali 80571",
+  "why_its_here": "A long-running healthy and international café on Hanoman with a clear wellness angle.",
+  "best_for": "Healthy casual meals and café time in central Ubud.",
+  "not_for": "People seeking a formal fine-dining experience.",
+  "lint": [],
+  "stock_phrases": [
+   "experience"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "coco-nails-ubud",
+  "name": "Coco Nails Ubud",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "An Ubud nail salon offering manicures, pedicures and nail art in a central location.",
+  "best_for": "A quick, well-priced mani-pedi between Ubud's shops and cafés.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "como-shambhala-at-como-uma-ubud-yoga-ubud",
+  "name": "COMO Shambhala at COMO Uma Ubud Yoga",
+  "district": "Ubud",
+  "where": "Kedewatan",
+  "why_its_here": "The COMO Shambhala yoga programme at luxury resort COMO Uma Ubud in Kedewatan, with classes in a jungle-view shala.",
+  "best_for": "Guests and visitors wanting refined, resort-level yoga above the valley.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "como-uma-ubud-fitness",
+  "name": "COMO Uma Ubud Fitness",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "The fitness centre at COMO Uma Ubud, fitted with current cardio and strength machines and backed by the COMO Shambhala wellness programme. A resident fitness instructor builds private sessions for any level, from beginner upward. The same wellness area holds an open-air yoga pavilion, steam rooms and a 25-metre pool.",
+  "best_for": "Guests in Ubud who want machine-based training with a resident instructor, alongside a jungle-facing yoga pavilion.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "dala-spa-beauty-at-alaya-ubud-ubud",
+  "name": "DaLa Spa Beauty at Alaya Ubud",
+  "district": "Ubud",
+  "where": "Pengosekan",
+  "why_its_here": "The beauty services at DaLa Spa, the spa at Alaya Resort Ubud in Pengosekan, open daily 09:00–23:00.",
+  "best_for": "Resort visitors wanting salon-and-beauty treatments alongside a spa day.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "dicarik-warung",
+  "name": "Dicarik Warung",
+  "district": "Ubud",
+  "where": "Jl. Kajeng, Subak Juwuk Manis, Ubud 80571",
+  "why_its_here": "A rice-field-walk warung on Jl. Kajeng (Subak Juwuk Manis) north of central Ubud, run by a mother-daughter team, known primarily for its hands-on Balinese cooking class (garden spice ID, 7 dishes + 2 drinks) alongside a la carte Balinese food such as betutu bebek.",
+  "best_for": "travelers wanting a hands-on Balinese cooking class amid rice fields, or pre-ordered betutu bebek",
+  "not_for": "those wanting walk-in a-la-carte dining without any advance notice",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting",
+   "travelers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "donna-ubud",
+  "name": "Donna",
+  "district": "Ubud",
+  "where": "Jl. Monkey Forest No.67, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "why_its_here": "A restaurant, lounge and rooftop bar in the middle of Jalan Monkey Forest blending Mediterranean and Latin American cuisine, open daily from late morning until late, with a Friday-night club upstairs and shisha available after 4pm.",
+  "best_for": "Groups or couples wanting a stylish dinner with cocktails and a lively nightlife atmosphere in central Ubud.",
+  "not_for": "Guests wanting a quiet, early, low-key dinner (the venue turns into a nightclub on Friday nights).",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "blending",
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "Rp 250,000+ per person",
+   "hours_visible": "Mo 11:30-23:59, Tu 11:30-23:59, We 11:30-23:59, Th 11:30-23:59, Fr 11:30-23:59, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "four-seasons-resort-bali-at-sayan-fitness",
+  "name": "Four Seasons Resort Bali at Sayan Fitness",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "The Fitness Hub at Four Seasons Resort Bali at Sayan, a 536 sq m facility set high above the Ayung River with jungle views. Complimentary for guests, it holds a 75 sq m gym with Life Fitness and Prima Fit equipment, three private studios with trainers, a pilates studio with reformers, rings, weights and spine barrel, and a recovery room with ice bath, steam room, sauna, an infrared zero-gravity lounger and a PEMF mat. Locker rooms have steam and sauna, and a Fit Bar serves the floor.",
+  "best_for": "Ubud-valley guests who want a full training and recovery set-up, from reformer pilates to ice bath, without leaving the resort.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gajah-putih-ubud",
+  "name": "Gajah Putih",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "Restaurant in Ubud. The kitchen is described as modern gourmet cuisine. The published menu runs to 8 priced items — Pairing Alcohol Malam/Lingkaran, Pairing Non Alcohol Malam/Lingkaran and Pairing Wine Malam. Pairing Wine Malam is 400K IDR. Booking is on the venue's own site.",
+  "best_for": "A special-occasion dinner, not a quick casual meal.",
+  "not_for": "A cheap casual meal — the menu starts at 400K IDR.",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$$ · Pairing Wine Malam 400K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gelato-secrets-ubud",
+  "name": "Gelato Secrets Ubud",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "Artisanal Italian gelato brand that opened its first Bali shop in Ubud in 2009, making fresh daily gelato/sorbetto from all-natural ingredients, including Indonesian-inspired flavors like black rice and coconut pandan.",
+  "best_for": "A dessert or cool-down stop for families and travelers after sightseeing (e.g., near Monkey Forest / Jalan Raya Ubud).",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "heart-space-bali",
+  "name": "Heart Space Bali",
+  "district": "Ubud",
+  "where": "Jl. Nyuh Kuning No. 1, MAS, Ubud, Gianyar 80571",
+  "why_its_here": "A calm, holistic studio at the Pengosekan/Nyuh Kuning corner specialising in slower, restorative practice, sound and Balinese healing.",
+  "best_for": "Those wanting gentle Yin and restorative yoga, sound baths and cacao or healing ceremonies rather than a vigorous flow.",
+  "not_for": "Practitioners after a strong, athletic or heated class.",
+  "lint": [],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "hujan-locale",
+  "name": "Hujan Locale",
+  "district": "Ubud",
+  "where": "Jl. Sri Wedari No.5, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "why_its_here": "A modern Indonesian restaurant in Ubud Center by chef Will Meyrick, housed in a stylishly renovated two-story building (bar downstairs, dining room with temple and street views upstairs), reworking street-food flavours from Java, Sumatra, Sulawesi and Bali with modern presentation and locally sourced ingredients.",
+  "best_for": "Travellers wanting an elevated, chef-driven take on Indonesian regional cooking for a dinner or shared meal.",
+  "not_for": "Diners wanting a cheap, no-frills traditional warung experience.",
+  "lint": [
+   "best_for:H1",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "elevated",
+   "experience",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "Main ~120-200k",
+   "hours_visible": "Mo 12:00-22:00, Tu 12:00-22:00, We 12:00-22:00, Th 12:00-22:00, Fr 12:00-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ibu-rai",
+  "name": "Ibu Rai",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A long-running restaurant and gallery on Jalan Monkey Forest founded by the family of Ibu Rai (born 1925, who ran a food stall near Ubud Palace); opened as a restaurant in 1992 and now serves a fusion of Indonesian specialties and European dishes in a central, art-filled setting.",
+  "best_for": "Travellers wanting an easy, centrally located sit-down meal that mixes Indonesian classics with familiar European comfort dishes.",
+  "not_for": "Guests wanting a quiet, private table away from Ubud's busiest tourist strip.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jaens-spa",
+  "name": "Jaens Spa",
+  "district": "Ubud",
+  "where": "Jl. Raya Pengosekan, Ubud (multiple outlets near Monkey Forest)",
+  "why_its_here": "Popular 'affordable luxury' Balinese spa with several Ubud outlets near the Monkey Forest, offering Balinese massage, facials, body care and full-day packages with free Ubud-area transport.",
+  "best_for": "Couples and travellers wanting a polished but affordable spa day near the Monkey Forest.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "karsa-spa",
+  "name": "Karsa Spa",
+  "district": "Ubud",
+  "where": "Bangkiang Sidem, on the Artist's Trail at the end of the Campuhan Ridge Walk, Ubud",
+  "why_its_here": "Open-air spa sat among rice fields at the end of the Campuhan Ridge Walk, founded in 2012 and known for deep-tissue shiatsu, Balinese, Thai and sports massage plus Reiki and chakra healing using organic and Ayurvedic oils.",
+  "best_for": "Walkers finishing the Campuhan Ridge Walk, and couples who want a rice-field, open-air massage setting away from the town noise.",
+  "not_for": "Travellers who need a central in-town location or same-day walk-in; it is a ~30-minute walk out and books up days ahead.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kemukus-restaurant-kuwarasan-a-pramana-experience",
+  "name": "Kemukus Restaurant (Kuwarasan A Pramana Experience)",
+  "district": "Ubud",
+  "where": "Kuwarasan A Pramana Experience Jalan Cinta, Penusuan, Tegallalang, Ubud, Bali 80561",
+  "why_its_here": "Restaurant in Kuwarasan A Pramana Experience Jalan Cinta, Ubud.",
+  "best_for": "",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "experience"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kojin-teppanyaki-restaurant-ubud-by-wonderspace",
+  "name": "Kojin Teppanyaki Restaurant Ubud by Wonderspace",
+  "district": "Ubud",
+  "where": "Jl. Raya Desa Kenderan No.88A, Kenderan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "Japanese restaurant at Kenderan, named after Kojin, a Japanese god of fire. Teppanyaki, kaiseki and omakase, cooked at the counter. Billed as the first irori grill in Bali. Open for lunch and dinner.",
+  "best_for": "A counter dinner watching the chef work",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 12:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kush-ayurveda-yoga-barn",
+  "name": "KUSH Ayurvedic Rejuvenation Spa at The Yoga Barn",
+  "district": "Ubud",
+  "where": "Jl. Sukma / Pengosekan, at The Yoga Barn, Ubud",
+  "why_its_here": "Ayurveda-focused spa inside The Yoga Barn where therapists first assess your dosha and then tailor treatments - Abhyanga, Shirodhara, hot-stone Shila massage and Ayurvedic facials with freshly prepared botanicals.",
+  "best_for": "Yoga Barn visitors and travellers who specifically want authentic Ayurvedic treatment (dosha consultation, Shirodhara).",
+  "not_for": "Walk-ins - treatments must be booked in advance.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "la-portal-to-shamballah",
+  "name": "La Portal to Shamballah",
+  "district": "Ubud",
+  "where": "Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "why_its_here": "Vegetarian restaurant and events space in Peliatan. Arabian, Indonesian and Asian dishes, with vegan and gluten-free options. Homemade bread, Euro-Arabia fusion plates and quesadillas. Live music, workshops and private healing rooms on site.",
+  "best_for": "A vegetarian dinner with live music",
+  "not_for": "Diners set on meat - the kitchen is entirely vegetarian",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "laka-leke",
+  "name": "Laka Leke",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "The sister restaurant of Cafe Wayan & Bakery, set in a garden bordering rice fields near Nyuh Kuning/Monkey Forest, with tree-shaded pavilions for private dining, afternoon craft workshops, and scheduled evenings with Balinese dance performances (Kecak/Fire Dance) and a group buffet.",
+  "best_for": "Groups wanting a scenic rice-field garden dinner with a Balinese cultural show, or a private-pavilion group meal.",
+  "not_for": "Solo travellers or those wanting a quick, casual walk-in meal without a cultural-show setting.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set in",
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "locavore-nxt",
+  "name": "Locavore NXT",
+  "district": "Ubud",
+  "where": "Jl. A.A. Gede Rai, Gang Pura Panti Bija, Lodtunduh, Ubud, Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "Opened December 2023 in Lodtunduh as the more experimental, ingredient-driven sibling of Ubud's famous fine-dining restaurant Locavore, led by chefs Eelke Plasmeijer and Ray Adriansyah; a 30-seat tasting-menu space using only local Indonesian ingredients with modern European technique, ranked among Asia's 50 Best Restaurants.",
+  "best_for": "Food-focused travellers wanting a multi-course, reservation-based tasting-menu experience celebrating Indonesian farmers, fishers and producers.",
+  "not_for": "Casual walk-in diners, budget travellers, or anyone wanting a quick, low-key meal (advance-reservation, multi-course tasting format only).",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "experience",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "> Rp 250,000 IDR",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mandapa-spa-ubud",
+  "name": "Mandapa Spa",
+  "district": "Ubud",
+  "where": "Kedewatan / Sayan",
+  "why_its_here": "The spa at Mandapa, a Ritz-Carlton Reserve on the Ayung river in Kedewatan, one of Ubud's most exclusive riverside sanctuaries.",
+  "best_for": "Those seeking an ultra-luxury riverside spa experience.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "experience",
+   "those seeking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mango-tree-spa-loccitane",
+  "name": "Mango Tree Spa by L'OCCITANE",
+  "district": "Ubud",
+  "where": "At Kupu Kupu Barong Villas, Ayung River valley, Kedewatan, Ubud",
+  "why_its_here": "Luxury spa at Kupu Kupu Barong Villas in the Ayung River valley, with treatment rooms built into a giant mango tree, L'OCCITANE product rituals and one of the largest steam rooms in Bali.",
+  "best_for": "A splurge or romantic luxury spa day with river-valley views and branded L'OCCITANE rituals.",
+  "not_for": "Budget travellers or those wanting a central-town walk-in.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "maya-ubud-spa-ubud",
+  "name": "Maya Ubud Spa & Wellness",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "The wellness side of Maya Ubud Resort & Spa on the Peliatan ridge: a riverside spa with treatment pavilions set down in the Petanu valley, plus a yoga shala and a fitness centre overlooking the same valley.",
+  "best_for": "Those wanting a scenic resort spa, yoga class or gym session away from central Ubud's bustle.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "melting-wok-warung",
+  "name": "Melting Wok Warung",
+  "district": "Ubud",
+  "where": "Jl. Gootama No.13, Ubud, Kec. Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "why_its_here": "A tiny eight-table warung run by a French-Laotian couple, serving fragrant coconut curries, stir-fries and crepes off a short blackboard menu that changes daily. The Laotian herbs and French dessert touches make it distinct from standard Ubud warungs.",
+  "best_for": "an intimate dinner; herb-forward coconut curries; a short curated menu; foodies after fusion flavour",
+  "not_for": "large groups; walk-ins without a booking; anyone needing a wide menu or fast turnover",
+  "lint": [],
+  "stock_phrases": [
+   "curated"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "milk-and-madu-ubud",
+  "name": "Milk & Madu Ubud",
+  "district": "Ubud",
+  "where": "Jl. Suweta No.3, Ubud, Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "The easiest family and group brunch in Ubud — an all-day cafe with a clear 110K breakfast set, a kids menu and group bookings for up to 20.",
+  "best_for": "Families with children; mixed groups; a central meeting point; anyone who wants a fixed breakfast bundle",
+  "not_for": "A quiet weekend brunch — there is live music on Saturday and Sunday, 11:00–14:00",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · Brekky Set 110K (breakfast + coffee + juice)",
+   "hours_visible": "Mo-Su 07:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "moksa",
+  "name": "Moksa",
+  "district": "Ubud",
+  "where": "Sayan, Ubud, Bali",
+  "why_its_here": "A plant-based restaurant with a permaculture garden and farm-to-table identity in Sayan.",
+  "best_for": "Plant-based diners seeking a destination meal and garden setting.",
+  "not_for": "Visitors wanting meat-heavy or central Ubud nightlife dining.",
+  "lint": [],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "monkey-bar-bali",
+  "name": "The Monkey Bar",
+  "district": "Amed",
+  "where": "",
+  "why_its_here": "A restaurant and bar built around an infinity pool at Bella Kita Mountain Retreat in the Klungkung hills of East Bali, with valley views toward the sea and produce from the property's own farm. Entry runs on a pay-and-swim model with credit toward food.",
+  "best_for": "A scenic pool-and-lunch stop on an East Bali day trip, away from the southern crowds.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mozaic",
+  "name": "Mozaic",
+  "district": "Ubud",
+  "where": "Jl. Raya Sanggingan, Kedewatan, Ubud, Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "A long-running fine-dining anchor in Kedewatan founded by Chef Chris Salans and now led in the kitchen by head chef and co-owner Blake Thornley, built around French technique and Indonesian/Balinese ingredients, with a multi-course tasting menu plus a separate live-kitchen Chef's Table.",
+  "best_for": "special-occasion diners wanting French-Balinese tasting-menu fine dining in a garden setting",
+  "not_for": "travelers on a tight daily budget or wanting a quick casual meal",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "More than 250k IDR per person",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "nasi-ayam-kedewatan-ibu-mangku",
+  "name": "Nasi Ayam Kedewatan Ibu Mangku — Outlet Pusat Ubud",
+  "district": "Ubud",
+  "where": "Jl. Raya Kedewatan No.18, Kedewatan, Ubud, Gianyar, Bali, Indonesia",
+  "why_its_here": "Nasi Ayam Kedewatan Ibu Mangku is a Balinese nasi ayam warung on Jalan Raya Kedewatan in Ubud.",
+  "best_for": "Travellers looking for a focused Balinese rice-and-chicken meal in Kedewatan.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "travellers looking"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "norii-japanese-restaurant-ubud",
+  "name": "Norii Japanese Restaurant — Ubud",
+  "district": "Ubud",
+  "where": "Jl. Sawah Indah Gang Amarea No.8, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "Japanese restaurant in Peliatan, part of the Wonderspace group. Sushi, wagyu don, wagyu skewers and robatayaki beef. Cocktails built on yuzu, matcha and sake.",
+  "best_for": "A Japanese dinner east of central Ubud",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "oneworld-ayurveda",
+  "name": "Oneworld Ayurveda",
+  "district": "Ubud",
+  "where": "Pengosekan, Ubud, Gianyar 80571",
+  "why_its_here": "An authentic Panchakarma detox retreat on a palace property amid jungle and rice fields, with resident BAMS-qualified Ayurvedic doctors guiding multi-night programmes.",
+  "best_for": "Travellers ready to commit to a structured, doctor-supervised Ayurvedic detox of 7 nights or more.",
+  "not_for": "Anyone wanting casual drop-in yoga or a short, self-directed visit.",
+  "lint": [],
+  "stock_phrases": [
+   "authentic",
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "onion-collective",
+  "name": "Onion Collective",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A hotel/restaurant/coworking hangout on Jl. Raya Pengosekan with a pool, live music, and a menu built to serve vegan and non-vegan travelers alike — as much a daytime work spot as a dinner-and-drinks spot.",
+  "best_for": "digital nomads and groups wanting an all-day hangout with vegan-friendly food, coworking, and live music",
+  "not_for": "diners wanting a quiet, formal sit-down dinner",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pinstripe-bar-ubud",
+  "name": "Pinstripe Bar",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "Bar in Ubud. A refined cocktail and wine bar offering handcrafted drinks and a gastro-style bar dining. Booking is by WhatsApp.",
+  "best_for": "An evening out for drinks, not a full sit-down meal.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "putri-bali-spa",
+  "name": "Putri Bali Spa",
+  "district": "Ubud",
+  "where": "Jl. Raya Sanggingan, Ubud",
+  "why_its_here": "Balinese day spa on Jl. Raya Sanggingan offering traditional massage, body treatments, aromatherapy and flower-bath packages, with complimentary pickup within the Ubud area.",
+  "best_for": "Travellers wanting a classic Balinese massage and flower bath with free hotel pickup.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pyramids-of-chi",
+  "name": "Pyramids of Chi",
+  "district": "Ubud",
+  "where": "Jl. Kelebang Moding, Bentuyung Sari, Ubud, Gianyar 80571",
+  "why_its_here": "A purpose-built sound-healing venue set among rice fields north of Ubud, with two large pyramids (one scaled to the Great Pyramid of Giza) used for group sound sessions.",
+  "best_for": "Anyone wanting a signature Ubud sound-healing experience and a distinctive one-off wellness outing rather than a regular class.",
+  "not_for": "Those looking for a physical yoga workout, as the focus here is passive sound and vibration.",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "experience",
+   "set among",
+   "signature",
+   "those looking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "radiantly-alive",
+  "name": "Radiantly Alive",
+  "district": "Ubud",
+  "where": "Jl. Jembawan No. 3, Ubud, Gianyar 80571",
+  "why_its_here": "A long-running central-Ubud studio known for dynamic Vinyasa flows, healing therapies and internationally attended teacher trainings, with an on-site plant-based cafe.",
+  "best_for": "Movement-focused practitioners who want strong, creative Vinyasa classes and those considering a yoga teacher training.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "room-4-dessert",
+  "name": "Room 4 Dessert",
+  "district": "Ubud",
+  "where": "Jl. Raya Sanggingan, Kedewatan, Ubud, Gianyar 80561",
+  "why_its_here": "A dedicated dessert tasting experience rather than a general restaurant, making the decision and format unusually clear.",
+  "best_for": "Dessert-focused tasting menus and a planned evening experience.",
+  "not_for": "Anyone wanting a conventional lunch or quick dessert stop.",
+  "lint": [],
+  "stock_phrases": [
+   "experience"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "room4dessert",
+  "name": "Room4Dessert",
+  "district": "Ubud",
+  "where": "Jl. Raya Sanggingan, Kedewatan, Ubud, Gianyar, Bali 80561, Indonesia",
+  "why_its_here": "Chef Will Goldfarb's dessert-only tasting-menu restaurant in Kedewatan, set inside a large botanical garden tied to the dessert recipes themselves — a globally recognized pastry-chef concept rather than a conventional dinner spot.",
+  "best_for": "dessert-focused special occasions and pastry enthusiasts wanting a multi-course tasting experience",
+  "not_for": "travelers wanting a full savory dinner or a budget meal",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "experience",
+   "travelers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sacred-river-spa-at-four-seasons-sayan-ubud",
+  "name": "Sacred River Spa at Four Seasons Sayan",
+  "district": "Ubud",
+  "where": "Sayan",
+  "why_its_here": "The Sacred River Spa at the Four Seasons Resort Bali at Sayan, beside the Ayung river in one of Ubud's most celebrated resorts.",
+  "best_for": "Those seeking a landmark five-star riverside spa day.",
+  "not_for": "",
+  "lint": [
+   "best_for:H1"
+  ],
+  "stock_phrases": [
+   "those seeking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sakti-dining-room-fivelements-retreat-bali",
+  "name": "Sakti Dining Room (Fivelements Retreat Bali)",
+  "district": "Ubud",
+  "where": "Fivelements Retreat Bali, Banjar Baturning, Mambal, Abiansemal, Bali 80352",
+  "why_its_here": "Restaurant in Fivelements Retreat Bali, Ubud.",
+  "best_for": "",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sang-spa",
+  "name": "Sang Spa & Yoga",
+  "district": "Ubud",
+  "where": "Jl. Jembawan No. 13B, Padang Tegal, Ubud (with a second Pengosekan outlet)",
+  "why_its_here": "Long-running (established 2008) affordable Balinese day spa with two central Ubud outlets, offering traditional Balinese massage, scrubs, flower baths, reflexology and four-hands massage.",
+  "best_for": "Budget-conscious travellers wanting authentic, well-priced Balinese massage a short walk from Ubud centre.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "authentic",
+   "offering",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sawobali",
+  "name": "Sawobali",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A vegan/vegetarian warung and cake shop in Peliatan (Ubud) known for a budget, all-you-can-eat home-style buffet and made-in-house cakes; dishes are prepared without garlic or onion to also suit Buddhist diners.",
+  "best_for": "Vegan, vegetarian, or allium-free travelers wanting an affordable, home-cooked-style lunch buffet.",
+  "not_for": "Travelers wanting a meat-forward menu or a formal/fine-dining setting.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travelers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sayuri-healing-food",
+  "name": "Sayuri Healing Food",
+  "district": "Ubud",
+  "where": "Jl. Sukma Kesuma No.2, Peliatan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "why_its_here": "A raw-vegan and plant-based cafe in central Ubud focused on living-food cooking, cold-pressed juices and a rotating case of raw desserts, with an attached plant-based academy. The kitchen leans into raw preparation rather than standard cooked vegan fare.",
+  "best_for": "plant-based and raw eating; relaxed daytime meals; wellness-minded visitors; long cafe sits",
+  "not_for": "committed meat-eaters; anyone wanting a fast, familiar hearty meal",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 08:00-23:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "secret-garden-restaurant",
+  "name": "Secret Garden Restaurant",
+  "district": "Lovina",
+  "where": "Jl. Pura Dalem Jalan Raya Lovina-Singaraja No.Desa, Anturan, Kec. Buleleng, Kabupaten Buleleng, Bali 81119, Indonesia",
+  "why_its_here": "Family-run restaurant in Anturan, Lovina, set in a garden. Indonesian and Western dishes with a separate vegetarian menu. Seafood curry and goulash are regulars. Free pick-up and drop-off for guests staying in Lovina.",
+  "best_for": "Dinner on a Lovina evening",
+  "not_for": "Breakfast or a daytime stop - it opens at 17:00",
+  "lint": [],
+  "stock_phrases": [
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "seeds-of-life",
+  "name": "Seeds of Life",
+  "district": "Ubud",
+  "where": "Ubud Center",
+  "why_its_here": "A 100% raw & vegan restaurant and Taoist tonic bar in Ubud Center (on Jalan Goutama, operating since 2014), built around raw-food dishes made from fresh, locally grown produce, with Ashtanga yoga classes upstairs.",
+  "best_for": "Raw-food and vegan-focused travelers, and wellness/yoga-oriented visitors wanting a calm plant-based meal in central Ubud.",
+  "not_for": "Travelers wanting hearty non-vegan or cooked-comfort-food options.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travelers wanting",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "50k-150k IDR",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "seniman-coffee-studio",
+  "name": "Seniman Coffee Studio",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A well-known Ubud specialty coffee roaster and café near Ubud Palace, treating coffee as a craft with sourced-and-roasted Indonesian origin beans, multiple brew methods, and a food menu spanning Indonesian and Western dishes.",
+  "best_for": "Remote workers and digital nomads wanting a serious specialty-coffee spot with room to sit and work; coffee enthusiasts wanting origin-focused brews.",
+  "not_for": "Travelers wanting fast grab-and-go service — service here leans toward a slower, deliberate pace.",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travelers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 07:30-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-ubud",
+  "name": "Shichirin Japanese Restaurant — Ubud",
+  "district": "Ubud",
+  "where": "Jl. Bisma No.888A, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "The first Shichirin on the island, on Jl. Bisma. Japanese grill cooking: teppanyaki, gyukatsu and izakaya plates, with sushi and sashimi.",
+  "best_for": "A Japanese grill dinner in central Ubud",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 12:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "spring-spa-ubud",
+  "name": "Spring Spa Ubud",
+  "district": "Ubud",
+  "where": "Ubud, Bali (rice-terrace setting)",
+  "why_its_here": "Largest outlet of the Spring Spa brand, set among rice terraces, with treatment rooms overlooking the fields plus a dedicated wellness zone of contrast-therapy plunges, saunas and relaxation lounges.",
+  "best_for": "Travellers wanting a contemporary spa combined with wellness facilities (sauna, contrast plunges) and rice-field views.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set among",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "suka-espresso-ubud",
+  "name": "SUKA UBUD",
+  "district": "Ubud",
+  "where": "Jl. Raya Pengosekan Ubud No.108, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+  "why_its_here": "The safest all-round brunch in Ubud — Australian-style breakfast and specialty coffee from 7:30, with 60K breakfast specials running until 3pm and clear vegetarian, vegan and gluten-free labels.",
+  "best_for": "A first brunch in Ubud; coffee lovers; solo diners and couples; a short off-peak laptop session",
+  "not_for": "A quiet, half-empty table at peak brunch — it gets busy",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · breakfast ~60–115K, coffee 30–55K (+service +tax)",
+   "hours_visible": "Mo 07:30-22:00, Tu 07:30-22:00, We 07:30-22:00, Th 07:30-22:00, Fr 07:30-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "svaha-spa",
+  "name": "Svaha Spa",
+  "district": "Ubud",
+  "where": "Jl. Bisma, Ubud (plus Teges, Kenderan and other Ubud outlets)",
+  "why_its_here": "Award-winning sustainable holistic spa group with several Ubud outlets (flagship on Jl. Bisma near the Monkey Forest), offering Balinese and signature massages, body-purification rituals and couples packages.",
+  "best_for": "Travellers wanting a modern, polished spa with signature-ritual and couples options.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "taksu-spa-beauty-ubud",
+  "name": "Taksu Spa Beauty",
+  "district": "Ubud",
+  "where": "Ubud Centre",
+  "why_its_here": "The beauty services at Taksu, a landmark healing-and-spa sanctuary in central Ubud set among gardens and koi ponds.",
+  "best_for": "Those combining beauty with Taksu's wider healing and spa menu.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:H1"
+  ],
+  "stock_phrases": [
+   "set among"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-12:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "taksu-spa-ubud",
+  "name": "Taksu Spa",
+  "district": "Ubud",
+  "where": "Ubud Centre",
+  "why_its_here": "Taksu Spa, part of the well-known Taksu healing sanctuary in central Ubud, offering massage and holistic treatments among gardens and water features.",
+  "best_for": "Those who want a spa within a dedicated healing-and-wellness compound.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "taksu-yoga",
+  "name": "Taksu Yoga",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "Yoga centre in a river valley in central Ubud, part of the Taksu spa and restaurant complex. Small classes for individual attention: beginner, hatha, vinyasa, yin and restorative. Daily classes, private sessions and training courses.",
+  "best_for": "A small class rather than a full shala",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "Mo-Su 09:00-12:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "taksu-yoga-ubud",
+  "name": "Taksu Yoga & Wellness Center",
+  "district": "Ubud",
+  "where": "Jl. Goutama Selatan, Ubud, Gianyar 80571",
+  "why_its_here": "A wellness center hidden in a central-Ubud garden combining small-group yoga classes with an extensive spa, healing and beauty menu.",
+  "best_for": "Those who want intimate, personalised classes and to pair a practice with a massage or spa treatment in the same visit.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-12:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-elephant",
+  "name": "The Elephant",
+  "district": "Ubud",
+  "where": "Ubud, Campuhan",
+  "why_its_here": "An open-air, 100% vegetarian/vegan restaurant on the Campuhan side of Ubud (Jl. Raya Sanggingan) built around an elevated terrace overlooking Campuhan Ridge, open all day from breakfast through dinner, with an organic/local/slow-food sourcing philosophy.",
+  "best_for": "vegetarian and vegan travelers wanting an all-day scenic meal overlooking Campuhan Ridge",
+  "not_for": "diners specifically wanting meat or seafood dishes",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "elevated",
+   "travelers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "Rp 75k-200k IDR",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-shala-bali",
+  "name": "The Shala Bali",
+  "district": "Ubud",
+  "where": "Jl. Sanggingan No. 90, Penestanan Kaja, Ubud, Gianyar 80571",
+  "why_its_here": "A boutique yoga-retreat property in Sanggingan built on Balinese and Indian philosophy, pairing daily yoga with Ayurvedic spa treatments and on-site vegetarian dining and rooms.",
+  "best_for": "Visitors wanting a stay-and-practice retreat experience with Ayurvedic treatments, not just a walk-in class.",
+  "not_for": "Travellers only after a quick single drop-in class.",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "experience",
+   "retreat",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-westin-resort-and-spa-ubud-fitness-studio",
+  "name": "The Westin Resort & Spa Ubud Fitness Studio",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "The 24-hour WestinWORKOUT studio at The Westin Resort & Spa Ubud in Lodtunduh, free to resort guests. It carries cardio machines, treadmills, bikes, stair climbers, free weights and weight machines plus a yoga area, and lends workout gear to guests travelling light. An open-air pavilion nearby hosts morning yoga and meditation, and the spa has five treatment rooms, four outdoor pavilions, a jacuzzi and a steam room.",
+  "best_for": "Ubud guests who want a full 24-hour gym and the option to borrow kit rather than pack it.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-yoga-barn",
+  "name": "The Yoga Barn",
+  "district": "Ubud",
+  "where": "Jl. Raya Pengosekan, Padang Tegal, Ubud, Gianyar 80571",
+  "why_its_here": "Ubud's largest and best-known wellness compound: a cluster of open-air shalas, a healing center, garden cafe and shop hosting dozens of daily yoga, meditation and sound classes.",
+  "best_for": "First-time visitors who want the full range of drop-in classes in one place, and anyone curious about Ubud's ecstatic-dance and sound-healing scene.",
+  "not_for": "People seeking a small, quiet studio with individual attention, as classes here can be large.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "tukies-coconut-shop",
+  "name": "Tukies Coconut Shop",
+  "district": "Ubud",
+  "where": "Jl. Monkey Forest No.15, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+  "why_its_here": "A coconut-focused dessert and drinks shop where everything is built around fresh coconut, including vegan coconut ice cream served in the shell with roasted coconut curls. A quick, cooling stop in central Ubud.",
+  "best_for": "a cooling coconut treat while walking ubud; vegan dessert; quick sweet break; fresh coconut drinks",
+  "not_for": "a full sit-down meal or savoury dinner; anyone avoiding coconut",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-beauty-salon",
+  "name": "Ubud Beauty Salon",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A central-Ubud beauty salon offering hair, nails and basic treatments.",
+  "best_for": "Visitors wanting salon basics in the heart of Ubud.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-gym",
+  "name": "Ubud Gym",
+  "district": "Ubud",
+  "where": "",
+  "why_its_here": "A no-frills gym serving central Ubud with basic weights and cardio equipment.",
+  "best_for": "Budget-minded travellers who just want a place to train in Ubud.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "Mo-Sa 08:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-pilates",
+  "name": "Ubud Pilates",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A boutique Pilates studio in Ubud offering mat and reformer classes.",
+  "best_for": "Those who prefer low-impact Pilates over a gym in Ubud.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-sari-health-resort",
+  "name": "Ubud Sari Health Resort",
+  "district": "Ubud",
+  "where": "~5 minutes from Ubud centre, Ubud",
+  "why_its_here": "Long-standing health resort minutes from Ubud centre that pairs a day spa (Balinese, Lomi Hawaiian and four-hands massage) with wellness and detox programs and raw-food cuisine.",
+  "best_for": "Wellness-focused travellers wanting spa treatments alongside detox, raw-food and longer revitalization programs.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-traditional-spa",
+  "name": "Ubud Traditional Spa",
+  "district": "Ubud",
+  "where": "Payogan village, near Pura Puncak temple, ~4 km west of Ubud centre",
+  "why_its_here": "Traditional Balinese massage spa in the village of Payogan next to the historic Pura Puncak temple, offering massage, body scrubs and flower baths with free transport to and from central Ubud.",
+  "best_for": "Travellers wanting an authentic, quieter village spa experience with free central-Ubud pickup.",
+  "not_for": "Those wanting to walk in from Ubud centre - it is a short drive out.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "experience",
+   "offering",
+   "those wanting",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 10:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ubud-yoga-house",
+  "name": "Ubud Yoga House",
+  "district": "Ubud",
+  "where": "Jl. Subak Sokwayah, Ubud, Gianyar 80571",
+  "why_its_here": "A boutique, slightly off-the-beaten-path studio offering small classes in open-air shalas that overlook rice terraces and jungle.",
+  "best_for": "Practitioners who prefer small classes with personalised attention and a quiet, green setting away from the crowds.",
+  "not_for": "Anyone wanting a big buzzing studio with a packed daily timetable.",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-biah-biah",
+  "name": "Warung Biah Biah",
+  "district": "Ubud",
+  "where": "Jl. Goutama Sel. No.13, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "A long-running home-style Balinese warung open since 2002, serving authentic nasi campur and local classics at warung prices. Known for its house chili sauce and a spread of Balinese sides.",
+  "best_for": "authentic Balinese food; budget local dining; nasi campur; a casual central Ubud meal",
+  "not_for": "diners wanting a quiet or upscale setting; groups needing lots of space during busy peak hours",
+  "lint": [],
+  "stock_phrases": [
+   "authentic",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-semesta",
+  "name": "Warung Semesta",
+  "district": "Ubud",
+  "where": "Jl. Monkey Forest No.9, Ubud, Gianyar 80571",
+  "why_its_here": "An organic, vegetarian and non-vegetarian restaurant on Monkey Forest Road.",
+  "best_for": "Healthy mixed-diet meals near Monkey Forest.",
+  "not_for": "Anyone needing a formal fine-dining experience.",
+  "lint": [],
+  "stock_phrases": [
+   "experience"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-siam",
+  "name": "Warung Siam",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A family-run Thai warung on Jl. Goutama in central Ubud, opened 2014, known for cooking dishes the traditional Thai way with fresh herbs, lime, and chilis rather than a Westernized menu.",
+  "best_for": "travelers craving authentic home-style Thai food in central Ubud",
+  "not_for": "large groups needing extensive seating — it's a small patio/counter-style spot",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "watercress-ubud",
+  "name": "Watercress Ubud",
+  "district": "Ubud",
+  "where": "Jl. Monkey Forest, Ubud, Gianyar, Bali 80571, Indonesia",
+  "why_its_here": "The most polished early breakfast in Ubud — open from 7am with an unusually clear, current menu; breakfast service runs to 11:30.",
+  "best_for": "An early, composed breakfast; couples who want to talk; small early meetings; groups who book ahead",
+  "not_for": "All-afternoon brunch — breakfast stops at 11:30",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · breakfast ~80–130K, brunch set 170K, coffee 35–40K (+service +tax)",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "whos-who",
+  "name": "Who's Who",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A tucked-away Belgian bistro in the S-bend of south Ubud (near Jl. Raya Pengosekan) serving Belgian comfort classics alongside Indonesian-influenced touches, easy to walk past because of its small, unassuming signage.",
+  "best_for": "couples wanting a romantic, tucked-away dinner with Belgian comfort food",
+  "not_for": "those wanting a highly visible, easy-to-spot street-front restaurant",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "those wanting",
+   "tucked"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "zest-ubud",
+  "name": "Zest Ubud",
+  "district": "Ubud",
+  "where": "Jl. Penestanan No.7, Sayan, Ubud, Gianyar 80571",
+  "why_its_here": "The strongest creative vegan brunch in Ubud — an all-plant-based menu of substantial savoury dishes in a treetop Penestanan setting.",
+  "best_for": "Vegan diners; a social brunch with friends; an atmosphere-led daytime meal; a date that does not need silence",
+  "not_for": "A quiet, low-key table — it leans social, with music",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "atmosphere"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · mains 98–108K, breakfast from 77K",
+   "hours_visible": "Mo-Su 08:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "zuna-yoga-ubud",
+  "name": "Zuna Yoga",
+  "district": "Ubud",
+  "where": "Ubud",
+  "why_its_here": "A dedicated Ubud yoga school known for its classes and internationally recognised teacher trainings.",
+  "best_for": "Committed practitioners and aspiring teachers who want structured training.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ }
+]

@@ -18,7 +18,7 @@ import { VENUES_WHATSAPP_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 export const metadata: Metadata = {
   title: { absolute: "List your Bali venue on Other Bali" },
   description:
-    "Run a café, restaurant, warung, spa, bar, beach club or studio in Bali? Request a curated Other Bali page with official details, photos, video and verified action links.",
+    "Request a curated Other Bali page for your Bali café, restaurant, warung, spa, bar, beach club or studio: official details, media and verified action links.",
   alternates: { canonical: "/for-venues" },
   openGraph: {
     title: "List your Bali venue · Other Bali",
@@ -170,8 +170,8 @@ export default function ForVenuesPage() {
                 </a>
               </div>
               <p className="mt-4 text-sm text-[var(--muted)]">
-                Already received a private page link? Use that link to confirm
-                details faster, or WhatsApp us at{" "}
+                If you&apos;ve already received a private page link, use it to
+                confirm details faster, or WhatsApp us at{" "}
                 <a
                   href={VENUES_WHATSAPP_URL}
                   target="_blank"
@@ -206,7 +206,7 @@ export default function ForVenuesPage() {
                   aria-label="Other Bali for venues — a 35-second introduction"
                 />
                 <figcaption className="px-4 py-3 text-sm text-[var(--muted)]">
-                  Other Bali in 35 seconds — what travellers see, and what your
+                  Other Bali in 35 seconds: what travellers see, and what your
                   place gets. Sound on 🔊
                 </figcaption>
               </figure>
@@ -280,7 +280,8 @@ export default function ForVenuesPage() {
               <h2 id="submit-title">Send your official venue details</h2>
               <p className="guide-lede">
                 Tell us about your place. We will check the fit and contact you
-                if we can prepare or update a page. Questions first?{" "}
+                if we can prepare or update a page. You can also ask questions
+                first.{" "}
                 <a
                   href={VENUES_WHATSAPP_URL}
                   target="_blank"

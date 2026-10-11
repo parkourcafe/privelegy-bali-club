@@ -18,7 +18,7 @@ const reviewDate = "2026-07-23";
 export const metadata: Metadata = {
   title: "Uluwatu Bali guide: is it the right base for you?",
   description:
-    "Decide whether Uluwatu fits your Bali trip, understand the Pecatu and Ungasan planning context, and continue to focused food, sunset and itinerary guides.",
+    "Decide whether Uluwatu fits your Bali trip and understand the Pecatu and Ungasan planning context. Then continue to focused food, sunset and itinerary guides.",
   alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Uluwatu Bali guide: is it the right base for you?",
@@ -99,7 +99,7 @@ export default async function UluwatuPillarPage() {
         variant="sunset"
         kicker="Uluwatu · Bukit Peninsula"
         title="Is Uluwatu the right Bali base for you?"
-        copy="Use this page to decide whether the Bukit Peninsula fits your trip. Uluwatu, Pecatu and Ungasan sit close together, but the best base depends on whether you want surf beaches, cliff sunsets, restaurants or an easier route back to your hotel."
+        copy="Use this page to decide whether the Bukit Peninsula fits your trip. Uluwatu sits close to Pecatu and Ungasan. The best base depends on what you want: surf beaches, cliff sunsets, restaurants or an easier route back to your hotel."
         meta={`Verified: ${reviewDate} · researched, not sponsored · no paid ranking`}
       />
 
@@ -144,8 +144,8 @@ export default async function UluwatuPillarPage() {
       <section className="guide-section">
         <h2>Start with the part of Uluwatu you actually need</h2>
         <div className="guide-prose">
-          <p>Pura Luhur Uluwatu, Padang Padang, Bingin, Nyang Nyang and GWK can all sit inside an “Uluwatu trip”, but they do not feel the same on the ground.</p>
-          <p>Choose your base by the day you want: cliff sunsets and Kecak, surf beaches, brunch and cafés around Bingin, or a quieter hotel stay with fewer transfers.</p>
+          <p>Pura Luhur Uluwatu, Padang Padang, Bingin, Nyang Nyang and GWK can all sit inside an “Uluwatu trip”. They do not feel the same on the ground.</p>
+          <p>Choose your base by the day you want: cliff sunsets and Kecak, surf beaches, or brunch and cafés around Bingin. Or pick a quieter hotel stay with fewer transfers.</p>
         </div>
       </section>
 

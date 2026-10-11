@@ -3,6 +3,32 @@ import { formatMenuPrice } from "./menu-model";
 
 export default function MenuItem({ item }: { item: MenuItemRecord }) {
   const price = formatMenuPrice(item.priceMinor, item.currency, item.priceText);
+  // An item with nothing beyond its name and price shows nothing more: no
+  // details hint and no filler line under it.
+  const hasDetails = Boolean(
+    item.description || item.dietaryTags.length > 0 || item.verifiedAllergenTags.length > 0 ||
+      item.editorialNote || item.availabilityNote || item.editorialPick || item.partnerRecommended,
+  );
+
+  const priceLabel = <span className="structured-menu-price">{price ?? "Price not listed"}</span>;
+
+  // Without details there is nothing to open: a <details> here would let the
+  // `[open] h4 span:last-child` rule in globals.css hide the dish name and
+  // fire menu_item_open for an empty item.
+  if (!hasDetails) {
+    return (
+      <li>
+        <div className="structured-menu-item" data-menu-item-id={item.id}>
+          <div className="structured-menu-item-head">
+            <h4>
+              <span>{item.name}</span>
+            </h4>
+            {priceLabel}
+          </div>
+        </div>
+      </li>
+    );
+  }
 
   return (
     <li>
@@ -14,7 +40,7 @@ export default function MenuItem({ item }: { item: MenuItemRecord }) {
             View item details
           </span>
         </h4>
-        <span className="structured-menu-price">{price ?? "Price not listed"}</span>
+        {priceLabel}
       </summary>
       <div className="structured-menu-item-details">
         {item.description && <p className="structured-menu-description">{item.description}</p>}
@@ -26,9 +52,6 @@ export default function MenuItem({ item }: { item: MenuItemRecord }) {
         </div>
         {item.editorialNote && <p className="structured-menu-editorial-note"><strong>Other Bali:</strong> {item.editorialNote}</p>}
         {item.availabilityNote && <p className="structured-menu-availability">Availability note: {item.availabilityNote}. Confirm with the venue.</p>}
-        {!item.description && item.dietaryTags.length === 0 && item.verifiedAllergenTags.length === 0 && !item.editorialNote && !item.availabilityNote && !item.editorialPick && !item.partnerRecommended ? (
-          <p className="structured-menu-description">No additional details are listed.</p>
-        ) : null}
       </div>
       </details>
     </li>

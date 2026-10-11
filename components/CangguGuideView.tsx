@@ -104,7 +104,7 @@ export default async function CangguGuideView({ guide }: { guide: CangguGuide })
         )}
 
         {groups.length > 1 && (
-          <nav className="mt-6 flex flex-wrap gap-2" aria-label="Quick picks">
+          <nav className="mt-6 flex flex-wrap gap-2" aria-label="Jump to a section of this list">
             {groups.map(({ g }) => (
               <a key={g.key} href={`#${g.key}`} className="chip">{g.heading}</a>
             ))}

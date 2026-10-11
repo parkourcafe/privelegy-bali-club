@@ -1,0 +1,132 @@
+{
+  "slug": "alchemy-uluwatu",
+  "acceptedAt": "2026-09-28T06:31:49.269Z",
+  "verdicts": [
+    {
+      "claim_id": "k-alchem-3",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "ok",
+      "refetch_sha256": "0b111c18c4f9fa4deaf0eda63f576bf65c1f6be9a67e4f566cfb20ee8ee1e591",
+      "quote_found": true,
+      "note": "elsky-bali.com is a third-party guide page about Sundays Beach Club, not an Alchemy domain; the value is not an address either"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-15",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "quote_found": true,
+      "note": "Official contact page lists Alchemy Uluwatu (Jl. Pantai Bingin No 8) Monday - Sunday 07:30 - 22:00; 7 days covered, plausible cafe window"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-13",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "quote_found": true,
+      "note": "Official menu page, ALCHEMY ULUWATU MENU section: POKE BOWL IDR 105,000 and MARGHERITA IDR 105,000 both present; anchor names items, currency and capture date"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-20",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "quote_found": true,
+      "note": ".com URL 301s to the proposed alchemybali.co URL; page shows ALCHEMY ULUWATU MENU with the quoted tax line"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-11",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "4753a285be938809a5defb1a0587e4f412440dd9b50123d28278107e3503525b",
+      "quote_found": true,
+      "note": "Quote covers Margherita only; the fetched Uluwatu menu also lists BREAKFAST BOWL, SALAD BAR and ALCHEMY KOMBUCHA, so all four items are on the official Uluwatu menu"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-23",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify, no official coordinates seen"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-03",
+      "verdict": "hold",
+      "reason_code": "REMOVAL_SUPPORTED",
+      "refetch": "ok",
+      "refetch_sha256": "93dddef7f53c27b2c4868f4870d9ce675376baa09b4acc9d7431d5dad612c7ac",
+      "quote_found": true,
+      "note": "Mixed: official contact page lists AYMC Uluwatu at Jl. Pantai Bingin No 9 (supports attached yoga shala); clinic page says premises are Canggu and Ubud only (contradicts holistic clinic at Uluwatu); 2011, ~150 seats and grocery unsupported. Needs rewrite, not blanket removal"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-22",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "quote_found": true,
+      "note": "Official contact page: Alchemy Uluwatu, Jalan Pantai Bingin No 8, Pecatu Uluwatu - Bali, Indonesia - 80361; street marker present, no working notes"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-24",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "quote_found": true,
+      "note": "Quote is the site heading ALCHEMY RESTAURANTS followed by the Ubud entry; Uluwatu is listed under the same heading, but cafe vs restaurant is an Other Bali taxonomy decision, not a fact the page proves"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-19",
+      "verdict": "hold",
+      "reason_code": "NOT_A_SOURCE_FACT",
+      "refetch": "ok",
+      "refetch_sha256": null,
+      "quote_found": false,
+      "note": "Collector proposed no value (unknown); nothing to verify"
+    },
+    {
+      "claim_id": "k-alchem-2",
+      "verdict": "reject",
+      "reason_code": "SOURCE_NOT_OFFICIAL",
+      "refetch": "blocked",
+      "refetch_sha256": "6ff59dd2bdbeb9a1d322b6a2652296294b7b16e5b6b9648965716372975bf3b7",
+      "quote_found": false,
+      "note": "TripAdvisor is a review aggregator (refetch returned 403 anyway); price range without a named item"
+    },
+    {
+      "claim_id": "k-alchem-1",
+      "verdict": "reject",
+      "reason_code": "QUOTE_NOT_FOUND",
+      "refetch": "ok",
+      "refetch_sha256": "1ef844ecea11ba48c74cccbd0f813427fd3024102d5ccb25f18396571bdd9da2",
+      "quote_found": false,
+      "note": "Fetched alchemybali.co/?lang=es (sha matches); the quote 'Open daily 7 AM - 11 PM...' is not on the page; the official contact page says 07:30 - 22:00"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-21",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "quote_found": true,
+      "note": "+62 811 3888 143 is listed under Alchemy Uluwatu specifically; Ubud and Canggu have different numbers, so not a shared head-office line"
+    },
+    {
+      "claim_id": "alchemy-uluwatu-16",
+      "verdict": "accept",
+      "reason_code": "OK",
+      "refetch": "ok",
+      "refetch_sha256": "bb669d99bcc442c7553adeaf946183d8b68e9bba0676a4fbe58559c6a24651ab",
+      "quote_found": true,
+      "note": "Same official Uluwatu block as -15: Monday - Sunday 07:30 - 22:00"
+    }
+  ]
+}

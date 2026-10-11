@@ -33,7 +33,7 @@ const AREAS = [
     name: "Canggu",
     tag: "Surf, cafés and a young crowd",
     forWho: "First-timers who want energy — surf lessons, laptop cafés, beach clubs and a big dinner scene.",
-    body: "The island's busiest traveller hub, spread across Batu Bolong, Berawa and Echo Beach. A day here runs: a surf or a work café in the morning, a long lunch, a sunset beach club, then dinner near your villa. It's built-up and there's real traffic between the areas — you come for the buzz, not empty sand.",
+    body: "The island's busiest traveller hub, spread across Batu Bolong, Berawa and Echo Beach. A day here runs: a surf or a work café in the morning, a long lunch, a sunset beach club, then dinner near your villa. It's built-up and there's real traffic between the areas. You come for the buzz, not empty sand.",
     notFor: "quiet, empty beaches or a traditional-Bali feel",
   },
   {
@@ -41,7 +41,7 @@ const AREAS = [
     name: "Seminyak",
     tag: "Dining, beach clubs and easy comfort",
     forWho: "First-timers who want the polished side — good restaurants, sunset beach clubs, spas and walkable streets.",
-    body: "Bali's original style strip, and the easiest area to enjoy without a plan: an all-day café, a spa in the afternoon, a west-facing beach for the sunset, a considered dinner — all close together. It's denser and pricier than Canggu, and less about surf.",
+    body: "Bali's original style strip, and the easiest area to enjoy without a plan. An all-day café, a spa in the afternoon, a west-facing beach for the sunset and a considered dinner are all close together. It's denser and pricier than Canggu, and less about surf.",
     notFor: "budget backpackers or anyone chasing nature",
   },
   {
@@ -49,7 +49,7 @@ const AREAS = [
     name: "Uluwatu",
     tag: "Clifftops, sunsets and reef-break surf",
     forWho: "Sunset-and-view seekers, surfers, and couples who want a bit of drama.",
-    body: "The southern Bukit peninsula — limestone cliffs, turquoise coves and clifftop bars where the sunset is the whole event. It's beautiful and spread out, so you'll scooter or drive between spots, and it's a longer haul from the airport and the rest of the island.",
+    body: "The southern Bukit peninsula: limestone cliffs, turquoise coves and clifftop bars where the sunset is the whole event. It's spread out. You'll scooter or drive between spots, and it's a longer haul from the airport and the rest of the island.",
     notFor: "walking everywhere or a lively town centre",
   },
   {
@@ -57,7 +57,7 @@ const AREAS = [
     name: "Ubud",
     tag: "Jungle, rice terraces and slow mornings",
     forWho: "First-timers who want culture, nature and calm over beach and nightlife.",
-    body: "Inland in the hills: rice terraces, temples, yoga, waterfalls and long, slow dinners. It's cooler and greener than the coast and leans wellness over party. There's no beach — the sea is about an hour away — so most people pair Ubud with a coastal area rather than staying the whole trip.",
+    body: "Inland in the hills: rice terraces, temples, yoga, waterfalls and long, slow dinners. It's cooler and greener than the coast and leans wellness over party. There's no beach, and the sea is about an hour away. Most people pair Ubud with a coastal area rather than staying the whole trip.",
     notFor: "beach-first travellers who want the ocean at the door",
   },
   {
@@ -65,7 +65,7 @@ const AREAS = [
     name: "Sanur",
     tag: "Calm, walkable and easy on the family",
     forWho: "Families, older travellers, and anyone who wants a low-key base with a beach path.",
-    body: "A quiet east-coast town with a long paved beach walk, calm swimmable water and fast boats to the Nusa islands. It faces east, so mornings bring sunrise rather than sunset. Relaxed and unflashy — the opposite of Canggu's noise.",
+    body: "A quiet east-coast town with a long paved beach walk, calm swimmable water and fast boats to the Nusa islands. It faces east, so mornings bring sunrise rather than sunset. Relaxed and unflashy, it's the opposite of Canggu's noise.",
     notFor: "nightlife or a scene",
   },
 ];
@@ -81,15 +81,15 @@ const CHOOSE = [
 const FAQ = [
   {
     q: "Which area is best for a first trip to Bali?",
-    a: "If you want one easy answer: Seminyak or Canggu. Both put beaches, restaurants, cafés and sunsets within reach without much planning. Choose Seminyak for polish and walkability, Canggu for surf and a younger crowd.",
+    a: "If you want one easy answer: Seminyak or Canggu. Both put beaches, restaurants, cafés and sunsets within reach without much planning. Choose Seminyak for polish and walkability; choose Canggu for surf and a younger crowd.",
   },
   {
     q: "Where should families with kids stay in Bali?",
-    a: "Sanur — calm, swimmable water, a flat beach path for strollers and bikes, and easy day trips to the Nusa islands. Nusa Dua is the other family pick, with gated resorts and safe beaches.",
+    a: "Sanur. It has calm, swimmable water, a flat beach path for strollers and bikes, and easy day trips to the Nusa islands. Nusa Dua is the other family pick, with gated resorts and safe beaches.",
   },
   {
     q: "Is Ubud good for a first-timer?",
-    a: "Yes, for a few nights — it's the culture-and-nature half of Bali. Pair it with a beach area rather than staying inland the whole trip, since Ubud has no beach of its own.",
+    a: "Yes, for a few nights. It's the culture-and-nature half of Bali. Pair it with a beach area rather than staying inland the whole trip, since Ubud has no beach of its own.",
   },
   {
     q: "How many areas should I stay in on a first trip?",
@@ -97,7 +97,7 @@ const FAQ = [
   },
   {
     q: "Where is the best sunset in Bali?",
-    a: "The west coast — Seminyak, Canggu and Uluwatu all face the sunset. Sanur faces east (sunrise), and Ubud is inland with no sea view.",
+    a: "The west coast: Seminyak, Canggu and Uluwatu all face the sunset. Sanur faces east (sunrise), and Ubud is inland with no sea view.",
   },
 ];
 
@@ -132,11 +132,11 @@ export default function WhereToStayPage() {
             <Link href="/seminyak">Seminyak</Link> for polished dining and beach
             clubs, <Link href="/uluwatu">Uluwatu</Link> for clifftop sunsets,{" "}
             <Link href="/ubud">Ubud</Link> for jungle calm, and{" "}
-            <Link href="/sanur">Sanur</Link> for a quiet, walkable base. Here&apos;s
-            how they actually differ, and how to pick.
+            <Link href="/sanur">Sanur</Link> for a quiet, walkable base. The
+            sections below show how they actually differ and how to pick.
           </p>
           <p className="mt-3 text-sm text-[var(--muted)]">
-            Short on time? Pick one and stay put — moving every two days is what
+            On a short trip, pick one and stay put. Moving every two days is what
             burns a first trip.
           </p>
         </header>
@@ -179,7 +179,7 @@ export default function WhereToStayPage() {
         <section className="guide-section">
           <h2>Can you split your stay?</h2>
           <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">
-            Yes — the classic first-timer combo is a few nights inland in{" "}
+            Yes. The classic first-timer combo is a few nights inland in{" "}
             <Link href="/ubud">Ubud</Link> and a few by the sea in{" "}
             <Link href="/canggu">Canggu</Link>,{" "}
             <Link href="/seminyak">Seminyak</Link> or{" "}
@@ -190,7 +190,7 @@ export default function WhereToStayPage() {
             Distances matter here. The airport sits in the south, near Kuta.
             Seminyak and Canggu are roughly 30–60 minutes north; Uluwatu is 45–60
             minutes south; Sanur about 30 minutes east; Ubud 60–90 minutes
-            inland. Traffic is real all day — plan your arrival and your flight
+            inland. Traffic is real all day, so plan your arrival and your flight
             out with a buffer.
           </p>
         </section>

@@ -1,0 +1,197 @@
+{
+  "slug": "waatu",
+  "officialDomains": [
+    "waatu.com",
+    "waatuprd.wpenginepowered.com"
+  ],
+  "category": "restaurant",
+  "claims": [
+    {
+      "claim_id": "waatu-21",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6281138306286",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": null,
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-06",
+      "field": "copy:whatToExpect#2",
+      "action": "replace",
+      "proposed": "Open from 7:30 until late; sunset slots pair naturally with a beach afternoon at Sundays below.",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "OPEN 7.30 AM TIL LATE",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-waatu-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-10",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "yakitori; woodfired flatbread; rice bowls",
+      "claim_text": null,
+      "source_url": "https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/05/Waatu_Dinner_Menu_-_April_2026_1-1.pdf",
+      "quote": "YAKITORI / KUSHIYAKI",
+      "snapshot_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-waatu-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-waatu",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-05",
+      "field": "copy:whatToExpect#1",
+      "action": "replace",
+      "proposed": "A clifftop room at The Ungasan resort, skewers and larger cuts off the coals, and a woodfired flatbread from the wood oven.",
+      "claim_text": null,
+      "source_url": "https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/05/Waatu_Dinner_Menu_-_April_2026_1-1.pdf",
+      "quote": "woodfired flatbread",
+      "snapshot_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-15",
+      "field": "hours",
+      "action": "add",
+      "proposed": "Daily 7.30am until late",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "OPEN 7.30 AM TIL LATE",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "Chef James Viles runs archipelago ingredients through a yakitori lens on The Ungasan clifftop, making this the district's most distinctive serious dinner.",
+      "source_url": "https://waatu.com/",
+      "quote": "Lachlan Budd\nHead Chef",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-20",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/07/Waatu-Dinner-Menu-July-2026.pdf",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "view our menus\nsubject to change\nBreakfast\nView Menu\nLunch\nView Menu\nDinner\nView Menu",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-22",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-14",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Jl. Pantai Sel. Gau, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "Jl. Pantai Sel. Gau, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Indonesia",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-19",
+      "field": "bookingUrl",
+      "action": "replace",
+      "proposed": "https://www.sevenrooms.com/explore/waatu/reservations/create/search",
+      "claim_text": null,
+      "source_url": "https://www.sevenrooms.com/explore/waatu/reservations/create/search/landing",
+      "quote": "SevenRooms",
+      "snapshot_sha256": "89c8aec830cf86d7c1f687c6bca521933ef17879d045386e65a9d5233ecd92b6",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "k-waatu-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-16",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": "Daily 7.30am until late",
+      "claim_text": null,
+      "source_url": "https://waatu.com/",
+      "quote": "OPEN 7.30 AM TIL LATE",
+      "snapshot_sha256": "96b69d674c502b8709153c32b80bf0080b572eb4ed6bee55dbadf7d4431fafc0",
+      "category": "restaurant"
+    },
+    {
+      "claim_id": "waatu-12",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "bbq market fish 350K IDR; wagyu beef yakitori 85K IDR — Waatu dinner menu April 2026, prices in thousands IDR subject to 21% tax & service",
+      "claim_text": null,
+      "source_url": "https://waatuprd.wpenginepowered.com/wp-content/uploads/2026/05/Waatu_Dinner_Menu_-_April_2026_1-1.pdf",
+      "quote": "Prices are in thousands of Indonesian Rupiah and subject to 21% government tax & service",
+      "snapshot_sha256": "44be233cace2b7ebc0bc552e6bb0611b752958e69fc301c9924df4e07fc3083f",
+      "category": "restaurant"
+    }
+  ]
+}

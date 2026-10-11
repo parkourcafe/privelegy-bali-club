@@ -95,7 +95,7 @@ export default async function DistrictHubPage({
               </Link>
             </div>
           </div>
-          <div className="editorial-signal" aria-label={`${hub.name} signal`}>
+          <div className="editorial-signal" aria-label={`How many ${hub.name} places we list`}>
             <p className="editorial-signal-label">
               {hub.venues.length} curated places in {hub.name}.
             </p>
@@ -103,7 +103,7 @@ export default async function DistrictHubPage({
         </header>
 
         {spokes.length > 0 && (
-          <nav aria-label={`${hub.name} by the moment`} className="mt-8">
+          <nav aria-label={`${hub.name} guides by moment`} className="mt-8">
             <h2 className="section-title">By the moment</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {spokes.map((s) => (

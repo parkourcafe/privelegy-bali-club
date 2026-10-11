@@ -1,0 +1,177 @@
+{
+  "slug": "sundays-beach-club",
+  "officialDomains": [
+    "sundaysbeachclub.com"
+  ],
+  "category": "beach_club",
+  "claims": [
+    {
+      "claim_id": "sundays-beach-club-17",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "quote": "OPEN DAILY FROM 7:30 AM TO 10 PM",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "sundays-beach-club-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "A private white-sand cove at the foot of the Ungasan cliffs — the Bukit's one true toes-in-the-sand beach club.",
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "quote": "Below the cliffs, guests have exclusive access to the celebrated Sundays Beach Club, where white sand, calm waters and relaxed dining create the perfect coastal escape.",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "sundays-beach-club-25",
+      "field": "coordinates",
+      "action": "add",
+      "proposed": [
+        -8.8472658,
+        115.150859
+      ],
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "quote": "!3d-8.8472658!4d115.150859",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "sundays-beach-club-22",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/wp-content/uploads/2026/06/Sundays-Food-Beverage-Menu-June-2026.pdf",
+      "quote": "All prices are in thousands of rupiah. Subject to 21 % service charge and government tax.",
+      "snapshot_sha256": "dc2900eb5b2943171386eddd5ce5e8a4e69ad7f706db2a2e577cd76ceac2cade",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-sunday-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "claim_text": null,
+      "source_url": "https://satusatu.com/inspiration/suka-espresso-uluwatu/",
+      "quote": "Suka Espresso Uluwatu is open daily from 7:30 AM to 10:00 PM.",
+      "snapshot_sha256": "78af41d5219e8588a09ea6c15bef2877e2c7c642bc90a54bfc0702deb50af333",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-sunday-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-sundays-beach-club",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "k-sunday-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "c8420d6713a9e96d95b3f397cc074e2c58571613dac348bb9cb574ad63e08116",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "sundays-beach-club-23",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6282144057406",
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "quote": "Contact Us",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "category": "beach_club"
+    },
+    {
+      "claim_id": "sundays-beach-club-18",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.30am-10.00pm"
+        ],
+        "Tuesday": [
+          "7.30am-10.00pm"
+        ],
+        "Wednesday": [
+          "7.30am-10.00pm"
+        ],
+        "Thursday": [
+          "7.30am-10.00pm"
+        ],
+        "Friday": [
+          "7.30am-10.00pm"
+        ],
+        "Saturday": [
+          "7.30am-10.00pm"
+        ],
+        "Sunday": [
+          "7.30am-10.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.sundaysbeachclub.com/daily-beach-pass/",
+      "quote": "7.30am to 10pm – Daily Beach Pass Includes:",
+      "snapshot_sha256": "100bee8b5a4981730ac164400b78df4e34edc91a2f31411c61b69154d42d10b5",
+      "category": "beach_club"
+    }
+  ]
+}

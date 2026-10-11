@@ -71,7 +71,7 @@ export default function GlobalError({
             color: "#cdbfa9",
           }}
         >
-          A hiccup on our end, not yours. Reload to try again.
+          The problem is on our side, not yours. Reload the page to try again.
         </p>
         <button
           type="button"

@@ -41,20 +41,20 @@ const guide = getGuide("best-restaurants-in-bali")!;
 export const metadata = guideMetadata(guide);
 
 const AREA_ORDER: { key: string; name: string; note: string; pillar?: string }[] = [
-  { key: "canggu", name: "Canggu", note: "Bali's densest dinner scene — beach-side seafood, buzzy international kitchens and long tables along Batu Bolong and Berawa.", pillar: "/canggu" },
-  { key: "seminyak", name: "Seminyak", note: "The polished dining strip — Bali's original fine-dining and long-lunch address, walkable between the boutiques.", pillar: "/seminyak" },
+  { key: "canggu", name: "Canggu", note: "Bali's densest dinner scene: beach-side seafood, buzzy international kitchens and long tables along Batu Bolong and Berawa.", pillar: "/canggu" },
+  { key: "seminyak", name: "Seminyak", note: "The polished dining strip: Bali's original fine-dining and long-lunch address, walkable between the boutiques.", pillar: "/seminyak" },
   { key: "ubud", name: "Ubud", note: "Jungle-view tables, plant-forward kitchens and slow, candle-lit dinners in the hills.", pillar: "/ubud" },
   { key: "uluwatu-bukit", name: "Uluwatu & the Bukit", note: "Clifftop restaurants and sunset dinners above the surf on the southern peninsula.", pillar: "/uluwatu" },
-  { key: "jimbaran", name: "Jimbaran", note: "Grilled seafood on the sand — the classic Jimbaran Bay dinner as the sun goes down.", pillar: "/jimbaran" },
+  { key: "jimbaran", name: "Jimbaran", note: "Grilled seafood on the sand: the classic Jimbaran Bay dinner as the sun goes down.", pillar: "/jimbaran" },
   { key: "sanur", name: "Sanur", note: "Easy-going seafront dining on the calm, unhurried east coast.", pillar: "/sanur" },
   { key: "nusa-dua", name: "Nusa Dua", note: "Resort fine dining and signature restaurants in the gated south.", pillar: "/nusa-dua" },
-  { key: "denpasar", name: "Denpasar", note: "The city's own tables — where residents eat, from Balinese ayam betutu specialists to long-running local institutions off the tourist strip.", pillar: undefined },
+  { key: "denpasar", name: "Denpasar", note: "The city's own tables. This is where residents eat, from Balinese ayam betutu specialists to long-running local institutions off the tourist strip.", pillar: undefined },
 ];
 
 const FAQ = [
   { q: "Where are the best restaurants in Bali?", a: "Canggu has the island's densest and most varied dinner scene, Seminyak the polished fine-dining strip, and Ubud the jungle-view and plant-forward kitchens. Jimbaran is the classic for grilled seafood on the sand, and Uluwatu for clifftop sunset dinners. The picks above are sorted by area." },
-  { q: "How much does dinner cost in Bali?", a: "It spans a wide band — a local warung meal is very cheap, while a Western restaurant or a fine-dining tasting menu costs much more. Each venue's page shows its price band; for the cheapest authentic food, see our best warungs guide." },
-  { q: "Do you need to book restaurants in Bali?", a: "For the popular dinner spots and sunset tables — especially in Seminyak, Canggu and Uluwatu, and in the July–August peak — booking ahead is worth it. Casual places and warungs usually take walk-ins." },
+  { q: "How much does dinner cost in Bali?", a: "It spans a wide band. A local warung meal is cheap, while a Western restaurant or a fine-dining tasting menu costs much more. Each venue's page shows its price band. For the cheapest authentic food, see our best warungs guide." },
+  { q: "Do you need to book restaurants in Bali?", a: "Book ahead for the popular dinner spots and sunset tables, especially in Seminyak, Canggu and Uluwatu and in the July–August peak. Casual places and warungs usually take walk-ins." },
   { q: "Which area has the best food in Bali?", a: "For sheer choice and quality, Canggu and Seminyak lead. Ubud is strongest for healthy and vegetarian dining, and Jimbaran for seafood. It depends on the night you want." },
 ];
 
@@ -149,10 +149,10 @@ export default async function BestRestaurantsPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="mt-2">{guide.title}</h1>
           <p className="guide-lede">
-            Bali eats extraordinarily well. Canggu and Seminyak carry the island&apos;s
-            densest dinner scenes, Ubud the jungle-view and plant-forward kitchens,
-            and Jimbaran the classic grilled seafood on the sand. Here are the
-            restaurants we stand behind, by area — tap any for the details.
+            Canggu and Seminyak have Bali&apos;s densest dinner scenes. Ubud has the
+            jungle-view and plant-forward kitchens, and Jimbaran the classic grilled
+            seafood on the sand. Below are the restaurants we stand behind, by area.
+            Tap any for the details.
           </p>
           <p className="text-sm leading-relaxed text-[var(--muted)]">
             {shown.length} restaurants, each one written up on the record with a
@@ -206,7 +206,7 @@ export default async function BestRestaurantsPage() {
         {remaining > 0 ? (
           <p className="text-sm text-[var(--muted)]">
             This page is the shortlist, not the catalogue. Another {remaining}{" "}
-            restaurants are published with verified details —{" "}
+            restaurants are published with verified details:{" "}
             <Link href="/places?category=restaurant" className="quiet-link">
               browse every restaurant →
             </Link>
@@ -214,8 +214,8 @@ export default async function BestRestaurantsPage() {
         ) : null}
 
         <p className="text-sm text-[var(--muted)]">
-          Looking for a mood rather than a cuisine — date night, a big group
-          table, somewhere work-friendly? See{" "}
+          To pick by mood rather than cuisine (date night, a big group table,
+          somewhere work-friendly), see{" "}
           <Link href="/collections" className="quiet-link">
             curated collections →
           </Link>

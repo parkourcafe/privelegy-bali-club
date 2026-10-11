@@ -1,0 +1,20 @@
+{
+  "slug": "laggas-uluwatu",
+  "canaries": [
+    {
+      "claim_id": "k-laggas-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": "sundays-beach-club"
+    },
+    {
+      "claim_id": "k-laggas-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-laggas-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "mana-uluwatu"
+    }
+  ]
+}

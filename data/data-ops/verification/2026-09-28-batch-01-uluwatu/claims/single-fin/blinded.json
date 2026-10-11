@@ -1,0 +1,218 @@
+{
+  "slug": "single-fin",
+  "officialDomains": [
+    "singlefinbali.com"
+  ],
+  "category": "bar",
+  "claims": [
+    {
+      "claim_id": "single-fin-13",
+      "field": "whatToOrder",
+      "action": "replace",
+      "proposed": "margherita pizza; tempura fish taco; nasi goreng single fin",
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/eat-drinks/",
+      "quote": "NASI GORENG SINGLE FIN\nIndonesian fried rice, chicken satay, fried egg, shrimp crackers, carrot & cucumber pickles, sambal\n135K",
+      "snapshot_sha256": "c4e44061ce7bc914dedcfae0f3958a93c906de8172e1add8379c4adb096a1cd8",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-04",
+      "field": "copy:whyHere#2",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "It has earned its place as the district's default sunset anchor.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "bar"
+    },
+    {
+      "claim_id": "k-single-3",
+      "field": "address",
+      "action": "replace",
+      "proposed": "Daily from 9:00 AM",
+      "claim_text": null,
+      "source_url": "https://elsky-bali.com/en/beach-club-sundays-en/",
+      "quote": "Daily from 9:00 AM",
+      "snapshot_sha256": "8a3c4f3cab78e25c84cdd3d56f1a7c5f0325029e08842995ee02ce20a4ae5c5b",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-18",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "8.00am-10.00pm"
+        ],
+        "Tuesday": [
+          "8.00am-10.00pm"
+        ],
+        "Wednesday": [
+          "8.00am-23.59pm"
+        ],
+        "Thursday": [
+          "8.00am-10.00pm"
+        ],
+        "Friday": [
+          "8.00am-10.00pm"
+        ],
+        "Saturday": [
+          "8.00am-10.00pm"
+        ],
+        "Sunday": [
+          "8.00am-23.59pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/",
+      "quote": "Monday\n8 AM – 10 PM\nTuesday\n8 AM – 10 PM\nWednesday\n8 AM – 2 AM\nThursday\n8 AM – 10 PM\nFriday\n8 AM – 10 PM\nSaturday\n8 AM – 10 PM\nSunday\n8 AM – 2 AM",
+      "snapshot_sha256": "5e54591a36b92813af627c591a83e01788313caf08665cd2d22d78e2e6dddd40",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-24",
+      "field": "phone",
+      "action": "add",
+      "proposed": "+6281996305521",
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/contact/",
+      "quote": "Phone. +6281996305521",
+      "snapshot_sha256": "b9d18881890c11b7c78b7e4b9235f670ac32d75584b2e58bd9c2b3efa085d956",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-02",
+      "field": "copy:verdict#1",
+      "action": "remove",
+      "proposed": null,
+      "claim_text": "The Bukit's landmark cliff bar above the Uluwatu surf break — come for the swell and the sunset, not a quiet dinner.",
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-23",
+      "field": "menuUrl",
+      "action": "add",
+      "proposed": "https://www.singlefinbali.com/eat-drinks/",
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/eat-drinks/",
+      "quote": "Eat & Drinks - Single Fin, Bali's Iconic Cliffside Beach Bar",
+      "snapshot_sha256": "c4e44061ce7bc914dedcfae0f3958a93c906de8172e1add8379c4adb096a1cd8",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-25",
+      "field": "coordinates",
+      "action": "unknown",
+      "proposed": null,
+      "claim_text": null,
+      "source_url": null,
+      "quote": null,
+      "snapshot_sha256": null,
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-17",
+      "field": "full_address",
+      "action": "add",
+      "proposed": "Pantai Suluban, Jl. Labuan Sait, Pecatu, Uluwatu, Kuta Selatan, Kabupaten Badung, Bali 80361",
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/",
+      "quote": "Pantai Suluban, Jl. Labuan Sait,\nPecatu, Uluwatu, Kuta Selatan,\nKabupaten Badung, Bali 80361",
+      "snapshot_sha256": "5e54591a36b92813af627c591a83e01788313caf08665cd2d22d78e2e6dddd40",
+      "category": "bar"
+    },
+    {
+      "claim_id": "k-single-2",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "$$ · mains 85–160K",
+      "claim_text": null,
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-single-fin",
+      "quote": "Price range: IDR 85,000 – 160,000",
+      "snapshot_sha256": null,
+      "category": "bar"
+    },
+    {
+      "claim_id": "k-single-1",
+      "field": "hours",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "7.00am-11.00pm"
+        ],
+        "Tuesday": [
+          "7.00am-11.00pm"
+        ],
+        "Wednesday": [
+          "7.00am-11.00pm"
+        ],
+        "Thursday": [
+          "7.00am-11.00pm"
+        ],
+        "Friday": [
+          "7.00am-11.00pm"
+        ],
+        "Saturday": [
+          "7.00am-11.00pm"
+        ],
+        "Sunday": [
+          "7.00am-11.00pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/",
+      "quote": "Open daily 7 AM – 11 PM, kitchen closes 10:30 PM",
+      "snapshot_sha256": "5e54591a36b92813af627c591a83e01788313caf08665cd2d22d78e2e6dddd40",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-19",
+      "field": "opening_hours_json",
+      "action": "add",
+      "proposed": {
+        "Monday": [
+          "8.00am-10.00pm"
+        ],
+        "Tuesday": [
+          "8.00am-10.00pm"
+        ],
+        "Wednesday": [
+          "8.00am-23.59pm"
+        ],
+        "Thursday": [
+          "8.00am-10.00pm"
+        ],
+        "Friday": [
+          "8.00am-10.00pm"
+        ],
+        "Saturday": [
+          "8.00am-10.00pm"
+        ],
+        "Sunday": [
+          "8.00am-23.59pm"
+        ]
+      },
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/",
+      "quote": "Monday\n8 AM – 10 PM\nTuesday\n8 AM – 10 PM\nWednesday\n8 AM – 2 AM\nThursday\n8 AM – 10 PM\nFriday\n8 AM – 10 PM\nSaturday\n8 AM – 10 PM\nSunday\n8 AM – 2 AM",
+      "snapshot_sha256": "5e54591a36b92813af627c591a83e01788313caf08665cd2d22d78e2e6dddd40",
+      "category": "bar"
+    },
+    {
+      "claim_id": "single-fin-15",
+      "field": "price_anchor",
+      "action": "add",
+      "proposed": "nasi goreng single fin 135K incl. tax and service (eat & drinks menu, 2026-09-28)",
+      "claim_text": null,
+      "source_url": "https://www.singlefinbali.com/eat-drinks/",
+      "quote": "NASI GORENG SINGLE FIN\nIndonesian fried rice, chicken satay, fried egg, shrimp crackers, carrot & cucumber pickles, sambal\n135K",
+      "snapshot_sha256": "c4e44061ce7bc914dedcfae0f3958a93c906de8172e1add8379c4adb096a1cd8",
+      "category": "bar"
+    }
+  ]
+}

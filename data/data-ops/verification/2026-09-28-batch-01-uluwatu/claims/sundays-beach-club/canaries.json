@@ -1,0 +1,20 @@
+{
+  "slug": "sundays-beach-club",
+  "canaries": [
+    {
+      "claim_id": "k-sunday-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-sunday-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-sunday-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "suka-espresso"
+    }
+  ]
+}

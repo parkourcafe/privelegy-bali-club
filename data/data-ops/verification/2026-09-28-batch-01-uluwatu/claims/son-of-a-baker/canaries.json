@@ -1,0 +1,20 @@
+{
+  "slug": "son-of-a-baker",
+  "canaries": [
+    {
+      "claim_id": "k-son-of-1",
+      "kind": "fabricated_quote",
+      "borrowedFrom": "sundays-beach-club"
+    },
+    {
+      "claim_id": "k-son-of-2",
+      "kind": "aggregator_source",
+      "borrowedFrom": null
+    },
+    {
+      "claim_id": "k-son-of-3",
+      "kind": "wrong_venue_source",
+      "borrowedFrom": "mana-uluwatu"
+    }
+  ]
+}

@@ -20,7 +20,7 @@ export async function GET() {
     "",
     "> A free, curated Bali trip-planning guide. Places are recommended by the",
     "> moment they suit (breakfast, sunset, family dinner, work-friendly cafe),",
-    "> with what to order, price anchors and directions. Travellers never pay.",
+    "> with directions and, where we have them, what to order and a typical price. Travellers never pay.",
     "> Facts are verified; there are no paid rankings.",
     "",
     "## District guides (deep)",

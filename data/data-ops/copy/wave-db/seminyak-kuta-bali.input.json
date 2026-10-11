@@ -1,0 +1,2305 @@
+[
+ {
+  "slug": "15fit-seminyak",
+  "name": "15FIT Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A compact functional-fitness and personal-training studio in Seminyak.",
+  "best_for": "Those who want focused PT or small-group sessions over a big-box gym.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "2befit-bali",
+  "name": "2befit Bali",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A Seminyak gym and group-class studio with weights, cardio and a class timetable.",
+  "best_for": "Visitors wanting a straightforward full gym in central Seminyak.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "anika-gym",
+  "name": "Anika Gym",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A no-frills local gym on Jl. Gn. Tangkuban Perahu in Padangsambian Klod, Denpasar, known for rock-bottom prices. Enquiries and sign-up go through WhatsApp or the @anika_fitness_club Instagram account.",
+  "best_for": "Long-stay residents after the cheapest straightforward gym option away from the tourist strip.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "avenue-fitness-bali",
+  "name": "Avenue Fitness Bali",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A well-equipped Seminyak gym offering weights, classes and personal training.",
+  "best_for": "Travellers who want a proper gym close to the Seminyak strip.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Sa 06:00-22:00, Su 06:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "azul-beach-club-legian",
+  "name": "Azul Beach Club",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A bamboo tree-house beach club on the Legian beachfront, built across three open-air tiered levels facing the ocean, with a dedicated Tiki bar and a kitchen doing playful takes on Indonesian classics.",
+  "best_for": "a design-forward beach club day in Legian",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "babi-guling-pak-malen",
+  "name": "Warung Babi Guling Pak Malen",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A long-running specialist serving essentially one thing — nasi campur babi guling (Balinese roast suckling pig with rice) — with crispy skin, pork satay and green-chili sambal. Typically sells out by early afternoon.",
+  "best_for": "pork eaters wanting the classic babi guling plate; an early lunch; solo or quick-stop diners",
+  "not_for": "halal and vegetarian diners (pork-only menu); late arrivals after it sells out; anyone wanting a broad or air-conditioned setting",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$ · nasi campur babi guling ~40–50K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-barber-seminyak-seminyak",
+  "name": "Bali Barber Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A premium men's barbershop brand (original location since 2012) with English-speaking master barbers offering scissor cuts, clipper fades, hot-towel shaves and beard work, plus grooming add-ons like facials and massage. The Seminyak branch shares a building with The Shampoo Lounge.",
+  "best_for": "Men who want a proper barber cut, beard trim or hot-towel shave while travelling.",
+  "not_for": "Travellers seeking a full women's salon or a relaxation spa.",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "travellers seeking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-fitness-seminyak-seminyak",
+  "name": "Bali Fitness Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "Full-service gym on Sunset Road and the first place in Bali to run Les Mills group classes, with a dedicated bike/spin studio plus a fully equipped weights-and-cardio floor and personal training.",
+  "best_for": "Travellers who want a proper, fully-equipped commercial gym and structured Les Mills group classes while staying in the Seminyak area.",
+  "not_for": "Anyone looking for a quiet boutique studio or a yoga-only wellness space.",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "Mo-Fr 07:00-20:00, Sa 07:00-16:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bali-green-surf",
+  "name": "Bali Green Surf",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A Kuta beach surf school offering instructor-led lessons and board rental on the same beginner-friendly break -- a straightforward way to get in the water with guidance.",
+  "best_for": "guided beginner surf sessions and board rental",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bambu",
+  "name": "Bambu",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A dinner-only Indonesian restaurant on Jl. Petitenget from the La Lucciola team, serving regional archipelago recipes — slow-roasted betutu duck, sambals, babi guling — across a candlelit garden of open-air pavilions around a koi pond.",
+  "best_for": "An unhurried, atmospheric evening for travellers wanting elevated traditional Indonesian food in a romantic garden setting.",
+  "not_for": "",
+  "lint": [
+   "best_for:H1",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "elevated",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "biku",
+  "name": "Biku",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A tea lounge, restaurant and antique bookstore set inside a 150-year-old teak joglo on Petitenget, best known for its high tea (traditional, Asian and breakfast versions) and a curated list of 50-plus teas from China, India and Indonesia alongside a menu of Indonesian and Western dishes.",
+  "best_for": "Afternoon high tea or a relaxed daytime meal for those who want atmosphere, books and a long sit-down.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "atmosphere",
+   "curated",
+   "known for",
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bk-wellness-studio-umalas-by-blue-karma-secrets",
+  "name": "BK Wellness Studio Umalas by Blue Karma Secrets",
+  "district": "Seminyak",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A yoga and healing studio inside Blue Karma Village in Umalas, running daily hatha yoga plus Pilates, workshops, and sessions with Balinese healers. It has a dedicated sound-healing dome for sound baths and floating sound healing.",
+  "best_for": "travellers wanting yoga or sound healing in a quiet villa-garden setting; those combining a class with a spa or retreat stay; Sunday sound-bath drop-ins",
+  "not_for": "people after a high-energy fitness/reformer gym; anyone wanting a walk-in studio on the Seminyak strip rather than a tucked-away village",
+  "lint": [],
+  "stock_phrases": [
+   "retreat",
+   "travellers wanting",
+   "tucked"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$ · sound healing session ~500K (before tax & service)",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bodyworks-beauty-seminyak-seminyak",
+  "name": "Bodyworks Beauty Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "The beauty side of Bodyworks, a long-established Seminyak spa on Jl. Kayu Jati in Petitenget, offering nails, waxing, facials and hair daily 9:00–22:00.",
+  "best_for": "Visitors wanting a full beauty menu at a Seminyak institution.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "institution",
+   "offering",
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bodyworks-spa-seminyak",
+  "name": "Bodyworks Spa",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A pioneer of the modern Seminyak day-spa model, open for over two decades, now in a striking pink Moroccan-style building with a central pool. Combines a full massage and spa menu with hair, nails, facials and waxing under one roof.",
+  "best_for": "Groups and friends who want a photogenic, one-stop pampering day mixing massage with hair and nail services; booking ahead on busy days.",
+  "not_for": "Travellers wanting a quiet, ultra-minimal treatment room away from the crowds.",
+  "lint": [],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "bossman-burgers",
+  "name": "BO$$MAN",
+  "district": "Seminyak",
+  "where": "Jl. Kayu Cendana No. 8B, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A Seminyak burger joint built on Australian-beef smash and gourmet patties with house-made sauces and freshly baked buns. It runs late, serving until roughly 5am, which makes it a reliable post-night-out stop.",
+  "best_for": "late-night cravings; casual meat-forward meals; after a night out; quick group bite",
+  "not_for": "a quiet, refined sit-down dinner; anyone avoiding meat-heavy fare",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "boyncow",
+  "name": "Boy'N'Cow",
+  "district": "Seminyak",
+  "where": "Jl. Raya Kerobokan No.138, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A premium steakhouse and cocktail lounge on Seminyak's Eat Street (Jl. Raya Kerobokan), open since 2017, serving dry-aged cuts cured on site for at least 30 days plus Australian, US and Japanese Wagyu including A5 grades; the industrial meat-boutique room pairs share-style steaks with a mezzanine speakeasy bar known for barrel-aged cocktails and single malts.",
+  "best_for": "A carnivore-focused dinner out or a special occasion for serious steak and Wagyu lovers who want cocktails alongside.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$",
+   "hours_visible": "Mo 12:00-23:00, Tu 12:00-23:00, We 12:00-23:00, Th 12:00-23:00, Fr 12:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": "rain-proof · quiet-enough-to-talk · big-groups · parking"
+  }
+ },
+ {
+  "slug": "caseys-spa-beauty-salon-legian",
+  "name": "Casey's Spa & Beauty Salon",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A spa and beauty salon on Jalan Melasti in Legian, opposite Legian Beach Hotel, offering Balinese massage, facials, body scrubs and manicure/pedicure alongside hair treatments.",
+  "best_for": "a full spa-and-salon stop in Legian",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "cocoon-medical-spa-seminyak-seminyak",
+  "name": "Cocoon Medical Spa Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A medical-aesthetic clinic offering advanced skin, laser and injectable treatments under professional supervision.",
+  "best_for": "Those wanting clinical-grade aesthetics rather than a relaxation spa.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering",
+   "those wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Sa 10:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "coffee-cartel-legian",
+  "name": "Coffee Cartel",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A boutique specialty-coffee spot in Legian, part of a small Bali chain, known for premium blends and unusual lattes -- matcha, charcoal, beetroot -- alongside the classics.",
+  "best_for": "specialty coffee and an unusual latte in Legian",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "corner-house-bali",
+  "name": "Corner House Bali",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "All-day cafe and bistro on Seminyak's \"Eat Street,\" serving Western/modern-Australian classics from breakfast and brunch through burgers, char-grilled steaks and pizza. Casual, generous, colonial-house setting on the corner of Oberoi Road.",
+  "best_for": "brunch after the beach; an easy first-night dinner; a relaxed group meal of familiar Western food",
+  "not_for": "travellers specifically after Indonesian/local cuisine (menu is Western-focused)",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$–$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "rain-proof · walk-in-friendly · kid-friendly · quiet-enough-to-talk"
+  }
+ },
+ {
+  "slug": "crossfit-seminyak",
+  "name": "Crossfit Seminyak",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Open-air CrossFit box near Seminyak beach. CrossFit, bootcamp, movement, mobility and olympic lifting. Rigs, bumpers, rowers and assault bikes. Showers and towels are provided, and classes run in English.",
+  "best_for": "Dropping in without booking",
+  "not_for": "An air-conditioned workout - the box is open-air",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "de-nyuh-spa-seminyak",
+  "name": "De Nyuh Spa Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A Seminyak day spa offering Balinese massage and treatments in a calm setting.",
+  "best_for": "Anyone wanting an easy, well-priced spa hour in Seminyak.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 10:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-potato-head-wellness",
+  "name": "Desa Potato Head Wellness",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "The wellbeing programme at Desa Potato Head on Jl. Petitenget in Seminyak. Weekly all-level yoga is free for guests of the Suites and Studios and open to everyone else by donation. Sanctuary, the venue's wellness space behind the Library, was built with the founders of Pyramids of Chi in Ubud and runs vibroacoustic light therapy, sound healing, breathwork and ice bath sessions.",
+  "best_for": "Seminyak visitors who want donation-based yoga and unusual sound and light meditation formats rather than a standard studio class.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-wisata-medewi",
+  "name": "Tourism Village Medewi",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "A black-sand beach on Bali's west coast, in Jembrana, known for a long left-hand point break.",
+  "best_for": "surfers looking for a long, mellow left-hander; a quieter west-Bali beach stop",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-wisata-penglipuran",
+  "name": "Desa Wisata Penglipuran",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "A traditional Bali Aga village in Bangli known for its uniform bamboo-roofed houses and car-free main street.",
+  "best_for": "a walk through traditional Balinese village architecture; an easy stop between Kintamani and south Bali",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-wisata-tembuku",
+  "name": "Tourism Village Tembuku",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "A village in Bangli surrounded by rice terraces and forest, home to Tukad Cepung waterfall -- water falling through a narrow rock crevice about 15 metres high, roughly 8km from Bangli town.",
+  "best_for": "a lesser-known waterfall away from the main tourist circuit; traditional cooking and craft demonstrations",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-wisata-tenganan",
+  "name": "Tourism Village Tenganan",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "One of Bali's oldest Bali Aga (indigenous pre-Hindu Balinese) villages, in Karangasem, known for its double-ikat geringsing weaving.",
+  "best_for": "traditional Balinese weaving and village architecture; a stop on an east-Bali day out",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "desa-wisata-undisan",
+  "name": "Tourism Village Undisan",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "A traditional village in Bangli, about 90 minutes from Ngurah Rai airport or 45 minutes from Ubud, built around rice-farming and craft traditions -- including matekap, ploughing rice fields with oxen the traditional way, and Balinese gold-and-silver flower craftwork. Air Terjun Tangkup waterfall is roughly a 45-minute walk from the main road.",
+  "best_for": "traditional rice-field ploughing and craft demonstrations; a waterfall walk away from the tourist trail",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "drifter-kayu-aya",
+  "name": "Drifter Kayu Aya",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Surf shop, cafe and bookstore on Jl. Kayu Aya, opened in 2009 by surfers Tim Russo and Jake MacKenzie. Hand-shaped boards and independent brands, books and artwork. The cafe pours coffee from Sumatran beans. Gallery openings, film screenings and live music run in season.",
+  "best_for": "Browsing boards over coffee",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "engine-room-legian",
+  "name": "Engine Room",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A three-storey nightclub on the Legian strip where the main dance floor opens straight onto the sidewalk, with resident DJs running hip-hop, dubstep and trap sets.",
+  "best_for": "late-night dancing and DJ sets on the Legian strip",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "expat-roasters",
+  "name": "Expat. Roasters",
+  "district": "Seminyak",
+  "where": "Jl. Petitenget No. 1A, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A specialty coffee roastery and cafe that sources and roasts its own beans, working directly with Indonesian producers including farms near the roastery. Single-origin Indonesian brews like Bali Kintamani sit alongside a small menu of light bites.",
+  "best_for": "serious coffee lovers; single-origin tasting; laptop-friendly morning work; buying beans and brew gear",
+  "not_for": "a full sit-down meal; a lively bar or nightlife scene; anyone after a beach or view setting",
+  "lint": [
+   "best_for:A10"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "fire-restaurant-seminyak",
+  "name": "Fire Restaurant",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Restaurant in Seminyak. The kitchen is described as open-fire cooking. The published menu runs to 52 priced items — Flatbread, za’atar, honey yogurt, Sourdough bread, brown butter and Fresh Lombok oysters, green apple, mint vinaigrette, sea fennel. Fresh Lombok oysters, green apple, mint vinaigrette, sea fennel is 75K IDR. Booking is on the venue's own site.",
+  "best_for": "A special-occasion dinner, not a quick casual meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · Fresh Lombok oysters, green apple, mint 75K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gambinos-bali",
+  "name": "Gambinos Bali",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A premium steakhouse on Jl. Kayu Aya in Seminyak serving Australian grain-fed and dry-aged beef alongside handmade pasta, in a two-floor room with a retractable roof upstairs. Dinner only.",
+  "best_for": "A steak dinner or special-occasion meal in central Seminyak.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ginger-moon-canteen",
+  "name": "Ginger Moon Canteen",
+  "district": "Seminyak",
+  "where": "Jl. Kayu Aya No. 7 Seminyak Kuta, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Modern-Asian sharing restaurant on Seminyak's Oberoi/Laksmana strip from chef Dean Keddell, open since 2012. Built around ordering several shareable plates for the table rather than individual mains.",
+  "best_for": "a group who want to share a spread of Asian plates; a relaxed dinner with friends or family; couples happy to graze across the menu",
+  "not_for": "solo diners wanting a single quick plate (format is built around sharing)",
+  "lint": [],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$–$$$ · Dim Sum & Then Sum set ~116K",
+   "hours_visible": "Mo 12:00-22:00, Tu 12:00-22:00, We 12:00-22:00, Th 12:00-22:00, Fr 12:00-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "glo-day-spa-salon-seminyak-seminyak",
+  "name": "Glo Day Spa & Salon Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A 480 sqm Western-style hair salon and day spa on Jl. Kayu Aya (opened 2022), managed by Australian senior stylists and known for colouring, cutting, keratin work and bridal hair and make-up, alongside spa treatment rooms, beauty rooms and a mani-pedi lounge.",
+  "best_for": "Travellers who want Western-standard hair colour/cut/keratin or bridal hair and make-up, plus salon-and-spa services in one place.",
+  "not_for": "Anyone specifically seeking a purely traditional Balinese massage house.",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "gusto-gelato",
+  "name": "Gusto Gelato & Caffe",
+  "district": "Seminyak",
+  "where": "Jl. Mertanadi No.46B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "An artisan gelateria and caffe turning out house-made gelato in a wide flavour range, from classic fior di latte to local twists like lemongrass, ginger and sesame. It also pours proper coffee in a calm sit-down space.",
+  "best_for": "afternoon dessert stop; cooling off in the heat; family treat with kids; coffee-and-gelato pause",
+  "not_for": "anyone looking for a full sit-down meal or dinner service",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$ · small cup/cone ~40K, medium ~70K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "hammerhead-fitness",
+  "name": "Hammerhead Fitness",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Old-school gym on the third floor of Kasih Market on Jl. Nakula. Six hundred air-conditioned square metres, more than 80 stations, and the heaviest free weights on the island. A large cardio floor and a stretching area. Four full-time trainers, plus classes in boxing, zumba, dangdut and belly dance.",
+  "best_for": "Heavy lifting at a local price",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "hog-wild-with-chef-bruno",
+  "name": "Hog Wild with Chef Bruno",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Casual American BBQ joint on Jalan Batu Belig (Kerobokan) built around family-style tables and low-fuss grilled fare, with a largely gluten-free menu. Signature slow-cooked ribs are the draw.",
+  "best_for": "groups sharing BBQ platters family-style; families with a relaxed early dinner; gluten-free diners",
+  "not_for": "fine-dining or romantic quiet-table seekers; vegetarians (menu is meat/BBQ-led)",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "relaxed",
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "izzi-rooftop-lounge-and-restaurant-and-bar-and-shisha",
+  "name": "IZZI ROOFTOP LOUNGE & RESTAURANT & BAR & SHISHA",
+  "district": "Seminyak",
+  "where": "Jl. Batu Belig No.38, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Rooftop bar, restaurant and shisha lounge at Batu Belig Square. The shisha list runs past 200 tobaccos. Sunset view over the ocean, with DJs, board games and a PlayStation.",
+  "best_for": "A late shisha night that starts at sunset",
+  "not_for": "Non-smokers and a quiet table - shisha is served throughout",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jari-menari-seminyak",
+  "name": "Jari Menari",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A Seminyak massage institution open since 2001 whose name means \"dancing fingers.\" Therapists (traditionally an all-male team) are trained in a signature rhythmic, flowing full-body technique in open-air rooms set around a water wall and hand-carved stone.",
+  "best_for": "Travellers who want a serious, technique-led massage rather than a resort pampering session; couples and solo visitors who value a calm, no-frills sanctuary.",
+  "not_for": "Anyone after a glossy medi-spa or a full hair-and-nails salon day out.",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1",
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "institution",
+   "signature",
+   "travellers who",
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jasmine-aromatic-house",
+  "name": "Jasmine Aromatic House",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A long-running Balinese day spa in Tuban, minutes from the airport, offering aromatherapy massage, body scrubs and hair treatments, with free airport transfers, showers and luggage storage.",
+  "best_for": "A reliable massage near the airport before a night flight or on arrival.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "jiwa-bikram-yoga-bali-seminyak",
+  "name": "Jiwa Bikram Yoga Bali",
+  "district": "Seminyak",
+  "where": "Seminyak / Petitenget",
+  "why_its_here": "Bali's first hot-yoga studio, in Petitenget (north Seminyak): the classic Bikram 26-posture sequence (90 and 60 min) plus Sumits, hot Vinyasa, Ashtanga, Yin and hot Pilates in an unpretentious, small-class setting.",
+  "best_for": "Bikram and hot-yoga lovers, and travellers wanting an established sweat with near-private class sizes.",
+  "not_for": "Anyone who prefers a cool, gentle practice or a scenic open-air studio.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kilo-kitchen-bali-seminyak",
+  "name": "Kilo Kitchen Bali - Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Drupadi No.22, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361",
+  "why_its_here": "The first overseas outpost of Singapore's Kilo, on Jl. Drupadi in Seminyak, serving Asian-fusion sharing plates — squid-ink rice with soft-shell crab, beef-tongue tacos, Japanese ceviche — in a tropical-industrial space of concrete, wood and glass.",
+  "best_for": "Groups who want to share creative fusion plates and cocktails over a lively dinner.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 07:00-23:00, Tu 07:00-23:00, We 07:00-23:00, Th 07:00-23:00, Fr 07:00-23:00, ",
+   "what_to_expect": "",
+   "practical_note": "rain-proof · quiet-enough-to-talk · parking"
+  }
+ },
+ {
+  "slug": "kros-tennis-bali",
+  "name": "Kros Tennis Bali",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Indoor smart court on Jl. Patih Jelantik in Kuta, with AI tracking and performance readouts. Court booking, coaching from beginner upwards, and women's doubles sessions. The space also rents for events and shoots. Open around the clock.",
+  "best_for": "Tennis with the session tracked and scored",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "kynd-community",
+  "name": "Kynd Community",
+  "district": "Seminyak",
+  "where": "Jl. Petitenget No.12, Kerobokan Kelod, Kuta Utara, Badung, Bali 80361, Indonesia",
+  "why_its_here": "Seminyak's strongest plant-forward brunch — a big, walk-in cafe known for smoothie bowls and colourful comfort food.",
+  "best_for": "Vegan and vegetarian brunch; an iconic smoothie-bowl stop; a lighter reset day",
+  "not_for": "A quiet, low-key table — it runs busy and social",
+  "lint": [
+   "best_for:H1",
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "la-casetta-bali",
+  "name": "La Casetta Bali",
+  "district": "Seminyak",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A home-style Italian restaurant serving daily-baked bread and cornetti, fresh pasta and wood-fired pizza in a rustic, cozy setting, running from breakfast through lunch to dinner.",
+  "best_for": "a cozy, unhurried Italian dinner; a relaxed breakfast or lunch; a laid-back family or couples meal",
+  "not_for": "travellers wanting a beachfront or main-Seminyak-strip location (it sits inland in Umalas/Bumbak)",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "laid-back",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$–$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "lagoon-spa-seminyak-seminyak",
+  "name": "Lagoon Spa Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A villa-set spa within Villa Seminyak Estate & Spa, running since 2003, with private spa villas, treatment rooms and a reflexology chill room. Known for multi-hour Balinese ritual packages (massage, scrub, flower bath, creambath, facial).",
+  "best_for": "Guests who want a long, unhurried multi-treatment ritual in a resort-garden setting; couples.",
+  "not_for": "Anyone after a fast walk-in 30-minute foot rub.",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "ling-lings-bali",
+  "name": "Ling-Ling's Bali",
+  "district": "Seminyak",
+  "where": "Jl. Petitenget No.43B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A lively Asian-fusion restaurant and cocktail spot on Jl. Petitenget in Seminyak, leaning Japanese and Korean with sushi rolls, Korean tacos, bao buns and pork ribs, plus a DJ and a long drinks list after dark.",
+  "best_for": "Groups and dates wanting a shared-plates dinner that rolls into cocktails and music.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 11:00-23:59, Tu 11:00-23:59, We 11:00-23:59, Th 11:00-23:59, Fr 11:00-23:59, ",
+   "what_to_expect": "",
+   "practical_note": "walk-in-friendly · rain-proof · big-groups · parking"
+  }
+ },
+ {
+  "slug": "mades-warung-kuta",
+  "name": "Made's Warung",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "One of Kuta's oldest names, started as a roadside food stall in 1969 and grown into a full Balinese restaurant on Jalan Pantai Kuta, known for nasi campur and ayam goreng bumbu Bali.",
+  "best_for": "classic Balinese nasi campur in Kuta",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mades-warung-seminyak",
+  "name": "Mades Warung",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Restaurant in Seminyak. The kitchen is described as Authentic Indonesian. The published menu includes Traditional Nasi Campur, Beef Rendang and Sate Lilit. Booking is on the venue's own site.",
+  "best_for": "Authentic Indonesian in Seminyak.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "authentic"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "makan-place-kuta-legian",
+  "name": "Makan Place",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Restaurant in Legian. The kitchen is described as modern Indonesian. The published menu includes Onion Toast, Asparagouz Soup and Grilled Chickec – Honey Edition. Booking is on the venue's own site.",
+  "best_for": "Modern Indonesian in Legian.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "mamasan-bali",
+  "name": "Mamasan Bali",
+  "district": "Seminyak",
+  "where": "Jl. Raya Kerobokan No.135, Kerobokan Kelod, Kuta Utara, Badung, Bali 80361, Indonesia",
+  "why_its_here": "Chef Will Meyrick's long-running pan-Asian dining room in Seminyak, plating elevated Southeast Asian street food — from Penang to Bangkok to Indonesian rendang — inside a dramatic 1920s Shanghai-style room of dark timber, green banquettes and chandeliers, with an upstairs supper-club bar.",
+  "best_for": "A dressed-up dinner or cocktails for couples and groups who want polished Asian flavours in an atmospheric setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7",
+   "why_its_here:H1"
+  ],
+  "stock_phrases": [
+   "elevated"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "rain-proof · quiet-enough-to-talk · big-groups · parking"
+  }
+ },
+ {
+  "slug": "mauri-restaurant",
+  "name": "Mauri Restaurant",
+  "district": "Seminyak",
+  "where": "Jl. Petitenget No.100, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Contemporary southern-Italian fine-dining restaurant on Jl. Petitenget, Seminyak, led by Apulian chef Maurizio Bombini, with a live kitchen, à la carte and seasonal tasting menus, and a rooftop hydroponic garden supplying produce.",
+  "best_for": "special-occasion and celebration dinners; couples wanting a refined tasting-menu evening; Sunday seafood brunch",
+  "not_for": "budget or quick-casual diners; families wanting a relaxed early dinner",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "relaxed"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$$ · six-course signature tasting ~650K++ per person",
+   "hours_visible": "Mo 18:30-23:00, Tu 18:30-23:00, We 18:30-23:00, Th 18:30-23:00, Fr 12:00-15:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "merah-putih-indonesian-restaurant",
+  "name": "Merah Putih | Indonesian Restaurant",
+  "district": "Seminyak",
+  "where": "Jalan Petitenget. 100X Kerobokan Kelod, Jl. Petitenget, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "Modern Indonesian dining in a soaring, greenhouse-cathedral building on Jl. Petitenget in Seminyak by Inspiral Architects, with 10-metre vaulted ceilings and rainwater-filtering columns; open since 2013, its kitchen plates archipelago classics and contemporary takes — Balinese yellowfin tuna, babi guling — alongside a full cocktail and wine program.",
+  "best_for": "A dressed-up dinner or special occasion when you want refined Indonesian food in a landmark setting.",
+  "not_for": "",
+  "lint": [
+   "best_for:H1",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo 12:00-15:00, Mo 17:30-22:30, Tu 12:00-15:00, Tu 17:30-22:30, We 12:00-15:00, ",
+   "what_to_expect": "",
+   "practical_note": "parking · quiet-enough-to-talk · rain-proof · big-groups · walk-in-friendly"
+  }
+ },
+ {
+  "slug": "motion-fitness-bali-seminyak",
+  "name": "Motion Fitness Bali Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A Seminyak fitness studio offering group classes and functional training.",
+  "best_for": "Those who prefer class-based training in central Seminyak.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "natys-restaurant-seminyak",
+  "name": "Natys Restaurant Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "All-day restaurant on Jl. Kayu Aya (Oberoi/Eat Street), Seminyak, serving Indonesian, seafood and European dishes; a front fishmonger display lets guests pick fresh fish for the grill. Open breakfast through late night, with cocktails and shisha.",
+  "best_for": "groups sharing grilled seafood and ribs; visitors wanting all-day/late dining on Eat Street; cocktail-and-shisha evenings",
+  "not_for": "diners seeking a quiet rice-field or off-strip setting",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "walk-in-friendly · kid-friendly · rain-proof"
+  }
+ },
+ {
+  "slug": "naughty-nuris-warung-seminyak",
+  "name": "Naughty Nuri's Warung Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "The Seminyak-area (Batu Belig) branch, opened in 2016, of the Ubud institution — known for Balinese-style barbecued pork ribs and its potent martinis, in a casual warung format.",
+  "best_for": "a group here for smoky ribs and martinis; a casual, no-fuss dinner; an easy meal soon after landing",
+  "not_for": "diners wanting a refined, quiet dining room, or those avoiding pork (ribs are the draw)",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "institution",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "parking · kid-friendly · rain-proof · big-groups · walk-in-friendly"
+  }
+ },
+ {
+  "slug": "norii-japanese-restaurant-seminyak",
+  "name": "Norii Japanese Restaurant — Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Umalas Lestari, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Japanese restaurant in Umalas, part of the Wonderspace group. Sushi, wagyu don and wagyu skewers. Robatayaki beef with charred vegetables. Cocktails built on yuzu, matcha and sake.",
+  "best_for": "Wagyu and sushi close to Canggu",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pantai-kuta",
+  "name": "Pantai Kuta",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Bali's original and best-known beach, a long stretch of sand in Kuta, Badung, known for sunset and surf breaks close to shore.",
+  "best_for": "sunset by the water; beginner-friendly surf close to the airport",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pavilion-surf-club-kuta-legian",
+  "name": "Pavilion Surf Club",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Bar in Legian. Cold beer for the game, wine with dinner and signature cocktails as the sun goes down over Legian Beach. Happy hour: COCKTAIL SPECIAL: 140K each - BUY ONE GET ONE FREE. Booking is by WhatsApp.",
+  "best_for": "An evening out for drinks, not a full sit-down meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pison-petitenget",
+  "name": "Pison, Petitenget",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A long-running Asian-Western café on Jl. Petitenget, open since 2014, set in a two-storey red-brick building with high ceilings and exposed beams, doing all-day brunch with an Asian twist alongside serious locally-sourced coffee — known for its espresso-avocado, crispy pork belly fried rice, and live music most nights.",
+  "best_for": "Brunch, a good flat white, or an easy evening with cocktails and live music around Petitenget.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "potato-head-beach-club",
+  "name": "Potato Head Beach Club",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "The venue that put Seminyak's beach-club scene on the map, opened in 2010 on Jl. Petitenget behind an amphitheatre facade of around 5,000 vintage teakwood shutters by architect Andra Matin, with an oceanfront infinity pool, lawn beanbags and sunset DJ sets. Now the anchor of the sustainability-minded Desa Potato Head resort, it serves cocktails and an international-meets-Indonesian menu through the day.",
+  "best_for": "Sunset drinks, DJ sessions and a daybed by the pool — best for a stylish afternoon-into-evening rather than a quiet meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "stylish"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "parking · big-groups · walk-in-friendly · rain-proof"
+  }
+ },
+ {
+  "slug": "prana-spa-seminyak",
+  "name": "Prana Spa",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "One of Bali's largest and most theatrical day spas, set at Impiana Private Villas (formerly The Villas) on Jl. Kunti. Moorish-inspired interiors, domed ceilings, mosaic tiles and candle-lit corridors house an Indian- and Middle-Eastern-influenced treatment menu including traditional Ayurveda, plus plunge pools, saunas and steam rooms.",
+  "best_for": "Guests who want an immersive, design-forward spa half-day and are curious about Ayurvedic rituals; special-occasion pampering.",
+  "not_for": "Travellers looking for a quick, low-key neighbourhood massage.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers looking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "prana-spa-yoga-fitness-adjacent-seminyak",
+  "name": "Prana Spa / Yoga fitness-adjacent",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "The movement side of the landmark Moroccan-styled Prana Spa at Seminyak's Impiana resort, offering yoga and fitness alongside its famous spa.",
+  "best_for": "Those who want to pair movement with a treatment at a destination spa.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:H1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "prana-yoga-seminyak",
+  "name": "Prana Yoga",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "The dedicated Yoga Centre at Prana Spa (Impiana Private Villas, Jl. Kunti 118X) — one of Seminyak's largest spas — running daily and private classes across Vinyasa, Anusara, Power Vinyasa, Meditative Flow and Sivananda in an ornate Indian/Middle-Eastern-inspired setting.",
+  "best_for": "Villa and spa guests wanting a calm, upscale yoga class they can combine with a treatment.",
+  "not_for": "Anyone seeking a dedicated hot/Bikram studio or a bare-bones budget drop-in.",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "pura-kehen",
+  "name": "Pura Kehen",
+  "district": "Bali",
+  "where": "",
+  "why_its_here": "Bangli's state temple, a multi-tiered terraced complex set into a hillside, known for antique Chinese porcelain plates set into its walls.",
+  "best_for": "a quieter temple visit away from the main south-Bali circuit",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rai-fitness-sunset-bali",
+  "name": "Rai Fitness Sunset Bali",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "The first mega gym in Bali, opened in 2013 by Ade Rai, a world bodybuilding champion. Life Fitness equipment and more than 40 group classes powered by Les Mills, plus zumba, pilates and yoga with licensed instructors. A pool, sauna, garden, basketball and futsal courts, and free parking. A day is 55,000 IDR and a month 699,000.",
+  "best_for": "A full-size gym at a local price",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rai-fitness-sunset-road-seminyak",
+  "name": "Rai Fitness Sunset Road",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Founded by Indonesian bodybuilding icon Ade Rai, this is one of Bali's original mega-gyms on Sunset Road: an enormous Life Fitness weight floor, big cardio section, 40+ Les Mills and other group classes, plus pool, sauna and free parking.",
+  "best_for": "Serious lifters and travellers who want a large, fully-kitted gym with a wide class timetable and are happy to ride out to Sunset Road.",
+  "not_for": "Anyone wanting a small studio within walking distance of central Seminyak.",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rejuvie-aesthetic-bali-seminyak-seminyak",
+  "name": "Rejuvie Aesthetic Bali Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "An aesthetic clinic in Seminyak offering facials, skin and anti-ageing treatments (Mon–Sat).",
+  "best_for": "Visitors after results-focused skin and aesthetic treatments.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Fr 10:00-18:00, Sa 10:00-17:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "revive-pilates-umalas",
+  "name": "Revive + Pilates Umalas",
+  "district": "Seminyak",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A reformer Pilates studio with an Umalas location (and one in Canggu), running a high-volume weekly schedule of reformer and mat classes across beginner to advanced levels, plus signature Gluteformer and Sweatformer formats. On-site café serves coffee, matcha and protein smoothies.",
+  "best_for": "long-stay residents wanting a busy timetable and many slots; reformer regulars across all levels; those pairing a class with a café stop",
+  "not_for": "people wanting a slow, low-intensity or spa-style wellness session",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "revolver-seminyak",
+  "name": "Revolver Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Kayu Aya No.51, Seminyak, Kuta, Badung, Bali, Indonesia",
+  "why_its_here": "One of Seminyak's pioneering specialty-coffee cafes, open since 2012 and roasting its own beans locally, tucked down a lane off Jl. Kayu Aya. Known for its dark, timber-and-brick \"hidden bar\" interior and a hearty brunch alongside the coffee.",
+  "best_for": "serious coffee before or after the beach; a sit-down brunch; a caffeine stop while exploring the Oberoi strip",
+  "not_for": "anyone needing a quiet laptop/work session or space for a large group",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "known for",
+   "tucked"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "rain-proof · quiet-enough-to-talk · walk-in-friendly"
+  }
+ },
+ {
+  "slug": "rip-curl-surf-school-kuta-legian",
+  "name": "Rip Curl Surf School",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "Kuta's long, gentle beach break is one of the classic places to learn to surf in Bali, and this school runs guided lessons with boards and instructors right off the sand in central Kuta.",
+  "best_for": "a first, beginner-friendly surf lesson",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "rob-peetoom-hair-spa-bali-seminyak",
+  "name": "Rob Peetoom Hair Spa Bali",
+  "district": "Seminyak",
+  "where": "Petitenget / Seminyak",
+  "why_its_here": "The Bali outpost (opened 2012) of Dutch salon brand Rob Peetoom, at Petitenget St No. 16 overlooking rice paddies. Set across three Balinese-village-inspired pavilions, it offers expert hair styling, colour, make-up and signature hair-and-scalp rituals.",
+  "best_for": "Travellers wanting international-standard hair styling and colour, or a hair-and-scalp ritual in a scenic rice-field setting.",
+  "not_for": "Anyone looking for a body-massage spa or a budget quick cut.",
+  "lint": [
+   "why_its_here:A10"
+  ],
+  "stock_phrases": [
+   "offers",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 10:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "saia-wellness-saia-pilates-umalas",
+  "name": "SAIA Wellness / SAIA Pilates Umalas",
+  "district": "Seminyak",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A modern reformer Pilates studio, part of the SAIA Wellness group, with an Umalas location open seven days a week; classes run on new reformers, capped at 7 clients, across all levels with form-focused instruction. Private sessions are also offered.",
+  "best_for": "reformer beginners through advanced who want small-group attention; travellers wanting a calm, design-led studio; those booking one-off drop-ins",
+  "not_for": "anyone seeking large open-gym or spa/massage treatments rather than structured Pilates classes",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · group reformer from ~275K; private session ~600–700K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sangsaka",
+  "name": "Sangsaka",
+  "district": "Seminyak",
+  "where": "Jalan Raya Pangkung Sari No.100X, Kerobokan Kelod, Kuta Utara, Badung, Bali 80361, Indonesia",
+  "why_its_here": "Modern Indonesian restaurant on Jl. Petitenget from Kieran and Yunika Morland, cooking heritage recipes over a wood-fired oven and charcoal grills with regional ingredients from across the archipelago — known for its beef rendang, smoked and grilled seafood, and a rooftop bar called Diatas.",
+  "best_for": "A relaxed but elevated dinner for travellers wanting inventive Indonesian cooking beyond the usual tourist menus.",
+  "not_for": "",
+  "lint": [
+   "best_for:H1",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "elevated",
+   "known for",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sardine",
+  "name": "Sardine",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A long-running seafood restaurant on Jl. Petitenget set in a bamboo pavilion that looks out over a working rice paddy, serving fresh Indian Ocean catch (yellowfin tuna, snapper, scallops) with French technique and organic produce from its own Bedugul farm.",
+  "best_for": "A romantic dinner or long, breezy lunch when you want fresh seafood and paddy-field views away from the street bustle.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "set in"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sate-khas-senayan-beachwalk",
+  "name": "Sate Khas Senayan",
+  "district": "Kuta & Legian",
+  "where": "Beachwalk Shopping Center, Level 1 #E-22, Jl. Pantai Kuta, Kuta, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A long-running Indonesian restaurant chain (Sarirasa Group) serving dependable, authentic classics — satay, soto, gado-gado — in an air-conditioned mall setting steps from Kuta beach. It's the reliable, family-safe Indonesian meal when you want the real thing without hunting for a warung.",
+  "best_for": "a dependable Indonesian meal in air-conditioning; families and just-landed first dinners; a safe introduction to Indonesian classics near Kuta",
+  "not_for": "warung prices; a romantic or scenic setting; travellers seeking a hidden local find",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "authentic",
+   "travellers seeking"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sea-circus",
+  "name": "Sea Circus Restaurant & Bar",
+  "district": "Seminyak",
+  "where": "Jl. Kayu Aya No.22, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A colourful, long-running café and bar on Jl. Kayu Aya, open since 2010, known for all-day brunch, tacos and cocktails in a playful coral-pink-striped setting; the menu runs from acai bowls, benedicts and breakfast burritos to pulled-pork and baja fish tacos, with plenty of vegan and gluten-free options.",
+  "best_for": "Casual all-day brunch, tacos and sunset drinks for families and groups on the Kayu Aya strip.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo 07:30-23:00, Tu 07:30-23:00, We 07:30-23:00, Th 07:30-23:00, Fr 07:30-23:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "seminyak-yoga-shala",
+  "name": "Seminyak Yoga Shala",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A friendly Seminyak yoga studio running a daily drop-in class timetable.",
+  "best_for": "Visitors wanting accessible daily classes near the Seminyak strip.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "shichirin-japanese-restaurant-seminyak",
+  "name": "Shichirin Japanese Restaurant — Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Dewi Saraswati No.88 A, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Japanese grill restaurant on Jl. Dewi Saraswati, open since January 2025. The third Shichirin on the island, after Ubud and Canggu. Teppanyaki, gyukatsu, sushi and sashimi.",
+  "best_for": "A Japanese grill dinner in Seminyak",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sisterfields",
+  "name": "Sisterfields",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "A long-running Australian-style cafe on Jl. Kayu Cendana in central Seminyak, opposite Seminyak Village, serving an all-day brunch menu and specialty coffee in a bright, tiled minimalist space — signature plates include truffle scrambled eggs, bacon benedict, smashed avocado and acai bowls.",
+  "best_for": "Brunch and good coffee between Seminyak shopping — a lively, dependable all-day cafe.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "kid-friendly · walk-in-friendly · rain-proof · quiet-enough-to-talk"
+  }
+ },
+ {
+  "slug": "soham-pilates-class-program-seminyak",
+  "name": "Soham Pilates / Class Program",
+  "district": "Seminyak",
+  "where": "Petitenget / Seminyak",
+  "why_its_here": "The Pilates and class programme at Soham Wellness Center in Petitenget, offering mat and equipment classes.",
+  "best_for": "Those who want structured Pilates within a full wellness centre.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "soham-wellness-center-seminyak",
+  "name": "Soham Wellness Center",
+  "district": "Seminyak",
+  "where": "Petitenget / Seminyak",
+  "why_its_here": "A ~2,500 sqm all-in-one wellness complex in Petitenget: a fully-equipped gym, a half-Olympic swimming pool, a broad group-class timetable (Pilates, HIIT, spinning, TRX, yoga, dance), a luxe spa, plus steam, sauna and hot/cold plunge pools and a healthy cafe.",
+  "best_for": "Travellers and longer-stay guests who want gym, classes, pool and spa under one roof for a full wellness day.",
+  "not_for": "Anyone after a quick, low-cost drop-in gym rather than a full resort-style facility.",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "soham-wellness-spa-seminyak",
+  "name": "Soham Wellness Spa",
+  "district": "Seminyak",
+  "where": "Petitenget / Seminyak",
+  "why_its_here": "The spa at Soham Wellness Center in Petitenget, a multi-discipline hub combining massage, yoga and Pilates (open daily 6am–10pm).",
+  "best_for": "Visitors who want spa, yoga and Pilates under one Petitenget roof.",
+  "not_for": "",
+  "lint": [
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 06:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "soham-yoga-seminyak",
+  "name": "Soham Yoga",
+  "district": "Seminyak",
+  "where": "Petitenget / Seminyak",
+  "why_its_here": "The yoga programme at Soham Wellness Center in Petitenget, running classes within its broader wellness offering.",
+  "best_for": "Guests who want daily yoga as part of a one-stop wellness centre.",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "offering"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "spring-spa-seminyak",
+  "name": "Spring Spa Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "The Seminyak branch of Spring Spa, an island-wide chain of bright, dependable salons for nails, waxing, massage and facials at fair prices.",
+  "best_for": "Visitors wanting a reliable, walk-in mani-pedi or quick massage.",
+  "not_for": "",
+  "lint": [
+   "best_for:A10",
+   "best_for:F1"
+  ],
+  "stock_phrases": [
+   "visitors wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-21:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "sundari-day-spa-seminyak",
+  "name": "Sundari Day Spa",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "A long-running Petitenget day spa (branded Sundari Wellness) blending modern and traditional techniques with natural products, offering massages, body treatments, facials and mani-pedis across a wide menu, open late into the evening.",
+  "best_for": "Visitors who want a full menu of treatments in one calm Petitenget address, including evening appointments after the beach.",
+  "not_for": "Anyone seeking a minimalist single-therapy studio.",
+  "lint": [
+   "best_for:F1",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "blending",
+   "offering",
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "Mo-Su 09:00-22:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-goat-seminyak",
+  "name": "THE GOAT",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Bar in Seminyak. Open for Breakfast, Lunch, Dinner and Late Night Bites, with Live Music and DJ's every night from 8pm. Cake Cups is 75K IDR. Booking is on the venue's own site.",
+  "best_for": "An evening out for drinks, not a full sit-down meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$ · Cake Cups 75K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-laneway-restaurant-seminyak",
+  "name": "The Laneway Restaurant",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Restaurant in Seminyak. The kitchen is described as fine dining. The published menu runs to 4 priced items — Berawa Cocktail, In-Villa BBQ and Wednesday Night Market. Arak Cocktail is 100K IDR. Booking is on the venue's own site.",
+  "best_for": "A special-occasion dinner, not a quick casual meal.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$ · Arak Cocktail 100K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-legian-seminyak-wellness-yoga",
+  "name": "The Legian Seminyak Wellness Yoga",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "Wellness by The Legian on Jl. Kayu Aya, open to outside visitors as well as hotel guests. The Studio runs daily yoga and pilates, mindfulness meditation, HIIT, aqua-aerobics and group spin; the gymnasium is kitted out with Technogym equipment and personal trainers. Steam, sauna and hot and cold plunge sit alongside a relaxation lounge, and a day pass covers pool access and classes.",
+  "best_for": "Seminyak visitors who want a full class timetable and Technogym floor on a day pass, not only as a hotel guest.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "visitors who"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "the-shampoo-lounge-seminyak-seminyak",
+  "name": "The Shampoo Lounge Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "Billed as Bali's original integrated salon-spa-barber (since 2012) on Jl. Raya Basangkasa, offering hair cuts, colour, keratin and extensions, plus nails, lashes, facials, massage and a men's barber, with one of Bali's largest bridal hair-and-make-up teams.",
+  "best_for": "Groups and families who want hair, beauty, nails and barber services together in one Seminyak spot; bridal parties.",
+  "not_for": "Anyone seeking a quiet single-treatment retreat.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "offering",
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "therapy-hair-spa-seminyak",
+  "name": "Therapy Hair & Spa Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "Therapy's Seminyak branch, where a hair salon and a day spa share one address — cuts and colour alongside facials and massage.",
+  "best_for": "Anyone wanting hair and beauty under one roof in Seminyak.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo-Su 09:00-20:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "think-pink-nails-seminyak",
+  "name": "Think Pink Nails Seminyak",
+  "district": "Seminyak",
+  "where": "Seminyak",
+  "why_its_here": "The Seminyak flagship of Think Pink on Jl. Batu Belig — manicures, pedicures, BIAB and nail art alongside hair and skin services, with a private Netflix room for treatments.",
+  "best_for": "A colourful, well-priced mani-pedi or nail-art session in central Seminyak; a separate Think Pink branch runs in Canggu.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "Mo-Su 09:00-19:00",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "think-pink-salon-and-nails-bali",
+  "name": "Think Pink Salon & Nails Bali",
+  "district": "Seminyak",
+  "where": "Kerobokan / Batu Belig / Batu Belig",
+  "why_its_here": "A long-running nail, hair and skin salon offering manicures, pedicures, BIAB and nail art with an extensive polish range, plus hair and skin services. Rooms include a private space for a treatment while watching Netflix.",
+  "best_for": "nails, lash and beauty appointments; friends going together for a pampering session; travellers wanting a wide gel/BIAB and nail-art menu",
+  "not_for": "walk-ins expecting immediate slots (advance booking is advised); those wanting massage/spa-focused wellness rather than salon services",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [
+   "offering",
+   "those wanting",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$ · pedicure ~200–360K / manicure & BIAB ~500K+",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "to-the-moon-cafe",
+  "name": "To the moon cafe",
+  "district": "Seminyak",
+  "where": "Jl. Bumbak, Banjar Anyar, Kerobokan Kelod, Umalas, Kabupaten Badung, Bali 80361, Indonesia",
+  "why_its_here": "Cafe in Umalas serving signature sushi rolls alongside Western plates. Beef and salmon steaks, gourmet burgers, pancakes and smoothie bowls. Dine-in, takeaway and delivery, with free parking.",
+  "best_for": "Sushi without driving to Seminyak",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A10",
+   "why_its_here:A5",
+   "why_its_here:A8"
+  ],
+  "stock_phrases": [
+   "signature"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "vincent-nigita",
+  "name": "Vincent Nigita",
+  "district": "Seminyak",
+  "where": "Kanvaz Village Resort, Jl. Petitenget No. 188, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A French patisserie inside Kanvaz resort from Bordeaux-trained pastry chef Vincent Nigita, pairing classical French technique with Indonesian flavours. Classic pastries sit alongside a weekend tea-room experience of plated desserts.",
+  "best_for": "afternoon pastry and tea; a sweet treat with care; a calm indulgent pause; a special sweet moment",
+  "not_for": "a full savoury meal or a budget-casual bite; those after a quick grab-and-go snack",
+  "lint": [],
+  "stock_phrases": [
+   "experience"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "w-bali-wellness-yoga",
+  "name": "W Bali Wellness / Yoga",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "The yoga and class programme at W Bali in Seminyak, run out of FIT, the resort's 24-hour gym overlooking the Indian Ocean. Weekly classes cover Hatha, Vinyasa and Power yoga, with sunrise sessions on the schedule; guests also report HIIT and strength classes. Access includes a steam room, an oxygen room and warm and cold plunge pools, and AWAY Spa runs private meditation sessions.",
+  "best_for": "Seminyak guests who want ocean-view classes at sunrise plus plunge pools and a steam room afterwards.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A5"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "waroeng-bernadette",
+  "name": "Waroeng Bernadette at Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Kayu Aya No.17, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+  "why_its_here": "A homestyle Indonesian warung on Jl. Kayu Aya in Seminyak, known for a 12-hour slow-cooked beef rendang alongside oxtail soup, rawon and corn fritters — everything cooked traditionally from scratch, with adjustable spice levels and plenty of vegetarian and vegan options.",
+  "best_for": "A relaxed sit-down lunch or dinner for travellers wanting approachable, spice-adjustable Indonesian classics in central Seminyak.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A4",
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "Mo 11:00-22:00, Tu 11:00-22:00, We 11:00-22:00, Th 11:00-22:00, Fr 11:00-22:00, ",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "waroeng-sulawesi-petitenget",
+  "name": "Waroeng Sulawesi",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A self-service warung on Petitenget serving home-cooked Sulawesi and Indonesian dishes — walk the counter and build a plate with white, yellow or red rice. Known for spicy regional plates.",
+  "best_for": "adventurous eaters wanting spicy regional (Sulawesi) cooking; a budget lunch; solo diners and self-serve fans",
+  "not_for": "diners who dislike heat and spice; anyone wanting full table service or a polished room",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · budget, pay-by-selection plates",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-enys",
+  "name": "Warung Eny's",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A small family-run warung on Petitenget known for a soulful nasi campur, run by Ibu Eny and her husband with an open kitchen and mostly local produce, cooked fresh daily.",
+  "best_for": "travellers wanting a personal, home-cooked nasi campur; couples or small groups; those curious about the open kitchen",
+  "not_for": "large groups (very small space); diners wanting a fast in-and-out or a fixed printed menu",
+  "lint": [
+   "not_for:A3",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "known for",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · nasi campur ~40–70K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-kampung-legian",
+  "name": "Warung Kampung",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A Balinese-run local warung in Legian known for its nasi goreng and mie goreng at everyday prices.",
+  "best_for": "an affordable, local nasi or mie goreng in Legian",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-melati-nakula",
+  "name": "Warung Melati",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A family-run Javanese warung in a quiet alley on the Seminyak–Legian border, cooking from early morning so nasi campur and sides are ready by late morning. Advertised as non-MSG and halal.",
+  "best_for": "halal diners; a midday lunch (best around 12–1pm); travellers wanting simple home-style Javanese food",
+  "not_for": "late-night diners (kitchen winds down by early evening); anyone specifically after Balinese pork dishes (halal, no pork)",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · nasi campur ~35–60K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-murah-petitenget",
+  "name": "Warung Murah",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A traditional pick-and-mix Balinese warung where you point at pre-cooked dishes on the counter and pay for what you take, with nasi campur the staple. Tables fill early.",
+  "best_for": "budget diners; a quick local lunch after the beach; travellers who like choosing dishes by sight",
+  "not_for": "late arrivals (best dishes go early); diners wanting table service or a set menu",
+  "lint": [],
+  "stock_phrases": [
+   "staple",
+   "travellers who"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · pick-and-mix plates ~30–50K",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-nia-balinese-food-and-pork-ribs",
+  "name": "Warung Nia Balinese Food & Pork Ribs",
+  "district": "Seminyak",
+  "where": "Seminyak / seminyak",
+  "why_its_here": "A casual Balinese warung in Kayu Aya Square on Jl. Kayu Aya (the Oberoi strip), best known for slow-cooked, spice-marinated pork ribs sold by weight with a range of chilli levels, plus babi guling, satay and rijsttafel.",
+  "best_for": "A relaxed, well-priced local lunch or dinner for travellers wanting authentic Balinese pork ribs without the fine-dining setting.",
+  "not_for": "",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "a range of",
+   "authentic",
+   "known for",
+   "relaxed",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": "walk-in-friendly · rain-proof · quiet-enough-to-talk · kid-friendly"
+  }
+ },
+ {
+  "slug": "warung-taman-bambu",
+  "name": "Warung Taman Bambu",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "A tucked-away pick-and-mix warung off the main road where you choose dishes from a cabinet, with nasi campur and Indonesian home-cooking the core, in a calmer garden-style setting.",
+  "best_for": "a budget lunch away from the crowds; vegetarians (multiple veg options); couples or small groups wanting a quiet local meal",
+  "not_for": "diners wanting evening or late service (closes early evening); anyone expecting à-la-carte ordering",
+  "lint": [
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "tucked"
+  ],
+  "context_not_for_copy": {
+   "spend": "$ · budget, pay-by-selection plates",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "warung-wardani",
+  "name": "Warung Wardani",
+  "district": "Bali",
+  "where": "Jl. Yudistira No.2, Dangin Puri Kauh, Kec. Denpasar Utara, Kota Denpasar, Bali 80232",
+  "why_its_here": "A decades-old Denpasar warung known for nasi campur Bali, plated with items such as satay, dendeng and vegetables over rice. It is a longtime local institution also recognised for serving halal Balinese food, open daytime only.",
+  "best_for": "authentic Balinese nasi campur; quick local lunch; halal Balinese food; solo or budget dining",
+  "not_for": "dinner or late-night meals; alcohol and a bar scene; an upscale or scenic setting",
+  "lint": [],
+  "stock_phrases": [
+   "authentic",
+   "institution",
+   "known for"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "watercress-seminyak",
+  "name": "Watercress Seminyak",
+  "district": "Seminyak",
+  "where": "Jl. Batu Belig No.21A, Kerobokan Kelod, Kuta Utara, Badung, Bali 80361, Indonesia",
+  "why_its_here": "A spacious, work-friendly brunch on Seminyak's northern Batu Belig edge — easy for a longer catch-up or a laptop morning.",
+  "best_for": "A longer, spacious brunch; a work-friendly morning; groups; a north-Seminyak stay",
+  "not_for": "A five-minute walk from Eat Street — it sits on the northern edge of the cluster",
+  "lint": [
+   "why_its_here:A4"
+  ],
+  "stock_phrases": [],
+  "context_not_for_copy": {
+   "spend": "$$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yoga-108-bali-kuta-legian",
+  "name": "Yoga 108 Bali",
+  "district": "Kuta & Legian",
+  "where": "",
+  "why_its_here": "A drop-in yoga studio in the Kuta-Legian area -- useful when you want a single class without committing to a multi-day retreat.",
+  "best_for": "a drop-in yoga class between beach days",
+  "not_for": "",
+  "lint": [],
+  "stock_phrases": [
+   "retreat"
+  ],
+  "context_not_for_copy": {
+   "spend": "",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "yoga-108-bali-seminyak",
+  "name": "Yoga 108 Bali",
+  "district": "Seminyak",
+  "where": "",
+  "why_its_here": "An authentic, unpretentious drop-in studio in central Seminyak (Jl. Drupadi 108) with daily classes across Hatha, Vinyasa, Ashtanga, Yin and meditation for all levels, plus a Yoga Alliance 200-hour teacher training, workshops and retreats.",
+  "best_for": "Drop-in travellers of any level who want traditional, non-heated yoga in the heart of Seminyak with mats and props provided.",
+  "not_for": "Anyone specifically after hot or Bikram-style yoga.",
+  "lint": [
+   "why_its_here:A5",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "authentic"
+  ],
+  "context_not_for_copy": {
+   "spend": "$",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ },
+ {
+  "slug": "you-spa-umalas",
+  "name": "You Spa Umalas",
+  "district": "Seminyak",
+  "where": "Umalas / Kerobokan / Umalas",
+  "why_its_here": "A day spa in Umalas offering Balinese and holistic body massages, body masks, facials, plus hair and nail treatments, using its own line of natural products. Signature options include a Sport Massage and a \"Black Room\" experience.",
+  "best_for": "travellers wanting a full-service massage/facial session between Seminyak and Canggu; those after signature or longer ritual treatments; residents booking recurring spa time",
+  "not_for": "anyone looking for active fitness/Pilates rather than treatment-based relaxation",
+  "lint": [
+   "best_for:A10",
+   "why_its_here:A10",
+   "why_its_here:A7"
+  ],
+  "stock_phrases": [
+   "experience",
+   "offering",
+   "signature",
+   "travellers wanting"
+  ],
+  "context_not_for_copy": {
+   "spend": "$$$ · massages from ~390K; 60-min rituals from ~1M",
+   "hours_visible": "",
+   "what_to_expect": "",
+   "practical_note": ""
+  }
+ }
+]
