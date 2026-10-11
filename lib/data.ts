@@ -34,6 +34,7 @@ import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
 } from "./data/public-cache";
+import { snapshotCatalog, snapshotVenues } from "./data/public-snapshot";
 import { parseSharedTripEntries, parseTripEntries, type TripEntry } from "./trip";
 import { normalizeInstagramProfileUrl } from "./external-links";
 import { schemaOpeningHours } from "./opening-hours";
@@ -346,7 +347,15 @@ async function fetchCangguPlan(): Promise<PlanBySlot[]> {
   let perks = allowSeed ? PERKS : [];
   let entries = allowSeed ? PLAN_ENTRIES : [];
 
-  if (isSupabaseConfigured()) {
+  const snapVenues = snapshotVenues();
+  const snapCatalog = snapshotCatalog();
+  if (snapVenues && snapCatalog) {
+    // Anon cannot read perks (their RLS policy joins a table anon has no
+    // grant on), so the live read already returns none; the snapshot matches.
+    venues = snapVenues.filter((r) => r.district === "canggu").map(mapVenue);
+    perks = [];
+    entries = snapCatalog.plan_entries.filter((r) => r.district === "canggu").map(mapPlan);
+  } else if (isSupabaseConfigured()) {
     venues = [];
     perks = [];
     entries = [];
@@ -401,7 +410,7 @@ async function fetchCangguPlan(): Promise<PlanBySlot[]> {
 
 const getCachedCangguPlan = unstable_cache(
   fetchCangguPlan,
-  ["canggu-plan-v1"],
+  ["canggu-plan-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.plans, PUBLIC_CACHE_TAGS.venues],
@@ -416,17 +425,20 @@ export const getCangguPlan = reactCache(getCachedCangguPlan);
 // is reflected on the site without a deploy. Copy stays in code (ContentPage
 // territory is deliberately not entered here).
 export async function getDistrictsGuide(): Promise<DistrictGuideEntry[]> {
-  if (!isSupabaseConfigured()) return DISTRICT_GUIDE;
-  let rows: Row[] | null = null;
-  try {
-    const sb = anonClient()!;
-    const { data } = await sb.from("districts").select("slug, status");
-    rows = (data as Row[] | null) ?? null;
-  } catch (e) {
-    // The editorial guide copy lives in code; the DB only overrides coverage
-    // status. On a fetch failure, serve the code-level guide unchanged.
-    warnPublicReadFailed("districts-guide", e);
-    return DISTRICT_GUIDE;
+  const snapCatalog = snapshotCatalog();
+  if (!snapCatalog && !isSupabaseConfigured()) return DISTRICT_GUIDE;
+  let rows: Row[] | null = snapCatalog?.districts ?? null;
+  if (!snapCatalog) {
+    try {
+      const sb = anonClient()!;
+      const { data } = await sb.from("districts").select("slug, status");
+      rows = (data as Row[] | null) ?? null;
+    } catch (e) {
+      // The editorial guide copy lives in code; the DB only overrides coverage
+      // status. On a fetch failure, serve the code-level guide unchanged.
+      warnPublicReadFailed("districts-guide", e);
+      return DISTRICT_GUIDE;
+    }
   }
   if (!rows) return DISTRICT_GUIDE;
   const statusBySlug = new Map(
@@ -447,7 +459,12 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
   let venue: Venue | undefined = allowSeed ? VENUES.find((v) => v.slug === slug) : undefined;
   let perk: Perk | undefined = allowSeed ? PERKS.find((p) => p.venueSlug === slug) : undefined;
 
-  if (configured) {
+  const snapVenues = snapshotVenues();
+  if (snapVenues) {
+    const row = snapVenues.find((r) => r.slug === slug);
+    venue = row ? mapVenue(row) : undefined;
+    perk = undefined;
+  } else if (configured) {
     venue = undefined;
     perk = undefined;
     try {
@@ -493,7 +510,7 @@ async function fetchVenueWithPerk(slug: string): Promise<VenueWithPerk | null> {
 
 const getCachedVenueWithPerk = unstable_cache(
   fetchVenueWithPerk,
-  ["public-venue-with-perk-v1"],
+  ["public-venue-with-perk-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
@@ -705,7 +722,11 @@ async function fetchPublishedVenues(): Promise<VenueWithPerk[]> {
   let venues: Venue[] = allowSeed ? VENUES : [];
   let perks: Perk[] = allowSeed ? PERKS : [];
 
-  if (configured) {
+  const snapVenues = snapshotVenues();
+  if (snapVenues) {
+    venues = snapVenues.map(mapVenue);
+    perks = [];
+  } else if (configured) {
     // A configured database must fail closed. Seed data is not a substitute
     // for a schema/query error in staging or production.
     venues = [];
@@ -766,7 +787,7 @@ const getCachedPublishedVenues = unstable_cache(
   fetchPublishedVenues,
   // v2: the read is paginated now, so the cached value from the truncated
   // era must not survive the deploy.
-  ["published-venues-v2"],
+  ["published-venues-v3"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
@@ -784,7 +805,7 @@ async function fetchSimilarVenues(
 ): Promise<VenueWithPerk[]> {
   const safeLimit = Math.max(1, Math.min(limit, 8));
 
-  if (!isSupabaseConfigured()) {
+  if (snapshotVenues() || !isSupabaseConfigured()) {
     const all = await getPublishedVenues();
     const targetTags = new Set(vibeTags);
     return all
@@ -877,7 +898,7 @@ async function fetchSimilarVenues(
 
 const getCachedSimilarVenues = unstable_cache(
   fetchSimilarVenues,
-  ["similar-venues-v2"],
+  ["similar-venues-v3"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.venues],
@@ -1143,6 +1164,20 @@ export interface RouteDetail {
 
 // Route definitions from DB (if present) else seed.
 async function fetchRouteDefs(): Promise<RouteDef[]> {
+  const snapCatalog = snapshotCatalog();
+  if (snapCatalog) {
+    return snapCatalog.routes.map((r) => ({
+      slug: r.slug as string,
+      district: r.district as string,
+      title: r.title as string,
+      subtitle: (r.subtitle as string) ?? undefined,
+      rank: (r.rank as number) ?? 100,
+      stops: snapCatalog.route_stops
+        .filter((s) => s.route_slug === r.slug)
+        .sort((a, b) => Number(a.rank ?? 0) - Number(b.rank ?? 0))
+        .map((s) => ({ venueSlug: s.venue_slug as string, note: (s.note as string) ?? undefined })),
+    }));
+  }
   if (isSupabaseConfigured()) {
     try {
       const sb = anonClient()!;
@@ -1172,7 +1207,7 @@ async function fetchRouteDefs(): Promise<RouteDef[]> {
   return isSeedFallbackAllowed() ? [...ROUTES].sort((a, b) => a.rank - b.rank) : [];
 }
 
-const getCachedRouteDefs = unstable_cache(fetchRouteDefs, ["public-route-defs-v1"], {
+const getCachedRouteDefs = unstable_cache(fetchRouteDefs, ["public-route-defs-v2"], {
   revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
   tags: [PUBLIC_CACHE_TAGS.routes],
 });
