@@ -8,9 +8,9 @@ const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 // a comment explaining why that API is banned.
 const stripComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 
-test("public cache has a bounded five-minute revalidation window", async () => {
+test("public cache has a bounded one-hour revalidation window", async () => {
   const source = await read("lib/data/public-cache.ts");
-  assert.match(source, /PUBLIC_CACHE_REVALIDATE_SECONDS = 300/);
+  assert.match(source, /PUBLIC_CACHE_REVALIDATE_SECONDS = 3600/);
   for (const tag of ["public-venues", "public-menus", "public-actions", "public-routes", "public-plans"]) {
     assert.match(source, new RegExp(`"${tag}"`));
   }
