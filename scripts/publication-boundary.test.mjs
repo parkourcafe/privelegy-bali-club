@@ -31,7 +31,7 @@ test("review and inactive venues cannot cross public route gates", () => {
   assert.match(data, /\.eq\("publication_status", "published"\)/);
   assert.match(data, /renderable\.filter\(isPublicReadyVenue\)/);
   assert.match(data, /keepRenderableVenues\(uniqueBy\([\s\S]*?\)\)\.filter\(isPublicReadyVenue\)/);
-  assert.match(data, /\["similar-venues-v2"\]/);
+  assert.match(data, /\["similar-venues-v3"\]/);
   assert.doesNotMatch(data, /from\("venues"\)\.select\("\*"\)/);
 });
 

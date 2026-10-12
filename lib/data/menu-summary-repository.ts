@@ -4,6 +4,12 @@ import type { MenuKind, MenuRecord, MenuSectionRecord } from "../contracts/menu-
 import { mapPublishedMenu, type DataRow } from "../domain/menu";
 import { anonClient, isSupabaseConfigured } from "../supabase/server";
 import {
+  byPosition,
+  snapshotCatalog,
+  snapshotMenuItems,
+  type SnapshotRow,
+} from "./public-snapshot";
+import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
 } from "./public-cache";
@@ -31,11 +37,72 @@ export type PublicMenuSummary = Omit<MenuRecord, "sections"> & {
 // and crawlable. Tune this threshold if real menus show it's off.
 const LARGE_SECTION_ITEM_THRESHOLD = 12;
 
+const PUBLIC_MENU_STATUSES = new Set(["published", "source_snapshot"]);
+const PUBLIC_MENU_COMPLETENESS = new Set(["full", "partial"]);
+
+function isPublicMenuRow(row: SnapshotRow): boolean {
+  return (
+    PUBLIC_MENU_STATUSES.has(String(row.status)) &&
+    PUBLIC_MENU_COMPLETENESS.has(String(row.completeness))
+  );
+}
+
+// Same pick as the live query: highest version, then "published" before
+// "source_snapshot" on a tie.
+function latestSnapshotMenu(
+  menus: SnapshotRow[],
+  venueSlug: string,
+  kind: MenuKind,
+): SnapshotRow | null {
+  return (
+    menus
+      .filter((m) => m.venue_slug === venueSlug && m.kind === kind && isPublicMenuRow(m))
+      .sort(
+        (a, b) =>
+          Number(b.version ?? 0) - Number(a.version ?? 0) ||
+          String(a.status).localeCompare(String(b.status)),
+      )[0] ?? null
+  );
+}
+
+function summarize(
+  mapped: MenuRecord | null,
+): PublicMenuSummary | null {
+  if (!mapped) return null;
+  return {
+    ...mapped,
+    sections: mapped.sections.map((section, index) => {
+      const itemCount = section.items.length;
+      const deferred = index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD;
+      return {
+        ...section,
+        itemCount,
+        deferred,
+        // Only genuinely large sections have their items withheld from the
+        // initial HTML; everything else stays fully server-rendered.
+        items: deferred ? [] : section.items,
+      };
+    }),
+  };
+}
+
 async function fetchPublishedMenuSummary(
   venueSlug: string,
   kind: MenuKind = "food",
 ): Promise<PublicMenuSummary | null> {
-  if (!venueSlug || !isSupabaseConfigured()) return null;
+  if (!venueSlug) return null;
+  const catalog = snapshotCatalog();
+  if (catalog) {
+    const menu = latestSnapshotMenu(catalog.menus, venueSlug, kind);
+    if (!menu) return null;
+    const menuId = String(menu.id);
+    const sections = catalog.menu_sections
+      .filter((s) => String(s.menu_id) === menuId)
+      .sort(byPosition);
+    const items = [...(snapshotMenuItems(menuId) ?? [])].sort(byPosition);
+    return summarize(mapPublishedMenu(menu as DataRow, sections as DataRow[], items as DataRow[]));
+  }
+  if (!isSupabaseConfigured()) return null;
   const client = anonClient();
   if (!client) return null;
   try {
@@ -73,24 +140,7 @@ async function fetchPublishedMenuSummary(
       .order("position");
     if (itemError) return null;
 
-    const mapped = mapPublishedMenu(menu, sections, (itemRows ?? []) as DataRow[]);
-    if (!mapped) return null;
-
-    return {
-      ...mapped,
-      sections: mapped.sections.map((section, index) => {
-        const itemCount = section.items.length;
-        const deferred = index > 0 && itemCount > LARGE_SECTION_ITEM_THRESHOLD;
-        return {
-          ...section,
-          itemCount,
-          deferred,
-          // Only genuinely large sections have their items withheld from the
-          // initial HTML; everything else stays fully server-rendered.
-          items: deferred ? [] : section.items,
-        };
-      }),
-    };
+    return summarize(mapPublishedMenu(menu, sections, (itemRows ?? []) as DataRow[]));
   } catch {
     return null;
   }
@@ -98,7 +148,7 @@ async function fetchPublishedMenuSummary(
 
 const getCachedPublishedMenuSummary = unstable_cache(
   fetchPublishedMenuSummary,
-  ["published-menu-summary-v1"],
+  ["published-menu-summary-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.menus],
@@ -138,7 +188,25 @@ async function fetchPublishedMenuSection(
   menuId: string,
   sectionId: string,
 ): Promise<MenuSectionRecord | null> {
-  if (!venueSlug || !menuId || !sectionId || !isSupabaseConfigured()) return null;
+  if (!venueSlug || !menuId || !sectionId) return null;
+  const catalog = snapshotCatalog();
+  if (catalog) {
+    const menu = catalog.menus.find(
+      (m) => String(m.id) === menuId && m.venue_slug === venueSlug && isPublicMenuRow(m),
+    );
+    const section = catalog.menu_sections.find(
+      (s) => String(s.id) === sectionId && String(s.menu_id) === menuId,
+    );
+    if (!menu || !section) return null;
+    const items = (snapshotMenuItems(menuId) ?? [])
+      .filter((item) => String(item.section_id) === sectionId)
+      .sort(byPosition);
+    return (
+      mapPublishedMenu(menu as DataRow, [section as DataRow], items as DataRow[])
+        ?.sections[0] ?? null
+    );
+  }
+  if (!isSupabaseConfigured()) return null;
   const client = anonClient();
   if (!client) return null;
   try {
@@ -181,7 +249,7 @@ async function fetchPublishedMenuSection(
 
 const getCachedPublishedMenuSection = unstable_cache(
   fetchPublishedMenuSection,
-  ["published-menu-section-v1"],
+  ["published-menu-section-v2"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.menus],

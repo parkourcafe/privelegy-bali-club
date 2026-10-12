@@ -51,6 +51,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Public pages read the committed snapshot with fs at request time
+  // (lib/data/public-snapshot.ts); the tracer cannot see a runtime path.
+  outputFileTracingIncludes: {
+    "/**": ["./data/public-snapshot/*.json"],
+  },
   // Don't advertise the framework/version.
   poweredByHeader: false,
   // Keep Turbopack scoped to this checkout even when a developer has another

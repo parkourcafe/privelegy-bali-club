@@ -4,6 +4,7 @@ import type { VenueActionCapabilityRecord } from "../contracts/menu-action";
 import { mapPublishedActionCapability, sortActionCapabilities } from "../domain/actions";
 import type { DataRow } from "../domain/menu";
 import { anonClient, isSupabaseConfigured } from "../supabase/server";
+import { snapshotCatalog } from "./public-snapshot";
 import {
   PUBLIC_CACHE_REVALIDATE_SECONDS,
   PUBLIC_CACHE_TAGS,
@@ -12,7 +13,17 @@ import {
 async function fetchPublishedActionCapabilities(
   venueSlug: string
 ): Promise<VenueActionCapabilityRecord[]> {
-  if (!venueSlug || !isSupabaseConfigured()) return [];
+  if (!venueSlug) return [];
+  const catalog = snapshotCatalog();
+  if (catalog) {
+    return sortActionCapabilities(
+      catalog.venue_action_capabilities
+        .filter((row) => row.venue_slug === venueSlug && row.status === "confirmed")
+        .map((row) => mapPublishedActionCapability(row as DataRow))
+        .filter((record): record is VenueActionCapabilityRecord => record !== null)
+    );
+  }
+  if (!isSupabaseConfigured()) return [];
   const client = anonClient();
   if (!client) return [];
   try {
@@ -35,7 +46,7 @@ async function fetchPublishedActionCapabilities(
 
 const getCachedPublishedActionCapabilities = unstable_cache(
   fetchPublishedActionCapabilities,
-  ["published-action-capabilities-v3-owner-approved-chope"],
+  ["published-action-capabilities-v4-owner-approved-chope"],
   {
     revalidate: PUBLIC_CACHE_REVALIDATE_SECONDS,
     tags: [PUBLIC_CACHE_TAGS.actions],
