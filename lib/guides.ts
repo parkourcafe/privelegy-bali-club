@@ -62,6 +62,14 @@ export const GUIDES: Guide[] = [
   },
 
   {
+    // Bespoke ticket-decision route. The prices are a dated snapshot, not a live fare.
+    slug: "bali-bird-park-tickets",
+    title: "Bali Bird Park tickets: entry or lunch?",
+    description:
+      "Compare Bali Bird Park entry and lunch tickets: dated prices, what's included, children's tickets, meal times and booking terms to check.",
+  },
+
+  {
     slug: "where-to-stay-in-bali",
     title: "Where to stay in Bali for the first time",
     description:
@@ -1211,6 +1219,7 @@ export const GUIDES: Guide[] = [
       { href: "/sanur", title: "The Sanur guide", blurb: "A calm, walkable, sunrise base that suits families." },
       { href: "/nusa-dua", title: "The Nusa Dua guide", blurb: "Calm resort beaches and easy, safe days." },
       { href: "/bali-rainy-day", title: "Rainy day in Bali", blurb: "Short indoor plans for when the weather turns." },
+      { href: "/bali-bird-park-tickets", title: "Bali Bird Park tickets", blurb: "Choose standard entry or an included lunch for a family day." },
     ],
   },
 

@@ -9,6 +9,7 @@ const STATIC_LAST_MODIFIED: Readonly<Record<string, string>> = {
   "/uluwatu/beach-clubs-sunset": "2026-07-14",
   "/seminyak/best-restaurants": "2026-07-15",
   "/best-warungs-in-bali": "2026-07-15",
+  "/bali-bird-park-tickets": "2026-09-28",
   "/where-to-watch-sunset-in-bali": "2026-07-18",
 };
 
