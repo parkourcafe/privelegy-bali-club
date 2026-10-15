@@ -159,22 +159,32 @@ function pendingWriteKey(key: string): string {
 // slower completion can never overwrite (or recreate the fallback for) a
 // newer save/remove/navigation state.
 const preferenceWriteQueues = new WeakMap<PreferenceStore, Map<string, Promise<void>>>();
+const preferenceWriteTokens = new WeakMap<PreferenceStore, Map<string, symbol>>();
 
 function enqueuePreferenceWrite(
   preferences: PreferenceStore,
   key: string,
-  write: () => Promise<void>,
+  write: (isLatest: () => boolean) => Promise<void>,
 ): Promise<void> {
   let queues = preferenceWriteQueues.get(preferences);
   if (!queues) {
     queues = new Map();
     preferenceWriteQueues.set(preferences, queues);
   }
+  let tokens = preferenceWriteTokens.get(preferences);
+  if (!tokens) {
+    tokens = new Map();
+    preferenceWriteTokens.set(preferences, tokens);
+  }
+  const token = Symbol(key);
+  tokens.set(key, token);
+  const isLatest = () => tokens?.get(key) === token;
   const previous = queues.get(key) ?? Promise.resolve();
-  const current = previous.catch(() => {}).then(write);
+  const current = previous.catch(() => {}).then(() => write(isLatest));
   queues.set(key, current);
   return current.finally(() => {
     if (queues?.get(key) === current) queues.delete(key);
+    if (tokens?.get(key) === token) tokens.delete(key);
   });
 }
 
@@ -617,26 +627,47 @@ async function writeRaw(
 ): Promise<void> {
   const { preferences, legacyStorage } = dependencies(options);
   const pendingKey = pendingWriteKey(key);
-  return enqueuePreferenceWrite(preferences, key, async () => {
+  try {
+    legacyStorage?.setItem(pendingKey, value);
+  } catch {
+    // Native Preferences may still persist the value. If it also fails, the
+    // queued write below requires a recoverable mirror before it can succeed.
+  }
+  return enqueuePreferenceWrite(preferences, key, async (isLatest) => {
     try {
       await preferences.set({ key, value });
       try {
         legacyStorage?.removeItem(key);
-        legacyStorage?.removeItem(pendingKey);
       } catch {
         // Preferences is already authoritative.
       }
+      if (isLatest()) {
+        try {
+          legacyStorage?.removeItem(pendingKey);
+        } catch {
+          // Preferences is already authoritative.
+        }
+      }
     } catch {
       if (!legacyStorage) throw new Error("mobile_storage_unavailable");
+      let pendingValue: string | null;
       try {
-        // The pending entry alone is a complete durable copy. The compatibility
-        // key is best-effort after that write succeeds.
-        legacyStorage.setItem(pendingKey, value);
+        pendingValue = legacyStorage.getItem(pendingKey);
+        if (pendingValue !== value && isLatest()) {
+          legacyStorage.setItem(pendingKey, value);
+          pendingValue = value;
+        }
       } catch {
         throw new Error("mobile_storage_unavailable");
       }
+      if (pendingValue !== value) {
+        if (!isLatest()) return;
+        throw new Error("mobile_storage_unavailable");
+      }
       try {
-        legacyStorage.setItem(key, value);
+        // Do not let an older failed native write overwrite the synchronous
+        // mirror already reserved by a newer call.
+        if (pendingValue === value) legacyStorage.setItem(key, value);
       } catch {
         // Hydration still recovers the complete pending entry.
       }

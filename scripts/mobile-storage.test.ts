@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import type { SyncMutation } from "../lib/journey/offline-sync";
 import {
   clearMobilePersonalData,
   clearPrivacyDeletionQuarantine,
@@ -24,7 +25,11 @@ import {
   writeSavedVenueSnapshots,
   type PreferenceStore,
 } from "../mobile/src/storage";
-import { addTripStop, createEmptyTrip } from "../mobile/src/trip-planner";
+import {
+  addTripStop,
+  createEmptyTrip,
+  setTripStopNote,
+} from "../mobile/src/trip-planner";
 
 class MemoryStorage implements Storage {
   private readonly values = new Map<string, string>();
@@ -36,6 +41,21 @@ class MemoryStorage implements Storage {
   removeItem(key: string) { this.values.delete(key); }
   setItem(key: string, value: string) { this.values.set(key, value); }
   dump() { return [...this.values.values()].join("\n"); }
+}
+
+class FailableMemoryStorage extends MemoryStorage {
+  rejectWrite: ((key: string, value: string) => boolean) | null = null;
+  rejectRemove: ((key: string) => boolean) | null = null;
+
+  setItem(key: string, value: string) {
+    if (this.rejectWrite?.(key, value)) throw new Error("legacy_write_failed");
+    super.setItem(key, value);
+  }
+
+  removeItem(key: string) {
+    if (this.rejectRemove?.(key)) throw new Error("legacy_remove_failed");
+    super.removeItem(key);
+  }
 }
 
 class MemoryPreferences implements PreferenceStore {
@@ -135,6 +155,173 @@ test("Offline Level 2 hydrates verified events, Today events and canonical Trip"
   assert.equal(hydrated.eventsSnapshot?.events[0]?.id, eventOccurrence.id);
   assert.deepEqual(hydrated.todayEventIds, [eventOccurrence.id]);
   assert.equal(hydrated.trip?.days[0]?.stops[0]?.entityType, "event_occurrence");
+});
+
+test("rapid Trip note writes rehydrate the final typed value", async () => {
+  const preferences = new MemoryPreferences();
+  const options = { preferences, legacyStorage: null };
+  const trip = addTripStop(
+    createEmptyTrip(3, "2026-08-01"),
+    0,
+    "place",
+    savedSnapshot.venue.slug,
+  );
+  const stopId = trip.days[0]?.stops[0]?.id;
+  assert.ok(stopId);
+
+  const writes = ["T", "Ta", "Table", "Table by the window"].map((note) => (
+    writeTrip(setTripStopNote(trip, 0, stopId, note), options)
+  ));
+  await Promise.all(writes);
+
+  const hydrated = await hydrateMobileStorage(options);
+  assert.equal(
+    hydrated.trip?.days[0]?.stops[0]?.userNote,
+    "Table by the window",
+  );
+});
+
+test("latest Trip note and its sync replacement recover before native Preferences settles", async () => {
+  const legacyStorage = new MemoryStorage();
+  let releaseFirstWrite!: () => void;
+  const firstWrite = new Promise<void>((resolve) => {
+    releaseFirstWrite = resolve;
+  });
+  const blockedPreferences: PreferenceStore = {
+    async get() { return { value: null }; },
+    async remove() {},
+    async set() {
+      await firstWrite;
+    },
+  };
+  const base = addTripStop(
+    createEmptyTrip(3, "2026-08-01"),
+    0,
+    "place",
+    savedSnapshot.venue.slug,
+  );
+  const stopId = base.days[0]?.stops[0]?.id;
+  assert.ok(stopId);
+
+  const first = writeTrip(
+    setTripStopNote(base, 0, stopId, "T"),
+    { preferences: blockedPreferences, legacyStorage },
+  );
+  const latestTrip = setTripStopNote(base, 0, stopId, "Table by the window");
+  const latest = writeTrip(
+    latestTrip,
+    { preferences: blockedPreferences, legacyStorage },
+  );
+  const replacement: SyncMutation = {
+    idempotencyKey: "mutation-trip-latest",
+    entityType: "trip_stop",
+    entityId: latestTrip.id,
+    operation: "trip_replace",
+    payload: { trip: latestTrip },
+    baseVersion: null,
+    createdAt: "2026-07-30T04:00:00.000Z",
+  };
+  const sync = writePendingSync(
+    [replacement],
+    { preferences: blockedPreferences, legacyStorage },
+  );
+  const pendingRaw = legacyStorage.getItem(
+    `${MOBILE_STORAGE_KEYS.trip}.pending-write-v1`,
+  );
+  assert.match(pendingRaw ?? "", /Table by the window/);
+  const pendingSyncRaw = legacyStorage.getItem(
+    `${MOBILE_STORAGE_KEYS.pendingSync}.pending-write-v1`,
+  );
+  assert.match(pendingSyncRaw ?? "", /Table by the window/);
+
+  const restarted = await hydrateMobileStorage({
+    preferences: new MemoryPreferences(),
+    legacyStorage,
+  });
+  assert.equal(
+    restarted.trip?.days[0]?.stops[0]?.userNote,
+    "Table by the window",
+  );
+  assert.equal(
+    (
+      restarted.pendingSync[0]?.payload.trip as typeof latestTrip | undefined
+    )?.days[0]?.stops[0]?.userNote,
+    "Table by the window",
+  );
+  releaseFirstWrite();
+  await Promise.all([first, latest, sync]);
+});
+
+test("latest native failure rejects instead of accepting an older pending mirror", async () => {
+  const legacyStorage = new FailableMemoryStorage();
+  const pendingKey = `${MOBILE_STORAGE_KEYS.trip}.pending-write-v1`;
+  legacyStorage.setItem(pendingKey, "stale-trip");
+  legacyStorage.rejectWrite = (key, value) => (
+    key === pendingKey && value !== "stale-trip"
+  );
+  const unavailablePreferences: PreferenceStore = {
+    async get() { return { value: null }; },
+    async remove() {},
+    async set() { throw new Error("native_write_failed"); },
+  };
+  const trip = createEmptyTrip(3, "2026-08-01");
+
+  await assert.rejects(
+    writeTrip(trip, {
+      preferences: unavailablePreferences,
+      legacyStorage,
+    }),
+    /mobile_storage_unavailable/,
+  );
+  assert.equal(legacyStorage.getItem(pendingKey), "stale-trip");
+});
+
+test("latest native success clears an older pending mirror when the mirror update fails", async () => {
+  const legacyStorage = new FailableMemoryStorage();
+  const preferences = new MemoryPreferences();
+  const pendingKey = `${MOBILE_STORAGE_KEYS.trip}.pending-write-v1`;
+  legacyStorage.setItem(pendingKey, "stale-trip");
+  legacyStorage.rejectWrite = (key, value) => (
+    key === pendingKey && value !== "stale-trip"
+  );
+  const latestTrip = createEmptyTrip(5, "2026-08-03");
+
+  await writeTrip(latestTrip, { preferences, legacyStorage });
+
+  assert.equal(
+    legacyStorage.getItem(pendingKey),
+    null,
+    "a successful latest native write must retire every older pending mirror",
+  );
+  const restarted = await hydrateMobileStorage({ preferences, legacyStorage });
+  assert.equal(restarted.trip?.days.length, 5);
+  assert.equal(restarted.trip?.startDate, "2026-08-03");
+});
+
+test("compatibility-key cleanup failure cannot block pending-mirror cleanup", async () => {
+  const legacyStorage = new FailableMemoryStorage();
+  const preferences = new MemoryPreferences();
+  const tripKey = MOBILE_STORAGE_KEYS.trip;
+  const pendingKey = `${tripKey}.pending-write-v1`;
+  legacyStorage.setItem(tripKey, "legacy-trip");
+  legacyStorage.setItem(pendingKey, "stale-trip");
+  legacyStorage.rejectWrite = (key, value) => (
+    key === pendingKey && value !== "stale-trip"
+  );
+  legacyStorage.rejectRemove = (key) => key === tripKey;
+  const latestTrip = createEmptyTrip(5, "2026-08-03");
+
+  await writeTrip(latestTrip, { preferences, legacyStorage });
+
+  assert.equal(legacyStorage.getItem(tripKey), "legacy-trip");
+  assert.equal(
+    legacyStorage.getItem(pendingKey),
+    null,
+    "pending cleanup must run even when compatibility-key cleanup throws",
+  );
+  const restarted = await hydrateMobileStorage({ preferences, legacyStorage });
+  assert.equal(restarted.trip?.days.length, 5);
+  assert.equal(restarted.trip?.startDate, "2026-08-03");
 });
 
 test("Offline Level 3 pack state persists only validated bounded records", async () => {
